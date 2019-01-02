@@ -1,0 +1,1 @@
+nasm -f bin -o bootdisk.bin bootdisk.asm
