@@ -1,1 +1,0 @@
-mkisofs -o ./bootdisk.iso -b bootdisk.flp cdiso/
