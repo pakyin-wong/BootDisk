@@ -39,6 +39,17 @@ make
 make install
 ```
 
+Install developer library for stdout
+```
+xcode-select --install
+```
+
+And then run
+```
+/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14. pkg
+```
+
+
 ## Build
 Just simply make
 
@@ -49,6 +60,11 @@ make
 ## Run in virtual machine (qemu)
 ```
 qemu-system-i386 -fda os-image.bin
+```
+
+## Pending
+```
+1. As cross-compiler is trouble to setup, currently it use brew's 
 ```
 
 ## Run in usb drive

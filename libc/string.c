@@ -1,4 +1,5 @@
 #include "string.h"
+#include "../libc/mem.h"
 #include <stdint.h>
 
 /**
@@ -74,4 +75,13 @@ int strcmp(char s1[], char s2[]) {
         if (s1[i] == '\0') return 0;
     }
     return s1[i] - s2[i];
+}
+
+void strcpy(char dest[], const char source[]) 
+{
+    int i = 0;
+    while ((dest[i] = source[i]) != '\0')
+    {
+        i++;
+    } 
 }
