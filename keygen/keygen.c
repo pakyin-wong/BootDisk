@@ -31,7 +31,7 @@ int getseed(char in[]){
 void keygen(char in[], char out[]){
   int seed = getseed(in);
   srand(seed);
-  for (int i = 0; i < 63; i++){
+  for (int i = 0; i < 64; i++){
     int number = rand() % 16;
     char keychar = 48;
     if (number < 10){ 
