@@ -1,9 +1,10 @@
 # bootable-ethereum-keygen
 The project is built following the guide from https://github.com/cfenollosa/os-tutorial. The guide is one of the best "building OS from scratch" tutorial I have ever seen in the internet.
 
+This project is just for fun. It aims to simulate an offline computer by using a simple OS booting from USB. It helps someone who cannot afford the offline computer (no money, no space, etc.).
+
 ## Installation
 I only tried the installation in Mac at this momemnt.
-
 
 Please install qemu nasm first
 ```
@@ -13,11 +14,6 @@ brew install qemu nasm
 Please install the following related library
 ```
 brew install gmp mpfr libpc
-```
-
-Install of gcc may take more than one hour.
-```
-brew install gcc
 ```
 
 Please also install i386-elf-binutils i386-elf-gcc for i386 compatibility
@@ -39,33 +35,30 @@ make
 make install
 ```
 
-Install developer library for stdout
-```
-xcode-select --install
-```
-
-And then run
-```
-/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14. pkg
-```
-
-
 ## Build
-Just simply make
 
 ```
 make
 ```
 
 ## Run in virtual machine (qemu)
+
 ```
 qemu-system-i386 -fda os-image.bin
 ```
 
 ## Pending
-```
-1. As cross-compiler is trouble to setup, currently it use brew's 
-```
+
+1. As cross-compiler is troublesome to setup, currently it use i386-elf-binutils/i386-elf-gcc package under brew.
+
+2. Include stdio/time.h in order to have random number and also time as seed
+
+3. Exclude some invalid ethereum address. (Reference: https://kobl.one/blog/create-full-ethereum-keypair-and-address/)
+
+4. Public key generation by using private key.
+
+5. Signature function (use private key to sign transaction). Quite tedious to implement from scratch.
+
 
 ## Run in usb drive
 ### Windows
@@ -74,9 +67,10 @@ Download Rufus and burn the bin file into the usb drive
 ### Mac
 Download unetbootin and burn the bin file into the usb drive
 
-
 ## Reference
-1. https://github.com/cfenollosa/os-tutorial
+1. Building OS from scratch. (https://github.com/cfenollosa/os-tutorial)
+
+2. Ethereum key reference. (https://kobl.one/blog/create-full-ethereum-keypair-and-address/)
 
 ## Log
 2-Jan-2019 First commit. Referenced from Mike OS (http://mikeos.sourceforge.net/write-your-own-os.html).
