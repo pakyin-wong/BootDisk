@@ -1,7 +1,7 @@
-# bootable-ethereum-keygen
+# bootable-keygen
 The project is built following the guide from https://github.com/cfenollosa/os-tutorial. The guide is one of the best "building OS from scratch" tutorial I have ever seen in the internet.
 
-This project is just for fun. It aims to simulate an offline computer by using a simple OS booting from USB. It helps someone who cannot afford the offline computer (no money, no space, etc.).
+This project is just for fun. It aims to simulate an offline computer using a simple OS booting from USB. It helps someone who cannot afford the offline computer (no money, no space, etc.) for any cryptocurrency transaction.
 
 ## Installation
 I only tried the installation in Mac at this momemnt.
@@ -53,7 +53,6 @@ Download Rufus and burn the bin file into the usb drive
 
 ### Mac
 Download unetbootin and burn the bin file into the usb drive
-
 
 ## Pending
 
