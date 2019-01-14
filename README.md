@@ -47,6 +47,14 @@ make
 qemu-system-i386 -fda os-image.bin
 ```
 
+## Run in usb drive
+### Windows
+Download Rufus and burn the bin file into the usb drive
+
+### Mac
+Download unetbootin and burn the bin file into the usb drive
+
+
 ## Pending
 
 1. As cross-compiler is troublesome to setup, currently it use i386-elf-binutils/i386-elf-gcc package under brew.
@@ -58,14 +66,6 @@ qemu-system-i386 -fda os-image.bin
 4. Public key generation by using private key.
 
 5. Signature function (use private key to sign transaction). Quite tedious to implement from scratch.
-
-
-## Run in usb drive
-### Windows
-Download Rufus and burn the bin file into the usb drive
-
-### Mac
-Download unetbootin and burn the bin file into the usb drive
 
 ## Reference
 1. Building OS from scratch. (https://github.com/cfenollosa/os-tutorial)
