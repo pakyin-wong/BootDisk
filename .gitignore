@@ -1,0 +1,5 @@
+bin-debug
+.wing
+bin-release
+debug.log
+libs/modules
