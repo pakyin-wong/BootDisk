@@ -1,7 +1,8 @@
 module handler {
-    export class EventHandler {
+    export class EventHandler extends egret.EventDispatcher {
 
-        constructor(){
+        constructor() {
+            super();
             logger.l("EventHandler is created");
         }
     }

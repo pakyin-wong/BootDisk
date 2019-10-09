@@ -26,8 +26,8 @@ class Main extends eui.UILayer {
     director.socket = new socket.MQTTSocketComm();
     director.evtHandler = new handler.EventHandler();
     director.errHandler = new handler.ErrorHandler();
-    director.layerCtr = new layer.LayerCtr(this.stage);
-    director.sceneCtr = new scene.SceneCtr();
+    director.layerCtr = new controller.LayerCtr(this.stage);
+    director.sceneCtr = new controller.SceneCtr();
 
     // step 2: create loading scene
 

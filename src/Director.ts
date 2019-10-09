@@ -4,8 +4,8 @@ class Director {
     evtHandler: handler.EventHandler;
     errHandler: handler.ErrorHandler;
     // env: 
-    layerCtr: layer.LayerCtr;
-    sceneCtr: scene.SceneCtr;
+    layerCtr: controller.LayerCtr;
+    sceneCtr: controller.SceneCtr;
     // nav: 
 }
 
@@ -16,6 +16,5 @@ if (!window.director) {
 declare let director: Director;
 
 declare interface Window {
-
     director: Director
 }

@@ -1,6 +1,6 @@
 class Logger {
-    public l (m:string) {
-        console.log(m);        
+    public l (m:any) {
+        console.log(m);
     }
 }
 
