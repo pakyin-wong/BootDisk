@@ -1,11 +1,21 @@
-declare let director: Director;
+class Director {
 
-declare interface Director {
-
-    // socket: 
+    socket: socket.MQTTSocketComm;
     evtHandler: handler.EventHandler;
     errHandler: handler.ErrorHandler;
-    // env:
-    sceneCtr: Scene.SceneController;
-    // nav:
+    // env: 
+    layerCtr: layer.LayerCtr;
+    sceneCtr: scene.SceneCtr;
+    // nav: 
+}
+
+if (!window.director) {
+    window.director = new Director();
+}
+
+declare let director: Director;
+
+declare interface Window {
+
+    director: Director
 }
