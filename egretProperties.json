@@ -5,7 +5,8 @@
     "target": {
         "current": "web"
     },
-    "modules": [{
+    "modules": [
+        {
             "name": "egret"
         },
         {
@@ -25,6 +26,10 @@
         },
         {
             "name": "promise"
+        },
+        {
+            "name": "greensock",
+            "path": "./libs/greensock"
         }
     ]
 }
