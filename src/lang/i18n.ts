@@ -1,5 +1,4 @@
-module lang {
-    export class i18n {
-        
+namespace lang {
+    export class I18N {
     }
 }

@@ -1,4 +1,4 @@
-module scene {
+namespace scene {
     export class BaseScene extends eui.Component {
 
         public constructor() {
@@ -18,7 +18,7 @@ module scene {
         }
 
         public async onFadeExit() {
-            
+
         }
 
         // switchSkin (mobile / tablet / desktop)

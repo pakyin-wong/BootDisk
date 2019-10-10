@@ -1,4 +1,4 @@
-module controller {
+namespace controller {
     export class SceneCtr {
 
         private _currScene: scene.BaseScene;
@@ -7,20 +7,19 @@ module controller {
             // init dummy scene
             this._currScene = new scene.BaseScene();
             dir.layerCtr.scene.addChild(this._currScene);
-            logger.l("SceneCtr is created");
+            logger.l('SceneCtr is created');
         }
 
         /** switch scene immediately */
-        public goto(id:string) {
+        public goto(id: string) {
             let _prev: scene.BaseScene;
             let _next: scene.BaseScene;
             try {
                 _prev = this._currScene;
                 _next = new scene[id]();
-            }
-            catch(e) {
+            } catch (e) {
                 logger.l(`scene ${id} defined error`);
-                return
+                return;
             }
             dir.layerCtr.scene.addChild(_next);
             _next.onEnter();
@@ -31,16 +30,15 @@ module controller {
         }
 
         /** switch scene with calling fade-in fade-out effect */
-        public async transferTo(id:string) {
+        public async transferTo(id: string) {
             let _prev: scene.BaseScene;
             let _next: scene.BaseScene;
             try {
                 _prev = this._currScene;
                 _next = new scene[id]();
-            }
-            catch(e) {
+            } catch (e) {
                 logger.l(`scene ${id} defined error`);
-                return
+                return;
             }
             dir.layerCtr.scene.addChild(_next);
             await _prev.onFadeExit();

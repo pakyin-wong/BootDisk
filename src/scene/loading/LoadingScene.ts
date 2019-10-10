@@ -1,4 +1,4 @@
-module scene {
+namespace scene {
     export class LoadingScene extends BaseScene {
 
         public onEnter() {
@@ -14,9 +14,9 @@ module scene {
         }
 
         public async onFadeExit() {
-            
+
         }
-        
+
         protected mount() {
             // step 1: load Loading Screen Res
 
@@ -43,7 +43,7 @@ module scene {
             // step 6: load general resource (lobby, baccarat)
 
             // step 7: init complete, transfer to lobby scene
-            dir.sceneCtr.goto("LobbySCene");
+            dir.sceneCtr.goto('LobbySCene');
         }
 
         protected socketConnectFail() {
