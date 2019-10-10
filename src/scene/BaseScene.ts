@@ -5,12 +5,20 @@ module scene {
             super();
         }
 
-        public mount() {
+        public onEnter() {
 
         }
 
-        public destroy() {
+        public async onFadeEnter() {
 
+        }
+
+        public onExit() {
+
+        }
+
+        public async onFadeExit() {
+            
         }
 
         // switchSkin (mobile / tablet / desktop)

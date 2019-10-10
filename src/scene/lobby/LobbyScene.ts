@@ -1,7 +1,8 @@
 module scene {
-    export class LoadingScene extends BaseScene {
+    export class LobbyScene extends BaseScene {
 
         public onEnter() {
+
         }
 
         public async onFadeEnter() {

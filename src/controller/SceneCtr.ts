@@ -4,6 +4,9 @@ module controller {
         private _currScene: scene.BaseScene;
 
         public constructor() {
+            // init dummy scene
+            this._currScene = new scene.BaseScene();
+            dir.layerCtr.scene.addChild(this._currScene);
             logger.l("SceneCtr is created");
         }
 
@@ -19,10 +22,11 @@ module controller {
                 logger.l(`scene ${id} defined error`);
                 return
             }
-            director.layerCtr.scene.addChild(_next);
+            dir.layerCtr.scene.addChild(_next);
             _next.onEnter();
             _prev.onExit();
-            director.layerCtr.scene.removeChild(_prev);
+            dir.layerCtr.scene.removeChild(_prev);
+            this._currScene = _next;
         }
 
         /** switch scene with calling fade-in fade-out effect */
@@ -37,11 +41,12 @@ module controller {
                 logger.l(`scene ${id} defined error`);
                 return
             }
-            director.layerCtr.scene.addChild(_next);
+            dir.layerCtr.scene.addChild(_next);
             await _prev.onFadeExit();
             await _next.onFadeEnter();
             _prev.onExit();
-            director.layerCtr.scene.removeChild(_prev);
+            dir.layerCtr.scene.removeChild(_prev);
+            this._currScene = _next;
         }
 
         public get currScene() {

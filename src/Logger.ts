@@ -1,15 +1,15 @@
 class Logger {
-    public l (m:any) {
+
+    private static _logger: Logger
+
+    public static get Instance(): Logger {
+        return (this._logger)? this._logger : new Logger()
+    }
+
+    public l(m: any) {
         console.log(m);
     }
 }
 
-if (!window.logger) {
-    window.logger = new Logger();
-}
+let logger: Logger = Logger.Instance;
 
-declare let logger: Logger;
-
-declare interface Window {
-    logger: Logger
-}

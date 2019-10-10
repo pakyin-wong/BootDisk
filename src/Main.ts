@@ -23,13 +23,14 @@ class Main extends eui.UILayer {
 
   private async init() {
     // step 1: init director elements (socket comm, controller, handler)
-    director.socket = new socket.MQTTSocketComm();
-    director.evtHandler = new handler.EventHandler();
-    director.errHandler = new handler.ErrorHandler();
-    director.layerCtr = new controller.LayerCtr(this.stage);
-    director.sceneCtr = new controller.SceneCtr();
+    dir.socket = new socket.MQTTSocketComm();
+    dir.evtHandler = new handler.EventHandler();
+    dir.errHandler = new handler.ErrorHandler();
+    dir.layerCtr = new controller.LayerCtr(this.stage);
+    dir.sceneCtr = new controller.SceneCtr();
 
     // step 2: create loading scene
+    dir.sceneCtr.goto('LoadingScene');
 
     // step 2.1: connect socket
 
@@ -38,6 +39,5 @@ class Main extends eui.UILayer {
     // step 2.3: load general resource (lobby, baccarat)
 
     // step 3: init complete, transfer to lobby scene
-
   }
 }

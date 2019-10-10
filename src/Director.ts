@@ -1,4 +1,9 @@
 class Director {
+    private static _director: Director
+
+    public static get Instance(): Director {
+        return this._director = (this._director)? this._director : new Director()
+    }
 
     socket: socket.MQTTSocketComm;
     evtHandler: handler.EventHandler;
@@ -9,12 +14,4 @@ class Director {
     // nav: 
 }
 
-if (!window.director) {
-    window.director = new Director();
-}
-
-declare let director: Director;
-
-declare interface Window {
-    director: Director
-}
+let dir: Director = Director.Instance;
