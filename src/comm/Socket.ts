@@ -1,8 +1,11 @@
 module socket {
     export class MQTTSocketComm {
 
+        private client: TestClient;
+
         constructor(){
-            let client = new TestClient({
+
+            this.client = new TestClient({
                 service: 'pg.srv.loadtest',
                 id: 'f5ef197c-6021-4f43-90b4-71749d217957',
                 secret: '4114f79f17c28ec6bfa01b80a28870a7',            
@@ -12,12 +15,19 @@ module socket {
                 path:"/ws",
                 protocol:"ws"
             })
-            client.subscribe("CONNECT",function(){
-                console.log("Connected")
-            })
-            client.connect()
 
             logger.l("MQTTSocketComm is created");
+        }
+
+        connect() {
+            this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
+            this.client.connect();
+        }
+
+        private onReceivedMsg(res) {
+            logger.l(res);
+
+            dir.evtHandler.dispatch(enums.mqtt.event.CONNECT_SUCCESS, {});
         }
     }
 }

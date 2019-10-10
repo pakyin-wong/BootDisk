@@ -27,6 +27,7 @@ module controller {
             _prev.onExit();
             dir.layerCtr.scene.removeChild(_prev);
             this._currScene = _next;
+            logger.l(`enter ${id}`);
         }
 
         /** switch scene with calling fade-in fade-out effect */
@@ -47,6 +48,7 @@ module controller {
             _prev.onExit();
             dir.layerCtr.scene.removeChild(_prev);
             this._currScene = _next;
+            logger.l(`enter ${id}`);
         }
 
         public get currScene() {

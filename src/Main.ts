@@ -31,13 +31,5 @@ class Main extends eui.UILayer {
 
     // step 2: create loading scene
     dir.sceneCtr.goto('LoadingScene');
-
-    // step 2.1: connect socket
-
-    // step 2.2: auth and get user profiles
-
-    // step 2.3: load general resource (lobby, baccarat)
-
-    // step 3: init complete, transfer to lobby scene
   }
 }
