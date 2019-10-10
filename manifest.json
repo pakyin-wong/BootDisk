@@ -8,7 +8,8 @@
 		"libs/modules/game/game.js",
 		"libs/modules/tween/tween.js",
 		"libs/modules/promise/promise.js",
-		"libs/greensock/greensock.js"
+		"libs/greensock/greensock.js",
+		"libs/mqtt/mqtt.js"
 	],
 	"game": [
 		"bin-debug/scene/BaseScene.js",

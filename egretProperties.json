@@ -30,6 +30,10 @@
         {
             "name": "greensock",
             "path": "./libs/greensock"
+        },
+        {
+            "name": "mqtt",
+            "path": "./libs/mqtt"
         }
     ]
 }
