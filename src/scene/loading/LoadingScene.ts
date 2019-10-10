@@ -18,9 +18,10 @@ module scene {
         }
         
         protected mount() {
-            // step 1: load Loading Screen Res
+            // step 1: load Loading Screen Resource
 
             // step 2: init ui
+            this.skinName = "resource/skin_desktop/LoadingScene.exml";
 
             // step 3: connect socket
             this.socketConnect();
