@@ -1,22 +1,17 @@
 class Director {
     private static _director: Director
-    private constructor() {
-
-    }
 
     public static get Instance(): Director {
-        if (!this._director)
-            this._director = new Director()
-        return this._director
+        return this._director = (this._director)? this._director : new Director()
     }
+
     socket: socket.MQTTSocketComm;
     evtHandler: handler.EventHandler;
     errHandler: handler.ErrorHandler;
     // env: 
-    layerCtr: layer.LayerCtr;
-    sceneCtr: scene.SceneCtr;
+    layerCtr: controller.LayerCtr;
+    sceneCtr: controller.SceneCtr;
     // nav: 
 }
 
-let director: Director = Director.Instance;
-
+let dir: Director = Director.Instance;

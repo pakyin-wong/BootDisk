@@ -1,15 +1,12 @@
 class Logger {
 
     private static _logger: Logger
-    private constructor() {
 
-    }
     public static get Instance(): Logger {
-        if (!this._logger)
-            this._logger = new Logger()
-        return this._logger
+        return (this._logger)? this._logger : new Logger()
     }
-    public l(m: string) {
+
+    public l(m: any) {
         console.log(m);
     }
 }

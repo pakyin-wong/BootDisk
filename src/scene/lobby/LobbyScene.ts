@@ -1,9 +1,5 @@
 module scene {
-    export class BaseScene extends eui.Component {
-
-        public constructor() {
-            super();
-        }
+    export class LobbyScene extends BaseScene {
 
         public onEnter() {
 
@@ -14,13 +10,11 @@ module scene {
         }
 
         public onExit() {
-
+            this.removeChildren();
         }
 
         public async onFadeExit() {
             
         }
-
-        // switchSkin (mobile / tablet / desktop)
     }
 }

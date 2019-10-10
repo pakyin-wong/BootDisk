@@ -1,4 +1,4 @@
-module layer {
+module controller {
     export class LayerCtr {
 
         public overlay: egret.Sprite;
