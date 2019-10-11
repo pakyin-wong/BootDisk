@@ -1,4 +1,4 @@
-module scene {
+namespace scene {
     export class LobbyScene extends BaseScene {
 
         public onEnter() {
@@ -14,7 +14,7 @@ module scene {
         }
 
         public async onFadeExit() {
-            
+
         }
     }
 }

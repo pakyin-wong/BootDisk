@@ -1,0 +1,26 @@
+{
+    "version": "0.1.0",
+    "command": "bash",
+    "isShellCommand": true,
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "build",
+            "showOutput": "always",
+            "args": ["-c", "cd $(pwd); ./prelaunch.sh build -sourcemap"],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "taskName": "clean",
+            "showOutput": "always",
+            "args": ["-c", "cd $(pwd); ./prelaunch.sh build -e"],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "taskName": "publish",
+            "showOutput": "always",
+            "args": ["-c", "cd $(pwd); ./prelaunch.sh publish"],
+            "problemMatcher": "$tsc"
+        }
+    ]
+}

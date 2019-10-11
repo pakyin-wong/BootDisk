@@ -1,9 +1,9 @@
 class Logger {
 
-    private static _logger: Logger
+    private static _logger: Logger;
 
     public static get Instance(): Logger {
-        return (this._logger)? this._logger : new Logger()
+        return (this._logger) ? this._logger : new Logger();
     }
 
     public l(m: any) {
@@ -12,4 +12,3 @@ class Logger {
 }
 
 let logger: Logger = Logger.Instance;
-

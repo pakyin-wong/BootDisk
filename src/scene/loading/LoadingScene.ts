@@ -1,4 +1,4 @@
-module scene {
+namespace scene {
     export class LoadingScene extends BaseScene {
 
         private progressbar: eui.ProgressBar;
@@ -17,9 +17,9 @@ module scene {
         }
 
         public async onFadeExit() {
-            
+
         }
-        
+
         protected mount() {
             this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
             
@@ -49,7 +49,7 @@ module scene {
             // step 6: load general resource (lobby, baccarat)
 
             // step 7: init complete, transfer to lobby scene
-            dir.sceneCtr.goto("LobbySCene");
+            dir.sceneCtr.goto('LobbySCene');
         }
 
         protected socketConnectFail() {

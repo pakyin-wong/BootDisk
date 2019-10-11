@@ -1,24 +1,23 @@
 class Main extends eui.UILayer {
 
-
   protected createChildren(): void {
     super.createChildren();
 
-    egret.lifecycle.addLifecycleListener((context) => {
+    egret.lifecycle.addLifecycleListener(context => {
       // custom lifecycle plugin
-    })
+    });
 
     egret.lifecycle.onPause = () => {
       egret.ticker.pause();
-    }
+    };
 
     egret.lifecycle.onResume = () => {
       egret.ticker.resume();
-    }
+    };
 
     this.init().catch(e => {
       console.log(e);
-    })
+    });
   }
 
   private async init() {
