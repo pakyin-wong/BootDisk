@@ -1,5 +1,4 @@
 class Main extends eui.UILayer {
-
   protected createChildren(): void {
     super.createChildren();
 
@@ -39,11 +38,11 @@ class Main extends eui.UILayer {
     dir.sceneCtr.goto('LoadingScene');
   }
 
-      private async loadResource() {
-        try {
-            await RES.loadConfig('resource/default.res.json', 'resource/');
-        } catch (e) {
-            console.error(e);
-        }
+  private async loadResource() {
+    try {
+      await RES.loadConfig('resource/default.res.json', 'resource/');
+    } catch (e) {
+      console.error(e);
     }
+  }
 }

@@ -1,4 +1,3 @@
 namespace lang {
-    export class I18N {
-    }
+  export class I18N {}
 }

@@ -22,10 +22,10 @@
 		"bin-debug/Director.js",
 		"bin-debug/handlers/ErrorHandler.js",
 		"bin-debug/handlers/EventHandler.js",
-		"bin-debug/lang/i18n.js",
+		"bin-debug/lang/I18N.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/scene/loading/LoadingScene.js",
 		"bin-debug/scene/lobby/LobbyScene.js",
-		"bin-debug/utils/Skin.js"
+		"bin-debug/utils/skin.js"
 	]
 }
