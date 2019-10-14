@@ -30,7 +30,7 @@ class Main extends eui.UILayer {
     // step 2: init Egrets Asset / Res
     await this.initRes();
 
-    // step 2: create loading scene
+    // step 3: create loading scene
     dir.sceneCtr.goto('LoadingScene');
   }
 
@@ -46,16 +46,8 @@ class Main extends eui.UILayer {
     }
   }
 
-  private loadTheme() {
-    return new Promise((resolve, reject) => {
-      const theme = new eui.Theme('resource/default.thm.json', this.stage);
-      theme.addEventListener(
-        eui.UIEvent.COMPLETE,
-        () => {
-          resolve();
-        },
-        this
-      );
-    });
+  private async loadTheme() {
+    const theme = new eui.Theme('resource/default.thm.json', this.stage);
+    await evt.wait(theme, eui.UIEvent.COMPLETE);
   }
 }
