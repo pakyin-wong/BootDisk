@@ -5,7 +5,7 @@ namespace scene {
 
         public onEnter() {
             this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
-            this.skinName = utils.getSkin("LoadingScene");
+            this.skinName = utils.getSkin('LoadingScene');
         }
 
         public async onFadeEnter() {
@@ -22,7 +22,7 @@ namespace scene {
 
         protected mount() {
             this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
-            
+
             // step 1: load Loading Screen Resource
             this.progressbar.minimum = 0;
             this.progressbar.maximum = 100;

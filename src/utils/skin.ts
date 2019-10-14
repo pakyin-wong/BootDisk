@@ -1,10 +1,10 @@
-module utils {
+namespace utils {
 
-    export function getSkin(name:string) {
+    export function getSkin(name: string) {
 
-        let device:string = "desktop";
+        const device: string = 'desktop';
 
-        //check current device
+        // check current device
         return `resource/skin_${device}/${name}.exml`;
     }
 }
