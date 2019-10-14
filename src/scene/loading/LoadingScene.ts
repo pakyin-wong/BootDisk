@@ -7,13 +7,13 @@ namespace scene {
       this.skinName = utils.getSkin('LoadingScene');
     }
 
-    public async onFadeEnter() {}
+    public async onFadeEnter() { }
 
     public onExit() {
       this.removeChildren();
     }
 
-    public async onFadeExit() {}
+    public async onFadeExit() { }
 
     protected mount() {
       this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
@@ -24,8 +24,8 @@ namespace scene {
       this.progressbar.value = 35;
 
       // step 3: connect socket
-      // this.socketConnect();
-      dir.sceneCtr.goto('LobbyScene');
+      this.socketConnect();
+      // dir.sceneCtr.goto('LobbyScene');
     }
 
     protected socketConnect() {
@@ -64,6 +64,6 @@ namespace scene {
       // dir.sceneCtr.goto('LobbyScene');
     }
 
-    protected socketConnectFail() {}
+    protected socketConnectFail() { }
   }
 }
