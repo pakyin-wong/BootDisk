@@ -18,6 +18,8 @@ declare module skins{
 	class ItemRendererSkin extends eui.Skin{
 	}
 }
+declare class NavBarSkin extends eui.Skin{
+}
 declare module skins{
 	class PanelSkin extends eui.Skin{
 	}
@@ -29,6 +31,8 @@ declare module skins{
 declare module skins{
 	class RadioButtonSkin extends eui.Skin{
 	}
+}
+declare class ScrollerSkin extends eui.Skin{
 }
 declare module skins{
 	class ScrollerSkin extends eui.Skin{
