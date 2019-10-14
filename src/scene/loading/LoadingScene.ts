@@ -3,6 +3,7 @@ namespace scene {
     private progressbar: eui.ProgressBar;
 
     public onEnter() {
+      dir.sceneCtr.goto('LobbyScene');
       this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
       this.skinName = utils.getSkin('LoadingScene');
     }
@@ -24,8 +25,7 @@ namespace scene {
       this.progressbar.value = 35;
 
       // step 3: connect socket
-      // this.socketConnect();
-      dir.sceneCtr.goto('LobbyScene');
+      this.socketConnect();
     }
 
     protected socketConnect() {

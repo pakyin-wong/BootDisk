@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="NavBarSkin" width="2560" height="160" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
-	<w:Config id="16dc8c9f276" ></w:Config>
-	<e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xcccccc"/>
+<e:Skin class="skin_desktop.NavBarSkin" width="2560" height="160" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<e:Label text="LOGO" x="64" y="56" bold="true" textColor="0x000000" size="48"/>
 	<e:Rect width="4" height="86" x="270" y="37" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x888888"/>
 	<e:Label id="username" text="Johnattan" x="2364" y="37" textColor="0x000000"/>
