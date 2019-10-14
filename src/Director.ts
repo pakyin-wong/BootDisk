@@ -8,10 +8,8 @@ class Director {
   public socket: socket.MQTTSocketComm;
   public evtHandler: handler.EventHandler;
   public errHandler: handler.ErrorHandler;
-  // env:
   public layerCtr: controller.LayerCtr;
   public sceneCtr: controller.SceneCtr;
-  // nav:
 }
 
 let dir: Director = Director.Instance;
