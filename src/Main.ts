@@ -15,6 +15,11 @@ class Main extends eui.UILayer {
       egret.ticker.resume();
     };
 
+    // inject the custom material parser
+    // 注入自定义的素材解析器
+    const assetAdapter = new AssetAdapter();
+    egret.registerImplementation('eui.IAssetAdapter', assetAdapter);
+
     this.init().catch(e => {
       console.log(e);
     });
@@ -28,7 +33,17 @@ class Main extends eui.UILayer {
     dir.layerCtr = new controller.LayerCtr(this.stage);
     dir.sceneCtr = new controller.SceneCtr();
 
+    await this.loadResource();
+
     // step 2: create loading scene
     dir.sceneCtr.goto('LoadingScene');
   }
+
+      private async loadResource() {
+        try {
+            await RES.loadConfig('resource/default.res.json', 'resource/');
+        } catch (e) {
+            console.error(e);
+        }
+    }
 }

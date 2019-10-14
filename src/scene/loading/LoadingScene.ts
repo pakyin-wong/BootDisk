@@ -1,8 +1,11 @@
 namespace scene {
     export class LoadingScene extends BaseScene {
 
+        private progressbar: eui.ProgressBar;
+
         public onEnter() {
-            this.mount();
+            this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
+            this.skinName = utils.getSkin('LoadingScene');
         }
 
         public async onFadeEnter() {
@@ -18,10 +21,12 @@ namespace scene {
         }
 
         protected mount() {
-            // step 1: load Loading Screen Resource
+            this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
 
-            // step 2: init ui
-            this.skinName = "resource/skin_desktop/LoadingScene.exml";
+            // step 1: load Loading Screen Resource
+            this.progressbar.minimum = 0;
+            this.progressbar.maximum = 100;
+            this.progressbar.value = 35;
 
             // step 3: connect socket
             this.socketConnect();

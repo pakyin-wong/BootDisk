@@ -10,7 +10,7 @@ case "${arch}" in
     bin=$(which egret)
   ;;
   CYGWIN*|MINGW32*|MSYS*)
-    bin=C:/Users/celew/AppData/Roaming/npm/egret.cmd
+    bin=egret.cmd
   ;;
 esac
 

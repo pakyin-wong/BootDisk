@@ -30,7 +30,6 @@ namespace socket {
             // switch res event / error to handler
 
             // hard code connect success event
-            dir.evtHandler.dispatch(enums.mqtt.event.CONNECT_SUCCESS, {});
         }
     }
 }

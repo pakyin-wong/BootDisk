@@ -27,7 +27,6 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-
 class AssetAdapter implements eui.IAssetAdapter {
     /**
      * @language zh_CN
@@ -36,20 +35,18 @@ class AssetAdapter implements eui.IAssetAdapter {
      * @param compFunc 解析完成回调函数，示例：callBack(content:any,source:string):void;
      * @param thisObject callBack的 this 引用
      */
-    public getAsset(source: string, compFunc: Function, thisObject: any): void {
-        function onGetRes(data: any): void {
+    public getAsset(source: string, compFunc: (content: any, source: string) => void, thisObject: any) {
+        function onGetRes(data: any) {
             compFunc.call(thisObject, data, source);
         }
         if (RES.hasRes(source)) {
-            let data = RES.getRes(source);
+            const data = RES.getRes(source);
             if (data) {
                 onGetRes(data);
-            }
-            else {
+            } else {
                 RES.getResAsync(source, onGetRes, this);
             }
-        }
-        else {
+        } else {
             RES.getResByUrl(source, onGetRes, this, RES.ResourceItem.TYPE_IMAGE);
         }
     }
