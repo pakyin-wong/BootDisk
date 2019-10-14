@@ -22,11 +22,11 @@ namespace controller {
                 return;
             }
             dir.layerCtr.scene.addChild(_next);
+            this._currScene = _next;
+            logger.l(`enter ${id}`);
             _next.onEnter();
             _prev.onExit();
             dir.layerCtr.scene.removeChild(_prev);
-            this._currScene = _next;
-            logger.l(`enter ${id}`);
         }
 
         /** switch scene with calling fade-in fade-out effect */
@@ -41,12 +41,12 @@ namespace controller {
                 return;
             }
             dir.layerCtr.scene.addChild(_next);
+            this._currScene = _next;
+            logger.l(`enter ${id}`);
             await _prev.onFadeExit();
             await _next.onFadeEnter();
             _prev.onExit();
             dir.layerCtr.scene.removeChild(_prev);
-            this._currScene = _next;
-            logger.l(`enter ${id}`);
         }
 
         public get currScene() {
