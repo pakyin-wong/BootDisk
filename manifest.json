@@ -13,19 +13,20 @@
 	],
 	"game": [
 		"bin-debug/scene/BaseScene.js",
-		"bin-debug/enums/mqtt.js",
-		"bin-debug/Logger.js",
+		"bin-debug/handlers/EventHandler.js",
 		"bin-debug/Main.js",
 		"bin-debug/comm/Socket.js",
 		"bin-debug/controller/LayerCtr.js",
 		"bin-debug/controller/SceneCtr.js",
-		"bin-debug/Director.js",
+		"bin-debug/enums/mqtt.js",
 		"bin-debug/handlers/ErrorHandler.js",
-		"bin-debug/handlers/EventHandler.js",
-		"bin-debug/lang/I18N.js",
-		"bin-debug/AssetAdapter.js",
+		"bin-debug/Logger.js",
+		"bin-debug/lang/i18n.js",
+		"bin-debug/Director.js",
 		"bin-debug/scene/loading/LoadingScene.js",
 		"bin-debug/scene/lobby/LobbyScene.js",
-		"bin-debug/utils/skin.js"
+		"bin-debug/utils/AssetAdapter.js",
+		"bin-debug/utils/skin.js",
+		"bin-debug/utils/ThemeAdapter.js"
 	]
 }

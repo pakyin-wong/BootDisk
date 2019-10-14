@@ -24,8 +24,7 @@ namespace scene {
       this.progressbar.value = 35;
 
       // step 3: connect socket
-      // this.socketConnect();
-      dir.sceneCtr.goto('LobbyScene');
+      this.socketConnect();
     }
 
     protected socketConnect() {
