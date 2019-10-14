@@ -26,7 +26,7 @@
 		"bin-debug/scene/loading/LoadingScene.js",
 		"bin-debug/scene/lobby/LobbyScene.js",
 		"bin-debug/utils/AssetAdapter.js",
-		"bin-debug/utils/Skin.js",
+		"bin-debug/utils/skin.js",
 		"bin-debug/utils/ThemeAdapter.js"
 	]
 }

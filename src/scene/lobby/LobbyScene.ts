@@ -1,20 +1,13 @@
 namespace scene {
-    export class LobbyScene extends BaseScene {
+  export class LobbyScene extends BaseScene {
+    public onEnter() {}
 
-        public onEnter() {
+    public async onFadeEnter() {}
 
-        }
-
-        public async onFadeEnter() {
-
-        }
-
-        public onExit() {
-            this.removeChildren();
-        }
-
-        public async onFadeExit() {
-
-        }
+    public onExit() {
+      this.removeChildren();
     }
+
+    public async onFadeExit() {}
+  }
 }

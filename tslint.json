@@ -23,10 +23,15 @@
         "quotemark": [true, "single"],
         "semicolon": [true, "always"],
         "trailing-comma": [true, {
-            "multiline": "never",
-            "singleline": "never"
+            "singleline": "never",
+            "multiline": {
+                "objects": "always",
+                "arrays": "always",
+                "functions": "never",
+                "typeLiterals": "ignore"
+            }
         }],
-        "indent": [true, "spaces", 4],
+        "indent": [true, "spaces", 2],
         "variable-name": [true, "ban-keywords", "allow-leading-underscore", "allow-snake-case"],
         "space-before-function-paren": [true, {
             "anonymous": "always",

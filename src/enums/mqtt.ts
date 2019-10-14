@@ -1,13 +1,12 @@
 namespace enums {
-    export const mqtt = {
+  export const mqtt = {
+    subscribe: {
+      CONNECT: 'CONNECT',
+    },
 
-        subscribe: {
-            CONNECT: 'CONNECT'
-        },
-
-        event: {
-            CONNECT_SUCCESS: 'MQTT_EV_CONNECT_SUCCESS',
-            CONNECT_FAIL: 'MQTT_EV_CONNECT_FAIL'
-        }
-    };
+    event: {
+      CONNECT_SUCCESS: 'MQTT_EV_CONNECT_SUCCESS',
+      CONNECT_FAIL: 'MQTT_EV_CONNECT_FAIL',
+    },
+  };
 }
