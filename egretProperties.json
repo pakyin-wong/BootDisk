@@ -5,8 +5,7 @@
     "target": {
         "current": "web"
     },
-    "modules": [
-        {
+    "modules": [{
             "name": "egret"
         },
         {
@@ -34,6 +33,10 @@
         {
             "name": "mqtt",
             "path": "./libs/mqtt"
+        },
+        {
+            "name": "flvvideo",
+            "path": "./libs/flvvideo"
         }
     ]
 }

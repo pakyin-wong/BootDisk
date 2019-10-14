@@ -9,7 +9,8 @@
 		"libs/modules/tween/tween.js",
 		"libs/modules/promise/promise.js",
 		"libs/greensock/greensock.js",
-		"libs/mqtt/mqtt.js"
+		"libs/mqtt/mqtt.js",
+		"libs/flvvideo/flvvideo.js"
 	],
 	"game": [
 		"bin-debug/scene/BaseScene.js",
@@ -22,7 +23,7 @@
 		"bin-debug/Director.js",
 		"bin-debug/handlers/ErrorHandler.js",
 		"bin-debug/handlers/EventHandler.js",
-		"bin-debug/lang/I18N.js",
+		"bin-debug/lang/i18n.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/scene/loading/LoadingScene.js",
 		"bin-debug/scene/lobby/LobbyScene.js",
