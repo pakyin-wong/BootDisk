@@ -16,7 +16,9 @@
 		"components.ImageSlider": "resource/skin_desktop/ImageSlider.exml",
 		"baccarat.BetChip": "resource/skin_desktop/BetChip.exml",
 		"baccarat.BetChipSet": "resource/skin_desktop/BetChipSet.exml",
-		"components.RadialProgressIndicator": "resource/skin_desktop/RadialProgressIndicator.exml"
+		"components.RadialProgressIndicator": "resource/skin_desktop/RadialProgressIndicator.exml",
+		"baccarat.CountdownTimer": "resource/skin_desktop/CountdownTimer.exml",
+		"baccarat.BetConfirmButton": "resource/skin_desktop/BetConfirmButton.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -37,7 +39,9 @@
 		"resource/skin_desktop/BaccaratScene.exml",
 		"resource/skin_desktop/BetChip.exml",
 		"resource/skin_desktop/BetChipSet.exml",
+		"resource/skin_desktop/BetConfirmButton.exml",
 		"resource/skin_desktop/BettingTable.exml",
+		"resource/skin_desktop/CountdownTimer.exml",
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LoadingScene.exml",
 		"resource/skin_desktop/LobbyScene.exml",

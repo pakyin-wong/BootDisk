@@ -60,7 +60,11 @@ declare class BetChipSkin extends eui.Skin{
 }
 declare class BetChipSetSkin extends eui.Skin{
 }
+declare class BetConfirmButtonSkin extends eui.Skin{
+}
 declare class BettingTableSkin extends eui.Skin{
+}
+declare class CountdownTimerSkin extends eui.Skin{
 }
 declare class ImageSlider extends eui.Skin{
 }
