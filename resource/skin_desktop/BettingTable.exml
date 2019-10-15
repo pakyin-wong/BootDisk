@@ -12,8 +12,8 @@
 				<e:Skin states="up,down,disabled"/>
 			</e:skinName>
 		</e:Component>
-    <e:Component id="imgTieNormal" includeIn="Baccarat-Normal" x="266" y="0" anchorOffsetX="0" width="266" anchorOffsetY="0"
+    <e:Component id="imgTieNormal" includeIn="Baccarat-Normal" x="267" y="0" anchorOffsetX="0" width="267" anchorOffsetY="0"
              height="300" x.Baccarat-Normal="266" y.Baccarat-Normal="0" />
-    <e:Component id="imgBankerNormal" includeIn="Baccarat-Normal" x="534" y="0" anchorOffsetX="0" width="266"
+    <e:Component id="imgBankerNormal" includeIn="Baccarat-Normal" x="532" y="0" anchorOffsetX="0" width="267"
              anchorOffsetY="0" height="300" x.Baccarat-Normal="534" y.Baccarat-Normal="0" />
 </e:Skin>

@@ -52,6 +52,10 @@ namespace baccarat {
       // this.chipImg.source = this.getBetChipImg(newValue);
     }
 
+    public getValue() {
+      return this.value;
+    }
+
     get highlight(): boolean {
       return this._highlight;
     }

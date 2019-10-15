@@ -24,8 +24,11 @@ namespace components {
       textColor: number,
       bgColor: number
     ) {
-      container.removeChildren();
-      const grid = new BettingTableGrid();
+      // container.removeChildren();
+      console.log('setupGrid');
+      let grid = this.getGridChild(container);
+      grid = grid ? grid : new BettingTableGrid();
+
       grid.setSize(container.width, container.height);
       grid.setStyle(border, textColor, bgColor);
       container.addChild(grid);
@@ -48,27 +51,32 @@ namespace components {
       switch (utils.getLang(lang)) {
         case enums.lang.CN:
           console.log(lang);
-          this.setGridText(this.imgPlayerPair, '閒對');
-          this.setGridText(this.imgBankerPair, '莊對');
-          this.setGridText(this.imgPlayerNormal, '閒');
-          this.setGridText(this.imgTieNormal, '和');
-          this.setGridText(this.imgBankerNormal, '莊');
+          this.getGridChild(this.imgPlayerPair).text = '閒對';
+          this.getGridChild(this.imgBankerPair).text = '莊對';
+          this.getGridChild(this.imgPlayerNormal).text = '閒';
+          this.getGridChild(this.imgTieNormal).text = '和';
+          this.getGridChild(this.imgBankerNormal).text = '莊';
 
           break;
 
         case enums.lang.EN:
-          this.setGridText(this.imgPlayerPair, 'Player Pair');
-          this.setGridText(this.imgBankerPair, 'Banker Pair');
-          this.setGridText(this.imgPlayerNormal, 'Player');
-          this.setGridText(this.imgTieNormal, 'Tie');
-          this.setGridText(this.imgBankerNormal, 'Banker');
+          this.getGridChild(this.imgPlayerPair).text = 'Player Pair';
+          this.getGridChild(this.imgBankerPair).text = 'Banker Pair';
+          this.getGridChild(this.imgPlayerNormal).text = 'Player';
+          this.getGridChild(this.imgTieNormal).text = 'Tie';
+          this.getGridChild(this.imgBankerNormal).text = 'Banker';
           break;
       }
     }
 
-    protected setGridText(grid: eui.Component, text: string) {
-      const child = grid.getChildAt(0) as BettingTableGrid;
-      child.text = text;
+    protected getGridChild(grid: eui.Component) {
+      let child: BettingTableGrid;
+      try {
+        child = grid.getChildAt(0) as BettingTableGrid;
+      } catch (e) {
+        return undefined;
+      }
+      return child;
     }
   }
 }

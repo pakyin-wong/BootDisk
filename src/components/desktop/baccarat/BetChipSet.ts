@@ -66,6 +66,8 @@ namespace baccarat {
     }
 
     public onChipSelected(index: number) {
+      env.currentChipSelectedValue = this.chipList[index].getValue();
+
       const prevSelectedIndex = env.currentChipSelectedIndex;
       this.chipList[prevSelectedIndex].highlight = false;
 
