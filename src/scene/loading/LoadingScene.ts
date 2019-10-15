@@ -2,25 +2,36 @@ namespace scene {
   export class LoadingScene extends BaseScene {
     private progressbar: eui.ProgressBar;
 
+    private step: number = 0;
+    private flow = [this.socketConnect, this.loadLoadingSceneRes];
+
     public onEnter() {
-      this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
+      this.once(eui.UIEvent.COMPLETE, this.mount, this);
       this.skinName = utils.getSkin('LoadingScene');
     }
 
-    public async onFadeEnter() { }
+    public async onFadeEnter() {}
 
     public onExit() {
       this.removeChildren();
     }
 
-    public async onFadeExit() { }
+    public async onFadeExit() {}
 
     protected mount() {
-      this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
+      this.step = 0;
+      this.next();
+    }
 
-      // step 1: connect socket
+    protected socketConnect() {
+      dir.evtHandler.once(enums.mqtt.event.CONNECT_SUCCESS, this.next, this);
+      dir.evtHandler.once(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
       dir.socket.connect();
+    }
 
+    protected socketConnectFail() {}
+
+    protected loadLoadingSceneRes() {
       // step 4: auth and get user profiles
 
       // step 5: get and display tips, promote banner
@@ -31,6 +42,12 @@ namespace scene {
       dir.sceneCtr.goto('LobbyScene');
     }
 
-    protected socketConnectFail() { }
+    private next() {
+      if (this.step >= this.flow.length) {
+        return;
+      }
+
+      this.flow[this.step++].call(this);
+    }
   }
 }

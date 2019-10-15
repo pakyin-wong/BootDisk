@@ -6,22 +6,13 @@ class ThemeAdapter implements eui.IThemeAdapter {
    * @param onError 解析失败回调函数，示例：errorFunc():void;
    * @param thisObject 回调的this引用
    */
-  public getTheme(
-    url: string,
-    onSuccess: (e: egret.Event) => void,
-    onError: () => void,
-    thisObject: any
-  ): void {
+  public getTheme(url: string, onSuccess: (e: egret.Event) => void, onError: () => void, thisObject: any): void {
     function onResGet(e: string): void {
       onSuccess.call(thisObject, e);
     }
     function onResError(e: RES.ResourceEvent): void {
       if (e.resItem.url === url) {
-        RES.removeEventListener(
-          RES.ResourceEvent.ITEM_LOAD_ERROR,
-          onResError,
-          null
-        );
+        RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, onResError, null);
         onError.call(thisObject);
       }
     }

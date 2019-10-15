@@ -6,11 +6,7 @@ class AssetAdapter implements eui.IAssetAdapter {
    * @param compFunc 解析完成回调函数，示例：callBack(content:any,source:string):void;
    * @param thisObject callBack的 this 引用
    */
-  public getAsset(
-    source: string,
-    compFunc: (content: any, source: string) => void,
-    thisObject: any
-  ) {
+  public getAsset(source: string, compFunc: (content: any, source: string) => void, thisObject: any) {
     function onGetRes(data: any) {
       compFunc.call(thisObject, data, source);
     }
