@@ -13,7 +13,9 @@
 		"eui.VScrollBar": "resource/eui_skins/VScrollBarSkin.exml",
 		"eui.VSlider": "resource/eui_skins/VSliderSkin.exml",
 		"eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
-		"components.ImageSlider": "resource/skin_desktop/ImageSlider.exml"
+		"components.ImageSlider": "resource/skin_desktop/ImageSlider.exml",
+		"baccarat.BetChip": "resource/skin_desktop/BetChip.exml",
+		"baccarat.BetChipSet": "resource/skin_desktop/BetChipSet.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -31,6 +33,8 @@
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VScrollBarSkin.exml",
 		"resource/eui_skins/VSliderSkin.exml",
+		"resource/skin_desktop/BetChip.exml",
+		"resource/skin_desktop/BetChipSet.exml",
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LoadingScene.exml",
 		"resource/skin_desktop/LobbyScene.exml",

@@ -52,6 +52,10 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare class BetChipSkin extends eui.Skin{
+}
+declare class BetChipSetSkin extends eui.Skin{
+}
 declare class ImageSlider extends eui.Skin{
 }
 declare module skin_desktop{

@@ -12,7 +12,16 @@ namespace scene {
       // this._video.poster = "resource/assets/posterinline.jpg";
       this.video.load('http://192.168.1.85:8090/live/720.flv');
       this.addChild(this.video);
+
       dir.layerCtr.nav.addChild(new components.NavBar());
+
+      const denominationList = [1, 2, 5, 10, 50, 100];
+      const chipSet: baccarat.BetChipSet = new baccarat.BetChipSet(
+        denominationList
+      );
+      chipSet.x = 200;
+      chipSet.y = 1000;
+      this.addChild(chipSet);
     }
 
     public async onFadeEnter() {}

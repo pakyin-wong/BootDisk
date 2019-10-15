@@ -6,6 +6,7 @@ class Env {
 
   /* Global Environment Variable */
   public balance: number = undefined;
+  public currentChipSelectedIndex: number = 10;
 }
 
 let env: Env = Env.Instance;
