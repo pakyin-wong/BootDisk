@@ -15,7 +15,8 @@
 		"eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
 		"components.ImageSlider": "resource/skin_desktop/ImageSlider.exml",
 		"baccarat.BetChip": "resource/skin_desktop/BetChip.exml",
-		"baccarat.BetChipSet": "resource/skin_desktop/BetChipSet.exml"
+		"baccarat.BetChipSet": "resource/skin_desktop/BetChipSet.exml",
+		"components.RadialProgressIndicator": "resource/skin_desktop/RadialProgressIndicator.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -40,7 +41,8 @@
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LoadingScene.exml",
 		"resource/skin_desktop/LobbyScene.exml",
-		"resource/skin_desktop/NavBar.exml"
+		"resource/skin_desktop/NavBar.exml",
+		"resource/skin_desktop/RadialProgressIndicator.exml"
 	],
 	"path": "resource/default.thm.json"
 }

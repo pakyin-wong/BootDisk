@@ -76,3 +76,5 @@ declare module skin_desktop{
 	class NavBarSkin extends eui.Skin{
 	}
 }
+declare class RadialProgressIndicatorSkin extends eui.Skin{
+}

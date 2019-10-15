@@ -13,6 +13,20 @@ namespace scene {
       // bettingArea.scaleX = 0.5;
       // bettingArea.scaleY = 0.5;
       this.addChild(bettingArea);
+
+      const progressIndicator = new components.RadialProgressIndicator();
+      this.addChild(progressIndicator);
+      progressIndicator.width = 300;
+      progressIndicator.height = 200;
+      progressIndicator.x = 2000;
+      progressIndicator.y = 1000;
+      progressIndicator.thickness = 10;
+      progressIndicator.progress = 1;
+      TweenMax.to(progressIndicator, 5, {
+        progress: 0,
+        repeat: -1,
+        ease: 'linear',
+      });
     }
 
     public async onFadeEnter() {}
