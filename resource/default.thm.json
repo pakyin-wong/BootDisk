@@ -37,6 +37,7 @@
 		"resource/skin_desktop/BetChip.exml",
 		"resource/skin_desktop/BetChipSet.exml",
 		"resource/skin_desktop/BettingTable.exml",
+		"resource/skin_desktop/CardGame.exml",
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LoadingScene.exml",
 		"resource/skin_desktop/LobbyScene.exml",

@@ -20,7 +20,6 @@ namespace components {
       this.addEventListener(
         egret.TouchEvent.TOUCH_TAP,
         function() {
-          console.log('touch_tap');
           this.setUncfmBet();
         },
         this
@@ -76,9 +75,9 @@ namespace components {
       this.lblName.textColor = textcolor;
 
       this.addChild(this.lblUncfmBet);
-      // this.setUncfmBet();
+      this.setUncfmBet();
       this.lblUncfmBet.bottom = 20;
-      this.lblUncfmBet.right = 20;
+      this.lblUncfmBet.left = 20;
     }
   }
 }

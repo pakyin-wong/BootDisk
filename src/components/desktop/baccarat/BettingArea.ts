@@ -18,6 +18,8 @@ namespace components {
       bettingTable.x = 0;
       bettingTable.y = 200;
       this.addChild(bettingTable);
+
+      const cardGame = new components.CardGame();
     }
   }
 }
