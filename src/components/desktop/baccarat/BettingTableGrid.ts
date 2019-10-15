@@ -1,10 +1,40 @@
 namespace components {
   export class BettingTableGrid extends eui.Component {
-    private label: eui.Label;
+    private lblName: eui.Label;
     private rect: egret.Shape;
+    private lblUncfmBet: eui.Label;
+    private lblCfmBet: eui.Label;
+    private cfmBet: number;
+    private uncfmBet: number;
     constructor() {
       super();
-      this.label = new eui.Label();
+      this.lblName = new eui.Label();
+      this.lblUncfmBet = new eui.Label();
+      this.lblCfmBet = new eui.Label();
+      this.cfmBet = 0;
+      this.uncfmBet = 0;
+    }
+
+    protected childrenCreated() {
+      super.childrenCreated();
+      this.addEventListener(
+        egret.TouchEvent.TOUCH_TAP,
+        function() {
+          console.log('touch_tap');
+          this.setUncfmBet();
+        },
+        this
+      );
+    }
+
+    public setUncfmBet() {
+      logger.l(
+        `setUncfmBet::currentChipSelectedValue ${env.currentChipSelectedValue}`
+      );
+      if (env.currentChipSelectedValue) {
+        this.cfmBet += env.currentChipSelectedValue;
+        this.lblUncfmBet.text = this.cfmBet.toString();
+      }
     }
 
     public setSize(width: number, height: number) {
@@ -12,10 +42,10 @@ namespace components {
       this.height = height;
     }
     set text(text: string) {
-      this.label.text = text;
+      this.lblName.text = text;
     }
     get text(): string {
-      return this.label.text;
+      return this.lblName.text;
     }
     public setStyle(border: number, textcolor: number, bgcolor: number) {
       this.removeChildren();
@@ -38,12 +68,17 @@ namespace components {
       );
       this.rect.graphics.endFill();
 
-      this.addChild(this.label);
-      this.label.width = this.width;
-      this.label.height = this.height;
-      this.label.textAlign = egret.HorizontalAlign.CENTER;
-      this.label.verticalAlign = egret.VerticalAlign.MIDDLE;
-      this.label.textColor = textcolor;
+      this.addChild(this.lblName);
+      this.lblName.width = this.width;
+      this.lblName.height = this.height;
+      this.lblName.textAlign = egret.HorizontalAlign.CENTER;
+      this.lblName.verticalAlign = egret.VerticalAlign.MIDDLE;
+      this.lblName.textColor = textcolor;
+
+      this.addChild(this.lblUncfmBet);
+      // this.setUncfmBet();
+      this.lblUncfmBet.bottom = 20;
+      this.lblUncfmBet.right = 20;
     }
   }
 }

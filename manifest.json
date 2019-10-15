@@ -8,6 +8,7 @@
 		"libs/modules/game/game.js",
 		"libs/modules/tween/tween.js",
 		"libs/modules/promise/promise.js",
+		"libs/mouse/mouse.js",
 		"libs/greensock/greensock.js",
 		"libs/mqtt/mqtt.js",
 		"libs/flvvideo/flvvideo.js"
@@ -23,6 +24,7 @@
 		"bin-debug/components/desktop/NavBar.js",
 		"bin-debug/components/desktop/baccarat/BetChip.js",
 		"bin-debug/components/desktop/baccarat/BetChipSet.js",
+		"bin-debug/components/desktop/baccarat/BettingArea.js",
 		"bin-debug/components/desktop/baccarat/BettingTable.js",
 		"bin-debug/components/desktop/baccarat/BettingTableGrid.js",
 		"bin-debug/components/desktop/baccarat/IChipSet.js",
@@ -30,6 +32,7 @@
 		"bin-debug/controller/SceneCtr.js",
 		"bin-debug/data/BetLimit.js",
 		"bin-debug/Env.js",
+		"bin-debug/enums/event.js",
 		"bin-debug/enums/lang.js",
 		"bin-debug/enums/mqtt.js",
 		"bin-debug/handlers/ErrorHandler.js",

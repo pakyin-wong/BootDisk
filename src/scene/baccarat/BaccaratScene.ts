@@ -1,18 +1,18 @@
 namespace scene {
   export class BaccaratScene extends BaseScene {
-    private btnTest: eui.Button;
-
     public onEnter() {
       this.mount();
       dir.layerCtr.nav.addChild(new components.NavBar());
-
-      const denominationList = [1, 2, 5, 10, 50, 100];
-      const chipSet: baccarat.BetChipSet = new baccarat.BetChipSet(
-        denominationList
-      );
-      chipSet.x = 200;
-      chipSet.y = 1000;
-      this.addChild(chipSet);
+      const bettingArea = new components.BettingArea();
+      bettingArea.anchorOffsetX = 0;
+      bettingArea.anchorOffsetY = 0;
+      bettingArea.horizontalCenter = 0;
+      bettingArea.bottom = 0;
+      // bettingArea.width = 1000;
+      // bettingArea.height = 1000;
+      // bettingArea.scaleX = 0.5;
+      // bettingArea.scaleY = 0.5;
+      this.addChild(bettingArea);
     }
 
     public async onFadeEnter() {}
@@ -33,7 +33,7 @@ namespace scene {
       // this.setSkin(new eui.Skin())
 
       // step 3: connect socket
-      this.socketConnect();
+      // this.socketConnect();
     }
 
     protected socketConnect() {
