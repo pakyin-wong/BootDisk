@@ -18,7 +18,8 @@ class Env {
     lower: number;
     denominationList: [number];
   };
-  public tableInfo : TableInfo;
+  public tableInfo: TableInfo;
+  public currentChipSelectedIndex: number = 10;
 }
 
 let env: Env = Env.Instance;

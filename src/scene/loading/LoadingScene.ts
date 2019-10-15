@@ -3,6 +3,7 @@ namespace scene {
     private progressbar: eui.ProgressBar;
 
     public onEnter() {
+      dir.sceneCtr.goto('LobbyScene');
       this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
       this.skinName = utils.getSkin('LoadingScene');
     }
