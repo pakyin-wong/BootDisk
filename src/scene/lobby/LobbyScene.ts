@@ -3,6 +3,7 @@ namespace scene {
     private video: egret.FlvVideo;
 
     public onEnter() {
+      this.skinName = utils.getSkin('LobbyScene');
       this.video = new egret.FlvVideo();
       this.video.x = 0;
       this.video.y = 0;
@@ -11,6 +12,7 @@ namespace scene {
       // this._video.poster = "resource/assets/posterinline.jpg";
       this.video.load('http://192.168.1.85:8090/live/720.flv');
       this.addChild(this.video);
+      dir.layerCtr.nav.addChild(new components.NavBar());
     }
 
     public async onFadeEnter() {}

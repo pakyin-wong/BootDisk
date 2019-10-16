@@ -40,7 +40,7 @@ class Main extends eui.UILayer {
     try {
       await RES.loadConfig('resource/default.res.json', 'resource/');
       await this.loadTheme();
-      await RES.loadGroup('egret_basic');
+      await RES.loadGroup(enums.res.EgretBasic);
     } catch (e) {
       console.error(e);
     }

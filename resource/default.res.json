@@ -5,7 +5,7 @@
 			"name": "egret_basic"
 		},
 		{
-			"keys": "",
+			"keys": "scene_loading_bg",
 			"name": "scene_loading"
 		},
 		{
@@ -147,6 +147,11 @@
 			"url": "config/description.json",
 			"type": "json",
 			"name": "description_json"
+		},
+		{
+			"url": "assets/Scene/loading/Computer-Tech-Wallpaper-09-2560x1440.jpg",
+			"type": "image",
+			"name": "scene_loading_bg"
 		}
 	]
 }
