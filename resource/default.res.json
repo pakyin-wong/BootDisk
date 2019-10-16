@@ -15,6 +15,10 @@
 		{
 			"keys": "",
 			"name": "scene_baccarat"
+		},
+		{
+			"name": "preload",
+			"keys": "Computer-Tech-Wallpaper-09-2560x1440_jpg"
 		}
 	],
 	"resources": [
@@ -152,6 +156,11 @@
 			"url": "assets/Scene/loading/Computer-Tech-Wallpaper-09-2560x1440.jpg",
 			"type": "image",
 			"name": "scene_loading_bg"
+		},
+		{
+			"name": "Computer-Tech-Wallpaper-09-2560x1440_jpg",
+			"type": "image",
+			"url": "assets/Scene/loading/Computer-Tech-Wallpaper-09-2560x1440.jpg"
 		}
 	]
 }

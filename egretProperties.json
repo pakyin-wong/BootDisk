@@ -29,7 +29,6 @@
         {
             "name": "mouse",
             "path": "./libs/mouse"
-
         },
         {
             "name": "greensock",

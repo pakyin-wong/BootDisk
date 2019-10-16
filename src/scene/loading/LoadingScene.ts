@@ -4,7 +4,8 @@ namespace scene {
     private _progressMsg: components.TextField;
 
     private step: number = 0;
-    private flow = [this.loadLoadingSceneRes, this.initSkin, this.socketConnect, this.auth, this.loadingComplete];
+    // private flow = [this.loadLoadingSceneRes, this.initSkin, this.socketConnect, this.auth, this.loadingComplete];
+    private flow = [this.loadLoadingSceneRes, this.loadingComplete];
 
     public onEnter() {
       this.mount();
