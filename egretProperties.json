@@ -27,6 +27,11 @@
             "name": "promise"
         },
         {
+            "name": "mouse",
+            "path": "./libs/mouse"
+
+        },
+        {
             "name": "greensock",
             "path": "./libs/greensock"
         },
