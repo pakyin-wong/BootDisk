@@ -7,7 +7,7 @@
 	<baccarat:BettingTableGrid id="gridTie" includeIn="Normal,SuperSix" y="0" anchorOffsetX="0" width="200" anchorOffsetY="0" height="300" horizontalCenter="-100" x="10" horizontalCenter.Normal="1" width.Normal="270"/>
 	<baccarat:BettingTableGrid id="gridSuperSix" includeIn="SuperSix" y="0" anchorOffsetX="0" width="200" anchorOffsetY="0" height="300" horizontalCenter="100" x="20"/>
   <baccarat:BettingTableGrid id="gridBanker"  includeIn="Normal,SuperSix" y="0" anchorOffsetX="0" width.Normal="267"  anchorOffsetY="0" height="300" x.Normal="534" y.Normal="0"  width.SuperSix="200" right.SuperSix="0" top.SuperSix="0"/>
-	<e:ToggleSwitch id='switchSuperSix' label="ToggleButton" x="500" y="24"/>
-	<e:Label id="lblNoComm" text="免佣" x="491" y="76"/>
+	<e:ToggleSwitch id='switchSuperSix' label="ToggleButton" x="500" y="24" anchorOffsetX="0" width="70" anchorOffsetY="0" height="32" x.Normal="436" y.Normal="25"/>
+	<e:Label id="lblNoComm" text="免佣" x="491" y="76" x.Normal="436" y.Normal="57"/>
 
 </e:Skin>

@@ -10,6 +10,21 @@ namespace baccarat {
 
     constructor() {
       super();
+
+      env.tableInfo = new Array<TableInfo>();
+      env.tableInfo.push(new TableInfo());
+      env.gameData = new GameData();
+    }
+
+    protected updateGame() {
+      switch (env.gameData.gameState) {
+        case 1:
+          break;
+        case 2:
+          break;
+        default:
+          break;
+      }
     }
 
     protected createChildren() {

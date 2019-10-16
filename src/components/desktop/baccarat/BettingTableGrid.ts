@@ -6,6 +6,11 @@ namespace baccarat {
     private lblCfmBet: eui.Label;
     private cfmBet: number;
     private uncfmBet: number;
+
+    private border: number = 10;
+    private textColor: number = 0xffffff;
+    private bgColor: number = 0x000000;
+
     constructor() {
       super();
       this.lblName = new eui.Label();
@@ -47,6 +52,12 @@ namespace baccarat {
     get text(): string {
       return this.lblName.text;
     }
+
+    public $setWidth(num: number) {
+      super.$setWidth(num);
+      this.setStyle(this.border, this.textColor, this.bgColor);
+    }
+
     public setStyle(border: number, textcolor: number, bgcolor: number) {
       this.removeChildren();
 
