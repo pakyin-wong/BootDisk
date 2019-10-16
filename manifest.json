@@ -33,6 +33,7 @@
 		"bin-debug/components/desktop/baccarat/CardHolder.js",
 		"bin-debug/components/desktop/baccarat/CountdownTimer.js",
 		"bin-debug/components/desktop/baccarat/IChipSet.js",
+		"bin-debug/components/desktop/common/Card.js",
 		"bin-debug/controller/LayerCtr.js",
 		"bin-debug/Env.js",
 		"bin-debug/data/BetLimit.js",

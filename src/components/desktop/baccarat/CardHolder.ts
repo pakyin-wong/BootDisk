@@ -1,4 +1,4 @@
-namespace components {
+namespace baccarat {
   export class CardHolder extends eui.Component {
     private card1Player: components.Card;
     private card2Player: components.Card;

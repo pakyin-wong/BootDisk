@@ -1,3 +1,4 @@
+
 namespace components {
   export class BettingArea extends eui.Component {
     private _mode = 'room-baccarat'; // betting area mode = 'quick-bet' / 'room-baccarat'
@@ -79,3 +80,4 @@ namespace components {
     }
   }
 }
+
