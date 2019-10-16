@@ -1,9 +1,9 @@
-namespace components {
+namespace baccarat {
   export class BettingArea extends eui.Component {
     private _mode = 'room-baccarat'; // betting area mode = 'quick-bet' / 'room-baccarat'
-    private bettingTable: components.BettingTable;
+    private bettingTable: baccarat.BettingTable;
     private betChipSet: baccarat.BetChipSet;
-    private cardHolder: components.CardHolder;
+    private cardHolder: baccarat.CardHolder;
 
     constructor() {
       super();

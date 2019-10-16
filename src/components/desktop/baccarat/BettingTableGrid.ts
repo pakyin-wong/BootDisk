@@ -1,5 +1,4 @@
-
-namespace components {
+namespace baccarat {
   export class BettingTableGrid extends eui.Component {
     private lblName: eui.Label;
     private rect: egret.Shape;

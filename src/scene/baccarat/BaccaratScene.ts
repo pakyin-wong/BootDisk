@@ -3,7 +3,7 @@ namespace scene {
     public onEnter() {
       this.mount();
       dir.layerCtr.nav.addChild(new components.NavBar());
-      const bettingArea = new components.BettingArea();
+      const bettingArea = new baccarat.BettingArea();
       bettingArea.anchorOffsetX = 0;
       bettingArea.anchorOffsetY = 0;
       bettingArea.horizontalCenter = 0;

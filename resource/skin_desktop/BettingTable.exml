@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BettingTableSkin" width="800" height="600" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="Baccarat-Normal">
-    <w:Config id="16daef051fd"></w:Config>
-    <components:BettingTableGrid  id="imgPlayerPair" includeIn="Baccarat-Normal" x="0" y="300" anchorOffsetX="0"
-             width="400" anchorOffsetY="0" height="300"  y.Baccarat-Normal="298.67"/>
-    <components:BettingTableGrid  id="imgBankerPair" includeIn="Baccarat-Normal" x="400" y="300" anchorOffsetX="0"
-             width="400" anchorOffsetY="0" height="300" />
-             
-    <components:BettingTableGrid  id="imgPlayerNormal" includeIn="Baccarat-Normal" x="0" y="0" anchorOffsetX="0" width="266"
-             anchorOffsetY="0" height="300" y.Baccarat-Normal="0" />
-
-
-    <components:BettingTableGrid  id="imgTieNormal" includeIn="Baccarat-Normal" x="267" y="0" anchorOffsetX="0" width="267" anchorOffsetY="0"
-             height="300" x.Baccarat-Normal="266" y.Baccarat-Normal="0" />
-    <components:BettingTableGrid  id="imgBankerNormal" includeIn="Baccarat-Normal" x="532" y="0" anchorOffsetX="0" width="267"
-             anchorOffsetY="0" height="300" x.Baccarat-Normal="534" y.Baccarat-Normal="0" />
+<e:Skin class="skin_desktop.BettingTableSkin" width="800" height="600" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" states="Normal,SuperSix">
+	<baccarat:BettingTableGrid id="gridPlayerPair"  includeIn="Normal,SuperSix" x="0" y="300" anchorOffsetX="0"              width="400" anchorOffsetY="0" height="300"  y.Normal="298.67"/>
+  <baccarat:BettingTableGrid id="gridBankerPair"  includeIn="Normal,SuperSix" x="400" y="300" anchorOffsetX="0" width="400" anchorOffsetY="0" height="300" />
+  <baccarat:BettingTableGrid id="gridPlayer"  includeIn="Normal,SuperSix" x="0" y="0" anchorOffsetX="0" width="266"              anchorOffsetY="0" height="300" y.Normal="0"  width.SuperSix="200" left.SuperSix="0" top.SuperSix="0"/>
+	<baccarat:BettingTableGrid id="gridTie" includeIn="Normal,SuperSix" y="0" anchorOffsetX="0" width="200" anchorOffsetY="0" height="300" horizontalCenter="-100" x="10" horizontalCenter.Normal="1" width.Normal="270"/>
+	<baccarat:BettingTableGrid id="gridSuperSix" includeIn="SuperSix" y="0" anchorOffsetX="0" width="200" anchorOffsetY="0" height="300" horizontalCenter="100" x="20"/>
+  <baccarat:BettingTableGrid id="gridBanker"  includeIn="Normal,SuperSix" y="0" anchorOffsetX="0" width.Normal="267"              anchorOffsetY="0" height="300" x.Normal="534" y.Normal="0"  width.SuperSix="200" right.SuperSix="0" top.SuperSix="0"/>
+	<e:ToggleSwitch id='switchSuperSix' label="ToggleButton" x="500" y="24"/>
+	<e:Label id="lblNoComm" text="免佣" x="491" y="76"/>
 
 </e:Skin>

@@ -1,11 +1,13 @@
-
-namespace components {
+namespace baccarat {
   export class BettingTable extends eui.Component {
-    private imgPlayerPair: components.BettingTableGrid;
-    private imgBankerPair: components.BettingTableGrid;
-    private imgPlayerNormal: components.BettingTableGrid;
-    private imgTieNormal: components.BettingTableGrid;
-    private imgBankerNormal: components.BettingTableGrid;
+    private gridPlayerPair: baccarat.BettingTableGrid;
+    private gridBankerPair: baccarat.BettingTableGrid;
+    private gridPlayer: baccarat.BettingTableGrid;
+    private gridTie: baccarat.BettingTableGrid;
+    private gridSuperSix: baccarat.BettingTableGrid;
+    private gridBanker: baccarat.BettingTableGrid;
+    private lblNoComm: eui.Label;
+    private switchSuperSix: eui.ToggleSwitch;
 
     private mapping: {};
 
@@ -17,9 +19,18 @@ namespace components {
     protected childrenCreated() {
       this.changeMethod('normal');
       this.changeLang('zh-cn');
+      this.switchSuperSix.addEventListener(
+        egret.Event.CHANGE,
+        () => {
+          this.invalidateState();
+        },
+        this
+      );
     }
 
-    protected setupGridListener(grid: eui.Component) {}
+    protected getCurrentState() {
+      return this.switchSuperSix.selected ? 'SuperSix' : 'Normal';
+    }
 
     protected changeMethod(method: string) {
       switch (method) {
@@ -28,11 +39,12 @@ namespace components {
           const textColor = 0xffffff;
           const bgColor = 0x000000;
 
-          this.imgPlayerPair.setStyle(border, textColor, bgColor);
-          this.imgBankerPair.setStyle(border, textColor, bgColor);
-          this.imgPlayerNormal.setStyle(border, textColor, bgColor);
-          this.imgBankerNormal.setStyle(border, textColor, bgColor);
-          this.imgTieNormal.setStyle(border, textColor, bgColor);
+          this.gridPlayerPair.setStyle(border, textColor, bgColor);
+          this.gridBankerPair.setStyle(border, textColor, bgColor);
+          this.gridPlayer.setStyle(border, textColor, bgColor);
+          this.gridBanker.setStyle(border, textColor, bgColor);
+          this.gridSuperSix.setStyle(border, textColor, bgColor);
+          this.gridTie.setStyle(border, textColor, bgColor);
       }
     }
 
@@ -40,20 +52,24 @@ namespace components {
       switch (utils.getLang(lang)) {
         case enums.lang.CN:
           console.log(lang);
-          this.imgPlayerPair.text = '閒對';
-          this.imgBankerPair.text = '莊對';
-          this.imgPlayerNormal.text = '閒';
-          this.imgTieNormal.text = '和';
-          this.imgBankerNormal.text = '莊';
+          this.gridPlayerPair.text = '閒對';
+          this.gridBankerPair.text = '莊對';
+          this.gridPlayer.text = '閒';
+          this.gridTie.text = '和';
+          this.gridSuperSix.text = '超級六';
+          this.gridBanker.text = '莊';
+          this.lblNoComm.text = '免佣'
 
           break;
 
         case enums.lang.EN:
-          this.imgPlayerPair.text = 'Player Pair';
-          this.imgBankerPair.text = 'Banker Pair';
-          this.imgPlayerNormal.text = 'Player';
-          this.imgTieNormal.text = 'Tie';
-          this.imgBankerNormal.text = 'Banker';
+          this.gridPlayerPair.text = 'Player Pair';
+          this.gridBankerPair.text = 'Banker Pair';
+          this.gridPlayer.text = 'Player';
+          this.gridTie.text = 'Tie';
+          this.gridSuperSix.text = 'Super Six';
+          this.gridBanker.text = 'Banker';
+          this.lblNoComm.text = 'No Comission'
           break;
       }
     }
