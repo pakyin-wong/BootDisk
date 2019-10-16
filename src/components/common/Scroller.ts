@@ -152,13 +152,13 @@ namespace components {
         const currentPos = Math.max(0, Math.min(this.viewport.contentHeight - this.height, this.viewport.scrollV + event.deltaY));
         const bounceThreshold = 400;
         if (currentPos === 0 || currentPos === this.viewport.contentHeight - this.height) {
-          if (currentPos === 0) {
-            this.viewport.scrollV = 0;
-          } else {
-            this.viewport.scrollV = this.viewport.contentHeight - this.height;
-          }
           clearTimeout(this._timeout);
           this._timeout = setTimeout(() => {
+            if (currentPos === 0) {
+              this.viewport.scrollV = 0;
+            } else {
+              this.viewport.scrollV = this.viewport.contentHeight - this.height;
+            }
             const adj = Math.min(bounceThreshold, Math.max(-bounceThreshold, event.deltaY));
             this.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_MOVE, true, true, 0, -adj));
             this.viewport.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_END, true, true, 0, 0));

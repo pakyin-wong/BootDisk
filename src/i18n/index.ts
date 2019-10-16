@@ -1,5 +1,5 @@
 namespace i18n {
-  export let lang = 'en';
+  export let lang = 'sc';
 
   export function t(s: string) {
     function ds(p: any, c: string) {
