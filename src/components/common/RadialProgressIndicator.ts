@@ -112,9 +112,11 @@ namespace components {
       graphics.lineStyle(this._thickness, color, 1);
       const isPerfectCircle = this.width === this.height;
 
-      egret.error(
-        `RadialProgressIndicator's height must not greater than its width`
-      );
+      if (this.width < this.height) {
+        egret.error(
+          `RadialProgressIndicator's height must not greater than its width`
+        );
+      }
 
       if (isPerfectCircle) {
         const r = (this.height - this._thickness) / 2;
