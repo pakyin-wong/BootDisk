@@ -23,6 +23,8 @@ namespace baccarat {
         egret.Event.CHANGE,
         () => {
           this.invalidateState();
+          console.log('this.width: ', this.gridBanker.width);
+          setTimeout(() => this.changeMethod('ok'), 200);
         },
         this
       );
@@ -58,7 +60,7 @@ namespace baccarat {
           this.gridTie.text = '和';
           this.gridSuperSix.text = '超級六';
           this.gridBanker.text = '莊';
-          this.lblNoComm.text = '免佣'
+          this.lblNoComm.text = '免佣';
 
           break;
 
@@ -69,7 +71,7 @@ namespace baccarat {
           this.gridTie.text = 'Tie';
           this.gridSuperSix.text = 'Super Six';
           this.gridBanker.text = 'Banker';
-          this.lblNoComm.text = 'No Comission'
+          this.lblNoComm.text = 'No Comission';
           break;
       }
     }

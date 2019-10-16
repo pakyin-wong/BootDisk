@@ -52,10 +52,12 @@ namespace baccarat {
 
       this.rect = new egret.Shape();
       this.addChild(this.rect);
-      this.rect.x = 0;
-      this.rect.y = 0;
+      // this.rect.x = 0;
+      // this.rect.y = 0;
+
       this.rect.width = this.width;
       this.rect.height = this.height;
+      this.rect.graphics.clear();
       this.rect.graphics.beginFill(textcolor);
       this.rect.graphics.drawRect(0, 0, this.width, this.height);
       this.rect.graphics.endFill();
