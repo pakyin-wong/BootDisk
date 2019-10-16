@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BettingAreaSkin" width="2000" height="1300" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:baccarat="baccarat.*">
-	<components:BettingTable id='bettingTable' width="800" height="600" anchorOffsetX="0" anchorOffsetY="0"
+	<baccarat:BettingTable id='bettingTable' width="800" height="600" anchorOffsetX="0" anchorOffsetY="0"
 	                         horizontalCenter="0" bottom="0" />
 	<baccarat:BetChipSet id='betChipSet' width="1000" height="50" y="526" horizontalCenter="0" />
-	<components:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
+	<baccarat:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
 	<baccarat:CountdownTimer id="countdownTimer" width="200" height="80" x="632" y="610" />
 	<e:Button id="confirmButton" label="Confirm" x="712" y="631" anchorOffsetX="0" width="88" anchorOffsetY="0" height="38" />
 	<e:Button id="cancelButton" label="Cancel" x="1284" y="631" anchorOffsetX="0" width="84" anchorOffsetY="0" height="38" />

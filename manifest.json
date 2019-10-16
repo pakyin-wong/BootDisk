@@ -29,7 +29,6 @@
 		"bin-debug/components/desktop/baccarat/BettingArea.js",
 		"bin-debug/components/desktop/baccarat/BettingTable.js",
 		"bin-debug/components/desktop/baccarat/BettingTableGrid.js",
-		"bin-debug/components/desktop/baccarat/Card.js",
 		"bin-debug/components/desktop/baccarat/CardHolder.js",
 		"bin-debug/components/desktop/baccarat/CountdownTimer.js",
 		"bin-debug/components/desktop/baccarat/IChipSet.js",
