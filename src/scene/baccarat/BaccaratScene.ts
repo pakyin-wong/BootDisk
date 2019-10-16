@@ -15,6 +15,14 @@ namespace scene {
       this.addChild(bettingArea);
     }
 
+    private addEventListeners() {
+      this.addEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+    }
+
+    private removeEventListeners() {
+      this.removeEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+    }
+
     public async onFadeEnter() {}
 
     public onExit() {
@@ -53,5 +61,11 @@ namespace scene {
     }
 
     protected socketConnectFail() {}
+
+    protected onTableInfoUpdate(data: any) {
+      const tableInfo = <TableInfo>data;
+
+      // TODO
+    }
   }
 }
