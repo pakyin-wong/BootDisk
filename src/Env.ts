@@ -20,7 +20,6 @@ class Env {
   };
   public tableInfo: TableInfo;
   public currentChipSelectedIndex: number = 10;
-  public currentChipSelectedValue: number = null;
 }
 
 let env: Env = Env.Instance;

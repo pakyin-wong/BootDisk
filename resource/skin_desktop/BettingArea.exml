@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BettingAreaSkin" width="2000" height="1300" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:baccarat="baccarat.*">
+	<components:BettingTable id='bettingTable' width="800" height="600" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" bottom="0"/>
+	<baccarat:BetChipSet id='betChipSet' width="1000" height="50" y="620" horizontalCenter="0"/>
+	<components:CardHolder id='cardHolder' width="1200" height="350" y="220" horizontalCenter="0"/>
+
+</e:Skin>

@@ -5,18 +5,21 @@ namespace baccarat {
 
     private chipList: Array<IBetChip & egret.DisplayObject> = [];
 
-    public constructor(denominationList: number[]) {
+    public constructor() {
       super();
-      this.currentDenomination = denominationList;
     }
 
     protected partAdded(partName: string, instance: any): void {
       super.partAdded(partName, instance);
     }
 
+    public setDenominationList(denominationList: number[]) {
+      this.currentDenomination = denominationList;
+      this.setChipSet(this.currentDenomination);
+    }
+
     protected childrenCreated(): void {
       super.childrenCreated();
-      this.setChipSet(this.currentDenomination);
     }
 
     public setChipSet(denominationList: number[]) {
@@ -66,7 +69,7 @@ namespace baccarat {
     }
 
     public onChipSelected(index: number) {
-      env.currentChipSelectedValue = this.chipList[index].getValue();
+      // env.currentChipSelectedValue = this.chipList[index].getValue();
 
       const prevSelectedIndex = env.currentChipSelectedIndex;
       this.chipList[prevSelectedIndex].highlight = false;

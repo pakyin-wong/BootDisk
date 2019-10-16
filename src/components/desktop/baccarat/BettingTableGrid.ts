@@ -27,11 +27,12 @@ namespace components {
     }
 
     public setUncfmBet() {
-      logger.l(
-        `setUncfmBet::currentChipSelectedValue ${env.currentChipSelectedValue}`
-      );
-      if (env.currentChipSelectedValue) {
-        this.cfmBet += env.currentChipSelectedValue;
+      if (
+        env.betLimits &&
+        env.betLimits.denominationList[env.currentChipSelectedIndex]
+      ) {
+        this.cfmBet +=
+          env.betLimits.denominationList[env.currentChipSelectedIndex];
         this.lblUncfmBet.text = this.cfmBet.toString();
       }
     }
