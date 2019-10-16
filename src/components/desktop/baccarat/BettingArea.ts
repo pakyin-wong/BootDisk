@@ -48,18 +48,8 @@ namespace baccarat {
       this.countdownTimer.remainingTime = 30000;
       this.countdownTimer.start();
 
-      this.confirmButton.addEventListener(
-        egret.TouchEvent.TOUCH_TAP,
-        this.onConfirmPressed,
-        this,
-        true
-      );
-      this.cancelButton.addEventListener(
-        egret.TouchEvent.TOUCH_TAP,
-        this.onCancelPressed,
-        this,
-        true
-      );
+      this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+      this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
       /*
       const cardHolder = new components.CardGame();

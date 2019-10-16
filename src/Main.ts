@@ -21,8 +21,8 @@ class Main extends eui.UILayer {
 
   private async init() {
     // step 1: init director elements (socket comm, controller, handler)
-    // dir.socket = new socket.MQTTSocketComm();
-    dir.socket = new socket.SockMock();
+    dir.socket = new socket.MQTTSocketComm();
+    // dir.socket = new socket.SockMock();
     dir.evtHandler = new handler.EventHandler();
     dir.errHandler = new handler.ErrorHandler();
     dir.layerCtr = new controller.LayerCtr(this.stage);
@@ -41,7 +41,7 @@ class Main extends eui.UILayer {
     try {
       await RES.loadConfig('resource/default.res.json', 'resource/');
       await this.loadTheme();
-      await RES.loadGroup('egret_basic');
+      await RES.loadGroup(enums.res.EgretBasic);
       await RES.loadGroup('common');
     } catch (e) {
       console.error(e);

@@ -1,6 +1,5 @@
 namespace baccarat {
-  export class BetChipSet extends eui.Component
-    implements eui.UIComponent, IBetChipSet {
+  export class BetChipSet extends eui.Component implements eui.UIComponent, IBetChipSet {
     private currentDenomination: number[];
 
     private chipList: Array<IBetChip & egret.DisplayObject> = [];
@@ -27,10 +26,7 @@ namespace baccarat {
       this.currentDenomination = denominationList;
 
       // check if the currentChipSelectedIndex exceed the denomination list length
-      env.currentChipSelectedIndex = Math.min(
-        denominationList.length - 1,
-        env.currentChipSelectedIndex
-      );
+      env.currentChipSelectedIndex = Math.min(denominationList.length - 1, env.currentChipSelectedIndex);
       const selectedIdx = env.currentChipSelectedIndex;
       this.clearChipList();
 
@@ -42,11 +38,7 @@ namespace baccarat {
         const betChip = new BetChip(value);
         this.addChild(betChip);
         const chipIdx = idx;
-        betChip.addEventListener(
-          egret.TouchEvent.TOUCH_TAP,
-          e => this.onChipSelected(chipIdx),
-          this
-        );
+        betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, e => this.onChipSelected(chipIdx), this);
         betChip.x = (betChip.width + 10) * idx;
         betChip.y = 0;
         if (selectedIdx === idx) {

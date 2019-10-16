@@ -5,7 +5,7 @@ class Director {
     return (this._director = this._director ? this._director : new Director());
   }
 
-  public socket: socket.SockMock;
+  public socket: socket.MQTTSocketComm;
   public evtHandler: handler.EventHandler;
   public errHandler: handler.ErrorHandler;
   public layerCtr: controller.LayerCtr;

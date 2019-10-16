@@ -51,19 +51,11 @@ namespace baccarat {
 
     public start() {
       this._previousFrameTime = egret.getTimer();
-      this.addEventListener(
-        egret.Event.ENTER_FRAME,
-        this.updateRemainingTime,
-        this
-      );
+      this.addEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
     }
 
     public stop() {
-      this.removeEventListener(
-        egret.Event.ENTER_FRAME,
-        this.updateRemainingTime,
-        this
-      );
+      this.removeEventListener(egret.Event.ENTER_FRAME, this.updateRemainingTime, this);
     }
   }
 }

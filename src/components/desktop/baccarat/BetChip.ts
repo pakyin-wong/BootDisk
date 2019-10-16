@@ -1,6 +1,5 @@
 namespace baccarat {
-  export class BetChip extends eui.Component
-    implements eui.UIComponent, IBetChip {
+  export class BetChip extends eui.Component implements eui.UIComponent, IBetChip {
     private value: number;
     private _highlight: boolean;
 
@@ -22,16 +21,7 @@ namespace baccarat {
       const quality: number = egret.BitmapFilterQuality.HIGH;
       const inner: boolean = false;
       const knockout: boolean = false;
-      this.glowFilter = new egret.GlowFilter(
-        color,
-        alpha,
-        blurX,
-        blurY,
-        strength,
-        quality,
-        inner,
-        knockout
-      );
+      this.glowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
       console.log('chip init');
     }
 

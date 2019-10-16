@@ -1,6 +1,5 @@
 namespace components {
-  export class RadialProgressIndicator extends eui.Component
-    implements eui.UIComponent {
+  export class RadialProgressIndicator extends eui.Component implements eui.UIComponent {
     private progressShape: egret.Shape;
 
     private _progress: number = 0;
@@ -35,10 +34,7 @@ namespace components {
 
     set progress(value: number) {
       this._progress = value;
-      if (
-        this.width !== this.progressShape.width ||
-        this.height !== this.progressShape.height
-      ) {
+      if (this.width !== this.progressShape.width || this.height !== this.progressShape.height) {
         this.progressShape.width = this.width;
         this.progressShape.height = this.height;
         this.computeMinSectionRatio();
@@ -104,18 +100,12 @@ namespace components {
     private updateProgressShape() {
       const graphics = this.progressShape.graphics;
       graphics.clear();
-      const color = utils.lerpColor(
-        this.endColor,
-        this.startColor,
-        this._progress
-      );
+      const color = utils.lerpColor(this.endColor, this.startColor, this._progress);
       graphics.lineStyle(this._thickness, color, 1);
       const isPerfectCircle = this.width === this.height;
 
       if (this.width < this.height) {
-        egret.error(
-          `RadialProgressIndicator's height must not greater than its width`
-        );
+        egret.error(`RadialProgressIndicator's height must not greater than its width`);
       }
 
       if (isPerfectCircle) {
@@ -132,80 +122,34 @@ namespace components {
         const b = this.height - this._thickness / 2;
         // s1
         if (this._progress > this.sectionRatios[0]) {
-          const deg =
-            270 -
-            90 * utils.getProportion(this._progress, this.sectionRatios[0], 1);
-          graphics.drawArc(
-            d,
-            d,
-            r,
-            utils.deg2rad(270),
-            utils.deg2rad(deg),
-            true
-          );
+          const deg = 270 - 90 * utils.getProportion(this._progress, this.sectionRatios[0], 1);
+          graphics.drawArc(d, d, r, utils.deg2rad(270), utils.deg2rad(deg), true);
         }
 
         // s2
         if (this._progress > this.sectionRatios[1]) {
-          const pos =
-            d2 -
-            (d2 - d) *
-              utils.getProportion(
-                this._progress,
-                this.sectionRatios[1],
-                this.sectionRatios[0]
-              );
+          const pos = d2 - (d2 - d) * utils.getProportion(this._progress, this.sectionRatios[1], this.sectionRatios[0]);
           graphics.moveTo(d2, t);
           graphics.lineTo(pos, t);
         }
 
         // s3
         if (this._progress > this.sectionRatios[2]) {
-          const deg =
-            90 -
-            180 *
-              utils.getProportion(
-                this._progress,
-                this.sectionRatios[2],
-                this.sectionRatios[1]
-              );
-          graphics.drawArc(
-            d2,
-            d,
-            r,
-            utils.deg2rad(90),
-            utils.deg2rad(deg),
-            true
-          );
+          const deg = 90 - 180 * utils.getProportion(this._progress, this.sectionRatios[2], this.sectionRatios[1]);
+          graphics.drawArc(d2, d, r, utils.deg2rad(90), utils.deg2rad(deg), true);
         }
 
         // s4
         if (this._progress > this.sectionRatios[3]) {
-          const pos =
-            d -
-            (d - d2) *
-              utils.getProportion(
-                this._progress,
-                this.sectionRatios[3],
-                this.sectionRatios[2]
-              );
+          const pos = d - (d - d2) * utils.getProportion(this._progress, this.sectionRatios[3], this.sectionRatios[2]);
           graphics.moveTo(d, b);
           graphics.lineTo(pos, b);
         }
 
         // s5
         if (this._progress > 0) {
-          const deg =
-            180 -
-            90 * utils.getProportion(this._progress, 0, this.sectionRatios[3]);
-          graphics.drawArc(
-            d,
-            d,
-            r,
-            utils.deg2rad(180),
-            utils.deg2rad(deg),
-            true
-          );
+          const deg = 180 - 90 * utils.getProportion(this._progress, 0, this.sectionRatios[3]);
+          graphics.drawArc(d, d, r, utils.deg2rad(180), utils.deg2rad(deg), true);
         }
       }
     }

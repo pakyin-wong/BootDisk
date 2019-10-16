@@ -19,26 +19,16 @@ namespace components {
     protected childrenCreated(): void {
       super.childrenCreated();
 
-      this.addEventListener(
-        egret.TouchEvent.TOUCH_BEGIN,
-        this.onTouchBegin,
-        this
-      );
+      this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
 
       // create dots
       this.imageVisible.source = this.images[this.currentIndex];
       this.imageVisible.width = 2560;
-      this.imageVisible.height =
-        2560 /
-        ((this.images[this.currentIndex] as egret.Texture).$bitmapWidth /
-          (this.images[this.currentIndex] as egret.Texture).$bitmapHeight);
+      this.imageVisible.height = 2560 / ((this.images[this.currentIndex] as egret.Texture).$bitmapWidth / (this.images[this.currentIndex] as egret.Texture).$bitmapHeight);
       this.imageVisible.y = (this.imageVisible.height - 600) / -2;
 
       this.imageInvisible.width = 2560;
-      this.imageInvisible.height =
-        2560 /
-        ((this.images[this.currentIndex] as egret.Texture).$bitmapWidth /
-          (this.images[this.currentIndex] as egret.Texture).$bitmapHeight);
+      this.imageInvisible.height = 2560 / ((this.images[this.currentIndex] as egret.Texture).$bitmapWidth / (this.images[this.currentIndex] as egret.Texture).$bitmapHeight);
       this.imageInvisible.y = (this.imageVisible.height - 600) / -2;
     }
 
@@ -46,11 +36,7 @@ namespace components {
 
     private onTouchBegin(event: egret.TouchEvent): void {
       this.initX = event.$stageX;
-      this.addEventListener(
-        egret.TouchEvent.TOUCH_MOVE,
-        this.onTouchMove,
-        this
-      );
+      this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
       this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
     }
 
@@ -59,16 +45,12 @@ namespace components {
       if (this.imageVisible.x > 0) {
         // invisible one to left (next)
         this.imageInvisible.x = this.imageVisible.x - 2560;
-        this.imageInvisible.source = this.images[
-          Math.abs((this.currentIndex - 1) % this.images.length)
-        ];
+        this.imageInvisible.source = this.images[Math.abs((this.currentIndex - 1) % this.images.length)];
         this.direction = 1;
       } else {
         // invisble one to right (prev)
         this.imageInvisible.x = this.imageVisible.x + 2560;
-        this.imageInvisible.source = this.images[
-          (this.currentIndex + 1) % this.images.length
-        ];
+        this.imageInvisible.source = this.images[(this.currentIndex + 1) % this.images.length];
         this.direction = -1;
       }
     }
@@ -93,25 +75,15 @@ namespace components {
         x: this.direction === -1 ? -2560 : 2560,
       });
       setTimeout(() => {
-        this.currentIndex = Math.abs(
-          (this.currentIndex + this.direction) % this.images.length
-        );
+        this.currentIndex = Math.abs((this.currentIndex + this.direction) % this.images.length);
         this.imageVisible.x = 0;
         this.imageVisible.source = this.images[this.currentIndex];
         this.imageInvisible.x = 2560;
       }, duration * 1000);
 
       const stage = event.$currentTarget;
-      stage.removeEventListener(
-        egret.TouchEvent.TOUCH_MOVE,
-        this.onTouchMove,
-        this
-      );
-      stage.removeEventListener(
-        egret.TouchEvent.TOUCH_END,
-        this.onTouchEnd,
-        this
-      );
+      stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+      stage.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
     }
   }
 }

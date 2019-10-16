@@ -32,12 +32,8 @@ namespace baccarat {
     }
 
     public setUncfmBet() {
-      if (
-        env.betLimits &&
-        env.betLimits.denominationList[env.currentChipSelectedIndex]
-      ) {
-        this.cfmBet +=
-          env.betLimits.denominationList[env.currentChipSelectedIndex];
+      if (env.betLimits && env.betLimits.denominationList[env.currentChipSelectedIndex]) {
+        this.cfmBet += env.betLimits.denominationList[env.currentChipSelectedIndex];
         this.lblUncfmBet.text = this.cfmBet.toString();
       }
     }
@@ -73,12 +69,7 @@ namespace baccarat {
       this.rect.graphics.drawRect(0, 0, this.width, this.height);
       this.rect.graphics.endFill();
       this.rect.graphics.beginFill(bgcolor);
-      this.rect.graphics.drawRect(
-        border,
-        border,
-        this.width - border * 2,
-        this.height - border * 2
-      );
+      this.rect.graphics.drawRect(border, border, this.width - border * 2, this.height - border * 2);
       this.rect.graphics.endFill();
 
       this.addChild(this.lblName);

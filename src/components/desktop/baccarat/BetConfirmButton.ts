@@ -1,6 +1,5 @@
 namespace baccarat {
-  export class BetConfirmButton extends eui.Component
-    implements eui.UIComponent {
+  export class BetConfirmButton extends eui.Component implements eui.UIComponent {
     public constructor() {
       super();
     }
