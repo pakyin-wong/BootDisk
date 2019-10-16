@@ -4,7 +4,7 @@ namespace scene {
     private _progressMsg: components.TextField;
 
     private step: number = 0;
-    private flow = [this.loadLoadingSceneRes, this.initSkin, this.socketConnect, this.auth, this.loadingComplete];
+    private flow = [this.preloadRes, this.initSkin, this.socketConnect, this.auth, this.idle, this.loadGeneralRes, this.loadingComplete];
 
     public onEnter() {
       this.mount();
@@ -13,7 +13,7 @@ namespace scene {
     public async onFadeEnter() {}
 
     public onExit() {
-      this.removeChildren();
+      this.skinName = null;
     }
 
     public async onFadeExit() {}
@@ -23,8 +23,8 @@ namespace scene {
       this.next();
     }
 
-    /** Step 1: Load Loading Scene Resource */
-    private async loadLoadingSceneRes() {
+    /** Step 1: Preload Loading Scene Resource */
+    private async preloadRes() {
       await RES.loadGroup(enums.res.Loading);
       this.next();
     }
@@ -36,26 +36,60 @@ namespace scene {
     }
 
     /** Step 3: Socket Connect */
-    private socketConnect() {
-      this._progressMsg.computed = () => `${i18n.t('loading.socket.connecting')} + static 語言`;
+    private async socketConnect() {
+      this._progressMsg.computed = () => `${i18n.t('loading.socket.connecting')}`;
       this._progressbar.minimum = 0;
       this._progressbar.maximum = 1;
       this._progressbar.value = 0;
 
-      dir.evtHandler.once(enums.mqtt.event.CONNECT_SUCCESS, this.next, this);
-      dir.evtHandler.once(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
-      dir.socket.connect();
+      // dir.evtHandler.once(enums.mqtt.event.CONNECT_SUCCESS, this.next, this);
+      // dir.evtHandler.once(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
+      // dir.socket.connect();
+
+      await sleep(1000);
+      this.next();
     }
 
     private socketConnectFail() {}
 
-    private auth() {}
+    /** Step 4: Auth and get user profiles */
+    private async auth() {
+      this._progressMsg.computed = () => `${i18n.t('loading.socket.auth')}`;
+      this._progressbar.minimum = 0;
+      this._progressbar.maximum = 1;
+      this._progressbar.value = 0;
 
-    // step 4: auth and get user profiles
+      await sleep(1000);
+      this.next();
+    }
 
-    // step 5: get and display tips, promote banner
+    // Step 5: Setup and display idle UI element (tips, promote banner...)
+    private idle() {
+      this.next();
+    }
 
     // step 6: load general resource (lobby, baccarat)
+    private async loadGeneralRes() {
+      RES.createGroup('firstRun', [enums.res.Lobby, enums.res.Baccarat]);
+      RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
+      this._progressMsg.computed = () => `${i18n.t('loading.res.onload')}`;
+      this._progressbar.minimum = 0;
+      this._progressbar.maximum = 0;
+      this._progressbar.value = 0;
+      await RES.loadGroup('firstRun');
+      RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
+
+      await sleep(1000);
+      this.next();
+    }
+
+    private onResourceProgress(event: RES.ResourceEvent) {
+      if (event.groupName === 'firstRun') {
+        this._progressbar.minimum = 0;
+        this._progressbar.maximum = event.itemsTotal;
+        this._progressbar.value = event.itemsLoaded;
+      }
+    }
 
     /** Last Step: All Loading Complete, switch to Lobby Scene */
     private loadingComplete() {
