@@ -65,6 +65,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetConfirmButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BettingAreaSkin extends eui.Skin{
 	}
 }
@@ -72,19 +76,17 @@ declare module skin_desktop{
 	class BettingTableSkin extends eui.Skin{
 	}
 }
-
 declare module skin_desktop{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
-
-declare class BetConfirmButtonSkin extends eui.Skin{
+declare module skin_desktop{
+	class CountdownTimerSkin extends eui.Skin{
+	}
 }
-declare class BettingTableSkin extends eui.Skin{
-}
-declare class CountdownTimerSkin extends eui.Skin{
-}
-declare class ImageSlider extends eui.Skin{
+declare module skin_desktop{
+	class ImageSlider extends eui.Skin{
+	}
 }
 declare module skin_desktop{
 	class LoadingScene extends eui.Skin{

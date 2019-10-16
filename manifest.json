@@ -15,7 +15,7 @@
 	],
 	"game": [
 		"bin-debug/scene/BaseScene.js",
-		"bin-debug/data/BetLimit.js",
+		"bin-debug/controller/SceneCtr.js",
 		"bin-debug/Logger.js",
 		"bin-debug/Main.js",
 		"bin-debug/comm/Socket.js",
@@ -29,20 +29,15 @@
 		"bin-debug/components/desktop/baccarat/BettingArea.js",
 		"bin-debug/components/desktop/baccarat/BettingTable.js",
 		"bin-debug/components/desktop/baccarat/BettingTableGrid.js",
-
 		"bin-debug/components/desktop/baccarat/Card.js",
 		"bin-debug/components/desktop/baccarat/CardHolder.js",
-
 		"bin-debug/components/desktop/baccarat/CountdownTimer.js",
-
 		"bin-debug/components/desktop/baccarat/IChipSet.js",
 		"bin-debug/controller/LayerCtr.js",
-		"bin-debug/controller/SceneCtr.js",
 		"bin-debug/Env.js",
+		"bin-debug/data/BetLimit.js",
 		"bin-debug/data/TableInfo.js",
-
 		"bin-debug/enums/card.js",
-
 		"bin-debug/enums/event.js",
 		"bin-debug/enums/lang.js",
 		"bin-debug/enums/mqtt.js",

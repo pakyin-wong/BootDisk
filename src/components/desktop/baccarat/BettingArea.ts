@@ -4,6 +4,9 @@ namespace components {
     private bettingTable: components.BettingTable;
     private betChipSet: baccarat.BetChipSet;
     private cardHolder: components.CardHolder;
+    private countdownTimer: baccarat.CountdownTimer;
+    private confirmButton: eui.Button;
+    private cancelButton: eui.Button;
 
     constructor() {
       super();
@@ -25,6 +28,23 @@ namespace components {
 
       console.log(env.betLimits.denominationList);
       this.betChipSet.setDenominationList(env.betLimits.denominationList);
+
+      this.countdownTimer.countdownValue = 30000;
+      this.countdownTimer.remainingTime = 30000;
+      this.countdownTimer.start();
+
+      this.confirmButton.addEventListener(
+        egret.TouchEvent.TOUCH_TAP,
+        this.onConfirmPressed,
+        this,
+        true
+      );
+      this.cancelButton.addEventListener(
+        egret.TouchEvent.TOUCH_TAP,
+        this.onCancelPressed,
+        this,
+        true
+      );
 
       /*
       const cardHolder = new components.CardGame();
@@ -48,6 +68,14 @@ namespace components {
       bettingTable.y = 600;
       this.addChild(bettingTable);
       */
+    }
+
+    private onConfirmPressed() {
+      egret.log('Confirm');
+    }
+
+    private onCancelPressed() {
+      egret.log('Cancel');
     }
   }
 }

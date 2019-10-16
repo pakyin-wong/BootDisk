@@ -1,7 +1,7 @@
 namespace baccarat {
   export class CountdownTimer extends eui.Component implements eui.UIComponent {
-    public progressIndicator: components.RadialProgressIndicator;
-    public countdownLabel: eui.Label;
+    private progressIndicator: components.RadialProgressIndicator;
+    private countdownLabel: eui.Label;
 
     private _countdownValue: number = 30000;
     private _remainingTime: number = 30000;
