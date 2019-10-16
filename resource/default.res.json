@@ -9,11 +9,11 @@
 			"name": "scene_loading"
 		},
 		{
-			"keys": "",
+			"keys": "scene_lobby_dummyImage",
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "",
+			"keys": "scene_baccarat_dummyImage",
 			"name": "scene_baccarat"
 		}
 	],
@@ -152,6 +152,16 @@
 			"url": "assets/Scene/loading/Computer-Tech-Wallpaper-09-2560x1440.jpg",
 			"type": "image",
 			"name": "scene_loading_bg"
+		},
+		{
+			"url": "assets/Scene/baccarat/1280x720.png",
+			"type": "image",
+			"name": "scene_baccarat_dummyImage"
+		},
+		{
+			"url": "assets/Scene/lobby/1280x720.png",
+			"type": "image",
+			"name": "scene_lobby_dummyImage"
 		}
 	]
 }
