@@ -1,3 +1,4 @@
+
 namespace components {
   export class BettingTableGrid extends eui.Component {
     private lblName: eui.Label;

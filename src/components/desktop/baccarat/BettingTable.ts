@@ -1,3 +1,4 @@
+
 namespace components {
   export class BettingTable extends eui.Component {
     private imgPlayerPair: components.BettingTableGrid;

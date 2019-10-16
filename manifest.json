@@ -20,21 +20,29 @@
 		"bin-debug/Main.js",
 		"bin-debug/comm/Socket.js",
 		"bin-debug/components/common/ImageSlider.js",
+		"bin-debug/components/common/RadialProgressIndicator.js",
 		"bin-debug/components/common/Scroller.js",
 		"bin-debug/components/desktop/NavBar.js",
 		"bin-debug/components/desktop/baccarat/BetChip.js",
 		"bin-debug/components/desktop/baccarat/BetChipSet.js",
+		"bin-debug/components/desktop/baccarat/BetConfirmButton.js",
 		"bin-debug/components/desktop/baccarat/BettingArea.js",
 		"bin-debug/components/desktop/baccarat/BettingTable.js",
 		"bin-debug/components/desktop/baccarat/BettingTableGrid.js",
+
 		"bin-debug/components/desktop/baccarat/Card.js",
 		"bin-debug/components/desktop/baccarat/CardHolder.js",
+
+		"bin-debug/components/desktop/baccarat/CountdownTimer.js",
+
 		"bin-debug/components/desktop/baccarat/IChipSet.js",
 		"bin-debug/controller/LayerCtr.js",
 		"bin-debug/controller/SceneCtr.js",
 		"bin-debug/Env.js",
 		"bin-debug/data/TableInfo.js",
+
 		"bin-debug/enums/card.js",
+
 		"bin-debug/enums/event.js",
 		"bin-debug/enums/lang.js",
 		"bin-debug/enums/mqtt.js",
@@ -46,6 +54,7 @@
 		"bin-debug/scene/loading/LoadingScene.js",
 		"bin-debug/scene/lobby/LobbyScene.js",
 		"bin-debug/utils/AssetAdapter.js",
+		"bin-debug/utils/computation.js",
 		"bin-debug/utils/evt.js",
 		"bin-debug/utils/lang.js",
 		"bin-debug/utils/obj.js",
