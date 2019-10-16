@@ -18,6 +18,14 @@ namespace components {
       bettingTable.x = 0;
       bettingTable.y = 200;
       this.addChild(bettingTable);
+
+      const countdownTimer = new baccarat.CountdownTimer();
+      countdownTimer.x = 550;
+      countdownTimer.y = 0;
+      this.addChild(countdownTimer);
+      countdownTimer.countdownValue = 30000;
+      countdownTimer.remainingTime = 30000;
+      countdownTimer.start();
     }
   }
 }

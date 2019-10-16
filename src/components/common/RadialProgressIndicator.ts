@@ -14,6 +14,10 @@ namespace components {
 
     public constructor() {
       super();
+      this.progressShape = new egret.Shape();
+      this.progressShape.width = this.width;
+      this.progressShape.height = this.height;
+      this.addChild(this.progressShape);
     }
 
     protected partAdded(partName: string, instance: any): void {
@@ -22,10 +26,6 @@ namespace components {
 
     protected childrenCreated(): void {
       super.childrenCreated();
-      this.progressShape = new egret.Shape();
-      this.progressShape.width = this.width;
-      this.progressShape.height = this.height;
-      this.addChild(this.progressShape);
       this.progress = this._progress;
     }
 
@@ -35,6 +35,14 @@ namespace components {
 
     set progress(value: number) {
       this._progress = value;
+      if (
+        this.width !== this.progressShape.width ||
+        this.height !== this.progressShape.height
+      ) {
+        this.progressShape.width = this.width;
+        this.progressShape.height = this.height;
+        this.computeMinSectionRatio();
+      }
       this.updateProgressShape();
     }
 
