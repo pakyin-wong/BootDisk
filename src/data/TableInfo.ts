@@ -16,5 +16,5 @@ class TableInfo {
       isWin: number;
     }
   ];
-  public gameData: { RESULT_DATA };
+  public gameData: {};
 }

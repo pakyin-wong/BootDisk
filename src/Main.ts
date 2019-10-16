@@ -41,6 +41,7 @@ class Main extends eui.UILayer {
       await RES.loadConfig('resource/default.res.json', 'resource/');
       await this.loadTheme();
       await RES.loadGroup('egret_basic');
+      await RES.loadGroup('common');
     } catch (e) {
       console.error(e);
     }

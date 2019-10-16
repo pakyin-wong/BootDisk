@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="BettingTableSkin" width="800" height="600" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" states="Baccarat-Normal,Baccarat-SuperSix">
+<e:Skin class="skin_desktop.BettingTableSkin" width="800" height="600" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="Baccarat-Normal">
     <w:Config id="16daef051fd"></w:Config>
-    <e:Component id="imgPlayerPair" includeIn="Baccarat-Normal,Baccarat-SuperSix" x="0" y="300" anchorOffsetX="0"
+    <components:BettingTableGrid  id="imgPlayerPair" includeIn="Baccarat-Normal" x="0" y="300" anchorOffsetX="0"
              width="400" anchorOffsetY="0" height="300"  y.Baccarat-Normal="298.67"/>
-    <e:Component id="imgBankerPair" includeIn="Baccarat-Normal,Baccarat-SuperSix" x="400" y="300" anchorOffsetX="0"
+    <components:BettingTableGrid  id="imgBankerPair" includeIn="Baccarat-Normal" x="400" y="300" anchorOffsetX="0"
              width="400" anchorOffsetY="0" height="300" />
-    <e:Component id="imgPlayerNormal" includeIn="Baccarat-Normal" x="0" y="0" anchorOffsetX="0" width="266"
-             anchorOffsetY="0" height="300" y.Baccarat-Normal="0" >
-			<e:skinName>
-				<e:Skin states="up,down,disabled"/>
-			</e:skinName>
-		</e:Component>
-    <e:Component id="imgTieNormal" includeIn="Baccarat-Normal" x="267" y="0" anchorOffsetX="0" width="267" anchorOffsetY="0"
+             
+    <components:BettingTableGrid  id="imgPlayerNormal" includeIn="Baccarat-Normal" x="0" y="0" anchorOffsetX="0" width="266"
+             anchorOffsetY="0" height="300" y.Baccarat-Normal="0" />
+
+
+    <components:BettingTableGrid  id="imgTieNormal" includeIn="Baccarat-Normal" x="267" y="0" anchorOffsetX="0" width="267" anchorOffsetY="0"
              height="300" x.Baccarat-Normal="266" y.Baccarat-Normal="0" />
-    <e:Component id="imgBankerNormal" includeIn="Baccarat-Normal" x="532" y="0" anchorOffsetX="0" width="267"
+    <components:BettingTableGrid  id="imgBankerNormal" includeIn="Baccarat-Normal" x="532" y="0" anchorOffsetX="0" width="267"
              anchorOffsetY="0" height="300" x.Baccarat-Normal="534" y.Baccarat-Normal="0" />
+
 </e:Skin>

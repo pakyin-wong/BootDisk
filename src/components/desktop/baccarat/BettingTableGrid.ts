@@ -1,3 +1,4 @@
+
 namespace components {
   export class BettingTableGrid extends eui.Component {
     private lblName: eui.Label;
@@ -20,7 +21,6 @@ namespace components {
       this.addEventListener(
         egret.TouchEvent.TOUCH_TAP,
         function() {
-          console.log('touch_tap');
           this.setUncfmBet();
         },
         this
@@ -28,11 +28,12 @@ namespace components {
     }
 
     public setUncfmBet() {
-      logger.l(
-        `setUncfmBet::currentChipSelectedValue ${env.currentChipSelectedValue}`
-      );
-      if (env.currentChipSelectedValue) {
-        this.cfmBet += env.currentChipSelectedValue;
+      if (
+        env.betLimits &&
+        env.betLimits.denominationList[env.currentChipSelectedIndex]
+      ) {
+        this.cfmBet +=
+          env.betLimits.denominationList[env.currentChipSelectedIndex];
         this.lblUncfmBet.text = this.cfmBet.toString();
       }
     }
@@ -76,9 +77,9 @@ namespace components {
       this.lblName.textColor = textcolor;
 
       this.addChild(this.lblUncfmBet);
-      // this.setUncfmBet();
+      this.setUncfmBet();
       this.lblUncfmBet.bottom = 20;
-      this.lblUncfmBet.right = 20;
+      this.lblUncfmBet.left = 20;
     }
   }
 }
