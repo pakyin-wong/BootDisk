@@ -23,8 +23,8 @@ namespace baccarat {
         egret.Event.CHANGE,
         () => {
           this.invalidateState();
-          console.log('this.width: ', this.gridBanker.width);
-          setTimeout(() => this.changeMethod('ok'), 200);
+          // console.log('this.width: ', this.gridBanker.width);
+          // setTimeout(() => this.changeMethod('ok'), 200);
         },
         this
       );
