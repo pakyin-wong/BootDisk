@@ -13,6 +13,10 @@ namespace scene {
     private tableInfo: TableInfo;
     private gameData: baccarat.GameData;
 
+    public setTableID(tableID: number) {
+      this.tableID = tableID;
+    }
+
     public onEnter() {
       this.mount();
       this.bettingArea = new baccarat.BettingArea();
@@ -21,14 +25,16 @@ namespace scene {
       this.bettingArea.horizontalCenter = 0;
       this.bettingArea.bottom = 0;
       this.addChild(this.bettingArea);
+      this.addEventListeners();
+      dir.socket.enterTable(2);
     }
 
     private addEventListeners() {
-      this.addEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+      dir.evtHandler.addEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
     }
 
     private removeEventListeners() {
-      this.removeEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+      dir.evtHandler.removeEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
     }
 
     public async onFadeEnter() {}
@@ -52,11 +58,7 @@ namespace scene {
       // this.socketConnect();
     }
 
-    protected socketConnect() {
-      // dir.evtHandler.addEventListener(enums.mqtt.event.CONNECT_SUCCESS, this.socketConnectSuccess, this);
-      // dir.evtHandler.addEventListener(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
-      // dir.socket.connect();
-    }
+    protected socketConnect() {}
 
     protected socketConnectSuccess() {
       // dir.evtHandler.removeEventListener(enums.mqtt.event.CONNECT_SUCCESS, this.socketConnectSuccess, this);
@@ -71,12 +73,18 @@ namespace scene {
     protected socketConnectFail() {}
 
     protected onTableInfoUpdate(data: any) {
-      this.tableInfo = <TableInfo>data;
+      console.log('Baccarat listener');
+      this.tableInfo = <TableInfo> data;
       if (this.tableInfo.tableID === this.tableID) {
         // update the scene
-        this.gameData = <baccarat.GameData>this.tableInfo.gameData;
+        this.gameData = <baccarat.GameData> this.tableInfo.gameData;
         this.bettingArea.onTableInfoUpdate(this.tableInfo);
+        this.updateEnv(this.tableInfo);
       }
+    }
+
+    protected updateEnv(tableInfo: TableInfo) {
+      env.tableInfo[tableInfo.tableID] = tableInfo;
     }
   }
 }

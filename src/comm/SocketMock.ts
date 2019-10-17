@@ -1,5 +1,19 @@
 namespace socket {
-  export class SockMock {
+  export class SocketMock {
+    private _counter: number = 0;
+    private _proceedGetTableList: boolean = false;
+    private _proceedGetTableInfo: boolean = false;
+    private _sleepCounter = {
+      tableInfoListInternal: 0,
+      tableInfoList: 0,
+      baccaratInternal: 0,
+      baccarat: 0,
+    };
+    private _sleepCounterReset = {
+      tableInfoList: false,
+      baccarat: false,
+    };
+
     constructor() {}
 
     public connect() {
@@ -7,13 +21,59 @@ namespace socket {
       /// this.client.connect();
     }
 
-    public enterTable() {}
+    public enterTable(tableID: number) {
+      this._sleepCounter.tableInfoList = setTimeout(() => {
+        const data = new TableInfo();
+        data.tableID = 2;
+        data.tableState = enums.TableState.ONLINE;
+        data.gameType = enums.GameType.BAC;
+        const gameData = new baccarat.GameData();
+        gameData.gameState = enums.baccarat.GameState.BET;
+        gameData.roundID = 1;
+        gameData.startTime = new Date().setSeconds(29);
+        gameData.timer = new Date().setSeconds(29);
 
-    public leaveTable() {}
+        data.gameData = gameData;
+        console.log('enterTable dispatch');
+        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+        this.sleep(2900, 'tableInfoListInternal');
 
-    public getTableList(filter: number) {}
+        data.tableID = 2;
+        data.tableState = enums.TableState.ONLINE;
+        data.gameType = enums.GameType.BAC;
+        gameData.gameState = enums.baccarat.GameState.BET;
+        gameData.roundID = 1;
+        gameData.startTime = new Date().setSeconds(29);
+        gameData.timer = new Date().setSeconds(29);
+        data.gameData = gameData;
+        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      });
+    }
 
-    public getTableInfo() {}
+    public leaveTable(tableID: number) {}
+
+    public resetCounter(counter: string) {
+      Object.keys(this._sleepCounter).map(value => {
+        if (value.indexOf(counter) !== -1) {
+          clearTimeout(this._sleepCounter[value]);
+        }
+      });
+    }
+
+    public counterReset(counter: string) {}
+
+    public getTableList(filter: number) {
+      this._sleepCounter.tableInfoList = setTimeout(() => {
+        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, {});
+        this.sleep(3000, 'tableInfoListInternal');
+      });
+    }
+
+    public async sleep(ms, sleepCounter: string) {
+      return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
+    }
+
+    public async getTableInfo() {}
 
     public bet() {}
 

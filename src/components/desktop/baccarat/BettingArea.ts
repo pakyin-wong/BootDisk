@@ -51,9 +51,11 @@ namespace baccarat {
 
     private onCancelPressed() {
       egret.log('Cancel');
+      this.bettingTable.cancelBet();
     }
 
     public onTableInfoUpdate(tableInfo: TableInfo) {
+      console.log('BettingArea listener');
       this.gameData = <GameData>tableInfo.gameData;
       this.betDetails = tableInfo.betDetails;
     }
@@ -87,7 +89,9 @@ namespace baccarat {
 
         // hide cardHolder
         this.cardHolder.visible = false;
-
+        this.countdownTimer.countdownValue = 29000;
+        this.countdownTimer.remainingTime = 27000;
+        this.countdownTimer.start();
         // show the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(true);
       }
