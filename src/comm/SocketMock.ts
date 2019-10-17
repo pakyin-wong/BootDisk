@@ -1,5 +1,6 @@
 namespace socket {
-  export class SocketMock {
+  export class SocketMock implements ISocket {
+    public client: TestClient;
     private _counter: number = 0;
     private _proceedGetTableList: boolean = false;
     private _proceedGetTableInfo: boolean = false;
@@ -54,7 +55,7 @@ namespace socket {
 
     public getTableList(filter: number) {
       this._sleepCounter.tableInfoList = setTimeout(() => {
-        dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, '');
+        dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, [2]);
         this.sleep(3000, 'tableInfoListInternal');
       });
     }

@@ -6,7 +6,7 @@ class Director {
   }
 
   // public socket: socket.MQTTSocketComm;
-  public socket: socket.SocketMock;
+  public socket: socket.ISocket;
   public evtHandler: handler.EventHandler;
   public errHandler: handler.ErrorHandler;
   public layerCtr: controller.LayerCtr;

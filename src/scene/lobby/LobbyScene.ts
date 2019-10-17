@@ -15,7 +15,7 @@ namespace scene {
 
       dir.layerCtr.nav.addChild(new components.NavBar());
       console.log('Enter Table');
-
+      dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, [2]);
       dir.sceneCtr.goto('BaccaratScene');
     }
 

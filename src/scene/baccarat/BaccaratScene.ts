@@ -72,9 +72,9 @@ namespace scene {
 
     protected socketConnectFail() {}
 
-    protected onTableInfoUpdate(data: any) {
+    protected onTableInfoUpdate(evt: egret.Event) {
       console.log('Baccarat listener');
-      this.tableInfo = <TableInfo>data;
+      this.tableInfo = <TableInfo>evt.data;
       if (this.tableInfo.tableID === this.tableID) {
         // update the scene
         this.gameData = <baccarat.GameData>this.tableInfo.gameData;

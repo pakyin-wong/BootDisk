@@ -1,6 +1,6 @@
-class BetLimit {
-  public currency: string;
-  public upper: number;
-  public lower: number;
-  public denominationList: [number];
+class BetDetail {
+  public field: string;
+  public amount: number;
+  public winAmount: number;
+  public isWin: number;
 }
