@@ -23,15 +23,18 @@ namespace baccarat {
         egret.Event.CHANGE,
         () => {
           this.invalidateState();
-          // console.log('this.width: ', this.gridBanker.width);
-          // setTimeout(() => this.changeMethod('ok'), 200);
         },
         this
       );
     }
 
     protected getCurrentState() {
-      return this.switchSuperSix.selected ? 'SuperSix' : 'Normal';
+      if (this.switchSuperSix.selected) {
+        return 'SuperSix';
+      } else {
+        this.gridSuperSix.setUncfmBet(0);
+        return 'Normal';
+      }
     }
 
     protected changeMethod(method: string) {
@@ -74,6 +77,18 @@ namespace baccarat {
           this.lblNoComm.text = 'No Comission';
           break;
       }
+    }
+    public cancelBet() {
+      this.gridTie.cancelBet();
+      this.gridBanker.cancelBet();
+      this.gridPlayer.cancelBet();
+      this.gridPlayerPair.cancelBet();
+      this.gridBankerPair.cancelBet();
+      this.gridSuperSix.cancelBet();
+    }
+
+    public onTableInfoUpdate(tableInfo: TableInfo) {
+      // if game cancelled or modified, please do something here
     }
   }
 }

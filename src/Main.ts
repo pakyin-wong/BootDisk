@@ -21,8 +21,8 @@ class Main extends eui.UILayer {
 
   private async init() {
     // step 1: init director elements (socket comm, controller, handler)
-    dir.socket = new socket.MQTTSocketComm();
-    // dir.socket = new socket.SockMock();
+    // dir.socket = new socket.MQTTSocketComm();
+    dir.socket = new socket.SocketMock();
     dir.evtHandler = new handler.EventHandler();
     dir.errHandler = new handler.ErrorHandler();
     dir.layerCtr = new controller.LayerCtr(this.stage);

@@ -4,20 +4,20 @@ namespace baccarat {
     private rect: egret.Shape;
     private lblUncfmBet: eui.Label;
     private lblCfmBet: eui.Label;
-    private cfmBet: number;
-    private uncfmBet: number;
+    private _cfmBet: number;
+    private _uncfmBet: number;
 
-    private border: number = 10;
-    private textColor: number = 0xffffff;
-    private bgColor: number = 0x000000;
+    private _border: number = 10;
+    private _textColor: number = 0xffffff;
+    private _bgColor: number = 0x000000;
 
     constructor() {
       super();
       this.lblName = new eui.Label();
       this.lblUncfmBet = new eui.Label();
       this.lblCfmBet = new eui.Label();
-      this.cfmBet = 0;
-      this.uncfmBet = 0;
+      this._cfmBet = 0;
+      this._uncfmBet = 0;
     }
 
     protected childrenCreated() {
@@ -25,17 +25,15 @@ namespace baccarat {
       this.addEventListener(
         egret.TouchEvent.TOUCH_TAP,
         function() {
-          this.setUncfmBet();
+          this.setUncfmBet(this._uncfmBet + env.betLimits.denominationList[env.currentChipSelectedIndex]);
         },
         this
       );
     }
 
-    public setUncfmBet() {
-      if (env.betLimits && env.betLimits.denominationList[env.currentChipSelectedIndex]) {
-        this.cfmBet += env.betLimits.denominationList[env.currentChipSelectedIndex];
-        this.lblUncfmBet.text = this.cfmBet.toString();
-      }
+    public setUncfmBet(amount: number): void {
+      this._uncfmBet = amount;
+      this.lblUncfmBet.text = this._uncfmBet.toString();
     }
 
     public setSize(width: number, height: number) {
@@ -51,7 +49,15 @@ namespace baccarat {
 
     public $setWidth(num: number) {
       super.$setWidth(num);
-      this.setStyle(this.border, this.textColor, this.bgColor);
+      this.setStyle(this._border, this._textColor, this._bgColor);
+    }
+
+    public cancelBet(): void {
+      this.setUncfmBet(0);
+    }
+
+    public getUncfmBet(): number {
+      return this._uncfmBet;
     }
 
     public setStyle(border: number, textcolor: number, bgcolor: number) {
@@ -80,7 +86,7 @@ namespace baccarat {
       this.lblName.textColor = textcolor;
 
       this.addChild(this.lblUncfmBet);
-      this.setUncfmBet();
+      this.setUncfmBet(0);
       this.lblUncfmBet.bottom = 20;
       this.lblUncfmBet.left = 20;
     }

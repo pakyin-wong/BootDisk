@@ -14,6 +14,8 @@ namespace scene {
       this.addChild(this.video);
 
       dir.layerCtr.nav.addChild(new components.NavBar());
+      console.log('Enter Table');
+
       dir.sceneCtr.goto('BaccaratScene');
     }
 

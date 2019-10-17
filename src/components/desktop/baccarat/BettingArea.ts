@@ -20,6 +20,9 @@ namespace baccarat {
     protected updateGame() {
       switch (this.gameData.gameState) {
         case enums.baccarat.GameState.BET:
+          this.countdownTimer.countdownValue = 29000;
+          this.countdownTimer.remainingTime = 27000;
+          this.countdownTimer.start();
           break;
         case enums.baccarat.GameState.DEAL:
           break;
@@ -57,29 +60,6 @@ namespace baccarat {
 
       this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
       this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
-
-      /*
-      const cardHolder = new components.CardGame();
-      cardGame.x = 0;
-      cardGame.y = 0;
-      this.addChild(cardGame);
-
-*/
-      /*
-      const denominationList = [1, 2, 5, 10, 50, 100];
-      const chipSet: baccarat.BetChipSet = new baccarat.BetChipSet(
-        denominationList
-      );
-      chipSet.x = 0;
-      chipSet.y = 400;
-      this.addChild(chipSet);
-      */
-      /*
-      const bettingTable = new components.BettingTable();
-      bettingTable.x = 0;
-      bettingTable.y = 600;
-      this.addChild(bettingTable);
-      */
     }
 
     private onConfirmPressed() {
@@ -88,10 +68,15 @@ namespace baccarat {
 
     private onCancelPressed() {
       egret.log('Cancel');
+      this.bettingTable.cancelBet();
     }
 
     public onTableInfoUpdate(tableInfo: TableInfo) {
+      console.log('BettingArea listener');
       this.gameData = <GameData>tableInfo.gameData;
+      this.bettingTable.onTableInfoUpdate(tableInfo);
+
+      this.updateGame();
     }
   }
 }
