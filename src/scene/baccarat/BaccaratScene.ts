@@ -74,17 +74,23 @@ namespace scene {
 
     protected onTableInfoUpdate(data: any) {
       console.log('Baccarat listener');
-      this.tableInfo = <TableInfo> data;
+      this.tableInfo = <TableInfo>data;
       if (this.tableInfo.tableID === this.tableID) {
         // update the scene
-        this.gameData = <baccarat.GameData> this.tableInfo.gameData;
+        this.gameData = <baccarat.GameData>this.tableInfo.gameData;
         this.bettingArea.onTableInfoUpdate(this.tableInfo);
         this.updateEnv(this.tableInfo);
       }
     }
 
     protected updateEnv(tableInfo: TableInfo) {
-      env.tableInfo[tableInfo.tableID] = tableInfo;
+      if (env.tableInfo) {
+        env.tableInfo.map((value, index) => {
+          if (value.tableID === tableInfo.tableID) {
+            env.tableInfo[index] = tableInfo;
+          }
+        });
+      }
     }
   }
 }

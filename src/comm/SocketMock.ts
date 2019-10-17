@@ -52,25 +52,11 @@ namespace socket {
 
     public leaveTable(tableID: number) {}
 
-    public resetCounter(counter: string) {
-      Object.keys(this._sleepCounter).map(value => {
-        if (value.indexOf(counter) !== -1) {
-          clearTimeout(this._sleepCounter[value]);
-        }
-      });
-    }
-
-    public counterReset(counter: string) {}
-
     public getTableList(filter: number) {
       this._sleepCounter.tableInfoList = setTimeout(() => {
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, {});
+        dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, '');
         this.sleep(3000, 'tableInfoListInternal');
       });
-    }
-
-    public async sleep(ms, sleepCounter: string) {
-      return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
     }
 
     public async getTableInfo() {}
@@ -83,6 +69,19 @@ namespace socket {
       // switch res event / error to handler
 
       // hard code connect success event
+    }
+    private resetCounter(counter: string) {
+      Object.keys(this._sleepCounter).map(value => {
+        if (value.indexOf(counter) !== -1) {
+          clearTimeout(this._sleepCounter[value]);
+        }
+      });
+    }
+
+    private counterReset(counter: string) {}
+
+    private async sleep(ms, sleepCounter: string) {
+      return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
     }
   }
 }
