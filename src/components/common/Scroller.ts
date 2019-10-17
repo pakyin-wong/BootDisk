@@ -7,8 +7,8 @@ namespace components {
     public constructor() {
       super();
 
-      this.addEventListener(egret.Event.ADDED_TO_STAGE, this.doInit, this);
-      this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.doRelease, this);
+      this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
+      this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
     }
 
     private throttle(func: any, wait: number, options: any = {}) {
@@ -52,13 +52,19 @@ namespace components {
 
     public childrenCreated(): void {
       super.childrenCreated();
-      this.verticalScrollBar.width = 50;
+      // disable drag
+      this.scrollPolicyV = eui.ScrollPolicy.OFF;
+      this.scrollPolicyH = eui.ScrollPolicy.OFF;
+      this.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
       this.verticalScrollBar.autoVisibility = false;
       this.verticalScrollBar.visible = true;
+      this.verticalScrollBar.touchEnabled = true;
+      //   this.bounces = false;
+      this.throwSpeed = Infinity;
     }
 
-    private doInit() {
-      this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.doInit, this);
+    private onMount() {
+      this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
 
       // init viewport
       const list = new eui.List();
@@ -67,117 +73,117 @@ namespace components {
       //   this._scroller.percentWidth = 100;
       // this._scroller.horizontalCenter = true;
       this.viewport = list;
+      // wait viewport ready
+      window.requestAnimationFrame(() => {
+        this.viewport.scrollV = 1;
+      });
 
-      // this.addEventListener(mouse.MouseEvent.WHEEL,this.onMouseWheel,this);
-      //   this.dispatchEventWith(egret.TouchEvent.TOUCH_TAP, true);
+      // add mouse over/out listeners
+      this.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
+      this.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
+
+      // add scroll bar listeners
+      this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
+      this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
+    }
+
+    private onUnmount() {
+      this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
+
+      // remove mouse over/out listeners
+      this.removeEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
+      this.removeEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
+
+      // remove scroll bar listeners
+      this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
+      this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
+    }
+
+    private _firstYForMovement = 0;
+    private _initProgress = 0;
+
+    private onThumbBegin(event: egret.TouchEvent) {
+      if (!this.verticalScrollBar.thumb.hitTestPoint(event.stageX, event.stageY)) {
+        // only draggable if click on thumb
+        return;
+      }
+      (<any>window).addEventListener('mousemove', this.onMouseMove, { passive: false });
+      (<any>window).addEventListener('mouseup', this.onMouseUp, { passive: false });
+      const viewHeight = this.viewport.contentHeight - this.height;
+      this._initProgress = this.viewport.scrollV / viewHeight;
+    }
+
+    private onMouseMove = (event: MouseEvent) => {
+      if (!this._firstYForMovement) {
+        this._firstYForMovement = event.pageY;
+        return;
+      }
+      const diffY = ((event.pageY - this._firstYForMovement) / egret.sys.DisplayList.$canvasScaleY) * egret.sys.DisplayList.$canvasScaleFactor;
+      let progress = this._initProgress + diffY / (this.verticalScrollBar.height - this.verticalScrollBar.thumb.height);
+      progress = Math.min(Math.max(progress, 0), 1);
+      const viewHeight = this.viewport.contentHeight - this.height;
+      this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
+    };
+
+    private onMouseUp = (event: MouseEvent) => {
+      (<any>window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
+      (<any>window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
+      this._firstYForMovement = 0;
+    };
+
+    private onThumbEnd = (event: egret.TouchEvent) => {
+      if (this._firstYForMovement !== 0) {
+        // don't jump to click area if dragged
+        return;
+      }
+      let progress = (event.localY - this.verticalScrollBar.thumb.height / 2) / (this.verticalScrollBar.height - this.verticalScrollBar.thumb.height);
+      progress = Math.min(Math.max(progress, 0), 1);
+      const viewHeight = this.viewport.contentHeight - this.height;
+      this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
+    };
+
+    private onMouseOver() {
       (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
-      //   this.addEventListener('mousewheel', this.onMouseWheel, this);
-
-      this.verticalScrollBar.touchEnabled = true;
-      this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbEvent, this);
-      // GameLayerManager.Instance.sceneLayer.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onThumbDrag,this);
-      // GameLayerManager.Instance.upperLayer.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onThumbDrag,this);
-      this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEvent, this);
-      this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onThumbEvent, this);
-      // this.addEventListener(egret.TouchEvent.TOUCH_TAP,() => { console.log(this.viewport.scrollV); console.log(this.viewport.contentHeight); console.log(this);},this);
     }
 
-    private doRelease() {
-      this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.doRelease, this);
-      // this.removeEventListener(mouse.MouseEvent.WHEEL,this.onMouseWheel,this);
-      //   this.addEventListener('mousewheel', this.onMouseWheel, this);
-
-      this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbEvent, this);
-      // GameLayerManager.Instance.sceneLayer.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onThumbDrag,this);
-      // GameLayerManager.Instance.upperLayer.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.onThumbDrag,this);
-      this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEvent, this);
-      this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onThumbEvent, this);
+    private onMouseOut() {
+      (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
     }
 
-    private onThumbEvent(evt: egret.TouchEvent) {
-      this.drag = evt.type === egret.TouchEvent.TOUCH_BEGIN;
-      const bar_height = this.verticalScrollBar.height;
-      const view_height = this.viewport.contentHeight - this.height;
-      const pos = evt.localY / bar_height;
-      if (this.drag) {
-        this.viewport.scrollV = view_height * pos;
-        this.startSV = this.viewport.scrollV;
-        this.startStageY = evt.stageY;
-      }
-    }
+    public _prevDeltaY = 0;
+    public _stopTimeout = null;
 
-    private onThumbDrag(evt: egret.TouchEvent) {
-      if (this.drag) {
-        const bar_height = this.verticalScrollBar.height - this.verticalScrollBar.thumb.height;
-        const view_height = this.viewport.contentHeight - this.height;
-        const rate = view_height / bar_height;
-        const diff = evt.stageY - this.startStageY;
-        this.viewport.scrollV = this.startSV + diff * rate;
-
-        if (this.viewport.scrollV < 0) {
-          this.viewport.scrollV = 0;
-        }
-        if (this.viewport.scrollV > this.viewport.contentHeight - this.height) {
-          this.viewport.scrollV = this.viewport.contentHeight - this.height;
-        }
-
-        this.startSV = this.viewport.scrollV;
-        this.startStageY = evt.stageY;
-      }
-    }
-
-    public _timeout = null;
-
-    private onMouseWheel = (event: WheelEvent) => {
+    private onMouseWheel = this.throttle((event: WheelEvent) => {
       event.preventDefault();
       try {
-        // if (this._ch > 50) {
-        //   return;
-        // }
+        const viewHeight = this.viewport.contentHeight - this.height;
+        this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, this.viewport.scrollV + event.deltaY));
 
-        // if (this._doNothing) {
-        //   return;
-        // }
-        // if (this.viewport.scrollV < -250 || this.viewport.scrollV > this.viewport.contentHeight + 250) {
-        //   this.viewport.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_END, true, true, 0, 0));
-        //   this._doNothing = true;
-        //   clearTimeout(this._waitStopLock);
-        //   this._waitStopLock = setTimeout(() => {
-        //     this._doNothing = false;
-        //   }, 999);
-        //   return;
-        // }
-
+        // for bounce if this.scrollPolicyV = eui.ScrollPolicy.ON | AUTO;
+        /*
         this.viewport.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_BEGIN, true, true, 0, 0));
-        const currentPos = Math.max(0, Math.min(this.viewport.contentHeight - this.height, this.viewport.scrollV + event.deltaY));
-        const bounceThreshold = 400;
-        if (currentPos === 0 || currentPos === this.viewport.contentHeight - this.height) {
-          clearTimeout(this._timeout);
-          this._timeout = setTimeout(() => {
-            if (currentPos === 0) {
-              this.viewport.scrollV = 0;
-            } else {
-              this.viewport.scrollV = this.viewport.contentHeight - this.height;
-            }
-            const adj = Math.min(bounceThreshold, Math.max(-bounceThreshold, event.deltaY));
-            this.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_MOVE, true, true, 0, -adj));
-            this.viewport.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_END, true, true, 0, 0));
-          }, 1);
-          return;
+
+        if (this.viewport.scrollV > 0 && this.viewport.scrollV < this.viewport.contentHeight - this.height) {
+          this.viewport.scrollV = Math.max(0, Math.min(this.viewport.contentHeight - this.height, this.viewport.scrollV + event.deltaY));
+        } else {
+          this.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_MOVE, true, true, 0, -event.deltaY));
         }
 
-        // this.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_MOVE, true, true, 0, -event.deltaY));
-        this.viewport.scrollV = currentPos;
-
-        // clearTimeout(this._stopTimeout);
-        // this._stopTimeout = setTimeout(() => {
-        // this.viewport.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_END, true, true, 0, 0));
-        //   this._stopTimeout = null;
-        // }, 500);
+        window.requestAnimationFrame(() => {
+          if (this.viewport.scrollV < -100) {
+            this.viewport.scrollV = -100;
+          } else if (this.viewport.scrollV > this.viewport.contentHeight - this.height + 100) {
+            this.viewport.scrollV = this.viewport.contentHeight - this.height + 100;
+          }
+          window.requestAnimationFrame(() => {
+            this.viewport.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_END, true, true, 0, 0));
+          });
+        });
+        */
       } catch (e) {
         console.log(e);
       }
-    };
+    }, 1);
 
     protected updateDisplayList(unscaledWidth: number, unscaledHeight: number): void {
       super.updateDisplayList(unscaledWidth, unscaledHeight);
