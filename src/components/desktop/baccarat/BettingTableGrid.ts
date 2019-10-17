@@ -4,6 +4,8 @@ namespace baccarat {
     private rect: egret.Shape;
     private lblUncfmBet: eui.Label;
     private lblCfmBet: eui.Label;
+
+    private _fieldName: string;
     private _cfmBet: number;
     private _uncfmBet: number;
 
@@ -22,17 +24,25 @@ namespace baccarat {
 
     protected childrenCreated() {
       super.childrenCreated();
-      this.addEventListener(
-        egret.TouchEvent.TOUCH_TAP,
-        function() {
-          this.setUncfmBet(this._uncfmBet + env.betLimits.denominationList[env.currentChipSelectedIndex]);
-        },
-        this
-      );
+      this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+    }
+
+    protected onClick() {
+      const amount = env.betLimits[env.currentSelectedBetLimitIndex].denominationList[env.currentChipSelectedIndex];
+      this.dispatchEvent(new egret.Event('TABLE_GRID_CLICK', false, false, { field: this._fieldName, amount }));
+    }
+
+    public setFieldName(name) {
+      this._fieldName = name;
     }
 
     public setUncfmBet(amount: number): void {
       this._uncfmBet = amount;
+      this.lblUncfmBet.text = this._uncfmBet.toString();
+    }
+
+    public addUncfmBet(amount: number): void {
+      this._uncfmBet += amount;
       this.lblUncfmBet.text = this._uncfmBet.toString();
     }
 

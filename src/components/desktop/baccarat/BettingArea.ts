@@ -13,7 +13,7 @@ namespace baccarat {
 
     private previousState: number;
     private gameData: GameData;
-    private betDetails: any[];
+    private betDetails: BetDetail[];
     private totalWin: number;
 
     constructor() {
@@ -27,15 +27,16 @@ namespace baccarat {
     protected childrenCreated() {
       super.childrenCreated();
       console.log('start betLimits');
-      env.betLimits = {
-        currency: 'en',
-        upper: 100000,
-        lower: 1,
-        denominationList: [1, 2, 5, 10, 50, 100],
-      };
+      env.betLimits = [
+        {
+          currency: 'en',
+          upper: 100000,
+          lower: 1,
+          denominationList: [1, 2, 5, 10, 50, 100],
+        },
+      ];
 
-      console.log(env.betLimits.denominationList);
-      this.betChipSet.setDenominationList(env.betLimits.denominationList);
+      this.betChipSet.setDenominationList(env.betLimits[env.currentSelectedBetLimitIndex].denominationList);
 
       this.countdownTimer.countdownValue = 30000;
       this.countdownTimer.remainingTime = 30000;
@@ -162,10 +163,10 @@ namespace baccarat {
     }
 
     protected updateCountdownTimer() {
-      const roundStartDate = new Date(this.gameData.startTime);
-      const startTime = roundStartDate.getTime();
+      // const roundStartDate = new Date(this.gameData.startTime);
+      // const startTime = roundStartDate.getTime();
       const currentTime = Date.now();
-      const timeDiff = currentTime - startTime;
+      const timeDiff = currentTime - this.gameData.startTime;
       this.countdownTimer.countdownValue = this.gameData.timer;
       this.countdownTimer.remainingTime = this.gameData.timer - timeDiff;
       this.countdownTimer.start();

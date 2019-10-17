@@ -9,7 +9,10 @@ namespace baccarat {
     private lblNoComm: eui.Label;
     private switchSuperSix: eui.ToggleSwitch;
 
-    private mapping: {};
+    private mapping: { [s: string]: baccarat.BettingTableGrid };
+
+    private uncfmBetDetails: BetDetail[];
+    private betDetails: BetDetail[];
 
     constructor() {
       super();
@@ -26,6 +29,26 @@ namespace baccarat {
         },
         this
       );
+      this.mapping = {};
+      this.mapping[enums.baccarat.BetField.BANKER] = this.gridBanker;
+      this.mapping[enums.baccarat.BetField.PLAYER] = this.gridPlayer;
+      this.mapping[enums.baccarat.BetField.TIE] = this.gridTie;
+      this.mapping[enums.baccarat.BetField.BANKER_PAIR] = this.gridBankerPair;
+      this.mapping[enums.baccarat.BetField.PLAYER_PAIR] = this.gridPlayerPair;
+
+      this.gridBanker.setFieldName(enums.baccarat.BetField.BANKER);
+      this.gridPlayer.setFieldName(enums.baccarat.BetField.PLAYER);
+      this.gridTie.setFieldName(enums.baccarat.BetField.TIE);
+      this.gridBankerPair.setFieldName(enums.baccarat.BetField.BANKER_PAIR);
+      this.gridPlayerPair.setFieldName(enums.baccarat.BetField.PLAYER_PAIR);
+      this.resetUnconfirmedBet();
+
+      this.gridPlayerPair.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
+      this.gridBankerPair.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
+      this.gridPlayer.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
+      this.gridTie.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
+      this.gridBanker.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
+      this.gridSuperSix.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
     }
 
     protected getCurrentState() {
@@ -79,18 +102,71 @@ namespace baccarat {
       }
     }
 
-    public updateBetFields(betDetails: any[]) {
+    public updateBetFields(betDetails: BetDetail[]) {
       // TODO: update the already bet amount of each bet field
+      this.betDetails = betDetails;
     }
 
-    public showWinFields(betDetails: any[]) {
+    public showWinFields(betDetails: BetDetail[]) {
       // TODO: show the win effect of each win field
+      this.betDetails = betDetails;
     }
 
-    public showWinEffect(betDetails: any[]) {
+    public showWinEffect(betDetails: BetDetail[]) {
       // TODO: show the win effect of each winning bet
+      this.betDetails = betDetails;
+    }
+
+    protected onBetFieldUpdate(event: egret.Event) {
+      const betDetail: BetDetail = event.data;
+      // validate bet action
+      if (this.validateBetAction(betDetail)) {
+        // update the uncfmBetDetails
+        for (const detail of this.uncfmBetDetails) {
+          if (detail.field === betDetail.field) {
+            detail.amount += betDetail.amount;
+            break;
+          }
+        }
+        // update the corresponding table grid
+        this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
+      }
+    }
+
+    protected validateBet(): boolean {
+      const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
+      return this.validateFieldAmounts(fieldAmounts);
+    }
+
+    // check if the current unconfirmed betDetails are valid
+    protected validateFieldAmounts(fieldAmounts: {}): boolean {
+      const betLimit: BetLimit = env.betLimits[env.currentSelectedBetLimitIndex];
+
+      // TODO: check balance
+
+      // check betlimit
+
+      return true;
+    }
+
+    // check if the current bet action is valid
+    protected validateBetAction(betDetail: BetDetail): boolean {
+      const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
+      fieldAmounts[betDetail.field] += betDetail.amount;
+      return this.validateFieldAmounts(fieldAmounts);
+    }
+
+    protected resetUnconfirmedBet() {
+      this.uncfmBetDetails = [
+        { field: enums.baccarat.BetField.BANKER, amount: 0 },
+        { field: enums.baccarat.BetField.PLAYER, amount: 0 },
+        { field: enums.baccarat.BetField.TIE, amount: 0 },
+        { field: enums.baccarat.BetField.BANKER_PAIR, amount: 0 },
+        { field: enums.baccarat.BetField.PLAYER_PAIR, amount: 0 },
+      ];
     }
     public cancelBet() {
+      this.resetUnconfirmedBet();
       this.gridTie.cancelBet();
       this.gridBanker.cancelBet();
       this.gridPlayer.cancelBet();

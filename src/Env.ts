@@ -13,14 +13,10 @@ class Env {
   public mode: number;
   public language: string;
   public categorySortOrder: string;
-  public betLimits: {
-    currency: string;
-    upper: number;
-    lower: number;
-    denominationList: [number];
-  };
+  public betLimits: BetLimit[];
   public tableInfo: TableInfo[];
   public currentChipSelectedIndex: number = 10;
+  public currentSelectedBetLimitIndex: number = 0;
   public onTableListUpdate(evt: egret.Event) {
     logger.l('env.onTableListUpdate');
     const list = <number[]>evt.data;
