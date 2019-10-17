@@ -4,6 +4,8 @@ namespace socket {
 
     connect();
     enterTable(tableID: number);
-    leaveTable();
+    leaveTable(tableID: number);
+    getTableList(filter: number);
+    getTableInfo();
   }
 }

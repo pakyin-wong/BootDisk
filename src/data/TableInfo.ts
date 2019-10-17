@@ -8,13 +8,6 @@ class TableInfo {
   };
   public videoUrls: [string];
   public tableState: number;
-  public betDetails: [
-    {
-      field: string;
-      amount: number;
-      winAmount: number;
-      isWin: number;
-    }
-  ];
+  public betDetails: BetDetail[];
   public gameData: any;
 }

@@ -68,9 +68,9 @@ namespace scene {
 
     protected socketConnectFail() {}
 
-    protected onTableInfoUpdate(data: any) {
+    protected onTableInfoUpdate(evt: egret.Event) {
       console.log('Baccarat listener');
-      const tableInfo = <TableInfo>data;
+      const tableInfo = <TableInfo>evt.data;
       if (tableInfo.tableID === this.tableID) {
         // update the scene
         this.updateEnv(tableInfo);

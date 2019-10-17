@@ -1,6 +1,6 @@
 namespace socket {
-  export class MQTTSocketComm {
-    private client: TestClient;
+  export class MQTTSocketComm implements ISocket {
+    public client: TestClient;
 
     constructor() {
       this.client = new TestClient({
@@ -21,6 +21,12 @@ namespace socket {
       this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
       this.client.connect();
     }
+    public enterTable(tableID: number) {}
+
+    public leaveTable(tableID: number) {}
+    public getTableList(filter: number) {}
+
+    public getTableInfo() {}
 
     private onReceivedMsg(res) {
       logger.l(res);
