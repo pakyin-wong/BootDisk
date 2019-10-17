@@ -9,7 +9,7 @@ namespace baccarat {
     public b3: number;
     public winType: number;
     public roundID: number;
-    public startTime: number;
+    public startTime: string; // time string (ISO 8601): 2019-10-17T04:48:27+00:00
     public timer: number;
   }
 }

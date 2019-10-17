@@ -9,6 +9,10 @@ namespace scene {
 
     public tableID: number;
 
+    private previousState: number;
+    private tableInfo: TableInfo;
+    private gameData: baccarat.GameData;
+
     public onEnter() {
       this.mount();
       this.bettingArea = new baccarat.BettingArea();
@@ -67,10 +71,11 @@ namespace scene {
     protected socketConnectFail() {}
 
     protected onTableInfoUpdate(data: any) {
-      const tableInfo = <TableInfo>data;
-      if (tableInfo.tableID === this.tableID) {
+      this.tableInfo = <TableInfo>data;
+      if (this.tableInfo.tableID === this.tableID) {
         // update the scene
-        this.bettingArea.onTableInfoUpdate(tableInfo);
+        this.gameData = <baccarat.GameData>this.tableInfo.gameData;
+        this.bettingArea.onTableInfoUpdate(this.tableInfo);
       }
     }
   }

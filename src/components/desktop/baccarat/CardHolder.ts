@@ -25,5 +25,9 @@ namespace baccarat {
       this.card1Banker.setCard(enums.card.BACK);
       this.card2Banker.setCard(enums.card.BACK);
     }
+
+    public updateResult(gameData: GameData) {
+      // TODO: update card using the gameData
+    }
   }
 }

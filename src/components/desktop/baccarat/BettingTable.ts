@@ -75,5 +75,17 @@ namespace baccarat {
           break;
       }
     }
+
+    public updateBetFields(betDetails: object[]) {
+      // TODO: update the already bet amount of each bet field
+    }
+
+    public showWinFields(betDetails: object[]) {
+      // TODO: show the win effect of each win field
+    }
+
+    public showWinEffect(betDetails: object[]) {
+      // TODO: show the win effect of each winning bet
+    }
   }
 }

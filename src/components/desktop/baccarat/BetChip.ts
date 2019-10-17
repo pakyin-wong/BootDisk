@@ -22,18 +22,15 @@ namespace baccarat {
       const inner: boolean = false;
       const knockout: boolean = false;
       this.glowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
-      console.log('chip init');
     }
 
     protected partAdded(partName: string, instance: any): void {
       super.partAdded(partName, instance);
-      console.log('chip added');
     }
 
     protected childrenCreated(): void {
       super.childrenCreated();
       this.setValue(this.value);
-      console.log('chip created');
     }
 
     public setValue(newValue: number) {
