@@ -19,7 +19,6 @@ class Env {
     denominationList: [number];
   };
   public tableInfo: TableInfo[];
-  public gameData: GameData;
   public currentChipSelectedIndex: number = 10;
 }
 

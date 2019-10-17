@@ -8,19 +8,26 @@ namespace baccarat {
     private confirmButton: eui.Button;
     private cancelButton: eui.Button;
 
+    private gameData: GameData;
+
     constructor() {
       super();
 
       env.tableInfo = new Array<TableInfo>();
       env.tableInfo.push(new TableInfo());
-      env.gameData = new GameData();
     }
 
     protected updateGame() {
-      switch (env.gameData.gameState) {
-        case 1:
+      switch (this.gameData.gameState) {
+        case enums.baccarat.GameState.BET:
           break;
-        case 2:
+        case enums.baccarat.GameState.DEAL:
+          break;
+        case enums.baccarat.GameState.FINISH:
+          break;
+        case enums.baccarat.GameState.REFUND:
+          break;
+        case enums.baccarat.GameState.SHUFFLE:
           break;
         default:
           break;
@@ -81,6 +88,10 @@ namespace baccarat {
 
     private onCancelPressed() {
       egret.log('Cancel');
+    }
+
+    public onTableInfoUpdate(tableInfo: TableInfo) {
+      this.gameData = <GameData>tableInfo.gameData;
     }
   }
 }

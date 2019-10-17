@@ -1,18 +1,22 @@
+/**
+ * BaccaratScene
+ *
+ * BaccaratScene consist of serveral components: Betting table, Video, serveral roadmap, table list panel on right hand side, table info panel and some statistic graph
+ */
 namespace scene {
   export class BaccaratScene extends BaseScene {
+    private bettingArea: baccarat.BettingArea;
+
+    public tableID: number;
+
     public onEnter() {
       this.mount();
-      dir.layerCtr.nav.addChild(new components.NavBar());
-      const bettingArea = new baccarat.BettingArea();
-      bettingArea.anchorOffsetX = 0;
-      bettingArea.anchorOffsetY = 0;
-      bettingArea.horizontalCenter = 0;
-      bettingArea.bottom = 0;
-      // bettingArea.width = 1000;
-      // bettingArea.height = 1000;
-      // bettingArea.scaleX = 0.5;
-      // bettingArea.scaleY = 0.5;
-      this.addChild(bettingArea);
+      this.bettingArea = new baccarat.BettingArea();
+      this.bettingArea.anchorOffsetX = 0;
+      this.bettingArea.anchorOffsetY = 0;
+      this.bettingArea.horizontalCenter = 0;
+      this.bettingArea.bottom = 0;
+      this.addChild(this.bettingArea);
     }
 
     private addEventListeners() {
@@ -64,8 +68,10 @@ namespace scene {
 
     protected onTableInfoUpdate(data: any) {
       const tableInfo = <TableInfo>data;
-
-      // TODO
+      if (tableInfo.tableID === this.tableID) {
+        // update the scene
+        this.bettingArea.onTableInfoUpdate(tableInfo);
+      }
     }
   }
 }
