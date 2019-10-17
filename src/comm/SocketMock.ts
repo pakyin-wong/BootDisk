@@ -22,7 +22,7 @@ namespace socket {
       /// this.client.connect();
     }
 
-    public enterTable(tableID: number) {
+    public async enterTable(tableID: number) {
       this._sleepCounter.tableInfoList = setTimeout(async () => {
         logger.l('enter table:: timeout() running');
         await this.sleep(2000, 'tableInfoListInternal');
@@ -39,24 +39,58 @@ namespace socket {
         data.gameData = gameData;
         dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
         await this.sleep(2000, 'tableInfoListInternal');
+
+        console.log('c1');
         gameData.a1 = enums.card.c1;
         dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(1000, 'tableInfoListInternal');
+        await this.sleep(2000, 'tableInfoListInternal');
+
+        console.log('h13');
         gameData.a2 = enums.card.h13;
         dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(1000, 'tableInfoListInternal');
+        await this.sleep(2000, 'tableInfoListInternal');
+
+        console.log('d1');
         gameData.b1 = enums.card.d1;
+        gameData.gameState = enums.baccarat.GameState.DEAL;
         dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
         await this.sleep(2000, 'tableInfoListInternal');
+
+        console.log('s1');
         gameData.b2 = enums.card.s1;
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(1000, 'tableInfoListInternal');
-        gameData.a3 = enums.card.d6;
+        gameData.gameState = enums.baccarat.GameState.DEAL;
         dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
         await this.sleep(2000, 'tableInfoListInternal');
+
+        console.log('d6');
+        gameData.a3 = enums.card.d6;
+        gameData.gameState = enums.baccarat.GameState.DEAL;
+        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+        await this.sleep(2000, 'tableInfoListInternal');
+
         gameData.b3 = enums.card.s9;
+        gameData.gameState = enums.baccarat.GameState.DEAL;
         dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
       });
+
+      await setTimeout(() => {
+        //this._sleepCounterReset.tableInfoList = false;
+        clearTimeout(this._sleepCounter.tableInfoListInternal);
+
+        const data = new TableInfo();
+        const gameData = new baccarat.GameData();
+
+        data.tableID = 2;
+        data.tableState = enums.TableState.ONLINE;
+        data.gameType = enums.GameType.BAC;
+        data.gameData = gameData;
+        gameData.gameState = enums.baccarat.GameState.SHUFFLE;
+        gameData.roundID = 1;
+
+        // gameData.b3 = enums.card.s9;
+
+        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      }, 7000);
     }
 
     public leaveTable(tableID: number) {}

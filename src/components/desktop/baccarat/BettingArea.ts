@@ -76,6 +76,7 @@ namespace baccarat {
           this.setStateRefund();
           break;
         case enums.baccarat.GameState.SHUFFLE:
+          logger.l('BettingArea::updateGame()::SHUFFLE');
           this.setStateShuffle();
           break;
         default:
