@@ -63,12 +63,12 @@ namespace scene {
       this.next();
     }
 
-    // Step 5: Setup and display idle UI element (tips, promote banner...)
+    /** Step 5: Setup and display idle UI element (tips, promote banner...) */
     private idle() {
       this.next();
     }
 
-    // step 6: load general resource (lobby, baccarat)
+    /** Step 6: load general resource (lobby, baccarat) */
     private async loadGeneralRes() {
       RES.createGroup('firstRun', [enums.res.Lobby, enums.res.Baccarat]);
       RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
