@@ -1,6 +1,8 @@
 class Main extends eui.UILayer {
   protected createChildren(): void {
     super.createChildren();
+    // add global mouse event handler
+    mouse.enable(this.stage);
 
     // egret.lifecycle.addLifecycleListener(context => {
     //   // custom lifecycle plugin

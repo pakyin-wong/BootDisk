@@ -30,8 +30,6 @@ declare module skins{
 	class RadioButtonSkin extends eui.Skin{
 	}
 }
-declare class ScrollerSkin extends eui.Skin{
-}
 declare module skins{
 	class ScrollerSkin extends eui.Skin{
 	}
@@ -93,11 +91,21 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LobbyBacarratListItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LobbyScene extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class NavBarSkin extends eui.Skin{
+	class NavBar extends eui.Skin{
+	}
+}
+declare class NewFile extends eui.Skin{
+}
+declare module skin_desktop{
+	class VScrollBarSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

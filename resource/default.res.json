@@ -22,6 +22,10 @@
 		{
 			"keys": "scene_baccarat_dummyImage",
 			"name": "scene_baccarat"
+		},
+		{
+			"name": "preload",
+			"keys": "Computer-Tech-Wallpaper-09-2560x1440_jpg"
 		}
 	],
 	"resources": [

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LobbyScene" width="2560" height="1320" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
 	<components:ImageSlider width="2560" height="600" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"/>
+	<components:Scroller width="2560" height="720" x="0" y="600" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Button label="Enter baccarat" id="btnBaccarat" x="0" y="600" />
 </e:Skin>
