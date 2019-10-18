@@ -100,3 +100,7 @@ declare module skin_desktop{
 	class NavBarSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class SwitchLang extends eui.Skin{
+	}
+}

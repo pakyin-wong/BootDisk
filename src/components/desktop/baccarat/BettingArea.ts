@@ -182,5 +182,9 @@ namespace baccarat {
       }
       this.totalWin = totalWin;
     }
+
+    public onChangeLang() {
+      this.bettingTable.onChangeLang();
+    }
   }
 }

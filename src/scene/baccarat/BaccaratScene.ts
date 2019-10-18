@@ -6,6 +6,7 @@
 namespace scene {
   export class BaccaratScene extends BaseScene {
     private bettingArea: baccarat.BettingArea;
+    private switchLang: components.SwitchLang;
 
     private _tableID: number;
 
@@ -33,6 +34,11 @@ namespace scene {
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
 
+      this.switchLang = new components.SwitchLang();
+      this.switchLang.x = 0;
+      this.switchLang.y = 200;
+      this.addChild(this.switchLang);
+
       this.addEventListeners();
     }
 
@@ -47,6 +53,7 @@ namespace scene {
 
     private addEventListeners() {
       dir.evtHandler.addEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+      dir.evtHandler.addEventListener(enums.i18n.event.SWITCH_LANGUAGE, this.onChangeLang, this);
     }
 
     private removeEventListeners() {
@@ -57,6 +64,10 @@ namespace scene {
 
     public onExit() {
       this.removeChildren();
+    }
+
+    public onChangeLang() {
+      this.bettingArea.onChangeLang();
     }
 
     public async onFadeExit() {}

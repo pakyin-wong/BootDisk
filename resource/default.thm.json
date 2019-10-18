@@ -46,7 +46,8 @@
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LoadingScene.exml",
 		"resource/skin_desktop/LobbyScene.exml",
-		"resource/skin_desktop/NavBar.exml"
+		"resource/skin_desktop/NavBar.exml",
+		"resource/skin_desktop/SwitchLang.exml"
 	],
 	"path": "resource/default.thm.json"
 }
