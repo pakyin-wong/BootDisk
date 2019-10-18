@@ -42,6 +42,7 @@ namespace enums {
       TIE: 'TIE',
       BANKER_PAIR: 'BANKER_PAIR',
       PLAYER_PAIR: 'PLAYER_PAIR',
+      SUPER_SIX: 'SUPER_SIX',
     };
 
     export const FinishType = {

@@ -12,6 +12,7 @@ namespace baccarat {
     private mapping: { [s: string]: baccarat.BettingTableGrid };
 
     private uncfmBetDetails: BetDetail[];
+    private totalUncfmBetAmount: number;
     private betDetails: BetDetail[];
 
     constructor() {
@@ -35,12 +36,14 @@ namespace baccarat {
       this.mapping[enums.baccarat.BetField.TIE] = this.gridTie;
       this.mapping[enums.baccarat.BetField.BANKER_PAIR] = this.gridBankerPair;
       this.mapping[enums.baccarat.BetField.PLAYER_PAIR] = this.gridPlayerPair;
+      this.mapping[enums.baccarat.BetField.SUPER_SIX] = this.gridSuperSix;
 
       this.gridBanker.setFieldName(enums.baccarat.BetField.BANKER);
       this.gridPlayer.setFieldName(enums.baccarat.BetField.PLAYER);
       this.gridTie.setFieldName(enums.baccarat.BetField.TIE);
       this.gridBankerPair.setFieldName(enums.baccarat.BetField.BANKER_PAIR);
       this.gridPlayerPair.setFieldName(enums.baccarat.BetField.PLAYER_PAIR);
+      this.gridSuperSix.setFieldName(enums.baccarat.BetField.SUPER_SIX);
       this.resetUnconfirmedBet();
 
       this.gridPlayerPair.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
@@ -130,22 +133,37 @@ namespace baccarat {
         }
         // update the corresponding table grid
         this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
+        this.totalUncfmBetAmount += betDetail.amount;
       }
     }
 
     protected validateBet(): boolean {
       const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
-      return this.validateFieldAmounts(fieldAmounts);
+      return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount);
     }
 
     // check if the current unconfirmed betDetails are valid
-    protected validateFieldAmounts(fieldAmounts: {}): boolean {
+    protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number): boolean {
       const betLimit: BetLimit = env.betLimits[env.currentSelectedBetLimitIndex];
-
       // TODO: check balance
-
+      const balance = env.balance;
+      if (balance < totalBetAmount) {
+        egret.log(enums.event.event.INSUFFICIENT_BALANCE);
+        dir.evtHandler.dispatch(enums.event.event.INSUFFICIENT_BALANCE);
+        return false;
+      }
       // check betlimit
-
+      const exceedBetLimit =
+        Math.abs(fieldAmounts[enums.baccarat.BetField.BANKER] - fieldAmounts[enums.baccarat.BetField.PLAYER]) > betLimit.upper ||
+        fieldAmounts[enums.baccarat.BetField.TIE] > betLimit.upper ||
+        fieldAmounts[enums.baccarat.BetField.BANKER_PAIR] > betLimit.upper ||
+        fieldAmounts[enums.baccarat.BetField.PLAYER_PAIR] > betLimit.upper ||
+        fieldAmounts[enums.baccarat.BetField.SUPER_SIX] > betLimit.upper;
+      if (exceedBetLimit) {
+        egret.log(enums.event.event.EXCEED_BET_LIMIT);
+        dir.evtHandler.dispatch(enums.event.event.EXCEED_BET_LIMIT);
+        return false;
+      }
       return true;
     }
 
@@ -153,7 +171,7 @@ namespace baccarat {
     protected validateBetAction(betDetail: BetDetail): boolean {
       const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
       fieldAmounts[betDetail.field] += betDetail.amount;
-      return this.validateFieldAmounts(fieldAmounts);
+      return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount + betDetail.amount);
     }
 
     protected resetUnconfirmedBet() {
@@ -163,7 +181,9 @@ namespace baccarat {
         { field: enums.baccarat.BetField.TIE, amount: 0 },
         { field: enums.baccarat.BetField.BANKER_PAIR, amount: 0 },
         { field: enums.baccarat.BetField.PLAYER_PAIR, amount: 0 },
+        { field: enums.baccarat.BetField.SUPER_SIX, amount: 0 },
       ];
+      this.totalUncfmBetAmount = 0;
     }
     public cancelBet() {
       this.resetUnconfirmedBet();

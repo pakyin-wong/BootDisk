@@ -30,7 +30,7 @@ namespace baccarat {
       env.betLimits = [
         {
           currency: 'en',
-          upper: 100000,
+          upper: 200,
           lower: 1,
           denominationList: [1, 2, 5, 10, 50, 100],
         },

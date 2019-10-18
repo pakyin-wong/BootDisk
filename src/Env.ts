@@ -6,7 +6,7 @@ class Env {
   }
 
   /* Global Environment Variable */
-  public balance: number = undefined;
+  public balance: number = 1000; // undefined;
   public playerID: string;
   public nickname: string;
   public profileImageURL: string;
