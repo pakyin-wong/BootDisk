@@ -4,12 +4,12 @@ namespace i18n {
   export function t(s: string) {
     function ds(p: any, c: string) {
       const a: string[] = c.split('.');
-      if (typeof p === 'object') {
+      if (typeof p === 'object' && s !== '') {
         return ds(p[a.shift()], a.join('.'));
-      } else if (typeof p === 'string') {
+      } else if (typeof p === 'string' || typeof p === 'object') {
         return p;
       } else {
-        return '';
+        return s;
       }
     }
 
