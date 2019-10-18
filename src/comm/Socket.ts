@@ -1,5 +1,5 @@
 namespace socket {
-  export class MQTTSocketComm {
+  export class MQTTSocketComm implements ISocket {
     private client: TestClient;
 
     constructor() {
@@ -21,6 +21,12 @@ namespace socket {
       this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
       this.client.connect();
     }
+    public enterTable(tableID: number) {}
+    public leaveTable(tableID: number) {}
+    public getTableList(filter: number) {}
+    public getTableInfo() {}
+
+    private mockEnterTable;
 
     private onReceivedMsg(res) {
       logger.l(res);
@@ -29,5 +35,7 @@ namespace socket {
 
       // hard code connect success event
     }
+
+    public onTableListUpdate(evt: egret.Event) {}
   }
 }
