@@ -11,6 +11,7 @@ namespace baccarat {
     // temp component
     private stateLabel: eui.Label;
 
+    private tableID: number;
     private previousState: number;
     private gameData: GameData;
     private betDetails: BetDetail[];
@@ -48,6 +49,8 @@ namespace baccarat {
 
     private onConfirmPressed() {
       egret.log('Confirm');
+      const bets = this.bettingTable.getUnconfirmedBetDetails();
+      dir.socket.bet(this.tableID, bets);
     }
 
     private onCancelPressed() {
@@ -57,6 +60,7 @@ namespace baccarat {
 
     public onTableInfoUpdate(tableInfo: TableInfo) {
       console.log('BettingArea listener');
+      this.tableID = tableInfo.tableID;
       this.gameData = <GameData>tableInfo.gameData;
       this.betDetails = tableInfo.betDetails;
       this.updateGame();

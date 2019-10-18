@@ -108,6 +108,13 @@ namespace baccarat {
     public setTouchEnabled(enable: boolean) {
       this.touchEnabled = enable;
       this.touchChildren = enable;
+      if (!enable) {
+        this.cancelBet();
+      }
+    }
+
+    public getUnconfirmedBetDetails() {
+      return this.uncfmBetDetails;
     }
 
     public updateBetFields(betDetails: BetDetail[]) {

@@ -132,7 +132,7 @@ namespace socket {
 
     public async getTableInfo() {}
 
-    public bet() {}
+    public bet(tableID: number, betDetails: BetDetail[]) {}
 
     private onReceivedMsg(res) {
       logger.l(res);
