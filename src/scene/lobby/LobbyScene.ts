@@ -1,6 +1,7 @@
 namespace scene {
   export class LobbyScene extends BaseScene {
     private video: egret.FlvVideo;
+    private btnBaccarat: eui.Button;
 
     public onEnter() {
       this.skinName = utils.getSkin('LobbyScene');
@@ -12,7 +13,18 @@ namespace scene {
       // this._video.poster = "resource/assets/posterinline.jpg";
       this.video.load('http://192.168.1.85:8090/live/720.flv');
       this.addChild(this.video);
+
+      this.btnBaccarat.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBaccarat, this);
+
+      // After pressing the Filter
+      dir.socket.getTableList(enums.TableFilter.BACCARAT);
       dir.layerCtr.nav.addChild(new components.NavBar());
+    }
+
+    public onClickBaccarat() {
+      dir.socket.enterTable(2);
+
+      dir.sceneCtr.goto('BaccaratScene');
     }
 
     public async onFadeEnter() {}
