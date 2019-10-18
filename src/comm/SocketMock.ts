@@ -69,6 +69,7 @@ namespace socket {
         await this.sleep(2000, 'tableInfoListInternal');
 
         gameData.gameState = enums.baccarat.GameState.FINISH;
+        gameData.winType = enums.baccarat.FinishType.PLAYER_WIN;
         const betDetail = new BetDetail();
         betDetail.isWin = 1;
         betDetail.winAmount = 1000;

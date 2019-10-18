@@ -135,6 +135,7 @@ namespace baccarat {
         this.bettingTable.setTouchEnabled(false);
 
         // TODO: show effect on each winning bet field
+        logger.l(`this.gameData.winType ${this.gameData.winType} ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.winType)}`);
         this.stateLabel.text = `Finish, ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.winType)} win`;
 
         // TODO: show win message and the total win ammount to the client for few seconds

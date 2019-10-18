@@ -29,8 +29,8 @@ namespace scene {
       this.bettingArea.anchorOffsetY = 0;
       this.bettingArea.horizontalCenter = 0;
       this.bettingArea.bottom = 0;
+      this._tableID = 2;
       this.addChild(this.bettingArea);
-      this._tableID = 2; // ?where to set tableID
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
 

@@ -11,7 +11,7 @@ class EnumHelpers {
       if (enumType[key] === value) {
         return key;
       }
-      return null;
     }
+    return null;
   }
 }
