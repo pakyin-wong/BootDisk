@@ -13,9 +13,11 @@ namespace scene {
       this.video.load('http://192.168.1.85:8090/live/720.flv');
       this.addChild(this.video);
 
+      // After pressing the Filter
+      dir.socket.getTableList(enums.TableFilter.BACCARAT);
       dir.layerCtr.nav.addChild(new components.NavBar());
-      console.log('Enter Table');
-      dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, [2]);
+      dir.socket.enterTable(2);
+
       dir.sceneCtr.goto('BaccaratScene');
     }
 

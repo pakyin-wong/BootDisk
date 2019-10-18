@@ -16,5 +16,18 @@ namespace components {
 
       this.addChild(card);
     }
+
+    public setHCard(resName: string) {
+      const card: egret.Bitmap = new egret.Bitmap();
+      console.log(resName);
+      card.rotation = 90;
+      card.texture = RES.getRes(resName);
+      card.width = this.height;
+      card.height = this.width;
+      card.x = 0 + this.width;
+      card.y = 0;
+
+      this.addChild(card);
+    }
   }
 }

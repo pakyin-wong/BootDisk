@@ -59,6 +59,7 @@ namespace baccarat {
       console.log('BettingArea listener');
       this.gameData = <GameData>tableInfo.gameData;
       this.betDetails = tableInfo.betDetails;
+      this.updateGame();
     }
 
     protected updateGame() {
@@ -76,6 +77,7 @@ namespace baccarat {
           this.setStateRefund();
           break;
         case enums.baccarat.GameState.SHUFFLE:
+          logger.l('BettingArea::updateGame()::SHUFFLE');
           this.setStateShuffle();
           break;
         default:
@@ -90,8 +92,8 @@ namespace baccarat {
 
         // hide cardHolder
         this.cardHolder.visible = false;
-        this.countdownTimer.countdownValue = 29000;
-        this.countdownTimer.remainingTime = 27000;
+        this.countdownTimer.countdownValue = this.gameData.timer;
+        this.countdownTimer.remainingTime = this.gameData.currTime - this.gameData.startTime;
         this.countdownTimer.start();
         // show the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(true);
@@ -112,6 +114,7 @@ namespace baccarat {
 
         // show cardHolder
         this.cardHolder.visible = true;
+        this.cardHolder.updateResult(this.gameData);
       }
       // update card result in cardHolder
       this.cardHolder.updateResult(this.gameData);

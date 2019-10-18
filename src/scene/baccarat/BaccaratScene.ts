@@ -7,14 +7,18 @@ namespace scene {
   export class BaccaratScene extends BaseScene {
     private bettingArea: baccarat.BettingArea;
 
-    public tableID: number;
+    private _tableID: number;
 
     private previousState: number;
     private tableInfo: TableInfo;
     private gameData: baccarat.GameData;
 
-    public setTableID(tableID: number) {
-      this.tableID = tableID;
+    public set tableID(tableID: number) {
+      this._tableID = tableID;
+    }
+
+    public get tableID() {
+      return this._tableID;
     }
 
     public onEnter() {
@@ -25,8 +29,20 @@ namespace scene {
       this.bettingArea.horizontalCenter = 0;
       this.bettingArea.bottom = 0;
       this.addChild(this.bettingArea);
+      this._tableID = 2; // ?where to set tableID
+      this.setupTableInfo();
+      this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
+
       this.addEventListeners();
-      dir.socket.enterTable(2);
+    }
+
+    private setupTableInfo() {
+      console.log(env.tableInfo);
+      env.tableInfo.forEach(value => {
+        if (value.tableID === this._tableID) {
+          this.tableInfo = value;
+        }
+      });
     }
 
     private addEventListeners() {
@@ -79,17 +95,6 @@ namespace scene {
         // update the scene
         this.gameData = <baccarat.GameData>this.tableInfo.gameData;
         this.bettingArea.onTableInfoUpdate(this.tableInfo);
-        this.updateEnv(this.tableInfo);
-      }
-    }
-
-    protected updateEnv(tableInfo: TableInfo) {
-      if (env.tableInfo) {
-        env.tableInfo.map((value, index) => {
-          if (value.tableID === tableInfo.tableID) {
-            env.tableInfo[index] = tableInfo;
-          }
-        });
       }
     }
   }
