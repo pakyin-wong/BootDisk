@@ -28,7 +28,7 @@ class Main extends eui.UILayer {
     dir.layerCtr = new controller.LayerCtr(this.stage);
     dir.sceneCtr = new controller.SceneCtr();
 
-    dir.evtHandler.addEventListener(enums.event.event.TABLE_LIST_UPDATE, env.onTableListUpdate, this);
+    dir.evtHandler.addEventListener(enums.event.event.TABLE_LIST_UPDATE, dir.socket.onTableListUpdate, this);
 
     // step 2: init Egrets Asset / Res
     await this.initRes();

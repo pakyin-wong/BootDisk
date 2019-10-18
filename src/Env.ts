@@ -17,6 +17,7 @@ class Env {
   public tableInfo: TableInfo[];
   public currentChipSelectedIndex: number = 10;
   public currentSelectedBetLimitIndex: number = 0;
+  /*
   public onTableListUpdate(evt: egret.Event) {
     logger.l('env.onTableListUpdate');
     const list = <number[]>evt.data;
@@ -41,6 +42,7 @@ class Env {
       }
     });
   }
+  */
 }
 
 let env: Env = Env.Instance;
