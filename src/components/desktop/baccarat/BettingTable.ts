@@ -22,7 +22,7 @@ namespace baccarat {
 
     protected childrenCreated() {
       this.changeMethod('normal');
-      this.changeLang('zh-cn');
+      this.changeLang();
       this.switchSuperSix.addEventListener(
         egret.Event.CHANGE,
         () => {
@@ -79,30 +79,14 @@ namespace baccarat {
       }
     }
 
-    protected changeLang(lang: string) {
-      switch (utils.getLang(lang)) {
-        case enums.lang.CN:
-          console.log(lang);
-          this.gridPlayerPair.text = '閒對';
-          this.gridBankerPair.text = '莊對';
-          this.gridPlayer.text = '閒';
-          this.gridTie.text = '和';
-          this.gridSuperSix.text = '超級六';
-          this.gridBanker.text = '莊';
-          this.lblNoComm.text = '免佣';
-
-          break;
-
-        case enums.lang.EN:
-          this.gridPlayerPair.text = 'Player Pair';
-          this.gridBankerPair.text = 'Banker Pair';
-          this.gridPlayer.text = 'Player';
-          this.gridTie.text = 'Tie';
-          this.gridSuperSix.text = 'Super Six';
-          this.gridBanker.text = 'Banker';
-          this.lblNoComm.text = 'No Comission';
-          break;
-      }
+    protected changeLang() {
+      this.gridPlayerPair.text = i18n.t('baccarat.playerPair');
+      this.gridBankerPair.text = i18n.t('baccarat.bankerPair');
+      this.gridPlayer.text = i18n.t('baccarat.player');
+      this.gridTie.text = i18n.t('baccarat.tie');
+      this.gridSuperSix.text = i18n.t('baccarat.superSix');
+      this.gridBanker.text = i18n.t('baccarat.banker');
+      this.lblNoComm.text = i18n.t('baccarat.noComm');
     }
 
     public setTouchEnabled(enable: boolean) {
@@ -205,6 +189,9 @@ namespace baccarat {
       this.gridPlayerPair.cancelBet();
       this.gridBankerPair.cancelBet();
       this.gridSuperSix.cancelBet();
+    }
+    public onChangeLang() {
+      this.changeLang();
     }
   }
 }
