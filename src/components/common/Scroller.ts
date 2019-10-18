@@ -152,13 +152,52 @@ namespace components {
       this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
     };
 
-    private onMouseOver() {
+    private _alreadyRegistered = false;
+
+    private onMouseOver(event: egret.TouchEvent) {
+      if (this._alreadyRegistered) {
+        // don't attach duplicate listener
+        return;
+      }
       (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+      document.querySelector('canvas').addEventListener('mouseleave', this.onCanvasOut);
+      this._alreadyRegistered = true;
     }
 
-    private onMouseOut() {
+    private onMouseOut(event: egret.TouchEvent) {
+      if (this.hitTestPoint(event.stageX, event.stageY)) {
+        // even MOUSE_OUT called, we are still within the scroller area
+        // don't remove the listener...
+        return;
+      }
       (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+      document.querySelector('canvas').removeEventListener('mouseleave', this.onCanvasOut);
+      this._alreadyRegistered = false;
     }
+
+    private onCanvasOut = (event: MouseEvent) => {
+      (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+      const canvas = document.querySelector('canvas');
+      canvas.removeEventListener('mouseleave', this.onCanvasOut);
+      const reEnterListener = (event: MouseEvent) => {
+        canvas.removeEventListener('mouseenter', reEnterListener);
+        const rect = canvas.getBoundingClientRect();
+        const mouseAtCanvasX = Math.max(0, Math.min(rect.width, event.pageX - rect.left));
+        const mouseAtCanvasY = Math.max(0, Math.min(rect.height, event.pageY - rect.top));
+        // translate to egret coord
+        const stageX = Math.ceil((mouseAtCanvasX / egret.sys.DisplayList.$canvasScaleX) * egret.sys.DisplayList.$canvasScaleFactor);
+        const stageY = Math.ceil((mouseAtCanvasY / egret.sys.DisplayList.$canvasScaleY) * egret.sys.DisplayList.$canvasScaleFactor);
+
+        if (this.hitTestPoint(stageX, stageY)) {
+          // add listeners back if enter canvas again and go in the scroller
+          (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+          document.querySelector('canvas').addEventListener('mouseleave', this.onCanvasOut);
+          this._alreadyRegistered = true;
+        }
+      };
+      canvas.addEventListener('mouseenter', reEnterListener);
+      this._alreadyRegistered = false;
+    };
 
     public _prevDeltaY = 0;
     public _stopTimeout = null;
