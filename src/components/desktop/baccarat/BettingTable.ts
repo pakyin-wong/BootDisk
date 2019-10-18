@@ -105,6 +105,11 @@ namespace baccarat {
       }
     }
 
+    public setTouchEnabled(enable: boolean) {
+      this.touchEnabled = enable;
+      this.touchChildren = enable;
+    }
+
     public updateBetFields(betDetails: BetDetail[]) {
       // TODO: update the already bet amount of each bet field
       this.betDetails = betDetails;

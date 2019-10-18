@@ -92,11 +92,12 @@ namespace baccarat {
 
         // hide cardHolder
         this.cardHolder.visible = false;
-        this.countdownTimer.countdownValue = this.gameData.timer;
-        this.countdownTimer.remainingTime = this.gameData.currTime - this.gameData.startTime;
-        this.countdownTimer.start();
+
         // show the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(true);
+
+        // enable betting table
+        this.bettingTable.setTouchEnabled(true);
       }
       // update the bet amount of each bet field in betting table
       this.bettingTable.updateBetFields(this.betDetails);
@@ -115,6 +116,9 @@ namespace baccarat {
         // show cardHolder
         this.cardHolder.visible = true;
         this.cardHolder.updateResult(this.gameData);
+
+        // disable betting table
+        this.bettingTable.setTouchEnabled(false);
       }
       // update card result in cardHolder
       this.cardHolder.updateResult(this.gameData);
@@ -122,6 +126,9 @@ namespace baccarat {
     protected setStateFinish() {
       if (this.previousState !== enums.baccarat.GameState.FINISH) {
         this.computeTotalWin();
+
+        // disable betting table
+        this.bettingTable.setTouchEnabled(false);
 
         // TODO: show effect on each winning bet field
         this.stateLabel.text = `Finish, ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.winType)} win`;
@@ -143,6 +150,9 @@ namespace baccarat {
 
         // hide cardHolder
         this.cardHolder.visible = false;
+
+        // disable betting table
+        this.bettingTable.setTouchEnabled(false);
       }
     }
     protected setStateShuffle() {
@@ -155,6 +165,9 @@ namespace baccarat {
 
         // hide cardHolder
         this.cardHolder.visible = false;
+
+        // disable betting table
+        this.bettingTable.setTouchEnabled(false);
       }
     }
 
@@ -166,12 +179,14 @@ namespace baccarat {
     }
 
     protected updateCountdownTimer() {
-      // const roundStartDate = new Date(this.gameData.startTime);
-      // const startTime = roundStartDate.getTime();
-      const currentTime = Date.now();
-      const timeDiff = currentTime - this.gameData.startTime;
+      // const currentTime = Date.now();
+      // const timeDiff = currentTime - this.gameData.startTime;
+      // this.countdownTimer.countdownValue = this.gameData.timer;
+      // this.countdownTimer.remainingTime = this.gameData.timer - timeDiff;
+      // this.countdownTimer.start();
+
       this.countdownTimer.countdownValue = this.gameData.timer;
-      this.countdownTimer.remainingTime = this.gameData.timer - timeDiff;
+      this.countdownTimer.remainingTime = this.gameData.currTime - this.gameData.startTime;
       this.countdownTimer.start();
     }
 
