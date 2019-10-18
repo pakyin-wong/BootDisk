@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="ImageSlider" minWidth="640" minHeight="320" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_desktop.ImageSlider" minWidth="640" minHeight="320" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xff00ff"/>
 	<e:Image id="imageVisible" x="0" y="0" />
 	<e:Image id="imageInvisible" x="0" y="0" />

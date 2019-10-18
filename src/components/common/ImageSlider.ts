@@ -8,7 +8,9 @@ namespace components {
 
     public constructor() {
       super();
+      this.skinName = utils.getSkin('ImageSlider');
       this.images = [RES.getRes('bg_jpg'), RES.getRes('egret_icon_png')];
+      // comment this line in case of performance issues
       this.mask = new egret.Rectangle(0, 0, 2560, 600);
     }
 
