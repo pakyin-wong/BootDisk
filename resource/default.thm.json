@@ -31,8 +31,10 @@
 		"resource/eui_skins/VSliderSkin.exml",
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LoadingScene.exml",
+		"resource/skin_desktop/LobbyBacarratListItem.exml",
 		"resource/skin_desktop/LobbyScene.exml",
 		"resource/skin_desktop/NavBar.exml",
+		"resource/skin_desktop/NewFile.exml",
 		"resource/skin_desktop/ScrollBarVertical.exml"
 	],
 	"path": "resource/default.thm.json"

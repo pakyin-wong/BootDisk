@@ -68,7 +68,17 @@ namespace components {
 
       // init viewport
       const list = new eui.List();
-      list.dataProvider = new eui.ArrayCollection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]);
+
+      list.dataProvider = new eui.ArrayCollection([[0xff0000, 0x00ff00, 0x0000ff, 0xffff00], [0x00ffff, 0xff00ff, 0xffffff, 0x000000], [0x33b6e5, 0xeabde3]]);
+      list.itemRenderer = BacarratItemRenderer;
+      //   list.itemRendererSkinName = `
+      //       <e:Skin width="2560" height="400" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*">
+      //           <components:LobbyBacarratListItem x="0" />
+      //           <components:LobbyBacarratListItem x="640" />
+      //           <components:LobbyBacarratListItem x="1280" />
+      //           <components:LobbyBacarratListItem x="1920" />
+      //        </e:Skin>
+      //     `;
       //   this._scroller.percentHeight = 20;
       //   this._scroller.percentWidth = 100;
       // this._scroller.horizontalCenter = true;
