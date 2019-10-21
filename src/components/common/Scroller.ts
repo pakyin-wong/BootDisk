@@ -69,31 +69,34 @@ namespace components {
       // init viewport
       const list = new eui.List();
 
-      list.dataProvider = new eui.ArrayCollection([[0xff0000, 0x00ff00, 0x0000ff, 0xffff00], [0x00ffff, 0xff00ff, 0xffffff, 0x000000], [0x33b6e5, 0xeabde3]]);
+      const koll = new eui.ArrayCollection([
+        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
+        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
+        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
+        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
+        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
+        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
+        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
+        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
+        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
+        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
+        [0xff0000, 0x00ff00, 0x0000ff, 0xf77c2a],
+        [0xf77c2a, 0xff0000, 0x00ff00, 0x0000ff],
+        [0x33b6e5, 0xeabde3],
+      ]);
+      list.dataProvider = koll;
       setInterval(() => {
-        let arr = Array.apply(null, Array(Math.ceil(Math.random() * 20 + 10)));
+        let arr = Array.apply(null, Array(Math.ceil(Math.random() * 100 + 20)));
         arr = arr.map(() => Math.ceil(Math.random() * 0xffffff));
         const n = 4;
         const group = [];
         for (let i = 0, end = arr.length / n; i < end; ++i) {
           group.push(arr.slice(i * n, (i + 1) * n));
         }
-        console.log(group);
-        list.dataProvider = new eui.ArrayCollection(group);
-        list.dataProviderRefreshed();
+        koll.source = group;
+        koll.refresh();
       }, 2000);
       list.itemRenderer = BacarratItemRenderer;
-      //   list.itemRendererSkinName = `
-      //       <e:Skin width="2560" height="400" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*">
-      //           <components:LobbyBacarratListItem x="0" />
-      //           <components:LobbyBacarratListItem x="640" />
-      //           <components:LobbyBacarratListItem x="1280" />
-      //           <components:LobbyBacarratListItem x="1920" />
-      //        </e:Skin>
-      //     `;
-      //   this._scroller.percentHeight = 20;
-      //   this._scroller.percentWidth = 100;
-      // this._scroller.horizontalCenter = true;
       this.viewport = list;
       // wait viewport ready
       window.requestAnimationFrame(() => {

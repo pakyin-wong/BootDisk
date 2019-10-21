@@ -4,14 +4,16 @@ namespace components {
     public constructor() {
       super();
       this.skinName = utils.getSkin('LobbyBacarratListItem');
-      this.visible = false;
-      this.touchEnabled = true;
       this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
     }
 
-    public setData(test: any) {
-      this.rect.fillColor = test;
-      this.visible = true;
+    public setData(data: any) {
+      if (data === null) {
+        this.visible = false;
+      } else {
+        this.rect.fillColor = data;
+        this.visible = true;
+      }
     }
 
     private onClick() {

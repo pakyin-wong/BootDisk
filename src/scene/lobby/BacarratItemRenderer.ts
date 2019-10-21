@@ -25,8 +25,8 @@ class BacarratItemRenderer extends eui.Component implements eui.IItemRenderer {
 
   public set data(data: any) {
     this._data = data;
-    for (let i = 0; i < data.length; i += 1) {
-      this[`listItem${i}`].setData(data[i]);
+    for (let i = 0; i < 4; i += 1) {
+      this[`listItem${i}`].setData(data[i] || null);
     }
   }
 }
