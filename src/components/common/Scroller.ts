@@ -101,7 +101,7 @@ namespace components {
       });
 
       // add mouse over/out listeners
-      this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
+      this.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
       this.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
 
       // add scroll bar listeners
