@@ -97,6 +97,7 @@ namespace socket {
           });
         }
       }
+      env.currTime = data.gameData.currTime;
       dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
 
       // return promise.resolve with BetResult
