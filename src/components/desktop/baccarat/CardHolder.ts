@@ -21,11 +21,7 @@ namespace baccarat {
     protected childrenCreated() {
       super.childrenCreated();
 
-      this.card1Player.setCard(enums.card.BACK);
-      this.card2Player.setCard(enums.card.BACK);
-
-      this.card1Banker.setCard(enums.card.BACK);
-      this.card2Banker.setCard(enums.card.BACK);
+      this.resetCards();
     }
 
     public updateResult(gameData: GameData) {
@@ -49,6 +45,17 @@ namespace baccarat {
       if (this.gameData.b3) {
         this.card3Banker.setHCard(this.gameData.b3);
       }
+    }
+
+    public resetCards() {
+      this.card1Player.setCard(enums.card.BACK);
+      this.card2Player.setCard(enums.card.BACK);
+
+      this.card1Banker.setCard(enums.card.BACK);
+      this.card2Banker.setCard(enums.card.BACK);
+
+      this.card3Banker.clear();
+      this.card3Player.clear();
     }
   }
 }

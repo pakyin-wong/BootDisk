@@ -29,5 +29,9 @@ namespace components {
 
       this.addChild(card);
     }
+
+    public clear() {
+      this.removeChildren();
+    }
   }
 }

@@ -124,6 +124,7 @@ namespace baccarat {
     }
     protected setStateDeal() {
       if (this.previousState !== enums.baccarat.GameState.DEAL) {
+        this.cardHolder.resetCards();
         // TODO: show stop bet message to the client for few seconds
         this.stateLabel.text = 'Dealing';
 
