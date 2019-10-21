@@ -200,7 +200,7 @@ namespace baccarat {
       // this.countdownTimer.start();
 
       this.countdownTimer.countdownValue = this.gameData.timer;
-      this.countdownTimer.remainingTime = this.gameData.timer - (this.gameData.currTime - this.gameData.startTime);
+      this.countdownTimer.remainingTime = this.gameData.timer - (env.currTime - this.gameData.startTime);
       this.countdownTimer.start();
     }
 
