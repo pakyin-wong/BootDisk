@@ -14,6 +14,7 @@
 		"eui.VSlider": "resource/eui_skins/VSliderSkin.exml",
 		"eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
 		"components.ImageSlider": "resource/skin_desktop/ImageSlider.exml",
+		"components.UserInfoWindow": "resource/skin_desktop/UserInfoWindow.exml",
 		"baccarat.BetChip": "resource/skin_desktop/BetChip.exml",
 		"baccarat.BetChipSet": "resource/skin_desktop/BetChipSet.exml",
 		"baccarat.CountdownTimer": "resource/skin_desktop/CountdownTimer.exml",
@@ -47,9 +48,9 @@
 		"resource/skin_desktop/LobbyBacarratListItem.exml",
 		"resource/skin_desktop/LobbyScene.exml",
 		"resource/skin_desktop/NavBar.exml",
-		"resource/skin_desktop/NewFile.exml",
 		"resource/skin_desktop/ScrollBarVertical.exml",
-		"resource/skin_desktop/SwitchLang.exml"
+		"resource/skin_desktop/SwitchLang.exml",
+		"resource/skin_desktop/UserInfoWindow.exml"
 	],
 	"path": "resource/default.thm.json"
 }

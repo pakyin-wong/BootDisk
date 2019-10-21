@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.NavBar" width="2560" height="160" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+<e:Skin class="skin_desktop.NavBar" width="2560" height="160" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" >
 	<e:Label text="LOGO" x="64" y="56" bold="true" textColor="0x000000" size="48"/>
 	<e:Rect width="4" height="86" x="270" y="37" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x888888"/>
-	<e:Label id="username" text="Johnattan" x="2364" y="37" textColor="0x000000"/>
-	<e:Label id="balance" text="RMB 123,456,789" x="2254" y="93" textColor="0x000000"/>
+	<e:Group id="userInfo" x="2254" y="37">
+		<e:Label id="username" text="Johnattan" x="110" y="0" textColor="0x000000"/>
+		<e:Label id="balance" text="RMB 123,456,789" x="0" y="56" textColor="0x000000"/>
+	</e:Group>
+	<components:UserInfoWindow id="userInfoWindow" width="360" height="640" x="2136" y="160" anchorOffsetX="0" anchorOffsetY="0"/>
 </e:Skin>
