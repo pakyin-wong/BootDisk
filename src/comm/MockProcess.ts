@@ -12,11 +12,14 @@ namespace socket {
     };
 
     private roundID: number = 1;
-    private finishStateInterval: number = 5000;
-    private shuffleStateInterval: number = 10000;
-    private cardInterval: number = 1000;
-    private startCardInterval: number = 2000;
-    private betStateInterval: number = 10000;
+    public finishStateInterval: number = 5000;
+    public shuffleStateInterval: number = 10000;
+    public cardInterval: number = 1000;
+    public startCardInterval: number = 2000;
+    public betStateInterval: number = 10000;
+
+    public startRand = 0;
+    public endRand = 6;
 
     private async sleep(ms, sleepCounter: string) {
       return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
@@ -24,8 +27,10 @@ namespace socket {
 
     public startBaccarat(data: TableInfo) {
       // random choose a result process
-      this.randomWin(data).then(() => {
-        this.startBaccarat(data);
+      setTimeout(() => {
+        this.randomWin(data).then(() => {
+          this.startBaccarat(data);
+        });
       });
     }
 
@@ -91,22 +96,29 @@ namespace socket {
     }
 
     public async randomWin(data: TableInfo) {
-      const rand = Math.floor(Math.random() * 6);
+      const rand = Math.floor(Math.random() * (this.endRand - this.startRand)) + this.startRand;
       switch (rand) {
         case 0:
-          return this.playerWin(data);
+          await this.playerWin(data);
+          break;
         case 1:
-          return this.bankerWin(data);
+          await this.bankerWin(data);
+          break;
         case 2:
-          return this.bankerPairWin(data);
+          await this.bankerPairWin(data);
+          break;
         case 3:
-          return this.bankerWinPlayerPair(data);
+          await this.bankerWinPlayerPair(data);
+          break;
         case 4:
-          return this.tie(data);
+          await this.tie(data);
+          break;
         case 5:
-          return this.shuffle(data);
+          await this.shuffle(data);
+          break;
         default:
-          return this.shuffle(data);
+          await this.shuffle(data);
+          break;
       }
     }
 

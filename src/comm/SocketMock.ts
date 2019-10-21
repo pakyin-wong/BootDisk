@@ -15,11 +15,27 @@ namespace socket {
       baccarat: false,
     };
 
-    private data: TableInfo;
+    private tables: TableInfo[];
+    private mockProcesses: MockProcess[] = [];
 
     constructor() {
-      this.data = new TableInfo();
-      this.data.betDetails = [];
+      const tableCount = 6;
+      this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
+        const data = new TableInfo();
+        data.tableID = idx + 1;
+        data.tableState = enums.TableState.ONLINE;
+        data.gameType = enums.GameType.BAC;
+        data.betDetails = [];
+        const mockProcess = new MockProcess();
+        if (idx !== tableCount - 1) {
+          mockProcess.startRand = idx;
+          mockProcess.endRand = idx + 1;
+        }
+        mockProcess.startBaccarat(data);
+        this.mockProcesses.push(mockProcess);
+        idx++;
+        return data;
+      });
     }
 
     public connect() {
@@ -28,19 +44,6 @@ namespace socket {
     }
 
     public async enterTable(tableID: number) {
-      this._sleepCounter.tableInfoList = setTimeout(async () => {
-        logger.l('enter table:: timeout() running');
-        // await this.sleep(9000, 'tableInfoListInternal');
-
-        const data = this.data;
-        data.tableID = 2;
-        data.tableState = enums.TableState.ONLINE;
-        data.gameType = enums.GameType.BAC;
-
-        const mockProcess = new MockProcess();
-        mockProcess.startBaccarat(data);
-      });
-
       /*
       //Canceling the event
 
@@ -70,47 +73,24 @@ namespace socket {
     public getTableList(filter: number) {
       switch (filter) {
         case enums.TableFilter.BACCARAT:
-          this.mockTableInfoList();
-          this.mockTableInfo();
-          this._sleepCounter.tableInfoList = setTimeout(() => {});
+          this._sleepCounter.tableInfoList = setTimeout(() => {
+            env.tableInfo = this.tables;
+            dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, this.tables);
+          });
           break;
         default:
           break;
       }
     }
-    private mockTableInfoList() {
-      const tableInfo = new TableInfo();
-      tableInfo.tableID = 2;
-      env.tableInfo = new Array<TableInfo>();
-      env.tableInfo.push(tableInfo);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, [2]);
-    }
-
-    private mockTableInfo() {
-      const data = new TableInfo();
-      data.tableID = 2;
-      data.tableState = enums.TableState.ONLINE;
-      data.gameType = enums.GameType.BAC;
-      const gameData = new baccarat.GameData();
-      gameData.gameState = enums.baccarat.GameState.BET;
-      gameData.roundID = 1;
-      gameData.startTime = new Date().getTime() - 13000;
-      gameData.currTime = new Date().getTime();
-      gameData.timer = 30000;
-      data.gameData = gameData;
-      env.tableInfo.push(data);
-      logger.l('env.tableInfo' + env.tableInfo);
-    }
-
-    public async getTableInfo() {}
 
     public async bet(tableID: number, betDetails: BetDetail[]) {
       console.log('SocketMock::bet()');
       // add the bets to confirmed bet Array
-      this.data.gameData.currTime = Date.now();
+      const data = this.tables[tableID - 1];
+      this.tables[tableID - 1].gameData.currTime = Date.now();
       for (const betDetail of betDetails) {
         let isMatch = false;
-        for (const cfmBetDetail of this.data.betDetails) {
+        for (const cfmBetDetail of data.betDetails) {
           if (betDetail.field === cfmBetDetail.field) {
             console.log('SocketMock::bet() matched');
 
@@ -122,7 +102,7 @@ namespace socket {
         if (!isMatch) {
           console.log('SocketMock::bet() not matched');
 
-          this.data.betDetails.push({
+          data.betDetails.push({
             field: betDetail.field,
             amount: betDetail.amount,
             winAmount: 0,
@@ -130,16 +110,12 @@ namespace socket {
           });
         }
       }
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, this.data);
+      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
 
       // return promise.resolve with BetResult
       return Promise.resolve({
         success: 1,
       });
-    }
-
-    private clearBetResult() {
-      this.data.betDetails = [];
     }
 
     private onReceivedMsg(res) {
