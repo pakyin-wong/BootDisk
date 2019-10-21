@@ -1,6 +1,6 @@
 namespace scene {
   export class BaseScene extends eui.Component {
-    public constructor() {
+    public constructor(data: any = null) {
       super();
     }
 

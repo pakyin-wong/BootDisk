@@ -10,12 +10,12 @@ namespace controller {
     }
 
     /** switch scene immediately */
-    public goto(id: string) {
+    public goto(id: string, data: any = null) {
       let _prev: scene.BaseScene;
       let _next: scene.BaseScene;
       try {
         _prev = this._currScene;
-        _next = new scene[id]();
+        _next = new scene[id](data);
       } catch (e) {
         logger.l(`scene ${id} defined error`);
         return;
@@ -29,12 +29,12 @@ namespace controller {
     }
 
     /** switch scene with calling fade-in fade-out effect */
-    public async transferTo(id: string) {
+    public async transferTo(id: string, data: any = null) {
       let _prev: scene.BaseScene;
       let _next: scene.BaseScene;
       try {
         _prev = this._currScene;
-        _next = new scene[id]();
+        _next = new scene[id](data);
       } catch (e) {
         logger.l(`scene ${id} defined error`);
         return;
