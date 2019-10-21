@@ -30,60 +30,15 @@ namespace socket {
     public async enterTable(tableID: number) {
       this._sleepCounter.tableInfoList = setTimeout(async () => {
         logger.l('enter table:: timeout() running');
-        await this.sleep(9000, 'tableInfoListInternal');
+        // await this.sleep(9000, 'tableInfoListInternal');
 
         const data = this.data;
-        const gameData = new baccarat.GameData();
-
         data.tableID = 2;
         data.tableState = enums.TableState.ONLINE;
         data.gameType = enums.GameType.BAC;
-        gameData.gameState = enums.baccarat.GameState.DEAL;
-        gameData.roundID = 1;
 
-        data.gameData = gameData;
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(2000, 'tableInfoListInternal');
-
-        gameData.a1 = enums.card.c1;
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(2000, 'tableInfoListInternal');
-
-        gameData.a2 = enums.card.h13;
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(2000, 'tableInfoListInternal');
-
-        gameData.b1 = enums.card.d1;
-        gameData.gameState = enums.baccarat.GameState.DEAL;
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(2000, 'tableInfoListInternal');
-
-        gameData.b2 = enums.card.s1;
-        gameData.gameState = enums.baccarat.GameState.DEAL;
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(2000, 'tableInfoListInternal');
-
-        gameData.a3 = enums.card.d6;
-        gameData.gameState = enums.baccarat.GameState.DEAL;
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(2000, 'tableInfoListInternal');
-
-        gameData.b3 = enums.card.s9;
-        gameData.gameState = enums.baccarat.GameState.DEAL;
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(2000, 'tableInfoListInternal');
-
-        gameData.gameState = enums.baccarat.GameState.FINISH;
-        gameData.winType = enums.baccarat.FinishType.PLAYER_WIN;
-        const betDetail = new BetDetail();
-        betDetail.isWin = 1;
-        betDetail.winAmount = 1000;
-
-        data.betDetails = new Array<BetDetail>();
-        data.betDetails.push(betDetail);
-
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-        await this.sleep(2000, 'tableInfoListInternal');
+        const mockProcess = new MockProcess();
+        mockProcess.startBaccarat(data);
       });
 
       /*
@@ -141,7 +96,7 @@ namespace socket {
       gameData.roundID = 1;
       gameData.startTime = new Date().getTime() - 13000;
       gameData.currTime = new Date().getTime();
-      gameData.timer = 29000;
+      gameData.timer = 30000;
       data.gameData = gameData;
       env.tableInfo.push(data);
       logger.l('env.tableInfo' + env.tableInfo);
@@ -152,6 +107,7 @@ namespace socket {
     public async bet(tableID: number, betDetails: BetDetail[]) {
       console.log('SocketMock::bet()');
       // add the bets to confirmed bet Array
+      this.data.gameData.currTime = Date.now();
       for (const betDetail of betDetails) {
         let isMatch = false;
         for (const cfmBetDetail of this.data.betDetails) {
