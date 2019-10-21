@@ -101,9 +101,31 @@ namespace baccarat {
       return this.uncfmBetDetails;
     }
 
+    /*
+
+    public resetUnconfirmedBetDetails() {
+      Object.keys(this.mapping).forEach(value => {
+        this.mapping[value].setUncfmBet(0);
+      });
+    }*/
+
     public updateBetFields(betDetails: BetDetail[]) {
-      // TODO: update the already bet amount of each bet field
+      logger.l('BettingTable::updateBetFields' + betDetails);
       this.betDetails = betDetails;
+
+      // TODO: update the already bet amount of each bet field
+
+      betDetails.map((value, index) => {
+        logger.l('BettingTable::updateBetFields:loop ' + value);
+
+        // const uncfmBetDetail = new BetDetail();
+        // uncfmBetDetail.amount = ;
+        // uncfmBetDetail.field = this.mapping[betDetails[value].field].amount;
+        this.mapping[value.field].setCfmBet(value.amount);
+
+        // this.mapping[value].getUncfmBet() + this.mapping[value].getCfmBet());
+        // this.mapping[value].setUncfmBet(0);
+      });
     }
 
     public showWinFields(betDetails: BetDetail[]) {
@@ -170,7 +192,7 @@ namespace baccarat {
       return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount + betDetail.amount);
     }
 
-    protected resetUnconfirmedBet() {
+    public resetUnconfirmedBet() {
       this.uncfmBetDetails = [
         { field: enums.baccarat.BetField.BANKER, amount: 0 },
         { field: enums.baccarat.BetField.PLAYER, amount: 0 },
@@ -179,6 +201,9 @@ namespace baccarat {
         { field: enums.baccarat.BetField.PLAYER_PAIR, amount: 0 },
         { field: enums.baccarat.BetField.SUPER_SIX, amount: 0 },
       ];
+      Object.keys(this.mapping).forEach(value => {
+        this.mapping[value].setUncfmBet(0);
+      });
       this.totalUncfmBetAmount = 0;
     }
     public cancelBet() {

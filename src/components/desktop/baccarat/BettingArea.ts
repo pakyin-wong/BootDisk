@@ -52,6 +52,7 @@ namespace baccarat {
       const bets = this.bettingTable.getUnconfirmedBetDetails();
       dir.socket.bet(this.tableID, bets).then(data => {
         if (data.success) {
+          this.bettingTable.resetUnconfirmedBet();
           egret.log('Bet Succeeded');
         }
       });
@@ -67,12 +68,17 @@ namespace baccarat {
       this.tableID = tableInfo.tableID;
       this.gameData = <GameData>tableInfo.gameData;
       this.betDetails = tableInfo.betDetails;
+      console.log(`BettingArea::onTableInfoUpdate::betDetails ${this.betDetails}`);
       this.updateGame();
     }
 
     protected updateGame() {
+      console.log(`BettingArea::updateGame::GameState ${this.gameData.gameState}`);
+
       switch (this.gameData.gameState) {
         case enums.baccarat.GameState.BET:
+          console.log(`BettingArea::updateGame::setStateBet`);
+
           this.setStateBet();
           break;
         case enums.baccarat.GameState.DEAL:
@@ -108,6 +114,7 @@ namespace baccarat {
         this.bettingTable.setTouchEnabled(true);
       }
       // update the bet amount of each bet field in betting table
+      logger.l(`BettingArea::setStateBet:betDetails: ` + this.betDetails);
       if (this.betDetails) {
         this.bettingTable.updateBetFields(this.betDetails);
       }

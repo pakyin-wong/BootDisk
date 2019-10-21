@@ -110,14 +110,14 @@ namespace socket {
       */
     }
 
-    public leaveTable(tableID: number) { }
+    public leaveTable(tableID: number) {}
 
     public getTableList(filter: number) {
       switch (filter) {
         case enums.TableFilter.BACCARAT:
           this.mockTableInfoList();
           this.mockTableInfo();
-          this._sleepCounter.tableInfoList = setTimeout(() => { });
+          this._sleepCounter.tableInfoList = setTimeout(() => {});
           break;
         default:
           break;
@@ -147,20 +147,25 @@ namespace socket {
       logger.l('env.tableInfo' + env.tableInfo);
     }
 
-    public async getTableInfo() { }
+    public async getTableInfo() {}
 
     public async bet(tableID: number, betDetails: BetDetail[]) {
+      console.log('SocketMock::bet()');
       // add the bets to confirmed bet Array
       for (const betDetail of betDetails) {
         let isMatch = false;
         for (const cfmBetDetail of this.data.betDetails) {
           if (betDetail.field === cfmBetDetail.field) {
+            console.log('SocketMock::bet() matched');
+
             isMatch = true;
             cfmBetDetail.amount += betDetail.amount;
             break;
           }
         }
         if (!isMatch) {
+          console.log('SocketMock::bet() not matched');
+
           this.data.betDetails.push({
             field: betDetail.field,
             amount: betDetail.amount,
@@ -169,6 +174,13 @@ namespace socket {
           });
         }
       }
+      const gameData = new baccarat.GameData();
+      this.data.gameData = gameData;
+      gameData.gameState = enums.baccarat.GameState.BET;
+      gameData.timer = 30000;
+      gameData.startTime = 7000;
+      gameData.currTime = 10000;
+      this.data.tableID = 2;
 
       dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, this.data);
 
@@ -197,7 +209,7 @@ namespace socket {
       });
     }
 
-    private counterReset(counter: string) { }
+    private counterReset(counter: string) {}
 
     private async sleep(ms, sleepCounter: string) {
       return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
