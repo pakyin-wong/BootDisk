@@ -4,17 +4,17 @@ class Main extends eui.UILayer {
     // add global mouse event handler
     mouse.enable(this.stage);
 
-    egret.lifecycle.addLifecycleListener(context => {
-      // custom lifecycle plugin
-    });
+    // egret.lifecycle.addLifecycleListener(context => {
+    //   // custom lifecycle plugin
+    // });
 
-    egret.lifecycle.onPause = () => {
-      egret.ticker.pause();
-    };
+    // egret.lifecycle.onPause = () => {
+    //   egret.ticker.pause();
+    // };
 
-    egret.lifecycle.onResume = () => {
-      egret.ticker.resume();
-    };
+    // egret.lifecycle.onResume = () => {
+    //   egret.ticker.resume();
+    // };
 
     this.init().catch(e => {
       console.log(e);
@@ -23,11 +23,13 @@ class Main extends eui.UILayer {
 
   private async init() {
     // step 1: init director elements (socket comm, controller, handler)
-    dir.socket = new socket.MQTTSocketComm();
+    // dir.socket = new socket.MQTTSocketComm();
+    dir.socket = new socket.SocketMock();
     dir.evtHandler = new handler.EventHandler();
     dir.errHandler = new handler.ErrorHandler();
     dir.layerCtr = new controller.LayerCtr(this.stage);
     dir.sceneCtr = new controller.SceneCtr();
+    dir.moniter = new Monitor();
 
     // step 2: init Egrets Asset / Res
     await this.initRes();

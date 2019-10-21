@@ -51,11 +51,47 @@ declare module skins{
 	}
 }
 declare module skin_desktop{
+	class BaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetChipSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetChipSetSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetConfirmButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BettingAreaSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class CountdownTimerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ImageSlider extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class LoadingScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LobbyBacarratListItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -66,7 +102,13 @@ declare module skin_desktop{
 	class NavBar extends eui.Skin{
 	}
 }
+declare class NewFile extends eui.Skin{
+}
 declare module skin_desktop{
 	class VScrollBarSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SwitchLang extends eui.Skin{
 	}
 }

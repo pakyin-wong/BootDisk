@@ -5,6 +5,10 @@
 			"name": "egret_basic"
 		},
 		{
+			"keys": "h4_png,h3_png,h5_png,h6_png,h7_png,h10_png,h9_png,h8_png,h11_png,h12_png,h13_png,s1_png,s3_png,s2_png,s5_png,s4_png,s6_png,s7_png,s8_png,s9_png,s10_png,s11_png,s12_png,s13_png,card_back_png,c1_png,c2_png,c3_png,c4_png,c6_png,c7_png,c8_png,c9_png,c10_png,c11_png,c12_png,c13_png,d1_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,d10_png,d11_png,d12_png,h2_png,d13_png,h1_png",
+			"name": "common"
+		},
+		{
 			"keys": "scene_loading_bg",
 			"name": "scene_loading"
 		},
@@ -149,6 +153,271 @@
 			"name": "description_json"
 		},
 		{
+			"url": "assets/card/h4.png",
+			"type": "image",
+			"name": "h4_png"
+		},
+		{
+			"url": "assets/card/h3.png",
+			"type": "image",
+			"name": "h3_png"
+		},
+		{
+			"url": "assets/card/h5.png",
+			"type": "image",
+			"name": "h5_png"
+		},
+		{
+			"url": "assets/card/h6.png",
+			"type": "image",
+			"name": "h6_png"
+		},
+		{
+			"url": "assets/card/h7.png",
+			"type": "image",
+			"name": "h7_png"
+		},
+		{
+			"url": "assets/card/h10.png",
+			"type": "image",
+			"name": "h10_png"
+		},
+		{
+			"url": "assets/card/h9.png",
+			"type": "image",
+			"name": "h9_png"
+		},
+		{
+			"url": "assets/card/h8.png",
+			"type": "image",
+			"name": "h8_png"
+		},
+		{
+			"url": "assets/card/h11.png",
+			"type": "image",
+			"name": "h11_png"
+		},
+		{
+			"url": "assets/card/h12.png",
+			"type": "image",
+			"name": "h12_png"
+		},
+		{
+			"url": "assets/card/h13.png",
+			"type": "image",
+			"name": "h13_png"
+		},
+		{
+			"url": "assets/card/s1.png",
+			"type": "image",
+			"name": "s1_png"
+		},
+		{
+			"url": "assets/card/s3.png",
+			"type": "image",
+			"name": "s3_png"
+		},
+		{
+			"url": "assets/card/s2.png",
+			"type": "image",
+			"name": "s2_png"
+		},
+		{
+			"url": "assets/card/s5.png",
+			"type": "image",
+			"name": "s5_png"
+		},
+		{
+			"url": "assets/card/s4.png",
+			"type": "image",
+			"name": "s4_png"
+		},
+		{
+			"url": "assets/card/s6.png",
+			"type": "image",
+			"name": "s6_png"
+		},
+		{
+			"url": "assets/card/s7.png",
+			"type": "image",
+			"name": "s7_png"
+		},
+		{
+			"url": "assets/card/s8.png",
+			"type": "image",
+			"name": "s8_png"
+		},
+		{
+			"url": "assets/card/s9.png",
+			"type": "image",
+			"name": "s9_png"
+		},
+		{
+			"url": "assets/card/s10.png",
+			"type": "image",
+			"name": "s10_png"
+		},
+		{
+			"url": "assets/card/s11.png",
+			"type": "image",
+			"name": "s11_png"
+		},
+		{
+			"url": "assets/card/s12.png",
+			"type": "image",
+			"name": "s12_png"
+		},
+		{
+			"url": "assets/card/s13.png",
+			"type": "image",
+			"name": "s13_png"
+		},
+		{
+			"url": "assets/card/back.png",
+			"type": "image",
+			"name": "card_back_png"
+		},
+		{
+			"url": "assets/card/c1.png",
+			"type": "image",
+			"name": "c1_png"
+		},
+		{
+			"url": "assets/card/c2.png",
+			"type": "image",
+			"name": "c2_png"
+		},
+		{
+			"url": "assets/card/c3.png",
+			"type": "image",
+			"name": "c3_png"
+		},
+		{
+			"url": "assets/card/c4.png",
+			"type": "image",
+			"name": "c4_png"
+		},
+		{
+			"url": "assets/card/c5.png",
+			"type": "image",
+			"name": "c5_png"
+		},
+		{
+			"url": "assets/card/c6.png",
+			"type": "image",
+			"name": "c6_png"
+		},
+		{
+			"url": "assets/card/c7.png",
+			"type": "image",
+			"name": "c7_png"
+		},
+		{
+			"url": "assets/card/c8.png",
+			"type": "image",
+			"name": "c8_png"
+		},
+		{
+			"url": "assets/card/c9.png",
+			"type": "image",
+			"name": "c9_png"
+		},
+		{
+			"url": "assets/card/c10.png",
+			"type": "image",
+			"name": "c10_png"
+		},
+		{
+			"url": "assets/card/c11.png",
+			"type": "image",
+			"name": "c11_png"
+		},
+		{
+			"url": "assets/card/c12.png",
+			"type": "image",
+			"name": "c12_png"
+		},
+		{
+			"url": "assets/card/c13.png",
+			"type": "image",
+			"name": "c13_png"
+		},
+		{
+			"url": "assets/card/d1.png",
+			"type": "image",
+			"name": "d1_png"
+		},
+		{
+			"url": "assets/card/d2.png",
+			"type": "image",
+			"name": "d2_png"
+		},
+		{
+			"url": "assets/card/d3.png",
+			"type": "image",
+			"name": "d3_png"
+		},
+		{
+			"url": "assets/card/d4.png",
+			"type": "image",
+			"name": "d4_png"
+		},
+		{
+			"url": "assets/card/d5.png",
+			"type": "image",
+			"name": "d5_png"
+		},
+		{
+			"url": "assets/card/d6.png",
+			"type": "image",
+			"name": "d6_png"
+		},
+		{
+			"url": "assets/card/d7.png",
+			"type": "image",
+			"name": "d7_png"
+		},
+		{
+			"url": "assets/card/d8.png",
+			"type": "image",
+			"name": "d8_png"
+		},
+		{
+			"url": "assets/card/d9.png",
+			"type": "image",
+			"name": "d9_png"
+		},
+		{
+			"url": "assets/card/d10.png",
+			"type": "image",
+			"name": "d10_png"
+		},
+		{
+			"url": "assets/card/d11.png",
+			"type": "image",
+			"name": "d11_png"
+		},
+		{
+			"url": "assets/card/d12.png",
+			"type": "image",
+			"name": "d12_png"
+		},
+		{
+			"url": "assets/card/h2.png",
+			"type": "image",
+			"name": "h2_png"
+		},
+		{
+			"url": "assets/card/d13.png",
+			"type": "image",
+			"name": "d13_png"
+		},
+		{
+			"url": "assets/card/h1.png",
+			"type": "image",
+			"name": "h1_png"
+		},
+		{
 			"url": "assets/Scene/loading/Computer-Tech-Wallpaper-09-2560x1440.jpg",
 			"type": "image",
 			"name": "scene_loading_bg"
@@ -162,6 +431,271 @@
 			"url": "assets/Scene/lobby/1280x720.png",
 			"type": "image",
 			"name": "scene_lobby_dummyImage"
+		},
+		{
+			"url": "assets/card/back.png",
+			"type": "image",
+			"name": "back_png"
+		},
+		{
+			"url": "assets/card/c1.png",
+			"type": "image",
+			"name": "c14_png"
+		},
+		{
+			"url": "assets/card/c10.png",
+			"type": "image",
+			"name": "c102_png"
+		},
+		{
+			"url": "assets/card/c11.png",
+			"type": "image",
+			"name": "c112_png"
+		},
+		{
+			"url": "assets/card/c12.png",
+			"type": "image",
+			"name": "c122_png"
+		},
+		{
+			"url": "assets/card/c13.png",
+			"type": "image",
+			"name": "c132_png"
+		},
+		{
+			"url": "assets/card/c2.png",
+			"type": "image",
+			"name": "c22_png"
+		},
+		{
+			"url": "assets/card/c3.png",
+			"type": "image",
+			"name": "c32_png"
+		},
+		{
+			"url": "assets/card/c4.png",
+			"type": "image",
+			"name": "c42_png"
+		},
+		{
+			"url": "assets/card/c5.png",
+			"type": "image",
+			"name": "c52_png"
+		},
+		{
+			"url": "assets/card/c6.png",
+			"type": "image",
+			"name": "c62_png"
+		},
+		{
+			"url": "assets/card/c7.png",
+			"type": "image",
+			"name": "c72_png"
+		},
+		{
+			"url": "assets/card/c8.png",
+			"type": "image",
+			"name": "c82_png"
+		},
+		{
+			"url": "assets/card/c9.png",
+			"type": "image",
+			"name": "c92_png"
+		},
+		{
+			"url": "assets/card/d1.png",
+			"type": "image",
+			"name": "d14_png"
+		},
+		{
+			"url": "assets/card/d10.png",
+			"type": "image",
+			"name": "d102_png"
+		},
+		{
+			"url": "assets/card/d11.png",
+			"type": "image",
+			"name": "d112_png"
+		},
+		{
+			"url": "assets/card/d12.png",
+			"type": "image",
+			"name": "d122_png"
+		},
+		{
+			"url": "assets/card/d13.png",
+			"type": "image",
+			"name": "d132_png"
+		},
+		{
+			"url": "assets/card/d2.png",
+			"type": "image",
+			"name": "d22_png"
+		},
+		{
+			"url": "assets/card/d3.png",
+			"type": "image",
+			"name": "d32_png"
+		},
+		{
+			"url": "assets/card/d4.png",
+			"type": "image",
+			"name": "d42_png"
+		},
+		{
+			"url": "assets/card/d5.png",
+			"type": "image",
+			"name": "d52_png"
+		},
+		{
+			"url": "assets/card/d6.png",
+			"type": "image",
+			"name": "d62_png"
+		},
+		{
+			"url": "assets/card/d7.png",
+			"type": "image",
+			"name": "d72_png"
+		},
+		{
+			"url": "assets/card/d8.png",
+			"type": "image",
+			"name": "d82_png"
+		},
+		{
+			"url": "assets/card/d9.png",
+			"type": "image",
+			"name": "d92_png"
+		},
+		{
+			"url": "assets/card/h1.png",
+			"type": "image",
+			"name": "h14_png"
+		},
+		{
+			"url": "assets/card/h10.png",
+			"type": "image",
+			"name": "h102_png"
+		},
+		{
+			"url": "assets/card/h11.png",
+			"type": "image",
+			"name": "h112_png"
+		},
+		{
+			"url": "assets/card/h12.png",
+			"type": "image",
+			"name": "h122_png"
+		},
+		{
+			"url": "assets/card/h13.png",
+			"type": "image",
+			"name": "h132_png"
+		},
+		{
+			"url": "assets/card/h2.png",
+			"type": "image",
+			"name": "h22_png"
+		},
+		{
+			"url": "assets/card/h3.png",
+			"type": "image",
+			"name": "h32_png"
+		},
+		{
+			"url": "assets/card/h4.png",
+			"type": "image",
+			"name": "h42_png"
+		},
+		{
+			"url": "assets/card/h5.png",
+			"type": "image",
+			"name": "h52_png"
+		},
+		{
+			"url": "assets/card/h6.png",
+			"type": "image",
+			"name": "h62_png"
+		},
+		{
+			"url": "assets/card/h7.png",
+			"type": "image",
+			"name": "h72_png"
+		},
+		{
+			"url": "assets/card/h8.png",
+			"type": "image",
+			"name": "h82_png"
+		},
+		{
+			"url": "assets/card/h9.png",
+			"type": "image",
+			"name": "h92_png"
+		},
+		{
+			"url": "assets/card/s1.png",
+			"type": "image",
+			"name": "s14_png"
+		},
+		{
+			"url": "assets/card/s10.png",
+			"type": "image",
+			"name": "s102_png"
+		},
+		{
+			"url": "assets/card/s11.png",
+			"type": "image",
+			"name": "s112_png"
+		},
+		{
+			"url": "assets/card/s12.png",
+			"type": "image",
+			"name": "s122_png"
+		},
+		{
+			"url": "assets/card/s13.png",
+			"type": "image",
+			"name": "s132_png"
+		},
+		{
+			"url": "assets/card/s2.png",
+			"type": "image",
+			"name": "s22_png"
+		},
+		{
+			"url": "assets/card/s3.png",
+			"type": "image",
+			"name": "s32_png"
+		},
+		{
+			"url": "assets/card/s4.png",
+			"type": "image",
+			"name": "s42_png"
+		},
+		{
+			"url": "assets/card/s5.png",
+			"type": "image",
+			"name": "s52_png"
+		},
+		{
+			"url": "assets/card/s6.png",
+			"type": "image",
+			"name": "s62_png"
+		},
+		{
+			"url": "assets/card/s7.png",
+			"type": "image",
+			"name": "s72_png"
+		},
+		{
+			"url": "assets/card/s8.png",
+			"type": "image",
+			"name": "s82_png"
+		},
+		{
+			"url": "assets/card/s9.png",
+			"type": "image",
+			"name": "s92_png"
 		}
 	]
 }

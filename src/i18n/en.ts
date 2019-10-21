@@ -5,5 +5,14 @@ namespace i18n {
         connecting: 'Socket Connecting',
       },
     },
+    baccarat: {
+      playerPair: 'Player Pair',
+      bankerPair: 'Banker Pair',
+      player: 'Player',
+      tie: 'Tie',
+      superSix: 'Super Six',
+      banker: 'Banker',
+      noComm: 'No Commision',
+    },
   };
 }

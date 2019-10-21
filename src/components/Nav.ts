@@ -1,8 +1,8 @@
 namespace components {
-  export class NavBar extends eui.Component implements eui.UIComponent {
+  export class Nav extends eui.Component implements eui.UIComponent {
     public constructor() {
       super();
-      this.skinName = utils.getSkin('NavBar');
+      this.skinName = utils.getSkin('Nav');
     }
 
     protected partAdded(partName: string, instance: any): void {
