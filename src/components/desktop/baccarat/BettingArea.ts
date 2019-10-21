@@ -7,6 +7,7 @@ namespace baccarat {
     private countdownTimer: baccarat.CountdownTimer;
     private confirmButton: eui.Button;
     private cancelButton: eui.Button;
+    private winAmountLabel: eui.Label;
 
     // temp component
     private stateLabel: eui.Label;
@@ -102,7 +103,10 @@ namespace baccarat {
     protected setStateBet() {
       if (this.previousState !== enums.baccarat.GameState.BET) {
         // TODO: show start bet message to the client for few seconds
+        this.bettingTable.resetUnconfirmedBet();
+        this.bettingTable.resetConfirmedBet();
         this.stateLabel.text = 'Betting';
+        this.winAmountLabel.visible = false;
 
         // hide cardHolder
         this.cardHolder.visible = false;
@@ -136,6 +140,8 @@ namespace baccarat {
 
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
+
+        this.winAmountLabel.visible = false;
       }
       // update card result in cardHolder
       this.cardHolder.updateResult(this.gameData);
@@ -146,6 +152,8 @@ namespace baccarat {
 
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
+        this.winAmountLabel.visible = true;
+        this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
 
         // TODO: show effect on each winning bet field
         logger.l(`this.gameData.winType ${this.gameData.winType} ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.winType)}`);
@@ -168,6 +176,7 @@ namespace baccarat {
 
         // hide cardHolder
         this.cardHolder.visible = false;
+        this.winAmountLabel.visible = false;
 
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
@@ -183,6 +192,7 @@ namespace baccarat {
 
         // hide cardHolder
         this.cardHolder.visible = false;
+        this.winAmountLabel.visible = false;
 
         // disable betting table
         this.bettingTable.setTouchEnabled(false);

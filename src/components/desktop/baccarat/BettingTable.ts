@@ -206,6 +206,21 @@ namespace baccarat {
       });
       this.totalUncfmBetAmount = 0;
     }
+
+    public resetConfirmedBet() {
+      this.betDetails = [
+        { field: enums.baccarat.BetField.BANKER, amount: 0 },
+        { field: enums.baccarat.BetField.PLAYER, amount: 0 },
+        { field: enums.baccarat.BetField.TIE, amount: 0 },
+        { field: enums.baccarat.BetField.BANKER_PAIR, amount: 0 },
+        { field: enums.baccarat.BetField.PLAYER_PAIR, amount: 0 },
+        { field: enums.baccarat.BetField.SUPER_SIX, amount: 0 },
+      ];
+      Object.keys(this.mapping).forEach(value => {
+        this.mapping[value].setCfmBet(0);
+      });
+    }
+
     public cancelBet() {
       this.resetUnconfirmedBet();
       this.gridTie.cancelBet();
