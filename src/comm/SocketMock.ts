@@ -15,7 +15,12 @@ namespace socket {
       baccarat: false,
     };
 
-    constructor() {}
+    private data: TableInfo;
+
+    constructor() {
+      this.data = new TableInfo();
+      this.data.betDetails = [];
+    }
 
     public connect() {
       // this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
@@ -27,7 +32,7 @@ namespace socket {
         logger.l('enter table:: timeout() running');
         await this.sleep(9000, 'tableInfoListInternal');
 
-        const data = new TableInfo();
+        const data = this.data;
         const gameData = new baccarat.GameData();
 
         data.tableID = 2;
@@ -105,14 +110,14 @@ namespace socket {
       */
     }
 
-    public leaveTable(tableID: number) {}
+    public leaveTable(tableID: number) { }
 
     public getTableList(filter: number) {
       switch (filter) {
         case enums.TableFilter.BACCARAT:
           this.mockTableInfoList();
           this.mockTableInfo();
-          this._sleepCounter.tableInfoList = setTimeout(() => {});
+          this._sleepCounter.tableInfoList = setTimeout(() => { });
           break;
         default:
           break;
@@ -142,9 +147,40 @@ namespace socket {
       logger.l('env.tableInfo' + env.tableInfo);
     }
 
-    public async getTableInfo() {}
+    public async getTableInfo() { }
 
-    public bet(tableID: number, betDetails: BetDetail[]) {}
+    public async bet(tableID: number, betDetails: BetDetail[]) {
+      // add the bets to confirmed bet Array
+      for (const betDetail of betDetails) {
+        let isMatch = false;
+        for (const cfmBetDetail of this.data.betDetails) {
+          if (betDetail.field === cfmBetDetail.field) {
+            isMatch = true;
+            cfmBetDetail.amount += betDetail.amount;
+            break;
+          }
+        }
+        if (!isMatch) {
+          this.data.betDetails.push({
+            field: betDetail.field,
+            amount: betDetail.amount,
+            winAmount: 0,
+            isWin: 0,
+          });
+        }
+      }
+
+      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, this.data);
+
+      // return promise.resolve with BetResult
+      return Promise.resolve({
+        success: 1,
+      });
+    }
+
+    private clearBetResult() {
+      this.data.betDetails = [];
+    }
 
     private onReceivedMsg(res) {
       logger.l(res);
@@ -161,7 +197,7 @@ namespace socket {
       });
     }
 
-    private counterReset(counter: string) {}
+    private counterReset(counter: string) { }
 
     private async sleep(ms, sleepCounter: string) {
       return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));

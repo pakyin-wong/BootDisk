@@ -50,7 +50,11 @@ namespace baccarat {
     private onConfirmPressed() {
       egret.log('Confirm');
       const bets = this.bettingTable.getUnconfirmedBetDetails();
-      dir.socket.bet(this.tableID, bets);
+      dir.socket.bet(this.tableID, bets).then(data => {
+        if (data.success) {
+          egret.log('Bet Succeeded');
+        }
+      });
     }
 
     private onCancelPressed() {
@@ -104,7 +108,9 @@ namespace baccarat {
         this.bettingTable.setTouchEnabled(true);
       }
       // update the bet amount of each bet field in betting table
-      this.bettingTable.updateBetFields(this.betDetails);
+      if (this.betDetails) {
+        this.bettingTable.updateBetFields(this.betDetails);
+      }
 
       // update the countdownTimer
       this.updateCountdownTimer();
