@@ -12,11 +12,14 @@ namespace socket {
     };
 
     private roundID: number = 1;
-    private finishStateInterval: number = 5000;
-    private shuffleStateInterval: number = 10000;
-    private cardInterval: number = 1000;
-    private startCardInterval: number = 2000;
-    private betStateInterval: number = 10000;
+    public finishStateInterval: number = 5000;
+    public shuffleStateInterval: number = 10000;
+    public cardInterval: number = 1000;
+    public startCardInterval: number = 2000;
+    public betStateInterval: number = 10000;
+
+    public startRand = 0;
+    public endRand = 6;
 
     private async sleep(ms, sleepCounter: string) {
       return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
@@ -24,8 +27,10 @@ namespace socket {
 
     public startBaccarat(data: TableInfo) {
       // random choose a result process
-      this.randomWin(data).then(() => {
-        this.startBaccarat(data);
+      setTimeout(() => {
+        this.randomWin(data).then(() => {
+          this.startBaccarat(data);
+        });
       });
     }
 
@@ -57,7 +62,7 @@ namespace socket {
             gameData.b3 = card;
             break;
         }
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+        this.dispatchEvent(data);
         await this.sleep(this.cardInterval, 'tableInfoListInternal');
       }
     }
@@ -90,23 +95,35 @@ namespace socket {
       gameData.roundID = this.roundID++;
     }
 
+    private dispatchEvent(data: TableInfo) {
+      env.currTime = data.gameData.currTime;
+      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+    }
+
     public async randomWin(data: TableInfo) {
-      const rand = Math.floor(Math.random() * 6);
+      const rand = Math.floor(Math.random() * (this.endRand - this.startRand)) + this.startRand;
       switch (rand) {
         case 0:
-          return this.playerWin(data);
+          await this.playerWin(data);
+          break;
         case 1:
-          return this.bankerWin(data);
+          await this.bankerWin(data);
+          break;
         case 2:
-          return this.bankerPairWin(data);
+          await this.bankerPairWin(data);
+          break;
         case 3:
-          return this.bankerWinPlayerPair(data);
+          await this.bankerWinPlayerPair(data);
+          break;
         case 4:
-          return this.tie(data);
+          await this.tie(data);
+          break;
         case 5:
-          return this.shuffle(data);
+          await this.shuffle(data);
+          break;
         default:
-          return this.shuffle(data);
+          await this.shuffle(data);
+          break;
       }
     }
 
@@ -116,12 +133,12 @@ namespace socket {
       data.betDetails = [];
       // set to bet state and wait
       this.initGameData(gameData);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.gameState = enums.baccarat.GameState.DEAL;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
       await this.setCards(data, [enums.card.c1, enums.card.h13, enums.card.d1, enums.card.s2, enums.card.d6, enums.card.s9]);
@@ -130,7 +147,7 @@ namespace socket {
       gameData.gameState = enums.baccarat.GameState.FINISH;
       gameData.winType = enums.baccarat.FinishType.PLAYER_WIN;
       this.updateBetResult(data, [enums.baccarat.BetField.PLAYER]);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
       // done
@@ -143,12 +160,12 @@ namespace socket {
       data.betDetails = [];
       // set to bet state and wait
       this.initGameData(gameData);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.gameState = enums.baccarat.GameState.DEAL;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
       await this.setCards(data, [enums.card.c1, enums.card.h13, enums.card.d6, enums.card.s3]);
@@ -157,7 +174,7 @@ namespace socket {
       gameData.gameState = enums.baccarat.GameState.FINISH;
       gameData.winType = enums.baccarat.FinishType.BANKER_WIN;
       this.updateBetResult(data, [enums.baccarat.BetField.BANKER]);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
       // done
@@ -170,12 +187,12 @@ namespace socket {
       data.betDetails = [];
       // set to bet state and wait
       this.initGameData(gameData);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.gameState = enums.baccarat.GameState.DEAL;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
       await this.setCards(data, [enums.card.h1, enums.card.c6, enums.card.d4, enums.card.s4]);
@@ -184,7 +201,7 @@ namespace socket {
       gameData.gameState = enums.baccarat.GameState.FINISH;
       gameData.winType = enums.baccarat.FinishType.BANKER_WIN;
       this.updateBetResult(data, [enums.baccarat.BetField.BANKER, enums.baccarat.BetField.BANKER_PAIR]);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
       // done
@@ -197,12 +214,12 @@ namespace socket {
       data.betDetails = [];
       // set to bet state and wait
       this.initGameData(gameData);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.gameState = enums.baccarat.GameState.DEAL;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
       await this.setCards(data, [enums.card.h1, enums.card.c1, enums.card.d4, enums.card.s3]);
@@ -211,7 +228,7 @@ namespace socket {
       gameData.gameState = enums.baccarat.GameState.FINISH;
       gameData.winType = enums.baccarat.FinishType.BANKER_WIN;
       this.updateBetResult(data, [enums.baccarat.BetField.BANKER, enums.baccarat.BetField.PLAYER_PAIR]);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
       // done
@@ -224,12 +241,12 @@ namespace socket {
       data.betDetails = [];
       // set to bet state and wait
       this.initGameData(gameData);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.gameState = enums.baccarat.GameState.DEAL;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
       await this.setCards(data, [enums.card.d5, enums.card.s3, enums.card.c1, enums.card.h7]);
@@ -238,7 +255,7 @@ namespace socket {
       gameData.gameState = enums.baccarat.GameState.FINISH;
       gameData.winType = enums.baccarat.FinishType.TIE;
       this.updateBetResult(data, [enums.baccarat.BetField.TIE]);
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
       // done
@@ -251,7 +268,7 @@ namespace socket {
       data.betDetails = [];
       // set to bet state and wait
       gameData.gameState = enums.baccarat.GameState.SHUFFLE;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchEvent(data);
       await this.sleep(this.shuffleStateInterval, 'tableInfoListInternal');
 
       // done

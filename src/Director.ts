@@ -2,7 +2,7 @@ class Director {
   private static _director: Director;
 
   public static get Instance(): Director {
-    return (this._director = this._director ? this._director : new Director());
+    return this._director ? this._director : new Director();
   }
 
   // public socket: socket.MQTTSocketComm;
@@ -11,6 +11,7 @@ class Director {
   public errHandler: handler.ErrorHandler;
   public layerCtr: controller.LayerCtr;
   public sceneCtr: controller.SceneCtr;
+  public moniter: Monitor;
 }
 
 let dir: Director = Director.Instance;

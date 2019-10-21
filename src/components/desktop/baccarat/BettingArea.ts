@@ -40,10 +40,6 @@ namespace baccarat {
 
       this.betChipSet.setDenominationList(env.betLimits[env.currentSelectedBetLimitIndex].denominationList);
 
-      this.countdownTimer.countdownValue = 30000;
-      this.countdownTimer.remainingTime = 30000;
-      this.countdownTimer.start();
-
       this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
       this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
     }
@@ -214,7 +210,7 @@ namespace baccarat {
       // this.countdownTimer.start();
 
       this.countdownTimer.countdownValue = this.gameData.timer;
-      this.countdownTimer.remainingTime = this.gameData.timer - (this.gameData.currTime - this.gameData.startTime);
+      this.countdownTimer.remainingTime = this.gameData.timer - (env.currTime - this.gameData.startTime);
       this.countdownTimer.start();
     }
 

@@ -2,7 +2,7 @@ class Env {
   private static _env: Env;
 
   public static get Instance(): Env {
-    return (this._env = this._env ? this._env : new Env());
+    return this._env ? this._env : new Env();
   }
 
   /* Global Environment Variable */
@@ -17,6 +17,18 @@ class Env {
   public tableInfo: TableInfo[];
   public currentChipSelectedIndex: number = 10;
   public currentSelectedBetLimitIndex: number = 0;
+  private _currTime: number = Date.now();
+  private _currTimeLastUpdateTime: number = Date.now();
+
+  set currTime(value: number) {
+    this._currTime = value;
+    this._currTimeLastUpdateTime = Date.now();
+  }
+
+  get currTime(): number {
+    const diff = Date.now() - this._currTimeLastUpdateTime;
+    return this._currTime + diff;
+  }
   /*
   public onTableListUpdate(evt: egret.Event) {
     logger.l('env.onTableListUpdate');

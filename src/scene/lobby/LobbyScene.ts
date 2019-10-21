@@ -18,13 +18,13 @@ namespace scene {
 
       // After pressing the Filter
       dir.socket.getTableList(enums.TableFilter.BACCARAT);
-      dir.layerCtr.nav.addChild(new components.NavBar());
     }
 
     public onClickBaccarat() {
-      dir.socket.enterTable(2);
+      const tableID = 1;
 
-      dir.sceneCtr.goto('BaccaratScene');
+      dir.socket.enterTable(tableID);
+      dir.sceneCtr.goto('BaccaratScene', { tableID });
     }
 
     public async onFadeEnter() {}

@@ -14,6 +14,11 @@ namespace scene {
     private tableInfo: TableInfo;
     private gameData: baccarat.GameData;
 
+    constructor(data: any) {
+      super(data);
+      this._tableID = data.tableID;
+    }
+
     public set tableID(tableID: number) {
       this._tableID = tableID;
     }
@@ -29,7 +34,6 @@ namespace scene {
       this.bettingArea.anchorOffsetY = 0;
       this.bettingArea.horizontalCenter = 0;
       this.bettingArea.bottom = 0;
-      this._tableID = 2;
       this.addChild(this.bettingArea);
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call

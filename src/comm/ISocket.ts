@@ -4,7 +4,6 @@ namespace socket {
     enterTable(tableID: number);
     leaveTable(tableID: number);
     getTableList(filter: number);
-    getTableInfo();
     bet(tableID: number, betDetails: BetDetail[]);
   }
 }

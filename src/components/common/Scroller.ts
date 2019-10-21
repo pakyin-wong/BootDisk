@@ -70,6 +70,18 @@ namespace components {
       const list = new eui.List();
 
       list.dataProvider = new eui.ArrayCollection([[0xff0000, 0x00ff00, 0x0000ff, 0xffff00], [0x00ffff, 0xff00ff, 0xffffff, 0x000000], [0x33b6e5, 0xeabde3]]);
+      setInterval(() => {
+        let arr = Array.apply(null, Array(Math.ceil(Math.random() * 20 + 10)));
+        arr = arr.map(() => Math.ceil(Math.random() * 0xffffff));
+        const n = 4;
+        const group = [];
+        for (let i = 0, end = arr.length / n; i < end; ++i) {
+          group.push(arr.slice(i * n, (i + 1) * n));
+        }
+        console.log(group);
+        list.dataProvider = new eui.ArrayCollection(group);
+        list.dataProviderRefreshed();
+      }, 2000);
       list.itemRenderer = BacarratItemRenderer;
       //   list.itemRendererSkinName = `
       //       <e:Skin width="2560" height="400" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*">
@@ -152,13 +164,52 @@ namespace components {
       this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
     };
 
-    private onMouseOver() {
+    private _alreadyRegistered = false;
+
+    private onMouseOver(event: egret.TouchEvent) {
+      if (this._alreadyRegistered) {
+        // don't attach duplicate listener
+        return;
+      }
       (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+      document.querySelector('canvas').addEventListener('mouseleave', this.onCanvasOut);
+      this._alreadyRegistered = true;
     }
 
-    private onMouseOut() {
+    private onMouseOut(event: egret.TouchEvent) {
+      if (this.hitTestPoint(event.stageX, event.stageY)) {
+        // even MOUSE_OUT called, we are still within the scroller area
+        // don't remove the listener...
+        return;
+      }
       (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+      document.querySelector('canvas').removeEventListener('mouseleave', this.onCanvasOut);
+      this._alreadyRegistered = false;
     }
+
+    private onCanvasOut = (event: MouseEvent) => {
+      (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+      const canvas = document.querySelector('canvas');
+      canvas.removeEventListener('mouseleave', this.onCanvasOut);
+      const reEnterListener = (event: MouseEvent) => {
+        canvas.removeEventListener('mouseenter', reEnterListener);
+        const rect = canvas.getBoundingClientRect();
+        const mouseAtCanvasX = Math.max(0, Math.min(rect.width, event.pageX - rect.left));
+        const mouseAtCanvasY = Math.max(0, Math.min(rect.height, event.pageY - rect.top));
+        // translate to egret coord
+        const stageX = Math.ceil((mouseAtCanvasX / egret.sys.DisplayList.$canvasScaleX) * egret.sys.DisplayList.$canvasScaleFactor);
+        const stageY = Math.ceil((mouseAtCanvasY / egret.sys.DisplayList.$canvasScaleY) * egret.sys.DisplayList.$canvasScaleFactor);
+
+        if (this.hitTestPoint(stageX, stageY)) {
+          // add listeners back if enter canvas again and go in the scroller
+          (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+          document.querySelector('canvas').addEventListener('mouseleave', this.onCanvasOut);
+          this._alreadyRegistered = true;
+        }
+      };
+      canvas.addEventListener('mouseenter', reEnterListener);
+      this._alreadyRegistered = false;
+    };
 
     public _prevDeltaY = 0;
     public _stopTimeout = null;

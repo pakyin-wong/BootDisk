@@ -4,7 +4,6 @@ namespace scene {
     private _progressMsg: components.TextField;
 
     private step: number = 0;
-    // private flow = [this.preloadRes, this.loadingComplete];
     private flow = [this.preloadRes, this.initSkin, this.socketConnect, this.auth, this.idle, this.loadGeneralRes, this.loadingComplete];
 
     public onEnter() {
@@ -64,14 +63,14 @@ namespace scene {
       this.next();
     }
 
-    // Step 5: Setup and display idle UI element (tips, promote banner...)
+    /** Step 5: Setup and display idle UI element (tips, promote banner...) */
     private idle() {
       this.next();
     }
 
-    // step 6: load general resource (lobby, baccarat)
+    /** Step 6: load general resource (lobby, baccarat) */
     private async loadGeneralRes() {
-      RES.createGroup('firstRun', [enums.res.Lobby, enums.res.Baccarat]);
+      RES.createGroup('firstRun', [enums.res.Lobby, enums.res.Baccarat, enums.res.Common]);
       RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
       this._progressMsg.computed = () => `${i18n.t('loading.res.onload')}`;
       this._progressbar.minimum = 0;
@@ -94,6 +93,7 @@ namespace scene {
 
     /** Last Step: All Loading Complete, switch to Lobby Scene */
     private loadingComplete() {
+      dir.moniter.start();
       dir.sceneCtr.goto('LobbyScene');
     }
 
