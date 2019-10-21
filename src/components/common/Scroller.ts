@@ -70,6 +70,18 @@ namespace components {
       const list = new eui.List();
 
       list.dataProvider = new eui.ArrayCollection([[0xff0000, 0x00ff00, 0x0000ff, 0xffff00], [0x00ffff, 0xff00ff, 0xffffff, 0x000000], [0x33b6e5, 0xeabde3]]);
+      setInterval(() => {
+        let arr = Array.apply(null, Array(Math.ceil(Math.random() * 20 + 10)));
+        arr = arr.map(() => Math.ceil(Math.random() * 0xffffff));
+        const n = 4;
+        const group = [];
+        for (let i = 0, end = arr.length / n; i < end; ++i) {
+          group.push(arr.slice(i * n, (i + 1) * n));
+        }
+        console.log(group);
+        list.dataProvider = new eui.ArrayCollection(group);
+        list.dataProviderRefreshed();
+      }, 2000);
       list.itemRenderer = BacarratItemRenderer;
       //   list.itemRendererSkinName = `
       //       <e:Skin width="2560" height="400" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*">

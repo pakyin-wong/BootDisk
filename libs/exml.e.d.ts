@@ -102,7 +102,9 @@ declare module skin_desktop{
 	class Nav extends eui.Skin{
 	}
 }
-declare class NewFile extends eui.Skin{
+declare module skin_desktop{
+	class NavBar extends eui.Skin{
+	}
 }
 declare module skin_desktop{
 	class VScrollBarSkin extends eui.Skin{
@@ -110,5 +112,9 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class SwitchLang extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class UserInfoWindow extends eui.Skin{
 	}
 }
