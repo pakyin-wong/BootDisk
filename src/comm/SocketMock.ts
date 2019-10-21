@@ -130,14 +130,6 @@ namespace socket {
           });
         }
       }
-      const gameData = new baccarat.GameData();
-      this.data.gameData = gameData;
-      gameData.gameState = enums.baccarat.GameState.BET;
-      gameData.timer = 30000;
-      gameData.startTime = 7000;
-      gameData.currTime = 10000;
-      this.data.tableID = 2;
-
       dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, this.data);
 
       // return promise.resolve with BetResult

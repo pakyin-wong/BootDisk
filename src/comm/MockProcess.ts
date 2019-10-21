@@ -81,7 +81,7 @@ namespace socket {
       gameData.gameState = enums.baccarat.GameState.BET;
       gameData.startTime = Date.now();
       gameData.currTime = Date.now();
-      gameData.timer = 5000;
+      gameData.timer = 10000;
       gameData.roundID = this.roundID++;
     }
 
