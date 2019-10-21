@@ -21,9 +21,10 @@ namespace scene {
     }
 
     public onClickBaccarat() {
-      dir.socket.enterTable(2);
+      const tableID = 6;
 
-      dir.sceneCtr.goto('BaccaratScene');
+      dir.socket.enterTable(tableID);
+      dir.sceneCtr.goto('BaccaratScene', { tableID });
     }
 
     public async onFadeEnter() {}

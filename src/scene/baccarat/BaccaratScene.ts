@@ -14,6 +14,11 @@ namespace scene {
     private tableInfo: TableInfo;
     private gameData: baccarat.GameData;
 
+    constructor(data: any) {
+      super(data);
+      this._tableID = data.tableID;
+    }
+
     public set tableID(tableID: number) {
       this._tableID = tableID;
     }
@@ -30,7 +35,6 @@ namespace scene {
       this.bettingArea.horizontalCenter = 0;
       this.bettingArea.bottom = 0;
       this.addChild(this.bettingArea);
-      this._tableID = 2; // ?where to set tableID
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
 
@@ -43,8 +47,8 @@ namespace scene {
     }
 
     private setupTableInfo() {
-      console.log(env.tableInfo);
-      env.tableInfo.forEach(value => {
+      console.log(env.tableInfoArray);
+      env.tableInfoArray.forEach(value => {
         if (value.tableID === this._tableID) {
           this.tableInfo = value;
         }
@@ -101,11 +105,19 @@ namespace scene {
 
     protected onTableInfoUpdate(evt: egret.Event) {
       console.log('Baccarat listener');
-      this.tableInfo = <TableInfo>evt.data;
-      if (this.tableInfo.tableID === this.tableID) {
-        // update the scene
-        this.gameData = <baccarat.GameData>this.tableInfo.gameData;
-        this.bettingArea.onTableInfoUpdate(this.tableInfo);
+      const tableInfo = <TableInfo>evt.data;
+      if (tableInfo) {
+        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo ${this.tableInfo}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.betDetails}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableID}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:this.tableID ${this.tableID}`);
+
+        if (tableInfo.tableID === this.tableID) {
+          // update the scene
+          this.tableInfo = tableInfo;
+          this.gameData = <baccarat.GameData>this.tableInfo.gameData;
+          this.bettingArea.onTableInfoUpdate(this.tableInfo);
+        }
       }
     }
   }

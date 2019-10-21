@@ -4,7 +4,6 @@ namespace socket {
     enterTable(tableID: number);
     leaveTable(tableID: number);
     getTableList(filter: number);
-    getTableInfo();
-    onTableListUpdate(evt: egret.Event);
+    bet(tableID: number, betDetails: BetDetail[]);
   }
 }

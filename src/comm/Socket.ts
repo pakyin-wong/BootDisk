@@ -37,5 +37,7 @@ namespace socket {
     }
 
     public onTableListUpdate(evt: egret.Event) {}
+
+    public bet(tableID: number, betDetails: BetDetail[]) {}
   }
 }

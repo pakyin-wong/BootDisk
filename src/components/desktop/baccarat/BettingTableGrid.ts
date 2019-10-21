@@ -24,6 +24,9 @@ namespace baccarat {
 
     protected childrenCreated() {
       super.childrenCreated();
+      this.setUncfmBet(0);
+      this.setCfmBet(0);
+
       this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
     }
 
@@ -34,6 +37,11 @@ namespace baccarat {
 
     public setFieldName(name) {
       this._fieldName = name;
+    }
+
+    public setCfmBet(amount: number): void {
+      this._cfmBet = amount;
+      this.lblCfmBet.text = this._cfmBet.toString();
     }
 
     public setUncfmBet(amount: number): void {
@@ -96,9 +104,14 @@ namespace baccarat {
       this.lblName.textColor = textcolor;
 
       this.addChild(this.lblUncfmBet);
-      this.setUncfmBet(0);
+      this.setUncfmBet(this._uncfmBet);
       this.lblUncfmBet.bottom = 20;
       this.lblUncfmBet.left = 20;
+
+      this.addChild(this.lblCfmBet);
+      this.setCfmBet(this._cfmBet);
+      this.lblCfmBet.bottom = 20;
+      this.lblCfmBet.right = 20;
     }
   }
 }
