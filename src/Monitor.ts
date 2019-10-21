@@ -1,7 +1,4 @@
 /** Over-Scene Global Controller */
 class Monitor {
-
-    start() {
-
-    }
+  public start() {}
 }

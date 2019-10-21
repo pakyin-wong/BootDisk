@@ -99,7 +99,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class NavBar extends eui.Skin{
+	class Nav extends eui.Skin{
 	}
 }
 declare class NewFile extends eui.Skin{
