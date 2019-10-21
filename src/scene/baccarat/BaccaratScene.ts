@@ -47,8 +47,8 @@ namespace scene {
     }
 
     private setupTableInfo() {
-      console.log(env.tableInfo);
-      env.tableInfo.forEach(value => {
+      console.log(env.tableInfoArray);
+      env.tableInfoArray.forEach(value => {
         if (value.tableID === this._tableID) {
           this.tableInfo = value;
         }
@@ -105,17 +105,19 @@ namespace scene {
 
     protected onTableInfoUpdate(evt: egret.Event) {
       console.log('Baccarat listener');
-      this.tableInfo = <TableInfo>evt.data;
-      console.log(`BaccaratScene::onTableInfoUpdate:tableInfo ${this.tableInfo}`);
-      console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.betDetails}`);
-      console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableID}`);
-      console.log(`BaccaratScene::onTableInfoUpdate:this.tableID ${this.tableID}`);
+      const tableInfo = <TableInfo>evt.data;
+      if (tableInfo) {
+        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo ${this.tableInfo}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.betDetails}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableID}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:this.tableID ${this.tableID}`);
 
-      if (this.tableInfo.tableID === this.tableID) {
-        // update the scene
-
-        this.gameData = <baccarat.GameData>this.tableInfo.gameData;
-        this.bettingArea.onTableInfoUpdate(this.tableInfo);
+        if (tableInfo.tableID === this.tableID) {
+          // update the scene
+          this.tableInfo = tableInfo;
+          this.gameData = <baccarat.GameData>this.tableInfo.gameData;
+          this.bettingArea.onTableInfoUpdate(this.tableInfo);
+        }
       }
     }
   }

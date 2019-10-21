@@ -1,19 +1,6 @@
 namespace socket {
   export class SocketMock implements ISocket {
     private client: TestClient;
-    private _counter: number = 0;
-    private _proceedGetTableList: boolean = false;
-    private _proceedGetTableInfo: boolean = false;
-    private _sleepCounter = {
-      tableInfoListInternal: 0,
-      tableInfoList: 0,
-      baccaratInternal: 0,
-      baccarat: 0,
-    };
-    private _sleepCounterReset = {
-      tableInfoList: false,
-      baccarat: false,
-    };
 
     private tables: TableInfo[];
     private mockProcesses: MockProcess[] = [];
@@ -48,10 +35,10 @@ namespace socket {
       //Canceling the event
 
       await setTimeout(() => {
-        // this._sleepCounterReset.tableInfoList = false;
-        clearTimeout(this._sleepCounter.tableInfoListInternal);
+        // this._sleepCounterReset.tableInfoArrayList = false;
+        clearTimeout(this._sleepCounter.tableInfoArrayListInternal);
 
-        const data = new TableInfo();
+        const data = new tableInfoArray();
         const gameData = new baccarat.GameData();
 
         data.tableID = 2;
@@ -73,9 +60,9 @@ namespace socket {
     public getTableList(filter: number) {
       switch (filter) {
         case enums.TableFilter.BACCARAT:
-          this._sleepCounter.tableInfoList = setTimeout(() => {
-            env.tableInfo = this.tables;
-            dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, this.tables);
+          setTimeout(() => {
+            env.tableInfoArray = this.tables;
+            dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE);
           });
           break;
         default:
@@ -124,54 +111,6 @@ namespace socket {
       // switch res event / error to handler
 
       // hard code connect success event
-    }
-    private resetCounter(counter: string) {
-      Object.keys(this._sleepCounter).map(value => {
-        if (value.indexOf(counter) !== -1) {
-          clearTimeout(this._sleepCounter[value]);
-        }
-      });
-    }
-
-    private counterReset(counter: string) {}
-
-    private async sleep(ms, sleepCounter: string) {
-      return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
-    }
-
-    public onTableListUpdate(evt: egret.Event) {
-      logger.l('env.onTableListUpdate');
-      const list = <number[]>evt.data;
-      logger.l(list);
-      if (!env.tableInfo) {
-        env.tableInfo = new Array<TableInfo>();
-      }
-      if (!list) {
-        return;
-      }
-      list.forEach(lvalue => {
-        let found = false;
-        env.tableInfo.map(tvalue => {
-          if (tvalue.tableID === lvalue) {
-            found = true;
-          }
-        });
-        if (!found) {
-          const data = new TableInfo();
-          data.tableID = lvalue;
-          env.tableInfo.push(data);
-        }
-      });
-    }
-
-    protected updateEnv(tableInfo: TableInfo) {
-      if (env.tableInfo) {
-        env.tableInfo.map((value, index) => {
-          if (value.tableID === tableInfo.tableID) {
-            env.tableInfo[index] = tableInfo;
-          }
-        });
-      }
     }
   }
 }
