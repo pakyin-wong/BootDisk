@@ -29,8 +29,7 @@ class Main extends eui.UILayer {
     dir.errHandler = new handler.ErrorHandler();
     dir.layerCtr = new controller.LayerCtr(this.stage);
     dir.sceneCtr = new controller.SceneCtr();
-
-    dir.evtHandler.addEventListener(enums.event.event.TABLE_LIST_UPDATE, dir.socket.onTableListUpdate, this);
+    dir.moniter = new Monitor();
 
     // step 2: init Egrets Asset / Res
     await this.initRes();
@@ -46,7 +45,6 @@ class Main extends eui.UILayer {
       await RES.loadConfig('resource/default.res.json', 'resource/');
       await this.loadTheme();
       await RES.loadGroup(enums.res.EgretBasic);
-      await RES.loadGroup('common');
     } catch (e) {
       console.error(e);
     }

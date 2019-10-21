@@ -18,7 +18,6 @@ namespace scene {
 
       // After pressing the Filter
       dir.socket.getTableList(enums.TableFilter.BACCARAT);
-      dir.layerCtr.nav.addChild(new components.NavBar());
     }
 
     public onClickBaccarat() {
