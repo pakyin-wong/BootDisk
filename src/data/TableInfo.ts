@@ -10,4 +10,5 @@ class TableInfo {
   public tableState: number;
   public betDetails: BetDetail[];
   public gameData: any;
+  public complete?: number;
 }
