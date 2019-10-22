@@ -29,19 +29,9 @@ namespace scene {
 
     public onEnter() {
       this.mount();
-      this.bettingArea = new baccarat.BettingArea();
-      this.bettingArea.anchorOffsetX = 0;
-      this.bettingArea.anchorOffsetY = 0;
-      this.bettingArea.horizontalCenter = 0;
-      this.bettingArea.bottom = 0;
-      this.addChild(this.bettingArea);
+
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
-
-      this.switchLang = new components.SwitchLang();
-      this.switchLang.x = 0;
-      this.switchLang.y = 200;
-      this.addChild(this.switchLang);
 
       this.addEventListeners();
     }

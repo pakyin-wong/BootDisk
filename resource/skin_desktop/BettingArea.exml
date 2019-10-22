@@ -3,11 +3,11 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:baccarat="baccarat.*">
 	<baccarat:BettingTable id='bettingTable' width="800" height="600" anchorOffsetX="0" anchorOffsetY="0"
 	                       horizontalCenter="0" bottom="0" />
-	<baccarat:BetChipSet id='betChipSet' width="1000" height="50" y="526" horizontalCenter="0" />
+	<baccarat:BetChipSet id='betChipSet' width="1000" height="50" y="533.46" horizontalCenter="0" />
 	<baccarat:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
-	<baccarat:CountdownTimer id="countdownTimer" width="200" height="80" x="889" y="611.46" />
-	<e:Button id="confirmButton" label="Confirm" x="969" y="632.46" anchorOffsetX="0" width="88" anchorOffsetY="0" height="38" />
-	<e:Button id="cancelButton" label="Cancel" x="1284" y="631" anchorOffsetX="0" width="84" anchorOffsetY="0" height="38" />
-	<e:Label id="stateLabel" text="..." x="600" y="630" />
-	<e:Label id="winAmountLabel" text="" x="830.3" y="630" anchorOffsetX="0" width="569.7" anchorOffsetY="0" height="46.97" textAlign="right"/>
+	<baccarat:CountdownTimer id="countdownTimer" width="200" height="80" y="611.46"  horizontalCenter="-11"/>
+	<e:Button id="confirmButton" label="Confirm" y="632.46" anchorOffsetX="0" width="88" anchorOffsetY="0" height="38"  horizontalCenter="13"/>
+	<e:Button id="cancelButton" label="Cancel" y="632.46" anchorOffsetX="0" width="84" anchorOffsetY="0" height="38"  horizontalCenter="358"/>
+	<e:Label id="stateLabel" text="..." y="632.46"  horizontalCenter="-387"/>
+	<e:Label id="winAmountLabel" text="" y="623.98" anchorOffsetX="0" width="569.7" anchorOffsetY="0" height="46.97" textAlign="right" horizontalCenter="115"/>
 </e:Skin>
