@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.CardHolderSkin" width="1200" height="350" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
-	<e:Rect width="1200" height="350" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" />
+	<e:Rect width="1200" height="350" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"  fillAlpha="0"/>
 	<e:Image width="1000" height="175" horizontalCenter="0" verticalCenter="0" anchorOffsetX="0" anchorOffsetY="0"/>
         <components:Card id="card3Banker" width="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="190" top="0" height="120"/>
         <components:Card id="card3Player" width="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-190" top="0" height="120"/>
