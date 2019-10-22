@@ -1,10 +1,9 @@
 namespace components {
-  export class LobbyBacarratListItem extends eui.Component implements eui.IItemRenderer {
+  export class SegmentedControlTabItem extends eui.Component implements eui.IItemRenderer {
     public selected: boolean;
     public itemIndex: number;
     private _data: any;
 
-    private rect: eui.Rect;
     private label: eui.Label;
 
     protected destinationX: number = Infinity;
@@ -13,8 +12,9 @@ namespace components {
 
     public constructor() {
       super();
-      this.skinName = utils.getSkin('LobbyBacarratListItem');
+      this.skinName = utils.getSkin('SegmentedControlTabItem');
       this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+      this.isDirty = true;
     }
 
     public get data() {
@@ -22,10 +22,13 @@ namespace components {
     }
 
     public set data(data: any) {
-      this.isDirty = true;
+      this.isDirty = false;
       this._data = data;
       this.label.text = data;
       egret.Tween.removeTweens(this);
+      if (this.destinationX !== Infinity) {
+        this.x = this.destinationX;
+      }
       // if (data === null) {
       //   this.visible = false;
       // } else {
@@ -35,7 +38,7 @@ namespace components {
     }
 
     private onClick() {
-      console.log('cick', this.rect.fillColor);
+      console.log('cick', this);
     }
     private isDeltaIdentity(m) {
       return m.a === 1 && m.b === 0 && m.c === 0 && m.d === 1;

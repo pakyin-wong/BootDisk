@@ -111,6 +111,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class SegmentedControl extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class SwitchLang extends eui.Skin{
 	}
 }
