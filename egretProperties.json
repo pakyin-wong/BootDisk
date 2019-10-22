@@ -41,6 +41,10 @@
         {
             "name": "flvvideo",
             "path": "./libs/flvvideo"
+        },
+        {
+            "name": "animtilelayout",
+            "path": "./libs/animtilelayout"
         }
     ]
 }
