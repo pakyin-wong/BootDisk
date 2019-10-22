@@ -70,6 +70,39 @@ namespace socket {
       }
     }
 
+    public async getTableHistory() {
+      env.tableHistory = [
+        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
+        { v: 'b', b: 0, p: 0, bv: 6, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'p', b: 0, p: 1, bv: 10, pv: 3 },
+        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'b', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'p', b: 0, p: 0, bv: 5, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'b', b: 1, p: 0, bv: 5, pv: 5 },
+        { v: 'b', b: 1, p: 1, bv: 10, pv: 5 },
+        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 4, pv: 5 },
+        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
+        { v: 'b', b: 1, p: 1, bv: 10, pv: 15 },
+        { v: 'p', b: 1, p: 0, bv: 10, pv: 5 },
+        { v: 'p', b: 1, p: 1, bv: 10, pv: 5 },
+        { v: 'p', b: 1, p: 0, bv: 8, pv: 5 },
+        { v: 'b', b: 1, p: 0, bv: 9, pv: 12 },
+      ];
+      console.log('SocketMock::sleeping before');
+
+      await sleep(10000);
+      console.log('SocketMock::sleeping after');
+      env.tableHistory = [{ v: 'b', b: 1, p: 0, bv: 10, pv: 5 }];
+      dir.evtHandler.dispatch(enums.event.event.ROADMAP_UPDATE);
+    }
+
     public async bet(tableID: number, betDetails: BetDetail[]) {
       console.log('SocketMock::bet()');
       // add the bets to confirmed bet Array
