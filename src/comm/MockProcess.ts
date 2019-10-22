@@ -81,6 +81,7 @@ namespace socket {
         if (!isMatch) {
           data.betDetails.push({
             field: winningField,
+            winAmount: 0,
             isWin: 1,
           });
         }
