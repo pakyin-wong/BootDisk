@@ -13,7 +13,7 @@ namespace socket {
         data.tableState = enums.TableState.ONLINE;
         data.gameType = enums.GameType.BAC;
         data.betDetails = [];
-        const mockProcess = new MockProcess();
+        const mockProcess = new MockProcess(this);
         if (idx !== tableCount - 1) {
           mockProcess.startRand = idx;
           mockProcess.endRand = idx + 1;
@@ -58,16 +58,35 @@ namespace socket {
     public leaveTable(tableID: number) {}
 
     public getTableList(filter: number) {
-      switch (filter) {
-        case enums.TableFilter.BACCARAT:
-          setTimeout(() => {
-            env.tableInfoArray = this.tables;
-            dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE);
-          });
-          break;
-        default:
-          break;
-      }
+      // switch (filter) {
+      //   case enums.TableFilter.BACCARAT:
+      //     setTimeout(() => {
+      //       env.tableInfoArray = this.tables;
+      //       dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE);
+      //     });
+      //     break;
+      //   default:
+      //     break;
+      // }
+    }
+
+    public dispatchInfoUpdateEvent(data: TableInfo) {
+      env.currTime = data.gameData.currTime;
+      data.complete = 1;
+      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+    }
+
+    public dispatchListUpdateEvent(data: TableInfo) {
+      env.tableInfoArray = this.tables;
+      const list = this.tables
+        .filter(info => {
+          return info.complete === 1;
+        })
+        .map(info => {
+          return info.tableID;
+        });
+      egret.log(list);
+      dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, list);
     }
 
     public async bet(tableID: number, betDetails: BetDetail[]) {
@@ -97,8 +116,8 @@ namespace socket {
           });
         }
       }
-      env.currTime = data.gameData.currTime;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchInfoUpdateEvent(data);
+      this.dispatchListUpdateEvent(data);
 
       // return promise.resolve with BetResult
       return Promise.resolve({
