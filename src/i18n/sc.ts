@@ -10,7 +10,7 @@ namespace i18n {
       },
     },
     baccarat: {
-      playerPair: '资源加载中',
+      playerPair: '闲对',
       bankerPair: '庄对',
       player: '闲',
       tie: '和',
