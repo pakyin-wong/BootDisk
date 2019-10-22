@@ -30,19 +30,9 @@ namespace scene {
 
     public onEnter() {
       this.mount();
-      this.bettingArea = new baccarat.BettingArea();
-      this.bettingArea.anchorOffsetX = 0;
-      this.bettingArea.anchorOffsetY = 0;
-      this.bettingArea.horizontalCenter = 0;
-      this.bettingArea.bottom = 0;
-      this.addChild(this.bettingArea);
+
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
-
-      this.switchLang = new components.SwitchLang();
-      this.switchLang.x = 0;
-      this.switchLang.y = 200;
-      this.addChild(this.switchLang);
 
       const roadmap = new baccarat.BARoadmap();
       roadmap.x = 2000;
@@ -50,30 +40,6 @@ namespace scene {
       this.addChild(roadmap);
 
       this.addEventListeners();
-      dir.evtHandler.dispatch(enums.event.event.ROADMAP_UPDATE, [
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 0, p: 0, bv: 6, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 1, bv: 10, pv: 3 },
-        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 0, bv: 5, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 5, pv: 5 },
-        { v: 'b', b: 1, p: 1, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 4, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 1, bv: 10, pv: 15 },
-        { v: 'p', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 1, p: 1, bv: 10, pv: 5 },
-        { v: 'p', b: 1, p: 0, bv: 8, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 9, pv: 12 },
-      ]);
     }
 
     private setupTableInfo() {
