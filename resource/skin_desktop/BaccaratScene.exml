@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BaccaratScene" width="2560" height="1320" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:baccarat="baccarat.*">
 	<e:Rect width="2560" height="1320" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"  fillColor="0x0e6030"/>
+        <components:SwitchLang width="300" height="100" x="0" y="200"/>
+	<components:TableInfoWindow width="600" height="450" x="0" y="300"/>
+	<baccarat:BettingArea id="bettingArea" width="1000" anchorOffsetX="0" anchorOffsetY="0" bottom="0" horizontalCenter="0"/>
 	
 </e:Skin>
