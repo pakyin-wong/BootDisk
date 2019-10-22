@@ -68,35 +68,22 @@ namespace components {
 
       // init viewport
       const list = new eui.List();
+      const tlayout = new eui.AnimTileLayout();
+      tlayout.horizontalGap = 10;
+      tlayout.verticalGap = 10;
+      tlayout.requestedColumnCount = 4;
+      list.layout = tlayout;
 
-      const koll = new eui.ArrayCollection([
-        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
-        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
-        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
-        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
-        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
-        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
-        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
-        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
-        [0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
-        [0x00ffff, 0xff00ff, 0xffffff, 0x000001],
-        [0xff0000, 0x00ff00, 0x0000ff, 0xf77c2a],
-        [0xf77c2a, 0xff0000, 0x00ff00, 0x0000ff],
-        [0x33b6e5, 0xeabde3],
-      ]);
+      const arr = Array.apply(null, { length: 2 }).map((value, idx) => (idx + 1).toString());
+      const koll = new eui.ArrayCollection(arr);
       list.dataProvider = koll;
+      let num = 10;
       setInterval(() => {
-        let arr = Array.apply(null, Array(Math.ceil(Math.random() * 100 + 20)));
-        arr = arr.map(() => Math.ceil(Math.random() * 0xffffff));
-        const n = 4;
-        const group = [];
-        for (let i = 0, end = arr.length / n; i < end; ++i) {
-          group.push(arr.slice(i * n, (i + 1) * n));
-        }
-        koll.source = group;
-        koll.refresh();
-      }, 2000);
-      list.itemRenderer = BacarratItemRenderer;
+        koll.addItemAt(num.toString(), 1);
+        // koll.removeItemAt(1);
+        num++;
+      }, 1000);
+      list.itemRenderer = components.LobbyBacarratListItem;
       this.viewport = list;
       // wait viewport ready
       window.requestAnimationFrame(() => {

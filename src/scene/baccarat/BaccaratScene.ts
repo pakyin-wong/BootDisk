@@ -45,8 +45,8 @@ namespace scene {
       this.addChild(this.switchLang);
 
       const roadmap = new baccarat.BARoadmap();
-      roadmap.x = 10;
-      roadmap.y = 10;
+      roadmap.x = 2000;
+      roadmap.y = 500;
       this.addChild(roadmap);
 
       this.addEventListeners();
