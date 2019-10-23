@@ -38,7 +38,7 @@ namespace scene {
     protected socketConnect() {
       dir.evtHandler.addEventListener(enums.mqtt.event.CONNECT_SUCCESS, this.socketConnectSuccess, this);
       dir.evtHandler.addEventListener(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
-      dir.socket.connect();
+      // dir.socket.connect();
     }
 
     protected socketConnectSuccess() {
