@@ -6,7 +6,7 @@ namespace socket {
     private mockProcesses: MockProcess[] = [];
 
     constructor() {
-      const tableCount = 6;
+      const tableCount = 10;
       this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
         const data = new TableInfo();
         data.tableID = idx + 1;
@@ -23,6 +23,13 @@ namespace socket {
         idx++;
         return data;
       });
+      // try remove 1
+      setTimeout(() => {
+        this.tables = this.tables.filter((x, i) => i !== 0);
+      }, 10000);
+      setTimeout(() => {
+        this.tables = this.tables.filter((x, i) => i !== 6);
+      }, 14000);
     }
 
     public connect() {

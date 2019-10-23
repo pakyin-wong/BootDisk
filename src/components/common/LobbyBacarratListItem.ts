@@ -24,7 +24,13 @@ namespace components {
     public set data(data: any) {
       this.isDirty = true;
       this._data = data;
-      this.label.text = data;
+      const table = env.tableInfos[data];
+      console.log(table);
+      if (table.gameData.gameState === 1) {
+        this.label.text = `TID${table.tableID} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.gameData.gameState)}STATE --- ${table.gameData.currTime}`;
+      } else {
+        this.label.text = `TID${table.tableID} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.gameData.gameState)}S / ${table.gameData.currTime}`;
+      }
       egret.Tween.removeTweens(this);
       // if (data === null) {
       //   this.visible = false;

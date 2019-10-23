@@ -112,7 +112,7 @@ namespace scene {
 
     protected onTableInfoUpdate(evt: egret.Event) {
       console.log('Baccarat listener');
-      const tableInfo = <TableInfo> evt.data;
+      const tableInfo = <TableInfo>evt.data;
       if (tableInfo) {
         console.log(`BaccaratScene::onTableInfoUpdate:tableInfo ${this.tableInfo}`);
         console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.betDetails}`);
@@ -122,7 +122,7 @@ namespace scene {
         if (tableInfo.tableID === this.tableID) {
           // update the scene
           this.tableInfo = tableInfo;
-          this.gameData = <baccarat.GameData> this.tableInfo.gameData;
+          this.gameData = <baccarat.GameData>this.tableInfo.gameData;
           this.bettingArea.onTableInfoUpdate(this.tableInfo);
         }
       }
