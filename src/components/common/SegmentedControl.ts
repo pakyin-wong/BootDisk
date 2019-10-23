@@ -1,12 +1,12 @@
 namespace components {
   export class SegmentedControl extends eui.Component implements eui.UIComponent {
-    private tabBar: eui.TabBar;
+    private tabBar: eui.ListBase;
     private collection: eui.ArrayCollection;
     private activeItemIndex = 0;
 
     public constructor() {
       super();
-      this.tabBar = new eui.TabBar();
+      this.tabBar = new eui.ListBase();
       this.tabBar.percentWidth = 100;
       this.tabBar.percentHeight = 100;
       // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
@@ -29,8 +29,9 @@ namespace components {
       this.tabBar.itemRenderer = components.SegmentedControlTabItem;
       this.tabBar.layout = tlayout;
       this.tabBar.dataProvider = this.collection;
-      this.tabBar.useVirtualLayout = true;
-      this.tabBar.addEventListener(egret.Event.CHANGE, this.onSelectedIndexChange, this);
+      // ListBase default true, NavBar = false
+      //   this.tabBar.useVirtualLayout = true;
+      //   this.tabBar.addEventListener(egret.Event.CHANGE, this.onSelectedIndexChange, this);
       this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onDragStart, this);
 
       const shape = new egret.Shape();
@@ -40,9 +41,7 @@ namespace components {
       this.addChild(shape);
       this.mask = shape;
 
-      //   window.requestAnimationFrame(() => {
-      //     this.setActiveItemIndex(this.activeItemIndex);
-      //   });
+      this.tabBar.selectedIndex = 0;
     }
 
     private onDragStart(event: egret.TouchEvent) {
@@ -51,17 +50,23 @@ namespace components {
       });
       let firstX = null;
       const savedChildIndex = 0;
-      let clone: egret.DisplayObject = null;
+      let clone: eui.Group = null;
       const moveListener = (moveEvt: MouseEvent) => {
         if (!firstX) {
           firstX = moveEvt.pageX;
-          touchedChild.visible = false;
-          clone = new egret.DisplayObject();
-          clone.$children = touchedChild.$children;
+          clone = new eui.Group();
+          clone.$children = [...touchedChild.$children];
           clone.width = touchedChild.width;
           clone.height = touchedChild.height;
           clone.x = touchedChild.x;
           clone.y = touchedChild.y;
+          const rect = new eui.Rect();
+          rect.percentWidth = 100;
+          rect.percentHeight = 100;
+          rect.fillColor = 0xc0c0c0;
+          rect.fillAlpha = 0.6;
+          clone.alpha = 0.8;
+          clone.addChild(rect);
           this.addChild(clone);
           return;
         }
@@ -74,12 +79,12 @@ namespace components {
 
         if (!clone) {
           // tap only
+          console.log('tap');
           //   const newIndex = this.tabBar.$children.indexOf(touchedChild);
           //   this.setActiveItemIndex(newIndex);
           return;
         }
 
-        touchedChild.visible = true;
         this.removeChild(clone);
 
         const max = this.tabBar.$children.reduce((prev, curr) => {
@@ -113,14 +118,20 @@ namespace components {
 
         // update state
         // must place after adding/removing after collection updating
+        this.tabBar.selectedIndex = -1;
+        this.tabBar.invalidateState();
         // if (remIndex === this.activeItemIndex) {
-        //   this.setActiveItemIndex(addIndex);
+        //   this.tabBar.selectedIndex = addIndex;
         // } else if (addIndex === this.activeItemIndex) {
-        //   this.setActiveItemIndex(remIndex);
+        //   this.tabBar.selectedIndex = remIndex;
         // }
         console.log('remIndex', remIndex);
         console.log('addIndex', addIndex);
         console.log('this.activeItemIndex', this.activeItemIndex);
+        window.requestAnimationFrame(() => {
+          console.log('getcurr1', this.tabBar.selectedIndex);
+        });
+        console.log('getcurr0', this.tabBar.selectedIndex);
       };
       window.addEventListener('mousemove', moveListener);
       window.addEventListener('mouseup', upListener);
