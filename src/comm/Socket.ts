@@ -18,12 +18,12 @@ namespace socket {
     }
 
     public connect() {
-      this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
+      this.client.subscribe(enums.mqtt.subscribe.READY, this.onReceivedMsg);
       this.client.connect();
     }
-    public enterTable(tableID: number) {}
-    public leaveTable(tableID: number) {}
-    public getTableList(filter: number) {}
+    public enterTable(tableID: string) {}
+    public leaveTable(tableID: string) {}
+    public getTableList(filter: string) {}
     public getTableInfo() {}
 
     private mockEnterTable;
@@ -38,7 +38,7 @@ namespace socket {
 
     public onTableListUpdate(evt: egret.Event) {}
 
-    public bet(tableID: number, betDetails: BetDetail[]) {}
+    public bet(tableID: string, betDetails: BetDetail[]) {}
 
     public getTableHistory() {}
   }

@@ -1,10 +1,10 @@
 namespace socket {
   export interface ISocket {
     connect();
-    enterTable(tableID: number);
-    leaveTable(tableID: number);
-    getTableList(filter: number);
-    bet(tableID: number, betDetails: BetDetail[]);
+    enterTable(tableID: string);
+    leaveTable(tableID: string);
+    getTableList(filter: string);
+    bet(tableID: string, betDetails: BetDetail[]);
     getTableHistory();
   }
 }

@@ -8,13 +8,6 @@ class PlayerSession {
     currency: number; // Curency Enum of the player
     nickname: string; // Player nickname
     profileimage: string; // URL of the profile image
-    betlimits: [
-      // Store the array of bet limits
-      {
-        minlimit: number; // Min bet limit
-        maxlimit: number; // Max bet limit
-        currency: number; // Currency
-      }
-    ];
+    betlimits: BetLimit[];
   };
 }

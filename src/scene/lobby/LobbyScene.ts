@@ -22,7 +22,7 @@ namespace scene {
     }
 
     public onClickBaccarat() {
-      const tableID = 6;
+      const tableID = '6';
 
       dir.socket.enterTable(tableID);
       dir.sceneCtr.goto('BaccaratScene', { tableID });

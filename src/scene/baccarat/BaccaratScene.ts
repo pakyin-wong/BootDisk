@@ -8,7 +8,7 @@ namespace scene {
     private bettingArea: baccarat.BettingArea;
     private switchLang: components.SwitchLang;
 
-    private _tableID: number;
+    private _tableID: string;
 
     private previousState: number;
     private tableInfo: TableInfo;
@@ -22,7 +22,7 @@ namespace scene {
       //
     }
 
-    public set tableID(tableID: number) {
+    public set tableID(tableID: string) {
       this._tableID = tableID;
     }
 
@@ -47,7 +47,7 @@ namespace scene {
     private setupTableInfo() {
       console.log(env.tableInfoArray);
       env.tableInfoArray.forEach(value => {
-        if (value.tableID === this._tableID) {
+        if (value.tableid === this._tableID) {
           this.tableInfo = value;
         }
       });
@@ -55,6 +55,7 @@ namespace scene {
 
     private addEventListeners() {
       dir.evtHandler.addEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+      dir.evtHandler.addEventListener(enums.event.event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
       dir.evtHandler.addEventListener(enums.i18n.event.SWITCH_LANGUAGE, this.onChangeLang, this);
 
       this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
@@ -62,6 +63,7 @@ namespace scene {
 
     private removeEventListeners() {
       dir.evtHandler.removeEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+      dir.evtHandler.removeEventListener(enums.event.event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
 
       this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
     }
@@ -115,17 +117,21 @@ namespace scene {
       const tableInfo = <TableInfo>evt.data;
       if (tableInfo) {
         console.log(`BaccaratScene::onTableInfoUpdate:tableInfo ${this.tableInfo}`);
-        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.betDetails}`);
-        console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableID}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.bets}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableid}`);
         console.log(`BaccaratScene::onTableInfoUpdate:this.tableID ${this.tableID}`);
 
-        if (tableInfo.tableID === this.tableID) {
+        if (tableInfo.tableid === this.tableID) {
           // update the scene
           this.tableInfo = tableInfo;
-          this.gameData = <baccarat.GameData>this.tableInfo.gameData;
+          this.gameData = <baccarat.GameData>this.tableInfo.data;
           this.bettingArea.onTableInfoUpdate(this.tableInfo);
         }
       }
+    }
+
+    protected onBetDetailUpdate(evt: egret.Event) {
+      this.bettingArea.onBetDetailUpdate();
     }
   }
 }
