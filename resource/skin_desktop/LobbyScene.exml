@@ -3,5 +3,5 @@
 	<components:ImageSlider width="2560" height="640" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"/>
 	<components:GameTableList width="2560" height="720" x="0" y="600" anchorOffsetX="0" anchorOffsetY="0" bottom="0"/>
 	<e:Button label="Enter baccarat" id="btnBaccarat" x="980" y="550" />
-	<components:SegmentedControl width="400" height="50" x="32" y="550"/>
+	<components:SegmentedControl width="800" height="50" x="32" y="550"/>
 </e:Skin>

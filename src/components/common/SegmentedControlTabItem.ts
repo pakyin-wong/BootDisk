@@ -13,7 +13,7 @@ namespace components {
     public constructor() {
       super();
       this.skinName = utils.getSkin('SegmentedControlTabItem');
-      this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+      //   this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
       this.isDirty = true;
     }
 
@@ -37,9 +37,9 @@ namespace components {
       // }
     }
 
-    private onClick() {
-      console.log('cick', this);
-    }
+    // private onClick() {
+    //   console.log('cick', this);
+    // }
     private isDeltaIdentity(m) {
       return m.a === 1 && m.b === 0 && m.c === 0 && m.d === 1;
     }
