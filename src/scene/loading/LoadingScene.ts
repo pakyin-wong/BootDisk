@@ -93,7 +93,7 @@ namespace scene {
 
     /** Last Step: All Loading Complete, switch to Lobby Scene */
     private loadingComplete() {
-      dir.moniter.start();
+      dir.moniter.start(this.stage);
       dir.sceneCtr.goto('LobbyScene');
     }
 

@@ -1,5 +1,5 @@
 namespace components {
-  export class Nav extends eui.Component implements eui.UIComponent {
+  export class Nav extends BaseEUI {
     private _logo: eui.Image;
     private _user: eui.Label;
     private _time: eui.Label;
@@ -7,11 +7,9 @@ namespace components {
     private _toggleBtn: eui.Image;
 
     public constructor() {
-      super();
-      this.once(eui.UIEvent.COMPLETE, this.mount, this);
-      this.skinName = utils.getSkin('Nav');
+      super('Nav');
     }
 
-    public mount() {}
+    protected mount() {}
   }
 }
