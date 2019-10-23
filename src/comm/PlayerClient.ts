@@ -3,32 +3,33 @@ namespace socket {
     private client: PlayerClient;
 
     constructor() {
-      this.client = new PlayerClient({            
-    playerID: 'BMJCP2DH5S5VCC8S9RHG', // Change this for different player, will replace later for oauth
-    authhost:'http://18.139.237.86:8080/liveplayer/api/auth',
-    hostname:"18.139.237.86", // RabbitMQ hostname
-    path:"/ws",       // Path of RabbitMQ websocket 
-    port:"15675",     // RabbitMQ websocket port        
-}) 
-// Listen the the ready event
-// This event will fire after connection established and init ready
-this.client.subscribe("READY",handleReady,this)
+      this.client = new PlayerClient({
+        playerID: 'BMJCP2DH5S5VCC8S9RHG',
+        secret: '4114f79f17c28ec6bfa01b80a28870a7',
+        connectTimeout: 1000 * 1000, // To avoid disconnect,
+        authhost: 'http://18.139.237.86:8080/liveplayer/api/auth',
+        hostname: '18.139.237.86', // RabbitMQ hostname
+        path: '/ws', // Path of RabbitMQ websocket
+        port: '15675', // RabbitMQ websocket port
+      });
+      // Listen the the ready event
+      // This event will fire after connection established and init ready
 
-// Call this to connect the backend
+      // Call this to connect the backend
 
+      console.log(this.client);
       logger.l('MQTTSocketComm is created');
     }
     // Handler for Ready event
-public handleReady(playerProfile:PlayerSession){
-  // return data with struct PlayerSession
-}
-
-
+    public handleReady(o: any) {
+      // return data with struct PlayerSession
+      console.log('handleReady');
+    }
 
     public connect() {
-      this.client.connect()
+      console.log('PlayerClient::connect()', this.client);
 
-      this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
+      this.client.subscribe('READY', this.handleReady, this);
       this.client.connect();
     }
     public enterTable(tableID: number) {}
