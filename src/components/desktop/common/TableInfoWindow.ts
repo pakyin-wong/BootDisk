@@ -39,7 +39,12 @@ namespace components {
         this
       );
       dir.evtHandler.addEventListener(enums.i18n.event.SWITCH_LANGUAGE, this.changeLang, this);
+      this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
       this.changeLang();
+    }
+
+    public onExit() {
+      this.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handleTapAnywhere, this);
     }
 
     public get visible(): boolean {
@@ -80,7 +85,9 @@ namespace components {
         // is click on this window
         return;
       }
-      this.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handleTapAnywhere, this);
+      if (this.stage) {
+        this.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handleTapAnywhere, this);
+      }
       // this.visible = false;
     }
 

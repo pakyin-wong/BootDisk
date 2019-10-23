@@ -14,6 +14,8 @@ namespace scene {
     private tableInfo: TableInfo;
     private gameData: baccarat.GameData;
 
+    private btnBack: eui.Button;
+
     constructor(data: any) {
       super(data);
       this._tableID = data.tableID;
@@ -54,16 +56,25 @@ namespace scene {
     private addEventListeners() {
       dir.evtHandler.addEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
       dir.evtHandler.addEventListener(enums.i18n.event.SWITCH_LANGUAGE, this.onChangeLang, this);
+
+      this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
     }
 
     private removeEventListeners() {
       dir.evtHandler.removeEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+
+      this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
     }
 
     public async onFadeEnter() {}
 
     public onExit() {
+      this.removeEventListeners();
       this.removeChildren();
+    }
+
+    public backToLobby() {
+      dir.sceneCtr.goto('LobbyScene');
     }
 
     public onChangeLang() {

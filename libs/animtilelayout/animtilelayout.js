@@ -1060,22 +1060,23 @@ var eui;
                 target.setContentSize(0, 0);
                 return;
             }
+            var startIndex = Math.max(this.startIndex - (this.requestedColumnCount | 1), 0);
             var endIndex = this.endIndex + (this.requestedColumnCount | 1);
-            target.setVirtualElementIndicesInView(this.startIndex, endIndex);
+            target.setVirtualElementIndicesInView(startIndex, endIndex);
             var elt;
             var x;
             var y;
             var columnIndex;
             var rowIndex;
             var orientedByColumns = (this._orientation == eui.TileOrientation.COLUMNS);
-            var index = this.startIndex;
+            var index = startIndex;
             var horizontalGap = isNaN(this._horizontalGap) ? 0 : this._horizontalGap;
             var verticalGap = isNaN(this._verticalGap) ? 0 : this._verticalGap;
             var rowCount = this._rowCount;
             var columnCount = this._columnCount;
             var columnWidth = this._columnWidth;
             var rowHeight = this._rowHeight;
-            for (var i = this.startIndex; i <= endIndex; i++) {
+            for (var i = startIndex; i <= endIndex; i++) {
                 if (this.$useVirtualLayout) {
                     elt = (this.target.getVirtualElementAt(i));
                 } else {
