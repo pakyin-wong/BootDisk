@@ -147,8 +147,16 @@ namespace baccarat {
       if (this.previousState !== enums.baccarat.GameState.FINISH) {
         this.computeTotalWin();
 
+        // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
+        this.setBetRelatedComponentsVisibility(false);
+
+        // show cardHolder
+        this.cardHolder.visible = true;
+        this.cardHolder.updateResult(this.gameData);
+
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
+
         this.winAmountLabel.visible = true;
         this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
 
