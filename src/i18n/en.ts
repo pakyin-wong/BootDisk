@@ -13,6 +13,11 @@ namespace i18n {
       superSix: 'Super Six',
       banker: 'Banker',
       noComm: 'No Commision',
+      tableNo: 'Table',
+      roundNo: 'Round',
+      dealer: 'Dealer',
+      time: 'Time',
+      betLimit: 'Bet Limit',
     },
   };
 }

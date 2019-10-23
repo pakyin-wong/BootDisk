@@ -11,6 +11,8 @@ namespace socket {
       baccarat: false,
     };
 
+    private socket: SocketMock;
+
     private roundID: number = 1;
     public finishStateInterval: number = 5000;
     public shuffleStateInterval: number = 10000;
@@ -20,6 +22,10 @@ namespace socket {
 
     public startRand = 0;
     public endRand = 6;
+
+    constructor(socket: SocketMock) {
+      this.socket = socket;
+    }
 
     private async sleep(ms, sleepCounter: string) {
       return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
@@ -81,13 +87,15 @@ namespace socket {
         if (!isMatch) {
           data.betDetails.push({
             field: winningField,
+            winAmount: 0,
             isWin: 1,
           });
         }
       }
     }
 
-    private initGameData(gameData: baccarat.GameData) {
+    private async initGameData(gameData: baccarat.GameData) {
+      await this.sleep(3000 + Math.random() * 5000, 'tableInfoListInternal');
       gameData.gameState = enums.baccarat.GameState.BET;
       gameData.startTime = Date.now();
       gameData.currTime = Date.now();
@@ -96,8 +104,8 @@ namespace socket {
     }
 
     private dispatchEvent(data: TableInfo) {
-      env.currTime = data.gameData.currTime;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.socket.dispatchInfoUpdateEvent(data);
+      this.socket.dispatchListUpdateEvent(data);
     }
 
     public async randomWin(data: TableInfo) {
@@ -132,7 +140,7 @@ namespace socket {
       data.gameData = gameData;
       data.betDetails = [];
       // set to bet state and wait
-      this.initGameData(gameData);
+      await this.initGameData(gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
@@ -159,7 +167,7 @@ namespace socket {
       data.gameData = gameData;
       data.betDetails = [];
       // set to bet state and wait
-      this.initGameData(gameData);
+      await this.initGameData(gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
@@ -186,7 +194,7 @@ namespace socket {
       data.gameData = gameData;
       data.betDetails = [];
       // set to bet state and wait
-      this.initGameData(gameData);
+      await this.initGameData(gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
@@ -213,7 +221,7 @@ namespace socket {
       data.gameData = gameData;
       data.betDetails = [];
       // set to bet state and wait
-      this.initGameData(gameData);
+      await this.initGameData(gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 
@@ -240,7 +248,7 @@ namespace socket {
       data.gameData = gameData;
       data.betDetails = [];
       // set to bet state and wait
-      this.initGameData(gameData);
+      await this.initGameData(gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.timer, 'tableInfoListInternal');
 

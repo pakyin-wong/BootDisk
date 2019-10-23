@@ -17,7 +17,7 @@ namespace components {
       let result;
       let timeout = null;
       let previous = 0;
-      const later = function() {
+      const later = function () {
         previous = options.leading === false ? 0 : Date.now();
         timeout = null;
         result = func.apply(context, args);
@@ -25,7 +25,7 @@ namespace components {
           context = args = null;
         }
       };
-      return function() {
+      return function () {
         const now = Date.now();
         if (!previous && options.leading === false) {
           previous = now;
@@ -100,8 +100,8 @@ namespace components {
         // only draggable if click on thumb
         return;
       }
-      (<any>window).addEventListener('mousemove', this.onMouseMove, { passive: false });
-      (<any>window).addEventListener('mouseup', this.onMouseUp, { passive: false });
+      (<any> window).addEventListener('mousemove', this.onMouseMove, { passive: false });
+      (<any> window).addEventListener('mouseup', this.onMouseUp, { passive: false });
       const viewHeight = this.viewport.contentHeight - this.height;
       this._initProgress = this.viewport.scrollV / viewHeight;
     }
@@ -116,13 +116,13 @@ namespace components {
       progress = Math.min(Math.max(progress, 0), 1);
       const viewHeight = this.viewport.contentHeight - this.height;
       this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
-    };
+    }
 
     private onMouseUp = (event: MouseEvent) => {
-      (<any>window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
-      (<any>window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
+      (<any> window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
+      (<any> window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
       this._firstYForMovement = 0;
-    };
+    }
 
     private onThumbEnd = (event: egret.TouchEvent) => {
       if (this._firstYForMovement !== 0) {
@@ -133,7 +133,7 @@ namespace components {
       progress = Math.min(Math.max(progress, 0), 1);
       const viewHeight = this.viewport.contentHeight - this.height;
       this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
-    };
+    }
 
     private _alreadyRegistered = false;
 
@@ -142,7 +142,7 @@ namespace components {
         // don't attach duplicate listener
         return;
       }
-      (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+      (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       document.querySelector('canvas').addEventListener('mouseleave', this.onCanvasOut);
       this._alreadyRegistered = true;
     }
@@ -153,13 +153,13 @@ namespace components {
         // don't remove the listener...
         return;
       }
-      (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+      (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       document.querySelector('canvas').removeEventListener('mouseleave', this.onCanvasOut);
       this._alreadyRegistered = false;
     }
 
     private onCanvasOut = (event: MouseEvent) => {
-      (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+      (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       const canvas = document.querySelector('canvas');
       canvas.removeEventListener('mouseleave', this.onCanvasOut);
       const reEnterListener = (event: MouseEvent) => {
@@ -173,14 +173,14 @@ namespace components {
 
         if (this.hitTestPoint(stageX, stageY)) {
           // add listeners back if enter canvas again and go in the scroller
-          (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+          (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
           document.querySelector('canvas').addEventListener('mouseleave', this.onCanvasOut);
           this._alreadyRegistered = true;
         }
       };
       canvas.addEventListener('mouseenter', reEnterListener);
       this._alreadyRegistered = false;
-    };
+    }
 
     public _prevDeltaY = 0;
     public _stopTimeout = null;

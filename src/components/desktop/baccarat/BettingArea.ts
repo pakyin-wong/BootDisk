@@ -63,7 +63,7 @@ namespace baccarat {
     public onTableInfoUpdate(tableInfo: TableInfo) {
       console.log('BettingArea listener');
       this.tableID = tableInfo.tableID;
-      this.gameData = <GameData>tableInfo.gameData;
+      this.gameData = <GameData> tableInfo.gameData;
       this.betDetails = tableInfo.betDetails;
       console.log(`BettingArea::onTableInfoUpdate::betDetails ${this.betDetails}`);
       this.updateGame();
@@ -147,8 +147,16 @@ namespace baccarat {
       if (this.previousState !== enums.baccarat.GameState.FINISH) {
         this.computeTotalWin();
 
+        // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
+        this.setBetRelatedComponentsVisibility(false);
+
+        // show cardHolder
+        this.cardHolder.visible = true;
+        this.cardHolder.updateResult(this.gameData);
+
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
+
         this.winAmountLabel.visible = true;
         this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
 

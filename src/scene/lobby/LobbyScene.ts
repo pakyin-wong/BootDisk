@@ -18,6 +18,7 @@ namespace scene {
 
       // After pressing the Filter
       dir.socket.getTableList(enums.TableFilter.BACCARAT);
+      dir.socket.getTableHistory();
     }
 
     public onClickBaccarat() {

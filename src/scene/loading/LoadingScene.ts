@@ -44,7 +44,7 @@ namespace scene {
 
       // dir.evtHandler.once(enums.mqtt.event.CONNECT_SUCCESS, this.next, this);
       // dir.evtHandler.once(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
-      // dir.socket.connect();
+      dir.socket.connect();
 
       await sleep(1000);
       this.next();
