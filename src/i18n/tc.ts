@@ -18,6 +18,7 @@ namespace i18n {
       dealer: '荷官',
       time: '時間',
       betLimit: '下注限紅',
+      baccarat: '百家樂',
     },
   };
 }

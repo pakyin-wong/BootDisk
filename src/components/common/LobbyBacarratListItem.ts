@@ -14,6 +14,7 @@ namespace components {
     public constructor() {
       super();
       this.skinName = utils.getSkin('LobbyBacarratListItem');
+      this.touchEnabled = true;
       this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
     }
 
@@ -26,10 +27,10 @@ namespace components {
       this._data = data;
       const table = env.tableInfos[data];
       console.log(table);
-      if (table.gameData.gameState === 1) {
-        this.label.text = `TID${table.tableID} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.gameData.gameState)}STATE --- ${table.gameData.currTime}`;
+      if (table.data.state === 1) {
+        this.label.text = `TID${table.tableid} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.data.state)}`;
       } else {
-        this.label.text = `TID${table.tableID} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.gameData.gameState)}S / ${table.gameData.currTime}`;
+        this.label.text = `TID${table.tableid} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.data.state)}`;
       }
       egret.Tween.removeTweens(this);
       // if (data === null) {
@@ -42,6 +43,11 @@ namespace components {
 
     private onClick() {
       console.log('cick', this.rect.fillColor);
+      const table = env.tableInfos[this._data];
+      if (table.data && table.tableid) {
+        dir.socket.enterTable(table.tableid);
+        dir.sceneCtr.goto('BaccaratScene', { tableid: table.tableid });
+      }
     }
     private isDeltaIdentity(m) {
       return m.a === 1 && m.b === 0 && m.c === 0 && m.d === 1;

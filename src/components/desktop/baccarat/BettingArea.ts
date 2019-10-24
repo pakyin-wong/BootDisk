@@ -12,7 +12,7 @@ namespace baccarat {
     // temp component
     private stateLabel: eui.Label;
 
-    private tableID: number;
+    private tableID: string;
     private previousState: number;
     private gameData: GameData;
     private betDetails: BetDetail[];
@@ -62,17 +62,18 @@ namespace baccarat {
 
     public onTableInfoUpdate(tableInfo: TableInfo) {
       console.log('BettingArea listener');
-      this.tableID = tableInfo.tableID;
-      this.gameData = <GameData>tableInfo.gameData;
-      this.betDetails = tableInfo.betDetails;
+      this.tableID = tableInfo.tableid;
+      this.gameData = <GameData>tableInfo.data;
+      this.betDetails = tableInfo.bets;
       console.log(`BettingArea::onTableInfoUpdate::betDetails ${this.betDetails}`);
       this.updateGame();
+      this.previousState = this.gameData.state;
     }
 
     protected updateGame() {
-      console.log(`BettingArea::updateGame::GameState ${this.gameData.gameState}`);
+      console.log(`BettingArea::updateGame::GameState ${this.gameData.state}`);
 
-      switch (this.gameData.gameState) {
+      switch (this.gameData.state) {
         case enums.baccarat.GameState.BET:
           console.log(`BettingArea::updateGame::setStateBet`);
 
@@ -98,6 +99,10 @@ namespace baccarat {
 
     protected setStateBet() {
       if (this.previousState !== enums.baccarat.GameState.BET) {
+        // reset data betinfo
+
+        this.betDetails.splice(0, this.betDetails.length);
+
         // TODO: show start bet message to the client for few seconds
         this.bettingTable.resetUnconfirmedBet();
         this.bettingTable.resetConfirmedBet();
@@ -112,11 +117,12 @@ namespace baccarat {
 
         // enable betting table
         this.bettingTable.setTouchEnabled(true);
-      }
-      // update the bet amount of each bet field in betting table
-      logger.l(`BettingArea::setStateBet:betDetails: ` + this.betDetails);
-      if (this.betDetails) {
-        this.bettingTable.updateBetFields(this.betDetails);
+
+        // update the bet amount of each bet field in betting table
+        logger.l(`BettingArea::setStateBet:betDetails: ` + this.betDetails);
+        if (this.betDetails) {
+          this.bettingTable.updateBetFields(this.betDetails);
+        }
       }
 
       // update the countdownTimer
@@ -157,12 +163,14 @@ namespace baccarat {
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
 
-        this.winAmountLabel.visible = true;
-        this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
-
         // TODO: show effect on each winning bet field
-        logger.l(`this.gameData.winType ${this.gameData.winType} ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.winType)}`);
-        this.stateLabel.text = `Finish, ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.winType)}`;
+        logger.l(`this.gameData.winType ${this.gameData.wintype} ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.wintype)}`);
+        this.stateLabel.text = `Finish, ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.wintype)}`;
+
+        if (this.totalWin) {
+          this.winAmountLabel.visible = true;
+          this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+        }
 
         // TODO: show win message and the total win ammount to the client for few seconds
 
@@ -204,6 +212,19 @@ namespace baccarat {
       }
     }
 
+    public onBetDetailUpdate() {
+      // TODO: show win result when bet detail is ready
+      switch (this.gameData.state) {
+        case enums.baccarat.GameState.BET:
+          this.bettingTable.updateBetFields(this.betDetails);
+          break;
+        case enums.baccarat.GameState.FINISH:
+          this.winAmountLabel.visible = true;
+          this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+          break;
+      }
+    }
+
     protected setBetRelatedComponentsVisibility(visible: boolean) {
       this.betChipSet.visible = visible;
       this.countdownTimer.visible = visible;
@@ -218,8 +239,8 @@ namespace baccarat {
       // this.countdownTimer.remainingTime = this.gameData.timer - timeDiff;
       // this.countdownTimer.start();
 
-      this.countdownTimer.countdownValue = this.gameData.timer;
-      this.countdownTimer.remainingTime = this.gameData.timer - (env.currTime - this.gameData.startTime);
+      this.countdownTimer.countdownValue = parseInt(this.gameData.countdown, 10);
+      this.countdownTimer.remainingTime = parseInt(this.gameData.countdown, 10) - (env.currTime - parseInt(this.gameData.starttime, 10));
       this.countdownTimer.start();
     }
 

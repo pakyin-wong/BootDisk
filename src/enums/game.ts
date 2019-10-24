@@ -1,8 +1,9 @@
 namespace enums {
   export const TableState = {
-    ONLINE: 1,
-    OFFLINE: 2,
-    MAINTENANCE: 3,
+    CLOSED: 0,
+    ONLINE: 10,
+    OFFLINE: 20,
+    MAINTENANCE: 30,
   };
 
   export const GameType = {
@@ -16,7 +17,7 @@ namespace enums {
 
   export const TableFilter = {
     FEATURED_TABLE: 1,
-    BACCARAT: 2,
+    BACCARAT: '123213',
     BACCARAT_GOOD_ROAD: 3,
     OTHER_GAMES: 4,
   };

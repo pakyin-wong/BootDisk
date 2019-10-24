@@ -3,16 +3,25 @@ namespace socket {
     private client: TestClient;
 
     private tables: TableInfo[];
+    private balances: number[];
+    private currency: enums.socket.Currency[];
+    private balance_index: number;
     private mockProcesses: MockProcess[] = [];
 
     constructor() {
-      const tableCount = 10;
+      const tableCount = 6;
+
+      this.currency = [enums.socket.Currency.EUR, enums.socket.Currency.JPY, enums.socket.Currency.RMB, enums.socket.Currency.HKD];
+      this.balances = [3000, 6000, 99999999999999, 2000];
+      this.balance_index = 0;
+
+      console.log('SocketMock::balances: ' + this.balances);
       this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
         const data = new TableInfo();
-        data.tableID = idx + 1;
-        data.tableState = enums.TableState.ONLINE;
-        data.gameType = enums.GameType.BAC;
-        data.betDetails = [];
+        data.tableid = (idx + 1).toString();
+        data.state = enums.TableState.ONLINE;
+        data.gametype = enums.GameType.BAC;
+        data.bets = [];
         const mockProcess = new MockProcess(this);
         if (idx !== tableCount - 1) {
           mockProcess.startRand = idx;
@@ -20,6 +29,7 @@ namespace socket {
         }
         mockProcess.startBaccarat(data);
         this.mockProcesses.push(mockProcess);
+
         idx++;
         return data;
       });
@@ -27,9 +37,9 @@ namespace socket {
       setTimeout(() => {
         this.tables = this.tables.filter((x, i) => i !== 0);
       }, 10000);
-      setTimeout(() => {
-        this.tables = this.tables.filter((x, i) => i !== 6);
-      }, 14000);
+      // setTimeout(() => {
+      //   this.tables = this.tables.filter((x, i) => i !== 6);
+      // }, 14000);
     }
 
     public connect() {
@@ -37,7 +47,7 @@ namespace socket {
       /// this.client.connect();
     }
 
-    public async enterTable(tableID: number) {
+    public enterTable(tableID: string) {
       /*
       //Canceling the event
 
@@ -62,9 +72,14 @@ namespace socket {
       */
     }
 
-    public leaveTable(tableID: number) {}
+    public leaveTable(tableID: string) {}
 
-    public getTableList(filter: number) {
+    public getTableList(filter: string) {
+      setInterval(() => {
+        this.balanceEvent(this);
+        dir.evtHandler.dispatch(enums.event.event.BALANCE_UPDATE);
+      }, 6000);
+
       // switch (filter) {
       //   case enums.TableFilter.BACCARAT:
       //     setTimeout(() => {
@@ -77,20 +92,34 @@ namespace socket {
       // }
     }
 
+    public balanceEvent(myObj: any) {
+      console.log('SocketMock::balanceEvent() this.balances', myObj.balances);
+      if (myObj.balance_index < myObj.balances.length) {
+        env.balance = myObj.balances[myObj.balance_index];
+        env.currency = myObj.currency[myObj.balance_index];
+        myObj.balance_index++;
+      } else {
+        myObj.balance_index = 0;
+        env.balance = myObj.balances[0];
+        env.currency = myObj.currency[0];
+      }
+    }
+
     public dispatchInfoUpdateEvent(data: TableInfo) {
-      env.currTime = data.gameData.currTime;
+      env.currTime = Date.now();
       data.complete = 1;
       dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      dir.evtHandler.dispatch(enums.event.event.PLAYER_BET_INFO_UPDATE, data);
     }
 
     public dispatchListUpdateEvent(data: TableInfo) {
       env.tableInfoArray = this.tables;
       const list = this.tables
         .filter(info => {
-          return info.complete === 1;
+          return info.complete > 0;
         })
         .map(info => {
-          return info.tableID;
+          return info.tableid;
         });
       egret.log(list);
       dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, list);
@@ -129,14 +158,14 @@ namespace socket {
       dir.evtHandler.dispatch(enums.event.event.ROADMAP_UPDATE);
     }
 
-    public async bet(tableID: number, betDetails: BetDetail[]) {
+    public async bet(tableID: string, betDetails: BetDetail[]) {
       console.log('SocketMock::bet()');
       // add the bets to confirmed bet Array
-      const data = this.tables[tableID - 1];
-      this.tables[tableID - 1].gameData.currTime = Date.now();
+      const data = this.tables[parseInt(tableID, 10) - 1];
+      this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
       for (const betDetail of betDetails) {
         let isMatch = false;
-        for (const cfmBetDetail of data.betDetails) {
+        for (const cfmBetDetail of data.bets) {
           if (betDetail.field === cfmBetDetail.field) {
             console.log('SocketMock::bet() matched');
 
@@ -148,7 +177,7 @@ namespace socket {
         if (!isMatch) {
           console.log('SocketMock::bet() not matched');
 
-          data.betDetails.push({
+          data.bets.push({
             field: betDetail.field,
             amount: betDetail.amount,
             winAmount: 0,

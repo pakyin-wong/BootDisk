@@ -8,26 +8,35 @@ namespace scene {
     private bettingArea: baccarat.BettingArea;
     private switchLang: components.SwitchLang;
 
-    private _tableID: number;
+    private _tableID: string;
 
     private previousState: number;
     private tableInfo: TableInfo;
     private gameData: baccarat.GameData;
 
     private btnBack: eui.Button;
+    private lblRoomInfo: eui.Label;
+    private lblRoomNo: eui.Label;
+
+    private tableInfoWindow: components.TableInfoWindow;
 
     constructor(data: any) {
       super(data);
-      this._tableID = data.tableID;
+      this._tableID = data.tableid;
       //
     }
 
-    public set tableID(tableID: number) {
+    public set tableID(tableID: string) {
       this._tableID = tableID;
+      this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
     }
 
     public get tableID() {
       return this._tableID;
+    }
+
+    public changeLang() {
+      this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
     }
 
     public onEnter() {
@@ -36,10 +45,11 @@ namespace scene {
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
 
-      const roadmap = new baccarat.BARoadmap();
-      roadmap.x = 2000;
-      roadmap.y = 500;
-      this.addChild(roadmap);
+      // const roadmap = new baccarat.BARoadmap();
+      // roadmap.x = 2000;
+      // roadmap.y = 500;
+
+      // this.addChild(roadmap);
 
       this.addEventListeners();
     }
@@ -47,7 +57,7 @@ namespace scene {
     private setupTableInfo() {
       console.log(env.tableInfoArray);
       env.tableInfoArray.forEach(value => {
-        if (value.tableID === this._tableID) {
+        if (value.tableid === this._tableID) {
           this.tableInfo = value;
         }
       });
@@ -55,13 +65,20 @@ namespace scene {
 
     private addEventListeners() {
       dir.evtHandler.addEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+      dir.evtHandler.addEventListener(enums.event.event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
       dir.evtHandler.addEventListener(enums.i18n.event.SWITCH_LANGUAGE, this.onChangeLang, this);
 
       this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+      this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
+    }
+
+    private toggleRoomInfo() {
+      this.tableInfoWindow.visible = !this.tableInfoWindow.visible;
     }
 
     private removeEventListeners() {
       dir.evtHandler.removeEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+      dir.evtHandler.removeEventListener(enums.event.event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
 
       this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
     }
@@ -78,6 +95,7 @@ namespace scene {
     }
 
     public onChangeLang() {
+      this.changeLang();
       this.bettingArea.onChangeLang();
     }
 
@@ -115,17 +133,21 @@ namespace scene {
       const tableInfo = <TableInfo>evt.data;
       if (tableInfo) {
         console.log(`BaccaratScene::onTableInfoUpdate:tableInfo ${this.tableInfo}`);
-        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.betDetails}`);
-        console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableID}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.bets}`);
+        console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableid}`);
         console.log(`BaccaratScene::onTableInfoUpdate:this.tableID ${this.tableID}`);
 
-        if (tableInfo.tableID === this.tableID) {
+        if (tableInfo.tableid === this.tableID) {
           // update the scene
           this.tableInfo = tableInfo;
-          this.gameData = <baccarat.GameData>this.tableInfo.gameData;
+          this.gameData = <baccarat.GameData>this.tableInfo.data;
           this.bettingArea.onTableInfoUpdate(this.tableInfo);
         }
       }
+    }
+
+    protected onBetDetailUpdate(evt: egret.Event) {
+      this.bettingArea.onBetDetailUpdate();
     }
   }
 }
