@@ -1,10 +1,12 @@
 namespace controller {
   export class MeterCtr {
-    private _m = {};
-    private _v = {};
+    private _local = {};
 
     constructor() {}
 
-    public register(key: string) {}
+    updateMeter(key:string, value:number) {
+      this._local[key] = value;
+      dir.evtHandler.dispatch()
+    }
   }
 }

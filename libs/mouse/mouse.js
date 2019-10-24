@@ -72,8 +72,8 @@ var mouse;
                 return rs;
             }
             var target = stageObj.$hitTest(x,y);
+            detectRollOver(target);
             if (target != currentTarget) {
-                detectRollOver(target);
                 detectRollOut(currentTarget);
                 currentTarget = target;
             }
