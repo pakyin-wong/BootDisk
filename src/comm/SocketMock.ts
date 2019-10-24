@@ -3,10 +3,20 @@ namespace socket {
     private client: TestClient;
 
     private tables: TableInfo[];
+    private balances: number[];
+    private currency: enums.socket.Currency[];
+    private balance_index: number;
     private mockProcesses: MockProcess[] = [];
 
     constructor() {
       const tableCount = 6;
+
+      this.currency = [enums.socket.Currency.EUR, enums.socket.Currency.JPY, enums.socket.Currency.RMB, enums.socket.Currency.HKD];
+      this.balances = [3000, 6000, 99999999999999, 2000];
+      this.balance_index = 0;
+
+      console.log('SocketMock::balances: ' + this.balances);
+
       this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
         const data = new TableInfo();
         data.tableid = (idx + 1).toString();
@@ -20,6 +30,7 @@ namespace socket {
         }
         mockProcess.startBaccarat(data);
         this.mockProcesses.push(mockProcess);
+
         idx++;
         return data;
       });
@@ -58,6 +69,11 @@ namespace socket {
     public leaveTable(tableID: string) {}
 
     public getTableList(filter: string) {
+      setInterval(() => {
+        this.balanceEvent(this);
+        dir.evtHandler.dispatch(enums.event.event.BALANCE_UPDATE);
+      }, 6000);
+
       // switch (filter) {
       //   case enums.TableFilter.BACCARAT:
       //     setTimeout(() => {
@@ -68,6 +84,19 @@ namespace socket {
       //   default:
       //     break;
       // }
+    }
+
+    public balanceEvent(myObj: any) {
+      console.log('SocketMock::balanceEvent() this.balances', myObj.balances);
+      if (myObj.balance_index < myObj.balances.length) {
+        env.balance = myObj.balances[myObj.balance_index];
+        env.currency = myObj.currency[myObj.balance_index];
+        myObj.balance_index++;
+      } else {
+        myObj.balance_index = 0;
+        env.balance = myObj.balances[0];
+        env.currency = myObj.currency[0];
+      }
     }
 
     public dispatchInfoUpdateEvent(data: TableInfo) {

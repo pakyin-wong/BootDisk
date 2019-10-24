@@ -2,6 +2,7 @@ namespace components {
   export class NavBar extends eui.Component implements eui.UIComponent {
     private userInfo: eui.Group;
     private userInfoWindow: components.UserInfoWindow;
+    private balance: eui.Label;
 
     public constructor() {
       super();
@@ -9,6 +10,11 @@ namespace components {
       this.userInfo.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.onUserInfoOver, this);
       this.userInfo.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.onUserInfoOut, this);
       this.userInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onUserInfoTap, this);
+      dir.evtHandler.addEventListener(enums.event.event.BALANCE_UPDATE, this.processBalanceEvent, this);
+    }
+
+    public processBalanceEvent(evt: egret.Event) {
+      this.balance.text = EnumHelpers.getKeyByValue(enums.socket.Currency, env.currency) + ' ' + env.balance.toString();
     }
 
     protected partAdded(partName: string, instance: any): void {

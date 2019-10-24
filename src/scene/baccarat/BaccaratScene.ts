@@ -15,6 +15,9 @@ namespace scene {
     private gameData: baccarat.GameData;
 
     private btnBack: eui.Button;
+    private lblRoomInfo: eui.Label;
+
+    private tableInfoWindow: components.TableInfoWindow;
 
     constructor(data: any) {
       super(data);
@@ -24,10 +27,15 @@ namespace scene {
 
     public set tableID(tableID: string) {
       this._tableID = tableID;
+      this.lblRoomInfo.text = i18n.t('baacarat.baccarat') + ' ' + this._tableID;
     }
 
     public get tableID() {
       return this._tableID;
+    }
+
+    public changeLang() {
+      this.lblRoomInfo.text = i18n.t('baacarat.baccarat') + ' ' + this._tableID;
     }
 
     public onEnter() {
@@ -39,6 +47,7 @@ namespace scene {
       const roadmap = new baccarat.BARoadmap();
       roadmap.x = 2000;
       roadmap.y = 500;
+
       this.addChild(roadmap);
 
       this.addEventListeners();
@@ -59,6 +68,11 @@ namespace scene {
       dir.evtHandler.addEventListener(enums.i18n.event.SWITCH_LANGUAGE, this.onChangeLang, this);
 
       this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+      this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
+    }
+
+    private toggleRoomInfo() {
+      this.tableInfoWindow.visible = !this.tableInfoWindow.visible;
     }
 
     private removeEventListeners() {
@@ -80,6 +94,7 @@ namespace scene {
     }
 
     public onChangeLang() {
+      this.changeLang();
       this.bettingArea.onChangeLang();
     }
 
