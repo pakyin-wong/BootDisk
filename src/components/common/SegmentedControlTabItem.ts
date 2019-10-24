@@ -1,8 +1,8 @@
 namespace components {
-  export class SegmentedControlTabItem extends eui.ItemRenderer {
+  export class SegmentedControlTabItem extends eui.SortableItemRenderer {
     public mySelected: boolean;
     public itemIndex: number;
-    private myData: any;
+    public myData: any;
 
     private label: eui.Label;
 
@@ -27,24 +27,30 @@ namespace components {
     //   this.invalidateState();
     // }
 
-    public get data() {
-      return this.myData;
+    // public get data() {
+    //   return this.myData;
+    // }
+
+    // public set data(data: any) {
+    //   eui.PropertyEvent.dispatchPropertyEvent(this, eui.PropertyEvent.PROPERTY_CHANGE, "data");
+    //   this.dataChanged();
+
+    // }
+
+    public clone() {
+      const clone: SegmentedControlTabItem = <SegmentedControlTabItem>super.clone();
+      clone.data = this.data;
+      return clone;
     }
 
-    public set data(data: any) {
+    public dataChanged() {
       this.isDirty = false;
-      this.myData = data;
-      this.label.text = data;
+      this.myData = this.data;
+      this.label.text = this.data;
       egret.Tween.removeTweens(this);
       if (this.destinationX !== Infinity) {
         this.x = this.destinationX;
       }
-      // if (data === null) {
-      //   this.visible = false;
-      // } else {
-      //   this.rect.fillColor = data;
-      //   this.visible = true;
-      // }
     }
 
     // protected getCurrentState(): string {
