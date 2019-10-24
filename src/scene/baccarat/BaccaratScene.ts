@@ -16,6 +16,7 @@ namespace scene {
 
     private btnBack: eui.Button;
     private lblRoomInfo: eui.Label;
+    private lblRoomNo: eui.Label;
 
     private tableInfoWindow: components.TableInfoWindow;
 
@@ -27,7 +28,7 @@ namespace scene {
 
     public set tableID(tableID: string) {
       this._tableID = tableID;
-      this.lblRoomInfo.text = i18n.t('baacarat.baccarat') + ' ' + this._tableID;
+      this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
     }
 
     public get tableID() {
@@ -35,7 +36,7 @@ namespace scene {
     }
 
     public changeLang() {
-      this.lblRoomInfo.text = i18n.t('baacarat.baccarat') + ' ' + this._tableID;
+      this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
     }
 
     public onEnter() {
