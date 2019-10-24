@@ -102,9 +102,7 @@ declare module skin_desktop{
 	class Nav extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class NavBar extends eui.Skin{
-	}
+declare class NavSideMenuSkin extends eui.Skin{
 }
 declare module skin_desktop{
 	class VScrollBarSkin extends eui.Skin{

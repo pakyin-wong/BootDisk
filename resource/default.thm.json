@@ -18,7 +18,8 @@
 		"baccarat.BetChip": "resource/skin_desktop/BetChip.exml",
 		"baccarat.BetChipSet": "resource/skin_desktop/BetChipSet.exml",
 		"baccarat.CountdownTimer": "resource/skin_desktop/CountdownTimer.exml",
-		"baccarat.BetConfirmButton": "resource/skin_desktop/BetConfirmButton.exml"
+		"baccarat.BetConfirmButton": "resource/skin_desktop/BetConfirmButton.exml",
+		"NavSideMenu": "resource/skin_desktop/NavSideMenu.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -48,7 +49,7 @@
 		"resource/skin_desktop/LobbyBacarratListItem.exml",
 		"resource/skin_desktop/LobbyScene.exml",
 		"resource/skin_desktop/Nav.exml",
-		"resource/skin_desktop/NavBar.exml",
+		"resource/skin_desktop/NavSideMenu.exml",
 		"resource/skin_desktop/ScrollBarVertical.exml",
 		"resource/skin_desktop/SegmentedControlTabItem.exml",
 		"resource/skin_desktop/SwitchLang.exml",
