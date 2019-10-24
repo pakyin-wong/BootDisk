@@ -73,7 +73,7 @@ namespace socket {
       const tableInfo: TableInfo = env.tableInfos[gameStatus.tableid];
       if (tableInfo) {
         let justReady = false;
-        if (tableInfo.data) {
+        if (!tableInfo.data) {
           justReady = true;
         }
         tableInfo.data = gameStatus;

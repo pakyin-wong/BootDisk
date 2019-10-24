@@ -45,11 +45,11 @@ namespace scene {
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
 
-      const roadmap = new baccarat.BARoadmap();
-      roadmap.x = 2000;
-      roadmap.y = 500;
+      // const roadmap = new baccarat.BARoadmap();
+      // roadmap.x = 2000;
+      // roadmap.y = 500;
 
-      this.addChild(roadmap);
+      // this.addChild(roadmap);
 
       this.addEventListeners();
     }
