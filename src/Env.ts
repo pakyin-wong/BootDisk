@@ -14,6 +14,7 @@ class Env {
   public language: string;
   public categorySortOrder: string;
   public betLimits: BetLimit[];
+  public tableHistory: any;
   private _tableInfoArray: TableInfo[];
   private _tableInfos: { [key: number]: TableInfo };
   public currentChipSelectedIndex: number = 10;

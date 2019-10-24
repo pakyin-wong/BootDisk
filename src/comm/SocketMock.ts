@@ -6,14 +6,14 @@ namespace socket {
     private mockProcesses: MockProcess[] = [];
 
     constructor() {
-      const tableCount = 6;
+      const tableCount = 10;
       this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
         const data = new TableInfo();
         data.tableID = idx + 1;
         data.tableState = enums.TableState.ONLINE;
         data.gameType = enums.GameType.BAC;
         data.betDetails = [];
-        const mockProcess = new MockProcess();
+        const mockProcess = new MockProcess(this);
         if (idx !== tableCount - 1) {
           mockProcess.startRand = idx;
           mockProcess.endRand = idx + 1;
@@ -23,6 +23,13 @@ namespace socket {
         idx++;
         return data;
       });
+      // try remove 1
+      setTimeout(() => {
+        this.tables = this.tables.filter((x, i) => i !== 0);
+      }, 10000);
+      setTimeout(() => {
+        this.tables = this.tables.filter((x, i) => i !== 6);
+      }, 14000);
     }
 
     public connect() {
@@ -58,16 +65,68 @@ namespace socket {
     public leaveTable(tableID: number) {}
 
     public getTableList(filter: number) {
-      switch (filter) {
-        case enums.TableFilter.BACCARAT:
-          setTimeout(() => {
-            env.tableInfoArray = this.tables;
-            dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE);
-          });
-          break;
-        default:
-          break;
-      }
+      // switch (filter) {
+      //   case enums.TableFilter.BACCARAT:
+      //     setTimeout(() => {
+      //       env.tableInfoArray = this.tables;
+      //       dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE);
+      //     });
+      //     break;
+      //   default:
+      //     break;
+      // }
+    }
+
+    public dispatchInfoUpdateEvent(data: TableInfo) {
+      env.currTime = data.gameData.currTime;
+      data.complete = 1;
+      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+    }
+
+    public dispatchListUpdateEvent(data: TableInfo) {
+      env.tableInfoArray = this.tables;
+      const list = this.tables
+        .filter(info => {
+          return info.complete === 1;
+        })
+        .map(info => {
+          return info.tableID;
+        });
+      egret.log(list);
+      dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, list);
+    }
+
+    public async getTableHistory() {
+      env.tableHistory = [
+        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
+        { v: 'b', b: 0, p: 0, bv: 6, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'p', b: 0, p: 1, bv: 10, pv: 3 },
+        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'b', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'p', b: 0, p: 0, bv: 5, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 'b', b: 1, p: 0, bv: 5, pv: 5 },
+        { v: 'b', b: 1, p: 1, bv: 10, pv: 5 },
+        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
+        { v: 't', b: 0, p: 0, bv: 4, pv: 5 },
+        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
+        { v: 'b', b: 1, p: 1, bv: 10, pv: 15 },
+        { v: 'p', b: 1, p: 0, bv: 10, pv: 5 },
+        { v: 'p', b: 1, p: 1, bv: 10, pv: 5 },
+        { v: 'p', b: 1, p: 0, bv: 8, pv: 5 },
+        { v: 'b', b: 1, p: 0, bv: 9, pv: 12 },
+      ];
+      console.log('SocketMock::sleeping before');
+
+      await sleep(10000);
+      console.log('SocketMock::sleeping after');
+      env.tableHistory = [{ v: 'b', b: 1, p: 0, bv: 10, pv: 5 }];
+      dir.evtHandler.dispatch(enums.event.event.ROADMAP_UPDATE);
     }
 
     public async bet(tableID: number, betDetails: BetDetail[]) {
@@ -97,8 +156,8 @@ namespace socket {
           });
         }
       }
-      env.currTime = data.gameData.currTime;
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
+      this.dispatchInfoUpdateEvent(data);
+      this.dispatchListUpdateEvent(data);
 
       // return promise.resolve with BetResult
       return Promise.resolve({

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.UserInfoWindow" width="360" height="640" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
-	<e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xbababa" locked="true"/>
-	<e:Label text="VIP 1" x="117" y="116" bold="true" textColor="0x000000" size="48" scaleX="1" scaleY="1"/>
-	<e:Group width="200" height="200" x="76" y="64"/>
+<e:Skin class="skin_desktop.UserInfoWindow" width="480" height="700" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<e:Group id="_content" width="480" height="700" bottom="0">
+		<e:Image width="480" height="700" source="nav_user_info_bg" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" x="0" y="0" scaleX="1" scaleY="1"/>
+	</e:Group>
 </e:Skin>

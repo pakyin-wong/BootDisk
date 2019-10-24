@@ -44,7 +44,7 @@ namespace scene {
 
       // dir.evtHandler.once(enums.mqtt.event.CONNECT_SUCCESS, this.next, this);
       // dir.evtHandler.once(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
-      // dir.socket.connect();
+      dir.socket.connect();
 
       await sleep(1000);
       this.next();
@@ -70,7 +70,7 @@ namespace scene {
 
     /** Step 6: load general resource (lobby, baccarat) */
     private async loadGeneralRes() {
-      RES.createGroup('firstRun', [enums.res.Lobby, enums.res.Baccarat, enums.res.Common]);
+      RES.createGroup('firstRun', [enums.res.Lobby, enums.res.Baccarat, enums.res.Common, enums.res.Nav]);
       RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
       this._progressMsg.computed = () => `${i18n.t('loading.res.onload')}`;
       this._progressbar.minimum = 0;

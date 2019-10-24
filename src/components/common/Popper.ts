@@ -1,11 +1,13 @@
 namespace components {
   export class Popper extends BaseEUI {
-    private _content: eui.Group;
-    private _toggle: eui.Group;
-    private _close: eui.UIComponent;
-    private _isActive: boolean;
-    private _outside: boolean = false;
-    private _contentPos: egret.Point;
+    protected _content: eui.Component;
+    protected _toggle: eui.Component;
+    protected _close: eui.UIComponent;
+    protected _isActive: boolean;
+    protected _outside: boolean = false;
+    protected _contentPos: egret.Point;
+
+    protected toggle: egret.DisplayObject;
 
     constructor(skin: string) {
       super(skin);
@@ -15,13 +17,16 @@ namespace components {
       this._content.visible = false;
       this._contentPos = new egret.Point(this._content.x, this._content.y);
       this._isActive = false;
-      this._toggle.touchEnabled = true;
-      this._toggle.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
-      mouse.setButtonMode(this._toggle, true);
+      if (this._toggle) {
+        this.setToggle(this._toggle);
+      }
     }
 
     protected destroy() {
-      this._toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+      if (this.toggle) {
+        this.toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+      }
+      this.toggle = null;
     }
 
     private onToggle() {
@@ -32,24 +37,24 @@ namespace components {
       }
     }
 
-    private show() {
+    private async show() {
       this._isActive = true;
       this._content.visible = true;
+      await this.onShow();
       this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
-      this.onShow();
     }
 
-    private hide() {
+    private async hide() {
       this._isActive = false;
       this._content.visible = false;
       this.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
-      this.onHide();
+      await this.onHide();
     }
 
     private onDetectClick(e: egret.TouchEvent) {
       if (this._close && this._close.hitTestPoint(e.stageX, e.stageY)) {
         this.hide();
-      } else if (this.hitTestPoint(e.stageX, e.$stageY)) {
+      } else if (this.hitTestPoint(e.stageX, e.stageY)) {
         return;
       } else if (this._outside) {
         this.hide();
@@ -69,13 +74,29 @@ namespace components {
       this._content.y = this._contentPos.y = y;
     }
 
-    protected async onShow() {
-      this._content.alpha = 0;
-      this._content.x = this._contentPos.x;
-      this._content.y = this._contentPos.y - 10;
-      egret.Tween.get(this._content).to({ alpha: 1 }, 0.5);
+    public setToggle(e: egret.DisplayObject) {
+      if (this.toggle) {
+        this.toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+      }
+      this.toggle = e;
+      this.toggle.touchEnabled = true;
+      this.toggle.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+      mouse.setButtonMode(this.toggle, true);
     }
 
-    protected async onHide() {}
+    protected async onShow() {
+      this._content.alpha = 0;
+      this._content.$x = this._contentPos.x;
+      this._content.$y = this._contentPos.y - 20;
+      await new Promise((resolve, reject) => {
+        egret.Tween.get(this._content)
+          .to({ alpha: 1, $y: this._contentPos.y }, 200)
+          .call(resolve);
+      });
+    }
+
+    protected async onHide() {
+      egret.Tween.removeTweens(this._content);
+    }
   }
 }

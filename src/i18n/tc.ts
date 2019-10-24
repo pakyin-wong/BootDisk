@@ -13,6 +13,11 @@ namespace i18n {
       superSix: '超級六',
       banker: '莊',
       noComm: '免佣',
+      tableNo: '檯號',
+      roundNo: '局號',
+      dealer: '荷官',
+      time: '時間',
+      betLimit: '下注限紅',
     },
   };
 }

@@ -60,39 +60,20 @@ namespace components {
       this.verticalScrollBar.visible = true;
       this.verticalScrollBar.touchEnabled = true;
       //   this.bounces = false;
-      this.throwSpeed = Infinity;
+      //   this.throwSpeed = Infinity;
     }
 
     private onMount() {
       this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
 
-      // init viewport
-      const list = new eui.List();
-      const tlayout = new eui.AnimTileLayout();
-      tlayout.horizontalGap = 10;
-      tlayout.verticalGap = 10;
-      tlayout.requestedColumnCount = 4;
-      list.layout = tlayout;
-
-      const arr = Array.apply(null, { length: 2 }).map((value, idx) => (idx + 1).toString());
-      const koll = new eui.ArrayCollection(arr);
-      list.dataProvider = koll;
-      let num = 10;
-      setInterval(() => {
-        koll.addItemAt(num.toString(), 1);
-        // koll.removeItemAt(1);
-        num++;
-      }, 1000);
-      list.itemRenderer = components.LobbyBacarratListItem;
-      this.viewport = list;
-      // wait viewport ready
+      // wait viewport ready, set scrollV to 1 for scrolling
       window.requestAnimationFrame(() => {
         this.viewport.scrollV = 1;
       });
 
       // add mouse over/out listeners
-      this.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
-      this.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
+      this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
+      this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
 
       // add scroll bar listeners
       this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
@@ -103,8 +84,8 @@ namespace components {
       this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
 
       // remove mouse over/out listeners
-      this.removeEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
-      this.removeEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
+      this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
+      this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
 
       // remove scroll bar listeners
       this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);

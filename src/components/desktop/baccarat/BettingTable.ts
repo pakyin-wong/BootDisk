@@ -110,21 +110,14 @@ namespace baccarat {
     }*/
 
     public updateBetFields(betDetails: BetDetail[]) {
-      logger.l('BettingTable::updateBetFields' + betDetails);
+      // logger.l('BettingTable::updateBetFields' + betDetails);
       this.betDetails = betDetails;
 
       // TODO: update the already bet amount of each bet field
 
       betDetails.map((value, index) => {
-        logger.l('BettingTable::updateBetFields:loop ' + value);
-
-        // const uncfmBetDetail = new BetDetail();
-        // uncfmBetDetail.amount = ;
-        // uncfmBetDetail.field = this.mapping[betDetails[value].field].amount;
+        // logger.l('BettingTable::updateBetFields:loop ' + value);
         this.mapping[value.field].setCfmBet(value.amount);
-
-        // this.mapping[value].getUncfmBet() + this.mapping[value].getCfmBet());
-        // this.mapping[value].setUncfmBet(0);
       });
     }
 
