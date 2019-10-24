@@ -1,8 +1,8 @@
 namespace components {
-  export class SegmentedControlTabItem extends eui.Component implements eui.IItemRenderer {
-    public selected: boolean;
+  export class SegmentedControlTabItem extends eui.ItemRenderer {
+    public mySelected: boolean;
     public itemIndex: number;
-    private _data: any;
+    private myData: any;
 
     private label: eui.Label;
 
@@ -17,13 +17,23 @@ namespace components {
       this.isDirty = true;
     }
 
+    // public get selected() {
+    //   return this.mySelected;
+    // }
+
+    // public set selected(mySelected) {
+    //   console.log('getcurr > this.mySelected = mySelected', this.mySelected, mySelected);
+    //   this.mySelected = mySelected;
+    //   this.invalidateState();
+    // }
+
     public get data() {
-      return this._data;
+      return this.myData;
     }
 
     public set data(data: any) {
       this.isDirty = false;
-      this._data = data;
+      this.myData = data;
       this.label.text = data;
       egret.Tween.removeTweens(this);
       if (this.destinationX !== Infinity) {
@@ -36,6 +46,11 @@ namespace components {
       //   this.visible = true;
       // }
     }
+
+    // protected getCurrentState(): string {
+    //   console.log('getCurrentState', this.myData, this.mySelected);
+    //   return this.mySelected ? 'down' : 'up';
+    // }
 
     // private onClick() {
     //   console.log('cick', this);
