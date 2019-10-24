@@ -36,7 +36,7 @@ class Env {
 
   set tableInfoArray(value: TableInfo[]) {
     this._tableInfoArray = value;
-    this._tableInfos = utils.arrayToKeyValue(value, 'tableID');
+    this._tableInfos = utils.arrayToKeyValue(value, 'tableid');
   }
 
   get tableInfoArray(): TableInfo[] {

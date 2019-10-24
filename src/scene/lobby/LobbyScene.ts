@@ -17,15 +17,15 @@ namespace scene {
       this.btnBaccarat.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBaccarat, this);
 
       // After pressing the Filter
-      dir.socket.getTableList(enums.TableFilter.BACCARAT);
+      dir.socket.getTableList();
+      // dir.socket.getTableList(enums.TableFilter.BACCARAT);
       dir.socket.getTableHistory();
     }
 
     public onClickBaccarat() {
-      const tableID = '6';
-
-      dir.socket.enterTable(tableID);
-      dir.sceneCtr.goto('BaccaratScene', { tableID });
+      // const tableid = '6';
+      // dir.socket.enterTable(tableid);
+      // dir.sceneCtr.goto('BaccaratScene', { tableid });
     }
 
     public async onFadeEnter() {}

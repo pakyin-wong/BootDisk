@@ -70,7 +70,7 @@ namespace scene {
 
     /** Step 6: load general resource (lobby, baccarat) */
     private async loadGeneralRes() {
-      RES.createGroup('firstRun', [enums.res.Lobby, enums.res.Baccarat, enums.res.Common]);
+      RES.createGroup('firstRun', [enums.res.Lobby, enums.res.Baccarat, enums.res.Common, enums.res.Nav]);
       RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
       this._progressMsg.computed = () => `${i18n.t('loading.res.onload')}`;
       this._progressbar.minimum = 0;
@@ -93,7 +93,7 @@ namespace scene {
 
     /** Last Step: All Loading Complete, switch to Lobby Scene */
     private loadingComplete() {
-      dir.moniter.start();
+      dir.moniter.start(this.stage);
       dir.sceneCtr.goto('LobbyScene');
     }
 

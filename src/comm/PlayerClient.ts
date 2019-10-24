@@ -52,7 +52,7 @@ namespace socket {
       this.client.leaveTable(tableID);
     }
 
-    public getTableList(filter: string) {
+    public getTableList(filter?: string) {
       this.client.getTableList(filter);
     }
 
@@ -71,15 +71,17 @@ namespace socket {
     protected onGameStatusUpdate(gameStatus: any, timestamp: string) {
       this.updateTimestamp(timestamp);
       const tableInfo: TableInfo = env.tableInfos[gameStatus.tableid];
-      let justReady = false;
-      if (tableInfo.data) {
-        justReady = true;
+      if (tableInfo) {
+        let justReady = false;
+        if (tableInfo.data) {
+          justReady = true;
+        }
+        tableInfo.data = gameStatus;
+        if (justReady) {
+          this.dispatchListUpdateEvent();
+        }
+        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, tableInfo);
       }
-      tableInfo.data = gameStatus;
-      if (justReady) {
-        this.dispatchListUpdateEvent();
-      }
-      dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, tableInfo);
     }
 
     protected onBalanceUpdate(balance: any, timestamp: string) {

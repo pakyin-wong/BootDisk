@@ -22,7 +22,7 @@ namespace scene {
 
     constructor(data: any) {
       super(data);
-      this._tableID = data.tableID;
+      this._tableID = data.tableid;
       //
     }
 

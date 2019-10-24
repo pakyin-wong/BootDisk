@@ -2,7 +2,8 @@
 <e:Skin class="skin_desktop.LobbyScene" width="2560" height="1320" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
 	<components:ImageSlider width="2560" height="600" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" />
-	<components:Scroller width="2560" height="720" x="0" y="600" anchorOffsetX="0" anchorOffsetY="0" />
-	<e:Button label="Enter baccarat" id="btnBaccarat" x="0" y="600" />
+	<components:GameTableList width="2560" height="720" x="0" y="600" anchorOffsetX="0" anchorOffsetY="0" bottom="0"/>
+	<e:Button label="Enter baccarat" id="btnBaccarat" x="1280" y="550" />
 	<e:Label text="LOGO" x="64" y="56" size="48" textColor="0x000000" bold="true" />
+	<components:SegmentedControl width="800" height="50" x="32" y="550"/>
 </e:Skin>

@@ -16,7 +16,6 @@ namespace socket {
       this.balance_index = 0;
 
       console.log('SocketMock::balances: ' + this.balances);
-
       this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
         const data = new TableInfo();
         data.tableid = (idx + 1).toString();
@@ -34,6 +33,13 @@ namespace socket {
         idx++;
         return data;
       });
+      // try remove 1
+      setTimeout(() => {
+        this.tables = this.tables.filter((x, i) => i !== 0);
+      }, 10000);
+      // setTimeout(() => {
+      //   this.tables = this.tables.filter((x, i) => i !== 6);
+      // }, 14000);
     }
 
     public connect() {
@@ -41,7 +47,7 @@ namespace socket {
       /// this.client.connect();
     }
 
-    public async enterTable(tableID: string) {
+    public enterTable(tableID: string) {
       /*
       //Canceling the event
 
@@ -110,7 +116,7 @@ namespace socket {
       env.tableInfoArray = this.tables;
       const list = this.tables
         .filter(info => {
-          return info.complete === 1;
+          return info.complete > 0;
         })
         .map(info => {
           return info.tableid;

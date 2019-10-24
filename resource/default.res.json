@@ -19,6 +19,10 @@
 		{
 			"keys": "scene_baccarat_dummyImage",
 			"name": "scene_baccarat"
+		},
+		{
+			"keys": "nav_user_info_bg,nav_menu_toggle,nav_menu_bg",
+			"name": "nav"
 		}
 	],
 	"resources": [
@@ -696,6 +700,21 @@
 			"url": "assets/card/s9.png",
 			"type": "image",
 			"name": "s92_png"
+		},
+		{
+			"url": "assets/Nav/user_info.PNG",
+			"type": "image",
+			"name": "nav_user_info_bg"
+		},
+		{
+			"url": "assets/Nav/menu_toggle.PNG",
+			"type": "image",
+			"name": "nav_menu_toggle"
+		},
+		{
+			"url": "assets/Nav/menu.PNG",
+			"type": "image",
+			"name": "nav_menu_bg"
 		}
 	]
 }

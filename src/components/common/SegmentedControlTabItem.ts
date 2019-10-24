@@ -1,10 +1,9 @@
 namespace components {
-  export class LobbyBacarratListItem extends eui.Component implements eui.IItemRenderer {
-    public selected: boolean;
+  export class SegmentedControlTabItem extends eui.SortableItemRenderer {
+    public mySelected: boolean;
     public itemIndex: number;
-    private _data: any;
+    public myData: any;
 
-    private rect: eui.Rect;
     private label: eui.Label;
 
     protected destinationX: number = Infinity;
@@ -13,42 +12,55 @@ namespace components {
 
     public constructor() {
       super();
-      this.skinName = utils.getSkin('LobbyBacarratListItem');
-      this.touchEnabled = true;
-      this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-    }
-
-    public get data() {
-      return this._data;
-    }
-
-    public set data(data: any) {
+      this.skinName = utils.getSkin('SegmentedControlTabItem');
+      //   this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
       this.isDirty = true;
-      this._data = data;
-      const table = env.tableInfos[data];
-      console.log(table);
-      if (table.data.state === 1) {
-        this.label.text = `TID${table.tableid} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.data.state)}`;
-      } else {
-        this.label.text = `TID${table.tableid} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.data.state)}`;
-      }
-      egret.Tween.removeTweens(this);
-      // if (data === null) {
-      //   this.visible = false;
-      // } else {
-      //   this.rect.fillColor = data;
-      //   this.visible = true;
-      // }
     }
 
-    private onClick() {
-      console.log('cick', this.rect.fillColor);
-      const table = env.tableInfos[this._data];
-      if (table.data && table.tableid) {
-        dir.socket.enterTable(table.tableid);
-        dir.sceneCtr.goto('BaccaratScene', { tableid: table.tableid });
+    // public get selected() {
+    //   return this.mySelected;
+    // }
+
+    // public set selected(mySelected) {
+    //   console.log('getcurr > this.mySelected = mySelected', this.mySelected, mySelected);
+    //   this.mySelected = mySelected;
+    //   this.invalidateState();
+    // }
+
+    // public get data() {
+    //   return this.myData;
+    // }
+
+    // public set data(data: any) {
+    //   eui.PropertyEvent.dispatchPropertyEvent(this, eui.PropertyEvent.PROPERTY_CHANGE, "data");
+    //   this.dataChanged();
+
+    // }
+
+    public clone() {
+      const clone: SegmentedControlTabItem = <SegmentedControlTabItem>super.clone();
+      clone.data = this.data;
+      return clone;
+    }
+
+    public dataChanged() {
+      this.isDirty = false;
+      this.myData = this.data;
+      this.label.text = this.data;
+      egret.Tween.removeTweens(this);
+      if (this.destinationX !== Infinity) {
+        this.x = this.destinationX;
       }
     }
+
+    // protected getCurrentState(): string {
+    //   console.log('getCurrentState', this.myData, this.mySelected);
+    //   return this.mySelected ? 'down' : 'up';
+    // }
+
+    // private onClick() {
+    //   console.log('cick', this);
+    // }
     private isDeltaIdentity(m) {
       return m.a === 1 && m.b === 0 && m.c === 0 && m.d === 1;
     }
