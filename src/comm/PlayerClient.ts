@@ -41,8 +41,7 @@ namespace socket {
       env.profileImageURL = player.profile.profileimage;
       env.betLimits = player.profile.betlimits;
 
-      logger.l(`${timestamp}: READY`);
-      logger.l(player);
+      logger.l(`${timestamp}: READY`, player);
 
       dir.evtHandler.dispatch(enums.mqtt.event.CONNECT_SUCCESS);
     }
