@@ -8,9 +8,16 @@ namespace components {
     private _userInfo: components.Popper;
     private _menu_toggle: eui.Image;
     private _menu: components.Popper;
+    private _balance: eui.Label;
 
     public constructor() {
       super('Nav');
+
+      dir.evtHandler.addEventListener(enums.event.event.BALANCE_UPDATE, this.updateBalance, this);
+    }
+
+    private updateBalance() {
+      this._balance.text = EnumHelpers.getKeyByValue(enums.socket.Currency, env.currency) + ' ' + env.balance;
     }
 
     protected mount() {

@@ -19,11 +19,25 @@ namespace scene {
     private lblRoomNo: eui.Label;
 
     private tableInfoWindow: components.TableInfoWindow;
+    private gameBar: components.GameBar;
+
+    private bgImg: eui.Rect;
+    private _video: egret.FlvVideo;
 
     constructor(data: any) {
       super(data);
       this._tableID = data.tableid;
-      //
+
+      this._video = new egret.FlvVideo();
+
+      this._video.x = 0;
+      this._video.y = 0;
+
+      this._video.width = 2560;
+      this._video.height = 1320;
+      // this._video.poster = 'resource/assets/bg.jpg';
+
+      this._video.load('http://203.66.65.93:8000/live/720.flv');
     }
 
     public set tableID(tableID: string) {
@@ -50,8 +64,31 @@ namespace scene {
       // roadmap.y = 500;
 
       // this.addChild(roadmap);
-
+      this.tableInfoWindow.visible = false;
       this.addEventListeners();
+
+      this.addChild(this._video);
+      this.setChildIndex(this._video, 0);
+      // this.playVideo();
+
+      this.gameBar.setPlayFunc(this.playVideo(this));
+      this.gameBar.setStopFunc(this.stopVideo(this));
+    }
+
+    public playVideo(scene: any) {
+      return () => {
+        scene._video.play();
+        scene.bgImg.visible = false;
+        scene.bgImg.enabled = false;
+      };
+    }
+
+    public stopVideo(scene: any) {
+      return () => {
+        scene._video.stop();
+        scene.bgImg.visible = true;
+        scene.bgImg.enabled = true;
+      };
     }
 
     private setupTableInfo() {
