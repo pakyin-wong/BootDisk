@@ -168,7 +168,7 @@ namespace socket {
       // set to bet state and wait
       await this.initGameData(gameData);
       this.dispatchEvent(data);
-      await this.sleep(gameData.countdown, 'tableInfoListInternal');
+      await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.state = enums.baccarat.GameState.DEAL;
@@ -195,7 +195,7 @@ namespace socket {
       // set to bet state and wait
       await this.initGameData(gameData);
       this.dispatchEvent(data);
-      await this.sleep(gameData.countdown, 'tableInfoListInternal');
+      await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.state = enums.baccarat.GameState.DEAL;
@@ -222,7 +222,7 @@ namespace socket {
       // set to bet state and wait
       await this.initGameData(gameData);
       this.dispatchEvent(data);
-      await this.sleep(gameData.countdown, 'tableInfoListInternal');
+      await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.state = enums.baccarat.GameState.DEAL;
@@ -249,7 +249,7 @@ namespace socket {
       // set to bet state and wait
       await this.initGameData(gameData);
       this.dispatchEvent(data);
-      await this.sleep(gameData.countdown, 'tableInfoListInternal');
+      await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.state = enums.baccarat.GameState.DEAL;
