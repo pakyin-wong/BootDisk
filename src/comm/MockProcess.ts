@@ -18,7 +18,7 @@ namespace socket {
     public shuffleStateInterval: number = 10000;
     public cardInterval: number = 1000;
     public startCardInterval: number = 2000;
-    public betStateInterval: number = 10000;
+    public betStateInterval: number = 10;
 
     public startRand = 0;
     public endRand = 6;
@@ -97,8 +97,8 @@ namespace socket {
     private async initGameData(gameData: baccarat.GameData) {
       await this.sleep(3000 + Math.random() * 5000, 'tableInfoListInternal');
       gameData.state = enums.baccarat.GameState.BET;
-      gameData.starttime = Date.now().toString();
-      gameData.countdown = this.betStateInterval.toString();
+      gameData.starttime = Date.now();
+      gameData.countdown = this.betStateInterval;
       gameData.gameroundid = (this.roundID++).toString();
     }
 
@@ -141,7 +141,7 @@ namespace socket {
       // set to bet state and wait
       await this.initGameData(gameData);
       this.dispatchEvent(data);
-      await this.sleep(gameData.countdown, 'tableInfoListInternal');
+      await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
       // set to deal state and start showing the result
       gameData.state = enums.baccarat.GameState.DEAL;
