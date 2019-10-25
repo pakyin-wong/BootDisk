@@ -9,8 +9,8 @@ namespace baccarat {
     public b3: string;
     public wintype: enums.socket.BAWinType;
     public gameroundid: string;
-    public starttime: string; // time string (ISO 8601): 2019-10-17T04:48:27+00:00
-    public countdown: string;
+    public starttime: number; // time string (ISO 8601): 2019-10-17T04:48:27+00:00
+    public countdown: number;
     public shoeid: string;
   }
 }

@@ -63,6 +63,14 @@ namespace socket {
       const featureds: string[] = tableList.featureds;
       const news: string[] = tableList.news;
 
+      if (env.tableInfos) {
+        for (const tableInfo of tableInfos) {
+          const prevTableInfo = env.tableInfos[tableInfo.tableid];
+          if (env.tableInfos[tableInfo.tableid]) {
+            tableInfo.data = prevTableInfo.data;
+          }
+        }
+      }
       env.tableInfoArray = tableInfos;
 
       this.dispatchListUpdateEvent();
