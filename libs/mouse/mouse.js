@@ -72,9 +72,13 @@ var mouse;
                 return rs;
             }
             var target = stageObj.$hitTest(x,y);
-            if (target != currentTarget) {
+            if (target != null) {
                 detectRollOver(target);
-                detectRollOut(currentTarget);
+            }
+            if (target != currentTarget) {
+                if(currentTarget != null) {
+                    detectRollOut(currentTarget);
+                }
                 currentTarget = target;
             }
             if (isPC) {
@@ -122,6 +126,10 @@ var mouse;
                 check(mouseX, mouseY);
             }
         };
+
+        document.querySelector('canvas').addEventListener('mouseleave', ()=>{
+            check(NaN,NaN);
+        });
     };
     /**
      * @language en_US

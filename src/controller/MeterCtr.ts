@@ -1,10 +1,14 @@
 namespace controller {
   export class MeterCtr {
-    private _m = {};
-    private _v = {};
+    private _local = {};
 
     constructor() {}
 
-    public register(key: string) {}
+    public updateTo(key: string, value: number) {
+      this._local[key] = value;
+      dir.evtHandler.dispatch(enums.event.meter.UPDATE, { key, value });
+    }
+
+    public rackTo(key: string, value: number) {}
   }
 }

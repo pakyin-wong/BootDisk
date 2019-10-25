@@ -4,7 +4,7 @@ namespace scene {
     private _progressMsg: components.TextField;
 
     private step: number = 0;
-    private flow = [this.preloadRes, this.initSkin, this.socketConnect, this.auth, this.idle, this.loadGeneralRes, this.loadingComplete];
+    private flow = [this.preloadRes, this.initSkin, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
 
     public onEnter() {
       this.mount();
@@ -42,12 +42,12 @@ namespace scene {
       this._progressbar.maximum = 1;
       this._progressbar.value = 0;
 
-      // dir.evtHandler.once(enums.mqtt.event.CONNECT_SUCCESS, this.next, this);
+      dir.evtHandler.once(enums.mqtt.event.CONNECT_SUCCESS, this.next, this);
       // dir.evtHandler.once(enums.mqtt.event.CONNECT_FAIL, this.socketConnectFail, this);
       dir.socket.connect();
 
-      await sleep(1000);
-      this.next();
+      // await sleep(1000);
+      // this.next();
     }
 
     private socketConnectFail() {}
@@ -78,8 +78,6 @@ namespace scene {
       this._progressbar.value = 0;
       await RES.loadGroup('firstRun');
       RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-
-      await sleep(1000);
       this.next();
     }
 
