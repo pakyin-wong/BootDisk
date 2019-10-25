@@ -4,9 +4,11 @@ namespace controller {
 
     constructor() {}
 
-    updateMeter(key:string, value:number) {
+    public updateTo(key: string, value: number) {
       this._local[key] = value;
-      dir.evtHandler.dispatch()
+      dir.evtHandler.dispatch(enums.event.meter.UPDATE, { key, value });
     }
+
+    public rackTo(key: string, value: number) {}
   }
 }

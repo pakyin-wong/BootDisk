@@ -13,8 +13,7 @@ namespace socket {
         port: '15675', // RabbitMQ websocket port
       });
 
-      console.log(this.client);
-      logger.l('MQTTSocketComm is created');
+      logger.l('MQTTSocketComm is created', this.client);
     }
 
     protected subscribeEvents() {
@@ -34,12 +33,16 @@ namespace socket {
     // Handler for Ready event
     protected handleReady(player: PlayerSession, timestamp: string) {
       // return data with struct PlayerSession
+
       this.updateTimestamp(timestamp);
       env.playerID = player.playerid;
       env.currency = player.profile.currency;
       env.nickname = player.profile.nickname;
       env.profileImageURL = player.profile.profileimage;
       env.betLimits = player.profile.betlimits;
+
+      logger.l(`${timestamp}: READY`);
+      logger.l(player);
 
       dir.evtHandler.dispatch(enums.mqtt.event.CONNECT_SUCCESS);
     }

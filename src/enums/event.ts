@@ -5,7 +5,7 @@ namespace enums {
     },
 
     meter: {
-      UPDATE: "EV_METER_UPDATE"
+      UPDATE: 'EV_METER_UPDATE',
     },
 
     event: {
