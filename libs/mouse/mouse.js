@@ -129,7 +129,6 @@ var mouse;
 
         document.querySelector('canvas').addEventListener('mouseleave', ()=>{
             check(NaN,NaN);
-            console.log(currentTarget);
         });
     };
     /**
