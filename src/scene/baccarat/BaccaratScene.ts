@@ -50,7 +50,7 @@ namespace scene {
       // roadmap.y = 500;
 
       // this.addChild(roadmap);
-
+      this.tableInfoWindow.visible = false;
       this.addEventListeners();
     }
 
