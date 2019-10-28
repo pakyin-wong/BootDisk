@@ -21,11 +21,11 @@ namespace components {
     }
 
     protected mount() {
-      this._userInfo.setToggle(this._userInfo_toggle);
-      this._userInfo.dismissByOutside = true;
+      this._userInfo.setToggler(this._userInfo_toggle);
+      this._userInfo.dismissOnClickOutside = true;
 
-      this._menu.setToggle(this._menu_toggle);
-      this._menu.dismissByOutside = true;
+      this._menu.setToggler(this._menu_toggle);
+      this._menu.dismissOnClickOutside = true;
     }
   }
 }
