@@ -10,7 +10,7 @@ namespace components {
       const card: egret.Bitmap = new egret.Bitmap();
       console.log(resName);
 
-      card.texture = RES.getRes(resName);
+      card.texture = RES.getRes(enums.card[resName]);
       card.width = this.width;
       card.height = this.height;
 
@@ -21,7 +21,7 @@ namespace components {
       const card: egret.Bitmap = new egret.Bitmap();
       console.log(resName);
       card.rotation = 90;
-      card.texture = RES.getRes(resName);
+      card.texture = RES.getRes(enums.card[resName]);
       card.width = this.height;
       card.height = this.width;
       card.x = 0 + this.width;

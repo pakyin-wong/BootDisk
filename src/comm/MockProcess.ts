@@ -148,7 +148,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, [enums.card.c1, enums.card.h13, enums.card.d1, enums.card.s2, enums.card.d6, enums.card.s9]);
+      await this.setCards(data, ['club1', 'heartk', 'diamond1', 'spade2', 'diamond6', 'spade9']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
@@ -173,7 +173,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, [enums.card.c1, enums.card.h13, enums.card.d6, enums.card.s3]);
+      await this.setCards(data, ['club1', 'heartq', 'diamond6', 'spade3']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
@@ -198,7 +198,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, [enums.card.h1, enums.card.c6, enums.card.d4, enums.card.s4]);
+      await this.setCards(data, ['heart1', 'club6', 'diamond4', 'spade4']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
@@ -223,7 +223,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, [enums.card.h1, enums.card.c1, enums.card.d4, enums.card.s3]);
+      await this.setCards(data, ['heart1', 'club1', 'diamond4', 'spade3']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
@@ -248,7 +248,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, [enums.card.d5, enums.card.s3, enums.card.c1, enums.card.h7]);
+      await this.setCards(data, ['diamond5', 'spade3', 'club1', 'heart7']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
