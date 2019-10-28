@@ -101,7 +101,9 @@ namespace baccarat {
       if (this.previousState !== enums.baccarat.GameState.BET) {
         // reset data betinfo
 
-        this.betDetails.splice(0, this.betDetails.length);
+        if (this.betDetails) {
+          this.betDetails.splice(0, this.betDetails.length);
+        }
 
         // TODO: show start bet message to the client for few seconds
         this.bettingTable.resetUnconfirmedBet();
@@ -246,9 +248,12 @@ namespace baccarat {
 
     protected computeTotalWin() {
       let totalWin = 0;
-      for (const betDetail of this.betDetails) {
-        totalWin += betDetail.winAmount;
+      if (this.betDetails) {
+        for (const betDetail of this.betDetails) {
+          totalWin += betDetail.winAmount;
+        }
       }
+
       this.totalWin = totalWin;
     }
 
