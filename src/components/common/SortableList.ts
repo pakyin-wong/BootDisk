@@ -27,6 +27,10 @@ namespace eui {
       if (this.destinationPosition) {
         renderer.x = this.destinationPosition.x;
         renderer.y = this.destinationPosition.y;
+        const itemRenderer = <SortableItemRenderer>renderer;
+        if (itemRenderer) {
+          itemRenderer.isNew = false;
+        }
       }
       //   renderer.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onRendererTouchMove, this);
     }
@@ -34,11 +38,6 @@ namespace eui {
     protected rendererRemoved(renderer: IItemRenderer, index: number, item: any) {
       super.rendererRemoved(renderer, index, item);
       //   renderer.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onRendererTouchMove, this);
-    }
-
-    protected itemAdded(item: any, index: number) {
-      super.itemAdded(item, index);
-      egret.log('selected index: ', this.selectedIndex);
     }
 
     protected getTouchPos(event: egret.TouchEvent): number {
@@ -192,6 +191,7 @@ namespace eui {
     private startX: number;
     private startY: number;
     private init: boolean = false;
+    public isNew: boolean = true;
     public dragThreshold: number = 30;
 
     protected isTouchCaptured: boolean;

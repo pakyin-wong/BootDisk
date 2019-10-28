@@ -8,13 +8,11 @@ namespace components {
 
     protected destinationX: number = Infinity;
     protected destinationY: number = Infinity;
-    protected isDirty = true;
 
     public constructor() {
       super();
       this.skinName = utils.getSkin('SegmentedControlTabItem');
       //   this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-      this.isDirty = true;
     }
 
     // public get selected() {
@@ -45,7 +43,6 @@ namespace components {
 
     public dataChanged() {
       super.dataChanged();
-      this.isDirty = false;
       this.myData = this.data;
       this.label.text = this.data;
       egret.Tween.removeTweens(this);
@@ -74,8 +71,8 @@ namespace components {
         x += this.$getX() - bounds.x;
         y += this.$getY() - bounds.y;
       }
-      if (this.isDirty) {
-        this.isDirty = false;
+      if (this.isNew) {
+        this.isNew = false;
         this.destinationX = x;
         this.destinationY = y;
         const changed = super.$setX.call(this, x);
