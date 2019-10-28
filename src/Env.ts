@@ -43,7 +43,7 @@ class Env {
     return this._tableInfoArray;
   }
 
-  get tableInfos(): { [key: number]: TableInfo } {
+  get tableInfos(): { [key: string]: TableInfo } {
     return this._tableInfos;
   }
 

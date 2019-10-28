@@ -28,7 +28,7 @@ declare class PlayerClient {
     close(): void;
     subscribe(eventName: string, f: Function, context?: object, options?: any): void;
     unsubscribe(eventName: string, f: Function, options?: any): void;
-    getTableList(filter?: string): void;
+    getTableList(filter: string): void;
     getBalance(): void;
     getHistory(tableID: string): void;
     enterTable(tableID: string): void;
