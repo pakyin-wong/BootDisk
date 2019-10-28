@@ -6,7 +6,6 @@ namespace components {
 
     public constructor() {
       super();
-
       this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
       this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
     }
@@ -59,6 +58,9 @@ namespace components {
       this.verticalScrollBar.autoVisibility = false;
       this.verticalScrollBar.visible = true;
       this.verticalScrollBar.touchEnabled = true;
+      // this.verticalScrollBar.height += 40;
+      // this.verticalScrollBar.y = -20;
+      // this.mask = new egret.Rectangle(0, 0, this.width, this.height);
       //   this.bounces = false;
       //   this.throwSpeed = Infinity;
     }
@@ -68,7 +70,7 @@ namespace components {
 
       // wait viewport ready, set scrollV to 1 for scrolling
       window.requestAnimationFrame(() => {
-        this.viewport.scrollV = 1;
+        // this.viewport.scrollV = 1;
       });
 
       // add mouse over/out listeners
@@ -132,7 +134,7 @@ namespace components {
       let progress = (event.localY - this.verticalScrollBar.thumb.height / 2) / (this.verticalScrollBar.height - this.verticalScrollBar.thumb.height);
       progress = Math.min(Math.max(progress, 0), 1);
       const viewHeight = this.viewport.contentHeight - this.height;
-      this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
+      this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
     };
 
     private onMouseOver(event: egret.TouchEvent) {
@@ -150,7 +152,7 @@ namespace components {
       event.preventDefault();
       try {
         const viewHeight = this.viewport.contentHeight - this.height;
-        this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, this.viewport.scrollV + event.deltaY));
+        this.viewport.scrollV = Math.max(0, Math.min(viewHeight, this.viewport.scrollV + event.deltaY));
 
         // for bounce if this.scrollPolicyV = eui.ScrollPolicy.ON | AUTO;
         /*
