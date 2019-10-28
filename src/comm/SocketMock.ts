@@ -45,6 +45,29 @@ namespace socket {
     public connect() {
       // this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
       /// this.client.connect();
+      setTimeout(() => {
+        this.handleReady();
+      }, 2000);
+    }
+
+    protected handleReady() {
+      // return data with struct PlayerSession
+
+      env.currTime = Date.now();
+      env.playerID = 'PID001';
+      env.currency = Currency.HKD;
+      env.nickname = 'PGPG';
+      env.profileImageURL = 'https://url';
+      env.betLimits = [
+        {
+          currency: 'HKD',
+          upper: 1000,
+          lower: 10,
+          denominationList: [1, 5, 20, 100, 500],
+        },
+      ];
+
+      dir.evtHandler.dispatch(enums.mqtt.event.CONNECT_SUCCESS);
     }
 
     public enterTable(tableID: string) {
@@ -93,7 +116,7 @@ namespace socket {
     }
 
     public balanceEvent(myObj: any) {
-      console.log('SocketMock::balanceEvent() this.balances', myObj.balances);
+      // console.log('SocketMock::balanceEvent() this.balances', myObj.balances);
       if (myObj.balance_index < myObj.balances.length) {
         env.balance = myObj.balances[myObj.balance_index];
         env.currency = myObj.currency[myObj.balance_index];
@@ -121,7 +144,7 @@ namespace socket {
         .map(info => {
           return info.tableid;
         });
-      egret.log(list);
+      // egret.log(list);
       dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, list);
     }
 
@@ -150,16 +173,16 @@ namespace socket {
         { v: 'p', b: 1, p: 0, bv: 8, pv: 5 },
         { v: 'b', b: 1, p: 0, bv: 9, pv: 12 },
       ];
-      console.log('SocketMock::sleeping before');
+      // console.log('SocketMock::sleeping before');
 
       await sleep(10000);
-      console.log('SocketMock::sleeping after');
+      // console.log('SocketMock::sleeping after');
       env.tableHistory = [{ v: 'b', b: 1, p: 0, bv: 10, pv: 5 }];
       dir.evtHandler.dispatch(enums.event.event.ROADMAP_UPDATE);
     }
 
     public async bet(tableID: string, betDetails: BetDetail[]) {
-      console.log('SocketMock::bet()');
+      egret.log('SocketMock::bet()');
       // add the bets to confirmed bet Array
       const data = this.tables[parseInt(tableID, 10) - 1];
       this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
@@ -167,7 +190,7 @@ namespace socket {
         let isMatch = false;
         for (const cfmBetDetail of data.bets) {
           if (betDetail.field === cfmBetDetail.field) {
-            console.log('SocketMock::bet() matched');
+            egret.log('SocketMock::bet() matched');
 
             isMatch = true;
             cfmBetDetail.amount += betDetail.amount;
@@ -175,7 +198,7 @@ namespace socket {
           }
         }
         if (!isMatch) {
-          console.log('SocketMock::bet() not matched');
+          egret.log('SocketMock::bet() not matched');
 
           data.bets.push({
             field: betDetail.field,

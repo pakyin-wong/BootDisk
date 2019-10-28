@@ -14,7 +14,10 @@ namespace egret.sys {
       const size: StageDisplaySize = super.calculateStageSize(scaleMode, screenWidth, screenHeight, contentWidth, contentHeight);
       switch (scaleMode) {
         case 'fixedWidthFixedAspect':
-          size.stageHeight = Math.round(screenHeight / scaleX);
+          size.displayHeight = Math.round((displayWidth / 16) * 9);
+          size.displayWidth = displayWidth;
+          size.stageWidth = stageWidth;
+          size.stageHeight = stageHeight;
           break;
       }
       return size;

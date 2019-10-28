@@ -60,7 +60,7 @@ namespace socket {
 
     public onTableListUpdate(tableList: GameTableList, timestamp: string) {
       this.updateTimestamp(timestamp);
-      console.log(tableList.tablesList);
+      // console.log(tableList.tablesList);
       const tableInfos: TableInfo[] = tableList.tablesList;
       const featureds: string[] = tableList.featureds;
       const news: string[] = tableList.news;

@@ -1,6 +1,6 @@
 /* tslint:disable max-classes-per-file */
 namespace eui {
-  export class SortableList extends eui.ListBase {
+  export class SortableList extends eui.TabBar {
     private startPos: number;
     protected isDrag: boolean;
 
@@ -10,19 +10,35 @@ namespace eui {
     public dragThreshold: number = 30;
     public isHorizontal: boolean = true;
 
+    protected destinationPosition: egret.Point;
+
     public constructor() {
       super();
       this.isDrag = false;
+      this.useVirtualLayout = false;
+      const tlayout = new eui.HorizontalLayout();
+      tlayout.gap = 0;
+      tlayout.horizontalAlign = eui.JustifyAlign.JUSTIFY;
+      this.layout = tlayout;
     }
 
     protected rendererAdded(renderer: IItemRenderer, index: number, item: any) {
       super.rendererAdded(renderer, index, item);
+      if (this.destinationPosition) {
+        renderer.x = this.destinationPosition.x;
+        renderer.y = this.destinationPosition.y;
+      }
       //   renderer.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onRendererTouchMove, this);
     }
 
     protected rendererRemoved(renderer: IItemRenderer, index: number, item: any) {
       super.rendererRemoved(renderer, index, item);
       //   renderer.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onRendererTouchMove, this);
+    }
+
+    protected itemAdded(item: any, index: number) {
+      super.itemAdded(item, index);
+      egret.log('selected index: ', this.selectedIndex);
     }
 
     protected getTouchPos(event: egret.TouchEvent): number {
@@ -52,7 +68,10 @@ namespace eui {
       }
       this.startPos = this.getTouchPos(event);
       const [touchedChild] = this.$children.filter((tab: egret.DisplayObject) => {
-        return tab.$hitTest(event.stageX, event.stageY);
+        if (tab.$hitTest(event.stageX, event.stageY)) {
+          this.destinationPosition = new egret.Point(tab.x, tab.y);
+          return true;
+        }
       });
       if (!touchedChild) {
         return;
@@ -135,7 +154,9 @@ namespace eui {
           const releaseX = Math.max(0, Math.min(max.x, this.clone.x + -this.clone.anchorOffsetX)) + max.width / 2;
           const globalCoord = this.localToGlobal(releaseX, 0);
           const [swapChild] = this.$children.filter((tab: egret.DisplayObject) => {
-            return tab.$hitTest(globalCoord.x, globalCoord.y);
+            if (tab.$hitTest(globalCoord.x, globalCoord.y)) {
+              return true;
+            }
           });
           const selectedIndex = this.selectedIndex;
           const collection = <eui.ArrayCollection>this.$dataProvider;
@@ -152,12 +173,10 @@ namespace eui {
           // TODO: update selected index
           if (remIndex === selectedIndex) {
             // the dragged item is the currently selected item
+            egret.log('previous selected index: ', this.selectedIndex);
             this.setSelectedIndex(addIndex, false);
+            egret.log('new selected index: ', this.selectedIndex);
           }
-          if (addIndex === selectedIndex) {
-            this.setSelectedIndex(addIndex + 1, false);
-          }
-          egret.log(this.selectedIndex);
 
           this.targetChildren = null;
           if (this.clone && this.clone.parent === this) {
@@ -172,6 +191,7 @@ namespace eui {
   export class SortableItemRenderer extends eui.ItemRenderer {
     private startX: number;
     private startY: number;
+    private init: boolean = false;
     public dragThreshold: number = 30;
 
     protected isTouchCaptured: boolean;
@@ -179,6 +199,7 @@ namespace eui {
     public constructor() {
       super();
       this.isTouchCaptured = false;
+      this.selected = false;
     }
 
     public clone(): any {
@@ -192,7 +213,12 @@ namespace eui {
       return clone;
     }
 
-    public dataChanged() {}
+    public dataChanged() {
+      if (!this.init) {
+        this.selected = false;
+        this.init = true;
+      }
+    }
 
     protected onTouchBegin(event: egret.TouchEvent) {
       super.onTouchBegin(event);
@@ -213,7 +239,7 @@ namespace eui {
     protected onTouchMove(event: egret.TouchEvent) {
       const diffX = event.stageX - this.startX;
       const diffY = event.stageY - this.startY;
-      egret.log(diffX, diffY);
+      // egret.log(diffX, diffY);
       if (Math.max(Math.abs(diffX), Math.abs(diffY)) > this.dragThreshold) {
         // cancel the tap check and do the sorting
         this.onTouchEnd(event);

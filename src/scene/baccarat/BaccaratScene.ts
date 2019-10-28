@@ -92,7 +92,7 @@ namespace scene {
     }
 
     private setupTableInfo() {
-      console.log(env.tableInfoArray);
+      // console.log(env.tableInfoArray);
       env.tableInfoArray.forEach(value => {
         if (value.tableid === this._tableID) {
           this.tableInfo = value;

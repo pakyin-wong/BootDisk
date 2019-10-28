@@ -44,6 +44,7 @@ namespace components {
     }
 
     public dataChanged() {
+      super.dataChanged();
       this.isDirty = false;
       this.myData = this.data;
       this.label.text = this.data;

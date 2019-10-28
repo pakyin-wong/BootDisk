@@ -21,14 +21,14 @@ namespace components {
     protected childrenCreated(): void {
       super.childrenCreated();
       const items = ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4', 'Tab 5', 'Tab7'];
-      const tlayout = new eui.HorizontalLayout();
-      tlayout.gap = 0;
+      // const tlayout = new eui.HorizontalLayout();
+      // tlayout.gap = 0;
       // tlayout.horizontalGap = 0;
       // tlayout.verticalGap = 0;
       // tlayout.requestedColumnCount = items.length;
       this.collection = new eui.ArrayCollection(items);
       this.tabBar.itemRenderer = components.SegmentedControlTabItem;
-      this.tabBar.layout = tlayout;
+      // this.tabBar.layout = tlayout;
       this.tabBar.dataProvider = this.collection;
 
       const shape = new egret.Shape();

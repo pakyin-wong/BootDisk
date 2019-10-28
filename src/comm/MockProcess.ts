@@ -94,8 +94,10 @@ namespace socket {
       }
     }
 
-    private async initGameData(gameData: baccarat.GameData) {
+    private async initGameData(data: TableInfo, gameData: baccarat.GameData) {
       await this.sleep(3000 + Math.random() * 5000, 'tableInfoListInternal');
+      data.data = gameData;
+      data.bets = [];
       gameData.state = enums.baccarat.GameState.BET;
       gameData.starttime = Date.now();
       gameData.countdown = this.betStateInterval;
@@ -136,10 +138,8 @@ namespace socket {
 
     public async playerWin(data: TableInfo) {
       const gameData = new baccarat.GameData();
-      data.data = gameData;
-      data.bets = [];
       // set to bet state and wait
-      await this.initGameData(gameData);
+      await this.initGameData(data, gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
@@ -163,10 +163,8 @@ namespace socket {
 
     public async bankerWin(data: TableInfo) {
       const gameData = new baccarat.GameData();
-      data.data = gameData;
-      data.bets = [];
       // set to bet state and wait
-      await this.initGameData(gameData);
+      await this.initGameData(data, gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
@@ -190,10 +188,8 @@ namespace socket {
 
     public async bankerPairWin(data: TableInfo) {
       const gameData = new baccarat.GameData();
-      data.data = gameData;
-      data.bets = [];
       // set to bet state and wait
-      await this.initGameData(gameData);
+      await this.initGameData(data, gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
@@ -217,10 +213,8 @@ namespace socket {
 
     public async bankerWinPlayerPair(data: TableInfo) {
       const gameData = new baccarat.GameData();
-      data.data = gameData;
-      data.bets = [];
       // set to bet state and wait
-      await this.initGameData(gameData);
+      await this.initGameData(data, gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
@@ -244,10 +238,8 @@ namespace socket {
 
     public async tie(data: TableInfo) {
       const gameData = new baccarat.GameData();
-      data.data = gameData;
-      data.bets = [];
       // set to bet state and wait
-      await this.initGameData(gameData);
+      await this.initGameData(data, gameData);
       this.dispatchEvent(data);
       await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 

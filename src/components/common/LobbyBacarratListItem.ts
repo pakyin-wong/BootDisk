@@ -26,7 +26,7 @@ namespace components {
       this.isDirty = true;
       this._data = data;
       const table = env.tableInfos[data];
-      console.log(table);
+      // console.log(table);
       if (table.data.state === 1) {
         this.label.text = `TID${table.tableid} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.data.state)}`;
       } else {

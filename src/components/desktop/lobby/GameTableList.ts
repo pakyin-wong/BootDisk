@@ -61,13 +61,13 @@ namespace components {
       removed.forEach(item => {
         this.collection.removeItemAt(this.collection.getItemIndex(item));
       });
-      console.log('added', added);
-      console.log('removed', removed);
+      // console.log('added', added);
+      // console.log('removed', removed);
       this.roomIds = roomIds;
       this.roomIds.forEach((x, inx) => {
         this.collection.replaceItemAt(x, inx);
       });
-      console.log('handleTableList', roomIds);
+      // console.log('handleTableList', roomIds);
       //   this.collection.refresh();
     }
   }
