@@ -43,12 +43,11 @@ namespace socket {
     }
 
     public connect() {
-      dir.evtHandler.dispatch(enums.event.event.CONNECT_SUCCESS);
       // this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
       /// this.client.connect();
       setTimeout(() => {
         this.handleReady();
-      }, 2000);
+      }, 1000);
     }
 
     protected handleReady() {
