@@ -148,7 +148,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, ['club1', 'heartk', 'diamond1', 'spade2', 'diamond6', 'spade9']);
+      await this.setCards(data, ['cluba', 'heartk', 'diamonda', 'spade2', 'diamond6', 'spade9']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
@@ -173,7 +173,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, ['club1', 'heartq', 'diamond6', 'spade3']);
+      await this.setCards(data, ['cluba', 'heartq', 'diamond6', 'spade3']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
@@ -198,7 +198,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, ['heart1', 'club6', 'diamond4', 'spade4']);
+      await this.setCards(data, ['hearta', 'club6', 'diamond4', 'spade4']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
@@ -223,7 +223,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, ['heart1', 'club1', 'diamond4', 'spade3']);
+      await this.setCards(data, ['hearta', 'cluba', 'diamond4', 'spade3']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
@@ -248,7 +248,7 @@ namespace socket {
       this.dispatchEvent(data);
       await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-      await this.setCards(data, ['diamond5', 'spade3', 'club1', 'heart7']);
+      await this.setCards(data, ['diamond5', 'spade3', 'cluba', 'heart7']);
 
       // set to finish state and calculate the bet result
       gameData.state = enums.baccarat.GameState.FINISH;
