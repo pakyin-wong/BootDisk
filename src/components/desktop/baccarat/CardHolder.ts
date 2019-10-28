@@ -27,6 +27,19 @@ namespace baccarat {
     public updateResult(gameData: GameData) {
       // TODO: update card using the gameData
       this.gameData = gameData;
+      const cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
+      const cardHolderArr = [this.card1Player, this.card2Player, this.card3Player, this.card1Banker, this.card2Banker, this.card3Banker];
+
+      cardArr.forEach(function(value, index) {
+        if (value) {
+          cardHolderArr[index].setCard(value, (index + 1) % 3 !== 0);
+        } else {
+          if ((index + 1) % 3 !== 0) {
+            cardHolderArr[index].setCard('BACK', true);
+          }
+        }
+      });
+      /*
       if (this.gameData.a1) {
         this.card1Player.setCard(this.gameData.a1);
       }
@@ -45,14 +58,15 @@ namespace baccarat {
       if (this.gameData.b3) {
         this.card3Banker.setHCard(this.gameData.b3);
       }
+      */
     }
 
     public resetCards() {
-      this.card1Player.setCard(enums.card.BACK);
-      this.card2Player.setCard(enums.card.BACK);
+      this.card1Player.setCard('BACK', true);
+      this.card2Player.setCard('BACK', true);
 
-      this.card1Banker.setCard(enums.card.BACK);
-      this.card2Banker.setCard(enums.card.BACK);
+      this.card1Banker.setCard('BACK', true);
+      this.card2Banker.setCard('BACK', true);
 
       this.card3Banker.clear();
       this.card3Player.clear();
