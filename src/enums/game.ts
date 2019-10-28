@@ -30,6 +30,7 @@ namespace enums {
 
   export namespace baccarat {
     export const GameState = {
+      IDLE: 0,
       BET: 1,
       DEAL: 2,
       FINISH: 3,

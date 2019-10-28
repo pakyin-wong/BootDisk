@@ -74,9 +74,11 @@ namespace baccarat {
       console.log(`BettingArea::updateGame::GameState ${this.gameData.state}`);
 
       switch (this.gameData.state) {
+        case enums.baccarat.GameState.IDLE:
+          this.setStateIdle();
+          break;
         case enums.baccarat.GameState.BET:
           console.log(`BettingArea::updateGame::setStateBet`);
-
           this.setStateBet();
           break;
         case enums.baccarat.GameState.DEAL:
@@ -97,6 +99,18 @@ namespace baccarat {
       }
     }
 
+    protected setStateIdle() {
+      if (this.previousState !== enums.baccarat.GameState.IDLE) {
+        this.bettingTable.setTouchEnabled(false);
+        this.cardHolder.visible = false;
+        this.winAmountLabel.visible = false;
+        // this.setBetRelatedComponentsTouchEnabled(false);
+        // hide state
+        this.stateLabel.visible = false;
+        this.setBetRelatedComponentsVisibility(false);
+      }
+    }
+
     protected setStateBet() {
       if (this.previousState !== enums.baccarat.GameState.BET) {
         // reset data betinfo
@@ -111,6 +125,9 @@ namespace baccarat {
         this.stateLabel.text = 'Betting';
         this.winAmountLabel.visible = false;
 
+        // show state
+        this.stateLabel.visible = true;
+
         // hide cardHolder
         this.cardHolder.visible = false;
 
@@ -119,6 +136,7 @@ namespace baccarat {
 
         // enable betting table
         this.bettingTable.setTouchEnabled(true);
+        this.setBetRelatedComponentsTouchEnabled(true);
 
         // update the bet amount of each bet field in betting table
         logger.l(`BettingArea::setStateBet:betDetails: ` + this.betDetails);
@@ -138,6 +156,10 @@ namespace baccarat {
 
         // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
+
+        // show state
+        this.stateLabel.visible = true;
 
         // show cardHolder
         this.cardHolder.visible = true;
@@ -145,6 +167,7 @@ namespace baccarat {
 
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
 
         this.winAmountLabel.visible = false;
       }
@@ -158,12 +181,16 @@ namespace baccarat {
         // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(false);
 
+        // show state
+        this.stateLabel.visible = true;
+
         // show cardHolder
         this.cardHolder.visible = true;
         this.cardHolder.updateResult(this.gameData);
 
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
 
         // TODO: show effect on each winning bet field
         logger.l(`this.gameData.winType ${this.gameData.wintype} ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.wintype)}`);
@@ -188,6 +215,10 @@ namespace baccarat {
 
         // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
+
+        // show state
+        this.stateLabel.visible = true;
 
         // hide cardHolder
         this.cardHolder.visible = false;
@@ -204,6 +235,10 @@ namespace baccarat {
 
         // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
+
+        // show state
+        this.stateLabel.visible = true;
 
         // hide cardHolder
         this.cardHolder.visible = false;
@@ -232,6 +267,12 @@ namespace baccarat {
       this.countdownTimer.visible = visible;
       this.confirmButton.visible = visible;
       this.cancelButton.visible = visible;
+    }
+
+    protected setBetRelatedComponentsTouchEnabled(enabled: boolean) {
+      this.betChipSet.setTouchEnabled(enabled);
+      this.confirmButton.touchEnabled = enabled;
+      this.cancelButton.touchEnabled = enabled;
     }
 
     protected updateCountdownTimer() {
