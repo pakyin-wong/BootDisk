@@ -69,5 +69,13 @@ namespace baccarat {
       env.currentChipSelectedIndex = index;
       this.chipList[index].highlight = true;
     }
+
+    public setTouchEnabled(enabled: boolean) {
+      if (this.chipList) {
+        this.chipList.forEach(value => {
+          value.touchEnabled = enabled;
+        });
+      }
+    }
   }
 }
