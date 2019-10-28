@@ -82,14 +82,14 @@ namespace socket {
       this.updateTimestamp(timestamp);
       const tableInfo: TableInfo = env.tableInfos[gameStatus.tableid];
       if (tableInfo) {
-        let justReady = false;
-        if (!tableInfo.data) {
-          justReady = true;
-        }
+        // let justReady = false;
+        // if (!tableInfo.data) {
+        //   justReady = true;
+        // }
         tableInfo.data = gameStatus;
-        if (justReady) {
-          this.dispatchListUpdateEvent();
-        }
+        // if (justReady) {
+        this.dispatchListUpdateEvent();
+        // }
         dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, tableInfo);
       }
     }
