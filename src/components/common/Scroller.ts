@@ -58,20 +58,12 @@ namespace components {
       this.verticalScrollBar.autoVisibility = false;
       this.verticalScrollBar.visible = true;
       this.verticalScrollBar.touchEnabled = true;
-      // this.verticalScrollBar.height += 40;
-      // this.verticalScrollBar.y = -20;
-      // this.mask = new egret.Rectangle(0, 0, this.width, this.height);
       //   this.bounces = false;
       //   this.throwSpeed = Infinity;
     }
 
     private onMount() {
       this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
-
-      // wait viewport ready, set scrollV to 1 for scrolling
-      window.requestAnimationFrame(() => {
-        // this.viewport.scrollV = 1;
-      });
 
       // add mouse over/out listeners
       this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
@@ -117,7 +109,7 @@ namespace components {
       let progress = this._initProgress + diffY / (this.verticalScrollBar.height - this.verticalScrollBar.thumb.height);
       progress = Math.min(Math.max(progress, 0), 1);
       const viewHeight = this.viewport.contentHeight - this.height;
-      this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
+      this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
     };
 
     private onMouseUp = (event: MouseEvent) => {
