@@ -49,6 +49,10 @@
         {
             "name": "playerClient",
             "path": "./libs/playerclient"
+        },
+        {
+            "name": "uaparser",
+            "path": "./libs/uaparser"
         }
 
     ]

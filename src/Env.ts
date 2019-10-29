@@ -47,6 +47,8 @@ class Env {
     return this._tableInfos;
   }
 
+  public UAInfo: any;
+
   /*
   public onTableListUpdate(evt: egret.Event) {
     logger.l('env.onTableListUpdate');

@@ -30,6 +30,9 @@ class Main extends eui.UILayer {
     dir.layerCtr = new controller.LayerCtr(this.stage);
     dir.sceneCtr = new controller.SceneCtr();
     dir.moniter = new Monitor();
+    dir.uaParser = new UAParser();
+    env.UAInfo = dir.uaParser.getResult();
+    FullScreenManager.OnLoad();
 
     // step 2: init Egrets Asset / Res
     await this.initRes();
