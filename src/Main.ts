@@ -32,8 +32,15 @@ class Main extends eui.UILayer {
     dir.moniter = new Monitor();
     dir.uaParser = new UAParser();
     env.UAInfo = dir.uaParser.getResult();
+    const cn = [];
+    cn.push('MainWindow');
+    cn.push(env.UAInfo.os.name);
+    cn.push(env.UAInfo.browser.name);
+    if (env.UAInfo.device.vendor === 'Apple' && env.UAInfo.device.type === 'mobile') {
+      cn.push('iPhone');
+    }
+    document.documentElement.className = cn.join(' ');
     FullScreenManager.OnLoad();
-
     // step 2: init Egrets Asset / Res
     await this.initRes();
 
