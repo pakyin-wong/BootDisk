@@ -40,7 +40,16 @@ namespace socket {
       env.currency = player.profile.currency;
       env.nickname = player.profile.nickname;
       env.profileImageURL = player.profile.profileimage;
-      env.betLimits = player.profile.betlimits;
+      env.betLimits = player.profile.betlimits
+        ? player.profile.betlimits
+        : [
+            {
+              currency: 'HKD',
+              upper: 1000,
+              lower: 10,
+              denominationList: [1, 5, 20, 100, 500],
+            },
+          ];
 
       logger.l(`${timestamp}: READY`, player);
 
