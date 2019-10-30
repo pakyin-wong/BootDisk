@@ -7,7 +7,8 @@
 }
 
 .iPhone.MainWindow.Chrome canvas {
-    position: fixed
+    position: fixed;
+    top: 0;
 }
 
 .iPhone.MainWindow canvas {

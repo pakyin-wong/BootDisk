@@ -200,7 +200,10 @@ class IPhone8Helper extends IPhone7Helper {
 
   public UpdateScrollable(scrollable) {
     // document.body.style.position = scrollable ? 'static' : 'fixed';
-    this.canvas.style.position = scrollable ? 'absolute' : 'static';
+    this.canvas.style.position = scrollable ? 'static' : 'fixed';
+    if (!scrollable) {
+      this.canvas.style.top = 0;
+    }
   }
 
   public HandleTouchStart(event: Event) {
@@ -411,5 +414,186 @@ class FullScreenManager {
     (<any>window).RequestFullscreen = self.RequestFullscreen;
     (<any>window).ExitFullscreen = self.ExitFullscreen;
     (<any>window).IsFullscreen = self.IsFullscreen;
+  }
+}
+
+class IPhoneChromeFullscreen {
+  public root;
+  public reserve;
+  public canvas;
+  public minHeight;
+  public maxHeight;
+  public topBarHeightLand;
+  public topBarHeightPort;
+  public isInit;
+  public isLand;
+  public isVisible;
+  public isResized;
+  public gameJustStarted;
+  public timer;
+  public currTime;
+  public scrollY;
+  public static instance = null;
+
+  constructor() {
+    this.root = null;
+    this.reserve = null;
+    this.minHeight = -1;
+    this.maxHeight = -1;
+    this.topBarHeightLand = -1;
+    this.topBarHeightPort = -1;
+    this.isInit = false;
+    this.isLand = false;
+    this.isVisible = false;
+    this.isResized = false;
+    this.gameJustStarted = true;
+    this.timer = 0;
+    this.currTime = 0;
+    this.scrollY = 0;
+  }
+
+  public CreateElement(className, append) {
+    const el = document.createElement('div');
+    el.className = className;
+    if (append) {
+      document.body.appendChild(el);
+    }
+    return el;
+  }
+
+  public UpdateStyle(visible) {
+    const c = String(document.documentElement.className)
+      .replace('fullscreen-visible', '')
+      .split(' ');
+    const cn = [];
+    for (const str of c) {
+      if (str !== '') {
+        cn.push(str);
+      }
+    }
+    if (visible) {
+      cn.push('fullscreen-visible');
+    }
+    document.documentElement.className = cn.join(' ');
+    this.root.className = visible ? 'fullscreen-root-visible' : 'fullscreen-root-hidden';
+
+    this.canvas.style.position = 'fixed';
+    if (!visible) {
+      this.canvas.style.top = 0;
+    }
+  }
+
+  public GameStarted() {
+    if (!(dir.sceneCtr.currScene instanceof scene.LoadingScene)) {
+      return true;
+    }
+    return false;
+  }
+
+  public UpdateReserve() {
+    this.reserve.style.height = (this.isLand ? this.minHeight : this.maxHeight) + Math.max(0, window.scrollY) + 'px';
+  }
+
+  public FixScroll() {
+    if (window.scrollY < this.scrollY) {
+      window.scrollTo(0, this.scrollY);
+    }
+    this.UpdateReserve();
+  }
+
+  public Init() {
+    const min = Math.min(screen.width, screen.height);
+    const max = Math.max(screen.width, screen.height);
+    if (min === 320 && max === 568) {
+      this.topBarHeightLand = this.topBarHeightPort = this.scrollY = 76;
+    }
+    if (min === 375 && max === 667) {
+      this.topBarHeightLand = this.topBarHeightPort = this.scrollY = 76;
+    }
+    if (min === 414 && max === 736) {
+      this.topBarHeightLand = this.topBarHeightPort = this.scrollY = 76;
+    }
+    if (min === 375 && max === 812) {
+      this.topBarHeightLand = 56;
+      this.topBarHeightPort = this.scrollY = 100;
+    }
+    if (min === 414 && max === 896) {
+      this.topBarHeightLand = 56;
+      this.topBarHeightPort = this.scrollY = 100;
+    }
+    this.minHeight = min;
+    this.maxHeight = max;
+    this.root = this.CreateElement('fullscreen-root-hidden', true);
+    this.reserve = document.createElement('div');
+    // document.body.insertBefore(this.reserve, document.getElementsByTagName('canvas')[0]);
+    this.canvas = document.getElementsByTagName('canvas')[0];
+    this.canvas.parentNode.insertBefore(this.reserve, this.canvas);
+    this.UpdateReserve();
+    this.isInit = true;
+  }
+
+  public IsMinimalMode() {
+    this.isLand = window.innerWidth > window.innerHeight;
+    const h = this.isLand ? this.minHeight : this.maxHeight;
+    return h - window.innerHeight < (this.isLand ? this.topBarHeightLand : this.topBarHeightPort);
+  }
+
+  public OnResize(unused) {
+    if (!this.isInit) {
+      this.Init();
+    }
+    if (!this.IsMinimalMode()) {
+      if (!this.isVisible) {
+        window.scrollTo(0, 0);
+        this.UpdateReserve();
+        this.isVisible = true;
+        this.UpdateStyle(true);
+        // UHTEventBroker.Trigger(UHTEventBroker.Type.Game, JSON.stringify({
+        //     common: "EVT_FULLSCREEN_OVERLAY_SHOWN",
+        //     args: null
+        // }))
+      }
+    } else if (this.isVisible) {
+      this.isVisible = false;
+      this.UpdateStyle(false);
+      // UHTEventBroker.Trigger(UHTEventBroker.Type.Game, JSON.stringify({
+      //     common: "EVT_FULLSCREEN_OVERLAY_HIDDEN",
+      //     args: null
+      // }))
+    }
+    this.isResized = true;
+  }
+
+  public OnUpdate(unused) {
+    if (this.gameJustStarted) {
+      if (this.GameStarted()) {
+        this.OnResize(null);
+        this.gameJustStarted = false;
+      }
+    }
+    if (!this.isInit) {
+      return;
+    }
+    if (this.isResized) {
+      this.isResized = false;
+      this.timer = 0;
+      this.currTime = egret.getTimer();
+      return;
+    }
+    if (this.IsMinimalMode()) {
+      if (egret.getTimer() - this.currTime > 1) {
+        this.timer = 0;
+        this.currTime = egret.getTimer();
+        this.FixScroll();
+      }
+    }
+  }
+  public static OnLoad(stage: egret.Stage) {
+    // if (env.UAInfo.device.model === 'iPhone' && env.UAInfo.browser.name === 'Chrome') {
+    IPhoneChromeFullscreen.instance = new IPhoneChromeFullscreen();
+    const instance = IPhoneChromeFullscreen.instance;
+    stage.addEventListener(egret.Event.RESIZE, instance.OnResize, instance);
+    stage.addEventListener(egret.Event.ENTER_FRAME, instance.OnUpdate, instance);
+    // }
   }
 }
