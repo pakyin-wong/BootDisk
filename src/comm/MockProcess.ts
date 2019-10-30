@@ -92,6 +92,7 @@ namespace socket {
           });
         }
       }
+      this.socket.dispatchBetInfoUpdateEvent(data);
     }
 
     private async initGameData(data: TableInfo, gameData: baccarat.GameData) {

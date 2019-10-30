@@ -1,4 +1,3 @@
-
 declare enum EventType {
     READY = "READY",
     TABLE_LIST_UPDATE = "TABLE_LIST_UPDATE",
@@ -28,12 +27,12 @@ declare class PlayerClient {
     close(): void;
     subscribe(eventName: string, f: Function, context?: object, options?: any): void;
     unsubscribe(eventName: string, f: Function, options?: any): void;
-    getTableList(filter: string): void;
+    getTableList(filter?: string): void;
     getBalance(): void;
     getHistory(tableID: string): void;
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
-    bet(tableID: string, betArray: object): void;
+    bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
     sortCategoryList(data: object): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
@@ -85,6 +84,23 @@ MAINTENANCE: 30;
 }
 declare const TableState: TableStateMap;
   
-  
+declare enum BAGameStateType {
+    IDLE = 0,
+    BET = 1,
+    DEAL = 2,
+    FINISH = 3,
+    REFUND = 4,
+    SHUFFLE = 5
+}
+declare enum BAWinType {
+    NONE = 0,
+    BANKER = 1,
+    PLAYER = 2,
+    TIE = 3
+}
+interface BetValueCommand {
+    field: string;
+    amount: number;
+}
   
   

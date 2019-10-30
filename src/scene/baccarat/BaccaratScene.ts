@@ -103,6 +103,7 @@ namespace scene {
     private addEventListeners() {
       dir.evtHandler.addEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
       dir.evtHandler.addEventListener(enums.event.event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
+      dir.evtHandler.addEventListener(enums.event.event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
       dir.evtHandler.addEventListener(enums.i18n.event.SWITCH_LANGUAGE, this.onChangeLang, this);
 
       this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
@@ -116,7 +117,7 @@ namespace scene {
     private removeEventListeners() {
       dir.evtHandler.removeEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
       dir.evtHandler.removeEventListener(enums.event.event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
-
+      dir.evtHandler.removeEventListener(enums.event.event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
       this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
     }
 
@@ -184,7 +185,17 @@ namespace scene {
     }
 
     protected onBetDetailUpdate(evt: egret.Event) {
-      this.bettingArea.onBetDetailUpdate();
+      const tableInfo = <TableInfo>evt.data;
+      if (tableInfo.tableid === this.tableID) {
+        this.bettingArea.onBetDetailUpdate(this.tableInfo);
+      }
+    }
+
+    protected onBetResultReceived(evt: egret.Event) {
+      const result: PlayerBetResult = evt.data;
+      if (result.success) {
+        this.bettingArea.onBetConfirmed();
+      }
     }
   }
 }

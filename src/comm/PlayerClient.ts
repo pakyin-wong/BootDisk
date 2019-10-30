@@ -21,6 +21,7 @@ namespace socket {
       this.client.subscribe(enums.mqtt.subscribe.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
       this.client.subscribe(enums.mqtt.subscribe.GAME_STATUS_UPDATE, this.onGameStatusUpdate, this);
       this.client.subscribe(enums.mqtt.subscribe.PLAYER_BET_INFO_UPDATE, this.onBetInfoUpdate, this);
+      // this.client.subscribe(enums.mqtt.subscribe.PLAYER_BET_RESULT, this.onBetResultReceived, this);
       this.client.subscribe(enums.mqtt.subscribe.BALANCE_UPDATE, this.onBalanceUpdate, this);
     }
 
@@ -44,6 +45,12 @@ namespace socket {
       logger.l(`${timestamp}: READY`, player);
 
       dir.evtHandler.dispatch(enums.mqtt.event.CONNECT_SUCCESS);
+
+      this.getBalance();
+    }
+
+    public getBalance() {
+      this.client.getBalance();
     }
 
     public enterTable(tableID: string) {
@@ -80,6 +87,9 @@ namespace socket {
 
     protected onGameStatusUpdate(gameStatus: any, timestamp: string) {
       this.updateTimestamp(timestamp);
+      if (!env.tableInfos) {
+        return;
+      }
       const tableInfo: TableInfo = env.tableInfos[gameStatus.tableid];
       if (tableInfo) {
         // let justReady = false;
@@ -96,17 +106,28 @@ namespace socket {
 
     protected onBalanceUpdate(balance: any, timestamp: string) {
       this.updateTimestamp(timestamp);
-      env.balance = balance.amount;
+      env.balance = balance.balance;
       env.balanceOnHold = balance.amountOnHold;
       env.currency = balance.currency;
 
       dir.evtHandler.dispatch(enums.event.event.BALANCE_UPDATE);
     }
 
-    protected onBetInfoUpdate(betInfo: PlayerBetInfo, timestamp: string) {
+    protected onBetResultReceived(betResult: PlayerBetResult, timestamp: string) {
+      // this.updateTimestamp(timestamp);
+      // dir.evtHandler.dispatch(enums.event.event.PLAYER_BET_RESULT, betResult);
+    }
+
+    protected onBetInfoUpdate(betInfo: any /*PlayerBetInfo*/, timestamp: string) {
       this.updateTimestamp(timestamp);
       const tableInfo: TableInfo = env.tableInfos[betInfo.tableid];
-      tableInfo.bets = betInfo.bets;
+      // tableInfo.bets = betInfo.bets;
+      egret.log('BetInfoUpdate:', betInfo);
+      tableInfo.bets = betInfo.betMap.map(value => {
+        const betDetail: BetDetail = (<any>Object).assign({}, value[1]);
+        return betDetail;
+      });
+      egret.log('BetInfoUpdate:', tableInfo.bets);
 
       dir.evtHandler.dispatch(enums.event.event.PLAYER_BET_INFO_UPDATE, tableInfo);
     }
@@ -127,7 +148,23 @@ namespace socket {
       dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, list);
     }
 
-    public bet(tableID: string, betDetails: BetDetail[]) {}
+    public bet(tableID: string, betDetails: BetDetail[]) {
+      const betCommands: BetCommand[] = betDetails.map(data => {
+        return {
+          field: data.field,
+          amount: data.amount,
+        };
+      });
+      this.client.bet(tableID, betCommands, result => {
+        this.betResultCallback(result);
+      });
+      egret.log('Placed bet');
+    }
+
+    public betResultCallback(result: PlayerBetResult) {
+      egret.log('Bet Result Received');
+      dir.evtHandler.dispatch(enums.event.event.PLAYER_BET_RESULT, result);
+    }
 
     public getTableHistory() {}
   }

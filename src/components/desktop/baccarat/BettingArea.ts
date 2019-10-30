@@ -47,12 +47,7 @@ namespace baccarat {
     private onConfirmPressed() {
       egret.log('Confirm');
       const bets = this.bettingTable.getUnconfirmedBetDetails();
-      dir.socket.bet(this.tableID, bets).then(data => {
-        if (data.success) {
-          this.bettingTable.resetUnconfirmedBet();
-          egret.log('Bet Succeeded');
-        }
-      });
+      dir.socket.bet(this.tableID, bets);
     }
 
     private onCancelPressed() {
@@ -176,8 +171,6 @@ namespace baccarat {
     }
     protected setStateFinish() {
       if (this.previousState !== enums.baccarat.GameState.FINISH) {
-        this.computeTotalWin();
-
         // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(false);
 
@@ -249,17 +242,24 @@ namespace baccarat {
       }
     }
 
-    public onBetDetailUpdate() {
+    public onBetDetailUpdate(tableInfo: TableInfo) {
       // TODO: show win result when bet detail is ready
+      this.betDetails = tableInfo.bets;
       switch (this.gameData.state) {
         case enums.baccarat.GameState.BET:
           this.bettingTable.updateBetFields(this.betDetails);
           break;
         case enums.baccarat.GameState.FINISH:
+          this.computeTotalWin();
           this.winAmountLabel.visible = true;
           this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
           break;
       }
+    }
+
+    public onBetConfirmed() {
+      this.bettingTable.resetUnconfirmedBet();
+      egret.log('Bet Succeeded');
     }
 
     protected setBetRelatedComponentsVisibility(visible: boolean) {

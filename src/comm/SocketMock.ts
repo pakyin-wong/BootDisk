@@ -34,9 +34,9 @@ namespace socket {
         return data;
       });
       // try remove 1
-      setTimeout(() => {
-        this.tables = this.tables.filter((x, i) => i !== 0);
-      }, 10000);
+      // setTimeout(() => {
+      //   this.tables = this.tables.filter((x, i) => i !== 0);
+      // }, 10000);
       // setTimeout(() => {
       //   this.tables = this.tables.filter((x, i) => i !== 6);
       // }, 14000);
@@ -128,11 +128,19 @@ namespace socket {
       }
     }
 
+    public dispatchBetInfoUpdateEvent(data: TableInfo) {
+      env.currTime = Date.now();
+      dir.evtHandler.dispatch(enums.event.event.PLAYER_BET_INFO_UPDATE, data);
+    }
+
+    public dispatchBetResultEvent() {
+      dir.evtHandler.dispatch(enums.event.event.PLAYER_BET_RESULT, { success: 1, error: '' });
+    }
+
     public dispatchInfoUpdateEvent(data: TableInfo) {
       env.currTime = Date.now();
       data.complete = 1;
       dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, data);
-      dir.evtHandler.dispatch(enums.event.event.PLAYER_BET_INFO_UPDATE, data);
     }
 
     public dispatchListUpdateEvent(data: TableInfo) {
@@ -181,7 +189,7 @@ namespace socket {
       dir.evtHandler.dispatch(enums.event.event.ROADMAP_UPDATE);
     }
 
-    public async bet(tableID: string, betDetails: BetDetail[]) {
+    public bet(tableID: string, betDetails: BetDetail[]) {
       egret.log('SocketMock::bet()');
       // add the bets to confirmed bet Array
       const data = this.tables[parseInt(tableID, 10) - 1];
@@ -212,9 +220,8 @@ namespace socket {
       this.dispatchListUpdateEvent(data);
 
       // return promise.resolve with BetResult
-      return Promise.resolve({
-        success: 1,
-      });
+      this.dispatchBetResultEvent();
+      this.dispatchBetInfoUpdateEvent(data);
     }
 
     private onReceivedMsg(res) {
