@@ -55,12 +55,12 @@ namespace socket {
 
       env.currTime = Date.now();
       env.playerID = 'PID001';
-      env.currency = Currency.HKD;
+      env.currency = Currency.RMB;
       env.nickname = 'PGPG';
       env.profileImageURL = 'https://url';
       env.betLimits = [
         {
-          currency: 'HKD',
+          currency: Currency.RMB,
           maxLimit: 1000,
           minLimit: 10,
           chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
