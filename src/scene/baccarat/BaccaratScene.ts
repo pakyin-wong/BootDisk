@@ -24,6 +24,8 @@ namespace scene {
     private bgImg: eui.Rect;
     private _video: egret.FlvVideo;
 
+    private roadmap: baccarat.BARoadmap;
+
     constructor(data: any) {
       super(data);
       this._tableID = data.tableid;
@@ -59,11 +61,11 @@ namespace scene {
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
 
-      // const roadmap = new baccarat.BARoadmap();
-      // roadmap.x = 2000;
-      // roadmap.y = 500;
+      // this.roadmap = new baccarat.BARoadmap();
+      // this.roadmap.x = 2000;
+      // this.roadmap.y = 500;
 
-      // this.addChild(roadmap);
+      // this.addChild(this.roadmap);
       this.tableInfoWindow.visible = false;
       this.addEventListeners();
 
@@ -105,6 +107,7 @@ namespace scene {
       dir.evtHandler.addEventListener(enums.event.event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
       dir.evtHandler.addEventListener(enums.event.event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
       dir.evtHandler.addEventListener(enums.i18n.event.SWITCH_LANGUAGE, this.onChangeLang, this);
+      dir.evtHandler.addEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
 
       this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
@@ -118,6 +121,7 @@ namespace scene {
       dir.evtHandler.removeEventListener(enums.event.event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
       dir.evtHandler.removeEventListener(enums.event.event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
       dir.evtHandler.removeEventListener(enums.event.event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
+      dir.evtHandler.removeEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
       this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
     }
 
@@ -196,6 +200,13 @@ namespace scene {
       if (result.success) {
         this.bettingArea.onBetConfirmed();
       }
+    }
+
+    protected onRoadDataUpdate(evt: egret.Event) {
+      const tableInfo = <TableInfo>evt.data;
+      // if (tableInfo.tableid === this.tableID) {
+      //   this.roadmap.updateRoadData(tableInfo.roadmap);
+      // }
     }
   }
 }

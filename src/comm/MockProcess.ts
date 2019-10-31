@@ -49,22 +49,22 @@ namespace socket {
       const gameData = data.data;
       for (const card of cards) {
         switch (idx++) {
-          case 0:
+          case 2:
             gameData.a1 = card;
             break;
-          case 1:
+          case 3:
             gameData.a2 = card;
             break;
-          case 2:
+          case 0:
             gameData.b1 = card;
             break;
-          case 3:
+          case 1:
             gameData.b2 = card;
             break;
-          case 4:
+          case 5:
             gameData.a3 = card;
             break;
-          case 5:
+          case 4:
             gameData.b3 = card;
             break;
         }

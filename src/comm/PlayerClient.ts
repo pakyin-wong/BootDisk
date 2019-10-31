@@ -20,7 +20,7 @@ namespace socket {
       this.client.subscribe(enums.mqtt.subscribe.READY, this.handleReady, this);
       this.client.subscribe(enums.mqtt.subscribe.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
       this.client.subscribe(enums.mqtt.subscribe.GAME_STATUS_UPDATE, this.onGameStatusUpdate, this);
-      // this.client.subscribe(enums.mqtt.subscribe.GAME_STATISTIC_UPDATE, this.onGameStatisticUpdate, this);
+      this.client.subscribe(enums.mqtt.subscribe.GAME_STATISTIC_UPDATE, this.onGameStatisticUpdate, this);
       this.client.subscribe(enums.mqtt.subscribe.PLAYER_BET_INFO_UPDATE, this.onBetInfoUpdate, this);
       // this.client.subscribe(enums.mqtt.subscribe.PLAYER_BET_RESULT, this.onBetResultReceived, this);
       this.client.subscribe(enums.mqtt.subscribe.BALANCE_UPDATE, this.onBalanceUpdate, this);
@@ -128,17 +128,61 @@ namespace socket {
 
     protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
       this.updateTimestamp(timestamp);
-      egret.log(gameStatistic);
-      const tableInfo: TableInfo = env.tableInfos[gameStatistic.tableid];
+      const tableid = gameStatistic.tableid;
+      delete gameStatistic.tableid;
+      const tableInfo: TableInfo = env.tableInfos[tableid];
+      const roadmapData = this.getRoadMapData(gameStatistic);
+      console.log(roadmapData);
       if (tableInfo) {
-        tableInfo.roadmap = gameStatistic;
+        tableInfo.roadmap = roadmapData;
         this.dispatchListUpdateEvent();
-        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, tableInfo);
+        dir.evtHandler.dispatch(enums.event.event.ROADMAP_UPDATE, tableInfo);
       } else {
         const tableInfo: TableInfo = new TableInfo();
-        tableInfo.tableid = gameStatistic.tableid;
-        tableInfo.roadmap = gameStatistic;
+        tableInfo.tableid = tableid;
+        tableInfo.roadmap = roadmapData;
       }
+    }
+
+    private getRoadMapData(rawData: any) {
+      const roadSheetDataMap = {
+        bbead: rawData.bbead ? rawData.bbead : '',
+        bbigEye: rawData.bbigeye ? rawData.bbigeye : '',
+        bbigRoad: rawData.bbigroad ? rawData.bbigroad : '',
+        bead: rawData.bead ? rawData.bead : '',
+        bigEye: rawData.bigeye ? rawData.bigeye : '',
+        bigRoad: rawData.bigroad ? rawData.bigroad : '',
+        broach: rawData.broach ? rawData.broach : '',
+        bsmall: rawData.bsmall ? rawData.bsmall : '',
+        pbead: rawData.pbead ? rawData.pbead : '',
+        pbigEye: rawData.pbigeye ? rawData.pbigeye : '',
+        pbigRoad: rawData.pbigroad ? rawData.pbigroad : '',
+        proach: rawData.proach ? rawData.proach : '',
+        psmall: rawData.psmall ? rawData.psmall : '',
+        roach: rawData.roach ? rawData.roach : '',
+        shoeid: rawData.shoeid ? rawData.shoeid : '',
+        small: rawData.small ? rawData.small : '',
+        animateCell: rawData.animatecell ? rawData.animatecell : '',
+      };
+      const roadmapData = parseAscString(roadSheetDataMap);
+      return {
+        bead: roadmapData.beadOut,
+        bigRoad: roadmapData.bigRoadOut,
+        bigEye: roadmapData.bigEyeOut,
+        small: roadmapData.smallOut,
+        roach: roadmapData.roachOut,
+        bbead: roadmapData.bbeadOut,
+        bbigRoad: roadmapData.bbigRoadOut,
+        bbigEye: roadmapData.bbigEyeOut,
+        bsmall: roadmapData.bsmallOut,
+        broach: roadmapData.broachOut,
+        pbead: roadmapData.pbeadOut,
+        pbigRoad: roadmapData.pbigRoadOut,
+        pbigEye: roadmapData.pbigEyeOut,
+        psmall: roadmapData.psmallOut,
+        proach: roadmapData.proachOut,
+        animateCell: roadmapData.animateCell,
+      };
     }
 
     protected onBalanceUpdate(balance: any, timestamp: string) {
@@ -176,7 +220,7 @@ namespace socket {
     protected dispatchListUpdateEvent() {
       const list = env.tableInfoArray
         .filter(info => {
-          return info.data != null;
+          return info.data != null; // && info.roadmap != null;
         })
         .map(info => {
           return info.tableid;

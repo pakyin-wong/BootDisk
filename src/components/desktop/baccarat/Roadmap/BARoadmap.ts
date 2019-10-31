@@ -39,7 +39,7 @@ namespace baccarat {
       this.addChild(this.cockroachRoad);
       this.parser.parseData(env.tableHistory);
 
-      dir.evtHandler.addEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
+      // dir.evtHandler.addEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
       /*
       this.parser.parseData([
         { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
@@ -77,6 +77,10 @@ namespace baccarat {
     }
     private onRoadDataUpdate(e: egret.Event) {
       this.parser.parseData(env.tableHistory);
+    }
+
+    public updateRoadData(roadmapData: any) {
+      this.parser.parseData(roadmapData);
     }
 
     public dispose() {
