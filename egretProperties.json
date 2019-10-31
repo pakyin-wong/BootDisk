@@ -49,7 +49,10 @@
         {
             "name": "playerClient",
             "path": "./libs/playerclient"
+        },
+        {
+            "name": "roadmap",
+            "path": "./libs/roadmap"
         }
-
     ]
 }

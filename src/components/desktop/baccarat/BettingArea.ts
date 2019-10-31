@@ -243,9 +243,11 @@ namespace baccarat {
           this.bettingTable.updateBetFields(this.betDetails);
           break;
         case enums.baccarat.GameState.FINISH:
+        default:
           this.computeTotalWin();
           this.winAmountLabel.visible = true;
           this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+          this.bettingTable.showWinEffect(this.betDetails);
           break;
       }
     }
@@ -284,7 +286,7 @@ namespace baccarat {
       let totalWin = 0;
       if (this.betDetails) {
         for (const betDetail of this.betDetails) {
-          totalWin += betDetail.winAmount;
+          totalWin += betDetail.winamount;
         }
       }
 

@@ -26,6 +26,8 @@ namespace components {
 
       this._menu.setToggler(this._menu_toggle);
       this._menu.dismissOnClickOutside = true;
+
+      this.updateBalance();
     }
   }
 }

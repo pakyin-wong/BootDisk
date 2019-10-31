@@ -31,7 +31,7 @@ namespace baccarat {
     }
 
     protected onClick() {
-      const amount = env.betLimits[env.currentSelectedBetLimitIndex].chipsList[env.currentChipSelectedIndex];
+      const amount = env.betLimits[env.currentSelectedBetLimitIndex].chipsList[env.currentChipSelectedIndex].value;
       this.dispatchEvent(new egret.Event('TABLE_GRID_CLICK', false, false, { field: this._fieldName, amount }));
     }
 

@@ -20,6 +20,7 @@ namespace socket {
       this.client.subscribe(enums.mqtt.subscribe.READY, this.handleReady, this);
       this.client.subscribe(enums.mqtt.subscribe.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
       this.client.subscribe(enums.mqtt.subscribe.GAME_STATUS_UPDATE, this.onGameStatusUpdate, this);
+      // this.client.subscribe(enums.mqtt.subscribe.GAME_STATISTIC_UPDATE, this.onGameStatisticUpdate, this);
       this.client.subscribe(enums.mqtt.subscribe.PLAYER_BET_INFO_UPDATE, this.onBetInfoUpdate, this);
       // this.client.subscribe(enums.mqtt.subscribe.PLAYER_BET_RESULT, this.onBetResultReceived, this);
       this.client.subscribe(enums.mqtt.subscribe.BALANCE_UPDATE, this.onBalanceUpdate, this);
@@ -80,40 +81,63 @@ namespace socket {
 
     public onTableListUpdate(tableList: GameTableList, timestamp: string) {
       this.updateTimestamp(timestamp);
-      // console.log(tableList.tablesList);
+      console.log(tableList.tablesList);
       const tableInfos: TableInfo[] = tableList.tablesList;
       const featureds: string[] = tableList.featureds;
       const news: string[] = tableList.news;
 
+      const mergedTableInfos: TableInfo[] = [];
+
       if (env.tableInfos) {
         for (const tableInfo of tableInfos) {
           const prevTableInfo = env.tableInfos[tableInfo.tableid];
-          if (env.tableInfos[tableInfo.tableid]) {
-            tableInfo.data = prevTableInfo.data;
+
+          if (prevTableInfo) {
+            const mergedInfo: TableInfo = utils.mergeObjects(prevTableInfo, tableInfo);
+            mergedTableInfos.push(mergedInfo);
+          } else {
+            mergedTableInfos.push(tableInfo);
           }
         }
+        env.tableInfoArray = mergedTableInfos;
+      } else {
+        env.tableInfoArray = tableInfos;
       }
-      env.tableInfoArray = tableInfos;
 
       this.dispatchListUpdateEvent();
     }
 
     protected onGameStatusUpdate(gameStatus: any, timestamp: string) {
+      console.log(gameStatus);
       this.updateTimestamp(timestamp);
       if (!env.tableInfos) {
         return;
       }
+      const e = env;
       const tableInfo: TableInfo = env.tableInfos[gameStatus.tableid];
       if (tableInfo) {
-        // let justReady = false;
-        // if (!tableInfo.data) {
-        //   justReady = true;
-        // }
         tableInfo.data = gameStatus;
-        // if (justReady) {
         this.dispatchListUpdateEvent();
-        // }
         dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, tableInfo);
+      } else {
+        const tableInfo: TableInfo = new TableInfo();
+        tableInfo.tableid = gameStatus.tableid;
+        tableInfo.data = gameStatus;
+      }
+    }
+
+    protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
+      this.updateTimestamp(timestamp);
+      egret.log(gameStatistic);
+      const tableInfo: TableInfo = env.tableInfos[gameStatistic.tableid];
+      if (tableInfo) {
+        tableInfo.roadmap = gameStatistic;
+        this.dispatchListUpdateEvent();
+        dir.evtHandler.dispatch(enums.event.event.TABLE_INFO_UPDATE, tableInfo);
+      } else {
+        const tableInfo: TableInfo = new TableInfo();
+        tableInfo.tableid = gameStatistic.tableid;
+        tableInfo.roadmap = gameStatistic;
       }
     }
 
@@ -157,7 +181,6 @@ namespace socket {
         .map(info => {
           return info.tableid;
         });
-      egret.log(list);
       dir.evtHandler.dispatch(enums.event.event.TABLE_LIST_UPDATE, list);
     }
 

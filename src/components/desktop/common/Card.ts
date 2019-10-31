@@ -10,7 +10,7 @@ namespace components {
       this.removeChildren();
       if (resName) {
         const card: egret.Bitmap = new egret.Bitmap();
-        console.log(resName);
+        // console.log(resName);
 
         card.texture = RES.getRes(enums.card[resName]);
         if (vertical) {

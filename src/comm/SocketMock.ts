@@ -211,8 +211,8 @@ namespace socket {
           data.bets.push({
             field: betDetail.field,
             amount: betDetail.amount,
-            winAmount: 0,
-            isWin: 0,
+            winamount: 0,
+            iswin: 0,
           });
         }
       }

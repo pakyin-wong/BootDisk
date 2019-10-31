@@ -9,6 +9,7 @@ class TableInfo {
   public state: number;
   public bets?: BetDetail[];
   public data?: any;
+  public roadmap?: any;
   public complete?: number;
 }
 

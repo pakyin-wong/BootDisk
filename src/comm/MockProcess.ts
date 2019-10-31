@@ -78,8 +78,8 @@ namespace socket {
         let isMatch = false;
         for (const betDetail of data.bets) {
           if (betDetail.field === winningField) {
-            betDetail.isWin = 1;
-            betDetail.winAmount = betDetail.amount;
+            betDetail.iswin = 1;
+            betDetail.winamount = betDetail.amount;
             isMatch = true;
             break;
           }
@@ -87,8 +87,8 @@ namespace socket {
         if (!isMatch) {
           data.bets.push({
             field: winningField,
-            winAmount: 0,
-            isWin: 1,
+            winamount: 0,
+            iswin: 1,
           });
         }
       }
