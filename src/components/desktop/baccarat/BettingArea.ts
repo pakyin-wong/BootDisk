@@ -30,7 +30,8 @@ namespace baccarat {
       super.childrenCreated();
       console.log('start betLimits');
 
-      this.betChipSet.setDenominationList(env.betLimits[env.currentSelectedBetLimitIndex].denominationList);
+      const denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chipsList.map(data => data.value);
+      this.betChipSet.setDenominationList(denominationList);
 
       this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
       this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);

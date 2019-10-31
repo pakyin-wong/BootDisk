@@ -61,9 +61,9 @@ namespace socket {
       env.betLimits = [
         {
           currency: 'HKD',
-          upper: 1000,
-          lower: 10,
-          denominationList: [1, 5, 20, 100, 500],
+          maxLimit: 1000,
+          minLimit: 10,
+          chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
         },
       ];
 

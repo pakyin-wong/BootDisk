@@ -165,11 +165,11 @@ namespace baccarat {
       }
       // check betlimit
       const exceedBetLimit =
-        Math.abs(fieldAmounts[enums.baccarat.BetField.BANKER] - fieldAmounts[enums.baccarat.BetField.PLAYER]) > betLimit.upper ||
-        fieldAmounts[enums.baccarat.BetField.TIE] > betLimit.upper ||
-        fieldAmounts[enums.baccarat.BetField.BANKER_PAIR] > betLimit.upper ||
-        fieldAmounts[enums.baccarat.BetField.PLAYER_PAIR] > betLimit.upper ||
-        fieldAmounts[enums.baccarat.BetField.SUPER_SIX] > betLimit.upper;
+        Math.abs(fieldAmounts[enums.baccarat.BetField.BANKER] - fieldAmounts[enums.baccarat.BetField.PLAYER]) > betLimit.maxLimit ||
+        fieldAmounts[enums.baccarat.BetField.TIE] > betLimit.maxLimit ||
+        fieldAmounts[enums.baccarat.BetField.BANKER_PAIR] > betLimit.maxLimit ||
+        fieldAmounts[enums.baccarat.BetField.PLAYER_PAIR] > betLimit.maxLimit ||
+        fieldAmounts[enums.baccarat.BetField.SUPER_SIX] > betLimit.maxLimit;
       if (exceedBetLimit) {
         egret.log(enums.event.event.EXCEED_BET_LIMIT);
         dir.evtHandler.dispatch(enums.event.event.EXCEED_BET_LIMIT);
