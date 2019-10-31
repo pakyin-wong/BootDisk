@@ -101,6 +101,10 @@ namespace baccarat {
       return this.uncfmBetDetails;
     }
 
+    public getTotalUncfmBetAmount() {
+      return this.totalUncfmBetAmount;
+    }
+
     /*
 
     public resetUnconfirmedBetDetails() {

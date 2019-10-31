@@ -28,7 +28,7 @@ namespace baccarat {
     }
     protected childrenCreated() {
       super.childrenCreated();
-      console.log('start betLimits');
+      // console.log('start betLimits');
 
       const denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chipsList.map(data => data.value);
       this.betChipSet.setDenominationList(denominationList);
@@ -38,9 +38,11 @@ namespace baccarat {
     }
 
     private onConfirmPressed() {
-      egret.log('Confirm');
-      const bets = this.bettingTable.getUnconfirmedBetDetails();
-      dir.socket.bet(this.tableID, bets);
+      if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
+        egret.log('Confirm');
+        const bets = this.bettingTable.getUnconfirmedBetDetails();
+        dir.socket.bet(this.tableID, bets);
+      }
     }
 
     private onCancelPressed() {
@@ -49,24 +51,24 @@ namespace baccarat {
     }
 
     public onTableInfoUpdate(tableInfo: TableInfo) {
-      console.log('BettingArea listener');
+      // console.log('BettingArea listener');
       this.tableID = tableInfo.tableid;
       this.gameData = <GameData>tableInfo.data;
       this.betDetails = tableInfo.bets;
-      console.log(`BettingArea::onTableInfoUpdate::betDetails ${this.betDetails}`);
+      // console.log(`BettingArea::onTableInfoUpdate::betDetails ${this.betDetails}`);
       this.updateGame();
       this.previousState = this.gameData.state;
     }
 
     protected updateGame() {
-      console.log(`BettingArea::updateGame::GameState ${this.gameData.state}`);
+      // console.log(`BettingArea::updateGame::GameState ${this.gameData.state}`);
 
       switch (this.gameData.state) {
         case enums.baccarat.GameState.IDLE:
           this.setStateIdle();
           break;
         case enums.baccarat.GameState.BET:
-          console.log(`BettingArea::updateGame::setStateBet`);
+          // console.log(`BettingArea::updateGame::setStateBet`);
           this.setStateBet();
           break;
         case enums.baccarat.GameState.DEAL:
@@ -79,7 +81,7 @@ namespace baccarat {
           this.setStateRefund();
           break;
         case enums.baccarat.GameState.SHUFFLE:
-          logger.l('BettingArea::updateGame()::SHUFFLE');
+          // logger.l('BettingArea::updateGame()::SHUFFLE');
           this.setStateShuffle();
           break;
         default:

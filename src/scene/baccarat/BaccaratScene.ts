@@ -170,10 +170,10 @@ namespace scene {
       console.log('Baccarat listener');
       const tableInfo = <TableInfo>evt.data;
       if (tableInfo) {
-        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo ${this.tableInfo}`);
-        console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.bets}`);
-        console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableid}`);
-        console.log(`BaccaratScene::onTableInfoUpdate:this.tableID ${this.tableID}`);
+        // console.log(`BaccaratScene::onTableInfoUpdate:tableInfo ${this.tableInfo}`);
+        // console.log(`BaccaratScene::onTableInfoUpdate:tableInfo.betDetails ${this.tableInfo.bets}`);
+        // console.log(`BaccaratScene::onTableInfoUpdate:this.tableInfo.tableID ${this.tableInfo.tableid}`);
+        // console.log(`BaccaratScene::onTableInfoUpdate:this.tableID ${this.tableID}`);
 
         if (tableInfo.tableid === this.tableID) {
           // update the scene
