@@ -41,6 +41,7 @@ namespace baccarat {
     public clearRoadData() {
       for (const elem of this.roadMapIconList) {
         elem.setByObject({});
+        elem.stopAnimate();
       }
     }
 
@@ -64,6 +65,10 @@ namespace baccarat {
         const icon = this.roadMapIconList[i];
         icon.setLang(this.lang);
         icon.setByObject(roadDataCopy[i]);
+
+        if (roadDataCopy[i].isPredict && roadDataCopy[i].v) {
+          icon.animate();
+        }
       }
     }
 

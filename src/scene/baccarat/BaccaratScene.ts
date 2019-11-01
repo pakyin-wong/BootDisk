@@ -30,6 +30,11 @@ namespace scene {
 
     public onEnter() {
       this.mount();
+
+      const converter = new baccarat.BARoadDataConverter();
+      console.log('==================>', converter.createStringFromBeadRoad({ v: 'b', b: 1, p: 0, bv: 3, pv: 8 }));
+      console.log('==================>', converter.getBeadRoadFromString('Qw'));
+
       this.bettingArea = new baccarat.BettingArea();
       this.bettingArea.anchorOffsetX = 0;
       this.bettingArea.anchorOffsetY = 0;
@@ -48,32 +53,6 @@ namespace scene {
       roadmap.x = 2000;
       roadmap.y = 500;
       this.addChild(roadmap);
-
-      this.addEventListeners();
-      dir.evtHandler.dispatch(enums.event.event.ROADMAP_UPDATE, [
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 0, p: 0, bv: 6, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 1, bv: 10, pv: 3 },
-        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 0, bv: 5, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 5, pv: 5 },
-        { v: 'b', b: 1, p: 1, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 4, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 1, bv: 10, pv: 15 },
-        { v: 'p', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 1, p: 1, bv: 10, pv: 5 },
-        { v: 'p', b: 1, p: 0, bv: 8, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 9, pv: 12 },
-      ]);
     }
 
     private setupTableInfo() {

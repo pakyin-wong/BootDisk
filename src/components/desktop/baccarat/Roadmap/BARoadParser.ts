@@ -10,14 +10,44 @@ namespace baccarat {
     public bigEyeRoadResult: any;
     public cockroachRoadResult: any;
 
+    private predictTimeout: number;
+
     public constructor(maxCol: number) {
       super();
+      this.rawResult = [];
       this.maxCol = maxCol;
     }
 
+    // predict win for banker(0) or player(1)
+    public predictWin(v: number) {
+      let nextResult = {};
+      if (v === 0) {
+        nextResult = { v: 'b', b: 0, p: 0, w: 0, isPredict: 1 };
+      } else {
+        nextResult = { v: 'p', b: 0, p: 0, w: 0, isPredict: 1 };
+      }
+      const predict = this.rawResult.slice();
+      predict.push(nextResult);
+
+      this.doParseBeadRoad(predict);
+      this.doParseBigRoad();
+      this.doParseBigEyeRoad();
+      this.doParseSmallRoad();
+      this.doParseCockroachRoad();
+
+      this.dispatchEvent(new egret.Event('onUpdate'));
+      if (this.predictTimeout) {
+        egret.clearTimeout(this.predictTimeout);
+      }
+      this.predictTimeout = egret.setTimeout(this.clearPredict, this, 3000);
+    }
+
+    private clearPredict() {
+      this.parseData(this.rawResult);
+    }
     public parseData(rawData: any) {
       this.rawResult = rawData.slice(); // copy the array
-      this.doParseBeadRoad();
+      this.doParseBeadRoad(this.rawResult);
       this.doParseBigRoad();
       this.doParseBigEyeRoad();
       this.doParseSmallRoad();
@@ -26,9 +56,7 @@ namespace baccarat {
       this.dispatchEvent(new egret.Event('onUpdate'));
     }
 
-    private doParseBeadRoad() {
-      const data = this.rawResult.slice(); // copy the array
-
+    private doParseBeadRoad(data: any) {
       // 1.remove extra data by grid size
       const maxNum = this.maxCol * 6;
       const exceed = data.length - maxNum;
@@ -205,14 +233,15 @@ namespace baccarat {
       for (let n = 0; n < this.bigRoadColumnResult.length; n++) {
         const colArr = this.bigRoadColumnResult[n];
         for (let m = 0; m < colArr.length; m++) {
+          const isPredict = colArr[m].isPredict;
           if (m >= 1) {
             const col: number = n - cycle;
             if (col >= 0) {
               const p = this.bigRoadColumnResult[col].length;
               if (m === p) {
-                pbResultArr.push({ v: 'p' });
+                pbResultArr.push({ v: 'p', isPredict });
               } else {
-                pbResultArr.push({ v: 'b' });
+                pbResultArr.push({ v: 'b', isPredict });
               }
             }
           } else {
@@ -221,9 +250,9 @@ namespace baccarat {
               const mPrevious: number = this.bigRoadColumnResult[n - 1].length;
               const p = this.bigRoadColumnResult[col].length;
               if (mPrevious === p) {
-                pbResultArr.push({ v: 'b' });
+                pbResultArr.push({ v: 'b', isPredict });
               } else {
-                pbResultArr.push({ v: 'p' });
+                pbResultArr.push({ v: 'p', isPredict });
               }
             }
           }

@@ -3,6 +3,7 @@ namespace baccarat {
     protected lang: string = 'en';
     protected size: number;
     protected tween: egret.Tween;
+    protected value: any;
 
     public constructor(size: number) {
       super();
@@ -20,8 +21,7 @@ namespace baccarat {
     public abstract reset();
 
     public animate() {
-      this.tween = egret.Tween.get(this);
-      this.tween
+      egret.Tween.get(this)
         .to({ alpha: 0.2 }, 300)
         .to({ alpha: 1 }, 300)
         .wait(400)
@@ -33,10 +33,12 @@ namespace baccarat {
         .wait(400);
     }
 
+    public stopAnimate() {
+      egret.Tween.removeTweens(this);
+    }
+
     public dispose() {
-      if (this.tween) {
-        egret.Tween.removeTweens(this.tween);
-      }
+      this.stopAnimate();
     }
   }
 }

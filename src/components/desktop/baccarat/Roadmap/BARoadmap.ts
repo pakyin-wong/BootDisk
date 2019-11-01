@@ -37,35 +37,43 @@ namespace baccarat {
       this.cockroachRoad.x = 10;
       this.cockroachRoad.y = 600;
       this.addChild(this.cockroachRoad);
-      this.parser.parseData(env.tableHistory);
+      // this.parser.parseData(env.tableHistory);
+      this.onRoadDisplayUpdate(null);
 
-      dir.evtHandler.addEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
-      /*
+      // dir.evtHandler.addEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
+      // dir.evtHandler.addEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDisplayUpdate, this);
+
       this.parser.parseData([
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 0, p: 0, bv: 6, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 1, bv: 10, pv: 3 },
-        { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 0, p: 0, bv: 5, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 5, pv: 5 },
-        { v: 'b', b: 1, p: 1, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-        { v: 't', b: 0, p: 0, bv: 4, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'b', b: 1, p: 1, bv: 10, pv: 15 },
-        { v: 'p', b: 1, p: 0, bv: 10, pv: 5 },
-        { v: 'p', b: 1, p: 1, bv: 10, pv: 5 },
-        { v: 'p', b: 1, p: 0, bv: 8, pv: 5 },
-        { v: 'b', b: 1, p: 0, bv: 9, pv: 12 }
+        { v: 'b', b: 1, p: 0, w: 10 },
+        { v: 'b', b: 0, p: 0, w: 6 },
+        { v: 't', b: 0, p: 0, w: 10 },
+        { v: 'p', b: 0, p: 0, w: 10 },
+        { v: 'p', b: 0, p: 1, w: 10 },
+        { v: 'p', b: 0, p: 0, w: 10 },
+        { v: 'b', b: 0, p: 0, w: 10 },
+        { v: 'p', b: 0, p: 0, w: 5 },
+        { v: 't', b: 0, p: 0, w: 10 },
+        { v: 't', b: 0, p: 0, w: 10 },
+        { v: 'b', b: 1, p: 0, w: 5 },
+        { v: 'b', b: 1, p: 1, w: 10 },
+        { v: 'b', b: 1, p: 0, w: 10 },
+        { v: 't', b: 0, p: 0, w: 10 },
+        { v: 't', b: 0, p: 0, w: 10 },
+        { v: 't', b: 0, p: 0, w: 4 },
+        { v: 'b', b: 1, p: 0, w: 10 },
+        { v: 'b', b: 1, p: 1, w: 10 },
+        { v: 'p', b: 1, p: 0, w: 10 },
+        { v: 'p', b: 1, p: 1, w: 10 },
+        { v: 'p', b: 1, p: 0, w: 8 },
+        { v: 'b', b: 1, p: 0, w: 9 },
       ]);
-      */
+
+      this.touchEnabled = true;
+      this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+    }
+
+    private onClick(e: egret.TouchEvent) {
+      this.parser.predictWin(0);
     }
 
     private onParserUpdate(e: egret.Event) {
@@ -77,6 +85,14 @@ namespace baccarat {
     }
     private onRoadDataUpdate(e: egret.Event) {
       this.parser.parseData(env.tableHistory);
+    }
+
+    private onRoadDisplayUpdate(e: egret.Event) {
+      this.beadRoad.parseRoadData(env.tableHistory.Bead);
+      this.bigRoad.parseRoadData(env.tableHistory.BigRoad);
+      this.bigEyeRoad.parseRoadData(env.tableHistory.BigEye);
+      this.smallRoad.parseRoadData(env.tableHistory.Small);
+      this.cockroachRoad.parseRoadData(env.tableHistory.Roach);
     }
 
     public dispose() {
