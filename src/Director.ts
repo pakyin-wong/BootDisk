@@ -12,6 +12,7 @@ class Director {
   public layerCtr: controller.LayerCtr;
   public sceneCtr: controller.SceneCtr;
   public moniter: Monitor;
+  public videoPool: Pool<egret.FlvVideo>;
 }
 
 let dir: Director = Director.Instance;
