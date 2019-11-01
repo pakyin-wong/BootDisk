@@ -110,19 +110,19 @@ namespace baccarat {
         this.iconTextArr[i].visible = false;
       }
 
-      if (value.v) {
-        if (value.v === 'b') {
+      if (value.V) {
+        if (value.V === 'b') {
           this.iconFaceArr[0].visible = true;
           this.iconTextArr[0].visible = true;
-        } else if (value.v === 'p') {
+        } else if (value.V === 'p') {
           this.iconFaceArr[1].visible = true;
           this.iconTextArr[1].visible = true;
         } else {
           this.iconFaceArr[2].visible = true;
           this.iconTextArr[2].visible = true;
         }
-        this.bankerDot.visible = value.b === 1;
-        this.playerDot.visible = value.p === 1;
+        this.bankerDot.visible = value.B === 1;
+        this.playerDot.visible = value.P === 1;
       } else {
         this.reset();
       }

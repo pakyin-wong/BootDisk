@@ -45,7 +45,7 @@ namespace socket {
         ? player.profile.betlimits
         : [
             {
-              currency: 'HKD',
+              currency: Currency.RMB,
               maxLimit: 1000,
               minLimit: 10,
               chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
@@ -127,6 +127,7 @@ namespace socket {
     }
 
     protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
+      console.log('SocketComm::onGameStatusUpdate: tableid ' + gameStatistic.tableid);
       this.updateTimestamp(timestamp);
       const tableid = gameStatistic.tableid;
       delete gameStatistic.tableid;

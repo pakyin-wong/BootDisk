@@ -20,6 +20,10 @@ namespace components {
       this._balance.text = EnumHelpers.getKeyByValue(enums.socket.Currency, env.currency) + ' ' + env.balance;
     }
 
+    private onUpdateTimer(e: egret.Event) {
+      this._time.text = new Date(env.currTime).toISOString();
+    }
+
     protected mount() {
       this._userInfo.setToggler(this._userInfo_toggle);
       this._userInfo.dismissOnClickOutside = true;
@@ -28,6 +32,8 @@ namespace components {
       this._menu.dismissOnClickOutside = true;
 
       this.updateBalance();
+
+      this.stage.addEventListener(egret.Event.ENTER_FRAME, this.onUpdateTimer, this);
     }
   }
 }

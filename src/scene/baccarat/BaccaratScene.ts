@@ -40,6 +40,8 @@ namespace scene {
       // this._video.poster = 'resource/assets/bg.jpg';
 
       this._video.load('http://203.66.65.93:8000/live/720.flv');
+
+      // this.roadmap = new baccarat.BARoadmap(data.tableID);
     }
 
     public set tableID(tableID: string) {
@@ -61,11 +63,6 @@ namespace scene {
       this.setupTableInfo();
       this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
 
-      // this.roadmap = new baccarat.BARoadmap();
-      // this.roadmap.x = 2000;
-      // this.roadmap.y = 500;
-
-      // this.addChild(this.roadmap);
       this.tableInfoWindow.visible = false;
       this.addEventListeners();
 
@@ -151,6 +148,10 @@ namespace scene {
       this.skinName = 'resource/skin_desktop/BaccaratScene.exml';
       // this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP );
       // this.setSkin(new eui.Skin())
+      this.roadmap = new baccarat.BARoadmap(this._tableID);
+      this.roadmap.x = 2000;
+      this.roadmap.y = 500;
+      this.addChild(this.roadmap);
 
       // step 3: connect socket
       // this.socketConnect();
@@ -203,10 +204,11 @@ namespace scene {
     }
 
     protected onRoadDataUpdate(evt: egret.Event) {
+      console.log('BaccaratScene::onRoadDataUpdate');
       const tableInfo = <TableInfo>evt.data;
-      // if (tableInfo.tableid === this.tableID) {
-      //   this.roadmap.updateRoadData(tableInfo.roadmap);
-      // }
+      if (tableInfo.tableid === this.tableID) {
+        this.roadmap.updateRoadData(tableInfo.roadmap);
+      }
     }
   }
 }
