@@ -127,6 +127,7 @@ namespace socket {
     }
 
     protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
+      console.log('SocketComm::onGameStatusUpdate: tableid ' + gameStatistic.tableid);
       this.updateTimestamp(timestamp);
       const tableid = gameStatistic.tableid;
       delete gameStatistic.tableid;

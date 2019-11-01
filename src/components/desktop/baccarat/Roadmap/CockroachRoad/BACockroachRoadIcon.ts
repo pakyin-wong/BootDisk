@@ -63,10 +63,10 @@ namespace baccarat {
       for (let i = 0; i < 2; i++) {
         this.iconFaceArr[i].visible = false;
       }
-      if (value.v != null) {
-        if (value.v === 'b') {
+      if (value.V != null) {
+        if (value.V === 'b') {
           this.iconFaceArr[0].visible = true;
-        } else if (value.v === 'p') {
+        } else if (value.V === 'p') {
           this.iconFaceArr[1].visible = true;
         }
       }
