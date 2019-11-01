@@ -6,7 +6,6 @@ namespace components {
 
     public constructor() {
       super();
-
       this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
       this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
     }
@@ -60,39 +59,15 @@ namespace components {
       this.verticalScrollBar.visible = true;
       this.verticalScrollBar.touchEnabled = true;
       //   this.bounces = false;
-      this.throwSpeed = Infinity;
+      //   this.throwSpeed = Infinity;
     }
 
     private onMount() {
       this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
 
-      // init viewport
-      const list = new eui.List();
-      const tlayout = new eui.AnimTileLayout();
-      tlayout.horizontalGap = 10;
-      tlayout.verticalGap = 10;
-      tlayout.requestedColumnCount = 4;
-      list.layout = tlayout;
-
-      const arr = Array.apply(null, { length: 2 }).map((value, idx) => (idx + 1).toString());
-      const koll = new eui.ArrayCollection(arr);
-      list.dataProvider = koll;
-      let num = 10;
-      setInterval(() => {
-        koll.addItemAt(num.toString(), 1);
-        // koll.removeItemAt(1);
-        num++;
-      }, 1000);
-      list.itemRenderer = components.LobbyBacarratListItem;
-      this.viewport = list;
-      // wait viewport ready
-      window.requestAnimationFrame(() => {
-        this.viewport.scrollV = 1;
-      });
-
       // add mouse over/out listeners
-      this.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
-      this.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
+      this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
+      this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
 
       // add scroll bar listeners
       this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
@@ -103,8 +78,8 @@ namespace components {
       this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
 
       // remove mouse over/out listeners
-      this.removeEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
-      this.removeEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
+      this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
+      this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
 
       // remove scroll bar listeners
       this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
@@ -134,7 +109,7 @@ namespace components {
       let progress = this._initProgress + diffY / (this.verticalScrollBar.height - this.verticalScrollBar.thumb.height);
       progress = Math.min(Math.max(progress, 0), 1);
       const viewHeight = this.viewport.contentHeight - this.height;
-      this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
+      this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
     };
 
     private onMouseUp = (event: MouseEvent) => {
@@ -151,55 +126,16 @@ namespace components {
       let progress = (event.localY - this.verticalScrollBar.thumb.height / 2) / (this.verticalScrollBar.height - this.verticalScrollBar.thumb.height);
       progress = Math.min(Math.max(progress, 0), 1);
       const viewHeight = this.viewport.contentHeight - this.height;
-      this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, viewHeight * progress));
+      this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
     };
 
-    private _alreadyRegistered = false;
-
     private onMouseOver(event: egret.TouchEvent) {
-      if (this._alreadyRegistered) {
-        // don't attach duplicate listener
-        return;
-      }
       (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
-      document.querySelector('canvas').addEventListener('mouseleave', this.onCanvasOut);
-      this._alreadyRegistered = true;
     }
 
     private onMouseOut(event: egret.TouchEvent) {
-      if (this.hitTestPoint(event.stageX, event.stageY)) {
-        // even MOUSE_OUT called, we are still within the scroller area
-        // don't remove the listener...
-        return;
-      }
       (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
-      document.querySelector('canvas').removeEventListener('mouseleave', this.onCanvasOut);
-      this._alreadyRegistered = false;
     }
-
-    private onCanvasOut = (event: MouseEvent) => {
-      (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
-      const canvas = document.querySelector('canvas');
-      canvas.removeEventListener('mouseleave', this.onCanvasOut);
-      const reEnterListener = (event: MouseEvent) => {
-        canvas.removeEventListener('mouseenter', reEnterListener);
-        const rect = canvas.getBoundingClientRect();
-        const mouseAtCanvasX = Math.max(0, Math.min(rect.width, event.pageX - rect.left));
-        const mouseAtCanvasY = Math.max(0, Math.min(rect.height, event.pageY - rect.top));
-        // translate to egret coord
-        const stageX = Math.ceil((mouseAtCanvasX / egret.sys.DisplayList.$canvasScaleX) * egret.sys.DisplayList.$canvasScaleFactor);
-        const stageY = Math.ceil((mouseAtCanvasY / egret.sys.DisplayList.$canvasScaleY) * egret.sys.DisplayList.$canvasScaleFactor);
-
-        if (this.hitTestPoint(stageX, stageY)) {
-          // add listeners back if enter canvas again and go in the scroller
-          (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
-          document.querySelector('canvas').addEventListener('mouseleave', this.onCanvasOut);
-          this._alreadyRegistered = true;
-        }
-      };
-      canvas.addEventListener('mouseenter', reEnterListener);
-      this._alreadyRegistered = false;
-    };
 
     public _prevDeltaY = 0;
     public _stopTimeout = null;
@@ -208,7 +144,7 @@ namespace components {
       event.preventDefault();
       try {
         const viewHeight = this.viewport.contentHeight - this.height;
-        this.viewport.scrollV = Math.max(1, Math.min(viewHeight - 1, this.viewport.scrollV + event.deltaY));
+        this.viewport.scrollV = Math.max(0, Math.min(viewHeight, this.viewport.scrollV + event.deltaY));
 
         // for bounce if this.scrollPolicyV = eui.ScrollPolicy.ON | AUTO;
         /*

@@ -1,6 +1,6 @@
 class BetLimit {
-  public currency: string;
-  public upper: number;
-  public lower: number;
-  public denominationList: [number];
+  public currency: enums.socket.Currency;
+  public maxLimit: number;
+  public minLimit: number;
+  public chipsList: [{ chipid?: string; value: number }];
 }

@@ -46,14 +46,38 @@ namespace baccarat {
       this.parseData(this.rawResult);
     }
     public parseData(rawData: any) {
-      this.rawResult = rawData.slice(); // copy the array
+      // this.rawResult = rawData.slice(); // copy the array
+      this.beadRoadResult = rawData.bead;
+      this.bigRoadResult = rawData.bigRoad;
+      this.bigEyeRoadResult = rawData.bigEye;
+      this.smallRoadResult = rawData.small;
+      this.cockroachRoadResult = rawData.roach;
+
+      /*
+        bbigEye: rawData.bbigeye ? rawData.bbigeye : '',
+        bbigRoad: rawData.bbigroad ? rawData.bbigroad : '',
+        bead: rawData.bead ? rawData.bead : '',
+        bigEye: rawData.bigeye ? rawData.bigeye : '',
+        bigRoad: rawData.bigroad ? rawData.bigroad : '',
+        broach: rawData.broach ? rawData.broach : '',
+        bsmall: rawData.bsmall ? rawData.bsmall : '',
+        pbead: rawData.pbead ? rawData.pbead : '',
+        pbigEye: rawData.pbigeye ? rawData.pbigeye : '',
+        pbigRoad: rawData.pbigroad ? rawData.pbigroad : '',
+        proach: rawData.proach ? rawData.proach : '',
+        psmall: rawData.psmall ? rawData.psmall : '',
+        roach: rawData.roach ? rawData.roach : '',
+        shoeid: rawData.shoeid ? rawData.shoeid : '',
+        small: rawData.small ? rawData.small : '',
+        animateCell: rawData.animatecell ? rawData.animatecell : '',
       this.doParseBeadRoad(this.rawResult);
       this.doParseBigRoad();
       this.doParseBigEyeRoad();
       this.doParseSmallRoad();
       this.doParseCockroachRoad();
+      */
 
-      this.dispatchEvent(new egret.Event('onUpdate'));
+      // this.dispatchEvent(new egret.Event('onUpdate'));
     }
 
     private doParseBeadRoad(data: any) {

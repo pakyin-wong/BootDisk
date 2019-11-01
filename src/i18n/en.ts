@@ -18,6 +18,7 @@ namespace i18n {
       dealer: 'Dealer',
       time: 'Time',
       betLimit: 'Bet Limit',
+      baccarat: 'Baccarat',
     },
   };
 }

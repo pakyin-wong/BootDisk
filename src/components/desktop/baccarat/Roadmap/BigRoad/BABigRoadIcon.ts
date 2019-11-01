@@ -101,25 +101,25 @@ namespace baccarat {
       for (let i = 0; i < 2; i++) {
         this.iconFaceArr[i].visible = false;
       }
-      if (value.v) {
-        if (value.v === 'b') {
+      if (value.V != null) {
+        if (value.V === 'b') {
           this.iconFaceArr[0].visible = true;
-        } else if (value.v === 'p') {
+        } else if (value.V === 'p') {
           this.iconFaceArr[1].visible = true;
         }
-        if (value.t === 0 || value.t === null) {
+        if (value.T === 0 || value.T === null) {
           this.iconText.text = '';
           this.tieLine.visible = false;
-        } else if (value.t === 1) {
+        } else if (value.T === 1) {
           this.tieLine.visible = true;
           this.iconText.text = '';
         } else {
           this.tieLine.visible = true;
-          this.iconText.text = value.t;
+          this.iconText.text = value.T;
         }
 
-        this.bankerDot.visible = value.b === 1;
-        this.playerDot.visible = value.p === 1;
+        this.bankerDot.visible = value.B === 1;
+        this.playerDot.visible = value.P === 1;
       } else {
         this.reset();
       }

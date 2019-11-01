@@ -7,6 +7,8 @@ class Env {
 
   /* Global Environment Variable */
   public balance: number = 1000; // undefined;
+  public balanceOnHold: number = 0;
+  public currency: enums.socket.Currency;
   public playerID: string;
   public nickname: string;
   public profileImageURL: string;
@@ -16,7 +18,7 @@ class Env {
   public betLimits: BetLimit[];
   public tableHistory: any;
   private _tableInfoArray: TableInfo[];
-  private _tableInfos: { [key: number]: TableInfo };
+  private _tableInfos: { [key: string]: TableInfo };
   public currentChipSelectedIndex: number = 10;
   public currentSelectedBetLimitIndex: number = 0;
   private _currTime: number = Date.now();
@@ -34,14 +36,14 @@ class Env {
 
   set tableInfoArray(value: TableInfo[]) {
     this._tableInfoArray = value;
-    this._tableInfos = utils.arrayToKeyValue(value, 'tableID');
+    this._tableInfos = utils.arrayToKeyValue(value, 'tableid');
   }
 
   get tableInfoArray(): TableInfo[] {
     return this._tableInfoArray;
   }
 
-  get tableInfos(): { [key: number]: TableInfo } {
+  get tableInfos(): { [key: string]: TableInfo } {
     return this._tableInfos;
   }
 

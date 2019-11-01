@@ -127,40 +127,42 @@ namespace baccarat {
         this.iconTextArr[i].visible = false;
       }
 
-      if (value.v) {
+      if (value.V) {
         if (this.iconModeNumber === 0) {
           // BPT mode
-          if (value.v === 'b') {
+          if (value.V === 'b') {
             this.iconFaceArr[0].visible = true;
             this.iconTextArr[0].visible = true;
-          } else if (value.v === 'p') {
+          } else if (value.V === 'p') {
             this.iconFaceArr[1].visible = true;
             this.iconTextArr[1].visible = true;
           } else {
             this.iconFaceArr[2].visible = true;
             this.iconTextArr[2].visible = true;
           }
-          this.bankerDot.visible = value.b === 1;
-          this.playerDot.visible = value.p === 1;
+          this.bankerDot.visible = value.B === 1;
+          this.playerDot.visible = value.P === 1;
         } else {
           // B/P value mode
 
-          if (value.v === 'b') {
+          if (value.V === 'b') {
             this.iconFaceArr[3].visible = true;
             this.iconTextArr[3].visible = true;
-            this.iconTextArr[3].text = value.w + '';
-          } else if (value.v === 'p') {
+            this.iconTextArr[3].text = value.W + '';
+          } else if (value.V === 'p') {
             this.iconFaceArr[4].visible = true;
             this.iconTextArr[4].visible = true;
-            this.iconTextArr[4].text = value.w + '';
+            this.iconTextArr[4].text = value.W + '';
           } else {
             this.iconFaceArr[5].visible = true;
             this.iconTextArr[5].visible = true;
-            this.iconTextArr[5].text = value.w + '';
+            this.iconTextArr[5].text = value.W + '';
           }
           this.bankerDot.visible = false;
           this.playerDot.visible = false;
         }
+        this.bankerDot.visible = value.B === 1;
+        this.playerDot.visible = value.P === 1;
       } else {
         this.bankerDot.visible = false;
         this.playerDot.visible = false;

@@ -45,6 +45,14 @@
         {
             "name": "animtilelayout",
             "path": "./libs/animtilelayout"
+        },
+        {
+            "name": "playerClient",
+            "path": "./libs/playerclient"
+        },
+        {
+            "name": "roadmap",
+            "path": "./libs/roadmap"
         }
     ]
 }

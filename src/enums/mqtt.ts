@@ -1,7 +1,14 @@
 namespace enums {
   export const mqtt = {
     subscribe: {
-      CONNECT: 'CONNECT',
+      READY: 'READY',
+      TABLE_LIST_UPDATE: 'TABLE_LIST_UPDATE',
+      GAME_STATUS_UPDATE: 'GAME_STATUS_UPDATE',
+      GAME_STATISTIC_UPDATE: 'GAME_STATISTIC_UPDATE',
+      BALANCE_UPDATE: 'BALANCE_UPDATE',
+      PLAYER_BET_INFO_UPDATE: 'PLAYER_BET_INFO_UPDATE',
+      PLAYER_BET_RESULT: 'PLAYER_BET_RESULT',
+      ERROR: 'ERROR',
     },
 
     event: {

@@ -83,6 +83,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class GameBar extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ImageSlider extends eui.Skin{
 	}
 }
@@ -106,8 +110,14 @@ declare module skin_desktop{
 	class NavBar extends eui.Skin{
 	}
 }
+declare class NavSideMenuSkin extends eui.Skin{
+}
 declare module skin_desktop{
 	class VScrollBarSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SegmentedControl extends eui.Skin{
 	}
 }
 declare module skin_desktop{

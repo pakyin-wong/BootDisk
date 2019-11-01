@@ -5,13 +5,14 @@ namespace baccarat {
     private bigEyeRoad: baccarat.BABigEyeRoad;
     private smallRoad: baccarat.BASmallRoad;
     private cockroachRoad: baccarat.BACockroachRoad;
+    private tableid: string;
 
     private parser: baccarat.BARoadParser;
 
-    public constructor() {
+    public constructor(tableid: string) {
       super();
       this.parser = new baccarat.BARoadParser(12);
-      this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
+      // this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
       this.beadRoad = new baccarat.BABeadRoad();
       this.beadRoad.x = 10;
@@ -37,12 +38,10 @@ namespace baccarat {
       this.cockroachRoad.x = 10;
       this.cockroachRoad.y = 600;
       this.addChild(this.cockroachRoad);
-      // this.parser.parseData(env.tableHistory);
-      this.onRoadDisplayUpdate(null);
 
-      // dir.evtHandler.addEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
-      // dir.evtHandler.addEventListener(enums.event.event.ROADMAP_UPDATE, this.onRoadDisplayUpdate, this);
-
+      this.tableid = tableid;
+      this.onParserUpdate(null);
+      /*
       this.parser.parseData([
         { v: 'b', b: 1, p: 0, w: 10 },
         { v: 'b', b: 0, p: 0, w: 6 },
@@ -67,7 +66,7 @@ namespace baccarat {
         { v: 'p', b: 1, p: 0, w: 8 },
         { v: 'b', b: 1, p: 0, w: 9 },
       ]);
-
+*/
       this.touchEnabled = true;
       this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
     }
@@ -77,14 +76,29 @@ namespace baccarat {
     }
 
     private onParserUpdate(e: egret.Event) {
+      if (env.tableInfos[this.tableid]) {
+        if (env.tableInfos[this.tableid].roadmap) {
+          this.parser.parseData(env.tableInfos[this.tableid].roadmap);
+        }
+      }
+
+      console.dir('beadRoad: -');
+      console.dir(this.parser.beadRoadResult);
+      console.dir('bigRoad: -');
+      console.dir(this.parser.bigRoadResult);
       this.beadRoad.parseRoadData(this.parser.beadRoadResult);
       this.bigRoad.parseRoadData(this.parser.bigRoadResult);
       this.bigEyeRoad.parseRoadData(this.parser.bigEyeRoadResult);
       this.smallRoad.parseRoadData(this.parser.smallRoadResult);
       this.cockroachRoad.parseRoadData(this.parser.cockroachRoadResult);
     }
+    /*
     private onRoadDataUpdate(e: egret.Event) {
       this.parser.parseData(env.tableHistory);
+    }*/
+
+    public updateRoadData(roadmapData: any) {
+      this.parser.parseData(roadmapData);
     }
 
     private onRoadDisplayUpdate(e: egret.Event) {

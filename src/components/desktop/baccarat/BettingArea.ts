@@ -12,7 +12,7 @@ namespace baccarat {
     // temp component
     private stateLabel: eui.Label;
 
-    private tableID: number;
+    private tableID: string;
     private previousState: number;
     private gameData: GameData;
     private betDetails: BetDetail[];
@@ -28,31 +28,21 @@ namespace baccarat {
     }
     protected childrenCreated() {
       super.childrenCreated();
-      console.log('start betLimits');
-      env.betLimits = [
-        {
-          currency: 'en',
-          upper: 200,
-          lower: 1,
-          denominationList: [1, 2, 5, 10, 50, 100],
-        },
-      ];
+      // console.log('start betLimits');
 
-      this.betChipSet.setDenominationList(env.betLimits[env.currentSelectedBetLimitIndex].denominationList);
+      const denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chipsList.map(data => data.value);
+      this.betChipSet.setDenominationList(denominationList);
 
       this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
       this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
     }
 
     private onConfirmPressed() {
-      egret.log('Confirm');
-      const bets = this.bettingTable.getUnconfirmedBetDetails();
-      dir.socket.bet(this.tableID, bets).then(data => {
-        if (data.success) {
-          this.bettingTable.resetUnconfirmedBet();
-          egret.log('Bet Succeeded');
-        }
-      });
+      if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
+        egret.log('Confirm');
+        const bets = this.bettingTable.getUnconfirmedBetDetails();
+        dir.socket.bet(this.tableID, bets);
+      }
     }
 
     private onCancelPressed() {
@@ -61,21 +51,24 @@ namespace baccarat {
     }
 
     public onTableInfoUpdate(tableInfo: TableInfo) {
-      console.log('BettingArea listener');
-      this.tableID = tableInfo.tableID;
-      this.gameData = <GameData>tableInfo.gameData;
-      this.betDetails = tableInfo.betDetails;
-      console.log(`BettingArea::onTableInfoUpdate::betDetails ${this.betDetails}`);
+      // console.log('BettingArea listener');
+      this.tableID = tableInfo.tableid;
+      this.gameData = <GameData>tableInfo.data;
+      this.betDetails = tableInfo.bets;
+      // console.log(`BettingArea::onTableInfoUpdate::betDetails ${this.betDetails}`);
       this.updateGame();
+      this.previousState = this.gameData.state;
     }
 
     protected updateGame() {
-      console.log(`BettingArea::updateGame::GameState ${this.gameData.gameState}`);
+      // console.log(`BettingArea::updateGame::GameState ${this.gameData.state}`);
 
-      switch (this.gameData.gameState) {
+      switch (this.gameData.state) {
+        case enums.baccarat.GameState.IDLE:
+          this.setStateIdle();
+          break;
         case enums.baccarat.GameState.BET:
-          console.log(`BettingArea::updateGame::setStateBet`);
-
+          // console.log(`BettingArea::updateGame::setStateBet`);
           this.setStateBet();
           break;
         case enums.baccarat.GameState.DEAL:
@@ -88,7 +81,7 @@ namespace baccarat {
           this.setStateRefund();
           break;
         case enums.baccarat.GameState.SHUFFLE:
-          logger.l('BettingArea::updateGame()::SHUFFLE');
+          // logger.l('BettingArea::updateGame()::SHUFFLE');
           this.setStateShuffle();
           break;
         default:
@@ -96,13 +89,34 @@ namespace baccarat {
       }
     }
 
+    protected setStateIdle() {
+      if (this.previousState !== enums.baccarat.GameState.IDLE) {
+        this.bettingTable.setTouchEnabled(false);
+        this.cardHolder.visible = false;
+        this.winAmountLabel.visible = false;
+        // this.setBetRelatedComponentsTouchEnabled(false);
+        // hide state
+        this.stateLabel.visible = false;
+        this.setBetRelatedComponentsVisibility(false);
+      }
+    }
+
     protected setStateBet() {
       if (this.previousState !== enums.baccarat.GameState.BET) {
+        // reset data betinfo
+
+        if (this.betDetails) {
+          this.betDetails.splice(0, this.betDetails.length);
+        }
+
         // TODO: show start bet message to the client for few seconds
         this.bettingTable.resetUnconfirmedBet();
         this.bettingTable.resetConfirmedBet();
         this.stateLabel.text = 'Betting';
         this.winAmountLabel.visible = false;
+
+        // show state
+        this.stateLabel.visible = true;
 
         // hide cardHolder
         this.cardHolder.visible = false;
@@ -112,11 +126,13 @@ namespace baccarat {
 
         // enable betting table
         this.bettingTable.setTouchEnabled(true);
-      }
-      // update the bet amount of each bet field in betting table
-      logger.l(`BettingArea::setStateBet:betDetails: ` + this.betDetails);
-      if (this.betDetails) {
-        this.bettingTable.updateBetFields(this.betDetails);
+        this.setBetRelatedComponentsTouchEnabled(true);
+
+        // update the bet amount of each bet field in betting table
+        logger.l(`BettingArea::setStateBet:betDetails: ` + this.betDetails);
+        if (this.betDetails) {
+          this.bettingTable.updateBetFields(this.betDetails);
+        }
       }
 
       // update the countdownTimer
@@ -130,6 +146,10 @@ namespace baccarat {
 
         // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
+
+        // show state
+        this.stateLabel.visible = true;
 
         // show cardHolder
         this.cardHolder.visible = true;
@@ -137,6 +157,7 @@ namespace baccarat {
 
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
 
         this.winAmountLabel.visible = false;
       }
@@ -145,16 +166,28 @@ namespace baccarat {
     }
     protected setStateFinish() {
       if (this.previousState !== enums.baccarat.GameState.FINISH) {
-        this.computeTotalWin();
+        // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
+        this.setBetRelatedComponentsVisibility(false);
+
+        // show state
+        this.stateLabel.visible = true;
+
+        // show cardHolder
+        this.cardHolder.visible = true;
+        this.cardHolder.updateResult(this.gameData);
 
         // disable betting table
         this.bettingTable.setTouchEnabled(false);
-        this.winAmountLabel.visible = true;
-        this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+        this.setBetRelatedComponentsTouchEnabled(false);
 
         // TODO: show effect on each winning bet field
-        logger.l(`this.gameData.winType ${this.gameData.winType} ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.winType)}`);
-        this.stateLabel.text = `Finish, ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.winType)}`;
+        logger.l(`this.gameData.winType ${this.gameData.wintype} ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.wintype)}`);
+        this.stateLabel.text = `Finish, ${EnumHelpers.getKeyByValue(enums.baccarat.FinishType, this.gameData.wintype)}`;
+
+        if (this.totalWin) {
+          this.winAmountLabel.visible = true;
+          this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+        }
 
         // TODO: show win message and the total win ammount to the client for few seconds
 
@@ -170,6 +203,10 @@ namespace baccarat {
 
         // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
+
+        // show state
+        this.stateLabel.visible = true;
 
         // hide cardHolder
         this.cardHolder.visible = false;
@@ -186,6 +223,10 @@ namespace baccarat {
 
         // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
         this.setBetRelatedComponentsVisibility(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
+
+        // show state
+        this.stateLabel.visible = true;
 
         // hide cardHolder
         this.cardHolder.visible = false;
@@ -196,11 +237,39 @@ namespace baccarat {
       }
     }
 
+    public onBetDetailUpdate(tableInfo: TableInfo) {
+      // TODO: show win result when bet detail is ready
+      this.betDetails = tableInfo.bets;
+      switch (this.gameData.state) {
+        case enums.baccarat.GameState.BET:
+          this.bettingTable.updateBetFields(this.betDetails);
+          break;
+        case enums.baccarat.GameState.FINISH:
+        default:
+          this.computeTotalWin();
+          this.winAmountLabel.visible = true;
+          this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+          this.bettingTable.showWinEffect(this.betDetails);
+          break;
+      }
+    }
+
+    public onBetConfirmed() {
+      this.bettingTable.resetUnconfirmedBet();
+      egret.log('Bet Succeeded');
+    }
+
     protected setBetRelatedComponentsVisibility(visible: boolean) {
       this.betChipSet.visible = visible;
       this.countdownTimer.visible = visible;
       this.confirmButton.visible = visible;
       this.cancelButton.visible = visible;
+    }
+
+    protected setBetRelatedComponentsTouchEnabled(enabled: boolean) {
+      this.betChipSet.setTouchEnabled(enabled);
+      this.confirmButton.touchEnabled = enabled;
+      this.cancelButton.touchEnabled = enabled;
     }
 
     protected updateCountdownTimer() {
@@ -210,16 +279,19 @@ namespace baccarat {
       // this.countdownTimer.remainingTime = this.gameData.timer - timeDiff;
       // this.countdownTimer.start();
 
-      this.countdownTimer.countdownValue = this.gameData.timer;
-      this.countdownTimer.remainingTime = this.gameData.timer - (env.currTime - this.gameData.startTime);
+      this.countdownTimer.countdownValue = this.gameData.countdown * 1000;
+      this.countdownTimer.remainingTime = this.gameData.countdown * 1000 - (env.currTime - this.gameData.starttime);
       this.countdownTimer.start();
     }
 
     protected computeTotalWin() {
       let totalWin = 0;
-      for (const betDetail of this.betDetails) {
-        totalWin += betDetail.winAmount;
+      if (this.betDetails) {
+        for (const betDetail of this.betDetails) {
+          totalWin += betDetail.winamount;
+        }
       }
+
       this.totalWin = totalWin;
     }
 
