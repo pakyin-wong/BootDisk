@@ -30,7 +30,7 @@ namespace scene {
       super(data);
       this._tableID = data.tableid;
 
-      this._video = new egret.FlvVideo();
+      this._video = dir.videoPool.get();
 
       this._video.x = 0;
       this._video.y = 0;
@@ -39,7 +39,8 @@ namespace scene {
       this._video.height = 1320;
       // this._video.poster = 'resource/assets/bg.jpg';
 
-      this._video.load('http://203.66.65.93:8000/live/720.flv');
+      this._video.load('http://203.66.65.93:8000/live/mi-1080p.flv');
+      // this._video.load('http://192.168.1.85:8090/live/360.flv');
 
       // this.roadmap = new baccarat.BARoadmap(data.tableID);
     }
@@ -125,6 +126,7 @@ namespace scene {
     public async onFadeEnter() {}
 
     public onExit() {
+      dir.videoPool.release(this._video);
       this.removeEventListeners();
       this.removeChildren();
     }

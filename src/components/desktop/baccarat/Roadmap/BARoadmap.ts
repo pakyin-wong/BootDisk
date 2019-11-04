@@ -86,11 +86,26 @@ namespace baccarat {
       console.dir(this.parser.beadRoadResult);
       console.dir('bigRoad: -');
       console.dir(this.parser.bigRoadResult);
-      this.beadRoad.parseRoadData(this.parser.beadRoadResult);
-      this.bigRoad.parseRoadData(this.parser.bigRoadResult);
-      this.bigEyeRoad.parseRoadData(this.parser.bigEyeRoadResult);
-      this.smallRoad.parseRoadData(this.parser.smallRoadResult);
-      this.cockroachRoad.parseRoadData(this.parser.cockroachRoadResult);
+
+      if (this.parser.beadRoadResult) {
+        this.beadRoad.parseRoadData(this.parser.beadRoadResult);
+      }
+
+      if (this.parser.bigRoadResult) {
+        this.bigRoad.parseRoadData(this.parser.bigRoadResult);
+      }
+
+      if (this.parser.bigEyeRoadResult) {
+        this.bigEyeRoad.parseRoadData(this.parser.bigEyeRoadResult);
+      }
+
+      if (this.parser.smallRoadResult) {
+        this.smallRoad.parseRoadData(this.parser.smallRoadResult);
+      }
+
+      if (this.parser.cockroachRoadResult) {
+        this.cockroachRoad.parseRoadData(this.parser.cockroachRoadResult);
+      }
     }
     /*
     private onRoadDataUpdate(e: egret.Event) {
