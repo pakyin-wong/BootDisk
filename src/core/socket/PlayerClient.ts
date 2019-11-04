@@ -5,13 +5,13 @@ namespace we {
 
       constructor() {
         this.client = new PlayerClient({
-          playerID: 'BMJCP2DH5S5VCC8S9RHG',
-          secret: '4114f79f17c28ec6bfa01b80a28870a7',
-          connectTimeout: 1000 * 1000, // To avoid disconnect,
-          authhost: 'http://18.139.237.86:8080/liveplayer/api/auth',
-          hostname: '18.139.237.86', // RabbitMQ hostname
-          path: '/ws', // Path of RabbitMQ websocket
-          port: '15675', // RabbitMQ websocket port
+          playerID: dir.config.playerID,
+          secret: dir.config.secret,
+          connectTimeout: dir.config.connectTimeout, // To avoid disconnect,
+          authhost: dir.config.authhost,
+          hostname: dir.config.hostname, // RabbitMQ hostname
+          path: dir.config.path, // Path of RabbitMQ websocket
+          port: dir.config.port, // RabbitMQ websocket port
         });
 
         logger.l('MQTTSocketComm is created', this.client);

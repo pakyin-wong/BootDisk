@@ -8,6 +8,7 @@ namespace we {
       }
 
       // public socket: socket.MQTTSocketComm;
+      public config: any;
       public socket: ISocket;
       public evtHandler: EventHandler;
       public errHandler: ErrorHandler;
