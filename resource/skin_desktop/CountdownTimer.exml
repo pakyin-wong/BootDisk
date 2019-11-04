@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.CountdownTimerSkin" width="200" height="80" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<w:Config id="16dcf084172"></w:Config>
-	<components:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0"
-	                                    bottom="0" right="0" thickness="10" touchEnabled="false" touchChildren="false" />
+	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
+	                            right="0" thickness="10" touchEnabled="false" touchChildren="false" />
 	<e:Label id="countdownLabel" text="30" x="31" verticalCenter="0" />
 </e:Skin>

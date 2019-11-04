@@ -23,20 +23,20 @@ class Main extends eui.UILayer {
 
   private async init() {
     // step 1: init director elements (socket comm, controller, handler)
-    dir.socket = new socket.SocketMock();
-    // dir.socket = new socket.SocketComm();
-    dir.evtHandler = new handler.EventHandler();
-    dir.errHandler = new handler.ErrorHandler();
-    dir.layerCtr = new controller.LayerCtr(this.stage);
-    dir.sceneCtr = new controller.SceneCtr();
-    dir.moniter = new Monitor();
-    dir.videoPool = new Pool(egret.FlvVideo);
+    // dir.socket = new socket.SocketMock();
+    dir.socket = new we.core.SocketComm();
+    dir.evtHandler = new we.core.EventHandler();
+    dir.errHandler = new we.core.ErrorHandler();
+    dir.layerCtr = new we.core.LayerCtr(this.stage);
+    dir.sceneCtr = new we.core.SceneCtr();
+    dir.moniter = new we.core.Monitor();
+    dir.videoPool = new we.utils.Pool(egret.FlvVideo);
 
     // step 2: init Egrets Asset / Res
     await this.initRes();
 
     // step 3: create loading scene
-    dir.sceneCtr.goto('LoadingScene');
+    dir.sceneCtr.goto('loading');
   }
 
   private async initRes() {
@@ -45,7 +45,7 @@ class Main extends eui.UILayer {
     try {
       await RES.loadConfig('resource/default.res.json', 'resource/');
       await this.loadTheme();
-      await RES.loadGroup(enums.res.EgretBasic);
+      await RES.loadGroup(we.core.res.EgretBasic);
     } catch (e) {
       console.error(e);
     }
@@ -53,6 +53,6 @@ class Main extends eui.UILayer {
 
   private async loadTheme() {
     const theme = new eui.Theme('resource/default.thm.json', this.stage);
-    await evt.wait(theme, eui.UIEvent.COMPLETE);
+    await we.utils.wait(theme, eui.UIEvent.COMPLETE);
   }
 }
