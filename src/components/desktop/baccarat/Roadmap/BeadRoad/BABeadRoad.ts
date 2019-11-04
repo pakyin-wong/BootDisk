@@ -29,7 +29,7 @@ namespace baccarat {
     }
 
     private onClick(e: egret.TouchEvent) {
-      this.Mode = ++this.Mode % 3;
+      this.Mode = ++this.Mode % 2;
     }
   }
 }
