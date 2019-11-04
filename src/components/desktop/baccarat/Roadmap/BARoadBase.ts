@@ -66,7 +66,7 @@ namespace baccarat {
         icon.setLang(this.lang);
         icon.setByObject(roadDataCopy[i]);
 
-        if (roadDataCopy[i].isPredict && roadDataCopy[i].v) {
+        if (roadDataCopy[i].isPredict && roadDataCopy[i].V) {
           icon.animate();
         }
       }

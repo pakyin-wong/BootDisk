@@ -10,8 +10,6 @@ namespace baccarat {
     public bigEyeRoadResult: any;
     public cockroachRoadResult: any;
 
-    private predictTimeout: number;
-
     public constructor(maxCol: number) {
       super();
       this.rawResult = [];
@@ -22,9 +20,9 @@ namespace baccarat {
     public predictWin(v: number) {
       let nextResult = {};
       if (v === 0) {
-        nextResult = { v: 'b', b: 0, p: 0, w: 0, isPredict: 1 };
+        nextResult = { V: 'b', B: 0, P: 0, W: 0, isPredict: 1 };
       } else {
-        nextResult = { v: 'p', b: 0, p: 0, w: 0, isPredict: 1 };
+        nextResult = { V: 'p', B: 0, P: 0, W: 0, isPredict: 1 };
       }
       const predict = this.rawResult.slice();
       predict.push(nextResult);
@@ -36,48 +34,21 @@ namespace baccarat {
       this.doParseCockroachRoad();
 
       this.dispatchEvent(new egret.Event('onUpdate'));
-      if (this.predictTimeout) {
-        egret.clearTimeout(this.predictTimeout);
-      }
-      this.predictTimeout = egret.setTimeout(this.clearPredict, this, 3000);
     }
 
-    private clearPredict() {
-      this.parseData(this.rawResult);
+    public clearPredict() {
+      if (this.rawResult) {
+        this.parseData(this.rawResult);
+      }
     }
     public parseData(rawData: any) {
-      // this.rawResult = rawData.slice(); // copy the array
-      this.beadRoadResult = rawData.bead;
-      this.bigRoadResult = rawData.bigRoad;
-      this.bigEyeRoadResult = rawData.bigEye;
-      this.smallRoadResult = rawData.small;
-      this.cockroachRoadResult = rawData.roach;
-
-      /*
-        bbigEye: rawData.bbigeye ? rawData.bbigeye : '',
-        bbigRoad: rawData.bbigroad ? rawData.bbigroad : '',
-        bead: rawData.bead ? rawData.bead : '',
-        bigEye: rawData.bigeye ? rawData.bigeye : '',
-        bigRoad: rawData.bigroad ? rawData.bigroad : '',
-        broach: rawData.broach ? rawData.broach : '',
-        bsmall: rawData.bsmall ? rawData.bsmall : '',
-        pbead: rawData.pbead ? rawData.pbead : '',
-        pbigEye: rawData.pbigeye ? rawData.pbigeye : '',
-        pbigRoad: rawData.pbigroad ? rawData.pbigroad : '',
-        proach: rawData.proach ? rawData.proach : '',
-        psmall: rawData.psmall ? rawData.psmall : '',
-        roach: rawData.roach ? rawData.roach : '',
-        shoeid: rawData.shoeid ? rawData.shoeid : '',
-        small: rawData.small ? rawData.small : '',
-        animateCell: rawData.animatecell ? rawData.animatecell : '',
+      this.rawResult = rawData.slice(); // copy the array
       this.doParseBeadRoad(this.rawResult);
       this.doParseBigRoad();
       this.doParseBigEyeRoad();
       this.doParseSmallRoad();
       this.doParseCockroachRoad();
-      */
-
-      // this.dispatchEvent(new egret.Event('onUpdate'));
+      this.dispatchEvent(new egret.Event('onUpdate'));
     }
 
     private doParseBeadRoad(data: any) {
@@ -94,7 +65,7 @@ namespace baccarat {
       // 1.strip all the tie result at the begining
       const pbtResultArr = this.beadRoadResult.slice();
       while (pbtResultArr.length > 0) {
-        if (pbtResultArr[0].v === 't') {
+        if (pbtResultArr[0].V === 't') {
           pbtResultArr.splice(0, 1);
         } else {
           break;
@@ -105,11 +76,11 @@ namespace baccarat {
       let lastUntieData = null;
       for (const currentData of pbtResultArr) {
         // set the number of tie to zero
-        currentData.t = 0;
+        currentData.T = 0;
 
         // add the tie number to the last untie result
-        if (currentData.v === 't') {
-          lastUntieData.t++;
+        if (currentData.V === 't') {
+          lastUntieData.T++;
         } else {
           lastUntieData = currentData;
         }
@@ -118,7 +89,7 @@ namespace baccarat {
       // 3.remove all tie result
       const pbResultArr = [];
       for (const currentData of pbtResultArr) {
-        if (currentData.v !== 't') {
+        if (currentData.V !== 't') {
           pbResultArr.push(currentData);
         }
       }
@@ -151,11 +122,11 @@ namespace baccarat {
       for (const i of pbResult) {
         const currentData = i;
         if (currentV == null) {
-          currentV = currentData.v;
+          currentV = currentData.V;
           tempArr.push(currentData);
           hasNext = true;
-        } else if (currentV !== currentData.v) {
-          currentV = currentData.v;
+        } else if (currentV !== currentData.V) {
+          currentV = currentData.V;
           if (tempArr.length > roadMaxLength) {
             roadMaxLength = tempArr.length;
           }
@@ -212,17 +183,17 @@ namespace baccarat {
               break;
             }
             // check if the out element is available
-            if (outElement.v == null) {
+            if (outElement.V == null) {
               roadResultArr[roadCol][roadRow] = inElement;
               // store the max column number for trimming
               if (roadCol > maxRoadCol) {
                 maxRoadCol = roadCol;
               }
               found = true;
-            } else if (outElement.v === inElement.v) {
+            } else if (outElement.V === inElement.V) {
               // find the next place
               if (roadRow < 5) {
-                if (roadResultArr[roadCol][roadRow + 1].v != null) {
+                if (roadResultArr[roadCol][roadRow + 1].V != null) {
                   turn = true;
                 }
               } else {
@@ -263,9 +234,9 @@ namespace baccarat {
             if (col >= 0) {
               const p = this.bigRoadColumnResult[col].length;
               if (m === p) {
-                pbResultArr.push({ v: 'p', isPredict });
+                pbResultArr.push({ V: 'p', isPredict });
               } else {
-                pbResultArr.push({ v: 'b', isPredict });
+                pbResultArr.push({ V: 'b', isPredict });
               }
             }
           } else {
@@ -274,9 +245,9 @@ namespace baccarat {
               const mPrevious: number = this.bigRoadColumnResult[n - 1].length;
               const p = this.bigRoadColumnResult[col].length;
               if (mPrevious === p) {
-                pbResultArr.push({ v: 'b', isPredict });
+                pbResultArr.push({ V: 'b', isPredict });
               } else {
-                pbResultArr.push({ v: 'p', isPredict });
+                pbResultArr.push({ V: 'p', isPredict });
               }
             }
           }
