@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.Nav" width="2560" height="1320" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" >
+	<e:Rect width="4" height="86" x="270" y="37" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x888888"/>
+	<e:Image id="_logo" width="200" height="80" x="40" y="40" fillMode="clip" source=""/>
+	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="320" y="80" size="30" textColor="0x1c1c1c"/>
+	<e:Group id="_userInfo_toggle" x="2050" y="40">
+		<e:Label id="_user" text="user" x="100" y="0" textColor="0x1c1c1c"/>
+		<e:Label id="_balance" text="RMB 123,456,789" x="100" y="40" textColor="0x1c1c1c"/>
+		<e:Image id="_profilePrc" width="80" height="80" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillMode="clip"/>
+	</e:Group>
+	<e:Image id="_menu_toggle" width="80" height="80" x="2450" y="40" source="nav_menu_toggle"/>
+	<components:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="140"/>
+	<components:NavSideMenu id="_menu" width="375" height="545" x="2155" y="140"/>
+</e:Skin>

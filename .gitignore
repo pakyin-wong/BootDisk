@@ -1,5 +1,7 @@
 bin-debug
-.wing
+.wing/*
+!.wing/tasks.json
 bin-release
 debug.log
 libs/modules
+manifest.json

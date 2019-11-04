@@ -12,7 +12,14 @@
 		"eui.ToggleSwitch": "resource/eui_skins/ToggleSwitchSkin.exml",
 		"eui.VScrollBar": "resource/eui_skins/VScrollBarSkin.exml",
 		"eui.VSlider": "resource/eui_skins/VSliderSkin.exml",
-		"eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml"
+		"eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
+		"components.ImageSlider": "resource/skin_desktop/ImageSlider.exml",
+		"components.UserInfoWindow": "resource/skin_desktop/UserInfoWindow.exml",
+		"baccarat.BetChip": "resource/skin_desktop/BetChip.exml",
+		"baccarat.BetChipSet": "resource/skin_desktop/BetChipSet.exml",
+		"baccarat.CountdownTimer": "resource/skin_desktop/CountdownTimer.exml",
+		"baccarat.BetConfirmButton": "resource/skin_desktop/BetConfirmButton.exml",
+		"NavSideMenu": "resource/skin_desktop/NavSideMenu.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -28,7 +35,28 @@
 		"resource/eui_skins/TextInputSkin.exml",
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VScrollBarSkin.exml",
-		"resource/eui_skins/VSliderSkin.exml"
+		"resource/eui_skins/VSliderSkin.exml",
+		"resource/skin_desktop/BaccaratScene.exml",
+		"resource/skin_desktop/BetChip.exml",
+		"resource/skin_desktop/BetChipSet.exml",
+		"resource/skin_desktop/BetConfirmButton.exml",
+		"resource/skin_desktop/BettingArea.exml",
+		"resource/skin_desktop/BettingTable.exml",
+		"resource/skin_desktop/CardHolder.exml",
+		"resource/skin_desktop/CountdownTimer.exml",
+		"resource/skin_desktop/GameBar.exml",
+		"resource/skin_desktop/ImageSlider.exml",
+		"resource/skin_desktop/LoadingScene.exml",
+		"resource/skin_desktop/LobbyBacarratListItem.exml",
+		"resource/skin_desktop/LobbyScene.exml",
+		"resource/skin_desktop/Nav.exml",
+		"resource/skin_desktop/NavBar.exml",
+		"resource/skin_desktop/NavSideMenu.exml",
+		"resource/skin_desktop/ScrollBarVertical.exml",
+		"resource/skin_desktop/SegmentedControlTabItem.exml",
+		"resource/skin_desktop/SwitchLang.exml",
+		"resource/skin_desktop/TableInfoWindow.exml",
+		"resource/skin_desktop/UserInfoWindow.exml"
 	],
 	"path": "resource/default.thm.json"
 }

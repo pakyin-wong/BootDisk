@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LobbyBacarratListItem" width="640" height="400" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+	<e:Rect id="rect" width="100%" height="100%" x="0" y="0" fillColor="0xc12828" />
+	<e:Label id="label" text="Label" verticalCenter="0" horizontalCenter="0" anchorOffsetX="37" anchorOffsetY="15" />
+</e:Skin>
