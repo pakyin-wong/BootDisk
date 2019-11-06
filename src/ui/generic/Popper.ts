@@ -1,14 +1,14 @@
 namespace we {
   export namespace ui {
     export class Popper extends core.BaseEUI {
-      protected _content: eui.Component;
+      protected _content: egret.DisplayObject;
       protected _close: eui.UIComponent;
       protected _contentPos: egret.Point;
 
       public toggler: egret.DisplayObject;
       public dismissOnClickOutside: boolean = false;
 
-      constructor(skin: string) {
+      constructor(skin: string = null) {
         super(skin);
       }
 
@@ -58,6 +58,18 @@ namespace we {
 
       public get isActivated(): boolean {
         return this._content && this._content.visible;
+      }
+
+      public set content(c: egret.DisplayObject) {
+        this._content && this.removeChild(this._content);
+        this._content = c;
+        this._contentPos = new egret.Point(this._content.x, this._content.y);
+        this.addChild(this._content);
+      }
+
+      public get content(): egret.DisplayObject {
+        !this._content && (this.content = new egret.Sprite());
+        return this._content;
       }
 
       public setToggler(toggler: egret.DisplayObject) {
