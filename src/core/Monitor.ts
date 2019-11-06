@@ -14,15 +14,15 @@ namespace we {
         dir.layerCtr.nav.addChild(_nav);
 
         this.testCollapser1 = new ui.Collapser();
-        this.testCollapser1.$x = 2000;
-        this.testCollapser1.$y = 100;
+        this.testCollapser1.$x = 2360;
+        this.testCollapser1.$y = 920;
         this.testCollapser1.width = 200;
         this.testCollapser1.height = 400;
         dir.layerCtr.top.addChild(this.testCollapser1);
 
         this.testCollapser2 = new ui.Collapser();
         this.testCollapser2.$x = 0;
-        this.testCollapser2.$y = 100;
+        this.testCollapser2.$y = 920;
         this.testCollapser2.width = 200;
         this.testCollapser2.height = 400;
         this.testCollapser2.direction = 'bottomup';
@@ -30,8 +30,8 @@ namespace we {
         dir.layerCtr.top.addChild(this.testCollapser2);
 
         this.testCollapser3 = new ui.Collapser();
-        this.testCollapser3.$x = 400;
-        this.testCollapser3.$y = 100;
+        this.testCollapser3.$x = 210;
+        this.testCollapser3.$y = 920;
         this.testCollapser3.width = 200;
         this.testCollapser3.height = 400;
         this.testCollapser3.snap = 'left';
@@ -39,7 +39,7 @@ namespace we {
         dir.layerCtr.top.addChild(this.testCollapser3);
 
         this.testCollapser4 = new ui.Collapser();
-        this.testCollapser4.$x = 900;
+        this.testCollapser4.$x = 10;
         this.testCollapser4.$y = 100;
         this.testCollapser4.width = 200;
         this.testCollapser4.height = 200;
@@ -48,7 +48,8 @@ namespace we {
         this.testCollapser4.setItem([new eui.Button(), new eui.Button(), new eui.Button(), new eui.Button(), new eui.Button()]);
 
         this.testDropDownToggle = new eui.Button();
-        this.testDropDownToggle.$x = 900;
+        this.testDropDownToggle.label = 'Drop down demo';
+        this.testDropDownToggle.$x = 10;
         this.testDropDownToggle.$y = 10;
 
         this.testDropDown = new ui.Popper();
