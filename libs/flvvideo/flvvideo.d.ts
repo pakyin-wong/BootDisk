@@ -75,6 +75,7 @@ declare namespace egret {
          * @language zh_CN
          */
         stop(): void;
+        reset(): void;
         /**
          * The URL of the video you want to play.
          * @version Egret 2.4

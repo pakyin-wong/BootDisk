@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.CardHolderSkin" width="1200" height="350" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
-	<e:Rect width="1200" height="350" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"  fillAlpha="0"/>
-	<e:Image width="1000" height="175" horizontalCenter="0" verticalCenter="0" anchorOffsetX="0" anchorOffsetY="0"/>
-        <components:Card id="card3Banker" width="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="190" top="0" height="120"/>
-        <components:Card id="card3Player" width="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-190" top="0" height="120"/>
-	<components:Card id="card2Banker" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" bottom="0" horizontalCenter="300"/>
-	<components:Card id="card1Banker" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" bottom="0" horizontalCenter="150"/>
-        <components:Card id="card2Player" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-150" bottom="0"/>
-        <components:Card id="card1Player" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-300" bottom="0"/>
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <e:Rect width="1200" height="350" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillAlpha="0" />
+        <e:Image width="1000" height="175" horizontalCenter="0" verticalCenter="0" anchorOffsetX="0" anchorOffsetY="0" />
+        <ui:Card id="card3Banker" width="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="190" top="0"
+                 height="120" />
+        <ui:Card id="card3Player" width="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-190" top="0"
+                 height="120" />
+        <ui:Card id="card2Banker" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" bottom="0"
+                 horizontalCenter="300" />
+        <ui:Card id="card1Banker" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" bottom="0"
+                 horizontalCenter="150" />
+        <ui:Card id="card2Player" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-150"
+                 bottom="0" />
+        <ui:Card id="card1Player" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-300"
+                 bottom="0" />
 </e:Skin>

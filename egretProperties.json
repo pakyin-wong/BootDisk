@@ -51,6 +51,10 @@
             "path": "./libs/playerclient"
         },
         {
+            "name": "moment",
+            "path": "./libs/moment"
+        },
+        {
             "name": "roadmap",
             "path": "./libs/roadmap"
         }

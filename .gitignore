@@ -5,3 +5,4 @@ bin-release
 debug.log
 libs/modules
 manifest.json
+config.local.json
