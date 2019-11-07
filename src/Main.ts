@@ -34,6 +34,7 @@ class Main extends eui.UILayer {
     dir.errHandler = new we.core.ErrorHandler();
     dir.layerCtr = new we.core.LayerCtr(this.stage);
     dir.sceneCtr = new we.core.SceneCtr();
+    dir.meterCtr = new we.core.MeterCtr();
     dir.moniter = new we.core.Monitor();
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
 

@@ -21,5 +21,13 @@ namespace we {
       i18n.lang = s;
       dir.evtHandler.dispatch(core.Event.SWITCH_LANGUAGE, s);
     }
+
+    export function register(item: ui.IRunTimeComponent) {
+      dir.evtHandler.$addListener(core.Event.SWITCH_LANGUAGE, item.render, item);
+    }
+
+    export function drop(item: ui.IRunTimeComponent) {
+      dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, item.render, item);
+    }
   }
 }

@@ -2,7 +2,7 @@ namespace we {
   export namespace loading {
     export class Scene extends core.BaseScene {
       private _progressbar: eui.ProgressBar;
-      private _progressMsg: ui.TextField;
+      private _progressMsg: ui.RunTimeLabel;
 
       private step: number = 0;
       private flow = [this.preloadRes, this.initSkin, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
@@ -38,7 +38,7 @@ namespace we {
 
       /** Step 3: Socket Connect */
       private async socketConnect() {
-        this._progressMsg.computed = () => `${i18n.t('loading.socket.connecting')}`;
+        this._progressMsg.renderText = () => `${i18n.t('loading.socket.connecting')}`;
         this._progressbar.minimum = 0;
         this._progressbar.maximum = 1;
         this._progressbar.value = 0;
@@ -55,7 +55,7 @@ namespace we {
 
       /** Step 4: Auth and get user profiles */
       private async auth() {
-        this._progressMsg.computed = () => `${i18n.t('loading.socket.auth')}`;
+        this._progressMsg.renderText = () => `${i18n.t('loading.socket.auth')}`;
         this._progressbar.minimum = 0;
         this._progressbar.maximum = 1;
         this._progressbar.value = 0;
@@ -73,7 +73,7 @@ namespace we {
       private async loadGeneralRes() {
         RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.Common, core.res.Nav]);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-        this._progressMsg.computed = () => `${i18n.t('loading.res.onload')}`;
+        this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
         this._progressbar.minimum = 0;
         this._progressbar.maximum = 0;
         this._progressbar.value = 0;

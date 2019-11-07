@@ -14,6 +14,7 @@ namespace we {
       public errHandler: ErrorHandler;
       public layerCtr: LayerCtr;
       public sceneCtr: SceneCtr;
+      public meterCtr: MeterCtr;
       public moniter: Monitor;
       public videoPool: utils.Pool<egret.FlvVideo>;
     }

@@ -9,7 +9,7 @@ namespace we {
       private _userInfo: Popper;
       private _menu_toggle: eui.Image;
       private _menu: Popper;
-      private _balance: eui.Label;
+      private _balance: RunTimeLabel;
 
       public constructor() {
         super('Nav');
@@ -18,11 +18,13 @@ namespace we {
       }
 
       private updateBalance() {
-        this._balance.text = utils.EnumHelpers.getKeyByValue(core.Currency, env.currency) + ' ' + env.balance;
+        // this._balance.text = utils.EnumHelpers.getKeyByValue(core.Currency, env.currency) + ' ' + env.balance;
+        dir.meterCtr.rackTo('balance', env.balance, 2000);
       }
 
       private onUpdateTimer(e: egret.Event) {
-        this._time.text = new Date(env.currTime).toISOString();
+        this._time.text = moment(env.currTime).format('DD-MM-YYYY, h:mm:ss a');
+        // this._time.text = new Date(env.currTime).toISOString();
       }
 
       protected mount() {
@@ -33,6 +35,9 @@ namespace we {
         this._menu.dismissOnClickOutside = true;
 
         this.updateBalance();
+
+        this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+        dir.meterCtr.register('balance', this._balance);
 
         this.stage.addEventListener(egret.Event.ENTER_FRAME, this.onUpdateTimer, this);
       }
