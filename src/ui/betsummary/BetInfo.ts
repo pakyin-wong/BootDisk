@@ -1,33 +1,34 @@
-namespace ui {
-  export class BetInfo extends eui.Component implements eui.IItemRenderer {
-    public selected: boolean;
-    public itemIndex: number;
+namespace we {
+  export namespace ui {
+    export class BetInfo extends eui.Component implements eui.IItemRenderer {
+      public selected: boolean;
+      public itemIndex: number;
 
-    private _data;
-    private isDirty;
-    private label;
+      private _data;
+      private isDirty;
+      private label;
 
-    public constructor() {
-      super();
-      this.skinName = utils.getSkin('BetInfo');
+      public constructor() {
+        super();
+        this.skinName = we.utils.getSkin('BetInfo');
 
-      this.mount();
-    }
+        this.mount();
+      }
 
-    protected createChilden() {
-      super.createChildren();
-    }
+      protected createChilden() {
+        super.createChildren();
+      }
 
-    protected mount() {}
+      protected mount() {}
 
-    public get data() {
-      return this._data;
-    }
+      public get data() {
+        return this._data;
+      }
 
-    public set data(data: any) {
-      this.isDirty = true;
-      this._data = data;
-      /*
+      public set data(data: any) {
+        this.isDirty = true;
+        this._data = data;
+        /*
       const table = env.tableInfos[data];
       // console.log(table);
       if (table.data.state === 1) {
@@ -36,17 +37,17 @@ namespace ui {
         this.label.text = `TID${table.tableid} / ${EnumHelpers.getKeyByValue(enums.baccarat.GameState, table.data.state)}`;
       }
       */
-      // egret.Tween.removeTweens(this);
-      // if (data === null) {
-      //   this.visible = false;
-      // } else {
-      //   this.rect.fillColor = data;
-      //   this.visible = true;
-      // }
-    }
+        // egret.Tween.removeTweens(this);
+        // if (data === null) {
+        //   this.visible = false;
+        // } else {
+        //   this.rect.fillColor = data;
+        //   this.visible = true;
+        // }
+      }
 
-    public setLayoutBoundsPosition(x: number, y: number) {
-      /*
+      public setLayoutBoundsPosition(x: number, y: number) {
+        /*
       const matrix = this.$getMatrix();
       if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
         const bounds = egret.$TempRectangle;
@@ -80,6 +81,7 @@ namespace ui {
       //   eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
       // }
       */
+      }
     }
   }
 }

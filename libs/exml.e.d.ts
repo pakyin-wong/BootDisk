@@ -67,6 +67,18 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetInfo extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetSummary extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetSummaryToggle extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BettingAreaSkin extends eui.Skin{
 	}
 }
