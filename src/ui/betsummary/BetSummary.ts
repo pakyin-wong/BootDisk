@@ -27,7 +27,9 @@ namespace we {
         this.vlayout = new eui.VerticalLayout();
         this.vlayout.gap = 1;
         this.toggleBar = new we.ui.BetSummaryToggle();
+        this.toggleBar.setToggle(this.toggle());
         this.betInfoList = new we.ui.BetInfoList();
+        this.betInfoList.height = 1000;
         this.group = new eui.Group();
         this.group.addChild(this.toggleBar);
         this.group.addChild(this.betInfoList);
@@ -35,20 +37,18 @@ namespace we {
         this.group.x = 2000;
         this.group.bottom = 0;
         this.group.width = 500;
-        this.toggleBar.setToggle(this.toggle());
         this.addChild(this.group);
       }
 
       public toggle() {
         const self = this;
-        const group = this.group;
         return (): void => {
           console.log('BetSummary: ' + self.betInfoList);
           if (self.open) {
-            group.removeChild(self.betInfoList);
+            self.group.removeChild(self.betInfoList);
             self.open = false;
           } else {
-            group.addChild(self.betInfoList);
+            self.group.addChild(self.betInfoList);
             self.open = true;
           }
         };

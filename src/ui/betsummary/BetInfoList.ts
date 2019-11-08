@@ -7,7 +7,6 @@ namespace we {
 
       constructor() {
         super();
-        this.height = 1000;
         this.scroller = new we.ui.Scroller();
         this.scroller.percentWidth = 100;
         this.scroller.percentHeight = 100;
@@ -27,7 +26,7 @@ namespace we {
         // init viewport
         const list = new eui.List();
         const vlayout = new eui.VerticalLayout();
-        vlayout.gap = 3;
+        vlayout.gap = 5;
         list.layout = vlayout;
 
         this.collection = new eui.ArrayCollection(this.betInfos);
@@ -36,8 +35,6 @@ namespace we {
         this.scroller.viewport = list;
 
         dir.evtHandler.addEventListener(we.core.Event.BALANCE_UPDATE, this.handleTableList, this);
-
-        this.bottom = 100;
       }
 
       // called while
