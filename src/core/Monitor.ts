@@ -11,7 +11,6 @@ namespace we {
 
       public start(stage: egret.Stage) {
         const _nav = new ui.Nav();
-        const _betsummary = new we.ui.BetSummary();
         dir.layerCtr.nav.addChild(_nav);
 
         this.testCollapser1 = new ui.Collapser();
@@ -60,6 +59,9 @@ namespace we {
         dir.layerCtr.top.addChild(this.testDropDown);
 
         setInterval(this.testCollapserbehavior.bind(this), 1000);
+
+        const _betsummary = new we.ui.BetSummary();
+        dir.layerCtr.nav.addChild(_betsummary);
       }
 
       public testCollapserbehavior() {

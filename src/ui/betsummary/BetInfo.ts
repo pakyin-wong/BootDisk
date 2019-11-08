@@ -11,7 +11,6 @@ namespace we {
       public constructor() {
         super();
         this.skinName = we.utils.getSkin('BetInfo');
-
         this.mount();
       }
 
@@ -26,8 +25,10 @@ namespace we {
       }
 
       public set data(data: any) {
+        console.log(data);
         this.isDirty = true;
         this._data = data;
+        this.y = 500 * data;
         /*
       const table = env.tableInfos[data];
       // console.log(table);
@@ -46,7 +47,12 @@ namespace we {
         // }
       }
 
+      /*
       public setLayoutBoundsPosition(x: number, y: number) {
+        console.log('BetInfo::setLayoutBoundsPosition');
+        y += this.$getY() + 500;
+        // x = 100;
+        // y = 100;
         /*
       const matrix = this.$getMatrix();
       if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
@@ -80,8 +86,9 @@ namespace we {
       // if (super.$setY.call(this, y) || changed) {
       //   eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
       // }
-      */
-      }
+
+  }
+}*/
     }
   }
 }

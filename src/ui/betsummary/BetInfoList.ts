@@ -3,10 +3,11 @@ namespace we {
     export class BetInfoList extends eui.Component {
       private scroller: we.ui.Scroller;
       private collection: eui.ArrayCollection;
-      private roomIds: number[] = [];
+      private betInfos: number[] = [1, 2, 3];
 
       constructor() {
         super();
+        this.height = 1000;
         this.scroller = new we.ui.Scroller();
         this.scroller.percentWidth = 100;
         this.scroller.percentHeight = 100;
@@ -25,21 +26,18 @@ namespace we {
 
         // init viewport
         const list = new eui.List();
-        const tlayout = new eui.VerticalLayout();
-        tlayout.gap = 10;
-        list.layout = tlayout;
+        const vlayout = new eui.VerticalLayout();
+        vlayout.gap = 3;
+        list.layout = vlayout;
 
-        this.collection = new eui.ArrayCollection(this.roomIds);
+        this.collection = new eui.ArrayCollection(this.betInfos);
         list.dataProvider = this.collection;
         list.itemRenderer = we.ui.BetInfo;
         this.scroller.viewport = list;
 
-        dir.evtHandler.addEventListener(we.core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        dir.evtHandler.addEventListener(we.core.Event.BALANCE_UPDATE, this.handleTableList, this);
 
         this.bottom = 100;
-
-        this.collection.addItem(1);
-        this.collection.addItem(2);
       }
 
       // called while
@@ -63,6 +61,7 @@ namespace we {
 
       private handleTableList(event: egret.Event) {
         const roomIds = event.data as number[];
+        // this.collection.refresh();
         /*
       const added = this.arrayDiff(roomIds, this.roomIds);
       const removed = this.arrayDiff(this.roomIds, roomIds);
