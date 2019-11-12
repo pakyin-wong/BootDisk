@@ -23,6 +23,7 @@
         }
 
     </style>
+    <link href="./style.css" rel="stylesheet">
     <script src="jslib/vendor-player/WFPlayer.min.js"></script>
 </head>
 
@@ -75,10 +76,17 @@
                  * }
                  **/
                 const screenAdapter = new egret.sys.ExtendedScreenAdapter();
+                var isMobile = egret.Capabilities.isMobile;
                 egret.runEgret({
                     renderMode: "webgl",
                     audioType: 0,
+                    antialias: false,
+                    retina: true,
                     calculateCanvasScaleFactor: function (context) {
+                        if (!isMobile) {
+                            //非移动端默认为3
+                            return 3;
+                        }
                         var backingStore = context.backingStorePixelRatio ||
                             context.webkitBackingStorePixelRatio ||
                             context.mozBackingStorePixelRatio ||
