@@ -1,4 +1,6 @@
-// TypeScript file
+/**
+ * Font can be load by creating a FontFace instance and added to the document.fonts. The font data file can be load within the res group, then call the loadFont to create font
+ */
 
 class FontManager {
   private static _instance: FontManager;
