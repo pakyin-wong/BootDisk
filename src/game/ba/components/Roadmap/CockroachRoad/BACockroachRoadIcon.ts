@@ -15,7 +15,7 @@ namespace we {
 
         this.initGraphics();
 
-        this.setByObject({ v: 'b' });
+        this.setByObject({});
         // this.animate();
       }
 

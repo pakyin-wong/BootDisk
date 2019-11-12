@@ -188,6 +188,7 @@ namespace we {
             this.tableInfo = tableInfo;
             this.gameData = <GameData>this.tableInfo.data;
             this.bettingArea.onTableInfoUpdate(this.tableInfo);
+            this.roadmap.updateRoadData(tableInfo.roadmap);
           }
         }
       }
@@ -208,10 +209,10 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         console.log('BaccaratScene::onRoadDataUpdate');
-        const tableInfo = <data.TableInfo>evt.data;
-        if (tableInfo.tableid === this.tableID) {
-          this.roadmap.updateRoadData(tableInfo.roadmap);
-        }
+        // const tableInfo = <data.TableInfo>evt.data;
+        // if (tableInfo.tableid === this.tableID) {
+        // this.roadmap.updateRoadData(tableInfo.roadmap);
+        // }
       }
     }
   }
