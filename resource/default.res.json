@@ -715,6 +715,11 @@
 			"url": "assets/Nav/menu.PNG",
 			"type": "image",
 			"name": "nav_menu_bg"
+		},
+		{
+			"url": "assets/fonts/barlow.woff2",
+			"type": "bin",
+			"name": "barlow_woff2"
 		}
 	]
 }
