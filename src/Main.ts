@@ -52,7 +52,7 @@ class Main extends eui.UILayer {
       await RES.loadConfig('resource/default.res.json', 'resource/');
       await this.loadTheme();
       await RES.loadGroup(we.core.res.EgretBasic);
-      await font.loadFonts([{ res: 'barlow_woff2', name: 'Barlow' }]);
+      await fontMgr.loadFonts([{ res: 'barlow_woff2', name: 'Barlow' }]);
     } catch (e) {
       console.error(e);
     }

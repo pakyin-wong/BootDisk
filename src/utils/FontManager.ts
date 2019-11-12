@@ -29,8 +29,13 @@ class FontManager {
       if (this.hasFont(fontname)) {
         return Promise.resolve();
       }
-
-      const font = new FontFace(`${fontname}`, `url(${resInfo.root}${resInfo.url})`);
+      const resData = RES.getRes(resName);
+      let font = null;
+      if (resData) {
+        font = new FontFace(`${fontname}`, resData);
+      } else {
+        font = new FontFace(`${fontname}`, `url(${resInfo.root}${resInfo.url})`);
+      }
       const self = this;
       font
         .load()
@@ -65,4 +70,4 @@ class FontManager {
   }
 }
 
-let font: FontManager = FontManager.Instance;
+let fontMgr: FontManager = FontManager.Instance;
