@@ -24,7 +24,11 @@ namespace we {
         this.addChild(this.iconFace);
 
         const colors = [0xdd0000, 0x0000dd, 0x00aa00];
-        const gradientColors = [[0xffaaaa, 0xdd0000], [0xaaaaff, 0x0000dd], [0xaaddaa, 0x008800]];
+        const gradientColors = [
+          [0xffaaaa, 0xdd0000],
+          [0xaaaaff, 0x0000dd],
+          [0xaaddaa, 0x008800],
+        ];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.8;
         const offset = (iconSize - circleRadius * 2) / 2;

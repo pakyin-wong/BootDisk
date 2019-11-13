@@ -1,6 +1,6 @@
 namespace we {
   export namespace utils {
-    export function linkto(linkUrl: string, name?: string, specs?: string) {
+    export function linkTo(linkUrl: string, name?: string, specs?: string) {
       // check the protocol
       const arr = linkUrl.split('/');
       switch (arr[0]) {

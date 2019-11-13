@@ -12,8 +12,8 @@ namespace we {
         dir.socket.getTableHistory();
 
         setTimeout(function() {
-          // utils.linkto('weweb://scene/ba?tableid=1');
-          utils.linkto('https://www.google.com', 'Google');
+          // utils.linkTo('weweb://scene/ba?tableid=1');
+          utils.linkTo('https://www.google.com', 'Google');
         }, 8000);
       }
 
