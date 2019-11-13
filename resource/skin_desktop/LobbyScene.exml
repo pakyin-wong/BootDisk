@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LobbyScene" width="2560" height="1320" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.LobbyScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:lobby="we.lobby.*">
-	<ui:ImageSlider width="2560" height="600" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" />
-	<lobby:GameTableList width="2560" height="720" x="0" y="600" anchorOffsetX="0" anchorOffsetY="0" bottom="0" />
-	<lobby:SegmentedControl width="800" height="50" x="32" y="550" />
+	<ui:ImageSlider width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" />
+	<lobby:GameTableList width="100%" height="720" x="0" y="600" anchorOffsetX="0" anchorOffsetY="0" bottom="0" />
+	<lobby:SegmentedControl width="1004" height="50" x="32" y="550"  anchorOffsetX="0"/>
 	<e:Label text="LOGO" x="64" y="56" size="48" textColor="0x000000" bold="true" fontFamily="Barlow" />
 </e:Skin>

@@ -13,7 +13,7 @@
 			"name": "scene_loading"
 		},
 		{
-			"keys": "scene_lobby_dummyImage",
+			"keys": "scene_lobby_dummyImage,banner-baccarat_png",
 			"name": "scene_lobby"
 		},
 		{
@@ -23,6 +23,10 @@
 		{
 			"keys": "nav_user_info_bg,nav_menu_toggle,nav_menu_bg",
 			"name": "nav"
+		},
+		{
+			"keys": "banner-baccarat_png",
+			"name": "preload"
 		}
 	],
 	"resources": [
@@ -755,6 +759,11 @@
 			"url": "assets/Scene/baccarat/scene_baccarat_tie.png",
 			"type": "image",
 			"name": "scene_baccarat_tie"
+		},
+		{
+			"url": "assets/banner-baccarat.png",
+			"type": "image",
+			"name": "banner-baccarat_png"
 		}
 	]
 }

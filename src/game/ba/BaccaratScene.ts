@@ -43,8 +43,8 @@ namespace we {
         this._video.x = 0;
         this._video.y = 0;
 
-        this._video.width = 2560;
-        this._video.height = 1320;
+        this._video.width = 2600;
+        this._video.height = 1340;
         // this._video.poster = 'resource/assets/bg.jpg';
 
         this._video.load('http://203.66.65.93:8000/live/mi-1080p.flv');
