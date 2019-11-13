@@ -7,6 +7,13 @@ namespace we {
   export namespace ba {
     export class Scene extends core.BaseScene {
       private bettingArea: BettingArea;
+      private bettingTable: BettingTable;
+      private betChipSet: BetChipSet;
+      private cardHolder: CardHolder;
+      private countdownTimer: CountdownTimer;
+      private confirmButton: eui.Button;
+      private cancelButton: eui.Button;
+
       private switchLang: ui.SwitchLang;
 
       private _tableID: string;

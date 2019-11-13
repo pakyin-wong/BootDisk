@@ -22,6 +22,19 @@ namespace we {
       }
 
       protected childrenCreated() {
+        this.gridBanker.setFieldName(BetField.BANKER);
+        this.gridPlayer.setFieldName(BetField.PLAYER);
+        this.gridTie.setFieldName(BetField.TIE);
+        this.gridBankerPair.setFieldName(BetField.BANKER_PAIR);
+        this.gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
+        this.gridSuperSix.setFieldName(BetField.SUPER_SIX);
+        this.gridBanker.setBitmap('scene_baccarat_banker');
+        this.gridPlayer.setBitmap('scene_baccarat_player');
+        this.gridTie.setBitmap('scene_baccarat_tie');
+        this.gridBankerPair.setBitmap('scene_baccarat_banker_pair');
+        this.gridPlayerPair.setBitmap('scene_baccarat_player_pair');
+        this.gridSuperSix.setBitmap('');
+
         this.changeMethod('normal');
         this.changeLang();
         this.switchSuperSix.addEventListener(
@@ -39,12 +52,6 @@ namespace we {
         this.mapping[BetField.PLAYER_PAIR] = this.gridPlayerPair;
         this.mapping[BetField.SUPER_SIX] = this.gridSuperSix;
 
-        this.gridBanker.setFieldName(BetField.BANKER);
-        this.gridPlayer.setFieldName(BetField.PLAYER);
-        this.gridTie.setFieldName(BetField.TIE);
-        this.gridBankerPair.setFieldName(BetField.BANKER_PAIR);
-        this.gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
-        this.gridSuperSix.setFieldName(BetField.SUPER_SIX);
         this.resetUnconfirmedBet();
 
         this.gridPlayerPair.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
