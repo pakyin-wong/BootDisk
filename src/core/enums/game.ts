@@ -28,5 +28,10 @@ namespace we {
       LIGHT: 1,
       DARK: 2,
     };
+
+    export enum GameName {
+      lobby = 'lobby',
+      ba = 'ba',
+    }
   }
 }

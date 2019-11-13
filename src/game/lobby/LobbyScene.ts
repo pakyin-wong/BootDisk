@@ -10,6 +10,11 @@ namespace we {
         dir.socket.getTableList();
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         dir.socket.getTableHistory();
+
+        setTimeout(function() {
+          // utils.linkto('weweb://scene/ba?tableid=1');
+          utils.linkto('https://www.google.com', 'Google');
+        }, 8000);
       }
 
       public async onFadeEnter() {}
