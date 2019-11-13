@@ -4,6 +4,7 @@ namespace we {
       private images = [];
       private currentIndex = 0;
       private direction = 0;
+      private isAnimating = false;
       private imageVisible: eui.Image;
       private imageInvisible: eui.Image;
 
@@ -12,7 +13,7 @@ namespace we {
         this.skinName = utils.getSkin('ImageSlider');
         this.images = [RES.getRes('banner-baccarat_png')];
         // comment this line in case of performance issues
-        this.mask = new egret.Rectangle(0, 0, 2600, 600);
+        // this.mask = new egret.Rectangle(0, 0, 2600, 600);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -28,16 +29,19 @@ namespace we {
         this.imageVisible.source = this.images[this.currentIndex];
         this.imageVisible.width = 2600;
         this.imageVisible.height = 2600 / ((this.images[this.currentIndex] as egret.Texture).$bitmapWidth / (this.images[this.currentIndex] as egret.Texture).$bitmapHeight);
-        this.imageVisible.y = (this.imageVisible.height - 600) / -2;
+        this.imageVisible.y = (this.imageVisible.height - this.height) / -2;
 
         this.imageInvisible.width = 2600;
         this.imageInvisible.height = 2600 / ((this.images[this.currentIndex] as egret.Texture).$bitmapWidth / (this.images[this.currentIndex] as egret.Texture).$bitmapHeight);
-        this.imageInvisible.y = (this.imageVisible.height - 600) / -2;
+        this.imageInvisible.y = (this.imageVisible.height - this.height) / -2;
       }
 
       private initX;
 
       private onTouchBegin(event: egret.TouchEvent): void {
+        if (this.isAnimating) {
+          return;
+        }
         this.initX = event.$stageX;
         this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
         this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
@@ -59,8 +63,13 @@ namespace we {
       }
 
       private onTouchEnd(event: egret.TouchEvent): void {
+        this.isAnimating = true;
+        this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+
         const diff = event.$stageX - this.initX;
         const duration = 0.3;
+
         if (Math.abs(diff) / 2600 <= 0.25) {
           // not reach threshold, don't slide
           TweenLite.to(this.imageVisible, duration, {
@@ -69,24 +78,27 @@ namespace we {
           TweenLite.to(this.imageInvisible, duration, {
             x: this.direction === -1 ? 2600 : -2600,
           });
+
+          setTimeout(() => {
+            this.isAnimating = false;
+          }, duration * 1000);
           return;
         }
+
         TweenLite.to(this.imageInvisible, duration, {
           x: 0,
         });
         TweenLite.to(this.imageVisible, duration, {
           x: this.direction === -1 ? -2600 : 2600,
         });
+
         setTimeout(() => {
           this.currentIndex = Math.abs((this.currentIndex + this.direction) % this.images.length);
           this.imageVisible.x = 0;
           this.imageVisible.source = this.images[this.currentIndex];
           this.imageInvisible.x = 2600;
+          this.isAnimating = false;
         }, duration * 1000);
-
-        const stage = event.$currentTarget;
-        stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        stage.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
       }
     }
   }

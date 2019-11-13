@@ -6,8 +6,6 @@
 namespace we {
   export namespace ba {
     export class Scene extends core.BaseScene {
-
-
       private bettingTable: BettingTable;
       private betChipSet: BetChipSet;
       private cardHolder: CardHolder;
@@ -159,7 +157,7 @@ namespace we {
         this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
-      public async onFadeEnter() { }
+      public async onFadeEnter() {}
 
       public onExit() {
         dir.videoPool.release(this._video);
@@ -176,7 +174,7 @@ namespace we {
         this.bettingTable.onChangeLang();
       }
 
-      public async onFadeExit() { }
+      public async onFadeExit() {}
 
       protected mount() {
         // step 1: load Baccarat Screen Resource
@@ -192,7 +190,7 @@ namespace we {
         // this.socketConnect();
       }
 
-      protected socketConnect() { }
+      protected socketConnect() {}
 
       protected socketConnectSuccess() {
         // dir.evtHandler.removeEventListener(enums.mqtt.event.CONNECT_SUCCESS, this.socketConnectSuccess, this);
@@ -204,7 +202,7 @@ namespace we {
         // dir.sceneCtr.goto('LobbySCene');
       }
 
-      protected socketConnectFail() { }
+      protected socketConnectFail() {}
 
       protected onTableInfoUpdate(evt: egret.Event) {
         console.log('Baccarat listener');

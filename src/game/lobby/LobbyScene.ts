@@ -13,7 +13,7 @@ namespace we {
 
         setTimeout(function() {
           // utils.linkTo('weweb://scene/ba?tableid=1');
-          utils.linkTo('https://www.google.com', 'Google');
+          // utils.linkTo('https://www.google.com', 'Google');
         }, 8000);
       }
 
