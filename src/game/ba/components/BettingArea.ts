@@ -30,12 +30,6 @@ namespace we {
       protected childrenCreated() {
         super.childrenCreated();
         // console.log('start betLimits');
-
-        const denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chipsList.map(data => data.value);
-        this.betChipSet.setDenominationList(denominationList);
-
-        this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
-        this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
       }
 
       private onConfirmPressed() {
@@ -51,25 +45,14 @@ namespace we {
         this.bettingTable.cancelBet();
       }
 
-      public onTableInfoUpdate(tableInfo: data.TableInfo) {
-        // console.log('BettingArea listener');
-        this.tableID = tableInfo.tableid;
-        this.gameData = <GameData>tableInfo.data;
-        this.betDetails = tableInfo.bets;
-        // console.log(`BettingArea::onTableInfoUpdate::betDetails ${this.betDetails}`);
-        this.updateGame();
-        this.previousState = this.gameData.state;
-      }
+      public onTableInfoUpdate(tableInfo: data.TableInfo) {}
 
       protected updateGame() {
-        // console.log(`BettingArea::updateGame::GameState ${this.gameData.state}`);
-
         switch (this.gameData.state) {
           case GameState.IDLE:
             this.setStateIdle();
             break;
           case GameState.BET:
-            // console.log(`BettingArea::updateGame::setStateBet`);
             this.setStateBet();
             break;
           case GameState.DEAL:
@@ -82,7 +65,6 @@ namespace we {
             this.setStateRefund();
             break;
           case GameState.SHUFFLE:
-            // logger.l('BettingArea::updateGame()::SHUFFLE');
             this.setStateShuffle();
             break;
           default:
