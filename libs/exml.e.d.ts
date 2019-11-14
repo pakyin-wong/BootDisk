@@ -133,6 +133,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class TableInfoWindow extends eui.Skin{
 	}
 }

@@ -19,7 +19,7 @@ namespace we {
       private lblRoomInfo: eui.Label;
       private lblRoomNo: eui.Label;
 
-      private tableInfoWindow: ui.TableInfoWindow;
+      private tableInfoWindow: ui.TableInfoPanel;
       private gameBar: GameBar;
 
       private bgImg: eui.Rect;
@@ -65,7 +65,8 @@ namespace we {
         this.setupTableInfo();
         this.bettingArea.onTableInfoUpdate(this.tableInfo); // call
 
-        this.tableInfoWindow.visible = false;
+        // this.tableInfoWindow.visible = false;
+        this.tableInfoWindow.setToggler(this.lblRoomInfo);
         this.addEventListeners();
 
         this.addChild(this._video);
@@ -109,7 +110,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
 
         this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
-        this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
+        // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
       }
 
       private toggleRoomInfo() {
