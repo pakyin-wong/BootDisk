@@ -41,6 +41,7 @@ namespace we {
         const layout2 = new eui.AnimTileLayout();
         layout2.horizontalGap = gapSize;
         layout2.verticalGap = gapSize;
+        layout2.paddingBottom = gapSize;
         layout2.requestedColumnCount = 4;
         layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
         roomList.layout = layout2;
@@ -51,6 +52,7 @@ namespace we {
         roomList.y = bannerList.height + gapSize;
 
         const group = new eui.Group();
+        // group.layout = new eui.VerticalLayout();
         group.addChild(bannerList);
         group.addChild(roomList);
 
