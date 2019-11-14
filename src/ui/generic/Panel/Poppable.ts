@@ -56,8 +56,8 @@ namespace we {
       public removeToggler() {
         if (this.toggler) {
           this.toggler.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+          this.toggler = null;
         }
-        this.toggler = null;
       }
 
       private onDetectClick(e: egret.TouchEvent) {
@@ -86,7 +86,9 @@ namespace we {
         if (!skipAnimation && this.isAnimating) {
           return;
         }
-        this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
+        if (this.target && this.target.stage) {
+          this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
+        }
         await this.onHide(skipAnimation);
         this.isShow = false;
       }
@@ -94,6 +96,9 @@ namespace we {
       protected async onShow(skipAnimation: boolean = false) {
         // Remove running animations
         const content = this.target.content;
+        if (!content) {
+          return;
+        }
         egret.Tween.removeTweens(content);
         content.visible = true;
         // Set attributes for animating
@@ -116,6 +121,9 @@ namespace we {
       protected async onHide(skipAnimation: boolean = false) {
         // Remove running animations
         const content = this.target.content;
+        if (!content) {
+          return;
+        }
         egret.Tween.removeTweens(content);
         content.visible = true;
         // Set attributes for animating

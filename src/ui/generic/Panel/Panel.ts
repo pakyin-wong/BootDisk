@@ -50,6 +50,9 @@ namespace we {
       public get dismissOnClickOutside(): boolean {
         return this._dismissOnClickOutside;
       }
+      public get panelName(): string {
+        return (<any>this).constructor.name;
+      }
 
       protected mount() {
         // this.hide();

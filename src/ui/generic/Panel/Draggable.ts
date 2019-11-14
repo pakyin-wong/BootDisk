@@ -2,6 +2,7 @@ namespace we {
   export namespace ui {
     export interface IDraggable {
       moveArea: egret.DisplayObject;
+      panelName: string;
     }
 
     export class DraggableAddon extends DisplayObjectAddon {
@@ -28,6 +29,11 @@ namespace we {
         if (this.active) {
           this.target.moveArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
         }
+        const storedPos = env.storedPositions[this.target.panelName];
+        if (storedPos) {
+          this.target.x = storedPos.x;
+          this.target.y = storedPos.y;
+        }
       }
 
       private offsetPointX;
@@ -50,6 +56,14 @@ namespace we {
         const stage = event.$currentTarget;
         stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
         stage.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        this.updateStoredPosition();
+      }
+
+      protected updateStoredPosition() {
+        const pos = { x: this.target.x, y: this.target.y };
+        env.storedPositions[this.target.panelName] = pos;
+        egret.log(env.storedPositions);
+        // TODO: upload to server
       }
     }
   }

@@ -26,6 +26,8 @@ namespace we {
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
 
+      public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
+
       set currTime(value: number) {
         this._currTime = value;
         this._currTimeLastUpdateTime = Date.now();
