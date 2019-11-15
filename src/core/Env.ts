@@ -15,8 +15,9 @@ namespace we {
       public nickname: string;
       public profileImageURL: string;
       public mode: number;
-      public language: string;
+      public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
+      public language: string;
       public betLimits: data.BetLimit[];
       public tableHistory: any;
       private _tableInfoArray: data.TableInfo[];

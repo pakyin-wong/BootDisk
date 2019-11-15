@@ -3,13 +3,15 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect id="bgImg" width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" />
 	<ui:SwitchLang width="300" height="100" x="0" y="200" />
-	<ui:TableInfoWindow width="600" height="450" x="0" y="300" id="tableInfoWindow" />
+	<ui:TableInfoPanel width="600" height="450" x="0" y="300" id="tableInfoWindow" isPoppable="true"
+	                   skinName="skin_desktop.TableInfoPanel" isEdgeDismissable="true" dismissOnClickOutside="false"
+	                   isDraggable="true" hideOnStart="true" />
 	<ba:GameBar width="700" height="160" x="1500" y="0" id="gameBar" />
 	<e:Button id="btnBack" label="←" x="50" y="50" width="50" />
 	<e:Label text="🛈" id="lblRoomInfo" y="75" x="239" />
 	<e:Label text="20-500" id="lblBetLimit" y="75" x="120" />
 	<e:Label id="lblRoomNo" text="百家樂" x="119" y="45" />
-	<ba:BettingTable id="bettingTable" width="1128" height="314" bottom="0" horizontalCenter="0" />
+	<ba:BettingTable id="bettingTable" width="1128" height="314" bottom="0" horizontalCenter="0" isEdgeDismissable="true" />
 	<ba:BetChipSet id='betChipSet' width="1000" height="50" y="533.46" horizontalCenter="0" />
 	<ba:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
 	<ba:CountdownTimer id="countdownTimer" width="200" height="80" y="611.46" horizontalCenter="-11" />

@@ -29,7 +29,7 @@ namespace we {
       private lblRoomInfo: eui.Label;
       private lblRoomNo: eui.Label;
 
-      private tableInfoWindow: ui.TableInfoWindow;
+      private tableInfoWindow: ui.TableInfoPanel;
       private gameBar: GameBar;
 
       private bgImg: eui.Rect;
@@ -75,7 +75,8 @@ namespace we {
         this.setupTableInfo();
         this.updateGame();
 
-        this.tableInfoWindow.visible = false;
+        // this.tableInfoWindow.visible = false;
+        this.tableInfoWindow.setToggler(this.lblRoomInfo);
         this.addEventListeners();
 
         this.addChild(this._video);
@@ -84,6 +85,8 @@ namespace we {
 
         this.gameBar.setPlayFunc(this.playVideo(this));
         this.gameBar.setStopFunc(this.stopVideo(this));
+
+        // setInterval(() => ui.EdgeDismissableAddon.toggle(), 2000);
 
         const denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chipsList.map(data => data.value);
         this.betChipSet.setDenominationList(denominationList);
@@ -142,7 +145,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
 
         this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
-        this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
+        // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
       }
 
       private toggleRoomInfo() {
@@ -157,7 +160,7 @@ namespace we {
         this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
-      public async onFadeEnter() {}
+      public async onFadeEnter() { }
 
       public onExit() {
         dir.videoPool.release(this._video);
@@ -174,7 +177,7 @@ namespace we {
         this.bettingTable.onChangeLang();
       }
 
-      public async onFadeExit() {}
+      public async onFadeExit() { }
 
       protected mount() {
         // step 1: load Baccarat Screen Resource
@@ -190,7 +193,7 @@ namespace we {
         // this.socketConnect();
       }
 
-      protected socketConnect() {}
+      protected socketConnect() { }
 
       protected socketConnectSuccess() {
         // dir.evtHandler.removeEventListener(enums.mqtt.event.CONNECT_SUCCESS, this.socketConnectSuccess, this);
@@ -202,7 +205,7 @@ namespace we {
         // dir.sceneCtr.goto('LobbySCene');
       }
 
-      protected socketConnectFail() {}
+      protected socketConnectFail() { }
 
       protected onTableInfoUpdate(evt: egret.Event) {
         console.log('Baccarat listener');

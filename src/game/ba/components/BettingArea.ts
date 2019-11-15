@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BettingArea extends eui.Component {
+    export class BettingArea extends ui.Panel {
       private _mode = 'room-baccarat'; // betting area mode = 'quick-bet' / 'room-baccarat'
       private bettingTable: BettingTable;
       private betChipSet: BetChipSet;

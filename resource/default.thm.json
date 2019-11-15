@@ -19,7 +19,8 @@
 		"we.ba.BetChipSet": "resource/skin_desktop/BetChipSet.exml",
 		"we.ba.CountdownTimer": "resource/skin_desktop/CountdownTimer.exml",
 		"we.ba.BetConfirmButton": "resource/skin_desktop/BetConfirmButton.exml",
-		"we.ui.NavSideMenu": "resource/skin_desktop/NavSideMenu.exml"
+		"we.ui.NavSideMenu": "resource/skin_desktop/NavSideMenu.exml",
+		"we.ui.TableInfoPanel": "resource/skin_desktop/TableInfoWindow.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
@@ -36,6 +37,7 @@
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VScrollBarSkin.exml",
 		"resource/eui_skins/VSliderSkin.exml",
+		"resource/skin_desktop/TableInfoPanel.exml",
 		"resource/skin_desktop/BaccaratScene.exml",
 		"resource/skin_desktop/BetChip.exml",
 		"resource/skin_desktop/BetChipSet.exml",

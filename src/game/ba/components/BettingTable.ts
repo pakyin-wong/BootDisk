@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BettingTable extends eui.Component {
+    export class BettingTable extends ui.Panel {
       private gridPlayerPair: BettingTableGrid;
       private gridBankerPair: BettingTableGrid;
       private gridPlayer: BettingTableGrid;
