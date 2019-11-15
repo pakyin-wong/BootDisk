@@ -18,6 +18,7 @@ namespace we {
           if (this.target.moveArea) {
             this.target.moveArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
           }
+          this.init();
         } else {
           if (this.target.moveArea) {
             this.target.moveArea.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
@@ -26,9 +27,6 @@ namespace we {
       }
 
       public init() {
-        if (this.active) {
-          this.target.moveArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        }
         const storedPos = env.storedPositions[this.target.panelName];
         if (storedPos) {
           this.target.x = storedPos.x;

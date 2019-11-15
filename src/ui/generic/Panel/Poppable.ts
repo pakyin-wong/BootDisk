@@ -11,6 +11,7 @@ namespace we {
 
     export class PoppableAddon extends DisplayObjectAddon {
       public dismissOnClickOutside: boolean = false;
+      public hideOnStart: boolean = true;
       public isShow: boolean;
       protected target: egret.DisplayObject & IPoppable;
       protected toggler: egret.DisplayObject;
@@ -25,6 +26,7 @@ namespace we {
         super.$setActive(value);
         if (value) {
           this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
+          this.init();
         } else {
           this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
         }
@@ -37,8 +39,10 @@ namespace we {
       }
 
       public init() {
-        this.hide(true);
         this.updateContentPos();
+        if (!this.target.content.visible || this.hideOnStart) {
+          this.hide(true);
+        }
       }
 
       public updateContentPos() {

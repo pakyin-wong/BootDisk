@@ -4,10 +4,11 @@
 	<e:Rect id="bgImg" width="2560" height="1320" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" />
 	<ui:SwitchLang width="300" height="100" x="0" y="200" />
 	<ui:TableInfoPanel width="600" height="450" x="0" y="300" id="tableInfoWindow" isPoppable="true"
-	                   skinName="skin_desktop.TableInfoPanel" isEdgeDismissable="false" dismissOnClickOutside="true"
-	                   isDraggable="true" />
+	                   skinName="skin_desktop.TableInfoPanel" isEdgeDismissable="true" dismissOnClickOutside="false"
+	                   isDraggable="true" hideOnStart="true" />
 	<ba:GameBar width="700" height="160" x="1500" y="0" id="gameBar" />
-	<ba:BettingArea id="bettingArea" width="1000" anchorOffsetX="0" anchorOffsetY="0" bottom="0" horizontalCenter="0" />
+	<ba:BettingArea id="bettingArea" width="1000" anchorOffsetX="0" anchorOffsetY="0" bottom="0" horizontalCenter="0"
+	                isEdgeDismissable="true" />
 	<e:Button id="btnBack" label="←" x="50" y="50" width="50" />
 	<e:Label text="🛈" id="lblRoomInfo" y="75" x="239" />
 	<e:Label text="20-500" id="lblBetLimit" y="75" x="120" />

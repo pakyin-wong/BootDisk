@@ -10,15 +10,16 @@ namespace we {
       protected _isPoppable: boolean = false;
       protected _isEdgeDismissable: boolean = false;
       protected _dismissOnClickOutside: boolean = false;
+      protected _hideOnStart: boolean = true;
 
       protected draggableAddon: DraggableAddon;
-      protected edgeDismissableAddon: EdgeDismissable;
+      protected edgeDismissableAddon: EdgeDismissableAddon;
       protected poppableAddon: PoppableAddon;
 
       constructor(skin: string = null) {
         super(skin);
         this.draggableAddon = new DraggableAddon(this);
-        this.edgeDismissableAddon = new EdgeDismissable(this);
+        this.edgeDismissableAddon = new EdgeDismissableAddon(this);
         this.poppableAddon = new PoppableAddon(this);
       }
 
@@ -38,7 +39,7 @@ namespace we {
       }
       public set isEdgeDismissable(value: boolean) {
         this._isEdgeDismissable = value;
-        this.draggableAddon.active = value;
+        this.edgeDismissableAddon.active = value;
       }
       public get isEdgeDismissable(): boolean {
         return this._isEdgeDismissable;
@@ -50,6 +51,13 @@ namespace we {
       public get dismissOnClickOutside(): boolean {
         return this._dismissOnClickOutside;
       }
+      public set hideOnStart(value: boolean) {
+        this._hideOnStart = value;
+        this.poppableAddon.hideOnStart = value;
+      }
+      public get hideOnStart(): boolean {
+        return this._dismissOnClickOutside;
+      }
       public get panelName(): string {
         return (<any>this).constructor.name;
       }
@@ -57,11 +65,10 @@ namespace we {
       protected mount() {
         // this.hide();
         this.draggableAddon.active = this._isDraggable;
-        this.draggableAddon.init();
         this.edgeDismissableAddon.active = this._isEdgeDismissable;
-        this.poppableAddon.active = this._isPoppable;
         this.poppableAddon.dismissOnClickOutside = this._dismissOnClickOutside;
-        this.poppableAddon.init();
+        this.poppableAddon.hideOnStart = this._hideOnStart;
+        this.poppableAddon.active = this._isPoppable;
       }
 
       protected destroy() {
