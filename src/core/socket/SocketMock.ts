@@ -68,7 +68,10 @@ namespace we {
             chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
-
+        env.mode = null || -1;
+        env.categorySortOrder = '{}';
+        env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
+        egret.log(env.storedPositions);
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
       }
 

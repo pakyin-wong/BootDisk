@@ -56,6 +56,13 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
+        env.mode = player.profile.mode || -1;
+        if (player.profile.categoryorders) {
+          env.categorySortOrder = player.profile.categoryorders;
+        }
+        if (player.profile.panelpositions) {
+          env.storedPositions = JSON.parse(player.profile.panelpositions);
+        }
 
         logger.l(`${timestamp}: READY`, player);
 

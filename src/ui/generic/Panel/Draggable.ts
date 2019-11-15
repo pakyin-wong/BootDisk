@@ -56,9 +56,16 @@ namespace we {
         const stage = event.$currentTarget;
         stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
         stage.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        this.validatePosition();
         this.updateStoredPosition();
       }
-
+      protected validatePosition() {
+        // check position to avoid exceeding the screen
+        const bound = this.target.getBounds();
+        this.target.getLayoutBounds(bound);
+        this.target.x = Math.max(0, Math.min(this.target.stage.stageWidth - bound.width, bound.x));
+        this.target.y = Math.max(0, Math.min(this.target.stage.stageHeight - bound.height, bound.y));
+      }
       protected updateStoredPosition() {
         const pos = { x: this.target.x, y: this.target.y };
         env.storedPositions[this.target.panelName] = pos;

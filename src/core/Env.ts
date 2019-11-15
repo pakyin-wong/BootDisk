@@ -15,8 +15,9 @@ namespace we {
       public nickname: string;
       public profileImageURL: string;
       public mode: number;
-      public language: string;
+      public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
+      public language: string;
       public betLimits: data.BetLimit[];
       public tableHistory: any;
       private _tableInfoArray: data.TableInfo[];
@@ -25,8 +26,6 @@ namespace we {
       public currentSelectedBetLimitIndex: number = 0;
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
-
-      public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
 
       set currTime(value: number) {
         this._currTime = value;
