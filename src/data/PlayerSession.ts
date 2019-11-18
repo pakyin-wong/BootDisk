@@ -11,6 +11,9 @@ namespace we {
         nickname: string; // Player nickname
         profileimage: string; // URL of the profile image
         betlimits: BetLimit[];
+        mode: number;
+        categoryorders: string;
+        panelpositions: string;
       };
     }
   }

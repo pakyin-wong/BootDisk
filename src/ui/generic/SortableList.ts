@@ -98,13 +98,13 @@ namespace we {
         this.clone.height = itemRenderer.height;
         this.clone.x = itemRenderer.x;
         this.clone.y = itemRenderer.y;
-        const rect = new eui.Rect();
-        rect.percentWidth = 100;
-        rect.percentHeight = 100;
-        rect.fillColor = 0xc0c0c0;
-        rect.fillAlpha = 0.6;
+        // const rect = new eui.Rect();
+        // rect.percentWidth = 100;
+        // rect.percentHeight = 100;
+        // rect.fillColor = 0xc0c0c0;
+        // rect.fillAlpha = 0.6;
+        // this.clone.addChild(rect);
         this.clone.alpha = 0.8;
-        this.clone.addChild(rect);
       }
 
       protected onTouchMove(event: egret.TouchEvent) {

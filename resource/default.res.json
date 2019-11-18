@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,barlow_woff",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,egret_icon_png,description_json,barlow_woff",
 			"name": "egret_basic"
 		},
 		{
@@ -13,16 +13,20 @@
 			"name": "scene_loading"
 		},
 		{
-			"keys": "scene_lobby_dummyImage",
+			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png",
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "scene_baccarat_dummyImage",
+			"keys": "scene_baccarat_dummyImage,scene_baccarat_banker,scene_baccarat_banker_pair,scene_baccarat_player,scene_baccarat_player_pair,scene_baccarat_player_win,scene_baccarat_tie",
 			"name": "scene_baccarat"
 		},
 		{
 			"keys": "nav_user_info_bg,nav_menu_toggle,nav_menu_bg",
 			"name": "nav"
+		},
+		{
+			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png",
+			"name": "preload"
 		}
 	],
 	"resources": [
@@ -140,11 +144,6 @@
 			"url": "assets/ScrollBar/track_sb.png",
 			"type": "image",
 			"name": "track_sb_png"
-		},
-		{
-			"url": "assets/bg.jpg",
-			"type": "image",
-			"name": "bg_jpg"
 		},
 		{
 			"url": "assets/egret_icon.png",
@@ -430,11 +429,6 @@
 			"url": "assets/Scene/baccarat/1280x720.png",
 			"type": "image",
 			"name": "scene_baccarat_dummyImage"
-		},
-		{
-			"url": "assets/Scene/lobby/1280x720.png",
-			"type": "image",
-			"name": "scene_lobby_dummyImage"
 		},
 		{
 			"url": "assets/card/back.png",
@@ -725,6 +719,56 @@
 			"url": "assets/fonts/barlow.woff",
 			"type": "bin",
 			"name": "barlow_woff"
+		},
+		{
+			"url": "assets/Scene/baccarat/scene_baccarat_banker.png",
+			"type": "image",
+			"name": "scene_baccarat_banker"
+		},
+		{
+			"url": "assets/Scene/baccarat/scene_baccarat_banker_pair.png",
+			"type": "image",
+			"name": "scene_baccarat_banker_pair"
+		},
+		{
+			"url": "assets/Scene/baccarat/scene_baccarat_player.png",
+			"type": "image",
+			"name": "scene_baccarat_player"
+		},
+		{
+			"url": "assets/Scene/baccarat/scene_baccarat_player_pair.png",
+			"type": "image",
+			"name": "scene_baccarat_player_pair"
+		},
+		{
+			"url": "assets/Scene/baccarat/scene_baccarat_player_win.png",
+			"type": "image",
+			"name": "scene_baccarat_player_win"
+		},
+		{
+			"url": "assets/Scene/baccarat/scene_baccarat_tie.png",
+			"type": "image",
+			"name": "scene_baccarat_tie"
+		},
+		{
+			"url": "assets/banner-baccarat.png",
+			"type": "image",
+			"name": "banner-baccarat_png"
+		},
+		{
+			"url": "assets/lobby_banner2.png",
+			"type": "image",
+			"name": "lobby_banner2_png"
+		},
+		{
+			"url": "assets/lobby_banner1.png",
+			"type": "image",
+			"name": "lobby_banner1_png"
+		},
+		{
+			"url": "assets/lobby_banner3.png",
+			"type": "image",
+			"name": "lobby_banner3_png"
 		}
 	]
 }

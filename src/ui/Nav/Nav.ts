@@ -23,8 +23,7 @@ namespace we {
       }
 
       private onUpdateTimer(e: egret.Event) {
-        this._time.text = moment(env.currTime).format('DD-MM-YYYY, h:mm:ss a');
-        // this._time.text = new Date(env.currTime).toISOString();
+        this._time.text = moment(env.currTime).format('YYYY/MM/DD HH:mm:ss');
       }
 
       protected mount() {

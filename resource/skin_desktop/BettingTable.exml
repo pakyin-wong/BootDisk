@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BettingTableSkin" width="800" height="600" currentState="Normal"
+<e:Skin class="skin_desktop.BettingTableSkin" width="1116" height="302" currentState="Normal"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" states="Normal,SuperSix">
-	<ba:BettingTableGrid id="gridPlayerPair" includeIn="Normal,SuperSix" x="0" y="300" anchorOffsetX="0" width="400"
-	                     anchorOffsetY="0" height="300" y.Normal="298.67" />
-	<ba:BettingTableGrid id="gridBankerPair" includeIn="Normal,SuperSix" x="400" y="300" anchorOffsetX="0" width="400"
-	                     anchorOffsetY="0" height="300" />
-	<ba:BettingTableGrid id="gridPlayer" includeIn="Normal,SuperSix" x="0" y="0" anchorOffsetX="0" width="266"
-	                     anchorOffsetY="0" height="300" y.Normal="0" width.SuperSix="200" left.SuperSix="0"
+	<ba:BettingTableGrid id="gridPlayerPair" includeIn="Normal,SuperSix" x="0" y="191" anchorOffsetX="0" width="372"
+	                     anchorOffsetY="0" height="112" y.Normal="191" />
+	<ba:BettingTableGrid id="gridBankerPair" includeIn="Normal,SuperSix" x="745" y="191" anchorOffsetX="0" width="372"
+	                     anchorOffsetY="0" height="112" />
+	<ba:BettingTableGrid id="gridPlayer" includeIn="Normal,SuperSix" x="0" y="0" anchorOffsetX="0" width="558"
+	                     anchorOffsetY="0" height="190" y.Normal="0" width.SuperSix="558" left.SuperSix="0"
 	                     top.SuperSix="0" />
-	<ba:BettingTableGrid id="gridTie" includeIn="Normal,SuperSix" y="0" anchorOffsetX="0" width="200" anchorOffsetY="0"
-	                     height="300" horizontalCenter="-100" x="10" horizontalCenter.Normal="1" width.Normal="270" />
+	<ba:BettingTableGrid id="gridTie" includeIn="Normal,SuperSix" y="191" anchorOffsetX="0" width="372" anchorOffsetY="0"
+	                     height="112" horizontalCenter="0" x="373" horizontalCenter.Normal="0" width.Normal="372" />
 	<ba:BettingTableGrid id="gridSuperSix" includeIn="SuperSix" y="0" anchorOffsetX="0" width="200" anchorOffsetY="0"
 	                     height="300" horizontalCenter="100" x="20" />
-	<ba:BettingTableGrid id="gridBanker" includeIn="Normal,SuperSix" y="0" anchorOffsetX="0" width.Normal="267"
-	                     anchorOffsetY="0" height="300" x.Normal="534" y.Normal="0" width.SuperSix="200" right.SuperSix="0"
+	<ba:BettingTableGrid id="gridBanker" includeIn="Normal,SuperSix" y="0" anchorOffsetX="0" width.Normal="558"
+	                     anchorOffsetY="0" height="190" x.Normal="559" y.Normal="0" width.SuperSix="558" right.SuperSix="0"
 	                     top.SuperSix="0" />
 	<e:ToggleSwitch id='switchSuperSix' label="ToggleButton" x="500" y="24" anchorOffsetX="0" width="70" anchorOffsetY="0"
 	                height="32" x.Normal="436" y.Normal="25" />

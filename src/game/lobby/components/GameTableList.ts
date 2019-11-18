@@ -7,6 +7,7 @@ namespace we {
 
       constructor() {
         super();
+        this.collection = new eui.ArrayCollection(this.roomIds);
         this.scroller = new ui.Scroller();
         this.scroller.percentWidth = 100;
         this.scroller.percentHeight = 100;
@@ -20,18 +21,42 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        // init viewport
-        const list = new eui.List();
-        const tlayout = new eui.AnimTileLayout();
-        tlayout.horizontalGap = 10;
-        tlayout.verticalGap = 10;
-        tlayout.requestedColumnCount = 4;
-        list.layout = tlayout;
+        const paddingHorizontal = 80;
+        const gapSize = 50;
 
-        this.collection = new eui.ArrayCollection(this.roomIds);
-        list.dataProvider = this.collection;
-        list.itemRenderer = LobbyBacarratListItem;
-        this.scroller.viewport = list;
+        // init three banner
+        const bannerList = new eui.List();
+        const layout1 = new eui.TileLayout();
+        layout1.horizontalGap = gapSize;
+        layout1.requestedColumnCount = 3;
+        layout1.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout1.requestedColumnCount - 1)) / layout1.requestedColumnCount;
+        bannerList.layout = layout1;
+        bannerList.dataProvider = new eui.ArrayCollection(['lobby_banner1_png', 'lobby_banner2_png', 'lobby_banner3_png']);
+        bannerList.itemRenderer = LobbyBannerItem;
+        bannerList.left = paddingHorizontal;
+        bannerList.right = paddingHorizontal;
+
+        // init room grids
+        const roomList = new eui.List();
+        const layout2 = new eui.AnimTileLayout();
+        layout2.horizontalGap = gapSize;
+        layout2.verticalGap = gapSize;
+        layout2.paddingBottom = gapSize;
+        layout2.requestedColumnCount = 4;
+        layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
+        roomList.layout = layout2;
+        roomList.dataProvider = this.collection;
+        roomList.itemRenderer = LobbyBacarratListItem;
+        roomList.left = paddingHorizontal;
+        roomList.right = paddingHorizontal;
+        roomList.y = bannerList.height + gapSize;
+
+        const group = new eui.Group();
+        // group.layout = new eui.VerticalLayout();
+        group.addChild(bannerList);
+        group.addChild(roomList);
+
+        this.scroller.viewport = group;
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
       }

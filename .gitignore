@@ -1,4 +1,5 @@
 bin-debug
+.DS_Store
 .wing/*
 !.wing/tasks.json
 bin-release
