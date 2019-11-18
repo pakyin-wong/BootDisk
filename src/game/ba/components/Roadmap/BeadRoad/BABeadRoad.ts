@@ -34,7 +34,8 @@ namespace we {
       }
 
       private onClick(e: egret.TouchEvent) {
-        this.Mode = ++this.Mode % 2;
+        // this.Mode = ++this.Mode % 2;
+        this.DarkMode = ++this.DarkMode % 2;
       }
     }
   }

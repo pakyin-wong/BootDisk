@@ -5,6 +5,7 @@ namespace we {
       protected size: number;
       protected tween: egret.Tween;
       protected value: any;
+      protected darkModeNumber: number;
 
       public constructor(size: number) {
         super();
@@ -40,6 +41,14 @@ namespace we {
 
       public dispose() {
         this.stopAnimate();
+      }
+
+      public set DarkMode(n: number) {
+        this.darkModeNumber = n;
+      }
+
+      public get DarkMode(): number {
+        return this.darkModeNumber;
       }
     }
   }
