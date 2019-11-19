@@ -46,7 +46,14 @@ namespace we {
         this.addChild(this.bankerDotDark);
 
         const colors = [0xdd0000, 0x0000dd, 0x00aa00, 0xaa0000, 0x0000aa, 0x009900];
-        const gradientColors = [[0xffaaaa, 0xdd0000], [0xaaaaff, 0x0000dd], [0xaaddaa, 0x008800], [0xddaaaa, 0xaa0000], [0x9999dd, 0x0000aa], [0x99aa99, 0x006600]];
+        const gradientColors = [
+          [0xffaaaa, 0xdd0000],
+          [0xaaaaff, 0x0000dd],
+          [0xaaddaa, 0x008800],
+          [0xddaaaa, 0xaa0000],
+          [0x9999dd, 0x0000aa],
+          [0x99aa99, 0x006600],
+        ];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const offset = (iconSize - circleRadius * 2) / 2;
