@@ -25,7 +25,7 @@ namespace we {
                     data = {};
                     const queryParamArray = query[1].split('&');
                     // iterate over parameter array
-                    queryParamArray.forEach(function(queryParam) {
+                    queryParamArray.forEach(function (queryParam) {
                       // split the query parameter over '='
                       const item = queryParam.split('=');
                       data[item[0]] = decodeURIComponent(item[1]);

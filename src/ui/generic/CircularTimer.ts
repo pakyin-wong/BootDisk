@@ -37,7 +37,7 @@ namespace we {
           this.changeGraphics(this.progress);
           if (this.progress <= 0) {
             this.label.text = '0';
-            this.changeGraphics(0);
+            this.changeGraphics(1);
             egret.stopTick(ticker, this);
           }
           // angle = angle % 360;
