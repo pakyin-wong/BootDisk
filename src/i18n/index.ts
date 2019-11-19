@@ -1,6 +1,6 @@
 namespace we {
   export namespace i18n {
-    export let lang = 'sc';
+    export let lang = 'en';
 
     export function t(s: string) {
       function ds(p: any, c: string) {

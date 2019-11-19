@@ -12,6 +12,25 @@ namespace we {
         this.tabBar.percentHeight = 100;
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
+
+        const items = [
+          'lobby.categoryPromotion',
+          'lobby.categoryBacarrat',
+          'lobby.categoryGoodRoad',
+          'lobby.categoryLuckyWheel',
+          'lobby.categoryInstant',
+          'lobby.categoryOtherGame',
+          'lobby.categoryFavorite',
+        ];
+
+        const tlayout = new eui.HorizontalLayout();
+        tlayout.gap = 30;
+        // tlayout.requestedColumnCount = items.length;
+        this.collection = new eui.ArrayCollection(items);
+        this.tabBar.itemRenderer = SegmentedControlTabItem;
+        this.tabBar.layout = tlayout;
+        this.tabBar.dataProvider = this.collection;
+
         this.addChild(this.tabBar);
       }
 
@@ -21,16 +40,6 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
-        const items = ['精選推介', '百家樂', '好路檯', '幸運輪', '即開彩', '其他遊戲', '我的最愛'];
-        // const tlayout = new eui.HorizontalLayout();
-        // tlayout.gap = 0;
-        // tlayout.horizontalGap = 0;
-        // tlayout.verticalGap = 0;
-        // tlayout.requestedColumnCount = items.length;
-        this.collection = new eui.ArrayCollection(items);
-        this.tabBar.itemRenderer = SegmentedControlTabItem;
-        // this.tabBar.layout = tlayout;
-        this.tabBar.dataProvider = this.collection;
 
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
@@ -40,6 +49,7 @@ namespace we {
         this.mask = shape;
 
         this.tabBar.selectedIndex = 0;
+        console.log(this.tabBar.$children);
       }
 
       private setActiveItemIndex(newIndex: number) {

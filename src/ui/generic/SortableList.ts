@@ -19,7 +19,7 @@ namespace we {
         this.useVirtualLayout = false;
         const tlayout = new eui.HorizontalLayout();
         tlayout.gap = 0;
-        tlayout.horizontalAlign = eui.JustifyAlign.JUSTIFY;
+        // tlayout.horizontalAlign = eui.JustifyAlign.JUSTIFY;
         this.layout = tlayout;
       }
 
