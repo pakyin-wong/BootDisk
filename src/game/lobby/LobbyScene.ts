@@ -11,7 +11,7 @@ namespace we {
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         dir.socket.getTableHistory();
 
-        setTimeout(function () {
+        setTimeout(function() {
           // utils.linkTo('weweb://scene/ba?tableid=1');
           // utils.linkTo('https://www.google.com', 'Google');
         }, 8000);
