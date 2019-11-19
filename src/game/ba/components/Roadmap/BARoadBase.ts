@@ -8,6 +8,7 @@ namespace we {
       protected gridSize: number = 30;
       protected gridUnit: number = 1; // how many unit for each grid. 1 or 2 unit for each grid
       // private bitmap: ScaleableBitmap;
+      protected darkModeNumber: number = 0;
 
       protected roadMapIconList: BARoadIconBase[];
 
@@ -80,16 +81,19 @@ namespace we {
       }
 
       protected renderGrid() {
+        const bgColors = [0xffffff, 0x333333];
+        const gridColors = [0xaaaaaa, 0x555555];
+
         const size = this.gridSize * this.scale;
         this.grid.graphics.clear();
 
         // draw bg rectangle
-        this.grid.graphics.beginFill(0xffffff, 1);
+        this.grid.graphics.beginFill(bgColors[this.darkModeNumber], 1);
         this.grid.graphics.drawRect(0, 0, this.numCol * size, 6 * size);
         this.grid.graphics.endFill();
 
         // draw grid lines
-        this.grid.graphics.lineStyle(1 * this.scale, 0xaaaaaa, 1, true);
+        this.grid.graphics.lineStyle(1 * this.scale, gridColors[this.darkModeNumber], 1, true);
         let lineY: number = 0;
         for (let r = 0; r <= 6; r += this.gridUnit) {
           this.grid.graphics.moveTo(0, lineY);
@@ -105,6 +109,21 @@ namespace we {
 
         // this.bitmap = new ScaleableBitmap(this.grid, this.grid.width, this.grid.height, null);
         // this.addChild(this.bitmap);
+      }
+
+      public set DarkMode(n: number) {
+        this.darkModeNumber = n;
+
+        this.renderGrid();
+
+        for (const elem of this.roadMapIconList) {
+          const icon = elem;
+          icon.DarkMode = n;
+        }
+      }
+
+      public get DarkMode(): number {
+        return this.darkModeNumber;
       }
 
       protected onRemoved(e) {
