@@ -88,7 +88,17 @@ namespace we {
         return true;
       }
 
-      private checkBigRoad() {}
+      public convertBigRoadToBeadRoad(rslt: any) {
+        // 1.strip all empty results
+        const result = rslt.slice();
+        const cleanRslt = [];
+        result.forEach(r => {
+          if (r.V) {
+            cleanRslt.push(r);
+          }
+        });
+        return cleanRslt;
+      }
     }
   }
 }
