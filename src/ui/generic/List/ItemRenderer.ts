@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class ItemRenderer extends eui.ItemRenderer implements ITransitable, ISwipeable {
+    export class ItemRenderer extends eui.ItemRenderer implements ITransitable, ISwipeable, IAutoRemove {
       public moveArea: eui.Component;
       public content: egret.DisplayObject;
 
@@ -8,7 +8,7 @@ namespace we {
       protected _leaveTo: string = null;
 
       protected onEnterTransitionAddon: OnEnterTransitionAddon;
-      protected onLeaveTransitionAddon: OnLeaveTransitionAddon;
+      protected autoRemoveAddon: AutoRemoveAddon;
 
       public isFadeEnter: boolean;
       public isFadeLeave: boolean;
@@ -21,12 +21,12 @@ namespace we {
       constructor() {
         super();
         this.onEnterTransitionAddon = new OnEnterTransitionAddon(this);
-        this.onLeaveTransitionAddon = new OnLeaveTransitionAddon(this);
+        this.autoRemoveAddon = new AutoRemoveAddon(this);
       }
 
       public set enterFrom(value: string) {
         this._enterFrom = value;
-        this.onEnterTransitionAddon.active = value != null && value !== '';
+        this.onEnterTransitionAddon.active = !(value == null || value === '');
         if (this.onEnterTransitionAddon.active) {
           this.onEnterTransitionAddon.direction = value;
           this.onEnterTransitionAddon.isFade = this.isFadeEnter;
@@ -37,14 +37,25 @@ namespace we {
       }
       public set leaveTo(value: string) {
         this._leaveTo = value;
-        this.onLeaveTransitionAddon.active = value != null && value !== '';
-        if (this.onLeaveTransitionAddon.active) {
-          this.onLeaveTransitionAddon.direction = value;
-          this.onLeaveTransitionAddon.isFade = this.isFadeLeave;
+        this.autoRemoveAddon.active = !(value == null || value === '');
+        if (this.autoRemoveAddon.active) {
+          this.autoRemoveAddon.direction = value;
+          this.autoRemoveAddon.isFade = this.isFadeLeave;
         }
       }
       public get leaveTo(): string {
         return this._leaveTo;
+      }
+
+      public removeSelf() {
+        if (this.parent instanceof List) {
+          const list = <List>this.parent;
+          const collection = <eui.ArrayCollection>list.dataProvider;
+          const idx = collection.getItemIndex(this.itemData);
+          if (idx >= 0) {
+            collection.removeItemAt(idx);
+          }
+        }
       }
 
       public onSwipe() {}
