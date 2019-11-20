@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export interface IAutoRemove {
       content: egret.DisplayObject;
-      removeSelf: () => void;
+      removeSelf: (isAnimate?: boolean) => void;
     }
 
     export class AutoRemoveAddon extends DisplayObjectAddon {
@@ -75,7 +75,7 @@ namespace we {
         }, this.aliveTime);
       }
 
-      protected async startRemove() {
+      public async startRemove() {
         this.target.touchEnabled = false;
         this.target.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.clearAllTimeout, this);
         this.target.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.startAllTimeout, this);
@@ -85,7 +85,7 @@ namespace we {
         await this.startTransition();
 
         this.reset();
-        this.target.removeSelf();
+        this.target.removeSelf(false);
       }
 
       protected async startTransition() {

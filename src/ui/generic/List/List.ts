@@ -4,6 +4,8 @@ namespace we {
       public enterFrom: string;
       public enterDelay: number;
       public leaveTo: string;
+      public isSwipeable: boolean;
+      public swipeDirection: SwipeDirection;
       public isAnimateItemTransition: boolean = false;
       public itemTransitionDuration: number = 300;
       public maxDisplayCount: number = -1;

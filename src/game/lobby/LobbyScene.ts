@@ -28,6 +28,8 @@ namespace we {
         roomList.layout = layout2;
         roomList.enterFrom = 'right';
         roomList.leaveTo = 'right';
+        roomList.isSwipeable = true;
+        roomList.swipeDirection = ui.SwipeDirection.right;
         roomList.isAnimateItemTransition = true;
         roomList.dataProvider = collection;
         roomList.itemRenderer = LobbyListItem;

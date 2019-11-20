@@ -6,9 +6,12 @@ namespace we {
 
       protected _enterFrom: string = null;
       protected _leaveTo: string = null;
+      protected _isSwipeable: boolean;
+      protected swipeDirection: SwipeDirection = SwipeDirection.left;
 
       protected onEnterTransitionAddon: OnEnterTransitionAddon;
       protected autoRemoveAddon: AutoRemoveAddon;
+      protected swipeableAddon: SwipeableAddon;
 
       public isFadeEnter: boolean;
       public isFadeLeave: boolean;
@@ -22,6 +25,7 @@ namespace we {
         super();
         this.onEnterTransitionAddon = new OnEnterTransitionAddon(this);
         this.autoRemoveAddon = new AutoRemoveAddon(this);
+        this.swipeableAddon = new SwipeableAddon(this);
       }
 
       public set enterFrom(value: string) {
@@ -46,14 +50,28 @@ namespace we {
       public get leaveTo(): string {
         return this._leaveTo;
       }
+      public set isSwipeable(value: boolean) {
+        this._isSwipeable = value;
+        this.swipeableAddon.active = value;
+        if (value) {
+          this.swipeableAddon.swipeDirection = this.swipeDirection;
+        }
+      }
+      public get isSwipeable(): boolean {
+        return this._isSwipeable;
+      }
 
-      public removeSelf() {
-        if (this.parent instanceof List) {
-          const list = <List>this.parent;
-          const collection = <eui.ArrayCollection>list.dataProvider;
-          const idx = collection.getItemIndex(this.itemData);
-          if (idx >= 0) {
-            collection.removeItemAt(idx);
+      public removeSelf(isAnimate: boolean = false) {
+        if (isAnimate) {
+          this.autoRemoveAddon.startRemove();
+        } else {
+          if (this.parent instanceof List) {
+            const list = <List>this.parent;
+            const collection = <eui.ArrayCollection>list.dataProvider;
+            const idx = collection.getItemIndex(this.itemData);
+            if (idx >= 0) {
+              collection.removeItemAt(idx);
+            }
           }
         }
       }
@@ -70,6 +88,8 @@ namespace we {
             const list = <List>this.parent;
             this.enterFrom = list.enterFrom;
             this.leaveTo = list.leaveTo;
+            this.swipeDirection = list.swipeDirection;
+            this.isSwipeable = list.isSwipeable;
           }
         }
         this.itemDataChanged();
