@@ -31,6 +31,10 @@ declare module skins{
 	}
 }
 declare module skins{
+	class RoundButtonSkin extends eui.Skin{
+	}
+}
+declare module skins{
 	class ScrollerSkin extends eui.Skin{
 	}
 }
