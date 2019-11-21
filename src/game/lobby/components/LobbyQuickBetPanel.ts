@@ -6,13 +6,15 @@ namespace we {
         dir.evtHandler.addEventListener(we.core.Event.LOBBY_QUICKBET_CLICK, this.onQuickBetClick, this);
       }
       protected onQuickBetClick(evt: egret.Event) {
+        this.removeChildren();
         console.dir('LobbyQuickBetPanel::onQuickBetClick ');
-        console.dir(evt.data);
-        const sprite = new eui.Rect();
-        sprite.width = 500;
-        sprite.height = 500;
-        sprite.fillColor = 0x0066ff;
-        this.addChild(sprite);
+        const bettingTable = new we.ba.BettingTable();
+        this.addChild(bettingTable);
+        bettingTable.skinName = utils.getSkin('LobbyBaBettingTable');
+        bettingTable.x = evt.data.x;
+        bettingTable.y = 500;
+        bettingTable.width = 600;
+        bettingTable.height = 300;
       }
     }
   }

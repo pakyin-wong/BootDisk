@@ -77,10 +77,24 @@ namespace we {
         if (evt.target !== this.quickbetButton) {
           return;
         }
+
         console.log('LobbyBaccaratListItem::onQuickBetClick');
-        console.log(this.stage.x);
-        console.log(this.stage.y);
-        dir.evtHandler.dispatch(we.core.Event.LOBBY_QUICKBET_CLICK, [this.stage.x, this.stage.y]);
+
+        /*
+        let pos : number = 1;
+        if(this.x >=0 && this.x < 623){
+          pos = 1
+        }else if (this.x >=623 && this.x < 1245){
+          pos = 2
+        }else if (this.x >=1245 && this.x < 1868){
+          pos = 3
+        }else if (this.x >=1868 ){
+        pos =4}
+        else {pos =1}
+        */
+        console.log(this.y);
+        const pos = { x: this.x, y: this.y };
+        dir.evtHandler.dispatch(we.core.Event.LOBBY_QUICKBET_CLICK, pos);
       }
 
       private onClick(evt: egret.Event) {
