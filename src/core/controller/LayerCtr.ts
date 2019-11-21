@@ -7,6 +7,7 @@ namespace we {
       public top: egret.Sprite;
       public stickies: egret.Sprite;
       public overlay: egret.Sprite;
+      public betinfolist: egret.Sprite;
 
       constructor(stage: egret.Stage) {
         this.bottom = new egret.Sprite();
@@ -15,6 +16,7 @@ namespace we {
         this.top = new egret.Sprite();
         this.stickies = new egret.Sprite();
         this.overlay = new egret.Sprite();
+        this.betinfolist = new egret.Sprite();
 
         stage.addChild(this.bottom);
         stage.addChild(this.scene);
@@ -22,6 +24,7 @@ namespace we {
         stage.addChild(this.top);
         stage.addChild(this.stickies);
         stage.addChild(this.overlay);
+        stage.addChild(this.betinfolist);
 
         logger.l('LayerCtr is created');
       }

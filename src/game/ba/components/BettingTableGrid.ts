@@ -2,13 +2,13 @@ namespace we {
   export namespace ba {
     export class BettingTableGrid extends eui.Component {
       private lblName: eui.Label;
-      private rect: egret.Shape;
       private lblUncfmBet: eui.Label;
       private lblCfmBet: eui.Label;
 
       private _fieldName: string;
       private _cfmBet: number;
       private _uncfmBet: number;
+      private _bitmapName: string;
 
       private _border: number = 10;
       private _textColor: number = 0xffffff;
@@ -40,6 +40,10 @@ namespace we {
         this._fieldName = name;
       }
 
+      public setBitmap(name) {
+        this._bitmapName = name;
+      }
+
       public setCfmBet(amount: number): void {
         this._cfmBet = amount;
         this.lblCfmBet.text = this._cfmBet.toString();
@@ -68,7 +72,7 @@ namespace we {
 
       public $setWidth(num: number) {
         super.$setWidth(num);
-        this.setStyle(this._border, this._textColor, this._bgColor);
+        this.setStyle(this._border, this._textColor, this._bgColor, this._bitmapName);
       }
 
       public cancelBet(): void {
@@ -79,23 +83,36 @@ namespace we {
         return this._uncfmBet;
       }
 
-      public setStyle(border: number, textcolor: number, bgcolor: number) {
+      public async setStyle(border: number, textcolor: number, bgcolor: number, bitmapName: string = null) {
         this.removeChildren();
+        console.log('BettingTableGrid::setStyle: bitmapName: ', bitmapName, ' this._bitmapName: ', this._bitmapName);
 
-        this.rect = new egret.Shape();
-        this.addChild(this.rect);
-        // this.rect.x = 0;
-        // this.rect.y = 0;
-
-        this.rect.width = this.width;
-        this.rect.height = this.height;
-        this.rect.graphics.clear();
-        this.rect.graphics.beginFill(textcolor);
-        this.rect.graphics.drawRect(0, 0, this.width, this.height);
-        this.rect.graphics.endFill();
-        this.rect.graphics.beginFill(bgcolor);
-        this.rect.graphics.drawRect(border, border, this.width - border * 2, this.height - border * 2);
-        this.rect.graphics.endFill();
+        if (bitmapName) {
+          this._bitmapName = bitmapName;
+          try {
+            console.log('BettingTableGrid::loadGroup');
+            await RES.loadGroup('scene_baccarat');
+          } catch (e) {
+            console.log('BettingTableGrid::loadGroup error');
+          }
+          const bitmap = new egret.Bitmap();
+          bitmap.texture = RES.getRes(bitmapName);
+          bitmap.width = this.width;
+          bitmap.height = this.height;
+          this.addChild(bitmap);
+        } else if (this._bitmapName) {
+          try {
+            console.log('BettingTableGrid::loadGroup');
+            await RES.loadGroup('scene_baccarat');
+          } catch (e) {
+            console.log('BettingTableGrid::loadGroup error');
+          }
+          const bitmap = new egret.Bitmap();
+          bitmap.texture = RES.getRes(this._bitmapName);
+          bitmap.width = this.width;
+          bitmap.height = this.height;
+          this.addChild(bitmap);
+        }
 
         this.addChild(this.lblName);
         this.lblName.width = this.width;

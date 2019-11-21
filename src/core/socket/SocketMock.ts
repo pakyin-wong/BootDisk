@@ -21,6 +21,7 @@ namespace we {
           const data = new we.data.TableInfo();
           data.tableid = (idx + 1).toString();
           data.state = TableState.ONLINE;
+          data.roadmap = this.mockRoadData2;
           data.gametype = GameType.BAC;
           data.bets = [];
           const mockProcess = new MockProcess(this);
@@ -67,7 +68,10 @@ namespace we {
             chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
-
+        env.mode = null || -1;
+        env.categorySortOrder = '{}';
+        env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
+        egret.log(env.storedPositions);
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
       }
 
@@ -158,37 +162,162 @@ namespace we {
       }
 
       public async getTableHistory() {
-        env.tableHistory = [
-          { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-          { v: 'b', b: 0, p: 0, bv: 6, pv: 5 },
-          { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-          { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
-          { v: 'p', b: 0, p: 1, bv: 10, pv: 3 },
-          { v: 'p', b: 0, p: 0, bv: 10, pv: 5 },
-          { v: 'b', b: 0, p: 0, bv: 10, pv: 5 },
-          { v: 'p', b: 0, p: 0, bv: 5, pv: 5 },
-          { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-          { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-          { v: 'b', b: 1, p: 0, bv: 5, pv: 5 },
-          { v: 'b', b: 1, p: 1, bv: 10, pv: 5 },
-          { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-          { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-          { v: 't', b: 0, p: 0, bv: 10, pv: 5 },
-          { v: 't', b: 0, p: 0, bv: 4, pv: 5 },
-          { v: 'b', b: 1, p: 0, bv: 10, pv: 5 },
-          { v: 'b', b: 1, p: 1, bv: 10, pv: 15 },
-          { v: 'p', b: 1, p: 0, bv: 10, pv: 5 },
-          { v: 'p', b: 1, p: 1, bv: 10, pv: 5 },
-          { v: 'p', b: 1, p: 0, bv: 8, pv: 5 },
-          { v: 'b', b: 1, p: 0, bv: 9, pv: 12 },
-        ];
-        // console.log('SocketMock::sleeping before');
-
-        await utils.sleep(10000);
-        // console.log('SocketMock::sleeping after');
-        env.tableHistory = [{ v: 'b', b: 1, p: 0, bv: 10, pv: 5 }];
-        dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE);
+        // env.tableHistory = this.mockRoadData2;
+        // dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE);
       }
+      private mockRoadData0: any = {
+        bead: [],
+        bigRoad: [],
+        bigEye: [],
+        small: [],
+        roach: [],
+        bbead: [],
+        bbigRoad: [],
+        bbigEye: [],
+        bsmall: [],
+        broach: [],
+        pbead: [],
+        pbigRoad: [],
+        pbigEye: [],
+        psmall: [],
+        proach: [],
+        animateCell: [0, -1, -1, -1, -1, 0, -1, -1, -1, -1],
+      };
+      private mockRoadData1: any = {
+        bead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }],
+        bigRoad: [{ V: 'p', T: 0 }],
+        bigEye: [{ V: 'p' }],
+        small: [{ V: 'p' }],
+        roach: [{ V: 'p' }],
+
+        bbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'b', B: 0, P: 0, W: 0 }],
+        bbigRoad: [{ V: 'p', T: 0 }],
+        bbigEye: [{ V: 'p' }],
+        bsmall: [{ V: 'p' }],
+        broach: [{ V: 'p' }],
+
+        pbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'p', B: 0, P: 1, W: 7 }],
+        pbigRoad: [{ V: 'p', T: 0 }],
+        pbigEye: [{ V: 'p' }],
+        psmall: [{ V: 'p' }],
+        proach: [{ V: 'p' }],
+        animateCell: [2, 0, 0, 0, 0, 2, 0, 0, 0, 0],
+      };
+      private mockRoadData2: any = {
+        bead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'p', B: 0, P: 1, W: 7 },
+          { V: 'p', B: 0, P: 0, W: 6 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'b', B: 1, P: 1, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 5 },
+          { V: 'b', B: 0, P: 0, W: 2 },
+          { V: 't', B: 1, P: 0, W: 0 },
+        ],
+        bigRoad: [
+          { V: 'p', T: 0 },
+          { V: 'p', T: 0 },
+          { V: 'p', T: 4 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: 'b', T: 5 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: 'p', T: 6 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+        ],
+        bigEye: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }],
+        small: [{ V: 'p' }, { V: 'p' }, { V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: '' }],
+        roach: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }],
+
+        bbead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'p', B: 0, P: 1, W: 7 },
+          { V: 'p', B: 0, P: 0, W: 6 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'b', B: 1, P: 1, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 5 },
+          { V: 'b', B: 0, P: 0, W: 2 },
+          { V: 't', B: 1, P: 0, W: 0 },
+          { V: 'b', B: 0, P: 0, W: 0 },
+        ],
+        bbigRoad: [
+          { V: 'p', T: 0 },
+          { V: 'p', T: 0 },
+          { V: 'p', T: 4 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: 'b', T: 5 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: 'p', T: 6 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: 'b', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+        ],
+        bbigEye: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }],
+        bsmall: [{ V: 'p' }, { V: 'p' }, { V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }],
+        broach: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }],
+
+        pbead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'p', B: 0, P: 1, W: 7 },
+          { V: 'p', B: 0, P: 0, W: 6 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'b', B: 1, P: 1, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 5 },
+          { V: 'b', B: 0, P: 0, W: 2 },
+          { V: 't', B: 1, P: 0, W: 0 },
+          { V: 'p', B: 0, P: 0, W: 0 },
+        ],
+        pbigRoad: [
+          { V: 'p', T: 0 },
+          { V: 'p', T: 0 },
+          { V: 'p', T: 4 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: 'b', T: 5 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: 'p', T: 6 },
+          { V: 'p', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+          { V: '', T: 0 },
+        ],
+        pbigEye: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'p' }],
+        psmall: [{ V: 'p' }, { V: 'p' }, { V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: '' }, { V: 'p' }],
+        proach: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'p' }],
+        animateCell: [9, 18, 7, 11, 7, 9, 13, 12, 12, 12],
+      };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {
         egret.log('SocketMock::bet()');

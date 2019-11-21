@@ -42,29 +42,36 @@ namespace we {
       public clearRoadData() {
         for (const elem of this.roadMapIconList) {
           elem.setByObject({});
+          elem.stopAnimate();
         }
       }
 
       public parseRoadData(roadData: any) {
-        if (!this.roadMapIconList) {
-          this.initRoadData();
-        } else {
-          this.clearRoadData();
-        }
+        if (roadData) {
+          if (!this.roadMapIconList) {
+            this.initRoadData();
+          } else {
+            this.clearRoadData();
+          }
 
-        this.roadData = roadData;
-        const roadDataCopy = roadData.slice(); // copy the array;
+          this.roadData = roadData;
+          const roadDataCopy = roadData.slice(); // copy the array;
 
-        const maxNum = this.numCol * 6;
+          const maxNum = this.numCol * 6;
 
-        const exceed = roadDataCopy.length - maxNum;
-        if (exceed > 0) {
-          roadDataCopy.splice(0, exceed);
-        }
-        for (let i = 0; i < roadDataCopy.length; i++) {
-          const icon = this.roadMapIconList[i];
-          icon.setLang(this.lang);
-          icon.setByObject(roadDataCopy[i]);
+          const exceed = roadDataCopy.length - maxNum;
+          if (exceed > 0) {
+            roadDataCopy.splice(0, exceed);
+          }
+          for (let i = 0; i < roadDataCopy.length; i++) {
+            const icon = this.roadMapIconList[i];
+            icon.setLang(this.lang);
+            icon.setByObject(roadDataCopy[i]);
+
+            if (roadDataCopy[i].isPredict && roadDataCopy[i].V) {
+              icon.animate();
+            }
+          }
         }
       }
 

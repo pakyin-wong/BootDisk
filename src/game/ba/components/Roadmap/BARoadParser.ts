@@ -1,7 +1,7 @@
 namespace we {
   export namespace ba {
     export class BARoadParser extends egret.EventDispatcher {
-      private maxCol: number;
+      protected maxCol: number;
       public rawResult: any;
 
       public beadRoadResult: any;
@@ -13,47 +13,46 @@ namespace we {
 
       public constructor(maxCol: number) {
         super();
+        this.rawResult = [];
         this.maxCol = maxCol;
       }
 
-      public parseData(rawData: any) {
-        // this.rawResult = rawData.slice(); // copy the array
-        this.beadRoadResult = rawData.bead;
-        this.bigRoadResult = rawData.bigRoad;
-        this.bigEyeRoadResult = rawData.bigEye;
-        this.smallRoadResult = rawData.small;
-        this.cockroachRoadResult = rawData.roach;
+      // predict win for banker(0) or player(1)
+      public predictWin(v: number) {
+        let nextResult = {};
+        if (v === 0) {
+          nextResult = { V: 'b', B: 0, P: 0, W: 0, isPredict: 1 };
+        } else {
+          nextResult = { V: 'p', B: 0, P: 0, W: 0, isPredict: 1 };
+        }
+        const predict = this.rawResult.slice();
+        predict.push(nextResult);
 
-        /*
-          bbigEye: rawData.bbigeye ? rawData.bbigeye : '',
-          bbigRoad: rawData.bbigroad ? rawData.bbigroad : '',
-          bead: rawData.bead ? rawData.bead : '',
-          bigEye: rawData.bigeye ? rawData.bigeye : '',
-          bigRoad: rawData.bigroad ? rawData.bigroad : '',
-          broach: rawData.broach ? rawData.broach : '',
-          bsmall: rawData.bsmall ? rawData.bsmall : '',
-          pbead: rawData.pbead ? rawData.pbead : '',
-          pbigEye: rawData.pbigeye ? rawData.pbigeye : '',
-          pbigRoad: rawData.pbigroad ? rawData.pbigroad : '',
-          proach: rawData.proach ? rawData.proach : '',
-          psmall: rawData.psmall ? rawData.psmall : '',
-          roach: rawData.roach ? rawData.roach : '',
-          shoeid: rawData.shoeid ? rawData.shoeid : '',
-          small: rawData.small ? rawData.small : '',
-          animateCell: rawData.animatecell ? rawData.animatecell : '',
-        this.doParseBeadRoad();
+        this.doParseBeadRoad(predict);
         this.doParseBigRoad();
         this.doParseBigEyeRoad();
         this.doParseSmallRoad();
         this.doParseCockroachRoad();
-        */
 
-        // this.dispatchEvent(new egret.Event('onUpdate'));
+        this.dispatchEvent(new egret.Event('onUpdate'));
       }
 
-      private doParseBeadRoad() {
-        const data = this.rawResult.slice(); // copy the array
+      public clearPredict() {
+        if (this.rawResult) {
+          this.parseData(this.rawResult);
+        }
+      }
+      public parseData(rawData: any) {
+        this.rawResult = rawData.slice(); // copy the array
+        this.doParseBeadRoad(this.rawResult);
+        this.doParseBigRoad();
+        this.doParseBigEyeRoad();
+        this.doParseSmallRoad();
+        this.doParseCockroachRoad();
+        this.dispatchEvent(new egret.Event('onUpdate'));
+      }
 
+      protected doParseBeadRoad(data: any) {
         // 1.remove extra data by grid size
         const maxNum = this.maxCol * 6;
         const exceed = data.length - maxNum;
@@ -63,11 +62,11 @@ namespace we {
         this.beadRoadResult = data.slice();
       }
 
-      private doParseBigRoad() {
+      protected doParseBigRoad() {
         // 1.strip all the tie result at the begining
         const pbtResultArr = this.beadRoadResult.slice();
         while (pbtResultArr.length > 0) {
-          if (pbtResultArr[0].v === 't') {
+          if (pbtResultArr[0].V === 't') {
             pbtResultArr.splice(0, 1);
           } else {
             break;
@@ -78,11 +77,11 @@ namespace we {
         let lastUntieData = null;
         for (const currentData of pbtResultArr) {
           // set the number of tie to zero
-          currentData.t = 0;
+          currentData.T = 0;
 
           // add the tie number to the last untie result
-          if (currentData.v === 't') {
-            lastUntieData.t++;
+          if (currentData.V === 't') {
+            lastUntieData.T++;
           } else {
             lastUntieData = currentData;
           }
@@ -91,7 +90,7 @@ namespace we {
         // 3.remove all tie result
         const pbResultArr = [];
         for (const currentData of pbtResultArr) {
-          if (currentData.v !== 't') {
+          if (currentData.V !== 't') {
             pbResultArr.push(currentData);
           }
         }
@@ -103,18 +102,18 @@ namespace we {
         this.bigRoadResult = this.columnResultToRoadResult(this.bigRoadColumnResult);
       }
 
-      private doParseBigEyeRoad() {
+      protected doParseBigEyeRoad() {
         this.bigEyeRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(1)));
       }
 
-      private doParseSmallRoad() {
+      protected doParseSmallRoad() {
         this.smallRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(2)));
       }
-      private doParseCockroachRoad() {
+      protected doParseCockroachRoad() {
         this.cockroachRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(3)));
       }
 
-      private pbResultToColumnResult(pbResult: any) {
+      protected pbResultToColumnResult(pbResult: any) {
         // 1.create column arrays
         const columnResult = [];
         let tempArr = [];
@@ -124,11 +123,11 @@ namespace we {
         for (const i of pbResult) {
           const currentData = i;
           if (currentV == null) {
-            currentV = currentData.v;
+            currentV = currentData.V;
             tempArr.push(currentData);
             hasNext = true;
-          } else if (currentV !== currentData.v) {
-            currentV = currentData.v;
+          } else if (currentV !== currentData.V) {
+            currentV = currentData.V;
             if (tempArr.length > roadMaxLength) {
               roadMaxLength = tempArr.length;
             }
@@ -153,7 +152,7 @@ namespace we {
         return columnResult;
       }
 
-      private columnResultToRoadResult(columnResult: any) {
+      protected columnResultToRoadResult(columnResult: any) {
         // 1.create empty 2D arrays
         const maxNum = this.maxCol * 6;
         const roadResultArr = [];
@@ -185,17 +184,17 @@ namespace we {
                 break;
               }
               // check if the out element is available
-              if (outElement.v == null) {
+              if (outElement.V == null) {
                 roadResultArr[roadCol][roadRow] = inElement;
                 // store the max column number for trimming
                 if (roadCol > maxRoadCol) {
                   maxRoadCol = roadCol;
                 }
                 found = true;
-              } else if (outElement.v === inElement.v) {
+              } else if (outElement.V === inElement.V) {
                 // find the next place
                 if (roadRow < 5) {
-                  if (roadResultArr[roadCol][roadRow + 1].v != null) {
+                  if (roadResultArr[roadCol][roadRow + 1].V != null) {
                     turn = true;
                   }
                 } else {
@@ -224,20 +223,21 @@ namespace we {
         return finalRoadResult;
       }
 
-      private pbResultFromBigRoadColumn(cycle: number) {
+      protected pbResultFromBigRoadColumn(cycle: number) {
         // 1.create raw p/b results for big eye road
         const pbResultArr = [];
         for (let n = 0; n < this.bigRoadColumnResult.length; n++) {
           const colArr = this.bigRoadColumnResult[n];
           for (let m = 0; m < colArr.length; m++) {
+            const isPredict = colArr[m].isPredict;
             if (m >= 1) {
               const col: number = n - cycle;
               if (col >= 0) {
                 const p = this.bigRoadColumnResult[col].length;
                 if (m === p) {
-                  pbResultArr.push({ v: 'p' });
+                  pbResultArr.push({ V: 'p', isPredict });
                 } else {
-                  pbResultArr.push({ v: 'b' });
+                  pbResultArr.push({ V: 'b', isPredict });
                 }
               }
             } else {
@@ -246,9 +246,9 @@ namespace we {
                 const mPrevious: number = this.bigRoadColumnResult[n - 1].length;
                 const p = this.bigRoadColumnResult[col].length;
                 if (mPrevious === p) {
-                  pbResultArr.push({ v: 'b' });
+                  pbResultArr.push({ V: 'b', isPredict });
                 } else {
-                  pbResultArr.push({ v: 'p' });
+                  pbResultArr.push({ V: 'p', isPredict });
                 }
               }
             }

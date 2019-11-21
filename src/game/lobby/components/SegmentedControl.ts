@@ -21,7 +21,7 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
-        const items = ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4', 'Tab 5', 'Tab7'];
+        const items = ['精選推介', '百家樂', '好路檯', '幸運輪', '即開彩', '其他遊戲', '我的最愛'];
         // const tlayout = new eui.HorizontalLayout();
         // tlayout.gap = 0;
         // tlayout.horizontalGap = 0;
