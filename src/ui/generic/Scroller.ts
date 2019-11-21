@@ -133,10 +133,12 @@ namespace we {
       }
 
       private onMouseOver(event: egret.TouchEvent) {
+        console.log(event.target, event.currentTarget);
         (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       private onMouseOut(event: egret.TouchEvent) {
+        console.log('out');
         (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 

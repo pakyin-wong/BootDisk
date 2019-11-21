@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.VScrollBarSkin" width="20" minHeight="240" xmlns:e="http://ns.egret.com/eui">
-    <e:Image id="track" source="track_png" scale9Grid="1,1,4,4" width="20" height="100%" horizontalCenter="0"/>
-    <e:Image id="thumb" source="roundthumb_png" scale9Grid="3,3,2,2" width="20" height="200" horizontalCenter="0"/>
+<e:Skin class="skin_desktop.VScrollBarSkin" width="30" minHeight="240" xmlns:e="http://ns.egret.com/eui">
+    <e:Image id="thumb" width="36" height="640" source="scroller_thumb" fillMode="scale" scale9Grid="18,18,1,1" scaleY="0.333333" scaleX="0.333333" x="6" anchorOffsetY="0" alpha="0.333333"/>
 </e:Skin>

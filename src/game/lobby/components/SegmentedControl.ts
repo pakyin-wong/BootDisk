@@ -41,12 +41,14 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        const shape = new egret.Shape();
-        shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
-        shape.graphics.endFill();
-        this.addChild(shape);
-        this.mask = shape;
+        // For Fixed Width Round Corner
+        // Disabled to prevent overflow hidden
+        // const shape = new egret.Shape();
+        // shape.graphics.beginFill(0xffffff, 1);
+        // shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        // shape.graphics.endFill();
+        // this.addChild(shape);
+        // this.mask = shape;
 
         this.tabBar.selectedIndex = 0;
         console.log(this.tabBar.$children);
