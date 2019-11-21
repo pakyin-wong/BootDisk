@@ -67,8 +67,8 @@ namespace we {
         this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
 
         // add mouse over/out listeners
-        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
-        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
+        this.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
+        this.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
 
         // add scroll bar listeners
         this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
@@ -79,8 +79,8 @@ namespace we {
         this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
 
         // remove mouse over/out listeners
-        this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
-        this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
+        this.removeEventListener(mouse.MouseEvent.MOUSE_OVER, this.onMouseOver, this);
+        this.removeEventListener(mouse.MouseEvent.MOUSE_OUT, this.onMouseOut, this);
 
         // remove scroll bar listeners
         this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);

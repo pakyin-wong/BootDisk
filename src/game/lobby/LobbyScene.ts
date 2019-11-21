@@ -12,8 +12,11 @@ namespace we {
         dir.socket.getTableHistory();
 
         const scroller = new ui.Scroller();
-        scroller.percentWidth = 100;
+        // scroller.percentWidth = 100;
+        scroller.width = 640;
         scroller.percentHeight = 100;
+        scroller.right = 0;
+
         this.addChild(scroller);
         const collection = new eui.ArrayCollection([]);
         const roomList = new ui.List();
@@ -29,7 +32,7 @@ namespace we {
         roomList.enterFrom = 'right';
         roomList.leaveTo = 'right';
         roomList.isSwipeable = true;
-        roomList.swipeDirection = ui.SwipeDirection.right;
+        roomList.swipeDirection = ui.SwipeDirection.horizontal;
         roomList.isAnimateItemTransition = true;
         roomList.dataProvider = collection;
         roomList.itemRenderer = LobbyListItem;

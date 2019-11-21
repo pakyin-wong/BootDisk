@@ -70,13 +70,16 @@ namespace we {
             const collection = <eui.ArrayCollection>list.dataProvider;
             const idx = collection.getItemIndex(this.itemData);
             if (idx >= 0) {
+              this.autoRemoveAddon.willRemove();
               collection.removeItemAt(idx);
             }
           }
         }
       }
 
-      public onSwipe() {}
+      public onSwipeFinished() {
+        this.removeSelf(false);
+      }
 
       public dataChanged(): void {
         super.dataChanged();

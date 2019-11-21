@@ -46,8 +46,8 @@ namespace we {
       public init() {
         this.reset();
         this.target.once(egret.Event.ENTER_FRAME, this.start, this);
-        this.target.addEventListener(mouse.MouseEvent.ROLL_OVER, this.clearAllTimeout, this);
-        this.target.addEventListener(mouse.MouseEvent.ROLL_OUT, this.startAllTimeout, this);
+        this.target.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
+        this.target.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
         this.target.parent.addEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
         this.target.parent.addEventListener('Start_ALL_TIMEOUT', this.start, this);
       }
@@ -56,7 +56,7 @@ namespace we {
         egret.log('clear all timeout');
         this.target.parent.dispatchEvent(new egret.Event('CLEAR_ALL_TIMEOUT'));
       }
-      protected startAllTimeout() {
+      public startAllTimeout() {
         egret.log('start all timeout');
         this.target.parent.dispatchEvent(new egret.Event('Start_ALL_TIMEOUT'));
       }
@@ -76,16 +76,20 @@ namespace we {
       }
 
       public async startRemove() {
-        this.target.touchEnabled = false;
-        this.target.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.clearAllTimeout, this);
-        this.target.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.startAllTimeout, this);
-        this.target.parent.removeEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
-        this.target.parent.removeEventListener('Start_ALL_TIMEOUT', this.start, this);
+        this.willRemove();
 
         await this.startTransition();
 
-        this.reset();
         this.target.removeSelf(false);
+      }
+
+      public willRemove() {
+        this.reset();
+        this.target.touchEnabled = false;
+        this.target.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
+        this.target.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
+        this.target.parent.removeEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
+        this.target.parent.removeEventListener('Start_ALL_TIMEOUT', this.start, this);
       }
 
       protected async startTransition() {
