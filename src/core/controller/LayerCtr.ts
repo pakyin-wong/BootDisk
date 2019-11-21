@@ -14,7 +14,6 @@ namespace we {
         this.scene = new egret.Sprite();
         this.nav = new egret.Sprite();
         this.top = new egret.Sprite();
-        this.stickies = new egret.Sprite();
         this.overlay = new egret.Sprite();
         this.betinfolist = new egret.Sprite();
 
@@ -22,7 +21,6 @@ namespace we {
         stage.addChild(this.scene);
         stage.addChild(this.nav);
         stage.addChild(this.top);
-        stage.addChild(this.stickies);
         stage.addChild(this.overlay);
         stage.addChild(this.betinfolist);
 
