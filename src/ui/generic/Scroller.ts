@@ -180,6 +180,9 @@ namespace we {
       protected updateDisplayList(unscaledWidth: number, unscaledHeight: number): void {
         super.updateDisplayList(unscaledWidth, unscaledHeight);
         this.validateNow();
+        let thumbSize = (this.viewport.height / this.viewport.contentHeight) * this.viewport.height;
+        thumbSize = Math.max(thumbSize, 100);
+        this.verticalScrollBar.thumb.height = thumbSize;
         if (this.viewport.contentHeight < this.height) {
           this.verticalScrollBar.visible = false;
         } else {

@@ -21,8 +21,20 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
+        const offsetForTableList = -60;
         const paddingHorizontal = 80;
         const gapSize = 50;
+
+        // init image slider and category tab
+        const topDisplay = new eui.Group();
+        topDisplay.height = 790;
+        topDisplay.width = 2600;
+        const slider = new we.ui.ImageSlider();
+        const tabs = new we.lobby.SegmentedControl();
+        tabs.left = paddingHorizontal;
+        tabs.bottom = gapSize + -offsetForTableList;
+        topDisplay.addChild(slider);
+        topDisplay.addChild(tabs);
 
         // init three banner
         const bannerList = new eui.List();
@@ -35,6 +47,7 @@ namespace we {
         bannerList.itemRenderer = LobbyBannerItem;
         bannerList.left = paddingHorizontal;
         bannerList.right = paddingHorizontal;
+        bannerList.y = topDisplay.height + offsetForTableList;
 
         // init room grids
         const roomList = new eui.List();
@@ -49,10 +62,11 @@ namespace we {
         roomList.itemRenderer = LobbyBacarratListItem;
         roomList.left = paddingHorizontal;
         roomList.right = paddingHorizontal;
-        roomList.y = bannerList.height + gapSize;
+        roomList.y = topDisplay.height + offsetForTableList + bannerList.height + gapSize;
 
         const group = new eui.Group();
         // group.layout = new eui.VerticalLayout();
+        group.addChild(topDisplay);
         group.addChild(bannerList);
         group.addChild(roomList);
 

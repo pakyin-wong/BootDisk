@@ -39,13 +39,15 @@ var mouse;
      */
     mouse.enable = function (stage) {
         isPC = egret.Capabilities.os == "Windows PC" || egret.Capabilities.os == "Mac OS";
-        stageObj = currentTarget = stage;
+        stageObj = stage;
+        currentTarget = [stageObj];
         // if (isPC) {
         //     addMouseWheelEvent();
         // }
 
         var check = function (x, y) {
             var pointer = false;
+            var targetList = [];
             var detectRollOver = function (displayObject) {
                 if(!displayObject["isRollOver"]) {
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OVER, false, false, x, y, null);
@@ -66,6 +68,7 @@ var mouse;
                 var rs = $hitTest.call(this, stageX, stageY);
                 if (rs != null) {
                     detectRollOver(this);
+                    targetList.push(this);
                 } else {
                     detectRollOut(this);
                 }
@@ -74,13 +77,16 @@ var mouse;
             var target = stageObj.$hitTest(x,y);
             if (target != null) {
                 detectRollOver(target);
+                targetList.push(target);
             }
-            if (target != currentTarget) {
-                if(currentTarget != null) {
-                    detectRollOut(currentTarget);
+
+            currentTarget.forEach(function(i){
+                if(targetList.indexOf(i) < 0) {
+                    detectRollOut(i);
                 }
-                currentTarget = target;
-            }
+            })
+
+            currentTarget = targetList;
             if (isPC) {
                 try {
                     var canvas = stageObj.$displayList.renderBuffer.surface;

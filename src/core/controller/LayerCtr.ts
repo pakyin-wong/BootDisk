@@ -1,11 +1,12 @@
 namespace we {
   export namespace core {
     export class LayerCtr {
-      public overlay: egret.Sprite;
-      public top: egret.Sprite;
-      public nav: egret.Sprite;
-      public scene: egret.Sprite;
       public bottom: egret.Sprite;
+      public scene: egret.Sprite;
+      public nav: egret.Sprite;
+      public top: egret.Sprite;
+      public stickies: egret.Sprite;
+      public overlay: egret.Sprite;
       public betinfolist: egret.Sprite;
 
       constructor(stage: egret.Stage) {

@@ -5,7 +5,7 @@
 			"name": "egret_basic"
 		},
 		{
-			"keys": "h4_png,h3_png,h5_png,h6_png,h7_png,h10_png,h9_png,h8_png,h11_png,h12_png,h13_png,s1_png,s3_png,s2_png,s5_png,s4_png,s6_png,s7_png,s8_png,s9_png,s10_png,s11_png,s12_png,s13_png,card_back_png,c1_png,c2_png,c3_png,c4_png,c6_png,c7_png,c8_png,c9_png,c10_png,c11_png,c12_png,c13_png,d1_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,d10_png,d11_png,d12_png,h2_png,d13_png,h1_png,scroller_thumb",
+			"keys": "h4_png,h3_png,h5_png,h6_png,h7_png,h10_png,h9_png,h8_png,h11_png,h12_png,h13_png,s1_png,s3_png,s2_png,s5_png,s4_png,s6_png,s7_png,s8_png,s9_png,s10_png,s11_png,s12_png,s13_png,card_back_png,c1_png,c2_png,c3_png,c4_png,c6_png,c7_png,c8_png,c9_png,c10_png,c11_png,c12_png,c13_png,d1_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,d10_png,d11_png,d12_png,h2_png,d13_png,h1_png",
 			"name": "common"
 		},
 		{
@@ -25,7 +25,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png,scroller_thumb",
+			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png",
 			"name": "preload"
 		}
 	],
@@ -771,69 +771,69 @@
 			"name": "lobby_banner3_png"
 		},
 		{
-			"url": "assets/Scene/baccarat/scene_baccarat_banker.png",
+			"name": "scene_baccarat_banker_png",
 			"type": "image",
-			"name": "scene_baccarat_banker_png"
+			"url": "assets/Scene/baccarat/scene_baccarat_banker.png"
 		},
 		{
-			"url": "assets/Scene/baccarat/scene_baccarat_banker_pair.png",
+			"name": "scene_baccarat_banker_pair_png",
 			"type": "image",
-			"name": "scene_baccarat_banker_pair_png"
+			"url": "assets/Scene/baccarat/scene_baccarat_banker_pair.png"
 		},
 		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player.png",
+			"name": "scene_baccarat_player_png",
 			"type": "image",
-			"name": "scene_baccarat_player_png"
+			"url": "assets/Scene/baccarat/scene_baccarat_player.png"
 		},
 		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player_pair.png",
+			"name": "scene_baccarat_player_pair_png",
 			"type": "image",
-			"name": "scene_baccarat_player_pair_png"
+			"url": "assets/Scene/baccarat/scene_baccarat_player_pair.png"
 		},
 		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player_win.png",
+			"name": "scene_baccarat_player_win_png",
 			"type": "image",
-			"name": "scene_baccarat_player_win_png"
+			"url": "assets/Scene/baccarat/scene_baccarat_player_win.png"
 		},
 		{
-			"url": "assets/Scene/baccarat/scene_baccarat_tie.png",
+			"name": "scene_baccarat_tie_png",
 			"type": "image",
-			"name": "scene_baccarat_tie_png"
+			"url": "assets/Scene/baccarat/scene_baccarat_tie.png"
 		},
 		{
-			"url": "assets/banner-baccarat.png",
+			"name": "banner-baccarat2_png",
 			"type": "image",
-			"name": "banner-baccarat2_png"
+			"url": "assets/banner-baccarat.png"
 		},
 		{
-			"url": "assets/lobby_banner1.png",
+			"name": "lobby_banner12_png",
 			"type": "image",
-			"name": "lobby_banner12_png"
+			"url": "assets/lobby_banner1.png"
 		},
 		{
-			"url": "assets/lobby_banner2.png",
+			"name": "lobby_banner22_png",
 			"type": "image",
-			"name": "lobby_banner22_png"
+			"url": "assets/lobby_banner2.png"
 		},
 		{
-			"url": "assets/lobby_banner3.png",
+			"name": "lobby_banner32_png",
 			"type": "image",
-			"name": "lobby_banner32_png"
+			"url": "assets/lobby_banner3.png"
 		},
 		{
-			"url": "assets/round_button_down.png",
+			"name": "round_button_down_png",
 			"type": "image",
-			"name": "round_button_down_png"
+			"url": "assets/round_button_down.png"
 		},
 		{
-			"url": "assets/round_button_up.png",
+			"name": "round_button_up_png",
 			"type": "image",
-			"name": "round_button_up_png"
+			"url": "assets/round_button_up.png"
 		},
 		{
-			"url": "assets/scroller_thumb.png",
+			"name": "scroller_thumb",
 			"type": "image",
-			"name": "scroller_thumb"
-		}
+			"url": "assets/scroller_thumb.png"
+        }
 	]
 }

@@ -7,6 +7,7 @@ namespace we {
 
       public constructor() {
         super();
+        this.height = 50;
         this.tabBar = new ui.SortableList();
         this.tabBar.percentWidth = 100;
         this.tabBar.percentHeight = 100;
