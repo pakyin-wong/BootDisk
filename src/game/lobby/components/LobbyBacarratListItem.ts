@@ -27,8 +27,6 @@ namespace we {
         this.quickbetButton.label = 'Quick Bet';
         this.quickbetButton.verticalCenter = 0;
         this.quickbetButton.horizontalCenter = 0;
-        this.quickbetButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onQuickBetButtonOver, this);
-        this.quickbetButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onQuickBetButtonOut, this);
         this.quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onQuickBetClick, this);
 
         this.closeQuickBetButton = new eui.Button();
@@ -75,22 +73,22 @@ namespace we {
         }
       }
 
-      private onQuickBetClick() {
-        this.height += 300;
-        this.addChild(this.bettingTable);
-        this.bettingTable.bottom = 0;
+      private onQuickBetClick(evt: egret.Event) {
+        if (evt.target !== this.quickbetButton) {
+          return;
+        }
+        console.log('LobbyBaccaratListItem::onQuickBetClick');
+        console.log(this.stage.x);
+        console.log(this.stage.y);
+        dir.evtHandler.dispatch(we.core.Event.LOBBY_QUICKBET_CLICK, [this.stage.x, this.stage.y]);
       }
 
-      private onQuickBetButtonOver() {
-        this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-      }
-
-      private onQuickBetButtonOut() {
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-      }
-
-      private onClick() {
-        console.log('cick', this.rect.fillColor);
+      private onClick(evt: egret.Event) {
+        console.log('LobbyBaccaratListItem::onClick');
+        console.dir(evt.target);
+        if (evt.target !== this.rect || evt.target === this.quickbetButton) {
+          return;
+        }
         const table = env.tableInfos[this._data];
         if (table.data && table.tableid) {
           dir.socket.enterTable(table.tableid);
