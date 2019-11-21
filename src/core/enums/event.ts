@@ -1,6 +1,7 @@
 namespace we {
   export namespace core {
     export const Event = {
+      MODE_UPDATE: 'EV_MODE_UPDATE',
       METER_UPDATE: 'EV_METER_UPDATE',
       SWITCH_LANGUAGE: 'i18n_SWITCH_LANGUAGE',
       CONNECT_SUCCESS: 'MQTT_EV_CONNECT_SUCCESS',

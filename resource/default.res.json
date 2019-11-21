@@ -25,7 +25,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png",
+			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png",
 			"name": "preload"
 		}
 	],
@@ -769,6 +769,66 @@
 			"url": "assets/lobby_banner3.png",
 			"type": "image",
 			"name": "lobby_banner3_png"
+		},
+		{
+			"name": "scene_baccarat_banker_png",
+			"type": "image",
+			"url": "assets/Scene/baccarat/scene_baccarat_banker.png"
+		},
+		{
+			"name": "scene_baccarat_banker_pair_png",
+			"type": "image",
+			"url": "assets/Scene/baccarat/scene_baccarat_banker_pair.png"
+		},
+		{
+			"name": "scene_baccarat_player_png",
+			"type": "image",
+			"url": "assets/Scene/baccarat/scene_baccarat_player.png"
+		},
+		{
+			"name": "scene_baccarat_player_pair_png",
+			"type": "image",
+			"url": "assets/Scene/baccarat/scene_baccarat_player_pair.png"
+		},
+		{
+			"name": "scene_baccarat_player_win_png",
+			"type": "image",
+			"url": "assets/Scene/baccarat/scene_baccarat_player_win.png"
+		},
+		{
+			"name": "scene_baccarat_tie_png",
+			"type": "image",
+			"url": "assets/Scene/baccarat/scene_baccarat_tie.png"
+		},
+		{
+			"name": "banner-baccarat2_png",
+			"type": "image",
+			"url": "assets/banner-baccarat.png"
+		},
+		{
+			"name": "lobby_banner12_png",
+			"type": "image",
+			"url": "assets/lobby_banner1.png"
+		},
+		{
+			"name": "lobby_banner22_png",
+			"type": "image",
+			"url": "assets/lobby_banner2.png"
+		},
+		{
+			"name": "lobby_banner32_png",
+			"type": "image",
+			"url": "assets/lobby_banner3.png"
+		},
+		{
+			"name": "round_button_down_png",
+			"type": "image",
+			"url": "assets/round_button_down.png"
+		},
+		{
+			"name": "round_button_up_png",
+			"type": "image",
+			"url": "assets/round_button_up.png"
 		}
 	]
 }
