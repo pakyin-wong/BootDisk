@@ -189,6 +189,11 @@ namespace we {
         this.roadmap.y = 500;
         this.addChild(this.roadmap);
 
+        const gRoad = new BAGoodRoadmap();
+        gRoad.x = 1000;
+        gRoad.y = 500;
+        this.addChild(gRoad);
+
         // step 3: connect socket
         // this.socketConnect();
       }
@@ -210,12 +215,12 @@ namespace we {
       protected onTableInfoUpdate(evt: egret.Event) {
         console.log('Baccarat listener');
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this.tableID) {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
-            this.gameData = <GameData>this.tableInfo.data;
+            this.gameData = <GameData> this.tableInfo.data;
             this.previousState = this.gameData.state;
             this.roadmap.updateRoadData(tableInfo.roadmap);
             this.updateGame();
@@ -224,7 +229,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this.tableID) {
           this.betDetails = tableInfo.bets;
           switch (this.gameData.state) {

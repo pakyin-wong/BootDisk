@@ -7,6 +7,9 @@ namespace we {
 
       private rect: eui.Rect;
       private label: eui.Label;
+      private quickbetButton: eui.Button;
+      private closeQuickBetButton: eui.Button;
+      private bettingTable: we.ba.BettingTable;
 
       protected destinationX: number = Infinity;
       protected destinationY: number = Infinity;
@@ -17,6 +20,24 @@ namespace we {
         this.skinName = utils.getSkin('LobbyBacarratListItem');
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
+
+        this.quickbetButton = new eui.Button();
+        this.quickbetButton.label = 'Quick Bet';
+        this.quickbetButton.verticalCenter = 0;
+        this.quickbetButton.horizontalCenter = 0;
+        this.quickbetButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onQuickBetButtonOver, this);
+        this.quickbetButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onQuickBetButtonOut, this);
+        this.quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onQuickBetClick, this);
+
+        this.closeQuickBetButton = new eui.Button();
+        this.closeQuickBetButton.label = 'X';
+
+        this.bettingTable = new we.ba.BettingTable();
+        this.bettingTable.skinName = utils.getSkin('LobbyBaBettingTable');
+        this.bettingTable.width = 640;
+        this.bettingTable.height = 300;
       }
 
       public get data() {
@@ -40,6 +61,32 @@ namespace we {
         //   this.rect.fillColor = data;
         //   this.visible = true;
         // }
+      }
+
+      private onMouseOver() {
+        if (this.quickbetButton && !this.contains(this.quickbetButton)) {
+          this.addChild(this.quickbetButton);
+        }
+      }
+
+      private onMouseOut() {
+        if (this.quickbetButton && this.contains(this.quickbetButton)) {
+          this.removeChild(this.quickbetButton);
+        }
+      }
+
+      private onQuickBetClick() {
+        this.height += 300;
+        this.addChild(this.bettingTable);
+        this.bettingTable.bottom = 0;
+      }
+
+      private onQuickBetButtonOver() {
+        this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+      }
+
+      private onQuickBetButtonOut() {
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
       }
 
       private onClick() {

@@ -10,6 +10,15 @@ namespace we {
           onload: '资源加载中',
         },
       },
+      lobby: {
+        categoryPromotion: '精选推介',
+        categoryBacarrat: '百家乐',
+        categoryGoodRoad: '好路枱',
+        categoryLuckyWheel: '幸运轮',
+        categoryInstant: '即开彩',
+        categoryOtherGame: '其他游戏',
+        categoryFavorite: '我的最爱',
+      },
       baccarat: {
         playerPair: '闲对',
         bankerPair: '庄对',

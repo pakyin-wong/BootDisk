@@ -17,7 +17,7 @@ namespace we {
         };
 
         const self = this;
-        const onTweenUpdate = function() {
+        const onTweenUpdate = function () {
           self.update(this.m, this.v);
         };
         egret.Tween.get(this._tween[meter], { onChange: onTweenUpdate, onChangeObj: this._tween[meter] }).to({ v: to }, duration);

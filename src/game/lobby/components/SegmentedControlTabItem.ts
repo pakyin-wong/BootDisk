@@ -3,9 +3,9 @@ namespace we {
     export class SegmentedControlTabItem extends ui.SortableItemRenderer {
       public mySelected: boolean;
       public itemIndex: number;
-      public myData: any;
 
       private label: eui.Label;
+      private boldWidth = null;
 
       protected destinationX: number = Infinity;
       protected destinationY: number = Infinity;
@@ -37,25 +37,29 @@ namespace we {
       // }
 
       public clone() {
-        const clone: SegmentedControlTabItem = <SegmentedControlTabItem>super.clone();
+        const clone: SegmentedControlTabItem = <SegmentedControlTabItem> super.clone();
         clone.data = this.data;
         return clone;
       }
 
       public dataChanged() {
         super.dataChanged();
-        this.myData = this.data;
-        this.label.text = this.data;
-        egret.Tween.removeTweens(this);
+        this.label.text = i18n.t(this.data);
+
+        // set tab item min width to bold text width
+        const bold = this.label.bold;
+        this.label.bold = true;
+        this.boldWidth = this.width;
+        this.label.bold = bold;
+        this.minWidth = this.boldWidth;
+
+        // this.width = this.label.width;
+        // this.height = this.label.height;
+        // this.setMeasuredSize(this.measuredWidth + this.width, this.height);
         if (this.destinationX !== Infinity) {
           this.x = this.destinationX;
         }
       }
-
-      // protected getCurrentState(): string {
-      //   console.log('getCurrentState', this.myData, this.mySelected);
-      //   return this.mySelected ? 'down' : 'up';
-      // }
 
       // private onClick() {
       //   console.log('cick', this);

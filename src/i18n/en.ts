@@ -6,6 +6,15 @@ namespace we {
           connecting: 'Socket Connecting',
         },
       },
+      lobby: {
+        categoryPromotion: 'Promoted',
+        categoryBacarrat: 'Bacarrat',
+        categoryGoodRoad: 'Good Road Tables',
+        categoryLuckyWheel: 'Lucky Wheel',
+        categoryInstant: 'Instant Open Colour',
+        categoryOtherGame: 'Other Games',
+        categoryFavorite: 'My Favorites',
+      },
       baccarat: {
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
