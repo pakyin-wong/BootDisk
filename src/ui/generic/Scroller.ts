@@ -9,6 +9,7 @@ namespace we {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
+        this['isRollBlock'] = true;
       }
 
       private throttle(func: any, wait: number, options: any = {}) {
