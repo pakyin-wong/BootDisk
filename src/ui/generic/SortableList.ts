@@ -28,7 +28,7 @@ namespace we {
         if (this.destinationPosition) {
           renderer.x = this.destinationPosition.x;
           renderer.y = this.destinationPosition.y;
-          const itemRenderer = <SortableItemRenderer> renderer;
+          const itemRenderer = <SortableItemRenderer>renderer;
           if (itemRenderer) {
             itemRenderer.isNew = false;
           }
@@ -76,7 +76,7 @@ namespace we {
         if (!touchedChild) {
           return;
         }
-        this.targetChildren = <SortableItemRenderer> touchedChild;
+        this.targetChildren = <SortableItemRenderer>touchedChild;
         this.$stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
         this.$stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchCancel, this);
         this.$stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
@@ -159,7 +159,7 @@ namespace we {
               }
             });
             const selectedIndex = this.selectedIndex;
-            const collection = <eui.ArrayCollection> this.$dataProvider;
+            const collection = <eui.ArrayCollection>this.$dataProvider;
             const remIndex = this.$children.indexOf(this.targetChildren);
             const remData = this.$dataProvider.getItemAt(remIndex);
             const addIndex = this.$children.indexOf(swapChild);
@@ -204,7 +204,7 @@ namespace we {
       }
 
       public clone(): any {
-        const clone: egret.DisplayObject = new (<any> this.constructor)();
+        const clone: egret.DisplayObject = new (<any>this.constructor)();
         clone.x = this.x;
         clone.y = this.y;
         clone.width = this.width;

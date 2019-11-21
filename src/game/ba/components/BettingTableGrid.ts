@@ -85,7 +85,7 @@ namespace we {
 
       public async setStyle(border: number, textcolor: number, bgcolor: number, bitmapName: string = null) {
         this.removeChildren();
-        console.log('BettingTableGrid::setStyle: bitmapName: ', bitmapName, ' this._bitmapName: ', this._bitmapName);
+        // console.log('BettingTableGrid::setStyle: bitmapName: ', bitmapName, ' this._bitmapName: ', this._bitmapName);
 
         if (bitmapName) {
           this._bitmapName = bitmapName;
