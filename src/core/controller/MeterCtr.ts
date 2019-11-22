@@ -33,12 +33,12 @@ namespace we {
       }
 
       public getLocal(meter: string) {
-        return this._local[meter];
+        return this.format(this._local[meter]);
       }
 
       private update(meter: string, to: number) {
-        this._local[meter] = this.format(to);
-        dir.evtHandler.dispatch(core.Event.METER_UPDATE, { meter, to });
+        this._local[meter] = to;
+        dir.evtHandler.dispatch(core.Event.METER_UPDATE, { meter, to: this.format(to) });
 
         if (!this._list[meter]) {
           return;

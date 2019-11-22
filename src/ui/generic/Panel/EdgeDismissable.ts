@@ -47,18 +47,19 @@ namespace we {
         super(displayObject);
       }
 
-      public set active(value: boolean) {
-        super.$setActive(value);
-        if (value) {
-          this.addToGlobalList();
-          this.init();
-        } else {
-          this.removeFromGlobalList();
-        }
-      }
+      // public set active(value: boolean) {
+      //   super.$setActive(value);
+      // }
 
       public init() {
+        super.init();
+        this.addToGlobalList();
         this.objPos = new egret.Point(this.target.x, this.target.y);
+      }
+
+      public deactivate() {
+        super.deactivate();
+        this.removeFromGlobalList();
       }
 
       public addToGlobalList() {

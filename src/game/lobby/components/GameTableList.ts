@@ -8,10 +8,6 @@ namespace we {
       constructor() {
         super();
         this.collection = new eui.ArrayCollection(this.roomIds);
-        this.scroller = new ui.Scroller();
-        this.scroller.percentWidth = 100;
-        this.scroller.percentHeight = 100;
-        this.addChild(this.scroller);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -21,11 +17,27 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
+        this.scroller = new ui.Scroller();
+        this.scroller.percentWidth = 100;
+        this.scroller.percentHeight = 100;
+
+        const offsetForTableList = -60;
         const paddingHorizontal = 80;
         const gapSize = 50;
 
+        // init image slider and category tab
+        const topDisplay = new eui.Group();
+        topDisplay.height = 790;
+        topDisplay.width = 2600;
+        const slider = new we.ui.ImageSlider();
+        const tabs = new we.lobby.SegmentedControl();
+        tabs.left = paddingHorizontal;
+        tabs.bottom = gapSize + -offsetForTableList;
+        topDisplay.addChild(slider);
+        topDisplay.addChild(tabs);
+
         // init three banner
-        const bannerList = new eui.List();
+        const bannerList = new ui.List();
         const layout1 = new eui.TileLayout();
         layout1.horizontalGap = gapSize;
         layout1.requestedColumnCount = 3;
@@ -35,9 +47,10 @@ namespace we {
         bannerList.itemRenderer = LobbyBannerItem;
         bannerList.left = paddingHorizontal;
         bannerList.right = paddingHorizontal;
+        bannerList.y = topDisplay.height + offsetForTableList;
 
-        // init room grids
-        const roomList = new eui.List();
+        // // init room grids
+        const roomList = new ui.List();
         const layout2 = new eui.AnimTileLayout();
         layout2.horizontalGap = gapSize;
         layout2.verticalGap = gapSize;
@@ -49,14 +62,16 @@ namespace we {
         roomList.itemRenderer = LobbyBacarratListItem;
         roomList.left = paddingHorizontal;
         roomList.right = paddingHorizontal;
-        roomList.y = bannerList.height + gapSize;
+        roomList.y = topDisplay.height + offsetForTableList + bannerList.height + gapSize;
 
         const group = new eui.Group();
         // group.layout = new eui.VerticalLayout();
+        group.addChild(topDisplay);
         group.addChild(bannerList);
         group.addChild(roomList);
 
         this.scroller.viewport = group;
+        this.addChild(this.scroller);
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
       }

@@ -17,7 +17,7 @@ namespace we {
         this.skinName = utils.getSkin('ImageSlider');
         this.images = [RES.getRes('banner-baccarat_png'), RES.getRes('lobby_banner1_png'), RES.getRes('lobby_banner2_png')];
         // comment this line in case of performance issues
-        // this.mask = new egret.Rectangle(0, 0, 2600, 600);
+        // this.mask = new egret.Rectangle(0, 0, this.width, this.height);
       }
 
       protected partAdded(partName: string, instance: any): void {

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.UserInfoWindow" width="480" height="700" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
-	<e:Group id="_content" width="480" height="700" bottom="0">
-		<e:Image width="480" height="700" source="nav_user_info_bg" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" x="0" y="0" scaleX="1" scaleY="1"/>
+<e:Skin class="skin_desktop.UserInfoWindow" width="480" height="700" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="content" width="480" height="700" bottom="0">
+		<e:Image width="480" height="700" source="nav_user_info_bg" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" x="0"
+		         y="0" scaleX="1" scaleY="1" />
 	</e:Group>
 </e:Skin>
