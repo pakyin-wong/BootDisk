@@ -28,8 +28,15 @@ namespace we {
         this.vlayout.gap = 1;
         this.toggleBar = new we.ui.BetSummaryToggle(this.toggle(), this.getState());
         this.betInfoList = new we.ui.BetInfoList();
-        this.betInfoList.height = 1000;
+        // this.betInfoList.height = 1000;
+        // this.betInfoList.height = 1000;
+        this.betInfoList.setToggler(this.toggleBar, value => {
+          this.toggleBar.onToggle(value);
+        });
+        this.betInfoList.isCollapsible = true;
+        this.betInfoList.maxHeight = 1000;
         this.group = new eui.Group();
+        this.group.addChild(this.betInfoList);
         this.group.addChild(this.toggleBar);
         this.group.layout = this.vlayout;
         this.group.x = 2000;

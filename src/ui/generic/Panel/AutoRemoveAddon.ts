@@ -33,23 +33,35 @@ namespace we {
           }
         }
         super.$setActive(value);
-        if (value) {
-          this.init();
-        } else {
-          this.reset();
-        }
       }
+
       public get active(): boolean {
         return this._active;
       }
 
       public init() {
+        super.init();
         this.reset();
-        this.target.once(egret.Event.ENTER_FRAME, this.start, this);
-        this.target.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
-        this.target.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
-        this.target.parent.addEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
-        this.target.parent.addEventListener('Start_ALL_TIMEOUT', this.start, this);
+        if (this.target.parent) {
+          this.target.once(egret.Event.ENTER_FRAME, this.start, this);
+          this.target.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
+          this.target.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
+          this.target.parent.addEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
+          this.target.parent.addEventListener('Start_ALL_TIMEOUT', this.start, this);
+        } else {
+          this.isInit = false;
+        }
+      }
+
+      public deactivate() {
+        super.deactivate();
+        this.reset();
+        if (this.target.parent) {
+          this.target.removeEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
+          this.target.removeEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
+          this.target.parent.removeEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
+          this.target.parent.removeEventListener('Start_ALL_TIMEOUT', this.start, this);
+        }
       }
 
       protected clearAllTimeout() {
@@ -58,7 +70,9 @@ namespace we {
       }
       public startAllTimeout() {
         egret.log('start all timeout');
-        this.target.parent.dispatchEvent(new egret.Event('Start_ALL_TIMEOUT'));
+        if (this.target.parent) {
+          this.target.parent.dispatchEvent(new egret.Event('Start_ALL_TIMEOUT'));
+        }
       }
 
       public setCustomAnimtion(animationFunc: () => Promise<void>) {

@@ -8,7 +8,7 @@ namespace we {
       public constructor() {
         super();
         this.tabBar = new ui.SortableList();
-        this.tabBar.percentWidth = 100;
+        // this.tabBar.percentWidth = 100;
         this.tabBar.percentHeight = 100;
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
@@ -36,8 +36,8 @@ namespace we {
         shape.graphics.beginFill(0xffffff, 1);
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
         shape.graphics.endFill();
-        this.addChild(shape);
-        this.mask = shape;
+        // this.addChild(shape);
+        // this.mask = shape;
 
         this.tabBar.selectedIndex = 0;
       }

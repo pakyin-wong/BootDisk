@@ -1,3 +1,4 @@
+/* tslint:disable triple-equals */
 namespace we {
   export namespace ui {
     export interface ISwipeable {
@@ -15,6 +16,12 @@ namespace we {
       vertical = 'vertical',
     }
 
+    export namespace SwipeDirection {
+      export function equal(a: SwipeDirection, b: SwipeDirection) {
+        return a.toString() === b.toString();
+      }
+    }
+
     export class SwipeableAddon extends DisplayObjectAddon {
       public swipeDirection: SwipeDirection = SwipeDirection.right;
       public duration: number = 300;
@@ -27,14 +34,26 @@ namespace we {
 
       public set active(value: boolean) {
         super.$setActive(value);
-        if (value) {
-          this.target.moveArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-          this.init();
-        }
       }
 
       public get active(): boolean {
         return this._active;
+      }
+
+      public init() {
+        super.init();
+        if (this.target.moveArea) {
+          this.target.moveArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        } else {
+          this.isInit = false;
+        }
+      }
+
+      public deactivate() {
+        super.deactivate();
+        if (this.target.moveArea) {
+          this.target.moveArea.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        }
       }
 
       private offsetPoint;
@@ -119,6 +138,7 @@ namespace we {
           let backOpt;
           let proceedOpt;
           let sign;
+          let isValid: boolean = false;
           switch (this.swipeDirection) {
             case SwipeDirection.horizontal:
             case SwipeDirection.left:
@@ -126,6 +146,9 @@ namespace we {
               diff = event.$stageX - this.initPoint;
               base = this.target.content.width;
               sign = (diff / Math.abs(diff)) * 1.1;
+              isValid = SwipeDirection.equal(SwipeDirection.left, this.swipeDirection) && sign <= 0;
+              isValid = isValid || (SwipeDirection.equal(SwipeDirection.right, this.swipeDirection) && sign >= 0);
+              isValid = isValid || SwipeDirection.equal(SwipeDirection.horizontal, this.swipeDirection);
               backOpt = { $x: this.initPos };
               proceedOpt = { $x: base * sign };
               break;
@@ -135,12 +158,15 @@ namespace we {
               diff = event.$stageY - this.initPoint;
               base = this.target.content.height;
               sign = (diff / Math.abs(diff)) * 1.1;
+              isValid = SwipeDirection.equal(SwipeDirection.top, this.swipeDirection) && sign <= 0;
+              isValid = isValid || (SwipeDirection.equal(SwipeDirection.down, this.swipeDirection) && sign >= 0);
+              isValid = isValid || SwipeDirection.equal(SwipeDirection.vertical, this.swipeDirection);
               backOpt = { $y: this.initPos };
               proceedOpt = { $y: base * sign };
               break;
           }
 
-          if (Math.abs(diff) / base <= 0.4) {
+          if (!isValid || Math.abs(diff) / base <= 0.4) {
             // not reach threshold, don't slide
             egret.Tween.get(this.target.content)
               .to(backOpt, this.duration)

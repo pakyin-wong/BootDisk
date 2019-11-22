@@ -20,11 +20,8 @@ namespace we {
           }
         }
         super.$setActive(value);
-        if (value) {
-          this.target.once(egret.Event.ENTER_FRAME, this.start, this);
-          this.init();
-        }
       }
+
       public get active(): boolean {
         return this._active;
       }
@@ -37,7 +34,9 @@ namespace we {
       }
 
       public init() {
+        super.init();
         this.reset();
+        this.target.once(egret.Event.ENTER_FRAME, this.start, this);
       }
 
       public setCustomAnimtion(animationFunc: () => Promise<void>) {
