@@ -1,7 +1,6 @@
 namespace we {
   export namespace ba {
     export abstract class BARoadBase extends egret.DisplayObjectContainer {
-      protected lang: string = 'en';
       protected scale: number;
       protected grid: egret.Shape;
       protected numCol: number = 12;
@@ -15,8 +14,12 @@ namespace we {
       protected roadData: any;
       protected abstract createIcon(size: number): BARoadIconBase;
 
-      public constructor() {
+      public constructor(_numCol: number, _gridSize: number, _scale: number) {
         super();
+        this.scale = _scale;
+        this.gridSize = _gridSize;
+        this.numCol = _numCol;
+
         this.grid = new egret.Shape();
         this.addChild(this.grid);
 
@@ -29,11 +32,10 @@ namespace we {
         let iconIndex = 0;
         this.roadMapIconList = new Array<BARoadIconBase>();
         for (let i = 0; i < n; i++) {
-          const icon = this.createIcon(this.gridSize);
-          icon.setLang(this.lang);
+          const icon = this.createIcon(this.gridSize / this.gridUnit);
           icon.setByObject({});
-          icon.x = this.gridSize * Math.floor(iconIndex / 6);
-          icon.y = this.gridSize * (iconIndex % 6);
+          icon.x = (this.gridSize / this.gridUnit) * Math.floor(iconIndex / 6);
+          icon.y = (this.gridSize / this.gridUnit) * (iconIndex % 6);
           this.addChild(icon);
           this.roadMapIconList.push(icon);
           iconIndex++;
@@ -66,7 +68,6 @@ namespace we {
           }
           for (let i = 0; i < roadDataCopy.length; i++) {
             const icon = this.roadMapIconList[i];
-            icon.setLang(this.lang);
             icon.setByObject(roadDataCopy[i]);
 
             if (roadDataCopy[i].isPredict && roadDataCopy[i].V) {
@@ -84,7 +85,7 @@ namespace we {
         const bgColors = [0xffffff, 0x333333];
         const gridColors = [0xaaaaaa, 0x555555];
 
-        const size = this.gridSize * this.scale;
+        const size = (this.gridSize / this.gridUnit) * this.scale;
         this.grid.graphics.clear();
 
         // draw bg rectangle

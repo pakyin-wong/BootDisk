@@ -214,7 +214,7 @@ namespace we {
         // tableInfo.bets = betInfo.bets;
         egret.log('BetInfoUpdate:', betInfo);
         tableInfo.bets = betInfo.betMap.map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value[1]);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value[1]);
           return betDetail;
         });
         egret.log('BetInfoUpdate:', tableInfo.bets);

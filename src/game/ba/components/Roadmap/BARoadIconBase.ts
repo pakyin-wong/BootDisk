@@ -1,7 +1,6 @@
 namespace we {
   export namespace ba {
     export abstract class BARoadIconBase extends egret.DisplayObjectContainer {
-      protected lang: string = 'en';
       protected size: number;
       protected tween: egret.Tween;
       protected value: any;
@@ -9,11 +8,8 @@ namespace we {
 
       public constructor(size: number) {
         super();
+        this.darkModeNumber = 0;
         this.size = size;
-      }
-
-      public setLang(lang: string) {
-        this.lang = lang;
       }
 
       protected abstract initGraphics();
@@ -23,6 +19,7 @@ namespace we {
       public abstract reset();
 
       public animate() {
+        egret.Tween.removeTweens(this);
         egret.Tween.get(this)
           .to({ alpha: 0.2 }, 300)
           .to({ alpha: 1 }, 300)
@@ -45,6 +42,9 @@ namespace we {
 
       public set DarkMode(n: number) {
         this.darkModeNumber = n;
+        if (this.value) {
+          this.setByObject(this.value);
+        }
       }
 
       public get DarkMode(): number {

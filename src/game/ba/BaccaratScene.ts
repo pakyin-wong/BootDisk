@@ -35,7 +35,9 @@ namespace we {
       private bgImg: eui.Rect;
       private _video: egret.FlvVideo;
 
-      private roadmap: BARoadmap;
+      private roadmapControl: BARoadmapControl;
+      private roadmapLeftPanel: BARoadmapLeftPanel;
+      private roadmapRightPanel: BARoadmapRightPanel;
 
       constructor(data: any) {
         super(data);
@@ -126,13 +128,14 @@ namespace we {
 
       private setupTableInfo() {
         // console.log(env.tableInfoArray);
+        const self = this;
         env.tableInfoArray.forEach(value => {
-          if (value.tableid === this._tableID) {
-            this.tableInfo = value;
-            this.betDetails = this.tableInfo.bets;
-            this.gameData = this.tableInfo.data;
-            this.previousState = this.gameData.state;
-            this.roadmap.updateRoadData(this.tableInfo.roadmap);
+          if (value.tableid === self._tableID) {
+            self.tableInfo = value;
+            self.betDetails = self.tableInfo.bets;
+            self.gameData = self.tableInfo.data;
+            self.previousState = self.gameData.state;
+            self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
           }
         });
       }
@@ -160,7 +163,7 @@ namespace we {
         this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
-      public async onFadeEnter() { }
+      public async onFadeEnter() {}
 
       public onExit() {
         dir.videoPool.release(this._video);
@@ -177,17 +180,26 @@ namespace we {
         this.bettingTable.onChangeLang();
       }
 
-      public async onFadeExit() { }
+      public async onFadeExit() {}
 
       protected mount() {
         // step 1: load Baccarat Screen Resource
         this.skinName = utils.getSkin('BaccaratScene');
 
         // step 2: init ui
-        this.roadmap = new BARoadmap(this._tableID);
-        this.roadmap.x = 2000;
-        this.roadmap.y = 500;
-        this.addChild(this.roadmap);
+        this.roadmapControl = new BARoadmapControl(this._tableID);
+        this.roadmapControl.setRoads(
+          this.roadmapLeftPanel.beadRoad,
+          this.roadmapRightPanel.bigRoad,
+          this.roadmapRightPanel.bigEyeRoad,
+          this.roadmapRightPanel.smallRoad,
+          this.roadmapRightPanel.cockroachRoad,
+          [12, 12, 24, 12, 12]
+        );
+        // this.roadmap = new BARoadmap(this._tableID);
+        // this.roadmap.x = 2000;
+        // this.roadmap.y = 500;
+        // this.addChild(this.roadmap);
 
         const gRoad = new BAGoodRoadmap();
         gRoad.x = 1000;
@@ -198,7 +210,7 @@ namespace we {
         // this.socketConnect();
       }
 
-      protected socketConnect() { }
+      protected socketConnect() {}
 
       protected socketConnectSuccess() {
         // dir.evtHandler.removeEventListener(enums.mqtt.event.CONNECT_SUCCESS, this.socketConnectSuccess, this);
@@ -210,26 +222,26 @@ namespace we {
         // dir.sceneCtr.goto('LobbySCene');
       }
 
-      protected socketConnectFail() { }
+      protected socketConnectFail() {}
 
       protected onTableInfoUpdate(evt: egret.Event) {
         console.log('Baccarat listener');
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this.tableID) {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
-            this.gameData = <GameData>this.tableInfo.data;
+            this.gameData = <GameData> this.tableInfo.data;
             this.previousState = this.gameData.state;
-            this.roadmap.updateRoadData(tableInfo.roadmap);
+            this.roadmapControl.updateRoadData(tableInfo.roadmap);
             this.updateGame();
           }
         }
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this.tableID) {
           this.betDetails = tableInfo.bets;
           switch (this.gameData.state) {
