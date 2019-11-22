@@ -20,7 +20,16 @@ namespace we {
         super.childrenCreated();
         logger.l('BetSummaryToggle::childrenCreated()');
         this.toggleLabel.text = '快速投注^';
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggle, this);
+        // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggle, this);
+      }
+
+      public onToggle(isShow: boolean) {
+        if (!isShow) {
+          this.toggleLabel.text = '快速投注^';
+        } else {
+          this.toggleLabel.text = '快速投注∨';
+        }
+        // this.toggleFunc();
       }
 
       private toggle(evt: egret.Event) {
@@ -29,7 +38,7 @@ namespace we {
         } else {
           this.toggleLabel.text = '快速投注∨';
         }
-        this.toggleFunc();
+        // this.toggleFunc();
       }
 
       public setToggle(func: () => void) {

@@ -22,26 +22,40 @@ namespace we {
         super(displayObject);
       }
 
-      public set active(value: boolean) {
-        super.$setActive(value);
-        if (value) {
-          this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
-          this.init();
-        } else {
-          this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
+      // public set active(value: boolean) {
+      //   super.$setActive(value);
+      // }
+
+      public setToggler(toggler: egret.DisplayObject) {
+        this.removeToggler();
+        this.toggler = toggler;
+        if (this._active && this.isInit) {
+          this.toggler.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+          mouse.setButtonMode(this.toggler, true);
         }
       }
 
-      public setToggler(toggler: egret.DisplayObject) {
-        this.toggler = toggler;
-        this.toggler.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
-        mouse.setButtonMode(this.toggler, true);
+      public init() {
+        super.init();
+        this.updateContentPos();
+        if (this.target.stage) {
+          this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
+          if (!this.target.content.visible || this.hideOnStart) {
+            this.hide(true);
+          }
+          if (this.toggler) {
+            this.toggler.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+            mouse.setButtonMode(this.toggler, true);
+          }
+        } else {
+          this.isInit = false;
+        }
       }
 
-      public init() {
-        this.updateContentPos();
-        if (!this.target.content.visible || this.hideOnStart) {
-          this.hide(true);
+      public deactivate() {
+        super.deactivate();
+        if (this.target.stage) {
+          this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
         }
       }
 

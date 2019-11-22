@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="NavSideMenuSkin" width="375" height="545" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
-	<w:Config id="16df87cf43a" ></w:Config>
-	<e:Group id="_content" left="0" top="0" right="0" bottom="0">
-		<e:Image top="0" bottom="0" source="nav_menu_bg" left="0" right="0" x="0" y="0" scaleX="1" scaleY="1"/>
+<e:Skin class="NavSideMenuSkin" width="375" height="545" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+	<w:Config id="16df87cf43a"></w:Config>
+	<e:Group id="content" left="0" top="0" right="0" bottom="0">
+		<e:Image top="0" bottom="0" source="nav_menu_bg" left="0" right="0" x="0" y="0" scaleX="1" scaleY="1" />
 	</e:Group>
 </e:Skin>
