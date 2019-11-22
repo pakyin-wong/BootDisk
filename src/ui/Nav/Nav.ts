@@ -3,7 +3,7 @@ namespace we {
     export class Nav extends core.BaseEUI {
       private _logo: eui.Image;
       private _user: eui.Label;
-      private _time: eui.Label;
+      private _timestamp: eui.Label;
       private _profilePrc: eui.Image;
       private _userInfo_toggle: eui.Group;
       private _userInfo: Popper;
@@ -11,19 +11,10 @@ namespace we {
       private _menu: Popper;
       private _balance: RunTimeLabel;
 
+      private _timeInterval: number;
+
       public constructor() {
         super('Nav');
-
-        dir.evtHandler.addEventListener(core.Event.BALANCE_UPDATE, this.updateBalance, this);
-      }
-
-      private updateBalance() {
-        // this._balance.text = utils.EnumHelpers.getKeyByValue(core.Currency, env.currency) + ' ' + env.balance;
-        dir.meterCtr.rackTo('balance', env.balance, 2000);
-      }
-
-      private onUpdateTimer(e: egret.Event) {
-        this._time.text = moment(env.currTime).format('YYYY/MM/DD HH:mm:ss');
       }
 
       protected mount() {
@@ -33,12 +24,14 @@ namespace we {
         this._menu.setToggler(this._menu_toggle);
         this._menu.dismissOnClickOutside = true;
 
-        this.updateBalance();
-
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
 
-        this.stage.addEventListener(egret.Event.ENTER_FRAME, this.onUpdateTimer, this);
+        this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
+      }
+
+      private onUpdateTimer() {
+        this._timestamp.text = moment(env.currTime).format('YYYY/MM/DD HH:mm:ss');
       }
     }
   }

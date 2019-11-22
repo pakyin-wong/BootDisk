@@ -1,16 +1,16 @@
 namespace we {
   export namespace ui {
-    export class BetInfoList extends eui.Component {
-      private scroller: we.ui.Scroller;
+    export class BetInfoList extends Scroller {
+      // public scroller: we.ui.Scroller;
       private collection: eui.ArrayCollection;
       private betInfos: number[] = [1, 2, 3];
 
       constructor() {
         super();
-        this.scroller = new we.ui.Scroller();
-        this.scroller.percentWidth = 100;
-        this.scroller.percentHeight = 100;
-        this.addChild(this.scroller);
+        // this.scroller = new we.ui.Scroller();
+        // this.scroller.percentWidth = 100;
+        // this.scroller.percentHeight = 100;
+        // this.addChild(this.scroller);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -20,7 +20,7 @@ namespace we {
       protected createChildren() {
         super.createChildren();
       }
-      protected childrenCreated() {
+      public childrenCreated() {
         super.childrenCreated();
 
         // init viewport
@@ -32,7 +32,8 @@ namespace we {
         this.collection = new eui.ArrayCollection(this.betInfos);
         list.dataProvider = this.collection;
         list.itemRenderer = we.ui.BetInfo;
-        this.scroller.viewport = list;
+        // this.scroller.viewport = list;
+        this.viewport = list;
 
         dir.evtHandler.addEventListener(we.core.Event.BALANCE_UPDATE, this.handleTableList, this);
       }

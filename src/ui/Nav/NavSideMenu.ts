@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class NavSideMenu extends Popper {
+    export class NavSideMenu extends Panel {
       private btn_whiteMode: eui.Component;
       private btn_darkMode: eui.Component;
       private btn_history: eui.Component;
@@ -26,7 +26,14 @@ namespace we {
         this.initTxt();
         this.addListeners();
         super.mount();
+        this.update();
       }
+
+      protected destroy() {
+        this.removeListeners();
+      }
+
+      protected update() {}
 
       private initTxt() {
         this.txt_selectMode.renderText = () => `${i18n.t('nav.menu.selectMode')}`;
@@ -66,10 +73,16 @@ namespace we {
 
       private onClickWhiteMode() {
         logger.l(`NavSideMenu::onClickWhiteMode`);
+        env.mode = 0;
+        dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 0 });
+        this.update();
       }
 
       private onClickDarkMode() {
         logger.l(`NavSideMenu::onClickDarkMode`);
+        env.mode = 1;
+        dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 1 });
+        this.update();
       }
 
       private onClickHistory() {

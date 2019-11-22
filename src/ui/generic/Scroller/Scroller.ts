@@ -1,14 +1,36 @@
 namespace we {
   export namespace ui {
-    export class Scroller extends eui.Scroller {
+    export class Scroller extends eui.Scroller implements ICollapsible {
       private drag: boolean = false;
       private startSV: number = -1;
       private startStageY: number = 0;
+
+      public iscollapseAnimate: boolean = true;
+      public collapseDuration: number = 300;
+      public collapseOnStart: boolean = true;
+      public collapseAddon: CollapseAddon;
+
+      // public maxHeight: number = 800;
+
+      protected _isCollapsible: boolean;
+
+      public set isCollapsible(value) {
+        this._isCollapsible = value;
+        this.collapseAddon.duration = this.collapseDuration;
+        this.collapseAddon.hideOnStart = this.collapseOnStart;
+        this.collapseAddon.skipAnimation = !this.iscollapseAnimate;
+        this.collapseAddon.active = value;
+      }
+      public get isCollapsible(): boolean {
+        return this._isCollapsible;
+      }
 
       public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
+
+        this.collapseAddon = new CollapseAddon(this);
       }
 
       private throttle(func: any, wait: number, options: any = {}) {
@@ -89,6 +111,14 @@ namespace we {
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
       }
 
+      public setToggler(toggler: egret.DisplayObject, onToggleCallback: (value: boolean) => void) {
+        this.collapseAddon.setToggler(toggler, onToggleCallback);
+      }
+
+      public removeToggler() {
+        this.collapseAddon.removeToggler();
+      }
+
       private _firstYForMovement = 0;
       private _initProgress = 0;
 
@@ -133,12 +163,10 @@ namespace we {
       }
 
       private onMouseOver(event: egret.TouchEvent) {
-        console.log(event.target, event.currentTarget);
         (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       private onMouseOut(event: egret.TouchEvent) {
-        console.log('out');
         (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
@@ -183,7 +211,8 @@ namespace we {
         let thumbSize = (this.viewport.height / this.viewport.contentHeight) * this.viewport.height;
         thumbSize = Math.max(thumbSize, 100);
         this.verticalScrollBar.thumb.height = thumbSize;
-        if (this.viewport.contentHeight < this.height) {
+
+        if ((this._isCollapsible && this.collapseAddon.isAnimating) || (this.viewport.contentHeight <= this.maxHeight && this.viewport.contentHeight <= this.height)) {
           this.verticalScrollBar.visible = false;
         } else {
           this.verticalScrollBar.visible = true;

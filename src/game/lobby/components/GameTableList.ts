@@ -8,10 +8,6 @@ namespace we {
       constructor() {
         super();
         this.collection = new eui.ArrayCollection(this.roomIds);
-        this.scroller = new ui.Scroller();
-        this.scroller.percentWidth = 100;
-        this.scroller.percentHeight = 100;
-        this.addChild(this.scroller);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -20,6 +16,10 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
+
+        this.scroller = new ui.Scroller();
+        this.scroller.percentWidth = 100;
+        this.scroller.percentHeight = 100;
 
         const offsetForTableList = -60;
         const paddingHorizontal = 80;
@@ -37,7 +37,7 @@ namespace we {
         topDisplay.addChild(tabs);
 
         // init three banner
-        const bannerList = new eui.List();
+        const bannerList = new ui.List();
         const layout1 = new eui.TileLayout();
         layout1.horizontalGap = gapSize;
         layout1.requestedColumnCount = 3;
@@ -49,8 +49,8 @@ namespace we {
         bannerList.right = paddingHorizontal;
         bannerList.y = topDisplay.height + offsetForTableList;
 
-        // init room grids
-        const roomList = new eui.List();
+        // // init room grids
+        const roomList = new ui.List();
         const layout2 = new eui.AnimTileLayout();
         layout2.horizontalGap = gapSize;
         layout2.verticalGap = gapSize;
@@ -71,6 +71,7 @@ namespace we {
         group.addChild(roomList);
 
         this.scroller.viewport = group;
+        this.addChild(this.scroller);
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
       }

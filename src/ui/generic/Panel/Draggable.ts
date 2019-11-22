@@ -12,25 +12,31 @@ namespace we {
         super(displayObject);
       }
 
-      public set active(value: boolean) {
-        super.$setActive(value);
-        if (value) {
-          if (this.target.moveArea) {
-            this.target.moveArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+      // public set active(value: boolean) {
+      //   super.$setActive(value);
+      // }
+      // public get active(): boolean {
+      //   return this._active;
+      // }
+
+      public init() {
+        super.init();
+        if (this.target.moveArea) {
+          this.target.moveArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+          const storedPos = env.storedPositions[this.target.panelName];
+          if (storedPos) {
+            this.target.x = storedPos.x;
+            this.target.y = storedPos.y;
           }
-          this.init();
         } else {
-          if (this.target.moveArea) {
-            this.target.moveArea.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-          }
+          this.isInit = false;
         }
       }
 
-      public init() {
-        const storedPos = env.storedPositions[this.target.panelName];
-        if (storedPos) {
-          this.target.x = storedPos.x;
-          this.target.y = storedPos.y;
+      public deactivate() {
+        super.deactivate();
+        if (this.target.moveArea) {
+          this.target.moveArea.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
         }
       }
 

@@ -1,9 +1,8 @@
 namespace we {
   export namespace lobby {
-    export class LobbyBannerItem extends eui.Component implements eui.IItemRenderer {
+    export class LobbyBannerItem extends ui.ItemRenderer {
       public selected: boolean;
       public itemIndex: number;
-      private _data: string;
 
       private image: eui.Image;
 
@@ -21,14 +20,10 @@ namespace we {
         // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
       }
 
-      public get data() {
-        return this._data;
-      }
-
-      public set data(data: string) {
-        this.image.source = RES.getRes(data);
+      public itemDataChanged() {
+        super.itemDataChanged();
+        this.image.source = RES.getRes(this.itemData);
         this.image.fillMode = egret.BitmapFillMode.SCALE;
-        this._data = data;
       }
     }
   }

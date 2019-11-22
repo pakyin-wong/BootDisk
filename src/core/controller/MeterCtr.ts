@@ -8,6 +8,11 @@ namespace we {
       constructor() {}
 
       public rackTo(meter: string, to: number, duration: number) {
+        if (duration < 1) {
+          this.setTo(meter, to);
+          return;
+        }
+
         this.clean(meter);
 
         this._tween[meter] = {
