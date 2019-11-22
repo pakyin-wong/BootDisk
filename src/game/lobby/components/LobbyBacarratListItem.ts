@@ -67,21 +67,15 @@ namespace we {
         }
 
         console.log('LobbyBaccaratListItem::onQuickBetClick');
+        let globalPt: egret.Point;
+        if (this.parent) {
+          globalPt = this.parent.localToGlobal(this.x, this.y);
+        } else {
+          globalPt = this.localToGlobal(this.x, this.y);
+        }
 
-        /*
-        let pos : number = 1;
-        if(this.x >=0 && this.x < 623){
-          pos = 1
-        }else if (this.x >=623 && this.x < 1245){
-          pos = 2
-        }else if (this.x >=1245 && this.x < 1868){
-          pos = 3
-        }else if (this.x >=1868 ){
-        pos =4}
-        else {pos =1}
-        */
-        console.log(this.y);
-        const pos = { x: this.x, y: this.y };
+        console.dir(globalPt);
+        const pos = { x: globalPt.x, y: globalPt.y, width: this.width, height: this.height };
         dir.evtHandler.dispatch(we.core.Event.LOBBY_QUICKBET_CLICK, pos);
       }
 
