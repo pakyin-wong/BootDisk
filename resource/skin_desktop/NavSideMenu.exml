@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="NavSideMenuSkin" width="375" height="545" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+<e:Skin class="NavSideMenuSkin" width="375" height="545" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
 	<w:Config id="16df87cf43a" ></w:Config>
 	<e:Group id="_content" left="0" top="0" right="0" bottom="0">
 		<e:Image top="0" bottom="0" source="nav_menu_bg" left="0" right="0" x="0" y="0" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="txt_selectMode" text="Label" x="50" y="54" anchorOffsetX="0" width="282" anchorOffsetY="0" height="31" textColor="0xc6c6c6"/>
+		<e:Group id="btn_history" width="283" height="44" x="47" y="218" anchorOffsetX="0" anchorOffsetY="0">
+			<ui:RunTimeLabel id="txt_history" text="Label" x="53" y="11" anchorOffsetX="0" width="217" anchorOffsetY="0" height="25" textColor="0xc6c6c6"/>
+		</e:Group>
+		<e:Group id="btn_member" width="283" height="43" x="47" y="281" anchorOffsetX="0" anchorOffsetY="0">
+			<ui:RunTimeLabel id="txt_member" text="Label" x="54" y="8" anchorOffsetX="0" width="220" anchorOffsetY="0" height="29" textColor="0xc1c1c1"/>
+		</e:Group>
+		<e:Group id="btn_road" width="283" height="44" x="47" y="341" anchorOffsetX="0" anchorOffsetY="0">
+			<ui:RunTimeLabel id="txt_road" text="Label" x="53" y="9" anchorOffsetX="0" width="221" textColor="0xcecece"/>
+		</e:Group>
+		<e:Group id="btn_system" width="284" height="45" x="46" y="402" anchorOffsetX="0" anchorOffsetY="0">
+			<ui:RunTimeLabel id="txt_system" text="Label" x="55" y="7.5" anchorOffsetX="0" width="217" textColor="0xcccccc"/>
+		</e:Group>
+		<e:Group id="btn_logout" width="285" height="45" x="45" y="462" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+			<ui:RunTimeLabel id="txt_logout" text="Label" x="55" y="9" anchorOffsetX="0" width="220" textColor="0xcccccc"/>
+		</e:Group>
+		<e:Group id="btn_whiteMode" width="72" height="85" x="45" y="92" anchorOffsetX="0" anchorOffsetY="0">
+			<ui:RunTimeLabel id="txt_whiteMode" text="Label" x="3" y="57" size="25" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<e:Group id="btn_darkMode" width="71" height="87" x="181" y="90" anchorOffsetX="0" anchorOffsetY="0">
+			<ui:RunTimeLabel id="txt_darkMode" text="Label" x="5" y="58" size="25" scaleX="1" scaleY="1"/>
+		</e:Group>
 	</e:Group>
 </e:Skin>

@@ -25,7 +25,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png",
+			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png,scroller_thumb_png",
 			"name": "preload"
 		}
 	],
@@ -834,6 +834,11 @@
 			"name": "scroller_thumb",
 			"type": "image",
 			"url": "assets/scroller_thumb.png"
-        }
+		},
+		{
+			"name": "scroller_thumb_png",
+			"type": "image",
+			"url": "assets/scroller_thumb.png"
+		}
 	]
 }
