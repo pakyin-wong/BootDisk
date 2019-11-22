@@ -18,10 +18,13 @@ namespace we {
       baccarat: {
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
+        playerRoadmap: 'P',
         player: 'Player',
         tie: 'Tie',
+        tieRoadmap: 'T',
         superSix: 'Super Six',
         banker: 'Banker',
+        bankerRoadmap: 'B',
         noComm: 'No Commision',
         tableNo: 'Table',
         roundNo: 'Round',

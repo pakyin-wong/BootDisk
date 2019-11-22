@@ -7,7 +7,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.parser = new BAGoodRoadParser(12);
+        this.parser = new BAGoodRoadParser([12, 12, 24, 12, 12]);
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
         this.bigRoad = new BABigRoad();
@@ -37,7 +37,7 @@ namespace we {
             }
           }
         } else {
-          this.parser.undoWin();
+          this.parser.undoAll();
         }
       }
 

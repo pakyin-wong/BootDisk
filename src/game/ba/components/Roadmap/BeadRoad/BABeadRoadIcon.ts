@@ -13,22 +13,24 @@ namespace we {
       private iconModeNumber: number; // display standard B/P/T (0) or B value (1) or P value (2)
       private winValue: number;
 
-      private tfValue: any = { en: ['B', 'P', 'T'], tc: ['莊', '閒', '和'], sc: ['庄', '闲', '和'] };
-      /*
-              bankerDot
-              playerDot
-              iconFace1-3
-                  iconText1-3
-          */
       public constructor(size: number = 30) {
         super(size);
 
-        this.initGraphics();
         this.Mode = 0;
-        this.darkModeNumber = 1;
+        this.initGraphics();
         this.setByObject({});
-        this.setLang('en');
-        // this.animate();
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this.changeLang();
+      }
+
+      public changeLang() {
+        const arr = [i18n.t('baccarat.bankerRoadmap'), i18n.t('baccarat.playerRoadmap'), i18n.t('baccarat.tieRoadmap')];
+
+        for (let d = 0; d < 2; d++) {
+          for (let i = 0; i < 3; i++) {
+            this.iconTextArr[i + d * 6].text = arr[i];
+          }
+        }
       }
 
       protected initGraphics() {
@@ -46,7 +48,7 @@ namespace we {
         this.addChild(this.bankerDotDark);
 
         const colors = [0xdd0000, 0x0000dd, 0x00aa00, 0xaa0000, 0x0000aa, 0x009900];
-        const gradientColors = [[0xffaaaa, 0xdd0000], [0xaaaaff, 0x0000dd], [0xaaddaa, 0x008800], [0xddaaaa, 0xaa0000], [0x9999dd, 0x0000aa], [0x99aa99, 0x006600]];
+        const gradientColors = [[0xffaaaa, 0xdd0000], [0xaaaaff, 0x0000dd], [0xaaddaa, 0x008800], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066], [0x66aa66, 0x003300]];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const offset = (iconSize - circleRadius * 2) / 2;
@@ -86,7 +88,7 @@ namespace we {
               } else if (m === 1) {
                 tf.textColor = tfColor[i + d * 3];
               }
-              tf.text = this.tfValue[this.lang][i];
+              tf.text = '';
               tf.width = this.size;
               tf.height = this.size;
               tf.size = Math.floor(this.size * 0.5);
@@ -129,17 +131,6 @@ namespace we {
         this.playerDotDark.graphics.endFill();
       }
 
-      public setLang(lang: string) {
-        if (lang !== 'tc' && lang !== 'sc') {
-          lang = 'en';
-        }
-
-        for (let i = 0; i < 3; i++) {
-          this.iconTextArr[i].text = this.tfValue[lang][i];
-        }
-
-        this.lang = lang;
-      }
       public setByObject(value: any) {
         this.value = value;
         this.reset();
@@ -185,8 +176,9 @@ namespace we {
           }
         }
       }
+
       public reset() {
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < this.iconFaceArr.length; i++) {
           this.iconFaceArr[i].visible = false;
           this.iconTextArr[i].visible = false;
         }
@@ -194,7 +186,6 @@ namespace we {
         this.playerDot.visible = false;
         this.bankerDotDark.visible = false;
         this.playerDotDark.visible = false;
-        this.stopAnimate();
       }
 
       public set Mode(mode: number) {
@@ -206,17 +197,6 @@ namespace we {
 
       public get Mode(): number {
         return this.iconModeNumber;
-      }
-
-      public set DarkMode(n: number) {
-        this.darkModeNumber = n;
-        if (this.value) {
-          this.setByObject(this.value);
-        }
-      }
-
-      public get DarkMode(): number {
-        return this.darkModeNumber;
       }
     }
   }

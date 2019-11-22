@@ -1,20 +1,16 @@
 namespace we {
   export namespace ba {
     export class BABeadRoad extends BARoadBase {
-      public constructor() {
-        super();
-
-        this.scale = 1;
+      public constructor(_numCol: number = 12, _gridSize: number = 30, _scale: number = 1) {
+        super(_numCol, _gridSize, _scale);
         this.gridUnit = 1;
-        this.gridSize = 30;
-        this.numCol = 12;
 
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
 
-        if (!this.roadMapIconList) {
+        /*if (!this.roadMapIconList) {
           this.initRoadData();
-        }
+        }*/
       }
 
       protected createIcon(size: number): BABeadRoadIcon {
@@ -34,8 +30,7 @@ namespace we {
       }
 
       private onClick(e: egret.TouchEvent) {
-        // this.Mode = ++this.Mode % 2;
-        this.DarkMode = ++this.DarkMode % 2;
+        this.Mode = ++this.Mode % 2;
       }
     }
   }

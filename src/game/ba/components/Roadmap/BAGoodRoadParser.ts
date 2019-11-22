@@ -3,8 +3,8 @@ namespace we {
     export class BAGoodRoadParser extends BARoadParser {
       public public;
 
-      public constructor(maxCol: number) {
-        super(maxCol);
+      public constructor(maxCols: any) {
+        super(maxCols);
       }
 
       // add win for banker(0) or player(1)
@@ -21,6 +21,14 @@ namespace we {
         this.rawResult = result;
 
         this.doParseBeadRoad(result);
+        this.doParseBigRoad();
+
+        this.dispatchEvent(new egret.Event('onUpdate'));
+      }
+
+      public undoAll() {
+        this.rawResult = [];
+        this.doParseBeadRoad([]);
         this.doParseBigRoad();
 
         this.dispatchEvent(new egret.Event('onUpdate'));
@@ -56,7 +64,7 @@ namespace we {
             }
 
             // if currently is the last column
-            if (result.length === this.maxCol) {
+            if (result.length === this.maxCols[0]) {
               if (currentCol[0].V !== 'b') {
                 return false;
               }
@@ -78,7 +86,7 @@ namespace we {
             }
 
             // if currently is the last column
-            if (result.length === this.maxCol) {
+            if (result.length === this.maxCols[0]) {
               if (currentCol[0].V !== 'p') {
                 return false;
               }
@@ -88,7 +96,17 @@ namespace we {
         return true;
       }
 
-      private checkBigRoad() {}
+      public convertBigRoadToBeadRoad(rslt: any) {
+        // 1.strip all empty results
+        const result = rslt.slice();
+        const cleanRslt = [];
+        result.forEach(r => {
+          if (r.V) {
+            cleanRslt.push(r);
+          }
+        });
+        return cleanRslt;
+      }
     }
   }
 }

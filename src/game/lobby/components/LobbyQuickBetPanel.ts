@@ -9,12 +9,22 @@ namespace we {
         this.removeChildren();
         console.dir('LobbyQuickBetPanel::onQuickBetClick ');
         const bettingTable = new we.ba.BettingTable();
-        this.addChild(bettingTable);
         bettingTable.skinName = utils.getSkin('LobbyBaBettingTable');
-        bettingTable.x = evt.data.x;
-        bettingTable.y = 500;
-        bettingTable.width = 600;
-        bettingTable.height = 300;
+        const pt = this.globalToLocal(evt.data.x, evt.data.y);
+        bettingTable.x = pt.x - 50;
+        console.log('evt.data.y:', evt.data.y);
+        console.log('pt.y:', pt.y);
+        if (pt.y > 1340 - 300) {
+          bettingTable.y = 1040;
+        } else if (pt.y < 300) {
+          bettingTable.y = 0;
+        } else {
+          bettingTable.y = pt.y;
+        }
+        bettingTable.width = evt.data.width + 100;
+        bettingTable.height = evt.data.height + 100;
+
+        this.addChild(bettingTable);
       }
     }
   }

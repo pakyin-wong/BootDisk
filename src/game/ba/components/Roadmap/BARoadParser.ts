@@ -1,7 +1,7 @@
 namespace we {
   export namespace ba {
     export class BARoadParser extends egret.EventDispatcher {
-      protected maxCol: number;
+      protected maxCols: any; // array of the max number of columns for each roads [bead,big,bigeye,small,cockroach]
       public rawResult: any;
 
       public beadRoadResult: any;
@@ -11,10 +11,10 @@ namespace we {
       public bigEyeRoadResult: any;
       public cockroachRoadResult: any;
 
-      public constructor(maxCol: number) {
+      public constructor(maxCols: any) {
         super();
         this.rawResult = [];
-        this.maxCol = maxCol;
+        this.maxCols = maxCols;
       }
 
       // predict win for banker(0) or player(1)
@@ -54,7 +54,7 @@ namespace we {
 
       protected doParseBeadRoad(data: any) {
         // 1.remove extra data by grid size
-        const maxNum = this.maxCol * 6;
+        const maxNum = this.maxCols[0] * 6;
         const exceed = data.length - maxNum;
         if (exceed > 0) {
           data.splice(0, exceed);
@@ -99,18 +99,18 @@ namespace we {
         this.bigRoadColumnResult = this.pbResultToColumnResult(pbResultArr);
 
         // 5.convert column result to road result
-        this.bigRoadResult = this.columnResultToRoadResult(this.bigRoadColumnResult);
+        this.bigRoadResult = this.columnResultToRoadResult(this.bigRoadColumnResult, this.maxCols[1]);
       }
 
       protected doParseBigEyeRoad() {
-        this.bigEyeRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(1)));
+        this.bigEyeRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(1)), this.maxCols[2]);
       }
 
       protected doParseSmallRoad() {
-        this.smallRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(2)));
+        this.smallRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(2)), this.maxCols[3]);
       }
       protected doParseCockroachRoad() {
-        this.cockroachRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(3)));
+        this.cockroachRoadResult = this.columnResultToRoadResult(this.pbResultToColumnResult(this.pbResultFromBigRoadColumn(3)), this.maxCols[4]);
       }
 
       protected pbResultToColumnResult(pbResult: any) {
@@ -152,9 +152,9 @@ namespace we {
         return columnResult;
       }
 
-      protected columnResultToRoadResult(columnResult: any) {
+      protected columnResultToRoadResult(columnResult: any, maxCol: number) {
         // 1.create empty 2D arrays
-        const maxNum = this.maxCol * 6;
+        const maxNum = maxCol * 6;
         const roadResultArr = [];
         for (let i = 0; i < 6 * maxNum; i++) {
           const tempArr = [];
@@ -214,7 +214,7 @@ namespace we {
 
         // 3. trim the 2D result to 1D road result
         const finalRoadResult = [];
-        const startCol = Math.max(0, maxRoadCol - this.maxCol + 1);
+        const startCol = Math.max(0, maxRoadCol - maxCol + 1);
         for (let i = startCol; i <= maxRoadCol; i++) {
           for (let j = 0; j < 6; j++) {
             finalRoadResult.push(roadResultArr[i][j]);
