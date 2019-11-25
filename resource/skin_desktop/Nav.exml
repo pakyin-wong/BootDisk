@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Rect width="4" height="86" x="270" y="37" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x888888" />
 	<e:Image id="_logo" width="200" height="80" x="40" y="40" fillMode="clip" source="" />
-	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="320" y="80" size="30" textColor="0xffffff" fontFamily="Barlow" />
+	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="341" y="90" size="30" textColor="0xffffff" fontFamily="Barlow" />
 	<e:Group id="_userInfo_toggle" x="2050" y="40">
 		<e:Label id="_user" text="user" x="100" y="0" textColor="0x1c1c1c" />
 		<ui:RunTimeLabel id="_balance" text="RMB 123,456,789" x="100" y="40" textColor="0x1c1c1c" />
@@ -13,4 +13,5 @@
 	<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="140" isPoppable="true"
 	                   dismissOnClickOutside="true" />
 	<ui:NavSideMenu id="_menu" width="375" height="545" x="2155" y="140" isPoppable="true" dismissOnClickOutside="true" />
+	<ui:ScrollingMessage x="341" y="50" size="30" fontFamily="Barlow" anchorOffsetX="0" width="655" text="兩個票站點票過程，包括梳實廢票同重點時場所被過百鄉黑包圍，引到個過程人身安全，包括我們和選舉主任，隨時無命。" height="30" anchorOffsetY="0"/>
 </e:Skin>

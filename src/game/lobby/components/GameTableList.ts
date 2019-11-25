@@ -21,9 +21,9 @@ namespace we {
         this.scroller.percentWidth = 100;
         this.scroller.percentHeight = 100;
 
-        const offsetForTableList = -60;
-        const paddingHorizontal = 80;
-        const gapSize = 50;
+        const paddingHorizontal = 71;
+        const offsetForTableList = -paddingHorizontal;
+        const gapSize = 48;
 
         // init image slider and category tab
         const topDisplay = new eui.Group();
