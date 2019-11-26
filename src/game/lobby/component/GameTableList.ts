@@ -1,5 +1,5 @@
 namespace we {
-  export namespace live {
+  export namespace lobby {
     export class GameTableList extends eui.Component {
       private scroller: ui.Scroller;
       private collection: eui.ArrayCollection;
@@ -30,31 +30,39 @@ namespace we {
         topDisplay.height = 790;
         topDisplay.width = 2600;
         const slider = new we.ui.ImageSlider();
-        const tabs = new we.live.SegmentedControl();
-        tabs.left = paddingHorizontal;
-        tabs.bottom = gapSize + -offsetForTableList;
         topDisplay.addChild(slider);
-        topDisplay.addChild(tabs);
 
-        // // init room grids
-        const roomList = new ui.List();
-        const layout2 = new eui.AnimTileLayout();
+        // init three banner
+        const bannerList = new ui.List();
+        const layout1 = new eui.TileLayout();
+        layout1.horizontalGap = gapSize;
+        layout1.requestedColumnCount = 3;
+        layout1.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout1.requestedColumnCount - 1)) / layout1.requestedColumnCount;
+        bannerList.layout = layout1;
+        bannerList.dataProvider = new eui.ArrayCollection(['lobby_banner1_png', 'lobby_banner2_png', 'lobby_banner3_png']);
+        bannerList.itemRenderer = LobbyBannerItem;
+        bannerList.left = paddingHorizontal;
+        bannerList.right = paddingHorizontal;
+        bannerList.y = topDisplay.height + offsetForTableList;
+
+        // init three banner
+        const bannerList2 = new ui.List();
+        const layout2 = new eui.TileLayout();
         layout2.horizontalGap = gapSize;
-        layout2.verticalGap = gapSize;
-        layout2.paddingBottom = gapSize;
-        layout2.requestedColumnCount = 4;
+        layout2.requestedColumnCount = 3;
         layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
-        roomList.layout = layout2;
-        roomList.dataProvider = this.collection;
-        roomList.itemRenderer = LiveBacarratListItem;
-        roomList.left = paddingHorizontal;
-        roomList.right = paddingHorizontal;
-        roomList.y = topDisplay.height + offsetForTableList + gapSize;
+        bannerList2.layout = layout2;
+        bannerList2.dataProvider = new eui.ArrayCollection(['lobby_banner1_png', 'lobby_banner2_png', 'lobby_banner3_png']);
+        bannerList2.itemRenderer = LobbyBannerItem;
+        bannerList2.left = paddingHorizontal;
+        bannerList2.right = paddingHorizontal;
+        bannerList2.y = topDisplay.height + bannerList.height;
 
         const group = new eui.Group();
         // group.layout = new eui.VerticalLayout();
         group.addChild(topDisplay);
-        group.addChild(roomList);
+        group.addChild(bannerList);
+        group.addChild(bannerList2);
 
         this.scroller.viewport = group;
         this.addChild(this.scroller);
