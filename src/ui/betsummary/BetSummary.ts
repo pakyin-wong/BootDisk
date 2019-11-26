@@ -36,8 +36,8 @@ namespace we {
         this.betInfoList.isCollapsible = true;
         this.betInfoList.maxHeight = 1000;
         this.group = new eui.Group();
-        this.group.addChild(this.betInfoList);
         this.group.addChild(this.toggleBar);
+        this.group.addChild(this.betInfoList);
         this.group.layout = this.vlayout;
         this.group.x = 2000;
         this.group.bottom = 0;

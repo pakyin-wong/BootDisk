@@ -42,6 +42,35 @@ namespace we {
         // // scroller.viewport = roomList;
         // this.addChild(roomList);
 
+        const scroller = new ui.Scroller();
+        scroller.width = 640;
+        scroller.height = 1000;
+        scroller.right = 0;
+        scroller.bottom = 0;
+        scroller.headerOffset = 200;
+        this.addChild(scroller);
+
+        const section = new ui.ScrollerSection();
+        section.header = new eui.Rect(640, 100, 0xff11ff);
+        section.content = new eui.Rect(640, 2000, 0x22ffff);
+        section.scroller = scroller;
+        section.isHeaderSticky = false;
+        const section2 = new ui.ScrollerSection();
+        section2.header = new eui.Rect(640, 100, 0xff101f);
+        section2.content = new eui.Rect(640, 2000, 0xffff22);
+        section2.scroller = scroller;
+        section2.isHeaderSticky = true;
+        const group = new eui.Group();
+        const layout = new eui.VerticalLayout();
+        layout.paddingBottom = 0;
+        layout.paddingTop = 0;
+        layout.gap = 0;
+        group.layout = layout;
+        group.addChild(section);
+        group.addChild(section2);
+
+        scroller.viewport = group;
+
         setTimeout(function () {
           // utils.linkTo('weweb://scene/ba?tableid=1');
           // utils.linkTo('https://www.google.com', 'Google');
