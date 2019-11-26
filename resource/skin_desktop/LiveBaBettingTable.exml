@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LiveBaBettingTableSkin" width="640" height="300" currentState="Normal"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" states="Normal">
+	<ba:BettingTableGrid id="gridPlayer" includeIn="Normal" x="0" y="0" width="320" height="200" />
+	<ba:BettingTableGrid id="gridBanker" includeIn="Normal" x="321" y="0" width="320" height="200" />
+	<ba:BettingTableGrid id="gridPlayerPair" includeIn="Normal" x="0" y="201" width="213" height="100" />
+	<ba:BettingTableGrid id="gridTie" includeIn="Normal" x="214" y="201" width="213" height="100" />
+	<ba:BettingTableGrid id="gridBankerPair" includeIn="Normal" x="427" y="201" width="214" height="100" />
+	<ba:BettingTableGrid id="gridSuperSix" includeIn="Normal" x="-500" y="-500" width="0" height="0" />
+	<e:ToggleSwitch id='switchSuperSix' includeIn="Normal" x="-500" y="-500" width="0" height="0" />
+	<e:Label id="lblNoComm" text="免佣" includeIn="Normal" x="-500" y="-500" width="0" height="0" />
+</e:Skin>
