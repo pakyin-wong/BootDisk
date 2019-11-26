@@ -8,7 +8,9 @@ namespace we {
 
         const _betsummary = new we.ui.BetSummary();
         dir.layerCtr.nav.addChild(_betsummary);
+      }
 
+      private addListeners() {
         dir.evtHandler.addEventListener(core.Event.BALANCE_UPDATE, this.updateBalance, this);
       }
 

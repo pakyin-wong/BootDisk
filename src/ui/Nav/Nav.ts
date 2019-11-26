@@ -3,7 +3,7 @@ namespace we {
     export class Nav extends core.BaseEUI {
       private _logo: eui.Image;
       private _user: eui.Label;
-      private _timestamp: eui.Label;
+      private _time: eui.Label;
       private _profilePrc: eui.Image;
       private _userInfo_toggle: eui.Group;
       private _userInfo: Popper;
@@ -31,7 +31,7 @@ namespace we {
       }
 
       private onUpdateTimer() {
-        this._timestamp.text = moment(env.currTime).format('YYYY/MM/DD HH:mm:ss');
+        this._time.text = moment(env.currTime).format('YYYY/MM/DD HH:mm:ss');
       }
     }
   }
