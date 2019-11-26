@@ -25,7 +25,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png",
+			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png,baccarat_dealer_1_jpg,baccarat_dealer_2_jpg",
 			"name": "preload"
 		},
 		{
@@ -848,6 +848,16 @@
 			"url": "assets/temp/baccarat_dealer_1.jpg",
 			"type": "image",
 			"name": "temp_baccarat_dealer_1"
+		},
+		{
+			"name": "baccarat_dealer_1_jpg",
+			"type": "image",
+			"url": "assets/temp/baccarat_dealer_1.jpg"
+		},
+		{
+			"name": "baccarat_dealer_2_jpg",
+			"type": "image",
+			"url": "assets/temp/baccarat_dealer_2.jpg"
 		}
 	]
 }

@@ -4,20 +4,12 @@ namespace we {
       public constructor() {
         super();
       }
-      public childrenCreated(){
+      public childrenCreated() {
         super.childrenCreated();
-        
       }
-      public setHeight(){
-
-      }
-      public setWidth(){
-
-      }
-      public setTableId(){
-
-      }
-
+      public setHeight() {}
+      public setWidth() {}
+      public setTableId() {}
     }
   }
 }

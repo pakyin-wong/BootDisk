@@ -72,7 +72,7 @@ namespace we {
       }
 
       public updateRenderer(renderer: eui.IItemRenderer, itemIndex: number, data: any): eui.IItemRenderer {
-        //egret.log('update:', data);
+        // egret.log('update:', data);
         const newIdx = this.tempNewItemArray.indexOf(data);
 
         const isNew = newIdx > -1;
