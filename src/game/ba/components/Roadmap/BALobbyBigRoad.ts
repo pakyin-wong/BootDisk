@@ -23,6 +23,10 @@ namespace we {
         this.addChild(this.bigRoad);
       }
 
+      public changeScale(scale: number) {
+        this.bigRoad.scaleX = this.bigRoad.scaleY = scale / 575;
+      }
+
       private onParserUpdate(e: egret.Event) {
         this.bigRoad.parseRoadData(this.parser.bigRoadResult);
       }

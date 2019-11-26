@@ -23,7 +23,7 @@ namespace we {
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         dir.socket.getTableHistory();
 
-        this._page.addChild(new we.lobby.GameTableList());
+        this._page.addChild(new we.lobby.Page());
         // const scroller = new ui.Scroller();
         // // scroller.percentWidth = 100;
         // scroller.width = 640;
@@ -97,7 +97,7 @@ namespace we {
 
       private onPageBtnPress(e: egret.TouchEvent) {
         this._page.removeChildren();
-        this._page.addChild(new we.lobby.GameTableList());
+        this._page.addChild(new we.lobby.Page());
         logger.l(e.$currentTarget);
       }
 

@@ -15,25 +15,24 @@ namespace we {
           }
           this._opened = true;
           console.dir('LobbyQuickBetPanel::onQuickBetClick ');
-          const bettingTable = new we.ba.BettingTable();
-          bettingTable.skinName = utils.getSkin('LiveBaBettingTable');
+          const liveBaccaratExpanded = new we.live.LiveBacarratExpanded();
+          liveBaccaratExpanded.skinName = utils.getSkin('LiveBacarratExpanded');
           const pt = this.globalToLocal(evt.data.x, evt.data.y);
-          bettingTable.x = pt.x - 50;
+          liveBaccaratExpanded.x = pt.x - 50;
+
           console.log('evt.data.y:', evt.data.y);
           console.log('pt.y:', pt.y);
           if (pt.y > 1340 - 300) {
-            bettingTable.bottom = 0;
+            liveBaccaratExpanded.bottom = 0;
           } else if (pt.y < 300) {
-            bettingTable.top = 0;
+            liveBaccaratExpanded.top = 0;
           } else {
-            bettingTable.y = pt.y;
+            liveBaccaratExpanded.y = pt.y;
           }
-          bettingTable.width = evt.data.width + 100;
-          bettingTable.height = evt.data.height + 100;
+          liveBaccaratExpanded.width = evt.data.width + 100;
+          this.addChild(liveBaccaratExpanded);
 
-          this.addChild(bettingTable);
-
-          bettingTable.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
+          liveBaccaratExpanded.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
         }
       }
       protected onRollOut() {

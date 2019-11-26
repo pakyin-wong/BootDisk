@@ -1,6 +1,6 @@
 namespace we {
   export namespace lobby {
-    export class GameTableList extends eui.Component {
+    export class Page extends eui.Component {
       private scroller: ui.Scroller;
       private collection: eui.ArrayCollection;
       private roomIds: number[] = [];
