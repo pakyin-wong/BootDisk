@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LobbyScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:lobby="we.lobby.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect id="background" width="100%" height="100%" x="0" y="0" fillColor="0x181818" />
-	<e:Label text="LOGO" x="64" y="56" size="48" textColor="0x000000" bold="true" fontFamily="Barlow" />
 	<lobby:GameTableList width="100%" height="100%" x="0" y="0" />
-	<e:Button id="liveSceneButton" label="Go to Live Scene" x="500" y="300"/>
-
+	<e:Group id="_header" x="7" y="12">
+		<ui:RunTimeLabel id="_recommend" text="Label" x="305" y="14" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_livegame" text="Label" x="449" y="14" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_lottery" text="Label" x="593" y="14" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_egame" text="Label" x="737" y="14" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_favourite" text="Label" x="881" y="14" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<e:Image id="_logo" width="246" height="71" x="0" y="0" fillMode="clip" source="" scaleX="1" scaleY="1"/>
+	</e:Group>
 </e:Skin>

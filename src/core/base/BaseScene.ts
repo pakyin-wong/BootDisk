@@ -1,7 +1,7 @@
 namespace we {
   export namespace core {
-    export class BaseScene extends eui.Component {
-      public header: egret.Sprite = new egret.Sprite();
+    export class BaseScene extends BaseEUI {
+      public sceneHeader: egret.Sprite = new egret.Sprite();
 
       public constructor(data: any = null) {
         super();

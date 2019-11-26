@@ -7,7 +7,7 @@ namespace we {
         // init dummy scene
         this._currScene = new BaseScene();
         dir.layerCtr.scene.addChild(this._currScene);
-        dir.layerCtr.nav.addChild(this._currScene.header);
+        dir.layerCtr.nav.addChild(this._currScene.sceneHeader);
         logger.l('SceneCtr is created');
       }
 
@@ -23,10 +23,10 @@ namespace we {
           return;
         }
         dir.layerCtr.scene.addChild(_next);
-        dir.layerCtr.nav.addChild(_next.header);
+        dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
         logger.l(`enter ${id}`);
-        dir.layerCtr.nav.removeChild(_prev.header);
+        dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         _next.onEnter();
         _prev.onExit();
         dir.layerCtr.scene.removeChild(_prev);
@@ -44,10 +44,10 @@ namespace we {
           return;
         }
         dir.layerCtr.scene.addChild(_next);
-        dir.layerCtr.nav.addChild(_next.header);
+        dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
         logger.l(`enter ${id}`);
-        dir.layerCtr.nav.removeChild(_prev.header);
+        dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         await _prev.onFadeExit();
         await _next.onFadeEnter();
         _prev.onExit();

@@ -23,6 +23,13 @@ namespace we {
         },
       },
       lobby: {
+        header: {
+          recommend: '精选推介',
+          livegame: '真人游戏',
+          lottery: '彩票游戏',
+          egame: '电子游戏',
+          favourite: '我的最爱',
+        },
         categoryPromotion: '精选推介',
         categoryBacarrat: '百家乐',
         categoryGoodRoad: '好路枱',
