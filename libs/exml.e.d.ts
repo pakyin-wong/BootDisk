@@ -107,11 +107,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class LoadingScene extends eui.Skin{
+	class LiveBaBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class LobbyBacarratListItem extends eui.Skin{
+	class LiveBacarratListItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LiveScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoadingScene extends eui.Skin{
 	}
 }
 declare module skin_desktop{

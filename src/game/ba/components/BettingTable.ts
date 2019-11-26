@@ -9,6 +9,7 @@ namespace we {
       private gridBanker: BettingTableGrid;
       private lblNoComm: eui.Label;
       private switchSuperSix: eui.ToggleSwitch;
+      private tableID: number;
 
       private mapping: { [s: string]: BettingTableGrid };
 
@@ -19,6 +20,10 @@ namespace we {
       constructor() {
         super();
         this.skinName = utils.getSkin('BettingTable');
+      }
+
+      private setTableID(tableId: number) {
+        this.tableID = tableId;
       }
 
       protected childrenCreated() {
@@ -60,6 +65,8 @@ namespace we {
         this.gridTie.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
         this.gridBanker.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
         this.gridSuperSix.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
+
+        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
       protected getCurrentState() {
@@ -112,14 +119,6 @@ namespace we {
       public getTotalUncfmBetAmount() {
         return this.totalUncfmBetAmount;
       }
-
-      /*
-
-      public resetUnconfirmedBetDetails() {
-        Object.keys(this.mapping).forEach(value => {
-          this.mapping[value].setUncfmBet(0);
-        });
-      }*/
 
       public updateBetFields(betDetails: data.BetDetail[]) {
         // logger.l('BettingTable::updateBetFields' + betDetails);

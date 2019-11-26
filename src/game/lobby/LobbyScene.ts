@@ -2,6 +2,7 @@ namespace we {
   export namespace lobby {
     export class Scene extends core.BaseScene {
       private video: egret.FlvVideo;
+      private liveSceneButton: eui.Button;
 
       public onEnter() {
         this.skinName = utils.getSkin('LobbyScene');
@@ -46,6 +47,13 @@ namespace we {
           // utils.linkTo('weweb://scene/ba?tableid=1');
           // utils.linkTo('https://www.google.com', 'Google');
         }, 8000);
+        this.liveSceneButton.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          function () {
+            dir.sceneCtr.goto('live');
+          },
+          this
+        );
       }
 
       public async onFadeEnter() {}
