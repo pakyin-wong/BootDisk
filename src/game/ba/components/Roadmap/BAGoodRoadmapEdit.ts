@@ -1,14 +1,14 @@
 namespace we {
   export namespace ba {
-    export class BAGoodRoadmap extends egret.DisplayObjectContainer {
+    export class BAGoodRoadmapEdit extends egret.DisplayObjectContainer {
       private bigRoad: BABigRoad;
 
       private parser: BAGoodRoadParser;
 
-      private enabled: number;
+      // private enabled: number;
       private roadId: string;
       private roadName: string;
-      private isDefault: number;
+      // private isDefault: number;
 
       public constructor() {
         super();
