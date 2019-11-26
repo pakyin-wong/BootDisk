@@ -1,9 +1,9 @@
 namespace we {
   export namespace ui {
     export class Nav extends core.BaseEUI {
-      private _logo: eui.Image;
-      private _user: eui.Label;
+      private _lantern: NavLantern;
       private _time: eui.Label;
+      private _user: eui.Label;
       private _profilePrc: eui.Image;
       private _userInfo_toggle: eui.Group;
       private _userInfo: Popper;
@@ -23,6 +23,8 @@ namespace we {
 
         this._menu.setToggler(this._menu_toggle);
         this._menu.dismissOnClickOutside = true;
+
+        this._lantern.alignToRight();
 
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);

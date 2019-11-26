@@ -5,5 +5,9 @@ namespace we {
         target.once(ev, resolve, target);
       });
     }
+    export function addButtonListener(i: egret.DisplayObject, callback, thisArg) {
+      i.addEventListener(egret.TouchEvent.TOUCH_TAP, callback, thisArg);
+      mouse.setButtonMode(i, true);
+    }
   }
 }

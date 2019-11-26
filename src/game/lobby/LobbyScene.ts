@@ -10,7 +10,6 @@ namespace we {
       private _page: eui.Component;
 
       private video: egret.FlvVideo;
-      private liveSceneButton: eui.Button;
 
       constructor(data: any = null) {
         super(data);
@@ -55,10 +54,10 @@ namespace we {
         // // scroller.viewport = roomList;
         // this.addChild(roomList);
 
-        setTimeout(function () {
-          // utils.linkTo('weweb://scene/ba?tableid=1');
-          // utils.linkTo('https://www.google.com', 'Google');
-        }, 8000);
+        // setTimeout(function () {
+        // utils.linkTo('weweb://scene/ba?tableid=1');
+        // utils.linkTo('https://www.google.com', 'Google');
+        // }, 8000);
       }
 
       public async onFadeEnter() {}
@@ -83,16 +82,11 @@ namespace we {
       }
 
       protected addListeners() {
-        this._addButtonListener(this._recommend, this.onPageBtnPress);
-        this._addButtonListener(this._livegame, this.onLiveGame);
-        this._addButtonListener(this._lottery, this.onPageBtnPress);
-        this._addButtonListener(this._egame, this.onPageBtnPress);
-        this._addButtonListener(this._favourite, this.onPageBtnPress);
-      }
-
-      private _addButtonListener(i: egret.DisplayObject, callback) {
-        i.addEventListener(egret.TouchEvent.TOUCH_TAP, callback, this);
-        mouse.setButtonMode(i, true);
+        utils.addButtonListener(this._recommend, this.onPageBtnPress, this);
+        utils.addButtonListener(this._livegame, this.onLiveGame, this);
+        utils.addButtonListener(this._lottery, this.onPageBtnPress, this);
+        utils.addButtonListener(this._egame, this.onPageBtnPress, this);
+        utils.addButtonListener(this._favourite, this.onPageBtnPress, this);
       }
 
       private onPageBtnPress(e: egret.TouchEvent) {
