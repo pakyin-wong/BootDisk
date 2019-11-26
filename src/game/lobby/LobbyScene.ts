@@ -81,16 +81,11 @@ namespace we {
       }
 
       protected addListeners() {
-        this._addButtonListener(this._recommend, this.onPageBtnPress);
-        this._addButtonListener(this._livegame, this.onPageBtnPress);
-        this._addButtonListener(this._lottery, this.onPageBtnPress);
-        this._addButtonListener(this._egame, this.onPageBtnPress);
-        this._addButtonListener(this._favourite, this.onPageBtnPress);
-      }
-
-      private _addButtonListener(i: egret.DisplayObject, callback) {
-        i.addEventListener(egret.TouchEvent.TOUCH_TAP, callback, this);
-        mouse.setButtonMode(i, true);
+        utils.addButtonListener(this._recommend, this.onPageBtnPress);
+        utils.addButtonListener(this._livegame, this.onPageBtnPress);
+        utils.addButtonListener(this._lottery, this.onPageBtnPress);
+        utils.addButtonListener(this._egame, this.onPageBtnPress);
+        utils.addButtonListener(this._favourite, this.onPageBtnPress);
       }
 
       private onPageBtnPress(e: egret.TouchEvent) {

@@ -47,13 +47,13 @@ namespace we {
       }
 
       private addListeners() {
-        this._addButtonListener(this.btn_whiteMode, this.onClickWhiteMode);
-        this._addButtonListener(this.btn_darkMode, this.onClickDarkMode);
-        this._addButtonListener(this.btn_history, this.onClickHistory);
-        this._addButtonListener(this.btn_member, this.onClickMember);
-        this._addButtonListener(this.btn_road, this.onClickRoad);
-        this._addButtonListener(this.btn_system, this.onClickSystem);
-        this._addButtonListener(this.btn_logout, this.onClickLogout);
+        utils.addButtonListener(this.btn_whiteMode, this.onClickWhiteMode);
+        utils.addButtonListener(this.btn_darkMode, this.onClickDarkMode);
+        utils.addButtonListener(this.btn_history, this.onClickHistory);
+        utils.addButtonListener(this.btn_member, this.onClickMember);
+        utils.addButtonListener(this.btn_road, this.onClickRoad);
+        utils.addButtonListener(this.btn_system, this.onClickSystem);
+        utils.addButtonListener(this.btn_logout, this.onClickLogout);
       }
 
       private removeListeners() {
@@ -64,11 +64,6 @@ namespace we {
         this.btn_road.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickRoad, this);
         this.btn_system.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSystem, this);
         this.btn_logout.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickLogout, this);
-      }
-
-      private _addButtonListener(i: eui.Component, callback) {
-        i.addEventListener(egret.TouchEvent.TOUCH_TAP, callback, this);
-        mouse.setButtonMode(i, true);
       }
 
       private onClickWhiteMode() {
