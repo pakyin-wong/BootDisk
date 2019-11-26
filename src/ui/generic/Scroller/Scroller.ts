@@ -10,6 +10,8 @@ namespace we {
       public collapseOnStart: boolean = true;
       public collapseAddon: CollapseAddon;
 
+      public headerOffset: number = 0;
+
       // public maxHeight: number = 800;
 
       protected _isCollapsible: boolean;
@@ -178,7 +180,7 @@ namespace we {
         try {
           const viewHeight = this.viewport.contentHeight - this.height;
           this.viewport.scrollV = Math.max(0, Math.min(viewHeight, this.viewport.scrollV + event.deltaY));
-
+          this.dispatchEvent(new egret.Event(egret.Event.CHANGE));
           // for bounce if this.scrollPolicyV = eui.ScrollPolicy.ON | AUTO;
           /*
           this.viewport.dispatchEvent(new egret.TouchEvent(egret.TouchEvent.TOUCH_BEGIN, true, true, 0, 0));
