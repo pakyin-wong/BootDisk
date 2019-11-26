@@ -8,7 +8,7 @@ namespace we {
       private flow = [this.preloadRes, this.initSkin, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
 
       public onEnter() {
-        this.mount();
+        this.init();
       }
 
       public async onFadeEnter() {}
@@ -19,7 +19,7 @@ namespace we {
 
       public async onFadeExit() {}
 
-      private mount() {
+      private init() {
         this.step = 0;
         this.next();
       }

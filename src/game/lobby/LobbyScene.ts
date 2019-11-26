@@ -1,12 +1,22 @@
 namespace we {
   export namespace lobby {
     export class Scene extends core.BaseScene {
+      private _header: eui.Group;
+      private _recommend: ui.RunTimeLabel;
+      private _livegame: ui.RunTimeLabel;
+      private _lottery: ui.RunTimeLabel;
+      private _egame: ui.RunTimeLabel;
+      private _favourite: ui.RunTimeLabel;
+
       private video: egret.FlvVideo;
       private liveSceneButton: eui.Button;
 
-      public onEnter() {
+      constructor(data: any = null) {
+        super(data);
         this.skinName = utils.getSkin('LobbyScene');
+      }
 
+      public onEnter() {
         // After pressing the Filter
         dir.socket.getTableList();
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
@@ -47,22 +57,45 @@ namespace we {
           // utils.linkTo('weweb://scene/ba?tableid=1');
           // utils.linkTo('https://www.google.com', 'Google');
         }, 8000);
-        this.liveSceneButton.addEventListener(
-          egret.TouchEvent.TOUCH_TAP,
-          function () {
-            dir.sceneCtr.goto('live');
-          },
-          this
-        );
       }
 
       public async onFadeEnter() {}
 
       public onExit() {
         this.removeChildren();
+        this.sceneHeader.removeChildren();
       }
 
       public async onFadeExit() {}
+
+      protected mount() {
+        this._header.parent && this._header.parent.removeChild(this._header);
+        this._recommend.renderText = () => `${i18n.t('lobby.header.recommend')}`;
+        this._livegame.renderText = () => `${i18n.t('lobby.header.livegame')}`;
+        this._lottery.renderText = () => `${i18n.t('lobby.header.lottery')}`;
+        this._egame.renderText = () => `${i18n.t('lobby.header.egame')}`;
+        this._favourite.renderText = () => `${i18n.t('lobby.header.favourite')}`;
+        this.sceneHeader.addChild(this._header);
+
+        this.addListeners();
+      }
+
+      protected addListeners() {
+        this._addButtonListener(this._recommend, this.onPageBtnPress);
+        this._addButtonListener(this._livegame, this.onPageBtnPress);
+        this._addButtonListener(this._lottery, this.onPageBtnPress);
+        this._addButtonListener(this._egame, this.onPageBtnPress);
+        this._addButtonListener(this._favourite, this.onPageBtnPress);
+      }
+
+      private _addButtonListener(i: egret.DisplayObject, callback) {
+        i.addEventListener(egret.TouchEvent.TOUCH_TAP, callback, this);
+        mouse.setButtonMode(i, true);
+      }
+
+      private onPageBtnPress(e: egret.TouchEvent) {
+        logger.l(e.$currentTarget);
+      }
     }
   }
 }

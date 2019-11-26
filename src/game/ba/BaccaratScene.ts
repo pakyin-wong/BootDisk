@@ -72,7 +72,7 @@ namespace we {
       }
 
       public onEnter() {
-        this.mount();
+        this.init();
 
         this.setupTableInfo();
         this.updateGame();
@@ -182,7 +182,7 @@ namespace we {
 
       public async onFadeExit() {}
 
-      protected mount() {
+      protected init() {
         // step 1: load Baccarat Screen Resource
         this.skinName = utils.getSkin('BaccaratScene');
 
