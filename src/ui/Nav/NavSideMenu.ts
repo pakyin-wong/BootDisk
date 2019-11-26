@@ -47,13 +47,13 @@ namespace we {
       }
 
       private addListeners() {
-        utils.addButtonListener(this.btn_whiteMode, this.onClickWhiteMode);
-        utils.addButtonListener(this.btn_darkMode, this.onClickDarkMode);
-        utils.addButtonListener(this.btn_history, this.onClickHistory);
-        utils.addButtonListener(this.btn_member, this.onClickMember);
-        utils.addButtonListener(this.btn_road, this.onClickRoad);
-        utils.addButtonListener(this.btn_system, this.onClickSystem);
-        utils.addButtonListener(this.btn_logout, this.onClickLogout);
+        utils.addButtonListener(this.btn_whiteMode, this.onClickWhiteMode, this);
+        utils.addButtonListener(this.btn_darkMode, this.onClickDarkMode, this);
+        utils.addButtonListener(this.btn_history, this.onClickHistory, this);
+        utils.addButtonListener(this.btn_member, this.onClickMember, this);
+        utils.addButtonListener(this.btn_road, this.onClickRoad, this);
+        utils.addButtonListener(this.btn_system, this.onClickSystem, this);
+        utils.addButtonListener(this.btn_logout, this.onClickLogout, this);
       }
 
       private removeListeners() {

@@ -7,9 +7,9 @@ namespace we {
       private _lottery: ui.RunTimeLabel;
       private _egame: ui.RunTimeLabel;
       private _favourite: ui.RunTimeLabel;
+      private _page: eui.Component;
 
       private video: egret.FlvVideo;
-      private liveSceneButton: eui.Button;
 
       constructor(data: any = null) {
         super(data);
@@ -22,6 +22,7 @@ namespace we {
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         dir.socket.getTableHistory();
 
+        this._page.addChild(new we.lobby.GameTableList());
         // const scroller = new ui.Scroller();
         // // scroller.percentWidth = 100;
         // scroller.width = 640;
@@ -53,10 +54,10 @@ namespace we {
         // // scroller.viewport = roomList;
         // this.addChild(roomList);
 
-        setTimeout(function () {
-          // utils.linkTo('weweb://scene/ba?tableid=1');
-          // utils.linkTo('https://www.google.com', 'Google');
-        }, 8000);
+        // setTimeout(function () {
+        // utils.linkTo('weweb://scene/ba?tableid=1');
+        // utils.linkTo('https://www.google.com', 'Google');
+        // }, 8000);
       }
 
       public async onFadeEnter() {}
@@ -81,15 +82,25 @@ namespace we {
       }
 
       protected addListeners() {
-        utils.addButtonListener(this._recommend, this.onPageBtnPress);
-        utils.addButtonListener(this._livegame, this.onPageBtnPress);
-        utils.addButtonListener(this._lottery, this.onPageBtnPress);
-        utils.addButtonListener(this._egame, this.onPageBtnPress);
-        utils.addButtonListener(this._favourite, this.onPageBtnPress);
+        utils.addButtonListener(this._recommend, this.onPageBtnPress, this);
+        utils.addButtonListener(this._livegame, this.onLiveGame, this);
+        utils.addButtonListener(this._lottery, this.onPageBtnPress, this);
+        utils.addButtonListener(this._egame, this.onPageBtnPress, this);
+        utils.addButtonListener(this._favourite, this.onPageBtnPress, this);
       }
 
       private onPageBtnPress(e: egret.TouchEvent) {
+        this._page.removeChildren();
+        this._page.addChild(new we.lobby.GameTableList());
         logger.l(e.$currentTarget);
+      }
+
+      private onLiveGame(e: egret.TouchEvent) {
+        this._page.removeChildren();
+        const livePage = new we.live.Page();
+        livePage.width = 2600;
+        livePage.height = 1340;
+        this._page.addChild(livePage);
       }
     }
   }
