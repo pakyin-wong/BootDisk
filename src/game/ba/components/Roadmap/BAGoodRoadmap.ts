@@ -5,6 +5,11 @@ namespace we {
 
       private parser: BAGoodRoadParser;
 
+      private enabled: number;
+      private roadId: string;
+      private roadName: string;
+      private isDefault: number;
+
       public constructor() {
         super();
         this.parser = new BAGoodRoadParser([12, 12, 24, 12, 12]);
@@ -37,7 +42,7 @@ namespace we {
             }
           }
         } else {
-          this.parser.undoAll();
+          console.log(this.getRoadData());
         }
       }
 
@@ -50,7 +55,19 @@ namespace we {
       }
 
       public updateRoadData(roadmapData: any) {
-        this.parser.parseData(roadmapData);
+        const data = [];
+        const arr = roadmapData
+          .toLowerCase()
+          .split('')
+          .forEach(e => data.push({ V: e }));
+
+        this.parser.parseData(data);
+      }
+
+      public getRoadData(): any {
+        let rslt = '';
+        this.parser.beadRoadResult.forEach(e => (rslt += e.V.toLowerCase()));
+        return rslt;
       }
 
       public dispose() {

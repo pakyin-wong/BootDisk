@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LobbyBacarratListItem" minWidth="640" minHeight="300" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+<e:Skin class="skin_desktop.LobbyBacarratListItem" minWidth="640" minHeight="300" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect id="rect" width="100%" height="100%" x="0" y="0" fillColor="0xc12828" />
 	<e:Label id="label" text="Label" verticalCenter="-115" horizontalCenter="-144" anchorOffsetX="37" anchorOffsetY="15" />
-	<ui:CircularTimer width="80" height="80" x="20" y="20"/>
+	<ui:CircularTimer width="80" height="80" x="20" y="20" />
+	<ba:BALobbyBigRoad id="bigRoad" width="578" height="139" x="0" y="176" anchorOffsetX="0" anchorOffsetY="0" />
 </e:Skin>
