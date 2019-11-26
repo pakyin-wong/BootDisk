@@ -10,6 +10,18 @@ namespace we {
           onload: '资源加载中',
         },
       },
+      nav: {
+        menu: {
+          selectMode: '介面色调',
+          whiteMode: '亮色',
+          darkMode: '暗色',
+          history: '投注记录',
+          member: '会员报表',
+          road: '好路提示',
+          system: '系统设定',
+          logout: '登出',
+        },
+      },
       lobby: {
         categoryPromotion: '精选推介',
         categoryBacarrat: '百家乐',

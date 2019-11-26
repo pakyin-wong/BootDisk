@@ -14,7 +14,7 @@ namespace we {
       public playerID: string;
       public nickname: string;
       public profileImageURL: string;
-      public mode: number;
+      public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
       public language: string;

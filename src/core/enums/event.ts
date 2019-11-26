@@ -17,6 +17,8 @@ namespace we {
       LOBBY_QUICKBET_CLICK: 'LOBBY_QUICKBET_CLICK',
       INSUFFICIENT_BALANCE: 'INSUFFICIENT_BALANCE',
       EXCEED_BET_LIMIT: 'EXCEED_BET_LIMIT',
+
+      NAV: {},
     };
 
     export const MQTT = {

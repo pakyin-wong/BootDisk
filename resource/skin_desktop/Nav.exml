@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.Nav" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Rect width="4" height="86" x="270" y="37" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x888888" />
-	<e:Image id="_logo" width="200" height="80" x="40" y="40" fillMode="clip" source="" />
-	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="341" y="90" size="30" textColor="0xffffff" fontFamily="Barlow" />
-	<e:Group id="_userInfo_toggle" x="2050" y="40">
-		<e:Label id="_user" text="user" x="100" y="0" textColor="0x1c1c1c" />
-		<ui:RunTimeLabel id="_balance" text="RMB 123,456,789" x="100" y="40" textColor="0x1c1c1c" />
-		<e:Image id="_profilePrc" width="80" height="80" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillMode="clip" />
+	<e:Rect height="91" anchorOffsetY="0" left="0" right="0" top="0" locked="true"/>
+	<e:Image id="_logo" width="246" height="71" x="7" y="12" fillMode="clip" source="" />
+	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="1837" y="46" size="28" textColor="0xffffff" fontFamily="Barlow"  width="238" height="34"/>
+	<e:Group id="_userInfo_toggle" x="2190" y="11.2">
+		<e:Label id="_user" text="user" x="79" y="0" width="116" height="34" size="28" fontFamily="Barlow" textColor="0xffffff" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_balance" text="RMB 123,456,789" x="79" y="35" width="146" height="34" fontFamily="Barlow" size="28" textColor="0xffffff" scaleX="1" scaleY="1"/>
+		<e:Image id="_profilePrc" width="58" height="58" x="0" y="7.8" anchorOffsetX="0" anchorOffsetY="0" fillMode="clip" scaleX="1" scaleY="1"/>
 	</e:Group>
-	<e:Image id="_menu_toggle" width="80" height="80" x="2450" y="40" source="nav_menu_toggle" />
-	<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="140" isPoppable="true"
+	<e:Image id="_menu_toggle" width="28.8" height="24.4" x="2527" y="35" source="nav_menu_toggle" />
+	<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="115.76" isPoppable="true"
 	                   dismissOnClickOutside="true" />
-	<ui:NavSideMenu id="_menu" width="375" height="545" x="2155" y="140" isPoppable="true" dismissOnClickOutside="true" />
-	<ui:ScrollingMessage x="341" y="50" size="30" fontFamily="Barlow" anchorOffsetX="0" width="655" text="兩個票站點票過程，包括梳實廢票同重點時場所被過百鄉黑包圍，引到個過程人身安全，包括我們和選舉主任，隨時無命。" height="30" anchorOffsetY="0"/>
+	<ui:NavSideMenu id="_menu" width="375" height="545" x="2155" y="120" isPoppable="true" dismissOnClickOutside="true" />
+	<ui:ScrollingMessage y="12.4" size="22" fontFamily="NotoSansCJKtc" anchorOffsetX="0" width="698" text="兩個票站點票過程，包括梳實廢票同重點時場所被過百鄉黑包圍，引到個過程人身安全，包括我們和選舉主任，隨時無命。" height="33" anchorOffsetY="0" x="1382" textAlign="right"/>
+	<!--<e:Group width="1080" height="45" x="312" y="25">
+		<ui:RunTimeLabel id="_recommend" text="Label" x="0" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_livegame" text="Label" x="144" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_lottery" text="Label" x="288" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_egame" text="Label" x="432" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_favourite" text="Label" x="576" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
+	</e:Group>-->
 </e:Skin>
