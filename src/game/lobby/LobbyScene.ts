@@ -7,6 +7,7 @@ namespace we {
       private _lottery: ui.RunTimeLabel;
       private _egame: ui.RunTimeLabel;
       private _favourite: ui.RunTimeLabel;
+      private _page: eui.Component;
 
       private video: egret.FlvVideo;
       private liveSceneButton: eui.Button;
@@ -22,6 +23,7 @@ namespace we {
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         dir.socket.getTableHistory();
 
+        this._page.addChild(new we.lobby.GameTableList());
         // const scroller = new ui.Scroller();
         // // scroller.percentWidth = 100;
         // scroller.width = 640;
@@ -82,7 +84,7 @@ namespace we {
 
       protected addListeners() {
         this._addButtonListener(this._recommend, this.onPageBtnPress);
-        this._addButtonListener(this._livegame, this.onPageBtnPress);
+        this._addButtonListener(this._livegame, this.onLiveGame);
         this._addButtonListener(this._lottery, this.onPageBtnPress);
         this._addButtonListener(this._egame, this.onPageBtnPress);
         this._addButtonListener(this._favourite, this.onPageBtnPress);
@@ -94,7 +96,17 @@ namespace we {
       }
 
       private onPageBtnPress(e: egret.TouchEvent) {
+        this._page.removeChildren();
+        this._page.addChild(new we.lobby.GameTableList());
         logger.l(e.$currentTarget);
+      }
+
+      private onLiveGame(e: egret.TouchEvent) {
+        this._page.removeChildren();
+        const livePage = new we.live.Page();
+        livePage.width = 2600;
+        livePage.height = 1340;
+        this._page.addChild(livePage);
       }
     }
   }

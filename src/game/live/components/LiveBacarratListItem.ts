@@ -102,7 +102,7 @@ namespace we {
       private onClick(evt: egret.Event) {
         console.log('LiveBaccaratListItem::onClick');
         console.dir(evt.target);
-        if (evt.target !== this.rect || evt.target === this.quickbetButton) {
+        if (evt.target === this.quickbetButton) {
           return;
         }
         const table = env.tableInfos[this.itemData];
