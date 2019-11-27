@@ -35,7 +35,9 @@ namespace we {
         const tabs = new we.live.SegmentedControl();
         // tabs.left = paddingHorizontal;
         // tabs.bottom = gapSize + -offsetForTableList;
+
         topDisplay.addChild(slider);
+
         // topDisplay.addChild(tabs);
 
         // // init room grids
@@ -65,11 +67,15 @@ namespace we {
         section.right = paddingHorizontal;
         section.y = topDisplay.height + offsetForTableList + gapSize;
 
+        const quickbetPanel = new LiveQuickBetPanel();
+
+        const container = new eui.Component();
+        container.addChild(section);
+        container.addChild(quickbetPanel);
+
         const group = new eui.Group();
-        // group.layout = new eui.VerticalLayout();
         group.addChild(topDisplay);
-        // group.addChild(roomList);
-        group.addChild(section);
+        group.addChild(container);
 
         this.scroller.viewport = group;
 

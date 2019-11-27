@@ -22,13 +22,15 @@ namespace we {
 
           console.log('evt.data.y:', evt.data.y);
           console.log('pt.y:', pt.y);
+          /*
           if (pt.y > 1340 - 300) {
             liveBaccaratExpanded.bottom = 0;
           } else if (pt.y < 300) {
             liveBaccaratExpanded.top = 0;
           } else {
-            liveBaccaratExpanded.y = pt.y;
-          }
+
+          }*/
+          liveBaccaratExpanded.y = pt.y;
           liveBaccaratExpanded.width = evt.data.width + 40;
           liveBaccaratExpanded.height = evt.data.height + 27;
           this.addChild(liveBaccaratExpanded);
@@ -37,7 +39,7 @@ namespace we {
         }
       }
       protected onRollOut() {
-        console.log('LobbyQuickBetPanel::rollOut')
+        console.log('LobbyQuickBetPanel::rollOut');
         this.removeChildren();
         this._opened = false;
       }
