@@ -64,7 +64,7 @@ namespace we {
 
         console.dir(globalPt);
         const table = env.tableInfos[this.itemData];
-        const data = { open: true, x: globalPt.x, y: globalPt.y, width: this.width, height: this.height, tableid: table.tableid };
+        const data = { x: globalPt.x, y: globalPt.y, width: this.width, height: this.height, tableid: table.tableid };
         dir.evtHandler.dispatch(we.core.Event.LOBBY_QUICKBET_HOVER, data);
       }
     }
