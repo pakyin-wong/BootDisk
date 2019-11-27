@@ -1,6 +1,6 @@
 namespace we {
   export namespace live {
-    export class LiveBacarratListItem extends ui.ItemRenderer {
+    export class LiveBaccaratListItem extends ui.ItemRenderer {
       public selected: boolean;
       public itemIndex: number;
 
@@ -22,7 +22,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('LiveBacarratListItem');
+        this.skinName = utils.getSkin('LiveBaccaratListItem');
         this.touchEnabled = true;
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
 
@@ -31,10 +31,10 @@ namespace we {
 
       private async mount() {
         try {
-          console.log('LiveBacarratListItem::mount');
+          console.log('LiveBaccaratListItem::mount');
           await RES.loadGroup('temp');
         } catch (e) {
-          console.log('LiveBacarratListItem::mount error');
+          console.log('LiveBaccaratListItem::mount error');
         }
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
         this.dealerImage.texture = RES.getRes(imageResName);
@@ -54,7 +54,7 @@ namespace we {
       }
 
       private onMouseOver() {
-        console.log('LiveBacarratListItem::onMouseOver');
+        console.log('LiveBaccaratListItem::onMouseOver');
         let globalPt: egret.Point;
         if (this.parent) {
           globalPt = this.parent.localToGlobal(this.x, this.y);

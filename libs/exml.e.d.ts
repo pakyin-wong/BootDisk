@@ -111,11 +111,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class LiveBacarratExpanded extends eui.Skin{
+	class LiveBaccaratExpanded extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class LiveBacarratListItem extends eui.Skin{
+	class LiveBaccaratListItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{

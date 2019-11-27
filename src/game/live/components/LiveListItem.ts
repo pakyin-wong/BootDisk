@@ -14,7 +14,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('LobbyBacarratListItem');
+        this.skinName = utils.getSkin('LobbyBaccaratListItem');
       }
 
       // public get data() {

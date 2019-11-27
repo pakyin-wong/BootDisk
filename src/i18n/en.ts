@@ -8,7 +8,7 @@ namespace we {
       },
       lobby: {
         categoryPromotion: 'Promoted',
-        categoryBacarrat: 'Bacarrat',
+        categoryBaccarat: 'Baccarat',
         categoryGoodRoad: 'Good Road Tables',
         categoryLuckyWheel: 'Lucky Wheel',
         categoryInstant: 'Instant Open Colour',

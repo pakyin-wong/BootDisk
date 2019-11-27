@@ -8,7 +8,7 @@ namespace we {
       },
       lobby: {
         categoryPromotion: '精選推介',
-        categoryBacarrat: '百家樂',
+        categoryBaccarat: '百家樂',
         categoryGoodRoad: '好路檯',
         categoryLuckyWheel: '幸運輪',
         categoryInstant: '即開彩',

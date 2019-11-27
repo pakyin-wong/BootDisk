@@ -16,7 +16,7 @@ namespace we {
 
         const items = [
           'lobby.categoryPromotion',
-          'lobby.categoryBacarrat',
+          'lobby.categoryBaccarat',
           'lobby.categoryGoodRoad',
           'lobby.categoryLuckyWheel',
           'lobby.categoryInstant',

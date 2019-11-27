@@ -31,7 +31,7 @@ namespace we {
           favourite: '我的最爱',
         },
         categoryPromotion: '精选推介',
-        categoryBacarrat: '百家乐',
+        categoryBaccarat: '百家乐',
         categoryGoodRoad: '好路枱',
         categoryLuckyWheel: '幸运轮',
         categoryInstant: '即开彩',
