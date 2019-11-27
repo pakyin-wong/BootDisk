@@ -1,19 +1,26 @@
+/* tslint:disable max-classes-per-file */
 namespace we {
   export namespace lobby {
     export class Scene extends core.BaseScene {
       private _header: eui.Group;
-      private _recommend: ui.RunTimeLabel;
-      private _livegame: ui.RunTimeLabel;
-      private _lottery: ui.RunTimeLabel;
-      private _egame: ui.RunTimeLabel;
-      private _favourite: ui.RunTimeLabel;
       private _page: eui.Component;
-
-      private video: egret.FlvVideo;
+      private _list: eui.TabBar;
+      private _items: string[] = ['lobby', 'live', 'lottery', 'egame', 'favorite'];
 
       constructor(data: any = null) {
         super(data);
         this.skinName = utils.getSkin('LobbyScene');
+        this._list = new eui.TabBar();
+        this._list.useVirtualLayout = false;
+        const layout = new eui.HorizontalLayout();
+        layout.gap = 30;
+        this._list.layout = layout;
+        this._list.itemRenderer = LobbyTabListItemRenderer;
+        this._list.dataProvider = new eui.ArrayCollection(this._items);
+        this._list.x = this._header.$children[0].width + layout.gap;
+        this._list.verticalCenter = 0;
+        this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
+        this._header.addChild(this._list);
       }
 
       public onEnter() {
@@ -22,7 +29,7 @@ namespace we {
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         dir.socket.getTableHistory();
 
-        this._page.addChild(new we.lobby.Page());
+        this.loadPage(this._items[0]);
         // const scroller = new ui.Scroller();
         // // scroller.percentWidth = 100;
         // scroller.width = 640;
@@ -70,37 +77,46 @@ namespace we {
       public async onFadeExit() {}
 
       protected mount() {
+        // swap header parent
         this._header.parent && this._header.parent.removeChild(this._header);
-        this._recommend.renderText = () => `${i18n.t('lobby.header.recommend')}`;
-        this._livegame.renderText = () => `${i18n.t('lobby.header.livegame')}`;
-        this._lottery.renderText = () => `${i18n.t('lobby.header.lottery')}`;
-        this._egame.renderText = () => `${i18n.t('lobby.header.egame')}`;
-        this._favourite.renderText = () => `${i18n.t('lobby.header.favourite')}`;
         this.sceneHeader.addChild(this._header);
-
-        this.addListeners();
       }
 
-      protected addListeners() {
-        utils.addButtonListener(this._recommend, this.onPageBtnPress, this);
-        utils.addButtonListener(this._livegame, this.onLiveGame, this);
-        utils.addButtonListener(this._lottery, this.onPageBtnPress, this);
-        utils.addButtonListener(this._egame, this.onPageBtnPress, this);
-        utils.addButtonListener(this._favourite, this.onPageBtnPress, this);
+      private handleTap(event: eui.ItemTapEvent) {
+        this.loadPage(this._list.selectedItem);
       }
 
-      private onPageBtnPress(e: egret.TouchEvent) {
+      private loadPage(name) {
         this._page.removeChildren();
-        this._page.addChild(new we.lobby.Page());
-        logger.l(e.$currentTarget);
+        const page = new we[name].Page();
+        this._page.addChild(page);
+      }
+    }
+
+    class LobbyTabListItemRenderer extends ui.SortableItemRenderer {
+      private label: eui.Label;
+      private boldWidth = null;
+
+      public constructor() {
+        super();
+        this.skinName = `
+<e:Skin height="50" xmlns:e="http://ns.egret.com/eui" states="up,down">
+  <e:Group x="0" y="0" width="100%" height="100%">
+    <e:Label id="label" text="{data}" verticalCenter="0" textColor="0xffffff" horizontalCenter="0"  alpha.up="0.7" bold.down="true"/>
+  </e:Group>
+</e:Skin>
+        `;
       }
 
-      private onLiveGame(e: egret.TouchEvent) {
-        this._page.removeChildren();
-        const livePage = new we.live.Page();
-        livePage.width = 2600;
-        livePage.height = 1340;
-        this._page.addChild(livePage);
+      public dataChanged() {
+        super.dataChanged();
+        this.label.text = i18n.t(`lobby.header.${this.data}`);
+        // set tab item min width to bold text width
+        const bold = this.label.bold;
+        this.label.bold = true;
+        this.boldWidth = this.width;
+        this.label.bold = bold;
+        this.minWidth = this.boldWidth;
       }
     }
   }

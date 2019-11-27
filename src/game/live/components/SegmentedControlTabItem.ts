@@ -33,7 +33,6 @@ namespace we {
       // public set data(data: any) {
       //   eui.PropertyEvent.dispatchPropertyEvent(this, eui.PropertyEvent.PROPERTY_CHANGE, "data");
       //   this.dataChanged();
-
       // }
 
       public clone() {
@@ -64,6 +63,7 @@ namespace we {
       // private onClick() {
       //   console.log('cick', this);
       // }
+
       private isDeltaIdentity(m) {
         return m.a === 1 && m.b === 0 && m.c === 0 && m.d === 1;
       }

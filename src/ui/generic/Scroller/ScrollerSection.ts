@@ -10,6 +10,10 @@ namespace we {
       public isHeaderSticky: boolean = false;
       public isHeaderOverlay: boolean = false;
 
+      public constructor() {
+        super();
+      }
+
       // public set offset(value: number) {
       //   this._offset = value;
       //   this.update();
@@ -21,9 +25,11 @@ namespace we {
         this._contentPaddingTop = value;
         this.update();
       }
+
       public get contentPaddingTop(): number {
         return this._contentPaddingTop;
       }
+
       public set header(value: eui.Component | eui.Group) {
         if (this._header && this.parent) {
           this.removeChild(this._header);
@@ -37,6 +43,7 @@ namespace we {
           }
         }
       }
+
       public get header(): eui.Component | eui.Group {
         return this._header;
       }
@@ -54,20 +61,23 @@ namespace we {
           }
         }
       }
+
       public get content(): eui.Component | eui.Group {
         return this._content;
       }
+
       public set scroller(value: ui.Scroller) {
         if (!this._scroller) {
           value.addEventListener(egret.Event.CHANGE, this.onScroll, this);
         }
         this._scroller = value;
       }
+
       public get scroller(): ui.Scroller {
         return this._scroller;
       }
 
-      protected update() {
+      public update() {
         if (this.stage) {
           if (this._header && this.isHeaderSticky) {
             const point = new egret.Point();
@@ -89,10 +99,6 @@ namespace we {
           height += this._header.height;
         }
         this._content.y = height;
-      }
-
-      public constructor() {
-        super();
       }
 
       protected mount() {

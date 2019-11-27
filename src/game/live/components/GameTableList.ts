@@ -18,8 +18,8 @@ namespace we {
         super.childrenCreated();
 
         this.scroller = new ui.Scroller();
-        this.scroller.percentWidth = 100;
-        this.scroller.percentHeight = 100;
+        this.scroller.width = 2600;
+        this.scroller.height = 1340;
         this.scroller.headerOffset = 100;
         this.addChild(this.scroller);
 
@@ -28,19 +28,11 @@ namespace we {
         const gapSize = 48;
 
         // init image slider and category tab
-        const topDisplay = new eui.Group();
-        topDisplay.height = 790;
-        topDisplay.width = 2600;
         const slider = new we.ui.ImageSlider();
-        const tabs = new we.live.SegmentedControl();
-        // tabs.left = paddingHorizontal;
-        // tabs.bottom = gapSize + -offsetForTableList;
+        slider.height = 790;
+        slider.width = 2600;
 
-        topDisplay.addChild(slider);
-
-        // topDisplay.addChild(tabs);
-
-        // // init room grids
+        // init room grids
         const roomList = new ui.List();
         const layout2 = new eui.AnimTileLayout();
         layout2.horizontalGap = gapSize;
@@ -53,8 +45,11 @@ namespace we {
         roomList.itemRenderer = LiveBaccaratListItem;
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
-        // roomList.y = topDisplay.height + offsetForTableList + gapSize;
+        // roomList.y = slider.height + offsetForTableList + gapSize;
 
+        const tabs = new we.live.SegmentedControl();
+        // tabs.left = paddingHorizontal;
+        // tabs.bottom = gapSize + -offsetForTableList;
         const section = new ui.ScrollerSection();
         section.header = tabs;
         section.content = roomList;
@@ -62,10 +57,10 @@ namespace we {
         // section.content = new eui.Rect(640, 2000, 0x22ffff);
         section.scroller = this.scroller;
         section.isHeaderSticky = true;
-        section.contentPaddingTop = 100;
+        section.contentPaddingTop = gapSize;
         section.left = paddingHorizontal;
         section.right = paddingHorizontal;
-        section.y = topDisplay.height + offsetForTableList + gapSize;
+        section.y = slider.height + offsetForTableList + gapSize;
 
         const quickbetPanel = new LiveQuickBetPanel();
 
@@ -74,7 +69,7 @@ namespace we {
         container.addChild(quickbetPanel);
 
         const group = new eui.Group();
-        group.addChild(topDisplay);
+        group.addChild(slider);
         group.addChild(container);
 
         this.scroller.viewport = group;

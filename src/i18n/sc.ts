@@ -24,11 +24,11 @@ namespace we {
       },
       lobby: {
         header: {
-          recommend: '精选推介',
-          livegame: '真人游戏',
+          lobby: '精选推介',
+          live: '真人游戏',
           lottery: '彩票游戏',
           egame: '电子游戏',
-          favourite: '我的最爱',
+          favorite: '我的最爱',
         },
         categoryPromotion: '精选推介',
         categoryBaccarat: '百家乐',
