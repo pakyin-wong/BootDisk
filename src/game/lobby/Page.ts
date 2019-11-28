@@ -54,11 +54,11 @@ namespace we {
           sections.addChild(tcslider);
         };
 
-        createSection('lobby', []);
-        createSection('live', []);
-        createSection('lottery', []);
-        createSection('egame', []);
-        createSection('favorite', []);
+        createSection('lobby', ['h4_png', 'h5_png']);
+        createSection('live', ['h4_png', 'h5_png', 'h6_png']);
+        createSection('lottery', ['h4_png', 'h5_png', 'h6_png', 'h7_png']);
+        createSection('egame', ['h4_png', 'h5_png', 'h6_png', 'h7_png', 'h8_png']);
+        createSection('favorite', ['h4_png', 'h5_png', 'h6_png', 'h7_png', 'h8_png', 'h9_png', 'h10_png']);
         group.addChild(sections);
 
         // init three banner

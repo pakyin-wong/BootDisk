@@ -14,4 +14,4 @@ case "${arch}" in
   ;;
 esac
 
-prettier --write 'src/**/*.ts' && tslint -c tslint.json --fix 'src/**/*.ts' && $bin $@
+sleep 1 && prettier --write 'src/**/*.ts' && sleep 0.5 && tslint -c tslint.json --fix 'src/**/*.ts' && sleep 0.5 && $bin $@

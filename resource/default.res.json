@@ -13,7 +13,7 @@
 			"name": "scene_loading"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png",
+			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png,Lobby_ThreeColumnBg_png",
 			"name": "scene_lobby"
 		},
 		{
@@ -25,7 +25,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png,baccarat_dealer_1_jpg,baccarat_dealer_2_jpg,scroller_thumb_png,baccarat_dealer_12_jpg,baccarat_dealer_22_jpg",
+			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png,baccarat_dealer_1_jpg,baccarat_dealer_2_jpg,scroller_thumb_png,baccarat_dealer_12_jpg,baccarat_dealer_22_jpg,Lobby_ThreeColumnBg_png",
 			"name": "preload"
 		},
 		{
@@ -850,29 +850,34 @@
 			"name": "temp_baccarat_dealer_1"
 		},
 		{
-			"name": "baccarat_dealer_1_jpg",
+			"url": "assets/temp/baccarat_dealer_1.jpg",
 			"type": "image",
-			"url": "assets/temp/baccarat_dealer_1.jpg"
+			"name": "baccarat_dealer_1_jpg"
 		},
 		{
-			"name": "baccarat_dealer_2_jpg",
+			"url": "assets/temp/baccarat_dealer_2.jpg",
 			"type": "image",
-			"url": "assets/temp/baccarat_dealer_2.jpg"
+			"name": "baccarat_dealer_2_jpg"
 		},
 		{
-			"name": "scroller_thumb_png",
+			"url": "assets/scroller_thumb.png",
 			"type": "image",
-			"url": "assets/scroller_thumb.png"
+			"name": "scroller_thumb_png"
 		},
 		{
-			"name": "baccarat_dealer_12_jpg",
+			"url": "assets/temp/baccarat_dealer_1.jpg",
 			"type": "image",
-			"url": "assets/temp/baccarat_dealer_1.jpg"
+			"name": "baccarat_dealer_12_jpg"
 		},
 		{
-			"name": "baccarat_dealer_22_jpg",
+			"url": "assets/temp/baccarat_dealer_2.jpg",
 			"type": "image",
-			"url": "assets/temp/baccarat_dealer_2.jpg"
+			"name": "baccarat_dealer_22_jpg"
+		},
+		{
+			"url": "assets/Lobby_ThreeColumnBg.png",
+			"type": "image",
+			"name": "Lobby_ThreeColumnBg_png"
 		}
 	]
 }
