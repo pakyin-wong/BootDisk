@@ -26,6 +26,7 @@ namespace we {
         dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
         logger.l(`enter ${id}`);
+        dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         _next.onEnter();
         _prev.onExit();
@@ -47,6 +48,7 @@ namespace we {
         dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
         logger.l(`enter ${id}`);
+        dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         await _prev.onFadeExit();
         await _next.onFadeEnter();
