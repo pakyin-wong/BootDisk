@@ -2,7 +2,7 @@
 namespace we {
   export namespace lobby {
     export class Scene extends core.BaseScene {
-      private _header: eui.Group;
+      protected _header: eui.Group;
       private _page: eui.Component;
       private _list: eui.TabBar;
       private _items: string[] = ['lobby', 'live', 'lottery', 'egame', 'favorite'];
@@ -70,17 +70,18 @@ namespace we {
       public async onFadeEnter() {}
 
       public onExit() {
+        super.onExit();
         this.removeChildren();
-        this.sceneHeader.removeChildren();
       }
 
       public async onFadeExit() {}
 
-      protected mount() {
-        // swap header parent
-        this._header.parent && this._header.parent.removeChild(this._header);
-        this.sceneHeader.addChild(this._header);
-      }
+      // protected mount() {
+      //   super.mount();
+      //   // swap header parent
+      //   this._header.parent && this._header.parent.removeChild(this._header);
+      //   this.sceneHeader.addChild(this._header);
+      // }
 
       private handleTap(event: eui.ItemTapEvent) {
         this.loadPage(this._list.selectedItem);
