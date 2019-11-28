@@ -24,12 +24,31 @@ namespace we {
         this._menu.setToggler(this._menu_toggle);
         this._menu.dismissOnClickOutside = true;
 
-        this._lantern.alignToRight();
-
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
 
+        this.addListeners();
+      }
+
+      private addListeners() {
+        dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
+      }
+
+      private onSceneChange(e) {
+        switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
+          case 'right':
+            this._lantern.alignToLeft();
+            this._time.textAlign = 'left';
+            this.currentState = 'left';
+            break;
+
+          case 'left':
+            this._lantern.alignToRight();
+            this._time.textAlign = 'right';
+            this.currentState = 'right';
+            break;
+        }
       }
 
       private onUpdateTimer() {

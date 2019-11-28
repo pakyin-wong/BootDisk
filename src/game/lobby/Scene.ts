@@ -9,6 +9,7 @@ namespace we {
 
       constructor(data: any = null) {
         super(data);
+        this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LEFT;
         this.skinName = utils.getSkin('LobbyScene');
         this._list = new eui.TabBar();
         this._list.useVirtualLayout = false;
