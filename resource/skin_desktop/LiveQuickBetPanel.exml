@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LiveQuickBetPanel" minWidth="578" minHeight="388" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+	<ba:BettingTable id="_bettingTable" width="100%" />
+</e:Skin>

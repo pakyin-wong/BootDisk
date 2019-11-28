@@ -30,13 +30,16 @@ namespace we {
           egame: '电子游戏',
           favorite: '我的最爱',
         },
-        categoryPromotion: '精选推介',
-        categoryBaccarat: '百家乐',
-        categoryGoodRoad: '好路枱',
-        categoryLuckyWheel: '幸运轮',
-        categoryInstant: '即开彩',
-        categoryOtherGame: '其他游戏',
-        categoryFavorite: '我的最爱',
+      },
+      live: {
+        gametype: {
+          bacarrat: '百家樂',
+          dragontiger: '龍虎',
+          luckywheel: '幸運輪',
+          wheel: '輪盤',
+          dice: '骰寶',
+          goodroad: '好路',
+        },
       },
       baccarat: {
         playerPair: '闲对',

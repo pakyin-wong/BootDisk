@@ -1,11 +1,11 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,egret_icon_png,description_json,barlow_woff",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json",
 			"name": "egret_basic"
 		},
 		{
-			"keys": "h4_png,h3_png,h5_png,h6_png,h7_png,h10_png,h9_png,h8_png,h11_png,h12_png,h13_png,s1_png,s3_png,s2_png,s5_png,s4_png,s6_png,s7_png,s8_png,s9_png,s10_png,s11_png,s12_png,s13_png,card_back_png,c1_png,c2_png,c3_png,c4_png,c6_png,c7_png,c8_png,c9_png,c10_png,c11_png,c12_png,c13_png,d1_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,d10_png,d11_png,d12_png,h2_png,d13_png,h1_png",
+			"keys": "back_png,c1_png,c10_png,c11_png,c12_png,c13_png,c2_png,c3_png,c4_png,c5_png,c6_png,c7_png,c8_png,c9_png,d1_png,d10_png,d11_png,d12_png,d13_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,h1_png,h10_png,h11_png,h12_png,h13_png,h2_png,h3_png,h4_png,h5_png,h6_png,h7_png,h8_png,h9_png,s1_png,s10_png,s11_png,s12_png,s13_png,s2_png,s3_png,s4_png,s5_png,s6_png,s7_png,s8_png",
 			"name": "common"
 		},
 		{
@@ -13,7 +13,7 @@
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "scene_baccarat_dummyImage,scene_baccarat_banker,scene_baccarat_banker_pair,scene_baccarat_player,scene_baccarat_player_pair,scene_baccarat_player_win,scene_baccarat_tie",
+			"keys": "scene_baccarat_banker,scene_baccarat_banker_pair,scene_baccarat_player,scene_baccarat_player_pair,scene_baccarat_player_win,scene_baccarat_tie",
 			"name": "scene_baccarat"
 		},
 		{
@@ -49,11 +49,6 @@
 			"url": "assets/CheckBox/checkbox_unselect.png",
 			"type": "image",
 			"name": "checkbox_unselect_png"
-		},
-		{
-			"url": "assets/ItemRenderer/selected.png",
-			"type": "image",
-			"name": "selected_png"
 		},
 		{
 			"url": "assets/Panel/border.png",
@@ -146,144 +141,239 @@
 			"name": "track_sb_png"
 		},
 		{
-			"url": "assets/egret_icon.png",
-			"type": "image",
-			"name": "egret_icon_png"
-		},
-		{
 			"url": "config/description.json",
 			"type": "json",
 			"name": "description_json"
 		},
 		{
-			"url": "assets/card/h4.png",
+			"url": "assets/Nav/user_info.PNG",
 			"type": "image",
-			"name": "h4_png"
+			"name": "nav_user_info_bg"
 		},
 		{
-			"url": "assets/card/h3.png",
+			"url": "assets/Nav/menu_toggle.PNG",
 			"type": "image",
-			"name": "h3_png"
+			"name": "nav_menu_toggle"
 		},
 		{
-			"url": "assets/card/h5.png",
+			"url": "assets/Nav/menu.PNG",
 			"type": "image",
-			"name": "h5_png"
+			"name": "nav_menu_bg"
 		},
 		{
-			"url": "assets/card/h6.png",
-			"type": "image",
-			"name": "h6_png"
+			"url": "assets/fonts/barlow.woff2",
+			"type": "bin",
+			"name": "barlow_woff2"
 		},
 		{
-			"url": "assets/card/h7.png",
-			"type": "image",
-			"name": "h7_png"
+			"url": "assets/fonts/barlow.woff",
+			"type": "bin",
+			"name": "barlow_woff"
 		},
 		{
-			"url": "assets/card/h10.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_banker.png",
 			"type": "image",
-			"name": "h10_png"
+			"name": "scene_baccarat_banker"
 		},
 		{
-			"url": "assets/card/h9.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_banker_pair.png",
 			"type": "image",
-			"name": "h9_png"
+			"name": "scene_baccarat_banker_pair"
 		},
 		{
-			"url": "assets/card/h8.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_player.png",
 			"type": "image",
-			"name": "h8_png"
+			"name": "scene_baccarat_player"
 		},
 		{
-			"url": "assets/card/h11.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_player_pair.png",
 			"type": "image",
-			"name": "h11_png"
+			"name": "scene_baccarat_player_pair"
 		},
 		{
-			"url": "assets/card/h12.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_player_win.png",
 			"type": "image",
-			"name": "h12_png"
+			"name": "scene_baccarat_player_win"
 		},
 		{
-			"url": "assets/card/h13.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_tie.png",
 			"type": "image",
-			"name": "h13_png"
+			"name": "scene_baccarat_tie"
 		},
 		{
-			"url": "assets/card/s1.png",
+			"url": "assets/banner-baccarat.png",
 			"type": "image",
-			"name": "s1_png"
+			"name": "banner-baccarat_png"
 		},
 		{
-			"url": "assets/card/s3.png",
+			"url": "assets/lobby_banner2.png",
 			"type": "image",
-			"name": "s3_png"
+			"name": "lobby_banner2_png"
 		},
 		{
-			"url": "assets/card/s2.png",
+			"url": "assets/lobby_banner1.png",
 			"type": "image",
-			"name": "s2_png"
+			"name": "lobby_banner1_png"
 		},
 		{
-			"url": "assets/card/s5.png",
+			"url": "assets/lobby_banner3.png",
 			"type": "image",
-			"name": "s5_png"
+			"name": "lobby_banner3_png"
 		},
 		{
-			"url": "assets/card/s4.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_banker.png",
 			"type": "image",
-			"name": "s4_png"
+			"name": "scene_baccarat_banker_png"
 		},
 		{
-			"url": "assets/card/s6.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_banker_pair.png",
 			"type": "image",
-			"name": "s6_png"
+			"name": "scene_baccarat_banker_pair_png"
 		},
 		{
-			"url": "assets/card/s7.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_player.png",
 			"type": "image",
-			"name": "s7_png"
+			"name": "scene_baccarat_player_png"
 		},
 		{
-			"url": "assets/card/s8.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_player_pair.png",
 			"type": "image",
-			"name": "s8_png"
+			"name": "scene_baccarat_player_pair_png"
 		},
 		{
-			"url": "assets/card/s9.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_player_win.png",
 			"type": "image",
-			"name": "s9_png"
+			"name": "scene_baccarat_player_win_png"
 		},
 		{
-			"url": "assets/card/s10.png",
+			"url": "assets/Scene/baccarat/scene_baccarat_tie.png",
 			"type": "image",
-			"name": "s10_png"
+			"name": "scene_baccarat_tie_png"
 		},
 		{
-			"url": "assets/card/s11.png",
+			"url": "assets/banner-baccarat.png",
 			"type": "image",
-			"name": "s11_png"
+			"name": "banner-baccarat2_png"
 		},
 		{
-			"url": "assets/card/s12.png",
+			"url": "assets/lobby_banner1.png",
 			"type": "image",
-			"name": "s12_png"
+			"name": "lobby_banner12_png"
 		},
 		{
-			"url": "assets/card/s13.png",
+			"url": "assets/lobby_banner2.png",
 			"type": "image",
-			"name": "s13_png"
+			"name": "lobby_banner22_png"
+		},
+		{
+			"url": "assets/lobby_banner3.png",
+			"type": "image",
+			"name": "lobby_banner32_png"
+		},
+		{
+			"url": "assets/round_button_down.png",
+			"type": "image",
+			"name": "round_button_down_png"
+		},
+		{
+			"url": "assets/round_button_up.png",
+			"type": "image",
+			"name": "round_button_up_png"
+		},
+		{
+			"url": "assets/scroller_thumb.png",
+			"type": "image",
+			"name": "scroller_thumb"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_2.jpg",
+			"type": "image",
+			"name": "temp_baccarat_dealer_2"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_1.jpg",
+			"type": "image",
+			"name": "temp_baccarat_dealer_1"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_1.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_1_jpg"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_2.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_2_jpg"
+		},
+		{
+			"url": "assets/scroller_thumb.png",
+			"type": "image",
+			"name": "scroller_thumb_png"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_1.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_12_jpg"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_2.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_22_jpg"
+		},
+		{
+			"url": "assets/Lobby_ThreeColumnBg.png",
+			"type": "image",
+			"name": "Lobby_ThreeColumnBg_png"
+		},
+		{
+			"url": "assets/Lobby_ThreeColumnBg.png",
+			"type": "image",
+			"name": "Lobby_ThreeColumnBg2_png"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_1.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_13_jpg"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_2.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_23_jpg"
+		},
+		{
+			"url": "assets/Scene/baccarat/1280x720.png",
+			"type": "image",
+			"name": "scene_baccarat_dummyImage"
 		},
 		{
 			"url": "assets/card/back.png",
 			"type": "image",
-			"name": "card_back_png"
+			"name": "back_png"
 		},
 		{
 			"url": "assets/card/c1.png",
 			"type": "image",
 			"name": "c1_png"
+		},
+		{
+			"url": "assets/card/c10.png",
+			"type": "image",
+			"name": "c10_png"
+		},
+		{
+			"url": "assets/card/c11.png",
+			"type": "image",
+			"name": "c11_png"
+		},
+		{
+			"url": "assets/card/c12.png",
+			"type": "image",
+			"name": "c12_png"
+		},
+		{
+			"url": "assets/card/c13.png",
+			"type": "image",
+			"name": "c13_png"
 		},
 		{
 			"url": "assets/card/c2.png",
@@ -326,29 +416,29 @@
 			"name": "c9_png"
 		},
 		{
-			"url": "assets/card/c10.png",
-			"type": "image",
-			"name": "c10_png"
-		},
-		{
-			"url": "assets/card/c11.png",
-			"type": "image",
-			"name": "c11_png"
-		},
-		{
-			"url": "assets/card/c12.png",
-			"type": "image",
-			"name": "c12_png"
-		},
-		{
-			"url": "assets/card/c13.png",
-			"type": "image",
-			"name": "c13_png"
-		},
-		{
 			"url": "assets/card/d1.png",
 			"type": "image",
 			"name": "d1_png"
+		},
+		{
+			"url": "assets/card/d10.png",
+			"type": "image",
+			"name": "d10_png"
+		},
+		{
+			"url": "assets/card/d11.png",
+			"type": "image",
+			"name": "d11_png"
+		},
+		{
+			"url": "assets/card/d12.png",
+			"type": "image",
+			"name": "d12_png"
+		},
+		{
+			"url": "assets/card/d13.png",
+			"type": "image",
+			"name": "d13_png"
 		},
 		{
 			"url": "assets/card/d2.png",
@@ -391,19 +481,29 @@
 			"name": "d9_png"
 		},
 		{
-			"url": "assets/card/d10.png",
+			"url": "assets/card/h1.png",
 			"type": "image",
-			"name": "d10_png"
+			"name": "h1_png"
 		},
 		{
-			"url": "assets/card/d11.png",
+			"url": "assets/card/h10.png",
 			"type": "image",
-			"name": "d11_png"
+			"name": "h10_png"
 		},
 		{
-			"url": "assets/card/d12.png",
+			"url": "assets/card/h11.png",
 			"type": "image",
-			"name": "d12_png"
+			"name": "h11_png"
+		},
+		{
+			"url": "assets/card/h12.png",
+			"type": "image",
+			"name": "h12_png"
+		},
+		{
+			"url": "assets/card/h13.png",
+			"type": "image",
+			"name": "h13_png"
 		},
 		{
 			"url": "assets/card/h2.png",
@@ -411,279 +511,99 @@
 			"name": "h2_png"
 		},
 		{
-			"url": "assets/card/d13.png",
-			"type": "image",
-			"name": "d13_png"
-		},
-		{
-			"url": "assets/card/h1.png",
-			"type": "image",
-			"name": "h1_png"
-		},
-		{
-			"url": "assets/Scene/baccarat/1280x720.png",
-			"type": "image",
-			"name": "scene_baccarat_dummyImage"
-		},
-		{
-			"url": "assets/card/back.png",
-			"type": "image",
-			"name": "back_png"
-		},
-		{
-			"url": "assets/card/c1.png",
-			"type": "image",
-			"name": "c14_png"
-		},
-		{
-			"url": "assets/card/c10.png",
-			"type": "image",
-			"name": "c102_png"
-		},
-		{
-			"url": "assets/card/c11.png",
-			"type": "image",
-			"name": "c112_png"
-		},
-		{
-			"url": "assets/card/c12.png",
-			"type": "image",
-			"name": "c122_png"
-		},
-		{
-			"url": "assets/card/c13.png",
-			"type": "image",
-			"name": "c132_png"
-		},
-		{
-			"url": "assets/card/c2.png",
-			"type": "image",
-			"name": "c22_png"
-		},
-		{
-			"url": "assets/card/c3.png",
-			"type": "image",
-			"name": "c32_png"
-		},
-		{
-			"url": "assets/card/c4.png",
-			"type": "image",
-			"name": "c42_png"
-		},
-		{
-			"url": "assets/card/c5.png",
-			"type": "image",
-			"name": "c52_png"
-		},
-		{
-			"url": "assets/card/c6.png",
-			"type": "image",
-			"name": "c62_png"
-		},
-		{
-			"url": "assets/card/c7.png",
-			"type": "image",
-			"name": "c72_png"
-		},
-		{
-			"url": "assets/card/c8.png",
-			"type": "image",
-			"name": "c82_png"
-		},
-		{
-			"url": "assets/card/c9.png",
-			"type": "image",
-			"name": "c92_png"
-		},
-		{
-			"url": "assets/card/d1.png",
-			"type": "image",
-			"name": "d14_png"
-		},
-		{
-			"url": "assets/card/d10.png",
-			"type": "image",
-			"name": "d102_png"
-		},
-		{
-			"url": "assets/card/d11.png",
-			"type": "image",
-			"name": "d112_png"
-		},
-		{
-			"url": "assets/card/d12.png",
-			"type": "image",
-			"name": "d122_png"
-		},
-		{
-			"url": "assets/card/d13.png",
-			"type": "image",
-			"name": "d132_png"
-		},
-		{
-			"url": "assets/card/d2.png",
-			"type": "image",
-			"name": "d22_png"
-		},
-		{
-			"url": "assets/card/d3.png",
-			"type": "image",
-			"name": "d32_png"
-		},
-		{
-			"url": "assets/card/d4.png",
-			"type": "image",
-			"name": "d42_png"
-		},
-		{
-			"url": "assets/card/d5.png",
-			"type": "image",
-			"name": "d52_png"
-		},
-		{
-			"url": "assets/card/d6.png",
-			"type": "image",
-			"name": "d62_png"
-		},
-		{
-			"url": "assets/card/d7.png",
-			"type": "image",
-			"name": "d72_png"
-		},
-		{
-			"url": "assets/card/d8.png",
-			"type": "image",
-			"name": "d82_png"
-		},
-		{
-			"url": "assets/card/d9.png",
-			"type": "image",
-			"name": "d92_png"
-		},
-		{
-			"url": "assets/card/h1.png",
-			"type": "image",
-			"name": "h14_png"
-		},
-		{
-			"url": "assets/card/h10.png",
-			"type": "image",
-			"name": "h102_png"
-		},
-		{
-			"url": "assets/card/h11.png",
-			"type": "image",
-			"name": "h112_png"
-		},
-		{
-			"url": "assets/card/h12.png",
-			"type": "image",
-			"name": "h122_png"
-		},
-		{
-			"url": "assets/card/h13.png",
-			"type": "image",
-			"name": "h132_png"
-		},
-		{
-			"url": "assets/card/h2.png",
-			"type": "image",
-			"name": "h22_png"
-		},
-		{
 			"url": "assets/card/h3.png",
 			"type": "image",
-			"name": "h32_png"
+			"name": "h3_png"
 		},
 		{
 			"url": "assets/card/h4.png",
 			"type": "image",
-			"name": "h42_png"
+			"name": "h4_png"
 		},
 		{
 			"url": "assets/card/h5.png",
 			"type": "image",
-			"name": "h52_png"
+			"name": "h5_png"
 		},
 		{
 			"url": "assets/card/h6.png",
 			"type": "image",
-			"name": "h62_png"
+			"name": "h6_png"
 		},
 		{
 			"url": "assets/card/h7.png",
 			"type": "image",
-			"name": "h72_png"
+			"name": "h7_png"
 		},
 		{
 			"url": "assets/card/h8.png",
 			"type": "image",
-			"name": "h82_png"
+			"name": "h8_png"
 		},
 		{
 			"url": "assets/card/h9.png",
 			"type": "image",
-			"name": "h92_png"
+			"name": "h9_png"
 		},
 		{
 			"url": "assets/card/s1.png",
 			"type": "image",
-			"name": "s14_png"
+			"name": "s1_png"
 		},
 		{
 			"url": "assets/card/s10.png",
 			"type": "image",
-			"name": "s102_png"
+			"name": "s10_png"
 		},
 		{
 			"url": "assets/card/s11.png",
 			"type": "image",
-			"name": "s112_png"
+			"name": "s11_png"
 		},
 		{
 			"url": "assets/card/s12.png",
 			"type": "image",
-			"name": "s122_png"
+			"name": "s12_png"
 		},
 		{
 			"url": "assets/card/s13.png",
 			"type": "image",
-			"name": "s132_png"
+			"name": "s13_png"
 		},
 		{
 			"url": "assets/card/s2.png",
 			"type": "image",
-			"name": "s22_png"
+			"name": "s2_png"
 		},
 		{
 			"url": "assets/card/s3.png",
 			"type": "image",
-			"name": "s32_png"
+			"name": "s3_png"
 		},
 		{
 			"url": "assets/card/s4.png",
 			"type": "image",
-			"name": "s42_png"
+			"name": "s4_png"
 		},
 		{
 			"url": "assets/card/s5.png",
 			"type": "image",
-			"name": "s52_png"
+			"name": "s5_png"
 		},
 		{
 			"url": "assets/card/s6.png",
 			"type": "image",
-			"name": "s62_png"
+			"name": "s6_png"
 		},
 		{
 			"url": "assets/card/s7.png",
 			"type": "image",
-			"name": "s72_png"
+			"name": "s7_png"
 		},
 		{
 			"url": "assets/card/s8.png",
 			"type": "image",
-			"name": "s82_png"
+			"name": "s8_png"
 		},
 		{
 			"url": "assets/card/s9.png",
@@ -876,11 +796,6 @@
 			"name": "Lobby_ThreeColumnBg2_png"
 		},
 		{
-			"url": "assets/Scene/loading/d-lobby-loading-banner-1.png",
-			"type": "image",
-			"name": "d-lobby-loading-banner-1"
-		},
-		{
 			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-active.png",
 			"type": "image",
 			"name": "d-lobby-loading-progress-bar-active"
@@ -889,6 +804,16 @@
 			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-base.png",
 			"type": "image",
 			"name": "d-lobby-loading-progress-bar-base"
+		},
+		{
+			"url": "assets/Scene/loading/d_lobby_loading_banner_1.jpg",
+			"type": "image",
+			"name": "d_lobby_loading_banner_1"
+		},
+		{
+			"url": "assets/Scene/loading/d-lobby-loading-banner-1.png",
+			"type": "image",
+			"name": "d-lobby-loading-banner-1"
 		}
 	]
 }

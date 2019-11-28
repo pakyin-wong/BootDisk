@@ -70,33 +70,51 @@ namespace we {
           newIndex += 3; // next page
           newIndex += 2; // last item
           if (this.items[newIndex]) {
-            // swap all three items
+            // swap three item
             this.startIndex = newIndex - 2;
-            console.log('swap 3 item');
+            console.log('> swap 3 item');
           } else {
             newIndex -= 1;
             if (this.items[newIndex]) {
-              // swap one item only
-              this.startIndex = newIndex - 3;
-              console.log('swap one item only 2nd');
+              // swap two item
+              this.startIndex = newIndex - 2;
+              console.log('> swap 2 item');
             } else {
               newIndex -= 1;
               if (this.items[newIndex]) {
-                // same page next item
+                // swap one item
                 this.startIndex = newIndex - 2;
-                console.log('same one item only 1st');
+                console.log('> swap 1 item');
               }
             }
           }
         } else {
           // go left
+          let newIndex = this.startIndex;
+          newIndex -= 3; // prev page
+          if (this.items[newIndex]) {
+            this.startIndex = newIndex;
+            console.log('< swap 3 item');
+          } else {
+            newIndex += 1;
+            if (this.items[newIndex]) {
+              this.startIndex = newIndex;
+              console.log('< swap 2 item');
+            } else {
+              newIndex += 1;
+              if (this.items[newIndex]) {
+                this.startIndex = newIndex;
+                console.log('< swap 1 item');
+              }
+            }
+          }
         }
       }
 
       private _updateNavigationDisplay() {
         let showLeftNav = false;
         let showRightNav = false;
-        const page = Math.ceil(this.startIndex / 3);
+        const page = Math.ceil((this.startIndex + 3) / 3);
         const totalPage = Math.ceil(this._items.length / 3);
         if (page > 1 && totalPage > 1) {
           showLeftNav = true;

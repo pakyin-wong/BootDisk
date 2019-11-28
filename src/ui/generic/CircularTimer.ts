@@ -40,7 +40,6 @@ namespace we {
             this.changeGraphics(1);
             egret.stopTick(ticker, this);
           }
-          // angle = angle % 360;
           return false;
         };
         egret.startTick(ticker, this);
