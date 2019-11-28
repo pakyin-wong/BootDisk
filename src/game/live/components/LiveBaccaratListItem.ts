@@ -8,6 +8,9 @@ namespace we {
       private label: eui.Label;
       private _dealerImage: eui.Image;
       private _bigRoad: we.ba.BALobbyBigRoad;
+      private _quickbetPanel: we.live.LiveQuickBetPanel;
+      private _quickbetButton: eui.Button;
+      private _tableId: string;
 
       private _originalx: number;
       private _originaly: number;
@@ -17,17 +20,26 @@ namespace we {
         this.touchEnabled = true;
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
         this.mount();
       }
 
       public childrenCreated() {
         super.childrenCreated();
-        this._originalx = this.x;
-        this._originaly = this.y;
         this.anchorOffsetX = this.width / 2;
         this.anchorOffsetY = this.height / 2;
         this.x += this.anchorOffsetX;
         this.y += this.anchorOffsetY;
+      }
+
+      public onTouchTap() {
+        console.log('we.live.LiveBaccartListItem::onclick - tableid' + this._tableId);
+        dir.socket.enterTable(this._tableId);
+        dir.sceneCtr.goto('ba', { tableid: this._tableId });
+      }
+
+      public setTableId(value: string) {
+        this._tableId = value;
       }
 
       get dealerImage() {

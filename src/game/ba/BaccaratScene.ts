@@ -239,6 +239,8 @@ namespace we {
             this.gameData = <GameData> this.tableInfo.data;
             this.previousState = this.gameData.state;
             this.roadmapControl.updateRoadData(tableInfo.roadmap);
+            console.log('BaccaratScene::onTableInfoUpdate');
+            console.dir(this.gameData);
             this.updateGame();
           }
         }

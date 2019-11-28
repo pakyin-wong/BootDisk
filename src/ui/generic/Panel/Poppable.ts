@@ -5,7 +5,7 @@ namespace we {
       close: eui.UIComponent;
       toggler: egret.DisplayObject;
 
-      setToggler(toggler: egret.DisplayObject);
+      setToggler(toggler: egret.DisplayObject, onToggleCallback?: (value: boolean) => void);
       removeToggler(toggler: egret.DisplayObject);
     }
 
@@ -18,6 +18,8 @@ namespace we {
       private isAnimating: boolean = false;
       private _contentPos: egret.Point;
 
+      private onToggleCallback: (value: boolean) => void;
+
       constructor(displayObject: egret.DisplayObject & IPoppable) {
         super(displayObject);
       }
@@ -26,9 +28,10 @@ namespace we {
       //   super.$setActive(value);
       // }
 
-      public setToggler(toggler: egret.DisplayObject) {
+      public setToggler(toggler: egret.DisplayObject, onToggleCallback: (value: boolean) => void = null) {
         this.removeToggler();
         this.toggler = toggler;
+        this.onToggleCallback = onToggleCallback;
         if (this._active && this.isInit) {
           this.toggler.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
           mouse.setButtonMode(this.toggler, true);
@@ -69,6 +72,9 @@ namespace we {
         } else {
           this.show();
         }
+        if (this.onToggleCallback) {
+          this.onToggleCallback(this.isShow);
+        }
       }
 
       public removeToggler() {
@@ -76,6 +82,7 @@ namespace we {
           this.toggler.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
           this.toggler = null;
         }
+        this.onToggleCallback = null;
       }
 
       private onDetectClick(e: egret.TouchEvent) {
@@ -95,9 +102,9 @@ namespace we {
         if (!skipAnimation && this.isAnimating) {
           return;
         }
+        this.isShow = true;
         await this.onShow(skipAnimation);
         this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
-        this.isShow = true;
       }
 
       private async hide(skipAnimation: boolean = false) {
@@ -107,8 +114,8 @@ namespace we {
         if (this.target && this.target.stage) {
           this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
         }
-        await this.onHide(skipAnimation);
         this.isShow = false;
+        await this.onHide(skipAnimation);
       }
 
       protected async onShow(skipAnimation: boolean = false) {

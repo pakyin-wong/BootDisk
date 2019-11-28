@@ -123,6 +123,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LiveQuickBetPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LoadingScene extends eui.Skin{
 	}
 }

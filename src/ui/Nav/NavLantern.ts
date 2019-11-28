@@ -6,6 +6,7 @@ namespace we {
       private _loopMsg: string[];
       private _label: eui.Label;
       private _next: eui.Label;
+      private _mask: egret.Shape;
 
       private _loopInterval;
       private _wait = 5000;
@@ -31,6 +32,14 @@ namespace we {
         this._label.width = this._next.width = this.width;
         this._label.size = this._next.size = this.fontsize;
         this._label.lineSpacing = this._next.lineSpacing = this.lineSpacing;
+
+        this._mask = new egret.Shape();
+        this._mask.graphics.beginFill(0x000000);
+        this._mask.graphics.drawRect(0, 0, this.width, this.height);
+        this._mask.graphics.endFill();
+
+        this.mask = this._mask;
+
         this.restart();
       }
 
@@ -50,6 +59,7 @@ namespace we {
         egret.Tween.removeTweens(this._label);
         egret.Tween.removeTweens(this._next);
         this.addChild(this._label);
+        this.addChild(this._mask);
         this._label.y = 0;
         this._label.text = ' ';
         this._loopInterval = setInterval(this.update.bind(this), this._wait);
