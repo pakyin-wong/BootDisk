@@ -20,8 +20,7 @@ namespace we {
         this.width = 578;
         console.log('we.live.LiveBaccaratListHolder::mount()');
         console.log(this.itemData);
-        this._item = new we.live.LiveBaccaratListItem(this.itemData);
-
+        this._item = new we.live.LiveBaccaratListItem();
         this.addChild(this._item);
       }
 
@@ -30,6 +29,7 @@ namespace we {
         console.log('::itemDataChanged');
         console.log(this.itemData);
         const table = env.tableInfos[this.itemData];
+        this._item.setTableId(this.itemData);
         this._item.bigRoad.updateRoadData(table.roadmap);
         egret.Tween.removeTweens(this);
       }

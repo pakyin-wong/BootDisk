@@ -62,15 +62,9 @@ namespace we {
         section.right = paddingHorizontal;
         section.y = slider.height + offsetForTableList + gapSize;
 
-        const quickbetPanel = new LiveQuickBetPanel();
-
-        const container = new eui.Component();
-        container.addChild(section);
-        container.addChild(quickbetPanel);
-
         const group = new eui.Group();
         group.addChild(slider);
-        group.addChild(container);
+        group.addChild(section);
 
         this.scroller.viewport = group;
 
