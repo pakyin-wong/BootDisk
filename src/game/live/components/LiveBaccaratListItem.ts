@@ -11,12 +11,21 @@ namespace we {
 
       private _originalx: number;
       private _originaly: number;
-      public constructor() {
+      public constructor(tableid: string = null) {
         super();
         this.skinName = utils.getSkin('LiveBaccaratListItem');
         this.touchEnabled = true;
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        this.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            console.log('we.live.LiveBaccartListItem::onclick - tableid' + tableid);
+            dir.socket.enterTable(tableid);
+            dir.sceneCtr.goto('ba', { tableid });
+          },
+          this
+        );
         this.mount();
       }
 
