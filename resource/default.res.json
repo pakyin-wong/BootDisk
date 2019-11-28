@@ -5,12 +5,8 @@
 			"name": "egret_basic"
 		},
 		{
-			"keys": "back_png,c1_png,c10_png,c11_png,c12_png,c13_png,c2_png,c3_png,c4_png,c5_png,c6_png,c7_png,c8_png,c9_png,d1_png,d10_png,d11_png,d12_png,d13_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,h1_png,h10_png,h11_png,h12_png,h13_png,h2_png,h3_png,h4_png,h5_png,h6_png,h7_png,h8_png,h9_png,s1_png,s10_png,s11_png,s12_png,s13_png,s2_png,s3_png,s4_png,s5_png,s6_png,s7_png,s8_png,s9_png",
+			"keys": "back_png,c1_png,c10_png,c11_png,c12_png,c13_png,c2_png,c3_png,c4_png,c5_png,c6_png,c7_png,c8_png,c9_png,d1_png,d10_png,d11_png,d12_png,d13_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,h1_png,h10_png,h11_png,h12_png,h13_png,h2_png,h3_png,h4_png,h5_png,h6_png,h7_png,h8_png,h9_png,s1_png,s10_png,s11_png,s12_png,s13_png,s2_png,s3_png,s4_png,s5_png,s6_png,s7_png,s8_png",
 			"name": "common"
-		},
-		{
-			"keys": "scene_loading_bg",
-			"name": "scene_loading"
 		},
 		{
 			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png,Lobby_ThreeColumnBg_png",
@@ -25,12 +21,12 @@
 			"name": "nav"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png,baccarat_dealer_1_jpg,baccarat_dealer_2_jpg,scroller_thumb_png,baccarat_dealer_12_jpg,baccarat_dealer_22_jpg,Lobby_ThreeColumnBg_png,Lobby_ThreeColumnBg2_png,baccarat_dealer_13_jpg,baccarat_dealer_23_jpg,barlow_woff,scene_loading_bg",
-			"name": "preload"
-		},
-		{
 			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1",
 			"name": "temp"
+		},
+		{
+			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d-lobby-loading-banner-1",
+			"name": "scene_loading"
 		}
 	],
 	"resources": [
@@ -345,9 +341,9 @@
 			"name": "baccarat_dealer_23_jpg"
 		},
 		{
-			"url": "assets/Scene/loading/d_lobby_loading_banner_1.jpg",
+			"url": "assets/Scene/baccarat/1280x720.png",
 			"type": "image",
-			"name": "scene_loading_bg"
+			"name": "scene_baccarat_dummyImage"
 		},
 		{
 			"url": "assets/card/back.png",
@@ -613,6 +609,21 @@
 			"url": "assets/card/s9.png",
 			"type": "image",
 			"name": "s9_png"
+		},
+		{
+			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-active.png",
+			"type": "image",
+			"name": "d-lobby-loading-progress-bar-active"
+		},
+		{
+			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-base.png",
+			"type": "image",
+			"name": "d-lobby-loading-progress-bar-base"
+		},
+		{
+			"url": "assets/Scene/loading/d-lobby-loading-banner-1.png",
+			"type": "image",
+			"name": "d-lobby-loading-banner-1"
 		}
 	]
 }

@@ -18,8 +18,8 @@ namespace we {
 
         stage.addChild(this.bottom);
         stage.addChild(this.scene);
-        stage.addChild(this.betinfolist);
         stage.addChild(this.top);
+        stage.addChild(this.betinfolist);
         stage.addChild(this.nav);
         stage.addChild(this.overlay);
 

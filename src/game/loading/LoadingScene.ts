@@ -79,6 +79,7 @@ namespace we {
         this._progressbar.value = 0;
         await RES.loadGroup('firstRun');
         RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
+        await utils.sleep(1000);
         this.next();
       }
 
