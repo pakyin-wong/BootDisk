@@ -25,7 +25,9 @@ namespace we {
         this._originalx = this.x;
         this._originaly = this.y;
         this.anchorOffsetX = this.width / 2;
+        this.anchorOffsetY = this.height / 2;
         this.x += this.anchorOffsetX;
+        this.y += this.anchorOffsetY;
       }
 
       get dealerImage() {
@@ -57,11 +59,11 @@ namespace we {
 
       private onRollover() {
         console.log('LiveBaccaratListItem::onRollover');
-        const tw = TweenMax.to(this, 1, { scaleX: 1.05, scaleY: 1.05 });
+        const tw = TweenMax.to(this, 0.25, { scaleX: 1.05, scaleY: 1.05 });
       }
 
       private onRollout() {
-        const tw = TweenLite.to(this, 1, { scaleX: 1, scaleY: 1 });
+        const tw = TweenLite.to(this, 0.25, { scaleX: 1, scaleY: 1 });
       }
     }
   }

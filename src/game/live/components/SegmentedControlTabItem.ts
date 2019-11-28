@@ -1,39 +1,18 @@
 namespace we {
   export namespace live {
     export class SegmentedControlTabItem extends ui.SortableItemRenderer {
-      public mySelected: boolean;
       public itemIndex: number;
 
       private label: eui.Label;
       private boldWidth = null;
 
-      protected destinationX: number = Infinity;
-      protected destinationY: number = Infinity;
+      public destinationX: number = Infinity;
+      public destinationY: number = Infinity;
 
       public constructor() {
         super();
         this.skinName = utils.getSkin('SegmentedControlTabItem');
-        //   this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
       }
-
-      // public get selected() {
-      //   return this.mySelected;
-      // }
-
-      // public set selected(mySelected) {
-      //   console.log('getcurr > this.mySelected = mySelected', this.mySelected, mySelected);
-      //   this.mySelected = mySelected;
-      //   this.invalidateState();
-      // }
-
-      // public get data() {
-      //   return this.myData;
-      // }
-
-      // public set data(data: any) {
-      //   eui.PropertyEvent.dispatchPropertyEvent(this, eui.PropertyEvent.PROPERTY_CHANGE, "data");
-      //   this.dataChanged();
-      // }
 
       public clone() {
         const clone: SegmentedControlTabItem = <SegmentedControlTabItem> super.clone();
@@ -83,6 +62,7 @@ namespace we {
           const changed = super.$setX.call(this, x);
           if (super.$setY.call(this, y) || changed) {
             eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
+            eui.UIEvent.dispatchUIEvent(this.$parent, eui.UIEvent.MOVE);
           }
         } else {
           if (this.destinationX !== x || this.destinationY !== y) {
@@ -91,9 +71,10 @@ namespace we {
             // cancel current tween
             egret.Tween.removeTweens(this);
             // tween move to new position
-            egret.Tween.get(this).to({ x, y }, 500);
+            egret.Tween.get(this).to({ x, y }, 400);
             // dispatch move event
             eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
+            eui.UIEvent.dispatchUIEvent(this.$parent, eui.UIEvent.MOVE);
           }
         }
 

@@ -144,20 +144,48 @@ namespace we {
           if (this.isDrag) {
             this.isDrag = false;
 
-            const max = this.$children.reduce((prev, curr) => {
+            const rightmost = this.$children.reduce((prev, curr) => {
               if (curr.x > prev.x) {
                 return curr;
               }
               return prev;
             });
 
-            const releaseX = Math.max(0, Math.min(max.x, this.clone.x + -this.clone.anchorOffsetX)) + max.width / 2;
-            const globalCoord = this.localToGlobal(releaseX, 0);
-            const [swapChild] = this.$children.filter((tab: egret.DisplayObject) => {
-              if (tab.$hitTest(globalCoord.x, globalCoord.y)) {
-                return true;
+            const releaseX = Math.max(0, Math.min(rightmost.x, this.clone.x + -this.clone.anchorOffsetX));
+            const releaseGlobalCoord = this.localToGlobal(releaseX, 0);
+            const outsideGapSize = ((this.$parent as we.live.SegmentedControl).tabBar.layout as eui.HorizontalLayout).gap;
+
+            const swapChild = this.$children
+              .filter((tab: egret.DisplayObject) => {
+                return tab instanceof we.live.SegmentedControlTabItem;
+              })
+              .reduce((prev, tab: egret.DisplayObject) => {
+                const adjustedReleaseX = releaseGlobalCoord.x + this.targetChildren.width / 2;
+                const tabGlobalCoord = this.localToGlobal(tab.x, tab.y);
+                // console.log(`${tab.width} (${tabGlobalCoord.x} - ${tabGlobalCoord.x + tab.width}) Rel: ${releaseGlobalCoord.x}, Adj: ${adjustedReleaseX}`);
+                if (adjustedReleaseX >= tabGlobalCoord.x - outsideGapSize / 2 && adjustedReleaseX <= tabGlobalCoord.x + tab.width + outsideGapSize / 2) {
+                  return tab;
+                }
+                return prev;
+              }, null);
+
+            if (!swapChild) {
+              this.targetChildren = null;
+              if (this.clone && this.clone.parent === this) {
+                this.removeChild(this.clone);
               }
-            });
+              this.clone = null;
+              return;
+            }
+
+            // const [swapChild] = this.$children.filter((tab: egret.DisplayObject) => {
+            //   const globalCoord2 = this.localToGlobal(tab.x, tab.y);
+            //   egret.log(tab.name, tab.x, tab.y, tab.width, tab.height, globalCoord2.x, globalCoord2.y);
+            //   if (tab instanceof we.live.SegmentedControlTabItem && tab.$hitTest(globalCoord.x, globalCoord.y)) {
+            //     return true;
+            //   }
+            // });
+            // console.log('swapChild', swapChild);
             const selectedIndex = this.selectedIndex;
             const collection = <eui.ArrayCollection> this.$dataProvider;
             const remIndex = this.$children.indexOf(this.targetChildren);
@@ -167,6 +195,7 @@ namespace we {
 
             if (remIndex !== addIndex) {
               collection.removeItemAt(remIndex);
+              egret.log(`addIndex maybe out of range: ${addIndex}`);
               collection.addItemAt(remData, addIndex);
             }
 
@@ -175,6 +204,7 @@ namespace we {
               // the dragged item is the currently selected item
               egret.log('previous selected index: ', this.selectedIndex);
               this.setSelectedIndex(addIndex, false);
+              //   eui.UIEvent.dispatchEvent(this, eui.UIEvent.CHANGE);
               egret.log('new selected index: ', this.selectedIndex);
             }
 

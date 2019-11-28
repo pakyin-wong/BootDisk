@@ -36,7 +36,7 @@ namespace we {
         const roomList = new ui.List();
         const layout2 = new eui.AnimTileLayout();
         layout2.horizontalGap = gapSize;
-        layout2.verticalGap = gapSize * 2;
+        layout2.verticalGap = gapSize;
         layout2.paddingBottom = gapSize * 3;
         layout2.requestedColumnCount = 4;
         layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;

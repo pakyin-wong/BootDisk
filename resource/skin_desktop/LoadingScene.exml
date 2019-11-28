@@ -2,6 +2,6 @@
 <e:Skin class="skin_desktop.LoadingScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Image left="0" top="0" bottom="0" right="0" source="scene_loading_bg" fillMode="clip" locked="true" />
-	<e:ProgressBar id="_progressbar" width="1280" height="26.66" horizontalCenter="0" y="1072.12" anchorOffsetY="0" />
-	<ui:RunTimeLabel id="_progressMsg" text="" y="1012" horizontalCenter="0" width="1200" textAlign="center" />
+	<e:ProgressBar id="_progressbar" width="800" height="20" horizontalCenter="0" y="1160" anchorOffsetY="0" />
+	<ui:RunTimeLabel id="_progressMsg" text="載入中 100%" y="1095.33" horizontalCenter="0" width="1200" textAlign="center"  size="26"/>
 </e:Skin>
