@@ -14,7 +14,7 @@ namespace we {
 
       private _originalx: number;
       private _originaly: number;
-      public constructor(tableid: string = null) {
+      public constructor() {
         super();
         this.skinName = utils.getSkin('LiveBaccaratListItem');
         this.touchEnabled = true;
@@ -73,7 +73,7 @@ namespace we {
         console.log('LiveBaccaratListItem::onRollover');
         const tw1 = TweenLite.to(this, 1, { scaleX: 1.05, scaleY: 1.05 });
 
-        /*
+/*
         this._quickbetButton = new eui.Button();
         this._quickbetButton.height = 30;
         this._quickbetButton.width = 30;
