@@ -9,10 +9,6 @@
 			"name": "common"
 		},
 		{
-			"keys": "scene_loading_bg",
-			"name": "scene_loading"
-		},
-		{
 			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png,Lobby_ThreeColumnBg_png",
 			"name": "scene_lobby"
 		},
@@ -25,12 +21,12 @@
 			"name": "nav"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner2_png,lobby_banner1_png,lobby_banner3_png,scene_baccarat_banker_png,scene_baccarat_banker_pair_png,scene_baccarat_player_png,scene_baccarat_player_pair_png,scene_baccarat_player_win_png,scene_baccarat_tie_png,banner-baccarat2_png,lobby_banner12_png,lobby_banner22_png,lobby_banner32_png,round_button_down_png,round_button_up_png,baccarat_dealer_1_jpg,baccarat_dealer_2_jpg,scroller_thumb_png,baccarat_dealer_12_jpg,baccarat_dealer_22_jpg,Lobby_ThreeColumnBg_png,Lobby_ThreeColumnBg2_png",
-			"name": "preload"
-		},
-		{
 			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1",
 			"name": "temp"
+		},
+		{
+			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d-lobby-loading-banner-1",
+			"name": "scene_loading"
 		}
 	],
 	"resources": [
@@ -423,11 +419,6 @@
 			"url": "assets/card/h1.png",
 			"type": "image",
 			"name": "h1_png"
-		},
-		{
-			"url": "assets/Scene/loading/Computer-Tech-Wallpaper-09-2560x1440.jpg",
-			"type": "image",
-			"name": "scene_loading_bg"
 		},
 		{
 			"url": "assets/Scene/baccarat/1280x720.png",
@@ -880,9 +871,24 @@
 			"name": "Lobby_ThreeColumnBg_png"
 		},
 		{
-			"name": "Lobby_ThreeColumnBg2_png",
+			"url": "assets/Lobby_ThreeColumnBg.png",
 			"type": "image",
-			"url": "assets/Lobby_ThreeColumnBg.png"
+			"name": "Lobby_ThreeColumnBg2_png"
+		},
+		{
+			"url": "assets/Scene/loading/d-lobby-loading-banner-1.png",
+			"type": "image",
+			"name": "d-lobby-loading-banner-1"
+		},
+		{
+			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-active.png",
+			"type": "image",
+			"name": "d-lobby-loading-progress-bar-active"
+		},
+		{
+			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-base.png",
+			"type": "image",
+			"name": "d-lobby-loading-progress-bar-base"
 		}
 	]
 }
