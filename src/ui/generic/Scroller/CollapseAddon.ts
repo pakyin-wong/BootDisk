@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export interface ICollapsible {
-      setToggler(toggler: egret.DisplayObject, onToggleCallback: (value: boolean) => void);
+      setToggler(toggler: egret.DisplayObject, onToggleCallback?: (value: boolean) => void);
       removeToggler(toggler: egret.DisplayObject);
     }
 
@@ -31,7 +31,7 @@ namespace we {
         return this._isAnimating;
       }
 
-      public setToggler(toggler: egret.DisplayObject, onToggleCallback: (value: boolean) => void) {
+      public setToggler(toggler: egret.DisplayObject, onToggleCallback: (value: boolean) => void = null) {
         this.removeToggler();
         this.toggler = toggler;
         this.onToggleCallback = onToggleCallback;
