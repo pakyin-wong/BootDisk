@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.GameBar" width="700" height="160" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
-        <e:Button id="videoButton" label="Video" x="320" y="68" />
+        <e:Button id="videoButton" label="Video" x="568" y="17" />
 </e:Skin>

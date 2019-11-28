@@ -6,6 +6,7 @@
 namespace we {
   export namespace ba {
     export class Scene extends core.BaseScene {
+      protected _header: eui.Group;
       private bettingTable: BettingTable;
       private betChipSet: BetChipSet;
       private cardHolder: CardHolder;
@@ -42,6 +43,7 @@ namespace we {
       constructor(data: any) {
         super(data);
         this._tableID = data.tableid;
+        this.skinName = utils.getSkin('BaccaratScene');
 
         this._video = dir.videoPool.get();
 
@@ -52,8 +54,8 @@ namespace we {
         this._video.height = 1340;
         // this._video.poster = 'resource/assets/bg.jpg';
 
-        this._video.load('http://203.66.65.93:8000/live/mi-1080p.flv');
-        // this._video.load('http://192.168.1.85:8090/live/360.flv');
+        // this._video.load('http://203.66.65.93:8000/live/mi-1080p.flv');
+        this._video.load('http://192.168.1.85:8090/live/360.flv');
 
         // this.roadmap = new baccarat.BARoadmap(data.tableID);
       }
@@ -72,6 +74,7 @@ namespace we {
       }
 
       public onEnter() {
+        egret.log(this._header);
         this.init();
 
         this.setupTableInfo();
@@ -166,6 +169,7 @@ namespace we {
       public async onFadeEnter() {}
 
       public onExit() {
+        super.onExit();
         dir.videoPool.release(this._video);
         this.removeEventListeners();
         this.removeChildren();

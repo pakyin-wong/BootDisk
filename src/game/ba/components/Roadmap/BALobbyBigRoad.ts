@@ -34,7 +34,9 @@ namespace we {
             this.parser.parseData(roadmapData.bead);
           } else {
             // option 2. just display all road data as it is
-            this.bigRoad.parseRoadData(roadmapData.bigRoad);
+            if (this.bigRoad) {
+              this.bigRoad.parseRoadData(roadmapData.bigRoad);
+            }
           }
         }
       }
