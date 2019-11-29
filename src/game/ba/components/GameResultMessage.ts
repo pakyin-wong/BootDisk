@@ -7,7 +7,6 @@ namespace we {
 
       private _isAnimating: boolean;
 
-
       public constructor() {
         super();
         this.visible = false;
