@@ -23,7 +23,7 @@ declare class PlayerClient {
         connectTimeout?: number;
         reconnectPeriod?: number;
     });
-    connect(): void;
+    connect(callback?:Function): void;
     close(): void;
     subscribe(eventName: string, f: Function, context?: object, options?: any): void;
     unsubscribe(eventName: string, f: Function, options?: any): void;
@@ -33,7 +33,11 @@ declare class PlayerClient {
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
     bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
-    sortCategoryList(data: object): void;
+    updateSetting(key: string, value: string): void;
+    updateSettings(settings: {
+        [key: string]: string;
+    }): void;
+    getLobbyMaterial(callback: (data: LobbyMaterial) => any): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
     private _isTableInfoCallbackEmpty;
@@ -101,6 +105,11 @@ declare enum BAWinType {
 interface BetValueCommand {
     field: string;
     amount: number;
+}
+
+interface LobbyMaterial {
+    bannerurls: string[];
+    tips: string[];
 }
   
   

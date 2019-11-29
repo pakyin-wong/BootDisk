@@ -11,6 +11,16 @@ namespace we {
       public bigEyeRoadResult: any;
       public cockroachRoadResult: any;
 
+      // statistics
+      private bankerCount: number;
+      private playerCount: number;
+      private tieCount: number;
+      private bankerPairCount: number;
+      private playerPairCount: number;
+      private totalCount: number;
+      private predictBankerIcons: any;
+      private predictPlayerIcons: any;
+
       public constructor(maxCols: any) {
         super();
         this.rawResult = [];
@@ -28,28 +38,29 @@ namespace we {
         const predict = this.rawResult.slice();
         predict.push(nextResult);
 
-        this.doParseBeadRoad(predict);
-        this.doParseBigRoad();
-        this.doParseBigEyeRoad();
-        this.doParseSmallRoad();
-        this.doParseCockroachRoad();
-
-        this.dispatchEvent(new egret.Event('onUpdate'));
+        this.doParseRoads(predict);
+        this.dispatchEvent(new egret.Event('onPredict'));
+        // this.dispatchEvent(new egret.Event('onUpdate'));
       }
 
       public clearPredict() {
         if (this.rawResult) {
-          this.parseData(this.rawResult);
+          this.doParseRoads(this.rawResult);
+          this.dispatchEvent(new egret.Event('onRestore'));
         }
       }
       public parseData(rawData: any) {
         this.rawResult = rawData.slice(); // copy the array
-        this.doParseBeadRoad(this.rawResult);
+        this.doParseRoads(this.rawResult);
+        this.dispatchEvent(new egret.Event('onUpdate'));
+      }
+
+      private doParseRoads(rawResult: any) {
+        this.doParseBeadRoad(rawResult);
         this.doParseBigRoad();
         this.doParseBigEyeRoad();
         this.doParseSmallRoad();
         this.doParseCockroachRoad();
-        this.dispatchEvent(new egret.Event('onUpdate'));
       }
 
       protected doParseBeadRoad(data: any) {
@@ -59,7 +70,16 @@ namespace we {
         if (exceed > 0) {
           data.splice(0, exceed);
         }
-        this.beadRoadResult = data.slice();
+
+        // remove empty elements
+        const rslt = [];
+        data.forEach(element => {
+          if (element.V) {
+            rslt.push(element);
+          }
+        });
+
+        this.beadRoadResult = rslt.slice();
       }
 
       protected doParseBigRoad() {
@@ -255,6 +275,94 @@ namespace we {
           }
         }
         return pbResultArr;
+      }
+
+      private resetIcons() {
+        this.predictBankerIcons = [-1, -1, -1];
+        this.predictPlayerIcons = [-1, -1, -1];
+      }
+
+      public getIconsFromRoadData(data: any) {
+        this.resetIcons();
+
+        const animated = data.animateCell;
+        const animatedIndex = ['bbead', 'bbigRoad', 'bbigEye', 'bsmall', 'broach', 'pbead', 'pbigRoad', 'pbigEye', 'psmall', 'proach'];
+        const predictResult = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+
+        for (let i = 0; i < animated.length; i++) {
+          if (animated[i] > -1) {
+            const predictV = data[animatedIndex[i]][animated[i]].V;
+            if (predictV === 'b') {
+              predictResult[i] = 0;
+            } else if (predictV === 'p') {
+              predictResult[i] = 1;
+            } else {
+              predictResult[i] = -1;
+            }
+          } else {
+            predictResult[i] = -1;
+          }
+        }
+
+        this.predictBankerIcons = [predictResult[2], predictResult[3], predictResult[4]];
+        this.predictPlayerIcons = [predictResult[7], predictResult[8], predictResult[9]];
+
+        return {
+          predictBankerIcons: this.predictBankerIcons,
+          predictPlayerIcons: this.predictPlayerIcons,
+        };
+      }
+
+      public getIconsFromBeadResult(data: any) {
+        this.resetIcons();
+
+        // predict banker
+        let nextResult = {};
+        nextResult = { V: 'b', B: 0, P: 0, W: 0, isPredict: 1 };
+        let predict = data.slice();
+        predict.push(nextResult);
+
+        this.doParseBeadRoad(predict);
+        this.doParseBigRoad();
+        this.doParseBigEyeRoad();
+        this.doParseSmallRoad();
+        this.doParseCockroachRoad();
+
+        this.predictBankerIcons = [this.getLastPredict(this.bigEyeRoadResult), this.getLastPredict(this.smallRoadResult), this.getLastPredict(this.cockroachRoadResult)];
+
+        // predict player
+        nextResult = {};
+        nextResult = { V: 'p', B: 0, P: 0, W: 0, isPredict: 1 };
+        predict = data.slice();
+        predict.push(nextResult);
+
+        this.doParseBeadRoad(predict);
+        this.doParseBigRoad();
+        this.doParseBigEyeRoad();
+        this.doParseSmallRoad();
+        this.doParseCockroachRoad();
+
+        this.predictPlayerIcons = [this.getLastPredict(this.bigEyeRoadResult), this.getLastPredict(this.smallRoadResult), this.getLastPredict(this.cockroachRoadResult)];
+
+        return {
+          predictBankerIcons: this.predictBankerIcons,
+          predictPlayerIcons: this.predictPlayerIcons,
+        };
+      }
+
+      // helper function to get the predict value
+      private getLastPredict(rslt: any) {
+        for (let i = rslt.length - 1; i >= 0; i--) {
+          const item = rslt[i];
+          if (item.isPredict === 1) {
+            if (item.V === 'b') {
+              return 0;
+            } else if (item.V === 'p') {
+              return 1;
+            }
+          }
+        }
+        return -1;
       }
     }
   }

@@ -49,15 +49,38 @@ namespace we {
         }
       }
 
-      public parseRoadData(roadData: any) {
+      // state 0 = update, 1 = predict, 2 = restore from predict
+      public parseRoadData(roadData: any, state: number = 0) {
         if (roadData) {
+          if (this.roadData) {
+            // check if the road data has changed, ignore if they are identical
+            if (state === 0 && roadData.length === this.roadData.length) {
+              let isDifferent: boolean = false;
+              for (let i = 0; i < this.roadData.length; i++) {
+                if (roadData[i]) {
+                  if (this.roadData[i].V !== roadData[i].V) {
+                    isDifferent = true;
+                    break;
+                  }
+                } else {
+                  isDifferent = true;
+                  break;
+                }
+              }
+              if (!isDifferent) {
+                return;
+              }
+            }
+          }
+
           if (!this.roadMapIconList) {
             this.initRoadData();
           } else {
             this.clearRoadData();
           }
-
-          this.roadData = roadData;
+          if (state === 0) {
+            this.roadData = roadData;
+          }
           const roadDataCopy = roadData.slice(); // copy the array;
 
           const maxNum = this.numCol * 6;

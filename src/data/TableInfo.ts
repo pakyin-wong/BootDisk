@@ -13,6 +13,8 @@ namespace we {
       public data?: any;
       public roadmap?: any;
       public complete?: number;
+      public gamestatistic?: GameStatistic; // game statistics (banker/player/tie Count)
+      public betInfo?: GameTableBetInfo;
     }
   }
 }
