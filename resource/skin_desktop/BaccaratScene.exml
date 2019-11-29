@@ -28,5 +28,7 @@
 		<ba:GameBar width="700" height="91" x="1500" y="0" id="gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
+	<ba:GameResultMessage id="resultMessage" x="1288.5" y="954.45" anchorOffsetX="309" anchorOffsetY="55" scaleX="1"
+	                      scaleY="1" skinName="skin_desktop.GameResultNormalSkin" />
 </e:Skin>
 

@@ -13,21 +13,28 @@ namespace we {
       private _tableId: string;
       private _dropdown_toggle: eui.Group;
       private _dropdown: we.ui.DropdownList;
+      private _group: eui.Group;
 
-      private _originalx: number;
+      // private _originalyhover: number;
       private _originaly: number;
+      private _offsetY: number;
+      // private _endanimRunning: boolean = false;
 
       public constructor() {
         super();
         this.skinName = utils.getSkin('LiveBaccaratListItem');
         this.touchEnabled = true;
-        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         // this._dropdown.items = ['test 1', 'test 2'];
         this._dropdown.setToggler(this._dropdown_toggle);
         this.mount();
+      }
+
+      public getQuickbetButton() {
+        return this._quickbetButton;
       }
 
       protected childrenCreated() {
@@ -36,37 +43,53 @@ namespace we {
         this.anchorOffsetY = this.height / 2;
         this.x += this.anchorOffsetX;
         this.y += this.anchorOffsetY;
+        this._originaly = this.y;
       }
 
-      public onTouchTapWhole(evt: egret.Event) {
-        console.log(evt.target);
-        if (evt.target === this._quickbetButton) {
-          return;
-        }
+      private onTouchTap(evt: egret.Event) {
         if (evt.target === this._dropdown_toggle) {
+          evt.stopPropagation();
           return;
         }
-        console.log('we.live.LiveBaccartListItem::onclick - tableid' + this._tableId);
-        dir.socket.enterTable(this._tableId);
-        dir.sceneCtr.goto('ba', { tableid: this._tableId });
       }
 
       public onClickButton(evt: egret.Event) {
-        if (env.livepageLocked) {
-          env.livepageLocked = null;
-        } else {
-          env.livepageLocked = this._tableId;
+        if (this.parent && this.parent.parent) {
+          this.parent.parent.setChildIndex(<egret.DisplayObjectContainer> this.parent, 1000);
         }
-        dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
-        if (env.livepageLocked) {
+
+        if (!env.livepageLocked) {
+          this.toggleLivePageLock();
+          dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
+          if (this.parent.localToGlobal(this.x, this._originaly).y > 900) {
+            this._offsetY = this.parent.localToGlobal(this.x, this._originaly).y - 800;
+          } else {
+            this._offsetY = 0;
+          }
+          egret.Tween.removeTweens(this);
+          egret.Tween.removeTweens(this._quickbetPanel);
+          egret.Tween.get(this).to({ y: this._originaly - this._offsetY, scaleX: 1.1, scaleY: 1.1 }, 1000);
           egret.Tween.get(this._quickbetPanel).to({ y: 378, alpha: 1 }, 1000);
         } else {
+          this.toggleLivePageLock();
+          dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
+          egret.Tween.removeTweens(this);
+          egret.Tween.removeTweens(this._quickbetPanel);
+          egret.Tween.get(this).to({ y: this._originaly }, 1000);
           egret.Tween.get(this._quickbetPanel).to({ y: 300, alpha: 0 }, 1000);
         }
       }
 
       public setTableId(value: string) {
         this._tableId = value;
+      }
+
+      public toggleLivePageLock() {
+        if (env.livepageLocked) {
+          env.livepageLocked = null;
+        } else {
+          env.livepageLocked = this._tableId;
+        }
       }
 
       get dealerImage() {
@@ -101,8 +124,8 @@ namespace we {
         if (!env.livepageLocked) {
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);
-          const tw1 = egret.Tween.get(this).to({ scaleX: 1.05, scaleY: 1.05 }, 1000);
-          const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 300, alpha: 1 }, 1000);
+          egret.Tween.get(this).to({ scaleX: 1.1, scaleY: 1.1, y: this._originaly }, 1000);
+          egret.Tween.get(this._quickbetButton).to({ y: 300, alpha: 1 }, 1000);
         }
       }
 
@@ -110,7 +133,7 @@ namespace we {
         if (!env.livepageLocked) {
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);
-          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1 }, 1000);
+          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 1000);
           const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 1000);
         }
       }
