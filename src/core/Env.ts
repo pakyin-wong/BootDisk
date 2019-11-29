@@ -26,6 +26,7 @@ namespace we {
       public currentSelectedBetLimitIndex: number = 0;
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
+      public livepageLocked: string = null;
 
       set currTime(value: number) {
         this._currTime = value;

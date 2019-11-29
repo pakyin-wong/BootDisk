@@ -10,7 +10,6 @@ namespace we {
       private _uncfmBet: number;
       private _bitmapName: string;
 
-      private _border: number = 10;
       private _textColor: number = 0xffffff;
       private _bgColor: number = 0x000000;
 
@@ -27,17 +26,18 @@ namespace we {
         super.childrenCreated();
         this.setUncfmBet(0);
         this.setCfmBet(0);
-
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-      }
-
-      protected onClick() {
-        const amount = env.betLimits[env.currentSelectedBetLimitIndex].chipsList[env.currentChipSelectedIndex].value;
-        this.dispatchEvent(new egret.Event('TABLE_GRID_CLICK', false, false, { field: this._fieldName, amount }));
       }
 
       public setFieldName(name) {
         this._fieldName = name;
+      }
+
+      public getFieldName() {
+        return this._fieldName;
+      }
+
+      public getAmount() {
+        return env.betLimits[env.currentSelectedBetLimitIndex].chipsList[env.currentChipSelectedIndex].value;
       }
 
       public setBitmap(name) {
@@ -72,7 +72,7 @@ namespace we {
 
       public $setWidth(num: number) {
         super.$setWidth(num);
-        this.setStyle(this._border, this._textColor, this._bgColor, this._bitmapName);
+        this.setStyle(this._textColor, this._bgColor, this._bitmapName);
       }
 
       public cancelBet(): void {
@@ -83,7 +83,7 @@ namespace we {
         return this._uncfmBet;
       }
 
-      public async setStyle(border: number, textcolor: number, bgcolor: number, bitmapName: string = null) {
+      public async setStyle(textcolor: number, bgcolor: number, bitmapName: string = null) {
         this.removeChildren();
         // console.log('BettingTableGrid::setStyle: bitmapName: ', bitmapName, ' this._bitmapName: ', this._bitmapName);
 

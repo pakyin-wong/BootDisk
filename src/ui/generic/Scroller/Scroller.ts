@@ -172,6 +172,22 @@ namespace we {
         (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
+      public disableWheel() {
+        (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+      }
+
+      public enableWheel() {
+        (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+      }
+
+      public enableVScroller() {
+        this.verticalScrollBar.visible = true;
+      }
+
+      public disableVScroller() {
+        this.verticalScrollBar.visible = false;
+      }
+
       public _prevDeltaY = 0;
       public _stopTimeout = null;
 

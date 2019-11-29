@@ -17,6 +17,8 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
+        env.livepageLocked = null;
+
         this.scroller = new ui.Scroller();
         this.scroller.width = 2600;
         this.scroller.height = 1340;
@@ -69,6 +71,17 @@ namespace we {
         this.scroller.viewport = group;
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
+      }
+
+      private onLivePageLock() {
+        if (env.livepageLocked) {
+          this.scroller.disableVScroller();
+          this.scroller.disableWheel();
+        } else {
+          this.scroller.enableVScroller();
+          this.scroller.enableWheel();
+        }
       }
 
       private arrayDiff(array1, array2) {
@@ -88,23 +101,42 @@ namespace we {
       }
 
       private handleTableList(event: egret.Event) {
-        const roomIds = event.data as number[];
-        const added = this.arrayDiff(roomIds, this.roomIds);
-        const removed = this.arrayDiff(this.roomIds, roomIds);
-        added.forEach(item => {
-          this.collection.addItem(item);
-        });
-        removed.forEach(item => {
-          this.collection.removeItemAt(this.collection.getItemIndex(item));
-        });
-        // console.log('added', added);
-        // console.log('removed', removed);
-        this.roomIds = roomIds;
-        this.roomIds.forEach((x, inx) => {
-          this.collection.replaceItemAt(x, inx);
-        });
-        // console.log('handleTableList', roomIds);
-        //   this.collection.refresh();
+        if (env.livepageLocked) {
+          console.log('locked');
+          const roomIds = event.data as number[];
+          const added = this.arrayDiff(roomIds, this.roomIds);
+          const removed = this.arrayDiff(this.roomIds, roomIds);
+          added.forEach(item => {
+            this.collection.addItem(item);
+          });
+          removed.forEach(item => {
+            this.collection.removeItemAt(this.collection.getItemIndex(item));
+          });
+          // console.log('added', added);
+          // console.log('removed', removed);
+          this.roomIds = roomIds;
+          this.roomIds.forEach((x, inx) => {
+            this.collection.replaceItemAt(x, inx);
+          });
+        } else {
+          const roomIds = event.data as number[];
+          const added = this.arrayDiff(roomIds, this.roomIds);
+          const removed = this.arrayDiff(this.roomIds, roomIds);
+          added.forEach(item => {
+            this.collection.addItem(item);
+          });
+          removed.forEach(item => {
+            this.collection.removeItemAt(this.collection.getItemIndex(item));
+          });
+          // console.log('added', added);
+          // console.log('removed', removed);
+          this.roomIds = roomIds;
+          this.roomIds.forEach((x, inx) => {
+            this.collection.replaceItemAt(x, inx);
+          });
+          // console.log('handleTableList', roomIds);
+          //   this.collection.refresh();
+        }
       }
     }
   }
