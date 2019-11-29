@@ -26,6 +26,14 @@ namespace we {
         this.tableID = tableId;
       }
 
+      public resetBitmap() {
+        this.gridBanker.setBitmap('scene_baccarat_banker');
+        this.gridPlayer.setBitmap('scene_baccarat_player');
+        this.gridTie.setBitmap('scene_baccarat_tie');
+        this.gridBankerPair.setBitmap('scene_baccarat_banker_pair');
+        this.gridPlayerPair.setBitmap('scene_baccarat_player_pair');
+      }
+
       protected childrenCreated() {
         this.gridBanker.setFieldName(BetField.BANKER);
         this.gridPlayer.setFieldName(BetField.PLAYER);
@@ -33,15 +41,9 @@ namespace we {
         this.gridBankerPair.setFieldName(BetField.BANKER_PAIR);
         this.gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
         this.gridSuperSix.setFieldName(BetField.SUPER_SIX);
-        this.gridBanker.setBitmap('scene_baccarat_banker');
-        this.gridPlayer.setBitmap('scene_baccarat_player');
-        this.gridTie.setBitmap('scene_baccarat_tie');
-        this.gridBankerPair.setBitmap('scene_baccarat_banker_pair');
-        this.gridPlayerPair.setBitmap('scene_baccarat_player_pair');
-        this.gridSuperSix.setBitmap('');
 
-        this.changeMethod('normal');
-        this.changeLang();
+        this.initGraphics();
+
         this.switchSuperSix.addEventListener(
           egret.Event.CHANGE,
           () => {
@@ -59,14 +61,27 @@ namespace we {
 
         this.resetUnconfirmedBet();
 
-        this.gridPlayerPair.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
-        this.gridBankerPair.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
-        this.gridPlayer.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
-        this.gridTie.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
-        this.gridBanker.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
-        this.gridSuperSix.addEventListener('TABLE_GRID_CLICK', this.onBetFieldUpdate, this);
+        this.gridPlayerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridPlayerPair), this);
+        this.gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridBankerPair), this);
+        this.gridPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridPlayer), this);
+        this.gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridTie), this);
+        this.gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridBanker), this);
+        this.gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridSuperSix), this);
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
+      }
+
+      // Must be called if you change skin
+      public initGraphics() {
+        this.gridBanker.setBitmap('scene_baccarat_banker');
+        this.gridPlayer.setBitmap('scene_baccarat_player');
+        this.gridTie.setBitmap('scene_baccarat_tie');
+        this.gridBankerPair.setBitmap('scene_baccarat_banker_pair');
+        this.gridPlayerPair.setBitmap('scene_baccarat_player_pair');
+        this.gridSuperSix.setBitmap('');
+
+        this.changeMethod('normal');
+        this.changeLang();
       }
 
       protected getCurrentState() {
@@ -78,19 +93,18 @@ namespace we {
         }
       }
 
-      protected changeMethod(method: string) {
+      public changeMethod(method: string) {
         switch (method) {
           default:
-            const border = 10;
             const textColor = 0xffffff;
             const bgColor = 0x000000;
 
-            this.gridPlayerPair.setStyle(border, textColor, bgColor);
-            this.gridBankerPair.setStyle(border, textColor, bgColor);
-            this.gridPlayer.setStyle(border, textColor, bgColor);
-            this.gridBanker.setStyle(border, textColor, bgColor);
-            this.gridSuperSix.setStyle(border, textColor, bgColor);
-            this.gridTie.setStyle(border, textColor, bgColor);
+            this.gridPlayerPair.setStyle(textColor, bgColor);
+            this.gridBankerPair.setStyle(textColor, bgColor);
+            this.gridPlayer.setStyle(textColor, bgColor);
+            this.gridBanker.setStyle(textColor, bgColor);
+            this.gridSuperSix.setStyle(textColor, bgColor);
+            this.gridTie.setStyle(textColor, bgColor);
         }
       }
 
@@ -142,21 +156,23 @@ namespace we {
         this.betDetails = betDetails;
       }
 
-      protected onBetFieldUpdate(event: egret.Event) {
-        const betDetail: data.BetDetail = event.data;
-        // validate bet action
-        if (this.validateBetAction(betDetail)) {
-          // update the uncfmBetDetails
-          for (const detail of this.uncfmBetDetails) {
-            if (detail.field === betDetail.field) {
-              detail.amount += betDetail.amount;
-              break;
+      protected onBetFieldUpdate(grid: BettingTableGrid) {
+        return (event: egret.Event) => {
+          const betDetail = { field: grid.getFieldName(), amount: grid.getAmount() };
+          // validate bet action
+          if (this.validateBetAction(betDetail)) {
+            // update the uncfmBetDetails
+            for (const detail of this.uncfmBetDetails) {
+              if (detail.field === betDetail.field) {
+                detail.amount += betDetail.amount;
+                break;
+              }
             }
+            // update the corresponding table grid
+            this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
+            this.totalUncfmBetAmount += betDetail.amount;
           }
-          // update the corresponding table grid
-          this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
-          this.totalUncfmBetAmount += betDetail.amount;
-        }
+        };
       }
 
       protected validateBet(): boolean {

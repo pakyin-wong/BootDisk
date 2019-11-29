@@ -26,11 +26,14 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        console.log('::itemDataChanged');
-        console.log(this.itemData);
         const table = env.tableInfos[this.itemData];
         this._item.setTableId(this.itemData);
         this._item.bigRoad.updateRoadData(table.roadmap);
+        if (env.livepageLocked && env.livepageLocked.toString() === this.itemData.toString()) {
+          this.parent.setChildIndex(this, 1000);
+        } else {
+          this.parent.setChildIndex(this, 1);
+        }
         egret.Tween.removeTweens(this);
       }
     }

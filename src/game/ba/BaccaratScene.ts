@@ -155,7 +155,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onChangeLang, this);
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
-
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
       }
@@ -169,6 +169,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.removeEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
+        dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
@@ -244,10 +245,25 @@ namespace we {
             this.betDetails = tableInfo.bets;
             this.gameData = <GameData> this.tableInfo.data;
             this.previousState = this.gameData.state;
-            this.roadmapControl.updateRoadData(tableInfo.roadmap);
+            if (tableInfo.roadmap) {
+              this.roadmapControl.updateRoadData(tableInfo.roadmap);
+            }
+            if (tableInfo.betInfo) {
+              this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
+            }
+
             console.log('BaccaratScene::onTableInfoUpdate');
             console.dir(this.gameData);
             this.updateGame();
+          }
+        }
+      }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo> evt.data;
+          if (betInfo.tableid === this.tableID) {
+            // update the scene
           }
         }
       }

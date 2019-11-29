@@ -25,6 +25,8 @@ namespace we {
 
         this.parser = new BARoadParser(columnArray);
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
+        this.parser.addEventListener('onPredict', this.onParserPredict, this);
+        this.parser.addEventListener('onRestore', this.onParserRestore, this);
 
         this.onDisplayUpdate(null);
 
@@ -56,11 +58,11 @@ namespace we {
                 }
               }
 
-              this.beadRoad.parseRoadData(data.bbead);
-              this.bigRoad.parseRoadData(data.bbigRoad);
-              this.bigEyeRoad.parseRoadData(data.bbigEye);
-              this.smallRoad.parseRoadData(data.bsmall);
-              this.cockroachRoad.parseRoadData(data.broach);
+              this.beadRoad.parseRoadData(data.bbead, 1);
+              this.bigRoad.parseRoadData(data.bbigRoad, 1);
+              this.bigEyeRoad.parseRoadData(data.bbigEye, 1);
+              this.smallRoad.parseRoadData(data.bsmall, 1);
+              this.cockroachRoad.parseRoadData(data.broach, 1);
             }
           }
         }
@@ -86,31 +88,48 @@ namespace we {
         if (env.tableInfos[this.tableid]) {
           if (env.tableInfos[this.tableid].roadmap) {
             const data = env.tableInfos[this.tableid].roadmap;
-            this.updateRoadData(data);
+            this.updateRoadData(data, 2);
           }
         }
       }
 
-      private onParserUpdate(e: egret.Event) {
-        this.beadRoad.parseRoadData(this.parser.beadRoadResult);
-        this.bigRoad.parseRoadData(this.parser.bigRoadResult);
-        this.bigEyeRoad.parseRoadData(this.parser.bigEyeRoadResult);
-        this.smallRoad.parseRoadData(this.parser.smallRoadResult);
-        this.cockroachRoad.parseRoadData(this.parser.cockroachRoadResult);
+      private doParserUpdate(state: number) {
+        // stae 0 = update, 1 = predict, 2 = restore from predict
+        this.beadRoad.parseRoadData(this.parser.beadRoadResult, state);
+        this.bigRoad.parseRoadData(this.parser.bigRoadResult, state);
+        this.bigEyeRoad.parseRoadData(this.parser.bigEyeRoadResult, state);
+        this.smallRoad.parseRoadData(this.parser.smallRoadResult, state);
+        this.cockroachRoad.parseRoadData(this.parser.cockroachRoadResult, state);
       }
 
-      public updateRoadData(roadmapData: any) {
+      private onParserUpdate(e: egret.Event) {
+        this.doParserUpdate(0);
+      }
+
+      private onParserPredict(e: egret.Event) {
+        this.doParserUpdate(1);
+      }
+
+      private onParserRestore(e: egret.Event) {
+        this.doParserUpdate(2);
+      }
+
+      public updateRoadData(roadmapData: any, state: number = 0) {
         if (roadmapData) {
           if (this.useParser) {
             // option 1. parse from bead road data
+            const stats = this.parser.getIconsFromBeadResult(roadmapData.bead);
             this.parser.parseData(roadmapData.bead);
           } else {
             // option 2. just display all road data as it is
-            this.beadRoad.parseRoadData(roadmapData.bead);
-            this.bigRoad.parseRoadData(roadmapData.bigRoad);
-            this.bigEyeRoad.parseRoadData(roadmapData.bigEye);
-            this.smallRoad.parseRoadData(roadmapData.small);
-            this.cockroachRoad.parseRoadData(roadmapData.roach);
+            // stae 0 = update, 1 = predict, 2 = restore from predict
+            this.beadRoad.parseRoadData(roadmapData.bead, state);
+            this.bigRoad.parseRoadData(roadmapData.bigRoad, state);
+            this.bigEyeRoad.parseRoadData(roadmapData.bigEye, state);
+            this.smallRoad.parseRoadData(roadmapData.small, state);
+            this.cockroachRoad.parseRoadData(roadmapData.roach, state);
+
+            const stats = this.parser.getIconsFromRoadData(roadmapData);
           }
         }
       }

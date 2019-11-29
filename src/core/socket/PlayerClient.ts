@@ -25,6 +25,7 @@ namespace we {
         this.client.subscribe(core.MQTT.PLAYER_BET_INFO_UPDATE, this.onBetInfoUpdate, this);
         // this.client.subscribe(core.MQTT.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         this.client.subscribe(core.MQTT.BALANCE_UPDATE, this.onBalanceUpdate, this);
+        this.client.subscribe(core.MQTT.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
       }
 
       public connect() {
@@ -87,6 +88,25 @@ namespace we {
         this.client.getTableList(filter);
       }
 
+      public onTableBetInfoUpdate(betInfo: we.data.GameTableBetInfo) {
+        console.log('PlayerClient::onTableBetInfoUpdate');
+        if (!env.tableInfos) {
+          return;
+        }
+        const e = env;
+        const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
+        if (tableInfo) {
+          tableInfo.betInfo = betInfo;
+          this.dispatchListUpdateEvent();
+          dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, betInfo);
+        } else {
+          const tableInfo: data.TableInfo = new data.TableInfo();
+          tableInfo.tableid = betInfo.tableid;
+          tableInfo.betInfo = betInfo;
+          env.addTableInfo(tableInfo);
+        }
+      }
+
       public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
         console.log(tableList.tablesList);
@@ -131,6 +151,7 @@ namespace we {
           const tableInfo: data.TableInfo = new data.TableInfo();
           tableInfo.tableid = gameStatus.tableid;
           tableInfo.data = gameStatus;
+          env.addTableInfo(tableInfo);
         }
       }
 
@@ -141,15 +162,60 @@ namespace we {
         delete gameStatistic.tableid;
         const tableInfo: data.TableInfo = env.tableInfos[tableid];
         const roadmapData = this.getRoadMapData(gameStatistic);
-        console.log(roadmapData);
+
+        let bankerCount: number = 0;
+        let playerCount: number = 0;
+        let tieCount: number = 0;
+        let playerPairCount: number = 0;
+        let bankerPairCount: number = 0;
+
+        roadmapData.bead.forEach(item => {
+          if (item.V === 'b') {
+            bankerCount++;
+          } else if (item.V === 'p') {
+            playerCount++;
+          } else if (item.V === 't') {
+            tieCount++;
+          }
+          if (item.B > 0) {
+            bankerPairCount++;
+          }
+          if (item.P > 0) {
+            playerPairCount++;
+          }
+        });
+
+        const totalCount: number = bankerCount + playerCount + tieCount;
+
         if (tableInfo) {
           tableInfo.roadmap = roadmapData;
+
+          const stats = new we.data.GameStatistic();
+          stats.bankerCount = bankerCount;
+          stats.playerCount = playerCount;
+          stats.tieCount = tieCount;
+          stats.playerPairCount = playerPairCount;
+          stats.bankerPairCount = bankerPairCount;
+          stats.totalCount = totalCount;
+
+          tableInfo.gamestatistic = stats;
           this.dispatchListUpdateEvent();
           dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
         } else {
           const tableInfo: data.TableInfo = new data.TableInfo();
+
+          const stats = new we.data.GameStatistic();
+          stats.bankerCount = bankerCount;
+          stats.playerCount = playerCount;
+          stats.tieCount = tieCount;
+          stats.playerPairCount = playerPairCount;
+          stats.bankerPairCount = bankerPairCount;
+          stats.totalCount = totalCount;
+          tableInfo.gamestatistic = stats;
+
           tableInfo.tableid = tableid;
           tableInfo.roadmap = roadmapData;
+          env.addTableInfo(tableInfo);
         }
       }
 
@@ -229,7 +295,7 @@ namespace we {
       protected dispatchListUpdateEvent() {
         const list = env.tableInfoArray
           .filter(info => {
-            return info.data != null; // && info.roadmap != null;
+            return info.data != null && info.roadmap != null;
           })
           .map(info => {
             return info.tableid;
