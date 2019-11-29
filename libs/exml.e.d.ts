@@ -55,6 +55,14 @@ declare module skins{
 	}
 }
 declare module skin_desktop{
+	class GameResultNormalSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class GameResultWinSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
 	}
 }

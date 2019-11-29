@@ -11,7 +11,7 @@ namespace we {
         super();
         this.shape = new egret.Shape();
         this.label = new eui.Label();
-        this.label.fontFamily = 'Barlow';
+        this.label.fontFamily = 'Barlow, Arial, Helvetica, sans-serif';
         this.label.textAlign = egret.HorizontalAlign.CENTER;
         this.label.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.label.textColor = 0xffffff;

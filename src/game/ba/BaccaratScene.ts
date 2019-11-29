@@ -40,6 +40,8 @@ namespace we {
       private roadmapLeftPanel: BARoadmapLeftPanel;
       private roadmapRightPanel: BARoadmapRightPanel;
 
+      private resultMessage: GameResultMessage;
+
       constructor(data: any) {
         super(data);
         this._tableID = data.tableid;
@@ -98,6 +100,10 @@ namespace we {
 
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+
+        setInterval(() => {
+          this.resultMessage.showResult(<WinType> Math.floor(Math.random() * 4), 1000 * (Math.floor(Math.random() * 3) - 1));
+        }, 4000);
       }
 
       private onConfirmPressed() {
