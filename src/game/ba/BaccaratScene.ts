@@ -146,7 +146,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onChangeLang, this);
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
-
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
       }
@@ -160,10 +160,11 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.removeEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
+        dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
-      public async onFadeEnter() {}
+      public async onFadeEnter() { }
 
       public onExit() {
         dir.videoPool.release(this._video);
@@ -180,7 +181,7 @@ namespace we {
         this.bettingTable.onChangeLang();
       }
 
-      public async onFadeExit() {}
+      public async onFadeExit() { }
 
       protected mount() {
         // step 1: load Baccarat Screen Resource
@@ -210,7 +211,7 @@ namespace we {
         // this.socketConnect();
       }
 
-      protected socketConnect() {}
+      protected socketConnect() { }
 
       protected socketConnectSuccess() {
         // dir.evtHandler.removeEventListener(enums.mqtt.event.CONNECT_SUCCESS, this.socketConnectSuccess, this);
@@ -222,26 +223,41 @@ namespace we {
         // dir.sceneCtr.goto('LobbySCene');
       }
 
-      protected socketConnectFail() {}
+      protected socketConnectFail() { }
 
       protected onTableInfoUpdate(evt: egret.Event) {
         console.log('Baccarat listener');
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this.tableID) {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
-            this.gameData = <GameData> this.tableInfo.data;
+            this.gameData = <GameData>this.tableInfo.data;
             this.previousState = this.gameData.state;
-            this.roadmapControl.updateRoadData(tableInfo.roadmap);
+            if (tableInfo.roadmap)
+              this.roadmapControl.updateRoadData(tableInfo.roadmap);
+            if (tableInfo.betInfo)
+              this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
+
             this.updateGame();
           }
         }
       }
 
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo>evt.data;
+          if (betInfo.tableid === this.tableID) {
+            // update the scene
+
+
+          }
+        }
+      }
+
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         if (tableInfo.tableid === this.tableID) {
           this.betDetails = tableInfo.bets;
           switch (this.gameData.state) {

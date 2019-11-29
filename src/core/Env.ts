@@ -1,3 +1,4 @@
+/*tslint:disable adjacent-overload-signatures */
 namespace we {
   export namespace core {
     export class Env {
@@ -40,6 +41,14 @@ namespace we {
       set tableInfoArray(value: data.TableInfo[]) {
         this._tableInfoArray = value;
         this._tableInfos = utils.arrayToKeyValue(value, 'tableid');
+      }
+
+      public addTableInfo(tableInfo: data.TableInfo) {
+        if (!this._tableInfoArray) {
+          this._tableInfoArray = [];
+        }
+        this._tableInfoArray.push(tableInfo);
+        this._tableInfos[tableInfo.tableid] = tableInfo;
       }
 
       get tableInfoArray(): data.TableInfo[] {

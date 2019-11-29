@@ -22,6 +22,47 @@ namespace we {
           data.tableid = (idx + 1).toString();
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData2;
+
+          let bankerCount: number = 0;
+          let playerCount: number = 0;
+          let tieCount: number = 0;
+          let playerPairCount: number = 0;
+          let bankerPairCount: number = 0;
+
+          data.roadmap.bead.forEach(item => {
+            if (item.V === 'b') {
+              bankerCount++;
+            } else if (item.V === 'p') {
+              playerCount++;
+            } else if (item.V === 't') {
+              tieCount++;
+            }
+            if (item.B > 0) {
+              bankerPairCount++;
+            }
+            if (item.P > 0) {
+              playerPairCount++;
+            }
+          });
+          const totalCount: number = bankerCount + playerCount + tieCount;
+
+          const stats = new we.data.GameStatistic();
+          stats.bankerCount = bankerCount;
+          stats.playerCount = playerCount;
+          stats.tieCount = tieCount;
+          stats.playerPairCount = playerPairCount;
+          stats.bankerPairCount = bankerPairCount;
+          stats.totalCount = totalCount;
+
+          data.gamestatistic = stats;
+
+          data.betInfo = new we.data.GameTableBetInfo();
+          data.betInfo.tableid = data.tableid; // Unique table id
+          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+          data.betInfo.total = 10000; // Total bet amount for this gameround
+          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+          data.betInfo.ranking = [];
+
           data.gametype = GameType.BAC;
           data.bets = [];
           const mockProcess = new MockProcess(this);

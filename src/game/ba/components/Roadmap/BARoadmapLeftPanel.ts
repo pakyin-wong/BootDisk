@@ -21,6 +21,12 @@ namespace we {
         this.beadRoad.y = 0;
         this.addChild(this.beadRoad);
       }
+
+      public setGameInfo(gameId: string, totalBet: number) {
+
+
+
+      }
     }
   }
 }
