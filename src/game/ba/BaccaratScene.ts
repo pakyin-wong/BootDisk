@@ -1,3 +1,4 @@
+/* tslint:disable triple-equals */
 /**
  * BaccaratScene
  *
@@ -39,6 +40,8 @@ namespace we {
       private roadmapControl: BARoadmapControl;
       private roadmapLeftPanel: BARoadmapLeftPanel;
       private roadmapRightPanel: BARoadmapRightPanel;
+
+      private resultMessage: GameResultMessage;
 
       constructor(data: any) {
         super(data);
@@ -98,6 +101,10 @@ namespace we {
 
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+
+        // setInterval(() => {
+        //   this.resultMessage.showResult(<WinType> Math.floor(Math.random() * 4), 1000 * (Math.floor(Math.random() * 3) - 1));
+        // }, 4000);
       }
 
       private onConfirmPressed() {
@@ -276,6 +283,7 @@ namespace we {
               this.winAmountLabel.visible = true;
               this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
               this.bettingTable.showWinEffect(this.betDetails);
+              this.checkResultMessage(this.totalWin);
               break;
           }
         }
@@ -421,6 +429,7 @@ namespace we {
           }
 
           // TODO: show win message and the total win ammount to the client for few seconds
+          this.checkResultMessage();
 
           // TODO: after win message has shown, show win/ lose effect of each bet
         }
@@ -468,6 +477,18 @@ namespace we {
         }
       }
 
+      public checkResultMessage(totalWin: number = NaN) {
+        if (this.hasBet()) {
+          if (this.gameData && this.gameData.wintype != WinType.NONE && !isNaN(totalWin)) {
+            this.resultMessage.showResult(this.gameData.wintype, totalWin);
+          }
+        } else {
+          if (this.gameData && this.gameData.wintype != WinType.NONE) {
+            this.resultMessage.showResult(this.gameData.wintype);
+          }
+        }
+      }
+
       public onBetConfirmed() {
         this.bettingTable.resetUnconfirmedBet();
         egret.log('Bet Succeeded');
@@ -490,6 +511,17 @@ namespace we {
         this.countdownTimer.countdownValue = this.gameData.countdown * 1000;
         this.countdownTimer.remainingTime = this.gameData.countdown * 1000 - (env.currTime - this.gameData.starttime);
         this.countdownTimer.start();
+      }
+
+      protected hasBet(): boolean {
+        if (this.betDetails) {
+          for (const betDetail of this.betDetails) {
+            if (betDetail.amount > 0) {
+              return true;
+            }
+          }
+        }
+        return false;
       }
 
       protected computeTotalWin() {
