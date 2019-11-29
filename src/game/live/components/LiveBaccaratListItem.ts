@@ -11,9 +11,12 @@ namespace we {
       private _quickbetButton: eui.Button;
       private _quickbetCloseButton: eui.Button;
       private _tableId: string;
+      private _dropdown_toggle: eui.Group;
+      private _dropdown: we.ui.DropdownList;
 
       private _originalx: number;
       private _originaly: number;
+
       public constructor() {
         super();
         this.skinName = utils.getSkin('LiveBaccaratListItem');
@@ -22,6 +25,9 @@ namespace we {
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._dropdown.items = ['test 1', 'test 2']
+        this._dropdown.setToggler(this._dropdown_toggle);
+        this._dropdown.dismissOnClickOutside = true;
         this.mount();
       }
 
