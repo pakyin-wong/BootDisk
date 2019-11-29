@@ -87,6 +87,7 @@ namespace we {
       }
 
       public setToggler(toggler: egret.DisplayObject) {
+        this.toggler = toggler;
         this.poppableAddon.setToggler(toggler);
       }
 

@@ -41,7 +41,7 @@ namespace we {
         layout2.verticalGap = gapSize;
         layout2.paddingBottom = gapSize * 3;
         layout2.requestedColumnCount = 4;
-        layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
+        // layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
         roomList.layout = layout2;
         roomList.dataProvider = this.collection;
         roomList.itemRenderer = LiveBaccaratListHolder;

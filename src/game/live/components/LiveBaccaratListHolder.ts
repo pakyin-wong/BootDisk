@@ -16,8 +16,8 @@ namespace we {
       }
 
       private async mount() {
-        this.height = 388;
         this.width = 578;
+        this.height = 388;
         console.log('we.live.LiveBaccaratListHolder::mount()');
         console.log(this.itemData);
         this._item = new we.live.LiveBaccaratListItem();

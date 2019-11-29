@@ -25,9 +25,8 @@ namespace we {
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
-        this._dropdown.items = ['test 1', 'test 2']
+        // this._dropdown.items = ['test 1', 'test 2'];
         this._dropdown.setToggler(this._dropdown_toggle);
-        this._dropdown.dismissOnClickOutside = true;
         this.mount();
       }
 
@@ -40,7 +39,11 @@ namespace we {
       }
 
       public onTouchTapWhole(evt: egret.Event) {
+        console.log(evt.target);
         if (evt.target === this._quickbetButton) {
+          return;
+        }
+        if (evt.target === this._dropdown_toggle) {
           return;
         }
         console.log('we.live.LiveBaccartListItem::onclick - tableid' + this._tableId);
