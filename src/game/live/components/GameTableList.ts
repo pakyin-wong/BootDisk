@@ -101,8 +101,7 @@ namespace we {
       }
 
       private handleTableList(event: egret.Event) {
-        if (env.livepageLocked) {
-          console.log('locked');
+        if (!env.livepageLocked) {
           const roomIds = event.data as number[];
           const added = this.arrayDiff(roomIds, this.roomIds);
           const removed = this.arrayDiff(this.roomIds, roomIds);
@@ -112,30 +111,10 @@ namespace we {
           removed.forEach(item => {
             this.collection.removeItemAt(this.collection.getItemIndex(item));
           });
-          // console.log('added', added);
-          // console.log('removed', removed);
           this.roomIds = roomIds;
           this.roomIds.forEach((x, inx) => {
             this.collection.replaceItemAt(x, inx);
           });
-        } else {
-          const roomIds = event.data as number[];
-          const added = this.arrayDiff(roomIds, this.roomIds);
-          const removed = this.arrayDiff(this.roomIds, roomIds);
-          added.forEach(item => {
-            this.collection.addItem(item);
-          });
-          removed.forEach(item => {
-            this.collection.removeItemAt(this.collection.getItemIndex(item));
-          });
-          // console.log('added', added);
-          // console.log('removed', removed);
-          this.roomIds = roomIds;
-          this.roomIds.forEach((x, inx) => {
-            this.collection.replaceItemAt(x, inx);
-          });
-          // console.log('handleTableList', roomIds);
-          //   this.collection.refresh();
         }
       }
     }
