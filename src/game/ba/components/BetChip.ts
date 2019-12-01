@@ -11,6 +11,7 @@ namespace we {
 
       public constructor(value: number = null) {
         super();
+        this.skinName = utils.getSkin('BetChip');
         this._highlight = false;
         this.value = value;
 
@@ -47,6 +48,7 @@ namespace we {
       get highlight(): boolean {
         return this._highlight;
       }
+
       set highlight(value: boolean) {
         this._highlight = value;
         if (value) {

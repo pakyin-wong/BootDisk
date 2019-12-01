@@ -74,17 +74,11 @@ namespace we {
             this.startIndex = newIndex - 2;
             console.log('> swap 3 item');
           } else {
-            newIndex -= 1;
-            if (this.items[newIndex]) {
-              // swap two item
-              this.startIndex = newIndex - 2;
-              console.log('> swap 2 item');
-            } else {
+            while (!this.items[newIndex]) {
               newIndex -= 1;
               if (this.items[newIndex]) {
-                // swap one item
                 this.startIndex = newIndex - 2;
-                console.log('> swap 1 item');
+                console.log('< swap 2 item');
               }
             }
           }
@@ -96,15 +90,11 @@ namespace we {
             this.startIndex = newIndex;
             console.log('< swap 3 item');
           } else {
-            newIndex += 1;
-            if (this.items[newIndex]) {
-              this.startIndex = newIndex;
-              console.log('< swap 2 item');
-            } else {
+            while (!this.items[newIndex]) {
               newIndex += 1;
               if (this.items[newIndex]) {
                 this.startIndex = newIndex;
-                console.log('< swap 1 item');
+                console.log('< swap 2 item');
               }
             }
           }
