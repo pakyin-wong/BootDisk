@@ -74,10 +74,10 @@ namespace we {
         // // scroller.viewport = roomList;
         // this.addChild(roomList);
 
-        setTimeout(function () {
-          // utils.linkTo('weweb://lobby/live/dragontiger');
-          utils.linkTo('https://www.google.com', 'Google');
-        }, 8000);
+        // setTimeout(function () {
+        //   utils.linkTo('weweb://lobby/live/goodroad');
+        //   // utils.linkTo('https://www.google.com', 'Google');
+        // }, 8000);
       }
 
       public async onFadeEnter() {}
