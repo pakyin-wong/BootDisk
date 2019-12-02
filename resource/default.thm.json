@@ -40,6 +40,7 @@
 		"resource/eui_skins/VSliderSkin.exml",
 		"resource/skin_desktop/ba/GameResult/GameResultNormalSkin.exml",
 		"resource/skin_desktop/ba/GameResult/GameResultWinSkin.exml",
+		"resource/skin_desktop/ba/InGameMessage/InGameMessageSkin.exml",
 		"resource/skin_desktop/TableInfoPanel.exml",
 		"resource/skin_desktop/GameBar.exml",
 		"resource/skin_desktop/BaccaratScene.exml",

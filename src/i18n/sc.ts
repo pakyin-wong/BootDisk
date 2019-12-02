@@ -59,6 +59,9 @@ namespace we {
         betLimit: '下注限红',
         baccarat: '百家樂',
       },
+      message: {
+        test: '你贏得 $1，$2% 會比左我',
+      },
     };
   }
 }
