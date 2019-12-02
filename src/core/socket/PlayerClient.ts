@@ -8,10 +8,7 @@ namespace we {
           playerID: dir.config.playerID,
           secret: dir.config.secret,
           connectTimeout: dir.config.connectTimeout, // To avoid disconnect,
-          authhost: dir.config.authhost,
-          hostname: dir.config.hostname, // RabbitMQ hostname
-          path: dir.config.path, // Path of RabbitMQ websocket
-          port: dir.config.port, // RabbitMQ websocket port
+          endpoint: dir.config.endpoint,
         });
 
         logger.l('MQTTSocketComm is created', this.client);
@@ -26,6 +23,7 @@ namespace we {
         // this.client.subscribe(core.MQTT.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         this.client.subscribe(core.MQTT.BALANCE_UPDATE, this.onBalanceUpdate, this);
         this.client.subscribe(core.MQTT.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
       }
 
       public connect() {
@@ -322,6 +320,15 @@ namespace we {
       }
 
       public getTableHistory() {}
+
+      protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
+        logger.l('PlayerClient::onBetTableListUpdate: tableList: ');
+        console.dir(tableList);
+        logger.l('PlayerClient::onBetTableListUpdate: timestamp: ');
+        console.dir(timestamp);
+
+        dir.evtHandler.dispatch(core.Event.BET_SUMMARY_UPDATE, null);
+      }
     }
   }
 }

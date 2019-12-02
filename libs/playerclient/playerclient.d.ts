@@ -11,11 +11,11 @@ declare class PlayerClient {
     private _serviceProcessEvent;
     private _conn;
     private _tableInfoCallbackMap;
-    constructor({ service, playerID, secret, authhost, hostname, port, protocol, path, connectTimeout, reconnectPeriod, }: {
-        service?: string;
+    constructor({ service, playerID, secret, endpoint, hostname, port, protocol, path, connectTimeout, reconnectPeriod, }: {
+         service?: string;
         playerID?: string;
         secret?: string;
-        authhost?: string;
+        endpoint?: string;
         hostname?: string;
         port?: string;
         protocol?: string;
@@ -23,6 +23,7 @@ declare class PlayerClient {
         connectTimeout?: number;
         reconnectPeriod?: number;
     });
+    init(lang: string, callback: Function): void;
     connect(callback?:Function): void;
     close(): void;
     subscribe(eventName: string, f: Function, context?: object, options?: any): void;
