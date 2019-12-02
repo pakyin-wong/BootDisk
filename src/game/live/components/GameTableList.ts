@@ -122,11 +122,22 @@ namespace we {
         }
       }
 
-      private onSelectedIndexChanged() {
-        // TODO
-        //   // get new data List
-        //   dir.socket.getTableList(core.LiveGameTab[game]);
-        // dir.socket.getTableHistory();
+      private onSelectedIndexSorted(evt: any) {
+        const prevIdx = evt.data.prevIdx;
+        const newIdx = evt.data.newIdx;
+        egret.log(prevIdx, newIdx);
+        const removed = this.tabItems.splice(prevIdx, 1);
+        this.tabItems.splice(newIdx, 0, removed[0]);
+      }
+
+      private onSelectedIndexChanged(evt: any) {
+        egret.log(this.tabs.tabBar.selectedIndex);
+        const item = this.tabItems[this.tabs.tabBar.selectedIndex];
+
+        // TODO: Clear Table Array
+
+        dir.socket.getTableList(item);
+        dir.socket.getTableHistory();
       }
 
       public selectGameType(game: string = null) {
@@ -144,6 +155,7 @@ namespace we {
         dir.socket.getTableList(item);
         dir.socket.getTableHistory();
 
+        this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);
         this.tabs.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onSelectedIndexChanged, this);
       }
     }
