@@ -1,8 +1,8 @@
 namespace we {
-  export namespace ui {
-    export class SystemSetting extends Panel {
+  export namespace overlay {
+    export class SystemSetting extends ui.Panel {
       constructor() {
-        super();
+        super('SystemSetting');
       }
 
       protected mount() {}

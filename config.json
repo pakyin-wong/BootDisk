@@ -2,10 +2,7 @@
     "target": "local",
     "mode": "comm",
     "playerID": "BMJCP2DH5S5VCC8S9RHG",
-    "secret": "4114f79f17c28ec6bfa01b80a28870a7",
-    "connectTimeout": 1000000,
-    "authhost": "http://18.139.237.86:8080/liveplayer/api/auth",
-    "hostname": "18.139.237.86",
-    "path": "/ws",
-    "port": "15675"
+    "secret": "JWT_TOKEN_HERE",
+    "endpoint":"http://18.139.237.86:8080",
+    "connectTimeout": 1000000
 }

@@ -90,10 +90,12 @@ namespace we {
           return;
         }
         if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY)) {
+          this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         } else if (this.target.hitTestPoint(e.stageX, e.stageY)) {
           return;
-        } else if (this.dismissOnClickOutside) {
+        } else if (this.dismissOnClickOutside && !this.target.stage['inFocus']) {
+          this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         }
       }
@@ -116,7 +118,6 @@ namespace we {
         }
         this.isShow = false;
         await this.onHide(skipAnimation);
-        this.target.dispatchEvent(new egret.Event('close'));
       }
 
       protected async onShow(skipAnimation: boolean = false) {

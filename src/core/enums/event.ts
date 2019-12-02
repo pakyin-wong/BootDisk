@@ -1,7 +1,7 @@
 namespace we {
   export namespace core {
     export const Event = {
-      SHOW_OVERLAY: 'EV_SHOW_OVERLAY',
+      TOGGLE_OVERLAY_PANEL: 'TOGGLE_OVERLAY_PANEL',
       MODE_UPDATE: 'EV_MODE_UPDATE',
       METER_UPDATE: 'EV_METER_UPDATE',
       ENTER_SCENE: 'EV_ENTER_SCENE',
@@ -34,6 +34,7 @@ namespace we {
       CONNECT_SUCCESS: 'MQTT_EV_CONNECT_SUCCESS',
       CONNECT_FAIL: 'MQTT_EV_CONNECT_FAIL',
       TABLE_BET_INFO_UPDATE: 'TABLE_BET_INFO_UPDATE',
+      BET_TABLE_LIST_UPDATE: 'BET_TABLE_LIST_UPDATE',
     };
   }
 }

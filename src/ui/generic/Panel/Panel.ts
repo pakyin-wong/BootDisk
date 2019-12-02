@@ -32,7 +32,7 @@ namespace we {
       }
       public set isPoppable(value: boolean) {
         this._isPoppable = value;
-        this.draggableAddon.active = value;
+        this.poppableAddon.active = value;
       }
       public get isPoppable(): boolean {
         return this._isPoppable;
@@ -96,13 +96,11 @@ namespace we {
       }
 
       public async show() {
-        this.visible = true;
         this.poppableAddon.active && (await this.poppableAddon.show());
       }
 
       public async hide() {
         this.poppableAddon.active && (await this.poppableAddon.hide());
-        this.visible = false;
       }
     }
   }
