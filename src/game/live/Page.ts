@@ -1,22 +1,32 @@
 namespace we {
   export namespace live {
-    export class Page extends core.BaseEUI {
+    export class Page extends core.BasePage {
       private video: egret.FlvVideo;
 
-      public constructor() {
-        super('LivePage');
+      private _gameTableList: GameTableList;
+
+      public constructor(data: any = null) {
+        super('LivePage', data);
       }
 
       public onEnter() {
+        super.onEnter();
         // After pressing the Filter
-        dir.socket.getTableList();
-        // dir.socket.getTableList(enums.TableFilter.BACCARAT);
-        dir.socket.getTableHistory();
+        // dir.socket.getTableList();
+        // // dir.socket.getTableList(enums.TableFilter.BACCARAT);
+        // dir.socket.getTableHistory();
+
+        if (this._data && this._data.tab) {
+          this._gameTableList.selectGameType(this._data.tab);
+        } else {
+          this._gameTableList.selectGameType();
+        }
       }
 
       public async onFadeEnter() {}
 
-      public onExit() {
+      public destroy() {
+        super.destroy();
         this.removeChildren();
       }
 

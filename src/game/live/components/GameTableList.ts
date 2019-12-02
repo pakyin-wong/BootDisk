@@ -5,6 +5,9 @@ namespace we {
       private collection: eui.ArrayCollection;
       private roomIds: number[] = [];
 
+      private tabs: SegmentedControl;
+      private tabItems: string[];
+
       constructor() {
         super();
         this.collection = new eui.ArrayCollection(this.roomIds);
@@ -48,12 +51,13 @@ namespace we {
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;
+        this.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        this.tabs = new we.live.SegmentedControl(this.tabItems);
 
-        const tabs = new we.live.SegmentedControl();
         // tabs.left = paddingHorizontal;
         // tabs.bottom = gapSize + -offsetForTableList;
         const section = new ui.ScrollerSection();
-        section.header = tabs;
+        section.header = this.tabs;
         section.content = roomList;
         // section.header = new eui.Rect(640, 100, 0xff11ff);
         // section.content = new eui.Rect(640, 2000, 0x22ffff);
@@ -116,6 +120,31 @@ namespace we {
             this.collection.replaceItemAt(x, inx);
           });
         }
+      }
+
+      private onSelectedIndexChanged() {
+        // TODO
+        //   // get new data List
+        //   dir.socket.getTableList(core.LiveGameTab[game]);
+        // dir.socket.getTableHistory();
+      }
+
+      public selectGameType(game: string = null) {
+        let item = 'bacarrat';
+        if (game && core.LiveGameTab[game]) {
+          item = core.LiveGameTab[game];
+        }
+        let itemIdx = 0;
+        itemIdx = this.tabItems.indexOf(item);
+        itemIdx = itemIdx >= 0 ? itemIdx : 0;
+
+        this.tabs.setSelectedIndex(itemIdx);
+
+        // get new data List
+        dir.socket.getTableList(item);
+        dir.socket.getTableHistory();
+
+        this.tabs.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onSelectedIndexChanged, this);
       }
     }
   }

@@ -33,5 +33,12 @@ namespace we {
       lobby = 'lobby',
       ba = 'ba',
     }
+    export enum PageName {
+      lobby = 'lobby',
+      live = 'live',
+    }
+    export enum LiveGameTab {
+      ba = 'bacarrat',
+    }
   }
 }
