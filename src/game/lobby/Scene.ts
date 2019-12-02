@@ -7,8 +7,11 @@ namespace we {
       private _list: eui.TabBar;
       private _items: string[] = ['lobby', 'live', 'lottery', 'egame', 'favorite'];
 
+      private _data: any;
+
       constructor(data: any = null) {
         super(data);
+        this._data = data;
         this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LEFT;
         this.skinName = utils.getSkin('LobbyScene');
         this._list = new eui.TabBar();
@@ -26,11 +29,20 @@ namespace we {
 
       public onEnter() {
         // After pressing the Filter
-        dir.socket.getTableList();
+        // dir.socket.getTableList();
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
-        dir.socket.getTableHistory();
+        // dir.socket.getTableHistory();
+        let itemIdx = 0;
+        if (this._data) {
+          const initPage = this._data ? this._data.page : null;
+          if (initPage) {
+            itemIdx = this._items.indexOf(initPage);
+            itemIdx = itemIdx >= 0 ? itemIdx : 0;
+            this._list.selectedIndex = itemIdx;
+          }
+        }
 
-        this.loadPage(this._items[0]);
+        this.loadPage(this._items[itemIdx], this._data);
         // const scroller = new ui.Scroller();
         // // scroller.percentWidth = 100;
         // scroller.width = 640;
@@ -63,8 +75,8 @@ namespace we {
         // this.addChild(roomList);
 
         // setTimeout(function () {
-        // utils.linkTo('weweb://scene/ba?tableid=1');
-        // utils.linkTo('https://www.google.com', 'Google');
+        //   utils.linkTo('weweb://lobby/live/goodroad');
+        //   // utils.linkTo('https://www.google.com', 'Google');
         // }, 8000);
       }
 
@@ -88,10 +100,11 @@ namespace we {
         this.loadPage(this._list.selectedItem);
       }
 
-      private loadPage(name) {
+      private loadPage(name: string, data: any = null) {
         this._page.removeChildren();
-        const page = new we[name].Page();
+        const page: core.BasePage = new we[name].Page(data);
         this._page.addChild(page);
+        page.onEnter();
       }
     }
 

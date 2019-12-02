@@ -5,7 +5,9 @@ namespace we {
       public collection: eui.ArrayCollection;
       private activeLine: eui.Rect;
 
-      public constructor() {
+      private items: string[];
+
+      public constructor(items: string[] = []) {
         super();
         this.height = 50;
         this.tabBar = new ui.SortableList();
@@ -14,12 +16,15 @@ namespace we {
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
 
-        const items = ['live.gametype.bacarrat', 'live.gametype.dragontiger', 'live.gametype.luckywheel', 'live.gametype.wheel', 'live.gametype.dice', 'live.gametype.goodroad'];
+        this.items = items.map(value => {
+          return `live.gametype.${value}`;
+        });
+        // ['live.gametype.bacarrat', 'live.gametype.dragontiger', 'live.gametype.luckywheel', 'live.gametype.wheel', 'live.gametype.dice', 'live.gametype.goodroad'];
 
         const tlayout = new eui.HorizontalLayout();
         tlayout.gap = 30;
         // tlayout.requestedColumnCount = items.length;
-        this.collection = new eui.ArrayCollection(items);
+        this.collection = new eui.ArrayCollection(this.items);
         this.tabBar.itemRenderer = SegmentedControlTabItem;
         this.tabBar.layout = tlayout;
         this.tabBar.dataProvider = this.collection;
@@ -50,13 +55,13 @@ namespace we {
         // this.addChild(shape);
         // this.mask = shape;
 
-        window.requestAnimationFrame(() => {
-          this.tabBar.selectedIndex = 0;
-          const { x, width } = this.tabBar.$children[this.tabBar.selectedIndex];
-          this.activeLine.x = x;
-          this.activeLine.width = width;
-          console.log(this.tabBar.$children);
-        });
+        // window.requestAnimationFrame(() => {
+        //   this.tabBar.selectedIndex = 0;
+        //   const { x, width } = this.tabBar.$children[this.tabBar.selectedIndex];
+        //   this.activeLine.x = x;
+        //   this.activeLine.width = width;
+        //   console.log(this.tabBar.$children);
+        // });
       }
 
       private async onSelectedIndexChanged(fromItemRenderer = false) {
@@ -69,6 +74,10 @@ namespace we {
             .to({ x, width }, fromItemRenderer ? 400 : 200)
             .call(resolve);
         });
+      }
+
+      public setSelectedIndex(idx: number) {
+        this.tabBar.selectedIndex = idx;
       }
     }
   }
