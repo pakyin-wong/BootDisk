@@ -90,15 +90,17 @@ namespace we {
           return;
         }
         if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY)) {
+          this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         } else if (this.target.hitTestPoint(e.stageX, e.stageY)) {
           return;
-        } else if (this.dismissOnClickOutside) {
+        } else if (this.dismissOnClickOutside && !this.target.stage['inFocus']) {
+          this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         }
       }
 
-      private async show(skipAnimation: boolean = false) {
+      public async show(skipAnimation: boolean = false) {
         if (!skipAnimation && this.isAnimating) {
           return;
         }
@@ -107,7 +109,7 @@ namespace we {
         this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
       }
 
-      private async hide(skipAnimation: boolean = false) {
+      public async hide(skipAnimation: boolean = false) {
         if (!skipAnimation && this.isAnimating) {
           return;
         }

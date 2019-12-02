@@ -68,6 +68,7 @@
 		"resource/skin_desktop/ScrollBarVertical.exml",
 		"resource/skin_desktop/SegmentedControlTabItem.exml",
 		"resource/skin_desktop/SwitchLang.exml",
+		"resource/skin_desktop/SystemSetting.exml",
 		"resource/skin_desktop/TableInfoWindow.exml",
 		"resource/skin_desktop/UserInfoWindow.exml"
 	],

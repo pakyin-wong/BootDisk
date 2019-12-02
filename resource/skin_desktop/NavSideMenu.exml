@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="NavSideMenuSkin" width="375" height="545" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+<e:Skin class="NavSideMenuSkin" width="363" height="576" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
 	<w:Config id="16df87cf43a" ></w:Config>
-	<e:Group id="content" left="0" top="0" right="0" bottom="0">
-		<e:Image top="0" bottom="0" source="nav_menu_bg" left="0" right="0" x="0" y="0" scaleX="1" scaleY="1"/>
-		<e:Rect anchorOffsetX="0" anchorOffsetY="0" left="0" right="0" top="0" bottom="0" fillColor="0x262626" strokeColor="0xb2b2b2" strokeWeight="4"/>
-		<ui:RunTimeLabel id="txt_selectMode" text="Label" x="50" y="54" anchorOffsetX="0" width="282" anchorOffsetY="0" height="31" textColor="0xc6c6c6"/>
-		<e:Group id="btn_history" width="283" height="44" x="47" y="218" anchorOffsetX="0" anchorOffsetY="0">
-			<ui:RunTimeLabel id="txt_history" text="Label" x="53" y="11" anchorOffsetX="0" width="217" anchorOffsetY="0" height="25" textColor="0xc6c6c6"/>
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Image source="nav_panel_bg" left="0" right="0" top="0" bottom="0"/>
+		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="45" anchorOffsetX="0" width="282" anchorOffsetY="0" height="36" textAlign="center" fontFamily="NotoSansCJKtc-Regular" size="24" textColor="0xffffff" x="41"/>
+		<e:Group id="btn_history" x="59" y="274">
+			<ui:RunTimeLabel id="txt_history" text="Label" x="67" y="1" anchorOffsetX="0" width="96" anchorOffsetY="0" height="36" fontFamily="NotoSansCJKtc-Regular" size="24" textColor="0xffffff"/>
+			<e:Image width="40" height="40" x="0" y="0"/>
 		</e:Group>
-		<e:Group id="btn_member" width="283" height="43" x="47" y="281" anchorOffsetX="0" anchorOffsetY="0">
-			<ui:RunTimeLabel id="txt_member" text="Label" x="54" y="8" anchorOffsetX="0" width="220" anchorOffsetY="0" height="29" textColor="0xc1c1c1"/>
+		<e:Group id="btn_member" x="59" y="330">
+			<ui:RunTimeLabel id="txt_member" text="Label" x="67" y="0" anchorOffsetX="0" width="96" anchorOffsetY="0" height="36" size="24" fontFamily="NotoSansCJKtc-Regular" textColor="0xffffff"/>
+			<e:Image width="40" height="40" x="0" y="0"/>
 		</e:Group>
-		<e:Group id="btn_road" width="283" height="44" x="47" y="341" anchorOffsetX="0" anchorOffsetY="0">
-			<ui:RunTimeLabel id="txt_road" text="Label" x="53" y="9" anchorOffsetX="0" width="221" textColor="0xcecece"/>
+		<e:Group id="btn_road" x="59" y="384">
+			<ui:RunTimeLabel id="txt_road" text="Label" x="67" y="2" anchorOffsetX="0" width="96" size="24" textColor="0xffffff" fontFamily="NotoSansCJKtc-Regular" height="36"/>
+			<e:Image width="40" height="40" x="0" y="0"/>
 		</e:Group>
-		<e:Group id="btn_system" width="284" height="45" x="46" y="402" anchorOffsetX="0" anchorOffsetY="0">
-			<ui:RunTimeLabel id="txt_system" text="Label" x="55" y="7.5" anchorOffsetX="0" width="217" textColor="0xcccccc"/>
+		<e:Group id="btn_system" x="66" y="438">
+			<ui:RunTimeLabel id="txt_system" text="Label" x="60" y="0" anchorOffsetX="0" width="96" height="36" size="24" textColor="0xffffff" fontFamily="NotoSansCJKtc-Regular"/>
+			<e:Image width="27" height="27" x="0" y="5"/>
 		</e:Group>
-		<e:Group id="btn_logout" width="285" height="45" x="45" y="462" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
-			<ui:RunTimeLabel id="txt_logout" text="Label" x="55" y="9" anchorOffsetX="0" width="220" textColor="0xcccccc"/>
+		<e:Group id="btn_logout" x="66" y="492">
+			<ui:RunTimeLabel id="txt_logout" text="Label" x="60" y="0" anchorOffsetX="0" width="96" height="36" size="24" textColor="0xffffff" fontFamily="NotoSansCJKtc-Regular"/>
+			<e:Image width="27" height="27" x="0" y="7"/>
 		</e:Group>
-		<e:Group id="btn_whiteMode" width="72" height="85" x="45" y="92" anchorOffsetX="0" anchorOffsetY="0">
-			<ui:RunTimeLabel id="txt_whiteMode" text="Label" x="3" y="57" size="25" scaleX="1" scaleY="1"/>
+		<e:Group id="btn_lightMode" x="99" y="113">
+			<e:Image width="56" height="40.3" x="0" y="0"/>
+			<ui:RunTimeLabel id="txt_lightMode" text="l" x="10" y="44.8" width="36" height="27" size="18" fontFamily="NotoSansCJKtc-Regular" textAlign="center"/>
+			<e:Image width="18" height="18" x="19" y="78"/>
+			<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1"/>
 		</e:Group>
-		<e:Group id="btn_darkMode" width="71" height="87" x="181" y="90" anchorOffsetX="0" anchorOffsetY="0">
-			<ui:RunTimeLabel id="txt_darkMode" text="Label" x="5" y="58" size="25" scaleX="1" scaleY="1"/>
+		<e:Group id="btn_darkMode" x="211" y="113">
+			<e:Image width="56" height="40.3" x="0" y="0"/>
+			<ui:RunTimeLabel id="txt_darkMode" text="l" x="10" y="44.8" width="36" height="27" size="18" fontFamily="NotoSansCJKtc-Regular" textAlign="center"/>
+			<e:Image width="18" height="18" x="19" y="78"/>
+			<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1"/>
 		</e:Group>
 	</e:Group>
 </e:Skin>

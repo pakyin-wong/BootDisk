@@ -17,7 +17,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_user_info_bg,nav_menu_toggle,nav_menu_bg",
+			"keys": "nav_user_info_bg,nav_menu_toggle,nav_panel_bg,nav_panel_close",
 			"name": "nav"
 		},
 		{
@@ -149,16 +149,6 @@
 			"url": "assets/Nav/user_info.PNG",
 			"type": "image",
 			"name": "nav_user_info_bg"
-		},
-		{
-			"url": "assets/Nav/menu_toggle.PNG",
-			"type": "image",
-			"name": "nav_menu_toggle"
-		},
-		{
-			"url": "assets/Nav/menu.PNG",
-			"type": "image",
-			"name": "nav_menu_bg"
 		},
 		{
 			"url": "assets/fonts/barlow.woff2",
@@ -1054,6 +1044,22 @@
 			"url": "assets/d/ba/d_ba_swaproadmap_button_element.png",
 			"type": "image",
 			"name": "d_ba_swaproadmap_button_element_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_navbar_menu.png",
+			"type": "image",
+			"name": "nav_menu_toggle"
+		},
+		{
+			"url": "assets/Nav/popover.png",
+			"type": "image",
+			"name": "nav_panel_bg",
+			"scale9grid": "30,30,456,725"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_button_close_none.png",
+			"type": "image",
+			"name": "nav_panel_close"
 		}
 	]
 }

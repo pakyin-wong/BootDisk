@@ -13,7 +13,7 @@
 	<e:Image id="_menu_toggle" width="28.8" height="24.4" x="2527" y="35" source="nav_menu_toggle" />
 	<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="115.76" isPoppable="true"
 	                   dismissOnClickOutside="true" />
-	<ui:NavSideMenu id="_menu" width="375" height="545" x="2155" y="120" isPoppable="true" dismissOnClickOutside="true" />
+	<ui:NavSideMenu id="_menu" width="363" height="576" x="2168" y="102" isPoppable="true" dismissOnClickOutside="true" />
 	<!--<e:Group width="1080" height="45" x="312" y="25">
 		<ui:RunTimeLabel id="_recommend" text="Label" x="0" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
 		<ui:RunTimeLabel id="_livegame" text="Label" x="144" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>

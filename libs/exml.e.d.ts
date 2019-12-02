@@ -168,6 +168,8 @@ declare module skin_desktop{
 	class SwitchLang extends eui.Skin{
 	}
 }
+declare class SystemSetting extends eui.Skin{
+}
 declare module skin_desktop{
 	class TableInfoPanel extends eui.Skin{
 	}

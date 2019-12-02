@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class NavSideMenu extends Panel {
-      private btn_whiteMode: eui.Component;
+      private btn_lightMode: eui.Component;
       private btn_darkMode: eui.Component;
       private btn_history: eui.Component;
       private btn_member: eui.Component;
@@ -10,7 +10,7 @@ namespace we {
       private btn_logout: eui.Component;
 
       private txt_selectMode: RunTimeLabel;
-      private txt_whiteMode: RunTimeLabel;
+      private txt_lightMode: RunTimeLabel;
       private txt_darkMode: RunTimeLabel;
       private txt_history: RunTimeLabel;
       private txt_member: RunTimeLabel;
@@ -37,7 +37,7 @@ namespace we {
 
       private initTxt() {
         this.txt_selectMode.renderText = () => `${i18n.t('nav.menu.selectMode')}`;
-        this.txt_whiteMode.renderText = () => `${i18n.t('nav.menu.whiteMode')}`;
+        this.txt_lightMode.renderText = () => `${i18n.t('nav.menu.whiteMode')}`;
         this.txt_darkMode.renderText = () => `${i18n.t('nav.menu.darkMode')}`;
         this.txt_history.renderText = () => `${i18n.t('nav.menu.history')}`;
         this.txt_member.renderText = () => `${i18n.t('nav.menu.member')}`;
@@ -47,7 +47,7 @@ namespace we {
       }
 
       private addListeners() {
-        utils.addButtonListener(this.btn_whiteMode, this.onClickWhiteMode, this);
+        utils.addButtonListener(this.btn_lightMode, this.onClickLightMode, this);
         utils.addButtonListener(this.btn_darkMode, this.onClickDarkMode, this);
         utils.addButtonListener(this.btn_history, this.onClickHistory, this);
         utils.addButtonListener(this.btn_member, this.onClickMember, this);
@@ -57,7 +57,7 @@ namespace we {
       }
 
       private removeListeners() {
-        this.btn_whiteMode.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickWhiteMode, this);
+        this.btn_lightMode.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickLightMode, this);
         this.btn_darkMode.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDarkMode, this);
         this.btn_history.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickHistory, this);
         this.btn_member.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickMember, this);
@@ -66,8 +66,8 @@ namespace we {
         this.btn_logout.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickLogout, this);
       }
 
-      private onClickWhiteMode() {
-        logger.l(`NavSideMenu::onClickWhiteMode`);
+      private onClickLightMode() {
+        logger.l(`NavSideMenu::onClickLightMode`);
         env.mode = 0;
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 0 });
         this.update();
@@ -93,6 +93,7 @@ namespace we {
       }
 
       private onClickSystem() {
+        dir.evtHandler.dispatch(core.Event.TOGGLE_OVERLAY_PANEL, 'SystemSetting');
         logger.l(`NavSideMenu::onClickSystem`);
       }
 
