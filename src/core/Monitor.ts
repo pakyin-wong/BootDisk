@@ -14,6 +14,8 @@ namespace we {
         dir.layerCtr.nav.addChild(this._nav);
         dir.layerCtr.top.addChild(this._betsummary);
         dir.layerCtr.overlay.addChild(this._overlay);
+
+        this.addListeners();
       }
 
       private addListeners() {

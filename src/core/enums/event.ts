@@ -1,6 +1,7 @@
 namespace we {
   export namespace core {
     export const Event = {
+      SHOW_OVERLAY: 'EV_SHOW_OVERLAY',
       MODE_UPDATE: 'EV_MODE_UPDATE',
       METER_UPDATE: 'EV_METER_UPDATE',
       ENTER_SCENE: 'EV_ENTER_SCENE',

@@ -17,7 +17,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_user_info_bg,nav_menu_toggle,nav_menu_bg",
+			"keys": "nav_user_info_bg,nav_menu_bg,nav_menu_toggle",
 			"name": "nav"
 		},
 		{
@@ -1054,6 +1054,11 @@
 			"url": "assets/d/ba/d_ba_swaproadmap_button_element.png",
 			"type": "image",
 			"name": "d_ba_swaproadmap_button_element_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_navbar_menu.png",
+			"type": "image",
+			"name": "nav_menu_toggle"
 		}
 	]
 }
