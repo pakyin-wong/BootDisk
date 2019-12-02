@@ -184,7 +184,7 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby');
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
       }
 
       public onChangeLang() {
