@@ -31,7 +31,10 @@ namespace we {
       // Can be divided into a new class if neccessary
       protected getBaccaratItem() {
         const bettingTable = new we.ba.BettingTable();
-        bettingTable.skinName = we.utils.getSkin('BetSummaryBaBettingTable');
+        bettingTable.skinName = we.utils.getSkin('BetInfoBaBettingTable');
+        bettingTable.type = we.core.BettingTableType.BETSUMMARY;
+        bettingTable.init();
+
         const item = new core.BaseEUI();
         item.addChild(bettingTable);
         return item;

@@ -9,15 +9,15 @@
 			"name": "common"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png,Lobby_ThreeColumnBg_png",
+			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png,Lobby_ThreeColumnBg_png,d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png",
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "scene_baccarat_banker,scene_baccarat_banker_pair,scene_baccarat_player,scene_baccarat_player_pair,scene_baccarat_player_win,scene_baccarat_tie,d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png",
+			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_general_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_general_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_general_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_general_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_general_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_general_png,d_ba_betarea_tie_general_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_general_png,d_ba_betcontrol_clipsset_flat_2_png,d_ba_betcontrol_clipsset_flat_20_png,d_ba_betcontrol_clipsset_flat_50_png,d_ba_betcontrol_clipsset_flat_1_png,d_ba_betcontrol_image_clipsset5_png",
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_user_info_bg,nav_menu_toggle,nav_panel_bg,nav_panel_close",
+			"keys": "nav_user_info_bg,nav_menu_toggle,nav_panel_bg,nav_panel_close,nav_menu_bg",
 			"name": "nav"
 		},
 		{
@@ -151,6 +151,27 @@
 			"name": "nav_user_info_bg"
 		},
 		{
+			"url": "assets/d/lobby/d_lobby_navbar_menu.png",
+			"type": "image",
+			"name": "nav_menu_toggle"
+		},
+		{
+			"url": "assets/Nav/menu.PNG",
+			"type": "image",
+			"name": "nav_menu_bg"
+		},
+		{
+			"url": "assets/Nav/popover.png",
+			"type": "image",
+			"name": "nav_panel_bg",
+			"scale9grid": "30,30,456,725"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_button_close_none.png",
+			"type": "image",
+			"name": "nav_panel_close"
+		},
+		{
 			"url": "assets/fonts/barlow.woff2",
 			"type": "bin",
 			"name": "barlow_woff2"
@@ -159,36 +180,6 @@
 			"url": "assets/fonts/barlow.woff",
 			"type": "bin",
 			"name": "barlow_woff"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_banker.png",
-			"type": "image",
-			"name": "scene_baccarat_banker"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_banker_pair.png",
-			"type": "image",
-			"name": "scene_baccarat_banker_pair"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player.png",
-			"type": "image",
-			"name": "scene_baccarat_player"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player_pair.png",
-			"type": "image",
-			"name": "scene_baccarat_player_pair"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player_win.png",
-			"type": "image",
-			"name": "scene_baccarat_player_win"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_tie.png",
-			"type": "image",
-			"name": "scene_baccarat_tie"
 		},
 		{
 			"url": "assets/banner-baccarat.png",
@@ -209,36 +200,6 @@
 			"url": "assets/lobby_banner3.png",
 			"type": "image",
 			"name": "lobby_banner3_png"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_banker.png",
-			"type": "image",
-			"name": "scene_baccarat_banker_png"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_banker_pair.png",
-			"type": "image",
-			"name": "scene_baccarat_banker_pair_png"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player.png",
-			"type": "image",
-			"name": "scene_baccarat_player_png"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player_pair.png",
-			"type": "image",
-			"name": "scene_baccarat_player_pair_png"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_player_win.png",
-			"type": "image",
-			"name": "scene_baccarat_player_win_png"
-		},
-		{
-			"url": "assets/Scene/baccarat/scene_baccarat_tie.png",
-			"type": "image",
-			"name": "scene_baccarat_tie_png"
 		},
 		{
 			"url": "assets/banner-baccarat.png",
@@ -656,16 +617,6 @@
 			"name": "d_ba_betarea_icon_bet_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_palyerpair_general.png",
-			"type": "image",
-			"name": "d_ba_betarea_palyerpair_general_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betarea_palyerpair_hover.png",
-			"type": "image",
-			"name": "d_ba_betarea_palyerpair_hover_png"
-		},
-		{
 			"url": "assets/d/ba/d_ba_betarea_player_general.png",
 			"type": "image",
 			"name": "d_ba_betarea_player_general_png"
@@ -684,16 +635,6 @@
 			"url": "assets/d/ba/d_ba_betarea_supersix_bankerpair_hover.png",
 			"type": "image",
 			"name": "d_ba_betarea_supersix_bankerpair_hover_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betarea_supersix_palyerpair_general.png",
-			"type": "image",
-			"name": "d_ba_betarea_supersix_palyerpair_general_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betarea_supersix_palyerpair_hover.png",
-			"type": "image",
-			"name": "d_ba_betarea_supersix_palyerpair_hover_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_supersix_tie_general.png",
@@ -1046,20 +987,149 @@
 			"name": "d_ba_swaproadmap_button_element_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_navbar_menu.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_a_hover.png",
 			"type": "image",
-			"name": "nav_menu_toggle"
+			"name": "d_lobby_quick_bet_area_a_hover_png"
 		},
 		{
-			"url": "assets/Nav/popover.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_a_none.png",
 			"type": "image",
-			"name": "nav_panel_bg",
-			"scale9grid": "30,30,456,725"
+			"name": "d_lobby_quick_bet_area_a_none_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_close_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_b_hover.png",
 			"type": "image",
-			"name": "nav_panel_close"
+			"name": "d_lobby_quick_bet_area_b_hover_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_b_none.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_b_none_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_c_hover.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_c_hover_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_c_none.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_c_none_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_d_hover.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_d_hover_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_d_none.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_d_none_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_e_hover.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_e_hover_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_e_none.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_e_none_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_a.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_poker_a_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_poker_b_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b1_hover.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_poker_b1_hover_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b1_none.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_poker_b1_none_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b2_hover.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_poker_b2_hover_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b2_none.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_poker_b2_none_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_shadow_l.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_shadow_l_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_shadow_r.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_area_shadow_r_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_betarea_playerpair_hover.png",
+			"type": "image",
+			"name": "d_ba_betarea_playerpair_hover_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_betarea_playerpair_general.png",
+			"type": "image",
+			"name": "d_ba_betarea_playerpair_general_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_select_round_yes.png",
+			"type": "image",
+			"name": "d_lobby_select_round_yes_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_select_round_no.png",
+			"type": "image",
+			"name": "d_lobby_select_round_no_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_betarea_supersix_playerpair_general.png",
+			"type": "image",
+			"name": "d_ba_betarea_supersix_playerpair_general_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_betarea_supersix_playerpair_hover.png",
+			"type": "image",
+			"name": "d_ba_betarea_supersix_playerpair_hover_png"
+		},
+		{
+			"name": "d_ba_betcontrol_clipsset_flat_2_png",
+			"type": "image",
+			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_2.png"
+		},
+		{
+			"name": "d_ba_betcontrol_clipsset_flat_20_png",
+			"type": "image",
+			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_20.png"
+		},
+		{
+			"name": "d_ba_betcontrol_clipsset_flat_50_png",
+			"type": "image",
+			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_50.png"
+		},
+		{
+			"name": "d_ba_betcontrol_clipsset_flat_1_png",
+			"type": "image",
+			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_1.png"
+		},
+		{
+			"name": "d_ba_betcontrol_image_clipsset5_png",
+			"type": "image",
+			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset5.png"
 		}
 	]
 }

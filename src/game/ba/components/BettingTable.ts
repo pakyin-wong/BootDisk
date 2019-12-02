@@ -1,15 +1,15 @@
 namespace we {
   export namespace ba {
     export class BettingTable extends ui.Panel {
-      private gridPlayerPair: BettingTableGrid;
-      private gridBankerPair: BettingTableGrid;
-      private gridPlayer: BettingTableGrid;
-      private gridTie: BettingTableGrid;
-      private gridSuperSix: BettingTableGrid;
-      private gridBanker: BettingTableGrid;
-      private lblNoComm: eui.Label;
-      private switchSuperSix: eui.ToggleSwitch;
+      private _gridPlayerPair: BettingTableGrid;
+      private _gridBankerPair: BettingTableGrid;
+      private _gridPlayer: BettingTableGrid;
+      private _gridTie: BettingTableGrid;
+      private _gridSuperSix: BettingTableGrid;
+      private _gridBanker: BettingTableGrid;
       private tableID: number;
+      private _type: we.core.BettingTableType;
+      private _denomList: number[];
 
       private mapping: { [s: string]: BettingTableGrid };
 
@@ -19,71 +19,103 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = utils.getSkin('BettingTable');
+      }
+
+      set denomList(value: number[]) {
+        this._denomList = value;
+      }
+
+      get denomList() {
+        return this._denomList;
       }
 
       private setTableID(tableId: number) {
         this.tableID = tableId;
       }
 
+      set type(value: we.core.BettingTableType) {
+        this._type = value;
+      }
+
+      get type() {
+        return this._type;
+      }
+
       public resetBitmap() {
-        this.gridBanker.setBitmap('scene_baccarat_banker');
-        this.gridPlayer.setBitmap('scene_baccarat_player');
-        this.gridTie.setBitmap('scene_baccarat_tie');
-        this.gridBankerPair.setBitmap('scene_baccarat_banker_pair');
-        this.gridPlayerPair.setBitmap('scene_baccarat_player_pair');
+        switch (+this._type) {
+          case we.core.BettingTableType.NORMAL:
+            this._gridBanker.setBitmap('d_ba_betarea_banker_general_png');
+            this._gridPlayer.setBitmap('d_ba_betarea_player_general_png');
+            this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
+            this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
+            this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
+            break;
+          case we.core.BettingTableType.LOBBY:
+            this._gridBanker.setBitmap('d_lobby_quick_bet_area_a_none_png');
+            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_b_none_png');
+            this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
+            this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
+            this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
+            break;
+          case we.core.BettingTableType.BETSUMMARY:
+            this._gridBanker.setBitmap('d_lobby_quick_bet_area_a_none_png');
+            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_b_none_png');
+            this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
+            this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
+            this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
+            break;
+          default:
+            this._gridBanker.setBitmap('d_ba_betarea_banker_general_png');
+            this._gridPlayer.setBitmap('d_ba_betarea_player_general_png');
+            this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
+            this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
+            this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
+        }
       }
 
       protected childrenCreated() {
-        this.gridBanker.setFieldName(BetField.BANKER);
-        this.gridPlayer.setFieldName(BetField.PLAYER);
-        this.gridTie.setFieldName(BetField.TIE);
-        this.gridBankerPair.setFieldName(BetField.BANKER_PAIR);
-        this.gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
-        this.gridSuperSix.setFieldName(BetField.SUPER_SIX);
-
-        this.initGraphics();
-
-        this.switchSuperSix.addEventListener(
-          egret.Event.CHANGE,
-          () => {
-            this.invalidateState();
-          },
-          this
-        );
-        this.mapping = {};
-        this.mapping[BetField.BANKER] = this.gridBanker;
-        this.mapping[BetField.PLAYER] = this.gridPlayer;
-        this.mapping[BetField.TIE] = this.gridTie;
-        this.mapping[BetField.BANKER_PAIR] = this.gridBankerPair;
-        this.mapping[BetField.PLAYER_PAIR] = this.gridPlayerPair;
-        this.mapping[BetField.SUPER_SIX] = this.gridSuperSix;
-
-        this.resetUnconfirmedBet();
-
-        this.gridPlayerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridPlayerPair), this);
-        this.gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridBankerPair), this);
-        this.gridPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridPlayer), this);
-        this.gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridTie), this);
-        this.gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridBanker), this);
-        this.gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.gridSuperSix), this);
-
-        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
+        super.childrenCreated();
+        this.init();
       }
 
       // Must be called if you change skin
-      public initGraphics() {
-        this.gridBanker.setBitmap('scene_baccarat_banker');
-        this.gridPlayer.setBitmap('scene_baccarat_player');
-        this.gridTie.setBitmap('scene_baccarat_tie');
-        this.gridBankerPair.setBitmap('scene_baccarat_banker_pair');
-        this.gridPlayerPair.setBitmap('scene_baccarat_player_pair');
-        this.gridSuperSix.setBitmap('');
+      public init() {
+        // This part cannot be put in the constructor because they are null in constructor
+        this.mapping = {};
+        this.mapping[BetField.BANKER] = this._gridBanker;
+        this.mapping[BetField.PLAYER] = this._gridPlayer;
+        this.mapping[BetField.TIE] = this._gridTie;
+        this.mapping[BetField.BANKER_PAIR] = this._gridBankerPair;
+        this.mapping[BetField.PLAYER_PAIR] = this._gridPlayerPair;
+        this.mapping[BetField.SUPER_SIX] = this._gridSuperSix;
 
+        this._gridBanker.setFieldName(BetField.BANKER);
+        this._gridPlayer.setFieldName(BetField.PLAYER);
+        this._gridTie.setFieldName(BetField.TIE);
+        this._gridBankerPair.setFieldName(BetField.BANKER_PAIR);
+        this._gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
+        this._gridSuperSix.setFieldName(BetField.SUPER_SIX);
+
+        this._gridBanker.denomList = this._denomList;
+        this._gridPlayer.denomList = this._denomList;
+        this._gridTie.denomList = this._denomList;
+        this._gridBankerPair.denomList = this._denomList;
+        this._gridPlayerPair.denomList = this._denomList;
+        this._gridSuperSix.denomList = this._denomList;
+        this.resetBitmap();
         this.changeMethod('normal');
         this.changeLang();
+        this._gridPlayerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayerPair), this);
+        this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
+        this._gridPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayer), this);
+        this._gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridTie), this);
+        this._gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBanker), this);
+        this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
+        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
+        this.resetUnconfirmedBet();
       }
 
+      /*
       protected getCurrentState() {
         if (this.switchSuperSix.selected) {
           return 'SuperSix';
@@ -92,6 +124,7 @@ namespace we {
           return 'Normal';
         }
       }
+        */
 
       public changeMethod(method: string) {
         switch (method) {
@@ -99,23 +132,22 @@ namespace we {
             const textColor = 0xffffff;
             const bgColor = 0x000000;
 
-            this.gridPlayerPair.setStyle(textColor, bgColor);
-            this.gridBankerPair.setStyle(textColor, bgColor);
-            this.gridPlayer.setStyle(textColor, bgColor);
-            this.gridBanker.setStyle(textColor, bgColor);
-            this.gridSuperSix.setStyle(textColor, bgColor);
-            this.gridTie.setStyle(textColor, bgColor);
+            this._gridPlayerPair.setStyle(textColor, bgColor);
+            this._gridBankerPair.setStyle(textColor, bgColor);
+            this._gridPlayer.setStyle(textColor, bgColor);
+            this._gridBanker.setStyle(textColor, bgColor);
+            this._gridSuperSix.setStyle(textColor, bgColor);
+            this._gridTie.setStyle(textColor, bgColor);
         }
       }
 
       protected changeLang() {
-        this.gridPlayerPair.text = i18n.t('baccarat.playerPair');
-        this.gridBankerPair.text = i18n.t('baccarat.bankerPair');
-        this.gridPlayer.text = i18n.t('baccarat.player');
-        this.gridTie.text = i18n.t('baccarat.tie');
-        this.gridSuperSix.text = i18n.t('baccarat.superSix');
-        this.gridBanker.text = i18n.t('baccarat.banker');
-        this.lblNoComm.text = i18n.t('baccarat.noComm');
+        this._gridPlayerPair.text = i18n.t('baccarat.playerPair');
+        this._gridBankerPair.text = i18n.t('baccarat.bankerPair');
+        this._gridPlayer.text = i18n.t('baccarat.player');
+        this._gridTie.text = i18n.t('baccarat.tie');
+        this._gridSuperSix.text = i18n.t('baccarat.superSix');
+        this._gridBanker.text = i18n.t('baccarat.banker');
       }
 
       public setTouchEnabled(enable: boolean) {
@@ -158,6 +190,7 @@ namespace we {
 
       protected onBetFieldUpdate(grid: BettingTableGrid) {
         return (event: egret.Event) => {
+          console.log('BettingTable::onBetFieldUpdate()');
           const betDetail = { field: grid.getFieldName(), amount: grid.getAmount() };
           // validate bet action
           if (this.validateBetAction(betDetail)) {
@@ -222,6 +255,7 @@ namespace we {
           { field: BetField.SUPER_SIX, amount: 0 },
         ];
         Object.keys(this.mapping).forEach(value => {
+          console.log(value);
           this.mapping[value].setUncfmBet(0);
         });
         this.totalUncfmBetAmount = 0;
@@ -237,18 +271,19 @@ namespace we {
           { field: BetField.SUPER_SIX, amount: 0 },
         ];
         Object.keys(this.mapping).forEach(value => {
+          console.log(value);
           this.mapping[value].setCfmBet(0);
         });
       }
 
       public cancelBet() {
         this.resetUnconfirmedBet();
-        this.gridTie.cancelBet();
-        this.gridBanker.cancelBet();
-        this.gridPlayer.cancelBet();
-        this.gridPlayerPair.cancelBet();
-        this.gridBankerPair.cancelBet();
-        this.gridSuperSix.cancelBet();
+        this._gridTie.cancelBet();
+        this._gridBanker.cancelBet();
+        this._gridPlayer.cancelBet();
+        this._gridPlayerPair.cancelBet();
+        this._gridBankerPair.cancelBet();
+        this._gridSuperSix.cancelBet();
       }
       public onChangeLang() {
         this.changeLang();

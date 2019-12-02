@@ -47,7 +47,7 @@ namespace we {
         // layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
         roomList.layout = layout2;
         roomList.dataProvider = this.collection;
-        roomList.itemRenderer = LiveBaccaratListHolder;
+        roomList.itemRenderer = LiveListHolder;
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;

@@ -6,7 +6,7 @@
 	<ui:TableInfoPanel width="600" height="450" x="0" y="91" id="tableInfoWindow" isPoppable="true"
 	                   skinName="skin_desktop.TableInfoPanel" isEdgeDismissable="true" dismissOnClickOutside="false"
 	                   isDraggable="true" hideOnStart="true" />
-	<ba:BettingTable id="bettingTable" width="1128" height="314" bottom="0" horizontalCenter="0" isEdgeDismissable="true" />
+	<ba:BettingTable id="bettingTable" width="1128" height="314" bottom="0" horizontalCenter="0" isEdgeDismissable="true"  skinName="skin_desktop.BettingTableSkin"/>
 	<ba:BetChipSet id='betChipSet' width="1000" height="50" y="540" horizontalCenter="0" />
 	<ba:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
 	<ba:CountdownTimer id="countdownTimer" width="200" height="80" y="611.46" horizontalCenter="-11" />

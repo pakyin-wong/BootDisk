@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class BetSummary extends we.core.BaseEUI {
       private toggleBar: we.ui.BetSummaryToggle;
-      public betInfoList: we.ui.BetInfoList;
+      public betinfoScroller: we.ui.BetInfoScroller;
       private vlayout: eui.VerticalLayout;
       public group: eui.Group;
       public open: boolean;
@@ -27,17 +27,17 @@ namespace we {
         this.vlayout = new eui.VerticalLayout();
         this.vlayout.gap = 1;
         this.toggleBar = new we.ui.BetSummaryToggle(this.toggle(), this.getState());
-        this.betInfoList = new we.ui.BetInfoList();
+        this.betinfoScroller = new we.ui.BetInfoScroller();
         // this.betInfoList.height = 1000;
         // this.betInfoList.height = 1000;
-        this.betInfoList.setToggler(this.toggleBar, value => {
+        this.betinfoScroller.setToggler(this.toggleBar, value => {
           this.toggleBar.onToggle(value);
         });
-        this.betInfoList.isCollapsible = true;
-        this.betInfoList.maxHeight = 1000;
+        this.betinfoScroller.isCollapsible = true;
+        this.betinfoScroller.maxHeight = 1000;
         this.group = new eui.Group();
         this.group.addChild(this.toggleBar);
-        this.group.addChild(this.betInfoList);
+        this.group.addChild(this.betinfoScroller);
         this.group.layout = this.vlayout;
         this.group.x = 2000;
         this.group.bottom = 0;
@@ -49,10 +49,10 @@ namespace we {
         const self = this;
         return (): void => {
           if (self.open) {
-            self.group.removeChild(self.betInfoList);
+            self.group.removeChild(self.betinfoScroller);
             self.open = false;
           } else {
-            self.group.addChild(self.betInfoList);
+            self.group.addChild(self.betinfoScroller);
             self.open = true;
           }
         };
@@ -66,9 +66,9 @@ namespace we {
       }
 
       public updateTables() {
-        if (this.betInfoList.visible) {
-          this.betInfoList.updateTables();
-          this.toggleBar.setPos(this.betInfoList.x, this.betInfoList.y);
+        if (this.betinfoScroller.visible) {
+          this.betinfoScroller.updateTables();
+          this.toggleBar.setPos(this.betinfoScroller.x, this.betinfoScroller.y);
         } else {
           // update the lower part.
         }

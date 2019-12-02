@@ -1,10 +1,10 @@
 namespace we {
   export namespace live {
-    export class LiveBaccaratListHolder extends ui.ItemRenderer {
+    export class LiveListHolder extends ui.ItemRenderer {
       public selected: boolean;
       public itemIndex: number;
 
-      private _item: we.live.LiveBaccaratListItem;
+      private _item: we.live.LiveBaListItem;
       protected destinationX: number = Infinity;
       protected destinationY: number = Infinity;
       protected isDirty = true;
@@ -18,9 +18,9 @@ namespace we {
       private async mount() {
         this.width = 578;
         this.height = 388;
-        console.log('we.live.LiveBaccaratListHolder::mount()');
+        console.log('we.live.LiveListHolder::mount()');
         console.log(this.itemData);
-        this._item = new we.live.LiveBaccaratListItem();
+        this._item = new we.live.LiveBaListItem();
         this.addChild(this._item);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }

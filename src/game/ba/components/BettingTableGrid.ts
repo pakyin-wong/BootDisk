@@ -2,9 +2,10 @@ namespace we {
   export namespace ba {
     export class BettingTableGrid extends eui.Component {
       private lblName: eui.Label;
-      private lblUncfmBet: eui.Label;
-      private lblCfmBet: eui.Label;
+      // private lblUncfmBet: eui.Label;
+      // private lblCfmBet: eui.Label;
 
+      private _denomList: number[];
       private _fieldName: string;
       private _cfmBet: number;
       private _uncfmBet: number;
@@ -13,13 +14,32 @@ namespace we {
       private _textColor: number = 0xffffff;
       private _bgColor: number = 0x000000;
 
+      private _cfmDenom: number[];
+      private _uncfmDenom: number[];
+
+      private _type: we.core.BettingTableType;
+
       constructor() {
         super();
         this.lblName = new eui.Label();
-        this.lblUncfmBet = new eui.Label();
-        this.lblCfmBet = new eui.Label();
         this._cfmBet = 0;
         this._uncfmBet = 0;
+      }
+
+      set denomList(value: number[]) {
+        this._denomList = value;
+      }
+
+      get denomList() {
+        return this._denomList;
+      }
+
+      set type(value: we.core.BettingTableType) {
+        this._type = value;
+      }
+
+      get type() {
+        return this._type;
       }
 
       protected childrenCreated() {
@@ -46,23 +66,42 @@ namespace we {
 
       public setCfmBet(amount: number): void {
         this._cfmBet = amount;
-        this.lblCfmBet.text = this._cfmBet.toString();
+        if (this._denomList && amount) {
+          this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, amount);
+        }
+        // this.lblCfmBet.text = this._cfmBet.toString();
       }
 
       public setUncfmBet(amount: number): void {
         this._uncfmBet = amount;
-        this.lblUncfmBet.text = this._uncfmBet.toString();
+        if (this._denomList && amount) {
+          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, amount);
+        }
+        // this.lblUncfmBet.text = this._uncfmBet.toString();
+      }
+
+      private drawCfmBet() {
+        if (this._uncfmDenom) {
+        }
+      }
+
+      private drawUncfmBet() {
+        if (this._uncfmDenom) {
+        }
       }
 
       public addUncfmBet(amount: number): void {
         this._uncfmBet += amount;
-        this.lblUncfmBet.text = this._uncfmBet.toString();
+        if (this._denomList && amount) {
+          this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, amount);
+        }
       }
 
       public setSize(width: number, height: number) {
         this.width = width;
         this.height = height;
       }
+
       set text(text: string) {
         this.lblName.text = text;
       }
@@ -121,15 +160,17 @@ namespace we {
         this.lblName.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.lblName.textColor = textcolor;
 
-        this.addChild(this.lblUncfmBet);
+        //        this.addChild(this.lblUncfmBet);
         this.setUncfmBet(this._uncfmBet);
+        /*
         this.lblUncfmBet.bottom = 20;
         this.lblUncfmBet.left = 20;
 
         this.addChild(this.lblCfmBet);
+        */
         this.setCfmBet(this._cfmBet);
-        this.lblCfmBet.bottom = 20;
-        this.lblCfmBet.right = 20;
+        // this.lblCfmBet.bottom = 20;
+        // this.lblCfmBet.right = 20;
       }
     }
   }

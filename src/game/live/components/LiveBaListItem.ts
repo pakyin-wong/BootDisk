@@ -1,13 +1,13 @@
 namespace we {
   export namespace live {
-    export class LiveBaccaratListItem extends eui.Component {
+    export class LiveBaListItem extends eui.Component {
       public selected: boolean;
       public itemIndex: number;
 
       private rect: eui.Rect;
       private _dealerImage: eui.Image;
       private _bigRoad: we.ba.BALobbyBigRoad;
-      private _quickbetPanel: we.live.LiveQuickBetPanel;
+      private _quickbetPanel: we.live.LiveBaQuickBetPanel;
       private _quickbetButton: eui.Button;
       private _quickbetCloseButton: eui.Button;
       private _tableId: string;
@@ -22,7 +22,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('LiveBaccaratListItem');
+        this.skinName = utils.getSkin('LiveBaListItem');
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
         this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
@@ -110,17 +110,17 @@ namespace we {
 
       private async mount() {
         try {
-          console.log('LiveBaccaratListItem::mount');
+          console.log('LiveBaListItem::mount');
           await RES.loadGroup('temp');
         } catch (e) {
-          console.log('LiveBaccaratListItem::mount error');
+          console.log('LiveBaListItem::mount error');
         }
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
         this._dealerImage.texture = RES.getRes(imageResName);
       }
 
       private onRollover(evt: egret.Event) {
-        console.log('LiveBaccaratListItem::onRollover');
+        console.log('LiveBaListItem::onRollover');
         if (!env.livepageLocked) {
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);

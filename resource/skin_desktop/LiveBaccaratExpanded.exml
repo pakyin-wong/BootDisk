@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LiveBaccaratExpanded" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
-	<e:Rect id="rect" width="100%" height="100%" x="0" y="0" fillColor="0x000000" alpha="0" />
-	<e:Image id="dealerImage" width="100%" height="64%" x="0" y="0"/>
-	<ba:BALobbyBigRoad id="bigRoad" width="100%" height="36%" bottom="0" />
-	<ui:CircularTimer width="80" height="80" x="20" y="20"/>
-	<e:Button id="quickBetButton" label="Quick Bet" bottom="15" horizontalCenter="0" enabled="true" alpha="0" y="400"/>	
-</e:Skin>
