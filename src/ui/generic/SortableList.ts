@@ -197,6 +197,7 @@ namespace we {
               collection.removeItemAt(remIndex);
               egret.log(`addIndex maybe out of range: ${addIndex}`);
               collection.addItemAt(remData, addIndex);
+              this.dispatchEvent(new egret.Event('REORDER', false, false, { prevIdx: remIndex, newIdx: addIndex }));
             }
 
             // TODO: update selected index

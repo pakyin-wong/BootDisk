@@ -7,6 +7,11 @@ namespace we {
         return Object.keys(enumType);
       }
 
+      public static values(enumType: any): string[] {
+        const keys = Object.keys(enumType);
+        return keys.map(key => enumType[key]);
+      }
+
       public static getKeyByValue(enumType: any, value: number): string {
         const keys: string[] = Object.keys(enumType);
         for (const key of keys) {

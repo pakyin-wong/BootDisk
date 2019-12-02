@@ -1,12 +1,12 @@
 namespace we {
   export namespace lobby {
-    export class Page extends eui.Component {
+    export class Page extends core.BasePage {
       private scroller: ui.Scroller;
       private collection: eui.ArrayCollection;
       private roomIds: number[] = [];
 
-      constructor() {
-        super();
+      constructor(data: any = null) {
+        super(null, data);
         this.collection = new eui.ArrayCollection(this.roomIds);
       }
 

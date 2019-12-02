@@ -1,8 +1,25 @@
 namespace we {
   export namespace utils {
+    function getQueryParams(queryStr: string) {
+      const data = {};
+      const queryParamArray = queryStr.split('&');
+      // iterate over parameter array
+      queryParamArray.forEach(function (queryParam) {
+        // split the query parameter over '='
+        const item = queryParam.split('=');
+        data[item[0]] = decodeURIComponent(item[1]);
+      });
+      return data;
+    }
     export function linkTo(linkUrl: string, name?: string, specs?: string) {
       // check the protocol
-      const arr = linkUrl.split('/');
+      const querySplit = linkUrl.split('?');
+      let data = {};
+      if (querySplit.length === 2) {
+        data = getQueryParams(querySplit[1]);
+      }
+      const arr = querySplit[0].split('/');
+
       switch (arr[0]) {
         case 'http:':
         case 'https:':
@@ -10,40 +27,27 @@ namespace we {
           break;
         case 'weweb:':
           // get the scene and the tableid(if any)
-          switch (arr[2]) {
-            case 'scene':
-              if (arr.length > 3) {
-                const query = arr[3].split('?');
-                const game: string = query[0];
+          // arr[2] - scene
+          const scene = arr.length > 2 ? arr[2] : null;
+          // arr[3] - page
+          const page = arr.length > 3 ? arr[3] : null;
+          // arr[4] - tab
+          const tab = arr.length > 4 ? arr[4] : null;
 
-                // check if the game is valid
-                egret.log(core.GameName[game]);
-                if (core.GameName[game]) {
-                  const query = linkUrl.split('?');
-                  let data = null;
-                  if (query.length > 1) {
-                    data = {};
-                    const queryParamArray = query[1].split('&');
-                    // iterate over parameter array
-                    queryParamArray.forEach(function (queryParam) {
-                      // split the query parameter over '='
-                      const item = queryParam.split('=');
-                      data[item[0]] = decodeURIComponent(item[1]);
-                    });
-                    // print result object
-                    console.log(data);
-                  }
-                  dir.sceneCtr.goto(game, data);
-                } else {
-                  egret.error('Link is not valid');
-                }
-              } else {
-                egret.error('Link is not valid');
-              }
-              break;
+          if (scene && core.GameName[scene]) {
+            if (page) {
+              data['page'] = page;
+            }
+            if (tab) {
+              data['tab'] = tab;
+            }
+            dir.sceneCtr.goto(scene, data);
+          } else {
+            egret.error('Link is not valid');
           }
-          // goto the game scene with tableid
-
+          break;
+        default:
+          egret.error('Link is not valid');
           break;
       }
     }
