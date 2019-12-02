@@ -1,6 +1,6 @@
 {
     "target": "local",
-    "mode": "",
+    "mode": "comm",
     "playerID": "BMJCP2DH5S5VCC8S9RHG",
     "secret": "4114f79f17c28ec6bfa01b80a28870a7",
     "connectTimeout": 1000000,
