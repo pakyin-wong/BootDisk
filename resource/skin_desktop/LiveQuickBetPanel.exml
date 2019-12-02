@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LiveQuickBetPanel" width="578" height="218" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+<e:Skin class="skin_desktop.LiveQuickBetPanel" width="578" height="218" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="100%" height="100" x="0" bottom="0" alpha="0.6"/>
+	<ba:BetChipSet id="_betChipSet" width="100%" height="100" bottom="0" />
 	<ba:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.LiveBaBettingTableSkin" anchorOffsetY="0" height="60%" left="0" top="0"/>
 </e:Skin>

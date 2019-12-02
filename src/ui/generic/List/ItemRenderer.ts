@@ -36,9 +36,11 @@ namespace we {
           this.onEnterTransitionAddon.isFade = this.isFadeEnter;
         }
       }
+
       public get enterFrom(): string {
         return this._enterFrom;
       }
+
       public set leaveTo(value: string) {
         this._leaveTo = value;
         this.autoRemoveAddon.active = !(value == null || value === '');
@@ -47,9 +49,11 @@ namespace we {
           this.autoRemoveAddon.isFade = this.isFadeLeave;
         }
       }
+
       public get leaveTo(): string {
         return this._leaveTo;
       }
+
       public set isSwipeable(value: boolean) {
         this._isSwipeable = value;
         this.swipeableAddon.active = value;
@@ -57,6 +61,7 @@ namespace we {
           this.swipeableAddon.swipeDirection = this.swipeDirection;
         }
       }
+
       public get isSwipeable(): boolean {
         return this._isSwipeable;
       }

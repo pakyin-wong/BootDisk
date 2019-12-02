@@ -7,7 +7,7 @@
 	                   skinName="skin_desktop.TableInfoPanel" isEdgeDismissable="true" dismissOnClickOutside="false"
 	                   isDraggable="true" hideOnStart="true" />
 	<ba:BettingTable id="bettingTable" width="1128" height="314" bottom="0" horizontalCenter="0" isEdgeDismissable="true" />
-	<ba:BetChipSet id='betChipSet' width="1000" height="50" y="533.46" horizontalCenter="0" />
+	<ba:BetChipSet id='betChipSet' width="1000" height="50" y="540" horizontalCenter="0" />
 	<ba:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
 	<ba:CountdownTimer id="countdownTimer" width="200" height="80" y="611.46" horizontalCenter="-11" />
 	<e:Button id="confirmButton" label="Confirm" y="632.46" anchorOffsetX="0" width="88" anchorOffsetY="0" height="38"
@@ -28,5 +28,7 @@
 		<ba:GameBar width="700" height="91" x="1500" y="0" id="gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
+	<ba:GameResultMessage id="resultMessage" x="1288.5" y="954.45" anchorOffsetX="309" anchorOffsetY="55" scaleX="1"
+	                      scaleY="1" skinName="skin_desktop.GameResultNormalSkin" />
 </e:Skin>
 

@@ -1,8 +1,9 @@
 namespace we {
   export namespace ba {
     export interface IBetChipSet {
-      setChipSet(denominationList: number[]);
-      onChipSelected(index: number);
+      setDenominationList(denominationList: number[]);
+      // setChipSet(denominationList: number[]);
+      // onChipSelected(index: number);
     }
 
     export interface IBetChip {

@@ -41,7 +41,7 @@ namespace we {
         layout2.verticalGap = gapSize;
         layout2.paddingBottom = gapSize * 3;
         layout2.requestedColumnCount = 4;
-        layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
+        // layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
         roomList.layout = layout2;
         roomList.dataProvider = this.collection;
         roomList.itemRenderer = LiveBaccaratListHolder;
@@ -101,8 +101,7 @@ namespace we {
       }
 
       private handleTableList(event: egret.Event) {
-        if (env.livepageLocked) {
-          console.log('locked');
+        if (!env.livepageLocked) {
           const roomIds = event.data as number[];
           const added = this.arrayDiff(roomIds, this.roomIds);
           const removed = this.arrayDiff(this.roomIds, roomIds);
@@ -112,30 +111,10 @@ namespace we {
           removed.forEach(item => {
             this.collection.removeItemAt(this.collection.getItemIndex(item));
           });
-          // console.log('added', added);
-          // console.log('removed', removed);
           this.roomIds = roomIds;
           this.roomIds.forEach((x, inx) => {
             this.collection.replaceItemAt(x, inx);
           });
-        } else {
-          const roomIds = event.data as number[];
-          const added = this.arrayDiff(roomIds, this.roomIds);
-          const removed = this.arrayDiff(this.roomIds, roomIds);
-          added.forEach(item => {
-            this.collection.addItem(item);
-          });
-          removed.forEach(item => {
-            this.collection.removeItemAt(this.collection.getItemIndex(item));
-          });
-          // console.log('added', added);
-          // console.log('removed', removed);
-          this.roomIds = roomIds;
-          this.roomIds.forEach((x, inx) => {
-            this.collection.replaceItemAt(x, inx);
-          });
-          // console.log('handleTableList', roomIds);
-          //   this.collection.refresh();
         }
       }
     }

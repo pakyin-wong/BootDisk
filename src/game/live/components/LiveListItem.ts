@@ -1,6 +1,6 @@
 namespace we {
   export namespace live {
-    export class LiveListItem extends ui.ItemRenderer implements eui.IItemRenderer {
+    export class LiveListItem extends ui.ItemRenderer {
       public selected: boolean;
       public itemIndex: number;
       private _idata: any;
