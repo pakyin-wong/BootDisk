@@ -8,6 +8,8 @@ namespace we {
       private _rightNav: eui.Label;
       private _chipContainer: eui.Group;
 
+      private _localSelectedChipIndex: number;
+
       private chipList: Array<IBetChip & eui.Component> = [];
 
       public constructor() {
@@ -35,6 +37,7 @@ namespace we {
         this.addChild(this._chipContainer);
         this.addChild(this._rightNav);
         this.setVisibleDenominationCount(5); // default value
+        this._localSelectedChipIndex = 0;
       }
 
       public setVisibleDenominationCount(count) {
@@ -45,7 +48,15 @@ namespace we {
       public setDenominationList(denominationList: number[]) {
         this.chipList = [];
         this._setChipSet(denominationList);
-        this._setStartIndex(0);
+        // compute start index
+        const selectedIdx = env.currentChipSelectedIndex;
+        let startIdx = (selectedIdx / this.visibleDenominationCount) * this.visibleDenominationCount;
+        const endCount = startIdx + this.visibleDenominationCount;
+        if (endCount > this.currentDenomination.length) {
+          startIdx -= endCount - this.currentDenomination.length;
+        }
+        this._localSelectedChipIndex = selectedIdx - startIdx;
+        this._setStartIndex(startIdx);
       }
 
       private _setStartIndex(index) {
@@ -54,8 +65,8 @@ namespace we {
       }
 
       private _navigate(dir) {
-        const page = Math.ceil(this._startIndex / this.visibleDenominationCount);
-        const totalPage = Math.ceil(this.chipList.length / this.visibleDenominationCount);
+        // const page = Math.ceil(this._startIndex / this.visibleDenominationCount);
+        // const totalPage = Math.ceil(this.chipList.length / this.visibleDenominationCount);
         const visibleMinusOne = this.visibleDenominationCount - 1;
         if (dir > 0) {
           // go right
@@ -92,6 +103,9 @@ namespace we {
             }
           }
         }
+        // update selected index
+        const newSelected = this._startIndex + this._localSelectedChipIndex;
+        this._onChipSelected(newSelected);
       }
 
       private _updateNavigationDisplay() {
@@ -158,6 +172,9 @@ namespace we {
 
         env.currentChipSelectedIndex = index;
         this.chipList[index].highlight = true;
+
+        // update _localSelectedChipIndex
+        this._localSelectedChipIndex = index - this._startIndex;
       }
 
       public setTouchEnabled(enabled: boolean) {
