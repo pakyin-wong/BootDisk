@@ -2,12 +2,18 @@
 namespace we {
   export namespace core {
     export class Monitor {
-      public start(stage: egret.Stage) {
-        const _nav = new ui.Nav();
-        dir.layerCtr.nav.addChild(_nav);
+      private _nav: ui.Nav;
+      private _betsummary: ui.BetSummary;
+      private _overlay: ui.Overlay;
 
-        const _betsummary = new we.ui.BetSummary();
-        dir.layerCtr.nav.addChild(_betsummary);
+      public start(stage: egret.Stage) {
+        this._nav = new ui.Nav();
+        this._betsummary = new ui.BetSummary();
+        this._overlay = new ui.Overlay();
+
+        dir.layerCtr.nav.addChild(this._nav);
+        dir.layerCtr.top.addChild(this._betsummary);
+        dir.layerCtr.overlay.addChild(this._overlay);
       }
 
       private addListeners() {

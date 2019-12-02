@@ -93,6 +93,16 @@ namespace we {
       public removeToggler() {
         this.poppableAddon.removeToggler();
       }
+
+      public async show() {
+        this.visible = true;
+        this.poppableAddon.active && (await this.poppableAddon.show());
+      }
+
+      public async hide() {
+        this.poppableAddon.active && (await this.poppableAddon.hide());
+        this.visible = false;
+      }
     }
   }
 }

@@ -98,7 +98,7 @@ namespace we {
         }
       }
 
-      private async show(skipAnimation: boolean = false) {
+      public async show(skipAnimation: boolean = false) {
         if (!skipAnimation && this.isAnimating) {
           return;
         }
@@ -107,7 +107,7 @@ namespace we {
         this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
       }
 
-      private async hide(skipAnimation: boolean = false) {
+      public async hide(skipAnimation: boolean = false) {
         if (!skipAnimation && this.isAnimating) {
           return;
         }
@@ -116,6 +116,7 @@ namespace we {
         }
         this.isShow = false;
         await this.onHide(skipAnimation);
+        this.target.dispatchEvent(new egret.Event('close'));
       }
 
       protected async onShow(skipAnimation: boolean = false) {
