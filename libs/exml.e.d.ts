@@ -79,11 +79,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BetInfo extends eui.Skin{
+	class BetInfoHolder extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class BetSummary extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetSummaryBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

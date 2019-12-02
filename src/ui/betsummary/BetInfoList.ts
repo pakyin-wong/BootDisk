@@ -7,10 +7,6 @@ namespace we {
 
       constructor() {
         super();
-        // this.scroller = new we.ui.Scroller();
-        // this.scroller.percentWidth = 100;
-        // this.scroller.percentHeight = 100;
-        // this.addChild(this.scroller);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -31,8 +27,7 @@ namespace we {
 
         this.collection = new eui.ArrayCollection(this.betInfos);
         list.dataProvider = this.collection;
-        list.itemRenderer = we.ui.BetInfo;
-        // this.scroller.viewport = list;
+        list.itemRenderer = we.ui.BetInfoHolder;
         this.viewport = list;
 
         dir.evtHandler.addEventListener(we.core.Event.BALANCE_UPDATE, this.handleTableList, this);
@@ -59,25 +54,6 @@ namespace we {
 
       private handleTableList(event: egret.Event) {
         const roomIds = event.data as number[];
-        // this.collection.refresh();
-        /*
-      const added = this.arrayDiff(roomIds, this.roomIds);
-      const removed = this.arrayDiff(this.roomIds, roomIds);
-      added.forEach(item => {
-        this.collection.addItem(item);
-      });
-      removed.forEach(item => {
-        this.collection.removeItemAt(this.collection.getItemIndex(item));
-      });
-      // console.log('added', added);
-      // console.log('removed', removed);
-      this.roomIds = roomIds;
-      this.roomIds.forEach((x, inx) => {
-        this.collection.replaceItemAt(x, inx);
-      });
-      */
-        // console.log('handleTableList', roomIds);
-        //   this.collection.refresh();
       }
     }
   }
