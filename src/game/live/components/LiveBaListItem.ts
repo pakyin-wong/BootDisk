@@ -25,8 +25,8 @@ namespace we {
         this.skinName = utils.getSkin('LiveBaListItem');
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        // this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        // this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         // this._dropdown.items = ['test 1', 'test 2'];
         this._dropdown.setToggler(this._dropdown_toggle);
@@ -129,10 +129,11 @@ namespace we {
       private async mount() {
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
         this._dealerImage.texture = RES.getRes(imageResName);
+        this.setChildIndex(this._dropdown_toggle, 20000);
         this._quickbetPanel.tableId = this._tableId;
       }
 
-      private onRollover(evt: egret.Event) {
+      public onRollover(evt: egret.Event) {
         console.log('LiveBaListItem::onRollover');
         if (!env.livepageLocked) {
           egret.Tween.removeTweens(this);
@@ -142,7 +143,7 @@ namespace we {
         }
       }
 
-      private onRollout() {
+      public onRollout() {
         if (!env.livepageLocked) {
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);

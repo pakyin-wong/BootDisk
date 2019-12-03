@@ -23,6 +23,8 @@ namespace we {
         this._item = new we.live.LiveBaListItem();
         this.addChild(this._item);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        this._item.addEventListener(mouse.MouseEvent.ROLL_OVER, this._item.onRollover.bind(this._item), this);
+        this._item.addEventListener(mouse.MouseEvent.ROLL_OUT, this._item.onRollout.bind(this._item), this);
       }
       public onTouchTapWhole(evt: egret.Event) {
         if (evt.target === this._item.getQuickbetButton() || env.livepageLocked) {
