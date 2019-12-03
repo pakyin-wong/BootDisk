@@ -1,10 +1,17 @@
 namespace we {
   export namespace ba {
     export class InGameMessage extends core.BaseEUI {
+      public static readonly INFO: string = 'INFO';
+      public static readonly SUCCESS: string = 'SUCCESS';
+      public static readonly ERROR: string = 'ERROR';
+
+      private _content: eui.Group;
       private _bg: eui.Image;
       private _label: ui.RunTimeLabel;
 
       private _isAnimating: boolean;
+
+      public duration: number = 1000;
 
       public constructor() {
         super();
@@ -14,82 +21,72 @@ namespace we {
       }
 
       public showMessage(type: string, message: string) {
-        // this.changeSkin(isWin);
-        //   if (this._bg) {
-        //     this.setBackground(winType, isWin);
-        //   }
-        //   this.start(winType, winAmount);
+        if (this._bg) {
+          this.setBackground(type);
+        }
+        this.start(type, message);
       }
 
-      protected changeSkin() {
-        // if (isWin) {
-        //   this.skinName = utils.getSkinByClassname('GameResultWinSkin');
-        // } else {
-        //   this.skinName = utils.getSkinByClassname('GameResultNormalSkin');
-        // }
-        // this.anchorOffsetX = this.width * 0.5;
-        // this.anchorOffsetY = this.height * 0.5;
+      protected setBackground(type: string) {
+        switch (type) {
+          case InGameMessage.INFO:
+            this._bg.source = 'd_ba_gamerecord_playerelement_png';
+            break;
+          case InGameMessage.SUCCESS:
+            this._bg.source = 'd_ba_gamerecord_tieelement_png';
+            break;
+          case InGameMessage.ERROR:
+            this._bg.source = 'd_ba_gamerecord_bankerelement_png';
+            break;
+        }
       }
 
-      protected setBackground() {
-        // switch (winType) {
-        //   case ba.WinType.BANKER:
-        //     if (isWin) {
-        //       this._bg.source = 'd_ba_gameresult_bankerelement_png';
-        //     } else {
-        //       this._bg.source = 'd_ba_gameresult_bankerwin_png';
-        //     }
-        //     break;
-        //   case ba.WinType.PLAYER:
-        //     if (isWin) {
-        //       this._bg.source = 'd_ba_gameresult_playerelement_png';
-        //     } else {
-        //       this._bg.source = 'd_ba_gameresult_playerwin_png';
-        //     }
-        //     break;
-        //   case ba.WinType.TIE:
-        //     if (isWin) {
-        //       this._bg.source = 'd_ba_gameresult_tieelement_png';
-        //     } else {
-        //       this._bg.source = 'd_ba_gameresult_tie_png';
-        //     }
-        //     break;
-        // }
+      protected start(type: string, message: string) {
+        this._isAnimating = true;
+        const tween = egret.Tween.get(this)
+          .call(() => {
+            this.startAnimation(type);
+            this.visible = true;
+            this._label.visible = true;
+            this._label.text = message;
+          })
+          .wait(this.duration)
+          .call(() => {
+            this.endAnimation(type);
+          });
       }
 
-      protected start() {
-        // this._isAnimating = true;
-        // if (this._numlabel) {
-        //   this._numlabel.text = ``;
-        //   this._numlabel.visible = false;
-        // }
-        // const tween = egret.Tween.get(this)
-        //   .call(() => {
-        //     const winTypeKey: string = ba.WinType[winType];
-        //     const message: string = `result.${winTypeKey}`;
-        //     this.visible = true;
-        //     this._label.visible = true;
-        //     this._label.text = message;
-        //   })
-        //   .wait(1000);
-        // if (!isNaN(winAmount)) {
-        //   tween
-        //     .call(() => {
-        //       const numStr: string = utils.formatNumber(winAmount);
-        //       if (this._numlabel) {
-        //         this._numlabel.text = `${winAmount > 0 ? '+' : ''}${numStr}`;
-        //         this._numlabel.visible = true;
-        //         this._label.visible = false;
-        //       } else {
-        //         this._label.text = `${winAmount > 0 ? '+' : ''}${numStr}`;
-        //       }
-        //     })
-        //     .wait(1000);
-        // }
-        // tween.call(() => {
-        //   this._isAnimating = false;
-        //   this.visible = false;
-        // });
+      protected startAnimation(type: string) {
+        egret.Tween.removeTweens(this._content);
+        this._content.alpha = 0;
+        this._content.x = 0;
+        this._content.y = this._content.height;
+        switch (type) {
+          case InGameMessage.INFO:
+          case InGameMessage.SUCCESS:
+            const move = egret.Tween.get(this._content);
+            move.to({ y: 0, alpha: 1 }, 200, egret.Ease.quadOut);
+            break;
+          case InGameMessage.ERROR:
+            const shake = egret.Tween.get(this._content);
+            shake
+              .to({ y: 0, alpha: 1 }, 200, egret.Ease.quadOut)
+              .wait(50)
+              .to({ x: 10 }, 50, egret.Ease.bounceOut)
+              .to({ x: -10 }, 50, egret.Ease.bounceIn)
+              .to({ x: 10 }, 50, egret.Ease.bounceOut)
+              .to({ x: 0 }, 100, egret.Ease.bounceIn);
+            break;
+        }
+      }
+
+      protected endAnimation(type: string) {
+        egret.Tween.removeTweens(this._content);
+        const move = egret.Tween.get(this._content);
+        move.to({ y: this._content.height, alpha: 0 }, 200, egret.Ease.quadOut).call(() => {
+          this._isAnimating = false;
+          this.visible = false;
+        });
       }
     }
   }

@@ -42,6 +42,7 @@ namespace we {
       private roadmapRightPanel: BARoadmapRightPanel;
 
       private resultMessage: GameResultMessage;
+      private message: InGameMessage;
 
       constructor(data: any) {
         super(data);
@@ -102,9 +103,9 @@ namespace we {
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
-        // setInterval(() => {
-        //   this.resultMessage.showResult(<WinType> Math.floor(Math.random() * 4), 1000 * (Math.floor(Math.random() * 3) - 1));
-        // }, 4000);
+        setInterval(() => {
+          this.message.showMessage(InGameMessage.ERROR, 'hello world');
+        }, 4000);
       }
 
       private onConfirmPressed() {
