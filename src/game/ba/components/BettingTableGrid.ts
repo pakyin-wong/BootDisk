@@ -99,36 +99,9 @@ namespace we {
           this.clearChips();
           this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet);
           this._uncfmDenom.map((value, index) => {
-            console.log('BettingTableGrid::addUncfmBet() - loop: value:' + value + ' index: ' + index);
-            let chip: eui.Image;
-            switch (value) {
-              case 1:
-                chip = this.getChip('1', index);
-                this._chips.push(chip);
-                this.addChild(chip);
-                break;
-              case 2:
-                chip = this.getChip('2', index);
-                this._chips.push(chip);
-                this.addChild(chip);
-                break;
-              case 5:
-                chip = this.getChip('5', index);
-                this._chips.push(chip);
-                this.addChild(chip);
-                break;
-
-              case 20:
-                chip = this.getChip('20k', index);
-                this._chips.push(chip);
-                this.addChild(chip);
-                break;
-
-              default:
-                chip = this.getChip('50k', index);
-                this._chips.push(chip);
-                this.addChild(chip);
-            }
+            const chip = this.getChip(utils.getChipFace(value), index);
+            this._chips.push(chip);
+            this.addChild(chip);
           });
         }
       }
@@ -146,7 +119,9 @@ namespace we {
 
       private clearChips() {
         this._chips.forEach(value => {
-          this.removeChild(value);
+          if (this.contains(value)) {
+            this.removeChild(value);
+          }
         });
         this._chips = new Array();
       }
