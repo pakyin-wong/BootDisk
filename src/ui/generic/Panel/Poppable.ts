@@ -50,6 +50,9 @@ namespace we {
             this.toggler.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
             mouse.setButtonMode(this.toggler, true);
           }
+          if (this.target.close) {
+            mouse.setButtonMode(this.target.close, true);
+          }
         } else {
           this.isInit = false;
         }

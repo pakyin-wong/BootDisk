@@ -26,6 +26,10 @@ namespace we {
         this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
       }
 
+      public getStaticInitData(callback: (res: any) => void, thisArg) {
+        this.client.init(env.language, callback.bind(thisArg));
+      }
+
       public connect() {
         console.log('PlayerClient::connect()', this.client);
         this.subscribeEvents();

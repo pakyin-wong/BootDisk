@@ -1060,6 +1060,11 @@
 			"url": "assets/d/lobby/d_lobby_panel_button_close_none.png",
 			"type": "image",
 			"name": "nav_panel_close"
+		},
+		{
+			"url": "assets/Nav/d-lobby-button-close-none.png",
+			"type": "image",
+			"name": "nav_panel_close"
 		}
 	]
 }
