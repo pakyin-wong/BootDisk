@@ -136,6 +136,9 @@ namespace we {
             self.gameData = self.tableInfo.data;
             self.previousState = self.gameData.state;
             self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
+            if (self.tableInfo.betInfo) {
+              self.roadmapLeftPanel.setGameInfo(self.tableInfo.betInfo.gameroundid, self.tableInfo.betInfo.total);
+            }
           }
         });
       }
@@ -164,7 +167,7 @@ namespace we {
         this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
-      public async onFadeEnter() { }
+      public async onFadeEnter() {}
 
       public onExit() {
         dir.videoPool.release(this._video);
@@ -181,7 +184,7 @@ namespace we {
         this.bettingTable.onChangeLang();
       }
 
-      public async onFadeExit() { }
+      public async onFadeExit() {}
 
       protected mount() {
         // step 1: load Baccarat Screen Resource
@@ -195,7 +198,8 @@ namespace we {
           this.roadmapRightPanel.bigEyeRoad,
           this.roadmapRightPanel.smallRoad,
           this.roadmapRightPanel.cockroachRoad,
-          [12, 12, 24, 12, 12]
+          [12, 12, 24, 12, 12],
+          this.roadmapRightPanel
         );
         // this.roadmap = new BARoadmap(this._tableID);
         // this.roadmap.x = 2000;
@@ -211,7 +215,7 @@ namespace we {
         // this.socketConnect();
       }
 
-      protected socketConnect() { }
+      protected socketConnect() {}
 
       protected socketConnectSuccess() {
         // dir.evtHandler.removeEventListener(enums.mqtt.event.CONNECT_SUCCESS, this.socketConnectSuccess, this);
@@ -223,22 +227,24 @@ namespace we {
         // dir.sceneCtr.goto('LobbySCene');
       }
 
-      protected socketConnectFail() { }
+      protected socketConnectFail() {}
 
       protected onTableInfoUpdate(evt: egret.Event) {
         console.log('Baccarat listener');
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this.tableID) {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
-            this.gameData = <GameData>this.tableInfo.data;
+            this.gameData = <GameData> this.tableInfo.data;
             this.previousState = this.gameData.state;
-            if (tableInfo.roadmap)
+            if (tableInfo.roadmap) {
               this.roadmapControl.updateRoadData(tableInfo.roadmap);
-            if (tableInfo.betInfo)
+            }
+            if (tableInfo.betInfo) {
               this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
+            }
 
             this.updateGame();
           }
@@ -247,17 +253,15 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this.tableID) {
             // update the scene
-
-
           }
         }
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this.tableID) {
           this.betDetails = tableInfo.bets;
           switch (this.gameData.state) {

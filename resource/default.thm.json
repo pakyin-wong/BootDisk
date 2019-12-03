@@ -40,6 +40,8 @@
 		"resource/eui_skins/VSliderSkin.exml",
 		"resource/skin_desktop/TableInfoPanel.exml",
 		"resource/skin_desktop/BaccaratScene.exml",
+		"resource/skin_desktop/BARoadmapLeftPanel.exml",
+		"resource/skin_desktop/BARoadmapRightPanel.exml",
 		"resource/skin_desktop/BetChip.exml",
 		"resource/skin_desktop/BetChipSet.exml",
 		"resource/skin_desktop/BetConfirmButton.exml",

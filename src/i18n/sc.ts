@@ -36,6 +36,9 @@ namespace we {
         time: '时间',
         betLimit: '下注限红',
         baccarat: '百家樂',
+        gameroundid: '遊戏编号',
+        totalbet: '总投注',
+        totalcount: '总数',
       },
     };
   }

@@ -22,8 +22,9 @@
 	<e:Label id="stateLabel" text="..." y="632.46" horizontalCenter="-387" />
 	<e:Label id="winAmountLabel" text="" y="907.98" anchorOffsetX="0" width="569.7" anchorOffsetY="0" height="46.97"
 	         textAlign="right" horizontalCenter="274" />
-	<ba:BARoadmapLeftPanel id="roadmapLeftPanel" width="360" height="180" x="0" y="700" anchorOffsetX="0" anchorOffsetY="0" />
-	<ba:BARoadmapRightPanel id="roadmapRightPanel" width="360" height="360" x="2076" y="570" anchorOffsetX="0"
+	<ba:BARoadmapLeftPanel id="roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
+	                       anchorOffsetY="0" />
+	<ba:BARoadmapRightPanel id="roadmapRightPanel" width="698" height="304" x="1885" y="520" anchorOffsetX="0"
 	                        anchorOffsetY="0" />
 </e:Skin>
 
