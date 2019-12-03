@@ -12,7 +12,7 @@ declare class PlayerClient {
     private _conn;
     private _tableInfoCallbackMap;
     constructor({ service, playerID, secret, endpoint, hostname, port, protocol, path, connectTimeout, reconnectPeriod, }: {
-         service?: string;
+        service?: string;
         playerID?: string;
         secret?: string;
         endpoint?: string;
@@ -24,7 +24,7 @@ declare class PlayerClient {
         reconnectPeriod?: number;
     });
     init(lang: string, callback: Function): void;
-    connect(callback?:Function): void;
+    connect(callback?: Function): void;
     close(): void;
     subscribe(eventName: string, f: Function, context?: object, options?: any): void;
     unsubscribe(eventName: string, f: Function, options?: any): void;
@@ -82,13 +82,13 @@ declare const GameType: GameTypeMap;
  * TableState
  */
 declare interface TableStateMap {
-CLOSED: 0;
-ONLINE: 10;
-OFFLINE: 20;
-MAINTENANCE: 30;
+    CLOSED: 0;
+    ONLINE: 10;
+    OFFLINE: 20;
+    MAINTENANCE: 30;
 }
 declare const TableState: TableStateMap;
-  
+
 declare enum BAGameStateType {
     IDLE = 0,
     BET = 1,
@@ -109,8 +109,14 @@ interface BetValueCommand {
 }
 
 interface LobbyMaterial {
-    bannerurls: string[];
-    tips: string[];
+    logourl: string		// logo image url
+    homeherobanners: {[key: string]: string}[]
+	homelargebanners:{[key: string]: string}[]
+	homebanners:{[key: string]: string}[]
+	liveherobanners:{[key: string]: string}[]
+	lotteryherobanners:{[key: string]: string}[]
+	egameherobanners:{[key: string]: string}[]
+	favouriteherobanners:{[key: string]: string}[]
+	messages:string[]    
 }
-  
-  
+

@@ -1,5 +1,10 @@
 namespace we {
   export namespace core {
+    export enum BettingTableType {
+      NORMAL = 0,
+      LOBBY = 1,
+      BETSUMMARY = 2,
+    }
     export enum TableState {
       CLOSED = 0,
       ONLINE = 10,

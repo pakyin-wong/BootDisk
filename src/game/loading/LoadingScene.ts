@@ -39,10 +39,10 @@ namespace we {
 
       /** Step 2.5: Get Static Server Init Data */
       private getStaticData() {
-        dir.socket.getStaticInitData((res)=>{
+        dir.socket.getStaticInitData(res => {
           this._tipList = res.Tips;
           this.next();
-        },this);
+        }, this);
       }
 
       /** Step 3: Socket Connect */

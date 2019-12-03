@@ -23,5 +23,28 @@ namespace we {
 
       return (rr << 16) + (rg << 8) + (rb | 0);
     }
+
+    export function getBettingTableGridDenom(denomlist: number[], amount) {
+      let total = amount;
+      let index = denomlist.length - 1;
+      const b = new Array();
+      while (total > 0) {
+        if (total >= denomlist[index]) {
+          total -= denomlist[index];
+          b.push(denomlist[index]);
+        } else {
+          index--;
+        }
+      }
+      return b;
+    }
+
+    export function getChipFace(value: number): string {
+      if (value > 1000) {
+        return value / 1000 + 'k';
+      } else {
+        return value + '';
+      }
+    }
   }
 }

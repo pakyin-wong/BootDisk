@@ -63,6 +63,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class InGameMessageSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
 	}
 }
@@ -79,15 +83,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetInfoBaBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetInfoHolder extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class BetSummary extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetSummaryBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -123,19 +127,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class LiveBaccaratExpanded extends eui.Skin{
+	class LiveBaListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class LiveBaccaratListItem extends eui.Skin{
+	class LiveBaQuickBetPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class LivePage extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LiveQuickBetPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{

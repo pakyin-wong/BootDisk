@@ -33,6 +33,9 @@ namespace we {
         betLimit: 'Bet Limit',
         baccarat: 'Baccarat',
       },
+      message: {
+        test: 'You won $1, and $2% will belongs to me',
+      },
     };
   }
 }

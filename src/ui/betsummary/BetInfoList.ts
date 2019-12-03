@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class BetInfoList extends Scroller {
+    export class BetInfoScroller extends Scroller {
       // public scroller: we.ui.Scroller;
       private collection: eui.ArrayCollection;
       private betInfos: number[] = [1, 2, 3];

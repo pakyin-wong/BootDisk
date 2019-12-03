@@ -42,6 +42,7 @@ namespace we {
       private roadmapRightPanel: BARoadmapRightPanel;
 
       private resultMessage: GameResultMessage;
+      private message: InGameMessage;
 
       constructor(data: any) {
         super(data);
@@ -55,12 +56,7 @@ namespace we {
 
         this._video.width = 2600;
         this._video.height = 1340;
-        // this._video.poster = 'resource/assets/bg.jpg';
-
-        // this._video.load('http://203.66.65.93:8000/live/mi-1080p.flv');
         this._video.load('http://192.168.1.85:8090/live/360.flv');
-
-        // this.roadmap = new baccarat.BARoadmap(data.tableID);
       }
 
       public set tableID(tableID: string) {
@@ -102,9 +98,14 @@ namespace we {
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
-        // setInterval(() => {
-        //   this.resultMessage.showResult(<WinType> Math.floor(Math.random() * 4), 1000 * (Math.floor(Math.random() * 3) - 1));
-        // }, 4000);
+        this.bettingTable.skinName = utils.getSkin('BettingTable');
+        this.bettingTable.type = we.core.BettingTableType.NORMAL;
+        this.bettingTable.denomList = denominationList;
+        this.bettingTable.init();
+
+        setInterval(() => {
+          this.message.showMessage(InGameMessage.ERROR, 'hello world');
+        }, 4000);
       }
 
       private onConfirmPressed() {

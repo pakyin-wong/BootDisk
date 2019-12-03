@@ -162,6 +162,7 @@ namespace we {
         this.updateTimestamp(timestamp);
         const tableid = gameStatistic.tableid;
         delete gameStatistic.tableid;
+
         const tableInfo: data.TableInfo = env.tableInfos[tableid];
         const roadmapData = this.getRoadMapData(gameStatistic);
 
@@ -281,7 +282,7 @@ namespace we {
         const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
         // tableInfo.bets = betInfo.bets;
         egret.log('BetInfoUpdate:', betInfo);
-        tableInfo.bets = betInfo.betMap.map(value => {
+        tableInfo.bets = betInfo.bets.map(value => {
           const betDetail: data.BetDetail = (<any> Object).assign({}, value[1]);
           return betDetail;
         });
