@@ -287,20 +287,16 @@ namespace we {
 
         const animated = data.animateCell;
         const animatedIndex = ['bbead', 'bbigRoad', 'bbigEye', 'bsmall', 'broach', 'pbead', 'pbigRoad', 'pbigEye', 'psmall', 'proach'];
-        const predictResult = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+        const predictResult = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
         for (let i = 0; i < animated.length; i++) {
           if (animated[i] > -1) {
             const predictV = data[animatedIndex[i]][animated[i]].V;
             if (predictV === 'b') {
-              predictResult[i] = 0;
+              predictResult[i] = { V: 'b' };
             } else if (predictV === 'p') {
-              predictResult[i] = 1;
-            } else {
-              predictResult[i] = -1;
+              predictResult[i] = { V: 'p' };
             }
-          } else {
-            predictResult[i] = -1;
           }
         }
 
@@ -356,13 +352,13 @@ namespace we {
           const item = rslt[i];
           if (item.isPredict === 1) {
             if (item.V === 'b') {
-              return 0;
+              return { V: 'b' };
             } else if (item.V === 'p') {
-              return 1;
+              return { V: 'p' };
             }
           }
         }
-        return -1;
+        return {};
       }
     }
   }

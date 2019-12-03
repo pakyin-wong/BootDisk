@@ -36,7 +36,7 @@ namespace we {
       public itemDataChanged() {
         super.itemDataChanged();
         const table = env.tableInfos[this.itemData];
-        this._item.setTableId(this.itemData);
+        this._item.tableId = this.itemData;
         this._item.bigRoad.updateRoadData(table.roadmap);
         this.setZIndex();
         egret.Tween.removeTweens(this);

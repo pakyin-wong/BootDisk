@@ -26,6 +26,14 @@ namespace we {
         this.touchEnabled = true;
       }
 
+      public set tableId(value: string) {
+        this._tableId = value;
+      }
+
+      public get tableId() {
+        return this._tableId;
+      }
+
       public getQuickbetButton() {
         return this._quickbetButton;
       }
@@ -71,7 +79,11 @@ namespace we {
           egret.Tween.removeTweens(this._quickbetPanel);
           egret.Tween.get(this).to({ y: this._originaly - this._offsetY, scaleX: 1.1, scaleY: 1.1 }, 1000);
           egret.Tween.get(this._quickbetPanel).to({ y: 378, alpha: 1 }, 1000);
+          this.setChildIndex(this._group, 1000);
+          this.setChildIndex(this._quickbetPanel, 1500);
         } else {
+          this.setChildIndex(this._group, 1500);
+          this.setChildIndex(this._quickbetPanel, 1000);
           this.toggleLivePageLock();
           dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
           egret.Tween.removeTweens(this);
@@ -79,10 +91,6 @@ namespace we {
           egret.Tween.get(this).to({ y: this._originaly }, 1000);
           egret.Tween.get(this._quickbetPanel).to({ y: 300, alpha: 0 }, 1000);
         }
-      }
-
-      public setTableId(value: string) {
-        this._tableId = value;
       }
 
       public toggleLivePageLock() {
@@ -118,6 +126,7 @@ namespace we {
         }
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
         this._dealerImage.texture = RES.getRes(imageResName);
+        this._quickbetPanel.tableId = this._tableId;
       }
 
       private onRollover(evt: egret.Event) {

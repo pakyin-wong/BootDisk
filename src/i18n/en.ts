@@ -32,6 +32,9 @@ namespace we {
         time: 'Time',
         betLimit: 'Bet Limit',
         baccarat: 'Baccarat',
+        gameroundid: 'Game Round',
+        totalbet: 'Total Bet',
+        totalcount: 'Total',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

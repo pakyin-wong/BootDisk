@@ -92,13 +92,16 @@ namespace we {
 
         // setInterval(() => ui.EdgeDismissableAddon.toggle(), 2000);
 
-        const denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chipsList.map(data => data.value);
+        // work around currentSelectedBetLimitIndex = 0 choose by the
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipsList.map(data => data.value);
         this.betChipSet.setDenominationList(denominationList);
 
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
         this.bettingTable.skinName = utils.getSkin('BettingTable');
+        this.bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
+        this.bettingTable.getSelectedChipIndex = this.betChipSet.getSelectedChipIndex.bind(this.betChipSet);
         this.bettingTable.type = we.core.BettingTableType.NORMAL;
         this.bettingTable.denomList = denominationList;
         this.bettingTable.init();
@@ -106,6 +109,10 @@ namespace we {
         setInterval(() => {
           this.message.showMessage(InGameMessage.ERROR, 'hello world');
         }, 4000);
+      }
+
+      private getSelectedBetLimitIndex() {
+        return 0;
       }
 
       private onConfirmPressed() {
@@ -147,6 +154,9 @@ namespace we {
             self.gameData = self.tableInfo.data;
             self.previousState = self.gameData.state;
             self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
+            if (self.tableInfo.betInfo) {
+              self.roadmapLeftPanel.setGameInfo(self.tableInfo.betInfo.gameroundid, self.tableInfo.betInfo.total);
+            }
           }
         });
       }
@@ -207,7 +217,8 @@ namespace we {
           this.roadmapRightPanel.bigEyeRoad,
           this.roadmapRightPanel.smallRoad,
           this.roadmapRightPanel.cockroachRoad,
-          [12, 12, 24, 12, 12]
+          [12, 12, 24, 12, 12],
+          this.roadmapRightPanel
         );
         // this.roadmap = new BARoadmap(this._tableID);
         // this.roadmap.x = 2000;

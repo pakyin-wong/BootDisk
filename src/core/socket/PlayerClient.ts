@@ -163,6 +163,11 @@ namespace we {
         const tableid = gameStatistic.tableid;
         delete gameStatistic.tableid;
 
+        // workaround 1-1-1
+        if (!env.tableInfos) {
+          return;
+        }
+
         const tableInfo: data.TableInfo = env.tableInfos[tableid];
         const roadmapData = this.getRoadMapData(gameStatistic);
 
