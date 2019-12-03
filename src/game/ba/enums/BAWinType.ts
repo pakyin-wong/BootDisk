@@ -23,6 +23,7 @@ namespace we {
       BANKER_PAIR: 'BANKER_PAIR',
       PLAYER_PAIR: 'PLAYER_PAIR',
       SUPER_SIX: 'SUPER_SIX',
+      SUPER_SIX_BANKER: 'SUPER_SIX_BANKER',
     };
   }
 }
