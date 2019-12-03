@@ -39,7 +39,8 @@ namespace we {
 
         const colors = [0xdd0000, 0x0000dd, 0xaa0000, 0x0000aa];
         const iconSize = this.size;
-        const circleRadius = (this.size / 2) * 0.8;
+        const circleRadius = (this.size / 2) * 0.9;
+        const lineWidth = 2;
         const offset = (iconSize - circleRadius * 2) / 2;
 
         // const tfStroke = [0xffffff, 0xffffff, 0xffffff]
@@ -50,8 +51,8 @@ namespace we {
           for (let i = 0; i < 2; i++) {
             const face = new egret.DisplayObjectContainer();
             const circle = new egret.Shape();
-            circle.graphics.lineStyle(3, colors[i + d * 2], 1, true);
-            circle.graphics.drawCircle(circleRadius + offset, circleRadius + offset, circleRadius);
+            circle.graphics.lineStyle(lineWidth, colors[i + d * 2], 1, true);
+            circle.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
             circle.graphics.endFill();
             face.addChild(circle);
             face.visible = false;
@@ -63,27 +64,27 @@ namespace we {
         // draw the icon text
         this.iconText.textAlign = egret.HorizontalAlign.CENTER;
         this.iconText.verticalAlign = egret.VerticalAlign.MIDDLE;
-        this.iconText.textColor = 0x000000; // colors[2];
+        this.iconText.textColor = 0x333333; // colors[2];
         this.iconText.text = '2';
         this.iconText.width = this.size;
         this.iconText.height = this.size;
-        this.iconText.size = Math.floor(this.size * 0.5);
-        this.iconText.fontFamily = 'Helvetica';
+        this.iconText.size = this.size * 0.7;
+        // this.iconText.fontFamily = 'Times New Roman';
 
         // draw the tie line
-        this.tieLine.graphics.lineStyle(4, 0xffffff, 1, true);
-        this.tieLine.graphics.moveTo(iconSize - offset, offset * 4);
-        this.tieLine.graphics.lineTo(offset * 4, iconSize - offset);
+        this.tieLine.graphics.lineStyle(2.5, 0xffffff, 1, true);
+        this.tieLine.graphics.moveTo(iconSize * 0.9, iconSize * 0.3);
+        this.tieLine.graphics.lineTo(iconSize * 0.3, iconSize * 0.9);
         this.tieLine.graphics.lineStyle(2, 0x00aa00, 1, true);
-        this.tieLine.graphics.moveTo(iconSize - offset, offset * 4);
-        this.tieLine.graphics.lineTo(offset * 4, iconSize - offset);
+        this.tieLine.graphics.moveTo(iconSize * 0.9, iconSize * 0.3);
+        this.tieLine.graphics.lineTo(iconSize * 0.3, iconSize * 0.9);
 
-        this.tieLineDark.graphics.lineStyle(4, 0xffffff, 1, true);
-        this.tieLineDark.graphics.moveTo(iconSize - offset, offset * 4);
-        this.tieLineDark.graphics.lineTo(offset * 4, iconSize - offset);
+        this.tieLineDark.graphics.lineStyle(2.5, 0xffffff, 1, true);
+        this.tieLineDark.graphics.moveTo(iconSize * 0.9, iconSize * 0.3);
+        this.tieLineDark.graphics.lineTo(iconSize * 0.3, iconSize * 0.9);
         this.tieLineDark.graphics.lineStyle(2, 0x00aa00, 1, true);
-        this.tieLineDark.graphics.moveTo(iconSize - offset, offset * 4);
-        this.tieLineDark.graphics.lineTo(offset * 4, iconSize - offset);
+        this.tieLineDark.graphics.moveTo(iconSize * 0.9, iconSize * 0.3);
+        this.tieLineDark.graphics.lineTo(iconSize * 0.3, iconSize * 0.9);
 
         const dotRadius = iconSize * 0.15;
         const dotOffset = iconSize * 0.2;

@@ -55,6 +55,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BARoadmapLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetChipSkin extends eui.Skin{
 	}
 }

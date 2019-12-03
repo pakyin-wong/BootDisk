@@ -20,11 +20,32 @@ namespace we {
       private _type: we.core.BettingTableType;
       private _chips: eui.Image[] = new Array();
 
+      private _getSelectedBetLimit: () => number;
+      private _getSelectedChipIndex: () => number;
+
+      private _betChipZIndex: number;
+
       constructor() {
         super();
         this.lblName = new eui.Label();
         this._cfmBet = 0;
         this._uncfmBet = 0;
+      }
+
+      set getSelectedBetLimit(value: () => number) {
+        this._getSelectedBetLimit = value;
+      }
+
+      get getSelectedBetLimit() {
+        return this._getSelectedBetLimit;
+      }
+
+      set getSelectedChipIndex(value: () => number) {
+        this._getSelectedChipIndex = value;
+      }
+
+      get getSelectedChipIndex() {
+        return this._getSelectedChipIndex;
       }
 
       set denomList(value: number[]) {
@@ -58,7 +79,7 @@ namespace we {
       }
 
       public getAmount() {
-        return env.betLimits[env.currentSelectedBetLimitIndex].chipsList[env.currentChipSelectedIndex].value;
+        return env.betLimits[this._getSelectedBetLimit()].chipsList[this._getSelectedChipIndex()].value;
       }
 
       public setBitmap(name) {
@@ -102,6 +123,7 @@ namespace we {
             const chip = this.getChip(utils.getChipFace(value), index);
             this._chips.push(chip);
             this.addChild(chip);
+            this.setChildIndex(chip, this._betChipZIndex + index);
           });
         }
       }
@@ -189,17 +211,16 @@ namespace we {
         this.lblName.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.lblName.textColor = textcolor;
 
-        //        this.addChild(this.lblUncfmBet);
         this.setUncfmBet(this._uncfmBet);
-        /*
-        this.lblUncfmBet.bottom = 20;
-        this.lblUncfmBet.left = 20;
-
-        this.addChild(this.lblCfmBet);
-        */
         this.setCfmBet(this._cfmBet);
-        // this.lblCfmBet.bottom = 20;
-        // this.lblCfmBet.right = 20;
+      }
+
+      set betChipZIndex(value: number) {
+        this._betChipZIndex = value;
+      }
+
+      get betChipZIndex() {
+        return this._betChipZIndex;
       }
     }
   }

@@ -19,7 +19,7 @@ namespace we {
         const colors = [0xdd0000, 0x0000dd, 0xaa0000, 0x0000aa];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.8;
-        const offset = (iconSize - circleRadius * 2) / 2;
+        const lineWidth = 1.5;
 
         // draw the dark modes
         for (let d = 0; d < 2; d++) {
@@ -27,8 +27,8 @@ namespace we {
           for (let i = 0; i < 2; i++) {
             const face = new egret.DisplayObjectContainer();
             const circle = new egret.Shape();
-            circle.graphics.lineStyle(2, colors[i + d * 2], 1, true);
-            circle.graphics.drawCircle(circleRadius + offset, circleRadius + offset, circleRadius);
+            circle.graphics.lineStyle(lineWidth, colors[i + d * 2], 1, true);
+            circle.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
             circle.graphics.endFill();
             face.addChild(circle);
             face.visible = false;

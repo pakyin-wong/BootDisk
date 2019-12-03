@@ -23,8 +23,8 @@ namespace we {
       public tableHistory: any;
       private _tableInfoArray: data.TableInfo[];
       private _tableInfos: { [key: string]: data.TableInfo };
-      public currentChipSelectedIndex: number = 10;
-      public currentSelectedBetLimitIndex: number = 0;
+      // public currentChipSelectedIndex: number = 10;
+      // public currentSelectedBetLimitIndex: number = 0;
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
       public livepageLocked: string = null;

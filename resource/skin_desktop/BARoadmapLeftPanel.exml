@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BARoadmapLeftPanel" width="692" height="304" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="17" y="8" textAlign="left" anchorOffsetX="0"
+                         width="390" size="25" />
+        <ui:RunTimeLabel id="totalBetLabel" text="0" x="411.02" y="8" textAlign="right" anchorOffsetX="0" width="260"
+                         size="25" />
+</e:Skin>

@@ -8,6 +8,7 @@ namespace we {
       private _rightNav: eui.Label;
       private _chipContainer: eui.Group;
 
+      private _envSelectedChipIndex: number = 10;
       private _localSelectedChipIndex: number;
 
       private chipList: Array<IBetChip & eui.Component> = [];
@@ -49,7 +50,8 @@ namespace we {
         this.chipList = [];
         this._setChipSet(denominationList);
         // compute start index
-        const selectedIdx = env.currentChipSelectedIndex;
+        // const selectedIdx = env.currentChipSelectedIndex;
+        const selectedIdx = this._envSelectedChipIndex;
         let startIdx = (selectedIdx / this.visibleDenominationCount) * this.visibleDenominationCount;
         const endCount = startIdx + this.visibleDenominationCount;
         if (endCount > this.currentDenomination.length) {
@@ -141,8 +143,10 @@ namespace we {
         this.currentDenomination = denominationList;
 
         // check if the currentChipSelectedIndex exceed the denomination list length
-        env.currentChipSelectedIndex = Math.min(denominationList.length - 1, env.currentChipSelectedIndex);
-        const selectedIdx = env.currentChipSelectedIndex;
+        // env.currentChipSelectedIndex = Math.min(denominationList.length - 1, env.currentChipSelectedIndex);
+        this._envSelectedChipIndex = Math.min(denominationList.length - 1, this._envSelectedChipIndex);
+        // const selectedIdx = env.currentChipSelectedIndex;
+        const selectedIdx = this._envSelectedChipIndex;
         this.clearChipList();
 
         let idx = 0;
@@ -167,10 +171,12 @@ namespace we {
       private _onChipSelected(index: number) {
         // env.currentChipSelectedValue = this.chipList[index].getValue();
 
-        const prevSelectedIndex = env.currentChipSelectedIndex;
+        // const prevSelectedIndex = env.currentChipSelectedIndex;
+        const prevSelectedIndex = this._envSelectedChipIndex;
         this.chipList[prevSelectedIndex].highlight = false;
 
-        env.currentChipSelectedIndex = index;
+        // env.currentChipSelectedIndex = index;
+        this._envSelectedChipIndex = index;
         this.chipList[index].highlight = true;
 
         // update _localSelectedChipIndex
@@ -183,6 +189,11 @@ namespace we {
             value.touchEnabled = enabled;
           });
         }
+      }
+
+      public getSelectedChipIndex() {
+        console.log('BetChipSet::getSelectedChipIndex ：' + this._envSelectedChipIndex);
+        return this._envSelectedChipIndex;
       }
     }
   }
