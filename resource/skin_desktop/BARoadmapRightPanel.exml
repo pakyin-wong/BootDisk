@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BARoadmapLeftPanel" width="698" height="304" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <ui:RunTimeLabel id="totalCountLabel" text="00" x="560" y="11" textAlign="right" anchorOffsetX="0"
+                         width="111.67" size="25" />
+        <ui:RunTimeLabel id="bankerCountLabel" text="00" x="263" y="11" textAlign="left" anchorOffsetX="0" width="61"
+                         size="25" />
+        <ui:RunTimeLabel id="playerCountLabel" text="00" x="333" y="11" textAlign="left" anchorOffsetX="0" width="61"
+                         size="25" />
+        <ui:RunTimeLabel id="tieCountLabel" text="00" x="402" y="11" textAlign="left" anchorOffsetX="0" width="61"
+                         size="25" />
+        <ui:RunTimeLabel id="bankerPairCountLabel" text="00" x="471" y="11" textAlign="left" anchorOffsetX="0"
+                         width="61" size="25" />
+        <ui:RunTimeLabel id="playerPairCountLabel" text="00" x="540" y="11" textAlign="left" anchorOffsetX="0"
+                         width="61" size="25" />
+</e:Skin>

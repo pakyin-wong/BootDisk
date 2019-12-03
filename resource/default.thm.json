@@ -45,6 +45,8 @@
 		"resource/skin_desktop/BettingTable.exml",
 		"resource/skin_desktop/GameBar.exml",
 		"resource/skin_desktop/BaccaratScene.exml",
+		"resource/skin_desktop/BARoadmapLeftPanel.exml",
+		"resource/skin_desktop/BARoadmapRightPanel.exml",
 		"resource/skin_desktop/BetChip.exml",
 		"resource/skin_desktop/BetChipSet.exml",
 		"resource/skin_desktop/BetConfirmButton.exml",

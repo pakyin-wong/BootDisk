@@ -6,6 +6,7 @@ namespace we {
       private bigEyeRoad: BABigEyeRoad;
       private smallRoad: BASmallRoad;
       private cockroachRoad: BACockroachRoad;
+      private rightPanel: BARoadmapRightPanel;
       public tableid: string;
 
       private parser: BARoadParser;
@@ -16,12 +17,13 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, r2, r3, r4, r5, columnArray) {
+      public setRoads(r1, r2, r3, r4, r5, columnArray, rightPanel) {
         this.beadRoad = r1;
         this.bigRoad = r2;
         this.bigEyeRoad = r3;
         this.smallRoad = r4;
         this.cockroachRoad = r5;
+        this.rightPanel = rightPanel;
 
         this.parser = new BARoadParser(columnArray);
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
@@ -118,7 +120,29 @@ namespace we {
         if (roadmapData) {
           if (this.useParser) {
             // option 1. parse from bead road data
-            const stats = this.parser.getIconsFromBeadResult(roadmapData.bead);
+
+            // update the gamestatistic
+            if (env.tableInfos[this.tableid]) {
+              if (env.tableInfos[this.tableid].gamestatistic) {
+                const stats = this.parser.getIconsFromBeadResult(roadmapData.bead);
+                const data = env.tableInfos[this.tableid].gamestatistic;
+                this.rightPanel.setStats(
+                  data.bankerCount,
+                  data.playerCount,
+                  data.tieCount,
+                  data.bankerPairCount,
+                  data.playerPairCount,
+                  data.totalCount,
+                  stats.predictBankerIcons[0],
+                  stats.predictBankerIcons[1],
+                  stats.predictBankerIcons[2],
+                  stats.predictPlayerIcons[0],
+                  stats.predictPlayerIcons[1],
+                  stats.predictPlayerIcons[2]
+                );
+              }
+            }
+
             this.parser.parseData(roadmapData.bead);
           } else {
             // option 2. just display all road data as it is
@@ -129,7 +153,27 @@ namespace we {
             this.smallRoad.parseRoadData(roadmapData.small, state);
             this.cockroachRoad.parseRoadData(roadmapData.roach, state);
 
-            const stats = this.parser.getIconsFromRoadData(roadmapData);
+            // update the gamestatistic
+            if (env.tableInfos[this.tableid]) {
+              if (env.tableInfos[this.tableid].gamestatistic) {
+                const stats = this.parser.getIconsFromRoadData(roadmapData);
+                const data = env.tableInfos[this.tableid].gamestatistic;
+                this.rightPanel.setStats(
+                  data.bankerCount,
+                  data.playerCount,
+                  data.tieCount,
+                  data.bankerPairCount,
+                  data.playerPairCount,
+                  data.totalCount,
+                  stats.predictBankerIcons[0],
+                  stats.predictBankerIcons[1],
+                  stats.predictBankerIcons[2],
+                  stats.predictPlayerIcons[0],
+                  stats.predictPlayerIcons[1],
+                  stats.predictPlayerIcons[2]
+                );
+              }
+            }
           }
         }
       }

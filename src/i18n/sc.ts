@@ -58,6 +58,9 @@ namespace we {
         time: '时间',
         betLimit: '下注限红',
         baccarat: '百家樂',
+        gameroundid: '遊戏编号',
+        totalbet: '总投注',
+        totalcount: '总数',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

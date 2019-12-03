@@ -154,6 +154,9 @@ namespace we {
             self.gameData = self.tableInfo.data;
             self.previousState = self.gameData.state;
             self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
+            if (self.tableInfo.betInfo) {
+              self.roadmapLeftPanel.setGameInfo(self.tableInfo.betInfo.gameroundid, self.tableInfo.betInfo.total);
+            }
           }
         });
       }
@@ -214,7 +217,8 @@ namespace we {
           this.roadmapRightPanel.bigEyeRoad,
           this.roadmapRightPanel.smallRoad,
           this.roadmapRightPanel.cockroachRoad,
-          [12, 12, 24, 12, 12]
+          [12, 12, 24, 12, 12],
+          this.roadmapRightPanel
         );
         // this.roadmap = new BARoadmap(this._tableID);
         // this.roadmap.x = 2000;
