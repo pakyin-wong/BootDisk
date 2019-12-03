@@ -12,5 +12,5 @@
 	<e:Group id="_dropdown_toggle" x="0" y="198"  width="200" height="30" right="20" touchChildren="false">
 		<ui:RunTimeLabel text="Dropdown" fontFamily="Barlow" size="30" textColor="0xffffff"  width="100%" height="100%" textAlign="right"/>
 	</e:Group>
-	<ui:DropdownList id="_dropdown"  x="0" y="228" right="20"/>
+	<ui:DropdownList id="_dropdown"  x="0" y="228" right="20" width="200" height="144" anchorOffsetX="0" anchorOffsetY="0"/>
 </e:Skin>

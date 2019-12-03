@@ -63,7 +63,9 @@ namespace we {
       }
 
       public updateContentPos() {
-        this._contentPos = new egret.Point(this.target.content.x, this.target.content.y);
+        if (this && this.target && this.target.content && this.target.content.x && this.target.content.y) {
+          this._contentPos = new egret.Point(this.target.content.x, this.target.content.y);
+        }
       }
 
       private onToggle() {
