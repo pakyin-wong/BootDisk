@@ -10,7 +10,7 @@
 		<ui:RunTimeLabel id="_balance" text="RMB 123,456,789" x="79" y="35" width="146" height="34" fontFamily="Barlow" size="28" textColor="0xffffff" scaleX="1" scaleY="1"/>
 		<e:Image id="_profilePrc" width="58" height="58" x="0" y="7.8" anchorOffsetX="0" anchorOffsetY="0" fillMode="clip" scaleX="1" scaleY="1"/>
 	</e:Group>
-	<e:Image id="_menu_toggle" width="28.8" height="24.4" x="2527" y="35" source="nav_menu_toggle" />
+	<e:Image id="_menu_toggle" width="28.8" height="24.4" x="2527" y="35" source="d_lobby_navbar_menu_png" />
 	<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="115.76" isPoppable="true"
 	                   dismissOnClickOutside="true" />
 	<ui:NavSideMenu id="_menu" width="363" height="576" x="2168" y="102" isPoppable="true" dismissOnClickOutside="true" />

@@ -7,10 +7,6 @@ declare module skins{
 	}
 }
 declare module skins{
-	class HScrollBarSkin extends eui.Skin{
-	}
-}
-declare module skins{
 	class HSliderSkin extends eui.Skin{
 	}
 }
@@ -23,15 +19,7 @@ declare module skins{
 	}
 }
 declare module skins{
-	class ProgressBarSkin extends eui.Skin{
-	}
-}
-declare module skins{
 	class RadioButtonSkin extends eui.Skin{
-	}
-}
-declare module skins{
-	class RoundButtonSkin extends eui.Skin{
 	}
 }
 declare module skins{
@@ -44,10 +32,6 @@ declare module skins{
 }
 declare module skins{
 	class ToggleSwitchSkin extends eui.Skin{
-	}
-}
-declare module skins{
-	class VScrollBarSkin extends eui.Skin{
 	}
 }
 declare module skins{
@@ -139,7 +123,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class LoadingProcessBar extends eui.Skin{
+	class LoadingProgressBar extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -157,7 +141,7 @@ declare module skin_desktop{
 declare class NavSideMenuSkin extends eui.Skin{
 }
 declare module skin_desktop{
-	class VScrollBarSkin extends eui.Skin{
+	class ScrollBarVertical extends eui.Skin{
 	}
 }
 declare module skin_desktop{

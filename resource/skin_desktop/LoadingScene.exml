@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LoadingScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Image bottom="0" fillMode="clip"  source="d-lobby-loading-banner-1" left="0" right="0" top="0"/>
-	<e:ProgressBar id="_progressbar" width="678" height="22" horizontalCenter="0" y="1194" anchorOffsetY="0"  skinName="skin_desktop.LoadingProcessBar" touchEnabled="false"/>
+	<e:Image bottom="0" fillMode="clip"  source="d_lobby_loading_banner_1_jpg" left="0" right="0" top="0"/>
+	<e:ProgressBar id="_progressbar" width="678" height="22" horizontalCenter="0" y="1194" anchorOffsetY="0"  skinName="skin_desktop.LoadingProgressBar" touchEnabled="false"/>
 	<ui:RunTimeLabel id="_progressMsg" text="" y="1148" textAlign="center"  left="0" right="0" fontFamily="PingFangTC" size="24" height="33"/>
 </e:Skin>

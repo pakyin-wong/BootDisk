@@ -15,7 +15,7 @@ namespace we {
       public constructor() {
         super();
         this.skinName = utils.getSkin('ImageSlider');
-        this.images = [RES.getRes('banner-baccarat_png'), RES.getRes('lobby_banner1_png'), RES.getRes('lobby_banner2_png')];
+        this.images = [RES.getRes('banner-baccarat_png')];
         // comment this line in case of performance issues
         // this.mask = new egret.Rectangle(0, 0, this.width, this.height);
       }
