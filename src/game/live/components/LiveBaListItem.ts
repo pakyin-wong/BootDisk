@@ -76,19 +76,29 @@ namespace we {
           }
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetPanel);
-          egret.Tween.get(this).to({ y: this._originaly - this._offsetY, scaleX: 1.1, scaleY: 1.1 }, 1000);
-          egret.Tween.get(this._quickbetPanel).to({ y: 378, alpha: 1 }, 1000);
-          this.setChildIndex(this._group, 1000);
-          this.setChildIndex(this._quickbetPanel, 1500);
+          const p1 = new Promise(resolve =>
+            egret.Tween.get(this)
+              .to({ y: this._originaly - this._offsetY, scaleX: 1.1, scaleY: 1.1 }, 250)
+              .call(resolve)
+          );
+          const p2 = new Promise(resolve =>
+            egret.Tween.get(this._quickbetPanel)
+              .to({ y: 378, alpha: 1 }, 250)
+              .call(resolve)
+          );
+          Promise.all([p1, p2]).then(() => {
+            this.setChildIndex(this._group, 1000);
+            this.setChildIndex(this._quickbetPanel, 1500);
+          });
         } else {
-          this.setChildIndex(this._group, 1500);
           this.setChildIndex(this._quickbetPanel, 1000);
+          this.setChildIndex(this._group, 1500);
           this.toggleLivePageLock();
           dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetPanel);
-          egret.Tween.get(this).to({ y: this._originaly }, 1000);
-          egret.Tween.get(this._quickbetPanel).to({ y: 300, alpha: 0 }, 1000);
+          egret.Tween.get(this).to({ y: this._originaly }, 250);
+          egret.Tween.get(this._quickbetPanel).to({ y: 300, alpha: 0 }, 250);
         }
       }
 
@@ -127,8 +137,8 @@ namespace we {
         if (!env.livepageLocked) {
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);
-          egret.Tween.get(this).to({ scaleX: 1.1, scaleY: 1.1, y: this._originaly }, 1000);
-          egret.Tween.get(this._quickbetButton).to({ y: 300, alpha: 1 }, 1000);
+          egret.Tween.get(this).to({ scaleX: 1.1, scaleY: 1.1, y: this._originaly }, 250);
+          egret.Tween.get(this._quickbetButton).to({ y: 300, alpha: 1 }, 250);
         }
       }
 
@@ -136,8 +146,8 @@ namespace we {
         if (!env.livepageLocked) {
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);
-          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 1000);
-          const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 1000);
+          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 250);
+          const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 250);
         }
       }
     }
