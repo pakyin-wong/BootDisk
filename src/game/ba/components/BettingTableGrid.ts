@@ -18,6 +18,7 @@ namespace we {
       private _uncfmDenom: number[];
 
       private _type: we.core.BettingTableType;
+      private _chips: eui.Image[] = new Array();
 
       constructor() {
         super();
@@ -91,10 +92,63 @@ namespace we {
       }
 
       public addUncfmBet(amount: number): void {
+        console.log('BettingTableGrid::addUncfmBet() - outside');
         this._uncfmBet += amount;
         if (this._denomList && amount) {
-          this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, amount);
+          console.log('BettingTableGrid::addUncfmBet() - inside');
+          this.clearChips();
+          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet);
+          this._uncfmDenom.map((value, index) => {
+            console.log('BettingTableGrid::addUncfmBet() - loop: value:' + value + ' index: ' + index);
+            let chip: eui.Image;
+            switch (value) {
+              case 1:
+                chip = this.getChip('1', index);
+                this._chips.push(chip);
+                this.addChild(chip);
+                break;
+              case 2:
+                chip = this.getChip('2', index);
+                this._chips.push(chip);
+                this.addChild(chip);
+                break;
+              case 5:
+                chip = this.getChip('5', index);
+                this._chips.push(chip);
+                this.addChild(chip);
+                break;
+
+              case 20:
+                chip = this.getChip('20k', index);
+                this._chips.push(chip);
+                this.addChild(chip);
+                break;
+
+              default:
+                chip = this.getChip('50k', index);
+                this._chips.push(chip);
+                this.addChild(chip);
+            }
+          });
         }
+      }
+
+      public getChip(chipvalue, index) {
+        const chip = new eui.Image();
+        console.log('d_ba_betcontrol_image_clipsset' + chipvalue + '_png');
+        chip.texture = RES.getRes('d_ba_betcontrol_image_clipsset' + chipvalue + '_png');
+        chip.horizontalCenter = 0;
+        chip.verticalCenter = index * -10;
+        chip.width = 100;
+        chip.height = 100;
+        return chip;
+      }
+
+      private clearChips() {
+        this._chips.forEach(value => {
+          this.removeChild(value);
+        });
+        this._chips = new Array();
       }
 
       public setSize(width: number, height: number) {

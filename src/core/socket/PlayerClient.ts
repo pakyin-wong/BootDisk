@@ -158,6 +158,7 @@ namespace we {
         this.updateTimestamp(timestamp);
         const tableid = gameStatistic.tableid;
         delete gameStatistic.tableid;
+
         const tableInfo: data.TableInfo = env.tableInfos[tableid];
         const roadmapData = this.getRoadMapData(gameStatistic);
 

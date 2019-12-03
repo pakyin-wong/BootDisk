@@ -9,11 +9,11 @@
 			"name": "common"
 		},
 		{
-			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png,Lobby_ThreeColumnBg_png,d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png",
+			"keys": "banner-baccarat_png,lobby_banner1_png,lobby_banner2_png,lobby_banner3_png,Lobby_ThreeColumnBg_png,d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png",
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_general_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_general_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_general_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_general_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_general_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_general_png,d_ba_betarea_tie_general_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_general_png,d_ba_betcontrol_clipsset_flat_2_png,d_ba_betcontrol_clipsset_flat_20_png,d_ba_betcontrol_clipsset_flat_50_png,d_ba_betcontrol_clipsset_flat_1_png,d_ba_betcontrol_image_clipsset5_png",
+			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_general_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_general_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_general_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_general_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_general_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_general_png,d_ba_betarea_tie_general_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_general_png,d_ba_betcontrol_clipsset_flat_2_png,d_ba_betcontrol_clipsset_flat_20_png,d_ba_betcontrol_clipsset_flat_50_png,d_ba_betcontrol_clipsset_flat_1_png,d_ba_betcontrol_image_clipsset5_png,d_ba_betcontrol_image_clipsset50k_png,d_ba_betcontrol_image_clipsset2_png,d_ba_betcontrol_image_clipsset20k_png,d_ba_betcontrol_clipsset_flat_5_png,d_ba_betcontrol_image_clipsset1_png",
 			"name": "scene_baccarat"
 		},
 		{
@@ -1107,29 +1107,29 @@
 			"name": "d_ba_betarea_supersix_playerpair_hover_png"
 		},
 		{
-			"name": "d_ba_betcontrol_clipsset_flat_2_png",
+			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_2.png",
 			"type": "image",
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_2.png"
+			"name": "d_ba_betcontrol_clipsset_flat_2_png"
 		},
 		{
-			"name": "d_ba_betcontrol_clipsset_flat_20_png",
+			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_20.png",
 			"type": "image",
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_20.png"
+			"name": "d_ba_betcontrol_clipsset_flat_20_png"
 		},
 		{
-			"name": "d_ba_betcontrol_clipsset_flat_50_png",
+			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_50.png",
 			"type": "image",
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_50.png"
+			"name": "d_ba_betcontrol_clipsset_flat_50_png"
 		},
 		{
-			"name": "d_ba_betcontrol_clipsset_flat_1_png",
+			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_1.png",
 			"type": "image",
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_1.png"
+			"name": "d_ba_betcontrol_clipsset_flat_1_png"
 		},
 		{
-			"name": "d_ba_betcontrol_image_clipsset5_png",
+			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset5.png",
 			"type": "image",
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset5.png"
+			"name": "d_ba_betcontrol_image_clipsset5_png"
 		}
 	]
 }
