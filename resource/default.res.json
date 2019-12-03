@@ -9,7 +9,7 @@
 			"name": "common"
 		},
 		{
-			"keys": "banner-baccarat_png,d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png",
+			"keys": "d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png",
 			"name": "scene_lobby"
 		},
 		{
@@ -21,12 +21,16 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png",
 			"name": "temp"
 		},
 		{
 			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg",
 			"name": "scene_loading"
+		},
+		{
+			"keys": "banner-baccarat_png,lobby-featured-poster-2_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-1_png",
+			"name": "preload"
 		}
 	],
 	"resources": [
@@ -440,11 +444,6 @@
 			"url": "assets/Scene/loading/d_lobby_loading_banner_1.jpg",
 			"type": "image",
 			"name": "d_lobby_loading_banner_1_jpg"
-		},
-		{
-			"url": "assets/banner-baccarat.png",
-			"type": "image",
-			"name": "banner-baccarat_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_banker_general.png",
@@ -1660,6 +1659,31 @@
 			"url": "assets/d/common/d_common_scrollbar.png",
 			"type": "image",
 			"name": "d_common_scrollbar_png"
+		},
+		{
+			"url": "assets/temp/banner-baccarat.png",
+			"type": "image",
+			"name": "banner-baccarat_png"
+		},
+		{
+			"url": "assets/temp/lobby-featured-poster-2.png",
+			"type": "image",
+			"name": "lobby-featured-poster-2_png"
+		},
+		{
+			"url": "assets/temp/lobby-featured-poster-4.png",
+			"type": "image",
+			"name": "lobby-featured-poster-4_png"
+		},
+		{
+			"url": "assets/temp/lobby-featured-poster-3.png",
+			"type": "image",
+			"name": "lobby-featured-poster-3_png"
+		},
+		{
+			"url": "assets/temp/lobby-featured-poster-1.png",
+			"type": "image",
+			"name": "lobby-featured-poster-1_png"
 		}
 	]
 }
