@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.InGameMessageSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+    <e:Group id="_content">
+        <e:Image id="_bg" source="d_ba_gamerecord_playerelement_png" x="0" y="0" scaleX="1" scaleY="1" />
+        <e:Label id="_label" text="Label" horizontalCenter="0" verticalCenter="0" size="20" x="127" y="6" scaleX="1"
+                 scaleY="1" />
+    </e:Group>
+</e:Skin>

@@ -30,5 +30,7 @@
 	</e:Group>
 	<ba:GameResultMessage id="resultMessage" x="1288.5" y="954.45" anchorOffsetX="309" anchorOffsetY="55" scaleX="1"
 	                      scaleY="1" skinName="skin_desktop.GameResultNormalSkin" />
+	<ba:InGameMessage id="message" x="1850.5" y="970.95" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	                  anchorOffsetY="16" />
 </e:Skin>
 

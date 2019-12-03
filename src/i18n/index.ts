@@ -2,12 +2,14 @@ namespace we {
   export namespace i18n {
     export let lang = 'sc';
 
-    export function t(s: string) {
+    export function t(s: string, ...variables: any[]) {
       function ds(p: any, c: string) {
         const a: string[] = c.split('.');
         if (typeof p === 'object' && s !== '') {
           return ds(p[a.shift()], a.join('.'));
-        } else if (typeof p === 'string' || typeof p === 'object') {
+        } else if (typeof p === 'string') {
+          return replace(p, variables);
+        } else if (typeof p === 'object') {
           return p;
         } else {
           return s;
@@ -15,6 +17,13 @@ namespace we {
       }
 
       return ds(i18n[i18n.lang], s);
+    }
+
+    function replace(output: string, variables: any[]): string {
+      for (let i = 1; i <= replace.length; i++) {
+        output = output.replace('$' + i, variables[i - 1]);
+      }
+      return output;
     }
 
     export function setLang(s) {
