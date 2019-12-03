@@ -117,12 +117,6 @@ namespace we {
       }
 
       private async mount() {
-        try {
-          console.log('LiveBaListItem::mount');
-          await RES.loadGroup('temp');
-        } catch (e) {
-          console.log('LiveBaListItem::mount error');
-        }
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
         this._dealerImage.texture = RES.getRes(imageResName);
         this._quickbetPanel.tableId = this._tableId;
