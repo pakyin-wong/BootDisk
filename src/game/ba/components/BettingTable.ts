@@ -7,10 +7,11 @@ namespace we {
       private _gridTie: BettingTableGrid;
       private _gridSuperSix: BettingTableGrid;
       private _gridBanker: BettingTableGrid;
-      private tableID: number;
+      private _tableId: string;
       private _type: we.core.BettingTableType;
       private _denomList: number[];
-
+      private _getSelectedChipIndex: () => number;
+      private _getSelectedBetLimitIndex: () => number;
       private mapping: { [s: string]: BettingTableGrid };
 
       private uncfmBetDetails: data.BetDetail[];
@@ -29,8 +30,12 @@ namespace we {
         return this._denomList;
       }
 
-      private setTableID(tableId: number) {
-        this.tableID = tableId;
+      set tableId(value: string) {
+        this._tableId = value;
+      }
+
+      get tableId() {
+        return this._tableId;
       }
 
       set type(value: we.core.BettingTableType) {
@@ -75,12 +80,14 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
+        // This part cannot be put in the constructor(this._gridBanker,
+        // this._gridPlayer, this._gridTie, this._gridBankerPair, this._gridPlayerPair,
+        // this._gridSuperSix) because they are null in constructor
+
         this.init();
       }
 
-      // Must be called if you change skin
-      public init() {
-        // This part cannot be put in the constructor because they are null in constructor
+      private createMapping() {
         this.mapping = {};
         this.mapping[BetField.BANKER] = this._gridBanker;
         this.mapping[BetField.PLAYER] = this._gridPlayer;
@@ -88,23 +95,49 @@ namespace we {
         this.mapping[BetField.BANKER_PAIR] = this._gridBankerPair;
         this.mapping[BetField.PLAYER_PAIR] = this._gridPlayerPair;
         this.mapping[BetField.SUPER_SIX] = this._gridSuperSix;
+      }
 
+      private setFieldNames() {
         this._gridBanker.setFieldName(BetField.BANKER);
         this._gridPlayer.setFieldName(BetField.PLAYER);
         this._gridTie.setFieldName(BetField.TIE);
         this._gridBankerPair.setFieldName(BetField.BANKER_PAIR);
         this._gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
         this._gridSuperSix.setFieldName(BetField.SUPER_SIX);
+      }
 
+      private setDenomLists() {
         this._gridBanker.denomList = this._denomList;
         this._gridPlayer.denomList = this._denomList;
         this._gridTie.denomList = this._denomList;
         this._gridBankerPair.denomList = this._denomList;
         this._gridPlayerPair.denomList = this._denomList;
         this._gridSuperSix.denomList = this._denomList;
+      }
+
+      // Must be called if you change skin
+      public init() {
+        this.createMapping();
+        this.setFieldNames();
+        this.setFieldLevel();
+        this.setDenomLists();
         this.resetBitmap();
         this.changeMethod('normal');
         this.changeLang();
+        this.resetUnconfirmedBet();
+        this.setListeners();
+      }
+
+      private setFieldLevel() {
+        this._gridBanker.betChipZIndex = 10000;
+        this._gridPlayer.betChipZIndex = 10000;
+        this._gridBankerPair.betChipZIndex = 20000;
+        this._gridPlayerPair.betChipZIndex = 20000;
+        this._gridSuperSix.betChipZIndex = 20000;
+        this._gridTie.betChipZIndex = 20000;
+      }
+
+      private setListeners() {
         this._gridPlayerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayerPair), this);
         this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
         this._gridPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayer), this);
@@ -112,7 +145,6 @@ namespace we {
         this._gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBanker), this);
         this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
-        this.resetUnconfirmedBet();
       }
 
       /*
@@ -208,6 +240,32 @@ namespace we {
         };
       }
 
+      set getSelectedChipIndex(value: () => number) {
+        this._getSelectedChipIndex = value;
+        this._gridBanker.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridPlayer.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridPlayerPair.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridTie.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridBankerPair.getSelectedChipIndex = this._getSelectedChipIndex;
+      }
+
+      get getSelectedChipIndex() {
+        return this._getSelectedChipIndex;
+      }
+
+      set getSelectedBetLimitIndex(value: () => number) {
+        this._getSelectedBetLimitIndex = value;
+        this._gridBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridPlayer.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridPlayerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridTie.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridBankerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+      }
+
+      get getSelectedBetLimitIndex() {
+        return this._getSelectedBetLimitIndex;
+      }
+
       protected validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
         return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount);
@@ -215,7 +273,7 @@ namespace we {
 
       // check if the current unconfirmed betDetails are valid
       protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number): boolean {
-        const betLimit: data.BetLimit = env.betLimits[env.currentSelectedBetLimitIndex];
+        const betLimit: data.BetLimit = env.betLimits[this._getSelectedBetLimitIndex()];
         // TODO: check balance
         const balance = env.balance;
         if (balance < totalBetAmount) {
