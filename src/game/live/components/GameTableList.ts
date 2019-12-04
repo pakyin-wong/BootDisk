@@ -3,13 +3,18 @@ namespace we {
     export class GameTableList extends eui.Component {
       private scroller: ui.Scroller;
       private collection: eui.ArrayCollection;
-      private roomIds: number[] = [];
+      private roomIds: string[] = [];
 
       private tabs: SegmentedControl;
       private tabItems: string[];
 
       constructor() {
         super();
+        if (env.tableInfoArray) {
+          this.roomIds = env.tableInfoArray.map(value => {
+            return value.tableid;
+          });
+        }
         this.collection = new eui.ArrayCollection(this.roomIds);
       }
 
@@ -106,7 +111,7 @@ namespace we {
 
       private handleTableList(event: egret.Event) {
         if (!env.livepageLocked) {
-          const roomIds = event.data as number[];
+          const roomIds = event.data as string[];
           const added = this.arrayDiff(roomIds, this.roomIds);
           const removed = this.arrayDiff(this.roomIds, roomIds);
           added.forEach(item => {

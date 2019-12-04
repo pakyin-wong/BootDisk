@@ -99,6 +99,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class CircleButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class CountdownTimerSkin extends eui.Skin{
 	}
 }
@@ -145,7 +149,7 @@ declare module skin_desktop{
 declare class NavSideMenuSkin extends eui.Skin{
 }
 declare module skin_desktop{
-	class RoundButton extends eui.Skin{
+	class RoundButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

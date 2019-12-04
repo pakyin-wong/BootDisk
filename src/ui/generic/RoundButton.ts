@@ -9,6 +9,8 @@ namespace we {
       private _tw1: egret.Tween;
       private _tw2: egret.Tween;
       private _tw3: egret.Tween;
+      private _label1text: string;
+      private _label2text: string;
 
       constructor() {
         super();
@@ -56,12 +58,33 @@ namespace we {
         return this._label1;
       }
 
+      set label1text(value: string) {
+        this._label1text = value;
+        if (this._label1) {
+          this._label1.text = value;
+        }
+      }
+      get label1text(): string {
+        return this._label1text;
+      }
+
       set label2(value) {
         this._label2 = value;
       }
 
       get label2() {
         return this._label2;
+      }
+
+      set label2text(value: string) {
+        this._label2text = value;
+        if (this._label2) {
+          this._label2.text = value;
+        }
+      }
+
+      get label2text(): string {
+        return this._label2text;
       }
 
       public tweenLabel(direction: boolean) {

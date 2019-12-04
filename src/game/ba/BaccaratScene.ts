@@ -13,9 +13,12 @@ namespace we {
       private cardHolder: CardHolder;
       private countdownTimer: CountdownTimer;
       private confirmButton: eui.Button;
-      private cancelButton: eui.Button;
+      private repeatButton: ui.CircleButton;
+      private cancelButton: ui.CircleButton;
+      private doubleButton: ui.CircleButton;
       private winAmountLabel: eui.Label;
       private stateLabel: eui.Label;
+      private roundPanel: eui.Rect;
 
       private switchLang: ui.SwitchLang;
 
@@ -95,6 +98,7 @@ namespace we {
 
         // work around currentSelectedBetLimitIndex = 0 choose by the
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipsList.map(data => data.value);
+        this.betChipSet.setVisibleDenominationCount(4);
         this.betChipSet.setDenominationList(denominationList);
 
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -511,10 +515,13 @@ namespace we {
       }
 
       protected setBetRelatedComponentsVisibility(visible: boolean) {
+        this.roundPanel.visible = visible;
         this.betChipSet.visible = visible;
         this.countdownTimer.visible = visible;
         this.confirmButton.visible = visible;
         this.cancelButton.visible = visible;
+        this.doubleButton.visible = visible;
+        this.repeatButton.visible = visible;
       }
 
       protected setBetRelatedComponentsTouchEnabled(enabled: boolean) {

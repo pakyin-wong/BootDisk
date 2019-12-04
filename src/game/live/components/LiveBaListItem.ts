@@ -24,13 +24,6 @@ namespace we {
         this.skinName = utils.getSkin('LiveBaListItem');
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        // this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        // this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
-        this._quickbetButton.label1.text = '快速下注';
-        this._quickbetButton.label2.text = 'X';
-        this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
-        // this._dropdown.items = ['test 1', 'test 2'];
-        this._dropdown.setToggler(this._dropdown_toggle);
         this.mount();
       }
 
@@ -131,9 +124,11 @@ namespace we {
 
       private async mount() {
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
+        this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._quickbetPanel.tableId = this._tableId;
+        this._dropdown.setToggler(this._dropdown_toggle);
         this._dealerImage.texture = RES.getRes(imageResName);
         this.setChildIndex(this._dropdown_toggle, 20000);
-        this._quickbetPanel.tableId = this._tableId;
       }
 
       public onRollover(evt: egret.Event) {
