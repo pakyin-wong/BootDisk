@@ -9,18 +9,15 @@
 	<ba:BettingTable id="bettingTable" width="1128" height="314" bottom="0" horizontalCenter="0" isEdgeDismissable="true"
 	                 skinName="skin_desktop.BettingTableSkin" />
 	<ba:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
-	<ba:CountdownTimer id="countdownTimer" width="200" height="80" y="934.39" horizontalCenter="101" />
-	<e:Button id="confirmButton" label="Confirm" y="632.46" anchorOffsetX="0" width="88" anchorOffsetY="0" height="38"
-	          horizontalCenter="13" />
+	<e:Button id="confirmButton" label="" y="944" anchorOffsetX="0" width="180" anchorOffsetY="0" height="60"
+	          horizontalCenter="81" skinName="skins_desktop.BetConfirmButtonSkin" />
+	<ba:CountdownTimer id="countdownTimer" width="180" height="60" y="944" horizontalCenter="81" />
 	<ui:CircleButton id="cancelButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 	                 horizontalCenter="301" resName="d_ba_betcontrol_icon_cancel_png" />
 	<ui:CircleButton id="repeatButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 	                 horizontalCenter="217" resName="d_ba_betcontrol_icon_repeat_png" />
 	<ui:CircleButton id="doubleButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 	                 horizontalCenter="383" resName="d_ba_betcontrol_icon_double_png" />
-	<e:Label id="stateLabel" text="..." y="632.46" horizontalCenter="-387" />
-	<e:Label id="winAmountLabel" text="" y="842.28" anchorOffsetX="0" width="569.7" anchorOffsetY="0" height="46.97"
-	         textAlign="right" horizontalCenter="643" />
 	<ba:BARoadmapLeftPanel id="roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
 	                       anchorOffsetY="0" />
 	<ba:BARoadmapRightPanel id="roadmapRightPanel" width="698" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"

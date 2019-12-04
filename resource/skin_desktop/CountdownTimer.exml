@@ -3,6 +3,6 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<w:Config id="16dcf084172"></w:Config>
 	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
-	                            right="0" thickness="10" touchEnabled="false" touchChildren="false" />
-	<e:Label id="countdownLabel" text="30" x="31" verticalCenter="0" />
+	                            right="0" thickness="6" touchEnabled="false" touchChildren="false" />
+	<e:Label id="countdownLabel" text="30" x="23" verticalCenter="0" />
 </e:Skin>

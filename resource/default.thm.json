@@ -15,7 +15,6 @@
 		"we.ba.BetChip": "resource/skin_desktop/BetChip.exml",
 		"we.ba.BetChipSet": "resource/skin_desktop/BetChipSet.exml",
 		"we.ba.CountdownTimer": "resource/skin_desktop/CountdownTimer.exml",
-		"we.ba.BetConfirmButton": "resource/skin_desktop/BetConfirmButton.exml",
 		"we.ui.NavSideMenu": "resource/skin_desktop/NavSideMenu.exml",
 		"we.ui.TableInfoPanel": "resource/skin_desktop/TableInfoWindow.exml"
 	},
@@ -31,6 +30,7 @@
 		"resource/eui_skins/TextInputSkin.exml",
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VSliderSkin.exml",
+		"resource/skin_desktop/ba/BetConfirmButton.exml",
 		"resource/skin_desktop/ba/GameResult/GameResultNormalSkin.exml",
 		"resource/skin_desktop/ba/GameResult/GameResultWinSkin.exml",
 		"resource/skin_desktop/ba/InGameMessage/InGameMessageSkin.exml",
@@ -43,7 +43,6 @@
 		"resource/skin_desktop/BARoadmapRightPanel.exml",
 		"resource/skin_desktop/BetChip.exml",
 		"resource/skin_desktop/BetChipSet.exml",
-		"resource/skin_desktop/BetConfirmButton.exml",
 		"resource/skin_desktop/BetInfoBaBettingTable.exml",
 		"resource/skin_desktop/BetInfoHolder.exml",
 		"resource/skin_desktop/BetSummary.exml",
