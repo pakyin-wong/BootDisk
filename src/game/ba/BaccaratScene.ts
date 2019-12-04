@@ -226,10 +226,10 @@ namespace we {
         // this.roadmap.y = 500;
         // this.addChild(this.roadmap);
 
-        const gRoad = new BAGoodRoadmap();
-        gRoad.x = 1000;
-        gRoad.y = 500;
-        this.addChild(gRoad);
+        // const gRoad = new BAGoodRoadmap();
+        // gRoad.x = 1000;
+        // gRoad.y = 500;
+        // this.addChild(gRoad);
 
         // step 3: connect socket
         // this.socketConnect();
@@ -257,8 +257,8 @@ namespace we {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
+            this.previousState = this.gameData ? this.gameData.state : GameState.SHUFFLE;
             this.gameData = <GameData> this.tableInfo.data;
-            this.previousState = this.gameData.state;
             if (tableInfo.roadmap) {
               this.roadmapControl.updateRoadData(tableInfo.roadmap);
             }

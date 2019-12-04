@@ -7,7 +7,7 @@ namespace we {
 
       private _isAnimating: boolean;
 
-      public duration: number = 2000;
+      public duration: number = 1600;
 
       public constructor() {
         super();
