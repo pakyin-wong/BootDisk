@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="DropdownSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+    <e:Group x="0" y="0" width="100%">
+        <e:Group id="_toggler" x="6" y="5" touchEnabled="true" touchThrough="false" touchChildren="false" width="100%">
+            <e:Rect height="37" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" left="0" right="0" />
+            <e:Label id="_label" text="" top="0" bottom="0" right="0" left="0" textAlign="center" verticalAlign="middle"
+                     size="20" />
+        </e:Group>
+        <ui:Scroller id="_scroller" x="-1" y="38" isCollapsible="true" iscollapseAnimate="true" collapseOnStart="true"
+                     width="100%">
+            <ui:List id="_list" itemRendererSkinName="DropdownItemSkin" width="100%" />
+        </ui:Scroller>
+        <e:layout>
+            <e:VerticalLayout gap="0" />
+        </e:layout>
+    </e:Group>
+</e:Skin>

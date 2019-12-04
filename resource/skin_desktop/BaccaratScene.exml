@@ -45,6 +45,5 @@
 	<ui:TableInfoPanel width="600" height="319.7" x="0" y="91" id="tableInfoWindow" isPoppable="true"
 	                   skinName="skin_desktop.TableInfoPanel" isEdgeDismissable="true" dismissOnClickOutside="false"
 	                   isDraggable="true" hideOnStart="true" anchorOffsetY="0" />
-	<ui:Dropdown x="152" y="472" anchorOffsetX="0" anchorOffsetY="0" skinName="BetLimitDropdownSkin" />
 </e:Skin>
 
