@@ -1,7 +1,7 @@
 /* tslint:disable max-classes-per-file */
 namespace we {
   export namespace ui {
-    export class DropdownList extends Panel {
+    export class DropdownList extends we.ui.Panel {
       private _items = ['test', 'test222', 'etst333'];
       private _collection: eui.ArrayCollection;
       private _scroller: we.ui.Scroller;
@@ -12,12 +12,10 @@ namespace we {
         this.isPoppable = true;
         this.hideOnStart = true;
         this.dismissOnClickOutside = true;
-      }
 
-      protected mount() {
         // create list
         this._collection = new eui.ArrayCollection(this._items);
-        this._options = new List();
+        this._options = new ui.List();
         const vlayout = new eui.VerticalLayout();
         vlayout.gap = 1;
         this._options.layout = vlayout;
@@ -25,7 +23,7 @@ namespace we {
         this._options.itemRenderer = DropdownListHolder;
 
         // create scroller
-        this._scroller = new Scroller();
+        this._scroller = new we.ui.Scroller();
         this._scroller.percentWidth = 100;
         this._scroller.percentHeight = 100;
         this._scroller.viewport = this._options;
@@ -42,11 +40,15 @@ namespace we {
         group.addChild(this._scroller);
 
         this.setContent(group);
+      }
+
+      protected childrenCreated() {
+        super.childrenCreated();
         (this.toggler.$children[0] as eui.Label).text = this._items[0];
       }
     }
 
-    export class DropdownListHolder extends ItemRenderer {
+    export class DropdownListHolder extends we.ui.ItemRenderer {
       public constructor() {
         super();
         this.touchEnabled = true;

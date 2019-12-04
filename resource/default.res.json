@@ -167,11 +167,6 @@
 			"scale9grid": "30,30,456,725"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_close_none.png",
-			"type": "image",
-			"name": "nav_panel_close"
-		},
-		{
 			"url": "assets/fonts/barlow.woff2",
 			"type": "bin",
 			"name": "barlow_woff2"
