@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.BaccaratScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
-	<e:Image id="bgImg" left="0" top="0" bottom="0" right="0" source="frame-3_png" />
+	<e:Image id="bgImg" top="0" bottom="0" source="frame-3_png"  x="0" locked="true"/>
 	<e:Rect id="roundPanel" width="1045" height="70" x="768.64" y="939.13" fillAlpha="0.3" ellipseHeight="90"
 	        ellipseWidth="90" />
 	<ui:SwitchLang width="300" height="100" x="0" y="200" />
@@ -22,14 +22,14 @@
 	                       anchorOffsetY="0" />
 	<ba:BARoadmapRightPanel id="roadmapRightPanel" width="698" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
 	                        anchorOffsetY="0" />
-	<e:Group id="_header" width="2200.12" height="91" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Button id="btnBack" label="←" x="18" y="20.5" width="50" />
-		<e:Label text="🛈" id="lblRoomInfo" y="10.5" x="188" />
-		<e:Label id="lblRoomNo" text="百家樂" x="76.67" y="10.5" />
-		<ba:GameBar width="700" height="91" x="1500" y="0" id="gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
-		            skinName="skin_desktop.GameBar" />
-		<live:BetLimitDropdown width="180" height="32" x="81" y="47" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0"
+	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" right="0">
+		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3"/>
+		<e:Label id="lblRoomNo" text="百家樂" x="112" y="9.4"  size="28" height="40" verticalAlign="middle" width="127" textAlign="right"/>
+		<live:BetLimitDropdown width="127" height="29" x="112" y="53.4" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0"
 		                       anchorOffsetY="0" />
+		<e:Image id="btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" />
+		<e:Image id="lblRoomInfo" width="24" height="24" x="245" y="19" source="d_ba_navbar_icon_info_png"/>
+		<ba:GameBar width="251" height="52" x="1894" y="25" id="gameBar" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_desktop.GameBar"/>
 	</e:Group>
 	<ba:GameResultMessage id="resultMessage" x="1288.5" y="815.26" anchorOffsetX="309" anchorOffsetY="55" scaleX="1"
 	                      scaleY="1" skinName="skin_desktop.GameResultNormalSkin" />

@@ -30,7 +30,7 @@ namespace we {
       private betDetails: data.BetDetail[];
       private totalWin: number;
 
-      private btnBack: eui.Button;
+      private btnBack: egret.DisplayObject;
       private lblRoomInfo: eui.Label;
       private lblRoomNo: eui.Label;
       private lblBetLimit: eui.Label;
@@ -242,6 +242,11 @@ namespace we {
 
         // step 3: connect socket
         // this.socketConnect();
+      }
+
+      protected mount() {
+        super.mount();
+        mouse.setButtonMode(this.btnBack, true);
       }
 
       protected socketConnect() {}
