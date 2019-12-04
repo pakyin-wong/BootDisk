@@ -27,7 +27,7 @@ namespace we {
       }
       public onTouchTapWhole(evt: egret.Event) {
         const target = this._item.getQuickbetButton();
-        if (evt.target === target || env.livepageLocked) {
+        if (evt.target === target || env.livepageLocked === this.itemData.toString()) {
           return;
         }
         console.log('we.live.LiveBaccartListItem::onclick - tableid' + this.itemData);

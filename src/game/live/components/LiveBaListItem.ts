@@ -9,7 +9,7 @@ namespace we {
       private _bigRoad: we.ba.BALobbyBigRoad;
       private _quickbetPanel: we.live.LiveBaQuickBetPanel;
       private _quickbetButton: ui.RoundButton;
-      private _quickbetEnable: boolean;
+      private _quickbetEnable: boolean = false;
       private _tableId: string;
       private _dropdown: live.BetLimitDropdown;
       // private _dropdown_toggle: eui.Group;
@@ -65,7 +65,7 @@ namespace we {
         this.setupTableInfo();
         this.updateGame();
         this.setEventListeners();
-        this.setChildIndex(this._timer, 30000);
+        // this._group.setChildIndex(this._timer, 2500);
       }
 
       private onTouchTap(evt: egret.Event) {
@@ -84,8 +84,10 @@ namespace we {
         if (this.parent && this.parent.parent) {
           this.parent.parent.setChildIndex(<egret.DisplayObjectContainer> this.parent, 1000);
         }
+        // this.setChildIndex(this._timer, 2500);
 
         if (!env.livepageLocked) {
+          if (this._gameData.state !== we.ba.GameState.BET) { return; }
           this._quickbetButton.tweenLabel(!!!env.livepageLocked);
           this.toggleLivePageLock();
           dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
@@ -96,11 +98,21 @@ namespace we {
           }
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetPanel);
+
+          ///////
+          /*
+          this.y = this._originaly - this._offsetY;
+          this.scaleX = 1.1;
+          this.scaleY = 1.1;
+          this._quickbetPanel.y = 378;
+          this._quickbetPanel.alpha = 1;*/
+
           const p1 = new Promise(resolve =>
             egret.Tween.get(this)
               .to({ y: this._originaly - this._offsetY, scaleX: 1.1, scaleY: 1.1 }, 250)
               .call(resolve)
           );
+          console.log('quickbetpanel go tableid: ' + this._tableId);
           const p2 = new Promise(resolve =>
             egret.Tween.get(this._quickbetPanel)
               .to({ y: 378, alpha: 1 }, 250)
@@ -110,7 +122,7 @@ namespace we {
             this.setChildIndex(this._group, 1000);
             this.setChildIndex(this._quickbetPanel, 1500);
           });
-        } else {
+        } else if (env.livepageLocked === this.tableId) {
           this._quickbetButton.tweenLabel(!!!env.livepageLocked);
           this.setChildIndex(this._quickbetPanel, 1000);
           this.setChildIndex(this._group, 1500);
@@ -119,15 +131,24 @@ namespace we {
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetPanel);
           egret.Tween.get(this).to({ y: this._originaly }, 250);
+
+          console.log('quickbetpanel back home tableid: ' + this._tableId);
+          console.log('quickbetpanel back home before: ' + this.y);
+          console.log('quickbetpanel back home before: ' + this.alpha);
+          // this._quickbetPanel.y = 300;
+          // this._quickbetPanel.alpha = 0;
+
           egret.Tween.get(this._quickbetPanel).to({ y: 300, alpha: 0 }, 250);
+          console.log('quickbetpanel back home after: ' + this.y);
+          console.log('quickbetpanel back home after: ' + this.alpha);
         }
       }
 
       public toggleLivePageLock() {
-        if (env.livepageLocked) {
-          env.livepageLocked = null;
-        } else {
+        if (!env.livepageLocked) {
           env.livepageLocked = this._tableId;
+        } else if (env.livepageLocked === this._tableId) {
+          env.livepageLocked = null;
         }
       }
 
@@ -159,7 +180,7 @@ namespace we {
             this._tableInfo = value;
             this._betDetails = this._tableInfo.bets;
             this._gameData = this._tableInfo.data;
-            this._previousState = this._gameData.state;
+            this._previousState = we.ba.GameState.SHUFFLE;
           }
         });
       }
@@ -172,7 +193,7 @@ namespace we {
             // update the scene
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
-            this._previousState = this._gameData ? this._gameData.state : we.ba.GameState.SHUFFLE;
+            this._previousState = this._gameData ? this._gameData.state : we.ba.GameState.IDLE;
             this._gameData = <we.ba.GameData> this._tableInfo.data;
 
             this.updateGame();
@@ -186,22 +207,19 @@ namespace we {
         if (!this._gameData) {
           return;
         }
+        console.log('state:        ' + this._gameData.state);
         switch (this._gameData.state) {
           case we.ba.GameState.BET:
+            this.setQuickbetPanelVisible(true);
             this.setStateBet();
             break;
           default:
-            this.setStateOther();
+            this.setQuickbetPanelVisible(false);
             break;
         }
       }
 
-      protected setStateOther() {
-        this.setBetRelatedComponentsVisibility(false);
-      }
-
       protected setStateBet() {
-        this._quickbetEnable = true;
         if (this._previousState !== we.ba.GameState.BET) {
           // reset data betinfo
 
@@ -214,11 +232,10 @@ namespace we {
           this._quickbetPanel.bettingTable.resetConfirmedBet();
 
           // show the betchipset, countdownTimer, confirm, cancel and other bet related buttons
-          this.setBetRelatedComponentsVisibility(true);
           // this.setBetRelatedComponentsTouchEnabled(true);
 
           // enable betting table
-          this._quickbetPanel.bettingTable.setTouchEnabled(true);
+          // this._quickbetPanel.bettingTable.setTouchEnabled(true);
 
           // update the bet amount of each bet field in betting table
           if (this._betDetails) {
@@ -236,44 +253,53 @@ namespace we {
         this._timer.start();
       }
 
-      private setBetRelatedComponentsVisibility(enable) {
+      private setQuickbetPanelVisible(enable: boolean) {
         if (this._quickbetEnable !== enable) {
           if (enable) {
             this._timer.visible = true;
-            this.parent.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-            this.parent.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+            // this.setChildIndex(this._timer, 30000);
+            console.log('LiveBaListItem::setQuickbetPanelVisible-enable()' + this.tableId);
           } else {
             this._timer.visible = false;
-            this.parent.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-            this.parent.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
-            this.onRollout(null);
+            console.log('LiveBaListItem::setQuickbetPanelVisible-disable1()' + this.tableId);
+            if (env.livepageLocked === this.tableId) {
+              console.log('LiveBaListItem::setQuickbetPanelVisible-disable2()' + this.tableId);
+              this.onClickButton(null);
+            }
+            const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 250);
           }
+          this._quickbetEnable = enable;
         }
-        this._quickbetEnable = enable;
       }
 
       private async mount() {
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
+        this._dealerImage.texture = RES.getRes(imageResName);
         this._timer.skinName = utils.getSkin('CountdownTimerRound');
-        this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        // this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._quickbetPanel.tableId = this._tableId;
         // this._dropdown.setToggler(this._dropdown_toggle);
-        this._dealerImage.texture = RES.getRes(imageResName);
+
         // this.setChildIndex(this._dropdown_toggle, 20000);
       }
 
       public onRollover(evt: egret.Event) {
         console.log('LiveBaListItem::onRollover');
         if (!env.livepageLocked) {
+          // this.setChildIndex(this._timer, 2500);
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);
           egret.Tween.get(this).to({ scaleX: 1.1, scaleY: 1.1, y: this._originaly }, 250);
-          egret.Tween.get(this._quickbetButton).to({ y: 300, alpha: 1 }, 250);
+          if (this._quickbetEnable) {
+            egret.Tween.get(this._quickbetButton).to({ y: 300, alpha: 1 }, 250);
+          }
         }
       }
 
       public onRollout(evt: egret.Event) {
         if (!env.livepageLocked) {
+          // this.setChildIndex(this._timer, 2500);
+
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);
           const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 250);
