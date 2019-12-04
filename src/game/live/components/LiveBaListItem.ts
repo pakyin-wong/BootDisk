@@ -10,8 +10,9 @@ namespace we {
       private _quickbetPanel: we.live.LiveBaQuickBetPanel;
       private _quickbetButton: ui.RoundButton;
       private _tableId: string;
-      private _dropdown_toggle: eui.Group;
-      private _dropdown: we.ui.DropdownList;
+      private _dropdown: live.BetLimitDropdown;
+      // private _dropdown_toggle: eui.Group;
+      // private _dropdown: we.ui.DropdownList;
       private _group: eui.Group;
 
       // private _originalyhover: number;
@@ -49,7 +50,12 @@ namespace we {
       }
 
       private onTouchTap(evt: egret.Event) {
-        if (evt.target === this._dropdown_toggle || evt.target === this) {
+        const target = evt.target;
+        if (target.parent && target.parent instanceof eui.ItemRenderer) {
+          evt.stopPropagation();
+          return;
+        }
+        if (evt.target === this._dropdown.toggler || evt.target === this) {
           evt.stopPropagation();
           return;
         }
@@ -126,9 +132,9 @@ namespace we {
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._quickbetPanel.tableId = this._tableId;
-        this._dropdown.setToggler(this._dropdown_toggle);
+        // this._dropdown.setToggler(this._dropdown_toggle);
         this._dealerImage.texture = RES.getRes(imageResName);
-        this.setChildIndex(this._dropdown_toggle, 20000);
+        // this.setChildIndex(this._dropdown_toggle, 20000);
       }
 
       public onRollover(evt: egret.Event) {

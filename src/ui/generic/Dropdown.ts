@@ -1,16 +1,16 @@
 namespace we {
   export namespace ui {
     export class Dropdown extends core.BaseEUI {
-      private _toggler: eui.Component;
-      private _scroller: Scroller;
-      private _list: List;
+      protected _toggler: eui.Component;
+      protected _scroller: Scroller;
+      protected _list: List;
 
-      private _label: eui.Label;
+      protected _label: eui.Label;
 
-      private _items = [];
-      private _collection: eui.ArrayCollection;
+      protected _items = [];
+      protected _collection: eui.ArrayCollection;
 
-      private _selectedIndex = 0;
+      protected _selectedIndex = 0;
 
       constructor() {
         super();
@@ -20,8 +20,6 @@ namespace we {
         super.mount();
 
         this._scroller.setToggler(this._toggler, null);
-
-        this._items = ['item 1', 'hello world', 'cls'];
 
         this._collection = new eui.ArrayCollection(this._items);
         // this._list = this._scroller.viewport as List;
