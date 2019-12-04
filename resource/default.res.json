@@ -9,7 +9,7 @@
 			"name": "common"
 		},
 		{
-			"keys": "d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png,d_lobby_quick_bet_notification_follow_none_png,d_lobby_quick_bet_notification_follow_hover_png",
+			"keys": "d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png,d_lobby_quick_bet_notification_follow_none_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_confirm_btn_hover_png,d_lobby_confirm_btn_none_png",
 			"name": "scene_lobby"
 		},
 		{
@@ -1688,9 +1688,9 @@
 			"name": "d_lobby_confirm_btn_none_png"
 		},
 		{
-			"name": "d_lobby_confirm_btn_none2_png",
+			"url": "assets/d/lobby/d_lobby_confirm_btn_hover.png",
 			"type": "image",
-			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png"
+			"name": "d_lobby_confirm_btn_hover_png"
 		}
 	]
 }

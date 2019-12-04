@@ -56,15 +56,17 @@ namespace we {
             this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
             break;
           case we.core.BettingTableType.LOBBY:
-            this._gridBanker.setBitmap('d_lobby_quick_bet_area_a_none_png');
-            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_b_none_png');
+            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
+            this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
+
             this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
             this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
             this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
             break;
           case we.core.BettingTableType.BETSUMMARY:
-            this._gridBanker.setBitmap('d_lobby_quick_bet_area_a_none_png');
-            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_b_none_png');
+            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
+            this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
+
             this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
             this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
             this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
