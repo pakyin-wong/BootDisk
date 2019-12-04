@@ -26,6 +26,7 @@ namespace we {
         banker: 'Banker',
         bankerRoadmap: 'B',
         noComm: 'No Commision',
+        tableInfo: 'Table Info',
         tableNo: 'Table',
         roundNo: 'Round',
         dealer: 'Dealer',
