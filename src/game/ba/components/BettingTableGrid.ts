@@ -130,8 +130,8 @@ namespace we {
 
       public getChip(chipvalue, index) {
         const chip = new eui.Image();
-        console.log('d_ba_betcontrol_image_clipsset' + chipvalue + '_png');
-        chip.texture = RES.getRes('d_ba_betcontrol_image_clipsset' + chipvalue + '_png');
+        console.log(`d_ba_betcontrol_image_clipsset${chipvalue}_png`);
+        chip.texture = RES.getRes(`d_ba_betcontrol_image_clipsset${chipvalue}_png`);
         chip.horizontalCenter = 0;
         chip.verticalCenter = index * -10;
         chip.width = 100;

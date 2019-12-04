@@ -20,6 +20,7 @@ namespace we {
       LIVE_PAGE_LOCK: 'LIVE_PAGE_LOCK',
       INSUFFICIENT_BALANCE: 'INSUFFICIENT_BALANCE',
       EXCEED_BET_LIMIT: 'EXCEED_BET_LIMIT',
+      BET_CHIP_CHANGE: 'BET_CHIP_CHANGE',
     };
 
     export const MQTT = {

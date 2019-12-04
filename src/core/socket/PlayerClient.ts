@@ -41,6 +41,7 @@ namespace we {
         env.currency = player.profile.currency;
         env.nickname = player.profile.nickname;
         env.profileImageURL = player.profile.profileimage;
+        logger.l('PlayerClient::handleReady() ' + player.profile.betlimits);
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [

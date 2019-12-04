@@ -37,8 +37,8 @@ namespace we {
 
       public setValue(newValue: number) {
         this.value = newValue;
-        this.chipValue.text = newValue.toString();
-        // this.chipImg.source = this.getBetChipImg(newValue);
+        // this.chipValue.text = newValue.toString();
+        this.chipImg.source = this.getBetChipImg(newValue);
       }
 
       public getValue() {
@@ -61,7 +61,8 @@ namespace we {
       private getBetChipImg(value): egret.Texture {
         let chipTex;
         if (value) {
-          const resName = `chip_${value}`;
+          const name = utils.getChipFace(value);
+          const resName = `d_ba_betcontrol_image_clipsset${name}_png`;
           chipTex = RES.getRes(resName);
         }
         if (!chipTex) {
