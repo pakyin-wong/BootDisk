@@ -24,12 +24,9 @@ namespace we {
         this.skinName = utils.getSkin('LiveBaListItem');
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        // this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        // this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this._quickbetButton.label1.text = '快速下注';
         this._quickbetButton.label2.text = 'X';
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
-        // this._dropdown.items = ['test 1', 'test 2'];
         this._dropdown.setToggler(this._dropdown_toggle);
         this.mount();
       }
