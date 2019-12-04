@@ -91,6 +91,9 @@ namespace we {
         if (this._denomList && amount) {
           this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, amount);
         }
+        if (amount === 0) {
+          this.clearChips();
+        }
         // this.lblCfmBet.text = this._cfmBet.toString();
       }
 
@@ -167,6 +170,7 @@ namespace we {
 
       public cancelBet(): void {
         this.setUncfmBet(0);
+        this.clearChips();
       }
 
       public getUncfmBet(): number {

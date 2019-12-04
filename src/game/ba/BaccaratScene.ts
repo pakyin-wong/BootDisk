@@ -162,7 +162,7 @@ namespace we {
             self.tableInfo = value;
             self.betDetails = self.tableInfo.bets;
             self.gameData = self.tableInfo.data;
-            self.previousState = self.gameData.state;
+            self.previousState = GameState.SHUFFLE;
             self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
             if (self.tableInfo.betInfo) {
               self.roadmapLeftPanel.setGameInfo(self.tableInfo.betInfo.gameroundid, self.tableInfo.betInfo.total);
@@ -482,24 +482,24 @@ namespace we {
         }
       }
       protected setStateShuffle() {
-        if (this.previousState !== GameState.SHUFFLE) {
-          // TODO: show shuffle message to the client for few seconds
-          // this.stateLabel.text = 'Shuffling';
+        // if (this.previousState !== GameState.SHUFFLE) {
+        // TODO: show shuffle message to the client for few seconds
+        // this.stateLabel.text = 'Shuffling';
 
-          // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
-          this.setBetRelatedComponentsVisibility(false);
-          this.setBetRelatedComponentsTouchEnabled(false);
+        // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
+        this.setBetRelatedComponentsVisibility(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
 
-          // show state
-          // this.stateLabel.visible = true;
+        // show state
+        // this.stateLabel.visible = true;
 
-          // hide cardHolder
-          this.cardHolder.visible = false;
-          // this.winAmountLabel.visible = false;
+        // hide cardHolder
+        this.cardHolder.visible = false;
+        // this.winAmountLabel.visible = false;
 
-          // disable betting table
-          this.bettingTable.setTouchEnabled(false);
-        }
+        // disable betting table
+        this.bettingTable.setTouchEnabled(false);
+        // }
       }
 
       public checkResultMessage(totalWin: number = NaN) {
