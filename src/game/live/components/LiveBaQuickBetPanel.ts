@@ -47,6 +47,14 @@ namespace we {
       get tableId() {
         return this._tableId;
       }
+
+      set bettingTable(value) {
+        this._bettingTable = value;
+      }
+
+      get bettingTable() {
+        return this._bettingTable;
+      }
     }
   }
 }

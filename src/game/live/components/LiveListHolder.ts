@@ -19,7 +19,6 @@ namespace we {
         this.width = 578;
         this.height = 388;
         console.log('we.live.LiveListHolder::mount()');
-        console.log(this.itemData);
         this._item = new we.live.LiveBaListItem();
         this.addChild(this._item);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
@@ -39,6 +38,9 @@ namespace we {
       public itemDataChanged() {
         super.itemDataChanged();
         const table = env.tableInfos[this.itemData];
+        // console.log('we.live.LiveListHolder::itemDataChanged()');
+        // console.log(this.itemData);
+
         this._item.tableId = this.itemData;
         this._item.bigRoad.updateRoadData(table.roadmap);
         this.setZIndex();
