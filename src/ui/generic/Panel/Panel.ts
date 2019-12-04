@@ -73,6 +73,9 @@ namespace we {
 
       protected destroy() {
         this.removeToggler();
+        this.poppableAddon.deactivate();
+        this.edgeDismissableAddon.deactivate();
+        this.draggableAddon.deactivate();
       }
 
       public get isActivated(): boolean {
