@@ -37,6 +37,13 @@ namespace we {
         this.restart();
       }
 
+      protected destroy() {
+        clearInterval(this._loopInterval);
+        egret.Tween.removeTweens(this._label);
+        egret.Tween.removeTweens(this._next);
+        this.removeChildren();
+      }
+
       public alignToRight() {
         this._label.textAlign = this._next.textAlign = 'right';
       }
@@ -87,9 +94,10 @@ namespace we {
                 egret.Tween.removeTweens(this._label);
                 this._label.text = this._next.text;
                 this._label.y = 0;
-                this.removeChild(this._next);
+                this._next.parent && this.removeChild(this._next);
               }.bind(this)
             );
+
           this.addChild(this._next);
           this._loopline = 1;
         } else {
