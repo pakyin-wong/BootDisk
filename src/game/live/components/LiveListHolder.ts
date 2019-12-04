@@ -42,6 +42,8 @@ namespace we {
         // console.log(this.itemData);
 
         this._item.tableId = this.itemData;
+        this._item.setupTableInfo();
+        this._item.updateGame();
         this._item.bigRoad.updateRoadData(table.roadmap);
         this.setZIndex();
         egret.Tween.removeTweens(this);

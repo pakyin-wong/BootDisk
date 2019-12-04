@@ -20,6 +20,7 @@ namespace we {
       private _previousState: number;
       private _gameData: we.ba.GameData;
       private _timer: we.ba.CountdownTimer;
+      private _mouseOutside: boolean = false;
 
       // private _originalyhover: number;
       private _originaly: number;
@@ -62,8 +63,7 @@ namespace we {
         // this._dropdown.items = ['test 1', 'test 2'];
         // this._dropdown.setToggler(this._dropdown_toggle);
         this.mount();
-        this.setupTableInfo();
-        this.updateGame();
+
         this.setEventListeners();
         // this._group.setChildIndex(this._timer, 2500);
       }
@@ -132,17 +132,23 @@ namespace we {
           dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetPanel);
-          egret.Tween.get(this).to({ y: this._originaly }, 250);
-
-          console.log('quickbetpanel back home tableid: ' + this._tableId);
-          console.log('quickbetpanel back home before: ' + this.y);
-          console.log('quickbetpanel back home before: ' + this.alpha);
-          // this._quickbetPanel.y = 300;
-          // this._quickbetPanel.alpha = 0;
-
           egret.Tween.get(this._quickbetPanel).to({ y: 300, alpha: 0 }, 250);
-          console.log('quickbetpanel back home after: ' + this.y);
-          console.log('quickbetpanel back home after: ' + this.alpha);
+          if (this._mouseOutside) {
+            egret.Tween.removeTweens(this._quickbetButton);
+            const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 250);
+            const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 250);
+          } else {
+            egret.Tween.get(this).to({ y: this._originaly }, 250);
+
+            console.log('quickbetpanel back home tableid: ' + this._tableId);
+            console.log('quickbetpanel back home before: ' + this.y);
+            console.log('quickbetpanel back home before: ' + this.alpha);
+            // this._quickbetPanel.y = 300;
+            // this._quickbetPanel.alpha = 0;
+
+            console.log('quickbetpanel back home after: ' + this.y);
+            console.log('quickbetpanel back home after: ' + this.alpha);
+          }
         }
       }
 
@@ -174,7 +180,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
       }
 
-      private setupTableInfo() {
+      public setupTableInfo() {
         // console.log(env.tableInfoArray);
 
         env.tableInfoArray.forEach(value => {
@@ -203,7 +209,7 @@ namespace we {
         }
       }
 
-      private updateGame() {
+      public updateGame() {
         console.log('LiveBaListItem::updateGame() - this._gameData.state ');
         console.log(this._gameData);
         if (!this._gameData) {
@@ -287,6 +293,7 @@ namespace we {
 
       public onRollover(evt: egret.Event) {
         console.log('LiveBaListItem::onRollover');
+        this._mouseOutside = false;
         if (!env.livepageLocked) {
           // this.setChildIndex(this._timer, 2500);
           egret.Tween.removeTweens(this);
@@ -299,6 +306,7 @@ namespace we {
       }
 
       public onRollout(evt: egret.Event) {
+        this._mouseOutside = true;
         if (!env.livepageLocked) {
           // this.setChildIndex(this._timer, 2500);
 
