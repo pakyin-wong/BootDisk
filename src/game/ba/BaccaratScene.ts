@@ -98,8 +98,8 @@ namespace we {
 
         // work around currentSelectedBetLimitIndex = 0 choose by the
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipsList.map(data => data.value);
-        this.betChipSet.setDenominationList(denominationList);
         this.betChipSet.setVisibleDenominationCount(4);
+        this.betChipSet.setDenominationList(denominationList);
 
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);

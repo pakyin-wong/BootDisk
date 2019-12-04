@@ -126,9 +126,9 @@ namespace we {
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._quickbetPanel.tableId = this._tableId;
-        this._dropdown.setToggler(this._dropdown_toggle);        
+        this._dropdown.setToggler(this._dropdown_toggle);
         this._dealerImage.texture = RES.getRes(imageResName);
-        this.setChildIndex(this._dropdown_toggle, 20000);        
+        this.setChildIndex(this._dropdown_toggle, 20000);
       }
 
       public onRollover(evt: egret.Event) {
