@@ -102,6 +102,10 @@ declare module skin_desktop{
 	class CountdownTimerSkin extends eui.Skin{
 	}
 }
+declare class BetLimitDropdownSkin extends eui.Skin{
+}
+declare class BetLimitItemSkin extends eui.Skin{
+}
 declare module skin_desktop{
 	class GameBar extends eui.Skin{
 	}

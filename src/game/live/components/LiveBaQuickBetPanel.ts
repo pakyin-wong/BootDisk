@@ -23,7 +23,7 @@ namespace we {
       }
 
       private getCurrBetLimitIndex() {
-        return 0;
+        return env.currentSelectedBetLimitIndex;
       }
 
       set tableId(value: string) {

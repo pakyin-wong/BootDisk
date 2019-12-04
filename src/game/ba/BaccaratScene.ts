@@ -30,6 +30,8 @@ namespace we {
       private btnBack: eui.Button;
       private lblRoomInfo: eui.Label;
       private lblRoomNo: eui.Label;
+      private lblBetLimit: eui.Label;
+      private lblBetLimitInfo: eui.Label;
 
       private tableInfoWindow: ui.TableInfoPanel;
       private gameBar: GameBar;
@@ -78,6 +80,9 @@ namespace we {
 
         this.setupTableInfo();
         this.updateGame();
+        this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
+        // this.lblRoomNo.text = this.tableInfo.tablename;
+        // this.lblBetLimit.text = env.betLimits;
 
         // this.tableInfoWindow.visible = false;
         this.tableInfoWindow.setToggler(this.lblRoomInfo);
@@ -113,7 +118,7 @@ namespace we {
       }
 
       private getSelectedBetLimitIndex() {
-        return 0;
+        return env.currentSelectedBetLimitIndex;
       }
 
       private onConfirmPressed() {

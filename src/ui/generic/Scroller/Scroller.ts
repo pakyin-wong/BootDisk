@@ -18,10 +18,12 @@ namespace we {
 
       public set isCollapsible(value) {
         this._isCollapsible = value;
-        this.collapseAddon.duration = this.collapseDuration;
-        this.collapseAddon.hideOnStart = this.collapseOnStart;
-        this.collapseAddon.skipAnimation = !this.iscollapseAnimate;
-        this.collapseAddon.active = value;
+        if (this.collapseAddon) {
+          this.collapseAddon.duration = this.collapseDuration;
+          this.collapseAddon.hideOnStart = this.collapseOnStart;
+          this.collapseAddon.skipAnimation = !this.iscollapseAnimate;
+          this.collapseAddon.active = value;
+        }
       }
       public get isCollapsible(): boolean {
         return this._isCollapsible;
@@ -81,13 +83,18 @@ namespace we {
         this.scrollPolicyH = eui.ScrollPolicy.OFF;
         this.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
         this.verticalScrollBar.autoVisibility = false;
-        this.verticalScrollBar.visible = true;
+        if (this._isCollapsible && this.collapseOnStart) {
+          this.verticalScrollBar.visible = false;
+        } else {
+          this.verticalScrollBar.visible = true;
+        }
         this.verticalScrollBar.touchEnabled = true;
         //   this.bounces = false;
         //   this.throwSpeed = Infinity;
       }
 
       private onMount() {
+        this.isCollapsible = this._isCollapsible;
         this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
 
         // add mouse over/out listeners
@@ -223,6 +230,12 @@ namespace we {
         }
       }, 1);
 
+      public collapse() {
+        if (this.isCollapsible && this.collapseAddon.isShow) {
+          this.collapseAddon.onToggle();
+        }
+      }
+
       protected updateDisplayList(unscaledWidth: number, unscaledHeight: number): void {
         super.updateDisplayList(unscaledWidth, unscaledHeight);
         this.validateNow();
@@ -230,7 +243,7 @@ namespace we {
         thumbSize = Math.max(thumbSize, 100);
         this.verticalScrollBar.thumb.height = thumbSize;
 
-        if ((this._isCollapsible && this.collapseAddon.isAnimating) || (this.viewport.contentHeight <= this.maxHeight && this.viewport.contentHeight <= this.height)) {
+        if ((this._isCollapsible && this.collapseAddon.isAnimating) || this.height === 0 || (this.viewport.contentHeight <= this.maxHeight && this.viewport.contentHeight <= this.height)) {
           this.verticalScrollBar.visible = false;
         } else {
           this.verticalScrollBar.visible = true;
