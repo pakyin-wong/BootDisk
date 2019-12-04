@@ -9,6 +9,10 @@ namespace we {
 
       constructor() {
         super();
+        const group = new eui.Group();
+        group.percentWidth = 100;
+        group.percentHeight = 100;
+        this.setContent(group);
         this.isPoppable = true;
         this.hideOnStart = true;
         this.dismissOnClickOutside = true;
@@ -33,13 +37,8 @@ namespace we {
         rect.percentWidth = 100;
         rect.percentHeight = 100;
 
-        const group = new eui.Group();
-        group.percentWidth = 100;
-        group.percentHeight = 100;
         group.addChild(rect);
         group.addChild(this._scroller);
-
-        this.setContent(group);
       }
 
       protected childrenCreated() {

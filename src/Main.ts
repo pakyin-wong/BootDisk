@@ -50,16 +50,14 @@ class Main extends eui.UILayer {
     egret.registerImplementation('eui.IThemeAdapter', new ThemeAdapter());
     try {
       await RES.loadConfig('resource/default.res.json', 'resource/');
-      await this.loadTheme();
-      await RES.loadGroup(we.core.res.EgretBasic);
-      await fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
+      await Promise.all([this.loadTheme(), RES.loadGroup(we.core.res.EgretBasic), RES.loadGroup('temp'), fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }])]);
     } catch (e) {
       console.error(e);
     }
   }
 
-  private async loadTheme() {
+  private loadTheme(): Promise<{}> {
     const theme = new eui.Theme('resource/default.thm.json', this.stage);
-    await we.utils.wait(theme, eui.UIEvent.COMPLETE);
+    return we.utils.wait(theme, eui.UIEvent.COMPLETE);
   }
 }

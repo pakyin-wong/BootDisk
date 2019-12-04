@@ -8,6 +8,7 @@ var mouse;
         function MouseEvent() {
         }
         MouseEvent.MOUSE_MOVE = "mouseMove";
+        MouseEvent.DRAG_MOVE = "dragMove";
         // MouseEvent.MOUSE_OVER = "mouseOver";
         // MouseEvent.MOUSE_OUT = "mouseOut";
         MouseEvent.ROLL_OVER = "rollOver";

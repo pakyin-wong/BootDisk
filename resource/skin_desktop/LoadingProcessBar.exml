@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.LoadingProcessBar" minWidth="678" minHeight="22" xmlns:e="http://ns.egret.com/eui">
-	<e:Image width="672"
-			 height="16" source="d-lobby-loading-progress-bar-base" scale9Grid="10,1,652,15" horizontalCenter="0" verticalCenter="0"/>
-	<e:Image id="thumb" height="20" width="676" source="d-lobby-loading-progress-bar-active" scale9Grid="10,0,562,20" horizontalCenter="0" verticalCenter="0"/>
-</e:Skin>

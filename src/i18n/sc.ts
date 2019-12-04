@@ -60,6 +60,7 @@ namespace we {
         banker: '庄',
         bankerRoadmap: '庄',
         noComm: '免佣',
+        tableInfo: '本台资讯',
         tableNo: '台号',
         roundNo: '局号',
         dealer: '荷官',

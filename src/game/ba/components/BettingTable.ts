@@ -84,7 +84,7 @@ namespace we {
         // this._gridPlayer, this._gridTie, this._gridBankerPair, this._gridPlayerPair,
         // this._gridSuperSix) because they are null in constructor
 
-        this.init();
+        // this.init();
       }
 
       private createMapping() {

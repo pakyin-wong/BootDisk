@@ -20,8 +20,8 @@ namespace we {
         this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
         this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
-        
-        this._txt_version.text = "v0.00.001";
+
+        this._txt_version.text = 'v0.00.001';
       }
     }
   }

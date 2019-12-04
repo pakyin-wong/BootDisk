@@ -26,6 +26,7 @@ namespace we {
         banker: '莊',
         bankerRoadmap: '莊',
         noComm: '免佣',
+        tableInfo: '本檯資訊',
         tableNo: '檯號',
         roundNo: '局號',
         dealer: '荷官',

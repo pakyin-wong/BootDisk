@@ -81,6 +81,7 @@ namespace we {
 
         // this.tableInfoWindow.visible = false;
         this.tableInfoWindow.setToggler(this.lblRoomInfo);
+        this.tableInfoWindow.setValue(this.tableInfo);
         this.addEventListeners();
 
         this.addChild(this._video);
@@ -268,6 +269,8 @@ namespace we {
             console.log('BaccaratScene::onTableInfoUpdate');
             console.dir(this.gameData);
             this.updateGame();
+
+            this.tableInfoWindow.setValue(this.tableInfo);
           }
         }
       }

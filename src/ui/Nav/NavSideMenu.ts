@@ -23,9 +23,9 @@ namespace we {
       }
 
       protected mount() {
+        super.mount();
         this.initTxt();
         this.addListeners();
-        super.mount();
         this.update();
       }
 
@@ -33,7 +33,16 @@ namespace we {
         this.removeListeners();
       }
 
-      protected update() {}
+      protected update() {
+        switch (env.mode) {
+          case 1:
+            this.currentState = 'dark';
+            break;
+          default:
+            this.currentState = 'light';
+            break;
+        }
+      }
 
       private initTxt() {
         this.txt_selectMode.renderText = () => `${i18n.t('nav.menu.selectMode')}`;

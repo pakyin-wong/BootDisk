@@ -40,8 +40,8 @@ namespace we {
 
       public init() {
         super.init();
-        this.updateContentPos();
-        if (this.target.stage) {
+        if (this.target.stage && this.target.content) {
+          this.updateContentPos();
           this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
           if (!this.target.content.visible || this.hideOnStart) {
             this.hide(true);

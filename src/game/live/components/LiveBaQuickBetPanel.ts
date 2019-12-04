@@ -18,7 +18,6 @@ namespace we {
         this._bettingTable.type = we.core.BettingTableType.LOBBY;
         this._bettingTable.denomList = denominationList;
         this._bettingTable.init();
-        this._bettingTable.denomList = denominationList;
         this._bettingTable.getSelectedBetLimitIndex = this.getCurrBetLimitIndex;
         this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
       }
