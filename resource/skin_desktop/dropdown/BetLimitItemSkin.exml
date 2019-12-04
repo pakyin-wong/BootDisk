@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BetLimitItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" states="up,down">
+    <e:Image id="_bg" width="250" height="46" x="0" y="0" source="d_lobby_form_btn_s_select_png" anchorOffsetX="0"
+             anchorOffsetY="0" source.down="d_lobby_form_btn_s_none_png" />
+    <e:Label id="_label" text="{data.item}" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" left="0" top="0"
+             bottom="0" right="0" textAlign="center" size="20" />
+</e:Skin>
