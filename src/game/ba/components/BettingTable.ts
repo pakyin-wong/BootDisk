@@ -146,7 +146,7 @@ namespace we {
         this._gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridTie), this);
         this._gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBanker), this);
         this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
-        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function() {}, this);
+        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
       /*

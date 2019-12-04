@@ -43,7 +43,7 @@ namespace we {
         let result;
         let timeout = null;
         let previous = 0;
-        const later = function() {
+        const later = function () {
           previous = options.leading === false ? 0 : Date.now();
           timeout = null;
           result = func.apply(context, args);
@@ -51,7 +51,7 @@ namespace we {
             context = args = null;
           }
         };
-        return function() {
+        return function () {
           const now = Date.now();
           if (!previous && options.leading === false) {
             previous = now;
@@ -136,8 +136,8 @@ namespace we {
           // only draggable if click on thumb
           return;
         }
-        (<any>window).addEventListener('mousemove', this.onMouseMove, { passive: false });
-        (<any>window).addEventListener('mouseup', this.onMouseUp, { passive: false });
+        (<any> window).addEventListener('mousemove', this.onMouseMove, { passive: false });
+        (<any> window).addEventListener('mouseup', this.onMouseUp, { passive: false });
         const viewHeight = this.viewport.contentHeight - this.height;
         this._initProgress = this.viewport.scrollV / viewHeight;
       }
@@ -152,13 +152,13 @@ namespace we {
         progress = Math.min(Math.max(progress, 0), 1);
         const viewHeight = this.viewport.contentHeight - this.height;
         this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
-      };
+      }
 
       private onMouseUp = (event: MouseEvent) => {
-        (<any>window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
-        (<any>window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
+        (<any> window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
+        (<any> window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
         this._firstYForMovement = 0;
-      };
+      }
 
       private onThumbEnd = (event: egret.TouchEvent) => {
         if (this._firstYForMovement !== 0) {
@@ -169,22 +169,22 @@ namespace we {
         progress = Math.min(Math.max(progress, 0), 1);
         const viewHeight = this.viewport.contentHeight - this.height;
         this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
-      };
+      }
 
       private onMouseOver(event: egret.TouchEvent) {
-        (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       private onMouseOut(event: egret.TouchEvent) {
-        (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public disableWheel() {
-        (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public enableWheel() {
-        (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public enableVScroller() {
