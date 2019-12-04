@@ -20,7 +20,7 @@ namespace we {
 
       public addItem(item: any) {
         if (this.maxDisplayCount <= 0 || this.dataProvider.length < this.maxDisplayCount) {
-          const collection = <eui.ArrayCollection> this.dataProvider;
+          const collection = <eui.ArrayCollection>this.dataProvider;
           collection.addItem(item);
         } else {
           this.itemQueue.push(item);
@@ -32,13 +32,13 @@ namespace we {
           egret.error('queue is enabled. cannot use addItemAt. Fallback to addItem');
           this.addItem(item);
         } else {
-          const collection = <eui.ArrayCollection> this.dataProvider;
+          const collection = <eui.ArrayCollection>this.dataProvider;
           collection.addItemAt(item, index);
         }
       }
 
       public removeItem(item: any) {
-        const collection = <eui.ArrayCollection> this.dataProvider;
+        const collection = <eui.ArrayCollection>this.dataProvider;
         let idx = collection.getItemIndex(item);
         if (idx >= 0) {
           collection.removeItemAt(idx);

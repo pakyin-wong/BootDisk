@@ -31,7 +31,7 @@ namespace we {
         const cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
         const cardHolderArr = [this.card1Banker, this.card2Banker, this.card3Banker, this.card1Player, this.card2Player, this.card3Player];
 
-        cardArr.forEach(function (value, index) {
+        cardArr.forEach(function(value, index) {
           if (value) {
             cardHolderArr[index].setCard(value, (index + 1) % 3 !== 0);
           } else {

@@ -72,7 +72,7 @@ namespace we {
 
       public onClickButton(evt: egret.Event) {
         if (this.parent && this.parent.parent) {
-          this.parent.parent.setChildIndex(<egret.DisplayObjectContainer> this.parent, 1000);
+          this.parent.parent.setChildIndex(<egret.DisplayObjectContainer>this.parent, 1000);
         }
 
         if (!env.livepageLocked) {
