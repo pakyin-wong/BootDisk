@@ -229,19 +229,30 @@ namespace we {
         animateCell: [0, -1, -1, -1, -1, 0, -1, -1, -1, -1],
       };
       private mockRoadData1: any = {
-        bead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }],
+        bead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+        ],
         bigRoad: [{ V: 'p', T: 0 }],
         bigEye: [{ V: 'p' }],
         small: [{ V: 'p' }],
         roach: [{ V: 'p' }],
 
-        bbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'b', B: 0, P: 0, W: 0 }],
+        bbead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'b', B: 0, P: 0, W: 0 },
+        ],
         bbigRoad: [{ V: 'p', T: 0 }],
         bbigEye: [{ V: 'p' }],
         bsmall: [{ V: 'p' }],
         broach: [{ V: 'p' }],
 
-        pbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'p', B: 0, P: 1, W: 7 }],
+        pbead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'p', B: 0, P: 1, W: 7 },
+        ],
         pbigRoad: [{ V: 'p', T: 0 }],
         pbigEye: [{ V: 'p' }],
         psmall: [{ V: 'p' }],

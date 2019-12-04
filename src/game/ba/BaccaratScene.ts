@@ -335,7 +335,7 @@ namespace we {
       }
 
       protected updateGame() {
-        switch (this.gameData.state) {
+        switch (this.gameData && this.gameData.state) {
           case GameState.IDLE:
             this.setStateIdle();
             break;

@@ -87,7 +87,9 @@ namespace we {
         // this.setChildIndex(this._timer, 2500);
 
         if (!env.livepageLocked) {
-          if (this._gameData.state !== we.ba.GameState.BET) { return; }
+          if (this._gameData.state !== we.ba.GameState.BET) {
+            return;
+          }
           this._quickbetButton.tweenLabel(!!!env.livepageLocked);
           this.toggleLivePageLock();
           dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);

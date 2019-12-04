@@ -33,6 +33,10 @@ namespace we {
 
         cardArr.forEach(function (value, index) {
           if (value) {
+            // format value
+            value = value.replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2');
+            value = value.replace('diamond', 'diamonds');
+            value = value.replace('heart', 'hearts');
             cardHolderArr[index].setCard(value, (index + 1) % 3 !== 0);
           } else {
             if ((index + 1) % 3 !== 0) {
