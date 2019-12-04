@@ -62,6 +62,12 @@ namespace we {
         gameroundid: '遊戏编号',
         totalbet: '总投注',
         totalcount: '总数',
+        betSuccess: '下注成功',
+        result: {
+          BANKER: '庄赢',
+          PLAYER: '闲赢',
+          TIE: '和',
+        },
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

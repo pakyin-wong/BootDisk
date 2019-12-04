@@ -313,7 +313,7 @@ namespace we {
           { field: BetField.SUPER_SIX, amount: 0 },
         ];
         Object.keys(this.mapping).forEach(value => {
-          console.log(value);
+          // console.log(value);
           this.mapping[value].setUncfmBet(0);
         });
         this.totalUncfmBetAmount = 0;
@@ -329,7 +329,7 @@ namespace we {
           { field: BetField.SUPER_SIX, amount: 0 },
         ];
         Object.keys(this.mapping).forEach(value => {
-          console.log(value);
+          // console.log(value);
           this.mapping[value].setCfmBet(0);
         });
       }
