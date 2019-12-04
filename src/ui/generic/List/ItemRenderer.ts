@@ -71,8 +71,8 @@ namespace we {
           this.autoRemoveAddon.startRemove();
         } else {
           if (this.parent instanceof List) {
-            const list = <List>this.parent;
-            const collection = <eui.ArrayCollection>list.dataProvider;
+            const list = <List> this.parent;
+            const collection = <eui.ArrayCollection> list.dataProvider;
             const idx = collection.getItemIndex(this.itemData);
             if (idx >= 0) {
               this.autoRemoveAddon.willRemove();
@@ -93,7 +93,7 @@ namespace we {
         this.itemData = this.data.item;
         if (isNew) {
           if (this.parent instanceof List) {
-            const list = <List>this.parent;
+            const list = <List> this.parent;
             this.enterFrom = list.enterFrom;
             this.leaveTo = list.leaveTo;
             this.swipeDirection = list.swipeDirection;
@@ -111,7 +111,7 @@ namespace we {
 
       public setLayoutBoundsPosition(x: number, y: number) {
         if (this.parent instanceof List) {
-          const list = <List>this.parent;
+          const list = <List> this.parent;
           const matrix = this.$getMatrix();
           if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
             const bounds = egret.$TempRectangle;

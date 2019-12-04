@@ -293,7 +293,7 @@ namespace we {
         // tableInfo.bets = betInfo.bets;
         egret.log('BetInfoUpdate:', betInfo);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
         egret.log('BetInfoUpdate:', tableInfo.bets);
