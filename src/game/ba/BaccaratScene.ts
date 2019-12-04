@@ -30,7 +30,7 @@ namespace we {
       private betDetails: data.BetDetail[];
       private totalWin: number;
 
-      private btnBack: eui.Button;
+      private btnBack: egret.DisplayObject;
       private lblRoomInfo: eui.Label;
       private lblRoomNo: eui.Label;
       private lblBetLimit: eui.Label;
@@ -244,6 +244,11 @@ namespace we {
         // this.socketConnect();
       }
 
+      protected mount() {
+        super.mount();
+        mouse.setButtonMode(this.btnBack, true);
+      }
+
       protected socketConnect() {}
 
       protected socketConnectSuccess() {
@@ -261,13 +266,13 @@ namespace we {
       protected onTableInfoUpdate(evt: egret.Event) {
         // console.log('Baccarat listener');
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this.tableID) {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
             this.previousState = this.gameData ? this.gameData.state : GameState.SHUFFLE;
-            this.gameData = <GameData> this.tableInfo.data;
+            this.gameData = <GameData>this.tableInfo.data;
             if (tableInfo.roadmap) {
               this.roadmapControl.updateRoadData(tableInfo.roadmap);
             }
@@ -286,7 +291,7 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this.tableID) {
             // update the scene
           }
@@ -294,7 +299,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         if (tableInfo.tableid === this.tableID) {
           this.betDetails = tableInfo.bets;
           switch (this.gameData.state) {
