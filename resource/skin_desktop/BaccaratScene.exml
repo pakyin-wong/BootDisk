@@ -8,7 +8,7 @@
 	<ui:SwitchLang width="300" height="100" x="0" y="200" />
 	<ba:BettingTable id="bettingTable" width="1128" height="314" bottom="0" horizontalCenter="0" isEdgeDismissable="true"
 	                 skinName="skin_desktop.BettingTableSkin" />
-	<ba:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
+	<ba:CardHolder id='cardHolder' width="412" height="152" y="1031" horizontalCenter="1"  anchorOffsetX="0" anchorOffsetY="0"/>
 	<e:Button id="confirmButton" label="" y="944" anchorOffsetX="0" width="180" anchorOffsetY="0" height="60"
 	          horizontalCenter="81" skinName="skins_desktop.BetConfirmButtonSkin" />
 	<ba:CountdownTimer id="countdownTimer" width="180" height="60" y="944" horizontalCenter="81" />

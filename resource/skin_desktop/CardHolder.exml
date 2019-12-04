@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.CardHolderSkin" width="1200" height="350" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect width="1200" height="350" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillAlpha="0" />
-        <e:Image width="1000" height="175" horizontalCenter="0" verticalCenter="0" anchorOffsetX="0" anchorOffsetY="0" />
-        <ui:Card id="card3Banker" width="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="190" top="0"
-                 height="120" />
-        <ui:Card id="card3Player" width="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-190" top="0"
-                 height="120" />
-        <ui:Card id="card2Banker" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" bottom="0"
-                 horizontalCenter="300" />
-        <ui:Card id="card1Banker" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" bottom="0"
-                 horizontalCenter="150" />
-        <ui:Card id="card2Player" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-150"
-                 bottom="0" />
-        <ui:Card id="card1Player" width="120" height="200" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-300"
-                 bottom="0" />
+<e:Skin class="skin_desktop.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="400" height="190">
+	<e:Rect width="2" height="100%" fillColor="0x00ffff" horizontalCenter="0"/>
+        <e:Group horizontalCenter="-100">
+                <e:Rect width="160" height="40" fillAlpha="0.3" ellipseWidth="50" ellipseHeight="50" />
+                <e:Label id="playerSum" text="9" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0" verticalCenter="0"/>
+        </e:Group>
+        <e:Group horizontalCenter="100">
+                <e:Rect width="160" height="40" fillAlpha="0.3" ellipseWidth="50" ellipseHeight="50" />
+                <e:Label id="bankerSum" text="8" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0" verticalCenter="0"/>
+        </e:Group>
+        <ui:Card id="card3Banker" width="64" height="44" horizontalCenter="100" y="131" />
+        <ui:Card id="card2Banker" width="44" height="64" horizontalCenter="130" y="56" />
+        <ui:Card id="card1Banker" width="44" height="64" horizontalCenter="71" y="56" />
+	<ui:Card id="card3Player" width="64" height="44" horizontalCenter="-100" y="131"/>
+        <ui:Card id="card2Player" width="44" height="64" horizontalCenter="-70" y="56" />
+        <ui:Card id="card1Player" width="44" height="64" horizontalCenter="-129" y="56" />
 </e:Skin>

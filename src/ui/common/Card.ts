@@ -21,13 +21,16 @@ namespace we {
             card.width = this.width;
             card.height = this.height;
           } else {
+            console.log('horizontal');
             // card.rotation = 90;
             // card.texture = RES.getRes(core.Card[resName]);
             card.texture = RES.getRes(texName);
-            card.width = this.height;
-            card.height = this.width;
-            card.x = 0 + this.width;
-            card.y = 0;
+            card.width = this.width;
+            card.height = this.height;
+            // card.width = this.height;
+            // card.height = this.width;
+            // card.x = 0 + this.width;
+            // card.y = 0;
           }
           this.addChild(card);
         }
