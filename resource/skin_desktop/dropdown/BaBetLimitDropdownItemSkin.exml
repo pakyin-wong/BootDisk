@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BaBetLimitDropdownItemSkin" currentState="up" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" states="up,down">
+    <e:Group x="0" y="0" width="100%" height="40" touchThrough="false" touchEnabled="true" touchChildren="false">
+        <e:Rect left="0" right="0" top="0" bottom="0" fillColor.down="0x88809e" fillAlpha="0.6" />
+        <e:Label id="_label" text="{data.item}" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" top="0"
+                 bottom="0" textAlign="left" size="20" right="0" left="5%" x="0" y="0" scaleX="1" scaleY="1" />
+    </e:Group>
+</e:Skin>

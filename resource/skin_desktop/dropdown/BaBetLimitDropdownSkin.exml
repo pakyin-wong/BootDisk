@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BaBetLimitDropdownSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*">
+    <e:Group x="0" y="0" width="100%">
+        <e:Group id="_toggler" x="6" y="5" touchEnabled="true" touchThrough="false" touchChildren="false" width="100%"
+                 height="32">
+            <e:Label id="_label" text="" top="0" bottom="0" textAlign="left" verticalAlign="middle" size="26"
+                     width="95%" left="5%" />
+        </e:Group>
+        <ui:Scroller id="_scroller" x="-1" y="38" isCollapsible="true" iscollapseAnimate="true" collapseOnStart="true"
+                     width="100%">
+            <ui:List id="_list" width="100%" itemRendererSkinName="BaBetLimitDropdownItemSkin" />
+        </ui:Scroller>
+        <e:layout>
+            <e:VerticalLayout gap="0" />
+        </e:layout>
+    </e:Group>
+</e:Skin>
