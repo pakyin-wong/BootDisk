@@ -39,7 +39,7 @@ namespace we {
       private tableInfoWindow: ui.TableInfoPanel;
       private gameBar: GameBar;
 
-      private bgImg: eui.Rect;
+      private bgImg: eui.Image;
       private _video: egret.FlvVideo;
 
       private roadmapControl: BARoadmapControl;
