@@ -15,6 +15,16 @@ namespace we {
         categoryOtherGame: 'Other Games',
         categoryFavorite: 'My Favorites',
       },
+      live: {
+        gametype: {
+          bacarrat: 'Baccarat',
+          dragontiger: '龍虎',
+          luckywheel: '幸運輪',
+          wheel: '輪盤',
+          dice: '骰寶',
+          goodroad: 'Good Road',
+        },
+      },
       baccarat: {
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
