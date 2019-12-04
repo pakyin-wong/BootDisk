@@ -107,9 +107,9 @@ namespace we {
         this.bettingTable.denomList = denominationList;
         this.bettingTable.init();
 
-        setInterval(() => {
-          this.message.showMessage(InGameMessage.ERROR, 'hello world');
-        }, 4000);
+        // setInterval(() => {
+        //   this.message.showMessage(InGameMessage.ERROR, 'hello world');
+        // }, 4000);
       }
 
       private getSelectedBetLimitIndex() {
@@ -250,7 +250,7 @@ namespace we {
       protected socketConnectFail() {}
 
       protected onTableInfoUpdate(evt: egret.Event) {
-        console.log('Baccarat listener');
+        // console.log('Baccarat listener');
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this.tableID) {
@@ -266,8 +266,8 @@ namespace we {
               this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
             }
 
-            console.log('BaccaratScene::onTableInfoUpdate');
-            console.dir(this.gameData);
+            // console.log('BaccaratScene::onTableInfoUpdate');
+            // console.dir(this.gameData);
             this.updateGame();
 
             this.tableInfoWindow.setValue(this.tableInfo);
@@ -291,6 +291,7 @@ namespace we {
           switch (this.gameData.state) {
             case GameState.BET:
               this.bettingTable.updateBetFields(this.betDetails);
+              this.message.showMessage(InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
               break;
             case GameState.FINISH:
             default:

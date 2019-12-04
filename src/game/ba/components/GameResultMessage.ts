@@ -7,6 +7,8 @@ namespace we {
 
       private _isAnimating: boolean;
 
+      public duration: number = 2000;
+
       public constructor() {
         super();
         this.visible = false;
@@ -68,12 +70,12 @@ namespace we {
         const tween = egret.Tween.get(this)
           .call(() => {
             const winTypeKey: string = ba.WinType[winType];
-            const message: string = `result.${winTypeKey}`;
+            const message: string = i18n.t(`baccarat.result.${winTypeKey}`);
             this.visible = true;
             this._label.visible = true;
             this._label.text = message;
           })
-          .wait(1000);
+          .wait(this.duration);
         if (!isNaN(winAmount)) {
           tween
             .call(() => {
@@ -86,7 +88,7 @@ namespace we {
                 this._label.text = `${winAmount > 0 ? '+' : ''}${numStr}`;
               }
             })
-            .wait(1000);
+            .wait(this.duration);
         }
         tween.call(() => {
           this._isAnimating = false;
