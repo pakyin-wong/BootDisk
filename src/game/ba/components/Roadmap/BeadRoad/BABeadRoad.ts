@@ -5,8 +5,8 @@ namespace we {
         super(_numCol, _gridSize, _scale);
         this.gridUnit = 1;
 
-        this.touchEnabled = true;
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        // this.touchEnabled = true;
+        // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
 
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
@@ -32,7 +32,7 @@ namespace we {
       }
 
       private onClick(e: egret.TouchEvent) {
-        this.Mode = ++this.Mode % 2;
+        // this.Mode = ++this.Mode % 2;
       }
 
       private onOver(e: mouse.MouseEvent) {

@@ -226,10 +226,10 @@ namespace we {
         // this.roadmap.y = 500;
         // this.addChild(this.roadmap);
 
-        const gRoad = new BAGoodRoadmap();
-        gRoad.x = 1000;
-        gRoad.y = 500;
-        this.addChild(gRoad);
+        // const gRoad = new BAGoodRoadmap();
+        // gRoad.x = 1000;
+        // gRoad.y = 500;
+        // this.addChild(gRoad);
 
         // step 3: connect socket
         // this.socketConnect();
