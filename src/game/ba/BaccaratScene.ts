@@ -13,9 +13,12 @@ namespace we {
       private cardHolder: CardHolder;
       private countdownTimer: CountdownTimer;
       private confirmButton: eui.Button;
-      private cancelButton: eui.Button;
+      private repeatButton: ui.CircleButton;
+      private cancelButton: ui.CircleButton;
+      private doubleButton: ui.CircleButton;
       private winAmountLabel: eui.Label;
       private stateLabel: eui.Label;
+      private roundPanel: eui.Rect;
 
       private switchLang: ui.SwitchLang;
 
@@ -95,6 +98,7 @@ namespace we {
 
         // work around currentSelectedBetLimitIndex = 0 choose by the
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipsList.map(data => data.value);
+        this.betChipSet.setVisibleDenominationCount(4);
         this.betChipSet.setDenominationList(denominationList);
 
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -107,9 +111,9 @@ namespace we {
         this.bettingTable.denomList = denominationList;
         this.bettingTable.init();
 
-        setInterval(() => {
-          this.message.showMessage(InGameMessage.ERROR, 'hello world');
-        }, 4000);
+        // setInterval(() => {
+        //   this.message.showMessage(InGameMessage.ERROR, 'hello world');
+        // }, 4000);
       }
 
       private getSelectedBetLimitIndex() {
@@ -226,10 +230,10 @@ namespace we {
         // this.roadmap.y = 500;
         // this.addChild(this.roadmap);
 
-        const gRoad = new BAGoodRoadmap();
-        gRoad.x = 1000;
-        gRoad.y = 500;
-        this.addChild(gRoad);
+        // const gRoad = new BAGoodRoadmap();
+        // gRoad.x = 1000;
+        // gRoad.y = 500;
+        // this.addChild(gRoad);
 
         // step 3: connect socket
         // this.socketConnect();
@@ -250,15 +254,15 @@ namespace we {
       protected socketConnectFail() {}
 
       protected onTableInfoUpdate(evt: egret.Event) {
-        console.log('Baccarat listener');
+        // console.log('Baccarat listener');
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this.tableID) {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
+            this.previousState = this.gameData ? this.gameData.state : GameState.SHUFFLE;
             this.gameData = <GameData> this.tableInfo.data;
-            this.previousState = this.gameData.state;
             if (tableInfo.roadmap) {
               this.roadmapControl.updateRoadData(tableInfo.roadmap);
             }
@@ -266,8 +270,8 @@ namespace we {
               this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
             }
 
-            console.log('BaccaratScene::onTableInfoUpdate');
-            console.dir(this.gameData);
+            // console.log('BaccaratScene::onTableInfoUpdate');
+            // console.dir(this.gameData);
             this.updateGame();
 
             this.tableInfoWindow.setValue(this.tableInfo);
@@ -291,6 +295,7 @@ namespace we {
           switch (this.gameData.state) {
             case GameState.BET:
               this.bettingTable.updateBetFields(this.betDetails);
+              this.message.showMessage(InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
               break;
             case GameState.FINISH:
             default:
@@ -510,10 +515,13 @@ namespace we {
       }
 
       protected setBetRelatedComponentsVisibility(visible: boolean) {
+        this.roundPanel.visible = visible;
         this.betChipSet.visible = visible;
         this.countdownTimer.visible = visible;
         this.confirmButton.visible = visible;
         this.cancelButton.visible = visible;
+        this.doubleButton.visible = visible;
+        this.repeatButton.visible = visible;
       }
 
       protected setBetRelatedComponentsTouchEnabled(enabled: boolean) {

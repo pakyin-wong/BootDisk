@@ -34,6 +34,7 @@ namespace we {
 
       public stopAnimate() {
         egret.Tween.removeTweens(this);
+        this.alpha = 1;
       }
 
       public dispose() {

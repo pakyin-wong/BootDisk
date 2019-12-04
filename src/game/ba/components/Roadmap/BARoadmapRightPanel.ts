@@ -6,8 +6,10 @@ namespace we {
       public smallRoad: BASmallRoad;
       public cockroachRoad: BACockroachRoad;
 
-      private iconBankerBead: BABeadRoadIcon;
-      private iconPlayerBead: BABeadRoadIcon;
+      private contentMask: egret.Rectangle;
+
+      public iconBankerBead: BABeadRoadIcon;
+      public iconPlayerBead: BABeadRoadIcon;
       private iconBankerBigEye: BABigEyeRoadIcon;
       private iconPlayerBigEye: BABigEyeRoadIcon;
       private iconBankerSmall: BASmallRoadIcon;
@@ -30,8 +32,7 @@ namespace we {
 
       private roadsContainer: egret.DisplayObjectContainer;
 
-      private gameIdLabel: ui.RunTimeLabel;
-      private totalBetLabel: ui.RunTimeLabel;
+      private totalCount: number;
 
       public constructor() {
         super('BARoadmapRightPanel');
@@ -42,50 +43,53 @@ namespace we {
 
       protected init() {
         const gridSize = 21;
+        this.totalCount = 0;
 
-        this.iconBankerBead = new BABeadRoadIcon(30);
+        this.mask = this.contentMask;
+
+        this.iconBankerBead = new BABeadRoadIcon(28);
         this.iconBankerBead.x = 22;
         this.iconBankerBead.y = 10;
         this.iconBankerBead.setByObject({ V: 'b' });
         this.addChild(this.iconBankerBead);
 
-        this.iconBankerBigEye = new BABigEyeRoadIcon(15);
+        this.iconBankerBigEye = new BABigEyeRoadIcon(16);
         this.iconBankerBigEye.x = 58;
         this.iconBankerBigEye.y = 16;
         this.iconBankerBigEye.setByObject({ V: 'b' });
         this.addChild(this.iconBankerBigEye);
 
-        this.iconBankerSmall = new BASmallRoadIcon(15);
+        this.iconBankerSmall = new BASmallRoadIcon(16);
         this.iconBankerSmall.x = 76;
         this.iconBankerSmall.y = 16;
         this.iconBankerSmall.setByObject({ V: 'b' });
         this.addChild(this.iconBankerSmall);
 
-        this.iconBankerCockroach = new BACockroachRoadIcon(15);
+        this.iconBankerCockroach = new BACockroachRoadIcon(16);
         this.iconBankerCockroach.x = 94;
         this.iconBankerCockroach.y = 16;
         this.iconBankerCockroach.setByObject({ V: 'b' });
         this.addChild(this.iconBankerCockroach);
 
-        this.iconPlayerBead = new BABeadRoadIcon(30);
+        this.iconPlayerBead = new BABeadRoadIcon(28);
         this.iconPlayerBead.x = 124;
         this.iconPlayerBead.y = 10;
         this.iconPlayerBead.setByObject({ V: 'p' });
         this.addChild(this.iconPlayerBead);
 
-        this.iconPlayerBigEye = new BABigEyeRoadIcon(15);
+        this.iconPlayerBigEye = new BABigEyeRoadIcon(16);
         this.iconPlayerBigEye.x = 160;
         this.iconPlayerBigEye.y = 16;
         this.iconPlayerBigEye.setByObject({ V: 'p' });
         this.addChild(this.iconPlayerBigEye);
 
-        this.iconPlayerSmall = new BASmallRoadIcon(15);
+        this.iconPlayerSmall = new BASmallRoadIcon(16);
         this.iconPlayerSmall.x = 178;
         this.iconPlayerSmall.y = 16;
         this.iconPlayerSmall.setByObject({ V: 'p' });
         this.addChild(this.iconPlayerSmall);
 
-        this.iconPlayerCockroach = new BACockroachRoadIcon(15);
+        this.iconPlayerCockroach = new BACockroachRoadIcon(16);
         this.iconPlayerCockroach.x = 196;
         this.iconPlayerCockroach.y = 16;
         this.iconPlayerCockroach.setByObject({ V: 'p' });
@@ -118,6 +122,13 @@ namespace we {
         this.cockroachRoad.x = gridSize * 17;
         this.cockroachRoad.y = 6 * gridSize + 6 * (gridSize / 2);
         this.roadsContainer.addChild(this.cockroachRoad);
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this.changeLang();
+      }
+
+      public changeLang() {
+        this.totalCountLabel.text = i18n.t('baccarat.totalcount') + ' ' + this.totalCount;
       }
 
       public setStats(b: number, p: number, t: number, bp: number, pp: number, total: number, b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {
@@ -126,8 +137,8 @@ namespace we {
         this.tieCountLabel.text = t + '';
         this.bankerPairCountLabel.text = bp + '';
         this.playerPairCountLabel.text = pp + '';
-        this.totalCountLabel.text = total + '';
 
+        this.totalCount = total;
         this.iconBankerBigEye.setByObject(b1);
         this.iconBankerSmall.setByObject(b2);
         this.iconBankerCockroach.setByObject(b3);
@@ -135,6 +146,7 @@ namespace we {
         this.iconPlayerBigEye.setByObject(p1);
         this.iconPlayerSmall.setByObject(p2);
         this.iconPlayerCockroach.setByObject(p3);
+        this.changeLang();
       }
     }
   }

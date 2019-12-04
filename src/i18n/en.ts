@@ -36,6 +36,12 @@ namespace we {
         gameroundid: 'Game Round',
         totalbet: 'Total Bet',
         totalcount: 'Total',
+        betSuccess: 'betSuccess',
+        result: {
+          BANKER: 'Banker Win',
+          PLAYER: 'Player Win',
+          TIE: 'Tie',
+        },
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

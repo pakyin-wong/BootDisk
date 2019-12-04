@@ -8,8 +8,7 @@ namespace we {
       private _dealerImage: eui.Image;
       private _bigRoad: we.ba.BALobbyBigRoad;
       private _quickbetPanel: we.live.LiveBaQuickBetPanel;
-      private _quickbetButton: eui.Button;
-      private _quickbetCloseButton: eui.Button;
+      private _quickbetButton: ui.RoundButton;
       private _tableId: string;
       private _dropdown_toggle: eui.Group;
       private _dropdown: we.ui.DropdownList;
@@ -26,11 +25,6 @@ namespace we {
         this.touchEnabled = true;
 
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        // this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        // this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
-        this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
-        // this._dropdown.items = ['test 1', 'test 2'];
-        this._dropdown.setToggler(this._dropdown_toggle);
         this.mount();
       }
 
@@ -42,7 +36,7 @@ namespace we {
         return this._tableId;
       }
 
-      public getQuickbetButton() {
+      public getQuickbetButton(): ui.RoundButton {
         return this._quickbetButton;
       }
 
@@ -64,7 +58,7 @@ namespace we {
       }
 
       private onTouchTap(evt: egret.Event) {
-        if (evt.target === this._dropdown_toggle) {
+        if (evt.target === this._dropdown_toggle || evt.target === this) {
           evt.stopPropagation();
           return;
         }
@@ -76,6 +70,7 @@ namespace we {
         }
 
         if (!env.livepageLocked) {
+          this._quickbetButton.tweenLabel(!!!env.livepageLocked);
           this.toggleLivePageLock();
           dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
           if (this.parent.localToGlobal(this.x, this._originaly).y > 900) {
@@ -100,6 +95,7 @@ namespace we {
             this.setChildIndex(this._quickbetPanel, 1500);
           });
         } else {
+          this._quickbetButton.tweenLabel(!!!env.livepageLocked);
           this.setChildIndex(this._quickbetPanel, 1000);
           this.setChildIndex(this._group, 1500);
           this.toggleLivePageLock();
@@ -137,9 +133,11 @@ namespace we {
 
       private async mount() {
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
+        this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._quickbetPanel.tableId = this._tableId;
+        this._dropdown.setToggler(this._dropdown_toggle);
         this._dealerImage.texture = RES.getRes(imageResName);
         this.setChildIndex(this._dropdown_toggle, 20000);
-        this._quickbetPanel.tableId = this._tableId;
       }
 
       public onRollover(evt: egret.Event) {

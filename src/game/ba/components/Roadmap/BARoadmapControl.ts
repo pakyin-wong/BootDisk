@@ -32,9 +32,64 @@ namespace we {
 
         this.onDisplayUpdate(null);
 
-        // predict banker win
+        // dark/light mode
         this.bigRoad.touchEnabled = true;
         this.bigRoad.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+
+        // predict roads
+        this.rightPanel.iconBankerBead.touchEnabled = true;
+        this.rightPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+
+        this.rightPanel.iconPlayerBead.touchEnabled = true;
+        this.rightPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+      }
+
+      // predict banker win
+      private onBankerClick(e: egret.TouchEvent) {
+        this.doPredict(0);
+      }
+
+      // predict banker win
+      private onPlayerClick(e: egret.TouchEvent) {
+        this.doPredict(1);
+      }
+
+      private doPredict(v: number) {
+        if (this.useParser) {
+          this.parser.predictWin(v);
+        } else {
+          if (env.tableInfos[this.tableid]) {
+            if (env.tableInfos[this.tableid].roadmap) {
+              const data = env.tableInfos[this.tableid].roadmap;
+              const animated = data.animateCell;
+
+              const animatedIndex = ['bbead', 'bbigRoad', 'bbigEye', 'bsmall', 'broach', 'pbead', 'pbigRoad', 'pbigEye', 'psmall', 'proach'];
+
+              for (let i = 0; i < animated.length; i++) {
+                if (animated[i] > -1) {
+                  data[animatedIndex[i]][animated[i]].isPredict = 1;
+                }
+              }
+              if (v === 0) {
+                this.beadRoad.parseRoadData(data.bbead, 1);
+                this.bigRoad.parseRoadData(data.bbigRoad, 1);
+                this.bigEyeRoad.parseRoadData(data.bbigEye, 1);
+                this.smallRoad.parseRoadData(data.bsmall, 1);
+                this.cockroachRoad.parseRoadData(data.broach, 1);
+              } else {
+                this.beadRoad.parseRoadData(data.pbead, 1);
+                this.bigRoad.parseRoadData(data.pbigRoad, 1);
+                this.bigEyeRoad.parseRoadData(data.pbigEye, 1);
+                this.smallRoad.parseRoadData(data.psmall, 1);
+                this.cockroachRoad.parseRoadData(data.proach, 1);
+              }
+            }
+          }
+        }
+        if (this.predictTimeout) {
+          egret.clearTimeout(this.predictTimeout);
+        }
+        this.predictTimeout = egret.setTimeout(this.clearPredict, this, 3000);
       }
 
       // predict banker win
@@ -44,34 +99,6 @@ namespace we {
         this.bigEyeRoad.DarkMode = this.beadRoad.DarkMode;
         this.smallRoad.DarkMode = this.beadRoad.DarkMode;
         this.cockroachRoad.DarkMode = this.beadRoad.DarkMode;
-
-        if (this.useParser) {
-          this.parser.predictWin(0);
-        } else {
-          if (env.tableInfos[this.tableid]) {
-            if (env.tableInfos[this.tableid].roadmap) {
-              const data = env.tableInfos[this.tableid].roadmap;
-              const animated = data.animateCell;
-              const animatedIndex = ['bbead', 'bbigRoad', 'bbigEye', 'bsmall', 'broach', 'pbead', 'pbigRoad', 'pbigEye', 'psmall', 'proach'];
-
-              for (let i = 0; i < animated.length; i++) {
-                if (animated[i] > -1) {
-                  data[animatedIndex[i]][animated[i]].isPredict = 1;
-                }
-              }
-
-              this.beadRoad.parseRoadData(data.bbead, 1);
-              this.bigRoad.parseRoadData(data.bbigRoad, 1);
-              this.bigEyeRoad.parseRoadData(data.bbigEye, 1);
-              this.smallRoad.parseRoadData(data.bsmall, 1);
-              this.cockroachRoad.parseRoadData(data.broach, 1);
-            }
-          }
-        }
-        if (this.predictTimeout) {
-          egret.clearTimeout(this.predictTimeout);
-        }
-        this.predictTimeout = egret.setTimeout(this.clearPredict, this, 3000);
       }
 
       private clearPredict() {
