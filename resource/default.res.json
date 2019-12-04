@@ -17,7 +17,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_user_info_bg,nav_panel_bg,nav_menu_bg,d_lobby_panel_button_close_none_png,d_lobby_navbar_menu_png,d_lobby_navbar_logo_png",
+			"keys": "nav_user_info_bg,nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_none_png,d_lobby_Icon_setting_none_png,d_lobby_Icon_edit_none_png,d_lobby_Icon_chart_none_png,d_lobby_Icon_record_none_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png",
 			"name": "nav"
 		},
 		{
@@ -27,10 +27,6 @@
 		{
 			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg",
 			"name": "scene_loading"
-		},
-		{
-			"keys": "banner-baccarat_png,lobby-featured-poster-2_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-1_png,d_lobby_confirm_btn_none_png",
-			"name": "preload"
 		}
 	],
 	"resources": [
@@ -133,11 +129,6 @@
 			"url": "assets/Nav/user_info.PNG",
 			"type": "image",
 			"name": "nav_user_info_bg"
-		},
-		{
-			"url": "assets/Nav/menu.PNG",
-			"type": "image",
-			"name": "nav_menu_bg"
 		},
 		{
 			"url": "assets/Nav/popover.png",
@@ -1373,7 +1364,8 @@
 		{
 			"url": "assets/d/lobby/d_lobby_panel_button_slide_select.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_slide_select_png"
+			"name": "d_lobby_panel_button_slide_select_png",
+			"scale9grid": "5,0,386,36"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_panel_chat_none.png",
@@ -1681,9 +1673,24 @@
 			"name": "lobby-featured-poster-1_png"
 		},
 		{
+			"url": "assets/Nav/d-lobby-button-close-none.png",
+			"type": "image",
+			"name": "d-lobby-button-close-none_png"
+		},
+		{
+			"url": "assets/Nav/d-lobby-header-dim.png",
+			"type": "image",
+			"name": "d-lobby-header-dim_png"
+		},
+		{
 			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png",
 			"type": "image",
 			"name": "d_lobby_confirm_btn_none_png"
+		},
+		{
+			"name": "d_lobby_confirm_btn_none2_png",
+			"type": "image",
+			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png"
 		}
 	]
 }

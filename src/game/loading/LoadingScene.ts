@@ -3,9 +3,10 @@ namespace we {
     export class Scene extends core.BaseScene {
       private _progressbar: eui.ProgressBar;
       private _progressMsg: ui.RunTimeLabel;
+      private _tipList: string[];
 
       private step: number = 0;
-      private flow = [this.preloadRes, this.initSkin, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
+      private flow = [this.preloadRes, this.initSkin, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
 
       public onEnter() {
         this.init();
@@ -34,6 +35,14 @@ namespace we {
       private initSkin() {
         this.once(eui.UIEvent.COMPLETE, this.next, this);
         this.skinName = utils.getSkin('LoadingScene');
+      }
+
+      /** Step 2.5: Get Static Server Init Data */
+      private getStaticData() {
+        dir.socket.getStaticInitData(res => {
+          this._tipList = res.Tips;
+          this.next();
+        }, this);
       }
 
       /** Step 3: Socket Connect */

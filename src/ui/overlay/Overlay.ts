@@ -34,7 +34,7 @@ namespace we {
         this.show(panel, e.data);
       }
 
-      public show(item: Panel, id: string) {
+      public async show(item: Panel, id: string) {
         if (this._onShowItem != null && this._onShowItemId === id && this._onShowItemId !== '') {
           return;
         }
@@ -71,14 +71,14 @@ namespace we {
 
       private addItem(item: Panel, id: string) {
         this._onShowItem = item;
+        this._onShowItemId = id;
         this._onShowItem.isPoppable = true;
         this._onShowItem.dismissOnClickOutside = false;
         this._onShowItem.x = (this._overlayMask.width - this._onShowItem.width) * 0.5;
         this._onShowItem.y = (this._overlayMask.height - this._onShowItem.height) * 0.5;
-        this._onShowItemId = id;
-        item.once('close', this.onItemClose, this);
-        this.addChild(item);
-        item.show();
+        this._onShowItem.once('close', this.onItemClose, this);
+        this.addChild(this._onShowItem);
+        this._onShowItem.show();
       }
 
       private async removeItem() {

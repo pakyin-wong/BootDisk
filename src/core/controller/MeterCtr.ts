@@ -56,7 +56,12 @@ namespace we {
       private format(v: number) {
         // To-do meter formatter ....
 
-        return `${utils.EnumHelpers.getKeyByValue(core.Currency, env.currency)} ${v}`;
+        // return `${utils.EnumHelpers.getKeyByValue(core.Currency, env.currency)} ${v}`;
+        try {
+          return `${v.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
+        } catch (e) {
+          return '- - - -';
+        }
       }
 
       private clean(meter: string) {

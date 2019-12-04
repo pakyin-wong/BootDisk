@@ -85,6 +85,8 @@ namespace we {
         // }, 14000);
       }
 
+      public getStaticInitData(callback: (res: any) => void, thisArg: any) {}
+
       public connect() {
         // this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
         /// this.client.connect();

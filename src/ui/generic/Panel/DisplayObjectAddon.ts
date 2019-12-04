@@ -26,6 +26,7 @@ namespace we {
       }
 
       public get active(): boolean {
+        this._active && this.$setActive(true);
         return this._active;
       }
 
