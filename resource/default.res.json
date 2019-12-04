@@ -25,7 +25,7 @@
 			"name": "temp"
 		},
 		{
-			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg",
+			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg,d_lobby_navbar_logo_png",
 			"name": "scene_loading"
 		}
 	],
@@ -1686,6 +1686,11 @@
 			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png",
 			"type": "image",
 			"name": "d_lobby_confirm_btn_none_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png",
+			"type": "image",
+			"name": "d_lobby_confirm_btn_none2_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_confirm_btn_hover.png",
