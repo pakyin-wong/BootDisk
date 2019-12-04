@@ -38,6 +38,10 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare module skins_desktop{
+	class BetConfirmButtonSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class GameResultNormalSkin extends eui.Skin{
 	}
@@ -64,10 +68,6 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BetChipSetSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetConfirmButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -104,6 +104,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class CountdownTimerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class CountdownTimerRoundSkin extends eui.Skin{
 	}
 }
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{

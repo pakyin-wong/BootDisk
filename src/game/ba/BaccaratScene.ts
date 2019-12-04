@@ -16,8 +16,8 @@ namespace we {
       private repeatButton: ui.CircleButton;
       private cancelButton: ui.CircleButton;
       private doubleButton: ui.CircleButton;
-      private winAmountLabel: eui.Label;
-      private stateLabel: eui.Label;
+      // private winAmountLabel: eui.Label;
+      // private stateLabel: eui.Label;
       private roundPanel: eui.Rect;
 
       private switchLang: ui.SwitchLang;
@@ -162,7 +162,7 @@ namespace we {
             self.tableInfo = value;
             self.betDetails = self.tableInfo.bets;
             self.gameData = self.tableInfo.data;
-            self.previousState = self.gameData.state;
+            self.previousState = GameState.SHUFFLE;
             self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
             if (self.tableInfo.betInfo) {
               self.roadmapLeftPanel.setGameInfo(self.tableInfo.betInfo.gameroundid, self.tableInfo.betInfo.total);
@@ -310,8 +310,8 @@ namespace we {
             case GameState.FINISH:
             default:
               this.computeTotalWin();
-              this.winAmountLabel.visible = true;
-              this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+              // this.winAmountLabel.visible = true;
+              // this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
               this.bettingTable.showWinEffect(this.betDetails);
               this.checkResultMessage(this.totalWin);
               break;
@@ -363,10 +363,10 @@ namespace we {
         if (this.previousState !== GameState.IDLE) {
           this.bettingTable.setTouchEnabled(false);
           this.cardHolder.visible = false;
-          this.winAmountLabel.visible = false;
+          // this.winAmountLabel.visible = false;
           // this.setBetRelatedComponentsTouchEnabled(false);
           // hide state
-          this.stateLabel.visible = false;
+          // this.stateLabel.visible = false;
           this.setBetRelatedComponentsVisibility(false);
         }
       }
@@ -382,11 +382,11 @@ namespace we {
           // TODO: show start bet message to the client for few seconds
           this.bettingTable.resetUnconfirmedBet();
           this.bettingTable.resetConfirmedBet();
-          this.stateLabel.text = 'Betting';
-          this.winAmountLabel.visible = false;
+          // this.stateLabel.text = 'Betting';
+          // this.winAmountLabel.visible = false;
 
-          // show state
-          this.stateLabel.visible = true;
+          // // show state
+          // this.stateLabel.visible = true;
 
           // hide cardHolder
           this.cardHolder.visible = false;
@@ -411,14 +411,14 @@ namespace we {
         if (this.previousState !== GameState.DEAL) {
           this.cardHolder.resetCards();
           // TODO: show stop bet message to the client for few seconds
-          this.stateLabel.text = 'Dealing';
+          // this.stateLabel.text = 'Dealing';
 
           // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
           this.setBetRelatedComponentsVisibility(false);
           this.setBetRelatedComponentsTouchEnabled(false);
 
           // show state
-          this.stateLabel.visible = true;
+          // this.stateLabel.visible = true;
 
           // show cardHolder
           this.cardHolder.visible = true;
@@ -428,7 +428,7 @@ namespace we {
           this.bettingTable.setTouchEnabled(false);
           this.setBetRelatedComponentsTouchEnabled(false);
 
-          this.winAmountLabel.visible = false;
+          // this.winAmountLabel.visible = false;
         }
         // update card result in cardHolder
         this.cardHolder.updateResult(this.gameData);
@@ -439,7 +439,7 @@ namespace we {
           this.setBetRelatedComponentsVisibility(false);
 
           // show state
-          this.stateLabel.visible = true;
+          // this.stateLabel.visible = true;
 
           // show cardHolder
           this.cardHolder.visible = true;
@@ -451,11 +451,11 @@ namespace we {
 
           // TODO: show effect on each winning bet field
           logger.l(`this.gameData.winType ${this.gameData.wintype} ${utils.EnumHelpers.getKeyByValue(WinType, this.gameData.wintype)}`);
-          this.stateLabel.text = `Finish, ${utils.EnumHelpers.getKeyByValue(WinType, this.gameData.wintype)}`;
+          // this.stateLabel.text = `Finish, ${utils.EnumHelpers.getKeyByValue(WinType, this.gameData.wintype)}`;
 
           if (this.totalWin) {
-            this.winAmountLabel.visible = true;
-            this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+            // this.winAmountLabel.visible = true;
+            // this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
           }
 
           // TODO: show win message and the total win ammount to the client for few seconds
@@ -467,7 +467,7 @@ namespace we {
       protected setStateRefund() {
         if (this.previousState !== GameState.REFUND) {
           // TODO: show round cancel message to the client for few seconds
-          this.stateLabel.text = 'Refunding';
+          // this.stateLabel.text = 'Refunding';
 
           // TODO: after round cancel message has shown, show refund effect of each bet
 
@@ -476,35 +476,35 @@ namespace we {
           this.setBetRelatedComponentsTouchEnabled(false);
 
           // show state
-          this.stateLabel.visible = true;
+          // this.stateLabel.visible = true;
 
           // hide cardHolder
-          this.cardHolder.visible = false;
-          this.winAmountLabel.visible = false;
+          // this.cardHolder.visible = false;
+          // this.winAmountLabel.visible = false;
 
           // disable betting table
           this.bettingTable.setTouchEnabled(false);
         }
       }
       protected setStateShuffle() {
-        if (this.previousState !== GameState.SHUFFLE) {
-          // TODO: show shuffle message to the client for few seconds
-          this.stateLabel.text = 'Shuffling';
+        // if (this.previousState !== GameState.SHUFFLE) {
+        // TODO: show shuffle message to the client for few seconds
+        // this.stateLabel.text = 'Shuffling';
 
-          // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
-          this.setBetRelatedComponentsVisibility(false);
-          this.setBetRelatedComponentsTouchEnabled(false);
+        // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
+        this.setBetRelatedComponentsVisibility(false);
+        this.setBetRelatedComponentsTouchEnabled(false);
 
-          // show state
-          this.stateLabel.visible = true;
+        // show state
+        // this.stateLabel.visible = true;
 
-          // hide cardHolder
-          this.cardHolder.visible = false;
-          this.winAmountLabel.visible = false;
+        // hide cardHolder
+        this.cardHolder.visible = false;
+        // this.winAmountLabel.visible = false;
 
-          // disable betting table
-          this.bettingTable.setTouchEnabled(false);
-        }
+        // disable betting table
+        this.bettingTable.setTouchEnabled(false);
+        // }
       }
 
       public checkResultMessage(totalWin: number = NaN) {

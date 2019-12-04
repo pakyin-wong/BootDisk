@@ -314,10 +314,12 @@ namespace we {
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
         ];
-        Object.keys(this.mapping).forEach(value => {
-          // console.log(value);
-          this.mapping[value].setUncfmBet(0);
-        });
+        if (this.mapping) {
+          Object.keys(this.mapping).forEach(value => {
+            // console.log(value);
+            this.mapping[value].setUncfmBet(0);
+          });
+        }
         this.totalUncfmBetAmount = 0;
       }
 
