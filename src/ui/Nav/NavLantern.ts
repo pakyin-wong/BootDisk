@@ -45,6 +45,15 @@ namespace we {
         this._label.textAlign = this._next.textAlign = 'left';
       }
 
+      public alignToCenter() {
+        this._label.textAlign = this._next.textAlign = 'center';
+      }
+
+      public set messages(m: string[]) {
+        this._loopMsg = m;
+        this.restart();
+      }
+
       private restart() {
         clearInterval(this._loopInterval);
         this._loopIndex = -1;

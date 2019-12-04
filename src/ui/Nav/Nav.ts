@@ -18,8 +18,8 @@ namespace we {
       }
 
       protected mount() {
-        this._userInfo.setToggler(this._userInfo_toggle);
-        this._userInfo.dismissOnClickOutside = true;
+        // this._userInfo.setToggler(this._userInfo_toggle);
+        // this._userInfo.dismissOnClickOutside = true;
 
         this._menu.setToggler(this._menu_toggle);
         this._menu.dismissOnClickOutside = true;
