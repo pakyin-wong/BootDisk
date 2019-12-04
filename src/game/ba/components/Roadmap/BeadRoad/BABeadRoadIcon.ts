@@ -162,15 +162,15 @@ namespace we {
             // Win value mode
             if (value.V === 'b') {
               this.iconFaceArr[3 + useDarkMode].visible = true;
-              this.iconTextArr[3 + useDarkMode].visible = true;
+              this.iconTextArr[3 + useDarkMode].visible = !value.isPredict;
               this.iconTextArr[3 + useDarkMode].text = value.W + '';
             } else if (value.V === 'p') {
               this.iconFaceArr[4 + useDarkMode].visible = true;
-              this.iconTextArr[+useDarkMode].visible = true;
+              this.iconTextArr[4 + useDarkMode].visible = !value.isPredict;
               this.iconTextArr[4 + useDarkMode].text = value.W + '';
             } else {
               this.iconFaceArr[5 + useDarkMode].visible = true;
-              this.iconTextArr[5 + useDarkMode].visible = true;
+              this.iconTextArr[5 + useDarkMode].visible = !value.isPredict;
               this.iconTextArr[5 + useDarkMode].text = value.W + '';
             }
           }

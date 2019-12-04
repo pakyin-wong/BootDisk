@@ -1,49 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BaccaratScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
-	<e:Rect id="bgImg" width="2821.33" height="1520" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" />
+	<e:Rect id="bgImg" width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" />
+	<e:Rect id="roundPanel" width="1045" height="70" x="768.64" y="939.13" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90"/>
 	<ui:SwitchLang width="300" height="100" x="0" y="200" />
 	<ba:BettingTable id="bettingTable" width="1128" height="314" bottom="0" horizontalCenter="0" isEdgeDismissable="true"
 	                 skinName="skin_desktop.BettingTableSkin" />
-	<ba:BetChipSet id='betChipSet' width="1000" height="50" y="540" horizontalCenter="0" />
 	<ba:CardHolder id='cardHolder' width="1200" height="350" y="166" horizontalCenter="0" />
-	<ba:CountdownTimer id="countdownTimer" width="200" height="80" y="611.46" horizontalCenter="-11" />
+	<ba:CountdownTimer id="countdownTimer" width="200" height="80" y="934.39" horizontalCenter="101" />
 	<e:Button id="confirmButton" label="Confirm" y="632.46" anchorOffsetX="0" width="88" anchorOffsetY="0" height="38"
 	          horizontalCenter="13" />
-	<e:Button id="cancelButton" label="Cancel" y="632.46" anchorOffsetX="0" width="84" anchorOffsetY="0" height="38"
-	          horizontalCenter="358" />
+	<ui:CircleButton id="cancelButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
+	       horizontalCenter="301"  resName="d_ba_betcontrol_icon_cancel_png" />
+		   <ui:CircleButton id="repeatButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
+	       horizontalCenter="217"  resName="d_ba_betcontrol_icon_repeat_png" />
+		   <ui:CircleButton id="doubleButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
+	       horizontalCenter="383"  resName="d_ba_betcontrol_icon_double_png" />
 	<e:Label id="stateLabel" text="..." y="632.46" horizontalCenter="-387" />
-	<e:Label id="winAmountLabel" text="" y="907.98" anchorOffsetX="0" width="569.7" anchorOffsetY="0" height="46.97"
-	         textAlign="right" horizontalCenter="274" />
+	<e:Label id="winAmountLabel" text="" y="842.28" anchorOffsetX="0" width="569.7" anchorOffsetY="0" height="46.97"
+	         textAlign="right" horizontalCenter="643" />
 	<ba:BARoadmapLeftPanel id="roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
 	                       anchorOffsetY="0" />
 	<ba:BARoadmapRightPanel id="roadmapRightPanel" width="698" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
 	                        anchorOffsetY="0" />
 	<e:Group id="_header" width="2200.12" height="91" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Button id="btnBack" label="←" x="18" y="20.5" width="50" />
+		<e:Label text="🛈" id="lblRoomInfo" y="10.5" x="188" />
+		<e:Label text="20-500" id="lblBetLimit" y="40.5" x="74.67" />
+		<e:Label id="lblRoomNo" text="百家樂" x="76.67" y="10.5" />
 		<ba:GameBar width="700" height="91" x="1500" y="0" id="gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
-		<e:Group y="39" x="74.67">
-			<e:Label text="20-500" id="lblBetLimit" y="1.5" x="0" scaleX="1" scaleY="1" />
-			<e:Label id="lblBetLimitInfo" text="🛈" y="-30" x="122.33000000000001" scaleX="1" scaleY="1" />
-			<e:layout>
-				<e:HorizontalLayout/>
-			</e:layout>
-		</e:Group>
-		<e:Group x="73" y="9" anchorOffsetX="0" anchorOffsetY="0">
-			<e:Label id="lblRoomNo" text="百家樂" x="3.6699999999999875" y="1.5" scaleX="1" scaleY="1" />
-			<e:Label text="🛈" id="lblRoomInfo" y="1.5" x="115" scaleX="1" scaleY="1" />
-			<e:layout>
-				<e:HorizontalLayout/>
-			</e:layout>
-		</e:Group>
 	</e:Group>
-	<ba:GameResultMessage id="resultMessage" x="1288.5" y="954.45" anchorOffsetX="309" anchorOffsetY="55" scaleX="1"
+	<ba:GameResultMessage id="resultMessage" x="1288.5" y="815.26" anchorOffsetX="309" anchorOffsetY="55" scaleX="1"
 	                      scaleY="1" skinName="skin_desktop.GameResultNormalSkin" />
-	<ba:InGameMessage id="message" x="1300.5" y="923.98" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	<ba:InGameMessage id="message" x="1300.5" y="911.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" />
 	<ui:TableInfoPanel width="600" height="319.7" x="0" y="91" id="tableInfoWindow" isPoppable="true"
 	                   skinName="skin_desktop.TableInfoPanel" isEdgeDismissable="true" dismissOnClickOutside="false"
 	                   isDraggable="true" hideOnStart="true" anchorOffsetY="0" />
+	<ba:BetChipSet id="betChipSet" width="496.97" height="68.18" y="937.92" horizontalCenter="-247.5" anchorOffsetX="0" anchorOffsetY="0"/>
 </e:Skin>
 
