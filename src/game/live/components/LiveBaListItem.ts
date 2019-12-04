@@ -8,8 +8,7 @@ namespace we {
       private _dealerImage: eui.Image;
       private _bigRoad: we.ba.BALobbyBigRoad;
       private _quickbetPanel: we.live.LiveBaQuickBetPanel;
-      private _quickbetButton: eui.Button;
-      private _quickbetCloseButton: eui.Button;
+      private _quickbetButton: ui.RoundButton;
       private _tableId: string;
       private _dropdown_toggle: eui.Group;
       private _dropdown: we.ui.DropdownList;
@@ -27,6 +26,8 @@ namespace we {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
         // this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
         // this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        this._quickbetButton.label1.text = '快速下注';
+        this._quickbetButton.label2.text = 'X';
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         // this._dropdown.items = ['test 1', 'test 2'];
         this._dropdown.setToggler(this._dropdown_toggle);
@@ -41,7 +42,7 @@ namespace we {
         return this._tableId;
       }
 
-      public getQuickbetButton() {
+      public getQuickbetButton(): ui.RoundButton {
         return this._quickbetButton;
       }
 
@@ -55,7 +56,7 @@ namespace we {
       }
 
       private onTouchTap(evt: egret.Event) {
-        if (evt.target === this._dropdown_toggle) {
+        if (evt.target === this._dropdown_toggle || evt.target === this) {
           evt.stopPropagation();
           return;
         }
@@ -67,6 +68,7 @@ namespace we {
         }
 
         if (!env.livepageLocked) {
+          this._quickbetButton.tweenLabel(!!!env.livepageLocked);
           this.toggleLivePageLock();
           dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
           if (this.parent.localToGlobal(this.x, this._originaly).y > 900) {
@@ -91,6 +93,7 @@ namespace we {
             this.setChildIndex(this._quickbetPanel, 1500);
           });
         } else {
+          this._quickbetButton.tweenLabel(!!!env.livepageLocked);
           this.setChildIndex(this._quickbetPanel, 1000);
           this.setChildIndex(this._group, 1500);
           this.toggleLivePageLock();

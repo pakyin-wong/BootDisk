@@ -145,6 +145,10 @@ declare module skin_desktop{
 declare class NavSideMenuSkin extends eui.Skin{
 }
 declare module skin_desktop{
+	class RoundButton extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ScrollBarVertical extends eui.Skin{
 	}
 }

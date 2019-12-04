@@ -281,6 +281,10 @@ namespace we {
 
       protected onBetInfoUpdate(betInfo: any /*PlayerBetInfo*/, timestamp: string) {
         this.updateTimestamp(timestamp);
+        // workaround 1-1-1
+        if (!env.tableInfos) {
+          return;
+        }
         const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
         // tableInfo.bets = betInfo.bets;
         egret.log('BetInfoUpdate:', betInfo);
