@@ -205,8 +205,10 @@ namespace we {
         this.betDetails = betDetails;
 
         // TODO: update the already bet amount of each bet field
-
+        console.log('BettingTable::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxx111');
+        console.log(betDetails);
         betDetails.map((value, index) => {
+          console.log('BettingTable::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxx : ' + value);
           // logger.l('BettingTable::updateBetFields:loop ' + value);
           this.mapping[value.field].setCfmBet(value.amount);
         });
