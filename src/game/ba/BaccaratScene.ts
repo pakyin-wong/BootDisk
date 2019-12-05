@@ -62,6 +62,14 @@ namespace we {
         this._video.width = 2600;
         this._video.height = 1340;
         this._video.load('http://192.168.1.85:8090/live/360.flv');
+
+        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+      }
+
+      public insufficientBalance() {
+        if (this.message) {
+          this.message.showMessage(InGameMessage.ERROR, 'Insufficient Balance');
+        }
       }
 
       public set tableID(tableID: string) {

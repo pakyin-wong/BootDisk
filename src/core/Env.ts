@@ -9,7 +9,7 @@ namespace we {
       }
 
       /* Global Environment Variable */
-      public balance: number = 1000; // undefined;
+      public balance: number = undefined;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;

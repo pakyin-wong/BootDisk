@@ -26,7 +26,9 @@ namespace we {
 
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
-
+        if (env.balance) {
+          dir.meterCtr.rackTo('balance', env.balance, 0);
+        }
         this.addListeners();
       }
 
