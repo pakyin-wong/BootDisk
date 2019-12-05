@@ -48,18 +48,19 @@ namespace we {
       }
 
       public resetBitmap() {
-        switch (+this._type) {
+        switch (this._type) {
           case we.core.BettingTableType.NORMAL:
             this._gridBanker.setBitmap('d_ba_betarea_banker_general_png');
             this._gridPlayer.setBitmap('d_ba_betarea_player_general_png');
             this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
             this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
             this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
+            this._gridSuperSixBanker.setBitmap('d_ba_betarea_banker_general_png');
+            this._gridSuperSix.setBitmap('d_ba_betarea_supersix_tie_general_png');
             break;
           case we.core.BettingTableType.LOBBY:
             this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
             this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
-
             this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
             this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
             this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
@@ -67,7 +68,6 @@ namespace we {
           case we.core.BettingTableType.BETSUMMARY:
             this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
             this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
-
             this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
             this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
             this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
@@ -78,6 +78,8 @@ namespace we {
             this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
             this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
             this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
+            this._gridSuperSixBanker.setBitmap('d_ba_betarea_banker_general_png');
+            this._gridSuperSix.setBitmap('d_ba_betarea_supersix_tie_general_png');
         }
       }
 
@@ -190,10 +192,10 @@ namespace we {
         this._gridPlayerPair.text = i18n.t('baccarat.playerPair');
         this._gridBankerPair.text = i18n.t('baccarat.bankerPair');
         this._gridPlayer.text = i18n.t('baccarat.player');
+        this._gridBanker.text = i18n.t('baccarat.banker');
         this._gridTie.text = i18n.t('baccarat.tie');
         this._gridSuperSix.text = i18n.t('baccarat.superSix');
-        // missed supersix banker
-        this._gridBanker.text = i18n.t('baccarat.banker');
+        this._gridSuperSixBanker.text = i18n.t('baccarat.banker');
       }
 
       public setTouchEnabled(enable: boolean) {
