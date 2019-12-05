@@ -7,4 +7,5 @@
 	<ba:BettingTableGrid id="_gridTie" includeIn="Normal" x="192" y="62" width="193" height="50" />
 	<ba:BettingTableGrid id="_gridBankerPair" includeIn="Normal" x="385" y="62" width="193" height="50"/>
 	<ba:BettingTableGrid id="_gridSuperSix" includeIn="Normal" visible="false"/>
+	<ba:BettingTableGrid id="_gridSuperSixBanker" includeIn="Normal" visible="false"/>
 </e:Skin>

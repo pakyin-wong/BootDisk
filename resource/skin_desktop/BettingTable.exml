@@ -12,6 +12,7 @@
 	                     height="112" horizontalCenter="0" x="373" horizontalCenter.Normal="0" width.Normal="372" />
 	<ba:BettingTableGrid id="_gridSuperSix" includeIn="SuperSix" y="0" anchorOffsetX="0" width="200" anchorOffsetY="0"
 	                     height="300" horizontalCenter="100" x="20" />
+	<ba:BettingTableGrid id="_gridSuperSixBanker" visible="false" />
 	<ba:BettingTableGrid id="_gridBanker" includeIn="Normal,SuperSix" y="0" anchorOffsetX="0" width.Normal="558"
 	                     anchorOffsetY="0" height="190" x.Normal="559" y.Normal="0" width.SuperSix="558" right.SuperSix="0"
 	                     top.SuperSix="0" />

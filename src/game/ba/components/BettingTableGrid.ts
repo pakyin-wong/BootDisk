@@ -105,7 +105,7 @@ namespace we {
       public drawChips() {
         this.clearChips();
         if (this._denomList) {
-          let depth = 0;
+          let depth = -1;
           console.log('BettingTableGrid::drawChips ' + this._cfmBet + ' ' + this._uncfmBet);
           this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, this._cfmBet);
           this._cfmDenom.map((value, index) => {
@@ -166,7 +166,6 @@ namespace we {
 
       public cancelBet(): void {
         this.setUncfmBet(0);
-        this.clearChips();
       }
 
       public getUncfmBet(): number {
@@ -179,6 +178,7 @@ namespace we {
 
         if (bitmapName) {
           this._bitmapName = bitmapName;
+          /*
           try {
             console.log('BettingTableGrid::loadGroup');
             await RES.loadGroup('scene_baccarat');
@@ -190,7 +190,9 @@ namespace we {
           bitmap.width = this.width;
           bitmap.height = this.height;
           this.addChild(bitmap);
-        } else if (this._bitmapName) {
+          */
+        }
+        if (this._bitmapName) {
           try {
             console.log('BettingTableGrid::loadGroup');
             await RES.loadGroup('scene_baccarat');
@@ -211,8 +213,7 @@ namespace we {
         this.lblName.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.lblName.textColor = textcolor;
 
-        this.setCfmBet(this._cfmBet);
-        this.setUncfmBet(this._uncfmBet);
+        this.drawChips();
       }
 
       set betChipZIndex(value: number) {
