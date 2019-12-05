@@ -24,6 +24,7 @@ namespace we {
       private _getSelectedChipIndex: () => number;
 
       private _betChipZIndex: number;
+      private _banner: ui.Banner;
 
       constructor() {
         super();
@@ -104,37 +105,54 @@ namespace we {
 
       public drawChips() {
         this.clearChips();
-        if (this._denomList) {
-          let depth = -1;
+        if (!this._denomList) {
+          return;
+        }
+        if (!this._uncfmBet && !this._cfmBet) {
+          return;
+        }
+        if (this._uncfmBet) {
+          const chip = new eui.Image();
+          chip.texture = RES.getRes('d_ba_betcontrol_clipsset_flat_none_png');
+          chip.horizontalCenter = 0;
+          chip.verticalCenter = 0;
+          chip.width = 100;
+          chip.height = 100;
+          this._chips.push(chip);
+          this.addChild(chip);
+          this.setChildIndex(chip, this._betChipZIndex + 1);
+          this._banner = new we.ui.Banner();
+          this._banner.label1text = ' ' + (this._uncfmBet + this._cfmBet);
+          this._banner.resName = 'd_ba_gamerecord_chipvalue_png';
+          this._banner.verticalCenter = 0;
+          this._banner.horizontalCenter = 0;
+          this.addChild(this._banner);
+        } else {
           console.log('BettingTableGrid::drawChips ' + this._cfmBet + ' ' + this._uncfmBet);
           this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, this._cfmBet);
           this._cfmDenom.map((value, index) => {
-            const chip = this.getChip(utils.getChipFace(value), index);
+            console.log(utils.getChipImage(value, we.core.ChipType.CLIP));
+            const chip = this.getChip(utils.getChipImage(value, we.core.ChipType.CLIP), index);
             this._chips.push(chip);
             this.addChild(chip);
             this.setChildIndex(chip, this._betChipZIndex + index);
-            depth = index;
           });
-          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet);
-          this._uncfmDenom.map((value, index) => {
-            const chip = this.getChip(utils.getChipFace(value), index + depth + 1);
-            this._chips.push(chip);
-            this.addChild(chip);
-            this.setChildIndex(chip, this._betChipZIndex + index + depth + 1);
-          });
-
-          console.log('BettingTableGrid::addUncfmBet() - inside');
+          this._banner = new we.ui.Banner();
+          this._banner.label1text = ' ' + this._cfmBet;
+          this._banner.resName = 'd_ba_gamerecord_chipvalue_png';
+          this._banner.verticalCenter = 40;
+          this._banner.horizontalCenter = 0;
+          this.addChild(this._banner);
         }
       }
 
-      public getChip(chipvalue, index) {
+      public getChip(resvalue, index) {
         const chip = new eui.Image();
-        console.log(`d_ba_betcontrol_image_clipsset${chipvalue}_png`);
-        chip.texture = RES.getRes(`d_ba_betcontrol_image_clipsset${chipvalue}_png`);
+        chip.texture = RES.getRes(resvalue);
         chip.horizontalCenter = 0;
         chip.verticalCenter = index * -10;
         chip.width = 100;
-        chip.height = 100;
+        chip.height = 70;
         return chip;
       }
 
@@ -145,6 +163,10 @@ namespace we {
           }
         });
         this._chips = new Array();
+        if (this._banner) {
+          this.removeChild(this._banner);
+        }
+        this._banner = null;
       }
 
       public setSize(width: number, height: number) {

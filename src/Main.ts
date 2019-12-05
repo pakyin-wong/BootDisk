@@ -24,7 +24,7 @@ class Main extends eui.UILayer {
   private async init() {
     // step 1: init director elements (socket comm, controller, handler)
     // dir.socket = new socket.SocketMock();
-    dir.config = await utils.getConfig();
+    dir.config = await we.utils.getConfig();
     if (dir.config.mode === 'comm') {
       dir.socket = new we.core.SocketComm();
     } else {
