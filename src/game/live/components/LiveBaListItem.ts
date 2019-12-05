@@ -175,13 +175,12 @@ namespace we {
 
       public setupTableInfo() {
         // console.log(env.tableInfoArray);
-
         env.tableInfoArray.forEach(value => {
           if (value.tableid === this._tableId) {
             this._tableInfo = value;
             this._betDetails = this._tableInfo.bets;
             this._gameData = this._tableInfo.data;
-            this._previousState = we.ba.GameState.SHUFFLE;
+            this._previousState = this._gameData ? this._gameData.previousstate : null;
           }
         });
       }
@@ -194,7 +193,7 @@ namespace we {
             // update the scene
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
-            this._previousState = this._gameData ? this._gameData.state : we.ba.GameState.IDLE;
+            this._previousState = this._gameData ? this._gameData.previousstate : null;
             this._gameData = <we.ba.GameData> this._tableInfo.data;
 
             this.updateGame();
@@ -224,9 +223,9 @@ namespace we {
         if (this._previousState !== we.ba.GameState.BET) {
           // reset data betinfo
 
-          if (this._betDetails) {
-            this._betDetails.splice(0, this._betDetails.length);
-          }
+          // if (this._betDetails) {
+          //   this._betDetails.splice(0, this._betDetails.length);
+          // }
 
           // TODO: show start bet message to the client for few seconds
           this._quickbetPanel.bettingTable.resetUnconfirmedBet();

@@ -88,9 +88,9 @@ namespace we {
         if (this.previousState !== GameState.BET) {
           // reset data betinfo
 
-          if (this.betDetails) {
-            this.betDetails.splice(0, this.betDetails.length);
-          }
+          // if (this.betDetails) {
+          //   this.betDetails.splice(0, this.betDetails.length);
+          // }
 
           // TODO: show start bet message to the client for few seconds
           this.bettingTable.resetUnconfirmedBet();

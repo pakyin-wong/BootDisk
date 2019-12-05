@@ -2,6 +2,7 @@ namespace we {
   export namespace ba {
     export class GameData {
       public state: GameState;
+      public previousstate?: GameState;
       public a1: string;
       public a2: string;
       public a3: string;

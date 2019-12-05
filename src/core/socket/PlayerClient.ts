@@ -147,7 +147,9 @@ namespace we {
         const e = env;
         const tableInfo: data.TableInfo = env.tableInfos[gameStatus.tableid];
         if (tableInfo) {
+          gameStatus.previousstate = tableInfo.data ? tableInfo.state : null;
           tableInfo.data = gameStatus;
+          this.localActions(tableInfo);
           this.dispatchListUpdateEvent();
           dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
         } else {
@@ -155,6 +157,18 @@ namespace we {
           tableInfo.tableid = gameStatus.tableid;
           tableInfo.data = gameStatus;
           env.addTableInfo(tableInfo);
+        }
+      }
+
+      protected localActions(tableInfo: data.TableInfo) {
+        if (tableInfo.data) {
+          if (tableInfo.data instanceof ba.GameData) {
+            const data: ba.GameData = tableInfo.data as ba.GameData;
+            if (data.state === ba.GameState.BET && data.previousstate !== ba.GameState.BET) {
+              // reset the betDetails
+              tableInfo.bets = null;
+            }
+          }
         }
       }
 

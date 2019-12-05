@@ -95,6 +95,7 @@ namespace we {
           this.clearChips();
         }
         // this.lblCfmBet.text = this._cfmBet.toString();
+        this.drawChips();
       }
 
       public setUncfmBet(amount: number): void {
@@ -103,6 +104,7 @@ namespace we {
           this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, amount);
         }
         // this.lblUncfmBet.text = this._uncfmBet.toString();
+        this.drawChips();
       }
 
       private drawCfmBet() {
@@ -121,7 +123,19 @@ namespace we {
         if (this._denomList && amount) {
           console.log('BettingTableGrid::addUncfmBet() - inside');
           this.clearChips();
-          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet);
+          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet + this._cfmBet);
+          this._uncfmDenom.map((value, index) => {
+            const chip = this.getChip(utils.getChipFace(value), index);
+            this._chips.push(chip);
+            this.addChild(chip);
+            this.setChildIndex(chip, this._betChipZIndex + index);
+          });
+        }
+      }
+
+      public drawChips() {
+        if (this._denomList) {
+          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet + this._cfmBet);
           this._uncfmDenom.map((value, index) => {
             const chip = this.getChip(utils.getChipFace(value), index);
             this._chips.push(chip);
@@ -149,6 +163,7 @@ namespace we {
           }
         });
         this._chips = new Array();
+        this.drawChips();
       }
 
       public setSize(width: number, height: number) {

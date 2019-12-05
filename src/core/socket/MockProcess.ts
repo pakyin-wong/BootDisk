@@ -100,6 +100,7 @@ namespace we {
         await this.sleep(3000 + Math.random() * 5000, 'tableInfoListInternal');
         data.data = gameData;
         data.bets = [];
+        gameData.previousstate = null;
         gameData.state = ba.GameState.BET;
         gameData.starttime = Date.now();
         gameData.countdown = this.betStateInterval;
@@ -146,6 +147,7 @@ namespace we {
         await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
         // set to deal state and start showing the result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.DEAL;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval, 'tableInfoListInternal');
@@ -153,6 +155,7 @@ namespace we {
         await this.setCards(data, ['cluba', 'heartk', 'diamonda', 'spade2', 'diamond6', 'spade9']);
 
         // set to finish state and calculate the bet result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.FINISH;
         gameData.wintype = ba.WinType.PLAYER;
         this.updateBetResult(data, [ba.BetField.PLAYER]);
@@ -171,6 +174,7 @@ namespace we {
         await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
         // set to deal state and start showing the result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.DEAL;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval, 'tableInfoListInternal');
@@ -178,6 +182,7 @@ namespace we {
         await this.setCards(data, ['cluba', 'heartq', 'diamond6', 'spade3']);
 
         // set to finish state and calculate the bet result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.FINISH;
         gameData.wintype = ba.WinType.BANKER;
         this.updateBetResult(data, [ba.BetField.BANKER]);
@@ -196,6 +201,7 @@ namespace we {
         await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
         // set to deal state and start showing the result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.DEAL;
         this.dispatchEvent(data);
         await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
@@ -203,6 +209,7 @@ namespace we {
         await this.setCards(data, ['hearta', 'club6', 'diamond4', 'spade4']);
 
         // set to finish state and calculate the bet result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.FINISH;
         gameData.wintype = ba.WinType.BANKER;
         this.updateBetResult(data, [ba.BetField.BANKER, ba.BetField.BANKER_PAIR]);
@@ -221,6 +228,7 @@ namespace we {
         await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
         // set to deal state and start showing the result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.DEAL;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval, 'tableInfoListInternal');
@@ -228,6 +236,7 @@ namespace we {
         await this.setCards(data, ['hearta', 'cluba', 'diamond4', 'spade3']);
 
         // set to finish state and calculate the bet result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.FINISH;
         gameData.wintype = ba.WinType.BANKER;
         this.updateBetResult(data, [ba.BetField.BANKER, ba.BetField.PLAYER_PAIR]);
@@ -246,6 +255,7 @@ namespace we {
         await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
 
         // set to deal state and start showing the result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.DEAL;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval, 'tableInfoListInternal');
@@ -253,6 +263,7 @@ namespace we {
         await this.setCards(data, ['diamond5', 'spade3', 'cluba', 'heart7']);
 
         // set to finish state and calculate the bet result
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.FINISH;
         gameData.wintype = ba.WinType.TIE;
         this.updateBetResult(data, [ba.BetField.TIE]);
@@ -268,6 +279,7 @@ namespace we {
         data.data = gameData;
         data.bets = [];
         // set to bet state and wait
+        gameData.previousstate = gameData.state;
         gameData.state = ba.GameState.SHUFFLE;
         this.dispatchEvent(data);
         await this.sleep(this.shuffleStateInterval, 'tableInfoListInternal');

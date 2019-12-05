@@ -120,10 +120,10 @@ namespace we {
           removed.forEach(item => {
             this.collection.removeItemAt(this.collection.getItemIndex(item));
           });
-          this.roomIds = roomIds;
-          this.roomIds.forEach((x, inx) => {
-            this.collection.replaceItemAt(x, inx);
-          });
+          // this.roomIds = roomIds;
+          // this.roomIds.forEach((x, inx) => {
+          //   this.collection.replaceItemAt(x, inx);
+          // });
         }
       }
 
