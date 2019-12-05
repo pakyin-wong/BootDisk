@@ -61,7 +61,14 @@ namespace we {
         grids.left = paddingHorizontal;
         grids.right = paddingHorizontal;
         grids.y = posters.y + gapSize + 800;
-        const images = [RES.getRes('temp_baccarat_dealer_1'), RES.getRes('temp_baccarat_dealer_1'), RES.getRes('temp_baccarat_dealer_1'), RES.getRes('temp_baccarat_dealer_1')];
+        const images = [
+          RES.getRes('4-col-features-1_png'),
+          RES.getRes('4-col-features-prestige_png'),
+          RES.getRes('4-col-features-2_png'),
+          RES.getRes('4-col-features-2-copy_png'),
+          RES.getRes('4-col-slot-2_png'),
+          RES.getRes('4-col-slot_png'),
+        ];
         images.forEach(res => {
           const image = new eui.Image();
           image.source = res;
