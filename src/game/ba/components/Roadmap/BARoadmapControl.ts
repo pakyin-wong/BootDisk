@@ -32,16 +32,15 @@ namespace we {
 
         this.onDisplayUpdate(null);
 
-        // dark/light mode
-        this.bigRoad.touchEnabled = true;
-        this.bigRoad.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-
         // predict roads
         this.rightPanel.iconBankerBead.touchEnabled = true;
         this.rightPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
 
         this.rightPanel.iconPlayerBead.touchEnabled = true;
         this.rightPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+
+        // dark/light mode
+        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
       }
 
       // predict banker win
@@ -92,9 +91,9 @@ namespace we {
         this.predictTimeout = egret.setTimeout(this.clearPredict, this, 3000);
       }
 
-      // predict banker win
-      private onClick(e: egret.TouchEvent) {
-        this.beadRoad.DarkMode = ++this.beadRoad.DarkMode % 2;
+      // DarkMode
+      private onModeUpdate(e: egret.Event) {
+        this.beadRoad.DarkMode = e.data.mode === 1 ? 1 : 0;
         this.bigRoad.DarkMode = this.beadRoad.DarkMode;
         this.bigEyeRoad.DarkMode = this.beadRoad.DarkMode;
         this.smallRoad.DarkMode = this.beadRoad.DarkMode;
