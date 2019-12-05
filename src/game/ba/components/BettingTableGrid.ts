@@ -88,60 +88,42 @@ namespace we {
 
       public setCfmBet(amount: number): void {
         this._cfmBet = amount;
-        if (this._denomList && amount) {
-          this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, amount);
-        }
-        if (amount === 0) {
-          this.clearChips();
-        }
-        // this.lblCfmBet.text = this._cfmBet.toString();
         this.drawChips();
       }
 
       public setUncfmBet(amount: number): void {
         this._uncfmBet = amount;
-        if (this._denomList && amount) {
-          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, amount);
-        }
-        // this.lblUncfmBet.text = this._uncfmBet.toString();
         this.drawChips();
-      }
-
-      private drawCfmBet() {
-        if (this._uncfmDenom) {
-        }
-      }
-
-      private drawUncfmBet() {
-        if (this._uncfmDenom) {
-        }
       }
 
       public addUncfmBet(amount: number): void {
         console.log('BettingTableGrid::addUncfmBet() - outside');
         this._uncfmBet += amount;
-        if (this._denomList && amount) {
-          console.log('BettingTableGrid::addUncfmBet() - inside');
-          this.clearChips();
-          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet + this._cfmBet);
-          this._uncfmDenom.map((value, index) => {
-            const chip = this.getChip(utils.getChipFace(value), index);
-            this._chips.push(chip);
-            this.addChild(chip);
-            this.setChildIndex(chip, this._betChipZIndex + index);
-          });
-        }
+        this.drawChips();
       }
 
       public drawChips() {
+        this.clearChips();
         if (this._denomList) {
-          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet + this._cfmBet);
-          this._uncfmDenom.map((value, index) => {
+          let depth = -1;
+          console.log('BettingTableGrid::drawChips ' + this._cfmBet + ' ' + this._uncfmBet);
+          this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, this._cfmBet);
+          this._cfmDenom.map((value, index) => {
             const chip = this.getChip(utils.getChipFace(value), index);
             this._chips.push(chip);
             this.addChild(chip);
             this.setChildIndex(chip, this._betChipZIndex + index);
+            depth = index;
           });
+          this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet);
+          this._uncfmDenom.map((value, index) => {
+            const chip = this.getChip(utils.getChipFace(value), index + depth + 1);
+            this._chips.push(chip);
+            this.addChild(chip);
+            this.setChildIndex(chip, this._betChipZIndex + index + depth + 1);
+          });
+
+          console.log('BettingTableGrid::addUncfmBet() - inside');
         }
       }
 
@@ -163,7 +145,6 @@ namespace we {
           }
         });
         this._chips = new Array();
-        this.drawChips();
       }
 
       public setSize(width: number, height: number) {
@@ -185,7 +166,6 @@ namespace we {
 
       public cancelBet(): void {
         this.setUncfmBet(0);
-        this.clearChips();
       }
 
       public getUncfmBet(): number {
@@ -198,6 +178,7 @@ namespace we {
 
         if (bitmapName) {
           this._bitmapName = bitmapName;
+          /*
           try {
             console.log('BettingTableGrid::loadGroup');
             await RES.loadGroup('scene_baccarat');
@@ -209,7 +190,9 @@ namespace we {
           bitmap.width = this.width;
           bitmap.height = this.height;
           this.addChild(bitmap);
-        } else if (this._bitmapName) {
+          */
+        }
+        if (this._bitmapName) {
           try {
             console.log('BettingTableGrid::loadGroup');
             await RES.loadGroup('scene_baccarat');
@@ -230,8 +213,7 @@ namespace we {
         this.lblName.verticalAlign = egret.VerticalAlign.MIDDLE;
         this.lblName.textColor = textcolor;
 
-        this.setUncfmBet(this._uncfmBet);
-        this.setCfmBet(this._cfmBet);
+        this.drawChips();
       }
 
       set betChipZIndex(value: number) {
