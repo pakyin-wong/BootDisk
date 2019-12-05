@@ -1,6 +1,6 @@
 {
     "target": "local",
-    "mode": "comm",
+    "mode": "",
     "playerID": "BMJCP2DH5S5VCC8S9RHG",
     "secret": "JWT_TOKEN_HERE",
     "endpoint": "http://18.139.237.86:8080",

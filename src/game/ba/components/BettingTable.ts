@@ -166,6 +166,9 @@ namespace we {
         }
       }
         */
+      public setGameMode(isNoCommission: boolean) {
+        this.currentState = isNoCommission ? 'SuperSix' : 'Normal';
+      }
 
       public changeMethod(method: string) {
         switch (method) {
