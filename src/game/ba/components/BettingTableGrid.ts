@@ -180,9 +180,6 @@ namespace we {
       public async setStyle(textcolor: number, bitmapName: string = null) {
         // console.log('BettingTableGrid::setStyle: bitmapName: ', bitmapName, ' this._bitmapName: ', this._bitmapName);
 
-        this.width = this.width
-        this.height = this.height
-
         if (bitmapName) {
           this._bitmapName = bitmapName;
         }
