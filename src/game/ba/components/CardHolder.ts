@@ -11,6 +11,9 @@ namespace we {
       private card2Banker: ui.Card;
       private card3Banker: ui.Card;
 
+      private playerSum: number;
+      private bankerSum: number;
+
       constructor() {
         super();
       }

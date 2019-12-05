@@ -21,16 +21,12 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png",
 			"name": "temp"
 		},
 		{
 			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg,d_lobby_navbar_logo_png",
 			"name": "scene_loading"
-		},
-		{
-			"keys": "d_lobby_loading_banner_12_jpg,d_lobby_confirm_btn_none3_png,banner-baccarat2_png,lobby-featured-poster-12_png,lobby-featured-poster-22_png,lobby-featured-poster-32_png,lobby-featured-poster-42_png,d-lobby-button-close-none2_png,d-lobby-header-dim2_png,frame-32_png,d_lobby_confirm_btn_hover2_png,d_common_poker_horizontal_club_10_png,d_common_poker_horizontal_club_2_png,d_common_poker_horizontal_club_3_png,d_common_poker_horizontal_club_4_png,d_common_poker_horizontal_club_5_png,d_common_poker_horizontal_club_6_png,d_common_poker_horizontal_club_7_png,d_common_poker_horizontal_club_8_png,d_common_poker_horizontal_club_9_png,d_common_poker_horizontal_club_a_png,d_common_poker_horizontal_club_j_png,d_common_poker_horizontal_club_k_png,d_common_poker_horizontal_club_q_png,d_common_poker_horizontal_diamonds_10_png,d_common_poker_horizontal_diamonds_2_png,d_common_poker_horizontal_diamonds_3_png,d_common_poker_horizontal_diamonds_4_png,d_common_poker_horizontal_diamonds_5_png,d_common_poker_horizontal_diamonds_6_png,d_common_poker_horizontal_diamonds_7_png,d_common_poker_horizontal_diamonds_8_png,d_common_poker_horizontal_diamonds_9_png,d_common_poker_horizontal_diamonds_a_png,d_common_poker_horizontal_diamonds_j_png,d_common_poker_horizontal_diamonds_k_png,d_common_poker_horizontal_diamonds_q_png,d_common_poker_horizontal_hearts_10_png,d_common_poker_horizontal_hearts_2_png,d_common_poker_horizontal_hearts_3_png,d_common_poker_horizontal_hearts_4_png,d_common_poker_horizontal_hearts_5_png,d_common_poker_horizontal_hearts_6_png,d_common_poker_horizontal_hearts_7_png,d_common_poker_horizontal_hearts_8_png,d_common_poker_horizontal_hearts_9_png,d_common_poker_horizontal_hearts_a_png,d_common_poker_horizontal_hearts_j_png,d_common_poker_horizontal_hearts_k_png,d_common_poker_horizontal_hearts_q_png,d_common_poker_horizontal_spade_10_png,d_common_poker_horizontal_spade_2_png,d_common_poker_horizontal_spade_3_png,d_common_poker_horizontal_spade_4_png,d_common_poker_horizontal_spade_5_png,d_common_poker_horizontal_spade_6_png,d_common_poker_horizontal_spade_7_png,d_common_poker_horizontal_spade_8_png,d_common_poker_horizontal_spade_9_png,d_common_poker_horizontal_spade_a_png,d_common_poker_horizontal_spade_j_png,d_common_poker_horizontal_spade_k_png,d_common_poker_horizontal_spade_q_png,d_common_poker_vertical_club_10_png,d_common_poker_vertical_club_2_png,d_common_poker_vertical_club_3_png,d_common_poker_vertical_club_4_png,d_common_poker_vertical_club_5_png,d_common_poker_vertical_club_6_png,d_common_poker_vertical_club_7_png,d_common_poker_vertical_club_8_png,d_common_poker_vertical_club_9_png,d_common_poker_vertical_club_a_png,d_common_poker_vertical_club_j_png,d_common_poker_vertical_club_k_png,d_common_poker_vertical_club_q_png,d_common_poker_vertical_diamonds_10_png,d_common_poker_vertical_diamonds_2_png,d_common_poker_vertical_diamonds_3_png,d_common_poker_vertical_diamonds_4_png,d_common_poker_vertical_diamonds_5_png,d_common_poker_vertical_diamonds_6_png,d_common_poker_vertical_diamonds_7_png,d_common_poker_vertical_diamonds_8_png,d_common_poker_vertical_diamonds_9_png,d_common_poker_vertical_diamonds_a_png,d_common_poker_vertical_diamonds_j_png,d_common_poker_vertical_diamonds_k_png,d_common_poker_vertical_diamonds_q_png,d_common_poker_vertical_hearts_10_png,d_common_poker_vertical_hearts_2_png,d_common_poker_vertical_hearts_3_png,d_common_poker_vertical_hearts_4_png,d_common_poker_vertical_hearts_5_png,d_common_poker_vertical_hearts_6_png,d_common_poker_vertical_hearts_7_png,d_common_poker_vertical_hearts_8_png,d_common_poker_vertical_hearts_9_png,d_common_poker_vertical_hearts_a_png,d_common_poker_vertical_hearts_j_png,d_common_poker_vertical_hearts_k_png,d_common_poker_vertical_hearts_q_png,d_common_poker_vertical_spade_10_png,d_common_poker_vertical_spade_2_png,d_common_poker_vertical_spade_3_png,d_common_poker_vertical_spade_4_png,d_common_poker_vertical_spade_5_png,d_common_poker_vertical_spade_6_png,d_common_poker_vertical_spade_7_png,d_common_poker_vertical_spade_8_png,d_common_poker_vertical_spade_9_png,d_common_poker_vertical_spade_a_png,d_common_poker_vertical_spade_j_png,d_common_poker_vertical_spade_k_png,d_common_poker_vertical_spade_q_png",
-			"name": "preload"
 		}
 	],
 	"resources": [
@@ -2280,6 +2276,36 @@
 			"url": "assets/d/cards/d_common_poker_vertical_spade_q.png",
 			"type": "image",
 			"name": "d_common_poker_vertical_spade_q_png"
+		},
+		{
+			"url": "assets/temp/4-col-features-2.png",
+			"type": "image",
+			"name": "4-col-features-2_png"
+		},
+		{
+			"url": "assets/temp/4-col-features-1.png",
+			"type": "image",
+			"name": "4-col-features-1_png"
+		},
+		{
+			"url": "assets/temp/4-col-features-prestige.png",
+			"type": "image",
+			"name": "4-col-features-prestige_png"
+		},
+		{
+			"url": "assets/temp/4-col-slot.png",
+			"type": "image",
+			"name": "4-col-slot_png"
+		},
+		{
+			"url": "assets/temp/4-col-slot-2.png",
+			"type": "image",
+			"name": "4-col-slot-2_png"
+		},
+		{
+			"url": "assets/temp/4-col-features-2-copy.png",
+			"type": "image",
+			"name": "4-col-features-2-copy_png"
 		}
 	]
 }
