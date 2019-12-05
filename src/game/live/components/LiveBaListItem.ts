@@ -126,10 +126,10 @@ namespace we {
           });
         } else if (env.livepageLocked === this.tableId) {
           this._quickbetButton.tweenLabel(!!!env.livepageLocked);
-          this.setChildIndex(this._quickbetPanel, 1000);
-          this.setChildIndex(this._group, 1500);
-          this.toggleLivePageLock();
-          dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
+          // this.setChildIndex(this._quickbetPanel, 1000);
+          // this.setChildIndex(this._group, 1500);
+          // this._quickbetPanel.validateNow();
+
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetPanel);
           egret.Tween.get(this._quickbetPanel).to({ y: 300, alpha: 0 }, 250);
@@ -139,16 +139,9 @@ namespace we {
             const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 250);
           } else {
             egret.Tween.get(this).to({ y: this._originaly }, 250);
-
-            console.log('quickbetpanel back home tableid: ' + this._tableId);
-            console.log('quickbetpanel back home before: ' + this.y);
-            console.log('quickbetpanel back home before: ' + this.alpha);
-            // this._quickbetPanel.y = 300;
-            // this._quickbetPanel.alpha = 0;
-
-            console.log('quickbetpanel back home after: ' + this.y);
-            console.log('quickbetpanel back home after: ' + this.alpha);
           }
+          this.toggleLivePageLock();
+          dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
         }
       }
 
@@ -270,11 +263,26 @@ namespace we {
           } else {
             this._timer.visible = false;
             console.log('LiveBaListItem::setQuickbetPanelVisible-disable1()' + this.tableId);
-            if (env.livepageLocked === this.tableId) {
-              console.log('LiveBaListItem::setQuickbetPanelVisible-disable2()' + this.tableId);
-              this.onClickButton(null);
-            }
+            this.setChildIndex(this._quickbetPanel, 1000);
+            this.setChildIndex(this._group, 1500);
+            this._quickbetButton.tweenLabel(!!!env.livepageLocked);
+            egret.Tween.removeTweens(this);
+            egret.Tween.removeTweens(this._quickbetPanel);
+            egret.Tween.get(this._quickbetPanel).to({ y: 300, alpha: 0 }, 250);
+            egret.Tween.removeTweens(this._quickbetButton);
+            const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 250);
             const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 250);
+
+            setTimeout(() => {
+              if (env.livepageLocked === this.tableId) {
+                console.log('LiveBaListItem::setQuickbetPanelVisible-disable2()' + this.tableId);
+                // this.onClickButton(null);
+                this.toggleLivePageLock();
+                dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
+              } else {
+                const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 250);
+              }
+            }, 300);
           }
           this._quickbetEnable = enable;
         }
