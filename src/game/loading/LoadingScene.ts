@@ -3,9 +3,10 @@ namespace we {
     export class Scene extends core.BaseScene {
       private _progressbar: eui.ProgressBar;
       private _progressMsg: ui.RunTimeLabel;
+      private _tip: ui.NavLantern;
 
       private step: number = 0;
-      private flow = [this.preloadRes, this.initSkin, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
+      private flow = [this.preloadRes, this.initSkin, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
 
       public onEnter() {
         this.init();
@@ -34,6 +35,21 @@ namespace we {
       private initSkin() {
         this.once(eui.UIEvent.COMPLETE, this.next, this);
         this.skinName = utils.getSkin('LoadingScene');
+      }
+
+      /** Step 2.5: Get Static Server Init Data */
+      private getStaticData() {
+        this._progressMsg.renderText = () => `${i18n.t('loading.socket.connecting')}`;
+        this._progressbar.minimum = 0;
+        this._progressbar.maximum = 1;
+        this._progressbar.value = 0;
+
+        this._tip.alignToCenter();
+        this._tip.messages = [];
+        dir.socket.getStaticInitData(res => {
+          this._tip.messages = res.Tips;
+          this.next();
+        }, this);
       }
 
       /** Step 3: Socket Connect */

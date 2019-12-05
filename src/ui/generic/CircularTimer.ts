@@ -6,6 +6,8 @@ namespace we {
       private label: eui.Label;
       private thickness: number = 4;
       private progress = 1;
+      private _duration: number = 30;
+      private _ticker: (timestamp: number) => boolean;
 
       public constructor() {
         super();
@@ -21,28 +23,37 @@ namespace we {
         this.addChild(this.label);
       }
 
+      public setDuration(value) {
+        this._duration = value;
+      }
+
+      public setNow() {}
+
       protected mount() {
         this.size = this.width;
         this.label.size = this.size * 0.55;
         this.shape.width = this.shape.height = this.size;
 
         // start tick
-        const totalDuration = 60 - Math.floor(10 + Math.random() * 20);
-        const endTime = Date.now() + totalDuration * 1000;
-        const ticker = () => {
+        // const totalDuration = 60 - Math.floor(10 + Math.random() * 20);
+      }
+
+      public start() {
+        const endTime = Date.now() + this._duration * 1000;
+        this._ticker = () => {
           const now = Date.now();
-          this.progress = (endTime - now) / 1000 / totalDuration;
-          const duration = Math.floor(totalDuration * this.progress);
+          this.progress = (endTime - now) / 1000 / this._duration;
+          const duration = Math.floor(this._duration * this.progress);
           this.label.text = duration.toString();
           this.changeGraphics(this.progress);
           if (this.progress <= 0) {
             this.label.text = '0';
             this.changeGraphics(1);
-            egret.stopTick(ticker, this);
+            egret.stopTick(this._ticker, this);
           }
           return false;
         };
-        egret.startTick(ticker, this);
+        egret.startTick(this._ticker, this);
       }
 
       private hslToRgb(h, s, l) {

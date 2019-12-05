@@ -21,6 +21,14 @@ namespace we {
           system: '系统设定',
           logout: '登出',
         },
+        system: {
+          title: '系统设定',
+          lang: '语言',
+          liveRecord: '玩场收音',
+          soundfx: '游戏音效',
+          bgm: '背景音乐',
+          term: '服务条款',
+        },
       },
       lobby: {
         header: {

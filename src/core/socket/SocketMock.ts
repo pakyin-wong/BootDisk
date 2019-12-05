@@ -85,6 +85,10 @@ namespace we {
         // }, 14000);
       }
 
+      public getStaticInitData(callback: (res: any) => void, thisArg: any) {
+        callback.call(thisArg, { Tips: ['mock'] });
+      }
+
       public connect() {
         // this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
         /// this.client.connect();
@@ -176,6 +180,8 @@ namespace we {
 
       public dispatchBetInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
+        console.log('SocketMock::dispatchBetInfoUpdateEvent xxxxxxxxxxxxxxxxxxxxxx ');
+        console.log(data);
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, data);
       }
 
@@ -365,6 +371,8 @@ namespace we {
         // add the bets to confirmed bet Array
         const data = this.tables[parseInt(tableID, 10) - 1];
         this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
+        console.log('SocketMock::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxxloop ');
+        console.dir(betDetails);
         for (const betDetail of betDetails) {
           let isMatch = false;
           for (const cfmBetDetail of data.bets) {

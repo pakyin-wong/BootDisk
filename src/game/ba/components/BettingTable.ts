@@ -6,6 +6,7 @@ namespace we {
       private _gridPlayer: BettingTableGrid;
       private _gridTie: BettingTableGrid;
       private _gridSuperSix: BettingTableGrid;
+      private _gridSuperSixBanker: BettingTableGrid;
       private _gridBanker: BettingTableGrid;
       private _tableId: string;
       private _type: we.core.BettingTableType;
@@ -56,15 +57,17 @@ namespace we {
             this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
             break;
           case we.core.BettingTableType.LOBBY:
-            this._gridBanker.setBitmap('d_lobby_quick_bet_area_a_none_png');
-            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_b_none_png');
+            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
+            this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
+
             this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
             this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
             this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
             break;
           case we.core.BettingTableType.BETSUMMARY:
-            this._gridBanker.setBitmap('d_lobby_quick_bet_area_a_none_png');
-            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_b_none_png');
+            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
+            this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
+
             this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
             this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
             this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
@@ -95,6 +98,7 @@ namespace we {
         this.mapping[BetField.BANKER_PAIR] = this._gridBankerPair;
         this.mapping[BetField.PLAYER_PAIR] = this._gridPlayerPair;
         this.mapping[BetField.SUPER_SIX] = this._gridSuperSix;
+        this.mapping[BetField.SUPER_SIX_BANKER] = this._gridSuperSixBanker;
       }
 
       private setFieldNames() {
@@ -104,6 +108,7 @@ namespace we {
         this._gridBankerPair.setFieldName(BetField.BANKER_PAIR);
         this._gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
         this._gridSuperSix.setFieldName(BetField.SUPER_SIX);
+        this._gridSuperSixBanker.setFieldName(BetField.SUPER_SIX_BANKER);
       }
 
       private setDenomLists() {
@@ -113,6 +118,7 @@ namespace we {
         this._gridBankerPair.denomList = this._denomList;
         this._gridPlayerPair.denomList = this._denomList;
         this._gridSuperSix.denomList = this._denomList;
+        this._gridSuperSixBanker.denomList = this._denomList;
       }
 
       // Must be called if you change skin
@@ -134,6 +140,7 @@ namespace we {
         this._gridBankerPair.betChipZIndex = 20000;
         this._gridPlayerPair.betChipZIndex = 20000;
         this._gridSuperSix.betChipZIndex = 20000;
+        this._gridSuperSixBanker.betChipZIndex = 10000;
         this._gridTie.betChipZIndex = 20000;
       }
 
@@ -144,6 +151,8 @@ namespace we {
         this._gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridTie), this);
         this._gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBanker), this);
         this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
+        this._gridSuperSixBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSixBanker), this);
+
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
@@ -169,6 +178,7 @@ namespace we {
             this._gridPlayer.setStyle(textColor, bgColor);
             this._gridBanker.setStyle(textColor, bgColor);
             this._gridSuperSix.setStyle(textColor, bgColor);
+            this._gridSuperSixBanker.setStyle(textColor, bgColor);
             this._gridTie.setStyle(textColor, bgColor);
         }
       }
@@ -179,6 +189,7 @@ namespace we {
         this._gridPlayer.text = i18n.t('baccarat.player');
         this._gridTie.text = i18n.t('baccarat.tie');
         this._gridSuperSix.text = i18n.t('baccarat.superSix');
+        // missed supersix banker
         this._gridBanker.text = i18n.t('baccarat.banker');
       }
 
@@ -203,10 +214,15 @@ namespace we {
         this.betDetails = betDetails;
 
         // TODO: update the already bet amount of each bet field
-
+        console.log('BettingTable::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxx111');
+        console.log(betDetails);
         betDetails.map((value, index) => {
+          console.log('BettingTable::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxx : ' + value);
+          console.log('xxx value.field' + value.field);
           // logger.l('BettingTable::updateBetFields:loop ' + value);
-          this.mapping[value.field].setCfmBet(value.amount);
+          if (this.mapping[value.field]) {
+            this.mapping[value.field].setCfmBet(value.amount);
+          }
         });
       }
 
@@ -312,10 +328,12 @@ namespace we {
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
         ];
-        Object.keys(this.mapping).forEach(value => {
-          // console.log(value);
-          this.mapping[value].setUncfmBet(0);
-        });
+        if (this.mapping) {
+          Object.keys(this.mapping).forEach(value => {
+            // console.log(value);
+            this.mapping[value].setUncfmBet(0);
+          });
+        }
         this.totalUncfmBetAmount = 0;
       }
 
@@ -328,10 +346,12 @@ namespace we {
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
         ];
-        Object.keys(this.mapping).forEach(value => {
-          // console.log(value);
-          this.mapping[value].setCfmBet(0);
-        });
+        if (this.mapping) {
+          Object.keys(this.mapping).forEach(value => {
+            // console.log(value);
+            this.mapping[value].setCfmBet(0);
+          });
+        }
       }
 
       public cancelBet() {
@@ -342,6 +362,7 @@ namespace we {
         this._gridPlayerPair.cancelBet();
         this._gridBankerPair.cancelBet();
         this._gridSuperSix.cancelBet();
+        this._gridSuperSixBanker.cancelBet();
       }
       public onChangeLang() {
         this.changeLang();

@@ -89,6 +89,8 @@ namespace we {
               }
             })
             .wait(this.duration);
+        } else {
+          tween.wait(this.duration);
         }
         tween.call(() => {
           this._isAnimating = false;

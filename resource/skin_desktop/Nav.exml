@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.Nav" width="2600" height="1340" states="left,right" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Rect height="91" anchorOffsetY="0" left="0" right="0" top="0" locked="true"/>
+	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png"/>
+	<e:Rect width="1" height="60" x="2152" y="16.4" fillColor="0x4c4c4c"/>
 	<!--<e:Image id="_logo" width="246" height="71" x="7" y="12" fillMode="clip" source="" />-->
 	<ui:NavLantern id="_lantern" width="698" height="33" x="1382" y="12.4" x.left="369"/>
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="1382" x.left="369" y="46" size="28" textColor="0xffffff" fontFamily="Barlow"  width="698" height="34" textAlign="right" anchorOffsetX="0"/>
-	<e:Group id="_userInfo_toggle" x="2190" y="11.2">
-		<e:Label id="_user" text="user" x="79" y="0" width="116" height="34" size="28" fontFamily="Barlow" textColor="0xffffff" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_balance" text="RMB 123,456,789" x="79" y="35" width="146" height="34" fontFamily="Barlow" size="28" textColor="0xffffff" scaleX="1" scaleY="1"/>
-		<e:Image id="_profilePrc" width="58" height="58" x="0" y="7.8" anchorOffsetX="0" anchorOffsetY="0" fillMode="clip" scaleX="1" scaleY="1"/>
+	<e:Image width="22" height="22" x="2092" y="53" x.left="335" source="d_lobby_navbar_time_png"/>
+	<e:Group id="_userInfo_toggle" x="2190" y="11.2" anchorOffsetX="0" width="300">
+		<e:Label id="_user" text="User" x="79" y="0" width="220" height="34" size="28" fontFamily="Barlow" textColor="0xffffff" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="_balance" text="123,456,789" x="79" y="35" width="220" height="34" fontFamily="Barlow" size="28" textColor="0xffffff" scaleX="1" scaleY="1" anchorOffsetX="0"/>
+		<e:Image id="_profilePrc" width="58" height="58" x="0" y="7.8" anchorOffsetX="0" anchorOffsetY="0" fillMode="scale" scaleX="1" scaleY="1" source="d_lobby_profile_pic_03_png"/>
 	</e:Group>
 	<e:Image id="_menu_toggle" width="28.8" height="24.4" x="2527" y="35" source="d_lobby_navbar_menu_png" />
-	<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="115.76" isPoppable="true"
-	                   dismissOnClickOutside="true" />
+	<!--<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="115.76" isPoppable="true"
+	                   dismissOnClickOutside="true" />-->
 	<ui:NavSideMenu id="_menu" width="363" height="576" x="2168" y="102" isPoppable="true" dismissOnClickOutside="true" />
-	<!--<e:Group width="1080" height="45" x="312" y="25">
-		<ui:RunTimeLabel id="_recommend" text="Label" x="0" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_livegame" text="Label" x="144" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_lottery" text="Label" x="288" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_egame" text="Label" x="432" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
-		<ui:RunTimeLabel id="_favourite" text="Label" x="576" y="1" width="112" height="41" size="28" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
-	</e:Group>-->
+	<e:Image width="22" height="23" source="d_ba_navbar_icon_rss_png" x.left="335" y.left="21" x.right="2092" y.right="19"/>
 </e:Skin>

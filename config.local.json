@@ -3,6 +3,6 @@
     "mode": "comm",
     "playerID": "BMJCP2DH5S5VCC8S9RHG",
     "secret": "JWT_TOKEN_HERE",
-    "endpoint":"http://18.139.237.86:8080",
+    "endpoint": "http://18.139.237.86:8080",
     "connectTimeout": 1000000
 }

@@ -19,13 +19,7 @@ namespace we {
       }
 
       protected mount() {
-        this._loopMsg = [
-          '【6.26圍警總】退休警子吐口水襲警　判囚10個月　官斥「污穢、骯髒、卑鄙，傳播細菌」',
-          '林鄭指 9 月已提獨立檢討委員會　梁美芬：應十日內公布細節　胡志偉：不倫不類',
-          '王婆婆指深圳被捕　保安局：不評論個別個案　特區不宜干預內地執法行動',
-          '【修例風波】理大：尋獲身體虛弱留守女子 由輔導員及紅十字人員協助',
-          '消防：上周一收前線報告有「人疊人」　救援過程無受阻',
-        ];
+        this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
 
         this._label = new eui.Label();
         this._next = new eui.Label();
@@ -43,12 +37,28 @@ namespace we {
         this.restart();
       }
 
+      protected destroy() {
+        clearInterval(this._loopInterval);
+        egret.Tween.removeTweens(this._label);
+        egret.Tween.removeTweens(this._next);
+        this.removeChildren();
+      }
+
       public alignToRight() {
         this._label.textAlign = this._next.textAlign = 'right';
       }
 
       public alignToLeft() {
         this._label.textAlign = this._next.textAlign = 'left';
+      }
+
+      public alignToCenter() {
+        this._label.textAlign = this._next.textAlign = 'center';
+      }
+
+      public set messages(m: string[]) {
+        this._loopMsg = m;
+        this.restart();
       }
 
       private restart() {
@@ -84,9 +94,10 @@ namespace we {
                 egret.Tween.removeTweens(this._label);
                 this._label.text = this._next.text;
                 this._label.y = 0;
-                this.removeChild(this._next);
+                this._next.parent && this.removeChild(this._next);
               }.bind(this)
             );
+
           this.addChild(this._next);
           this._loopline = 1;
         } else {

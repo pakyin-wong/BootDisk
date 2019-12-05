@@ -1,7 +1,7 @@
 namespace we {
   export namespace ba {
     export class GameBar extends eui.Component implements eui.UIComponent {
-      private videoButton: eui.Button;
+      private videoButton: egret.DisplayObject;
       private played: boolean;
       private playFunc: () => void;
       private stopFunc: () => void;
@@ -17,6 +17,7 @@ namespace we {
       }
 
       protected childrenCreated(): void {
+        mouse.setButtonMode(this.videoButton, true);
         super.childrenCreated();
         this.videoButton.addEventListener(
           egret.TouchEvent.TOUCH_TAP,

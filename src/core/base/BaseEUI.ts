@@ -12,6 +12,7 @@ namespace we {
         super.childrenCreated();
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
         this.mount();
+        this.dispatchEvent(new egret.Event('mounted'));
       }
 
       protected mount() {}

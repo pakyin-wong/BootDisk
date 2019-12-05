@@ -18,15 +18,17 @@ namespace we {
       }
 
       protected mount() {
-        this._userInfo.setToggler(this._userInfo_toggle);
-        this._userInfo.dismissOnClickOutside = true;
+        // this._userInfo.setToggler(this._userInfo_toggle);
+        // this._userInfo.dismissOnClickOutside = true;
 
         this._menu.setToggler(this._menu_toggle);
         this._menu.dismissOnClickOutside = true;
 
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
-
+        if (env.balance) {
+          dir.meterCtr.rackTo('balance', env.balance, 0);
+        }
         this.addListeners();
       }
 

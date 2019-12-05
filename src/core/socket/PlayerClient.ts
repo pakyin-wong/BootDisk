@@ -24,6 +24,16 @@ namespace we {
         this.client.subscribe(core.MQTT.BALANCE_UPDATE, this.onBalanceUpdate, this);
         this.client.subscribe(core.MQTT.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+        this.client.subscribe(core.MQTT.ERROR, this.onError, this);
+      }
+
+      public onError(value: any) {
+        logger.l('PlayerClient::onError ');
+        console.dir(value);
+      }
+
+      public getStaticInitData(callback: (res: any) => void, thisArg) {
+        this.client.init(env.language, callback.bind(thisArg));
       }
 
       public connect() {

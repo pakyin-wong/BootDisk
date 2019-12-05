@@ -9,7 +9,7 @@ namespace we {
       }
 
       /* Global Environment Variable */
-      public balance: number = 1000; // undefined;
+      public balance: number = undefined;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
@@ -24,7 +24,7 @@ namespace we {
       private _tableInfoArray: data.TableInfo[];
       private _tableInfos: { [key: string]: data.TableInfo };
       // public currentChipSelectedIndex: number = 10;
-      // public currentSelectedBetLimitIndex: number = 0;
+      public currentSelectedBetLimitIndex: number = 0;
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
       public livepageLocked: string = null;
