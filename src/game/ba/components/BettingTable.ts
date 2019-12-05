@@ -170,6 +170,15 @@ namespace we {
         */
       public setGameMode(isNoCommission: boolean) {
         this.currentState = isNoCommission ? 'SuperSix' : 'Normal';
+        const textColor = 0xffffff;
+
+        this._gridPlayerPair.setStyle(textColor);
+        this._gridBankerPair.setStyle(textColor);
+        this._gridPlayer.setStyle(textColor);
+        this._gridBanker.setStyle(textColor);
+        this._gridSuperSix.setStyle(textColor);
+        this._gridSuperSixBanker.setStyle(textColor);
+        this._gridTie.setStyle(textColor);
       }
 
       public changeMethod(method: string) {
@@ -178,13 +187,13 @@ namespace we {
             const textColor = 0xffffff;
             const bgColor = 0x000000;
 
-            this._gridPlayerPair.setStyle(textColor, bgColor);
-            this._gridBankerPair.setStyle(textColor, bgColor);
-            this._gridPlayer.setStyle(textColor, bgColor);
-            this._gridBanker.setStyle(textColor, bgColor);
-            this._gridSuperSix.setStyle(textColor, bgColor);
-            this._gridSuperSixBanker.setStyle(textColor, bgColor);
-            this._gridTie.setStyle(textColor, bgColor);
+            this._gridPlayerPair.setStyle(textColor);
+            this._gridBankerPair.setStyle(textColor);
+            this._gridPlayer.setStyle(textColor);
+            this._gridBanker.setStyle(textColor);
+            this._gridSuperSix.setStyle(textColor);
+            this._gridSuperSixBanker.setStyle(textColor);
+            this._gridTie.setStyle(textColor);
         }
       }
 
