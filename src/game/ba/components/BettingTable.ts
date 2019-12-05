@@ -283,8 +283,8 @@ namespace we {
         this._gridPlayerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridTie.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridBankerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridSuperSixBanker.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSix.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridSuperSixBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
       }
 
       get getSelectedBetLimitIndex() {

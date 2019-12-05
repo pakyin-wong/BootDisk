@@ -97,7 +97,7 @@ namespace we {
       }
 
       public addUncfmBet(amount: number): void {
-        console.log('BettingTableGrid::addUncfmBet() - outside');
+        // console.log('BettingTableGrid::addUncfmBet() - outside');
         this._uncfmBet += amount;
         this.drawChips();
       }
@@ -106,7 +106,7 @@ namespace we {
         this.clearChips();
         if (this._denomList) {
           let depth = -1;
-          console.log('BettingTableGrid::drawChips ' + this._cfmBet + ' ' + this._uncfmBet);
+          // console.log('BettingTableGrid::drawChips ' + this._cfmBet + ' ' + this._uncfmBet);
           this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, this._cfmBet);
           this._cfmDenom.map((value, index) => {
             const chip = this.getChip(utils.getChipFace(value), index);
@@ -123,13 +123,13 @@ namespace we {
             this.setChildIndex(chip, this._betChipZIndex + index + depth + 1);
           });
 
-          console.log('BettingTableGrid::addUncfmBet() - inside');
+          // console.log('BettingTableGrid::addUncfmBet() - inside');
         }
       }
 
       public getChip(chipvalue, index) {
         const chip = new eui.Image();
-        console.log(`d_ba_betcontrol_image_clipsset${chipvalue}_png`);
+        // console.log(`d_ba_betcontrol_image_clipsset${chipvalue}_png`);
         chip.texture = RES.getRes(`d_ba_betcontrol_image_clipsset${chipvalue}_png`);
         chip.horizontalCenter = 0;
         chip.verticalCenter = index * -10;
