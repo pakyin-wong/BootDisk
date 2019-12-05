@@ -263,6 +263,8 @@ namespace we {
         this._gridPlayerPair.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridTie.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridBankerPair.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSixBanker.getSelectedChipIndex = this._getSelectedChipIndex;
       }
 
       get getSelectedChipIndex() {
@@ -276,6 +278,8 @@ namespace we {
         this._gridPlayerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridTie.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridBankerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSixBanker.getSelectedChipIndex = this._getSelectedChipIndex;
       }
 
       get getSelectedBetLimitIndex() {
@@ -300,6 +304,7 @@ namespace we {
         // check betlimit
         const exceedBetLimit =
           Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
+          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
           fieldAmounts[BetField.TIE] > betLimit.maxLimit ||
           fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxLimit ||
           fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxLimit ||
@@ -327,6 +332,7 @@ namespace we {
           { field: BetField.BANKER_PAIR, amount: 0 },
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
@@ -345,6 +351,7 @@ namespace we {
           { field: BetField.BANKER_PAIR, amount: 0 },
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
