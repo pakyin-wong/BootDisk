@@ -63,12 +63,16 @@ namespace we {
               const animated = data.animateCell;
 
               const animatedIndex = ['bbead', 'bbigRoad', 'bbigEye', 'bsmall', 'broach', 'pbead', 'pbigRoad', 'pbigEye', 'psmall', 'proach'];
-
-              for (let i = 0; i < animated.length; i++) {
-                if (animated[i] > -1) {
-                  data[animatedIndex[i]][animated[i]].isPredict = 1;
+              try {
+                for (let i = 0; i < animated.length; i++) {
+                  if (animated[i] > -1) {
+                    data[animatedIndex[i]][animated[i]].isPredict = 1;
+                  }
                 }
+              } catch (e) {
+                console.log('doPredict Error');
               }
+
               if (v === 0) {
                 this.beadRoad.parseRoadData(data.bbead, 1);
                 this.bigRoad.parseRoadData(data.bbigRoad, 1);

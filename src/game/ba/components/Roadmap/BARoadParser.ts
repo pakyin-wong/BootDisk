@@ -289,15 +289,19 @@ namespace we {
         const animatedIndex = ['bbead', 'bbigRoad', 'bbigEye', 'bsmall', 'broach', 'pbead', 'pbigRoad', 'pbigEye', 'psmall', 'proach'];
         const predictResult = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
-        for (let i = 0; i < animated.length; i++) {
-          if (animated[i] > -1) {
-            const predictV = data[animatedIndex[i]][animated[i]].V;
-            if (predictV === 'b') {
-              predictResult[i] = { V: 'b' };
-            } else if (predictV === 'p') {
-              predictResult[i] = { V: 'p' };
+        try {
+          for (let i = 0; i < animated.length; i++) {
+            if (animated[i] > -1) {
+              const predictV = data[animatedIndex[i]][animated[i]].V;
+              if (predictV === 'b') {
+                predictResult[i] = { V: 'b' };
+              } else if (predictV === 'p') {
+                predictResult[i] = { V: 'p' };
+              }
             }
           }
+        } catch (e) {
+          console.log('Predict Road Error');
         }
 
         this.predictBankerIcons = [predictResult[2], predictResult[3], predictResult[4]];
