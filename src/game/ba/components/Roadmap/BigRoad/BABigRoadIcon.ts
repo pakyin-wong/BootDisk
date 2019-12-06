@@ -37,7 +37,7 @@ namespace we {
         this.addChild(this.playerDotDark);
         this.addChild(this.bankerDotDark);
 
-        const colors = [0xdd0000, 0x0000dd, 0xaa0000, 0x0000aa];
+        const colors = [0xee2e2e, 0x3531ec, 0xaa0000, 0x0000aa];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const lineWidth = 2;
@@ -72,39 +72,39 @@ namespace we {
         // this.iconText.fontFamily = 'Times New Roman';
 
         // draw the tie line
-        this.tieLine.graphics.lineStyle(2.5, 0xffffff, 1, true);
-        this.tieLine.graphics.moveTo(iconSize * 0.9, iconSize * 0.3);
-        this.tieLine.graphics.lineTo(iconSize * 0.3, iconSize * 0.9);
-        this.tieLine.graphics.lineStyle(2, 0x00aa00, 1, true);
-        this.tieLine.graphics.moveTo(iconSize * 0.9, iconSize * 0.3);
-        this.tieLine.graphics.lineTo(iconSize * 0.3, iconSize * 0.9);
+        this.tieLine.graphics.lineStyle(4, 0xffffff, 1, true);
+        this.tieLine.graphics.moveTo(iconSize * 0.8, iconSize * 0.3);
+        this.tieLine.graphics.lineTo(iconSize * 0.3, iconSize * 0.8);
+        this.tieLine.graphics.lineStyle(3, 0x16d267, 1, true);
+        this.tieLine.graphics.moveTo(iconSize * 0.8, iconSize * 0.3);
+        this.tieLine.graphics.lineTo(iconSize * 0.3, iconSize * 0.8);
 
-        this.tieLineDark.graphics.lineStyle(2.5, 0xffffff, 1, true);
-        this.tieLineDark.graphics.moveTo(iconSize * 0.9, iconSize * 0.3);
-        this.tieLineDark.graphics.lineTo(iconSize * 0.3, iconSize * 0.9);
-        this.tieLineDark.graphics.lineStyle(2, 0x00aa00, 1, true);
-        this.tieLineDark.graphics.moveTo(iconSize * 0.9, iconSize * 0.3);
-        this.tieLineDark.graphics.lineTo(iconSize * 0.3, iconSize * 0.9);
+        this.tieLineDark.graphics.lineStyle(4, 0xffffff, 1, true);
+        this.tieLineDark.graphics.moveTo(iconSize * 0.8, iconSize * 0.3);
+        this.tieLineDark.graphics.lineTo(iconSize * 0.3, iconSize * 0.8);
+        this.tieLineDark.graphics.lineStyle(3, 0x00aa00, 1, true);
+        this.tieLineDark.graphics.moveTo(iconSize * 0.8, iconSize * 0.3);
+        this.tieLineDark.graphics.lineTo(iconSize * 0.3, iconSize * 0.8);
 
         const dotRadius = iconSize * 0.15;
         const dotOffset = iconSize * 0.2;
         this.bankerDot.graphics.lineStyle(1, 0xffffff, 1);
-        this.bankerDot.graphics.beginFill(0xff0000, 1);
+        this.bankerDot.graphics.beginFill(colors[0], 1);
         this.bankerDot.graphics.drawCircle(dotOffset, dotOffset, dotRadius);
         this.bankerDot.graphics.endFill();
 
         this.bankerDotDark.graphics.lineStyle(1, 0xffffff, 1);
-        this.bankerDotDark.graphics.beginFill(0xff0000, 1);
+        this.bankerDotDark.graphics.beginFill(colors[2], 1);
         this.bankerDotDark.graphics.drawCircle(dotOffset, dotOffset, dotRadius);
         this.bankerDotDark.graphics.endFill();
 
         this.playerDot.graphics.lineStyle(1, 0xffffff, 1);
-        this.playerDot.graphics.beginFill(0x0000ff, 1);
+        this.playerDot.graphics.beginFill(colors[1], 1);
         this.playerDot.graphics.drawCircle(iconSize - dotOffset, iconSize - dotOffset, dotRadius);
         this.playerDot.graphics.endFill();
 
         this.playerDotDark.graphics.lineStyle(1, 0xffffff, 1);
-        this.playerDotDark.graphics.beginFill(0x0000ff, 1);
+        this.playerDotDark.graphics.beginFill(colors[3], 1);
         this.playerDotDark.graphics.drawCircle(iconSize - dotOffset, iconSize - dotOffset, dotRadius);
         this.playerDotDark.graphics.endFill();
       }
@@ -124,6 +124,8 @@ namespace we {
           if (this.darkModeNumber === 0) {
             if (!value.T) {
               //
+            } else if (value.T === 1) {
+              this.tieLine.visible = true;
             } else if (value.T > 1) {
               this.tieLine.visible = true;
               this.iconText.text = value.T;
@@ -133,6 +135,8 @@ namespace we {
           } else {
             if (!value.T) {
               //
+            } else if (value.T === 1) {
+              this.tieLineDark.visible = true;
             } else if (value.T > 1) {
               this.tieLineDark.visible = true;
               this.iconText.text = value.T;
