@@ -4,9 +4,20 @@ namespace we {
       private client: PlayerClient;
 
       constructor() {
+        const value = window.location.search;
+
+        const query = value.replace('?', '');
+        let data: any = {};
+        data = utils.getQueryParams(query);
+        const playerID = data.playerID ? data.playerID : dir.config.playerID;
+        const secret = data.secret ? data.secret : dir.config.secret;
+
+        console.log('playerID: ' + playerID);
+        console.log('secret: ' + secret);
+
         this.client = new PlayerClient({
-          playerID: dir.config.playerID,
-          secret: dir.config.secret,
+          playerID,
+          secret,
           connectTimeout: dir.config.connectTimeout, // To avoid disconnect,
           endpoint: dir.config.endpoint,
         });
