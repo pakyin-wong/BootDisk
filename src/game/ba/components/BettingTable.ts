@@ -168,6 +168,18 @@ namespace we {
         }
       }
         */
+      public setGameMode(isNoCommission: boolean) {
+        this.currentState = isNoCommission ? 'SuperSix' : 'Normal';
+        const textColor = 0xffffff;
+
+        this._gridPlayerPair.setStyle(textColor);
+        this._gridBankerPair.setStyle(textColor);
+        this._gridPlayer.setStyle(textColor);
+        this._gridBanker.setStyle(textColor);
+        this._gridSuperSix.setStyle(textColor);
+        this._gridSuperSixBanker.setStyle(textColor);
+        this._gridTie.setStyle(textColor);
+      }
 
       public changeMethod(method: string) {
         switch (method) {
@@ -175,13 +187,13 @@ namespace we {
             const textColor = 0xffffff;
             const bgColor = 0x000000;
 
-            this._gridPlayerPair.setStyle(textColor, bgColor);
-            this._gridBankerPair.setStyle(textColor, bgColor);
-            this._gridPlayer.setStyle(textColor, bgColor);
-            this._gridBanker.setStyle(textColor, bgColor);
-            this._gridSuperSix.setStyle(textColor, bgColor);
-            this._gridSuperSixBanker.setStyle(textColor, bgColor);
-            this._gridTie.setStyle(textColor, bgColor);
+            this._gridPlayerPair.setStyle(textColor);
+            this._gridBankerPair.setStyle(textColor);
+            this._gridPlayer.setStyle(textColor);
+            this._gridBanker.setStyle(textColor);
+            this._gridSuperSix.setStyle(textColor);
+            this._gridSuperSixBanker.setStyle(textColor);
+            this._gridTie.setStyle(textColor);
         }
       }
 
@@ -265,6 +277,8 @@ namespace we {
         this._gridPlayerPair.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridTie.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridBankerPair.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSixBanker.getSelectedChipIndex = this._getSelectedChipIndex;
       }
 
       get getSelectedChipIndex() {
@@ -278,6 +292,8 @@ namespace we {
         this._gridPlayerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridTie.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridBankerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridSuperSix.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridSuperSixBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
       }
 
       get getSelectedBetLimitIndex() {
@@ -302,6 +318,7 @@ namespace we {
         // check betlimit
         const exceedBetLimit =
           Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
+          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
           fieldAmounts[BetField.TIE] > betLimit.maxLimit ||
           fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxLimit ||
           fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxLimit ||
@@ -329,6 +346,7 @@ namespace we {
           { field: BetField.BANKER_PAIR, amount: 0 },
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
@@ -347,6 +365,7 @@ namespace we {
           { field: BetField.BANKER_PAIR, amount: 0 },
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
