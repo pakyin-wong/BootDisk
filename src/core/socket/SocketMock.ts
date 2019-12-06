@@ -396,11 +396,11 @@ namespace we {
           }
         }
         this.dispatchInfoUpdateEvent(data);
+        this.dispatchBetResultEvent();
+        this.dispatchBetInfoUpdateEvent(data);
         this.dispatchListUpdateEvent(data);
 
         // return promise.resolve with BetResult
-        this.dispatchBetResultEvent();
-        this.dispatchBetInfoUpdateEvent(data);
       }
 
       private onReceivedMsg(res) {

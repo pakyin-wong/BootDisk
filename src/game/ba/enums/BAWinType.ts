@@ -14,6 +14,7 @@ namespace we {
       FINISH = 3,
       REFUND = 4,
       SHUFFLE = 5,
+      UNKNOWN = 6,
     }
 
     export const BetField = {
