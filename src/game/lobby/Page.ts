@@ -18,49 +18,59 @@ namespace we {
         super.childrenCreated();
 
         const group = new eui.Group();
+        const vlayout = new eui.VerticalLayout();
+        vlayout.gap = 0;
+        group.layout = vlayout;
+
         this.scroller = new ui.Scroller();
         this.scroller.width = 2600;
         this.scroller.height = 1340;
         this.addChild(this.scroller);
 
-        const paddingHorizontal = 71;
-        const offsetForTableList = -paddingHorizontal * 3;
         const gapSize = 48;
+        const paddingHorizontal = 71;
+        const offsetForTableList = -gapSize * 3;
 
         // init image slider
         const slider = new we.ui.ImageSlider();
         slider.width = this.scroller.width;
         slider.height = 790;
-        group.addChild(slider);
+        const sliderContainer = new eui.Group();
+        sliderContainer.width = slider.width;
+        sliderContainer.height = slider.height + offsetForTableList;
+        sliderContainer.addChild(slider);
+        group.addChild(sliderContainer);
 
         // init 4 featured posters
+        const featuredPosterHeight = 800;
         const posters = new eui.Group();
         const hlayout = new eui.HorizontalLayout();
         hlayout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
         hlayout.gap = gapSize;
+        posters.horizontalCenter = 0;
         posters.layout = hlayout;
-        posters.left = paddingHorizontal;
-        posters.right = paddingHorizontal;
-        posters.y = slider.height + offsetForTableList;
         for (let i = 1; i <= 4; i += 1) {
           const image = new eui.Image();
           image.source = RES.getRes(`lobby-featured-poster-${i}_png`);
-          image.height = 800;
+          image.height = featuredPosterHeight;
           posters.addChild(image);
         }
-        group.addChild(posters);
+        const postersContainer = new eui.Group();
+        postersContainer.percentWidth = 100;
+        postersContainer.addChild(posters);
+        group.addChild(postersContainer);
 
         // init 3 grids
         const grids = new eui.Group();
         const tlayout = new eui.TileLayout();
         tlayout.requestedColumnCount = 3;
+        tlayout.paddingTop = gapSize;
+        tlayout.paddingBottom = gapSize;
         tlayout.horizontalGap = gapSize;
         tlayout.verticalGap = gapSize;
-        tlayout.columnWidth = (2600 - paddingHorizontal * 2 - paddingHorizontal * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
+        tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
         grids.layout = tlayout;
-        grids.left = paddingHorizontal;
-        grids.right = paddingHorizontal;
-        grids.y = posters.y + gapSize + 800;
+        grids.horizontalCenter = 0;
         const images = [
           RES.getRes('4-col-features-1_png'),
           RES.getRes('4-col-features-prestige_png'),
@@ -74,7 +84,23 @@ namespace we {
           image.source = res;
           grids.addChild(image);
         });
-        group.addChild(grids);
+        const gridsContainer = new eui.Group();
+        gridsContainer.percentWidth = 100;
+        gridsContainer.addChild(grids);
+        group.addChild(gridsContainer);
+
+        // init footer
+        const footer = new eui.Group();
+        footer.width = 2600;
+        footer.height = 200;
+        const label = new eui.Label();
+        label.fontFamily = 'Barlow';
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        label.verticalCenter = 0;
+        label.horizontalCenter = 0;
+        label.text = '© 2020 World Entainment 保留一切權利。';
+        footer.addChild(label);
+        group.addChild(footer);
 
         // init sections
         // const sections = new eui.Group();
@@ -103,36 +129,6 @@ namespace we {
         // createSection('egame', ['h4_png', 'h5_png', 'h6_png', 'h7_png', 'h8_png']);
         // createSection('favorite', ['h4_png', 'h5_png', 'h6_png', 'h7_png', 'h8_png', 'h9_png', 'h10_png']);
         // group.addChild(sections);
-
-        // init three banner
-        // const bannerList = new ui.List();
-        // const layout1 = new eui.TileLayout();
-        // layout1.horizontalGap = gapSize;
-        // layout1.requestedColumnCount = 3;
-        // layout1.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout1.requestedColumnCount - 1)) / layout1.requestedColumnCount;
-        // bannerList.layout = layout1;
-        // bannerList.dataProvider = new eui.ArrayCollection(['lobby_banner1_png', 'lobby_banner2_png', 'lobby_banner3_png']);
-        // bannerList.itemRenderer = LobbyBannerItem;
-        // bannerList.left = paddingHorizontal;
-        // bannerList.right = paddingHorizontal;
-        // bannerList.y = slider.height + offsetForTableList;
-
-        // // init three banner
-        // const bannerList2 = new ui.List();
-        // const layout2 = new eui.TileLayout();
-        // layout2.horizontalGap = gapSize;
-        // layout2.requestedColumnCount = 3;
-        // layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
-        // bannerList2.layout = layout2;
-        // bannerList2.dataProvider = new eui.ArrayCollection(['lobby_banner1_png', 'lobby_banner2_png', 'lobby_banner3_png']);
-        // bannerList2.itemRenderer = LobbyBannerItem;
-        // bannerList2.left = paddingHorizontal;
-        // bannerList2.right = paddingHorizontal;
-        // bannerList2.y = slider.height + bannerList.height;
-
-        // group.layout = new eui.VerticalLayout();
-        // group.addChild(bannerList);
-        // group.addChild(bannerList2);
 
         this.scroller.viewport = group;
       }
