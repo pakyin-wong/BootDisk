@@ -45,30 +45,37 @@ namespace we {
         clearTimeout(this._sleepCounter.tableInfoListInternal);
       }
 
-      private async setCards(data: data.TableInfo, cards: string[]) {
+      private async setCards(data: data.TableInfo, cards: string[], points: number[]) {
         let idx = 0;
         const gameData = data.data;
         for (const card of cards) {
-          switch (idx++) {
+          switch (idx) {
             case 2:
               gameData.a1 = card;
+              gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
               break;
             case 3:
               gameData.a2 = card;
+              gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
               break;
             case 0:
               gameData.b1 = card;
+              gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
               break;
             case 1:
               gameData.b2 = card;
+              gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
               break;
             case 5:
               gameData.a3 = card;
+              gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
               break;
             case 4:
               gameData.b3 = card;
+              gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
               break;
           }
+          idx++;
           this.dispatchEvent(data);
           await this.sleep(this.cardInterval, 'tableInfoListInternal');
         }
@@ -152,7 +159,7 @@ namespace we {
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-        await this.setCards(data, ['cluba', 'heartk', 'diamonda', 'spade2', 'diamond6', 'spade9']);
+        await this.setCards(data, ['cluba', 'heartk', 'diamonda', 'spade2', 'diamond6', 'spade9'], [1, 10, 1, 2, 6, 9]);
 
         // set to finish state and calculate the bet result
         gameData.previousstate = gameData.state;
@@ -179,7 +186,7 @@ namespace we {
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-        await this.setCards(data, ['cluba', 'heartq', 'diamond6', 'spade3']);
+        await this.setCards(data, ['cluba', 'heartq', 'diamond6', 'spade3'], [1, 10, 6, 3]);
 
         // set to finish state and calculate the bet result
         gameData.previousstate = gameData.state;
@@ -206,7 +213,7 @@ namespace we {
         this.dispatchEvent(data);
         await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
-        await this.setCards(data, ['hearta', 'club6', 'diamond4', 'spade4']);
+        await this.setCards(data, ['hearta', 'club6', 'diamond4', 'spade4'], [1, 6, 4, 4]);
 
         // set to finish state and calculate the bet result
         gameData.previousstate = gameData.state;
@@ -233,7 +240,7 @@ namespace we {
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-        await this.setCards(data, ['hearta', 'cluba', 'diamond4', 'spade3']);
+        await this.setCards(data, ['hearta', 'cluba', 'diamond4', 'spade3'], [1, 1, 4, 3]);
 
         // set to finish state and calculate the bet result
         gameData.previousstate = gameData.state;
@@ -260,7 +267,7 @@ namespace we {
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval, 'tableInfoListInternal');
 
-        await this.setCards(data, ['diamond5', 'spade3', 'cluba', 'heart7']);
+        await this.setCards(data, ['diamond5', 'spade3', 'cluba', 'heart7'], [5, 3, 1, 7]);
 
         // set to finish state and calculate the bet result
         gameData.previousstate = gameData.state;
