@@ -57,6 +57,7 @@
 		"resource/skin_desktop/dropdown/BetLimitDropdownSkin.exml",
 		"resource/skin_desktop/dropdown/DropdownItemSkin.exml",
 		"resource/skin_desktop/dropdown/DropdownSkin.exml",
+		"resource/skin_desktop/ImageButton.exml",
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LiveBaBettingTable.exml",
 		"resource/skin_desktop/LiveBaListItem.exml",

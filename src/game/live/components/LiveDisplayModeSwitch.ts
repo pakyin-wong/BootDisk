@@ -15,8 +15,9 @@ namespace we {
         hlayout.gap = 20;
         this.container.layout = hlayout;
         this.buttons.forEach((btn, idx) => {
-          const img = new eui.Image();
-          img.source = RES.getRes(btn);
+          const img = new ui.ImageButton();
+          img.resName = btn;
+          img.hoverResName = btn.replace('none', 'hover');
           img.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onItemClick.bind(this, idx), this);
           //   img.height = 50;
           //   img.width = 50;
@@ -34,7 +35,7 @@ namespace we {
           if (idx === selectedIndex) {
             source = source.replace('none', 'hover');
           }
-          img.source = RES.getRes(source);
+          img.resName = source;
         });
       }
 
