@@ -33,7 +33,6 @@ namespace we {
         this.touchEnabled = true;
 
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        this.mount();
       }
 
       public set tableId(value: string) {
@@ -296,6 +295,14 @@ namespace we {
         // this._dropdown.setToggler(this._dropdown_toggle);
 
         // this.setChildIndex(this._dropdown_toggle, 20000);
+
+        // For Fixed Width Round Corner
+        const shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        shape.graphics.endFill();
+        this._group.addChild(shape);
+        this._group.mask = shape;
       }
 
       public onRollover(evt: egret.Event) {
