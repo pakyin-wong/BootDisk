@@ -170,12 +170,16 @@ namespace we {
 
       protected localActions(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
-          if (tableInfo.data instanceof ba.GameData) {
-            const data: ba.GameData = tableInfo.data as ba.GameData;
-            if (data.state === ba.GameState.BET && data.previousstate !== ba.GameState.BET) {
-              // reset the betDetails
-              tableInfo.bets = null;
-            }
+          switch (tableInfo.gametype) {
+            case core.GameType.BAC:
+            default:
+              const data: ba.GameData = tableInfo.data as ba.GameData;
+              if (data.state === ba.GameState.BET && data.previousstate !== ba.GameState.BET) {
+                // reset the betDetails
+                tableInfo.bets = null;
+                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
+              }
+              break;
           }
         }
       }
