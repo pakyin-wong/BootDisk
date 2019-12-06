@@ -118,6 +118,8 @@ namespace we {
 
       public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
+        console.log('onTableListUpdate xxxxxxxxxxxxxxxxxxxxxxx');
+        console.log(tableList);
         console.log(tableList.tablesList);
         const tableInfos: data.TableInfo[] = tableList.tablesList;
         const featureds: string[] = tableList.featureds;

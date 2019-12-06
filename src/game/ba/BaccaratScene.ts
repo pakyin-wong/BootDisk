@@ -49,6 +49,9 @@ namespace we {
       private resultMessage: GameResultMessage;
       private message: InGameMessage;
 
+      private _switchBaMode: eui.ToggleSwitch;
+      private _lblBaMode: eui.Label;
+
       constructor(data: any) {
         super(data);
         this._tableID = data.tableid;
@@ -83,6 +86,7 @@ namespace we {
 
       public changeLang() {
         this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
+        this._lblBaMode.text = i18n.t('baccarat.noCommission');
       }
 
       public onEnter() {
@@ -124,9 +128,18 @@ namespace we {
         this.bettingTable.denomList = denominationList;
         this.bettingTable.init();
 
+        if (this._switchBaMode) {
+          this.bettingTable.setGameMode(this._switchBaMode.selected);
+          this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+        }
+
         // setInterval(() => {
         //   this.message.showMessage(InGameMessage.ERROR, 'hello world');
         // }, 4000);
+      }
+
+      protected onBaModeToggle(evt: eui.UIEvent) {
+        this.bettingTable.setGameMode(this._switchBaMode.selected);
       }
 
       private getSelectedBetLimitIndex() {

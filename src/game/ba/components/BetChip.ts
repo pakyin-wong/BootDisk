@@ -35,10 +35,10 @@ namespace we {
         this.setValue(this.value);
       }
 
-      public setValue(newValue: number) {
+      public setValue(newValue: number, flat = false) {
         this.value = newValue;
         // this.chipValue.text = newValue.toString();
-        this.chipImg.source = this.getBetChipImg(newValue);
+        this.chipImg.source = this.getBetChipImg(newValue, flat ? we.core.ChipType.FLAT : we.core.ChipType.CLIP);
       }
 
       public getValue() {
@@ -52,17 +52,18 @@ namespace we {
       set highlight(value: boolean) {
         this._highlight = value;
         if (value) {
+          // this.setValue(this.value, true);
           this.chipImg.filters = [this.glowFilter];
         } else {
+          // this.setValue(this.value, false);
           this.chipImg.filters = [];
         }
       }
 
-      private getBetChipImg(value): egret.Texture {
+      private getBetChipImg(value, type = we.core.ChipType.CLIP): egret.Texture {
         let chipTex;
         if (value) {
-          const name = utils.getChipFace(value);
-          const resName = `d_ba_betcontrol_image_clipsset${name}_png`;
+          const resName = utils.getChipImage(value, type);
           chipTex = RES.getRes(resName);
         }
         if (!chipTex) {

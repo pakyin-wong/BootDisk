@@ -48,18 +48,19 @@ namespace we {
       }
 
       public resetBitmap() {
-        switch (+this._type) {
+        switch (this._type) {
           case we.core.BettingTableType.NORMAL:
             this._gridBanker.setBitmap('d_ba_betarea_banker_general_png');
             this._gridPlayer.setBitmap('d_ba_betarea_player_general_png');
             this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
             this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
             this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
+            this._gridSuperSixBanker.setBitmap('d_ba_betarea_banker_general_png');
+            this._gridSuperSix.setBitmap('d_ba_betarea_supersix_tie_general_png');
             break;
           case we.core.BettingTableType.LOBBY:
             this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
             this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
-
             this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
             this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
             this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
@@ -67,7 +68,6 @@ namespace we {
           case we.core.BettingTableType.BETSUMMARY:
             this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
             this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
-
             this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
             this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
             this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
@@ -78,6 +78,8 @@ namespace we {
             this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
             this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
             this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
+            this._gridSuperSixBanker.setBitmap('d_ba_betarea_banker_general_png');
+            this._gridSuperSix.setBitmap('d_ba_betarea_supersix_tie_general_png');
         }
       }
 
@@ -166,6 +168,18 @@ namespace we {
         }
       }
         */
+      public setGameMode(isNoCommission: boolean) {
+        this.currentState = isNoCommission ? 'SuperSix' : 'Normal';
+        const textColor = 0xffffff;
+
+        this._gridPlayerPair.setStyle(textColor);
+        this._gridBankerPair.setStyle(textColor);
+        this._gridPlayer.setStyle(textColor);
+        this._gridBanker.setStyle(textColor);
+        this._gridSuperSix.setStyle(textColor);
+        this._gridSuperSixBanker.setStyle(textColor);
+        this._gridTie.setStyle(textColor);
+      }
 
       public changeMethod(method: string) {
         switch (method) {
@@ -173,13 +187,13 @@ namespace we {
             const textColor = 0xffffff;
             const bgColor = 0x000000;
 
-            this._gridPlayerPair.setStyle(textColor, bgColor);
-            this._gridBankerPair.setStyle(textColor, bgColor);
-            this._gridPlayer.setStyle(textColor, bgColor);
-            this._gridBanker.setStyle(textColor, bgColor);
-            this._gridSuperSix.setStyle(textColor, bgColor);
-            this._gridSuperSixBanker.setStyle(textColor, bgColor);
-            this._gridTie.setStyle(textColor, bgColor);
+            this._gridPlayerPair.setStyle(textColor);
+            this._gridBankerPair.setStyle(textColor);
+            this._gridPlayer.setStyle(textColor);
+            this._gridBanker.setStyle(textColor);
+            this._gridSuperSix.setStyle(textColor);
+            this._gridSuperSixBanker.setStyle(textColor);
+            this._gridTie.setStyle(textColor);
         }
       }
 
@@ -187,10 +201,10 @@ namespace we {
         this._gridPlayerPair.text = i18n.t('baccarat.playerPair');
         this._gridBankerPair.text = i18n.t('baccarat.bankerPair');
         this._gridPlayer.text = i18n.t('baccarat.player');
+        this._gridBanker.text = i18n.t('baccarat.banker');
         this._gridTie.text = i18n.t('baccarat.tie');
         this._gridSuperSix.text = i18n.t('baccarat.superSix');
-        // missed supersix banker
-        this._gridBanker.text = i18n.t('baccarat.banker');
+        this._gridSuperSixBanker.text = i18n.t('baccarat.banker');
       }
 
       public setTouchEnabled(enable: boolean) {
@@ -263,6 +277,8 @@ namespace we {
         this._gridPlayerPair.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridTie.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridBankerPair.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSixBanker.getSelectedChipIndex = this._getSelectedChipIndex;
       }
 
       get getSelectedChipIndex() {
@@ -276,6 +292,8 @@ namespace we {
         this._gridPlayerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridTie.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridBankerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridSuperSix.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridSuperSixBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
       }
 
       get getSelectedBetLimitIndex() {
@@ -300,6 +318,7 @@ namespace we {
         // check betlimit
         const exceedBetLimit =
           Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
+          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
           fieldAmounts[BetField.TIE] > betLimit.maxLimit ||
           fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxLimit ||
           fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxLimit ||
@@ -327,6 +346,7 @@ namespace we {
           { field: BetField.BANKER_PAIR, amount: 0 },
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
@@ -345,6 +365,7 @@ namespace we {
           { field: BetField.BANKER_PAIR, amount: 0 },
           { field: BetField.PLAYER_PAIR, amount: 0 },
           { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
