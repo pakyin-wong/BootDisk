@@ -47,49 +47,49 @@ namespace we {
 
         this.mask = this.contentMask;
 
-        this.iconBankerBead = new BABeadRoadIcon(28);
+        this.iconBankerBead = new BABeadRoadIcon(30);
         this.iconBankerBead.x = 22;
-        this.iconBankerBead.y = 10;
+        this.iconBankerBead.y = 9;
         this.iconBankerBead.setByObject({ V: 'b' });
         this.addChild(this.iconBankerBead);
 
-        this.iconBankerBigEye = new BABigEyeRoadIcon(16);
+        this.iconBankerBigEye = new BABigEyeRoadIcon(18);
         this.iconBankerBigEye.x = 58;
         this.iconBankerBigEye.y = 16;
         this.iconBankerBigEye.setByObject({ V: 'b' });
         this.addChild(this.iconBankerBigEye);
 
-        this.iconBankerSmall = new BASmallRoadIcon(16);
+        this.iconBankerSmall = new BASmallRoadIcon(18);
         this.iconBankerSmall.x = 76;
         this.iconBankerSmall.y = 16;
         this.iconBankerSmall.setByObject({ V: 'b' });
         this.addChild(this.iconBankerSmall);
 
-        this.iconBankerCockroach = new BACockroachRoadIcon(16);
+        this.iconBankerCockroach = new BACockroachRoadIcon(18);
         this.iconBankerCockroach.x = 94;
         this.iconBankerCockroach.y = 16;
         this.iconBankerCockroach.setByObject({ V: 'b' });
         this.addChild(this.iconBankerCockroach);
 
-        this.iconPlayerBead = new BABeadRoadIcon(28);
+        this.iconPlayerBead = new BABeadRoadIcon(30);
         this.iconPlayerBead.x = 124;
-        this.iconPlayerBead.y = 10;
+        this.iconPlayerBead.y = 9;
         this.iconPlayerBead.setByObject({ V: 'p' });
         this.addChild(this.iconPlayerBead);
 
-        this.iconPlayerBigEye = new BABigEyeRoadIcon(16);
+        this.iconPlayerBigEye = new BABigEyeRoadIcon(18);
         this.iconPlayerBigEye.x = 160;
         this.iconPlayerBigEye.y = 16;
         this.iconPlayerBigEye.setByObject({ V: 'p' });
         this.addChild(this.iconPlayerBigEye);
 
-        this.iconPlayerSmall = new BASmallRoadIcon(16);
+        this.iconPlayerSmall = new BASmallRoadIcon(18);
         this.iconPlayerSmall.x = 178;
         this.iconPlayerSmall.y = 16;
         this.iconPlayerSmall.setByObject({ V: 'p' });
         this.addChild(this.iconPlayerSmall);
 
-        this.iconPlayerCockroach = new BACockroachRoadIcon(16);
+        this.iconPlayerCockroach = new BACockroachRoadIcon(18);
         this.iconPlayerCockroach.x = 196;
         this.iconPlayerCockroach.y = 16;
         this.iconPlayerCockroach.setByObject({ V: 'p' });
