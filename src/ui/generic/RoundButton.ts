@@ -1,9 +1,6 @@
 namespace we {
   export namespace ui {
-    export class RoundButton extends eui.Component {
-      private _image: eui.Image;
-      private _resName: string = 'd_lobby_quick_bet_notification_follow_none_png';
-      private _hoverResName: string = 'd_lobby_quick_bet_notification_follow_hover_png';
+    export class RoundButton extends ImageButton {
       private _label1: eui.Label;
       private _label2: eui.Label;
       private _tw1: egret.Tween;
@@ -16,36 +13,17 @@ namespace we {
         super();
         this.skinName = utils.getSkin('RoundButton');
         this.touchChildren = false;
-        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.rollover, this);
-        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.rollout, this);
       }
 
-      private rollover() {
-        this._image.texture = RES.getRes(this._hoverResName);
+      protected childrenCreated() {
+        super.childrenCreated();
+        console.log('RoundButton::childrenCreated ' + this.width + ' ' + this._image.width + ' ' + this._image.source);
       }
 
-      private rollout() {
-        this._image.texture = RES.getRes(this._resName);
-      }
-
-      public setSize(height, width) {
-        this.height = height;
-        this.width = width;
-      }
-
-      set resName(value: string) {
-        this._resName = value;
-        this._image.texture = RES.getRes(value);
-      }
-
-      get resName() {
-        return this._resName;
-      }
-
-      set width(value) {
+      set width(value: number) {
         this.$setWidth(value);
         if (this._image) {
-          this._image.width = +value;
+          this._image.width = value;
         }
       }
 
@@ -53,39 +31,15 @@ namespace we {
         return this.$getWidth();
       }
 
-      set height(value) {
+      set height(value: number) {
         this.$setHeight(value);
         if (this._image) {
-          this._image.height = +value;
+          this._image.height = value;
         }
       }
 
       get height() {
         return this.$getHeight();
-      }
-
-      set scale9Grid(value) {
-        const v = value.split(',');
-        if (this._image) {
-          this._image.fillMode = egret.BitmapFillMode.SCALE;
-          this._image.scale9Grid = new egret.Rectangle(+v[0], +v[1], +v[2], +v[3]);
-        }
-      }
-
-      get scale9Grid() {
-        if (this._image) {
-          return this._image.scale9Grid.toString();
-        } else {
-          return null;
-        }
-      }
-
-      set hoverResName(value: string) {
-        this._hoverResName = value;
-      }
-
-      get hoverResName() {
-        return this._hoverResName;
       }
 
       set label1(value) {
@@ -123,6 +77,22 @@ namespace we {
 
       get label2text(): string {
         return this._label2text;
+      }
+
+      set scale9Grid(value) {
+        const v = value.split(',');
+        if (this._image) {
+          this._image.fillMode = egret.BitmapFillMode.SCALE;
+          this._image.scale9Grid = new egret.Rectangle(+v[0], +v[1], +v[2], +v[3]);
+        }
+      }
+
+      get scale9Grid() {
+        if (this._image && this._image.scale9Grid) {
+          return this._image.scale9Grid.toString();
+        } else {
+          return null;
+        }
       }
 
       public tweenLabel(direction: boolean) {

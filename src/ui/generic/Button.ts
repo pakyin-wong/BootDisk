@@ -1,20 +1,20 @@
 namespace we {
   export namespace ui {
-    export class ImageButton extends eui.Component {
-      protected _image: eui.Image;
-      protected _resName: string;
-      protected _hoverResName: string;
+    export class Button extends eui.Component {
+      private _image: eui.Image;
+      private _resName: string;
+      private _hoverResName: string;
 
       constructor() {
         super();
         this.skinName = utils.getSkin('ImageButton');
+        this.touchChildren = false;
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.rollover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.rollout, this);
-        mouse.setButtonMode(this, true);
       }
 
       protected rollover() {
-        if (this._hoverResName) {
+        if (this._image.source) {
           this._image.source = this._hoverResName;
         }
       }
@@ -25,9 +25,9 @@ namespace we {
 
       set resName(value: string) {
         this._resName = value;
-        if (this._image) {
-          this._image.source = value;
-        }
+        this._image.source = value;
+        this.width = this._image.width;
+        this.height = this._image.height;
       }
 
       get resName() {
@@ -40,6 +40,28 @@ namespace we {
 
       get hoverResName() {
         return this._hoverResName;
+      }
+
+      set width(value) {
+        this.$setWidth(value);
+        if (this._image) {
+          this._image.width = +value;
+        }
+      }
+
+      get width() {
+        return this.$getWidth();
+      }
+
+      set height(value) {
+        this.$setHeight(value);
+        if (this._image) {
+          this._image.height = +value;
+        }
+      }
+
+      get height() {
+        return this.$getHeight();
       }
     }
   }

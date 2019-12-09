@@ -47,51 +47,6 @@ namespace we {
         return this._type;
       }
 
-      public resetBitmap() {
-        switch (this._type) {
-          case we.core.BettingTableType.NORMAL:
-            this._gridBanker.setBitmap('d_ba_betarea_banker_general_png');
-            this._gridPlayer.setBitmap('d_ba_betarea_player_general_png');
-            this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
-            this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
-            this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
-            this._gridSuperSixBanker.setBitmap('d_ba_betarea_banker_general_png');
-            this._gridSuperSix.setBitmap('d_ba_betarea_supersix_tie_general_png');
-            break;
-          case we.core.BettingTableType.LOBBY:
-            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
-            this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
-            this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
-            this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
-            this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
-            break;
-          case we.core.BettingTableType.BETSUMMARY:
-            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
-            this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
-            this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
-            this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
-            this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
-            break;
-          default:
-            this._gridBanker.setBitmap('d_ba_betarea_banker_general_png');
-            this._gridPlayer.setBitmap('d_ba_betarea_player_general_png');
-            this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
-            this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
-            this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
-            this._gridSuperSixBanker.setBitmap('d_ba_betarea_banker_general_png');
-            this._gridSuperSix.setBitmap('d_ba_betarea_supersix_tie_general_png');
-        }
-      }
-
-      protected childrenCreated() {
-        super.childrenCreated();
-        // This part cannot be put in the constructor(this._gridBanker,
-        // this._gridPlayer, this._gridTie, this._gridBankerPair, this._gridPlayerPair,
-        // this._gridSuperSix) because they are null in constructor
-
-        // this.init();
-      }
-
       private createMapping() {
         this.mapping = {};
         this.mapping[BetField.BANKER] = this._gridBanker;
@@ -129,7 +84,6 @@ namespace we {
         this.setFieldNames();
         this.setFieldLevel();
         this.setDenomLists();
-        this.resetBitmap();
         this.changeMethod('normal');
         this.changeLang();
         this.resetUnconfirmedBet();

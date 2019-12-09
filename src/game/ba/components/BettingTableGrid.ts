@@ -1,7 +1,7 @@
 namespace we {
   export namespace ba {
     export class BettingTableGrid extends eui.Component {
-      private lblName: eui.Label;
+      private _lblName: eui.Label;
       // private lblUncfmBet: eui.Label;
       // private lblCfmBet: eui.Label;
 
@@ -9,8 +9,9 @@ namespace we {
       private _fieldName: string;
       private _cfmBet: number;
       private _uncfmBet: number;
-      private _bitmapName: string;
-      private _bitmap: eui.Image;
+      private _image: eui.Image;
+      private _imageRes: string;
+      private _hoverRes: string;
 
       private _textColor: number = 0xffffff;
 
@@ -28,10 +29,43 @@ namespace we {
 
       constructor() {
         super();
-        this._bitmap = new eui.Image();
-        this.lblName = new eui.Label();
+        this._image = new eui.Image();
+        this._lblName = new eui.Label();
         this._cfmBet = 0;
         this._uncfmBet = 0;
+        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      }
+
+      protected onRollover(evt: egret.Event) {
+        if (this._image && this._hoverRes) {
+          this._image.source = this._hoverRes;
+        }
+      }
+
+      protected onRollout(evt: egret.Event) {
+        if (this._image && this._imageRes) {
+          this._image.source = this._imageRes;
+        }
+      }
+
+      set imageRes(value: string) {
+        if (this._image) {
+          this._imageRes = value;
+          this._image.source = value;
+        }
+      }
+
+      get imageRes() {
+        return this._imageRes;
+      }
+
+      set hoverRes(value: string) {
+        this._hoverRes = value;
+      }
+
+      get hoverRes() {
+        return this._hoverRes;
       }
 
       set getSelectedBetLimit(value: () => number) {
@@ -71,8 +105,8 @@ namespace we {
         this.setUncfmBet(0);
         this.setCfmBet(0);
 
-        this.addChild(this._bitmap);
-        this.addChild(this.lblName);
+        this.addChild(this._image);
+        this.addChild(this._lblName);
       }
 
       public setFieldName(name) {
@@ -85,11 +119,6 @@ namespace we {
 
       public getAmount() {
         return env.betLimits[this._getSelectedBetLimit()].chipsList[this._getSelectedChipIndex()].value;
-      }
-
-      public setBitmap(name) {
-        this._bitmapName = name;
-        this._bitmap.source = RES.getRes(name);
       }
 
       public setCfmBet(amount: number): void {
@@ -119,7 +148,7 @@ namespace we {
         }
         if (this._uncfmBet) {
           const chip = new eui.Image();
-          chip.texture = RES.getRes('d_ba_betcontrol_clipsset_flat_none_png');
+          chip.source = 'd_ba_betcontrol_clipsset_flat_none_png';
           chip.horizontalCenter = 0;
           chip.verticalCenter = 0;
           chip.width = 100;
@@ -191,15 +220,15 @@ namespace we {
       }
 
       set text(text: string) {
-        this.lblName.text = text;
+        this._lblName.text = text;
       }
       get text(): string {
-        return this.lblName.text;
+        return this._lblName.text;
       }
 
       public $setWidth(num: number) {
         super.$setWidth(num);
-        this.setStyle(this._textColor, this._bitmapName);
+        this.setStyle(this._textColor, this._imageRes);
       }
 
       public cancelBet(): void {
@@ -210,24 +239,24 @@ namespace we {
         return this._uncfmBet;
       }
 
-      public async setStyle(textcolor: number, bitmapName: string = null) {
-        // console.log('BettingTableGrid::setStyle: bitmapName: ', bitmapName, ' this._bitmapName: ', this._bitmapName);
+      public async setStyle(textcolor: number, imageRes: string = null) {
+        // console.log('BettingTableGrid::setStyle: imageRes: ', imageRes, ' this._imageRes: ', this._imageRes);
 
-        if (bitmapName) {
-          this._bitmapName = bitmapName;
+        if (imageRes) {
+          this._imageRes = imageRes;
         }
 
-        if (this._bitmapName) {
-          this._bitmap.texture = RES.getRes(this._bitmapName);
-          this._bitmap.width = this.width;
-          this._bitmap.height = this.height;
+        if (this._imageRes) {
+          this._image.source = this._imageRes;
+          this._image.width = this.width;
+          this._image.height = this.height;
         }
 
-        this.lblName.width = this.width;
-        this.lblName.height = this.height;
-        this.lblName.textAlign = egret.HorizontalAlign.CENTER;
-        this.lblName.verticalAlign = egret.VerticalAlign.MIDDLE;
-        this.lblName.textColor = textcolor;
+        this._lblName.width = this.width;
+        this._lblName.height = this.height;
+        this._lblName.textAlign = egret.HorizontalAlign.CENTER;
+        this._lblName.verticalAlign = egret.VerticalAlign.MIDDLE;
+        this._lblName.textColor = textcolor;
 
         this.drawChips();
       }
