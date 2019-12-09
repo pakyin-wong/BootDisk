@@ -54,7 +54,9 @@ namespace we {
       }
 
       private onUpdateTimer() {
-        this._time.text = moment(env.currTime).format('YYYY/MM/DD HH:mm:ss');
+        // console.log(env.currTime);
+        // console.log(moment.unix(env.currTime).format('YYYY/MM/DD HH:mm:ss'));
+        this._time.text = moment.unix(env.currTime).format('YYYY/MM/DD HH:mm:ss');
       }
     }
   }
