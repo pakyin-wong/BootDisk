@@ -21,7 +21,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png,sn_bgm002_mp3,sn_player_en_mp3,sn_win_en_mp3,sn_player_sc_mp3,sn_win_tc_mp3,sn_win_sc_mp3,sn_player_tc_mp3",
 			"name": "temp"
 		},
 		{
@@ -2336,6 +2336,41 @@
 			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_none.png",
 			"type": "image",
 			"name": "d_ba_betcontrol_clipsset_flat_none_png"
+		},
+		{
+			"url": "assets/temp/sn_bgm002.mp3",
+			"type": "sound",
+			"name": "sn_bgm002_mp3"
+		},
+		{
+			"url": "assets/temp/sn_player_en.mp3",
+			"type": "sound",
+			"name": "sn_player_en_mp3"
+		},
+		{
+			"url": "assets/temp/sn_win_en.mp3",
+			"type": "sound",
+			"name": "sn_win_en_mp3"
+		},
+		{
+			"url": "assets/temp/sn_player_sc.mp3",
+			"type": "sound",
+			"name": "sn_player_sc_mp3"
+		},
+		{
+			"url": "assets/temp/sn_win_tc.mp3",
+			"type": "sound",
+			"name": "sn_win_tc_mp3"
+		},
+		{
+			"url": "assets/temp/sn_win_sc.mp3",
+			"type": "sound",
+			"name": "sn_win_sc_mp3"
+		},
+		{
+			"url": "assets/temp/sn_player_tc.mp3",
+			"type": "sound",
+			"name": "sn_player_tc_mp3"
 		}
 	]
 }

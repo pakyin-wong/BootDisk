@@ -1,6 +1,8 @@
 namespace we {
   export namespace ui {
     export class Slider extends core.BaseEUI {
+      public static PROGRESS = 'sliderProgress';
+
       //   public customSkin:string = "baseSlider";
       private _mask: egret.Shape;
       private _toggle: egret.DisplayObject;
@@ -38,7 +40,9 @@ namespace we {
 
       protected onToggleMove(e: egret.TouchEvent) {
         const movedTo = Math.max(this._stageX, Math.min(e.$stageX, this._stageX + this.width - this._toggle.width)) - this._stageX;
-        this.value = this._max * (movedTo / (this.width - this._toggle.width));
+        const val = this._max * (movedTo / (this.width - this._toggle.width));
+        this.value = val;
+        this.dispatchEvent(new egret.Event(we.ui.Slider.PROGRESS, false, false, val));
       }
 
       protected onToggleRelease() {

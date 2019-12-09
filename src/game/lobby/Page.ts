@@ -131,6 +131,12 @@ namespace we {
         // group.addChild(sections);
 
         this.scroller.viewport = group;
+
+        const loop = async () => {
+          await dir.audioCtr.playSequence(['player', 'win']);
+          loop();
+        };
+        loop();
       }
     }
   }
