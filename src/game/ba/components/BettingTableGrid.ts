@@ -4,6 +4,7 @@ namespace we {
       private _lblName: eui.Label;
       // private lblUncfmBet: eui.Label;
       // private lblCfmBet: eui.Label;
+      private _denomLayer: eui.Component;
 
       private _denomList: number[];
       private _fieldName: string;
@@ -35,6 +36,14 @@ namespace we {
         this._uncfmBet = 0;
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      }
+
+      set denomLayer(value: eui.Component) {
+        this._denomLayer = value;
+      }
+
+      get denomLayer() {
+        return this._denomLayer;
       }
 
       protected onRollover(evt: egret.Event) {
@@ -154,14 +163,14 @@ namespace we {
           chip.width = 100;
           chip.height = 100;
           this._chips.push(chip);
-          this.addChild(chip);
-          this.setChildIndex(chip, this._betChipZIndex + 1);
+          this._denomLayer.addChild(chip);
+          this._denomLayer.setChildIndex(chip, this._betChipZIndex + 1);
           this._banner = new we.ui.Banner();
           this._banner.label1text = ' ' + (this._uncfmBet + this._cfmBet);
           this._banner.resName = 'd_ba_gamerecord_chipvalue_png';
           this._banner.verticalCenter = 0;
           this._banner.horizontalCenter = 0;
-          this.addChild(this._banner);
+          this._denomLayer.addChild(this._banner);
         } else {
           // console.log('BettingTableGrid::drawChips ' + this._cfmBet + ' ' + this._uncfmBet);
           this._cfmDenom = utils.getBettingTableGridDenom(this._denomList, this._cfmBet);
@@ -169,15 +178,15 @@ namespace we {
             console.log(utils.getChipImage(value, we.core.ChipType.CLIP));
             const chip = this.getChip(utils.getChipImage(value, we.core.ChipType.CLIP), index);
             this._chips.push(chip);
-            this.addChild(chip);
-            this.setChildIndex(chip, this._betChipZIndex + index);
+            this._denomLayer.addChild(chip);
+            this._denomLayer.setChildIndex(chip, this._betChipZIndex + index);
           });
           this._banner = new we.ui.Banner();
           this._banner.label1text = ' ' + this._cfmBet;
           this._banner.resName = 'd_ba_gamerecord_chipvalue_png';
           this._banner.verticalCenter = 40;
           this._banner.horizontalCenter = 0;
-          this.addChild(this._banner);
+          this._denomLayer.addChild(this._banner);
           // this._uncfmDenom = utils.getBettingTableGridDenom(this._denomList, this._uncfmBet);
           // this._uncfmDenom.map((value, index) => {
           //   const chip = this.getChip(utils.getChipFace(value), index + depth + 1);
@@ -204,19 +213,14 @@ namespace we {
       private clearChips() {
         this._chips.forEach(value => {
           if (this.contains(value)) {
-            this.removeChild(value);
+            this._denomLayer.removeChild(value);
           }
         });
         this._chips = new Array();
         if (this._banner) {
-          this.removeChild(this._banner);
+          this._denomLayer.removeChild(this._banner);
         }
         this._banner = null;
-      }
-
-      public setSize(width: number, height: number) {
-        this.width = width;
-        this.height = height;
       }
 
       set text(text: string) {

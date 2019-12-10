@@ -18,7 +18,6 @@ namespace we {
 
       protected addEventListeners() {
         // add the listeners for
-        dir.evtHandler.addEventListener(we.core.Event.BET_SUMMARY_UPDATE, this.updateTables, this);
       }
 
       protected mount() {

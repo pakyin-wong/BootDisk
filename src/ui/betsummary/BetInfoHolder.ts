@@ -18,26 +18,14 @@ namespace we {
       protected mount() {
         // decide what the game is (e.g. Baccarat or SicBo)
         // <ba:BettingTable id="_bettingTable" width="450" height="200" anchorOffsetX="0" anchorOffsetY="0" y="60" horizontalCenter="0"/>
-        this._betinfoItem = this.getBaccaratItem();
-        this._betinfoItem.width = 450;
-        this._betinfoItem.height = 200;
+        this._betinfoItem = new BetInfoBaItem();
+        this._betinfoItem.width = 385;
+        this._betinfoItem.height = 600;
         this._betinfoItem.anchorOffsetX = 0;
         this._betinfoItem.anchorOffsetY = 0;
         this._betinfoItem.y = 60;
         this._betinfoItem.horizontalCenter = 0;
         this.addChild(this._betinfoItem);
-      }
-
-      // Can be divided into a new class if neccessary
-      protected getBaccaratItem() {
-        const bettingTable = new we.ba.BettingTable();
-        bettingTable.skinName = we.utils.getSkin('BetInfoBaBettingTable');
-        bettingTable.type = we.core.BettingTableType.BETSUMMARY;
-        bettingTable.init();
-
-        const item = new core.BaseEUI();
-        item.addChild(bettingTable);
-        return item;
       }
 
       public get data() {
