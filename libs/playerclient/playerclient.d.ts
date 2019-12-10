@@ -39,6 +39,9 @@ declare class PlayerClient {
         [key: string]: string;
     }): void;
     getLobbyMaterial(callback: (data: LobbyMaterial) => any): void;
+    createCustomRoadmap(name: string, pattern: string): void;
+    upadteCustomRoadmap(id: string, name: string, pattern: string): void;
+    removeCustomRoadmap(id: string): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
     private _isTableInfoCallbackEmpty;
