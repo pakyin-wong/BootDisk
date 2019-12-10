@@ -28,8 +28,8 @@ namespace we {
       }
 
       public onError(value: any) {
-        logger.l('PlayerClient::onError ');
-        console.dir(value);
+        logger.l('PlayerClient::onError ', value);
+        // console.dir(value);
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg) {
@@ -39,7 +39,12 @@ namespace we {
       public connect() {
         console.log('PlayerClient::connect()', this.client);
         this.subscribeEvents();
-        this.client.connect();
+        this.client.connect(err => {
+          this.onConnectError(err);
+        });
+      }
+      protected onConnectError(err) {
+        console.log(err);
       }
 
       // Handler for Ready event
@@ -55,13 +60,13 @@ namespace we {
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
-              {
-                currency: Currency.RMB,
-                maxLimit: 1000,
-                minLimit: 10,
-                chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-              },
-            ];
+            {
+              currency: Currency.RMB,
+              maxLimit: 1000,
+              minLimit: 10,
+              chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+            },
+          ];
 
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
@@ -236,6 +241,11 @@ namespace we {
 
       private getRoadMapData(rawData: any) {
         const roadSheetDataMap = {
+          beadLobby: rawData.beadlobby ? rawData.beadlobby : '',
+          bigRoadLobby: rawData.bigroadlobby ? rawData.bigroadlobby : '',
+          bigEyeLobby: rawData.bigeyelobby ? rawData.bigeyelobby : '',
+          smallLobby: rawData.smalllobby ? rawData.smalllobby : '',
+          roachLobby: rawData.roachlobby ? rawData.roachlobby : '',
           bbead: rawData.bbead ? rawData.bbead : '',
           bbigEye: rawData.bbigeye ? rawData.bbigeye : '',
           bbigRoad: rawData.bbigroad ? rawData.bbigroad : '',
@@ -256,6 +266,11 @@ namespace we {
         };
         const roadmapData = parseAscString(roadSheetDataMap);
         return {
+          beadLobby: roadmapData.beadLobbyOut,
+          bigRoadLobby: roadmapData.bigRoadLobbyOut,
+          bigEyeLobby: roadmapData.bigEyeLobbyOut,
+          smallLobby: roadmapData.smallLobbyOut,
+          roachLobby: roadmapData.roachLobbyOut,
           bead: roadmapData.beadOut,
           bigRoad: roadmapData.bigRoadOut,
           bigEye: roadmapData.bigEyeOut,
@@ -299,7 +314,7 @@ namespace we {
         // tableInfo.bets = betInfo.bets;
         egret.log('BetInfoUpdate:', betInfo);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
         egret.log('BetInfoUpdate:', tableInfo.bets);
@@ -340,7 +355,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, result);
       }
 
-      public getTableHistory() {}
+      public getTableHistory() { }
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         logger.l('PlayerClient::onBetTableListUpdate: tableList: ');

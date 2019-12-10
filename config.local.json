@@ -1,7 +1,7 @@
 {
     "target": "local",
-    "mode": "",
-    "playerID": "BMJCP2DH5S5VCC8S9RHG",
+    "mode": "comm",
+    "playerID": "BNC9O6DH5S5JNQTG8PR2",
     "secret": "JWT_TOKEN_HERE",
     "endpoint": "http://18.139.237.86:8080",
     "connectTimeout": 1000000
