@@ -10,7 +10,7 @@ namespace we {
       private _txt_version: ui.RunTimeLabel;
 
       constructor() {
-        super('SystemSetting');
+        super('overlay/SystemSetting');
       }
 
       protected mount() {

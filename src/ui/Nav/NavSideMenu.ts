@@ -90,6 +90,7 @@ namespace we {
       }
 
       private onClickHistory() {
+        dir.evtHandler.dispatch(core.Event.TOGGLE_OVERLAY_PANEL, 'BetHistory');
         logger.l(`NavSideMenu::onClickHistory`);
       }
 
