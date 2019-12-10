@@ -12,8 +12,6 @@ namespace we {
       private _quickbetEnable: boolean = false;
       private _tableId: string;
       private _dropdown: live.BetLimitDropdown;
-      // private _dropdown_toggle: eui.Group;
-      // private _dropdown: we.ui.DropdownList;
       private _group: eui.Group;
       private _tableInfo: data.TableInfo;
       private _betDetails: data.BetDetail[];

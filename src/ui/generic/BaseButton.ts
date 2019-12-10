@@ -13,7 +13,9 @@ namespace we {
       }
 
       private set buttonEnabled(b: boolean) {
-        if (b === this._enabled) { return; }
+        if (b === this._enabled) {
+          return;
+        }
 
         if (b) {
           this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);

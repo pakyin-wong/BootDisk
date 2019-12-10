@@ -6,9 +6,9 @@ namespace we {
       private _user: eui.Label;
       private _profilePrc: eui.Image;
       private _userInfo_toggle: eui.Group;
-      private _userInfo: Popper;
+      private _userInfo: Panel;
       private _menu_toggle: eui.Image;
-      private _menu: Popper;
+      private _menu: Panel;
       private _balance: RunTimeLabel;
 
       private _timeInterval: number;
