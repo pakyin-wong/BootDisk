@@ -131,10 +131,10 @@
 			"name": "nav_user_info_bg"
 		},
 		{
-			"url": "assets/Nav/popover.png",
+			"url": "assets/d/common/popover.png",
 			"type": "image",
 			"name": "nav_panel_bg",
-			"scale9grid": "30,30,456,725"
+			"scale9grid": "35,23,3,2"
 		},
 		{
 			"url": "assets/fonts/barlow.woff2",
