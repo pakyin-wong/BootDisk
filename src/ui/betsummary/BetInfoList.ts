@@ -3,10 +3,24 @@ namespace we {
     export class BetInfoScroller extends Scroller {
       // public scroller: we.ui.Scroller;
       private collection: eui.ArrayCollection;
-      private betInfos: number[] = [1, 2, 3];
+      private roomIds: number[] = [1, 2, 3];
 
       constructor() {
         super();
+        dir.evtHandler.addEventListener(we.core.Event.TABLE_LIST_UPDATE, this.tableListUpdateTables, this);
+        dir.evtHandler.addEventListener(we.core.Event.BET_SUMMARY_UPDATE, this.updateTables, this);
+      }
+
+      protected tableListUpdateTables(evt: egret.Event) {
+        const roomIds = evt.data as string[];
+        const added = this.arrayDiff(roomIds, this.roomIds);
+        const removed = this.arrayDiff(this.roomIds, roomIds);
+        added.forEach(item => {
+          this.collection.addItem(item);
+        });
+        removed.forEach(item => {
+          this.collection.removeItemAt(this.collection.getItemIndex(item));
+        });
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -25,12 +39,10 @@ namespace we {
         vlayout.gap = 5;
         list.layout = vlayout;
 
-        this.collection = new eui.ArrayCollection(this.betInfos);
+        this.collection = new eui.ArrayCollection(this.roomIds);
         list.dataProvider = this.collection;
         list.itemRenderer = we.ui.BetInfoHolder;
         this.viewport = list;
-
-        dir.evtHandler.addEventListener(we.core.Event.BALANCE_UPDATE, this.handleTableList, this);
       }
 
       // called while
