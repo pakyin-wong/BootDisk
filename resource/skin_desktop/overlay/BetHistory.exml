@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BetHistory" width="2140" height="1147" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48" strokeColor="0x333c4a" strokeWeight="2" locked="true"/>
+
+		<e:Image id="close" width="48" height="48" x="2060" y="24" source="d-lobby-button-close-none_png"/>
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="95" y="40" width="192" height="71" verticalAlign="middle" textColor="0xc59466" size="48" fontFamily="NotoSansCJKtc-Medium"/>
+		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" fontFamily="NotoSansCJKtc-Regular" size="24" alpha="0.7" verticalAlign="middle"/>
+		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47" skinName="skin_desktop.OverlayPanelButton"/>
+		<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47" skinName="skin_desktop.OverlayPanelButton"/>
+		<ui:BaseButton id="_btn_custom" width="137" height="60" x="1826.5" y="47" skinName="skin_desktop.OverlayPanelButton"/>
+		<e:Group width="210" x="584" height="72" y="41" alpha="0.7">
+			<ui:RunTimeLabel id="_txt_search" text="Label" x="69" y="17" width="96" height="36" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="NotoSansCJKtc-Regular" size="24"/>
+			<e:Image width="27" height="27" x="31" y="24" scaleX="1" scaleY="1"/>
+		</e:Group>
+
+	</e:Group>
+
+</e:Skin>

@@ -175,6 +175,18 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class OverlayPanelButton extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SystemSetting extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RoundButtonSkin extends eui.Skin{
 	}
 }
@@ -193,8 +205,6 @@ declare module skin_desktop{
 declare module skin_desktop{
 	class SwitchLang extends eui.Skin{
 	}
-}
-declare class SystemSetting extends eui.Skin{
 }
 declare module skin_desktop{
 	class TableInfoPanel extends eui.Skin{
