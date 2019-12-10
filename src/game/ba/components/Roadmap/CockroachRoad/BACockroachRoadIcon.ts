@@ -15,7 +15,7 @@ namespace we {
         this.iconFace = new egret.DisplayObjectContainer();
         this.addChild(this.iconFace);
 
-        const colors = [0xdd0000, 0x0000dd, 0xaa0000, 0x0000aa];
+        const colors = [0xee2e2e, 0x3531ec, 0xaa0000, 0x0000aa];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.8;
         const offset = iconSize * 0.2;

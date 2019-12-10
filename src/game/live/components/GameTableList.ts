@@ -37,7 +37,7 @@ namespace we {
         const offsetForTableList = -paddingHorizontal * 3;
         const gapSize = 48;
 
-        // init image slider and category tab
+        // init image slider
         const slider = new we.ui.ImageSlider();
         slider.height = 790;
         slider.width = 2600;
@@ -56,13 +56,18 @@ namespace we {
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;
+
+        const tabBarGroup = new eui.Group();
+        tabBarGroup.percentWidth = 100;
         this.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         this.tabs = new we.live.SegmentedControl(this.tabItems);
+        tabBarGroup.addChild(this.tabs);
+        tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
         // tabs.left = paddingHorizontal;
         // tabs.bottom = gapSize + -offsetForTableList;
         const section = new ui.ScrollerSection();
-        section.header = this.tabs;
+        section.header = tabBarGroup;
         section.content = roomList;
         // section.header = new eui.Rect(640, 100, 0xff11ff);
         // section.content = new eui.Rect(640, 2000, 0x22ffff);
@@ -120,10 +125,10 @@ namespace we {
           removed.forEach(item => {
             this.collection.removeItemAt(this.collection.getItemIndex(item));
           });
-          this.roomIds = roomIds;
-          this.roomIds.forEach((x, inx) => {
-            this.collection.replaceItemAt(x, inx);
-          });
+          // this.roomIds = roomIds;
+          // this.roomIds.forEach((x, inx) => {
+          //   this.collection.replaceItemAt(x, inx);
+          // });
         }
       }
 

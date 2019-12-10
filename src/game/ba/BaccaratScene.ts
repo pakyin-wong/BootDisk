@@ -183,7 +183,7 @@ namespace we {
             self.tableInfo = value;
             self.betDetails = self.tableInfo.bets;
             self.gameData = self.tableInfo.data;
-            self.previousState = GameState.SHUFFLE;
+            self.previousState = self.tableInfo.data.previousstate;
             self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
             if (self.tableInfo.betInfo) {
               self.roadmapLeftPanel.setGameInfo(self.tableInfo.betInfo.gameroundid, self.tableInfo.betInfo.total);
@@ -292,7 +292,7 @@ namespace we {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
-            this.previousState = this.gameData ? this.gameData.state : GameState.SHUFFLE;
+            this.previousState = this.gameData ? this.gameData.previousstate : null;
             this.gameData = <GameData> this.tableInfo.data;
             if (tableInfo.roadmap) {
               this.roadmapControl.updateRoadData(tableInfo.roadmap);
@@ -396,9 +396,9 @@ namespace we {
         if (this.previousState !== GameState.BET) {
           // reset data betinfo
 
-          if (this.betDetails) {
-            this.betDetails.splice(0, this.betDetails.length);
-          }
+          // if (this.betDetails) {
+          //   this.betDetails.splice(0, this.betDetails.length);
+          // }
 
           // TODO: show start bet message to the client for few seconds
           this.bettingTable.resetUnconfirmedBet();

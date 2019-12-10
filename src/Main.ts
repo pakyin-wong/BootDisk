@@ -24,7 +24,7 @@ class Main extends eui.UILayer {
   private async init() {
     // step 1: init director elements (socket comm, controller, handler)
     // dir.socket = new socket.SocketMock();
-    dir.config = await utils.getConfig();
+    dir.config = await we.utils.getConfig();
     if (dir.config.mode === 'comm') {
       dir.socket = new we.core.SocketComm();
     } else {
@@ -32,6 +32,7 @@ class Main extends eui.UILayer {
     }
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
+    dir.audioCtr = new we.core.AudioCtr(this.stage);
     dir.layerCtr = new we.core.LayerCtr(this.stage);
     dir.sceneCtr = new we.core.SceneCtr();
     dir.meterCtr = new we.core.MeterCtr();
@@ -54,6 +55,8 @@ class Main extends eui.UILayer {
     } catch (e) {
       console.error(e);
     }
+    // TODO: should emit event for sound init after res.json load?
+    dir.audioCtr.init();
   }
 
   private loadTheme(): Promise<{}> {

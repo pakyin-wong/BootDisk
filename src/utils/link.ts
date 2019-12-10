@@ -1,6 +1,6 @@
 namespace we {
   export namespace utils {
-    function getQueryParams(queryStr: string) {
+    export function getQueryParams(queryStr: string) {
       const data = {};
       const queryParamArray = queryStr.split('&');
       // iterate over parameter array

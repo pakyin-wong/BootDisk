@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.RoundButtonSkin" minWidth="148" minHeight="42" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="_image" width="148" height="42" horizontalCenter="0" source="d_lobby_quick_bet_notification_follow_none_png"  />
+<e:Skin class="skin_desktop.RoundButtonSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Image id="_image" horizontalCenter="0" verticalCenter="0" />
 	<e:Label id="_label1" text="" horizontalCenter="0" verticalCenter="0" size="20"/>
-	<e:Label id="_label2" text="" horizontalCenter="0" verticalCenter="0"  size="20" alpha="0"/>
+	<e:Label id="_label2" text="" horizontalCenter="0" verticalCenter="0" size="20" alpha="0"/>
 </e:Skin>

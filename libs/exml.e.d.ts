@@ -75,6 +75,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetInfoBaItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetInfoHolder extends eui.Skin{
 	}
 }
@@ -124,6 +128,10 @@ declare class DropdownSkin extends eui.Skin{
 }
 declare module skin_desktop{
 	class GameBar extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ImageButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

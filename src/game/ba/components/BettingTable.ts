@@ -11,6 +11,7 @@ namespace we {
       private _tableId: string;
       private _type: we.core.BettingTableType;
       private _denomList: number[];
+      private _denomLayer: eui.Component;
       private _getSelectedChipIndex: () => number;
       private _getSelectedBetLimitIndex: () => number;
       private mapping: { [s: string]: BettingTableGrid };
@@ -45,51 +46,6 @@ namespace we {
 
       get type() {
         return this._type;
-      }
-
-      public resetBitmap() {
-        switch (this._type) {
-          case we.core.BettingTableType.NORMAL:
-            this._gridBanker.setBitmap('d_ba_betarea_banker_general_png');
-            this._gridPlayer.setBitmap('d_ba_betarea_player_general_png');
-            this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
-            this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
-            this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
-            this._gridSuperSixBanker.setBitmap('d_ba_betarea_banker_general_png');
-            this._gridSuperSix.setBitmap('d_ba_betarea_supersix_tie_general_png');
-            break;
-          case we.core.BettingTableType.LOBBY:
-            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
-            this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
-            this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
-            this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
-            this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
-            break;
-          case we.core.BettingTableType.BETSUMMARY:
-            this._gridPlayer.setBitmap('d_lobby_quick_bet_area_a_none_png');
-            this._gridBanker.setBitmap('d_lobby_quick_bet_area_b_none_png');
-            this._gridPlayerPair.setBitmap('d_lobby_quick_bet_area_c_none_png');
-            this._gridTie.setBitmap('d_lobby_quick_bet_area_d_none_png');
-            this._gridBankerPair.setBitmap('d_lobby_quick_bet_area_e_none_png');
-            break;
-          default:
-            this._gridBanker.setBitmap('d_ba_betarea_banker_general_png');
-            this._gridPlayer.setBitmap('d_ba_betarea_player_general_png');
-            this._gridPlayerPair.setBitmap('d_ba_betarea_playerpair_general_png');
-            this._gridTie.setBitmap('d_ba_betarea_tie_general_png');
-            this._gridBankerPair.setBitmap('d_ba_betarea_bankerpair_general_png');
-            this._gridSuperSixBanker.setBitmap('d_ba_betarea_banker_general_png');
-            this._gridSuperSix.setBitmap('d_ba_betarea_supersix_tie_general_png');
-        }
-      }
-
-      protected childrenCreated() {
-        super.childrenCreated();
-        // This part cannot be put in the constructor(this._gridBanker,
-        // this._gridPlayer, this._gridTie, this._gridBankerPair, this._gridPlayerPair,
-        // this._gridSuperSix) because they are null in constructor
-
-        // this.init();
       }
 
       private createMapping() {
@@ -128,22 +84,69 @@ namespace we {
         this.createMapping();
         this.setFieldNames();
         this.setFieldLevel();
+        this.setDenomLayer(false);
         this.setDenomLists();
-        this.resetBitmap();
         this.changeMethod('normal');
         this.changeLang();
         this.resetUnconfirmedBet();
         this.setListeners();
       }
 
+      private setDenomLayer(twoLayer: boolean) {
+        if (twoLayer) {
+          this._denomLayer = new eui.Component();
+
+          this._gridBanker.denomLayer = new eui.Component();
+          this._gridPlayer.denomLayer = new eui.Component();
+          this._gridBankerPair.denomLayer = new eui.Component();
+          this._gridPlayerPair.denomLayer = new eui.Component();
+          this._gridSuperSix.denomLayer = new eui.Component();
+          this._gridSuperSixBanker.denomLayer = new eui.Component();
+          this._gridTie.denomLayer = new eui.Component();
+
+          this.setDenomGrid(this._gridBanker);
+          this.setDenomGrid(this._gridPlayer);
+          this.setDenomGrid(this._gridBankerPair);
+          this.setDenomGrid(this._gridPlayerPair);
+          this.setDenomGrid(this._gridSuperSix);
+          this.setDenomGrid(this._gridSuperSixBanker);
+          this.setDenomGrid(this._gridTie);
+        } else {
+          this._gridBanker.denomLayer = this._gridBanker;
+          this._gridPlayer.denomLayer = this._gridPlayer;
+          this._gridBankerPair.denomLayer = this._gridBankerPair;
+          this._gridPlayerPair.denomLayer = this._gridPlayerPair;
+          this._gridSuperSix.denomLayer = this._gridSuperSix;
+          this._gridSuperSixBanker.denomLayer = this._gridSuperSixBanker;
+          this._gridTie.denomLayer = this._gridTie;
+        }
+
+        /*
+        this._gridBanker
+        this._gridPlayer
+        this._gridBankerPair
+        this._gridPlayerPair
+        this._gridSuperSix
+        this._gridSuperSixBanker
+        this._gridTie
+        */
+      }
+
+      private setDenomGrid(value: BettingTableGrid) {
+        value.denomLayer.x = value.x;
+        value.denomLayer.y = value.y;
+        value.denomLayer.width = value.width;
+        value.denomLayer.height = value.height;
+      }
+
       private setFieldLevel() {
-        this._gridBanker.betChipZIndex = 10000;
-        this._gridPlayer.betChipZIndex = 10000;
-        this._gridBankerPair.betChipZIndex = 20000;
-        this._gridPlayerPair.betChipZIndex = 20000;
-        this._gridSuperSix.betChipZIndex = 20000;
+        this._gridBanker.betChipZIndex = 20000;
+        this._gridPlayer.betChipZIndex = 20000;
+        this._gridBankerPair.betChipZIndex = 10000;
+        this._gridPlayerPair.betChipZIndex = 10000;
+        this._gridSuperSix.betChipZIndex = 10000;
         this._gridSuperSixBanker.betChipZIndex = 10000;
-        this._gridTie.betChipZIndex = 20000;
+        this._gridTie.betChipZIndex = 10000;
       }
 
       private setListeners() {
@@ -170,6 +173,15 @@ namespace we {
         */
       public setGameMode(isNoCommission: boolean) {
         this.currentState = isNoCommission ? 'SuperSix' : 'Normal';
+        const textColor = 0xffffff;
+
+        this._gridPlayerPair.setStyle(textColor);
+        this._gridBankerPair.setStyle(textColor);
+        this._gridPlayer.setStyle(textColor);
+        this._gridBanker.setStyle(textColor);
+        this._gridSuperSix.setStyle(textColor);
+        this._gridSuperSixBanker.setStyle(textColor);
+        this._gridTie.setStyle(textColor);
       }
 
       public changeMethod(method: string) {
@@ -178,13 +190,13 @@ namespace we {
             const textColor = 0xffffff;
             const bgColor = 0x000000;
 
-            this._gridPlayerPair.setStyle(textColor, bgColor);
-            this._gridBankerPair.setStyle(textColor, bgColor);
-            this._gridPlayer.setStyle(textColor, bgColor);
-            this._gridBanker.setStyle(textColor, bgColor);
-            this._gridSuperSix.setStyle(textColor, bgColor);
-            this._gridSuperSixBanker.setStyle(textColor, bgColor);
-            this._gridTie.setStyle(textColor, bgColor);
+            this._gridPlayerPair.setStyle(textColor);
+            this._gridBankerPair.setStyle(textColor);
+            this._gridPlayer.setStyle(textColor);
+            this._gridBanker.setStyle(textColor);
+            this._gridSuperSix.setStyle(textColor);
+            this._gridSuperSixBanker.setStyle(textColor);
+            this._gridTie.setStyle(textColor);
         }
       }
 
@@ -283,8 +295,8 @@ namespace we {
         this._gridPlayerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridTie.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridBankerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridSuperSixBanker.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSix.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridSuperSixBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
       }
 
       get getSelectedBetLimitIndex() {
@@ -365,7 +377,6 @@ namespace we {
           });
         }
       }
-
       public cancelBet() {
         this.resetUnconfirmedBet();
         this._gridTie.cancelBet();
@@ -378,6 +389,9 @@ namespace we {
       }
       public onChangeLang() {
         this.changeLang();
+      }
+      public getBetchipLayer(): eui.Component {
+        return this._denomLayer;
       }
     }
   }
