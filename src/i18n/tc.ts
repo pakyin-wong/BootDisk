@@ -52,6 +52,7 @@ namespace we {
           PLAYER: '閒贏',
           TIE: '和',
         },
+        noCommission: '免佣',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

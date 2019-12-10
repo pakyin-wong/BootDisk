@@ -9,8 +9,12 @@ namespace we {
       private _txt_term: ui.RunTimeLabel;
       private _txt_version: ui.RunTimeLabel;
 
+      private _slider_liveRecord: ui.Slider;
+      private _slider_soundfx: ui.Slider;
+      private _slider_bgm: ui.Slider;
+
       constructor() {
-        super('SystemSetting');
+        super('overlay/SystemSetting');
       }
 
       protected mount() {
@@ -22,6 +26,15 @@ namespace we {
         this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
 
         this._txt_version.text = 'v0.00.001';
+
+        this._slider_liveRecord.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeLive'), this);
+        this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeFX'), this);
+        this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeBGM'), this);
+      }
+
+      private handleAdjust(which, event: egret.Event) {
+        const progress = event.data;
+        dir.audioCtr[which] = progress;
       }
     }
   }

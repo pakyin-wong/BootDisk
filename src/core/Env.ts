@@ -9,7 +9,7 @@ namespace we {
       }
 
       /* Global Environment Variable */
-      public balance: number = undefined;
+      public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
@@ -36,7 +36,7 @@ namespace we {
 
       get currTime(): number {
         const diff = Date.now() - this._currTimeLastUpdateTime;
-        return this._currTime + diff;
+        return this._currTime + diff * 0.001;
       }
 
       set tableInfoArray(value: data.TableInfo[]) {

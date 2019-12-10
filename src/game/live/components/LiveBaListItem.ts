@@ -12,8 +12,6 @@ namespace we {
       private _quickbetEnable: boolean = false;
       private _tableId: string;
       private _dropdown: live.BetLimitDropdown;
-      // private _dropdown_toggle: eui.Group;
-      // private _dropdown: we.ui.DropdownList;
       private _group: eui.Group;
       private _tableInfo: data.TableInfo;
       private _betDetails: data.BetDetail[];
@@ -33,7 +31,6 @@ namespace we {
         this.touchEnabled = true;
 
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        this.mount();
       }
 
       public set tableId(value: string) {
@@ -175,13 +172,12 @@ namespace we {
 
       public setupTableInfo() {
         // console.log(env.tableInfoArray);
-
         env.tableInfoArray.forEach(value => {
           if (value.tableid === this._tableId) {
             this._tableInfo = value;
             this._betDetails = this._tableInfo.bets;
             this._gameData = this._tableInfo.data;
-            this._previousState = we.ba.GameState.SHUFFLE;
+            this._previousState = this._gameData ? this._gameData.previousstate : null;
           }
         });
       }
@@ -194,7 +190,7 @@ namespace we {
             // update the scene
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
-            this._previousState = this._gameData ? this._gameData.state : we.ba.GameState.IDLE;
+            this._previousState = this._gameData ? this._gameData.previousstate : null;
             this._gameData = <we.ba.GameData> this._tableInfo.data;
 
             this.updateGame();
@@ -224,9 +220,9 @@ namespace we {
         if (this._previousState !== we.ba.GameState.BET) {
           // reset data betinfo
 
-          if (this._betDetails) {
-            this._betDetails.splice(0, this._betDetails.length);
-          }
+          // if (this._betDetails) {
+          //   this._betDetails.splice(0, this._betDetails.length);
+          // }
 
           // TODO: show start bet message to the client for few seconds
           this._quickbetPanel.bettingTable.resetUnconfirmedBet();
@@ -297,6 +293,14 @@ namespace we {
         // this._dropdown.setToggler(this._dropdown_toggle);
 
         // this.setChildIndex(this._dropdown_toggle, 20000);
+
+        // For Fixed Width Round Corner
+        const shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        shape.graphics.endFill();
+        this._group.addChild(shape);
+        this._group.mask = shape;
       }
 
       public onRollover(evt: egret.Event) {

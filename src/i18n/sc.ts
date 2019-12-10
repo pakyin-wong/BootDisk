@@ -1,6 +1,15 @@
 namespace we {
   export namespace i18n {
     export const sc = {
+      overlaypanel_customroad_title: '好路设定',
+
+      overlaypanel_bethistory_title: '投注记录',
+      overlaypanel_bethistory_date: '日期',
+      overlaypanel_bethistory_today: '本日',
+      overlaypanel_bethistory_thisweek: '本周',
+      overlaypanel_bethistory_customperiod: '自订',
+      overlaypanel_bethistory_searchrecord: '搜寻记录',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',
@@ -76,6 +85,7 @@ namespace we {
           PLAYER: '闲赢',
           TIE: '和',
         },
+        noCommission: '免佣',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

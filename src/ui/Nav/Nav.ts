@@ -6,9 +6,9 @@ namespace we {
       private _user: eui.Label;
       private _profilePrc: eui.Image;
       private _userInfo_toggle: eui.Group;
-      private _userInfo: Popper;
+      private _userInfo: Panel;
       private _menu_toggle: eui.Image;
-      private _menu: Popper;
+      private _menu: Panel;
       private _balance: RunTimeLabel;
 
       private _timeInterval: number;
@@ -26,7 +26,7 @@ namespace we {
 
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
-        if (env.balance) {
+        if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
         this.addListeners();
@@ -54,7 +54,9 @@ namespace we {
       }
 
       private onUpdateTimer() {
-        this._time.text = moment(env.currTime).format('YYYY/MM/DD HH:mm:ss');
+        // console.log(env.currTime);
+        // console.log(moment.unix(env.currTime).format('YYYY/MM/DD HH:mm:ss'));
+        this._time.text = moment.unix(env.currTime).format('YYYY/MM/DD HH:mm:ss');
       }
     }
   }

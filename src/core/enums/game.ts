@@ -21,18 +21,10 @@ namespace we {
       RO = 14, // Rolette
     }
 
-    export const TableFilter = {
-      FEATURED_TABLE: 1,
-      BACCARAT: '123213',
-      BACCARAT_GOOD_ROAD: 3,
-      OTHER_GAMES: 4,
-    };
-
-    export const Mode = {
-      UNKNOWN: 0,
-      LIGHT: 1,
-      DARK: 2,
-    };
+    export enum ChipType {
+      FLAT = 1,
+      CLIP = 2,
+    }
 
     export enum GameName {
       lobby = 'lobby',
@@ -46,5 +38,18 @@ namespace we {
       ba = 'bacarrat',
       goodroad = 'goodroad',
     }
+
+    export const TableFilter = {
+      FEATURED_TABLE: 1,
+      BACCARAT: '123213',
+      BACCARAT_GOOD_ROAD: 3,
+      OTHER_GAMES: 4,
+    };
+
+    export const Mode = {
+      UNKNOWN: 0,
+      LIGHT: 1,
+      DARK: 2,
+    };
   }
 }

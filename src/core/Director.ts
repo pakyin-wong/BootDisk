@@ -12,6 +12,7 @@ namespace we {
       public socket: ISocket;
       public evtHandler: EventHandler;
       public errHandler: ErrorHandler;
+      public audioCtr: AudioCtr;
       public layerCtr: LayerCtr;
       public sceneCtr: SceneCtr;
       public meterCtr: MeterCtr;

@@ -4,9 +4,20 @@ namespace we {
       private client: PlayerClient;
 
       constructor() {
+        const value = window.location.search;
+
+        const query = value.replace('?', '');
+        let data: any = {};
+        data = utils.getQueryParams(query);
+        const playerID = data.playerID ? data.playerID : dir.config.playerID;
+        const secret = data.secret ? data.secret : dir.config.secret;
+
+        console.log('playerID: ' + playerID);
+        console.log('secret: ' + secret);
+
         this.client = new PlayerClient({
-          playerID: dir.config.playerID,
-          secret: dir.config.secret,
+          playerID,
+          secret,
           connectTimeout: dir.config.connectTimeout, // To avoid disconnect,
           endpoint: dir.config.endpoint,
         });
@@ -123,6 +134,8 @@ namespace we {
 
       public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
+        console.log('onTableListUpdate xxxxxxxxxxxxxxxxxxxxxxx');
+        console.log(tableList);
         console.log(tableList.tablesList);
         const tableInfos: data.TableInfo[] = tableList.tablesList;
         const featureds: string[] = tableList.featureds;
@@ -158,7 +171,9 @@ namespace we {
         const e = env;
         const tableInfo: data.TableInfo = env.tableInfos[gameStatus.tableid];
         if (tableInfo) {
+          gameStatus.previousstate = tableInfo.data ? tableInfo.state : null;
           tableInfo.data = gameStatus;
+          this.localActions(tableInfo);
           this.dispatchListUpdateEvent();
           dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
         } else {
@@ -166,6 +181,22 @@ namespace we {
           tableInfo.tableid = gameStatus.tableid;
           tableInfo.data = gameStatus;
           env.addTableInfo(tableInfo);
+        }
+      }
+
+      protected localActions(tableInfo: data.TableInfo) {
+        if (tableInfo.data) {
+          switch (tableInfo.gametype) {
+            case core.GameType.BAC:
+            default:
+              const data: ba.GameData = tableInfo.data as ba.GameData;
+              if (data.state === ba.GameState.BET && data.previousstate !== ba.GameState.BET) {
+                // reset the betDetails
+                tableInfo.bets = null;
+                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
+              }
+              break;
+          }
         }
       }
 

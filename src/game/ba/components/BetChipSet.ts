@@ -131,9 +131,11 @@ namespace we {
         }
         this._chipContainer.removeChildren();
         for (let i = 0; i < this.visibleDenominationCount; i += 1) {
-          const child: eui.Component = this.chipList[this._startIndex + i];
+          const child: eui.Component & IBetChip = this.chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
+          child.verticalCenter = 0;
           child.percentHeight = 100;
+          // child.percentHeight = child.highlight ? 100 : 70;
           child.percentWidth = 100 / this.visibleDenominationCount;
         }
         this._updateNavigationDisplay();
