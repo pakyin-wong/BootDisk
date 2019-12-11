@@ -51,12 +51,14 @@ class Main extends eui.UILayer {
     egret.registerImplementation('eui.IThemeAdapter', new ThemeAdapter());
     try {
       await RES.loadConfig('resource/default.res.json', 'resource/');
-      await Promise.all([this.loadTheme(), RES.loadGroup(we.core.res.EgretBasic), RES.loadGroup('temp'), fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }])]);
+      await this.loadTheme();
+      fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
+      await RES.loadGroup(we.core.res.EgretBasic);
     } catch (e) {
       console.error(e);
     }
     // TODO: should emit event for sound init after res.json load?
-    dir.audioCtr.init();
+    // dir.audioCtr.init();
   }
 
   private loadTheme(): Promise<{}> {

@@ -32,22 +32,25 @@ namespace we {
     }
 
     export function getChipImage(value: number, mode): string {
-      let filepart: string;
+      let faceString: string;
       let filename: string;
 
       if (value > 1000) {
-        filepart = value / 1000 + 'k';
+        faceString = value / 1000 + 'k';
       } else {
-        filepart = value + '';
+        faceString = value + '';
       }
 
       switch (mode) {
         case we.core.ChipType.CLIP:
-          filename = `d_ba_betcontrol_image_clipsset${filepart}_png`;
+          filename = we.core.ChipSetInfo.clip + we.core.ChipSetInfo.HKD.set1[faceString] + '_png';
           break;
         case we.core.ChipType.FLAT:
+          filename = we.core.ChipSetInfo.flat + we.core.ChipSetInfo.HKD.set1[faceString] + '_png';
+          break;
+        case we.core.ChipType.BETTING:
         default:
-          filename = `d_ba_betcontrol_clipsset_flat_${filepart}_png`;
+          filename = we.core.ChipSetInfo.betting + '_png';
       }
 
       return filename;

@@ -248,7 +248,7 @@ namespace we {
           this.roadmapRightPanel.bigEyeRoad,
           this.roadmapRightPanel.smallRoad,
           this.roadmapRightPanel.cockroachRoad,
-          [12, 12, 24, 12, 12],
+          [16, 33, 66, 34, 32],
           this.roadmapRightPanel
         );
         // this.roadmap = new BARoadmap(this._tableID);

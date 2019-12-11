@@ -4,6 +4,7 @@ namespace we {
       protected maxCols: any; // array of the max number of columns for each roads [bead,big,bigeye,small,cockroach]
       public rawResult: any;
 
+      public untrimBeadRoadResult: any;
       public beadRoadResult: any;
       public bigRoadResult: any;
       public bigRoadColumnResult: any; // the un-trimmed 2D array of big road result in column for calculating other roads
@@ -64,27 +65,31 @@ namespace we {
       }
 
       protected doParseBeadRoad(data: any) {
-        // 1.remove extra data by grid size
-        const maxNum = this.maxCols[0] * 6;
-        const exceed = data.length - maxNum;
-        if (exceed > 0) {
-          data.splice(0, exceed);
-        }
-
-        // remove empty elements
+        // 1. remove empty elements
         const rslt = [];
         data.forEach(element => {
           if (element.V) {
             rslt.push(element);
           }
         });
+        this.untrimBeadRoadResult = rslt.slice();
+
+        // 2.remove extra data by grid size
+        const maxNum = this.maxCols[0] * 6;
+        const exceed = rslt.length - maxNum;
+        if (exceed > 0) {
+          rslt.splice(0, exceed);
+        }
 
         this.beadRoadResult = rslt.slice();
       }
 
       protected doParseBigRoad() {
         // 1.strip all the tie result at the begining
-        const pbtResultArr = this.beadRoadResult.slice();
+
+        const pbtResultArr = this.untrimBeadRoadResult.slice(); // use untrim bead to calculate all roads
+        // const pbtResultArr = this.beadRoadResult.slice(); //use trimmed bead to calculate all roads
+
         while (pbtResultArr.length > 0) {
           if (pbtResultArr[0].V === 't') {
             pbtResultArr.splice(0, 1);

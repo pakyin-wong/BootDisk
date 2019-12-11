@@ -14,11 +14,7 @@ namespace we {
       private _slider_bgm: ui.Slider;
 
       constructor() {
-        super('SystemSetting');
-
-        this._slider_liveRecord.addEventListener(we.ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeLive'), this);
-        this._slider_soundfx.addEventListener(we.ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeFX'), this);
-        this._slider_bgm.addEventListener(we.ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeBGM'), this);
+        super('overlay/SystemSetting');
       }
 
       protected mount() {
@@ -30,6 +26,10 @@ namespace we {
         this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
 
         this._txt_version.text = 'v0.00.001';
+
+        this._slider_liveRecord.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeLive'), this);
+        this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeFX'), this);
+        this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeBGM'), this);
       }
 
       private handleAdjust(which, event: egret.Event) {

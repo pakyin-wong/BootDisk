@@ -39,8 +39,8 @@ namespace we {
       }
 
       public onError(value: any) {
-        logger.l('PlayerClient::onError ');
-        console.dir(value);
+        logger.l('PlayerClient::onError ', value);
+        // console.dir(value);
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg) {
@@ -50,7 +50,12 @@ namespace we {
       public connect() {
         console.log('PlayerClient::connect()', this.client);
         this.subscribeEvents();
-        this.client.connect();
+        this.client.connect(err => {
+          this.onConnectError(err);
+        });
+      }
+      protected onConnectError(err) {
+        console.log(err);
       }
 
       // Handler for Ready event
@@ -267,6 +272,11 @@ namespace we {
 
       private getRoadMapData(rawData: any) {
         const roadSheetDataMap = {
+          beadLobby: rawData.beadlobby ? rawData.beadlobby : '',
+          bigRoadLobby: rawData.bigroadlobby ? rawData.bigroadlobby : '',
+          bigEyeLobby: rawData.bigeyelobby ? rawData.bigeyelobby : '',
+          smallLobby: rawData.smalllobby ? rawData.smalllobby : '',
+          roachLobby: rawData.roachlobby ? rawData.roachlobby : '',
           bbead: rawData.bbead ? rawData.bbead : '',
           bbigEye: rawData.bbigeye ? rawData.bbigeye : '',
           bbigRoad: rawData.bbigroad ? rawData.bbigroad : '',
@@ -287,6 +297,11 @@ namespace we {
         };
         const roadmapData = parseAscString(roadSheetDataMap);
         return {
+          beadLobby: roadmapData.beadLobbyOut,
+          bigRoadLobby: roadmapData.bigRoadLobbyOut,
+          bigEyeLobby: roadmapData.bigEyeLobbyOut,
+          smallLobby: roadmapData.smallLobbyOut,
+          roachLobby: roadmapData.roachLobbyOut,
           bead: roadmapData.beadOut,
           bigRoad: roadmapData.bigRoadOut,
           bigEye: roadmapData.bigEyeOut,

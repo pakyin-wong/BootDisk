@@ -19,10 +19,10 @@ namespace we {
         return state;
       }
 
-      protected dataChanged(): void { }
+      protected dataChanged(): void {}
 
       protected onTap(evt: egret.TouchEvent) {
-        const list = <eui.TabBar>this.parent;
+        const list = <eui.TabBar> this.parent;
         // list.selectedIndex = -1;
         list.dispatchEvent(new eui.UIEvent('CLEAR_SELECTION'));
       }

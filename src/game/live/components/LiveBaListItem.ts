@@ -19,6 +19,7 @@ namespace we {
       private _gameData: we.ba.GameData;
       private _timer: we.ba.CountdownTimer;
       private _mouseOutside: boolean = false;
+      private _label: eui.Label;
 
       // private _originalyhover: number;
       private _originaly: number;
@@ -39,6 +40,19 @@ namespace we {
 
       public get tableId() {
         return this._tableId;
+      }
+
+      set labelText(value: string) {
+        if (this._label) {
+          this._label.text = value;
+        }
+      }
+
+      get labelText() {
+        if (this._label) {
+          return this._label.text;
+        }
+        return null;
       }
 
       public getQuickbetButton(): ui.RoundButton {
