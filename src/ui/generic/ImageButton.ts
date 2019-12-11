@@ -22,7 +22,10 @@ namespace we {
       }
 
       set hoverResName(value: string) {
-        this._hoverResName = value;
+        this._hoverResName = this._resName;
+        if (value) {
+          this._hoverResName = value;
+        }
         if (this._hoverImage) {
           this._hoverImage.source = value;
         }
