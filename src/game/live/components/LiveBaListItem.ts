@@ -1,9 +1,6 @@
 namespace we {
   export namespace live {
     export class LiveBaListItem extends eui.Component {
-      public selected: boolean;
-      public itemIndex: number;
-
       private rect: eui.Rect;
       private _dealerImage: eui.Image;
       private _bigRoad: we.ba.BALobbyBigRoad;
@@ -291,6 +288,7 @@ namespace we {
                 dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
               } else {
                 const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 250);
+                this._quickbetButton.tweenLabel(false);
               }
             }, 300);
           }

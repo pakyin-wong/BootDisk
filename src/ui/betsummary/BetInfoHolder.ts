@@ -8,7 +8,7 @@ namespace we {
       private isDirty;
       private label;
 
-      private _betinfoItem: core.BaseEUI;
+      private _betinfoItem: BetInfoBaItem;
 
       public constructor() {
         super();
@@ -36,6 +36,7 @@ namespace we {
         console.log(data);
         this.isDirty = true;
         this._data = data;
+        this._betinfoItem.labelText = data;
         this.y = 300 * data;
       }
     }

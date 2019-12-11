@@ -6,8 +6,8 @@ namespace we {
       protected _resName: string;
       protected _hoverResName: string;
 
-      constructor() {
-        super('ImageButton');
+      constructor(value: string = 'ImageButton') {
+        super(value);
       }
 
       set resName(value: string) {
