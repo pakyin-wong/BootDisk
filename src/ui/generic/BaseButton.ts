@@ -10,6 +10,7 @@ namespace we {
       protected mount() {
         this.touchChildren = false;
         this.buttonEnabled = true;
+        mouse.setButtonMode(this, true);
       }
 
       private set buttonEnabled(b: boolean) {
