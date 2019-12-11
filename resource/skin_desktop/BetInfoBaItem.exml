@@ -3,10 +3,10 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
         xmlns:live="we.live.*">
     <ui:BetInfoBaQuickBetPanel id="_quickbetPanel" x="0" y="80" width="364" height="218" alpha="0" />
+    <e:Label id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="30" right="20" />
     <e:Group id="_group" width="364" height="229" x="0" y="0">
         <e:Rect width="100%" height="120" fillColor="#303030" />
-        <ba:CountdownTimer id="_timer" width="80" height="80" x="0" y="1" visible="true" />
-        <e:Label id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="30" right="20" />
+        <ba:CountdownTimer id="_timer" width="80" height="80" x="0" y="1"/>
         <ba:BetInfoBigRoad id="_bigRoad" width="364" height="139" y="90" />
         <ui:RoundButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_none_png"
                         hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0" horizontalCenter="0"

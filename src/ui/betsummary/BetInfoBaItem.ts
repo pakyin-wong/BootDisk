@@ -110,7 +110,8 @@ namespace we {
       }
 
       public setupTableInfo() {
-        // console.log(env.tableInfoArray);
+        logger.l('BetInfoBaItem::setupTableInfo');
+        console.log(env.tableInfoArray);
         env.tableInfoArray.forEach(value => {
           if (value.tableid === this._tableId) {
             this._tableInfo = value;

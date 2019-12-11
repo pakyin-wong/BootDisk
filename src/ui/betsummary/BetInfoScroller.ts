@@ -3,24 +3,18 @@ namespace we {
     export class BetInfoScroller extends Scroller {
       // public scroller: we.ui.Scroller;
       private collection: eui.ArrayCollection;
-      private roomIds: number[] = [1, 2, 3];
+      private roomIds: string[] = [];
 
       constructor() {
         super();
-        dir.evtHandler.addEventListener(we.core.Event.TABLE_LIST_UPDATE, this.tableListUpdateTables, this);
-        dir.evtHandler.addEventListener(we.core.Event.BET_SUMMARY_UPDATE, this.updateTables, this);
-      }
-
-      protected tableListUpdateTables(evt: egret.Event) {
-        const roomIds = evt.data as string[];
-        const added = this.arrayDiff(roomIds, this.roomIds);
-        const removed = this.arrayDiff(this.roomIds, roomIds);
-        added.forEach(item => {
-          this.collection.addItem(item);
-        });
-        removed.forEach(item => {
-          this.collection.removeItemAt(this.collection.getItemIndex(item));
-        });
+        if (env.tableInfoArray) {
+          this.roomIds = env.tableInfoArray.map(value => {
+            return value.tableid;
+          });
+        }
+        this.collection = new eui.ArrayCollection(this.roomIds);
+        dir.evtHandler.addEventListener(we.core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        // dir.evtHandler.addEventListener(we.core.Event.BET_SUMMARY_UPDATE, this.updateTables, this);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -34,12 +28,12 @@ namespace we {
         super.childrenCreated();
 
         // init viewport
-        const list = new eui.List();
+        const list = new List();
         const vlayout = new eui.VerticalLayout();
         vlayout.gap = 5;
         list.layout = vlayout;
 
-        this.collection = new eui.ArrayCollection(this.roomIds);
+        // this.collection = new eui.ArrayCollection(this.roomIds);
         list.dataProvider = this.collection;
         list.itemRenderer = we.ui.BetInfoHolder;
         this.viewport = list;
@@ -65,7 +59,17 @@ namespace we {
       }
 
       private handleTableList(event: egret.Event) {
-        const roomIds = event.data as number[];
+        const roomIds = event.data as string[];
+        console.log('BetInfoList::handleTableList() -> ' + roomIds);
+        const added = this.arrayDiff(roomIds, this.roomIds);
+        const removed = this.arrayDiff(this.roomIds, roomIds);
+        added.forEach(item => {
+          this.collection.addItem(item);
+        });
+        removed.forEach(item => {
+          this.collection.removeItemAt(this.collection.getItemIndex(item));
+        });
+        logger.l('BetInfoList::handleTableList() -> after: ', this.collection);
       }
     }
   }

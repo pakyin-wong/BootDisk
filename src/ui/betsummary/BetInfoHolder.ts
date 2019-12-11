@@ -8,6 +8,7 @@ namespace we {
 
       public constructor() {
         super();
+        this.touchEnabled = true;
         this.skinName = we.utils.getSkin('BetInfoHolder');
         this.mount();
       }
@@ -26,10 +27,10 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
+        logger.l('BetInfoHolder::itemDataChanged::this.itemData ', this.itemData);
         if (this.itemData) {
-          logger.l('BetInfoHolder::itemDataChanged');
-          this._item.labelText = this.itemData;
           this._item.tableId = this.itemData;
+          this._item.labelText = this.itemData;
           this._item.setupTableInfo();
           this._item.updateGame();
           if (env && env.tableInfos && env.tableInfos[this.itemData]) {
