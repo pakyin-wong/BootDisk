@@ -13,6 +13,10 @@ namespace we {
         this.skinName = 'LiveSidePanelSkin';
       }
 
+      protected dispatchChange() {
+        dir.evtHandler.dispatch(core.Event.SIDE_PANEL_CHANGE, this);
+      }
+
       protected mount() {
         super.mount();
         this._tabbar.itemRenderer = ImageTabItemWithBadge;
@@ -20,10 +24,16 @@ namespace we {
         this._tabbar.addEventListener('CLEAR_SELECTION', this.onClearSelection, this);
 
         this.activeLine = new eui.Rect();
-        this.activeLine.y = this._tabbar.y + this._tabbar.height + 2;
+        this.activeLine.y = this._tabbar.y + this._tabbar.height;
         this.activeLine.fillColor = 0xffffff;
         this.activeLine.height = 3;
         this.addChild(this.activeLine);
+        this.dispatchChange();
+      }
+
+      protected destroy() {
+        super.destroy();
+        this.dispatchChange();
       }
 
       protected onClearSelection() {
@@ -39,7 +49,12 @@ namespace we {
 
           egret.Tween.removeTweens(this.activeLine);
           egret.Tween.get(this.activeLine).to({ width: 0 }, this.lineMoveDuration);
+          this.dispatchChange();
         }
+      }
+
+      public get isCollapsed() {
+        return this._scroller.isCollapsed();
       }
 
       protected onSelected() {
@@ -52,6 +67,7 @@ namespace we {
             this.activeLine.x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
             egret.Tween.removeTweens(this.activeLine);
             egret.Tween.get(this.activeLine).to({ width }, this.lineMoveDuration);
+            this.dispatchChange();
           } else {
             this._tabbar.selectedIndex = -1;
           }

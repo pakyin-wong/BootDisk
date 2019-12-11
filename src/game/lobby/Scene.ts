@@ -62,10 +62,10 @@ namespace we {
         // roomList.swipeDirection = ui.SwipeDirection.right;
         // roomList.isAnimateItemTransition = true;
         // roomList.dataProvider = collection;
-        // roomList.itemRenderer = LobbyListItem;
+        // roomList.itemRenderer = ui.TestItem;
         // roomList.right = 0;
-        // roomList.y = 1;
-        // roomList.width = 640;
+        // roomList.y = 240;
+        // roomList.width = 410;
         // roomList.useVirtualLayout = false;
         // roomList.maxDisplayCount = 4;
         // setInterval(() => {

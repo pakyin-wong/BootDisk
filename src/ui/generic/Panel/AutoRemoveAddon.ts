@@ -44,8 +44,8 @@ namespace we {
         this.reset();
         if (this.target.parent) {
           this.target.once(egret.Event.ENTER_FRAME, this.start, this);
-          this.target.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
-          this.target.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
+          this.target.addEventListener(mouse.MouseEvent.ROLL_OVER, this.clearAllTimeout, this);
+          this.target.addEventListener(mouse.MouseEvent.ROLL_OUT, this.startAllTimeout, this);
           this.target.parent.addEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
           this.target.parent.addEventListener('Start_ALL_TIMEOUT', this.start, this);
         } else {
@@ -57,8 +57,8 @@ namespace we {
         super.deactivate();
         this.reset();
         if (this.target.parent) {
-          this.target.removeEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
-          this.target.removeEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
+          this.target.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.clearAllTimeout, this);
+          this.target.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.startAllTimeout, this);
           this.target.parent.removeEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
           this.target.parent.removeEventListener('Start_ALL_TIMEOUT', this.start, this);
         }

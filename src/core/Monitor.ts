@@ -15,9 +15,14 @@ namespace we {
         dir.layerCtr.top.addChild(this._betsummary);
         dir.layerCtr.overlay.addChild(this._overlay);
 
+        const notificationController = new ui.NotificationController();
+        notificationController.x = stage.stageWidth - 410;
+        notificationController.y = 240;
+        dir.layerCtr.overlay.addChild(notificationController);
+
         const liveSidePanel = new ui.LiveSidePanel();
-        liveSidePanel.x = 2000;
-        liveSidePanel.y = 200;
+        liveSidePanel.x = 2050;
+        liveSidePanel.y = 120;
         dir.layerCtr.overlay.addChild(liveSidePanel);
 
         this.addListeners();
