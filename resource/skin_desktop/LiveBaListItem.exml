@@ -10,5 +10,5 @@
 		                       skinName="BetLimitDropdownSkin" />
 		<ba:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" visible="false" />
 	</e:Group>
-	<e:Label id="label" text="百家樂01" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="20" y="198" />
+	<e:Label id="_label" text="" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="20" y="198" />
 </e:Skin>

@@ -45,6 +45,7 @@ namespace we {
         this._item.setupTableInfo();
         this._item.updateGame();
         this._item.bigRoad.updateRoadData(table.roadmap);
+        this._item.labelText = this.itemData;
         this.setZIndex();
         egret.Tween.removeTweens(this);
       }

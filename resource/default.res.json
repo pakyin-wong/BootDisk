@@ -1,11 +1,11 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,description_json,d_ba_betcontrol_clipsset_flat_none_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,description_json",
 			"name": "egret_basic"
 		},
 		{
-			"keys": "back_png,c1_png,c10_png,c11_png,c12_png,c13_png,c2_png,c3_png,c4_png,c5_png,c6_png,c7_png,c8_png,c9_png,d1_png,d10_png,d11_png,d12_png,d13_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,h1_png,h10_png,h11_png,h12_png,h13_png,h2_png,h3_png,h4_png,h5_png,h6_png,h7_png,h8_png,h9_png,s1_png,s10_png,s11_png,s12_png,s13_png,s2_png,s3_png,s4_png,s5_png,s6_png,s7_png,s8_png,d_common_poker_horizontal_club_10_png,d_common_poker_horizontal_club_2_png,d_common_poker_horizontal_club_3_png,d_common_poker_horizontal_club_4_png,d_common_poker_horizontal_club_5_png,d_common_poker_horizontal_club_6_png,d_common_poker_horizontal_club_7_png,d_common_poker_horizontal_club_8_png,d_common_poker_horizontal_club_9_png,d_common_poker_horizontal_club_a_png,d_common_poker_horizontal_club_j_png,d_common_poker_horizontal_club_k_png,d_common_poker_horizontal_club_q_png,d_common_poker_horizontal_diamonds_10_png,d_common_poker_horizontal_diamonds_2_png,d_common_poker_horizontal_diamonds_3_png,d_common_poker_horizontal_diamonds_4_png,d_common_poker_horizontal_diamonds_5_png,d_common_poker_horizontal_diamonds_6_png,d_common_poker_horizontal_diamonds_7_png,d_common_poker_horizontal_diamonds_8_png,d_common_poker_horizontal_diamonds_9_png,d_common_poker_horizontal_diamonds_a_png,d_common_poker_horizontal_diamonds_j_png,d_common_poker_horizontal_diamonds_k_png,d_common_poker_horizontal_diamonds_q_png,d_common_poker_horizontal_hearts_10_png,d_common_poker_horizontal_hearts_2_png,d_common_poker_horizontal_hearts_3_png,d_common_poker_horizontal_hearts_4_png,d_common_poker_horizontal_hearts_5_png,d_common_poker_horizontal_hearts_6_png,d_common_poker_horizontal_hearts_7_png,d_common_poker_horizontal_hearts_8_png,d_common_poker_horizontal_hearts_9_png,d_common_poker_horizontal_hearts_a_png,d_common_poker_horizontal_hearts_j_png,d_common_poker_horizontal_hearts_k_png,d_common_poker_horizontal_hearts_q_png,d_common_poker_horizontal_spade_10_png,d_common_poker_horizontal_spade_2_png,d_common_poker_horizontal_spade_3_png,d_common_poker_horizontal_spade_4_png,d_common_poker_horizontal_spade_5_png,d_common_poker_horizontal_spade_6_png,d_common_poker_horizontal_spade_7_png,d_common_poker_horizontal_spade_8_png,d_common_poker_horizontal_spade_9_png,d_common_poker_horizontal_spade_a_png,d_common_poker_horizontal_spade_j_png,d_common_poker_horizontal_spade_k_png,d_common_poker_horizontal_spade_q_png,d_common_poker_vertical_club_10_png,d_common_poker_vertical_club_2_png,d_common_poker_vertical_club_3_png,d_common_poker_vertical_club_4_png,d_common_poker_vertical_club_5_png,d_common_poker_vertical_club_6_png,d_common_poker_vertical_club_7_png,d_common_poker_vertical_club_8_png,d_common_poker_vertical_club_9_png,d_common_poker_vertical_club_a_png,d_common_poker_vertical_club_j_png,d_common_poker_vertical_club_k_png,d_common_poker_vertical_club_q_png,d_common_poker_vertical_diamonds_10_png,d_common_poker_vertical_diamonds_2_png,d_common_poker_vertical_diamonds_3_png,d_common_poker_vertical_diamonds_4_png,d_common_poker_vertical_diamonds_5_png,d_common_poker_vertical_diamonds_6_png,d_common_poker_vertical_diamonds_7_png,d_common_poker_vertical_diamonds_8_png,d_common_poker_vertical_diamonds_9_png,d_common_poker_vertical_diamonds_a_png,d_common_poker_vertical_diamonds_j_png,d_common_poker_vertical_diamonds_k_png,d_common_poker_vertical_diamonds_q_png,d_common_poker_vertical_hearts_10_png,d_common_poker_vertical_hearts_2_png,d_common_poker_vertical_hearts_3_png,d_common_poker_vertical_hearts_4_png,d_common_poker_vertical_hearts_5_png,d_common_poker_vertical_hearts_6_png,d_common_poker_vertical_hearts_7_png,d_common_poker_vertical_hearts_8_png,d_common_poker_vertical_hearts_9_png,d_common_poker_vertical_hearts_a_png,d_common_poker_vertical_hearts_j_png,d_common_poker_vertical_hearts_k_png,d_common_poker_vertical_hearts_q_png,d_common_poker_vertical_spade_10_png,d_common_poker_vertical_spade_2_png,d_common_poker_vertical_spade_3_png,d_common_poker_vertical_spade_4_png,d_common_poker_vertical_spade_5_png,d_common_poker_vertical_spade_6_png,d_common_poker_vertical_spade_7_png,d_common_poker_vertical_spade_8_png,d_common_poker_vertical_spade_9_png,d_common_poker_vertical_spade_a_png,d_common_poker_vertical_spade_j_png,d_common_poker_vertical_spade_k_png,d_common_poker_vertical_spade_q_png",
+			"keys": "back_png,c1_png,c10_png,c11_png,c12_png,c13_png,c2_png,c3_png,c4_png,c5_png,c6_png,c7_png,c8_png,c9_png,d1_png,d10_png,d11_png,d12_png,d13_png,d2_png,d3_png,d4_png,d5_png,d6_png,d7_png,d8_png,d9_png,h1_png,h10_png,h11_png,h12_png,h13_png,h2_png,h3_png,h4_png,h5_png,h6_png,h7_png,h8_png,h9_png,s1_png,s10_png,s11_png,s12_png,s13_png,s2_png,s3_png,s4_png,s5_png,s6_png,s7_png,s8_png,d_common_poker_horizontal_club_10_png,d_common_poker_horizontal_club_2_png,d_common_poker_horizontal_club_3_png,d_common_poker_horizontal_club_4_png,d_common_poker_horizontal_club_5_png,d_common_poker_horizontal_club_6_png,d_common_poker_horizontal_club_7_png,d_common_poker_horizontal_club_8_png,d_common_poker_horizontal_club_9_png,d_common_poker_horizontal_club_a_png,d_common_poker_horizontal_club_j_png,d_common_poker_horizontal_club_k_png,d_common_poker_horizontal_club_q_png,d_common_poker_horizontal_diamonds_10_png,d_common_poker_horizontal_diamonds_2_png,d_common_poker_horizontal_diamonds_3_png,d_common_poker_horizontal_diamonds_4_png,d_common_poker_horizontal_diamonds_5_png,d_common_poker_horizontal_diamonds_6_png,d_common_poker_horizontal_diamonds_7_png,d_common_poker_horizontal_diamonds_8_png,d_common_poker_horizontal_diamonds_9_png,d_common_poker_horizontal_diamonds_a_png,d_common_poker_horizontal_diamonds_j_png,d_common_poker_horizontal_diamonds_k_png,d_common_poker_horizontal_diamonds_q_png,d_common_poker_horizontal_hearts_10_png,d_common_poker_horizontal_hearts_2_png,d_common_poker_horizontal_hearts_3_png,d_common_poker_horizontal_hearts_4_png,d_common_poker_horizontal_hearts_5_png,d_common_poker_horizontal_hearts_6_png,d_common_poker_horizontal_hearts_7_png,d_common_poker_horizontal_hearts_8_png,d_common_poker_horizontal_hearts_9_png,d_common_poker_horizontal_hearts_a_png,d_common_poker_horizontal_hearts_j_png,d_common_poker_horizontal_hearts_k_png,d_common_poker_horizontal_hearts_q_png,d_common_poker_horizontal_spade_10_png,d_common_poker_horizontal_spade_2_png,d_common_poker_horizontal_spade_3_png,d_common_poker_horizontal_spade_4_png,d_common_poker_horizontal_spade_5_png,d_common_poker_horizontal_spade_6_png,d_common_poker_horizontal_spade_7_png,d_common_poker_horizontal_spade_8_png,d_common_poker_horizontal_spade_9_png,d_common_poker_horizontal_spade_a_png,d_common_poker_horizontal_spade_j_png,d_common_poker_horizontal_spade_k_png,d_common_poker_horizontal_spade_q_png,d_common_poker_vertical_club_10_png,d_common_poker_vertical_club_2_png,d_common_poker_vertical_club_3_png,d_common_poker_vertical_club_4_png,d_common_poker_vertical_club_5_png,d_common_poker_vertical_club_6_png,d_common_poker_vertical_club_7_png,d_common_poker_vertical_club_8_png,d_common_poker_vertical_club_9_png,d_common_poker_vertical_club_a_png,d_common_poker_vertical_club_j_png,d_common_poker_vertical_club_k_png,d_common_poker_vertical_club_q_png,d_common_poker_vertical_diamonds_10_png,d_common_poker_vertical_diamonds_2_png,d_common_poker_vertical_diamonds_3_png,d_common_poker_vertical_diamonds_4_png,d_common_poker_vertical_diamonds_5_png,d_common_poker_vertical_diamonds_6_png,d_common_poker_vertical_diamonds_7_png,d_common_poker_vertical_diamonds_8_png,d_common_poker_vertical_diamonds_9_png,d_common_poker_vertical_diamonds_a_png,d_common_poker_vertical_diamonds_j_png,d_common_poker_vertical_diamonds_k_png,d_common_poker_vertical_diamonds_q_png,d_common_poker_vertical_hearts_10_png,d_common_poker_vertical_hearts_2_png,d_common_poker_vertical_hearts_3_png,d_common_poker_vertical_hearts_4_png,d_common_poker_vertical_hearts_5_png,d_common_poker_vertical_hearts_6_png,d_common_poker_vertical_hearts_7_png,d_common_poker_vertical_hearts_8_png,d_common_poker_vertical_hearts_9_png,d_common_poker_vertical_hearts_a_png,d_common_poker_vertical_hearts_j_png,d_common_poker_vertical_hearts_k_png,d_common_poker_vertical_hearts_q_png,d_common_poker_vertical_spade_10_png,d_common_poker_vertical_spade_2_png,d_common_poker_vertical_spade_3_png,d_common_poker_vertical_spade_4_png,d_common_poker_vertical_spade_5_png,d_common_poker_vertical_spade_6_png,d_common_poker_vertical_spade_7_png,d_common_poker_vertical_spade_8_png,d_common_poker_vertical_spade_9_png,d_common_poker_vertical_spade_a_png,d_common_poker_vertical_spade_j_png,d_common_poker_vertical_spade_k_png,d_common_poker_vertical_spade_q_png,d_common_chips_perspective_9_png,d_common_chips_perspective_8_png,d_common_chips_perspective_7_png,d_common_chips_perspective_6_png,d_common_chips_perspective_4_png,d_common_chips_perspective_3_png,d_common_chips_perspective_2_png,d_common_chips_perspective_10_png,d_common_chips_perspective_1_png,d_common_chips_betting_png,d_common_chips_9_png,d_common_chips_8_png,d_common_chips_7_png,d_common_chips_6_png,d_common_chips_5_png,d_common_chips_4_png,d_common_chips_3_png,d_common_chips_2_png,d_common_chips_10_png,d_common_chips_1_png",
 			"name": "common"
 		},
 		{
@@ -13,7 +13,7 @@
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_general_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_general_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_general_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_general_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_general_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_general_png,d_ba_betarea_tie_general_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_general_png,d_ba_betcontrol_clipsset_flat_2_png,d_ba_betcontrol_clipsset_flat_20_png,d_ba_betcontrol_clipsset_flat_50_png,d_ba_betcontrol_clipsset_flat_1_png,d_ba_betcontrol_image_clipsset5_png,d_ba_betcontrol_image_clipsset50k_png,d_ba_betcontrol_image_clipsset2_png,d_ba_betcontrol_image_clipsset20k_png,d_ba_betcontrol_clipsset_flat_5_png,d_ba_betcontrol_image_clipsset1_png,d_ba_betcontrol_image_clipsset500_png,d_ba_betcontrol_image_clipsset100_png,d_ba_betcontrol_image_clipsset20_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_swaproadmap_button_element_png,d_ba_betcontrol_icon_cancel_png,d_ba_betcontrol_icon_double_png,d_ba_betcontrol_icon_repeat_png,frame-3_png,d_ba_navbar_icon_info_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_hoverelement_png,d_ba_navbar_icon_setting_png,d_ba_navbar_icon_sound_png,d_ba_navbar_icon_video_png,d_ba_navbar_icon_stat_png,d_ba_betcontrol_clipsset_flat_100_png,d_ba_betcontrol_clipsset_flat_20k_png,d_ba_betcontrol_clipsset_flat_50k_png,d_ba_betcontrol_clipsset_flat_500_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_tieelement_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_bankerelement_png",
+			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_general_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_general_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_general_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_general_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_general_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_general_png,d_ba_betarea_tie_general_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_general_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_swaproadmap_button_element_png,d_ba_betcontrol_icon_cancel_png,d_ba_betcontrol_icon_double_png,d_ba_betcontrol_icon_repeat_png,frame-3_png,d_ba_navbar_icon_info_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_hoverelement_png,d_ba_navbar_icon_setting_png,d_ba_navbar_icon_sound_png,d_ba_navbar_icon_video_png,d_ba_navbar_icon_stat_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_tieelement_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_bankerelement_png",
 			"name": "scene_baccarat"
 		},
 		{
@@ -542,31 +542,6 @@
 			"name": "d_ba_betcontrol_button_confirm_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_1.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_1_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_2.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_2_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_20.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_20_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_5.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_5_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_50.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_50_png"
-		},
-		{
 			"url": "assets/d/ba/d_ba_betcontrol_icon_cancel.png",
 			"type": "image",
 			"name": "d_ba_betcontrol_icon_cancel_png"
@@ -580,46 +555,6 @@
 			"url": "assets/d/ba/d_ba_betcontrol_icon_repeat.png",
 			"type": "image",
 			"name": "d_ba_betcontrol_icon_repeat_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset1.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_image_clipsset1_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset100.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_image_clipsset100_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset2.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_image_clipsset2_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset20.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_image_clipsset20_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset20k.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_image_clipsset20k_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset5.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_image_clipsset5_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset500.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_image_clipsset500_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_image_clipsset50k.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_image_clipsset50k_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betcontrol_pagenav_left.png",
@@ -2308,34 +2243,9 @@
 			"name": "4-col-features-2-copy_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_50k.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_50k_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_500.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_500_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_100.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_100_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_20k.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_20k_png"
-		},
-		{
 			"url": "assets/d/ba/d_ba_gamerecord_chipvalue.png",
 			"type": "image",
 			"name": "d_ba_gamerecord_chipvalue_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_betcontrol_clipsset_flat_none.png",
-			"type": "image",
-			"name": "d_ba_betcontrol_clipsset_flat_none_png"
 		},
 		{
 			"url": "assets/temp/sn_bgm002.mp3",
@@ -2371,6 +2281,106 @@
 			"url": "assets/temp/sn_player_tc.mp3",
 			"type": "sound",
 			"name": "sn_player_tc_mp3"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_4.png",
+			"type": "image",
+			"name": "d_common_chips_4_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_3.png",
+			"type": "image",
+			"name": "d_common_chips_3_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_2.png",
+			"type": "image",
+			"name": "d_common_chips_2_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_5.png",
+			"type": "image",
+			"name": "d_common_chips_5_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_6.png",
+			"type": "image",
+			"name": "d_common_chips_6_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_9.png",
+			"type": "image",
+			"name": "d_common_chips_9_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_7.png",
+			"type": "image",
+			"name": "d_common_chips_7_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_8.png",
+			"type": "image",
+			"name": "d_common_chips_8_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_10.png",
+			"type": "image",
+			"name": "d_common_chips_10_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_betting.png",
+			"type": "image",
+			"name": "d_common_chips_betting_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_2.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_2_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_3.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_3_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_4.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_4_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_6.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_6_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_7.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_7_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_8.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_8_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_9.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_9_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_10.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_10_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_perspective_1.png",
+			"type": "image",
+			"name": "d_common_chips_perspective_1_png"
+		},
+		{
+			"url": "assets/d/common/d_common_chips_1.png",
+			"type": "image",
+			"name": "d_common_chips_1_png"
 		}
 	]
 }
