@@ -83,6 +83,13 @@ namespace we {
         // setTimeout(() => {
         //   this.tables = this.tables.filter((x, i) => i !== 6);
         // }, 14000);
+
+        setInterval(() => {
+          // mock error
+          if (Math.random() > 0.5) {
+            dir.errHandler.handleError({ code: 1001 });
+          }
+        }, 5000);
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {

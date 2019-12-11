@@ -40,6 +40,7 @@ namespace we {
 
       public onError(value: any) {
         logger.l('PlayerClient::onError ', value);
+        dir.errHandler.handleError(value);
         // console.dir(value);
       }
 

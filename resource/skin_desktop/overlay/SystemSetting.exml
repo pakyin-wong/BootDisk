@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.SystemSetting" width="516" height="785" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
 	<e:Group id="content" x="0" y="0">
-		<e:Image source="nav_panel_bg" x="0" y="0"/>
-		<e:Image id="close" width="48" height="48" x="437" y="31.5" source="d-lobby-button-close-none_png"/>
+		<e:Image source="nav_panel_bg" left="0" top="0" right="0" bottom="0" />
+		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png"/>
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="61" y="39.3" fontFamily="NotoSansCJKtc-Regular" textColor="0xce925e" width="120" height="45"/>
 		<ui:RunTimeLabel id="_txt_lang" text="Label" x="61" y="108.3" fontFamily="NotoSansCJKtc-Regular" size="24" height="36" anchorOffsetX="0" width="390"/>
 		<e:Rect width="400" height="1" x="58" y="257.5" fillColor="0x979797"/>

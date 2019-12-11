@@ -9,6 +9,10 @@ namespace we {
       public dispatch(type: string, data: any = null) {
         this.dispatchEvent(new egret.Event(type, false, false, data));
       }
+
+      public createOverlay(opt: we.ui.IOverlayToggleOpt) {
+        this.dispatchEvent(new egret.Event(core.Event.TOGGLE_OVERLAY_PANEL, false, false, opt));
+      }
     }
   }
 }

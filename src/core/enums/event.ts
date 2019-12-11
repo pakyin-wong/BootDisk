@@ -38,5 +38,9 @@ namespace we {
       TABLE_BET_INFO_UPDATE: 'TABLE_BET_INFO_UPDATE',
       BET_TABLE_LIST_UPDATE: 'BET_TABLE_LIST_UPDATE',
     };
+
+    export const Error = {
+      WFCABLE_ERROR: 'WFCABLE_ERROR',
+    };
   }
 }
