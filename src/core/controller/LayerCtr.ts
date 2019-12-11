@@ -22,8 +22,24 @@ namespace we {
         stage.addChild(this.nav);
         stage.addChild(this.overlay);
         stage.addChild(this.error);
+        this.setScreenSize(stage.stageWidth, stage.stageHeight);
 
         logger.l('LayerCtr is created');
+      }
+
+      public setScreenSize(stageWidth, stageHeight) {
+        this.bottom.width = stageWidth;
+        this.bottom.height = stageHeight;
+        this.scene.width = stageWidth;
+        this.scene.height = stageHeight;
+        this.top.width = stageWidth;
+        this.top.height = stageHeight;
+        this.nav.width = stageWidth;
+        this.nav.height = stageHeight;
+        this.overlay.width = stageWidth;
+        this.overlay.height = stageHeight;
+        this.error.width = stageWidth;
+        this.error.height = stageHeight;
       }
     }
   }

@@ -22,6 +22,7 @@ namespace we {
       EXCEED_BET_LIMIT: 'EXCEED_BET_LIMIT',
       BET_CHIP_CHANGE: 'BET_CHIP_CHANGE',
       BET_LIMIT_CHANGE: 'BET_LIMIT_CHANGE',
+      SIDE_PANEL_CHANGE: 'SIDE_PANEL_CHANGE',
     };
 
     export const MQTT = {

@@ -9,7 +9,7 @@ namespace we {
 
       private rect: eui.Rect;
       private _dealerImage: eui.Image;
-      private _bigRoad: we.ba.BALobbyBigRoad;
+      private _bigRoad: we.ba.BetInfoBigRoad;
       private _quickbetPanel: BetInfoBaQuickBetPanel;
       private _quickbetEnable: boolean = false;
       private _dropdown: live.BetLimitDropdown;
@@ -51,26 +51,18 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.anchorOffsetX = this.width / 2;
-        this.anchorOffsetY = this.height / 2;
-        this.x += this.anchorOffsetX;
-        this.y += this.anchorOffsetY;
-
+        console.log('BetInfoBaItem::childrenCreated');
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
         this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
         this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._timer.skinName = utils.getSkin('CountdownTimerRound');
-        // this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._quickbetPanel.tableId = this._tableId;
-        // this._dropdown.setToggler(this._dropdown_toggle);
-
-        // this.setChildIndex(this._dropdown_toggle, 20000);
 
         // For Fixed Width Round Corner
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        shape.graphics.drawRoundRect(0, 0, this._group.width, this._group.height, 16, 16);
         shape.graphics.endFill();
         this._group.addChild(shape);
         this._group.mask = shape;
@@ -109,7 +101,7 @@ namespace we {
         return this._bigRoad;
       }
 
-      set bigRoad(value: we.ba.BALobbyBigRoad) {
+      set bigRoad(value: we.ba.BetInfoBigRoad) {
         this._bigRoad = value;
       }
 
@@ -118,7 +110,8 @@ namespace we {
       }
 
       public setupTableInfo() {
-        // console.log(env.tableInfoArray);
+        logger.l('BetInfoBaItem::setupTableInfo');
+        console.log(env.tableInfoArray);
         env.tableInfoArray.forEach(value => {
           if (value.tableid === this._tableId) {
             this._tableInfo = value;

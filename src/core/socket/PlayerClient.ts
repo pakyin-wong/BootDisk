@@ -15,12 +15,22 @@ namespace we {
         console.log('playerID: ' + playerID);
         console.log('secret: ' + secret);
 
-        this.client = new PlayerClient({
-          playerID,
-          secret,
-          connectTimeout: dir.config.connectTimeout, // To avoid disconnect,
-          endpoint: dir.config.endpoint,
-        });
+        const options: any = {};
+        options.playerID = playerID;
+        options.secret = secret;
+        options.connectTimeout = dir.config.connectTimeout;
+        options.endpoint = dir.config.endpoint;
+        if (dir.config.rabbitmqhostname) {
+          options.rabbitmqhostname = dir.config.rabbitmqhostname;
+        }
+        if (dir.config.rabbitmqport) {
+          options.rabbitmqport = dir.config.rabbitmqport;
+        }
+        if (dir.config.rabbitmqprotocol) {
+          options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
+        }
+
+        this.client = new PlayerClient(options);
 
         logger.l('MQTTSocketComm is created', this.client);
       }
@@ -135,7 +145,7 @@ namespace we {
 
       public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
-        console.log('onTableListUpdate xxxxxxxxxxxxxxxxxxxxxxx');
+        console.log('PlayerClient::onTableListUpdate');
         console.log(tableList);
         console.log(tableList.tablesList);
         const tableInfos: data.TableInfo[] = tableList.tablesList;

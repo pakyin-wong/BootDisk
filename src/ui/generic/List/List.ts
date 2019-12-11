@@ -9,6 +9,7 @@ namespace we {
       public isAnimateItemTransition: boolean = false;
       public itemTransitionDuration: number = 300;
       public maxDisplayCount: number = -1;
+      public isFade: boolean = false;
 
       protected itemQueue: any[] = [];
 

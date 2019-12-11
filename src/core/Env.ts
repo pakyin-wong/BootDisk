@@ -28,6 +28,7 @@ namespace we {
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
       public livepageLocked: string = null;
+      public sidePanelExpanded: boolean = false;
 
       set currTime(value: number) {
         this._currTime = value;
