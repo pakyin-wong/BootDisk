@@ -67,6 +67,7 @@
 		"resource/skin_desktop/livesidebar/ImageTabItemWithBadge.exml",
 		"resource/skin_desktop/livesidebar/LiveSidePanel.exml",
 		"resource/skin_desktop/livesidebar/TabItemWithBadge.exml",
+		"resource/skin_desktop/livesidebar/TestItemSkin.exml",
 		"resource/skin_desktop/LoadingProgressBar.exml",
 		"resource/skin_desktop/LoadingScene.exml",
 		"resource/skin_desktop/LobbyScene.exml",

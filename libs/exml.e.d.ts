@@ -160,6 +160,8 @@ declare class LiveSidePanelSkin extends eui.Skin{
 }
 declare class TabItemWithBadgeSkin extends eui.Skin{
 }
+declare class TestItemSkin extends eui.Skin{
+}
 declare module skin_desktop{
 	class LoadingProgressBar extends eui.Skin{
 	}
