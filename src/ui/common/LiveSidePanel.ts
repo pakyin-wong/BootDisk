@@ -12,7 +12,7 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._tabbar.itemRenderer = TabItemWithBadge;
+        this._tabbar.itemRenderer = ImageTabItemWithBadge;
         this._tabbar.addEventListener(eui.UIEvent.CHANGE, this.onSelected, this);
         this._tabbar.addEventListener('CLEAR_SELECTION', this.onClearSelection, this);
       }

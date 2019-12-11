@@ -154,6 +154,8 @@ declare module skin_desktop{
 	class LivePage extends eui.Skin{
 	}
 }
+declare class ImageTabItemWithBadgeSkin extends eui.Skin{
+}
 declare class LiveSidePanelSkin extends eui.Skin{
 }
 declare class TabItemWithBadgeSkin extends eui.Skin{
