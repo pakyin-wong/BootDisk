@@ -134,7 +134,7 @@ namespace we {
 
       public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
-        console.log('onTableListUpdate xxxxxxxxxxxxxxxxxxxxxxx');
+        console.log('PlayerClient::onTableListUpdate');
         console.log(tableList);
         console.log(tableList.tablesList);
         const tableInfos: data.TableInfo[] = tableList.tablesList;

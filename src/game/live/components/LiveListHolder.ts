@@ -5,9 +5,6 @@ namespace we {
       public itemIndex: number;
 
       private _item: we.live.LiveBaListItem;
-      protected destinationX: number = Infinity;
-      protected destinationY: number = Infinity;
-      protected isDirty = true;
 
       public constructor() {
         super();
