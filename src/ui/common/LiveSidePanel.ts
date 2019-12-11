@@ -4,6 +4,9 @@ namespace we {
       private _tabbar: eui.List;
       private _viewStack: eui.ViewStack;
       private _scroller: Scroller;
+      private activeLine: eui.Rect;
+
+      private lineMoveDuration: number = 100;
 
       constructor() {
         super();
@@ -15,6 +18,12 @@ namespace we {
         this._tabbar.itemRenderer = ImageTabItemWithBadge;
         this._tabbar.addEventListener(eui.UIEvent.CHANGE, this.onSelected, this);
         this._tabbar.addEventListener('CLEAR_SELECTION', this.onClearSelection, this);
+
+        this.activeLine = new eui.Rect();
+        this.activeLine.y = this._tabbar.y + this._tabbar.height + 2;
+        this.activeLine.fillColor = 0xffffff;
+        this.activeLine.height = 3;
+        this.addChild(this.activeLine);
       }
 
       protected onClearSelection() {
@@ -27,6 +36,9 @@ namespace we {
             this._tabbar.touchEnabled = true;
             this._tabbar.touchChildren = true;
           }, 400);
+
+          egret.Tween.removeTweens(this.activeLine);
+          egret.Tween.get(this.activeLine).to({ width: 0 }, this.lineMoveDuration);
         }
       }
 
@@ -35,11 +47,21 @@ namespace we {
           if (!this._scroller.isAnimating()) {
             this._scroller.toggle();
             this._viewStack.selectedIndex = this._tabbar.selectedIndex;
+
+            const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
+            this.activeLine.x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
+            egret.Tween.removeTweens(this.activeLine);
+            egret.Tween.get(this.activeLine).to({ width }, this.lineMoveDuration);
           } else {
             this._tabbar.selectedIndex = -1;
           }
         } else {
           this._viewStack.selectedIndex = this._tabbar.selectedIndex;
+
+          const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
+          const x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
+          egret.Tween.removeTweens(this.activeLine);
+          egret.Tween.get(this.activeLine).to({ x, width }, this.lineMoveDuration);
         }
       }
     }
