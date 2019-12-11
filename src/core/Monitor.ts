@@ -15,6 +15,11 @@ namespace we {
         dir.layerCtr.top.addChild(this._betsummary);
         dir.layerCtr.overlay.addChild(this._overlay);
 
+        const liveSidePanel = new ui.LiveSidePanel();
+        liveSidePanel.x = 2000;
+        liveSidePanel.y = 200;
+        dir.layerCtr.overlay.addChild(liveSidePanel);
+
         this.addListeners();
       }
 

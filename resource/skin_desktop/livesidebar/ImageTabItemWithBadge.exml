@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ImageTabItemWithBadgeSkin" currentState="up" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" states="up,down,upAndSelected,downAndSelected" width="50" height="50">
+    <e:Image id="_image" left="0" top="0" bottom="0" right="0" />
+    <e:Group id="_badge" width="36" height="24" x="45" y="6" anchorOffsetX="18" anchorOffsetY="12">
+        <e:Rect scaleX="1" scaleY="1" left="0" top="0" bottom="0" right="0" ellipseHeight="12" ellipseWidth="12"
+                fillColor="0x003aff" />
+        <e:Label id="_badgeLabel" text="0" right="0" left="0" top="0" bottom="0" verticalAlign="middle"
+                 textAlign="center" size="16" />
+    </e:Group>
+</e:Skin>
