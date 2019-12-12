@@ -28,7 +28,7 @@ namespace we {
         dir.evtHandler.$addListener(core.Event.TOGGLE_OVERLAY_PANEL, this.onToggle, this);
       }
 
-      private onToggle(e: egret.Event) {
+      protected onToggle(e: egret.Event) {
         let panel: Panel;
         try {
           const opt: IOverlayToggleOpt = e.data;

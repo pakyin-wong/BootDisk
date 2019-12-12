@@ -2,6 +2,7 @@ namespace we {
   export namespace core {
     export const Event = {
       TOGGLE_OVERLAY_PANEL: 'TOGGLE_OVERLAY_PANEL',
+      TOGGLE_MESSAGE_PANEL: 'TOGGLE_MESSAGE_PANEL',
       MODE_UPDATE: 'EV_MODE_UPDATE',
       METER_UPDATE: 'EV_METER_UPDATE',
       ENTER_SCENE: 'EV_ENTER_SCENE',

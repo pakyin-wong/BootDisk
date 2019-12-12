@@ -31,7 +31,7 @@ namespace we {
 
       private createDialog(title) {
         const type = Math.random() > 0.5 ? 'confirm' : 'info';
-        dir.evtHandler.createOverlay({
+        dir.evtHandler.showMessage({
           class: 'MessageDialog',
           args: [type, title],
         });

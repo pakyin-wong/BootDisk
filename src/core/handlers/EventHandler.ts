@@ -13,6 +13,10 @@ namespace we {
       public createOverlay(opt: we.ui.IOverlayToggleOpt) {
         this.dispatchEvent(new egret.Event(core.Event.TOGGLE_OVERLAY_PANEL, false, false, opt));
       }
+
+      public showMessage(opt: we.ui.IOverlayToggleOpt) {
+        this.dispatchEvent(new egret.Event(core.Event.TOGGLE_MESSAGE_PANEL, false, false, opt));
+      }
     }
   }
 }

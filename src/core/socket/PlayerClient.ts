@@ -407,6 +407,8 @@ namespace we {
 
         dir.evtHandler.dispatch(core.Event.BET_SUMMARY_UPDATE, null);
       }
+
+      public getBetHistory(filter, callback: (res: any) => void, thisArg) {}
     }
   }
 }
