@@ -1,3 +1,11 @@
+## Publish
+To build the project, please use the publish.sh
+
+```
+./publish.sh [target_platform staging|production|testing]
+```
+
+
 # fe-game-client-egret
 This is the live game client for World Entertainment.
 
