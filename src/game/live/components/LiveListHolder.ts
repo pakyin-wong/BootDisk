@@ -19,6 +19,10 @@ namespace we {
         console.log('we.live.LiveListHolder::mount()');
       }
 
+      protected destroy() {
+        dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
+      }
+
       private switchMode(evt: egret.Event) {
         logger.l('LiveListHolder::switchMode', evt.data);
         this.mode = evt.data;
@@ -38,6 +42,16 @@ namespace we {
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
             this._item.addEventListener(mouse.MouseEvent.ROLL_OVER, this._item.onRollover.bind(this._item), this);
             this._item.addEventListener(mouse.MouseEvent.ROLL_OUT, this._item.onRollout.bind(this._item), this);
+            if (this.itemData) {
+              this._item.tableId = this.itemData;
+              this._item.setupTableInfo();
+              this._item.updateGame();
+              this._item.labelText = this.itemData;
+              this.setZIndex();
+
+              const table = env.tableInfos[this.itemData];
+              this._item.bigRoad.updateRoadData(table.roadmap);
+            }
             break;
           case we.lobby.mode.SIMPLE:
           case we.lobby.mode.ADVANCED:
@@ -50,6 +64,16 @@ namespace we {
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
             this._item.addEventListener(mouse.MouseEvent.ROLL_OVER, this._item.onRollover.bind(this._item), this);
             this._item.addEventListener(mouse.MouseEvent.ROLL_OUT, this._item.onRollout.bind(this._item), this);
+            if (this.itemData) {
+              this._item.tableId = this.itemData;
+              this._item.setupTableInfo();
+              this._item.updateGame();
+              this._item.labelText = this.itemData;
+              this.setZIndex();
+
+              const table = env.tableInfos[this.itemData];
+              this._item.bigRoad.updateRoadData(table.roadmap);
+            }
         }
         this._mode = value;
       }
@@ -70,7 +94,7 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        logger.l('LiveListHolder::itemDataChanged::this.itemData', this.itemData);
+        logger.l('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
           case we.lobby.mode.SIMPLE:
@@ -91,9 +115,13 @@ namespace we {
 
       private setZIndex() {
         if (env.livepageLocked && env.livepageLocked.toString() === this.itemData.toString()) {
-          this.parent.setChildIndex(this, 1000);
+          if (this.parent) {
+            this.parent.setChildIndex(this, 1000);
+          }
         } else {
-          this.parent.setChildIndex(this, 1);
+          if (this.parent) {
+            this.parent.setChildIndex(this, 1);
+          }
         }
       }
     }

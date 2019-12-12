@@ -5,10 +5,21 @@ namespace we {
       public constructor(skinName: string = 'LiveBaListItem') {
         super(skinName);
       }
+
       protected async mount() {
         const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
         this._dealerImage.texture = RES.getRes(imageResName);
       }
+
+      protected initPos() {
+        this._targetQuickBetButtonY = 350;
+        this._originalQuickBetButtonY = 300;
+        this._targetQuickbetPanelY = 378;
+        this._originalQuickBetPanelY = 100;
+        this._offsetLimit = 900;
+        this._offsetMovement = 800;
+      }
+
       get dealerImage() {
         return this._dealerImage;
       }

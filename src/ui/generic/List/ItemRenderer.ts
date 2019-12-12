@@ -26,7 +26,10 @@ namespace we {
         this.onEnterTransitionAddon = new OnEnterTransitionAddon(this);
         this.autoRemoveAddon = new AutoRemoveAddon(this);
         this.swipeableAddon = new SwipeableAddon(this);
+        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
+
+      protected destroy() {}
 
       public set enterFrom(value: string) {
         this._enterFrom = value;

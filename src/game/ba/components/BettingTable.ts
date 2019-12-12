@@ -22,7 +22,14 @@ namespace we {
 
       constructor() {
         super();
+        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
+
+      protected destroy() {
+        // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
+      }
+
+      public onTableListUpdate() {}
 
       set denomList(value: number[]) {
         this._denomList = value;
@@ -158,7 +165,7 @@ namespace we {
         this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
         this._gridSuperSixBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSixBanker), this);
 
-        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
+        // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
       /*

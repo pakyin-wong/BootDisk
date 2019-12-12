@@ -7,6 +7,10 @@ namespace we {
 
       private tabs: SegmentedControl;
       private tabItems: string[];
+      private roomList: ui.List;
+      private roomLayout: eui.AnimTileLayout;
+      private normalGapSize: number = 48;
+      private simpleGapSize: number = 20;
 
       constructor() {
         super();
@@ -16,10 +20,17 @@ namespace we {
           });
         }
         this.collection = new eui.ArrayCollection(this.roomIds);
+        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
       protected partAdded(partName: string, instance: any): void {
         super.partAdded(partName, instance);
+      }
+
+      protected destroy() {
+        dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
+        dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
       }
 
       protected childrenCreated(): void {
@@ -35,7 +46,6 @@ namespace we {
 
         const paddingHorizontal = 71;
         const offsetForTableList = -paddingHorizontal * 3;
-        const gapSize = 48;
 
         // init image slider
         const slider = new we.ui.ImageSlider();
@@ -43,16 +53,16 @@ namespace we {
         slider.width = 2600;
 
         // init room grids
-        const roomList = new ui.List();
-        const layout2 = new eui.AnimTileLayout();
-        layout2.horizontalGap = gapSize;
-        layout2.verticalGap = gapSize;
-        layout2.paddingBottom = gapSize * 3;
-        layout2.requestedColumnCount = 4;
-        // layout2.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (layout2.requestedColumnCount - 1)) / layout2.requestedColumnCount;
-        roomList.layout = layout2;
-        roomList.dataProvider = this.collection;
-        roomList.itemRenderer = LiveListHolder;
+        this.roomList = new ui.List();
+        this.roomLayout = new eui.AnimTileLayout();
+        this.roomLayout.horizontalGap = this.normalGapSize;
+        this.roomLayout.verticalGap = this.normalGapSize;
+        this.roomLayout.paddingBottom = this.normalGapSize * 3;
+        this.roomLayout.requestedColumnCount = 4;
+        // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
+        this.roomList.layout = this.roomLayout;
+        this.roomList.dataProvider = this.collection;
+        this.roomList.itemRenderer = LiveListHolder;
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;
@@ -68,15 +78,15 @@ namespace we {
         // tabs.bottom = gapSize + -offsetForTableList;
         const section = new ui.ScrollerSection();
         section.header = tabBarGroup;
-        section.content = roomList;
+        section.content = this.roomList;
         // section.header = new eui.Rect(640, 100, 0xff11ff);
         // section.content = new eui.Rect(640, 2000, 0x22ffff);
         section.scroller = this.scroller;
         section.isHeaderSticky = true;
-        section.contentPaddingTop = gapSize;
+        section.contentPaddingTop = this.normalGapSize;
         section.left = paddingHorizontal;
         section.right = paddingHorizontal;
-        section.y = slider.height + offsetForTableList + gapSize;
+        section.y = slider.height + offsetForTableList + this.normalGapSize;
 
         const group = new eui.Group();
         group.addChild(slider);
@@ -86,6 +96,30 @@ namespace we {
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
+        dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
+      }
+
+      private onDisplayMode(evt: egret.Event) {
+        switch (evt.data) {
+          case we.lobby.mode.NORMAL:
+            this.roomLayout.horizontalGap = this.normalGapSize;
+            this.roomLayout.verticalGap = this.normalGapSize;
+            this.roomLayout.paddingBottom = this.normalGapSize * 3;
+            this.roomLayout.rowHeight = 388;
+            // this.roomList.layout = this.roomLayout;
+
+            break;
+          case we.lobby.mode.SIMPLE:
+          case we.lobby.mode.ADVANCED:
+          default:
+            this.roomLayout.horizontalGap = this.normalGapSize;
+            this.roomLayout.verticalGap = this.normalGapSize;
+            this.roomLayout.paddingBottom = this.normalGapSize * 3;
+            this.roomLayout.rowHeight = 219;
+            // this.roomList.layout = this.roomLayout;
+
+            break;
+        }
       }
 
       private onLivePageLock() {
