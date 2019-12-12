@@ -1,84 +1,54 @@
 namespace we {
   export namespace ui {
-    export class LiveSidePanel extends core.BaseEUI {
-      private _tabbar: eui.List;
-      private _viewStack: eui.ViewStack;
-      private _scroller: Scroller;
-      private activeLine: eui.Rect;
-
-      private lineMoveDuration: number = 100;
-
+    export class LiveSidePanel extends SidePanel {
       constructor() {
         super();
-        this.skinName = 'LiveSidePanelSkin';
-      }
-
-      protected dispatchChange() {
-        dir.evtHandler.dispatch(core.Event.SIDE_PANEL_CHANGE, this);
       }
 
       protected mount() {
         super.mount();
-        this._tabbar.itemRenderer = ImageTabItemWithBadge;
-        this._tabbar.addEventListener(eui.UIEvent.CHANGE, this.onSelected, this);
-        this._tabbar.addEventListener('CLEAR_SELECTION', this.onClearSelection, this);
+        const group = <eui.Group> this._scroller.viewport;
 
-        this.activeLine = new eui.Rect();
+        this._viewStack = new eui.ViewStack();
+        this._viewStack.width = group.width;
+        this._viewStack.height = group.height;
+        group.addChild(this._viewStack);
+
+        // create bet table list
+        const betTableList = new eui.Group();
+        betTableList.name = 'bet';
+        this._viewStack.addChild(betTableList);
+        betTableList.width = group.width;
+        betTableList.height = group.height;
+        let rect = new eui.Rect(group.width, group.height, 0xff4422);
+        betTableList.addChild(rect);
+
+        // create good road list
+        const goodRoadTableList = new eui.Group();
+        goodRoadTableList.name = 'good_road';
+        this._viewStack.addChild(goodRoadTableList);
+        goodRoadTableList.width = group.width;
+        goodRoadTableList.height = group.height;
+        rect = new eui.Rect(group.width, group.height, 0x2244ff);
+        goodRoadTableList.addChild(rect);
+
+        // create all game list
+        const allTableList = new eui.Group();
+        allTableList.name = 'all_game';
+        this._viewStack.addChild(allTableList);
+        allTableList.width = group.width;
+        allTableList.height = group.height;
+        rect = new eui.Rect(group.width, group.height, 0x44ff22);
+        allTableList.addChild(rect);
+
+        this._tabbar.dataProvider = this._viewStack;
         this.activeLine.y = this._tabbar.y + this._tabbar.height;
-        this.activeLine.fillColor = 0xffffff;
-        this.activeLine.height = 3;
-        this.addChild(this.activeLine);
-        this.dispatchChange();
       }
 
-      protected destroy() {
-        super.destroy();
-        this.dispatchChange();
-      }
-
-      protected onClearSelection() {
-        if (!this._scroller.isCollapsed() && !this._scroller.isAnimating()) {
-          this._scroller.toggle();
-          this._tabbar.selectedIndex = -1;
-          this._tabbar.touchEnabled = false;
-          this._tabbar.touchChildren = false;
-          setTimeout(() => {
-            this._tabbar.touchEnabled = true;
-            this._tabbar.touchChildren = true;
-          }, 400);
-
-          egret.Tween.removeTweens(this.activeLine);
-          egret.Tween.get(this.activeLine).to({ width: 0 }, this.lineMoveDuration);
-          this.dispatchChange();
-        }
-      }
-
-      public get isCollapsed() {
-        return this._scroller.isCollapsed();
-      }
-
-      protected onSelected() {
-        if (this._scroller.isCollapsed()) {
-          if (!this._scroller.isAnimating()) {
-            this._scroller.toggle();
-            this._viewStack.selectedIndex = this._tabbar.selectedIndex;
-
-            const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-            this.activeLine.x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
-            egret.Tween.removeTweens(this.activeLine);
-            egret.Tween.get(this.activeLine).to({ width }, this.lineMoveDuration);
-            this.dispatchChange();
-          } else {
-            this._tabbar.selectedIndex = -1;
-          }
-        } else {
-          this._viewStack.selectedIndex = this._tabbar.selectedIndex;
-
-          const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-          const x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
-          egret.Tween.removeTweens(this.activeLine);
-          egret.Tween.get(this.activeLine).to({ x, width }, this.lineMoveDuration);
-        }
+      protected addEventListeners() {
+        // listen to table list update
+        // listen to good road list update
+        // listen to bet list update
       }
     }
   }

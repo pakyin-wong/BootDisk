@@ -20,13 +20,21 @@ namespace we {
       public categorySortOrder: string;
       public language: string;
       public betLimits: data.BetLimit[];
-      public tableHistory: any;
-      private _tableInfoArray: data.TableInfo[];
-      private _tableInfos: { [key: string]: data.TableInfo };
-      // public currentChipSelectedIndex: number = 10;
-      public currentSelectedBetLimitIndex: number = 0;
+
+      private _tableInfoArray: data.TableInfo[] = [];
+      private _tableInfos: { [key: string]: data.TableInfo } = {};
+
+      // array of table id
+      public allTableList: string[] = [];
+      public goodRoadTableList: string[] = [];
+      public betTableList: string[] = [];
+
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
+
+      // local game state
+      public currentSelectedBetLimitIndex: number = 0;
+      // public currentChipSelectedIndex: number = 10;
       public livepageLocked: string = null;
       public sidePanelExpanded: boolean = false;
 
@@ -46,9 +54,6 @@ namespace we {
       }
 
       public addTableInfo(tableInfo: data.TableInfo) {
-        if (!this._tableInfoArray) {
-          this._tableInfoArray = [];
-        }
         this._tableInfoArray.push(tableInfo);
         this._tableInfos[tableInfo.tableid] = tableInfo;
       }
@@ -59,6 +64,44 @@ namespace we {
 
       get tableInfos(): { [key: string]: data.TableInfo } {
         return this._tableInfos;
+      }
+
+      public getOrCreateTableInfo(tableid: string) {
+        const tableInfo = this.tableInfos[tableid];
+        if (tableInfo) {
+          return tableInfo;
+        } else {
+          const newInfo = new data.TableInfo();
+          newInfo.tableid = tableid;
+          this.addTableInfo(newInfo);
+          return newInfo;
+        }
+      }
+
+      public mergeTableInfoList(newTableInfoList: data.TableInfo[]) {
+        // merge new table list to tableInfoArray
+        if (this.tableInfos) {
+          for (const tableInfo of newTableInfoList) {
+            const prevTableInfo = env.tableInfos[tableInfo.tableid];
+
+            if (prevTableInfo) {
+              const mergedInfo: data.TableInfo = utils.mergeObjects(prevTableInfo, tableInfo);
+            } else {
+              this.addTableInfo(tableInfo);
+            }
+          }
+        }
+      }
+      public validateTableInfoDisplayReady(tableid: string): boolean {
+        // check if the tableInfo is displayReady
+        const tableInfo = this.tableInfos[tableid];
+        if (tableInfo && !tableInfo.displayReady) {
+          if (tableInfo.data != null && tableInfo.roadmap != null) {
+            tableInfo.displayReady = true;
+            return true;
+          }
+        }
+        return false;
       }
 
       /*
