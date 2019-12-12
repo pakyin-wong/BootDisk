@@ -2,7 +2,7 @@ namespace we {
   export namespace live {
     export class LiveDisplayModeSwitch extends we.core.BaseEUI {
       private container: eui.Group;
-      private buttons = ['d_lobby_icon_view_01_none_png', 'd_lobby_icon_view_02_none_png', 'd_lobby_icon_view_03_none_png'];
+      private buttons = ['d_lobby_icon_view_01_none_png', 'd_lobby_icon_view_02_none_png'];
       private images = [];
       private selectedIndex: number;
 
@@ -37,6 +37,7 @@ namespace we {
           }
           img.resName = source;
         });
+        dir.evtHandler.dispatch(core.Event.LIVE_DISPLAY_MODE, selectedIndex);
       }
 
       public onItemClick(index: number) {

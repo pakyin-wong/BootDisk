@@ -1,6 +1,15 @@
+/*
+*
+* It shows the game which player has bet already.
+* It contains
+* Betting table
+* Chip set
+
+*
+*/
 namespace we {
   export namespace ui {
-    export class BetInfoBaItem extends core.BaseEUI {
+    export class BetInfoBaSimpleItem extends core.BaseEUI {
       private _bettingTable: we.ba.BettingTable;
       private _bettingChip: we.ba.BetChipSet;
       private _tableId: string;
