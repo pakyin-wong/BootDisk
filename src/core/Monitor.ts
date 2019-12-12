@@ -12,8 +12,8 @@ namespace we {
       public start(stage: egret.Stage) {
         this._nav = new ui.Nav();
         // this._betsummary = new ui.BetSummary();
-        this._liveSidePanel = new ui.LiveSidePanel();
         this._notificationController = new ui.NotificationController();
+        this._liveSidePanel = new ui.LiveSidePanel();
         this._overlay = new ui.Overlay();
         this._msg = new ui.MsgOverlay();
 
