@@ -9,6 +9,18 @@ namespace we {
       overlaypanel_bethistory_thisweek: '本周',
       overlaypanel_bethistory_customperiod: '自订',
       overlaypanel_bethistory_searchrecord: '搜寻记录',
+      overlaypanel_bethistory_recordtab_id: '投注编号',
+      overlaypanel_bethistory_recordtab_date: '日期时间',
+      overlaypanel_bethistory_recordtab_game: '游戏',
+      overlaypanel_bethistory_recordtab_round: '局数',
+      overlaypanel_bethistory_recordtab_replay: '重播',
+      overlaypanel_bethistory_recordtab_remake: '备注',
+      overlaypanel_bethistory_recordtab_bettype: '投注项目',
+      overlaypanel_bethistory_recordtab_betamount: '投注额',
+      overlaypanel_bethistory_recordtab_win: '派彩',
+      overlaypanel_bethistory_recordtab_orgbalance: '开局余额',
+      overlaypanel_bethistory_recordtab_finbalance: '本局余额',
+      overlaypanel_bethistory_recordtab_resuit: '游戏结果',
 
       loading: {
         socket: {

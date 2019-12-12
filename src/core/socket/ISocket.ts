@@ -8,6 +8,7 @@ namespace we {
       getTableList(filter?: string);
       bet(tableID: string, betDetails: data.BetDetail[]);
       getTableHistory();
+      getBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
     }
   }
 }

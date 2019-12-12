@@ -410,6 +410,59 @@ namespace we {
 
         // hard code connect success event
       }
+
+      public getBetHistory(filter, callback: (res: any) => void, thisArg) {
+        callback.call(thisArg, [
+          {
+            id: 'XXXXXXXXXX',
+            datetime: '12321321', // timestamp
+            gametype: '2', // type of the Game, GameType
+            tablename: '132', // name of the table (i.e. table number)
+            roundid: '2132131',
+            replayurl: '1232131',
+            remark: '123213', // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+            field: 'BANKER',
+            betAmount: 200,
+            winAmount: 400,
+            prevremaining: 1231232, // balance before bet
+            endremaining: 21321321, // balance after result
+            result: {
+              a1: '2', // banker 1st card
+              a2: '1',
+              a3: '31',
+              b1: '4', // player 1st card
+              b2: '5',
+              b3: '423',
+              playerpoint: 123,
+              bankerpoint: 213,
+            },
+          },
+          {
+            id: 'XXXXXXXXXX',
+            datetime: '12321321', // timestamp
+            gametype: '2', // type of the Game, GameType
+            tablename: '132', // name of the table (i.e. table number)
+            roundid: '2132131',
+            replayurl: '1232131',
+            remark: '123213', // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+            field: 'BANKER',
+            betAmount: 200,
+            winAmount: 400,
+            prevremaining: 1231232, // balance before bet
+            endremaining: 21321321, // balance after result
+            result: {
+              a1: '2', // banker 1st card
+              a2: '1',
+              a3: '31',
+              b1: '4', // player 1st card
+              b2: '5',
+              b3: '423',
+              playerpoint: 123,
+              bankerpoint: 213,
+            },
+          },
+        ]);
+      }
     }
   }
 }
