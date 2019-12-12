@@ -63,6 +63,7 @@
 		"resource/skin_desktop/ImageButton.exml",
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LiveBaListItem.exml",
+		"resource/skin_desktop/LiveBaListSimpleItem.exml",
 		"resource/skin_desktop/LiveBaQuickBetPanel.exml",
 		"resource/skin_desktop/LivePage.exml",
 		"resource/skin_desktop/livesidebar/ImageTabItemWithBadge.exml",
