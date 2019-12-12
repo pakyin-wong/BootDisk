@@ -191,7 +191,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BaResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetHistoryItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{

@@ -20,8 +20,17 @@ namespace we {
       private _txt_record_finbalance: ui.RunTimeLabel;
       private _txt_record_result: ui.RunTimeLabel;
 
+      private _datagroup: eui.DataGroup;
+      private _dataColl: eui.ArrayCollection;
+
+      private _page: number;
+      private _starttime: number;
+      private _endtime: number;
+
       constructor() {
         super('overlay/BetHistory');
+
+        this._dataColl = new eui.ArrayCollection();
       }
 
       protected mount() {
@@ -44,13 +53,20 @@ namespace we {
         this._txt_record_orgbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_orgbalance')}`;
         this._txt_record_finbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_finbalance')}`;
         this._txt_record_result.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_resuit')}`;
+
+        this._datagroup.dataProvider = this._dataColl;
+        this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+
+        this.search();
       }
 
       private search() {
         dir.socket.getBetHistory({}, this.update, this);
       }
 
-      private update(res: any) {}
+      private update(res: any) {
+        this._dataColl.replaceAll(res.history);
+      }
     }
   }
 }
