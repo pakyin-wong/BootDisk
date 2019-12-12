@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="TestItemSkin" width="400" height="120" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+    <e:Group id="content" width="400" x="0" height="120" y="0">
+        <e:Rect id="moveArea" left="0" top="0" bottom="0" right="0" fillColor="0x23003d" x="0" y="0" scaleX="1"
+                scaleY="1" />
+        <e:Label id="_label" text="Label" left="0" top="0" bottom="0" right="0" verticalAlign="middle"
+                 textAlign="center" touchEnabled="false" />
+    </e:Group>
+</e:Skin>

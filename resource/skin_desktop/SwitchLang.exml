@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.SwitchLang" width="300" height="100" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Image left="0" top="0" bottom="0" right="0" source="scene_loading_bg" fillMode="clip" locked="true" />
+	<e:Image left="0" top="0" bottom="0" right="0" fillMode="clip" locked="true" />
 	<e:ProgressBar id="_progressbar" width="1280" height="26.66" horizontalCenter="0" y="1072.12" anchorOffsetY="0" />
 	<ui:RunTimeLabel id="_progressMsg" text="" y="1012" horizontalCenter="0" width="1200" textAlign="center" />
 	<e:Button id="btnTc" label="繁" width="50" horizontalCenter="-80" verticalCenter="0" />

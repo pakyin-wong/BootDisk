@@ -1,9 +1,6 @@
 namespace we {
   export namespace live {
     export class LiveBaListItem extends eui.Component {
-      public selected: boolean;
-      public itemIndex: number;
-
       private rect: eui.Rect;
       private _dealerImage: eui.Image;
       private _bigRoad: we.ba.BALobbyBigRoad;
@@ -19,6 +16,7 @@ namespace we {
       private _gameData: we.ba.GameData;
       private _timer: we.ba.CountdownTimer;
       private _mouseOutside: boolean = false;
+      private _label: eui.Label;
 
       // private _originalyhover: number;
       private _originaly: number;
@@ -39,6 +37,19 @@ namespace we {
 
       public get tableId() {
         return this._tableId;
+      }
+
+      set labelText(value: string) {
+        if (this._label) {
+          this._label.text = value;
+        }
+      }
+
+      get labelText() {
+        if (this._label) {
+          return this._label.text;
+        }
+        return null;
       }
 
       public getQuickbetButton(): ui.RoundButton {
@@ -277,6 +288,7 @@ namespace we {
                 dir.evtHandler.dispatch(we.core.Event.LIVE_PAGE_LOCK);
               } else {
                 const tw2 = egret.Tween.get(this._quickbetButton).to({ y: 350, alpha: 0 }, 250);
+                this._quickbetButton.tweenLabel(false);
               }
             }, 300);
           }

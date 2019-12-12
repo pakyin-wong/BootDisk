@@ -79,6 +79,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetInfoBaQuickBetPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetInfoHolder extends eui.Skin{
 	}
 }
@@ -103,15 +107,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class CircleButtonSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class CountdownTimerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class CountdownTimerRoundSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DialogRoundButton extends eui.Skin{
 	}
 }
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
@@ -154,6 +158,14 @@ declare module skin_desktop{
 	class LivePage extends eui.Skin{
 	}
 }
+declare class ImageTabItemWithBadgeSkin extends eui.Skin{
+}
+declare class LiveSidePanelSkin extends eui.Skin{
+}
+declare class TabItemWithBadgeSkin extends eui.Skin{
+}
+declare class TestItemSkin extends eui.Skin{
+}
 declare module skin_desktop{
 	class LoadingProgressBar extends eui.Skin{
 	}
@@ -176,6 +188,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BetHistory extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class MessageDialog extends eui.Skin{
 	}
 }
 declare module skin_desktop{

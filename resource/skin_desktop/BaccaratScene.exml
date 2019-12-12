@@ -13,11 +13,11 @@
 	<e:Button id="confirmButton" label="" y="944" anchorOffsetX="0" width="180" anchorOffsetY="0" height="60"
 	          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
 	<ba:CountdownTimer id="countdownTimer" width="180" height="60" y="945.33" horizontalCenter="115" />
-	<ui:CircleButton id="cancelButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
+	<ui:ImageButton id="cancelButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 	                 horizontalCenter="334" resName="d_ba_betcontrol_icon_cancel_png" />
-	<ui:CircleButton id="repeatButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
+	<ui:ImageButton id="repeatButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 	                 horizontalCenter="250" resName="d_ba_betcontrol_icon_repeat_png" />
-	<ui:CircleButton id="doubleButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
+	<ui:ImageButton id="doubleButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 	                 horizontalCenter="416" resName="d_ba_betcontrol_icon_double_png" />
 	<ba:BARoadmapLeftPanel id="roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
 	                       anchorOffsetY="0" />

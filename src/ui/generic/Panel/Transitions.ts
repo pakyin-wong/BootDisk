@@ -30,7 +30,7 @@ namespace we {
         await new Promise((resolve, reject) => {
           target.alpha = isFade ? 0 : 1;
           egret.Tween.get(target)
-            .to({ $x: destinationX, $alpha: 1 }, duration)
+            .to({ $x: destinationX, alpha: 1 }, duration)
             .call(resolve);
         });
       }
@@ -42,7 +42,7 @@ namespace we {
         await new Promise((resolve, reject) => {
           target.alpha = isFade ? 0 : 1;
           egret.Tween.get(target)
-            .to({ $x: destinationX, $alpha: 1 }, duration)
+            .to({ $x: destinationX, alpha: 1 }, duration)
             .call(resolve);
         });
       }
@@ -53,7 +53,7 @@ namespace we {
           const destinationX: number = -target.width - 20;
           const destinationAlpha = isFade ? 0 : target.alpha;
           egret.Tween.get(target)
-            .to({ $x: destinationX, $alpha: destinationAlpha }, duration)
+            .to({ $x: destinationX, alpha: destinationAlpha }, duration)
             .call(resolve);
         });
       }
@@ -64,7 +64,7 @@ namespace we {
           const destinationX = target.width + 20;
           const destinationAlpha = isFade ? 0 : target.alpha;
           egret.Tween.get(target)
-            .to({ $x: destinationX, $alpha: destinationAlpha }, duration)
+            .to({ $x: destinationX, alpha: destinationAlpha }, duration)
             .call(resolve);
         });
       }

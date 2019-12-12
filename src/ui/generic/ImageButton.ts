@@ -1,26 +1,13 @@
 namespace we {
   export namespace ui {
-    export class ImageButton extends eui.Component {
+    export class ImageButton extends BaseButton {
       protected _image: eui.Image;
+      protected _hoverImage: eui.Image;
       protected _resName: string;
       protected _hoverResName: string;
 
-      constructor() {
-        super();
-        this.skinName = utils.getSkin('ImageButton');
-        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.rollover, this);
-        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.rollout, this);
-        mouse.setButtonMode(this, true);
-      }
-
-      protected rollover() {
-        if (this._hoverResName) {
-          this._image.source = this._hoverResName;
-        }
-      }
-
-      protected rollout() {
-        this._image.source = this._resName;
+      constructor(value: string = 'ImageButton') {
+        super(value);
       }
 
       set resName(value: string) {
@@ -35,7 +22,13 @@ namespace we {
       }
 
       set hoverResName(value: string) {
-        this._hoverResName = value;
+        this._hoverResName = this._resName;
+        if (value) {
+          this._hoverResName = value;
+        }
+        if (this._hoverImage) {
+          this._hoverImage.source = value;
+        }
       }
 
       get hoverResName() {

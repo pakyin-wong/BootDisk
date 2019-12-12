@@ -231,10 +231,10 @@ namespace we {
         this.betDetails = betDetails;
 
         // TODO: update the already bet amount of each bet field
-        console.log('BettingTable::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxx111');
+        console.log('BettingTable::betDetails');
         console.log(betDetails);
         betDetails.map((value, index) => {
-          console.log('BettingTable::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxx : ' + value);
+          console.log('BettingTable::betDetails: ' + value);
           console.log('xxx value.field' + value.field);
           // logger.l('BettingTable::updateBetFields:loop ' + value);
           if (this.mapping[value.field]) {

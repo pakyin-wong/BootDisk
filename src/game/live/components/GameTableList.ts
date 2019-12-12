@@ -125,6 +125,8 @@ namespace we {
           removed.forEach(item => {
             this.collection.removeItemAt(this.collection.getItemIndex(item));
           });
+          logger.l('GameTableList::handleTableList() -> after: ', this.collection);
+
           // this.roomIds = roomIds;
           // this.roomIds.forEach((x, inx) => {
           //   this.collection.replaceItemAt(x, inx);

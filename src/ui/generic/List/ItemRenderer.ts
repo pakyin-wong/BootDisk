@@ -94,6 +94,8 @@ namespace we {
         if (isNew) {
           if (this.parent instanceof List) {
             const list = <List> this.parent;
+            this.isFadeEnter = list.isFade;
+            this.isFadeLeave = list.isFade;
             this.enterFrom = list.enterFrom;
             this.leaveTo = list.leaveTo;
             this.swipeDirection = list.swipeDirection;

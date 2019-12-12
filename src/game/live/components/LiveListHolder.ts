@@ -5,9 +5,6 @@ namespace we {
       public itemIndex: number;
 
       private _item: we.live.LiveBaListItem;
-      protected destinationX: number = Infinity;
-      protected destinationY: number = Infinity;
-      protected isDirty = true;
 
       public constructor() {
         super();
@@ -25,6 +22,7 @@ namespace we {
         this._item.addEventListener(mouse.MouseEvent.ROLL_OVER, this._item.onRollover.bind(this._item), this);
         this._item.addEventListener(mouse.MouseEvent.ROLL_OUT, this._item.onRollout.bind(this._item), this);
       }
+
       public onTouchTapWhole(evt: egret.Event) {
         const target = this._item.getQuickbetButton();
         if (evt.target === target || env.livepageLocked === this.itemData.toString()) {
@@ -37,15 +35,17 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        const table = env.tableInfos[this.itemData];
-        // console.log('we.live.LiveListHolder::itemDataChanged()');
-        // console.log(this.itemData);
+        logger.l('LiveListHolder::itemDataChanged::this.itemData', this.itemData);
 
         this._item.tableId = this.itemData;
         this._item.setupTableInfo();
         this._item.updateGame();
-        this._item.bigRoad.updateRoadData(table.roadmap);
+        this._item.labelText = this.itemData;
         this.setZIndex();
+
+        const table = env.tableInfos[this.itemData];
+        this._item.bigRoad.updateRoadData(table.roadmap);
+
         egret.Tween.removeTweens(this);
       }
 

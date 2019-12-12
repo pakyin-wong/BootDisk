@@ -2,6 +2,7 @@ namespace we {
   export namespace core {
     export const Event = {
       TOGGLE_OVERLAY_PANEL: 'TOGGLE_OVERLAY_PANEL',
+      TOGGLE_MESSAGE_PANEL: 'TOGGLE_MESSAGE_PANEL',
       MODE_UPDATE: 'EV_MODE_UPDATE',
       METER_UPDATE: 'EV_METER_UPDATE',
       ENTER_SCENE: 'EV_ENTER_SCENE',
@@ -22,6 +23,7 @@ namespace we {
       EXCEED_BET_LIMIT: 'EXCEED_BET_LIMIT',
       BET_CHIP_CHANGE: 'BET_CHIP_CHANGE',
       BET_LIMIT_CHANGE: 'BET_LIMIT_CHANGE',
+      SIDE_PANEL_CHANGE: 'SIDE_PANEL_CHANGE',
     };
 
     export const MQTT = {
@@ -37,6 +39,10 @@ namespace we {
       CONNECT_FAIL: 'MQTT_EV_CONNECT_FAIL',
       TABLE_BET_INFO_UPDATE: 'TABLE_BET_INFO_UPDATE',
       BET_TABLE_LIST_UPDATE: 'BET_TABLE_LIST_UPDATE',
+    };
+
+    export const Error = {
+      WFCABLE_ERROR: 'WFCABLE_ERROR',
     };
   }
 }

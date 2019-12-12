@@ -90,7 +90,9 @@ namespace we {
       }
 
       private onClickHistory() {
-        dir.evtHandler.dispatch(core.Event.TOGGLE_OVERLAY_PANEL, 'BetHistory');
+        dir.evtHandler.createOverlay({
+          class: 'BetHistory',
+        });
         logger.l(`NavSideMenu::onClickHistory`);
       }
 
@@ -99,12 +101,16 @@ namespace we {
       }
 
       private onClickRoad() {
-        dir.evtHandler.dispatch(core.Event.TOGGLE_OVERLAY_PANEL, 'CustomRoad');
+        dir.evtHandler.createOverlay({
+          class: 'CustomRoad',
+        });
         logger.l(`NavSideMenu::onClickRoad`);
       }
 
       private onClickSystem() {
-        dir.evtHandler.dispatch(core.Event.TOGGLE_OVERLAY_PANEL, 'SystemSetting');
+        dir.evtHandler.createOverlay({
+          class: 'SystemSetting',
+        });
         logger.l(`NavSideMenu::onClickSystem`);
       }
 

@@ -24,6 +24,7 @@ namespace we {
     export enum ChipType {
       FLAT = 1,
       CLIP = 2,
+      BETTING = 3,
     }
 
     export enum GameName {

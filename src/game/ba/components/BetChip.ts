@@ -6,8 +6,8 @@ namespace we {
 
       private glowFilter: egret.GlowFilter;
 
-      public chipImg: eui.Image;
-      public chipValue: eui.Label;
+      public _chipImg: eui.Image;
+      public _chipValue: eui.Label;
 
       public constructor(value: number = null) {
         super();
@@ -37,8 +37,8 @@ namespace we {
 
       public setValue(newValue: number, flat = false) {
         this.value = newValue;
-        // this.chipValue.text = newValue.toString();
-        this.chipImg.source = this.getBetChipImg(newValue, flat ? we.core.ChipType.FLAT : we.core.ChipType.CLIP);
+        this._chipValue.text = newValue.toString();
+        this._chipImg.source = this.getBetChipImg(newValue, flat ? we.core.ChipType.FLAT : we.core.ChipType.CLIP);
       }
 
       public getValue() {
@@ -53,10 +53,10 @@ namespace we {
         this._highlight = value;
         if (value) {
           // this.setValue(this.value, true);
-          this.chipImg.filters = [this.glowFilter];
+          this._chipImg.filters = [this.glowFilter];
         } else {
           // this.setValue(this.value, false);
-          this.chipImg.filters = [];
+          this._chipImg.filters = [];
         }
       }
 
@@ -64,6 +64,7 @@ namespace we {
         let chipTex;
         if (value) {
           const resName = utils.getChipImage(value, type);
+          logger.l('Betchip::getBetChipImg: ' + resName);
           chipTex = RES.getRes(resName);
         }
         if (!chipTex) {

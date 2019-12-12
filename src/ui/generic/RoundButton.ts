@@ -6,12 +6,12 @@ namespace we {
       private _tw1: egret.Tween;
       private _tw2: egret.Tween;
       private _tw3: egret.Tween;
+      private _tw4: egret.Tween;
       private _label1text: string;
       private _label2text: string;
 
       constructor() {
-        super();
-        this.skinName = utils.getSkin('RoundButton');
+        super('RoundButton');
         this.touchChildren = false;
       }
 
@@ -84,6 +84,10 @@ namespace we {
         if (this._image) {
           this._image.fillMode = egret.BitmapFillMode.SCALE;
           this._image.scale9Grid = new egret.Rectangle(+v[0], +v[1], +v[2], +v[3]);
+        }
+        if (this._hoverImage) {
+          this._hoverImage.fillMode = egret.BitmapFillMode.SCALE;
+          this._hoverImage.scale9Grid = new egret.Rectangle(+v[0], +v[1], +v[2], +v[3]);
         }
       }
 

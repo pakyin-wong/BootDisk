@@ -83,6 +83,13 @@ namespace we {
         // setTimeout(() => {
         //   this.tables = this.tables.filter((x, i) => i !== 6);
         // }, 14000);
+
+        setInterval(() => {
+          // mock error
+          if (Math.random() > 0.5) {
+            dir.errHandler.handleError({ code: 1001 });
+          }
+        }, 5000);
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
@@ -180,7 +187,7 @@ namespace we {
 
       public dispatchBetInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
-        console.log('SocketMock::dispatchBetInfoUpdateEvent xxxxxxxxxxxxxxxxxxxxxx ');
+        console.log('SocketMock::dispatchBetInfoUpdateEvent');
         console.log(data);
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, data);
       }
@@ -371,7 +378,7 @@ namespace we {
         // add the bets to confirmed bet Array
         const data = this.tables[parseInt(tableID, 10) - 1];
         this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
-        console.log('SocketMock::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxxloop ');
+        console.log('SocketMock::bet() betDetails');
         console.dir(betDetails);
         for (const betDetail of betDetails) {
           let isMatch = false;
