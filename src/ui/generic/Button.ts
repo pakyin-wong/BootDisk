@@ -7,7 +7,7 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = utils.getSkin('ImageButton');
+        this.skinName = utils.getSkin('OldImageButton');
         this.touchChildren = false;
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.rollover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.rollout, this);

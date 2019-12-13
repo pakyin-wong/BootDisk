@@ -13,7 +13,7 @@ namespace we {
         mouse.setButtonMode(this, true);
       }
 
-      private set buttonEnabled(b: boolean) {
+      public set buttonEnabled(b: boolean) {
         if (b === this._enabled) {
           return;
         }

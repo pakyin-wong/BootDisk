@@ -1,13 +1,13 @@
 namespace we {
   export namespace ui {
-    export class ImageButton extends BaseButton {
+    export class OldImageButton extends BaseButton {
       protected _image: eui.Image;
       protected _hoverImage: eui.Image;
       protected _resName: string;
       protected _hoverResName: string;
 
-      constructor(value: string = 'ImageButton') {
-        super(value);
+      constructor(skin: string = 'OldImageButton') {
+        super(skin);
       }
 
       set resName(value: string) {

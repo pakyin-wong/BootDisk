@@ -122,6 +122,7 @@ namespace we {
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',
+        unknownError: '亲，花生未知錯誤',
       },
     };
   }

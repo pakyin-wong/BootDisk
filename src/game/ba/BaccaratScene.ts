@@ -13,9 +13,9 @@ namespace we {
       private cardHolder: CardHolder;
       private countdownTimer: CountdownTimer;
       private confirmButton: eui.Button;
-      private repeatButton: ui.ImageButton;
-      private cancelButton: ui.ImageButton;
-      private doubleButton: ui.ImageButton;
+      private repeatButton: ui.OldImageButton;
+      private cancelButton: ui.OldImageButton;
+      private doubleButton: ui.OldImageButton;
       // private winAmountLabel: eui.Label;
       // private stateLabel: eui.Label;
       private roundPanel: eui.Rect;

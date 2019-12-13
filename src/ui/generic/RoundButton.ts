@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class RoundButton extends ImageButton {
+    export class RoundButton extends OldImageButton {
       private _label1: eui.Label;
       private _label2: eui.Label;
       private _tw1: egret.Tween;

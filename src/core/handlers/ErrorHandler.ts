@@ -18,22 +18,38 @@ namespace we {
         switch (error.code) {
           case 1001: {
             console.log('hanle');
-            this.createDialog('hello world');
+            this.createDialog('hello world', {
+              dismiss: {
+                text: 'single',
+              },
+            });
+            break;
+          }
+          case 1002: {
+            // handled and pass to components
+            this.dispatchEvent(new egret.Event(core.Error.WFCABLE_ERROR, false, false, error));
             break;
           }
           default: {
-            this.dispatchEvent(new egret.Event(core.Error.WFCABLE_ERROR, false, false, error));
+            // unknown error, show error code restart game
             console.log('onClientError unknown code', error.code);
+            this.createDialog(`${i18n.t('message.unknownError')} (Code: ${error.code})`, {
+              dismiss: {
+                text: 'child 1',
+              },
+              action: {
+                text: 'child 2',
+              },
+            });
             break;
           }
         }
       }
 
-      private createDialog(title) {
-        const type = Math.random() > 0.5 ? 'confirm' : 'info';
+      private createDialog(title, buttons: we.overlay.IMessageDialogButtonProps) {
         dir.evtHandler.showMessage({
           class: 'MessageDialog',
-          args: [type, title],
+          args: [title, buttons],
         });
       }
     }
