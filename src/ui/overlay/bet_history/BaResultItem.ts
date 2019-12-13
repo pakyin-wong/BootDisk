@@ -21,7 +21,12 @@ namespace we {
           this._gameResult = gameresult;
         }
 
-        protected mount() {}
+        protected mount() {
+          this._txt_player.renderText = () => `${i18n.t('overlaypanel_bethistory_baresult_player')}`;
+          this._txt_banker.renderText = () => `${i18n.t('overlaypanel_bethistory_baresult_banker')}`;
+          this._txt_pPoint.text = this._gameResult.playerpoint;
+          this._txt_bPoint.text = this._gameResult.bankerpoint;
+        }
       }
     }
   }

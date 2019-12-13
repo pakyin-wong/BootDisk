@@ -5,7 +5,7 @@
         <e:Group id="_toggler" x="6" y="5" touchEnabled="true" touchThrough="false" touchChildren="false" width="100%"
                  height="32">
             <e:Label id="_label" text="" top="0" bottom="0" textAlign="right" verticalAlign="middle" size="24"
-                     left="0"  height="29" fontFamily="Barlow-Regular" anchorOffsetX="0" right="0"/>
+                     left="0"  height="29" fontFamily="Barlow" anchorOffsetX="0" right="0"/>
 					<e:Image width="24" height="24" x="133" y="4" source="d_ba_navbar_icon_dropdown_png"/>
         </e:Group>
         <ui:Scroller id="_scroller" x="-1" y="38" isCollapsible="true" iscollapseAnimate="true" collapseOnStart="true"
