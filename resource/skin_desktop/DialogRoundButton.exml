@@ -8,5 +8,5 @@
         fillColor.hover="0x1b416e"
         strokeColor.hover="0x1b416e"
     />
-    <ui:RunTimeLabel id="_txt_label" text="Action" left="48" right="48" top="16" bottom="16" fontFamily="NotoSansCJKtc-Regular" size="24" verticalAlign="middle"/>
+    <ui:RunTimeLabel id="_txt_label" text="Action" left="48" right="48" top="16" bottom="16" fontFamily="NotoSansCJKtc" size="24" verticalAlign="middle"/>
 </e:Skin>

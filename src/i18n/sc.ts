@@ -1,6 +1,21 @@
 namespace we {
   export namespace i18n {
     export const sc = {
+      gametype_BAC: '百家乐',
+      gametype_BAS: '竞速百家乐',
+      gametype_BAI: '保险百家乐',
+      gametype_DI: '骰宝',
+      gametype_MJ: '麻将',
+      gametype_RO: '轮盘',
+
+      betfield_baccarat_banker: '庄',
+      betfield_baccarat_player: '闲',
+      betfield_baccarat_tie: '和',
+      betfield_baccarat_banker_pair: '庄对',
+      betfield_baccarat_player_pair: '闲对',
+      betfield_baccarat_super_six: '超级六',
+      betfield_baccarat_super_six_banker: '庄',
+
       overlaypanel_customroad_title: '好路设定',
 
       overlaypanel_bethistory_title: '投注记录',
@@ -14,13 +29,19 @@ namespace we {
       overlaypanel_bethistory_recordtab_game: '游戏',
       overlaypanel_bethistory_recordtab_round: '局数',
       overlaypanel_bethistory_recordtab_replay: '重播',
-      overlaypanel_bethistory_recordtab_remake: '备注',
+      overlaypanel_bethistory_recordtab_remark: '备注',
       overlaypanel_bethistory_recordtab_bettype: '投注项目',
       overlaypanel_bethistory_recordtab_betamount: '投注额',
       overlaypanel_bethistory_recordtab_win: '派彩',
       overlaypanel_bethistory_recordtab_orgbalance: '开局余额',
       overlaypanel_bethistory_recordtab_finbalance: '本局余额',
       overlaypanel_bethistory_recordtab_resuit: '游戏结果',
+      overlaypanel_bethistory_remark_win: '嬴',
+      overlaypanel_bethistory_remark_lose: '输',
+      overlaypanel_bethistory_remark_ties: '和',
+
+      overlaypanel_bethistory_baresult_banker: '庄',
+      overlaypanel_bethistory_baresult_player: '闲',
 
       loading: {
         socket: {

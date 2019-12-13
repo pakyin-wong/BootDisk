@@ -46,7 +46,7 @@ namespace we {
         this._txt_record_game.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_game')}`;
         this._txt_record_round.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_round')}`;
         this._txt_record_replay.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_replay')}`;
-        this._txt_record_remake.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_remake')}`;
+        this._txt_record_remake.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_remark')}`;
         this._txt_record_bettype.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_bettype')}`;
         this._txt_record_betamount.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_betamount')}`;
         this._txt_record_win.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_win')}`;

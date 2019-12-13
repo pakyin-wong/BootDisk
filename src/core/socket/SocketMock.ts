@@ -423,12 +423,12 @@ namespace we {
           history: [
             {
               id: 'XXXXXXXXXX',
-              datetime: '12321321', // timestamp
-              gametype: '2', // type of the Game, GameType
+              datetime: 1576242221, // timestamp
+              gametype: 1, // type of the Game, GameType
               tablename: '132', // name of the table (i.e. table number)
               roundid: '2132131',
               replayurl: '1232131',
-              remark: '123213', // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+              remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
               field: 'BANKER',
               betAmount: 200,
               winAmount: 400,
@@ -441,18 +441,18 @@ namespace we {
                 b1: '4', // player 1st card
                 b2: '5',
                 b3: '423',
-                playerpoint: 123,
-                bankerpoint: 213,
+                playerpoint: 6,
+                bankerpoint: 7,
               },
             },
             {
               id: 'XXXXXXXXXX',
-              datetime: '12321321', // timestamp
-              gametype: '2', // type of the Game, GameType
+              datetime: 1576242221, // timestamp
+              gametype: 0, // type of the Game, GameType
               tablename: '132', // name of the table (i.e. table number)
               roundid: '2132131',
               replayurl: '1232131',
-              remark: '123213', // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+              remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
               field: 'BANKER',
               betAmount: 200,
               winAmount: 400,
@@ -465,8 +465,8 @@ namespace we {
                 b1: '4', // player 1st card
                 b2: '5',
                 b3: '423',
-                playerpoint: 123,
-                bankerpoint: 213,
+                playerpoint: 3,
+                bankerpoint: 1,
               },
             },
           ],
