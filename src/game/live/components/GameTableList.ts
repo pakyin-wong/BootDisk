@@ -132,7 +132,7 @@ namespace we {
 
         // TODO: Clear Table Array
 
-        dir.socket.getTableList(item);
+        dir.socket.getTableList();
         dir.socket.getTableHistory();
       }
 
@@ -148,7 +148,7 @@ namespace we {
         this.tabs.setSelectedIndex(itemIdx);
 
         // get new data List
-        dir.socket.getTableList(item);
+        dir.socket.getTableList();
         dir.socket.getTableHistory();
 
         this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);

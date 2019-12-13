@@ -1,9 +1,9 @@
 namespace we {
   export namespace ui {
     export class LiveSidePanel extends SidePanel {
-      protected betTableList: eui.Group;
-      protected goodRoadTableList: eui.Group;
-      protected allTableList: eui.Group;
+      protected betTableList: TableList;
+      protected goodRoadTableList: TableList;
+      protected allTableList: TableList;
 
       constructor() {
         super();
@@ -19,31 +19,31 @@ namespace we {
         group.addChild(this._viewStack);
 
         // create bet table list
-        const betTableList = new eui.Group();
-        betTableList.name = 'bet';
-        this._viewStack.addChild(betTableList);
-        betTableList.width = group.width;
-        betTableList.height = group.height;
+        const betTableGroup = new eui.Group();
+        betTableGroup.name = 'bet';
+        this._viewStack.addChild(betTableGroup);
+        betTableGroup.width = group.width;
+        betTableGroup.height = group.height;
         let rect = new eui.Rect(group.width, group.height, 0xff4422);
-        betTableList.addChild(rect);
+        betTableGroup.addChild(rect);
 
         // create good road list
-        const goodRoadTableList = new eui.Group();
-        goodRoadTableList.name = 'good_road';
-        this._viewStack.addChild(goodRoadTableList);
-        goodRoadTableList.width = group.width;
-        goodRoadTableList.height = group.height;
+        const goodRoadTableGroup = new eui.Group();
+        goodRoadTableGroup.name = 'good_road';
+        this._viewStack.addChild(goodRoadTableGroup);
+        goodRoadTableGroup.width = group.width;
+        goodRoadTableGroup.height = group.height;
         rect = new eui.Rect(group.width, group.height, 0x2244ff);
-        goodRoadTableList.addChild(rect);
+        goodRoadTableGroup.addChild(rect);
 
         // create all game list
-        const allTableList = new eui.Group();
-        allTableList.name = 'all_game';
-        this._viewStack.addChild(allTableList);
-        allTableList.width = group.width;
-        allTableList.height = group.height;
+        const allTableGroup = new eui.Group();
+        allTableGroup.name = 'all_game';
+        this._viewStack.addChild(allTableGroup);
+        allTableGroup.width = group.width;
+        allTableGroup.height = group.height;
         rect = new eui.Rect(group.width, group.height, 0x44ff22);
-        allTableList.addChild(rect);
+        allTableGroup.addChild(rect);
 
         this._tabbar.dataProvider = this._viewStack;
         this.activeLine.y = this._tabbar.y + this._tabbar.height;
