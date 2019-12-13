@@ -114,10 +114,6 @@ declare module skin_desktop{
 	class CountdownTimerRoundSkin extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class DialogRoundButton extends eui.Skin{
-	}
-}
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
 }
 declare class BaBetLimitDropdownSkin extends eui.Skin{
@@ -134,9 +130,11 @@ declare module skin_desktop{
 	class GameBar extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class ImageButtonSkin extends eui.Skin{
-	}
+declare class ImageButtonSkinDialog extends eui.Skin{
+}
+declare class ImageButtonSkinEmpty extends eui.Skin{
+}
+declare class ImageButtonSkinLobby extends eui.Skin{
 }
 declare module skin_desktop{
 	class ImageSlider extends eui.Skin{
@@ -188,6 +186,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class NavSideMenu extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ImageButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
