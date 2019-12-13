@@ -44,7 +44,7 @@ namespace we {
         // this.client.subscribe(core.MQTT.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         this.client.subscribe(core.MQTT.BALANCE_UPDATE, this.onBalanceUpdate, this);
         this.client.subscribe(core.MQTT.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
-        this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+        // this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
         this.client.subscribe(core.MQTT.ERROR, this.onError, this);
         this.client.subscribe(core.MQTT.NOTIFICATION_ROADMAP_MATCH, this.onGoodRoadMatch, this);
       }
@@ -152,12 +152,14 @@ namespace we {
 
       public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
-
+        console.log(tableList);
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = tableList.tablesList;
         env.mergeTableInfoList(tableInfos);
         // save the list to env.allTableList
         const allTableList = tableInfos.map(data => data.tableid);
+        // const added = utils.arrayDiff(allTableList, env.allTableList);
+        // const removed = utils.arrayDiff(env.allTableList, allTableList);
         env.allTableList = allTableList;
         // filter all the display ready table
         // dispatch TABLE_LIST_UPDATE

@@ -1,6 +1,10 @@
 namespace we {
   export namespace ui {
     export class LiveSidePanel extends SidePanel {
+      protected betTableList: eui.Group;
+      protected goodRoadTableList: eui.Group;
+      protected allTableList: eui.Group;
+
       constructor() {
         super();
       }
@@ -43,13 +47,24 @@ namespace we {
 
         this._tabbar.dataProvider = this._viewStack;
         this.activeLine.y = this._tabbar.y + this._tabbar.height;
+
+        this.addEventListeners();
       }
 
       protected addEventListeners() {
         // listen to table list update
+        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update
+        dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
         // listen to bet list update
+        dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
       }
+
+      protected onTableListUpdate(tableList: string[]) {}
+
+      protected onGoodRoadTableListUpdate(tableList: string[]) {}
+
+      protected onBetTableListUpdate(tableList: string[]) {}
     }
   }
 }

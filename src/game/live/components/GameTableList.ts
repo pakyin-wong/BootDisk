@@ -98,27 +98,11 @@ namespace we {
         }
       }
 
-      private arrayDiff(array1, array2) {
-        const result = [];
-        let i = 0;
-        array2 = [...array2];
-        while (i < array1.length) {
-          const t1 = array1[i++];
-          const t2 = array2.indexOf(t1);
-          if (t2 !== -1) {
-            array2.splice(t2, 1);
-          } else {
-            result.push(t1);
-          }
-        }
-        return result;
-      }
-
       private handleTableList(event: egret.Event) {
         if (!env.livepageLocked) {
           const roomIds = event.data as string[];
-          const added = this.arrayDiff(roomIds, this.roomIds);
-          const removed = this.arrayDiff(this.roomIds, roomIds);
+          const added = utils.arrayDiff(roomIds, this.roomIds);
+          const removed = utils.arrayDiff(this.roomIds, roomIds);
           added.forEach(item => {
             this.collection.addItem(item);
           });
