@@ -99,6 +99,7 @@ namespace we {
       public connect() {
         // this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
         /// this.client.connect();
+
         setTimeout(() => {
           this.handleReady();
         }, 1000);

@@ -3,7 +3,6 @@ namespace we {
   export namespace core {
     export class Monitor {
       private _nav: ui.Nav;
-      // private _betsummary: ui.BetSummary;
       private _notificationController: ui.NotificationController;
       private _liveSidePanel: ui.LiveSidePanel;
       private _overlay: ui.Overlay;
@@ -11,7 +10,6 @@ namespace we {
 
       public start(stage: egret.Stage) {
         this._nav = new ui.Nav();
-        // this._betsummary = new ui.BetSummary();
         this._notificationController = new ui.NotificationController();
         this._liveSidePanel = new ui.LiveSidePanel();
         this._overlay = new ui.Overlay();

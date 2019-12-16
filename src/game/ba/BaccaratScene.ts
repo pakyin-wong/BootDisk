@@ -28,7 +28,6 @@ namespace we {
       private tableInfo: data.TableInfo;
       private gameData: GameData;
       private betDetails: data.BetDetail[];
-      private totalWin: number;
 
       private btnBack: egret.DisplayObject;
       private lblRoomInfo: eui.Label;
@@ -121,7 +120,6 @@ namespace we {
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
-        this.bettingTable.skinName = utils.getSkin('BettingTable');
         this.bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
         this.bettingTable.getSelectedChipIndex = this.betChipSet.getSelectedChipIndex.bind(this.betChipSet);
         this.bettingTable.type = we.core.BettingTableType.NORMAL;
@@ -330,11 +328,10 @@ namespace we {
               break;
             case GameState.FINISH:
             default:
-              this.computeTotalWin();
               // this.winAmountLabel.visible = true;
               // this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
               this.bettingTable.showWinEffect(this.betDetails);
-              this.checkResultMessage(this.totalWin);
+              this.checkResultMessage(this.tableInfo.totalWin);
               break;
           }
         }
@@ -349,10 +346,15 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         console.log('BaccaratScene::onRoadDataUpdate');
-        // const tableInfo = <data.TableInfo>evt.data;
-        // if (tableInfo.tableid === this.tableID) {
-        // this.roadmap.updateRoadData(tableInfo.roadmap);
-        // }
+        const tableInfo = <data.TableInfo> evt.data;
+        if (tableInfo.tableid === this.tableID) {
+          if (tableInfo.roadmap) {
+            this.roadmapControl.updateRoadData(tableInfo.roadmap);
+          }
+          if (tableInfo.betInfo) {
+            this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
+          }
+        }
       }
 
       protected updateGame() {
@@ -474,13 +476,8 @@ namespace we {
           logger.l(`this.gameData.winType ${this.gameData.wintype} ${utils.EnumHelpers.getKeyByValue(WinType, this.gameData.wintype)}`);
           // this.stateLabel.text = `Finish, ${utils.EnumHelpers.getKeyByValue(WinType, this.gameData.wintype)}`;
 
-          if (this.totalWin) {
-            // this.winAmountLabel.visible = true;
-            // this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
-          }
-
           // TODO: show win message and the total win ammount to the client for few seconds
-          this.checkResultMessage();
+          this.checkResultMessage(this.tableInfo.totalWin);
 
           // TODO: after win message has shown, show win/ lose effect of each bet
         }
@@ -576,17 +573,6 @@ namespace we {
           }
         }
         return false;
-      }
-
-      protected computeTotalWin() {
-        let totalWin = 0;
-        if (this.betDetails) {
-          for (const betDetail of this.betDetails) {
-            totalWin += betDetail.winamount;
-          }
-        }
-
-        this.totalWin = totalWin;
       }
     }
   }
