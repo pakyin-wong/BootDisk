@@ -14,5 +14,9 @@ namespace we {
     export function formatTime(unix) {
       return moment.unix(unix).format('YYYY/MM/DD HH:mm:ss');
     }
+
+    export function formatCard(source) {
+      return source.replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2').replace('diamond', 'diamonds').replace('heart', 'hearts');
+    }
   }
 }
