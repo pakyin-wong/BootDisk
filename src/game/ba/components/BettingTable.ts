@@ -91,57 +91,64 @@ namespace we {
       public init() {
         this.createMapping();
         this.setFieldNames();
-        this.setDenomLayer(false);
         this.setDenomLists();
         this.changeLang();
         this.resetUnconfirmedBet();
         this.setListeners();
       }
 
-      private setDenomLayer(twoLayer: boolean) {
-        if (twoLayer) {
-          this._denomLayer = new eui.Component();
-
-          this._gridPlayer.denomLayer = new eui.Component();
-          this._gridBanker.denomLayer = new eui.Component();
-          this._gridPlayerPair.denomLayer = new eui.Component();
-          this._gridTie.denomLayer = new eui.Component();
-          this._gridBankerPair.denomLayer = new eui.Component();
-          this._gridSuperSixBanker.denomLayer = new eui.Component();
-          this._gridSuperSix.denomLayer = new eui.Component();
-
-          this.setDenomGrid(this._gridBanker);
-          this.setDenomGrid(this._gridPlayer);
-          this.setDenomGrid(this._gridBankerPair);
-          this.setDenomGrid(this._gridPlayerPair);
-          this.setDenomGrid(this._gridSuperSix);
-          this.setDenomGrid(this._gridSuperSixBanker);
-          this.setDenomGrid(this._gridTie);
-        } else {
-          this._gridPlayer.denomLayer = this._gridPlayer;
-          this._gridBanker.denomLayer = this._gridBanker;
-          this._gridPlayerPair.denomLayer = this._gridPlayerPair;
-          this._gridTie.denomLayer = this._gridTie;
-          this._gridBankerPair.denomLayer = this._gridBankerPair;
-          this._gridSuperSixBanker.denomLayer = this._gridSuperSixBanker;
-          this._gridSuperSix.denomLayer = this._gridSuperSix;
-        }
-        /*
-        this._gridBanker
-        this._gridPlayer
-        this._gridBankerPair
-        this._gridPlayerPair
-        this._gridSuperSix
-        this._gridSuperSixBanker
-        this._gridTie
-        */
+      set denomLayer(value: eui.Component) {
+        this._denomLayer = value;
       }
 
-      private setDenomGrid(value: BettingTableGrid) {
-        value.denomLayer.x = value.x;
-        value.denomLayer.y = value.y;
-        value.denomLayer.width = value.width;
-        value.denomLayer.height = value.height;
+      get denomLayer() {
+        if (this._denomLayer) {
+          return this._denomLayer;
+        }
+        if (!this._gridPlayer) {
+          return null;
+        }
+        if (!we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
+          return null;
+        }
+        this._denomLayer = new eui.Component();
+        if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
+          this.setDenomGrid(this._gridPlayer);
+          this._denomLayer.addChild(this._gridPlayer.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridBanker.hasDenomLayer)) {
+          this.setDenomGrid(this._gridBanker);
+          this._denomLayer.addChild(this._gridBanker.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridPlayerPair.hasDenomLayer)) {
+          this.setDenomGrid(this._gridPlayerPair);
+          this._denomLayer.addChild(this._gridPlayerPair.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridTie.hasDenomLayer)) {
+          this.setDenomGrid(this._gridTie);
+          this._denomLayer.addChild(this._gridTie.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridBankerPair.hasDenomLayer)) {
+          this.setDenomGrid(this._gridBankerPair);
+          this._denomLayer.addChild(this._gridBankerPair.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridSuperSixBanker.hasDenomLayer)) {
+          this.setDenomGrid(this._gridSuperSixBanker);
+          this._denomLayer.addChild(this._gridSuperSixBanker.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridSuperSix.hasDenomLayer)) {
+          this.setDenomGrid(this._gridSuperSix);
+          this._denomLayer.addChild(this._gridSuperSix.denomLayer);
+        }
+
+        return this._denomLayer;
+      }
+
+      private setDenomGrid(grid: BettingTableGrid) {
+        grid.denomLayer.x = grid.x;
+        grid.denomLayer.y = grid.y;
+        grid.denomLayer.width = grid.width;
+        grid.denomLayer.height = grid.height;
       }
 
       private setListeners() {

@@ -94,7 +94,7 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        logger.l('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
+        console.log('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
           case we.lobby.mode.SIMPLE:

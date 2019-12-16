@@ -187,7 +187,6 @@ namespace we {
       protected updateCountdownTimer() {
         this._timer.countdownValue = this._gameData.countdown * 1000;
         this._timer.remainingTime = this._gameData.countdown * 1000 - (env.currTime - this._gameData.starttime);
-        console.log(env.currTime, this._gameData.starttime);
         this._timer.start();
       }
 

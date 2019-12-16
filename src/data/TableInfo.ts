@@ -10,6 +10,7 @@ namespace we {
       public videourls?: [string];
       public state?: number;
       public bets?: BetDetail[];
+      public totalWin?: number = NaN;
       public data?: any;
       public roadmap?: any;
       public complete?: number;

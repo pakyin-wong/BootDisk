@@ -223,7 +223,9 @@ namespace we {
 
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
+        gameStatus.previousstate = tableInfo.data ? tableInfo.state : null;
         tableInfo.data = gameStatus;
+        this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
         // check if the tableInfo display ready change from false to true
         const isJustReady: boolean = env.validateTableInfoDisplayReady(gameStatus.tableid);
@@ -261,6 +263,7 @@ namespace we {
               if (data.state === ba.GameState.BET && data.previousstate !== ba.GameState.BET) {
                 // reset the betDetails
                 tableInfo.bets = null;
+                tableInfo.totalWin = NaN;
                 dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
               }
               break;
@@ -465,6 +468,7 @@ namespace we {
           const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
+        tableInfo.totalWin = this.computeTotalWin(tableInfo.bets);
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
 
         // // workaround 1-1-1
@@ -481,6 +485,17 @@ namespace we {
         // egret.log('BetInfoUpdate:', tableInfo.bets);
 
         // dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
+      }
+
+      protected computeTotalWin(betDetails: data.BetDetail[]) {
+        let totalWin = 0;
+        if (betDetails) {
+          for (const betDetail of betDetails) {
+            totalWin += betDetail.winamount;
+          }
+        }
+
+        return totalWin;
       }
 
       protected updateTimestamp(timestamp: string) {
