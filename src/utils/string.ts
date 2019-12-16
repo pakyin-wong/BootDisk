@@ -6,5 +6,13 @@ namespace we {
       result = str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
       return result;
     }
+
+    export function formatPrice(target: number): string {
+      return `${target.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
+    }
+
+    export function formatTime(timestamp) {
+      return moment(timestamp).format('YYYY/MM/DD HH:mm:ss');
+    }
   }
 }

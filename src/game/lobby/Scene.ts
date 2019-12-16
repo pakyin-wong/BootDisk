@@ -29,7 +29,7 @@ namespace we {
 
       public onEnter() {
         // After pressing the Filter
-        // dir.socket.getTableList();
+        dir.socket.getTableList();
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         // dir.socket.getTableHistory();
         let itemIdx = 0;
@@ -62,10 +62,10 @@ namespace we {
         // roomList.swipeDirection = ui.SwipeDirection.right;
         // roomList.isAnimateItemTransition = true;
         // roomList.dataProvider = collection;
-        // roomList.itemRenderer = LobbyListItem;
+        // roomList.itemRenderer = ui.TestItem;
         // roomList.right = 0;
-        // roomList.y = 1;
-        // roomList.width = 640;
+        // roomList.y = 240;
+        // roomList.width = 410;
         // roomList.useVirtualLayout = false;
         // roomList.maxDisplayCount = 4;
         // setInterval(() => {

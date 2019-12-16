@@ -15,11 +15,11 @@ namespace we {
       }
 
       protected init() {
-        this.parser = new BARoadParser([25, 25]);
+        this.parser = new BARoadParser([25, 16]);
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
-        this.bigRoad = new BABigRoad(25, 23);
-        this.bigRoad.scaleX = this.bigRoad.scaleY = 364 / 575;
+        this.bigRoad = new BABigRoad(16, 23);
+        this.bigRoad.scaleX = this.bigRoad.scaleY = (364 / 575) * 1.5625;
         this.addChild(this.bigRoad);
       }
 

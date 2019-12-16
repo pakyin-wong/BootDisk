@@ -16,11 +16,13 @@ namespace we {
         this._betChipSet.setVisibleDenominationCount(3);
         this._betChipSet.setDenominationList(denominationList);
 
+        this._bettingTable.skinName = utils.getSkin('LiveBaBettingTable');
         this._bettingTable.type = we.core.BettingTableType.LOBBY;
         this._bettingTable.denomList = denominationList;
         this._bettingTable.init();
         this._bettingTable.getSelectedBetLimitIndex = this.getCurrBetLimitIndex;
         this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
+        this._bettingTable.setGameMode(false);
 
         this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
       }

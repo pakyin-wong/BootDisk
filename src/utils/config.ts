@@ -30,27 +30,5 @@ namespace we {
         xhr.send();
       });
     }
-
-    export function getChipImage(value: number, mode): string {
-      let filepart: string;
-      let filename: string;
-
-      if (value > 1000) {
-        filepart = value / 1000 + 'k';
-      } else {
-        filepart = value + '';
-      }
-
-      switch (mode) {
-        case we.core.ChipType.CLIP:
-          filename = `d_ba_betcontrol_image_clipsset${filepart}_png`;
-          break;
-        case we.core.ChipType.FLAT:
-        default:
-          filename = `d_ba_betcontrol_clipsset_flat_${filepart}_png`;
-      }
-
-      return filename;
-    }
   }
 }

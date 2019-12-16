@@ -128,6 +128,18 @@ namespace we {
         this.collapseAddon.removeToggler();
       }
 
+      public toggle() {
+        this.collapseAddon.onToggle();
+      }
+
+      public isAnimating() {
+        return this.collapseAddon.isAnimating;
+      }
+
+      public isCollapsed() {
+        return this.isCollapsible && !this.collapseAddon.isShow;
+      }
+
       private _firstYForMovement = 0;
       private _initProgress = 0;
 

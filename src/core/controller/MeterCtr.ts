@@ -58,7 +58,7 @@ namespace we {
 
         // return `${utils.EnumHelpers.getKeyByValue(core.Currency, env.currency)} ${v}`;
         try {
-          return `${v.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
+          return utils.formatPrice(v);
         } catch (e) {
           return '- - - -';
         }

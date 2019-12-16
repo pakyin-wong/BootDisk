@@ -26,7 +26,10 @@ namespace we {
         this.onEnterTransitionAddon = new OnEnterTransitionAddon(this);
         this.autoRemoveAddon = new AutoRemoveAddon(this);
         this.swipeableAddon = new SwipeableAddon(this);
+        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
+
+      protected destroy() {}
 
       public set enterFrom(value: string) {
         this._enterFrom = value;
@@ -94,6 +97,8 @@ namespace we {
         if (isNew) {
           if (this.parent instanceof List) {
             const list = <List> this.parent;
+            this.isFadeEnter = list.isFade;
+            this.isFadeLeave = list.isFade;
             this.enterFrom = list.enterFrom;
             this.leaveTo = list.leaveTo;
             this.swipeDirection = list.swipeDirection;

@@ -83,6 +83,13 @@ namespace we {
         // setTimeout(() => {
         //   this.tables = this.tables.filter((x, i) => i !== 6);
         // }, 14000);
+
+        setInterval(() => {
+          // mock error
+          if (Math.random() > 0.5) {
+            dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
+          }
+        }, 5000);
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
@@ -92,6 +99,7 @@ namespace we {
       public connect() {
         // this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
         /// this.client.connect();
+
         setTimeout(() => {
           this.handleReady();
         }, 1000);
@@ -180,7 +188,7 @@ namespace we {
 
       public dispatchBetInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
-        console.log('SocketMock::dispatchBetInfoUpdateEvent xxxxxxxxxxxxxxxxxxxxxx ');
+        console.log('SocketMock::dispatchBetInfoUpdateEvent');
         console.log(data);
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, data);
       }
@@ -371,7 +379,7 @@ namespace we {
         // add the bets to confirmed bet Array
         const data = this.tables[parseInt(tableID, 10) - 1];
         this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
-        console.log('SocketMock::betDetails xxxxxxxxxxxxxxxxxxxxxxxxxxxxxloop ');
+        console.log('SocketMock::bet() betDetails');
         console.dir(betDetails);
         for (const betDetail of betDetails) {
           let isMatch = false;
@@ -409,6 +417,61 @@ namespace we {
         // switch res event / error to handler
 
         // hard code connect success event
+      }
+
+      public getBetHistory(filter, callback: (res: any) => void, thisArg) {
+        callback.call(thisArg, {
+          history: [
+            {
+              id: 'XXXXXXXXXX',
+              datetime: 1576242221, // timestamp
+              gametype: 1, // type of the Game, GameType
+              tablename: '132', // name of the table (i.e. table number)
+              roundid: '2132131',
+              replayurl: '1232131',
+              remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+              field: 'BANKER',
+              betAmount: 200,
+              winAmount: 400,
+              prevremaining: 1231232, // balance before bet
+              endremaining: 21321321, // balance after result
+              result: {
+                a1: '2', // banker 1st card
+                a2: '1',
+                a3: '31',
+                b1: '4', // player 1st card
+                b2: '5',
+                b3: '423',
+                playerpoint: 6,
+                bankerpoint: 7,
+              },
+            },
+            {
+              id: 'XXXXXXXXXX',
+              datetime: 1576242221, // timestamp
+              gametype: 0, // type of the Game, GameType
+              tablename: '132', // name of the table (i.e. table number)
+              roundid: '2132131',
+              replayurl: '1232131',
+              remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+              field: 'BANKER',
+              betAmount: 200,
+              winAmount: 400,
+              prevremaining: 1231232, // balance before bet
+              endremaining: 21321321, // balance after result
+              result: {
+                a1: '2', // banker 1st card
+                a2: '1',
+                a3: '31',
+                b1: '4', // player 1st card
+                b2: '5',
+                b3: '423',
+                playerpoint: 3,
+                bankerpoint: 1,
+              },
+            },
+          ],
+        });
       }
     }
   }

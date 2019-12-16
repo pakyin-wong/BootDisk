@@ -135,7 +135,6 @@ namespace we {
           this._chipContainer.addChild(child);
           child.verticalCenter = 0;
           child.percentHeight = 100;
-          // child.percentHeight = child.highlight ? 100 : 70;
           child.percentWidth = 100 / this.visibleDenominationCount;
         }
         this._updateNavigationDisplay();

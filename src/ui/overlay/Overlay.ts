@@ -1,9 +1,14 @@
 namespace we {
   export namespace ui {
+    export interface IOverlayToggleOpt {
+      class: string;
+      args?: any[];
+    }
+
     export class Overlay extends core.BaseEUI {
       private _overlayMask: egret.Shape;
       private _onShowItem: Panel;
-      private _onShowItemId: string;
+      private _onShowItemClass: string;
 
       public constructor() {
         super();
@@ -11,10 +16,11 @@ namespace we {
       }
 
       protected mount() {
+        this.width = this.stage.width;
+        this.height = this.stage.height;
         this._overlayMask.graphics.beginFill(0x000000, 0.7);
-        this._overlayMask.graphics.drawRect(0, 0, this.stage.width, this.stage.height);
+        this._overlayMask.graphics.drawRect(0, 0, this.width, this.height);
         this._overlayMask.graphics.endFill();
-
         this.addListeners();
       }
 
@@ -22,10 +28,11 @@ namespace we {
         dir.evtHandler.$addListener(core.Event.TOGGLE_OVERLAY_PANEL, this.onToggle, this);
       }
 
-      private onToggle(e: egret.Event) {
+      protected onToggle(e: egret.Event) {
         let panel: Panel;
         try {
-          panel = new we.overlay[e.data]();
+          const opt: IOverlayToggleOpt = e.data;
+          panel = new we.overlay[opt.class](...opt.args);
         } catch (e) {
           logger.l(`panel ${e.data} defined error`, e.data);
           return;
@@ -34,8 +41,8 @@ namespace we {
         this.show(panel, e.data);
       }
 
-      public async show(item: Panel, id: string) {
-        if (this._onShowItem != null && this._onShowItemId === id && this._onShowItemId !== '') {
+      public async show(item: Panel, opt: IOverlayToggleOpt) {
+        if (this._onShowItem != null && this._onShowItemClass === opt.class && this._onShowItemClass !== '') {
           return;
         }
 
@@ -50,7 +57,7 @@ namespace we {
           this.stage['inFocus'] = true;
         }
 
-        this.addItem(item, id);
+        this.addItem(item, opt);
       }
 
       public hide() {
@@ -69,13 +76,15 @@ namespace we {
         this.stage['inFocus'] = false;
       }
 
-      private addItem(item: Panel, id: string) {
+      private addItem(item: Panel, opt: IOverlayToggleOpt) {
         this._onShowItem = item;
-        this._onShowItemId = id;
+        this._onShowItemClass = opt.class;
         this._onShowItem.isPoppable = true;
         this._onShowItem.dismissOnClickOutside = false;
-        this._onShowItem.x = (this._overlayMask.width - this._onShowItem.width) * 0.5;
-        this._onShowItem.y = (this._overlayMask.height - this._onShowItem.height) * 0.5;
+        this._onShowItem.horizontalCenter = 0;
+        this._onShowItem.verticalCenter = 0;
+        // this._onShowItem.x = (this._overlayMask.width - this._onShowItem.width) * 0.5;
+        // this._onShowItem.y = (this._overlayMask.height - this._onShowItem.height) * 0.5;
         this._onShowItem.once('close', this.onItemClose, this);
         this.addChild(this._onShowItem);
         this._onShowItem.show();
@@ -85,7 +94,7 @@ namespace we {
         const item = this._onShowItem;
         item.removeEventListener('close', this.onItemClose, this);
         this._onShowItem = null;
-        this._onShowItemId = '';
+        this._onShowItemClass = '';
         await item.hide();
         item.parent && item.parent.removeChild(item);
       }
@@ -94,8 +103,12 @@ namespace we {
         const item = this._onShowItem;
         item.removeEventListener('close', this.onItemClose, this);
         this._onShowItem = null;
-        this._onShowItemId = '';
+        this._onShowItemClass = '';
         this.fadeout();
+      }
+
+      public close() {
+        this.onItemClose();
       }
     }
   }
