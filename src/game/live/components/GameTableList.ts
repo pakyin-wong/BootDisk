@@ -10,12 +10,13 @@ namespace we {
 
       constructor() {
         super();
-        if (env.tableInfoArray) {
-          this.roomIds = env.tableInfoArray.map(value => {
-            return value.tableid;
-          });
-        }
-        this.collection = new eui.ArrayCollection(this.roomIds);
+        // if (env.tableInfoArray) {
+        //   this.roomIds = env.tableInfoArray.map(value => {
+        //     return value.tableid;
+        //   });
+        // }
+        // this.collection = new eui.ArrayCollection(this.roomIds);
+        this.collection = new eui.ArrayCollection();
       }
 
       protected partAdded(partName: string, instance: any): void {
