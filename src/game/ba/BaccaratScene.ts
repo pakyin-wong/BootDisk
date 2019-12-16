@@ -121,7 +121,6 @@ namespace we {
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
-        this.bettingTable.skinName = utils.getSkin('BettingTable');
         this.bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
         this.bettingTable.getSelectedChipIndex = this.betChipSet.getSelectedChipIndex.bind(this.betChipSet);
         this.bettingTable.type = we.core.BettingTableType.NORMAL;

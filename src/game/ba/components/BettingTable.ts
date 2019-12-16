@@ -57,43 +57,42 @@ namespace we {
 
       private createMapping() {
         this.mapping = {};
-        this.mapping[BetField.BANKER] = this._gridBanker;
         this.mapping[BetField.PLAYER] = this._gridPlayer;
+        this.mapping[BetField.BANKER] = this._gridBanker;
+        this.mapping[BetField.PLAYER_PAIR] = this._gridPlayerPair;
         this.mapping[BetField.TIE] = this._gridTie;
         this.mapping[BetField.BANKER_PAIR] = this._gridBankerPair;
-        this.mapping[BetField.PLAYER_PAIR] = this._gridPlayerPair;
-        this.mapping[BetField.SUPER_SIX] = this._gridSuperSix;
         this.mapping[BetField.SUPER_SIX_BANKER] = this._gridSuperSixBanker;
+        this.mapping[BetField.SUPER_SIX] = this._gridSuperSix;
       }
 
       private setFieldNames() {
-        this._gridBanker.setFieldName(BetField.BANKER);
         this._gridPlayer.setFieldName(BetField.PLAYER);
+        this._gridBanker.setFieldName(BetField.BANKER);
+        this._gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
         this._gridTie.setFieldName(BetField.TIE);
         this._gridBankerPair.setFieldName(BetField.BANKER_PAIR);
-        this._gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
-        this._gridSuperSix.setFieldName(BetField.SUPER_SIX);
         this._gridSuperSixBanker.setFieldName(BetField.SUPER_SIX_BANKER);
+        this._gridSuperSix.setFieldName(BetField.SUPER_SIX);
       }
 
       private setDenomLists() {
-        this._gridBanker.denomList = this._denomList;
         this._gridPlayer.denomList = this._denomList;
+
+        this._gridBanker.denomList = this._denomList;
+        this._gridPlayerPair.denomList = this._denomList;
         this._gridTie.denomList = this._denomList;
         this._gridBankerPair.denomList = this._denomList;
-        this._gridPlayerPair.denomList = this._denomList;
-        this._gridSuperSix.denomList = this._denomList;
         this._gridSuperSixBanker.denomList = this._denomList;
+        this._gridSuperSix.denomList = this._denomList;
       }
 
       // Must be called if you change skin
       public init() {
         this.createMapping();
         this.setFieldNames();
-        this.setFieldLevel();
         this.setDenomLayer(false);
         this.setDenomLists();
-        this.changeMethod('normal');
         this.changeLang();
         this.resetUnconfirmedBet();
         this.setListeners();
@@ -103,13 +102,13 @@ namespace we {
         if (twoLayer) {
           this._denomLayer = new eui.Component();
 
-          this._gridBanker.denomLayer = new eui.Component();
           this._gridPlayer.denomLayer = new eui.Component();
-          this._gridBankerPair.denomLayer = new eui.Component();
+          this._gridBanker.denomLayer = new eui.Component();
           this._gridPlayerPair.denomLayer = new eui.Component();
-          this._gridSuperSix.denomLayer = new eui.Component();
-          this._gridSuperSixBanker.denomLayer = new eui.Component();
           this._gridTie.denomLayer = new eui.Component();
+          this._gridBankerPair.denomLayer = new eui.Component();
+          this._gridSuperSixBanker.denomLayer = new eui.Component();
+          this._gridSuperSix.denomLayer = new eui.Component();
 
           this.setDenomGrid(this._gridBanker);
           this.setDenomGrid(this._gridPlayer);
@@ -119,15 +118,14 @@ namespace we {
           this.setDenomGrid(this._gridSuperSixBanker);
           this.setDenomGrid(this._gridTie);
         } else {
-          this._gridBanker.denomLayer = this._gridBanker;
           this._gridPlayer.denomLayer = this._gridPlayer;
-          this._gridBankerPair.denomLayer = this._gridBankerPair;
+          this._gridBanker.denomLayer = this._gridBanker;
           this._gridPlayerPair.denomLayer = this._gridPlayerPair;
-          this._gridSuperSix.denomLayer = this._gridSuperSix;
-          this._gridSuperSixBanker.denomLayer = this._gridSuperSixBanker;
           this._gridTie.denomLayer = this._gridTie;
+          this._gridBankerPair.denomLayer = this._gridBankerPair;
+          this._gridSuperSixBanker.denomLayer = this._gridSuperSixBanker;
+          this._gridSuperSix.denomLayer = this._gridSuperSix;
         }
-
         /*
         this._gridBanker
         this._gridPlayer
@@ -146,75 +144,37 @@ namespace we {
         value.denomLayer.height = value.height;
       }
 
-      private setFieldLevel() {
-        this._gridBanker.betChipZIndex = 20000;
-        this._gridPlayer.betChipZIndex = 20000;
-        this._gridBankerPair.betChipZIndex = 10000;
-        this._gridPlayerPair.betChipZIndex = 10000;
-        this._gridSuperSix.betChipZIndex = 10000;
-        this._gridSuperSixBanker.betChipZIndex = 10000;
-        this._gridTie.betChipZIndex = 10000;
-      }
-
       private setListeners() {
-        this._gridPlayerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayerPair), this);
-        this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
         this._gridPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayer), this);
-        this._gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridTie), this);
         this._gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBanker), this);
-        this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
+        this._gridPlayerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayerPair), this);
+        this._gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridTie), this);
+        this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
         this._gridSuperSixBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSixBanker), this);
+        this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
 
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
-      /*
-      protected getCurrentState() {
-        if (this.switchSuperSix.selected) {
-          return 'SuperSix';
-        } else {
-          this.gridSuperSix.setUncfmBet(0);
-          return 'Normal';
-        }
-      }
-        */
       public setGameMode(isNoCommission: boolean) {
         this.currentState = isNoCommission ? 'SuperSix' : 'Normal';
-        const textColor = 0xffffff;
-
-        this._gridPlayerPair.setStyle(textColor);
-        this._gridBankerPair.setStyle(textColor);
-        this._gridPlayer.setStyle(textColor);
-        this._gridBanker.setStyle(textColor);
-        this._gridSuperSix.setStyle(textColor);
-        this._gridSuperSixBanker.setStyle(textColor);
-        this._gridTie.setStyle(textColor);
-      }
-
-      public changeMethod(method: string) {
-        switch (method) {
-          default:
-            const textColor = 0xffffff;
-            const bgColor = 0x000000;
-
-            this._gridPlayerPair.setStyle(textColor);
-            this._gridBankerPair.setStyle(textColor);
-            this._gridPlayer.setStyle(textColor);
-            this._gridBanker.setStyle(textColor);
-            this._gridSuperSix.setStyle(textColor);
-            this._gridSuperSixBanker.setStyle(textColor);
-            this._gridTie.setStyle(textColor);
-        }
+        this._gridPlayer.draw();
+        this._gridBanker.draw();
+        this._gridPlayerPair.draw();
+        this._gridTie.draw();
+        this._gridBankerPair.draw();
+        this._gridSuperSixBanker.draw();
+        this._gridSuperSix.draw();
       }
 
       protected changeLang() {
-        this._gridPlayerPair.text = i18n.t('baccarat.playerPair');
-        this._gridBankerPair.text = i18n.t('baccarat.bankerPair');
         this._gridPlayer.text = i18n.t('baccarat.player');
         this._gridBanker.text = i18n.t('baccarat.banker');
+        this._gridPlayerPair.text = i18n.t('baccarat.playerPair');
         this._gridTie.text = i18n.t('baccarat.tie');
-        this._gridSuperSix.text = i18n.t('baccarat.superSix');
+        this._gridBankerPair.text = i18n.t('baccarat.bankerPair');
         this._gridSuperSixBanker.text = i18n.t('baccarat.banker');
+        this._gridSuperSix.text = i18n.t('baccarat.superSix');
       }
 
       public setTouchEnabled(enable: boolean) {
@@ -277,18 +237,19 @@ namespace we {
             this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
             this.totalUncfmBetAmount += betDetail.amount;
           }
+          grid.draw();
         };
       }
 
       set getSelectedChipIndex(value: () => number) {
         this._getSelectedChipIndex = value;
-        this._gridBanker.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridPlayer.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridBanker.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridPlayerPair.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridTie.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridBankerPair.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
         this._gridSuperSixBanker.getSelectedChipIndex = this._getSelectedChipIndex;
+        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
       }
 
       get getSelectedChipIndex() {
@@ -297,13 +258,13 @@ namespace we {
 
       set getSelectedBetLimitIndex(value: () => number) {
         this._getSelectedBetLimitIndex = value;
-        this._gridBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridPlayer.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridPlayerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridTie.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridBankerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridSuperSix.getSelectedBetLimit = this._getSelectedBetLimitIndex;
         this._gridSuperSixBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        this._gridSuperSix.getSelectedBetLimit = this._getSelectedBetLimitIndex;
       }
 
       get getSelectedBetLimitIndex() {
@@ -386,14 +347,15 @@ namespace we {
       }
       public cancelBet() {
         this.resetUnconfirmedBet();
-        this._gridTie.cancelBet();
-        this._gridBanker.cancelBet();
         this._gridPlayer.cancelBet();
+        this._gridBanker.cancelBet();
         this._gridPlayerPair.cancelBet();
+        this._gridTie.cancelBet();
         this._gridBankerPair.cancelBet();
-        this._gridSuperSix.cancelBet();
         this._gridSuperSixBanker.cancelBet();
+        this._gridSuperSix.cancelBet();
       }
+      
       public onChangeLang() {
         this.changeLang();
       }
