@@ -138,6 +138,10 @@ declare module skin_desktop{
 	class GameBar extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class GoodRoadListItem extends eui.Skin{
+	}
+}
 declare class ImageButtonSkinDialog extends eui.Skin{
 }
 declare class ImageButtonSkinEmpty extends eui.Skin{
@@ -250,6 +254,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class TableInfoWindow extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ToggleButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

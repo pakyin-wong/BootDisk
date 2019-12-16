@@ -10,7 +10,7 @@ namespace we {
       private playerDotDark: egret.Shape;
       private bankerDotDark: egret.Shape;
 
-      private iconModeNumber: number; // display standard B/P/T (0) or B value (1) or P value (2)
+      private iconModeNumber: number; // display standard B/P/T (0) or Win value (1)
       private winValue: number;
 
       public constructor(size: number = 30) {
