@@ -20,12 +20,17 @@ namespace we {
       private _txt_record_finbalance: ui.RunTimeLabel;
       private _txt_record_result: ui.RunTimeLabel;
 
+      private _tf_search: eui.EditableText;
+      private _btn_search: ui.BaseImageButton;
+
       private _datagroup: eui.DataGroup;
       private _dataColl: eui.ArrayCollection;
 
       private _page: number;
       private _starttime: number;
       private _endtime: number;
+
+      private _searchDelay: number;
 
       constructor() {
         super('overlay/BetHistory');
@@ -57,10 +62,38 @@ namespace we {
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = betHistory.BetHistoryItem;
 
+        this.updatePlaceHolder();
+        this.addListeners();
         this.search();
       }
 
+      protected destroy() {
+        clearTimeout(this._searchDelay);
+        this.removeListeners();
+      }
+
+      protected addListeners() {
+        this._tf_search.$addListener(egret.Event.CHANGE, this.onSearchEnter, this);
+        this._btn_search.$addListener('CLICKED', this.search, this);
+      }
+
+      protected removeListeners() {
+        this._tf_search.removeEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
+        this._btn_search.removeEventListener('CLICKED', this.search, this);
+      }
+
+      private onSearchEnter() {
+        this.updatePlaceHolder();
+        clearTimeout(this._searchDelay);
+        this._searchDelay = setTimeout(this.search.bind(this), 1000);
+      }
+
+      private updatePlaceHolder() {
+        this._txt_search.$setVisible(this._tf_search.text === '');
+      }
+
       private search() {
+        clearTimeout(this._searchDelay);
         dir.socket.getBetHistory({}, this.update, this);
       }
 

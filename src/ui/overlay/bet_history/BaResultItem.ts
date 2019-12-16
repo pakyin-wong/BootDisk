@@ -26,6 +26,16 @@ namespace we {
           this._txt_banker.renderText = () => `${i18n.t('overlaypanel_bethistory_baresult_banker')}`;
           this._txt_pPoint.text = this._gameResult.playerpoint;
           this._txt_bPoint.text = this._gameResult.bankerpoint;
+          this._pCard1.source = this.getCardRes(this._gameResult.b1);
+          this._pCard2.source = this.getCardRes(this._gameResult.b2);
+          this._pCard3.source = this.getCardRes(this._gameResult.b3);
+          this._bCard1.source = this.getCardRes(this._gameResult.a1);
+          this._bCard2.source = this.getCardRes(this._gameResult.a2);
+          this._bCard3.source = this.getCardRes(this._gameResult.a3);
+        }
+
+        protected getCardRes(source) {
+          return source !== '' ? `d_common_poker_vertical_${utils.formatCard(source)}_png` : '';
         }
       }
     }

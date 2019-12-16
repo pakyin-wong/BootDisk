@@ -3,15 +3,13 @@
 	<e:Group id="content" left="2" right="-2" top="-2" bottom="2">
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48" strokeColor="0x333c4a" strokeWeight="2" locked="true"/>
 		<e:Image id="close" width="48" height="48" x="2060" y="24" source="d-lobby-button-close-none_png"/>
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="95" y="40" width="192" height="71" verticalAlign="middle" textColor="0xc59466" size="48" fontFamily="NotoSansCJKtc-Medium" bold="true"/>
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="95" y="40" width="192" height="71" verticalAlign="middle" textColor="0xc59466" size="48" fontFamily="NotoSansCJKtc" bold="true"/>
 		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" verticalAlign="middle"/>
 		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47" skinName="skin_desktop.OverlayPanelButton"/>
 		<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47" skinName="skin_desktop.OverlayPanelButton"/>
 		<ui:BaseButton id="_btn_custom" width="137" height="60" x="1826.5" y="47" skinName="skin_desktop.OverlayPanelButton"/>
-		<e:Group width="210" x="584" height="72" y="41" alpha="0.7">
-			<ui:RunTimeLabel id="_txt_search" text="Label" x="69" y="17" width="96" height="36" verticalAlign="middle" scaleX="1" scaleY="1" fontFamily="NotoSansCJKtc" size="24"/>
-			<e:Image width="27" height="27" x="31" y="24" scaleX="1" scaleY="1"/>
-		</e:Group>
+
+
 		<ui:RunTimeLabel id="_txt_record_id" text="Label" x="95" y="168" width="191" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc"/>
 		<ui:RunTimeLabel id="_txt_record_date" text="Label" x="286" y="168" width="248" size="20" verticalAlign="middle" height="29" fontFamily="NotoSansCJKtc"/>
 		<ui:RunTimeLabel id="_txt_record_game" text="Label" x="534" y="168" width="123" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc"/>
@@ -25,5 +23,8 @@
 		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1562" y="168" width="88" size="20" verticalAlign="middle" height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"/>
 		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1650" y="168" width="490" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" textAlign="center"/>
 		<e:DataGroup id="_datagroup" width="2140" height="837" y="221"/>
+		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" fontFamily="NotoSansCJKtc" size="24" width="96" alpha="0.7"/>
+		<ui:BaseImageButton id="_btn_search" width="48" height="48" x="604" y="54" currentState="search_icon" skinName="skin_desktop.ImageButtonSkinNav"/>
+		<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle" fontFamily="NotoSansCJKtc" size="24"/>
 	</e:Group>
 </e:Skin>

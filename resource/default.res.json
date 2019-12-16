@@ -17,7 +17,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_user_info_bg,nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_none_png,d_lobby_Icon_setting_none_png,d_lobby_Icon_edit_none_png,d_lobby_Icon_chart_none_png,d_lobby_Icon_record_none_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_none_png,d_lobby_panel_button_page_prev_none_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_none_png",
+			"keys": "nav_user_info_bg,nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_none_png,d_lobby_Icon_setting_none_png,d_lobby_Icon_edit_none_png,d_lobby_Icon_chart_none_png,d_lobby_Icon_record_none_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_none_png,d_lobby_panel_button_page_prev_none_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_none_png,d_lobby_list_panel_all_game_hover_png,d_lobby_list_panel_all_game_none_png",
 			"name": "nav"
 		},
 		{

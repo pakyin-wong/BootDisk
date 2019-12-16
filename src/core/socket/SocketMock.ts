@@ -239,30 +239,19 @@ namespace we {
         animateCell: [0, -1, -1, -1, -1, 0, -1, -1, -1, -1],
       };
       private mockRoadData1: any = {
-        bead: [
-          { V: 't', B: 0, P: 0, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-        ],
+        bead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }],
         bigRoad: [{ V: 'p', T: 0 }],
         bigEye: [{ V: 'p' }],
         small: [{ V: 'p' }],
         roach: [{ V: 'p' }],
 
-        bbead: [
-          { V: 't', B: 0, P: 0, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-          { V: 'b', B: 0, P: 0, W: 0 },
-        ],
+        bbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'b', B: 0, P: 0, W: 0 }],
         bbigRoad: [{ V: 'p', T: 0 }],
         bbigEye: [{ V: 'p' }],
         bsmall: [{ V: 'p' }],
         broach: [{ V: 'p' }],
 
-        pbead: [
-          { V: 't', B: 0, P: 0, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-          { V: 'p', B: 0, P: 1, W: 7 },
-        ],
+        pbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'p', B: 0, P: 1, W: 7 }],
         pbigRoad: [{ V: 'p', T: 0 }],
         pbigEye: [{ V: 'p' }],
         psmall: [{ V: 'p' }],
@@ -447,12 +436,12 @@ namespace we {
               prevremaining: 1231232, // balance before bet
               endremaining: 21321321, // balance after result
               result: {
-                a1: '2', // banker 1st card
-                a2: '1',
-                a3: '31',
-                b1: '4', // player 1st card
-                b2: '5',
-                b3: '423',
+                a1: 'spade1', // banker 1st card
+                a2: 'spade2',
+                a3: 'spade3',
+                b1: 'spade4', // player 1st card
+                b2: 'spade5',
+                b3: '',
                 playerpoint: 6,
                 bankerpoint: 7,
               },
@@ -471,12 +460,12 @@ namespace we {
               prevremaining: 1231232, // balance before bet
               endremaining: 21321321, // balance after result
               result: {
-                a1: '2', // banker 1st card
-                a2: '1',
-                a3: '31',
-                b1: '4', // player 1st card
-                b2: '5',
-                b3: '423',
+                a1: 'heart2', // banker 1st card
+                a2: 'heartk',
+                a3: '',
+                b1: 'diamonda', // player 1st card
+                b2: 'diamondj',
+                b3: 'spade2',
                 playerpoint: 3,
                 bankerpoint: 1,
               },
