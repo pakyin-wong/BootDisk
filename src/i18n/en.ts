@@ -47,6 +47,8 @@ namespace we {
         totalbet: 'Total Bet',
         totalcount: 'Total',
         betSuccess: 'betSuccess',
+        addNewGoodRoad: 'New Good Road',
+        newGoodRoadName: 'My Road',
         result: {
           BANKER: 'Banker Win',
           PLAYER: 'Player Win',

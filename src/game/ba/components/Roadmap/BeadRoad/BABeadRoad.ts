@@ -1,9 +1,12 @@
 namespace we {
   export namespace ba {
     export class BABeadRoad extends BARoadBase {
+      private mode: number; // the BPT mode (0) or Win value Mode (1)
+
       public constructor(_numCol: number = 12, _gridSize: number = 30, _scale: number = 1) {
         super(_numCol, _gridSize, _scale);
         this.gridUnit = 1;
+        this.mode = 0;
 
         // this.touchEnabled = true;
         // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
@@ -16,10 +19,13 @@ namespace we {
       }
 
       protected createIcon(size: number): BABeadRoadIcon {
-        return new BABeadRoadIcon(size);
+        const icon = new BABeadRoadIcon(size);
+        icon.Mode = this.mode;
+        return icon;
       }
 
       public set Mode(mode: number) {
+        this.mode = mode;
         for (const elem of this.roadMapIconList) {
           const icon: BABeadRoadIcon = elem as BABeadRoadIcon;
           icon.Mode = mode;
@@ -27,8 +33,7 @@ namespace we {
       }
 
       public get Mode(): number {
-        const icon: BABeadRoadIcon = this.roadMapIconList[0] as BABeadRoadIcon;
-        return icon.Mode;
+        return this.mode;
       }
 
       private onClick(e: egret.TouchEvent) {
