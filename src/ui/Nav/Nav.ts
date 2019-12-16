@@ -4,9 +4,8 @@ namespace we {
       private _lantern: NavLantern;
       private _time: eui.Label;
       private _user: eui.Label;
-      private _profilePrc: eui.Image;
-      private _userInfo_toggle: eui.Group;
-      private _userInfo: Panel;
+      private _profile_toggle: eui.Group;
+      private _profile: Panel;
       private _menu_toggle: eui.Image;
       private _menu: Panel;
       private _balance: RunTimeLabel;
@@ -18,8 +17,8 @@ namespace we {
       }
 
       protected mount() {
-        // this._userInfo.setToggler(this._userInfo_toggle);
-        // this._userInfo.dismissOnClickOutside = true;
+        this._profile.setToggler(this._profile_toggle);
+        this._profile.dismissOnClickOutside = true;
 
         this._menu.setToggler(this._menu_toggle);
         this._menu.dismissOnClickOutside = true;

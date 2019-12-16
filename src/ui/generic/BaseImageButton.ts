@@ -22,12 +22,9 @@ namespace we {
 
       constructor() {
         super('imagebutton/ImageButtonSkinEmpty');
-      }
-
-      public mount() {
+        this.invalidateState();
         this.touchChildren = false;
         this.buttonEnabled = true;
-        mouse.setButtonMode(this, true);
       }
 
       public get buttonEnabled() {
@@ -62,6 +59,7 @@ namespace we {
 
       public set active(active) {
         this._active = active;
+        this.update();
       }
 
       public get text() {
