@@ -47,6 +47,8 @@ namespace we {
         totalbet: '總投注',
         totalcount: '總數',
         betSuccess: '下注成功',
+        addNewGoodRoad: '新增好路',
+        newGoodRoadName: '我的好路',
         result: {
           BANKER: '莊贏',
           PLAYER: '閒贏',
