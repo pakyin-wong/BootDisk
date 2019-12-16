@@ -86,7 +86,7 @@ namespace we {
 
         setInterval(() => {
           // mock error
-          if (Math.random() > 0.5) {
+          if (Math.random() > 0.95) {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
         }, 5000);
