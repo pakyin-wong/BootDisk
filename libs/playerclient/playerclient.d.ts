@@ -30,7 +30,7 @@ declare class PlayerClient {
     unsubscribe(eventName: string, f: Function, options?: any): void;
     getTableList(filter?: string): void;
     getBalance(): void;
-    getHistory(tableID: string): void;
+    getBetHistory(filter: object, callback: (data: BetHistory) => void): void;
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
     bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
@@ -123,3 +123,31 @@ interface LobbyMaterial {
 	messages:string[]    
 }
 
+interface BetHistoryDetail {
+    id: string;
+    datetime: number;
+    gametype: number;
+    tablename: string;
+    roundid: string;
+    replayurl: string;
+    remark: number;
+    field: string;
+    betAmount: number;
+    winAmount: number;
+    prevremaining: number;
+    endremaining: number;
+}
+interface BetHistory {
+    history: BetHistoryDetail[];
+}
+
+interface BetHistoryResults {
+    a1: string,		// banker 1st card
+    a2: string,
+    a3: string,
+    b1: string,		// player 1st card
+    b2: string,
+    b3: string,
+    playerpoint: number,
+    bankerpoint: number
+}

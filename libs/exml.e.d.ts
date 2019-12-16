@@ -71,6 +71,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetChipStackSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetInfoBaBettingTableSkin extends eui.Skin{
 	}
 }
@@ -100,6 +104,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BettingTableGridSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -162,7 +170,7 @@ declare module skin_desktop{
 }
 declare class ImageTabItemWithBadgeSkin extends eui.Skin{
 }
-declare class LiveSidePanelSkin extends eui.Skin{
+declare class SidePanelSkin extends eui.Skin{
 }
 declare class TabItemWithBadgeSkin extends eui.Skin{
 }

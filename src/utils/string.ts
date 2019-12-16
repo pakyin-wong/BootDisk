@@ -11,12 +11,15 @@ namespace we {
       return `${target.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
     }
 
-    export function formatTime(unix) {
-      return moment.unix(unix).format('YYYY/MM/DD HH:mm:ss');
+    export function formatTime(timestamp) {
+      return moment(timestamp).format('YYYY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {
-      return source.replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2').replace('diamond', 'diamonds').replace('heart', 'hearts');
+      return source
+        .replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2')
+        .replace('diamond', 'diamonds')
+        .replace('heart', 'hearts');
     }
   }
 }

@@ -1,83 +1,109 @@
 namespace we {
   export namespace ui {
-    export class LiveSidePanel extends core.BaseEUI {
-      private _tabbar: eui.List;
-      private _viewStack: eui.ViewStack;
-      private _scroller: Scroller;
-      private activeLine: eui.Rect;
-
-      private lineMoveDuration: number = 100;
+    export class LiveSidePanel extends SidePanel {
+      protected betTableList: TableList;
+      protected goodRoadTableList: TableList;
+      protected allTableList: TableList;
 
       constructor() {
         super();
-        this.skinName = 'LiveSidePanelSkin';
-      }
-
-      protected dispatchChange() {
-        dir.evtHandler.dispatch(core.Event.SIDE_PANEL_CHANGE, this);
       }
 
       protected mount() {
         super.mount();
-        this._tabbar.itemRenderer = ImageTabItemWithBadge;
-        this._tabbar.addEventListener(eui.UIEvent.CHANGE, this.onSelected, this);
-        this._tabbar.addEventListener('CLEAR_SELECTION', this.onClearSelection, this);
+        const group = <eui.Group> this._scroller.viewport;
 
-        this.activeLine = new eui.Rect();
+        this._viewStack = new eui.ViewStack();
+        this._viewStack.width = group.width;
+        this._viewStack.height = group.height;
+        group.addChild(this._viewStack);
+
+        // create bet table list
+        const betTableGroup = new eui.Group();
+        betTableGroup.name = 'bet';
+        this._viewStack.addChild(betTableGroup);
+        betTableGroup.width = group.width;
+        betTableGroup.height = group.height;
+        let scroller = new Scroller();
+        scroller.width = group.width;
+        scroller.height = group.height;
+        betTableGroup.addChild(scroller);
+        this.betTableList = new TableList();
+        this.betTableList.itemRenderer = BetInfoHolder;
+        scroller.viewport = this.betTableList;
+
+        // create good road list
+        const goodRoadTableGroup = new eui.Group();
+        goodRoadTableGroup.name = 'good_road';
+        this._viewStack.addChild(goodRoadTableGroup);
+        goodRoadTableGroup.width = group.width;
+        goodRoadTableGroup.height = group.height;
+        scroller = new Scroller();
+        scroller.width = group.width;
+        scroller.height = group.height;
+        goodRoadTableGroup.addChild(scroller);
+        this.goodRoadTableList = new TableList();
+        this.goodRoadTableList.itemRenderer = BetInfoHolder;
+        scroller.viewport = this.goodRoadTableList;
+
+        // create all game list
+        const allTableGroup = new eui.Group();
+        allTableGroup.name = 'all_game';
+        this._viewStack.addChild(allTableGroup);
+        allTableGroup.width = group.width;
+        allTableGroup.height = group.height;
+        scroller = new Scroller();
+        scroller.width = group.width;
+        scroller.height = group.height;
+        allTableGroup.addChild(scroller);
+        this.allTableList = new TableList();
+        this.allTableList.itemRenderer = BetInfoHolder;
+        allTableGroup.addChild(this.allTableList);
+        scroller.viewport = this.allTableList;
+
+        this._tabbar.dataProvider = this._viewStack;
         this.activeLine.y = this._tabbar.y + this._tabbar.height;
-        this.activeLine.fillColor = 0xffffff;
-        this.activeLine.height = 3;
-        this.addChild(this.activeLine);
-        this.dispatchChange();
+
+        this.addEventListeners();
       }
 
-      protected destroy() {
-        super.destroy();
-        this.dispatchChange();
+      protected addEventListeners() {
+        // listen to table list update
+        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
+        // listen to good road list update
+        dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
+        // listen to bet list update
+        dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
       }
 
-      protected onClearSelection() {
-        if (!this._scroller.isCollapsed() && !this._scroller.isAnimating()) {
-          this._scroller.toggle();
-          this._tabbar.selectedIndex = -1;
-          this._tabbar.touchEnabled = false;
-          this._tabbar.touchChildren = false;
-          setTimeout(() => {
-            this._tabbar.touchEnabled = true;
-            this._tabbar.touchChildren = true;
-          }, 400);
+      protected onTableListUpdate(evt: egret.Event) {
+        const tableList = evt.data;
+        this.allTableList.setTableList(tableList);
 
-          egret.Tween.removeTweens(this.activeLine);
-          egret.Tween.get(this.activeLine).to({ width: 0 }, this.lineMoveDuration);
-          this.dispatchChange();
+        const count = tableList.length;
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        if (tabItem) {
+          tabItem.onBadgeUpdate(count);
         }
       }
 
-      public get isCollapsed() {
-        return this._scroller.isCollapsed();
+      protected onGoodRoadTableListUpdate(evt: egret.Event) {
+        const tableList = evt.data;
+        this.goodRoadTableList.setTableList(tableList);
+        const count = tableList.length;
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        if (tabItem) {
+          tabItem.onBadgeUpdate(count);
+        }
       }
 
-      protected onSelected() {
-        if (this._scroller.isCollapsed()) {
-          if (!this._scroller.isAnimating()) {
-            this._scroller.toggle();
-            this._viewStack.selectedIndex = this._tabbar.selectedIndex;
-
-            const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-            this.activeLine.x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
-            egret.Tween.removeTweens(this.activeLine);
-            egret.Tween.get(this.activeLine).to({ width }, this.lineMoveDuration);
-            this.dispatchChange();
-          } else {
-            this._tabbar.selectedIndex = -1;
-          }
-        } else {
-          this._viewStack.selectedIndex = this._tabbar.selectedIndex;
-
-          const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-          const x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
-          egret.Tween.removeTweens(this.activeLine);
-          egret.Tween.get(this.activeLine).to({ x, width }, this.lineMoveDuration);
+      protected onBetTableListUpdate(evt: egret.Event) {
+        const tableList = evt.data;
+        this.betTableList.setTableList(tableList);
+        const count = tableList.length;
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        if (tabItem) {
+          tabItem.onBadgeUpdate(count);
         }
       }
     }

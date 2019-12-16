@@ -4,17 +4,19 @@ namespace we {
       public hostid?: string; // ID of the actual host
       public tableid: string;
       public tablename?: string;
-      public gametype: number;
+      public gametype?: number;
       public dealername?: string; // The name of current dealer
       public dealeravatarurl?: string; // The profile url of current dealer
       public videourls?: [string];
-      public state: number;
+      public state?: number;
       public bets?: BetDetail[];
       public data?: any;
       public roadmap?: any;
       public complete?: number;
       public gamestatistic?: GameStatistic; // game statistics (banker/player/tie Count)
       public betInfo?: GameTableBetInfo;
+      public displayReady?: boolean = false;
+      public goodRoad?: GoodRoadData;
     }
   }
 }

@@ -1,48 +1,62 @@
 namespace we {
   export namespace ba {
-    export class BetChip extends eui.Component implements eui.UIComponent, IBetChip {
-      private value: number;
+    export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
+      private _value: number;
+      private _chipImage: eui.Image;
+      private _chipValueLabel: eui.Label;
+      private _type: we.core.ChipType;
       private _highlight: boolean;
+      private _glowFilter: egret.GlowFilter;
 
-      private glowFilter: egret.GlowFilter;
-
-      public _chipImg: eui.Image;
-      public _chipValue: eui.Label;
-
-      public constructor(value: number = null) {
+      public constructor(value: number = null, type: we.core.ChipType = we.core.ChipType.CLIP, highlight: boolean = false) {
         super();
         this.skinName = utils.getSkin('BetChip');
-        this._highlight = false;
-        this.value = value;
+        this._value = value;
+        this._type = type;
+        this._highlight = highlight;
+        this.setGlowFilter();
+      }
 
-        const color: number = 0x33ccff;
-        const alpha: number = 0.8;
-        const blurX: number = 35;
-        const blurY: number = 35;
-        const strength: number = 2;
-        const quality: number = egret.BitmapFilterQuality.HIGH;
-        const inner: boolean = false;
-        const knockout: boolean = false;
-        this.glowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
+      protected setGlowFilter(
+        color: number = 0x33ccff,
+        alpha: number = 0.8,
+        blurX: number = 35,
+        blurY: number = 35,
+        strength: number = 2,
+        quality: number = egret.BitmapFilterQuality.HIGH,
+        inner: boolean = false,
+        knockout: boolean = false
+      ) {
+        this._glowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
       }
 
       protected partAdded(partName: string, instance: any): void {
         super.partAdded(partName, instance);
       }
 
-      protected childrenCreated(): void {
-        super.childrenCreated();
-        this.setValue(this.value);
+      protected mount() {
+        this.setValue(this._value);
       }
 
-      public setValue(newValue: number, flat = false) {
-        this.value = newValue;
-        this._chipValue.text = newValue.toString();
-        this._chipImg.source = this.getBetChipImg(newValue, flat ? we.core.ChipType.FLAT : we.core.ChipType.CLIP);
+      protected numberToFaceValue(value: number) {
+        if (!value) {
+          return '0';
+        } else if (value > 1000) {
+          return value / 1000 + 'k';
+        } else {
+          return value.toString();
+        }
+      }
+
+      public setValue(value: number, type: we.core.ChipType = null) {
+        this._value = value;
+        this._type = type ? type : this._type ? this._type : we.core.ChipType.CLIP;
+        this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : this.numberToFaceValue(value);
+        this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
       }
 
       public getValue() {
-        return this.value;
+        return this._value;
       }
 
       get highlight(): boolean {
@@ -52,25 +66,28 @@ namespace we {
       set highlight(value: boolean) {
         this._highlight = value;
         if (value) {
-          // this.setValue(this.value, true);
-          this._chipImg.filters = [this.glowFilter];
+          this._chipImage.filters = [this._glowFilter];
         } else {
-          // this.setValue(this.value, false);
-          this._chipImg.filters = [];
+          this._chipImage.filters = [];
         }
       }
 
-      private getBetChipImg(value, type = we.core.ChipType.CLIP): egret.Texture {
-        let chipTex;
-        if (value) {
-          const resName = utils.getChipImage(value, type);
-          logger.l('Betchip::getBetChipImg: ' + resName);
-          chipTex = RES.getRes(resName);
+      private getChipSource(faceValue: string, type): string {
+        let filename: string;
+
+        switch (type) {
+          case we.core.ChipType.CLIP:
+            filename = we.core.ChipSetInfo.clip + we.core.ChipSetInfo.HKD.set1[faceValue] + '_png';
+            break;
+          case we.core.ChipType.FLAT:
+            filename = we.core.ChipSetInfo.flat + we.core.ChipSetInfo.HKD.set1[faceValue] + '_png';
+            break;
+          case we.core.ChipType.BETTING:
+          default:
+            filename = we.core.ChipSetInfo.betting + '_png';
         }
-        if (!chipTex) {
-          chipTex = RES.getRes('chip_default');
-        }
-        return chipTex;
+
+        return filename;
       }
     }
   }

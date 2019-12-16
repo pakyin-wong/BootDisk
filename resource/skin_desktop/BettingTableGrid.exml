@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BettingTableGridSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ba="we.ba.*">
+	<e:Image id="_image" />
+	<e:Label id="_lblName" />
+	<ba:BetChipStack id="_betChipStack" verticalCenter="0" horizontalCenter="0" />
+</e:Skin>
