@@ -436,12 +436,12 @@ namespace we {
               prevremaining: 1231232, // balance before bet
               endremaining: 21321321, // balance after result
               result: {
-                a1: '2', // banker 1st card
-                a2: '1',
-                a3: '31',
-                b1: '4', // player 1st card
-                b2: '5',
-                b3: '423',
+                a1: 'spade1', // banker 1st card
+                a2: 'spade2',
+                a3: 'spade3',
+                b1: 'spade4', // player 1st card
+                b2: 'spade5',
+                b3: '',
                 playerpoint: 6,
                 bankerpoint: 7,
               },
@@ -460,12 +460,12 @@ namespace we {
               prevremaining: 1231232, // balance before bet
               endremaining: 21321321, // balance after result
               result: {
-                a1: '2', // banker 1st card
-                a2: '1',
-                a3: '31',
-                b1: '4', // player 1st card
-                b2: '5',
-                b3: '423',
+                a1: 'heart2', // banker 1st card
+                a2: 'heartk',
+                a3: '',
+                b1: 'diamonda', // player 1st card
+                b2: 'diamondj',
+                b3: 'spade2',
                 playerpoint: 3,
                 bankerpoint: 1,
               },
