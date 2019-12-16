@@ -1,5 +1,5 @@
 {
-    "target": "self",
+    "target": "local",
     "mode": "",
     "playerID": "BMJCQSLH5S5VDBFBP1A0",
     "secret": "JWT_TOKEN_HERE",
