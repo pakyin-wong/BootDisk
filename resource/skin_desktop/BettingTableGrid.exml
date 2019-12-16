@@ -3,5 +3,4 @@
         xmlns:ba="we.ba.*">
 	<e:Image id="_image" />
 	<e:Label id="_lblName" />
-	<ba:BetChipStack id="_betChipStack" verticalCenter="0" horizontalCenter="0" />
 </e:Skin>

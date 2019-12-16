@@ -4,6 +4,7 @@ namespace we {
       protected rect: eui.Rect;
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _quickbetPanel: we.live.LiveBaQuickBetPanel;
+      protected _denomLayer: eui.Component;
       protected _quickbetButton: ui.RoundButton;
       protected _quickbetEnable: boolean = false;
       protected _tableId: string;
@@ -35,8 +36,47 @@ namespace we {
         this.skinName = utils.getSkin(skinName);
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        // this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddedToStage, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+
         this.initPos();
+        this.anchorOffsetX = this.width / 2;
+        this.anchorOffsetY = this.height / 2;
+        this.x += this.anchorOffsetX;
+        this.y += this.anchorOffsetY;
+        this._originaly = this.y;
+
+        const shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        shape.graphics.endFill();
+        this._group.addChild(shape);
+        this._group.mask = shape;
+
+        this._timer.skinName = utils.getSkin('CountdownTimerRound');
+        this._quickbetPanel.tableId = this._tableId;
+        this._denomLayer = this._quickbetPanel.denomLayer;
+        this.addChild(this._quickbetPanel.denomLayer);
+        this.setChildIndex(this._denomLayer, 30000);
+        this._denomLayer.y = 0;
+        this._denomLayer.x = 0;
+        this._denomLayer.alpha = 0;
+
+        this.setEventListeners();
       }
+
+      /*
+      protected onAddedToStage() {
+
+        // this._dropdown.items = ['test 1', 'test 2'];
+        // this._dropdown.setToggler(this._dropdown_toggle);
+
+        // this._group.setChildIndex(this._timer, 2500);
+      }
+      */
 
       protected initPos() {
         this._targetQuickBetButtonY = 180;
@@ -49,6 +89,9 @@ namespace we {
 
       public set tableId(value: string) {
         this._tableId = value;
+        if (this._quickbetPanel) {
+          this._quickbetPanel.tableId = value;
+        }
       }
 
       public get tableId() {
@@ -72,34 +115,12 @@ namespace we {
         return this._quickbetButton;
       }
 
+      /*
       protected childrenCreated() {
         super.childrenCreated();
-        this.anchorOffsetX = this.width / 2;
-        this.anchorOffsetY = this.height / 2;
-        this.x += this.anchorOffsetX;
-        this.y += this.anchorOffsetY;
-        this._originaly = this.y;
 
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
-        this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
-        // this._dropdown.items = ['test 1', 'test 2'];
-        // this._dropdown.setToggler(this._dropdown_toggle);
-        this.mount();
-        this._timer.skinName = utils.getSkin('CountdownTimerRound');
-        this._quickbetPanel.tableId = this._tableId;
-        const shape = new egret.Shape();
-        shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
-        shape.graphics.endFill();
-        this._group.addChild(shape);
-        this._group.mask = shape;
-
-        this.setEventListeners();
-        // this._group.setChildIndex(this._timer, 2500);
       }
-
+*/
       private onTouchTap(evt: egret.Event) {
         const target = evt.target;
         if (target.parent && target.parent instanceof eui.ItemRenderer) {
@@ -132,6 +153,7 @@ namespace we {
           }
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetPanel);
+          egret.Tween.removeTweens(this._denomLayer);
 
           ///////
           /*
@@ -152,10 +174,17 @@ namespace we {
               .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
               .call(resolve)
           );
+          const p3 = new Promise(resolve =>
+            egret.Tween.get(this._denomLayer)
+              .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+              .call(resolve)
+          );
+          /*
           Promise.all([p1, p2]).then(() => {
             this.setChildIndex(this._group, 1000);
             this.setChildIndex(this._quickbetPanel, 1500);
           });
+          */
         } else if (env.livepageLocked === this.tableId) {
           this._quickbetButton.tweenLabel(!!!env.livepageLocked);
           // this.setChildIndex(this._quickbetPanel, 1000);
@@ -164,7 +193,9 @@ namespace we {
 
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetPanel);
+          egret.Tween.removeTweens(this._denomLayer);
           egret.Tween.get(this._quickbetPanel).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
+          egret.Tween.get(this._denomLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
           if (this._mouseOutside) {
             egret.Tween.removeTweens(this._quickbetButton);
             const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1);
@@ -252,8 +283,8 @@ namespace we {
           // }
 
           // TODO: show start bet message to the client for few seconds
-          logger.l('LiveBaListSimpleItem::setStateBet::this._quickbetPanel', this._quickbetPanel);
-          logger.l('LiveBaListSimpleItem::setStateBet::this._quickbetPanel.bettingTable', this._quickbetPanel.bettingTable);
+          // logger.l('LiveBaListSimpleItem::setStateBet::this._quickbetPanel', this._quickbetPanel);
+          // logger.l('LiveBaListSimpleItem::setStateBet::this._quickbetPanel.bettingTable', this._quickbetPanel.bettingTable);
           this._quickbetPanel.bettingTable.resetUnconfirmedBet();
           this._quickbetPanel.bettingTable.resetConfirmedBet();
 
@@ -288,12 +319,17 @@ namespace we {
           } else {
             this._timer.visible = false;
             console.log('LiveBaListItem::setQuickbetPanelVisible-disable1()' + this.tableId);
+            /*
             this.setChildIndex(this._quickbetPanel, 1000);
             this.setChildIndex(this._group, 1500);
+            */
             this._quickbetButton.tweenLabel(!!!env.livepageLocked);
             egret.Tween.removeTweens(this);
             egret.Tween.removeTweens(this._quickbetPanel);
+            egret.Tween.removeTweens(this._denomLayer);
+
             egret.Tween.get(this._quickbetPanel).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
+            egret.Tween.get(this._denomLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
             egret.Tween.removeTweens(this._quickbetButton);
             const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1);
             const tw2 = egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 0 }, this._tweenInterval1);
@@ -314,7 +350,7 @@ namespace we {
         }
       }
 
-      protected async mount() {}
+      protected mount() {}
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);

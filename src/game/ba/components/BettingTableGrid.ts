@@ -10,6 +10,7 @@ namespace we {
       private _image: eui.Image;
       private _imageRes: string;
       private _hoverRes: string;
+      private _hasDenomLayer: string;
 
       private _textColor: number = 0xffffff;
 
@@ -42,6 +43,9 @@ namespace we {
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+
+        this._betChipStack = new BetChipStack();
+        this._betChipStack.skinName = we.utils.getSkin('BetChipStack');
       }
 
       set denomLayer(value: eui.Component) {
@@ -260,6 +264,20 @@ namespace we {
         this.drawStack();
       }
 
+      set hasDenomLayer(value: string) {
+        this._hasDenomLayer = value;
+        console.log('BettingTableGrid::hasDenomLayer - ');
+        if (we.utils.convertToBoolean(value)) {
+          this._denomLayer = new eui.Component();
+        } else {
+          this._denomLayer = this;
+        }
+      }
+
+      get hasDenomLayer() {
+        return this._hasDenomLayer;
+      }
+
       set labelSize(value: number) {
         this._labelSize = value;
       }
@@ -303,6 +321,7 @@ namespace we {
         this._betChipStack.betSumLabel.size = this._labelSize;
         this._betChipStack.betSumBackground.width = this._betSumBackgroundWidth;
         this._betChipStack.betSumBackground.height = this._betSumBackgroundHeight;
+        this._denomLayer.addChild(this._betChipStack);
 
         this.setUncfmBet(0);
         this.setCfmBet(0);

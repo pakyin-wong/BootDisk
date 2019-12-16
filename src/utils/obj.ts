@@ -56,5 +56,21 @@ namespace we {
 
       return a;
     }
+
+    export function convertToBoolean(input: string): boolean {
+      try {
+        return JSON.parse(input);
+      } catch (e) {
+        return false;
+      }
+    }
+
+    export function covertToBoolean(input: number): boolean {
+      if (input === 0) {
+        return false;
+      }
+      return true;
+
+    }
   }
 }
