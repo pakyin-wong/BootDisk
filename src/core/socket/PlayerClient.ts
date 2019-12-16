@@ -44,7 +44,7 @@ namespace we {
         // this.client.subscribe(core.MQTT.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         this.client.subscribe(core.MQTT.BALANCE_UPDATE, this.onBalanceUpdate, this);
         this.client.subscribe(core.MQTT.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
-        // this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+        this.client.subscribe(core.MQTT.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
         this.client.subscribe(core.MQTT.ERROR, this.onError, this);
         this.client.subscribe(core.MQTT.NOTIFICATION_ROADMAP_MATCH, this.onGoodRoadMatch, this);
       }
@@ -499,12 +499,16 @@ namespace we {
       // }
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {
-        const betCommands: data.BetCommand[] = betDetails.map(data => {
-          return {
-            field: data.field,
-            amount: data.amount,
-          };
-        });
+        const betCommands: data.BetCommand[] = betDetails
+          .filter(data => {
+            return data.amount > 0;
+          })
+          .map(data => {
+            return {
+              field: data.field,
+              amount: data.amount,
+            };
+          });
         this.client.bet(tableID, betCommands, result => {
           this.betResultCallback(result);
         });
@@ -520,6 +524,9 @@ namespace we {
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
+        if (!(tableList instanceof data.GameTableList)) {
+          return;
+        }
         logger.l('PlayerClient::onBetTableListUpdate: tableList: ');
         console.dir(tableList);
         logger.l('PlayerClient::onBetTableListUpdate: timestamp: ');

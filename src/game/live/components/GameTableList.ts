@@ -10,13 +10,13 @@ namespace we {
 
       constructor() {
         super();
-        // if (env.tableInfoArray) {
-        //   this.roomIds = env.tableInfoArray.map(value => {
-        //     return value.tableid;
-        //   });
-        // }
-        // this.collection = new eui.ArrayCollection(this.roomIds);
-        this.collection = new eui.ArrayCollection();
+        if (env.allTableList) {
+          this.roomIds = env.allTableList.filter(tableid => {
+            const tableInfo = env.tableInfos[tableid];
+            return tableInfo && tableInfo.displayReady;
+          });
+        }
+        this.collection = new eui.ArrayCollection(this.roomIds);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -133,8 +133,8 @@ namespace we {
 
         // TODO: Clear Table Array
 
-        dir.socket.getTableList();
-        dir.socket.getTableHistory();
+        // dir.socket.getTableList();
+        // dir.socket.getTableHistory();
       }
 
       public selectGameType(game: string = null) {
@@ -149,8 +149,8 @@ namespace we {
         this.tabs.setSelectedIndex(itemIdx);
 
         // get new data List
-        dir.socket.getTableList();
-        dir.socket.getTableHistory();
+        // dir.socket.getTableList();
+        // dir.socket.getTableHistory();
 
         this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);
         this.tabs.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onSelectedIndexChanged, this);

@@ -24,8 +24,13 @@ namespace we {
         this._viewStack.addChild(betTableGroup);
         betTableGroup.width = group.width;
         betTableGroup.height = group.height;
-        let rect = new eui.Rect(group.width, group.height, 0xff4422);
-        betTableGroup.addChild(rect);
+        let scroller = new Scroller();
+        scroller.width = group.width;
+        scroller.height = group.height;
+        betTableGroup.addChild(scroller);
+        this.betTableList = new TableList();
+        this.betTableList.itemRenderer = BetInfoHolder;
+        scroller.viewport = this.betTableList;
 
         // create good road list
         const goodRoadTableGroup = new eui.Group();
@@ -33,8 +38,13 @@ namespace we {
         this._viewStack.addChild(goodRoadTableGroup);
         goodRoadTableGroup.width = group.width;
         goodRoadTableGroup.height = group.height;
-        rect = new eui.Rect(group.width, group.height, 0x2244ff);
-        goodRoadTableGroup.addChild(rect);
+        scroller = new Scroller();
+        scroller.width = group.width;
+        scroller.height = group.height;
+        goodRoadTableGroup.addChild(scroller);
+        this.goodRoadTableList = new TableList();
+        this.goodRoadTableList.itemRenderer = BetInfoHolder;
+        scroller.viewport = this.goodRoadTableList;
 
         // create all game list
         const allTableGroup = new eui.Group();
@@ -42,8 +52,14 @@ namespace we {
         this._viewStack.addChild(allTableGroup);
         allTableGroup.width = group.width;
         allTableGroup.height = group.height;
-        rect = new eui.Rect(group.width, group.height, 0x44ff22);
-        allTableGroup.addChild(rect);
+        scroller = new Scroller();
+        scroller.width = group.width;
+        scroller.height = group.height;
+        allTableGroup.addChild(scroller);
+        this.allTableList = new TableList();
+        this.allTableList.itemRenderer = BetInfoHolder;
+        allTableGroup.addChild(this.allTableList);
+        scroller.viewport = this.allTableList;
 
         this._tabbar.dataProvider = this._viewStack;
         this.activeLine.y = this._tabbar.y + this._tabbar.height;
@@ -60,11 +76,36 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
       }
 
-      protected onTableListUpdate(tableList: string[]) {}
+      protected onTableListUpdate(evt: egret.Event) {
+        const tableList = evt.data;
+        this.allTableList.setTableList(tableList);
 
-      protected onGoodRoadTableListUpdate(tableList: string[]) {}
+        const count = tableList.length;
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        if (tabItem) {
+          tabItem.onBadgeUpdate(count);
+        }
+      }
 
-      protected onBetTableListUpdate(tableList: string[]) {}
+      protected onGoodRoadTableListUpdate(evt: egret.Event) {
+        const tableList = evt.data;
+        this.goodRoadTableList.setTableList(tableList);
+        const count = tableList.length;
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        if (tabItem) {
+          tabItem.onBadgeUpdate(count);
+        }
+      }
+
+      protected onBetTableListUpdate(evt: egret.Event) {
+        const tableList = evt.data;
+        this.betTableList.setTableList(tableList);
+        const count = tableList.length;
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        if (tabItem) {
+          tabItem.onBadgeUpdate(count);
+        }
+      }
     }
   }
 }

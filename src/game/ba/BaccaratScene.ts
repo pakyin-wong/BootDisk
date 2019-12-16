@@ -569,6 +569,7 @@ namespace we {
       protected updateCountdownTimer() {
         this.countdownTimer.countdownValue = this.gameData.countdown * 1000;
         this.countdownTimer.remainingTime = this.gameData.countdown * 1000 - (env.currTime - this.gameData.starttime);
+        console.log(env.currTime, this.gameData.starttime);
         this.countdownTimer.start();
       }
 

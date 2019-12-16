@@ -107,6 +107,7 @@ namespace we {
 
       private setEventListeners() {
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
       }
 
       public setupTableInfo() {
@@ -134,6 +135,16 @@ namespace we {
             this._gameData = <we.ba.GameData> this._tableInfo.data;
 
             this.updateGame();
+          }
+        }
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        console.log('BaccaratScene::onRoadDataUpdate');
+        const tableInfo = <data.TableInfo> evt.data;
+        if (tableInfo.tableid === this._tableId) {
+          if (tableInfo.roadmap) {
+            this._bigRoad.updateRoadData(tableInfo.roadmap);
           }
         }
       }
@@ -184,6 +195,7 @@ namespace we {
       protected updateCountdownTimer() {
         this._timer.countdownValue = this._gameData.countdown * 1000;
         this._timer.remainingTime = this._gameData.countdown * 1000 - (env.currTime - this._gameData.starttime);
+        console.log(env.currTime, this._gameData.starttime);
         this._timer.start();
       }
 
