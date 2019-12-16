@@ -21,7 +21,10 @@ namespace we {
       private _down: boolean = false;
 
       constructor() {
-        super('imagebutton/ImageButtonSkinEmpty');
+        super();
+        if (!this.skinName || this.skinName === '') {
+          this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
+        }
       }
 
       public mount() {
@@ -44,12 +47,14 @@ namespace we {
           this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
           //   this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, true);
         } else {
           this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
           //   this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, false);
         }
         this._enabled = enabled;
@@ -91,6 +96,10 @@ namespace we {
       private onTouchUp() {
         this._down = false;
         this.update();
+      }
+
+      private onClick() {
+        this.dispatchEvent(new egret.Event('CLICKED'));
       }
 
       private update() {

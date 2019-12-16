@@ -65,6 +65,7 @@
 		"resource/skin_desktop/imagebutton/ImageButtonSkinDialog.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinEmpty.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinLobby.exml",
+		"resource/skin_desktop/imagebutton/ImageButtonSkinNav.exml",
 		"resource/skin_desktop/ImageSlider.exml",
 		"resource/skin_desktop/LiveBaQuickBetPanel.exml",
 		"resource/skin_desktop/LiveBaListItem.exml",
