@@ -32,7 +32,6 @@ namespace we {
             break;
         }
         this._image.source = `d_lobby_list_panel_${this.data}_${imgState}_png`;
-        this.onBadgeUpdate(Math.floor(Math.random() * 20));
       }
     }
   }

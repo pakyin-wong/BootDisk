@@ -11,8 +11,8 @@ namespace we {
       return `${target.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
     }
 
-    export function formatTime(unix) {
-      return moment.unix(unix).format('YYYY/MM/DD HH:mm:ss');
+    export function formatTime(timestamp) {
+      return moment(timestamp).format('YYYY/MM/DD HH:mm:ss');
     }
   }
 }

@@ -29,7 +29,7 @@ namespace we {
 
       public onEnter() {
         // After pressing the Filter
-        // dir.socket.getTableList();
+        dir.socket.getTableList();
         // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         // dir.socket.getTableHistory();
         let itemIdx = 0;

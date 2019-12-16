@@ -70,7 +70,7 @@
 		"resource/skin_desktop/LiveBaListSimpleItem.exml",
 		"resource/skin_desktop/LivePage.exml",
 		"resource/skin_desktop/livesidebar/ImageTabItemWithBadge.exml",
-		"resource/skin_desktop/livesidebar/LiveSidePanel.exml",
+		"resource/skin_desktop/livesidebar/SidePanel.exml",
 		"resource/skin_desktop/livesidebar/TabItemWithBadge.exml",
 		"resource/skin_desktop/livesidebar/TestItemSkin.exml",
 		"resource/skin_desktop/LoadingProgressBar.exml",

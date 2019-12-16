@@ -355,7 +355,7 @@ namespace we {
         this._gridSuperSixBanker.cancelBet();
         this._gridSuperSix.cancelBet();
       }
-      
+
       public onChangeLang() {
         this.changeLang();
       }

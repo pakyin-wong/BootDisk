@@ -170,7 +170,7 @@ declare module skin_desktop{
 }
 declare class ImageTabItemWithBadgeSkin extends eui.Skin{
 }
-declare class LiveSidePanelSkin extends eui.Skin{
+declare class SidePanelSkin extends eui.Skin{
 }
 declare class TabItemWithBadgeSkin extends eui.Skin{
 }
