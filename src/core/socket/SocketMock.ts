@@ -20,6 +20,7 @@ namespace we {
         this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
           const data = new we.data.TableInfo();
           data.tableid = (idx + 1).toString();
+          data.tablename = data.tableid;
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData2;
 
@@ -116,9 +117,10 @@ namespace we {
         env.betLimits = [
           {
             currency: Currency.RMB,
-            maxLimit: 1000,
-            minLimit: 10,
-            chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+            maxlimit: 1000,
+            minlimit: 10,
+            chipList: [1, 5, 20, 100, 500],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
         env.mode = null || -1;

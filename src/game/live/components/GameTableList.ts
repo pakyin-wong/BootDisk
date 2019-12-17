@@ -2,12 +2,12 @@ namespace we {
   export namespace live {
     export class GameTableList extends eui.Component {
       private scroller: ui.Scroller;
-      private collection: eui.ArrayCollection;
+      // private collection: eui.ArrayCollection;
       private roomIds: string[] = [];
 
       private tabs: SegmentedControl;
       private tabItems: string[];
-      private roomList: ui.List;
+      private roomList: ui.TableList;
       private roomLayout: eui.AnimTileLayout;
       private normalGapSize: number = 48;
       private simpleGapSize: number = 20;
@@ -20,7 +20,7 @@ namespace we {
             return tableInfo && tableInfo.displayReady;
           });
         }
-        this.collection = new eui.ArrayCollection(this.roomIds);
+        // this.collection = new eui.ArrayCollection(this.roomIds);
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
@@ -30,14 +30,14 @@ namespace we {
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
-        dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
+        // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
       }
 
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        env.livepageLocked = null;
+        dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, false);
 
         this.scroller = new ui.Scroller();
         this.scroller.width = 2600;
@@ -54,7 +54,9 @@ namespace we {
         slider.width = 2600;
 
         // init room grids
-        this.roomList = new ui.List();
+        this.roomList = new ui.TableList();
+        this.roomList.isFreezeScrolling = true;
+        this.roomList.isGlobalLock = true;
         this.roomLayout = new eui.AnimTileLayout();
         this.roomLayout.horizontalGap = this.normalGapSize;
         this.roomLayout.verticalGap = this.normalGapSize;
@@ -62,11 +64,12 @@ namespace we {
         this.roomLayout.requestedColumnCount = 4;
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         this.roomList.layout = this.roomLayout;
-        this.roomList.dataProvider = this.collection;
+        // this.roomList.dataProvider = this.collection;
         this.roomList.itemRenderer = LiveListHolder;
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;
+        this.roomList.setTableList(this.roomIds);
 
         const tabBarGroup = new eui.Group();
         tabBarGroup.percentWidth = 100;
@@ -96,7 +99,7 @@ namespace we {
         this.scroller.viewport = group;
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
-        dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
+        // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
       }
 
@@ -123,34 +126,36 @@ namespace we {
         }
       }
 
-      private onLivePageLock() {
-        if (env.livepageLocked) {
-          this.scroller.disableVScroller();
-          this.scroller.disableWheel();
-        } else {
-          this.scroller.enableVScroller();
-          this.scroller.enableWheel();
-        }
-      }
+      // private onLivePageLock() {
+      //   if (env.livepageLocked) {
+      //     this.scroller.disableVScroller();
+      //     this.scroller.disableWheel();
+      //   } else {
+      //     this.scroller.enableVScroller();
+      //     this.scroller.enableWheel();
+      //   }
+      // }
 
       private handleTableList(event: egret.Event) {
-        if (!env.livepageLocked) {
-          const roomIds = event.data as string[];
-          const added = utils.arrayDiff(roomIds, this.roomIds);
-          const removed = utils.arrayDiff(this.roomIds, roomIds);
-          added.forEach(item => {
-            this.collection.addItem(item);
-          });
-          removed.forEach(item => {
-            this.collection.removeItemAt(this.collection.getItemIndex(item));
-          });
-          logger.l('GameTableList::handleTableList() -> after: ', this.collection);
+        // if (!env.livepageLocked) {
+        const roomIds = event.data as string[];
+        this.roomList.setTableList(roomIds);
 
-          // this.roomIds = roomIds;
-          // this.roomIds.forEach((x, inx) => {
-          //   this.collection.replaceItemAt(x, inx);
-          // });
-        }
+        // const added = utils.arrayDiff(roomIds, this.roomIds);
+        // const removed = utils.arrayDiff(this.roomIds, roomIds);
+        // added.forEach(item => {
+        //   this.collection.addItem(item);
+        // });
+        // removed.forEach(item => {
+        //   this.collection.removeItemAt(this.collection.getItemIndex(item));
+        // });
+        // logger.l('GameTableList::handleTableList() -> after: ', this.collection);
+
+        // this.roomIds = roomIds;
+        // this.roomIds.forEach((x, inx) => {
+        //   this.collection.replaceItemAt(x, inx);
+        // });
+        // }
       }
 
       private onSelectedIndexSorted(evt: any) {

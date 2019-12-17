@@ -142,6 +142,18 @@ declare module skin_desktop{
 	class GoodRoadListItem extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class ImageButtonSkinBacarratCancel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ImageButtonSkinBacarratDouble extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ImageButtonSkinBacarratRepeat extends eui.Skin{
+	}
+}
 declare class ImageButtonSkinDialog extends eui.Skin{
 }
 declare class ImageButtonSkinEmpty extends eui.Skin{
@@ -150,6 +162,10 @@ declare class ImageButtonSkinLobby extends eui.Skin{
 }
 declare module skin_desktop{
 	class ImageButtonSkinNav extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ImageButtonSkinQuickBetGreen extends eui.Skin{
 	}
 }
 declare module skin_desktop{

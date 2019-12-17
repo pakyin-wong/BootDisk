@@ -5,7 +5,9 @@ namespace we {
       private static _env: Env;
 
       public static get Instance(): Env {
-        return this._env ? this._env : new Env();
+        const env = this._env ? this._env : new Env();
+        this._env = env;
+        return env;
       }
 
       /* Global Environment Variable */
@@ -35,8 +37,20 @@ namespace we {
       // local game state
       public currentSelectedBetLimitIndex: number = 0;
       // public currentChipSelectedIndex: number = 10;
-      public livepageLocked: string = null;
+      private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
+
+      public init() {
+        dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
+      }
+      private onLockChanged(evt: egret.Event) {
+        const isLock = evt.data;
+        this._livepageLocked = isLock;
+      }
+
+      public get livepageLocked() {
+        return this._livepageLocked;
+      }
 
       set currTime(value: number) {
         this._currTime = value;
@@ -85,7 +99,7 @@ namespace we {
             const prevTableInfo = env.tableInfos[tableInfo.tableid];
 
             if (prevTableInfo) {
-              const mergedInfo: data.TableInfo = utils.mergeObjects(prevTableInfo, tableInfo);
+              utils.mergeObjects(prevTableInfo, tableInfo);
             } else {
               this.addTableInfo(tableInfo);
             }
@@ -102,6 +116,12 @@ namespace we {
           }
         }
         return false;
+      }
+      public getTableNameByID(tableid: string): string {
+        if (env && tableid && env.tableInfos && env.tableInfos[tableid]) {
+          return env.tableInfos[tableid].tablename;
+        }
+        return null;
       }
 
       /*

@@ -78,7 +78,6 @@ namespace we {
 
       private setDenomLists() {
         this._gridPlayer.denomList = this._denomList;
-
         this._gridBanker.denomList = this._denomList;
         this._gridPlayerPair.denomList = this._denomList;
         this._gridTie.denomList = this._denomList;
@@ -159,8 +158,6 @@ namespace we {
         this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
         this._gridSuperSixBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSixBanker), this);
         this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
-
-        // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
       public setGameMode(isNoCommission: boolean) {
@@ -295,12 +292,12 @@ namespace we {
         }
         // check betlimit
         const exceedBetLimit =
-          Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
-          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
-          fieldAmounts[BetField.TIE] > betLimit.maxLimit ||
-          fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxLimit ||
-          fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxLimit ||
-          fieldAmounts[BetField.SUPER_SIX] > betLimit.maxLimit;
+          Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
+          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
+          fieldAmounts[BetField.TIE] > betLimit.maxlimit ||
+          fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxlimit ||
+          fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxlimit ||
+          fieldAmounts[BetField.SUPER_SIX] > betLimit.maxlimit;
         if (exceedBetLimit) {
           egret.log(core.Event.EXCEED_BET_LIMIT);
           dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
@@ -366,6 +363,7 @@ namespace we {
       public onChangeLang() {
         this.changeLang();
       }
+
       public getBetchipLayer(): eui.Component {
         return this._denomLayer;
       }

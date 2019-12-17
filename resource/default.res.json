@@ -1525,7 +1525,8 @@
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_notification_follow_hover.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_notification_follow_hover_png"
+			"name": "d_lobby_quick_bet_notification_follow_hover_png",
+			"scale9grid": "20,21,109,0"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_notification_follow_none.png",

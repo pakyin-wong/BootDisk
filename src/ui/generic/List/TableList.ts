@@ -2,17 +2,23 @@
 namespace we {
   export namespace ui {
     export class TableList extends List {
+      public static LOCK: string = 'LOCK';
+      public static UNLOCK: string = 'UNLOCK';
+
       protected tableList: string[];
       protected nextTableList: string[];
-      protected _isFocus: boolean;
+      protected _isFocus: any;
       protected collection: eui.ArrayCollection;
 
       public isFreezeScrolling: boolean = false;
+      public isGlobalLock: boolean = false;
 
       protected _scroller: eui.Scroller = null;
 
       constructor() {
         super();
+        this.addEventListener(TableList.LOCK, this.onLockChanged, this);
+        this.addEventListener(TableList.UNLOCK, this.onLockChanged, this);
       }
 
       public setTableList(tableList: string[]) {
@@ -37,6 +43,9 @@ namespace we {
             this.collection.removeItemAt(this.collection.getItemIndex(item));
           });
           this.tableList = tableList;
+          this.tableList.forEach((x, inx) => {
+            this.collection.replaceItemAt(x, inx);
+          });
         }
       }
 
@@ -101,15 +110,41 @@ namespace we {
         return this._isFocus;
       }
 
-      public onFocusChanged(isFocus: boolean) {
+      public get isLocked() {
+        return !!this._isFocus;
+      }
+
+      protected onFocusChanged(isFocus: any) {
         this._isFocus = isFocus;
+        if (this.isGlobalLock) {
+          dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, !!isFocus);
+        }
         if (this.isFreezeScrolling) {
-          const scroller: eui.Scroller = this.getParentScroller();
+          const scroller: ui.Scroller = this.getParentScroller();
           scroller.touchEnabled = !isFocus;
+          if (isFocus) {
+            scroller.disableVScroller();
+            scroller.disableWheel();
+          } else {
+            scroller.enableVScroller();
+            scroller.enableWheel();
+          }
         }
         if (!isFocus && this.nextTableList) {
           this.setTableList(this.nextTableList);
           this.nextTableList = null;
+        }
+      }
+
+      protected onLockChanged(evt: egret.Event) {
+        const focusItem: TableListItemHolder = evt.data;
+        switch (evt.type) {
+          case TableList.LOCK:
+            this.onFocusChanged(focusItem);
+            break;
+          case TableList.UNLOCK:
+            this.onFocusChanged(null);
+            break;
         }
       }
 

@@ -35,7 +35,7 @@ namespace we {
           } else {
             // option 2. just display all road data as it is
             if (this.bigRoad) {
-              this.bigRoad.parseRoadData(roadmapData.bigRoad);
+              this.bigRoad.parseRoadData(roadmapData.bigRoadLobby);
             }
           }
         }

@@ -14,7 +14,7 @@ namespace we {
     }
 
     export function mergeObjects(...arg): any {
-      const resObj = {};
+      const resObj = arg[0];
       for (let i = 0; i < arg.length; i += 1) {
         const obj = arg[i];
         const keys = Object.keys(obj);

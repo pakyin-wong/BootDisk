@@ -1,6 +1,6 @@
 namespace we {
   export namespace live {
-    export class SegmentedControl extends eui.Component implements eui.UIComponent {
+    export class SegmentedControl extends core.BaseEUI implements eui.UIComponent {
       public tabBar: ui.SortableList;
       public collection: eui.ArrayCollection;
       private activeLine: eui.Rect;
@@ -37,6 +37,8 @@ namespace we {
         this.activeLine.fillColor = 0xffffff;
         this.activeLine.height = 3;
         this.addChild(this.activeLine);
+
+        dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLockChanged, this);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -45,23 +47,16 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
+      }
 
-        // For Fixed Width Round Corner
-        // Disabled to prevent overflow hidden
-        // const shape = new egret.Shape();
-        // shape.graphics.beginFill(0xffffff, 1);
-        // shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
-        // shape.graphics.endFill();
-        // this.addChild(shape);
-        // this.mask = shape;
+      protected destroy() {
+        dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLockChanged, this);
+      }
 
-        // window.requestAnimationFrame(() => {
-        //   this.tabBar.selectedIndex = 0;
-        //   const { x, width } = this.tabBar.$children[this.tabBar.selectedIndex];
-        //   this.activeLine.x = x;
-        //   this.activeLine.width = width;
-        //   console.log(this.tabBar.$children);
-        // });
+      protected onLockChanged(evt: egret.Event) {
+        const isLock = evt.data;
+        this.tabBar.touchEnabled = !isLock;
+        this.tabBar.touchChildren = !isLock;
       }
 
       private async onSelectedIndexChanged(fromItemRenderer = false) {

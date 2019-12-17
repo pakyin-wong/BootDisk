@@ -13,7 +13,7 @@ namespace we {
         super.mount();
         const betLimitList = env.betLimits;
         const betLimitItems = betLimitList.map(data => {
-          return `${data.minLimit} - ${data.maxLimit}`;
+          return `${data.minlimit} - ${data.maxlimit}`;
         });
         this.setItems(betLimitItems);
         this.selectedIndex = env.currentSelectedBetLimitIndex;
