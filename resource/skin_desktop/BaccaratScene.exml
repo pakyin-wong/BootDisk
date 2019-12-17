@@ -14,18 +14,21 @@
 	          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
 	<ba:CountdownTimer id="countdownTimer" width="180" height="60" y="945.33" horizontalCenter="115" />
 	<ui:OldImageButton id="cancelButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-	                 horizontalCenter="334" resName="d_ba_betcontrol_icon_cancel_png" />
+	                    horizontalCenter="334" skinName="skin_desktop.ImageButtonSkinBacarratCancel"
+	                    currentState="normal"/>
 	<ui:OldImageButton id="repeatButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-	                 horizontalCenter="250" resName="d_ba_betcontrol_icon_repeat_png" />
+	                    horizontalCenter="250" skinName="skin_desktop.ImageButtonSkinBacarratRepeat"
+	                    currentState="normal"/>
 	<ui:OldImageButton id="doubleButton" y="939.39" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-	                 horizontalCenter="416" resName="d_ba_betcontrol_icon_double_png" />
+	                    horizontalCenter="416" skinName="skin_desktop.ImageButtonSkinBacarratDouble"
+	                    currentState="normal"/>
 	<ba:BARoadmapLeftPanel id="roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
 	                       anchorOffsetY="0" />
 	<ba:BARoadmapRightPanel id="roadmapRightPanel" width="698" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
 	                        anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" right="0">
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
-		<e:Label id="lblRoomNo" text="百家樂" x="112" y="9.4" size="28" height="40" verticalAlign="middle" width="127"
+		<ui:RunTimeLabel id="lblRoomNo" x="112" y="9.4" size="28" height="40" verticalAlign="middle" width="127"
 		         textAlign="right" />
 		<live:BetLimitDropdown width="127" height="29" x="112" y="53.4" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0"
 		                       anchorOffsetY="0" />
@@ -44,7 +47,7 @@
 	<ba:BetChipSet id="betChipSet" width="496.97" height="68.18" y="937.92" horizontalCenter="-247.5" anchorOffsetX="0"
 	               anchorOffsetY="0" />
 	<e:Group height="50" x="2274" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="304">
-		<e:Label id="_lblBaMode" text="免佣" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
+		<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
 		<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88.32999999999993" y="28.83000000000004" scaleX="1" scaleY="1" />
 		<e:layout>
 			<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />

@@ -20,6 +20,7 @@ namespace we {
         this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
           const data = new we.data.TableInfo();
           data.tableid = (idx + 1).toString();
+          data.tablename = data.tableid;
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData2;
 
@@ -86,7 +87,7 @@ namespace we {
 
         setInterval(() => {
           // mock error
-          if (Math.random() > 0.95) {
+          if (Math.random() > 0.9) {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
         }, 5000);
@@ -116,9 +117,10 @@ namespace we {
         env.betLimits = [
           {
             currency: Currency.RMB,
-            maxLimit: 1000,
-            minLimit: 10,
-            chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+            maxlimit: 1000,
+            minlimit: 10,
+            chipList: [1, 5, 20, 100, 500],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
         env.mode = null || -1;
@@ -239,19 +241,30 @@ namespace we {
         animateCell: [0, -1, -1, -1, -1, 0, -1, -1, -1, -1],
       };
       private mockRoadData1: any = {
-        bead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }],
+        bead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+        ],
         bigRoad: [{ V: 'p', T: 0 }],
         bigEye: [{ V: 'p' }],
         small: [{ V: 'p' }],
         roach: [{ V: 'p' }],
 
-        bbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'b', B: 0, P: 0, W: 0 }],
+        bbead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'b', B: 0, P: 0, W: 0 },
+        ],
         bbigRoad: [{ V: 'p', T: 0 }],
         bbigEye: [{ V: 'p' }],
         bsmall: [{ V: 'p' }],
         broach: [{ V: 'p' }],
 
-        pbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'p', B: 0, P: 1, W: 7 }],
+        pbead: [
+          { V: 't', B: 0, P: 0, W: 2 },
+          { V: 'p', B: 0, P: 0, W: 4 },
+          { V: 'p', B: 0, P: 1, W: 7 },
+        ],
         pbigRoad: [{ V: 'p', T: 0 }],
         pbigEye: [{ V: 'p' }],
         psmall: [{ V: 'p' }],

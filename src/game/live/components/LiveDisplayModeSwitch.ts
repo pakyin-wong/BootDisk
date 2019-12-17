@@ -51,7 +51,9 @@ namespace we {
       }
 
       public onItemClick(index: number) {
-        this._setSelectedIndex(index);
+        if (!env.livepageLocked) {
+          this._setSelectedIndex(index);
+        }
       }
     }
   }

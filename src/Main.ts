@@ -38,6 +38,7 @@ class Main extends eui.UILayer {
     dir.meterCtr = new we.core.MeterCtr();
     dir.moniter = new we.core.Monitor();
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
+    env.init();
 
     // step 2: init Egrets Asset / Res
     await this.initRes();

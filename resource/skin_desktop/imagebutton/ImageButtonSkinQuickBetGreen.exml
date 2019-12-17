@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ImageButtonSkinQuickBetGreen" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="search_icon" >
+	<e:Image id="_background" left="0" right="0" top="0" bottom="0" source.normal="d_lobby_quick_bet_notification_follow_none_png" source.hover="d_lobby_quick_bet_notification_follow_hover_png" />
+	<e:Group id="_group" left="0" right="0" top="0" bottom="0">
+		<e:Label id="_label" text="" textAlign="center" verticalAlign="justify" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"/>
+	</e:Group>
+
+
+</e:Skin>
