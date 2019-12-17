@@ -1,8 +1,8 @@
 namespace we {
   export namespace ui {
     enum BaseImageButtonState {
-      normal = 'none',
-      down = 'down',
+      normal = 'normal',
+      down = 'pressed',
       disabled = 'disabled',
       hover = 'hover',
     }
