@@ -1621,7 +1621,8 @@
 		{
 			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png",
 			"type": "image",
-			"name": "d_lobby_confirm_btn_none_png"
+			"name": "d_lobby_confirm_btn_none_png",
+			"scale9grid": "21,25,41,0"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png",
@@ -1631,7 +1632,8 @@
 		{
 			"url": "assets/d/lobby/d_lobby_confirm_btn_hover.png",
 			"type": "image",
-			"name": "d_lobby_confirm_btn_hover_png"
+			"name": "d_lobby_confirm_btn_hover_png",
+			"scale9grid": "21,25,41,0"
 		},
 		{
 			"url": "assets/d/ba/frame-3.png",

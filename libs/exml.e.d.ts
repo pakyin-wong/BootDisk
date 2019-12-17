@@ -146,18 +146,6 @@ declare module skin_desktop{
 	class ImageButtonSkinBacarrat extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class ImageButtonSkinBacarratCancel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class ImageButtonSkinBacarratDouble extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class ImageButtonSkinBacarratRepeat extends eui.Skin{
-	}
-}
 declare class ImageButtonSkinDialog extends eui.Skin{
 }
 declare class ImageButtonSkinEmpty extends eui.Skin{

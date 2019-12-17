@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="lobby_mode_01,lobby_mode_02">
-    <e:Image id="_background" left="0" right="0" top="0" bottom="0" source.lobby_mode_01="d_lobby_icon_view_01_none_png" source.lobby_mode_02="d_lobby_icon_view_02_none_png" locked="true"/>
+<e:Skin class="ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="lobby_mode_01,lobby_mode_02,lobby_confirm_button">
+    <e:Image id="_background" left="0" right="0" top="0" bottom="0" source.lobby_mode_01="d_lobby_icon_view_01_none_png" source.lobby_mode_02="d_lobby_icon_view_02_none_png" source.lobby_confirm_button="d_lobby_confirm_btn_none_png" locked="true"/>
     <e:Group id="_group" left="0" right="0" top="0" bottom="0">
         <ui:RunTimeLabel id="_label" text="" fontFamily="NotoSansCJKtc-Regular" size="24"  verticalCenter="0" horizontalCenter="0" />
     </e:Group>
