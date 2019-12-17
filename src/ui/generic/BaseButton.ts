@@ -23,12 +23,14 @@ namespace we {
           this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
           this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, true);
         } else {
           this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
           this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, false);
         }
         this._enabled = b;
@@ -37,6 +39,11 @@ namespace we {
 
       public get label(): RunTimeLabel {
         return this._label;
+      }
+
+      public set active(b) {
+        this._active = b;
+        this.update();
       }
 
       private onRollover() {
@@ -58,6 +65,10 @@ namespace we {
       private onTouchUp() {
         this._click = false;
         this.update();
+      }
+
+      private onClick() {
+        this.dispatchEvent(new egret.Event('CLICKED'));
       }
 
       private update() {

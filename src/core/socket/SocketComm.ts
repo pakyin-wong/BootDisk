@@ -581,7 +581,9 @@ namespace we {
         this.filterAndDispatch(goodRoadTableList, core.Event.GOOD_ROAD_TABLE_LIST_UPDATE);
       }
 
-      public getBetHistory(filter, callback: (res: any) => void, thisArg) {}
+      public getBetHistory(filter, callback: (res: any) => void, thisArg) {
+        this.client.getBetHistory(filter, callback.bind(thisArg));
+      }
     }
   }
 }
