@@ -14,7 +14,7 @@ namespace we {
       protected _gameData: we.ba.GameData;
       protected _timer: we.ba.CountdownTimer;
       protected _mouseOutside: boolean = false;
-      protected _label: eui.Label;
+      protected _label: ui.RunTimeLabel;
 
       protected _tweenInterval1: number = 250;
 
@@ -98,15 +98,15 @@ namespace we {
         return this._tableId;
       }
 
-      set labelText(value: string) {
+      set labelRenderText(value: () => string) {
         if (this._label) {
-          this._label.text = value;
+          this._label.renderText = value;
         }
       }
 
-      get labelText() {
+      get labelRenderText() {
         if (this._label) {
-          return this._label.text;
+          return this._label.renderText;
         }
         return null;
       }

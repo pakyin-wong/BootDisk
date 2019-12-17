@@ -13,9 +13,25 @@ namespace we {
         super();
       }
 
-      public setData(tableInfo: data.TableInfo) {
-        this._tableInfo = tableInfo;
-        this._tableId = tableInfo.tableid;
+      set tableId(value: string) {
+        this._tableId = value;
+      }
+
+      get tableId() {
+        return this._tableId;
+      }
+
+      set tableInfo(value: data.TableInfo) {
+        this._tableInfo = value;
+      }
+
+      get tableInfo() {
+        return this._tableInfo;
+      }
+
+      public setData(tableinfo: data.TableInfo) {
+        this.tableId = tableinfo.tableid;
+        this.tableInfo = tableinfo;
       }
     }
   }

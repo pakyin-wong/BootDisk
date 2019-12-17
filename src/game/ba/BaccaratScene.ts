@@ -13,9 +13,9 @@ namespace we {
       private cardHolder: CardHolder;
       private countdownTimer: CountdownTimer;
       private confirmButton: eui.Button;
-      private repeatButton: ui.OldImageButton;
-      private cancelButton: ui.OldImageButton;
-      private doubleButton: ui.OldImageButton;
+      private repeatButton: ui.BaseImageButton;
+      private cancelButton: ui.BaseImageButton;
+      private doubleButton: ui.BaseImageButton;
       // private winAmountLabel: eui.Label;
       // private stateLabel: eui.Label;
       private roundPanel: eui.Rect;
@@ -31,7 +31,7 @@ namespace we {
 
       private btnBack: egret.DisplayObject;
       private lblRoomInfo: eui.Label;
-      private lblRoomNo: eui.Label;
+      private lblRoomNo: ui.RunTimeLabel;
       private lblBetLimit: eui.Label;
       private lblBetLimitInfo: eui.Label;
 
@@ -49,22 +49,18 @@ namespace we {
       private message: InGameMessage;
 
       private _switchBaMode: eui.ToggleSwitch;
-      private _lblBaMode: eui.Label;
+      private _lblBaMode: ui.RunTimeLabel;
 
       constructor(data: any) {
         super(data);
         this._tableID = data.tableid;
         this.skinName = utils.getSkin('BaccaratScene');
-
         this._video = dir.videoPool.get();
-
         this._video.x = 0;
         this._video.y = 0;
-
         this._video.width = 2600;
         this._video.height = 1340;
         this._video.load('http://192.168.1.85:8090/live/360.flv');
-
         dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
       }
 
@@ -83,18 +79,13 @@ namespace we {
         return this._tableID;
       }
 
-      public changeLang() {
-        this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
-        this._lblBaMode.text = i18n.t('baccarat.noCommission');
-      }
-
       public onEnter() {
         egret.log(this._header);
         this.init();
 
         this.setupTableInfo();
         this.updateGame();
-        this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
+
         // this.lblRoomNo.text = this.tableInfo.tablename;
         // this.lblBetLimit.text = env.betLimits;
 
@@ -131,9 +122,8 @@ namespace we {
           this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
 
-        // setInterval(() => {
-        //   this.message.showMessage(InGameMessage.ERROR, 'hello world');
-        // }, 4000);
+        this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+        this.lblRoomNo.renderText = (() => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableID)}`).bind(this);
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -228,15 +218,14 @@ namespace we {
       }
 
       public onChangeLang() {
-        this.changeLang();
         this.bettingTable.onChangeLang();
       }
 
       public async onFadeExit() {}
 
       protected init() {
-        // step 1: load Baccarat Screen Resource
-        this.skinName = utils.getSkin('BaccaratScene');
+        //// step 1: load Baccarat Screen Resource
+        //// this.skinName = utils.getSkin('BaccaratScene');
 
         // step 2: init ui
         this.roadmapControl = new BARoadmapControl(this._tableID);

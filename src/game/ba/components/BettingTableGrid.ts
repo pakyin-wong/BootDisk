@@ -43,7 +43,6 @@ namespace we {
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
-
         this._betChipStack = new BetChipStack();
         this._betChipStack.skinName = we.utils.getSkin('BetChipStack');
       }
@@ -266,7 +265,6 @@ namespace we {
 
       set hasDenomLayer(value: string) {
         this._hasDenomLayer = value;
-        console.log('BettingTableGrid::hasDenomLayer - ');
         if (we.utils.convertToBoolean(value)) {
           this._denomLayer = new eui.Component();
         } else {
@@ -307,33 +305,24 @@ namespace we {
       }
 
       protected onAddToStage() {
-        this._betChipStack.horizontalCenter = 0;
-        this._betChipStack.verticalCenter = 0;
-        console.log('BettingTableGrid::onAddToStage', this._chipWidth, this._chipHeight);
-
-        this._betChipStack.chipHeight = this._chipHeight;
-        this._betChipStack.chipWidth = this._chipWidth;
-
-        this._betChipStack.chipInterval = this._chipInterval;
-        this._betChipStack.totalCfmOffset = this._totalCfmOffset;
-        this._betChipStack.totalUncfmOffset = this._totalUncfmOffset;
-        this._betChipStack.betSumBackgroundRes = this._betSumBackgroundRes;
-        this._betChipStack.betSumLabel.size = this._labelSize;
-        this._betChipStack.betSumBackground.width = this._betSumBackgroundWidth;
-        this._betChipStack.betSumBackground.height = this._betSumBackgroundHeight;
-        this._denomLayer.addChild(this._betChipStack);
-
-        this.setUncfmBet(0);
-        this.setCfmBet(0);
-
-        // this.draw();
-
+        if (!this._denomLayer.contains(this._betChipStack)) {
+          this._betChipStack.horizontalCenter = 0;
+          this._betChipStack.verticalCenter = 0;
+          this._betChipStack.chipHeight = this._chipHeight;
+          this._betChipStack.chipWidth = this._chipWidth;
+          this._betChipStack.chipInterval = this._chipInterval;
+          this._betChipStack.totalCfmOffset = this._totalCfmOffset;
+          this._betChipStack.totalUncfmOffset = this._totalUncfmOffset;
+          this._betChipStack.betSumBackgroundRes = this._betSumBackgroundRes;
+          this._betChipStack.betSumLabel.size = this._labelSize;
+          this._betChipStack.betSumBackground.width = this._betSumBackgroundWidth;
+          this._betChipStack.betSumBackground.height = this._betSumBackgroundHeight;
+          this._denomLayer.addChild(this._betChipStack);
+        }
         if (this.parent) {
           this.parent.setChildIndex(this, this._betChipZIndex);
         }
       }
-
-      protected mount() {}
     }
   }
 }

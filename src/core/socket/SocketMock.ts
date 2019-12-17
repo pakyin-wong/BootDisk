@@ -20,6 +20,7 @@ namespace we {
         this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
           const data = new we.data.TableInfo();
           data.tableid = (idx + 1).toString();
+          data.tablename = data.tableid;
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData2;
 

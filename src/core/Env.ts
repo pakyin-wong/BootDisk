@@ -117,6 +117,12 @@ namespace we {
         }
         return false;
       }
+      public getTableNameByID(tableid: string): string {
+        if (env && tableid && env.tableInfos && env.tableInfos[tableid]) {
+          return env.tableInfos[tableid].tablename;
+        }
+        return null;
+      }
 
       /*
       public onTableListUpdate(evt: egret.Event) {

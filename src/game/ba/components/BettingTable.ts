@@ -78,7 +78,6 @@ namespace we {
 
       private setDenomLists() {
         this._gridPlayer.denomList = this._denomList;
-
         this._gridBanker.denomList = this._denomList;
         this._gridPlayerPair.denomList = this._denomList;
         this._gridTie.denomList = this._denomList;
@@ -89,7 +88,7 @@ namespace we {
 
       // Must be called if you change skin
       public init() {
-        this.createMapping();
+        // this.createMapping();
         this.setFieldNames();
         this.setDenomLists();
         this.changeLang();
@@ -159,8 +158,6 @@ namespace we {
         this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
         this._gridSuperSixBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSixBanker), this);
         this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
-
-        // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
       public setGameMode(isNoCommission: boolean) {
@@ -366,6 +363,7 @@ namespace we {
       public onChangeLang() {
         this.changeLang();
       }
+
       public getBetchipLayer(): eui.Component {
         return this._denomLayer;
       }

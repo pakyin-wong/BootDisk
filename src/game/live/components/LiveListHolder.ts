@@ -92,7 +92,7 @@ namespace we {
       protected updateDisplayItem() {
         this._displayItem.setData(this.tableInfo);
         this._displayItem.updateGame();
-        this._displayItem.labelText = this.itemData;
+        this._displayItem.labelRenderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this.itemData)}`;
         this.setZIndex();
         this._displayItem.bigRoad.updateRoadData(this.tableInfo.roadmap);
       }
