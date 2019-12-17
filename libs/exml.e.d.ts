@@ -165,10 +165,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class ImageButtonSkinQuickBetGreen extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class ImageSlider extends eui.Skin{
 	}
 }

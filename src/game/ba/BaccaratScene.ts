@@ -109,6 +109,8 @@ namespace we {
         this.betChipSet.setDenominationList(denominationList);
 
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+        this.repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
+        this.doubleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
         this.bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
@@ -142,8 +144,11 @@ namespace we {
         }
       }
 
+      private onRepeatPressed() {}
+
+      private onDoublePressed() {}
+
       private onCancelPressed() {
-        egret.log('Cancel');
         this.bettingTable.cancelBet();
       }
 
