@@ -233,7 +233,9 @@ namespace we {
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
         this._previousState = this._gameData ? this._gameData.previousstate : null;
-        if (tableInfo.roadmap) { this._bigRoad.updateLobbyRoadData(tableInfo.roadmap); }
+        if (tableInfo.roadmap) {
+          this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+        }
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {

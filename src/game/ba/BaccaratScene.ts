@@ -104,7 +104,7 @@ namespace we {
         // setInterval(() => ui.EdgeDismissableAddon.toggle(), 2000);
 
         // work around currentSelectedBetLimitIndex = 0 choose by the
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipsList.map(data => data.value);
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         this.betChipSet.setVisibleDenominationCount(4);
         this.betChipSet.setDenominationList(denominationList);
 

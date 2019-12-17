@@ -292,12 +292,12 @@ namespace we {
         }
         // check betlimit
         const exceedBetLimit =
-          Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
-          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
-          fieldAmounts[BetField.TIE] > betLimit.maxLimit ||
-          fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxLimit ||
-          fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxLimit ||
-          fieldAmounts[BetField.SUPER_SIX] > betLimit.maxLimit;
+          Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
+          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
+          fieldAmounts[BetField.TIE] > betLimit.maxlimit ||
+          fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxlimit ||
+          fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxlimit ||
+          fieldAmounts[BetField.SUPER_SIX] > betLimit.maxlimit;
         if (exceedBetLimit) {
           egret.log(core.Event.EXCEED_BET_LIMIT);
           dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);

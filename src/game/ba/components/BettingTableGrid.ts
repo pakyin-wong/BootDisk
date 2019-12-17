@@ -170,7 +170,7 @@ namespace we {
       }
 
       public getAmount() {
-        return env.betLimits[this._getSelectedBetLimit()].chipsList[this._getSelectedChipIndex()].value;
+        return env.betLimits[this._getSelectedBetLimit()].chipList[this._getSelectedChipIndex()];
       }
 
       public setCfmBet(amount: number): void {
