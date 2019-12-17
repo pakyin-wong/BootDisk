@@ -9,7 +9,7 @@
 			"name": "common"
 		},
 		{
-			"keys": "d_lobby_quick_bet_area_poker_b2_normal_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_normal_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_normal_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_normal_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_normal_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_normal_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_normal_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png,d_lobby_quick_bet_notification_follow_normal_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_confirm_btn_hover_png,d_lobby_confirm_btn_normal_png,d_lobby_icon_view_03_normal_png,d_lobby_icon_view_03_hover_png,d_lobby_icon_view_02_normal_png,d_lobby_icon_view_02_hover_png,d_lobby_icon_view_01_normal_png,d_lobby_icon_view_01_hover_png,d_lobby_list_panel_all_game_hover_png,d_lobby_list_panel_all_game_normal_png,d_lobby_list_panel_bet_hover_png,d_lobby_list_panel_bet_normal_png,d_lobby_list_panel_good_road_hover_png,d_lobby_list_panel_good_road_normal_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png",
+			"keys": "d_lobby_quick_bet_area_poker_b2_normal_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_normal_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_normal_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_normal_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_normal_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_normal_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_normal_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png,d_lobby_quick_bet_notification_follow_normal_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_confirm_btn_hover_png,d_lobby_confirm_btn_normal_png,d_lobby_icon_view_03_normal_png,d_lobby_icon_view_03_hover_png,d_lobby_icon_view_02_normal_png,d_lobby_icon_view_02_hover_png,d_lobby_icon_view_01_normal_png,d_lobby_icon_view_01_hover_png,d_lobby_list_panel_all_game_hover_png,d_lobby_list_panel_all_game_normal_png,d_lobby_list_panel_bet_hover_png,d_lobby_list_panel_bet_normal_png,d_lobby_list_panel_good_road_hover_png,d_lobby_list_panel_good_road_normal_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,d_lobby_panel_gamelist_icon_allgame_active_png,d_lobby_panel_gamelist_icon_allgame_normal_png,d_lobby_panel_gamelist_icon_bet_active_png,d_lobby_panel_gamelist_icon_bet_normal_png,d_lobby_panel_gamelist_icon_goodroad_active_png,d_lobby_panel_gamelist_icon_goodroad_normal_png",
 			"name": "scene_lobby"
 		},
 		{
@@ -2344,6 +2344,36 @@
 			"url": "assets/d/common/d_common_chips_1.png",
 			"type": "image",
 			"name": "d_common_chips_1_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_allgame_active.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_allgame_active_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_allgame_normal.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_allgame_normal_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_bet_active.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_bet_active_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_bet_normal.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_bet_normal_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_goodroad_active.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_goodroad_active_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_goodroad_normal.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_goodroad_normal_png"
 		}
 	]
 }
