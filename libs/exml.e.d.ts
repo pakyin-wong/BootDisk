@@ -143,6 +143,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class ImageButtonSkinBacarrat extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ImageButtonSkinBacarratCancel extends eui.Skin{
 	}
 }
@@ -162,10 +166,6 @@ declare class ImageButtonSkinLobby extends eui.Skin{
 }
 declare module skin_desktop{
 	class ImageButtonSkinNav extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class ImageButtonSkinQuickBetGreen extends eui.Skin{
 	}
 }
 declare module skin_desktop{
