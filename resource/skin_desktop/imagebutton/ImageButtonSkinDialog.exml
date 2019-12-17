@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="ImageButtonSkinDialog" minWidth="80" height="68" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="normal,hover,danger">
-    <e:Image id="_background" left="0" right="0" top="0" bottom="0" source.normal="d_lobby_send_btn_none_png" source.hover="d_lobby_send_btn_hover_png" source.danger="d_lobby_restart_btn_png" scale9Grid="34,33,0,0" locked="true"/>
+<e:Skin class="ImageButtonSkinDialog" minWidth="80" height="68" currentState="normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="normal,hover,danger">
+    <e:Image id="_background" left="0" right="0" top="0" bottom="0" source.normal="d_lobby_send_btn_normal_png"
+             source.hover="d_lobby_send_btn_hover_png" source.danger="d_lobby_restart_btn_png" scale9Grid="34,33,0,0"
+             locked="true" />
     <e:Group id="_group" left="48" right="48" top="16" bottom="16">
-        <ui:RunTimeLabel id="_label" text="Button" fontFamily="NotoSansCJKtc-Regular" size="24"  verticalCenter="0" horizontalCenter="0" />
+        <ui:RunTimeLabel id="_label" text="Button" fontFamily="NotoSansCJKtc-Regular" size="24" verticalCenter="0"
+                         horizontalCenter="0" />
     </e:Group>
 </e:Skin>
