@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class ItemRenderer extends eui.ItemRenderer implements ITransitable, ISwipeable, IAutoRemove {
       public moveArea: eui.Component;
-      public content: egret.DisplayObject;
+      public content: egret.DisplayObjectContainer;
 
       protected _enterFrom: string = null;
       protected _leaveTo: string = null;
