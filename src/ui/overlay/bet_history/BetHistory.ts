@@ -96,6 +96,7 @@ namespace we {
       }
 
       protected searchToday() {
+        this._page = 1;
         this._starttime = moment()
           .utcOffset(8)
           .startOf('day')
@@ -110,6 +111,7 @@ namespace we {
       }
 
       protected searchWeek() {
+        this._page = 1;
         this._starttime = moment()
           .utcOffset(8)
           .startOf('week')
@@ -135,18 +137,17 @@ namespace we {
 
       private search() {
         clearTimeout(this._searchDelay);
-        dir.socket.getBetHistory(
-          {
-            starttime: this._starttime,
-            endtime: this._endtime,
-            limit: this._limit,
-            offset: this._page - 1 * this._limit,
-            // filter: int,
-            search: this._tf_search.text,
-          },
-          this.update,
-          this
-        );
+
+        const opt = {
+          startdate: this._starttime,
+          enddate: this._endtime,
+          limit: this._limit,
+          offset: (this._page - 1) * this._limit,
+          // filter: int,
+          search: this._tf_search.text,
+        };
+
+        dir.socket.getBetHistory(opt, this.update, this);
       }
 
       private update(res: any) {
