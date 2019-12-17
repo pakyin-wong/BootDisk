@@ -149,11 +149,7 @@ var mouse;
     mouse.setButtonMode = function (displayObjcet, buttonMode) {
         displayObjcet["buttonModeForMouse"] = buttonMode;
     };
-
-    mouse.setTextMode = function (displayObjcet, TextMode) {
-        displayObjcet["TextModeForMouse"] = buttonMode;
-    };
-
+    
     var mouseMoveEnabled = false;
     /**
      * @language en_US
