@@ -10,6 +10,7 @@ namespace we {
     export class BaseImageButton extends we.core.BaseEUI {
       // components
       private _background: eui.Image;
+      private _activeTransitionStopper: () => void;
       private _group: eui.Group;
       private _label: eui.Label;
 
@@ -126,9 +127,44 @@ namespace we {
         const newSource = source.replace(this._buttonState.toString(), buttonState);
         if (RES.getRes(newSource)) {
           // use res string to allow replace
-          this._background.source = newSource;
+          if (this._activeTransitionStopper) {
+            this._activeTransitionStopper();
+          }
+          this.changeSourceWithAnimation(source, newSource);
         }
         this._buttonState = buttonState;
+      }
+
+      private changeSourceWithAnimation(oldsrc, newsrc) {
+        if (oldsrc === newsrc) {
+          // no need to animate
+          return;
+        }
+        const cloneBg = new eui.Image();
+        cloneBg.left = cloneBg.top = cloneBg.right = cloneBg.bottom = 0;
+        if (this._background.scale9Grid) {
+          cloneBg.scale9Grid = this._background.scale9Grid.clone();
+        }
+        cloneBg.source = newsrc;
+        this.addChildAt(cloneBg, this.getChildIndex(this._background) + 1);
+        cloneBg.alpha = 0;
+        this._background.alpha = 1;
+        // start animate
+        this._activeTransitionStopper = () => {
+          delete this._activeTransitionStopper;
+          // stop animation and reset to target state
+          egret.Tween.removeTweens(cloneBg);
+          egret.Tween.removeTweens(this._background);
+          this.removeChild(cloneBg);
+          this._background.alpha = 1;
+          this._background.source = newsrc;
+        };
+        egret.Tween.get(cloneBg).to({ alpha: 1 }, 150);
+        egret.Tween.get(this._background)
+          .to({ alpha: 0 }, 150)
+          .call(() => {
+            this._activeTransitionStopper();
+          });
       }
     }
   }
