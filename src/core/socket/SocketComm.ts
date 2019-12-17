@@ -219,12 +219,12 @@ namespace we {
       }
 
       protected onGameStatusUpdate(gameStatus: any, timestamp: string) {
-        console.log(gameStatus);
+        console.log(utils.mergeObjects({}, gameStatus));
         this.updateTimestamp(timestamp);
 
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
-        gameStatus.previousstate = tableInfo.data ? tableInfo.state : null;
+        gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
         tableInfo.data = gameStatus;
         this.localActions(tableInfo);
