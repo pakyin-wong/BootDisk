@@ -8,7 +8,7 @@
         <ba:CountdownTimer id="_timer" width="80" height="80" x="0" y="1" visible="false"/>
         <e:Label id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="30" right="20" />
         <ba:BetInfoBigRoad id="_bigRoad" width="364" height="139" y="90" />
-        <ui:RoundButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_none_png"
+        <ui:RoundButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
                         hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0" horizontalCenter="0"
                         y="350" width="148" height="42" label1text="加注" label2text="X" scale9Grid="20,21,108,0" />
         <live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0"

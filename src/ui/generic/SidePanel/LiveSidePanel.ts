@@ -34,7 +34,7 @@ namespace we {
 
         // create good road list
         const goodRoadTableGroup = new eui.Group();
-        goodRoadTableGroup.name = 'good_road';
+        goodRoadTableGroup.name = 'goodroad';
         this._viewStack.addChild(goodRoadTableGroup);
         goodRoadTableGroup.width = group.width;
         goodRoadTableGroup.height = group.height;
@@ -48,7 +48,7 @@ namespace we {
 
         // create all game list
         const allTableGroup = new eui.Group();
-        allTableGroup.name = 'all_game';
+        allTableGroup.name = 'allgame';
         this._viewStack.addChild(allTableGroup);
         allTableGroup.width = group.width;
         allTableGroup.height = group.height;

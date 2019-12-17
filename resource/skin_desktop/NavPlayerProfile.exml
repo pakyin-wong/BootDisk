@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.NavPlayerProfile" width="696" height="576" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
-	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-        <e:Image source="nav_panel_bg" width="363" height="576"  left="0"/>
+<e:Skin class="skin_desktop.NavPlayerProfile" width="696" height="576" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+    <e:Group id="content" left="0" right="0" top="0" bottom="0">
+        <e:Image source="nav_panel_bg" width="363" height="576" left="0" />
         <e:Group id="_maskContainer" width="333" height="548" left="15" top="10">
             <e:Group id="_section_main" width="100%" height="100%" left="0">
-                <e:Label text="RMB 120,889,200" x="77.5" y="228" size="22"/>
-                <e:Label text="Johathan" x="129" y="189" textColor="0xc59466" size="18" anchorOffsetY="0" height="18"/>
-                <e:Image id="_playerIcon" width="120" height="120" x="106.5" y="54" anchorOffsetX="0" anchorOffsetY="0" source="d_lobby_profile_pic_03_png"/>
-                <e:Rect ellipseHeight="48" ellipseWidth="48" height="48" width="262" strokeColor="0x333c4a" strokeWeight="2"  x="35.5" y="274" anchorOffsetX="0" fillAlpha="0"/>
-                <e:Rect width="241" height="1" y="353" fillAlpha="0.4" fillColor="0x616161" horizontalCenter="0"/>
+                <e:Label text="RMB 120,889,200" x="77.5" y="228" size="22" />
+                <e:Label text="Johathan" x="129" y="189" textColor="0xc59466" size="18" anchorOffsetY="0" height="18" />
+                <e:Image id="_playerIcon" width="120" height="120" x="106.5" y="54" anchorOffsetX="0" anchorOffsetY="0"
+                         source="d_lobby_profile_pic_03_png" />
+                <e:Rect ellipseHeight="48" ellipseWidth="48" height="48" width="262" strokeColor="0x333c4a"
+                        strokeWeight="2" x="35.5" y="274" anchorOffsetX="0" fillAlpha="0" />
+                <e:Rect width="241" height="1" y="353" fillAlpha="0.4" fillColor="0x616161" horizontalCenter="0" />
             </e:Group>
             <e:Group id="_section_iconSelect" width="100%" height="100%" left="333">
-                <e:Image id="_sectionBackIcon" width="48" height="48" x="22" y="30" source="d_lobby_button_prev_none_png" />
-                <e:Label text="設定頭像" x="114.5" y="78" textColor="0xC59466" size="26" anchorOffsetY="0" height="26"/>
-                <ui:Scroller id="_iconScroller" top="120" height="428" width="333"/>
+                <e:Image id="_sectionBackIcon" width="48" height="48" x="22" y="30"
+                         source="d_lobby_button_prev_normal_png" />
+                <e:Label text="設定頭像" x="114.5" y="78" textColor="0xC59466" size="26" anchorOffsetY="0" height="26" />
+                <ui:Scroller id="_iconScroller" top="120" height="428" width="333" />
             </e:Group>
         </e:Group>
-	</e:Group>
+    </e:Group>
 </e:Skin>

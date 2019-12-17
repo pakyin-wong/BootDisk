@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class Banner extends eui.Component {
       private _image: eui.Image;
-      private _resName: string = 'd_lobby_quick_bet_notification_follow_none_png';
+      private _resName: string = 'd_lobby_quick_bet_notification_follow_normal_png';
       private _label1: eui.Label;
       private _label1text: string;
 

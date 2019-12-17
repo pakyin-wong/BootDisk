@@ -9,15 +9,15 @@
 			"name": "common"
 		},
 		{
-			"keys": "d_lobby_quick_bet_area_poker_b2_none_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_none_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_none_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_none_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_none_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_none_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_none_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png,d_lobby_quick_bet_notification_follow_none_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_confirm_btn_hover_png,d_lobby_confirm_btn_none_png,d_lobby_icon_view_03_none_png,d_lobby_icon_view_03_hover_png,d_lobby_icon_view_02_none_png,d_lobby_icon_view_02_hover_png,d_lobby_icon_view_01_none_png,d_lobby_icon_view_01_hover_png,d_lobby_list_panel_all_game_hover_png,d_lobby_list_panel_all_game_none_png,d_lobby_list_panel_bet_hover_png,d_lobby_list_panel_bet_none_png,d_lobby_list_panel_good_road_hover_png,d_lobby_list_panel_good_road_none_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_none_png",
+			"keys": "d_lobby_quick_bet_area_poker_b2_normal_png,d_lobby_quick_bet_area_poker_b2_hover_png,d_lobby_quick_bet_area_poker_b1_normal_png,d_lobby_quick_bet_area_poker_b1_hover_png,d_lobby_quick_bet_area_poker_b_png,d_lobby_quick_bet_area_poker_a_png,d_lobby_quick_bet_area_e_normal_png,d_lobby_quick_bet_area_e_hover_png,d_lobby_quick_bet_area_d_normal_png,d_lobby_quick_bet_area_d_hover_png,d_lobby_quick_bet_area_c_normal_png,d_lobby_quick_bet_area_c_hover_png,d_lobby_quick_bet_area_b_normal_png,d_lobby_quick_bet_area_b_hover_png,d_lobby_quick_bet_area_a_normal_png,d_lobby_quick_bet_area_a_hover_png,d_lobby_quick_bet_area_shadow_l_png,d_lobby_quick_bet_area_shadow_r_png,d_lobby_quick_bet_notification_follow_normal_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_confirm_btn_hover_png,d_lobby_confirm_btn_normal_png,d_lobby_icon_view_03_normal_png,d_lobby_icon_view_03_hover_png,d_lobby_icon_view_02_normal_png,d_lobby_icon_view_02_hover_png,d_lobby_icon_view_01_normal_png,d_lobby_icon_view_01_hover_png,d_lobby_list_panel_all_game_hover_png,d_lobby_list_panel_all_game_normal_png,d_lobby_list_panel_bet_hover_png,d_lobby_list_panel_bet_normal_png,d_lobby_list_panel_good_road_hover_png,d_lobby_list_panel_good_road_normal_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,d_lobby_panel_gamelist_icon_allgame_active_png,d_lobby_panel_gamelist_icon_allgame_normal_png,d_lobby_panel_gamelist_icon_bet_active_png,d_lobby_panel_gamelist_icon_bet_normal_png,d_lobby_panel_gamelist_icon_goodroad_active_png,d_lobby_panel_gamelist_icon_goodroad_normal_png",
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_general_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_general_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_general_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_general_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_general_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_general_png,d_ba_betarea_tie_general_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_general_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_swaproadmap_button_element_png,d_ba_betcontrol_icon_cancel_png,d_ba_betcontrol_icon_double_png,d_ba_betcontrol_icon_repeat_png,frame-3_png,d_ba_navbar_icon_info_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_hoverelement_png,d_ba_navbar_icon_setting_png,d_ba_navbar_icon_sound_png,d_ba_navbar_icon_video_png,d_ba_navbar_icon_stat_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_tieelement_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_bankerelement_png",
+			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_normal_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_normal_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_normal_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_normal_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_normal_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_normal_png,d_ba_betarea_tie_normal_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_normal_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_swaproadmap_button_element_png,d_ba_betcontrol_icon_cancel_png,d_ba_betcontrol_icon_double_png,d_ba_betcontrol_icon_repeat_png,frame-3_png,d_ba_navbar_icon_info_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_hoverelement_png,d_ba_navbar_icon_setting_png,d_ba_navbar_icon_sound_png,d_ba_navbar_icon_video_png,d_ba_navbar_icon_stat_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_tieelement_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_bankerelement_png",
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_user_info_bg,nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_none_png,d_lobby_Icon_setting_none_png,d_lobby_Icon_edit_none_png,d_lobby_Icon_chart_none_png,d_lobby_Icon_record_none_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_none_png,d_lobby_panel_button_page_prev_none_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_none_png,d_lobby_list_panel_all_game_hover_png,d_lobby_list_panel_all_game_none_png",
+			"keys": "nav_user_info_bg,nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_normal_png,d_lobby_Icon_setting_normal_png,d_lobby_Icon_edit_normal_png,d_lobby_Icon_chart_normal_png,d_lobby_Icon_record_normal_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_normal_png,d_lobby_panel_button_page_prev_normal_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png,d_lobby_list_panel_all_game_hover_png,d_lobby_list_panel_all_game_normal_png",
 			"name": "nav"
 		},
 		{
@@ -437,9 +437,9 @@
 			"name": "d_lobby_loading_banner_1_jpg"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_banker_general.png",
+			"url": "assets/d/ba/d_ba_betarea_banker_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_banker_general_png"
+			"name": "d_ba_betarea_banker_normal_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_banker_hover.png",
@@ -447,9 +447,9 @@
 			"name": "d_ba_betarea_banker_hover_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_bankerpair_general.png",
+			"url": "assets/d/ba/d_ba_betarea_bankerpair_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_bankerpair_general_png"
+			"name": "d_ba_betarea_bankerpair_normal_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_bankerpair_hover.png",
@@ -462,14 +462,14 @@
 			"name": "d_ba_betarea_bankerpair_person_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_button_switchoff.png",
+			"url": "assets/d/ba/d_ba_betarea_button_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_button_switchoff_png"
+			"name": "d_ba_betarea_button_normal_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_button_switchon.png",
+			"url": "assets/d/ba/d_ba_betarea_button_active.png",
 			"type": "image",
-			"name": "d_ba_betarea_button_switchon_png"
+			"name": "d_ba_betarea_button_active_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_icon_bet.png",
@@ -477,9 +477,9 @@
 			"name": "d_ba_betarea_icon_bet_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_player_general.png",
+			"url": "assets/d/ba/d_ba_betarea_player_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_player_general_png"
+			"name": "d_ba_betarea_player_normal_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_player_hover.png",
@@ -487,9 +487,9 @@
 			"name": "d_ba_betarea_player_hover_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_playerpair_general.png",
+			"url": "assets/d/ba/d_ba_betarea_playerpair_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_playerpair_general_png"
+			"name": "d_ba_betarea_playerpair_normal_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_playerpair_hover.png",
@@ -497,9 +497,9 @@
 			"name": "d_ba_betarea_playerpair_hover_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_supersix_bankerpair_general.png",
+			"url": "assets/d/ba/d_ba_betarea_supersix_bankerpair_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_supersix_bankerpair_general_png"
+			"name": "d_ba_betarea_supersix_bankerpair_normal_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_supersix_bankerpair_hover.png",
@@ -507,9 +507,9 @@
 			"name": "d_ba_betarea_supersix_bankerpair_hover_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_supersix_playerpair_general.png",
+			"url": "assets/d/ba/d_ba_betarea_supersix_playerpair_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_supersix_playerpair_general_png"
+			"name": "d_ba_betarea_supersix_playerpair_normal_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_supersix_playerpair_hover.png",
@@ -517,9 +517,9 @@
 			"name": "d_ba_betarea_supersix_playerpair_hover_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_supersix_tie_general.png",
+			"url": "assets/d/ba/d_ba_betarea_supersix_tie_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_supersix_tie_general_png"
+			"name": "d_ba_betarea_supersix_tie_normal_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_supersix_tie_hover.png",
@@ -527,9 +527,9 @@
 			"name": "d_ba_betarea_supersix_tie_hover_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_betarea_tie_general.png",
+			"url": "assets/d/ba/d_ba_betarea_tie_normal.png",
 			"type": "image",
-			"name": "d_ba_betarea_tie_general_png"
+			"name": "d_ba_betarea_tie_normal_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_tie_hover.png",
@@ -672,11 +672,6 @@
 			"name": "d_ba_navbar_icon_dropdown_png"
 		},
 		{
-			"url": "assets/d/ba/d_ba_navbar_icon_gamelist.png",
-			"type": "image",
-			"name": "d_ba_navbar_icon_gamelist_png"
-		},
-		{
 			"url": "assets/d/ba/d_ba_navbar_icon_hoverelement.png",
 			"type": "image",
 			"name": "d_ba_navbar_icon_hoverelement_png"
@@ -740,21 +735,6 @@
 			"url": "assets/d/ba/d_ba_panel_statistics_bankerelement.png",
 			"type": "image",
 			"name": "d_ba_panel_statistics_bankerelement_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_panel_statistics_bg_left.png",
-			"type": "image",
-			"name": "d_ba_panel_statistics_bg_left_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_panel_statistics_bg_middle.png",
-			"type": "image",
-			"name": "d_ba_panel_statistics_bg_middle_png"
-		},
-		{
-			"url": "assets/d/ba/d_ba_panel_statistics_bg_right.png",
-			"type": "image",
-			"name": "d_ba_panel_statistics_bg_right_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_panel_statistics_bgelement.png",
@@ -840,26 +820,6 @@
 			"url": "assets/d/ba/d_ba_swaproadmap_button_element.png",
 			"type": "image",
 			"name": "d_ba_swaproadmap_button_element_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_bg_left.png",
-			"type": "image",
-			"name": "d_common_chartroom_bg_left_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_bg_line.png",
-			"type": "image",
-			"name": "d_common_chartroom_bg_line_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_bg_middle.png",
-			"type": "image",
-			"name": "d_common_chartroom_bg_middle_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_bgelement_right.png",
-			"type": "image",
-			"name": "d_common_chartroom_bgelement_right_png"
 		},
 		{
 			"url": "assets/d/common/d_common_chartroom_emoji_icon_1.png",
@@ -972,39 +932,9 @@
 			"name": "d_common_chartroom_icon_hover_png"
 		},
 		{
-			"url": "assets/d/common/d_common_chartroom_textbox_other_left.png",
+			"url": "assets/d/common/d_common_icon_chart_normal.png",
 			"type": "image",
-			"name": "d_common_chartroom_textbox_other_left_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_textbox_other_middle.png",
-			"type": "image",
-			"name": "d_common_chartroom_textbox_other_middle_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_textbox_other_right.png",
-			"type": "image",
-			"name": "d_common_chartroom_textbox_other_right_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_textbox_self_left.png",
-			"type": "image",
-			"name": "d_common_chartroom_textbox_self_left_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_textbox_self_middle.png",
-			"type": "image",
-			"name": "d_common_chartroom_textbox_self_middle_png"
-		},
-		{
-			"url": "assets/d/common/d_common_chartroom_textbox_self_right.png",
-			"type": "image",
-			"name": "d_common_chartroom_textbox_self_right_png"
-		},
-		{
-			"url": "assets/d/common/d_common_icon_chart_general.png",
-			"type": "image",
-			"name": "d_common_icon_chart_general_png"
+			"name": "d_common_icon_chart_normal_png"
 		},
 		{
 			"url": "assets/d/common/d_common_icon_chart_notify.png",
@@ -1042,9 +972,9 @@
 			"name": "d_lobby_Icon_chart_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_Icon_chart_none.png",
+			"url": "assets/d/lobby/d_lobby_Icon_chart_normal.png",
 			"type": "image",
-			"name": "d_lobby_Icon_chart_none_png"
+			"name": "d_lobby_Icon_chart_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_Icon_edit_hover.png",
@@ -1052,9 +982,9 @@
 			"name": "d_lobby_Icon_edit_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_Icon_edit_none.png",
+			"url": "assets/d/lobby/d_lobby_Icon_edit_normal.png",
 			"type": "image",
-			"name": "d_lobby_Icon_edit_none_png"
+			"name": "d_lobby_Icon_edit_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_Icon_fav_filled.png",
@@ -1062,9 +992,9 @@
 			"name": "d_lobby_Icon_fav_filled_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_Icon_fav_none.png",
+			"url": "assets/d/lobby/d_lobby_Icon_fav_normal.png",
 			"type": "image",
-			"name": "d_lobby_Icon_fav_none_png"
+			"name": "d_lobby_Icon_fav_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_Icon_logout_hover.png",
@@ -1072,9 +1002,9 @@
 			"name": "d_lobby_Icon_logout_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_Icon_logout_none.png",
+			"url": "assets/d/lobby/d_lobby_Icon_logout_normal.png",
 			"type": "image",
-			"name": "d_lobby_Icon_logout_none_png"
+			"name": "d_lobby_Icon_logout_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_Icon_record_hover.png",
@@ -1082,9 +1012,9 @@
 			"name": "d_lobby_Icon_record_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_Icon_record_none.png",
+			"url": "assets/d/lobby/d_lobby_Icon_record_normal.png",
 			"type": "image",
-			"name": "d_lobby_Icon_record_none_png"
+			"name": "d_lobby_Icon_record_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_Icon_setting_hover.png",
@@ -1092,9 +1022,9 @@
 			"name": "d_lobby_Icon_setting_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_Icon_setting_none.png",
+			"url": "assets/d/lobby/d_lobby_Icon_setting_normal.png",
 			"type": "image",
-			"name": "d_lobby_Icon_setting_none_png"
+			"name": "d_lobby_Icon_setting_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_button_add_road_banker copy.png",
@@ -1122,9 +1052,9 @@
 			"name": "d_lobby_button_down_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_button_down_none.png",
+			"url": "assets/d/lobby/d_lobby_button_down_normal.png",
 			"type": "image",
-			"name": "d_lobby_button_down_none_png"
+			"name": "d_lobby_button_down_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_button_next_hover.png",
@@ -1132,9 +1062,9 @@
 			"name": "d_lobby_button_next_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_button_next_none.png",
+			"url": "assets/d/lobby/d_lobby_button_next_normal.png",
 			"type": "image",
-			"name": "d_lobby_button_next_none_png"
+			"name": "d_lobby_button_next_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_button_prev_hover.png",
@@ -1142,9 +1072,9 @@
 			"name": "d_lobby_button_prev_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_button_prev_none.png",
+			"url": "assets/d/lobby/d_lobby_button_prev_normal.png",
 			"type": "image",
-			"name": "d_lobby_button_prev_none_png"
+			"name": "d_lobby_button_prev_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_button_search_hover.png",
@@ -1152,9 +1082,9 @@
 			"name": "d_lobby_button_search_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_button_search_none.png",
+			"url": "assets/d/lobby/d_lobby_button_search_normal.png",
 			"type": "image",
-			"name": "d_lobby_button_search_none_png"
+			"name": "d_lobby_button_search_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_button_triangle_next.png",
@@ -1177,9 +1107,9 @@
 			"name": "d_lobby_cancel_btn_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_form_btn_s_none.png",
+			"url": "assets/d/lobby/d_lobby_form_btn_s_normal.png",
 			"type": "image",
-			"name": "d_lobby_form_btn_s_none_png"
+			"name": "d_lobby_form_btn_s_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_form_btn_s_select.png",
@@ -1197,9 +1127,9 @@
 			"name": "d_lobby_goodroadsetting_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_goodroadsetting_none.png",
+			"url": "assets/d/lobby/d_lobby_goodroadsetting_normal.png",
 			"type": "image",
-			"name": "d_lobby_goodroadsetting_none_png"
+			"name": "d_lobby_goodroadsetting_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_icon_view_01_hover.png",
@@ -1207,9 +1137,9 @@
 			"name": "d_lobby_icon_view_01_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_icon_view_01_none.png",
+			"url": "assets/d/lobby/d_lobby_icon_view_01_normal.png",
 			"type": "image",
-			"name": "d_lobby_icon_view_01_none_png"
+			"name": "d_lobby_icon_view_01_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_icon_view_02_hover.png",
@@ -1217,9 +1147,9 @@
 			"name": "d_lobby_icon_view_02_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_icon_view_02_none.png",
+			"url": "assets/d/lobby/d_lobby_icon_view_02_normal.png",
 			"type": "image",
-			"name": "d_lobby_icon_view_02_none_png"
+			"name": "d_lobby_icon_view_02_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_icon_view_03_hover.png",
@@ -1227,9 +1157,9 @@
 			"name": "d_lobby_icon_view_03_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_icon_view_03_none.png",
+			"url": "assets/d/lobby/d_lobby_icon_view_03_normal.png",
 			"type": "image",
-			"name": "d_lobby_icon_view_03_none_png"
+			"name": "d_lobby_icon_view_03_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_navbar_logo.png",
@@ -1247,14 +1177,14 @@
 			"name": "d_lobby_navbar_time_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_checkboxes_disabled.png",
+			"url": "assets/d/lobby/d_lobby_panel_button_checkboxes_normal.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_checkboxes_disabled_png"
+			"name": "d_lobby_panel_button_checkboxes_normal_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_checkboxes_enabled.png",
+			"url": "assets/d/lobby/d_lobby_panel_button_checkboxes_active.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_checkboxes_enabled_png"
+			"name": "d_lobby_panel_button_checkboxes_active_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_panel_button_checkboxes_hover.png",
@@ -1262,29 +1192,29 @@
 			"name": "d_lobby_panel_button_checkboxes_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_close_none.png",
+			"url": "assets/d/lobby/d_lobby_panel_button_close_normal.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_close_none_png"
+			"name": "d_lobby_panel_button_close_normal_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_emoji_none.png",
+			"url": "assets/d/lobby/d_lobby_panel_button_emoji_normal.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_emoji_none_png"
+			"name": "d_lobby_panel_button_emoji_normal_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_message_none.png",
+			"url": "assets/d/lobby/d_lobby_panel_button_message_normal.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_message_none_png"
+			"name": "d_lobby_panel_button_message_normal_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_page_next_none.png",
+			"url": "assets/d/lobby/d_lobby_panel_button_page_next_normal.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_page_next_none_png"
+			"name": "d_lobby_panel_button_page_next_normal_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_page_prev_none.png",
+			"url": "assets/d/lobby/d_lobby_panel_button_page_prev_normal.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_page_prev_none_png"
+			"name": "d_lobby_panel_button_page_prev_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_panel_button_play_hover.png",
@@ -1292,9 +1222,9 @@
 			"name": "d_lobby_panel_button_play_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_button_play_none.png",
+			"url": "assets/d/lobby/d_lobby_panel_button_play_normal.png",
 			"type": "image",
-			"name": "d_lobby_panel_button_play_none_png"
+			"name": "d_lobby_panel_button_play_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_panel_button_slide_select.png",
@@ -1303,9 +1233,9 @@
 			"scale9grid": "5,0,386,36"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_panel_chat_none.png",
+			"url": "assets/d/lobby/d_lobby_panel_chat_normal.png",
 			"type": "image",
-			"name": "d_lobby_panel_chat_none_png"
+			"name": "d_lobby_panel_chat_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_panel_down.png",
@@ -1323,9 +1253,9 @@
 			"name": "d_lobby_profile_edit_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_profile_edit_none.png",
+			"url": "assets/d/lobby/d_lobby_profile_edit_normal.png",
 			"type": "image",
-			"name": "d_lobby_profile_edit_none_png"
+			"name": "d_lobby_profile_edit_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_profile_pic_01.png",
@@ -1373,9 +1303,9 @@
 			"name": "d_lobby_profile_reload_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_profile_reload_none.png",
+			"url": "assets/d/lobby/d_lobby_profile_reload_normal.png",
 			"type": "image",
-			"name": "d_lobby_profile_reload_none_png"
+			"name": "d_lobby_profile_reload_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_profile_selected.png",
@@ -1398,9 +1328,9 @@
 			"name": "d_lobby_quick_bet_area_a_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_quick_bet_area_a_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_a_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_area_a_none_png"
+			"name": "d_lobby_quick_bet_area_a_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_area_b_hover.png",
@@ -1408,9 +1338,9 @@
 			"name": "d_lobby_quick_bet_area_b_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_quick_bet_area_b_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_b_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_area_b_none_png"
+			"name": "d_lobby_quick_bet_area_b_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_area_bg.png",
@@ -1423,9 +1353,9 @@
 			"name": "d_lobby_quick_bet_area_c_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_quick_bet_area_c_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_c_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_area_c_none_png"
+			"name": "d_lobby_quick_bet_area_c_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_area_d_hover.png",
@@ -1433,9 +1363,9 @@
 			"name": "d_lobby_quick_bet_area_d_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_quick_bet_area_d_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_d_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_area_d_none_png"
+			"name": "d_lobby_quick_bet_area_d_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_area_down_scrollbar.png",
@@ -1448,9 +1378,9 @@
 			"name": "d_lobby_quick_bet_area_e_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_quick_bet_area_e_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_e_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_area_e_none_png"
+			"name": "d_lobby_quick_bet_area_e_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_area_line.png",
@@ -1478,9 +1408,9 @@
 			"name": "d_lobby_quick_bet_area_poker_b1_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b1_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b1_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_area_poker_b1_none_png"
+			"name": "d_lobby_quick_bet_area_poker_b1_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b2_hover.png",
@@ -1488,9 +1418,9 @@
 			"name": "d_lobby_quick_bet_area_poker_b2_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b2_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_area_poker_b2_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_area_poker_b2_none_png"
+			"name": "d_lobby_quick_bet_area_poker_b2_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_area_shadow_l.png",
@@ -1529,9 +1459,9 @@
 			"scale9grid": "20,21,109,0"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_quick_bet_notification_follow_none.png",
+			"url": "assets/d/lobby/d_lobby_quick_bet_notification_follow_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_notification_follow_none_png"
+			"name": "d_lobby_quick_bet_notification_follow_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_notification_mask.png",
@@ -1559,9 +1489,9 @@
 			"name": "d_lobby_send_btn_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_send_btn_none.png",
+			"url": "assets/d/lobby/d_lobby_send_btn_normal.png",
 			"type": "image",
-			"name": "d_lobby_send_btn_none_png"
+			"name": "d_lobby_send_btn_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_switch.png",
@@ -1619,15 +1549,15 @@
 			"name": "d-lobby-header-dim_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png",
+			"url": "assets/d/lobby/d_lobby_confirm_btn_normal.png",
 			"type": "image",
-			"name": "d_lobby_confirm_btn_none_png",
+			"name": "d_lobby_confirm_btn_normal_png",
 			"scale9grid": "21,25,41,0"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png",
+			"url": "assets/d/lobby/d_lobby_confirm_btn_normal.png",
 			"type": "image",
-			"name": "d_lobby_confirm_btn_none2_png"
+			"name": "d_lobby_confirm_btn_normal2_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_confirm_btn_hover.png",
@@ -1646,9 +1576,9 @@
 			"name": "d_lobby_loading_banner_12_jpg"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_confirm_btn_none.png",
+			"url": "assets/d/lobby/d_lobby_confirm_btn_normal.png",
 			"type": "image",
-			"name": "d_lobby_confirm_btn_none3_png"
+			"name": "d_lobby_confirm_btn_normal3_png"
 		},
 		{
 			"url": "assets/temp/banner-baccarat.png",
@@ -2291,9 +2221,9 @@
 			"name": "d_lobby_list_panel_all_game_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_list_panel_all_game_none.png",
+			"url": "assets/d/lobby/d_lobby_list_panel_all_game_normal.png",
 			"type": "image",
-			"name": "d_lobby_list_panel_all_game_none_png"
+			"name": "d_lobby_list_panel_all_game_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_list_panel_bet_hover.png",
@@ -2301,9 +2231,9 @@
 			"name": "d_lobby_list_panel_bet_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_list_panel_bet_none.png",
+			"url": "assets/d/lobby/d_lobby_list_panel_bet_normal.png",
 			"type": "image",
-			"name": "d_lobby_list_panel_bet_none_png"
+			"name": "d_lobby_list_panel_bet_normal_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_list_panel_good_road_hover.png",
@@ -2311,9 +2241,9 @@
 			"name": "d_lobby_list_panel_good_road_hover_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_list_panel_good_road_none.png",
+			"url": "assets/d/lobby/d_lobby_list_panel_good_road_normal.png",
 			"type": "image",
-			"name": "d_lobby_list_panel_good_road_none_png"
+			"name": "d_lobby_list_panel_good_road_normal_png"
 		},
 		{
 			"url": "assets/d/common/d_common_chips_4.png",
@@ -2414,6 +2344,36 @@
 			"url": "assets/d/common/d_common_chips_1.png",
 			"type": "image",
 			"name": "d_common_chips_1_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_allgame_active.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_allgame_active_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_allgame_normal.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_allgame_normal_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_bet_active.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_bet_active_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_bet_normal.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_bet_normal_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_goodroad_active.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_goodroad_active_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_panel_gamelist_icon_goodroad_normal.png",
+			"type": "image",
+			"name": "d_lobby_panel_gamelist_icon_goodroad_normal_png"
 		}
 	]
 }
