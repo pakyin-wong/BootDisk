@@ -43,6 +43,8 @@ namespace we {
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
 
+      overlaypanel_bethistory_searchtype_all: '全部游戏',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',

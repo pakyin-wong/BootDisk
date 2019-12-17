@@ -46,14 +46,14 @@ namespace we {
           this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          //   this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
           this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, true);
         } else {
           this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          //   this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
           this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, false);
         }
