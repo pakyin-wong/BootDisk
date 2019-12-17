@@ -123,7 +123,7 @@ namespace we {
         }
 
         this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
-        this.lblRoomNo.renderText = (() => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableID)}`).bind(this);
+        this.lblRoomNo.renderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableID)}`;
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {

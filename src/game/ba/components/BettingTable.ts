@@ -88,7 +88,7 @@ namespace we {
 
       // Must be called if you change skin
       public init() {
-        // this.createMapping();
+        this.createMapping();
         this.setFieldNames();
         this.setDenomLists();
         this.changeLang();
