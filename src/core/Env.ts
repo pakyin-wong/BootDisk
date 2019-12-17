@@ -99,7 +99,7 @@ namespace we {
             const prevTableInfo = env.tableInfos[tableInfo.tableid];
 
             if (prevTableInfo) {
-              const mergedInfo: data.TableInfo = utils.mergeObjects(prevTableInfo, tableInfo);
+              utils.mergeObjects(prevTableInfo, tableInfo);
             } else {
               this.addTableInfo(tableInfo);
             }

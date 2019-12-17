@@ -225,6 +225,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
         gameStatus.previousstate = tableInfo.data ? tableInfo.state : null;
+        gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
         tableInfo.data = gameStatus;
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
@@ -500,7 +501,7 @@ namespace we {
       }
 
       protected updateTimestamp(timestamp: string) {
-        env.currTime = parseInt(timestamp, 10);
+        env.currTime = Math.floor(parseInt(timestamp, 10) / 1000000);
       }
 
       // protected dispatchListUpdateEvent() {
