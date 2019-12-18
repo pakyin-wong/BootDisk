@@ -2,6 +2,11 @@ namespace we {
   export namespace ui {
     // TableListItemHolder handles the mode changing (normal/ lock)
     export class TableListItemHolder extends ItemRenderer {
+      // These two fields must be declared for the list
+      //
+      public selected: boolean;
+      public itemIndex: number;
+
       public static STATE_NORMAL: number = 0;
       public static STATE_FOCUS: number = 1;
 

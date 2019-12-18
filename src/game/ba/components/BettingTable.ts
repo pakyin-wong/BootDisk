@@ -313,6 +313,26 @@ namespace we {
         return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount + betDetail.amount);
       }
 
+      public pushUnconfirmedBetToWaitingConfirmBet() {
+        this.uncfmBetDetails = [
+          { field: BetField.BANKER, amount: 0 },
+          { field: BetField.PLAYER, amount: 0 },
+          { field: BetField.TIE, amount: 0 },
+          { field: BetField.BANKER_PAIR, amount: 0 },
+          { field: BetField.PLAYER_PAIR, amount: 0 },
+          { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
+        ];
+        if (this.mapping) {
+          Object.keys(this.mapping).forEach(value => {
+            // console.log(value);
+            // To be filled
+            // this.mapping[value].pushUnconfirmedBetToWaitingConfirmBet();
+          });
+        }
+        this.totalUncfmBetAmount = 0;
+      }
+
       public resetUnconfirmedBet() {
         this.uncfmBetDetails = [
           { field: BetField.BANKER, amount: 0 },

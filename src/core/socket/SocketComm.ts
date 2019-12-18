@@ -55,6 +55,27 @@ namespace we {
         // console.dir(value);
       }
 
+      // Good Road
+      public getGoodRoad(callback: (data: any) => void, thisArg: any) {
+        this.client.getRoadmap(callback.bind(thisArg));
+      }
+
+      public updateCustomGoodRoad(id: string, data: any, callback: (data: any) => void, thisArg: any) {
+        this.client.updateCustomRoadmap(id, data, callback.bind(thisArg));
+      }
+
+      public updateDefaultGoodRoad(ids: string[], callback: (data: any) => void, thisArg: any) {
+        this.client.updateDefaultRoadmap(ids, callback.bind(thisArg));
+      }
+
+      public createGoodRoad(name: string, pattern: string, callback: (data: any) => void, thisArg: any) {
+        this.client.createCustomRoadmap(name, pattern, callback.bind(thisArg));
+      }
+
+      public removeGoodRoadmap(id: string, callback: (data: any) => void, thisArg: any) {
+        this.client.removeCustomRoadmap(id, callback.bind(thisArg));
+      }
+
       public getStaticInitData(callback: (res: any) => void, thisArg) {
         this.client.init(env.language, callback.bind(thisArg));
       }
@@ -542,7 +563,7 @@ namespace we {
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
-        logger.l('PlayerClient::onBetTableListUpdate: tableList: ');
+        console.log('PlayerClient::onBetTableListUpdate: tableList: ');
         console.log(tableList);
 
         // merge the new tableList to tableListArray

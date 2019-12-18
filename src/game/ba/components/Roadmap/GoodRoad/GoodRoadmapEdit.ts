@@ -2,13 +2,7 @@ namespace we {
   export namespace ba {
     export class GoodRoadmapEdit extends ui.Panel {
       private bigRoad: BABigRoad;
-
       private parser: GoodRoadParser;
-
-      // private isActive: number;
-      private roadId: string;
-      private roadName: string;
-      // private isDefault: number;
 
       public constructor() {
         super();
@@ -62,7 +56,7 @@ namespace we {
         }
       }
 
-      public updateRoadData(roadmapData: any) {
+      public updateRoadData(roadmapData: string) {
         const data = [];
         const arr = roadmapData
           .toLowerCase()
@@ -72,7 +66,7 @@ namespace we {
         this.parser.parseData(data);
       }
 
-      public getRoadData(): any {
+      public getRoadData(): string {
         let rslt = '';
         this.parser.beadRoadResult.forEach(e => (rslt += e.V.toLowerCase()));
         return rslt;
