@@ -43,7 +43,7 @@ namespace we {
         scroller.height = group.height;
         goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
-        this.goodRoadTableList.itemRenderer = BetInfoHolder;
+        this.goodRoadTableList.itemRenderer = BaSideItemHolder;
         scroller.viewport = this.goodRoadTableList;
 
         // create all game list
@@ -57,7 +57,7 @@ namespace we {
         scroller.height = group.height;
         allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
-        this.allTableList.itemRenderer = BetInfoHolder;
+        this.allTableList.itemRenderer = BaSideItemHolder;
         allTableGroup.addChild(this.allTableList);
         scroller.viewport = this.allTableList;
 

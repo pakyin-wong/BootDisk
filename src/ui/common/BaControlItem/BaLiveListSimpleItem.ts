@@ -7,6 +7,7 @@ namespace we {
       protected _quickBetGroup: eui.Group;
 
       protected _tweenInterval1: number = 250;
+      protected _hoverScale: number = 1.1;
 
       // protected _originalyhover: number;
       protected _originaly: number;
@@ -108,7 +109,7 @@ namespace we {
 
         const p1 = new Promise(resolve =>
           egret.Tween.get(this)
-            .to({ y: this._originaly - this._offsetY, scaleX: 1.1, scaleY: 1.1 }, this._tweenInterval1)
+            .to({ y: this._originaly - this._offsetY, scaleX: this._hoverScale, scaleY: this._hoverScale }, this._tweenInterval1)
             .call(resolve)
         );
         console.log('quickbetpanel go tableid: ' + this._tableId);
@@ -177,7 +178,7 @@ namespace we {
           // this.setChildIndex(this._timer, 25000);
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);
-          egret.Tween.get(this).to({ scaleX: 1.1, scaleY: 1.1, y: this._originaly }, this._tweenInterval1);
+          egret.Tween.get(this).to({ scaleX: this._hoverScale, scaleY: this._hoverScale, y: this._originaly }, this._tweenInterval1);
           if (this._quickbetEnable) {
             egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
           }

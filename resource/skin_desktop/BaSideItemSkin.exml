@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BaSideItemSkin" width="364" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
+        xmlns:live="we.live.*">
+    <e:Group id="_quickBetGroup" width="364" height="218" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0">
+        <e:Rect width="100%" height="100" x="0" bottom="0" alpha="0.6" />
+        <ba:BetChipSet id="_betChipSet" width="300" height="100" bottom="0" anchorOffsetX="0" x="36" />
+        <ba:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.LiveBaBettingTableSkin"
+                         anchorOffsetY="0" height="60%" left="0" top="0" />
+        <ui:BaseImageButton id="_confirmButton" x="300" y="143" width="85" height="50"
+                            currentState="lobby_confirm_button" skinName="ImageButtonSkinLobby" />
+    </e:Group>
+    <e:Group id="_contentContainer" width="364" height="229" x="0" y="0">
+        <e:Rect width="100%" height="120" fillColor="#303030" />
+        <ba:CountdownTimer id="_timer" width="80" height="80" x="0" y="1" />
+        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="30" right="20" text="" />
+        <ba:BetInfoBigRoad id="_bigRoad" width="364" height="139" y="90" />
+        <ui:RoundButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
+                        hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0" horizontalCenter="0"
+                        y="249" width="148" height="42" label1text="加注" label2text="X" scale9Grid="20,21,108,0" />
+        <live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0"
+                               anchorOffsetY="0" skinName="BetLimitDropdownSkin" visible="false" />
+    </e:Group>
+</e:Skin>
