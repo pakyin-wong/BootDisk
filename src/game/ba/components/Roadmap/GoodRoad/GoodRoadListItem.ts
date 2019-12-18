@@ -14,7 +14,7 @@ namespace we {
 
       private isActive: number;
       private roadId: string;
-      private roadType: number; // add icon(-1) , default(0) or custom road(1)
+      private roadType: number; // add icon(0) , default(1) or custom road(2)
 
       public constructor() {
         super();
@@ -58,6 +58,23 @@ namespace we {
         // this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
       }
 
+      public setRoadEnabled(n: boolean) {
+        // 0 for on, 1 for off
+        if (n) {
+          this._activeButton.setInitButtonState(0);
+        } else {
+          this._activeButton.setInitButtonState(1);
+        }
+      }
+
+      public setRoadName(n: string) {
+        this._titleLabel.text = n;
+      }
+
+      public setRoadData(n: string) {
+        this._bigRoad.updateRoadData(n);
+      }
+
       public changeLang() {
         const arr = [i18n.t('baccarat.addNewGoodRoad'), i18n.t('baccarat.newGoodRoadName')];
         if (this.roadType === -1) {
@@ -67,13 +84,13 @@ namespace we {
         }
       }
 
-      public setRoadType(t) {
+      public setRoadType(t: number) {
         this.roadType = t;
 
         this.renderItem();
       }
 
-      public setRoadId(id) {
+      public setRoadId(id: string) {
         this.roadId = id;
       }
 
@@ -101,7 +118,9 @@ namespace we {
         }
       }
 
-      private onEditTap(evt: egret.Event) {}
+      private onEditTap(evt: egret.Event) {
+        this.dispatchEvent(new egret.Event('onEditTap'));
+      }
 
       private onEditOver(evt: egret.Event) {
         this._editButton.alpha = 1;
@@ -111,12 +130,17 @@ namespace we {
         this._editButton.alpha = 0;
       }
 
-      private onAddTap(evt: egret.Event) {}
+      private onAddTap(evt: egret.Event) {
+        this.dispatchEvent(new egret.Event('onAddTap'));
+      }
 
-      private onBinTap(evt: egret.Event) {}
+      private onBinTap(evt: egret.Event) {
+        this.dispatchEvent(new egret.Event('onBinTap'));
+      }
 
       private onActiveTap(evt: egret.Event) {
         const s = evt.data;
+        this.dispatchEvent(new egret.Event('onEnableChanged', false, false, s));
       }
 
       private onTouchTap(evt: egret.Event) {

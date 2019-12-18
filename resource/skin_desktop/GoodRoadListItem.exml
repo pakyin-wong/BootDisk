@@ -9,9 +9,9 @@
 		<ui:RoundButton id="_binButton" resName="d_lobby_panel_button_checkboxes_disabled_png"
 		                hoverResName="d_lobby_panel_button_checkboxes_hover_png" y="13" width="22" height="22" label1text=""
 		                label2text="" anchorOffsetX="0" x="216" />
-		<ui:ToggleButton id="_activeButton" resNameOn="d_lobby_panel_button_checkboxes_enabled_png"
-		                 hoverResNameOn="d_lobby_panel_button_checkboxes_enabled_png"
-		                 resNameOff="d_lobby_panel_button_checkboxes_disabled_png"
+		<ui:ToggleButton id="_activeButton" resNameOn="d_lobby_panel_button_checkboxes_active_png"
+		                 hoverResNameOn="d_lobby_panel_button_checkboxes_active_png"
+		                 resNameOff="d_lobby_panel_button_checkboxes_normal_png"
 		                 hoverResNameOff="d_lobby_panel_button_checkboxes_hover_png" y="16" width="22" height="22"
 		                 anchorOffsetX="0" x="255" />
 		<ui:RoundButton id="_addButton" resName="d_lobby_goodroadsetting_normal_png"

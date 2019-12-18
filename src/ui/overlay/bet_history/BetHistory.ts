@@ -58,7 +58,7 @@ namespace we {
         this._txt_search.renderText = () => `${i18n.t('overlaypanel_bethistory_searchrecord')}`;
 
         this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_bethistory_today')}`;
-        this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_bethistory_thisweek')}`;
+        this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_bethistory_week')}`;
         this._btn_custom.label.renderText = () => `${i18n.t('overlaypanel_bethistory_customperiod')}`;
 
         this._txt_record_id.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_id')}`;

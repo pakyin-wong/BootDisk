@@ -55,6 +55,32 @@ namespace we {
         // console.dir(value);
       }
 
+      // Good Road
+      public getGoodRoad() {
+        this.client.getRoadmap(this._goodRoadUpdateCallback);
+      }
+
+      public updateCustomGoodRoad(id: string, data: any) {
+        this.client.updateCustomRoadmap(id, data, this._goodRoadUpdateCallback);
+      }
+
+      public updateDefaultGoodRoad(ids: string[]) {
+        this.client.updateDefaultRoadmap(ids, this._goodRoadUpdateCallback);
+      }
+
+      public createGoodRoad(name: string, pattern: string) {
+        this.client.createCustomRoadmap(name, pattern, this._goodRoadUpdateCallback);
+      }
+
+      public removeGoodRoadmap(id: string) {
+        this.client.removeCustomRoadmap(id, this._goodRoadUpdateCallback);
+      }
+
+      private _goodRoadUpdateCallback(data: any) {
+        env.goodRoadData = data;
+        dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
+      }
+
       public getStaticInitData(callback: (res: any) => void, thisArg) {
         this.client.init(env.language, callback.bind(thisArg));
       }
@@ -227,6 +253,7 @@ namespace we {
         gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
         tableInfo.data = gameStatus;
+        console.log(`Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
         // check if the tableInfo display ready change from false to true

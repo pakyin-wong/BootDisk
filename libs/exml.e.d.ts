@@ -43,6 +43,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class AlreadyBetCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetInfoAlreadyBetItemSkin extends eui.Skin{
 	}
 }
@@ -107,10 +111,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BettingAreaSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BettingTableSkin extends eui.Skin{
 	}
 }
@@ -148,6 +148,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class GameBar extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class GoodRoadEditItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -242,6 +246,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class MemberReport extends eui.Skin{
 	}
 }
 declare module skin_desktop{

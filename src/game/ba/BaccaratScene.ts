@@ -172,7 +172,7 @@ namespace we {
             self.tableInfo = value;
             self.betDetails = self.tableInfo.bets;
             self.gameData = self.tableInfo.data;
-            self.previousState = self.tableInfo.data.previousstate;
+            self.previousState = GameState.UNKNOWN; // self.tableInfo.data.previousstate;
             self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
             if (self.tableInfo.betInfo) {
               self.roadmapLeftPanel.setGameInfo(self.tableInfo.betInfo.gameroundid, self.tableInfo.betInfo.total);
@@ -267,8 +267,8 @@ namespace we {
             // update the scene
             this.tableInfo = tableInfo;
             this.betDetails = tableInfo.bets;
-            this.previousState = this.gameData ? this.gameData.previousstate : null;
             this.gameData = <GameData> this.tableInfo.data;
+            this.previousState = this.gameData ? this.gameData.previousstate : GameState.UNKNOWN;
             if (tableInfo.roadmap) {
               this.roadmapControl.updateRoadData(tableInfo.roadmap);
             }
@@ -376,14 +376,17 @@ namespace we {
       protected setStateBet() {
         if (this.previousState !== GameState.BET) {
           // reset data betinfo
+          this.bettingTable.resetUnconfirmedBet();
+          this.bettingTable.resetConfirmedBet();
+
+          this.resultMessage.clearMessage();
 
           // if (this.betDetails) {
           //   this.betDetails.splice(0, this.betDetails.length);
           // }
 
-          // TODO: show start bet message to the client for few seconds
-          this.bettingTable.resetUnconfirmedBet();
-          this.bettingTable.resetConfirmedBet();
+          // show start bet message to the client for few seconds
+          this.message.showMessage(InGameMessage.INFO, i18n.t('game.startBet'));
           // this.stateLabel.text = 'Betting';
           // this.winAmountLabel.visible = false;
 
@@ -412,7 +415,10 @@ namespace we {
       protected setStateDeal() {
         if (this.previousState !== GameState.DEAL) {
           this.cardHolder.resetCards();
-          // this.stateLabel.text = 'Dealing';
+          // show stop bet message to the client for few seconds
+          if (this.previousState === GameState.BET) {
+            this.message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
+          }
 
           // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
           this.setBetRelatedComponentsVisibility(false);

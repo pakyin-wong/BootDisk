@@ -175,6 +175,17 @@ namespace we {
         // }
       }
 
+      // Good Road
+      public getGoodRoad() {}
+
+      public updateCustomGoodRoad(id: string, data: any) {}
+
+      public updateDefaultGoodRoad(ids: string[]) {}
+
+      public createGoodRoad(name: string, pattern: string) {}
+
+      public removeGoodRoadmap(id: string) {}
+
       public balanceEvent(myObj: any) {
         // console.log('SocketMock::balanceEvent() this.balances', myObj.balances);
         if (myObj.balance_index < myObj.balances.length) {

@@ -40,9 +40,9 @@ declare class PlayerClient {
     }): void;
     getLobbyMaterial(callback: (data: LobbyMaterial) => any): void;
     getRoadmap(callback: Function): void;
-    upadteDefaultRoadmap(ids: string[], callback: Function): void;
+    updateDefaultRoadmap(ids: string[], callback: Function): void;
     createCustomRoadmap(name: string, pattern: string, callback: Function): void;
-    upadteCustomRoadmap(id: string, name: string, pattern: string, callback: Function): void;
+    updateCustomRoadmap(id: string, data: object, callback: Function): void;
     removeCustomRoadmap(id: string, callback: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;

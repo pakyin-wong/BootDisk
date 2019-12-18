@@ -23,7 +23,7 @@ namespace we {
         switch (value) {
           case we.core.GameType.BAC:
           default:
-            this.width = 578;
+            this.width = 442;
             this.height = 388;
             this._displayItem = new we.ui.AlreadyBetItem();
             this.setDisplayItem(this._displayItem);
