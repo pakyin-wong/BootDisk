@@ -23,7 +23,7 @@ namespace we {
         return this._displayItem;
       }
       public get isFocus() {
-        return this.list.isFocus === this;
+        return this.list && this.list.isFocus === this;
       }
 
       constructor() {

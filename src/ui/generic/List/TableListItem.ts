@@ -33,6 +33,10 @@ namespace we {
         this.tableId = tableinfo.tableid;
         this.tableInfo = tableinfo;
       }
+
+      public getActionButton() {
+        return null;
+      }
     }
   }
 }
