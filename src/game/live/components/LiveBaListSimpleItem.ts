@@ -216,6 +216,11 @@ namespace we {
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+      }
+
+      protected onTableBetInfoUpdate() {
+        console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       public setData(tableInfo: data.TableInfo) {

@@ -303,6 +303,8 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
+        console.log('BaccaratScene::onTableBetInfoUpdate')
+        console.log(evt.data)
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this.tableID) {
