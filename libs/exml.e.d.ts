@@ -38,6 +38,14 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class AlreadyBetBaBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetInfoAlreadyBetItemSkin extends eui.Skin{
+	}
+}
 declare module skins_desktop{
 	class BetConfirmButtonSkin extends eui.Skin{
 	}

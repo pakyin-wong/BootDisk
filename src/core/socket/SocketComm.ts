@@ -541,7 +541,7 @@ namespace we {
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
-        logger.l('PlayerClient::onBetTableListUpdate: tableList: ');
+        console.log('PlayerClient::onBetTableListUpdate: tableList: ');
         console.log(tableList);
 
         // merge the new tableList to tableListArray

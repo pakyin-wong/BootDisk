@@ -1,8 +1,8 @@
 namespace we {
   export namespace ui {
-    export class BetInfoHolder extends ui.TableListItemHolder {
-      private _mode: we.lobby.mode;
-      protected _displayItem: we.live.LiveBaListSimpleItem;
+    export class AlreadyBetHolder extends ui.TableListItemHolder {
+      private _gameType: we.core.GameType;
+      protected _displayItem: we.ui.AlreadyBetItem;
 
       public constructor() {
         super();
@@ -10,21 +10,22 @@ namespace we {
         this.mount();
       }
 
-      private async mount() {
-        this.mode = we.lobby.mode.NORMAL;
-        // dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
+      private mount() {
         console.log('we.live.BetInfoHolder::mount()');
+        this.gameType = we.core.GameType.BAC;
+        // dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
       }
 
-      set mode(value: we.lobby.mode) {
-        if (this._mode === value) {
+      set gameType(value: we.core.GameType) {
+        if (this._gameType === value) {
           return;
         }
         switch (value) {
-          case we.lobby.mode.NORMAL:
+          case we.core.GameType.BAC:
+          default:
             this.width = 578;
             this.height = 388;
-            this._displayItem = new we.live.LiveBaListItem();
+            this._displayItem = new we.ui.AlreadyBetItem();
             this.setDisplayItem(this._displayItem);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
             this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
@@ -33,25 +34,12 @@ namespace we {
               this.updateDisplayItem();
             }
             break;
-          case we.lobby.mode.SIMPLE:
-          case we.lobby.mode.ADVANCED:
-          default:
-            this.width = 578;
-            this.height = 219;
-            this._displayItem = new we.live.LiveBaListSimpleItem();
-            this.setDisplayItem(this._displayItem);
-            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
-            this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
-            this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
-            if (this.tableInfo) {
-              this.updateDisplayItem();
-            }
         }
-        this._mode = value;
+        this._gameType = value;
       }
 
-      get mode() {
-        return this._mode;
+      get gameType() {
+        return this._gameType;
       }
 
       public onTouchTapWhole(evt: egret.Event) {
@@ -59,18 +47,16 @@ namespace we {
         if (evt.target === target || this.isFocus) {
           return;
         }
-        console.log('we.live.LiveBaccartListItem::onclick - tableid' + this.itemData);
+        console.log('we.live.AlreadyBetHolder::onclick - tableid' + this.itemData);
         dir.socket.enterTable(this.itemData);
         dir.sceneCtr.goto('ba', { tableid: this.itemData });
       }
 
       public itemDataChanged() {
         super.itemDataChanged();
-        console.log('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
-        switch (this._mode) {
-          case we.lobby.mode.NORMAL:
-          case we.lobby.mode.SIMPLE:
-          case we.lobby.mode.ADVANCED:
+        console.log('AlreadyBetHolder::itemDataChanged::this.itemData - ', this.itemData);
+        switch (this._gameType) {
+          case we.core.GameType.BAC:
           default:
             this.updateDisplayItem();
             egret.Tween.removeTweens(this);
@@ -82,7 +68,6 @@ namespace we {
         this._displayItem.updateGame();
         this._displayItem.labelRenderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this.itemData)}`;
         this.setZIndex();
-        this._displayItem.bigRoad.updateRoadData(this.tableInfo.roadmap);
       }
 
       private setZIndex() {

@@ -29,7 +29,7 @@ namespace we {
         scroller.height = group.height;
         betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
-        this.betTableList.itemRenderer = BetInfoHolder;
+        this.betTableList.itemRenderer = AlreadyBetHolder;
         scroller.viewport = this.betTableList;
 
         // create good road list

@@ -16,14 +16,9 @@ namespace we {
       private repeatButton: ui.BaseImageButton;
       private cancelButton: ui.BaseImageButton;
       private doubleButton: ui.BaseImageButton;
-      // private winAmountLabel: eui.Label;
-      // private stateLabel: eui.Label;
       private roundPanel: eui.Rect;
-
       private switchLang: ui.SwitchLang;
-
       private _tableID: string;
-
       private previousState: number;
       private tableInfo: data.TableInfo;
       private gameData: GameData;
@@ -85,7 +80,7 @@ namespace we {
         // this.lblBetLimit.text = env.betLimits;
 
         // this.tableInfoWindow.visible = false;
-        this.init();
+        this.initRoadMap();
         this.setupTableInfo();
         this.addChild(this._video);
         this.setChildIndex(this._video, 0);
@@ -122,6 +117,8 @@ namespace we {
 
         this.tableInfoWindow.setToggler(this.lblRoomInfo);
         this.tableInfoWindow.setValue(this.tableInfo);
+
+        // Below two must be run after the component initialization finished
         this.updateGame();
         this.addEventListeners();
       }
@@ -138,7 +135,7 @@ namespace we {
         if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
           egret.log('Confirm');
           const bets = this.bettingTable.getUnconfirmedBetDetails();
-          this.bettingTable.resetUnconfirmedBet();
+          this.bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
           dir.socket.bet(this.tableID, bets);
         }
       }
@@ -230,11 +227,7 @@ namespace we {
 
       public async onFadeExit() {}
 
-      protected init() {
-        //// step 1: load Baccarat Screen Resource
-        //// this.skinName = utils.getSkin('BaccaratScene');
-
-        // step 2: init ui
+      protected initRoadMap() {
         this.roadmapControl = new BARoadmapControl(this._tableID);
         this.roadmapControl.setRoads(
           this.roadmapLeftPanel.beadRoad,
@@ -245,18 +238,6 @@ namespace we {
           [16, 33, 66, 34, 32],
           this.roadmapRightPanel
         );
-        // this.roadmap = new BARoadmap(this._tableID);
-        // this.roadmap.x = 2000;
-        // this.roadmap.y = 500;
-        // this.addChild(this.roadmap);
-
-        // const gRoad = new BAGoodRoadmap();
-        // gRoad.x = 1000;
-        // gRoad.y = 500;
-        // this.addChild(gRoad);
-
-        // step 3: connect socket
-        // this.socketConnect();
       }
 
       protected mount() {
@@ -431,7 +412,6 @@ namespace we {
       protected setStateDeal() {
         if (this.previousState !== GameState.DEAL) {
           this.cardHolder.resetCards();
-          // TODO: show stop bet message to the client for few seconds
           // this.stateLabel.text = 'Dealing';
 
           // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
@@ -450,6 +430,9 @@ namespace we {
           this.setBetRelatedComponentsTouchEnabled(false);
 
           // this.winAmountLabel.visible = false;
+        }
+        if (this.betDetails) {
+          this.bettingTable.updateBetFields(this.betDetails);
         }
         // update card result in cardHolder
         this.cardHolder.updateResult(this.gameData);
