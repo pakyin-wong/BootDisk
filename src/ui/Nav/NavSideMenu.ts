@@ -97,6 +97,9 @@ namespace we {
       }
 
       private onClickMember() {
+        dir.evtHandler.createOverlay({
+          class: 'MemberReport',
+        });
         logger.l(`NavSideMenu::onClickMember`);
       }
 
