@@ -134,7 +134,7 @@
 			"url": "assets/d/common/popover.png",
 			"type": "image",
 			"name": "nav_panel_bg",
-			"scale9grid": "35,23,3,2"
+			"scale9grid": "25,20,23,10"
 		},
 		{
 			"url": "assets/fonts/barlow.woff2",

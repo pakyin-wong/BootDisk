@@ -143,6 +143,10 @@ declare class DropdownItemSkin extends eui.Skin{
 declare class DropdownSkin extends eui.Skin{
 }
 declare module skin_desktop{
+	class DropdownItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class GameBar extends eui.Skin{
 	}
 }
@@ -214,6 +218,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class Nav extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class NavDropdown extends eui.Skin{
 	}
 }
 declare module skin_desktop{
