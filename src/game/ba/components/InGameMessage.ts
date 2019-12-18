@@ -5,6 +5,10 @@ namespace we {
       public static readonly SUCCESS: string = 'SUCCESS';
       public static readonly ERROR: string = 'ERROR';
 
+      public infoBg: string = 'd_ba_gamerecord_playerelement_png';
+      public successBg: string = 'd_ba_gamerecord_tieelement_png';
+      public errorBg: string = 'd_ba_gamerecord_bankerelement_png';
+
       private _content: eui.Group;
       private _bg: eui.Image;
       private _label: ui.RunTimeLabel;
@@ -30,18 +34,19 @@ namespace we {
       protected setBackground(type: string) {
         switch (type) {
           case InGameMessage.INFO:
-            this._bg.source = 'd_ba_gamerecord_playerelement_png';
+            this._bg.source = this.infoBg;
             break;
           case InGameMessage.SUCCESS:
-            this._bg.source = 'd_ba_gamerecord_tieelement_png';
+            this._bg.source = this.successBg;
             break;
           case InGameMessage.ERROR:
-            this._bg.source = 'd_ba_gamerecord_bankerelement_png';
+            this._bg.source = this.errorBg;
             break;
         }
       }
 
       protected start(type: string, message: string) {
+        egret.Tween.removeTweens(this);
         this._isAnimating = true;
         const tween = egret.Tween.get(this)
           .call(() => {

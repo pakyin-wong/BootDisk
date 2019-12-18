@@ -61,7 +61,14 @@ namespace we {
         }
       }
 
+      public clearMessage() {
+        egret.Tween.removeTweens(this);
+        this._isAnimating = false;
+        this.visible = false;
+      }
+
       protected start(winType: ba.WinType, winAmount: number) {
+        egret.Tween.removeTweens(this);
         this._isAnimating = true;
         if (this._numlabel) {
           this._numlabel.text = ``;

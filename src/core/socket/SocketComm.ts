@@ -227,6 +227,7 @@ namespace we {
         gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
         tableInfo.data = gameStatus;
+        console.log(`Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
         // check if the tableInfo display ready change from false to true

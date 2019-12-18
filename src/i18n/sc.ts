@@ -93,6 +93,10 @@ namespace we {
           goodroad: '好路',
         },
       },
+      game: {
+        startBet: '开始下注',
+        stopBet: '停止下注',
+      },
       baccarat: {
         playerPair: '闲对',
         bankerPair: '庄对',

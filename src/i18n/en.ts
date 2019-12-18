@@ -25,6 +25,10 @@ namespace we {
           goodroad: 'Good Road',
         },
       },
+      game: {
+        startBet: 'Start Bet',
+        stopBet: 'Stop Bet',
+      },
       baccarat: {
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
