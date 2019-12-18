@@ -22,6 +22,7 @@ namespace we {
       public categorySortOrder: string;
       public language: string;
       public betLimits: data.BetLimit[];
+      public goodRoadData: any;
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};

@@ -23,36 +23,44 @@ namespace we {
         this.addChild(this.bigRoad);
 
         this.onParserUpdate(null);
-
-        // add banker win
-        this.touchEnabled = true;
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
       }
 
-      // add banker win
-      private onClick(e: egret.TouchEvent) {
-        if (e.localY < 300) {
-          if (e.localX > 200) {
-            // add banker
-            if (this.parser.checkCanAddBanker()) {
-              this.parser.addWin(0);
-            }
-          } else {
-            // add player
-            if (this.parser.checkCanAddPlayer()) {
-              this.parser.addWin(1);
-            }
-          }
-        } else {
-          console.log(this.getRoadData());
+      public addBanker() {
+        if (this.parser.checkCanAddBanker()) {
+          this.parser.addWin(0);
+        }
+      }
+
+      public addPlayer() {
+        if (this.parser.checkCanAddPlayer()) {
+          this.parser.addWin(1);
+        }
+      }
+
+      public removeOne() {
+        if (this.parser.beadRoadResult.length > 0) {
+          this.parser.undoWin();
+        }
+      }
+
+      public removeAll() {
+        if (this.parser.beadRoadResult.length > 0) {
+          this.parser.undoAll();
         }
       }
 
       private onParserUpdate(e: egret.Event) {
         if (this.parser.bigRoadResult) {
           this.bigRoad.parseRoadData(this.parser.bigRoadResult);
-
-          console.log(this.parser.checkCanSubmit(), this.parser.checkCanAddBanker(), this.parser.checkCanAddPlayer());
+          this.dispatchEvent(
+            new egret.Event('update', false, false, {
+              canSubmit: this.parser.checkCanSubmit(),
+              canAddBanker: this.parser.checkCanAddBanker(),
+              canAddPlayer: this.parser.checkCanAddPlayer(),
+              canRemove: this.parser.beadRoadResult.length > 0,
+              roadPattern: this.getRoadData(),
+            })
+          );
         }
       }
 

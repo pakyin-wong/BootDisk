@@ -30,6 +30,7 @@ namespace we {
       GOOD_ROAD_MODIFY: 'GOOD_ROAD_MODIFY',
       GOOD_ROAD_REMOVE: 'GOOD_ROAD_REMOVE',
       GOOD_ROAD_EDIT: 'GOOD_ROAD_EDIT',
+      GOOD_ROAD_DATA_UPDATE: 'GOOD_ROAD_DATA_UPDATE',
     };
 
     export const MQTT = {
