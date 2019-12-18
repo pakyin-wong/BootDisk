@@ -66,6 +66,7 @@
 		"resource/skin_desktop/dropdown/BetLimitDropdownItemSkin.exml",
 		"resource/skin_desktop/dropdown/DropdownItemSkin.exml",
 		"resource/skin_desktop/dropdown/DropdownSkin.exml",
+		"resource/skin_desktop/GoodRoadEditItem.exml",
 		"resource/skin_desktop/GoodRoadListItem.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinDialog.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinEmpty.exml",

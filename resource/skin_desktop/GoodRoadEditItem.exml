@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.GoodRoadEditItem" width="321" height="319" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="content" width="100%" height="100%" x="0" y="0">
+		<e:Rect id="mask" width="100%" height="100%" x="0" y="0" ellipseHeight="30" ellipseWidth="30" fillColor="0xff0000" />
+		<e:Rect id="_bg" width="100%" height="320" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x333333" />
+		<e:Rect id="_textBg" width="250" height="46" x="7.5" y="8.5" anchorOffsetX="0" anchorOffsetY="0" ellipseHeight="10"
+		        ellipseWidth="10" fillColor="0x14181e" strokeColor="0x333c4a" strokeWeight="1" />
+		<e:EditableText id="_titleLabel" width="182" height="26" text="New Road" x="12" y="12" anchorOffsetX="0"
+		                anchorOffsetY="0" size="24" />
+		<e:Rect id="_bigRoadMask" width="292" height="175" x="1" y="52" anchorOffsetX="0" anchorOffsetY="0" ellipseHeight="30"
+		        ellipseWidth="30" alpha="0" />
+		<ba:GoodRoadmapEdit id="_bigRoad" width="291" height="175" y="52" x="1" />
+		<ui:RoundButton id="_clearButton" resName="d_lobby_form_textclear_png" hoverResName="d_lobby_form_textclear_png"
+		                y="13" width="17" height="18" label1text="" label2text="" anchorOffsetX="0" x="216" />
+		<e:Image id="close" width="29" height="29" x="283" y="8.5" source="d-lobby-button-close-none_png" />
+		<ui:RoundButton id="_playerButton" resName="d_lobby_button_add_road_player copy_png"
+		                hoverResName="d_lobby_button_add_road_player copy_png" horizontalCenter="-79.5" width="46" height="46"
+		                label1text="" label2text="" anchorOffsetX="0" verticalCenter="121.5" />
+		<ui:RoundButton id="_removeButton" resName="d_lobby_button_deduct copy_png"
+		                hoverResName="d_lobby_button_deduct copy_png" horizontalCenter="-22.5" width="46" height="46"
+		                label1text="" label2text="" anchorOffsetX="0" verticalCenter="121.5" />
+		<ui:RoundButton id="_bankerButton" resName="d_lobby_button_add_road_banker copy_png"
+		                hoverResName="d_lobby_button_add_road_banker copy_png" horizontalCenter="-125.5" width="46"
+		                height="46" label1text="" label2text="" anchorOffsetX="0" verticalCenter="121.5" />
+		<ui:RoundButton id="_removeAllButton" resName="d_lobby_button_clear_road copy_png"
+		                hoverResName="d_lobby_button_clear_road copy_png" width="46" height="46" label1text="" label2text=""
+		                anchorOffsetX="0" x="178.5" y="260" />
+		<ui:RoundButton id="_saveButton" resName="d_lobby_confirm_btn_none_png" hoverResName="d_lobby_confirm_btn_hover_png"
+		                width="85" height="50" label1text="" label2text="" anchorOffsetX="0" x="236" y="256" />
+	</e:Group>
+</e:Skin>

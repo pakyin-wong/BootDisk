@@ -175,6 +175,27 @@ namespace we {
         // }
       }
 
+      // Good Road
+      public getGoodRoad(callback: (data: any) => void, thisArg: any) {
+        // this.client.getRoadmap(callback.bind(thisArg));
+      }
+
+      public updateCustomGoodRoad(id: string, data: any, callback: (data: any) => void, thisArg: any) {
+        // this.client.updateCustomRoadmap(id, data, callback.bind(thisArg));
+      }
+
+      public updateDefaultGoodRoad(ids: string[], callback: (data: any) => void, thisArg: any) {
+        // this.client.updateDefaultRoadmap(ids, callback.bind(thisArg));
+      }
+
+      public createGoodRoad(name: string, pattern: string, callback: (data: any) => void, thisArg: any) {
+        // this.client.createCustomRoadmap(name, pattern, callback.bind(thisArg));
+      }
+
+      public removeGoodRoadmap(id: string, callback: (data: any) => void, thisArg: any) {
+        // this.client.removeCustomRoadmap(id, callback.bind(thisArg));
+      }
+
       public balanceEvent(myObj: any) {
         // console.log('SocketMock::balanceEvent() this.balances', myObj.balances);
         if (myObj.balance_index < myObj.balances.length) {
