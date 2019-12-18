@@ -9,7 +9,7 @@ case "${arch}" in
     fi
     bin=$(which egret)
   ;;
-  CYGWIN*|MINGW32*|MSYS*)
+  CYGWIN*|MINGW32*|MSYS*|MINGW64*)
     bin=egret.cmd
   ;;
 esac
