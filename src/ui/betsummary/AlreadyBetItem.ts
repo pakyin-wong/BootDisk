@@ -3,18 +3,23 @@ namespace we {
     export class AlreadyBetItem extends ui.TableListItem {
       protected rect: eui.Rect;
       protected _bettingTable: we.ba.BettingTable;
+      protected _betChipSetGroup: eui.Group;
       protected _betChipSet: we.ba.BetChipSet;
+      protected _confirmButton: ui.BaseImageButton;
       protected _resultTable: eui.Image;
       protected _quickbetButton: ui.RoundButton;
       protected _quickbetEnable: boolean = false;
       protected _dropdown: live.BetLimitDropdown;
-      protected _group: eui.Group;
+      protected _bettingGroup: eui.Group;
+      protected _resultGroup: eui.Group;
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
       protected _gameData: we.ba.GameData;
       protected _timer: we.ba.CountdownTimer;
       protected _mouseOutside: boolean = false;
       protected _label: ui.RunTimeLabel;
+      protected _cardHolder: we.ba.AlreadyBetCardHolder;
+      protected _resultMessage: we.ba.GameResultMessage;
 
       protected _tweenInterval1: number = 250;
 
@@ -60,6 +65,8 @@ namespace we {
       protected initChildren() {
         this._timer.skinName = utils.getSkin('CountdownTimerRound');
         const denominationList = env.betLimits[env.currentSelectedBetLimitIndex].chipList;
+        this._betChipSet.setVisibleDenominationCount(2);
+        this._betChipSet.setDenominationList(denominationList);
 
         this._bettingTable.tableId = this._tableId;
         this._bettingTable.init();
@@ -73,8 +80,8 @@ namespace we {
         shape.graphics.beginFill(0xffffff, 1);
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
         shape.graphics.endFill();
-        this._group.addChild(shape);
-        this._group.mask = shape;
+        this._bettingGroup.addChild(shape);
+        this._bettingGroup.mask = shape;
       }
 
       public set tableId(value: string) {
@@ -134,7 +141,7 @@ namespace we {
           } else {
             this._offsetY = 0;
           }
-          egret.Tween.removeTweens(this._betChipSet);
+          egret.Tween.removeTweens(this._betChipSetGroup);
 
           ///////
           /*
@@ -145,7 +152,7 @@ namespace we {
           this._quickbetPanel.alpha = 1;*/
 
           const p2 = new Promise(resolve =>
-            egret.Tween.get(this._betChipSet)
+            egret.Tween.get(this._betChipSetGroup)
               .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
               .call(resolve)
           );
@@ -155,8 +162,8 @@ namespace we {
           // this.setChildIndex(this._group, 1500);
           // this._quickbetPanel.validateNow();
 
-          egret.Tween.removeTweens(this._betChipSet);
-          egret.Tween.get(this._betChipSet).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
+          egret.Tween.removeTweens(this._betChipSetGroup);
+          egret.Tween.get(this._betChipSetGroup).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
 
           if (this._mouseOutside) {
             egret.Tween.removeTweens(this._quickbetButton);
@@ -178,9 +185,9 @@ namespace we {
 
       private setEventListeners() {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirm, this);
+        this._bettingGroup.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        this._bettingGroup.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
@@ -248,35 +255,44 @@ namespace we {
         }
         console.log('state:        ' + this._gameData.state);
         switch (this._gameData.state) {
+          case we.ba.GameState.IDLE:
+            this.setStateIdle();
+            break;
           case we.ba.GameState.BET:
-            this.setQuickbetPanelVisible(true);
             this.setStateBet();
             break;
-          default:
-            this.setQuickbetPanelVisible(false);
+          case we.ba.GameState.DEAL:
+            this.setStateDeal();
             break;
+          case we.ba.GameState.FINISH:
+            this.setStateFinish();
+            break;
+          case we.ba.GameState.REFUND:
+            this.setStateRefund();
+            break;
+          case we.ba.GameState.SHUFFLE:
+            this.setStateShuffle();
+            break;
+        }
+      }
+
+      protected setStateIdle() {
+        if (this._previousState !== we.ba.GameState.IDLE) {
+          this._bettingTable.setTouchEnabled(false);
+          this._resultGroup.visible = true;
+          this._bettingGroup.visible = false;
+          this.setQuickbetPanelVisible(false);
         }
       }
 
       protected setStateBet() {
         if (this._previousState !== we.ba.GameState.BET) {
-          // reset data betinfo
-
-          // if (this._betDetails) {
-          //   this._betDetails.splice(0, this._betDetails.length);
-          // }
-
-          // TODO: show start bet message to the client for few seconds
-          // logger.l('LiveBaListSimpleItem::setStateBet::this._quickbetPanel', this._quickbetPanel);
-          // logger.l('LiveBaListSimpleItem::setStateBet::this._quickbetPanel.bettingTable', this._quickbetPanel.bettingTable);
+          this.setQuickbetPanelVisible(true);
           this._bettingTable.resetUnconfirmedBet();
           this._bettingTable.resetConfirmedBet();
-
-          // show the betchipset, countdownTimer, confirm, cancel and other bet related buttons
-          // this.setBetRelatedComponentsTouchEnabled(true);
-
-          // enable betting table
-          // this._quickbetPanel.bettingTable.setTouchEnabled(true);
+          this._bettingTable.setTouchEnabled(true);
+          this._bettingGroup.visible = true;
+          this._resultGroup.visible = false;
         }
         // update the bet amount of each bet field in betting table
         if (this._betDetails) {
@@ -285,6 +301,75 @@ namespace we {
 
         // update the countdownTimer
         this.updateCountdownTimer();
+      }
+      protected setStateDeal() {
+        if (this._previousState !== we.ba.GameState.DEAL) {
+          this._resultGroup.visible = true;
+          this._cardHolder.updateResult(this._gameData);
+          this._cardHolder.resetCards();
+          this._bettingGroup.visible = false;
+          this._bettingTable.setTouchEnabled(false);
+          this.setQuickbetPanelVisible(false);
+        }
+        // update card result in cardHolder
+        this._cardHolder.updateResult(this._gameData);
+      }
+      protected setStateFinish() {
+        if (this._previousState !== we.ba.GameState.FINISH) {
+          this._resultGroup.visible = true;
+          this._cardHolder.updateResult(this._gameData);
+          this._cardHolder.resetCards();
+          this._bettingGroup.visible = false;
+          this._bettingTable.setTouchEnabled(false);
+          this.setQuickbetPanelVisible(false);
+
+          // TODO: show effect on each winning bet field
+          logger.l(`this.gameData.winType ${this._gameData.wintype} ${utils.EnumHelpers.getKeyByValue(we.ba.WinType, this._gameData.wintype)}`);
+          this.checkResultMessage(this.tableInfo.totalWin);
+        }
+      }
+      protected setStateRefund() {
+        if (this._previousState !== we.ba.GameState.REFUND) {
+          this._resultGroup.visible = true;
+          this._cardHolder.updateResult(this._gameData);
+          this._cardHolder.resetCards();
+          this._bettingGroup.visible = false;
+          this._bettingTable.setTouchEnabled(false);
+          this.setQuickbetPanelVisible(false);
+
+          this._bettingTable.setTouchEnabled(false);
+        }
+      }
+      protected setStateShuffle() {
+        this._resultGroup.visible = true;
+        this._cardHolder.updateResult(this._gameData);
+        this._cardHolder.resetCards();
+        this._bettingGroup.visible = false;
+        this._bettingTable.setTouchEnabled(false);
+        this.setQuickbetPanelVisible(false);
+      }
+
+      public checkResultMessage(totalWin: number = NaN) {
+        if (this.hasBet()) {
+          if (this._gameData && this._gameData.wintype !== we.ba.WinType.NONE && !isNaN(totalWin)) {
+            this._resultMessage.showResult(this._gameData.wintype, totalWin);
+          }
+        } else {
+          if (this._gameData && this._gameData.wintype !== we.ba.WinType.NONE) {
+            this._resultMessage.showResult(this._gameData.wintype);
+          }
+        }
+      }
+
+      protected hasBet(): boolean {
+        if (this._betDetails) {
+          for (const betDetail of this._betDetails) {
+            if (betDetail.amount > 0) {
+              return true;
+            }
+          }
+        }
+        return false;
       }
 
       protected updateCountdownTimer() {
@@ -308,9 +393,9 @@ namespace we {
             */
             this._quickbetButton.tweenLabel(!this.list.isLocked);
             egret.Tween.removeTweens(this);
-            egret.Tween.removeTweens(this._betChipSet);
+            egret.Tween.removeTweens(this._betChipSetGroup);
 
-            egret.Tween.get(this._betChipSet).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
+            egret.Tween.get(this._betChipSetGroup).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
             egret.Tween.removeTweens(this._quickbetButton);
             const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1);
             const tw2 = egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 0 }, this._tweenInterval1);
@@ -357,6 +442,14 @@ namespace we {
 
           egret.Tween.removeTweens(this._quickbetButton);
           const tw2 = egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250);
+        }
+      }
+
+      protected onConfirm(evt: egret.Event) {
+        if (this._bettingTable.getTotalUncfmBetAmount() > 0) {
+          const bets = this._bettingTable.getUnconfirmedBetDetails();
+          this._bettingTable.resetUnconfirmedBet();
+          dir.socket.bet(this._tableId, bets);
         }
       }
     }

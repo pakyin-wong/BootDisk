@@ -150,6 +150,17 @@ namespace we {
         grid.denomLayer.height = grid.height;
       }
 
+      public addRolloverEffect() {
+        Object.keys(this.mapping).forEach(value => {
+          this.mapping[value].addRolloverEffect();
+        });
+      }
+      public removeRolloverEffect() {
+        Object.keys(this.mapping).forEach(value => {
+          this.mapping[value].removeRolloverEffect();
+        });
+      }
+
       private setListeners() {
         this._gridPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayer), this);
         this._gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBanker), this);

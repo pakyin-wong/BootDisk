@@ -40,11 +40,20 @@ namespace we {
         super();
         this._cfmBet = 0;
         this._uncfmBet = 0;
-        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+        this.addRolloverEffect();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
         this._betChipStack = new BetChipStack();
         this._betChipStack.skinName = we.utils.getSkin('BetChipStack');
+      }
+
+      public addRolloverEffect() {
+        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      }
+
+      public removeRolloverEffect() {
+        this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
+        this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
       }
 
       set denomLayer(value: eui.Component) {
