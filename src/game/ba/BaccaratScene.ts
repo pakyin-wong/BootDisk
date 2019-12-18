@@ -138,6 +138,7 @@ namespace we {
         if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
           egret.log('Confirm');
           const bets = this.bettingTable.getUnconfirmedBetDetails();
+          this.bettingTable.resetUnconfirmedBet();
           dir.socket.bet(this.tableID, bets);
         }
       }
@@ -304,6 +305,8 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
+        console.log('BaccaratScene::onTableBetInfoUpdate');
+        console.log(evt.data);
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this.tableID) {
@@ -417,9 +420,9 @@ namespace we {
           this.setBetRelatedComponentsTouchEnabled(true);
 
           // update the bet amount of each bet field in betting table
-          if (this.betDetails) {
-            this.bettingTable.updateBetFields(this.betDetails);
-          }
+        }
+        if (this.betDetails) {
+          this.bettingTable.updateBetFields(this.betDetails);
         }
 
         // update the countdownTimer

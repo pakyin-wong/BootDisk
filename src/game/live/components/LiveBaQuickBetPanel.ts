@@ -40,6 +40,7 @@ namespace we {
         if (this._bettingTable.getTotalUncfmBetAmount() > 0) {
           egret.log('Confirm');
           const bets = this._bettingTable.getUnconfirmedBetDetails();
+          this._bettingTable.resetUnconfirmedBet();
           dir.socket.bet(this._tableId, bets);
         }
       }
