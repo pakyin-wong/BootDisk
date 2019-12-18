@@ -69,7 +69,9 @@ namespace we {
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
         if (tableInfo.roadmap) {
-          this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+          if (this._bigRoad) {
+            this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+          }
         }
       }
 
@@ -78,7 +80,9 @@ namespace we {
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
-            this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+            if (this._bigRoad) {
+              this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+            }
           }
         }
       }

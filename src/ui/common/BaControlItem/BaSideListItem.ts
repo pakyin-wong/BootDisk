@@ -18,7 +18,7 @@ namespace we {
       protected _offsetLimit: number;
       protected _offsetMovement: number;
 
-      public constructor(skinName: string = 'BaSideItemSkin') {
+      public constructor(skinName: string = 'BaSideListItemSkin') {
         super(skinName);
       }
 

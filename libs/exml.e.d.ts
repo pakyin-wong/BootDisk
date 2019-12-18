@@ -83,7 +83,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BaSideItemSkin extends eui.Skin{
+	class BaSideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaSideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
