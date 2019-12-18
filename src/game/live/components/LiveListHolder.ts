@@ -9,18 +9,20 @@ namespace we {
 
       public constructor() {
         super();
-        this.touchEnabled = true;
-        this.mount();
+        // this.touchEnabled = true;
+        // this.mount();
       }
 
-      private async mount() {
+      protected async mount() {
         this.mode = we.lobby.mode.NORMAL;
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
         console.log('we.live.LiveListHolder::mount()');
       }
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
 
       private switchMode(evt: egret.Event) {
@@ -38,7 +40,6 @@ namespace we {
             this.height = 388;
             this._displayItem = new we.ba.BaLiveListItem();
             this.setDisplayItem(this._displayItem);
-            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
             if (this.tableInfo) {
@@ -52,7 +53,6 @@ namespace we {
             this.height = 219;
             this._displayItem = new we.ba.BaLiveListSimpleItem();
             this.setDisplayItem(this._displayItem);
-            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
             if (this.tableInfo) {
@@ -66,15 +66,15 @@ namespace we {
         return this._mode;
       }
 
-      public onTouchTapWhole(evt: egret.Event) {
-        const target = this._displayItem.getActionButton();
-        if (evt.target === target || this.isFocus) {
-          return;
-        }
-        console.log('we.live.LiveBaccartListItem::onclick - tableid' + this.itemData);
-        dir.socket.enterTable(this.itemData);
-        dir.sceneCtr.goto('ba', { tableid: this.itemData });
-      }
+      // public onTouchTapWhole(evt: egret.Event) {
+      //   const target = this._displayItem.getActionButton();
+      //   if (evt.target === target || this.isFocus) {
+      //     return;
+      //   }
+      //   console.log('we.live.LiveBaccartListItem::onclick - tableid' + this.itemData);
+      //   dir.socket.enterTable(this.itemData);
+      //   dir.sceneCtr.goto('ba', { tableid: this.itemData });
+      // }
 
       public itemDataChanged() {
         super.itemDataChanged();

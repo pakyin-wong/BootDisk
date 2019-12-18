@@ -30,6 +30,15 @@ namespace we {
         super();
         this.content = new eui.Group();
         this.addChild(this.content);
+
+        this.touchEnabled = true;
+        this.mount();
+      }
+      protected async mount() {
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+      }
+      protected destroy() {
+        this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
 
       protected get list(): TableList {
@@ -72,6 +81,16 @@ namespace we {
         item.holder = this;
         this._displayItem = item;
         this.content.addChild(this._displayItem);
+      }
+
+      public onTouchTapWhole(evt: egret.Event) {
+        const target = this._displayItem.getActionButton();
+        if (evt.target === target || this.isFocus) {
+          return;
+        }
+        console.log('we.live.LiveBaccartListItem::onclick - tableid' + this.itemData);
+        dir.socket.enterTable(this.itemData);
+        dir.sceneCtr.goto('ba', { tableid: this.itemData });
       }
     }
   }

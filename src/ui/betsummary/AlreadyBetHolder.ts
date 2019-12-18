@@ -10,7 +10,7 @@ namespace we {
         this.mount();
       }
 
-      private mount() {
+      protected async mount() {
         console.log('we.live.BetInfoHolder::mount()');
         this.gameType = we.core.GameType.BAC;
         // dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
