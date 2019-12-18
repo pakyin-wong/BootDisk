@@ -33,15 +33,17 @@ declare class PlayerClient {
     getBetHistory(filter: object, callback: (data: BetHistory) => void): void;
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
-    bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
+    bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;    
     updateSetting(key: string, value: string): void;
     updateSettings(settings: {
         [key: string]: string;
     }): void;
     getLobbyMaterial(callback: (data: LobbyMaterial) => any): void;
-    createCustomRoadmap(name: string, pattern: string): void;
-    upadteCustomRoadmap(id: string, name: string, pattern: string): void;
-    removeCustomRoadmap(id: string): void;
+    getRoadmap(callback: Function): void;
+    updateDefaultRoadmap(ids: string[], callback: Function): void;
+    createCustomRoadmap(name: string, pattern: string, callback: Function): void;
+    updateCustomRoadmap(id: string, data: object, callback: Function): void;
+    removeCustomRoadmap(id: string, callback: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
     private _isTableInfoCallbackEmpty;

@@ -29,7 +29,7 @@ namespace we {
         }
       }
 
-      public updateRoadData(roadmapData: any) {
+      public updateRoadData(roadmapData: string) {
         const data = [];
         const arr = roadmapData
           .toLowerCase()

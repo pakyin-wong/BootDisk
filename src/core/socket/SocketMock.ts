@@ -83,13 +83,13 @@ namespace we {
         // setTimeout(() => {
         //   this.tables = this.tables.filter((x, i) => i !== 6);
         // }, 14000);
-
-        setInterval(() => {
-          // mock error
-          if (Math.random() > 0.5) {
-            dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
-          }
-        }, 5000);
+        /*
+                setInterval(() => {
+                  // mock error
+                  if (Math.random() > 0.5) {
+                    dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
+                  }
+                }, 5000);*/
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
@@ -171,6 +171,27 @@ namespace we {
         //   default:
         //     break;
         // }
+      }
+
+      // Good Road
+      public getGoodRoad(callback: (data: any) => void, thisArg: any) {
+        // this.client.getRoadmap(callback.bind(thisArg));
+      }
+
+      public updateCustomGoodRoad(id: string, data: any, callback: (data: any) => void, thisArg: any) {
+        // this.client.updateCustomRoadmap(id, data, callback.bind(thisArg));
+      }
+
+      public updateDefaultGoodRoad(ids: string[], callback: (data: any) => void, thisArg: any) {
+        // this.client.updateDefaultRoadmap(ids, callback.bind(thisArg));
+      }
+
+      public createGoodRoad(name: string, pattern: string, callback: (data: any) => void, thisArg: any) {
+        // this.client.createCustomRoadmap(name, pattern, callback.bind(thisArg));
+      }
+
+      public removeGoodRoadmap(id: string, callback: (data: any) => void, thisArg: any) {
+        // this.client.removeCustomRoadmap(id, callback.bind(thisArg));
       }
 
       public balanceEvent(myObj: any) {
