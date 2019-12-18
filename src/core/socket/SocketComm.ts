@@ -541,13 +541,8 @@ namespace we {
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
-        if (!(tableList instanceof data.GameTableList)) {
-          return;
-        }
         logger.l('PlayerClient::onBetTableListUpdate: tableList: ');
-        console.dir(tableList);
-        logger.l('PlayerClient::onBetTableListUpdate: timestamp: ');
-        console.dir(timestamp);
+        console.log(tableList);
 
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = tableList.tablesList;
@@ -559,7 +554,7 @@ namespace we {
         // dispatch BET_TABLE_LIST_UPDATE
         this.filterAndDispatch(betTableList, core.Event.BET_TABLE_LIST_UPDATE);
 
-        dir.evtHandler.dispatch(core.Event.BET_TABLE_LIST_UPDATE, null);
+        // dir.evtHandler.dispatch(core.Event.BET_TABLE_LIST_UPDATE, null);
       }
 
       protected onGoodRoadMatch(data: data.RoadmapNotification, timestamp: string) {
