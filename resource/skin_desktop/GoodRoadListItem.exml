@@ -14,12 +14,12 @@
 		                 resNameOff="d_lobby_panel_button_checkboxes_disabled_png"
 		                 hoverResNameOff="d_lobby_panel_button_checkboxes_hover_png" y="16" width="22" height="22"
 		                 anchorOffsetX="0" x="255" />
-		<ui:RoundButton id="_addButton" resName="d_lobby_goodroadsetting_none_png"
+		<ui:RoundButton id="_addButton" resName="d_lobby_goodroadsetting_normal_png"
 		                hoverResName="d_lobby_goodroadsetting_hover_png" horizontalCenter="0.5" width="44" height="44"
 		                label1text="" label2text="" anchorOffsetX="0" verticalCenter="21.5" />
-		<ui:RoundButton id="_editButton" resName="d_lobby_profile_edit_none_png" hoverResName="d_lobby_profile_edit_hover_png"
-		                horizontalCenter="0.5" width="30" height="30" label1text="" label2text="" anchorOffsetX="0"
-		                verticalCenter="21.5" />
+		<ui:RoundButton id="_editButton" resName="d_lobby_profile_edit_normal_png"
+		                hoverResName="d_lobby_profile_edit_hover_png" horizontalCenter="0.5" width="30" height="30"
+		                label1text="" label2text="" anchorOffsetX="0" verticalCenter="21.5" />
 		<e:Label id="_titleLabel" text="百家樂01" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="17" y="14" size="24"
 		         anchorOffsetX="0" width="177" />
 	</e:Group>

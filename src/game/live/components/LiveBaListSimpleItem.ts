@@ -216,6 +216,31 @@ namespace we {
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
+      }
+
+      protected onBetDetailUpdate(evt: egret.Event) {
+        const tableInfo = <data.TableInfo> evt.data;
+        if (tableInfo.tableid === this._tableId) {
+          this._betDetails = tableInfo.bets;
+          switch (this._gameData.state) {
+            case we.ba.GameState.BET:
+              this._quickbetPanel.bettingTable.updateBetFields(this._betDetails);
+              break;
+            case we.ba.GameState.FINISH:
+            default:
+              // this.winAmountLabel.visible = true;
+              // this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
+              // this.bettingTable.showWinEffect(this.betDetails);
+              // this.checkResultMessage(this.tableInfo.totalWin);
+              break;
+          }
+        }
+      }
+
+      protected onTableBetInfoUpdate() {
+        console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -290,11 +315,10 @@ namespace we {
 
           // enable betting table
           // this._quickbetPanel.bettingTable.setTouchEnabled(true);
-
-          // update the bet amount of each bet field in betting table
-          if (this._betDetails) {
-            this._quickbetPanel.bettingTable.updateBetFields(this._betDetails);
-          }
+        }
+        // update the bet amount of each bet field in betting table
+        if (this._betDetails) {
+          this._quickbetPanel.bettingTable.updateBetFields(this._betDetails);
         }
 
         // update the countdownTimer
@@ -312,10 +336,10 @@ namespace we {
           if (enable) {
             this._timer.visible = true;
             // this.setChildIndex(this._timer, 30000);
-            console.log('LiveBaListItem::setQuickbetPanelVisible-enable()' + this.tableId);
+            // console.log('LiveBaListItem::setQuickbetPanelVisible-enable()' + this.tableId);
           } else {
             this._timer.visible = false;
-            console.log('LiveBaListItem::setQuickbetPanelVisible-disable1()' + this.tableId);
+            // console.log('LiveBaListItem::setQuickbetPanelVisible-disable1()' + this.tableId);
             /*
             this.setChildIndex(this._quickbetPanel, 1000);
             this.setChildIndex(this._group, 1500);

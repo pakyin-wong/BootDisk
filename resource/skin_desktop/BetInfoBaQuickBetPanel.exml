@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetInfoBaQuickBetPanel" width="364" height="218" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
-	<e:Rect width="100%" height="100" x="0" bottom="0" alpha="0.6"/>
-	<ba:BetChipSet id="_betChipSet" width="300" height="100" bottom="0"  anchorOffsetX="0" x="36"/>
-	<ba:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.LiveBaBettingTableSkin" anchorOffsetY="0" height="60%" left="0" top="0"/>
-	<ui:OldImageButton id="_confirmButton" x="300" y="143" width="85" height="50" resName="d_lobby_confirm_btn_none_png" hoverResName="d_lobby_confirm_btn_hover_png" />
+<e:Skin class="skin_desktop.BetInfoBaQuickBetPanel" width="364" height="218" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="100%" height="100" x="0" bottom="0" alpha="0.6" />
+	<ba:BetChipSet id="_betChipSet" width="300" height="100" bottom="0" anchorOffsetX="0" x="36" />
+	<ba:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.LiveBaBettingTableSkin" anchorOffsetY="0"
+	                 height="60%" left="0" top="0" />
+	<ui:BaseImageButton id="_confirmButton" x="300" y="143" width="85" height="50" currentState="lobby_confirm_button"
+	                    skinName="ImageButtonSkinLobby" />
 </e:Skin>

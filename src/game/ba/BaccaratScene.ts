@@ -16,14 +16,9 @@ namespace we {
       private repeatButton: ui.BaseImageButton;
       private cancelButton: ui.BaseImageButton;
       private doubleButton: ui.BaseImageButton;
-      // private winAmountLabel: eui.Label;
-      // private stateLabel: eui.Label;
       private roundPanel: eui.Rect;
-
       private switchLang: ui.SwitchLang;
-
       private _tableID: string;
-
       private previousState: number;
       private tableInfo: data.TableInfo;
       private gameData: GameData;
@@ -61,7 +56,6 @@ namespace we {
         this._video.width = 2600;
         this._video.height = 1340;
         this._video.load('http://192.168.1.85:8090/live/360.flv');
-        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
       }
 
       public insufficientBalance() {
@@ -81,19 +75,13 @@ namespace we {
 
       public onEnter() {
         egret.log(this._header);
-        this.init();
-
-        this.setupTableInfo();
-        this.updateGame();
 
         // this.lblRoomNo.text = this.tableInfo.tablename;
         // this.lblBetLimit.text = env.betLimits;
 
         // this.tableInfoWindow.visible = false;
-        this.tableInfoWindow.setToggler(this.lblRoomInfo);
-        this.tableInfoWindow.setValue(this.tableInfo);
-        this.addEventListeners();
-
+        this.initRoadMap();
+        this.setupTableInfo();
         this.addChild(this._video);
         this.setChildIndex(this._video, 0);
         // this.playVideo();
@@ -126,6 +114,13 @@ namespace we {
 
         this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
         this.lblRoomNo.renderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableID)}`;
+
+        this.tableInfoWindow.setToggler(this.lblRoomInfo);
+        this.tableInfoWindow.setValue(this.tableInfo);
+
+        // Below two must be run after the component initialization finished
+        this.updateGame();
+        this.addEventListeners();
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -140,6 +135,7 @@ namespace we {
         if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
           egret.log('Confirm');
           const bets = this.bettingTable.getUnconfirmedBetDetails();
+          this.bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
           dir.socket.bet(this.tableID, bets);
         }
       }
@@ -192,6 +188,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onChangeLang, this);
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
       }
@@ -206,6 +203,8 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.removeEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        dir.evtHandler.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+
         this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
@@ -228,11 +227,7 @@ namespace we {
 
       public async onFadeExit() {}
 
-      protected init() {
-        //// step 1: load Baccarat Screen Resource
-        //// this.skinName = utils.getSkin('BaccaratScene');
-
-        // step 2: init ui
+      protected initRoadMap() {
         this.roadmapControl = new BARoadmapControl(this._tableID);
         this.roadmapControl.setRoads(
           this.roadmapLeftPanel.beadRoad,
@@ -243,18 +238,6 @@ namespace we {
           [16, 33, 66, 34, 32],
           this.roadmapRightPanel
         );
-        // this.roadmap = new BARoadmap(this._tableID);
-        // this.roadmap.x = 2000;
-        // this.roadmap.y = 500;
-        // this.addChild(this.roadmap);
-
-        // const gRoad = new BAGoodRoadmap();
-        // gRoad.x = 1000;
-        // gRoad.y = 500;
-        // this.addChild(gRoad);
-
-        // step 3: connect socket
-        // this.socketConnect();
       }
 
       protected mount() {
@@ -303,6 +286,8 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
+        console.log('BaccaratScene::onTableBetInfoUpdate');
+        console.log(evt.data);
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this.tableID) {
@@ -416,9 +401,9 @@ namespace we {
           this.setBetRelatedComponentsTouchEnabled(true);
 
           // update the bet amount of each bet field in betting table
-          if (this.betDetails) {
-            this.bettingTable.updateBetFields(this.betDetails);
-          }
+        }
+        if (this.betDetails) {
+          this.bettingTable.updateBetFields(this.betDetails);
         }
 
         // update the countdownTimer
@@ -427,7 +412,6 @@ namespace we {
       protected setStateDeal() {
         if (this.previousState !== GameState.DEAL) {
           this.cardHolder.resetCards();
-          // TODO: show stop bet message to the client for few seconds
           // this.stateLabel.text = 'Dealing';
 
           // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
@@ -446,6 +430,9 @@ namespace we {
           this.setBetRelatedComponentsTouchEnabled(false);
 
           // this.winAmountLabel.visible = false;
+        }
+        if (this.betDetails) {
+          this.bettingTable.updateBetFields(this.betDetails);
         }
         // update card result in cardHolder
         this.cardHolder.updateResult(this.gameData);

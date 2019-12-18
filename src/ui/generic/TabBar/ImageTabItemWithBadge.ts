@@ -23,15 +23,15 @@ namespace we {
       }
 
       protected updateImage(state) {
-        let imgState = 'none';
+        let imgState = 'normal';
         switch (state) {
           case 'down':
           case 'upAndSelected':
           case 'downAndSelected':
-            imgState = 'hover';
+            imgState = 'active';
             break;
         }
-        this._image.source = `d_lobby_list_panel_${this.data}_${imgState}_png`;
+        this._image.source = `d_lobby_panel_gamelist_icon_${this.data}_${imgState}_png`;
       }
     }
   }

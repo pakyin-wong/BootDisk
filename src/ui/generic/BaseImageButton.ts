@@ -1,8 +1,8 @@
 namespace we {
   export namespace ui {
     enum BaseImageButtonState {
-      normal = 'none',
-      down = 'down',
+      normal = 'normal',
+      down = 'pressed',
       disabled = 'disabled',
       hover = 'hover',
     }
@@ -26,12 +26,26 @@ namespace we {
         if (!this.skinName || this.skinName === '') {
           this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
         }
-      }
-
-      public mount() {
-        this.invalidateState();
         this.touchChildren = false;
         this.buttonEnabled = true;
+        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
+      }
+
+      public onSkinChanged() {
+        /*
+        ** to fix egret internal state bug
+        ** occurred on programatical use of BaseImageButton
+        ** ex.
+          const img = new we.ui.BaseImageButton();
+          img.currentState = btn;
+          img.skinName = utils.getSkin('imagebutton/ImageButtonSkinLobby');
+        */
+        const property: eui.State | eui.SetProperty = this.skin.states.filter(x => x.name === this.currentState)[0];
+        if (property) {
+          property.overrides.forEach((override: eui.SetProperty) => {
+            this[override.target][override.name] = override.value;
+          });
+        }
       }
 
       public get buttonEnabled() {

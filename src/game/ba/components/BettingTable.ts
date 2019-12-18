@@ -205,9 +205,9 @@ namespace we {
         console.log('BettingTable::betDetails');
         console.log(betDetails);
         betDetails.map((value, index) => {
-          console.log('BettingTable::betDetails: ' + value);
-          console.log('xxx value.field' + value.field);
-          // logger.l('BettingTable::updateBetFields:loop ' + value);
+          console.log('BettingTable::betDetails.map ');
+          console.log(value);
+
           if (this.mapping[value.field]) {
             this.mapping[value.field].setCfmBet(value.amount);
           }
@@ -311,6 +311,26 @@ namespace we {
         const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
         fieldAmounts[betDetail.field] += betDetail.amount;
         return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount + betDetail.amount);
+      }
+
+      public pushUnconfirmedBetToWaitingConfirmBet() {
+        this.uncfmBetDetails = [
+          { field: BetField.BANKER, amount: 0 },
+          { field: BetField.PLAYER, amount: 0 },
+          { field: BetField.TIE, amount: 0 },
+          { field: BetField.BANKER_PAIR, amount: 0 },
+          { field: BetField.PLAYER_PAIR, amount: 0 },
+          { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
+        ];
+        if (this.mapping) {
+          Object.keys(this.mapping).forEach(value => {
+            // console.log(value);
+            // To be filled
+            // this.mapping[value].pushUnconfirmedBetToWaitingConfirmBet();
+          });
+        }
+        this.totalUncfmBetAmount = 0;
       }
 
       public resetUnconfirmedBet() {
