@@ -29,6 +29,16 @@ namespace we {
         return this._isCollapsible;
       }
 
+      public get useMiniScrollBar(): boolean {
+        return this.verticalScrollBar && this.verticalScrollBar.currentState === 'mini';
+      }
+
+      public set useMiniScrollBar(mini) {
+        if (this.verticalScrollBar) {
+          this.verticalScrollBar.currentState = mini ? 'mini' : null;
+        }
+      }
+
       public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);

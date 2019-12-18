@@ -16,7 +16,6 @@ namespace we {
         super('overlay/MessageDialog');
         const buttonNames = Object.keys(buttonProps);
         this.currentState = buttonNames.length === 2 ? 'two' : 'one';
-        console.log(this._btn_dismiss);
         for (const btn of buttonNames) {
           this[`_btn_${btn}`].text = buttonProps[btn].text;
           this[`_btn_${btn}`].addEventListener(

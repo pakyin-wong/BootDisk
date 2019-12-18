@@ -11,7 +11,7 @@ namespace we {
         this._dealerImage.texture = RES.getRes(imageResName);
       }
 
-      protected initPos() {
+      protected initCustomPos() {
         this._targetQuickBetButtonY = 350;
         this._originalQuickBetButtonY = 300;
         this._targetQuickbetPanelY = 378;

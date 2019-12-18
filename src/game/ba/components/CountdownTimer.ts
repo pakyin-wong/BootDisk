@@ -33,10 +33,15 @@ namespace we {
         return this._remainingTime;
       }
       set remainingTime(second: number) {
-        this._remainingTime = Math.max(Math.min(second, this._countdownValue), 0);
-        const ratio = (this._remainingTime * 1.0) / this._countdownValue;
-        this.progressIndicator.progress = ratio;
-        this.countdownLabel.text = `${Math.ceil(this._remainingTime * 0.001)}`;
+        if (this._countdownValue <= 0) {
+          this.progressIndicator.progress = 1;
+          this.countdownLabel.text = ``;
+        } else {
+          this._remainingTime = Math.max(Math.min(second, this._countdownValue), 0);
+          const ratio = (this._remainingTime * 1.0) / this._countdownValue;
+          this.progressIndicator.progress = ratio;
+          this.countdownLabel.text = `${Math.ceil(this._remainingTime * 0.001)}`;
+        }
       }
 
       private updateRemainingTime() {

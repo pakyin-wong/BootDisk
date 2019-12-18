@@ -13,11 +13,16 @@ namespace we {
         super.mount();
         const betLimitList = env.betLimits;
         const betLimitItems = betLimitList.map(data => {
-          return `${data.minLimit} - ${data.maxLimit}`;
+          return `${data.minlimit} - ${data.maxlimit}`;
         });
         this.setItems(betLimitItems);
         this.selectedIndex = env.currentSelectedBetLimitIndex;
         this.addEventListener(eui.UIEvent.CHANGE, this.onChanged, this);
+        dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
+      }
+
+      protected destroy() {
+        dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
       }
 
       protected onChanged(evt: eui.UIEvent) {
@@ -27,6 +32,10 @@ namespace we {
 
       public get toggler() {
         return this._toggler;
+      }
+
+      protected onBetLimitChanged(evt: egret.Event) {
+        this.selectedIndex = env.currentSelectedBetLimitIndex;
       }
     }
   }

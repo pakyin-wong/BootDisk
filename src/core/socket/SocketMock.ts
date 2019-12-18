@@ -20,6 +20,7 @@ namespace we {
         this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
           const data = new we.data.TableInfo();
           data.tableid = (idx + 1).toString();
+          data.tablename = data.tableid;
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData2;
 
@@ -83,13 +84,13 @@ namespace we {
         // setTimeout(() => {
         //   this.tables = this.tables.filter((x, i) => i !== 6);
         // }, 14000);
-        /*
-                setInterval(() => {
-                  // mock error
-                  if (Math.random() > 0.5) {
-                    dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
-                  }
-                }, 5000);*/
+
+        setInterval(() => {
+          // mock error
+          if (Math.random() > 0.9) {
+            dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
+          }
+        }, 5000);
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
@@ -116,9 +117,10 @@ namespace we {
         env.betLimits = [
           {
             currency: Currency.RMB,
-            maxLimit: 1000,
-            minLimit: 10,
-            chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+            maxlimit: 1000,
+            minlimit: 10,
+            chipList: [1, 5, 20, 100, 500],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
         env.mode = null || -1;
@@ -457,12 +459,12 @@ namespace we {
               prevremaining: 1231232, // balance before bet
               endremaining: 21321321, // balance after result
               result: {
-                a1: '2', // banker 1st card
-                a2: '1',
-                a3: '31',
-                b1: '4', // player 1st card
-                b2: '5',
-                b3: '423',
+                a1: 'spade1', // banker 1st card
+                a2: 'spade2',
+                a3: 'spade3',
+                b1: 'spade4', // player 1st card
+                b2: 'spade5',
+                b3: '',
                 playerpoint: 6,
                 bankerpoint: 7,
               },
@@ -481,12 +483,12 @@ namespace we {
               prevremaining: 1231232, // balance before bet
               endremaining: 21321321, // balance after result
               result: {
-                a1: '2', // banker 1st card
-                a2: '1',
-                a3: '31',
-                b1: '4', // player 1st card
-                b2: '5',
-                b3: '423',
+                a1: 'heart2', // banker 1st card
+                a2: 'heartk',
+                a3: '',
+                b1: 'diamonda', // player 1st card
+                b2: 'diamondj',
+                b3: 'spade2',
                 playerpoint: 3,
                 bankerpoint: 1,
               },

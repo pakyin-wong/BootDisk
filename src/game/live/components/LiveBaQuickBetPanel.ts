@@ -11,26 +11,36 @@ namespace we {
       }
 
       protected mount() {
-        this.skinName = utils.getSkin('LiveBaQuickBetPanel');
-        const denominationList = env.betLimits[this.getCurrBetLimitIndex()].chipsList.map(data => data.value);
+        // this.skinName = utils.getSkin('LiveBaQuickBetPanel');
+        const denominationList = env.betLimits[this.getCurrBetLimitIndex()].chipList;
         this._betChipSet.setVisibleDenominationCount(3);
         this._betChipSet.setDenominationList(denominationList);
 
-        this._bettingTable.skinName = utils.getSkin('LiveBaBettingTable');
+        // this._bettingTable.skinName = utils.getSkin('LiveBaBettingTable');
         this._bettingTable.type = we.core.BettingTableType.LOBBY;
         this._bettingTable.denomList = denominationList;
         this._bettingTable.init();
         this._bettingTable.getSelectedBetLimitIndex = this.getCurrBetLimitIndex;
         this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
         this._bettingTable.setGameMode(false);
-
+        // this.addChild(this._bettingTable.denomLayer);
         this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+      }
+
+      set denomLayer(value: eui.Component) {}
+
+      get denomLayer() {
+        if (this._bettingTable) {
+          return this._bettingTable.denomLayer;
+        }
+        return null;
       }
 
       private onConfirmPressed() {
         if (this._bettingTable.getTotalUncfmBetAmount() > 0) {
           egret.log('Confirm');
           const bets = this._bettingTable.getUnconfirmedBetDetails();
+          this._bettingTable.resetUnconfirmedBet();
           dir.socket.bet(this._tableId, bets);
         }
       }

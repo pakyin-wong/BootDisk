@@ -3,7 +3,6 @@ namespace we {
     export class TestItem extends ItemRenderer {
       protected _label: eui.Label;
       public moveArea: eui.Component;
-      public content: egret.DisplayObject;
 
       constructor() {
         super();

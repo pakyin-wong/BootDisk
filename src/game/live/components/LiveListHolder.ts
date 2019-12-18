@@ -1,11 +1,11 @@
 namespace we {
   export namespace live {
-    export class LiveListHolder extends ui.ItemRenderer {
+    export class LiveListHolder extends ui.TableListItemHolder {
       public selected: boolean;
       public itemIndex: number;
 
       private _mode: we.lobby.mode;
-      private _item: we.live.LiveBaListSimpleItem;
+      protected _displayItem: we.live.LiveBaListSimpleItem;
 
       public constructor() {
         super();
@@ -36,21 +36,13 @@ namespace we {
           case we.lobby.mode.NORMAL:
             this.width = 578;
             this.height = 388;
-            this.removeChildren();
-            this._item = new we.live.LiveBaListItem();
-            this.addChild(this._item);
+            this._displayItem = new we.live.LiveBaListItem();
+            this.setDisplayItem(this._displayItem);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
-            this._item.addEventListener(mouse.MouseEvent.ROLL_OVER, this._item.onRollover.bind(this._item), this);
-            this._item.addEventListener(mouse.MouseEvent.ROLL_OUT, this._item.onRollout.bind(this._item), this);
-            if (this.itemData) {
-              this._item.tableId = this.itemData;
-              this._item.setupTableInfo();
-              this._item.updateGame();
-              this._item.labelText = this.itemData;
-              this.setZIndex();
-
-              const table = env.tableInfos[this.itemData];
-              this._item.bigRoad.updateRoadData(table.roadmap);
+            this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
+            this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
+            if (this.tableInfo) {
+              this.updateDisplayItem();
             }
             break;
           case we.lobby.mode.SIMPLE:
@@ -58,21 +50,13 @@ namespace we {
           default:
             this.width = 578;
             this.height = 219;
-            this.removeChildren();
-            this._item = new we.live.LiveBaListSimpleItem();
-            this.addChild(this._item);
+            this._displayItem = new we.live.LiveBaListSimpleItem();
+            this.setDisplayItem(this._displayItem);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
-            this._item.addEventListener(mouse.MouseEvent.ROLL_OVER, this._item.onRollover.bind(this._item), this);
-            this._item.addEventListener(mouse.MouseEvent.ROLL_OUT, this._item.onRollout.bind(this._item), this);
-            if (this.itemData) {
-              this._item.tableId = this.itemData;
-              this._item.setupTableInfo();
-              this._item.updateGame();
-              this._item.labelText = this.itemData;
-              this.setZIndex();
-
-              const table = env.tableInfos[this.itemData];
-              this._item.bigRoad.updateRoadData(table.roadmap);
+            this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
+            this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
+            if (this.tableInfo) {
+              this.updateDisplayItem();
             }
         }
         this._mode = value;
@@ -83,8 +67,8 @@ namespace we {
       }
 
       public onTouchTapWhole(evt: egret.Event) {
-        const target = this._item.getQuickbetButton();
-        if (evt.target === target || env.livepageLocked === this.itemData.toString()) {
+        const target = this._displayItem.getQuickbetButton();
+        if (evt.target === target || this.isFocus) {
           return;
         }
         console.log('we.live.LiveBaccartListItem::onclick - tableid' + this.itemData);
@@ -94,27 +78,27 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        logger.l('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
+        console.log('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
           case we.lobby.mode.SIMPLE:
           case we.lobby.mode.ADVANCED:
           default:
-            this._item.tableId = this.itemData;
-            this._item.setupTableInfo();
-            this._item.updateGame();
-            this._item.labelText = this.itemData;
-            this.setZIndex();
-
-            const table = env.tableInfos[this.itemData];
-            this._item.bigRoad.updateRoadData(table.roadmap);
-
+            this.updateDisplayItem();
             egret.Tween.removeTweens(this);
         }
       }
 
+      protected updateDisplayItem() {
+        this._displayItem.setData(this.tableInfo);
+        this._displayItem.updateGame();
+        this._displayItem.labelRenderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this.itemData)}`;
+        this.setZIndex();
+        this._displayItem.bigRoad.updateRoadData(this.tableInfo.roadmap);
+      }
+
       private setZIndex() {
-        if (env.livepageLocked && env.livepageLocked.toString() === this.itemData.toString()) {
+        if (this.isFocus) {
           if (this.parent) {
             this.parent.setChildIndex(this, 1000);
           }

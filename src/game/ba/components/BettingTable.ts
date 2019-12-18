@@ -78,7 +78,6 @@ namespace we {
 
       private setDenomLists() {
         this._gridPlayer.denomList = this._denomList;
-
         this._gridBanker.denomList = this._denomList;
         this._gridPlayerPair.denomList = this._denomList;
         this._gridTie.denomList = this._denomList;
@@ -91,57 +90,64 @@ namespace we {
       public init() {
         this.createMapping();
         this.setFieldNames();
-        this.setDenomLayer(false);
         this.setDenomLists();
         this.changeLang();
         this.resetUnconfirmedBet();
         this.setListeners();
       }
 
-      private setDenomLayer(twoLayer: boolean) {
-        if (twoLayer) {
-          this._denomLayer = new eui.Component();
-
-          this._gridPlayer.denomLayer = new eui.Component();
-          this._gridBanker.denomLayer = new eui.Component();
-          this._gridPlayerPair.denomLayer = new eui.Component();
-          this._gridTie.denomLayer = new eui.Component();
-          this._gridBankerPair.denomLayer = new eui.Component();
-          this._gridSuperSixBanker.denomLayer = new eui.Component();
-          this._gridSuperSix.denomLayer = new eui.Component();
-
-          this.setDenomGrid(this._gridBanker);
-          this.setDenomGrid(this._gridPlayer);
-          this.setDenomGrid(this._gridBankerPair);
-          this.setDenomGrid(this._gridPlayerPair);
-          this.setDenomGrid(this._gridSuperSix);
-          this.setDenomGrid(this._gridSuperSixBanker);
-          this.setDenomGrid(this._gridTie);
-        } else {
-          this._gridPlayer.denomLayer = this._gridPlayer;
-          this._gridBanker.denomLayer = this._gridBanker;
-          this._gridPlayerPair.denomLayer = this._gridPlayerPair;
-          this._gridTie.denomLayer = this._gridTie;
-          this._gridBankerPair.denomLayer = this._gridBankerPair;
-          this._gridSuperSixBanker.denomLayer = this._gridSuperSixBanker;
-          this._gridSuperSix.denomLayer = this._gridSuperSix;
-        }
-        /*
-        this._gridBanker
-        this._gridPlayer
-        this._gridBankerPair
-        this._gridPlayerPair
-        this._gridSuperSix
-        this._gridSuperSixBanker
-        this._gridTie
-        */
+      set denomLayer(value: eui.Component) {
+        this._denomLayer = value;
       }
 
-      private setDenomGrid(value: BettingTableGrid) {
-        value.denomLayer.x = value.x;
-        value.denomLayer.y = value.y;
-        value.denomLayer.width = value.width;
-        value.denomLayer.height = value.height;
+      get denomLayer() {
+        if (this._denomLayer) {
+          return this._denomLayer;
+        }
+        if (!this._gridPlayer) {
+          return null;
+        }
+        if (!we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
+          return null;
+        }
+        this._denomLayer = new eui.Component();
+        if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
+          this.setDenomGrid(this._gridPlayer);
+          this._denomLayer.addChild(this._gridPlayer.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridBanker.hasDenomLayer)) {
+          this.setDenomGrid(this._gridBanker);
+          this._denomLayer.addChild(this._gridBanker.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridPlayerPair.hasDenomLayer)) {
+          this.setDenomGrid(this._gridPlayerPair);
+          this._denomLayer.addChild(this._gridPlayerPair.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridTie.hasDenomLayer)) {
+          this.setDenomGrid(this._gridTie);
+          this._denomLayer.addChild(this._gridTie.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridBankerPair.hasDenomLayer)) {
+          this.setDenomGrid(this._gridBankerPair);
+          this._denomLayer.addChild(this._gridBankerPair.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridSuperSixBanker.hasDenomLayer)) {
+          this.setDenomGrid(this._gridSuperSixBanker);
+          this._denomLayer.addChild(this._gridSuperSixBanker.denomLayer);
+        }
+        if (we.utils.convertToBoolean(this._gridSuperSix.hasDenomLayer)) {
+          this.setDenomGrid(this._gridSuperSix);
+          this._denomLayer.addChild(this._gridSuperSix.denomLayer);
+        }
+
+        return this._denomLayer;
+      }
+
+      private setDenomGrid(grid: BettingTableGrid) {
+        grid.denomLayer.x = grid.x;
+        grid.denomLayer.y = grid.y;
+        grid.denomLayer.width = grid.width;
+        grid.denomLayer.height = grid.height;
       }
 
       private setListeners() {
@@ -152,8 +158,6 @@ namespace we {
         this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
         this._gridSuperSixBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSixBanker), this);
         this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
-
-        // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
       public setGameMode(isNoCommission: boolean) {
@@ -201,9 +205,9 @@ namespace we {
         console.log('BettingTable::betDetails');
         console.log(betDetails);
         betDetails.map((value, index) => {
-          console.log('BettingTable::betDetails: ' + value);
-          console.log('xxx value.field' + value.field);
-          // logger.l('BettingTable::updateBetFields:loop ' + value);
+          console.log('BettingTable::betDetails.map ');
+          console.log(value);
+
           if (this.mapping[value.field]) {
             this.mapping[value.field].setCfmBet(value.amount);
           }
@@ -288,12 +292,12 @@ namespace we {
         }
         // check betlimit
         const exceedBetLimit =
-          Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
-          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxLimit ||
-          fieldAmounts[BetField.TIE] > betLimit.maxLimit ||
-          fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxLimit ||
-          fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxLimit ||
-          fieldAmounts[BetField.SUPER_SIX] > betLimit.maxLimit;
+          Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
+          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
+          fieldAmounts[BetField.TIE] > betLimit.maxlimit ||
+          fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxlimit ||
+          fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxlimit ||
+          fieldAmounts[BetField.SUPER_SIX] > betLimit.maxlimit;
         if (exceedBetLimit) {
           egret.log(core.Event.EXCEED_BET_LIMIT);
           dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
@@ -307,6 +311,26 @@ namespace we {
         const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
         fieldAmounts[betDetail.field] += betDetail.amount;
         return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount + betDetail.amount);
+      }
+
+      public pushUnconfirmedBetToWaitingConfirmBet() {
+        this.uncfmBetDetails = [
+          { field: BetField.BANKER, amount: 0 },
+          { field: BetField.PLAYER, amount: 0 },
+          { field: BetField.TIE, amount: 0 },
+          { field: BetField.BANKER_PAIR, amount: 0 },
+          { field: BetField.PLAYER_PAIR, amount: 0 },
+          { field: BetField.SUPER_SIX, amount: 0 },
+          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
+        ];
+        if (this.mapping) {
+          Object.keys(this.mapping).forEach(value => {
+            // console.log(value);
+            // To be filled
+            // this.mapping[value].pushUnconfirmedBetToWaitingConfirmBet();
+          });
+        }
+        this.totalUncfmBetAmount = 0;
       }
 
       public resetUnconfirmedBet() {
@@ -359,6 +383,7 @@ namespace we {
       public onChangeLang() {
         this.changeLang();
       }
+
       public getBetchipLayer(): eui.Component {
         return this._denomLayer;
       }

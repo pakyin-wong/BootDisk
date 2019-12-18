@@ -38,6 +38,14 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class AlreadyBetBaBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BetInfoAlreadyBetItemSkin extends eui.Skin{
+	}
+}
 declare module skins_desktop{
 	class BetConfirmButtonSkin extends eui.Skin{
 	}
@@ -146,11 +154,19 @@ declare module skin_desktop{
 	class GoodRoadListItem extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class ImageButtonSkinBacarrat extends eui.Skin{
+	}
+}
 declare class ImageButtonSkinDialog extends eui.Skin{
 }
 declare class ImageButtonSkinEmpty extends eui.Skin{
 }
 declare class ImageButtonSkinLobby extends eui.Skin{
+}
+declare module skin_desktop{
+	class ImageButtonSkinNav extends eui.Skin{
+	}
 }
 declare module skin_desktop{
 	class ImageSlider extends eui.Skin{
@@ -198,6 +214,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class Nav extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class NavPlayerProfile extends eui.Skin{
 	}
 }
 declare module skin_desktop{

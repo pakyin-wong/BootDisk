@@ -1,3 +1,5 @@
+arch=$(uname -s)
+
 if [ -z "$1" ]
   then
     echo "Please specify the target platform (testing|staging|production)"
@@ -15,10 +17,17 @@ echo "path: $path | target: $target"
 rm -rf $target
 mkdir -p $target
 
-if [ -f "$HOME/.nvm/nvm.sh" ]; then
-  source $HOME/.nvm/nvm.sh
-fi
-bin=$(which egret)
+case "${arch}" in
+  Linux*|Darwin*)
+    if [ -f "$HOME/.nvm/nvm.sh" ]; then
+      source $HOME/.nvm/nvm.sh
+    fi
+    bin=$(which egret)
+  ;;
+  CYGWIN*|MINGW32*|MSYS*|MINGW64*)
+    bin=egret.cmd
+  ;;
+esac
 
 $bin publish -version $1
 
@@ -27,4 +36,11 @@ cp -f $path/config.json $target
 cp -rf $path/jslib $target
 cp $path/config.$1.json $target
 
-sed -i "" "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
+case "${arch}" in
+  Linux*|Darwin*)
+    sed -i "" "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
+  ;;
+  CYGWIN*|MINGW32*|MSYS*|MINGW64*)
+    sed -i "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
+  ;;
+esac

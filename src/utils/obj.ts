@@ -14,7 +14,7 @@ namespace we {
     }
 
     export function mergeObjects(...arg): any {
-      const resObj = {};
+      const resObj = arg[0];
       for (let i = 0; i < arg.length; i += 1) {
         const obj = arg[i];
         const keys = Object.keys(obj);
@@ -55,6 +55,21 @@ namespace we {
       }
 
       return a;
+    }
+
+    export function convertToBoolean(input: string): boolean {
+      try {
+        return JSON.parse(input);
+      } catch (e) {
+        return false;
+      }
+    }
+
+    export function covertToBoolean(input: number): boolean {
+      if (input === 0) {
+        return false;
+      }
+      return true;
     }
   }
 }

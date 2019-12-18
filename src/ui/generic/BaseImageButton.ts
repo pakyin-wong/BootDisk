@@ -1,8 +1,8 @@
 namespace we {
   export namespace ui {
     enum BaseImageButtonState {
-      normal = 'none',
-      down = 'down',
+      normal = 'normal',
+      down = 'pressed',
       disabled = 'disabled',
       hover = 'hover',
     }
@@ -10,6 +10,7 @@ namespace we {
     export class BaseImageButton extends we.core.BaseEUI {
       // components
       private _background: eui.Image;
+      private _activeTransitionStopper: () => void;
       private _group: eui.Group;
       private _label: eui.Label;
 
@@ -21,13 +22,30 @@ namespace we {
       private _down: boolean = false;
 
       constructor() {
-        super('imagebutton/ImageButtonSkinEmpty');
-      }
-
-      public mount() {
+        super();
+        if (!this.skinName || this.skinName === '') {
+          this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
+        }
         this.touchChildren = false;
         this.buttonEnabled = true;
-        mouse.setButtonMode(this, true);
+        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
+      }
+
+      public onSkinChanged() {
+        /*
+        ** to fix egret internal state bug
+        ** occurred on programatical use of BaseImageButton
+        ** ex.
+          const img = new we.ui.BaseImageButton();
+          img.currentState = btn;
+          img.skinName = utils.getSkin('imagebutton/ImageButtonSkinLobby');
+        */
+        const property: eui.State | eui.SetProperty = this.skin.states.filter(x => x.name === this.currentState)[0];
+        if (property) {
+          property.overrides.forEach((override: eui.SetProperty) => {
+            this[override.target][override.name] = override.value;
+          });
+        }
       }
 
       public get buttonEnabled() {
@@ -43,13 +61,15 @@ namespace we {
           this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          //   this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, true);
         } else {
           this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
           this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchDown, this);
-          //   this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchUp, this);
+          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, false);
         }
         this._enabled = enabled;
@@ -62,10 +82,14 @@ namespace we {
 
       public set active(active) {
         this._active = active;
+        this.update();
       }
 
       public get text() {
-        return this._label.text;
+        if (this._label) {
+          return this._label.text;
+        }
+        return null;
       }
 
       public set text(text) {
@@ -93,6 +117,10 @@ namespace we {
         this.update();
       }
 
+      private onClick() {
+        this.dispatchEvent(new egret.Event('CLICKED'));
+      }
+
       private update() {
         let buttonState;
         if (!this._enabled) {
@@ -116,9 +144,44 @@ namespace we {
         const newSource = source.replace(this._buttonState.toString(), buttonState);
         if (RES.getRes(newSource)) {
           // use res string to allow replace
-          this._background.source = newSource;
+          if (this._activeTransitionStopper) {
+            this._activeTransitionStopper();
+          }
+          this.changeSourceWithAnimation(source, newSource);
         }
         this._buttonState = buttonState;
+      }
+
+      private changeSourceWithAnimation(oldsrc, newsrc) {
+        if (oldsrc === newsrc) {
+          // no need to animate
+          return;
+        }
+        const cloneBg = new eui.Image();
+        cloneBg.left = cloneBg.top = cloneBg.right = cloneBg.bottom = 0;
+        if (this._background.scale9Grid) {
+          cloneBg.scale9Grid = this._background.scale9Grid.clone();
+        }
+        cloneBg.source = newsrc;
+        this.addChildAt(cloneBg, this.getChildIndex(this._background) + 1);
+        cloneBg.alpha = 0;
+        this._background.alpha = 1;
+        // start animate
+        this._activeTransitionStopper = () => {
+          delete this._activeTransitionStopper;
+          // stop animation and reset to target state
+          egret.Tween.removeTweens(cloneBg);
+          egret.Tween.removeTweens(this._background);
+          this.removeChild(cloneBg);
+          this._background.alpha = 1;
+          this._background.source = newsrc;
+        };
+        egret.Tween.get(cloneBg).to({ alpha: 1 }, 150);
+        egret.Tween.get(this._background)
+          .to({ alpha: 0 }, 150)
+          .call(() => {
+            this._activeTransitionStopper();
+          });
       }
     }
   }

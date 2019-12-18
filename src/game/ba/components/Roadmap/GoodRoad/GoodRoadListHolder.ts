@@ -71,7 +71,7 @@ namespace we {
         {
           type:0,
           id: 'Bxxeeeeea',
-          name: '好路xxyy', // key for localization
+          name: '??xxyy', // key for localization
           pattern: 'bbbpbpbp',
           enabled: true,
         }

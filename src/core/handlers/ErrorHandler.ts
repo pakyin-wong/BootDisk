@@ -15,6 +15,7 @@ namespace we {
       }
 
       public handleError(error: IErrorKind) {
+        /*
         switch (error.code) {
           case 1001: {
             console.log('hanle');
@@ -44,6 +45,7 @@ namespace we {
             break;
           }
         }
+        */
       }
 
       private createDialog(title, buttons: we.overlay.IMessageDialogButtonProps) {
