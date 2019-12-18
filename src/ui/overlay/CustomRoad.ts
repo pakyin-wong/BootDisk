@@ -6,73 +6,9 @@ namespace we {
       private collection: eui.ArrayCollection;
       private _editRoadPanel: ba.GoodRoadEditItem;
 
-      private _sampleData: any;
-      private _sampleData2: any;
-
       constructor() {
         super('overlay/CustomRoad');
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this._sampleData = {
-          default: [
-            {
-              id: 'r1',
-              name: 'r1', // key for localization
-              pattern: 'pbpbpbpbppbbp',
-              enabled: true,
-            },
-            {
-              id: 'r2',
-              name: 'r2', // key for localization
-              pattern: 'bbppbpbppbb',
-              enabled: false,
-            },
-          ],
-          custom: [
-            {
-              id: 'BMJCP2DH5S5VCC8S9RHG',
-              name: '好路1234', // key for localization
-              pattern: 'pbpbpbp',
-              enabled: true,
-            },
-            {
-              id: 'Bxxeeeeea',
-              name: '好路xxyy', // key for localization
-              pattern: 'bbbpbpbp',
-              enabled: false,
-            },
-          ],
-        };
-
-        this._sampleData2 = {
-          default: [
-            {
-              id: 'r1',
-              name: 'r1', // key for localization
-              pattern: 'pbpbpbpbppbbp',
-              enabled: true,
-            },
-            {
-              id: 'r2',
-              name: 'r2', // key for localization
-              pattern: 'bbppbpbppbb',
-              enabled: true,
-            },
-          ],
-          custom: [
-            {
-              id: 'BMJCP2DH5S5VCC8S9RHG',
-              name: '好路1234', // key for localization
-              pattern: 'pbpbpbp',
-              enabled: true,
-            },
-            {
-              id: 'Bxxeeeeea',
-              name: '好路xxyy', // key for localization
-              pattern: 'bbbpbpbp',
-              enabled: true,
-            },
-          ],
-        };
       }
 
       private changeLang() {}
@@ -84,9 +20,9 @@ namespace we {
 
         this.scroller = new ui.Scroller();
         this.scroller.width = 1643;
-        this.scroller.height = 750;
+        this.scroller.height = 766;
         this.scroller.x = 28;
-        this.scroller.y = 146;
+        this.scroller.y = 130;
         this.content.addChildAt(this.scroller, 1);
 
         const roomList = new ui.List();
@@ -106,22 +42,25 @@ namespace we {
 
         this.scroller.viewport = roomList;
 
-        // const road = new we.ba.GoodRoadmapEdit();
-        // this.addChild(road);
-        // road.updateRoadData('bbppb');
-
-        // const road = new we.ba.GoodRoadEditItem();
-        // this.addChild(road);
-        this.initRoad();
-        dir.socket.getGoodRoad(data => {
-          console.log('roadData', data);
-        }, this);
-
+        // listen to the Good Road Edit events
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_ADD, this.onRoadAdd, this);
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_EDIT, this.onRoadEdit, this);
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_MODIFY, this.onRoadModify, this);
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_REMOVE, this.onRoadRemove, this);
+
+        // get the Good Road Data from server or env if it exist
+        dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
+        if (!env.goodRoadData) {
+          dir.socket.getGoodRoad();
+        } else {
+          this.renderFromGoodRoadData();
+        }
       }
+
+      private onRoadDataUpdated(e: egret.Event) {
+        this.renderFromGoodRoadData();
+      }
+
       private onRoadAdd(e: egret.Event) {
         if (!this._editRoadPanel.isActivated) {
           this._editRoadPanel.show();
@@ -141,32 +80,8 @@ namespace we {
       private onRoadModify(e: egret.Event) {}
       private onRoadRemove(e: egret.Event) {}
 
-      private initRoad() {
-        const roadData = this._sampleData;
-
-        // clean existing roads
-        this.collection.removeAll();
-
-        // default roads
-        roadData.default.forEach(element => {
-          element.type = 1;
-          this.collection.addItem(element);
-        });
-
-        // custom roads
-        roadData.custom.forEach(element => {
-          element.type = 2;
-          this.collection.addItem(element);
-        });
-
-        // add road
-        this.collection.addItem({
-          type: 0,
-        });
-      }
-
-      private initRoad2() {
-        const roadData = this._sampleData2;
+      private renderFromGoodRoadData() {
+        const roadData = env.goodRoadData;
 
         // clean existing roads
         this.collection.removeAll();

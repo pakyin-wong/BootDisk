@@ -56,24 +56,29 @@ namespace we {
       }
 
       // Good Road
-      public getGoodRoad(callback: (data: any) => void, thisArg: any) {
-        this.client.getRoadmap(callback.bind(thisArg));
+      public getGoodRoad() {
+        this.client.getRoadmap(this._goodRoadUpdateCallback);
       }
 
-      public updateCustomGoodRoad(id: string, data: any, callback: (data: any) => void, thisArg: any) {
-        this.client.updateCustomRoadmap(id, data, callback.bind(thisArg));
+      public updateCustomGoodRoad(id: string, data: any) {
+        this.client.updateCustomRoadmap(id, data, this._goodRoadUpdateCallback);
       }
 
-      public updateDefaultGoodRoad(ids: string[], callback: (data: any) => void, thisArg: any) {
-        this.client.updateDefaultRoadmap(ids, callback.bind(thisArg));
+      public updateDefaultGoodRoad(ids: string[]) {
+        this.client.updateDefaultRoadmap(ids, this._goodRoadUpdateCallback);
       }
 
-      public createGoodRoad(name: string, pattern: string, callback: (data: any) => void, thisArg: any) {
-        this.client.createCustomRoadmap(name, pattern, callback.bind(thisArg));
+      public createGoodRoad(name: string, pattern: string) {
+        this.client.createCustomRoadmap(name, pattern, this._goodRoadUpdateCallback);
       }
 
-      public removeGoodRoadmap(id: string, callback: (data: any) => void, thisArg: any) {
-        this.client.removeCustomRoadmap(id, callback.bind(thisArg));
+      public removeGoodRoadmap(id: string) {
+        this.client.removeCustomRoadmap(id, this._goodRoadUpdateCallback);
+      }
+
+      private _goodRoadUpdateCallback(data: any) {
+        env.goodRoadData = data;
+        dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg) {
