@@ -208,6 +208,7 @@ namespace we {
           console.log('BettingTable::betDetails: ' + value);
           console.log('xxx value.field' + value.field);
           // logger.l('BettingTable::updateBetFields:loop ' + value);
+
           if (this.mapping[value.field]) {
             this.mapping[value.field].setCfmBet(value.amount);
           }

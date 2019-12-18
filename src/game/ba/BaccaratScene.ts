@@ -61,7 +61,6 @@ namespace we {
         this._video.width = 2600;
         this._video.height = 1340;
         this._video.load('http://192.168.1.85:8090/live/360.flv');
-        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
       }
 
       public insufficientBalance() {
@@ -81,19 +80,13 @@ namespace we {
 
       public onEnter() {
         egret.log(this._header);
-        this.init();
-
-        this.setupTableInfo();
-        this.updateGame();
 
         // this.lblRoomNo.text = this.tableInfo.tablename;
         // this.lblBetLimit.text = env.betLimits;
 
         // this.tableInfoWindow.visible = false;
-        this.tableInfoWindow.setToggler(this.lblRoomInfo);
-        this.tableInfoWindow.setValue(this.tableInfo);
-        this.addEventListeners();
-
+        this.init();
+        this.setupTableInfo();
         this.addChild(this._video);
         this.setChildIndex(this._video, 0);
         // this.playVideo();
@@ -126,6 +119,11 @@ namespace we {
 
         this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
         this.lblRoomNo.renderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableID)}`;
+
+        this.tableInfoWindow.setToggler(this.lblRoomInfo);
+        this.tableInfoWindow.setValue(this.tableInfo);
+        this.updateGame();
+        this.addEventListeners();
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -192,6 +190,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onChangeLang, this);
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
       }
@@ -206,6 +205,8 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
         dir.evtHandler.removeEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        dir.evtHandler.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+
         this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
