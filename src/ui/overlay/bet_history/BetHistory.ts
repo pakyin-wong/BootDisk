@@ -139,8 +139,8 @@ namespace we {
         clearTimeout(this._searchDelay);
 
         const opt = {
-          startdate: this._starttime,
-          enddate: this._endtime,
+          startdate: this._starttime * 1000,
+          enddate: this._endtime * 1000,
           limit: this._limit,
           offset: (this._page - 1) * this._limit,
           // filter: int,
@@ -151,6 +151,7 @@ namespace we {
       }
 
       private update(res: any) {
+        console.log(`213213213213dsrfasfmewrdkewkaefldslvfdsf;sf;dsf;dsf;`, res);
         this._dataColl.replaceAll(res.history);
       }
     }

@@ -30,16 +30,16 @@ namespace we {
         }
 
         protected dataChanged(): void {
-          this._txt_record_id.text = this.data.id;
+          this._txt_record_id.text = this.data.betid;
           this._txt_record_date.text = utils.formatTime(this.data.datetime);
           this._txt_record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
-          this._txt_record_round.text = this.data.roundid;
+          this._txt_record_round.text = this.data.gameroundid;
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
           this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);
-          this._txt_record_betamount.text = utils.formatPrice(this.data.betAmount);
-          this._txt_record_win.text = utils.formatPrice(this.data.winAmount);
-          this._txt_record_orgbalance.text = utils.formatPrice(this.data.prevremaining);
-          this._txt_record_finbalance.text = utils.formatPrice(this.data.endremaining);
+          this._txt_record_betamount.text = utils.formatPrice(this.data.betamount);
+          this._txt_record_win.text = utils.formatPrice(this.data.winamount);
+          this._txt_record_orgbalance.text = utils.formatPrice(this.data.beforebalance);
+          this._txt_record_finbalance.text = utils.formatPrice(this.data.afterbalance);
 
           this.createGameResult(this.data.gametype, this.data.result);
         }
