@@ -92,6 +92,7 @@
 		"resource/skin_desktop/overlay/BetHistory.exml",
 		"resource/skin_desktop/overlay/BetHistoryItem.exml",
 		"resource/skin_desktop/overlay/CustomRoad.exml",
+		"resource/skin_desktop/overlay/MemberReport.exml",
 		"resource/skin_desktop/overlay/MessageDialog.exml",
 		"resource/skin_desktop/Slider.exml",
 		"resource/skin_desktop/overlay/SystemSetting.exml",
