@@ -15,6 +15,7 @@ namespace we {
       private isActive: number;
       private roadId: string;
       private roadType: number; // add icon(0) , default(1) or custom road(2)
+      private roadName: string;
 
       public constructor() {
         super();
@@ -58,6 +59,37 @@ namespace we {
         // this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
       }
 
+      protected destroy() {
+        super.destroy();
+        if (this._addButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._addButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onAddTap, this);
+        }
+
+        if (this._editButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._editButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onEditTap, this);
+        }
+
+        if (this._editButton.hasEventListener(mouse.MouseEvent.ROLL_OVER)) {
+          this._editButton.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onEditOver, this);
+        }
+
+        if (this._editButton.hasEventListener(mouse.MouseEvent.ROLL_OUT)) {
+          this._editButton.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onEditOut, this);
+        }
+
+        if (this._binButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._binButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBinTap, this);
+        }
+
+        if (this._activeButton.hasEventListener('onToggle')) {
+          this._activeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onActiveTap, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+      }
+
       public setRoadEnabled(n: boolean) {
         // 0 for on, 1 for off
         if (n) {
@@ -68,7 +100,8 @@ namespace we {
       }
 
       public setRoadName(n: string) {
-        this._titleLabel.text = n;
+        this.roadName = n;
+        this.changeLang();
       }
 
       public setRoadData(n: string) {
@@ -76,17 +109,20 @@ namespace we {
       }
 
       public changeLang() {
-        const arr = [i18n.t('baccarat.addNewGoodRoad'), i18n.t('baccarat.newGoodRoadName')];
-        if (this.roadType === -1) {
+        if (this.roadType === 0) {
           // add icon
-        } else if (this.roadType === 0) {
+          this._titleLabel.text = i18n.t('baccarat.newGoodRoadName');
+        } else if (this.roadType === 1) {
           // default road
+          this._titleLabel.text = i18n.t('goodroad.' + this.roadName);
+        } else if (this.roadType === 2) {
+          // custom road
+          this._titleLabel.text = this.roadName;
         }
       }
 
       public setRoadType(t: number) {
         this.roadType = t;
-
         this.renderItem();
       }
 

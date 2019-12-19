@@ -80,7 +80,8 @@ namespace we {
         return rslt;
       }
 
-      public dispose() {
+      protected destroy() {
+        super.destroy();
         if (this.parser.hasEventListener('onUpdate')) {
           this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
         }

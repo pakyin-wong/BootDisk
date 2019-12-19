@@ -7,7 +7,7 @@
 		<e:Rect id="_textBg" width="248" height="44" x="16" y="16" anchorOffsetX="0" anchorOffsetY="0" ellipseHeight="10"
 		        ellipseWidth="10" fillColor="0x14181e" strokeColor="0x333c4a" strokeWeight="1" />
 		<e:EditableText id="_titleLabel" width="207" height="26" text="New Road" x="26" y="26" anchorOffsetX="0"
-		                anchorOffsetY="0" size="24" maxChars="20" />
+		                anchorOffsetY="0" size="24" maxChars="20" multiline="false" />
 		<e:Rect id="_bigRoadMask" width="292" height="175" x="14" y="75" anchorOffsetX="0" anchorOffsetY="0"
 		        ellipseHeight="30" ellipseWidth="30" alpha="0" />
 		<ba:GoodRoadmapEdit id="_bigRoad" width="291" height="175" y="75" x="14" />

@@ -5,13 +5,11 @@ namespace we {
       private scroller: ui.Scroller;
       private collection: eui.ArrayCollection;
       private _editRoadPanel: ba.GoodRoadEditItem;
+      public _cover: eui.Rect;
 
       constructor() {
         super('overlay/CustomRoad');
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
-
-      private changeLang() {}
 
       protected mount() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_customroad_title')}`;
@@ -37,9 +35,6 @@ namespace we {
         roomList.dataProvider = this.collection;
         roomList.itemRenderer = we.ba.GoodRoadListHolder;
         roomList.useVirtualLayout = false;
-
-        roomList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onItemTap, this);
-
         this.scroller.viewport = roomList;
 
         // listen to the Good Road Edit events
@@ -55,6 +50,30 @@ namespace we {
         } else {
           this.renderFromGoodRoadData();
         }
+        this._cover.visible = false;
+      }
+
+      protected destroy() {
+        super.destroy();
+        if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_ADD)) {
+          dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_ADD, this.onRoadAdd, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_EDIT)) {
+          dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_EDIT, this.onRoadEdit, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_MODIFY)) {
+          dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_MODIFY, this.onRoadModify, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_REMOVE)) {
+          dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_REMOVE, this.onRoadRemove, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_DATA_UPDATE)) {
+          dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
+        }
       }
 
       private onRoadDataUpdated(e: egret.Event) {
@@ -66,7 +85,8 @@ namespace we {
           this._editRoadPanel.show();
           this._editRoadPanel.setByObject({ type: 0 });
           this._editRoadPanel.x = e.data.item.x + this.scroller.x - 14;
-          this._editRoadPanel.y = e.data.item.y + this.scroller.y - 24;
+          this._editRoadPanel.y = e.data.item.y + this.scroller.y - 24 - this.scroller.viewport.scrollV;
+          this._cover.visible = true;
         }
       }
       private onRoadEdit(e: egret.Event) {
@@ -74,11 +94,32 @@ namespace we {
           this._editRoadPanel.show();
           this._editRoadPanel.setByObject(e.data.itemData);
           this._editRoadPanel.x = e.data.item.x + this.scroller.x - 14;
-          this._editRoadPanel.y = e.data.item.y + this.scroller.y - 24;
+          this._editRoadPanel.y = e.data.item.y + this.scroller.y - 24 - this.scroller.viewport.scrollV;
+          this._cover.visible = true;
         }
       }
-      private onRoadModify(e: egret.Event) {}
-      private onRoadRemove(e: egret.Event) {}
+      private onRoadModify(e: egret.Event) {
+        if (e.data.roadType === 1) {
+          // default
+          const roadsEnabled = [];
+          env.goodRoadData.default.forEach(element => {
+            if (element.id === e.data.id) {
+              element.enabled = e.data.enabled;
+            }
+            if (element.enabled) {
+              roadsEnabled.push(element.id);
+            }
+          });
+
+          dir.socket.updateDefaultGoodRoad(roadsEnabled);
+        } else if (e.data.roadType === 2) {
+          // custom
+          dir.socket.updateCustomGoodRoad(e.data.id, e.data);
+        }
+      }
+      private onRoadRemove(e: egret.Event) {
+        console.log('remove');
+      }
 
       private renderFromGoodRoadData() {
         const roadData = env.goodRoadData;
@@ -106,11 +147,6 @@ namespace we {
 
       private compareItems(a: any, b: any): boolean {
         return a.name === b.name && a.id === b.id && a.pattern === b.pattern && a.enabled === b.enabled;
-      }
-
-      private onItemTap(e: eui.ItemTapEvent) {
-        const item: we.ba.GoodRoadListHolder = e.itemRenderer as we.ba.GoodRoadListHolder;
-        console.log(item);
       }
     }
   }
