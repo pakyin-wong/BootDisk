@@ -60,6 +60,11 @@ namespace we {
         shape.graphics.endFill();
         this._contentContainer.addChild(shape);
         this._contentContainer.mask = shape;
+
+        this._quickBetGroup.alpha = 0;
+        this._quickBetGroup.y = this._originalQuickBetPanelY;
+        this._quickbetButton.alpha = 0;
+        this._quickbetButton.y = this._targetQuickBetButtonY;
       }
 
       public getActionButton(): eui.Component {
@@ -171,6 +176,9 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable) {
         super.setBetRelatedComponentsEnabled(enable);
         this._quickbetEnable = enable;
+        if (!this._mouseOutside && enable) {
+          this.showQuickBetButton();
+        }
         if (!enable) {
           this.hideQuickBetGroup();
         }
@@ -184,7 +192,7 @@ namespace we {
           egret.Tween.removeTweens(this._quickbetButton);
           egret.Tween.get(this).to({ scaleX: this._hoverScale, scaleY: this._hoverScale, y: this._originaly }, this._tweenInterval1);
           if (this._quickbetEnable) {
-            egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+            this.showQuickBetButton();
           }
         }
       }
@@ -197,8 +205,15 @@ namespace we {
           egret.Tween.removeTweens(this);
           egret.Tween.removeTweens(this._quickbetButton);
           const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 250);
-          const tw2 = egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250);
+          this.hideQuickBetButton();
         }
+      }
+
+      protected showQuickBetButton() {
+        egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+      }
+      protected hideQuickBetButton() {
+        const tw2 = egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250);
       }
     }
   }

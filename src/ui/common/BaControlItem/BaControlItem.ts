@@ -20,7 +20,7 @@ namespace we {
       protected _previousState: number;
       protected _gameData: we.ba.GameData;
       protected _timer: CountdownTimer;
-      protected _mouseOutside: boolean = false;
+      protected _mouseOutside: boolean = true;
 
       // this is the component that contain all other child components, use to control the grid size by setting the size of it.
       protected _contentContainer: eui.Group;
