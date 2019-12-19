@@ -18,6 +18,10 @@ namespace we {
         this.render();
       }
 
+      public get renderText() {
+        return this._r;
+      }
+
       public render() {
         return this._r && (this.text = this._r());
       }

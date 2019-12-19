@@ -1,9 +1,9 @@
 namespace we {
   export namespace ba {
     export class BALobbyBigRoad extends ui.Panel {
-      private bigRoad: BABigRoad;
-      private parser: BARoadParser;
-      private useParser: boolean = false;
+      protected bigRoad: BABigRoad;
+      protected parser: BARoadParser;
+      protected useParser: boolean = false;
 
       public constructor() {
         super();
@@ -23,7 +23,7 @@ namespace we {
         this.addChild(this.bigRoad);
       }
 
-      private onParserUpdate(e: egret.Event) {
+      protected onParserUpdate(e: egret.Event) {
         this.bigRoad.parseRoadData(this.parser.bigRoadResult);
       }
 

@@ -10,7 +10,7 @@ namespace we {
         this.mount();
       }
 
-      private mount() {
+      protected async mount() {
         console.log('we.live.BetInfoHolder::mount()');
         this.gameType = we.core.GameType.BAC;
         // dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
@@ -23,11 +23,8 @@ namespace we {
         switch (value) {
           case we.core.GameType.BAC:
           default:
-            this.width = 442;
-            this.height = 388;
             this._displayItem = new we.ui.AlreadyBetItem();
             this.setDisplayItem(this._displayItem);
-            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
             this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
             if (this.tableInfo) {
@@ -40,16 +37,6 @@ namespace we {
 
       get gameType() {
         return this._gameType;
-      }
-
-      public onTouchTapWhole(evt: egret.Event) {
-        const target = this._displayItem.getQuickbetButton();
-        if (evt.target === target || this.isFocus) {
-          return;
-        }
-        console.log('we.live.AlreadyBetHolder::onclick - tableid' + this.itemData);
-        dir.socket.enterTable(this.itemData);
-        dir.sceneCtr.goto('ba', { tableid: this.itemData });
       }
 
       public itemDataChanged() {

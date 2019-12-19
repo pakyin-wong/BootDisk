@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetInfoAlreadyBetItemSkin" width="442" height="219" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.BetInfoAlreadyBetItemSkin" width="442" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_betChipSetGroup" alpha="0">
 		<e:Rect width="442" height="100" x="0" y="0" fillColor="0x202020" ellipseWidth="5" ellipseHeight="5" />

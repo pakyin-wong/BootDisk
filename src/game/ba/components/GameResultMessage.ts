@@ -86,7 +86,7 @@ namespace we {
         if (!isNaN(winAmount)) {
           tween
             .call(() => {
-              const numStr: string = utils.formatNumber(winAmount);
+              const numStr: string = utils.formatNumber(winAmount, true);
               if (this._numlabel) {
                 this._numlabel.text = `${winAmount > 0 ? '+' : ''}${numStr}`;
                 this._numlabel.visible = true;
