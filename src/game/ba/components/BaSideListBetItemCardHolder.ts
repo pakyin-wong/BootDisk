@@ -1,13 +1,13 @@
 namespace we {
   export namespace ba {
-    export class AlreadyBetCardHolder extends CardHolder {
+    export class BaSideListBetItemCardHolder extends CardHolder {
       constructor() {
         super();
       }
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkin('AlreadyBetCardHolder');
+        this.skinName = utils.getSkin('BaSideListBetItemCardHolder');
       }
 
       public setWinningSide() {}

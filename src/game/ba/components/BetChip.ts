@@ -16,6 +16,7 @@ namespace we {
         this._value = value;
         this._type = type;
         this._highlight = highlight;
+        this.setValue(this._value, this._type);
         this.setGlowFilter();
       }
 
@@ -44,6 +45,9 @@ namespace we {
         this._value = value;
         this._type = type ? type : this._type ? this._type : we.core.ChipType.CLIP;
         this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : utils.numberToFaceValue(value);
+        if (type === we.core.ChipType.BETTING) {
+          this._chipImage.source = we.core.ChipSetInfo.betting + '_png';
+        }
         // this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
       }
 
@@ -67,6 +71,44 @@ namespace we {
       set index(value: number) {
         this._index = value;
         this._chipImage.source = this.getChipSource(this._type);
+      }
+
+      set labelOffset(value: number) {
+        if (this._chipValueLabel) {
+          this._chipValueLabel.verticalCenter = value;
+        }
+      }
+
+      get labelOffset() {
+        if (this._chipValueLabel) {
+          return this._chipValueLabel.verticalCenter;
+        }
+        return null;
+      }
+
+      set labelSize(value: number) {
+        if (this._chipValueLabel) {
+          this._chipValueLabel.size = value;
+        }
+      }
+
+      get labelSize() {
+        if (this._chipValueLabel) {
+          return this._chipValueLabel.size;
+        }
+        return null;
+      }
+
+      set type(value: number) {
+        console.log('BetChip::type1 ', this._type, value);
+        if (!this._type) {
+          this._type = +value;
+          console.log('BetChip::type2 ', this._type);
+        }
+      }
+
+      get type() {
+        return this._type;
       }
 
       // private getChipSource(faceValue: string, type): string {
