@@ -46,8 +46,7 @@ namespace we {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
 
         if (this._betChipSet) {
-          this._betChipSet.setVisibleDenominationCount(3);
-          this._betChipSet.setDenominationList(denominationList);
+          this._betChipSet.init(3, denominationList);
         }
 
         if (this._bettingTable) {

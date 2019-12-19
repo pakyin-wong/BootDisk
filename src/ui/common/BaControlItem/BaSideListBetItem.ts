@@ -21,8 +21,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._betChipSet.setVisibleDenominationCount(2);
-        this._betChipSet.setLast();
+        this._betChipSet.resetDenomNum(2);
         this._bettingTable.setGameMode(false);
       }
 

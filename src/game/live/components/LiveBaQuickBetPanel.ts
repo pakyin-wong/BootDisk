@@ -13,8 +13,7 @@ namespace we {
       protected mount() {
         // this.skinName = utils.getSkin('LiveBaQuickBetPanel');
         const denominationList = env.betLimits[this.getCurrBetLimitIndex()].chipList;
-        this._betChipSet.setVisibleDenominationCount(3);
-        this._betChipSet.setDenominationList(denominationList);
+        this._betChipSet.resetDenomNum(3);
 
         // this._bettingTable.skinName = utils.getSkin('LiveBaBettingTable');
         this._bettingTable.type = we.core.BettingTableType.LOBBY;
