@@ -275,8 +275,10 @@ namespace we {
       set hasDenomLayer(value: string) {
         this._hasDenomLayer = value;
         if (we.utils.convertToBoolean(value)) {
+          console.log('BettingTableGrid::hasDenomLayer true ' + value);
           this._denomLayer = new eui.Component();
         } else {
+          console.log('BettingTableGrid::hasDenomLayer false ' + value);
           this._denomLayer = this;
         }
       }

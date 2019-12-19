@@ -10,6 +10,7 @@ namespace we {
       protected _cancelButton: ui.BaseImageButton;
       protected _resultMessage: GameResultMessage;
       protected _message: InGameMessage;
+      protected _denomLayer: eui.Component;
 
       protected _dropdown: live.BetLimitDropdown;
 
@@ -55,6 +56,15 @@ namespace we {
           this._bettingTable.type = we.core.BettingTableType.NORMAL;
           this._bettingTable.denomList = denominationList;
           this._bettingTable.init();
+
+          if (this._bettingTable.denomLayer) {
+            this._denomLayer = this._bettingTable.denomLayer;
+            this._denomLayer.y = 0;
+            this._denomLayer.x = 0;
+            this._denomLayer.alpha = 0;
+            this.addChild(this._denomLayer);
+            this.setChildIndex(this._denomLayer, 30000);
+          }
         }
       }
 
