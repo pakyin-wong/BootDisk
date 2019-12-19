@@ -8,6 +8,8 @@ namespace we {
       private _highlight: boolean;
       private _glowFilter: egret.GlowFilter;
 
+      private _index: number;
+
       public constructor(value: number = null, type: we.core.ChipType = we.core.ChipType.CLIP, highlight: boolean = false) {
         super();
         this.skinName = utils.getSkin('BetChip');
@@ -38,21 +40,11 @@ namespace we {
         this.setValue(this._value);
       }
 
-      protected numberToFaceValue(value: number) {
-        if (!value) {
-          return '0';
-        } else if (value > 1000) {
-          return value / 1000 + 'k';
-        } else {
-          return value.toString();
-        }
-      }
-
       public setValue(value: number, type: we.core.ChipType = null) {
         this._value = value;
         this._type = type ? type : this._type ? this._type : we.core.ChipType.CLIP;
-        this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : this.numberToFaceValue(value);
-        this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
+        this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : utils.numberToFaceValue(value);
+        // this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
       }
 
       public getValue() {
@@ -72,15 +64,38 @@ namespace we {
         }
       }
 
-      private getChipSource(faceValue: string, type): string {
+      set index(value: number) {
+        this._index = value;
+        this._chipImage.source = this.getChipSource(this._type);
+      }
+
+      // private getChipSource(faceValue: string, type): string {
+      //   let filename: string;
+
+      //   switch (type) {
+      //     case we.core.ChipType.CLIP:
+      //       filename = we.core.ChipSetInfo.clip + we.core.ChipSetInfo.HKD.set1[faceValue] + '_png';
+      //       break;
+      //     case we.core.ChipType.FLAT:
+      //       filename = we.core.ChipSetInfo.flat + we.core.ChipSetInfo.HKD.set1[faceValue] + '_png';
+      //       break;
+      //     case we.core.ChipType.BETTING:
+      //     default:
+      //       filename = we.core.ChipSetInfo.betting + '_png';
+      //   }
+
+      //   return filename;
+      // }
+
+      private getChipSource(type): string {
         let filename: string;
 
         switch (type) {
           case we.core.ChipType.CLIP:
-            filename = we.core.ChipSetInfo.clip + we.core.ChipSetInfo.HKD.set1[faceValue] + '_png';
+            filename = we.core.ChipSetInfo.clip + `${this._index + 1}` + '_png';
             break;
           case we.core.ChipType.FLAT:
-            filename = we.core.ChipSetInfo.flat + we.core.ChipSetInfo.HKD.set1[faceValue] + '_png';
+            filename = we.core.ChipSetInfo.flat + `${this._index + 1}` + '_png';
             break;
           case we.core.ChipType.BETTING:
           default:

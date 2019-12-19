@@ -586,7 +586,9 @@ namespace we {
 
       protected onGoodRoadMatch(data: data.RoadmapNotification, timestamp: string) {
         this.updateTimestamp(timestamp);
-
+        if (!(data instanceof we.data.RoadmapNotification)) {
+          return;
+        }
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = data.match.map(goodRoadData => {
           return {

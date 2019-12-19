@@ -29,7 +29,8 @@ namespace we {
         scroller.height = group.height;
         betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
-        this.betTableList.itemRenderer = AlreadyBetHolder;
+        this.betTableList.itemRenderer = BaSideListBetItemHolder;
+        this.betTableList.layout = this.getLayout();
         scroller.viewport = this.betTableList;
 
         // create good road list
@@ -43,7 +44,8 @@ namespace we {
         scroller.height = group.height;
         goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
-        this.goodRoadTableList.itemRenderer = BetInfoHolder;
+        this.goodRoadTableList.itemRenderer = BaSideListItemHolder;
+        this.goodRoadTableList.layout = this.getLayout();
         scroller.viewport = this.goodRoadTableList;
 
         // create all game list
@@ -57,7 +59,8 @@ namespace we {
         scroller.height = group.height;
         allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
-        this.allTableList.itemRenderer = BetInfoHolder;
+        this.allTableList.itemRenderer = BaSideListItemHolder;
+        this.allTableList.layout = this.getLayout();
         allTableGroup.addChild(this.allTableList);
         scroller.viewport = this.allTableList;
 
@@ -65,6 +68,13 @@ namespace we {
         this.activeLine.y = this._tabbar.y + this._tabbar.height;
 
         this.addEventListeners();
+      }
+
+      protected getLayout() {
+        const layout = new eui.VerticalLayout();
+        layout.paddingTop = 20;
+        layout.paddingBottom = 20;
+        return layout;
       }
 
       protected addEventListeners() {

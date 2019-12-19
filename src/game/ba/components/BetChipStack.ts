@@ -91,10 +91,13 @@ namespace we {
         } else {
           // No uncfmBet, show stack and total
           this._cfmDenomList = this.getBettingTableGridDenom(this._denomList, total);
+          this._cfmDenomList.reverse();
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              this._chips.push(new BetChip(value));
+              const chip = new BetChip(this._denomList[value]);
+              chip.index = value;
+              this._chips.push(chip);
             }
           });
         }
@@ -107,7 +110,7 @@ namespace we {
         this._betSumLabel.visible = true;
         this._betSumBackground.verticalCenter = this._uncfmBet === 0 ? this.totalCfmOffset : this.totalUncfmOffset;
         this._betSumLabel.verticalCenter = this._uncfmBet === 0 ? this.totalCfmOffset : this.totalUncfmOffset;
-        this._betSumLabel.text = (this._uncfmBet + this._cfmBet).toString();
+        this._betSumLabel.text = utils.formatNumber(this._uncfmBet + this._cfmBet, false);
         this.setChildIndex(this._betSumBackground, 100);
         this.setChildIndex(this._betSumLabel, 101);
       }
@@ -188,7 +191,7 @@ namespace we {
         while (total > 0) {
           if (total >= denomlist[index]) {
             total -= denomlist[index];
-            b.push(denomlist[index]);
+            b.push(index);
           } else {
             index--;
           }
