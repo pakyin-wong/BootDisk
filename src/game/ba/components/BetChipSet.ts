@@ -153,6 +153,7 @@ namespace we {
         let idx = 0;
         for (const value of denominationList) {
           const betChip = new BetChip(value);
+          betChip.index = idx;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, idx), this);
           if (selectedIdx === idx) {
             betChip.highlight = true;
