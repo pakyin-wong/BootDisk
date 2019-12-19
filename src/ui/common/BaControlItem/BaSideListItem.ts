@@ -35,6 +35,7 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this._betChipSet.setVisibleDenominationCount(1);
+        this._betChipSet.setLast();
       }
 
       public setData(tableInfo: data.TableInfo) {

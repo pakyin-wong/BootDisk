@@ -21,11 +21,11 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png,sn_bgm002_mp3,sn_player_en_mp3,sn_win_en_mp3,sn_player_sc_mp3,sn_win_tc_mp3,sn_win_sc_mp3,sn_player_tc_mp3,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3",
 			"name": "temp"
 		},
 		{
-			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg,d_lobby_navbar_logo_png",
+			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg,d_lobby_navbar_logo_png,nav_panel_bg",
 			"name": "scene_loading"
 		}
 	],
@@ -2188,32 +2188,32 @@
 		{
 			"url": "assets/temp/sn_player_en.mp3",
 			"type": "sound",
-			"name": "sn_player_en_mp3"
+			"name": "sn_player_english_mp3"
 		},
 		{
 			"url": "assets/temp/sn_win_en.mp3",
 			"type": "sound",
-			"name": "sn_win_en_mp3"
+			"name": "sn_win_english_mp3"
 		},
 		{
 			"url": "assets/temp/sn_player_sc.mp3",
 			"type": "sound",
-			"name": "sn_player_sc_mp3"
+			"name": "sn_player_mandarin_mp3"
 		},
 		{
 			"url": "assets/temp/sn_win_tc.mp3",
 			"type": "sound",
-			"name": "sn_win_tc_mp3"
+			"name": "sn_win_cantonese_mp3"
 		},
 		{
 			"url": "assets/temp/sn_win_sc.mp3",
 			"type": "sound",
-			"name": "sn_win_sc_mp3"
+			"name": "sn_win_mandarin_mp3"
 		},
 		{
 			"url": "assets/temp/sn_player_tc.mp3",
 			"type": "sound",
-			"name": "sn_player_tc_mp3"
+			"name": "sn_player_cantonese_mp3"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_list_panel_all_game_hover.png",

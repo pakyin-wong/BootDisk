@@ -40,7 +40,8 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
-    // step 2: init Egrets Asset / Res
+    // step 2: init Egrets Asset / onResume
+    we.i18n.setLang('sc');
     await this.initRes();
 
     // step 3: create loading scene
@@ -58,8 +59,6 @@ class Main extends eui.UILayer {
     } catch (e) {
       console.error(e);
     }
-    // TODO: should emit event for sound init after res.json load?
-    // dir.audioCtr.init();
   }
 
   private loadTheme(): Promise<{}> {

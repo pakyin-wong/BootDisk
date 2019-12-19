@@ -73,17 +73,18 @@ namespace we {
         return (<any> this).constructor.name;
       }
 
-      protected mount() {
-        // this.hide();
+      protected childrenCreated() {
         this.dropdownAddon.active = this._isDropdown;
         this.draggableAddon.active = this._isDraggable;
         this.edgeDismissableAddon.active = this._isEdgeDismissable;
         this.poppableAddon.dismissOnClickOutside = this._dismissOnClickOutside;
         this.poppableAddon.hideOnStart = this._hideOnStart;
         this.poppableAddon.active = this._isPoppable;
+        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.dismiss, this);
+        super.childrenCreated();
       }
 
-      protected destroy() {
+      private dismiss() {
         this.removeToggler();
         this.poppableAddon.deactivate();
         this.edgeDismissableAddon.deactivate();

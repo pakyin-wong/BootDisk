@@ -310,27 +310,27 @@ namespace we {
         const tableInfo = env.getOrCreateTableInfo(tableid);
         const roadmapData = this.getRoadMapData(gameStatistic);
 
-        let bankerCount: number = 0;
-        let playerCount: number = 0;
-        let tieCount: number = 0;
-        let playerPairCount: number = 0;
-        let bankerPairCount: number = 0;
+        const bankerCount: number = gameStatistic.bankerwincount;
+        const playerCount: number = gameStatistic.playerwincount;
+        const tieCount: number = gameStatistic.tiewincount;
+        const playerPairCount: number = gameStatistic.playerpairwincount;
+        const bankerPairCount: number = gameStatistic.bankerpairwincount;
 
-        roadmapData.bead.forEach(item => {
-          if (item.V === 'b') {
-            bankerCount++;
-          } else if (item.V === 'p') {
-            playerCount++;
-          } else if (item.V === 't') {
-            tieCount++;
-          }
-          if (item.B > 0) {
-            bankerPairCount++;
-          }
-          if (item.P > 0) {
-            playerPairCount++;
-          }
-        });
+        // roadmapData.bead.forEach(item => {
+        //   if (item.V === 'b') {
+        //     bankerCount++;
+        //   } else if (item.V === 'p') {
+        //     playerCount++;
+        //   } else if (item.V === 't') {
+        //     tieCount++;
+        //   }
+        //   if (item.B > 0) {
+        //     bankerPairCount++;
+        //   }
+        //   if (item.P > 0) {
+        //     playerPairCount++;
+        //   }
+        // });
 
         const totalCount: number = bankerCount + playerCount + tieCount;
 

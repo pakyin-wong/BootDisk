@@ -6,7 +6,7 @@ namespace we {
       private _tip: ui.NavLantern;
 
       private step: number = 0;
-      private flow = [this.preloadRes, this.initSkin, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
+      private flow = [this.preloadRes, this.initSkin, this.preload, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
 
       public onEnter() {
         this.init();
@@ -35,6 +35,11 @@ namespace we {
       private initSkin() {
         this.once(eui.UIEvent.COMPLETE, this.next, this);
         this.skinName = utils.getSkin('LoadingScene');
+      }
+
+      private preload() {
+        dir.moniter.preload();
+        this.next();
       }
 
       /** Step 2.5: Get Static Server Init Data */
@@ -111,6 +116,7 @@ namespace we {
       private loadingComplete() {
         dir.moniter.start(this.stage);
         dir.sceneCtr.goto('lobby');
+        dir.audioCtr.init();
       }
 
       private next() {

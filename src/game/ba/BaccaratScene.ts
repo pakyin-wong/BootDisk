@@ -516,10 +516,14 @@ namespace we {
         if (this.hasBet()) {
           if (this.gameData && this.gameData.wintype != WinType.NONE && !isNaN(totalWin)) {
             this.resultMessage.showResult(this.gameData.wintype, totalWin);
+            // play sound
+            dir.audioCtr.playSequence(['player', 'win']);
           }
         } else {
           if (this.gameData && this.gameData.wintype != WinType.NONE) {
             this.resultMessage.showResult(this.gameData.wintype);
+            // play sound
+            dir.audioCtr.playSequence(['player', 'win']);
           }
         }
       }

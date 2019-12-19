@@ -21,6 +21,8 @@ namespace we {
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
       public language: string;
+      public voice: string = 'mandarin';
+      public bgm = 1;
       public betLimits: data.BetLimit[];
       public goodRoadData: any;
 
@@ -40,6 +42,7 @@ namespace we {
       // public currentChipSelectedIndex: number = 10;
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
+      public lobbyGridType: number = 1;
 
       public init() {
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);

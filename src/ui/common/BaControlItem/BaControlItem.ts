@@ -59,8 +59,8 @@ namespace we {
 
           if (this._bettingTable.denomLayer) {
             this._denomLayer = this._bettingTable.denomLayer;
-            this._denomLayer.y = 0;
-            this._denomLayer.x = 0;
+            this._denomLayer.y = this._bettingTable.y;
+            this._denomLayer.x = this._bettingTable.x;
             this._denomLayer.alpha = 0;
             this.addChild(this._denomLayer);
             this.setChildIndex(this._denomLayer, 30000);
@@ -151,7 +151,7 @@ namespace we {
         this._gameData = this._tableInfo.data;
         this._previousState = null;
         if (this._label) {
-          this._label.renderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableId)}`;
+          this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         }
         this.updateGame();
       }

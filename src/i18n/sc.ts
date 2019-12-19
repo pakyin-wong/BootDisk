@@ -1,6 +1,10 @@
 namespace we {
   export namespace i18n {
     export const sc = {
+      voice_cantonese: '粤语',
+      voice_mandarin: '普通话',
+      voice_english: '英语',
+
       gametype_BAC: '百家乐',
       gametype_BAS: '竞速百家乐',
       gametype_BAI: '保险百家乐',
@@ -103,6 +107,18 @@ namespace we {
           dice: '骰寶',
           goodroad: '好路',
         },
+      },
+      goodroad: {
+        r1: '长庄',
+        r2: '长闲',
+        r3: '长路转单跳',
+        r4: '一厅两房 (庄)',
+        r5: '一厅两房 (闲)',
+        r6: '大路单跳',
+        r7: '逢庄黐',
+        r8: '逢闲黐',
+        r9: '拍拍黐',
+        r10: '逢庄唔黐',
       },
       game: {
         startBet: '开始下注',
