@@ -37,11 +37,29 @@ namespace we {
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
           this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);
           this._txt_record_betamount.text = utils.formatNumber(this.data.betamount, true);
-          this._txt_record_win.text = utils.formatNumber(this.data.winamount, true);
           this._txt_record_orgbalance.text = utils.formatNumber(this.data.beforebalance, true);
           this._txt_record_finbalance.text = utils.formatNumber(this.data.afterbalance, true);
 
+          this.updateWinText(this.data.remark, this.data.winamount);
+
           this.createGameResult(this.data.gametype, this.data.result);
+        }
+
+        protected updateWinText(remark, amt) {
+          switch (remark) {
+            case -1:
+              this._txt_record_win.textColor = 0xff5555;
+              break;
+            default:
+              this._txt_record_win.textColor = 0x43ce5c;
+              break;
+          }
+
+          if (amt > 0) {
+            this._txt_record_win.text = `+${utils.formatNumber(this.data.winamount, true)}`;
+          } else {
+            this._txt_record_win.text = `-${utils.formatNumber(this.data.winamount, true)}`;
+          }
         }
 
         protected onHover() {

@@ -97,6 +97,13 @@ namespace we {
           egame: '电子游戏',
           favorite: '我的最爱',
         },
+        categoryPromotion: '精选推介',
+        categoryBaccarat: '百家乐',
+        categoryGoodRoad: '好路台',
+        categoryLuckyWheel: '幸运轮',
+        categoryInstant: '即开彩',
+        categoryOtherGame: '其他游戏',
+        categoryFavorite: '我的最爱',
       },
       live: {
         gametype: {

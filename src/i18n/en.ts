@@ -1,9 +1,91 @@
 namespace we {
   export namespace i18n {
     export const en = {
+      voice_cantonese: 'Cantonese',
+      voice_mandarin: 'Mandarin',
+      voice_english: 'English',
+
+      gametype_BAC: 'BAC',
+      gametype_BAS: 'BAS',
+      gametype_BAI: 'BAI',
+      gametype_DI: 'DI',
+      gametype_MJ: 'MJ',
+      gametype_RO: 'RO',
+
+      betfield_baccarat_banker: 'banker',
+      betfield_baccarat_player: 'player',
+      betfield_baccarat_tie: 'tie',
+      betfield_baccarat_banker_pair: 'b-pair',
+      betfield_baccarat_player_pair: 'p-pair',
+      betfield_baccarat_super_six: 'super 6',
+      betfield_baccarat_super_six_banker: 'banker',
+
+      overlaypanel_memberreport_title: '会员报表',
+      overlaypanel_memberreport_date: '日期',
+      overlaypanel_memberreport_today: '今日',
+      overlaypanel_memberreport_yesterday: '昨天',
+      overlaypanel_memberreport_week: '本周',
+      overlaypanel_memberreport_customperiod: '自订',
+      overlaypanel_memberreport_amountbet: '投注金额',
+      overlaypanel_memberreport_amountwash: '洗碼量',
+      overlaypanel_memberreport_amountwin: '贏輸金额',
+      overlaypanel_memberreport_amounttotal: '总金额',
+
+      overlaypanel_customroad_title: '好路设定',
+
+      overlaypanel_bethistory_title: 'Bet Record',
+      overlaypanel_bethistory_date: 'Dates',
+      overlaypanel_bethistory_today: 'Today',
+      overlaypanel_bethistory_week: 'This week',
+      overlaypanel_bethistory_customperiod: 'Custom',
+      overlaypanel_bethistory_searchrecord: 'search id',
+      overlaypanel_bethistory_recordtab_id: 'ID',
+      overlaypanel_bethistory_recordtab_date: 'Date',
+      overlaypanel_bethistory_recordtab_game: 'Game',
+      overlaypanel_bethistory_recordtab_round: 'Round',
+      overlaypanel_bethistory_recordtab_replay: 'Replay',
+      overlaypanel_bethistory_recordtab_remark: 'Remark',
+      overlaypanel_bethistory_recordtab_bettype: 'Type',
+      overlaypanel_bethistory_recordtab_betamount: 'Bet Amt',
+      overlaypanel_bethistory_recordtab_win: 'Win Amt',
+      overlaypanel_bethistory_recordtab_orgbalance: 'original Balance',
+      overlaypanel_bethistory_recordtab_finbalance: 'final Banlance',
+      overlaypanel_bethistory_recordtab_resuit: 'Game Result',
+      overlaypanel_bethistory_remark_win: 'Win',
+      overlaypanel_bethistory_remark_lose: 'Lose',
+      overlaypanel_bethistory_remark_ties: 'Ties',
+
+      overlaypanel_bethistory_baresult_banker: 'B',
+      overlaypanel_bethistory_baresult_player: 'P',
+
+      overlaypanel_bethistory_searchtype_all: 'All',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
+        },
+        res: {
+          onload: 'Loading Resource',
+        },
+      },
+      nav: {
+        menu: {
+          selectMode: 'Color Mode',
+          whiteMode: 'Light',
+          darkMode: 'Dark',
+          history: 'Bet Record',
+          member: 'Member Report',
+          road: 'Road Notice',
+          system: 'System',
+          logout: 'Logout',
+        },
+        system: {
+          title: 'System',
+          lang: 'Language',
+          liveRecord: 'Live radio',
+          soundfx: 'Sound Effect',
+          bgm: 'Music',
+          term: 'Term of Service',
         },
       },
       lobby: {
