@@ -29,6 +29,9 @@ namespace we {
       private _chipWidth: number;
       private _chipHeight: number;
       private _chipInterval: number;
+      private _chipType: number;
+      private _chipLabelOffset: number;
+      private _chipLabelSize: number;
       private _totalCfmOffset: number;
       private _totalUncfmOffset: number;
       private _betSumBackgroundRes: string;
@@ -151,6 +154,31 @@ namespace we {
         return this._chipInterval;
       }
 
+      set chipType(value: number) {
+        console.log('BettingTableGrid::chiptype: ', value);
+        this._chipType = value;
+      }
+
+      get chipType() {
+        return this._chipType;
+      }
+
+      set chipLabelOffset(value: number) {
+        this._chipLabelOffset = value;
+      }
+
+      get chipLabelOffset() {
+        return this._chipLabelOffset;
+      }
+
+      set chipLabelSize(value: number) {
+        this._chipLabelSize = value;
+      }
+
+      get chipLabelSize() {
+        return this._chipLabelSize;
+      }
+
       set totalCfmOffset(value: number) {
         this._totalCfmOffset = value;
       }
@@ -210,6 +238,9 @@ namespace we {
           this._betChipStack.cfmBet = this._cfmBet;
           this._betChipStack.uncfmBet = this._uncfmBet;
           this._betChipStack.denomList = this._denomList;
+          this._betChipStack.chipLabelOffset = this._chipLabelOffset;
+          this._betChipStack.chipLabelSize = this._chipLabelSize;
+          this._betChipStack.chipType = this._chipType;
           this._betChipStack.draw();
         }
       }

@@ -5,33 +5,33 @@
 	                     imageRes="d_lobby_quick_bet_area_a_normal_png" hoverRes="d_lobby_quick_bet_area_a_hover_png"
 	                     skinName="skin_desktop.BettingTableGridSkin"  labelSize="15" betChipZIndex="1000"
 	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true"  />
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="20" chipType="2" />
 	<ba:BettingTableGrid id="_gridBanker" includeIn="Normal" x="221" y="0" width="221" height="64"
 	                     imageRes="d_lobby_quick_bet_area_b_normal_png" hoverRes="d_lobby_quick_bet_area_b_hover_png"
 	                     skinName="skin_desktop.BettingTableGridSkin"  labelSize="15" betChipZIndex="1000"
 	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true"  />
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="20" chipType="2"  />
 	<ba:BettingTableGrid id="_gridPlayerPair" includeIn="Normal" x="0" y="64" width="147" height="52"
 	                     imageRes="d_lobby_quick_bet_area_c_normal_png" hoverRes="d_lobby_quick_bet_area_c_hover_png"
 	                     skinName="skin_desktop.BettingTableGridSkin"  labelSize="15" betChipZIndex="1000"
 	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true"  />
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="20" chipType="2" />
 	<ba:BettingTableGrid id="_gridTie" includeIn="Normal" x="147" y="64" width="147" height="52"
 	                     imageRes="d_lobby_quick_bet_area_d_normal_png" hoverRes="d_lobby_quick_bet_area_d_hover_png"
 	                     skinName="skin_desktop.BettingTableGridSkin"  labelSize="15" betChipZIndex="1000"
 	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true"  />
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="20" chipType="2"  />
 	<ba:BettingTableGrid id="_gridBankerPair" includeIn="Normal" x="294" y="64" width="148" height="52"
 	                     imageRes="d_lobby_quick_bet_area_e_normal_png" hoverRes="d_lobby_quick_bet_area_e_hover_png"
 	                     skinName="skin_desktop.BettingTableGridSkin"  labelSize="15" betChipZIndex="1000"
 	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true"  />
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="20" chipType="2" />
 	<ba:BettingTableGrid id="_gridSuperSix" includeIn="Normal" visible="false" skinName="skin_desktop.BettingTableGridSkin"
 	                      labelSize="15" betChipZIndex="1000"
 	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true"  />
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false"  />
 	<ba:BettingTableGrid id="_gridSuperSixBanker" includeIn="Normal" visible="false"
 	                     skinName="skin_desktop.BettingTableGridSkin"  labelSize="15" betChipZIndex="1000"
 	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true"  />
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false"  />
 </e:Skin>
