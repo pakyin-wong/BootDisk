@@ -33,6 +33,6 @@
 		<e:Group id="_btn_page" width="83" height="46" x="1029" y="1077">
 			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle" textAlign="center" fontFamily="Barlow" size="28"/>
 		</e:Group>
-		<ui:Panel id="_ddm_page" width="123" x="1009" bottom="65" maxHeight="200" skinName="skin_desktop.NavDropdown"/>
+		<ui:Panel id="_ddm_page" width="123" x="1009" bottom="65" maxHeight="300" skinName="skin_desktop.NavDropdown"/>
 	</e:Group>
 </e:Skin>
