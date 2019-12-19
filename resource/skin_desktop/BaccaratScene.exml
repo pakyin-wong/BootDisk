@@ -5,7 +5,6 @@
 	<e:Image id="bgImg" top="0" bottom="0" source="frame-3_png" x="0" locked="true" />
 	<e:Rect id="roundPanel" width="1045" height="70" x="768.64" y="939.13" fillAlpha="0.3" ellipseHeight="90"
 	        ellipseWidth="90" />
-	<ui:SwitchLang width="300" height="100" x="0" y="200" />
 	<ba:BettingTable id="bettingTable" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
 	                 skinName="skin_desktop.BettingTableSkin" />
 	<ba:CardHolder id='cardHolder' width="412" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"

@@ -1,11 +1,19 @@
 namespace we {
   export namespace ui {
     export class GoodRoadLabel extends core.BaseEUI {
-      protected label: eui.Label;
+      protected label: RunTimeLabel;
 
       constructor() {
         super();
         this.skinName = utils.getSkinByClassname('GoodRoadLabelSkin');
+      }
+
+      public set renderText(r: () => string) {
+        this.label.renderText = r;
+      }
+
+      public get renderText() {
+        return this.label.renderText;
       }
 
       public set text(value: string) {

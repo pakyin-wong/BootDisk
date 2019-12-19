@@ -46,7 +46,8 @@ namespace we {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
-          this._goodRoadLabel.text = goodRoadName;
+          // this._goodRoadLabel.text = goodRoadName;
+          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
         }

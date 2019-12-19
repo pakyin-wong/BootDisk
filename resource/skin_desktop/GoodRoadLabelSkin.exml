@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.GoodRoadLabelSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_desktop.GoodRoadLabelSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*">
     <e:Rect anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x000000" fillAlpha="0.7"
             ellipseWidth="28" ellipseHeight="28" left="0" right="0" top="0" bottom="0" />
     <e:Group top="2" bottom="2" left="8" right="8">
         <e:Image source="d_lobby_panel_gamelist_icon_goodroad_active_png" x="9" y="14" height="24" width="24" />
-        <e:Label id="label" text="" x="0" y="0" size="24" scaleX="1" scaleY="1" />
+        <ui:RunTimeLabel id="label" text="" x="12" y="7" size="24" />
         <e:layout>
             <e:HorizontalLayout/>
         </e:layout>
