@@ -7,6 +7,13 @@ namespace we {
         },
       },
       lobby: {
+        header: {
+          lobby: 'Promoted',
+          live: 'Live',
+          lottery: 'Lottery',
+          egame: 'EGame',
+          favorite: 'Favorite',
+        },
         categoryPromotion: 'Promoted',
         categoryBaccarat: 'Baccarat',
         categoryGoodRoad: 'Good Road Tables',
@@ -24,6 +31,18 @@ namespace we {
           dice: '骰寶',
           goodroad: 'Good Road',
         },
+      },
+      goodroad: {
+        r1: 'Long Banker',
+        r2: 'Long Player',
+        r3: 'Hop Hop after Long Road',
+        r4: 'Two Bankers One Player',
+        r5: 'Two Players One Banker',
+        r6: 'Hop Hop',
+        r7: 'Stick on Banker',
+        r8: 'Stick on Player',
+        r9: 'Long Banker Sticks on Long Player',
+        r10: 'Not Stick on Banker',
       },
       game: {
         startBet: 'Start Bet',

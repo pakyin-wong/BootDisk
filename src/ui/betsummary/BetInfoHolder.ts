@@ -10,7 +10,7 @@ namespace we {
         this.mount();
       }
 
-      private async mount() {
+      protected async mount() {
         this.mode = we.lobby.mode.NORMAL;
         // dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
         console.log('we.live.BetInfoHolder::mount()');

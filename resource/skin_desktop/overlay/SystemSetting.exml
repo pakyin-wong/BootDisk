@@ -5,6 +5,7 @@
 		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png"/>
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="61" y="39.3" fontFamily="NotoSansCJKtc" textColor="0xce925e" width="120" height="45"/>
 		<ui:RunTimeLabel id="_txt_lang" text="Label" x="61" y="108.3" fontFamily="NotoSansCJKtc" size="24" height="36" anchorOffsetX="0" width="390"/>
+
 		<e:Rect width="400" height="1" x="58" y="257.5" fillColor="0x979797"/>
 		<ui:RunTimeLabel id="_txt_liveRecord" text="Label" x="61" y="286.3" size="24" fontFamily="NotoSansCJKtc" width="96" height="36"/>
 		<ui:RunTimeLabel id="_txt_soundfx" text="Label" x="61" y="433.2" size="24" fontFamily="NotoSansCJKtc" width="96" height="36"/>
@@ -30,5 +31,4 @@
 		<ui:Panel id="_ddm_currFx" width="271" x="195" y="478.5" skinName="skin_desktop.NavDropdown" maxHeight="300"/>
 		<ui:Panel id="_ddm_currLang" width="271" x="51" y="216.5" skinName="skin_desktop.NavDropdown" maxHeight="300"/>
 	</e:Group>
-
 </e:Skin>

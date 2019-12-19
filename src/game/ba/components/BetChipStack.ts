@@ -21,6 +21,9 @@ namespace we {
       protected _totalUncfmOffset: number;
       protected _totalCfmOffset: number;
       protected _useStackLimit: boolean = true;
+      protected _chipLabelOffset: number;
+      protected _chipLabelSize: number;
+      protected _chipType: number;
 
       constructor() {
         super('BetChipStack');
@@ -91,10 +94,16 @@ namespace we {
         } else {
           // No uncfmBet, show stack and total
           this._cfmDenomList = this.getBettingTableGridDenom(this._denomList, total);
+          this._cfmDenomList.reverse();
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              this._chips.push(new BetChip(value));
+              const chip = new BetChip(this._denomList[value]);
+              chip.index = value;
+              chip.labelSize = this._chipLabelSize;
+              chip.labelOffset = this._chipLabelOffset;
+              chip.type = this._chipType;
+              this._chips.push(chip);
             }
           });
         }
@@ -107,7 +116,7 @@ namespace we {
         this._betSumLabel.visible = true;
         this._betSumBackground.verticalCenter = this._uncfmBet === 0 ? this.totalCfmOffset : this.totalUncfmOffset;
         this._betSumLabel.verticalCenter = this._uncfmBet === 0 ? this.totalCfmOffset : this.totalUncfmOffset;
-        this._betSumLabel.text = (this._uncfmBet + this._cfmBet).toString();
+        this._betSumLabel.text = utils.formatNumber(this._uncfmBet + this._cfmBet, false);
         this.setChildIndex(this._betSumBackground, 100);
         this.setChildIndex(this._betSumLabel, 101);
       }
@@ -165,6 +174,43 @@ namespace we {
         return this._chipHeight;
       }
 
+      set chipLabelOffset(value: number) {
+        this._chipLabelOffset = value;
+      }
+
+      get chipLabelOffset() {
+        if (this._chipLabelOffset) {
+          return this._chipLabelOffset;
+        }
+        return null;
+      }
+
+      set chipType(value: number) {
+        console.log('BetChipStack::chipType1: ', value);
+        if (this._chipType) {
+          this._chipType = value;
+          console.log('BetChipStack::chipType2: ', this.chipType);
+        }
+      }
+
+      get chipType() {
+        if (this._chipType) {
+          return this._chipType;
+        }
+        return null;
+      }
+
+      set chipLabelSize(value: number) {
+        this._chipLabelSize = value;
+      }
+
+      get chipLabelSize() {
+        if (this._chipLabelSize) {
+          return this._chipLabelSize;
+        }
+        return null;
+      }
+
       set betSumLabel(value: eui.Label) {
         this._betSumLabel = value;
       }
@@ -188,7 +234,7 @@ namespace we {
         while (total > 0) {
           if (total >= denomlist[index]) {
             total -= denomlist[index];
-            b.push(denomlist[index]);
+            b.push(index);
           } else {
             index--;
           }

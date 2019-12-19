@@ -38,18 +38,6 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class AlreadyBetBaBettingTableSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class AlreadyBetCardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetInfoAlreadyBetItemSkin extends eui.Skin{
-	}
-}
 declare module skins_desktop{
 	class BetConfirmButtonSkin extends eui.Skin{
 	}
@@ -71,7 +59,31 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BaLiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaLiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BARoadmapLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class AlreadyBetCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaSideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaSideListBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaSideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -141,6 +153,8 @@ declare class BetLimitDropdownSkin extends eui.Skin{
 declare class DropdownItemSkin extends eui.Skin{
 }
 declare class DropdownSkin extends eui.Skin{
+}
+declare class RoundDropdownSkin extends eui.Skin{
 }
 declare module skin_desktop{
 	class DropdownItem extends eui.Skin{

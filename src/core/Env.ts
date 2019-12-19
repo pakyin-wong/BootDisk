@@ -42,6 +42,7 @@ namespace we {
       // public currentChipSelectedIndex: number = 10;
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
+      public lobbyGridType: number = 1;
 
       public init() {
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
