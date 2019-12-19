@@ -59,6 +59,40 @@ namespace we {
         // this.x += this.anchorOffsetX;
         // this.y += this.anchorOffsetY;
         this._bigRoad.addEventListener('update', this.onBigRoadUpdated, this);
+
+        this.addEventListener('close', this.onClose, this);
+      }
+
+      protected destroy() {
+        super.destroy();
+
+        if (this._bankerButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._bankerButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerTap, this);
+        }
+
+        if (this._playerButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._playerButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerTap, this);
+        }
+
+        if (this._removeButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._removeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRemoveTap, this);
+        }
+
+        if (this._removeAllButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._removeAllButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onRemoveAllTap, this);
+        }
+
+        if (this._saveButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._saveButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSaveTap, this);
+        }
+
+        if (this._clearButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this._clearButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClearTap, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
       }
 
       private onBigRoadUpdated(e: egret.Event) {
@@ -140,7 +174,13 @@ namespace we {
         }
         // hide this panel after save
         this.hide();
+        (this.parent.parent as we.overlay.CustomRoad)._cover.visible = false;
       }
+
+      private onClose() {
+        (this.parent.parent as we.overlay.CustomRoad)._cover.visible = false;
+      }
+
       private onClearTap(evt: egret.Event) {
         this._titleLabel.text = '';
       }

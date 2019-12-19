@@ -33,6 +33,19 @@ namespace we {
         this.addChild(this._item);
       }
 
+      protected destroy() {
+        super.destroy();
+        if (this._item) {
+          if (this._item.hasEventListener('onAddTap')) { this._item.removeEventListener('onAddTap', this.onItemAdd, this); }
+
+          if (this._item.hasEventListener('onEditTap')) { this._item.removeEventListener('onEditTap', this.onItemEdit, this); }
+
+          if (this._item.hasEventListener('onBinTap')) { this._item.removeEventListener('onBinTap', this.onItemBin, this); }
+
+          if (this._item.hasEventListener('onEnableChanged')) { this._item.removeEventListener('onEnableChanged', this.onItemEnableChanged, this); }
+        }
+      }
+
       private onItemAdd(e: egret.Event) {
         if (this.roadType === 0) {
           // add
@@ -83,8 +96,8 @@ namespace we {
         this.roadEnabled = this.itemData.enabled;
 
         this._item.setRoadType(this.roadType);
+        this._item.setRoadName(this.roadName);
         if (this.roadType > 0) {
-          this._item.setRoadName(this.roadName);
           this._item.setRoadData(this.roadPattern);
           this._item.setRoadEnabled(this.roadEnabled);
         }
