@@ -5,6 +5,7 @@ namespace we {
       protected _quickbetButton: ui.RoundButton;
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
+      protected _goodRoadLabel: ui.GoodRoadLabel;
 
       protected _tweenInterval1: number = 250;
 
@@ -35,12 +36,18 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this._betChipSet.setVisibleDenominationCount(1);
+        this._goodRoadLabel.visible = false;
       }
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        if (this._label) {
-          this._label.renderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableId)}`;
+        if (this.tableInfo.goodRoad) {
+          this._goodRoadLabel.visible = true;
+          const goodRoadData = this.tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          this._goodRoadLabel.text = goodRoadName;
+        } else {
+          this._goodRoadLabel.visible = false;
         }
       }
     }

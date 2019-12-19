@@ -14,10 +14,7 @@ namespace we {
       private _slider_bgm: ui.Slider;
 
       private _dropdown_lang: ui.Dropdown;
-      private langs = [
-        ['簡体中文', '繁體中文', 'English'],
-        ['sc', 'tc', 'en'],
-      ];
+      private langs = [['簡体中文', '繁體中文', 'English'], ['sc', 'tc', 'en']];
 
       constructor() {
         super('overlay/SystemSetting');

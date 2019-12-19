@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="400"
         height="190">
-        <e:Rect width="2" height="100%" fillColor="0x00ffff" horizontalCenter="0" />
+        <e:Rect width="2" height="100%" fillColor="0x00ffff" horizontalCenter="0" visible="false" />
         <e:Group horizontalCenter="-100">
                 <e:Rect width="160" height="40" fillAlpha="0.3" ellipseWidth="50" ellipseHeight="50" />
                 <e:Label id="playerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
