@@ -58,7 +58,7 @@ namespace we {
 
         // return `${utils.EnumHelpers.getKeyByValue(core.Currency, env.currency)} ${v}`;
         try {
-          return utils.formatPrice(v);
+          return utils.formatNumber(v, true);
         } catch (e) {
           return '- - - -';
         }

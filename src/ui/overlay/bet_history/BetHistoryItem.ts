@@ -36,10 +36,10 @@ namespace we {
           this._txt_record_round.text = this.data.roundid;
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
           this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);
-          this._txt_record_betamount.text = utils.formatPrice(this.data.betAmount);
-          this._txt_record_win.text = utils.formatPrice(this.data.winAmount);
-          this._txt_record_orgbalance.text = utils.formatPrice(this.data.prevremaining);
-          this._txt_record_finbalance.text = utils.formatPrice(this.data.endremaining);
+          this._txt_record_betamount.text = utils.formatNumber(this.data.betAmount, true);
+          this._txt_record_win.text = utils.formatNumber(this.data.winAmount, true);
+          this._txt_record_orgbalance.text = utils.formatNumber(this.data.prevremaining, true);
+          this._txt_record_finbalance.text = utils.formatNumber(this.data.endremaining, true);
 
           this.createGameResult(this.data.gametype, this.data.result);
         }

@@ -40,20 +40,10 @@ namespace we {
         this.setValue(this._value);
       }
 
-      protected numberToFaceValue(value: number) {
-        if (!value) {
-          return '0';
-        } else if (value > 1000) {
-          return value / 1000 + 'k';
-        } else {
-          return value.toString();
-        }
-      }
-
       public setValue(value: number, type: we.core.ChipType = null) {
         this._value = value;
         this._type = type ? type : this._type ? this._type : we.core.ChipType.CLIP;
-        this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : this.numberToFaceValue(value);
+        this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : utils.numberToFaceValue(value);
         // this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
       }
 
