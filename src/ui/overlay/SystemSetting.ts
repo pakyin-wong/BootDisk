@@ -13,6 +13,12 @@ namespace we {
       private _slider_soundfx: ui.Slider;
       private _slider_bgm: ui.Slider;
 
+      private _dropdown_lang: ui.Dropdown;
+      private langs = [
+        ['簡体中文', '繁體中文', 'English'],
+        ['sc', 'tc', 'en'],
+      ];
+
       constructor() {
         super('overlay/SystemSetting');
       }
@@ -30,11 +36,19 @@ namespace we {
         this._slider_liveRecord.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeLive'), this);
         this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeFX'), this);
         this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeBGM'), this);
+
+        this._dropdown_lang.setItems(this.langs[0]);
+        this._dropdown_lang.selectedIndex = 0;
+        this._dropdown_lang.addEventListener(eui.UIEvent.CHANGE, this.onLangChanged, this);
       }
 
       private handleAdjust(which, event: egret.Event) {
-        const progress = event.data;
-        dir.audioCtr[which] = progress;
+        dir.audioCtr[which] = event.data;
+      }
+
+      protected onLangChanged(evt: eui.UIEvent) {
+        const lang = this.langs[1][this._dropdown_lang.selectedIndex];
+        i18n.setLang(lang);
       }
     }
   }
