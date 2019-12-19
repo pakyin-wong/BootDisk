@@ -69,6 +69,11 @@ namespace we {
         this._ddm_currBgm.dropdown.select(env.bgm);
 
         this._txt_version.text = 'v0.00.001';
+
+        this._slider_liveRecord.value = dir.audioCtr.volumeLive;
+        this._slider_bgm.value = dir.audioCtr.volumeBGM;
+        this._slider_soundfx.value = dir.audioCtr.volumeFX;
+
         this.addListeners();
       }
 
@@ -98,14 +103,17 @@ namespace we {
 
       private onLiveRecordAdjust(e) {
         dir.audioCtr.volumeLive = e.data;
+        this._slider_liveRecord.value = dir.audioCtr.volumeLive;
       }
 
       private onSoundFxAdjust(e) {
         dir.audioCtr.volumeFX = e.data;
+        this._slider_soundfx.value = dir.audioCtr.volumeFX;
       }
 
       private onBGMAdjust(e) {
         dir.audioCtr.volumeBGM = e.data;
+        this._slider_bgm.value = dir.audioCtr.volumeBGM;
       }
 
       private onLangSelect(e) {

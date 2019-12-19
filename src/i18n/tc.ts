@@ -1,9 +1,91 @@
 namespace we {
   export namespace i18n {
     export const tc = {
+      voice_cantonese: '粵語',
+      voice_mandarin: '普通話',
+      voice_english: '英語',
+
+      gametype_BAC: '百家樂',
+      gametype_BAS: '競速百家樂',
+      gametype_BAI: '保險百家樂',
+      gametype_DI: '骰寶',
+      gametype_MJ: '麻將',
+      gametype_RO: '輪盤',
+
+      betfield_baccarat_banker: '庄',
+      betfield_baccarat_player: '閒',
+      betfield_baccarat_tie: '和',
+      betfield_baccarat_banker_pair: '庄對',
+      betfield_baccarat_player_pair: '閒對',
+      betfield_baccarat_super_six: '超級六',
+      betfield_baccarat_super_six_banker: '庄',
+
+      overlaypanel_memberreport_title: '會員報表',
+      overlaypanel_memberreport_date: '日期',
+      overlaypanel_memberreport_today: '今日',
+      overlaypanel_memberreport_yesterday: '昨天',
+      overlaypanel_memberreport_week: '本週',
+      overlaypanel_memberreport_customperiod: '自訂',
+      overlaypanel_memberreport_amountbet: '投注金額',
+      overlaypanel_memberreport_amountwash: '洗碼量',
+      overlaypanel_memberreport_amountwin: '贏輸金額',
+      overlaypanel_memberreport_amounttotal: '總金額',
+
+      overlaypanel_customroad_title: '好路設定',
+
+      overlaypanel_bethistory_title: '投註記錄',
+      overlaypanel_bethistory_date: '日期',
+      overlaypanel_bethistory_today: '今日',
+      overlaypanel_bethistory_week: '本週',
+      overlaypanel_bethistory_customperiod: '自訂',
+      overlaypanel_bethistory_searchrecord: '搜尋記錄',
+      overlaypanel_bethistory_recordtab_id: '投注編號',
+      overlaypanel_bethistory_recordtab_date: '日期時間',
+      overlaypanel_bethistory_recordtab_game: '遊戲',
+      overlaypanel_bethistory_recordtab_round: '局數',
+      overlaypanel_bethistory_recordtab_replay: '重播',
+      overlaypanel_bethistory_recordtab_remark: '備註',
+      overlaypanel_bethistory_recordtab_bettype: '投注項目',
+      overlaypanel_bethistory_recordtab_betamount: '投注額',
+      overlaypanel_bethistory_recordtab_win: '派彩',
+      overlaypanel_bethistory_recordtab_orgbalance: '開局餘額',
+      overlaypanel_bethistory_recordtab_finbalance: '本局餘額',
+      overlaypanel_bethistory_recordtab_resuit: '遊戲結果',
+      overlaypanel_bethistory_remark_win: '嬴',
+      overlaypanel_bethistory_remark_lose: '輸',
+      overlaypanel_bethistory_remark_ties: '和',
+
+      overlaypanel_bethistory_baresult_banker: '庄',
+      overlaypanel_bethistory_baresult_player: '閒',
+
+      overlaypanel_bethistory_searchtype_all: '全部遊戲',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
+        },
+        res: {
+          onload: '資源加載中',
+        },
+      },
+      nav: {
+        menu: {
+          selectMode: '介面色調',
+          whiteMode: '亮色',
+          darkMode: '暗色',
+          history: '投註記錄',
+          member: '會員報表',
+          road: '好路提示',
+          system: '系統設定',
+          logout: '登出',
+        },
+        system: {
+          title: '系統設定',
+          lang: '語言',
+          liveRecord: '玩場收音',
+          soundfx: '遊戲音效',
+          bgm: '背景音樂',
+          term: '服務條款',
         },
       },
       lobby: {

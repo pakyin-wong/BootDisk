@@ -98,8 +98,28 @@ namespace we {
           this._cover.visible = true;
         }
       }
-      private onRoadModify(e: egret.Event) {}
-      private onRoadRemove(e: egret.Event) {}
+      private onRoadModify(e: egret.Event) {
+        if (e.data.roadType === 1) {
+          // default
+          const roadsEnabled = [];
+          env.goodRoadData.default.forEach(element => {
+            if (element.id === e.data.id) {
+              element.enabled = e.data.enabled;
+            }
+            if (element.enabled) {
+              roadsEnabled.push(element.id);
+            }
+          });
+
+          dir.socket.updateDefaultGoodRoad(roadsEnabled);
+        } else if (e.data.roadType === 2) {
+          // custom
+          dir.socket.updateCustomGoodRoad(e.data.id, e.data);
+        }
+      }
+      private onRoadRemove(e: egret.Event) {
+        console.log('remove');
+      }
 
       private renderFromGoodRoadData() {
         const roadData = env.goodRoadData;

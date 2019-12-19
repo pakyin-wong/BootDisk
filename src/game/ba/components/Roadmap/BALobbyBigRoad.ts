@@ -44,7 +44,23 @@ namespace we {
       public updateLobbyRoadData(roadmapData: any) {
         if (roadmapData) {
           if (this.bigRoad) {
-            this.bigRoad.parseRoadData(roadmapData.bigRoadLobby);
+            const roadData = roadmapData.bigRoadLobby.slice();
+            let i: number = roadData.length - 1;
+            let c: number = 0;
+            while (i >= 0) {
+              if (!roadData[i].V) {
+                c++;
+                if (c >= 6) {
+                  roadData.splice(i, 6);
+                  c = 0;
+                }
+              } else {
+                break;
+              }
+              i--;
+            }
+
+            this.bigRoad.parseRoadData(roadData);
           }
         }
       }

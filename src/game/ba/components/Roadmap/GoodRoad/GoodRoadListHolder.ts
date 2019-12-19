@@ -79,10 +79,10 @@ namespace we {
         }
         if (this.roadType === 1) {
           // default
-          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, enabled });
+          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, enabled, roadType: 1 });
         } else if (this.roadType === 2) {
           // custom
-          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, name: this.roadName, pattern: this.roadPattern, enabled });
+          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, name: this.roadName, pattern: this.roadPattern, enabled, roadType: 2 });
         }
       }
 

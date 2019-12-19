@@ -5,9 +5,9 @@ namespace we {
       private _channelBGM: egret.SoundChannel;
       private _channelFX: egret.SoundChannel;
 
-      private _volumeBGM = 1;
-      private _volumeFX = 1;
-      private _volumeLive = 1;
+      private _volumeBGM = 0.5;
+      private _volumeFX = 0.5;
+      private _volumeLive = 0.5;
 
       constructor(stage: egret.Stage) {
         // init dummy scene
