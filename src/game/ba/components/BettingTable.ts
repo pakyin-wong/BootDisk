@@ -144,6 +144,9 @@ namespace we {
           this._denomLayer.addChild(this._gridSuperSix.denomLayer);
         }
 
+        this._denomLayer.touchEnabled = false;
+        this._denomLayer.touchChildren = false;
+
         return this._denomLayer;
       }
 
