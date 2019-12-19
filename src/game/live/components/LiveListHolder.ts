@@ -14,6 +14,7 @@ namespace we {
       }
 
       protected async mount() {
+        super.mount();
         this.mode = env.lobbyGridType;
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
         // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
@@ -21,6 +22,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.mount();
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
         // this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }

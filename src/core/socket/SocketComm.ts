@@ -586,20 +586,28 @@ namespace we {
 
       protected onGoodRoadMatch(data: data.RoadmapNotification, timestamp: string) {
         this.updateTimestamp(timestamp);
-        if (!(data instanceof we.data.RoadmapNotification)) {
-          return;
-        }
+        // if (!(data instanceof we.data.RoadmapNotification)) {
+        //   return;
+        // }
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = data.match.map(goodRoadData => {
           return {
             tableid: goodRoadData.tableid,
-            goodRoadData,
+            goodRoad: goodRoadData,
           };
         });
         env.mergeTableInfoList(tableInfos);
         // save the list to env.goodRoadTableList
         const goodRoadTableList = tableInfos.map(data => data.tableid);
+        const removed = utils.arrayDiff(env.goodRoadTableList, goodRoadTableList);
         env.goodRoadTableList = goodRoadTableList;
+
+        for (const tableid of removed) {
+          const tableInfo = env.tableInfos[tableid];
+          if (tableInfo) {
+            tableInfo.goodRoad = null;
+          }
+        }
         // filter all the display ready table
         // dispatch GOOD_ROAD_TABLE_LIST_UPDATE
         this.filterAndDispatch(goodRoadTableList, core.Event.GOOD_ROAD_TABLE_LIST_UPDATE);

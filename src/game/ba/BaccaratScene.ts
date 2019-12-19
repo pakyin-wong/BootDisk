@@ -66,7 +66,7 @@ namespace we {
 
       public set tableID(tableID: string) {
         this._tableID = tableID;
-        this.lblRoomNo.text = i18n.t('baccarat.baccarat') + ' ' + this._tableID;
+        this.lblRoomNo.text = `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableID)}`;
       }
 
       public get tableID() {
@@ -113,7 +113,7 @@ namespace we {
         }
 
         this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
-        this.lblRoomNo.renderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableID)}`;
+        this.lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableID)}`;
 
         this.tableInfoWindow.setToggler(this.lblRoomInfo);
         this.tableInfoWindow.setValue(this.tableInfo);

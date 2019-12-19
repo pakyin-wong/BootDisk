@@ -169,6 +169,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class GoodRoadLabelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class GoodRoadListItem extends eui.Skin{
 	}
 }
