@@ -59,8 +59,8 @@ namespace we {
 
           if (this._bettingTable.denomLayer) {
             this._denomLayer = this._bettingTable.denomLayer;
-            this._denomLayer.y = 0;
-            this._denomLayer.x = 0;
+            this._denomLayer.y = this._bettingTable.y;
+            this._denomLayer.x = this._bettingTable.x;
             this._denomLayer.alpha = 0;
             this.addChild(this._denomLayer);
             this.setChildIndex(this._denomLayer, 30000);

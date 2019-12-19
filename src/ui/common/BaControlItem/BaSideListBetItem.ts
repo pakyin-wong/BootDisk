@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BaSideListBetItem extends BaLiveListSimpleItem {
+    export class BaSideListBetItem extends BaListBaseItem {
       protected _resultTable: eui.Image;
       protected _bettingGroup: eui.Group;
       protected _resultGroup: eui.Group;
