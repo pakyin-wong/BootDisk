@@ -21,6 +21,6 @@
 		                hoverResName="d_lobby_profile_edit_hover_png" horizontalCenter="0.5" width="30" height="30"
 		                label1text="" label2text="" anchorOffsetX="0" verticalCenter="21.5" />
 		<e:Label id="_titleLabel" text="百家樂01" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="17" y="14" size="24"
-		         anchorOffsetX="0" width="177" />
+		         anchorOffsetX="0" width="177" multiline="false" />
 	</e:Group>
 </e:Skin>

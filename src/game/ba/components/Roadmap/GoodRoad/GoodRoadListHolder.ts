@@ -36,13 +36,21 @@ namespace we {
       protected destroy() {
         super.destroy();
         if (this._item) {
-          if (this._item.hasEventListener('onAddTap')) { this._item.removeEventListener('onAddTap', this.onItemAdd, this); }
+          if (this._item.hasEventListener('onAddTap')) {
+            this._item.removeEventListener('onAddTap', this.onItemAdd, this);
+          }
 
-          if (this._item.hasEventListener('onEditTap')) { this._item.removeEventListener('onEditTap', this.onItemEdit, this); }
+          if (this._item.hasEventListener('onEditTap')) {
+            this._item.removeEventListener('onEditTap', this.onItemEdit, this);
+          }
 
-          if (this._item.hasEventListener('onBinTap')) { this._item.removeEventListener('onBinTap', this.onItemBin, this); }
+          if (this._item.hasEventListener('onBinTap')) {
+            this._item.removeEventListener('onBinTap', this.onItemBin, this);
+          }
 
-          if (this._item.hasEventListener('onEnableChanged')) { this._item.removeEventListener('onEnableChanged', this.onItemEnableChanged, this); }
+          if (this._item.hasEventListener('onEnableChanged')) {
+            this._item.removeEventListener('onEnableChanged', this.onItemEnableChanged, this);
+          }
         }
       }
 
