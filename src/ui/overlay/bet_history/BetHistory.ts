@@ -24,15 +24,25 @@ namespace we {
 
       private _tf_search: eui.EditableText;
       private _btn_search: ui.BaseImageButton;
+
       private _btn_searchType: ui.BaseButton;
+      private _ddm_searchType: ui.Panel;
+
+      private _btn_page: egret.DisplayObject;
+      private _ddm_page: ui.Panel;
+      private _txt_page: ui.RunTimeLabel;
+
+      private _btn_prev: ui.BaseImageButton;
+      private _btn_next: ui.BaseImageButton;
 
       private _datagroup: eui.DataGroup;
       private _dataColl: eui.ArrayCollection;
 
-      private _page: number;
+      private _total: number = 1;
+      private _page: number = 1;
       private _starttime: number;
       private _endtime: number;
-      private _limit: number = 10;
+      private _limit: number = 11;
 
       private _searchDelay: number;
 
@@ -48,7 +58,7 @@ namespace we {
         this._txt_search.renderText = () => `${i18n.t('overlaypanel_bethistory_searchrecord')}`;
 
         this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_bethistory_today')}`;
-        this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_bethistory_thisweek')}`;
+        this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_bethistory_week')}`;
         this._btn_custom.label.renderText = () => `${i18n.t('overlaypanel_bethistory_customperiod')}`;
 
         this._txt_record_id.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_id')}`;
@@ -64,7 +74,21 @@ namespace we {
         this._txt_record_finbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_finbalance')}`;
         this._txt_record_result.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_resuit')}`;
 
-        this._btn_searchType.label.renderText = () => `${i18n.t('overlaypanel_bethistory_searchtype_all')}`;
+        this._ddm_searchType.isDropdown = true;
+        this._ddm_searchType.isPoppable = true;
+        this._ddm_searchType.dismissOnClickOutside = true;
+        this._ddm_searchType.setToggler(this._btn_searchType);
+        this._ddm_searchType.dropdown.review = this._btn_searchType.label;
+        this._ddm_searchType.dropdown.data.replaceAll([ui.NewDropdownItem(0, () => `${i18n.t('overlaypanel_bethistory_searchtype_all')}`)]);
+        this._ddm_searchType.dropdown.select(0);
+
+        this._ddm_page.isDropdown = true;
+        this._ddm_page.isPoppable = true;
+        this._ddm_page.dismissOnClickOutside = true;
+        this._ddm_page.setToggler(this._btn_page);
+        this._ddm_page.dropdown.review = this._txt_page;
+        this._ddm_page.dropdown.data.replaceAll([ui.NewDropdownItem(1, () => `1/1`)]);
+        this._ddm_page.dropdown.select(1);
 
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = betHistory.BetHistoryItem;
@@ -86,6 +110,9 @@ namespace we {
         this._btn_today.$addListener('CLICKED', this.searchToday, this);
         this._btn_week.$addListener('CLICKED', this.searchWeek, this);
         this._btn_search.$addListener('CLICKED', this.search, this);
+        this._btn_next.$addListener('CLICKED', this.onClickNext, this);
+        this._btn_prev.$addListener('CLICKED', this.onClickPrev, this);
+        this._ddm_page.$addListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
       }
 
       protected removeListeners() {
@@ -93,6 +120,9 @@ namespace we {
         this._btn_today.removeEventListener('CLICKED', this.searchToday, this);
         this._btn_week.removeEventListener('CLICKED', this.searchWeek, this);
         this._btn_search.removeEventListener('CLICKED', this.search, this);
+        this._btn_next.removeEventListener('CLICKED', this.onClickNext, this);
+        this._btn_prev.removeEventListener('CLICKED', this.onClickPrev, this);
+        this._ddm_page.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
       }
 
       protected searchToday() {
@@ -139,8 +169,8 @@ namespace we {
         clearTimeout(this._searchDelay);
 
         const opt = {
-          startdate: this._starttime,
-          enddate: this._endtime,
+          startdate: this._starttime * 1000,
+          enddate: this._endtime * 1000,
           limit: this._limit,
           offset: (this._page - 1) * this._limit,
           // filter: int,
@@ -150,8 +180,44 @@ namespace we {
         dir.socket.getBetHistory(opt, this.update, this);
       }
 
+      private onClickNext() {
+        if (this._total > this._page) {
+          this._page++;
+          this.search();
+        }
+      }
+
+      private onClickPrev() {
+        if (this._page > 1) {
+          this._page--;
+          this.search();
+        }
+      }
+
       private update(res: any) {
+        logger.l('getBetHistory', res);
+        this.total = Math.ceil(res.total / this._limit);
+        this._page = Math.floor(res.offset / this._limit) + 1;
+        this._ddm_page.dropdown.select(this._page);
         this._dataColl.replaceAll(res.history);
+      }
+
+      private onPageChange(e) {
+        this._page = e.data;
+        this.search();
+      }
+
+      private set total(t) {
+        if (this._total === t) {
+          return;
+        }
+
+        this._total = t;
+        const a = [];
+        for (let p = 1; p <= t; p++) {
+          a.push(ui.NewDropdownItem(p, () => `${p}/${t}`));
+        }
+        this._ddm_page.dropdown.data.replaceAll(a);
       }
     }
   }

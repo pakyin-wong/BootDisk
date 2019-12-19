@@ -55,7 +55,7 @@ namespace we {
       private onUpdateTimer() {
         // console.log(env.currTime);
         // console.log(moment.unix(env.currTime).format('YYYY/MM/DD HH:mm:ss'));
-        this._time.text = utils.formatTime(env.currTime);
+        this._time.text = utils.formatTime(env.currTime / Math.pow(10, 3));
       }
     }
   }

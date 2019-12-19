@@ -16,6 +16,8 @@ namespace we {
       private _bigRoadMask: eui.Rect;
 
       private roadId: string;
+      private roadName: string;
+      private roadEnabled: boolean;
       private roadType: number; // add icon(0) , default(1) or custom road(2)
       private roadPattern: string;
 
@@ -33,13 +35,22 @@ namespace we {
         this._bigRoad.mask = this._bigRoadMask;
 
         this._bankerButton.touchEnabled = true;
-        this._bankerButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onAddTap, this);
+        this._bankerButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerTap, this);
 
         this._playerButton.touchEnabled = true;
-        this._bankerButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onAddTap, this);
+        this._playerButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerTap, this);
 
-        this._bankerButton.touchEnabled = true;
-        this._bankerButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onAddTap, this);
+        this._removeButton.touchEnabled = true;
+        this._removeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRemoveTap, this);
+
+        this._removeAllButton.touchEnabled = true;
+        this._removeAllButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRemoveAllTap, this);
+
+        this._saveButton.touchEnabled = true;
+        this._saveButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSaveTap, this);
+
+        this._clearButton.touchEnabled = true;
+        this._clearButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClearTap, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
@@ -47,18 +58,23 @@ namespace we {
         // this.anchorOffsetY = this.height / 2;
         // this.x += this.anchorOffsetX;
         // this.y += this.anchorOffsetY;
+        this._bigRoad.addEventListener('update', this.onBigRoadUpdated, this);
+      }
 
-        // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
-        // this._group.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
-        // this._group.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      private onBigRoadUpdated(e: egret.Event) {
+        this._saveButton.alpha = e.data.canSubmit ? 1 : 0.5;
+        this._bankerButton.alpha = e.data.canAddBanker ? 1 : 0.5;
+        this._playerButton.alpha = e.data.canAddPlayer ? 1 : 0.5;
+        this._removeButton.alpha = this._removeAllButton.alpha = e.data.canRemove ? 1 : 0.5;
+        this.roadPattern = e.data.roadPattern;
       }
 
       public changeLang() {
         const arr = [i18n.t('baccarat.addNewGoodRoad'), i18n.t('baccarat.newGoodRoadName')];
-        if (this.roadType === -1) {
+        if (this.roadType === 0) {
           // add icon
-        } else if (this.roadType === 0) {
-          // default road
+        } else if (this.roadType === 2) {
+          // custom road
         }
       }
 
@@ -76,52 +92,55 @@ namespace we {
         if (data.type === 0) {
           // new
           this.roadId = '';
+          this.roadName = i18n.t('baccarat.addNewGoodRoad');
           this.roadType = 0;
           this.roadPattern = '';
-        } else {
+          this.roadEnabled = true;
+        } else if (data.type === 2) {
           // custom
+          this.roadName = data.name;
           this.roadId = data.id;
-          this.roadType = 1;
+          this.roadType = 2;
           this.roadPattern = data.pattern;
+          this.roadEnabled = data.enabled;
         }
 
+        this._titleLabel.text = this.roadName;
         this._bigRoad.updateRoadData(this.roadPattern);
       }
 
-      public setRoadId(id) {
-        this.roadId = id;
+      private onBankerTap(evt: egret.Event) {
+        this._bigRoad.addBanker();
       }
 
-      private onEditTap(evt: egret.Event) {}
-
-      private onAddTap(evt: egret.Event) {}
-
-      private onCloseTap(evt: egret.Event) {
-        this.visible = false;
+      private onPlayerTap(evt: egret.Event) {
+        this._bigRoad.addPlayer();
       }
 
-      private onActiveTap(evt: egret.Event) {
-        const s = evt.data;
+      private onRemoveTap(evt: egret.Event) {
+        this._bigRoad.removeOne();
       }
-
-      private onTouchTap(evt: egret.Event) {
-        const target = evt.target;
-        if (target.parent && target.parent instanceof eui.ItemRenderer) {
-          evt.stopPropagation();
-          return;
+      private onRemoveAllTap(evt: egret.Event) {
+        this._bigRoad.removeAll();
+      }
+      private onSaveTap(evt: egret.Event) {
+        if (this._saveButton.alpha === 1) {
+          if (this.roadType === 0) {
+            // new
+            dir.socket.createGoodRoad(this._titleLabel.text, this.roadPattern);
+          } else if (this.roadType === 2) {
+            // custom
+            dir.socket.updateCustomGoodRoad(this.roadId, {
+              id: this.roadId,
+              name: this._titleLabel.text,
+              pattern: this.roadPattern,
+              enabled: this.roadEnabled,
+            });
+          }
         }
       }
-
-      public onRollover(evt: egret.Event) {
-        if (!env.livepageLocked) {
-          egret.Tween.removeTweens(this);
-          egret.Tween.get(this).to({ scaleX: 1.05, scaleY: 1.05 }, 250);
-        }
-      }
-
-      public onRollout(evt: egret.Event) {
-        egret.Tween.removeTweens(this);
-        const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1 }, 250);
+      private onClearTap(evt: egret.Event) {
+        this._titleLabel.text = '';
       }
     }
   }

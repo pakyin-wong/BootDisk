@@ -5,13 +5,16 @@ namespace we {
       public close: eui.UIComponent;
       public toggler: egret.DisplayObject;
       public moveArea: egret.DisplayObject;
+      public dropdownScroller: ui.Scroller;
 
+      protected _isDropdown: boolean = false;
       protected _isDraggable: boolean = false;
       protected _isPoppable: boolean = false;
       protected _isEdgeDismissable: boolean = false;
       protected _dismissOnClickOutside: boolean = false;
       protected _hideOnStart: boolean = true;
 
+      protected dropdownAddon: DropdownAddon;
       protected draggableAddon: DraggableAddon;
       protected edgeDismissableAddon: EdgeDismissableAddon;
       protected poppableAddon: PoppableAddon;
@@ -21,6 +24,7 @@ namespace we {
         this.draggableAddon = new DraggableAddon(this);
         this.edgeDismissableAddon = new EdgeDismissableAddon(this);
         this.poppableAddon = new PoppableAddon(this);
+        this.dropdownAddon = new DropdownAddon(this);
       }
 
       public set isDraggable(value: boolean) {
@@ -44,6 +48,13 @@ namespace we {
       public get isEdgeDismissable(): boolean {
         return this._isEdgeDismissable;
       }
+      public set isDropdown(v: boolean) {
+        this._isDropdown = v;
+        this.dropdownAddon.active = v;
+      }
+      public get isDropdown(): boolean {
+        return this._isDropdown;
+      }
       public set dismissOnClickOutside(value: boolean) {
         this._dismissOnClickOutside = value;
         this.poppableAddon.dismissOnClickOutside = value;
@@ -64,6 +75,7 @@ namespace we {
 
       protected mount() {
         // this.hide();
+        this.dropdownAddon.active = this._isDropdown;
         this.draggableAddon.active = this._isDraggable;
         this.edgeDismissableAddon.active = this._isEdgeDismissable;
         this.poppableAddon.dismissOnClickOutside = this._dismissOnClickOutside;
@@ -76,6 +88,7 @@ namespace we {
         this.poppableAddon.deactivate();
         this.edgeDismissableAddon.deactivate();
         this.draggableAddon.deactivate();
+        this.dropdownAddon.deactivate();
       }
 
       public get isActivated(): boolean {
@@ -104,6 +117,10 @@ namespace we {
 
       public async hide() {
         this.poppableAddon.active && (await this.poppableAddon.hide());
+      }
+
+      public get dropdown(): DropdownAddon {
+        return this.dropdownAddon;
       }
     }
   }

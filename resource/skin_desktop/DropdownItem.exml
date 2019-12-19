@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.DropdownItem" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" height="40" states="normal,hover,selected,selected-hover" >
+	<e:Rect includeIn="hover,selected-hover" left="0" right="20" top="0" bottom="0" fillColor="0x4077ab"/>
+	<ui:RunTimeLabel id="review" text="Label" left="20" right="40" verticalCenter="0" alpha.normal="0.7" bold.selected="true" bold.selected-hover="true" verticalAlign="middle" height="36" size="24" fontFamily="NotoSansCJKtc"/>
+
+</e:Skin>
