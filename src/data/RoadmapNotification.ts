@@ -7,6 +7,7 @@ namespace we {
     export class GoodRoadData {
       public roadmapid: string; // roadmap id for the matched roadmap
       public name: string;
+      public custom: boolean;
       public tableid: string; // table id of the matched table
     }
   }
