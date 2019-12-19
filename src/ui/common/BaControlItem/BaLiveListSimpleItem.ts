@@ -1,3 +1,4 @@
+/* tslint:disable triple-equals */
 namespace we {
   export namespace ba {
     export class BaLiveListSimpleItem extends BaControlItem {
@@ -63,8 +64,6 @@ namespace we {
 
         this._quickBetGroup.alpha = 0;
         this._quickBetGroup.y = this._originalQuickBetPanelY;
-        this._quickbetButton.alpha = 0;
-        this._quickbetButton.y = this._targetQuickBetButtonY;
       }
 
       public getActionButton(): eui.Component {
@@ -114,7 +113,6 @@ namespace we {
         }
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
-        // egret.Tween.removeTweens(this._denomLayer);
 
         const p1 = new Promise(resolve =>
           egret.Tween.get(this)
@@ -127,11 +125,6 @@ namespace we {
             .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
             .call(resolve)
         );
-        // const p3 = new Promise(resolve =>
-        //   egret.Tween.get(this._denomLayer)
-        //     .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
-        //     .call(resolve)
-        // );
       }
 
       protected hideQuickBetGroup() {
@@ -139,24 +132,22 @@ namespace we {
 
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
-        // egret.Tween.removeTweens(this._denomLayer);
         egret.Tween.get(this._quickBetGroup).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
-        // egret.Tween.get(this._denomLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
+
         if (this._mouseOutside) {
-          egret.Tween.removeTweens(this._quickbetButton);
           const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1);
-          const tw2 = egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, this._tweenInterval1);
+          this.showQuickBetButton(false);
         } else {
           egret.Tween.get(this).to({ y: this._originaly }, this._tweenInterval1);
         }
-        setTimeout(() => {
-          if (this.holder.isFocus) {
+        if (this.holder.isFocus) {
+          setTimeout(() => {
             this.holder.changeState(ui.TableListItemHolder.STATE_NORMAL);
-          } else {
-            const tw2 = egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, this._tweenInterval1);
-            this._quickbetButton.tweenLabel(false);
-          }
-        }, 300);
+            if (this._mouseOutside) {
+              this.showQuickBetButton(false);
+            }
+          }, 300);
+        }
       }
 
       public onClickButton(evt: egret.Event) {
@@ -177,10 +168,12 @@ namespace we {
         super.setBetRelatedComponentsEnabled(enable);
         this._quickbetEnable = enable;
         if (!this._mouseOutside && enable) {
-          this.showQuickBetButton();
+          this.showQuickBetButton(true);
+          this._quickbetButton.tweenLabel(false);
         }
         if (!enable) {
           this.hideQuickBetGroup();
+          this.showQuickBetButton(false);
         }
       }
 
@@ -189,10 +182,10 @@ namespace we {
         if (!this.list.isLocked) {
           // this.setChildIndex(this._timer, 25000);
           egret.Tween.removeTweens(this);
-          egret.Tween.removeTweens(this._quickbetButton);
           egret.Tween.get(this).to({ scaleX: this._hoverScale, scaleY: this._hoverScale, y: this._originaly }, this._tweenInterval1);
           if (this._quickbetEnable) {
-            this.showQuickBetButton();
+            this.showQuickBetButton(true);
+            this._quickbetButton.tweenLabel(false);
           }
         }
       }
@@ -203,17 +196,30 @@ namespace we {
           // this.setChildIndex(this._timer, 2500);
 
           egret.Tween.removeTweens(this);
-          egret.Tween.removeTweens(this._quickbetButton);
           const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 250);
-          this.hideQuickBetButton();
+          this.showQuickBetButton(false);
         }
       }
 
-      protected showQuickBetButton() {
-        egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+      protected quickBetButtonAnimationDelayTimeout = null;
+
+      protected showQuickBetButton(isShow: boolean) {
+        if (this.quickBetButtonAnimationDelayTimeout) {
+          clearTimeout(this.quickBetButtonAnimationDelayTimeout);
+          this.quickBetButtonAnimationDelayTimeout = null;
+        }
+        this.quickBetButtonAnimationDelayTimeout = setTimeout(() => {
+          this.animateQuickBetButton(isShow);
+        });
       }
-      protected hideQuickBetButton() {
-        const tw2 = egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250);
+
+      protected animateQuickBetButton(show: boolean) {
+        egret.Tween.removeTweens(this._quickbetButton);
+        if (show) {
+          egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+        } else {
+          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250);
+        }
       }
     }
   }
