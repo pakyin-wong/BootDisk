@@ -34,6 +34,7 @@ namespace we {
         this.images.forEach((img, idx) => {
           img.active = idx === selectedIndex;
         });
+        env.lobbyGridType = selectedIndex;
         dir.evtHandler.dispatch(core.Event.LIVE_DISPLAY_MODE, selectedIndex);
       }
 

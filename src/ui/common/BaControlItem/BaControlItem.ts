@@ -151,7 +151,7 @@ namespace we {
         this._gameData = this._tableInfo.data;
         this._previousState = null;
         if (this._label) {
-          this._label.renderText = () => `${i18n.t('baccarat.baccarat')} ${env.getTableNameByID(this._tableId)}`;
+          this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         }
         this.updateGame();
       }

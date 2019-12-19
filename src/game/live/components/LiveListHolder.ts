@@ -14,15 +14,15 @@ namespace we {
       }
 
       protected async mount() {
-        this.mode = we.lobby.mode.NORMAL;
+        this.mode = env.lobbyGridType;
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
         console.log('we.live.LiveListHolder::mount()');
       }
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
-        this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        // this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
 
       private switchMode(evt: egret.Event) {
