@@ -8,26 +8,30 @@ namespace we {
       private _overlay: ui.Overlay;
       private _msg: ui.MsgOverlay;
 
+      public preload() {
+        this._msg = new ui.MsgOverlay();
+
+        dir.layerCtr.msg.addChild(this._msg);
+
+        this.addListeners();
+      }
+
       public start(stage: egret.Stage) {
         this._nav = new ui.Nav();
         // this._notificationController = new ui.NotificationController();
         this._liveSidePanel = new ui.LiveSidePanel();
         this._overlay = new ui.Overlay();
-        this._msg = new ui.MsgOverlay();
 
         dir.layerCtr.nav.addChild(this._nav);
         // dir.layerCtr.top.addChild(this._notificationController);
         dir.layerCtr.top.addChild(this._liveSidePanel);
         dir.layerCtr.overlay.addChild(this._overlay);
-        dir.layerCtr.msg.addChild(this._msg);
 
         // this._notificationController.x = stage.stageWidth - 410;
         // this._notificationController.y = 240;
 
         this._liveSidePanel.x = 2050;
         this._liveSidePanel.y = 120;
-
-        this.addListeners();
       }
 
       private addListeners() {

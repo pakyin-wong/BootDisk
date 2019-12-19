@@ -55,15 +55,15 @@ namespace we {
       public async playSequence(resNameSeq: string[]) {
         let chain = Promise.resolve();
         resNameSeq.forEach(name => {
-          const soundFx = RES.getRes(`sn_${name}_${we.i18n.lang}_mp3`);
+          const soundFx = RES.getRes(`sn_${name}_${env.voice}_mp3`);
           chain = chain.then(() => {
             this._channelFX = soundFx.play(0, 1);
-            console.log('playing', `sn_${name}_${we.i18n.lang}_mp3`);
+            console.log('playing', `sn_${name}_${env.voice}_mp3`);
             return new Promise<void>(resolve => {
               this._channelFX.addEventListener(
                 egret.Event.SOUND_COMPLETE,
                 () => {
-                  console.log('play end', `sn_${name}_${we.i18n.lang}_mp3`);
+                  console.log('play end', `sn_${name}_${env.voice}_mp3`);
                   this._channelFX = null;
                   resolve();
                 },

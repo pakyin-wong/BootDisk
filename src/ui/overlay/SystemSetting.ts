@@ -8,16 +8,21 @@ namespace we {
       private _txt_bgm: ui.RunTimeLabel;
       private _txt_term: ui.RunTimeLabel;
       private _txt_version: ui.RunTimeLabel;
+      private _txt_currLang: ui.RunTimeLabel;
+      private _txt_currFx: ui.RunTimeLabel;
+      private _txt_currBgm: ui.RunTimeLabel;
 
       private _slider_liveRecord: ui.Slider;
       private _slider_soundfx: ui.Slider;
       private _slider_bgm: ui.Slider;
 
-      private _dropdown_lang: ui.Dropdown;
-      private langs = [
-        ['簡体中文', '繁體中文', 'English'],
-        ['sc', 'tc', 'en'],
-      ];
+      private _btn_currLang: egret.DisplayObject;
+      private _btn_currFx: egret.DisplayObject;
+      private _btn_currBgm: egret.DisplayObject;
+
+      private _ddm_currLang: ui.Panel;
+      private _ddm_currFx: ui.Panel;
+      private _ddm_currBgm: ui.Panel;
 
       constructor() {
         super('overlay/SystemSetting');
@@ -31,24 +36,93 @@ namespace we {
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
         this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
 
+        this._ddm_currLang.isDropdown = true;
+        this._ddm_currLang.isPoppable = true;
+        this._ddm_currLang.dismissOnClickOutside = true;
+        this._ddm_currLang.setToggler(this._btn_currLang);
+        this._ddm_currLang.dropdown.review = this._txt_currLang;
+        this._ddm_currLang.dropdown.data.replaceAll([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
+        this._ddm_currLang.dropdown.select(env.language);
+
+        this._ddm_currFx.isDropdown = true;
+        this._ddm_currFx.isPoppable = true;
+        this._ddm_currFx.dismissOnClickOutside = true;
+        this._ddm_currFx.setToggler(this._btn_currFx);
+        this._ddm_currFx.dropdown.review = this._txt_currFx;
+        this._ddm_currFx.dropdown.data.replaceAll([
+          ui.NewDropdownItem('cantonese', () => `${i18n.t('voice_cantonese')}`),
+          ui.NewDropdownItem('mandarin', () => `${i18n.t('voice_mandarin')}`),
+          ui.NewDropdownItem('english', () => `${i18n.t('voice_english')}`),
+        ]);
+        this._ddm_currFx.dropdown.select(env.voice);
+
+        this._ddm_currBgm.isDropdown = true;
+        this._ddm_currBgm.isPoppable = true;
+        this._ddm_currBgm.dismissOnClickOutside = true;
+        this._ddm_currBgm.setToggler(this._btn_currBgm);
+        this._ddm_currBgm.dropdown.review = this._txt_currBgm;
+        this._ddm_currBgm.dropdown.data.replaceAll([
+          ui.NewDropdownItem(1, () => `${i18n.t('nav.system.bgm')} 01`),
+          ui.NewDropdownItem(2, () => `${i18n.t('nav.system.bgm')} 02`),
+          ui.NewDropdownItem(3, () => `${i18n.t('nav.system.bgm')} 03`),
+        ]);
+        this._ddm_currBgm.dropdown.select(env.bgm);
+
         this._txt_version.text = 'v0.00.001';
-
-        this._slider_liveRecord.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeLive'), this);
-        this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeFX'), this);
-        this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.handleAdjust.bind(this, 'volumeBGM'), this);
-
-        this._dropdown_lang.setItems(this.langs[0]);
-        this._dropdown_lang.selectedIndex = 0;
-        this._dropdown_lang.addEventListener(eui.UIEvent.CHANGE, this.onLangChanged, this);
+        this.addListeners();
       }
 
-      private handleAdjust(which, event: egret.Event) {
-        dir.audioCtr[which] = event.data;
+      protected destroy() {
+        this.removeListeners();
       }
 
-      protected onLangChanged(evt: eui.UIEvent) {
-        const lang = this.langs[1][this._dropdown_lang.selectedIndex];
-        i18n.setLang(lang);
+      protected addListeners() {
+        this._slider_liveRecord.addEventListener(ui.Slider.PROGRESS, this.onLiveRecordAdjust, this);
+        this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.onSoundFxAdjust, this);
+        this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.onBGMAdjust, this);
+
+        this._ddm_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+        this._ddm_currFx.addEventListener('DROPDOWN_ITEM_CHANGE', this.onFxSelect, this);
+        this._ddm_currBgm.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
+      }
+
+      protected removeListeners() {
+        this._slider_liveRecord.removeEventListener(ui.Slider.PROGRESS, this.onLiveRecordAdjust, this);
+        this._slider_soundfx.removeEventListener(ui.Slider.PROGRESS, this.onSoundFxAdjust, this);
+        this._slider_bgm.removeEventListener(ui.Slider.PROGRESS, this.onBGMAdjust, this);
+
+        this._ddm_currLang.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+        this._ddm_currFx.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onFxSelect, this);
+        this._ddm_currBgm.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
+      }
+
+      private onLiveRecordAdjust(e) {
+        dir.audioCtr.volumeLive = e.data;
+      }
+
+      private onSoundFxAdjust(e) {
+        dir.audioCtr.volumeFX = e.data;
+      }
+
+      private onBGMAdjust(e) {
+        dir.audioCtr.volumeBGM = e.data;
+      }
+
+      private onLangSelect(e) {
+        i18n.setLang(e.data);
+        this._ddm_currLang.dropdown.select(env.language);
+      }
+
+      private onFxSelect(e) {
+        env.voice = e.data;
+        dir.evtHandler.dispatch(core.Event.VOICE_UPDATE, e.data);
+        this._ddm_currFx.dropdown.select(env.voice);
+      }
+
+      private onBgmSelect(e) {
+        env.bgm = e.data;
+        dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
+        this._ddm_currBgm.dropdown.select(env.bgm);
       }
     }
   }
