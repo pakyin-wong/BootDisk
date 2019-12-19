@@ -1,6 +1,10 @@
 namespace we {
   export namespace i18n {
     export const sc = {
+      voice_cantonese: '粤语',
+      voice_mandarin: '普通话',
+      voice_english: '英语',
+
       gametype_BAC: '百家乐',
       gametype_BAS: '竞速百家乐',
       gametype_BAI: '保险百家乐',

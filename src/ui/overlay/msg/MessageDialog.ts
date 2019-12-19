@@ -24,7 +24,7 @@ namespace we {
               if (buttonProps[btn].onClick) {
                 await buttonProps[btn].onClick();
               }
-              this.dismiss();
+              this._hide();
             },
             this
           );
@@ -32,7 +32,7 @@ namespace we {
         this._txt_title.renderText = () => title;
       }
 
-      private dismiss() {
+      private _hide() {
         // this.parent.dispatchEvent(new egret.Event('close'));
         (this.parent as we.ui.Panel).hide();
       }

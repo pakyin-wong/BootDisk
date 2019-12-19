@@ -25,7 +25,7 @@
 			"name": "temp"
 		},
 		{
-			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg,d_lobby_navbar_logo_png",
+			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg,d_lobby_navbar_logo_png,nav_panel_bg",
 			"name": "scene_loading"
 		}
 	],

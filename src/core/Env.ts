@@ -21,6 +21,8 @@ namespace we {
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
       public language: string;
+      public voice: string = 'mandarin';
+      public bgm = 1;
       public betLimits: data.BetLimit[];
       public goodRoadData: any;
 
