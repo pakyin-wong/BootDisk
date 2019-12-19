@@ -138,6 +138,8 @@ namespace we {
             });
           }
         }
+        // hide this panel after save
+        this.hide();
       }
       private onClearTap(evt: egret.Event) {
         this._titleLabel.text = '';
