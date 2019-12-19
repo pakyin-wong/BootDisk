@@ -87,6 +87,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BaSideListBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaSideListItemSkin extends eui.Skin{
 	}
 }
