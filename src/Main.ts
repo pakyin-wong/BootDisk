@@ -58,8 +58,6 @@ class Main extends eui.UILayer {
     } catch (e) {
       console.error(e);
     }
-    // TODO: should emit event for sound init after res.json load?
-    // dir.audioCtr.init();
   }
 
   private loadTheme(): Promise<{}> {

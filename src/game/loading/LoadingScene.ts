@@ -111,6 +111,7 @@ namespace we {
       private loadingComplete() {
         dir.moniter.start(this.stage);
         dir.sceneCtr.goto('lobby');
+        dir.audioCtr.init();
       }
 
       private next() {

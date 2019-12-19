@@ -21,7 +21,7 @@ namespace we {
       public set volumeBGM(vol: number) {
         logger.l(`Setting volumeBGM to ${vol}`);
         this._volumeBGM = vol;
-        if (this._channelFX) {
+        if (this._channelBGM) {
           this._channelBGM.volume = this._volumeBGM;
         }
       }
