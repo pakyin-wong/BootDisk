@@ -46,6 +46,12 @@ namespace we {
         this._renderItems();
       }
 
+      public setLast() {
+        this._onChipSelected(this.chipList.length - 1);
+        this._startIndex = this.chipList.length - this.visibleDenominationCount;
+        this._renderItems();
+      }
+
       public setDenominationList(denominationList: number[]) {
         this.chipList = [];
         this._setChipSet(denominationList);
@@ -91,7 +97,7 @@ namespace we {
         } else {
           // go left
           let newIndex = this._startIndex;
-          newIndex -= 3; // prev page
+          newIndex -= this.visibleDenominationCount; // prev page
           if (this.chipList[newIndex]) {
             this._setStartIndex(newIndex);
             console.log('< swap 3 item');
@@ -106,7 +112,10 @@ namespace we {
           }
         }
         // update selected index
-        const newSelected = this._startIndex + this._localSelectedChipIndex;
+        let newSelected = this._startIndex + this._localSelectedChipIndex;
+        if (newSelected >= this.chipList.length) {
+          newSelected = this.chipList.length - 1;
+        }
         this._onChipSelected(newSelected);
       }
 
