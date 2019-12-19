@@ -109,15 +109,15 @@ namespace we {
     }
 
     class LobbyTabListItemRenderer extends ui.SortableItemRenderer {
-      private label: eui.Label;
+      private label: ui.RunTimeLabel;
       private boldWidth = null;
 
       public constructor() {
         super();
         this.skinName = `
-<e:Skin height="50" xmlns:e="http://ns.egret.com/eui" states="up,down">
+<e:Skin height="50" xmlns:e="http://ns.egret.com/eui" states="up,down" xmlns:ui="we.ui.*">
   <e:Group x="0" y="0" width="100%" height="100%">
-    <e:Label id="label" text="{data}" verticalCenter="0" textColor="0xffffff" horizontalCenter="0"  alpha.up="0.7" bold.down="true"/>
+    <ui:RunTimeLabel id="label" text="{data}" verticalCenter="0" textColor="0xffffff" horizontalCenter="0"  alpha.up="0.7" bold.down="true"/>
   </e:Group>
 </e:Skin>
         `;
@@ -125,7 +125,7 @@ namespace we {
 
       public dataChanged() {
         super.dataChanged();
-        this.label.text = i18n.t(`lobby.header.${this.data}`);
+        this.label.renderText = () => `${i18n.t(`lobby.header.${this.data}`)}`;
         // set tab item min width to bold text width
         const bold = this.label.bold;
         this.label.bold = true;
