@@ -102,16 +102,20 @@ namespace we {
 
       get denomLayer() {
         if (this._denomLayer) {
+          console.log('BettingTable::denomLayer()::hasDenomLayer 1 ');
           return this._denomLayer;
         }
         if (!this._gridPlayer) {
+          console.log('BettingTable::denomLayer()::hasDenomLayer 2 ');
           return null;
         }
         if (!we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
+          console.log('BettingTable::denomLayer()::hasDenomLayer 3 ' + this._gridPlayer.hasDenomLayer);
           return null;
         }
         this._denomLayer = new eui.Component();
         if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
+          console.log('BettingTable::denomLayer()::hasDenomLayer 4 ');
           this.setDenomGrid(this._gridPlayer);
           this._denomLayer.addChild(this._gridPlayer.denomLayer);
         }

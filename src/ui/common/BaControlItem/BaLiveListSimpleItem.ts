@@ -109,7 +109,7 @@ namespace we {
         }
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
-        // egret.Tween.removeTweens(this._denomLayer);
+        if (this._denomLayer) { egret.Tween.removeTweens(this._denomLayer); }
 
         const p1 = new Promise(resolve =>
           egret.Tween.get(this)
@@ -122,11 +122,13 @@ namespace we {
             .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
             .call(resolve)
         );
-        // const p3 = new Promise(resolve =>
-        //   egret.Tween.get(this._denomLayer)
-        //     .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
-        //     .call(resolve)
-        // );
+        if (this._denomLayer) {
+          const p3 = new Promise(resolve =>
+            egret.Tween.get(this._denomLayer)
+              .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+              .call(resolve)
+          );
+        }
       }
 
       protected hideQuickBetGroup() {
@@ -134,9 +136,9 @@ namespace we {
 
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
-        // egret.Tween.removeTweens(this._denomLayer);
+        if (this._denomLayer) { egret.Tween.removeTweens(this._denomLayer); }
         egret.Tween.get(this._quickBetGroup).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
-        // egret.Tween.get(this._denomLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
+        if (this._denomLayer) { egret.Tween.get(this._denomLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1); }
         if (this._mouseOutside) {
           egret.Tween.removeTweens(this._quickbetButton);
           const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1);
