@@ -2,19 +2,23 @@ namespace we {
   export namespace ui {
     export class RunTimeLabel extends eui.Label {
       private _r: () => string;
+      private _isReg: boolean = false;
 
       constructor() {
         super();
-        i18n.register(this);
-        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
       protected destroy() {
         i18n.drop(this);
+        this._isReg = false;
       }
 
       public set renderText(r: () => string) {
         this._r = r;
+        if (!this._isReg) {
+          i18n.register(this);
+          this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
+        }
         this.render();
       }
 
