@@ -1,7 +1,7 @@
 namespace we {
   export namespace ba {
     export class BaSideListItem extends BaLiveListSimpleItem {
-      protected _bigRoad: we.ba.BALobbyBigRoad;
+      protected _bigRoad: we.ba.BetInfoBigRoad;
       protected _quickbetButton: ui.RoundButton;
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
