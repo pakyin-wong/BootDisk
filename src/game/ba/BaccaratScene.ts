@@ -188,8 +188,14 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
         this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
+      }
+
+      private onBetLimitChanged(evt: egret.Event) {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this.betChipSet.resetDenominationList(denominationList);
       }
 
       private toggleRoomInfo() {

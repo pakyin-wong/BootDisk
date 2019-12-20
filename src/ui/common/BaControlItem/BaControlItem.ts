@@ -107,7 +107,7 @@ namespace we {
       protected onBetLimitUpdate(evt: egret.Event) {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
-          this._betChipSet.setDenominationList(denominationList);
+          this._betChipSet.resetDenominationList(denominationList);
         }
         if (this._bettingTable) {
           this._bettingTable.denomList = denominationList;
