@@ -102,7 +102,8 @@ namespace we {
         if (e.data.roadType === 1) {
           // default
           const roadsEnabled = [];
-          env.goodRoadData.default.forEach(element => {
+          const defaults = env.goodRoadData.default.slice();
+          defaults.forEach(element => {
             if (element.id === e.data.id) {
               element.enabled = e.data.enabled;
             }
@@ -118,7 +119,8 @@ namespace we {
         }
       }
       private onRoadRemove(e: egret.Event) {
-        console.log('remove');
+        // remove custom road
+        dir.socket.removeGoodRoadmap(e.data.id);
       }
 
       private renderFromGoodRoadData() {
