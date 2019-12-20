@@ -11,7 +11,7 @@
         </e:List>
         <ui:Scroller id="_scroller" collapseOnStart="true" isCollapsible="true" iscollapseAnimate="true" right="29"
                      left="29" bottom="24" top="76">
-            <e:Group anchorOffsetX="0" anchorOffsetY="0" width="460" height="600"></e:Group>
+            <e:Group anchorOffsetX="0" anchorOffsetY="0" width="460" height="1150"></e:Group>
         </ui:Scroller>
     </e:Group>
 </e:Skin>

@@ -150,6 +150,10 @@ declare module skin_desktop{
 	class CountdownTimerRoundSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class CountdownTimerRoundSmallSkin extends eui.Skin{
+	}
+}
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
 }
 declare class BaBetLimitDropdownSkin extends eui.Skin{
