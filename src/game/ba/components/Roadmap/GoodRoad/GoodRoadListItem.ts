@@ -175,8 +175,34 @@ namespace we {
       }
 
       private onActiveTap(evt: egret.Event) {
-        const s = evt.data;
-        this.dispatchEvent(new egret.Event('onEnableChanged', false, false, s));
+        const enabled: boolean = evt.data === 0;
+        // limit max number of enabled
+        let roadsEnabledCount = 0;
+        const defaults = env.goodRoadData.default.slice();
+        defaults.forEach(element => {
+          if (element.id === this.roadId) {
+            element.enabled = enabled;
+          }
+          if (element.enabled) {
+            roadsEnabledCount++;
+          }
+        });
+
+        const custom = env.goodRoadData.custom.slice();
+        custom.forEach(element => {
+          if (element.id === this.roadId) {
+            element.enabled = enabled;
+          }
+          if (element.enabled) {
+            roadsEnabledCount++;
+          }
+        });
+
+        if (roadsEnabledCount > 20) {
+          this._activeButton.setInitButtonState(1);
+        } else {
+          this.dispatchEvent(new egret.Event('onEnableChanged', false, false, enabled));
+        }
       }
 
       private onTouchTap(evt: egret.Event) {
