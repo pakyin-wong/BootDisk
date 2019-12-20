@@ -490,7 +490,7 @@ namespace we {
 
       protected onBetInfoUpdate(betInfo: any /*PlayerBetInfo*/, timestamp: string) {
         this.updateTimestamp(timestamp);
-
+        console.log(betInfo);
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
