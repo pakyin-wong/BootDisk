@@ -31,7 +31,7 @@ namespace we {
         // this._notificationController.x = stage.stageWidth - 410;
         // this._notificationController.y = 240;
 
-        this._liveSidePanel.x = 2050;
+        this._liveSidePanel.x = 2170;
         this._liveSidePanel.y = 80;
       }
 
