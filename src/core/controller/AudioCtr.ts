@@ -58,6 +58,8 @@ namespace we {
           const soundFx = RES.getRes(`sn_${name}_${env.voice}_mp3`);
           chain = chain.then(() => {
             this._channelFX = soundFx.play(0, 1);
+            // set initial volume to current fx volume
+            this._channelFX.volume = this._volumeFX;
             console.log('playing', `sn_${name}_${env.voice}_mp3`);
             return new Promise<void>(resolve => {
               this._channelFX.addEventListener(
