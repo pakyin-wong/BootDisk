@@ -35,7 +35,7 @@ namespace we {
           case we.ba.WinType.NONE:
           default:
             console.log('BaSideListBetItemCardHolder::updateResult():4');
-            // this.setPlayerBgColor(false);
+            this.setPlayerBgColor(false);
             this.setBankerBgColor(false);
             break;
         }
