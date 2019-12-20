@@ -37,7 +37,7 @@ namespace we {
     }
     export enum LiveGameTab {
       ba = 'bacarrat',
-      goodroad = 'goodroad',
+      // goodroad = 'goodroad',
     }
 
     export const TableFilter = {

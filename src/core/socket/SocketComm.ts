@@ -237,7 +237,7 @@ namespace we {
           this.filterAndDispatch(env.allTableList, core.Event.TABLE_LIST_UPDATE);
         }
         if (env.goodRoadTableList.indexOf(tableid) > -1) {
-          this.filterAndDispatch(env.goodRoadTableList, core.Event.GOOD_ROAD_TABLE_LIST_UPDATE);
+          this.filterAndDispatch(env.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
         }
         if (env.betTableList.indexOf(tableid) > -1) {
           this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
@@ -610,7 +610,8 @@ namespace we {
         }
         // filter all the display ready table
         // dispatch GOOD_ROAD_TABLE_LIST_UPDATE
-        this.filterAndDispatch(goodRoadTableList, core.Event.GOOD_ROAD_TABLE_LIST_UPDATE);
+        dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, tableInfos);
+        this.filterAndDispatch(goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
       }
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
