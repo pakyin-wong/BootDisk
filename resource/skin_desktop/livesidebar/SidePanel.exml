@@ -3,10 +3,10 @@
     <e:Group left="0" right="0">
         <e:Image source="nav_panel_bg" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" bottom="0" top="0"
                  left="0" right="0" />
-        <e:List id="_tabbar" y="26" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="ImageTabItemWithBadgeSkin"
-                right="62">
+        <e:List id="_tabbar" y="36" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="ImageTabItemWithBadgeSkin"
+                right="51">
             <e:layout>
-                <e:HorizontalLayout gap="40" />
+                <e:HorizontalLayout gap="30" />
             </e:layout>
         </e:List>
         <ui:Scroller id="_scroller" collapseOnStart="true" isCollapsible="true" iscollapseAnimate="true" right="29"

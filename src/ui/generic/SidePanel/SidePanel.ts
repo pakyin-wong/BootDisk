@@ -24,7 +24,7 @@ namespace we {
         this._tabbar.addEventListener('CLEAR_SELECTION', this.onClearSelection, this);
 
         this.activeLine = new eui.Rect();
-        this.activeLine.y = this._tabbar.y + this._tabbar.height;
+        this.activeLine.y = this._tabbar.y + this._tabbar.height + 2;
         this.activeLine.fillColor = 0xffffff;
         this.activeLine.height = 3;
         this.addChild(this.activeLine);
