@@ -1,11 +1,11 @@
 namespace we {
   export namespace ba {
     export class GameResultMessage extends core.BaseEUI {
-      private _bg: eui.Image;
-      private _label: eui.IDisplayText & egret.DisplayObject;
-      private _numlabel: eui.IDisplayText & egret.DisplayObject;
+      protected _bg: eui.Image;
+      protected _label: eui.IDisplayText & egret.DisplayObject;
+      protected _numlabel: eui.IDisplayText & egret.DisplayObject;
 
-      private _isAnimating: boolean;
+      protected _isAnimating: boolean;
 
       public duration: number = 1600;
 

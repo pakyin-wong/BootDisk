@@ -22,9 +22,9 @@ namespace we {
         super.createChildren();
         this.skinName = utils.getSkin('CardHolder');
       }
+
       protected childrenCreated() {
         super.childrenCreated();
-
         this.resetCards();
       }
 
@@ -39,10 +39,6 @@ namespace we {
 
         cardArr.forEach(function (value, index) {
           if (value) {
-            // format value
-            // value = value.replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2');
-            // value = value.replace('diamond', 'diamonds');
-            // value = value.replace('heart', 'hearts');
             cardHolderArr[index].setCard(utils.formatCard(value), (index + 1) % 3 !== 0);
           } else {
             if ((index + 1) % 3 !== 0) {
@@ -50,26 +46,6 @@ namespace we {
             }
           }
         });
-        /*
-        if (this.gameData.a1) {
-          this.card1Player.setCard(this.gameData.a1);
-        }
-        if (this.gameData.a2) {
-          this.card2Player.setCard(this.gameData.a2);
-        }
-        if (this.gameData.a3) {
-          this.card3Player.setHCard(this.gameData.a3);
-        }
-        if (this.gameData.b1) {
-          this.card1Banker.setCard(this.gameData.b1);
-        }
-        if (this.gameData.b2) {
-          this.card2Banker.setCard(this.gameData.b2);
-        }
-        if (this.gameData.b3) {
-          this.card3Banker.setHCard(this.gameData.b3);
-        }
-        */
       }
 
       public resetCards() {

@@ -55,6 +55,14 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class SidePanelGameResultNormalSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SidePanelGameResultWinSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
 	}
 }
@@ -140,6 +148,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class CountdownTimerRoundSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class CountdownTimerRoundSmallSkin extends eui.Skin{
 	}
 }
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{

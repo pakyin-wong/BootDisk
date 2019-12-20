@@ -46,8 +46,7 @@ namespace we {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
 
         if (this._betChipSet) {
-          this._betChipSet.setVisibleDenominationCount(3);
-          this._betChipSet.setDenominationList(denominationList);
+          this._betChipSet.init(3, denominationList);
         }
 
         if (this._bettingTable) {
@@ -79,6 +78,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -99,6 +99,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
+        dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
 
       protected destroy() {
@@ -108,7 +109,7 @@ namespace we {
       protected onBetLimitUpdate(evt: egret.Event) {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
-          this._betChipSet.setDenominationList(denominationList);
+          this._betChipSet.resetDenominationList(denominationList);
         }
         if (this._bettingTable) {
           this._bettingTable.denomList = denominationList;
@@ -130,6 +131,8 @@ namespace we {
           }
         }
       }
+
+      protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate() {
         console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');

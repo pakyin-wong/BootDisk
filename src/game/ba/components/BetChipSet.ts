@@ -2,16 +2,15 @@ namespace we {
   export namespace ba {
     export class BetChipSet extends eui.Component implements eui.UIComponent, IBetChipSet {
       private _startIndex = 0;
-      private currentDenomination: number[];
-      private visibleDenominationCount = 0;
+      private _denomList: number[];
+      private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
       private _chipContainer: eui.Group;
 
-      private _envSelectedChipIndex: number = 10;
-      private _localSelectedChipIndex: number;
+      private _selectedChipIndex: number = 10;
 
-      private chipList: Array<IBetChip & eui.Component> = [];
+      private _chipList: Array<IBetChip & eui.Component> = [];
 
       public constructor() {
         super();
@@ -37,174 +36,140 @@ namespace we {
         this.addChild(this._leftNav);
         this.addChild(this._chipContainer);
         this.addChild(this._rightNav);
-        this.setVisibleDenominationCount(5); // default value
-        this._localSelectedChipIndex = 0;
+        this._visibleDenomNum = 5; // default value
       }
 
-      public setVisibleDenominationCount(count) {
-        this.visibleDenominationCount = count;
-        this._renderItems();
+      set visibleDenomNum(value: number) {
+        this._visibleDenomNum = value;
+      }
+
+      get visibleDenomNum() {
+        return this._visibleDenomNum;
+      }
+
+      public setVisibleDenomNum(count) {
+        this._visibleDenomNum = count;
       }
 
       public setLast() {
-        this._onChipSelected(this.chipList.length - 1);
-        this._startIndex = this.chipList.length - this.visibleDenominationCount;
         this._renderItems();
       }
 
-      public setDenominationList(denominationList: number[]) {
-        this.chipList = [];
-        this._setChipSet(denominationList);
-        // compute start index
-        // const selectedIdx = env.currentChipSelectedIndex;
-        const selectedIdx = this._envSelectedChipIndex;
-        let startIdx = (selectedIdx / this.visibleDenominationCount) * this.visibleDenominationCount;
-        const endCount = startIdx + this.visibleDenominationCount;
-        if (endCount > this.currentDenomination.length) {
-          startIdx -= endCount - this.currentDenomination.length;
-        }
-        this._localSelectedChipIndex = selectedIdx - startIdx;
-        this._setStartIndex(startIdx);
+      set denomList(value: number[]) {
+        this._denomList = value;
       }
 
-      private _setStartIndex(index) {
-        this._startIndex = index;
+      get denomList() {
+        return this._denomList;
+      }
+
+      public init(visibleDenomNum: number, denomList: number[]) {
+        this._visibleDenomNum = visibleDenomNum;
+        this._denomList = denomList;
+        this._selectedChipIndex = this._denomList.length - 1;
+        this.setChipSet(denomList);
+        this._startIndex = this._chipList.length - this._visibleDenomNum;
+        console.log('BetChipSet::init()', this._selectedChipIndex, this._visibleDenomNum, this._startIndex, this._denomList);
+        this._renderItems();
+      }
+
+      public resetDenomNum(denomNum: number) {
+        this._visibleDenomNum = denomNum;
+        // this._onChipSelected(this._selectedChipIndex);
+        this._startIndex = this._chipList.length - this._visibleDenomNum;
+        this._renderItems();
+      }
+
+      public resetDenominationList(denomList: number[]) {
+        this._denomList = denomList;
+        this.clearChipList();
+        this._selectedChipIndex = this._denomList.length - 1;
+        this.setChipSet(denomList);
+        this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
       }
 
       private _navigate(dir) {
-        // const page = Math.ceil(this._startIndex / this.visibleDenominationCount);
-        // const totalPage = Math.ceil(this.chipList.length / this.visibleDenominationCount);
-        const visibleMinusOne = this.visibleDenominationCount - 1;
+        let newSelected: number;
+        let newStart: number;
         if (dir > 0) {
-          // go right
-          let newIndex = this._startIndex;
-          newIndex += this.visibleDenominationCount; // next page
-          newIndex += visibleMinusOne; // last item
-          if (this.chipList[newIndex]) {
-            // swap three item
-            this._setStartIndex(newIndex - visibleMinusOne);
-            console.log('> swap 3 item');
-          } else {
-            while (!this.chipList[newIndex]) {
-              newIndex -= 1;
-              if (this.chipList[newIndex]) {
-                this._setStartIndex(newIndex - visibleMinusOne);
-                console.log('< swap 2 item');
-              }
-            }
-          }
+          // right
+          const oldPagePos = this._selectedChipIndex - this._startIndex;
+          const lastPageStart = this._denomList.length - this._visibleDenomNum;
+          newStart = Math.min(this._startIndex + this._visibleDenomNum, lastPageStart);
+          newSelected = newStart === lastPageStart ? lastPageStart + oldPagePos : Math.min(this._selectedChipIndex + this._visibleDenomNum, this._denomList.length - 1);
+          console.log('BetChipSet::_navigate()- right', oldPagePos, lastPageStart, this._selectedChipIndex, this._visibleDenomNum, this._startIndex, newSelected, newStart);
         } else {
-          // go left
-          let newIndex = this._startIndex;
-          newIndex -= this.visibleDenominationCount; // prev page
-          if (this.chipList[newIndex]) {
-            this._setStartIndex(newIndex);
-            console.log('< swap 3 item');
-          } else {
-            while (!this.chipList[newIndex]) {
-              newIndex += 1;
-              if (this.chipList[newIndex]) {
-                this._setStartIndex(newIndex);
-                console.log('< swap 2 item');
-              }
-            }
-          }
+          // left
+          const oldPagePos = this._selectedChipIndex - this._startIndex;
+          const firstPageStart = 0;
+          newStart = Math.max(this._startIndex - this._visibleDenomNum, firstPageStart);
+          newSelected = newStart === firstPageStart ? oldPagePos : Math.max(this._selectedChipIndex - this._visibleDenomNum, firstPageStart);
+
+          console.log('BetChipSet::_navigate()- left', oldPagePos, firstPageStart, this._selectedChipIndex, this._visibleDenomNum, this._startIndex, newSelected, newStart);
         }
-        // update selected index
-        let newSelected = this._startIndex + this._localSelectedChipIndex;
-        if (newSelected >= this.chipList.length) {
-          newSelected = this.chipList.length - 1;
-        }
+        this._startIndex = newStart;
         this._onChipSelected(newSelected);
+        this._renderItems();
       }
 
       private _updateNavigationDisplay() {
-        let showLeftNav = false;
-        let showRightNav = false;
-        const page = Math.ceil((this._startIndex + this.visibleDenominationCount) / this.visibleDenominationCount);
-        const totalPage = Math.ceil(this.chipList.length / this.visibleDenominationCount);
-        if (page > 1 && totalPage > 1) {
-          showLeftNav = true;
-        }
-        if (page < totalPage && totalPage > 1) {
-          showRightNav = true;
-        }
-        this._leftNav.visible = showLeftNav;
-        this._rightNav.visible = showRightNav;
+        this._leftNav.visible = this._startIndex > 0;
+        this._rightNav.visible = this._startIndex + this._visibleDenomNum < this._chipList.length;
       }
 
       private _renderItems() {
-        if (!this.chipList.length) {
+        if (!this._chipList.length) {
           return;
         }
         this._chipContainer.removeChildren();
-        for (let i = 0; i < this.visibleDenominationCount; i += 1) {
-          const child: eui.Component & IBetChip = this.chipList[this._startIndex + i];
+        for (let i = 0; i < this._visibleDenomNum; i += 1) {
+          const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
           child.verticalCenter = 0;
           child.percentHeight = 100;
-          child.percentWidth = 100 / this.visibleDenominationCount;
+          child.percentWidth = 100 / this._visibleDenomNum;
         }
         this._updateNavigationDisplay();
       }
 
-      private _setChipSet(denominationList: number[]) {
-        this.currentDenomination = denominationList;
-
-        // check if the currentChipSelectedIndex exceed the denomination list length
-        // env.currentChipSelectedIndex = Math.min(denominationList.length - 1, env.currentChipSelectedIndex);
-        this._envSelectedChipIndex = Math.min(denominationList.length - 1, this._envSelectedChipIndex);
-        // const selectedIdx = env.currentChipSelectedIndex;
-        const selectedIdx = this._envSelectedChipIndex;
-        this.clearChipList();
-
-        let idx = 0;
-        for (const value of denominationList) {
+      public setChipSet(denomList: number[]) {
+        this._denomList = denomList;
+        this._denomList.map((value, index) => {
+          console.log('BetChipSet::setChipSet : ', index, value);
           const betChip = new BetChip(value);
-          betChip.index = idx;
-          betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, idx), this);
-          if (selectedIdx === idx) {
+          betChip.index = index;
+          if (index === this._selectedChipIndex) {
             betChip.highlight = true;
           }
-          this.chipList.push(betChip);
-          idx += 1;
-        }
+          betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
+          this._chipList.push(betChip);
+        });
       }
 
       private clearChipList() {
-        for (const betChip of this.chipList) {
+        for (const betChip of this._chipList) {
           betChip.parent && betChip.parent.removeChild(betChip);
         }
-        this.chipList = [];
+        this._chipList = [];
       }
 
       private _onChipSelected(index: number) {
-        // env.currentChipSelectedValue = this.chipList[index].getValue();
-
-        // const prevSelectedIndex = env.currentChipSelectedIndex;
-        const prevSelectedIndex = this._envSelectedChipIndex;
-        this.chipList[prevSelectedIndex].highlight = false;
-
-        // env.currentChipSelectedIndex = index;
-        this._envSelectedChipIndex = index;
-        this.chipList[index].highlight = true;
-
-        // update _localSelectedChipIndex
-        this._localSelectedChipIndex = index - this._startIndex;
+        this._chipList[this._selectedChipIndex].highlight = false;
+        this._chipList[index].highlight = true;
+        this._selectedChipIndex = index;
       }
 
       public setTouchEnabled(enabled: boolean) {
-        if (this.chipList) {
-          this.chipList.forEach(value => {
+        if (this._chipList) {
+          this._chipList.forEach(value => {
             value.touchEnabled = enabled;
           });
         }
       }
 
       public getSelectedChipIndex() {
-        console.log('BetChipSet::getSelectedChipIndex ：' + this._envSelectedChipIndex);
-        return this._envSelectedChipIndex;
+        return this._selectedChipIndex;
       }
     }
   }

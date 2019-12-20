@@ -14,8 +14,7 @@ namespace we {
         this.skinName = utils.getSkin('BetInfoBaQuickBetPanel');
         const betLimit = env.betLimits[this.getCurrBetLimitIndex()];
         const denominationList = betLimit.chipList;
-        this._betChipSet.setVisibleDenominationCount(3);
-        this._betChipSet.setDenominationList(denominationList);
+        this._betChipSet.resetDenomNum(3);
 
         this._bettingTable.type = we.core.BettingTableType.LOBBY;
         this._bettingTable.denomList = denominationList;

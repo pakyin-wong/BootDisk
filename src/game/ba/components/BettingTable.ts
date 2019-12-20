@@ -93,7 +93,7 @@ namespace we {
         this.setDenomLists();
         this.changeLang();
         this.resetUnconfirmedBet();
-        this.setListeners();
+        this.addTouchTapListeners();
       }
 
       set denomLayer(value: eui.Component) {
@@ -157,25 +157,39 @@ namespace we {
         grid.denomLayer.height = grid.height;
       }
 
-      public addRolloverEffect() {
+      public addRolloverListeners() {
         Object.keys(this.mapping).forEach(value => {
           this.mapping[value].addRolloverEffect();
         });
       }
-      public removeRolloverEffect() {
+      public removeRolloverListeners() {
         Object.keys(this.mapping).forEach(value => {
           this.mapping[value].removeRolloverEffect();
         });
       }
 
-      private setListeners() {
-        this._gridPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayer), this);
-        this._gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBanker), this);
-        this._gridPlayerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayerPair), this);
-        this._gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridTie), this);
-        this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
-        this._gridSuperSixBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSixBanker), this);
-        this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
+      public addTouchTapListeners() {
+        Object.keys(this.mapping).forEach(value => {
+          this.mapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.mapping[value]), this);
+        });
+      }
+
+      public removeTouchTapListeners() {
+        Object.keys(this.mapping).forEach(value => {
+          this.mapping[value].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.mapping[value]), this);
+        });
+      }
+
+      public removeAllMouseListeners() {
+        console.log('BettingTable::removeAllMouseListeners 1');
+        this.removeRolloverListeners();
+        this.removeTouchTapListeners();
+        console.log('BettingTable::removeAllMouseListeners 2');
+      }
+
+      public addAllMouseListeners() {
+        this.addRolloverListeners();
+        this.addTouchTapListeners();
       }
 
       public setGameMode(isNoCommission: boolean) {
@@ -221,11 +235,7 @@ namespace we {
 
         // TODO: update the already bet amount of each bet field
         console.log('BettingTable::betDetails');
-        console.log(betDetails);
         betDetails.map((value, index) => {
-          console.log('BettingTable::betDetails.map ');
-          console.log(value);
-
           if (this.mapping[value.field]) {
             this.mapping[value.field].setCfmBet(value.amount);
           }

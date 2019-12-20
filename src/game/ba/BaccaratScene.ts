@@ -93,8 +93,7 @@ namespace we {
 
         // work around currentSelectedBetLimitIndex = 0 choose by the
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
-        this.betChipSet.setVisibleDenominationCount(4);
-        this.betChipSet.setDenominationList(denominationList);
+        this.betChipSet.init(4, denominationList);
 
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
@@ -189,8 +188,14 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
         this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
+      }
+
+      private onBetLimitChanged(evt: egret.Event) {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this.betChipSet.resetDenominationList(denominationList);
       }
 
       private toggleRoomInfo() {

@@ -5,9 +5,9 @@ namespace we {
       private _channelBGM: egret.SoundChannel;
       private _channelFX: egret.SoundChannel;
 
-      private _volumeBGM = 1;
-      private _volumeFX = 1;
-      private _volumeLive = 1;
+      private _volumeBGM = 0.5;
+      private _volumeFX = 0.5;
+      private _volumeLive = 0.5;
 
       constructor(stage: egret.Stage) {
         // init dummy scene
@@ -58,6 +58,8 @@ namespace we {
           const soundFx = RES.getRes(`sn_${name}_${env.voice}_mp3`);
           chain = chain.then(() => {
             this._channelFX = soundFx.play(0, 1);
+            // set initial volume to current fx volume
+            this._channelFX.volume = this._volumeFX;
             console.log('playing', `sn_${name}_${env.voice}_mp3`);
             return new Promise<void>(resolve => {
               this._channelFX.addEventListener(

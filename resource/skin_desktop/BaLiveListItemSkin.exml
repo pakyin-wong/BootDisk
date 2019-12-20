@@ -20,7 +20,7 @@
 		                width="148" height="42" label1text="快速投注" label2text="X" scale9Grid="20,21,108,0" />
 		<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0" anchorOffsetY="0"
 		                       skinName="BetLimitDropdownSkin" />
-		<ba:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" />
+		<ba:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" skinName="skin_desktop.CountdownTimerRoundSkin" />
 	</e:Group>
 	<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="20" y="198" />
 </e:Skin>

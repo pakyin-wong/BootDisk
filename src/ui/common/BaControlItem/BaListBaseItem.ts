@@ -161,6 +161,8 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable) {
         super.setBetRelatedComponentsEnabled(enable);
         this._quickbetEnable = enable;
+        // this._bettingTable.touchChildren = enable;
+        // this._bettingTable.touchEnabled = enable;
         if (!this._mouseOutside && enable) {
           this.showQuickBetButton(true);
           this._quickbetButton.tweenLabel(false);

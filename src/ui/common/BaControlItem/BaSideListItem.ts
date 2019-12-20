@@ -24,9 +24,9 @@ namespace we {
       }
 
       protected initCustomPos() {
-        this._targetQuickBetButtonY = 250;
-        this._originalQuickBetButtonY = 137;
-        this._targetQuickbetPanelY = 251;
+        this._targetQuickBetButtonY = 199;
+        this._originalQuickBetButtonY = 85;
+        this._targetQuickbetPanelY = 170;
         this._originalQuickBetPanelY = 0;
         this._offsetLimit = 10000;
         this._offsetMovement = 0;
@@ -35,8 +35,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._betChipSet.setVisibleDenominationCount(1);
-        this._betChipSet.setLast();
+        this._betChipSet.resetDenomNum(1);
         this._goodRoadLabel.visible = false;
       }
 
@@ -46,7 +45,20 @@ namespace we {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
-          this._goodRoadLabel.text = goodRoadName;
+          // this._goodRoadLabel.text = goodRoadName;
+          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+        } else {
+          this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected onMatchGoodRoadUpdate() {
+        if (this.tableInfo.goodRoad) {
+          this._goodRoadLabel.visible = true;
+          const goodRoadData = this.tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          // this._goodRoadLabel.text = goodRoadName;
+          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
         }
