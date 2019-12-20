@@ -66,14 +66,12 @@ namespace we {
       public init(visibleDenomNum: number, denomList: number[]) {
         this._visibleDenomNum = visibleDenomNum;
         this._denomList = denomList;
-        this._selectedChipIndex = Math.min(this._denomList.length - 1, this._selectedChipIndex);
+        this._selectedChipIndex = this._denomList.length - 1;
         this.setChipSet(denomList);
         this._startIndex = this._chipList.length - this._visibleDenomNum;
         console.log('BetChipSet::init()', this._selectedChipIndex, this._visibleDenomNum, this._startIndex, this._denomList);
         this._renderItems();
       }
-
-      public setDenominationList(denominationList: number[]) {}
 
       public resetDenomNum(denomNum: number) {
         this._visibleDenomNum = denomNum;
@@ -85,7 +83,7 @@ namespace we {
       public resetDenominationList(denomList: number[]) {
         this._denomList = denomList;
         this.clearChipList();
-        this._selectedChipIndex = Math.min(this._denomList.length - 1, this._selectedChipIndex);
+        this._selectedChipIndex = this._denomList.length - 1;
         this.setChipSet(denomList);
         this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
