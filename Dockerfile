@@ -6,15 +6,21 @@ ADD . .
 RUN mkdir libs/modules
 RUN cd /egret-core-5.2.31/build/ && tar cf - egret eui assetsmanager dragonBones game tween promise | tar xvf - -C /client/libs/modules/
 
-RUN egret publish -version staging
-ADD config.json bin-release/web/staging/config.json
-ADD config.staging.json bin-release/web/staging/config.staging.json
-RUN sed -i "s/\"target\":.*/\"target\": \"staging\",/g" bin-release/web/staging/config.json
+ARG ENVIRONMENT
 
-FROM nginx:alpine as production
+RUN egret publish -version ${ENVIRONMENT}
+ADD config.json bin-release/web/${ENVIRONMENT}/config.json
+ADD config.${ENVIRONMENT}.json bin-release/web/${ENVIRONMENT}/config.${ENVIRONMENT}.json
+RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
 
-COPY nginx-conf/default.conf /etc/nginx/conf.d/
-COPY nginx-conf/nginx.conf /etc/nginx/
-COPY --from=build-stage  /client/bin-release/web/staging/ /usr/share/nginx/html/
+FROM pgpg/infra-nginx:latest as production
 
+ARG ENVIRONMENT
 
+COPY --from=build-stage  /client/bin-release/web/${ENVIRONMENT}/ /usr/share/nginx/html/
+
+ENV NGINX_TEMPLATE=static-local \
+    NGINX_PORT=80 \
+    NGINX_STATIC_ROOT=/usr/share/nginx/html/
+
+ENTRYPOINT ["/nginx/start.sh"]
