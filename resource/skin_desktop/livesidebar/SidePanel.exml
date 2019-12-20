@@ -9,9 +9,9 @@
                 <e:HorizontalLayout gap="30" />
             </e:layout>
         </e:List>
-        <ui:Scroller id="_scroller" collapseOnStart="true" isCollapsible="true" iscollapseAnimate="true" right="29"
-                     left="29" bottom="24" top="76">
-            <e:Group anchorOffsetX="0" anchorOffsetY="0" width="339" height="1150"></e:Group>
+        <ui:Scroller id="_scroller" collapseOnStart="true" isCollapsible="true" iscollapseAnimate="true" right="14"
+                     left="14" bottom="24" top="76">
+            <e:Group anchorOffsetX="0" anchorOffsetY="0" width="369" height="1150"></e:Group>
         </ui:Scroller>
     </e:Group>
 </e:Skin>

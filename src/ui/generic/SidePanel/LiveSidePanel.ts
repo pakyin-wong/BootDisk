@@ -77,6 +77,7 @@ namespace we {
         const layout = new eui.VerticalLayout();
         layout.paddingTop = 20;
         layout.paddingBottom = 20;
+        layout.horizontalAlign = egret.HorizontalAlign.CENTER;
         return layout;
       }
 
