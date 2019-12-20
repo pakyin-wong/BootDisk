@@ -15,40 +15,49 @@ namespace we {
 
       public updateResult(gameData: GameData) {
         super.updateResult(gameData);
+        console.log('BaSideListBetItemCardHolder::updateResult():gameData.winType: ' + gameData.wintype);
         switch (gameData.wintype) {
           case we.ba.WinType.PLAYER:
+            console.log('BaSideListBetItemCardHolder::updateResult():1');
             this.setPlayerBgColor(true);
             this.setBankerBgColor(false);
             break;
           case we.ba.WinType.BANKER:
+            console.log('BaSideListBetItemCardHolder::updateResult():2');
             this.setPlayerBgColor(false);
             this.setBankerBgColor(true);
             break;
           case we.ba.WinType.TIE:
+            console.log('BaSideListBetItemCardHolder::updateResult():3');
             this.setPlayerBgColor(false);
             this.setBankerBgColor(false);
             break;
           case we.ba.WinType.NONE:
-            this.setPlayerBgColor(false);
-            this.setBankerBgColor(false);
           default:
+            console.log('BaSideListBetItemCardHolder::updateResult():4');
+            // this.setPlayerBgColor(false);
+            this.setBankerBgColor(false);
             break;
         }
       }
 
       public setPlayerBgColor(value: boolean) {
         if (value) {
-          this._playerPanel.source = 'd_lobby_panel_gamelist_betresult_player_png';
+          console.log('BaSideListBetItemCardHolder::setPlayerBgColor():true');
+          this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playwinbg_png');
         } else {
-          this._playerPanel.source = 'd_lobby_panel_gamelist_betresult_playbg_png';
+          console.log('BaSideListBetItemCardHolder::setPlayerBgColor():false');
+          this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
         }
       }
 
       public setBankerBgColor(value: boolean) {
         if (value) {
-          this._bankerPanel.source = 'd_lobby_panel_gamelist_betresult_banker_png';
+          console.log('BaSideListBetItemCardHolder::setBankerBgColor():true');
+          this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankwinbg_png');
         } else {
-          this._bankerPanel.source = 'd_lobby_panel_gamelist_betresult_bankerbg_png';
+          console.log('BaSideListBetItemCardHolder::setBankerBgColor():false');
+          this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
         }
       }
     }
