@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BaSideListBetItemSkin" width="339" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
-        xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+        xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" minHeight="158">
 	<e:Group id="_quickBetGroup" width="100%" alpha="0" locked="true">
 		<e:Rect width="339" height="100" x="0" y="0" fillColor="0x202020" ellipseWidth="5" ellipseHeight="5" />
 		<ba:BetChipSet id="_betChipSet" x="12" y="10" width="220" height="80" />
