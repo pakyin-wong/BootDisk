@@ -96,20 +96,21 @@ namespace we {
         let newStart: number;
         if (dir > 0) {
           // right
-          newStart = Math.min(this._startIndex + this._visibleDenomNum, this._denomList.length - this._visibleDenomNum);
-          newSelected =
-            newStart === this._denomList.length - this._visibleDenomNum
-              ? this.denomList.length - this._visibleDenomNum + (this._selectedChipIndex - this._startIndex)
-              : Math.min(this._startIndex + this._visibleDenomNum, this._denomList.length - 1);
-          this._startIndex = newStart;
-          console.log('BetChipSet::_navigate()- right', this._selectedChipIndex, this._visibleDenomNum, this._startIndex, newSelected);
+          const oldPagePos = this._selectedChipIndex - this._startIndex;
+          const lastPageStart = this._denomList.length - this._visibleDenomNum;
+          newStart = Math.min(this._startIndex + this._visibleDenomNum, lastPageStart);
+          newSelected = newStart === lastPageStart ? lastPageStart + oldPagePos : Math.min(this._selectedChipIndex + this._visibleDenomNum, this._denomList.length - 1);
+          console.log('BetChipSet::_navigate()- right', oldPagePos, lastPageStart, this._selectedChipIndex, this._visibleDenomNum, this._startIndex, newSelected, newStart);
         } else {
           // left
-          newStart = Math.max(this._startIndex - this._visibleDenomNum, 0);
-          newSelected = newStart === 0 ? this._selectedChipIndex - this._startIndex : Math.max(this._selectedChipIndex - this._visibleDenomNum, 0);
-          this._startIndex = newStart;
-          console.log('BetChipSet::_navigate()- left', this._selectedChipIndex, this._visibleDenomNum, this._startIndex, newSelected);
+          const oldPagePos = this._selectedChipIndex - this._startIndex;
+          const firstPageStart = 0;
+          newStart = Math.max(this._startIndex - this._visibleDenomNum, firstPageStart);
+          newSelected = newStart === firstPageStart ? oldPagePos : Math.max(this._selectedChipIndex - this._visibleDenomNum, firstPageStart);
+
+          console.log('BetChipSet::_navigate()- left', oldPagePos, firstPageStart, this._selectedChipIndex, this._visibleDenomNum, this._startIndex, newSelected, newStart);
         }
+        this._startIndex = newStart;
         this._onChipSelected(newSelected);
         this._renderItems();
       }
