@@ -62,6 +62,7 @@ class Main extends eui.UILayer {
   }
 
   private loadTheme(): Promise<{}> {
+    const prerequisiteTheme = new eui.Theme('resource/preloaddefault.thm.json', this.stage);
     const theme = new eui.Theme('resource/default.thm.json', this.stage);
     return we.utils.wait(theme, eui.UIEvent.COMPLETE);
   }
