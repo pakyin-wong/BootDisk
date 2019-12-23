@@ -154,6 +154,9 @@ namespace we {
         betSuccess: '下注成功',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
+        removeGoodRoad: '刪除路紙？',
+        confirmRemoveGoodRoad: '刪除',
+        cancelRemoveGoodRoad: '取消',
         result: {
           BANKER: '庄贏',
           PLAYER: '閒贏',

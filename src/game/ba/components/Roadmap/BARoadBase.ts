@@ -81,8 +81,25 @@ namespace we {
           if (state === 0) {
             this.roadData = roadData;
           }
-          const roadDataCopy = roadData.slice(); // copy the array;
 
+          // trim the leading empty cells
+          const roadDataCopy = roadData.slice();
+          let i: number = roadDataCopy.length - 1;
+          let c: number = 0;
+          while (i >= 0) {
+            if (!roadDataCopy[i].V) {
+              c++;
+              if (c >= 6) {
+                roadDataCopy.splice(i, 6);
+                c = 0;
+              }
+            } else {
+              break;
+            }
+            i--;
+          }
+
+          // trim the ending extra cells
           const maxNum = this.numCol * 6;
 
           const exceed = roadDataCopy.length - maxNum;

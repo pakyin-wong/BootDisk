@@ -67,6 +67,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BaLiveListItemBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaLiveListItemSkin extends eui.Skin{
 	}
 }
@@ -203,22 +207,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class LiveBaBettingTableSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LiveBaListItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LiveBaListSimpleItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LiveBaQuickBetPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class LivePage extends eui.Skin{
 	}
 }
@@ -272,6 +260,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class Datepicker extends eui.Skin{
 	}
 }
 declare module skin_desktop{

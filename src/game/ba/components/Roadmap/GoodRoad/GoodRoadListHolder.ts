@@ -78,7 +78,7 @@ namespace we {
           dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, enabled: e.data, roadType: 1 });
         } else if (this.roadType === 2) {
           // custom
-          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, name: this.roadName, pattern: this.roadPattern, enabled: e.data.enabled, roadType: 2 });
+          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, name: this.roadName, pattern: this.roadPattern, enabled: e.data, roadType: 2 });
         }
       }
 
