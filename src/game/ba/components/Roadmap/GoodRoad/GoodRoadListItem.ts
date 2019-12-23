@@ -94,8 +94,10 @@ namespace we {
         // 0 for on, 1 for off
         if (n) {
           this._activeButton.setInitButtonState(0);
+          this.alpha = 1;
         } else {
           this._activeButton.setInitButtonState(1);
+          this.alpha = 0.5;
         }
       }
 
@@ -171,11 +173,37 @@ namespace we {
       }
 
       private onBinTap(evt: egret.Event) {
+        dir.evtHandler.showMessage({
+          class: 'MessageDialog',
+          args: [
+            i18n.t('baccarat.removeGoodRoad'),
+
+            {
+              dismiss: {
+                text: i18n.t('baccarat.cancelRemoveGoodRoad'),
+              },
+              action: {
+                text: i18n.t('baccarat.confirmRemoveGoodRoad'),
+                onClick: this.onBinConfirm,
+              },
+            },
+          ],
+        });
+      }
+
+      private onBinConfirm() {
         this.dispatchEvent(new egret.Event('onBinTap'));
       }
 
       private onActiveTap(evt: egret.Event) {
         const enabled: boolean = evt.data === 0;
+
+        if (enabled) {
+          this.alpha = 1;
+        } else {
+          this.alpha = 0.5;
+        }
+
         // limit max number of enabled
         let roadsEnabledCount = 0;
         const defaults = env.goodRoadData.default.slice();

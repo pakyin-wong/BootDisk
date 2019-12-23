@@ -154,6 +154,9 @@ namespace we {
         betSuccess: 'betSuccess',
         addNewGoodRoad: 'New Good Road',
         newGoodRoadName: 'My Road',
+        removeGoodRoad: 'Delete Road Sheet?',
+        confirmRemoveGoodRoad: 'Delete',
+        cancelRemoveGoodRoad: 'Cancel',
         result: {
           BANKER: 'Banker Win',
           PLAYER: 'Player Win',
