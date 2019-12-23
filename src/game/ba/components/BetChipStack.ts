@@ -123,8 +123,7 @@ namespace we {
 
       protected drawChips() {
         this._chips.map((value, index) => {
-          console.log('BetChipStack::drawChips - ', this._chipWidth, this._chipHeight, index);
-          console.log(value);
+          console.log('BetChipStack::drawChips - ', this._chipWidth, this._chipHeight, index, value);
           value.horizontalCenter = 0;
           value.y = index * -this._chipInterval;
           value.width = this._chipWidth;

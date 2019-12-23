@@ -16,8 +16,8 @@ class Main extends eui.UILayer {
     //   egret.ticker.resume();
     // };
 
-    this.init().catch(e => {
-      console.log(e);
+    this.init().catch(error => {
+      console.log(error);
     });
   }
 

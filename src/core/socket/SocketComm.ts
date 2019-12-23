@@ -506,12 +506,12 @@ namespace we {
         // }
         // const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
         // // tableInfo.bets = betInfo.bets;
-        // egret.log('BetInfoUpdate:', betInfo);
+        // logger.l('BetInfoUpdate:', betInfo);
         // tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
         //   const betDetail: data.BetDetail = (<any>Object).assign({}, value);
         //   return betDetail;
         // });
-        // egret.log('BetInfoUpdate:', tableInfo.bets);
+        // logger.l('BetInfoUpdate:', tableInfo.bets);
 
         // dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
       }
@@ -556,11 +556,11 @@ namespace we {
         this.client.bet(tableID, betCommands, result => {
           this.betResultCallback(result);
         });
-        egret.log('Placed bet');
+        logger.l('Placed bet');
       }
 
       public betResultCallback(result: data.PlayerBetResult) {
-        egret.log('Bet Result Received');
+        logger.l('Bet Result Received');
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, result);
       }
 

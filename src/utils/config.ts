@@ -1,13 +1,11 @@
 namespace we {
   export namespace utils {
     export async function getConfig() {
-      let obj: any = {};
-      const configsText = await this.getText(`./config.json?t=${Date.now()}`);
-      obj = JSON.parse(<string> configsText);
-      console.log(obj);
+      let text = await this.getText(`./config.json?t=${Date.now()}`);
+      let obj = JSON.parse(text);
       try {
-        const configsText = await this.getText(`./config.${obj.target}.json?t=${Date.now()}`);
-        obj = JSON.parse(<string> configsText);
+        text = await this.getText(`./config.${obj.target}.json?t=${Date.now()}`);
+        obj = JSON.parse(text);
       } catch (error) {
         console.log(error + '. Therefore it use ./config.json.');
       }

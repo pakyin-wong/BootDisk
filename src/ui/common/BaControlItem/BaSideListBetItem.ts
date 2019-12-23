@@ -24,8 +24,6 @@ namespace we {
         super.initChildren();
         this._betChipSet.resetDenomNum(2);
         this._bettingTable.setGameMode(false);
-        console.log('BaSideListBetItem::initChildren - run 1');
-        console.log('BaSideListBetItem::initChildren - run 2');
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

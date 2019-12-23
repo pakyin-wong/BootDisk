@@ -279,8 +279,7 @@ namespace we {
       }
 
       public updateGame() {
-        console.log('LiveBaListItem::updateGame() - this._gameData.state ');
-        console.log(this._gameData);
+        console.log('LiveBaListItem::updateGame() - this._gameData.state ', this._gameData);
         if (!this._gameData) {
           return;
         }

@@ -17,7 +17,7 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        console.log('RoundButton::childrenCreated ' + this.width + ' ' + this._image.width + ' ' + this._image.source);
+        // console.log('RoundButton::childrenCreated ' + this.width + ' ' + this._image.width + ' ' + this._image.source);
       }
 
       set width(value: number) {

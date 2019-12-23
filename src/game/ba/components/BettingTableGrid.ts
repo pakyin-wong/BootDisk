@@ -155,7 +155,6 @@ namespace we {
       }
 
       set chipType(value: number) {
-        console.log('BettingTableGrid::chiptype: ', value);
         this._chipType = value;
       }
 

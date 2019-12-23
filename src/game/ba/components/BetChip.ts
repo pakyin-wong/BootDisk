@@ -103,7 +103,6 @@ namespace we {
         console.log('BetChip::type1 ', this._type, value);
         if (!this._type) {
           this._type = +value;
-          console.log('BetChip::type2 ', this._type);
         }
       }
 

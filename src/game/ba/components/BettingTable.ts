@@ -315,7 +315,7 @@ namespace we {
         // TODO: check balance
         const balance = env.balance;
         if (balance < totalBetAmount) {
-          egret.log(core.Event.INSUFFICIENT_BALANCE);
+          logger.l(core.Event.INSUFFICIENT_BALANCE);
           dir.evtHandler.dispatch(core.Event.INSUFFICIENT_BALANCE);
           return false;
         }
@@ -328,7 +328,7 @@ namespace we {
           fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxlimit ||
           fieldAmounts[BetField.SUPER_SIX] > betLimit.maxlimit;
         if (exceedBetLimit) {
-          egret.log(core.Event.EXCEED_BET_LIMIT);
+          logger.l(core.Event.EXCEED_BET_LIMIT);
           dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
           return false;
         }

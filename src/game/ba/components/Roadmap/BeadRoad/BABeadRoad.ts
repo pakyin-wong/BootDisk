@@ -36,20 +36,18 @@ namespace we {
         return this.mode;
       }
 
-      private onClick(e: egret.TouchEvent) {
+      private onClick(event: egret.TouchEvent) {
         // this.Mode = ++this.Mode % 2;
       }
 
-      private onOver(e: mouse.MouseEvent) {
-        console.log(e);
+      private onOver(event: mouse.MouseEvent) {
         mouse.setMouseMoveEnabled(true);
         this.stage.addEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
       }
 
-      private onMove(e: egret.TouchEvent) {
-        console.log(e);
+      private onMove(event: egret.TouchEvent) {
         let pt: egret.Point = new egret.Point(0, 0);
-        this.globalToLocal(e.stageX, e.stageY, pt);
+        this.globalToLocal(event.stageX, event.stageY, pt);
         pt = pt;
         const posX: number = pt.x;
         const posY: number = pt.y;
@@ -60,8 +58,7 @@ namespace we {
         }
       }
 
-      private onOut(e: mouse.MouseEvent) {
-        console.log(e);
+      private onOut(event: mouse.MouseEvent) {
         if (this.stage.hasEventListener(mouse.MouseEvent.MOUSE_MOVE)) {
           mouse.setMouseMoveEnabled(false);
           this.stage.removeEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);

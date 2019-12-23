@@ -149,6 +149,9 @@ namespace we {
       protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
+        console.log('tototo', this._betDetails);
+        console.log('tototo', (this._bettingTable.$children[0] as any).$children);
+
         if (this._betDetails && this._bettingTable) {
           this._bettingTable.updateBetFields(this._betDetails);
         }
@@ -192,7 +195,6 @@ namespace we {
         if (!this._gameData) {
           return;
         }
-        console.log('state:        ' + this._gameData.state);
         switch (this._gameData.state) {
           case ba.GameState.IDLE:
             this.setStateIdle();
@@ -369,7 +371,6 @@ namespace we {
       protected onConfirmPressed(evt: egret.Event) {
         if (this._bettingTable) {
           if (this._bettingTable.getTotalUncfmBetAmount() > 0) {
-            egret.log('Confirm');
             const bets = this._bettingTable.getUnconfirmedBetDetails();
             this._bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
             dir.socket.bet(this._tableId, bets);

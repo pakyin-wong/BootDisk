@@ -16,7 +16,6 @@ namespace we {
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
 
-        console.log('SocketMock::balances: ' + this.balances);
         this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
           const data = new we.data.TableInfo();
           data.tableid = (idx + 1).toString();
@@ -126,7 +125,7 @@ namespace we {
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
-        egret.log(env.storedPositions);
+        logger.l(env.storedPositions);
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
       }
 
@@ -225,7 +224,7 @@ namespace we {
           .map(info => {
             return info.tableid;
           });
-        // egret.log(list);
+        // logger.l(list);
         dir.evtHandler.dispatch(core.Event.TABLE_LIST_UPDATE, list);
       }
 
@@ -388,7 +387,7 @@ namespace we {
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {
-        egret.log('SocketMock::bet()');
+        logger.l('SocketMock::bet()');
         // add the bets to confirmed bet Array
         const data = this.tables[parseInt(tableID, 10) - 1];
         this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
@@ -398,7 +397,7 @@ namespace we {
           let isMatch = false;
           for (const cfmBetDetail of data.bets) {
             if (betDetail.field === cfmBetDetail.field) {
-              egret.log('SocketMock::bet() matched');
+              logger.l('SocketMock::bet() matched');
 
               isMatch = true;
               cfmBetDetail.amount += betDetail.amount;
@@ -406,7 +405,7 @@ namespace we {
             }
           }
           if (!isMatch) {
-            egret.log('SocketMock::bet() not matched');
+            logger.l('SocketMock::bet() not matched');
 
             data.bets.push({
               field: betDetail.field,

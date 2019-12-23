@@ -247,8 +247,8 @@ namespace we {
             });
           });
           */
-        } catch (e) {
-          console.log(e);
+        } catch (err) {
+          logger.l(err);
         }
       }, 1);
 

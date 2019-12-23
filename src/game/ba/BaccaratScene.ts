@@ -74,8 +74,6 @@ namespace we {
       }
 
       public onEnter() {
-        egret.log(this._header);
-
         // this.lblRoomNo.text = this.tableInfo.tablename;
         // this.lblBetLimit.text = env.betLimits;
 
@@ -132,7 +130,6 @@ namespace we {
 
       private onConfirmPressed() {
         if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
-          egret.log('Confirm');
           const bets = this.bettingTable.getUnconfirmedBetDetails();
           this.bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
           dir.socket.bet(this.tableID, bets);
@@ -265,7 +262,6 @@ namespace we {
       protected socketConnectFail() {}
 
       protected onTableInfoUpdate(evt: egret.Event) {
-        // console.log('Baccarat listener');
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this.tableID) {
@@ -281,8 +277,7 @@ namespace we {
               this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
             }
 
-            // console.log('BaccaratScene::onTableInfoUpdate');
-            // console.dir(this.gameData);
+            // console.log('BaccaratScene::onTableInfoUpdate', this.gameData);
             this.updateGame();
 
             this.tableInfoWindow.setValue(this.tableInfo);
@@ -291,8 +286,7 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        console.log('BaccaratScene::onTableBetInfoUpdate');
-        console.log(evt.data);
+        console.log('BaccaratScene::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this.tableID) {
@@ -535,7 +529,6 @@ namespace we {
 
       public onBetConfirmed() {
         this.bettingTable.resetUnconfirmedBet();
-        egret.log('Bet Succeeded');
       }
 
       protected setBetRelatedComponentsVisibility(visible: boolean) {

@@ -18,7 +18,7 @@ namespace we {
         this.mode = env.lobbyGridType;
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
         // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
-        console.log('we.live.LiveListHolder::mount()');
+        // console.log('we.live.LiveListHolder::mount()');
       }
 
       protected destroy() {
@@ -80,7 +80,7 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        console.log('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
+        // console.log('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
           case we.lobby.mode.SIMPLE:
