@@ -86,10 +86,7 @@ namespace we {
       }
 
       public get text() {
-        if (this._label) {
-          return this._label.text;
-        }
-        return null;
+        return this._label.text;
       }
 
       public set text(text) {
