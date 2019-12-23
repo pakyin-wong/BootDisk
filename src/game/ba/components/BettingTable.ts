@@ -235,6 +235,7 @@ namespace we {
 
         // TODO: update the already bet amount of each bet field
         console.log('BettingTable::betDetails');
+        console.log(betDetails);
         betDetails.map((value, index) => {
           if (this.mapping[value.field]) {
             this.mapping[value.field].setCfmBet(value.amount);

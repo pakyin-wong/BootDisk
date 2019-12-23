@@ -117,16 +117,23 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
+        console.log(we.utils.getClass(this).toString(), '::onBetDetailUpdate');
+
         const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
             case we.ba.GameState.BET:
+              console.log(we.utils.getClass(this).toString(), ':onBetDetailUpdate-we.ba.GameState.BET');
+              console.log('tableId, evt.data :', this._tableId, evt.data);
               this.onBetDetailUpdateInBetState();
               break;
             case we.ba.GameState.FINISH:
+              console.log(we.utils.getClass(this).toString(), ':onBetDetailUpdate-we.ba.GameState.FINISH');
+              console.log('tableId, evt.data :', this._tableId, evt.data);
               this.onBetDetailUpdateInFinishState();
             default:
+              console.log(we.utils.getClass(this).toString(), ':break');
               break;
           }
         }
@@ -135,7 +142,7 @@ namespace we {
       protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate() {
-        console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');
+        // console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
