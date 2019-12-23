@@ -5,9 +5,9 @@ namespace we {
       public static readonly SUCCESS: string = 'SUCCESS';
       public static readonly ERROR: string = 'ERROR';
 
-      public infoBg: string = 'd_ba_gamerecord_playerelement_png';
-      public successBg: string = 'd_ba_gamerecord_tieelement_png';
-      public errorBg: string = 'd_ba_gamerecord_bankerelement_png';
+      public _infoBg: string;
+      public _successBg: string;
+      public _errorBg: string;
 
       private _content: eui.Group;
       private _bg: eui.Image;
@@ -22,6 +22,30 @@ namespace we {
         this.visible = false;
         this._isAnimating = false;
         this.skinName = utils.getSkinByClassname('InGameMessageSkin');
+      }
+
+      set infoBg(value: string) {
+        this._infoBg = value;
+      }
+
+      get infoBg() {
+        return this._infoBg;
+      }
+
+      set successBg(value: string) {
+        this._successBg = value;
+      }
+
+      get successBg() {
+        return this._successBg;
+      }
+
+      set errorBg(value: string) {
+        this._errorBg = value;
+      }
+
+      get errorBg() {
+        return this._errorBg;
       }
 
       public showMessage(type: string, message: string) {

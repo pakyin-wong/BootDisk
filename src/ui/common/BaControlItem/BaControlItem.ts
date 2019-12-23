@@ -78,6 +78,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._confirmButton) {
@@ -85,6 +86,12 @@ namespace we {
         }
         if (this._cancelButton) {
           this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        }
+      }
+
+      public insufficientBalance() {
+        if (this._message) {
+          this._message.showMessage(InGameMessage.ERROR, 'Insufficient Balance');
         }
       }
 
