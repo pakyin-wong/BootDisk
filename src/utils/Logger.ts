@@ -26,7 +26,7 @@ namespace we {
         this._logmsgmeasurer.innerHTML = link.slice(0, link.lastIndexOf('/'));
         const marleft = this._logmsgmeasurer.clientWidth + 24;
 
-        setTimeout(console.log.bind(console, `%c${link} %c:: %c${msg}`, `${font}; margin-left: -${marleft}px`, 'color: #0ff', 'color: #fff', args), 0);
+        setTimeout(console.log.bind(console, `%c${link} %c=> %c${msg}`, `${font}; margin-left: -${marleft}px`, 'color: #e70', 'color: inherit', args), 0);
       }
     }
   }
