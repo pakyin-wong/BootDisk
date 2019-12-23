@@ -275,6 +275,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class Datepicker extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class MemberReport extends eui.Skin{
 	}
 }
