@@ -24,7 +24,11 @@ namespace we {
           document.body.appendChild(this._logmsgmeasurer);
         }
         this._logmsgmeasurer.innerHTML = link.slice(0, link.lastIndexOf('/'));
-        const marleft = this._logmsgmeasurer.clientWidth + 24;
+        let marleft = this._logmsgmeasurer.clientWidth + 24;
+        if (window.navigator.userAgent.indexOf('ectron') > 0) {
+          // egret player
+          marleft /= window.devicePixelRatio;
+        }
 
         setTimeout(console.log.bind(console, `%c${link} %c=> %c${msg}`, `${font}; margin-left: -${marleft}px`, 'color: #e70', 'color: inherit', args), 0);
       }
