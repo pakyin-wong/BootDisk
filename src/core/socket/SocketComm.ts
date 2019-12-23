@@ -12,9 +12,6 @@ namespace we {
         const playerID = data.playerID ? data.playerID : dir.config.playerID;
         const secret = data.secret ? data.secret : dir.config.secret;
 
-        console.log('playerID: ' + playerID);
-        console.log('secret: ' + secret);
-
         const options: any = {};
         options.playerID = playerID;
         options.secret = secret;
@@ -86,14 +83,14 @@ namespace we {
       }
 
       public connect() {
-        console.log('PlayerClient::connect()', this.client);
         this.subscribeEvents();
         this.client.connect(err => {
           this.onConnectError(err);
         });
       }
+
       protected onConnectError(err) {
-        console.log(err);
+        console.error('SocketComm -> onConnectError', err);
       }
 
       // Handler for Ready event
@@ -153,8 +150,6 @@ namespace we {
       }
 
       public onTableBetInfoUpdate(betInfo: we.data.GameTableBetInfo) {
-        console.log('PlayerClient::onTableBetInfoUpdate');
-
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.betInfo = betInfo;
@@ -179,7 +174,6 @@ namespace we {
 
       public onTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
-        console.log(tableList);
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = tableList.tablesList;
         env.mergeTableInfoList(tableInfos);
@@ -193,7 +187,6 @@ namespace we {
         this.filterAndDispatch(allTableList, core.Event.TABLE_LIST_UPDATE);
 
         // console.log('PlayerClient::onTableListUpdate');
-        // console.log(tableList);
         // console.log(tableList.tablesList);
         // const tableInfos: data.TableInfo[] = tableList.tablesList;
         // const featureds: string[] = tableList.featureds;
@@ -245,7 +238,6 @@ namespace we {
       }
 
       protected onGameStatusUpdate(gameStatus: any, timestamp: string) {
-        console.log(utils.mergeObjects({}, gameStatus));
         this.updateTimestamp(timestamp);
 
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
@@ -253,7 +245,9 @@ namespace we {
         gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
         tableInfo.data = gameStatus;
-        console.log(`Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);
+
+        logger.l(`Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);
+
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
         // check if the tableInfo display ready change from false to true
@@ -301,7 +295,6 @@ namespace we {
       }
 
       protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
-        console.log('SocketComm::onGameStatusUpdate: tableid ' + gameStatistic.tableid);
         this.updateTimestamp(timestamp);
         const tableid = gameStatistic.tableid;
         delete gameStatistic.tableid;
@@ -490,11 +483,10 @@ namespace we {
 
       protected onBetInfoUpdate(betInfo: any /*PlayerBetInfo*/, timestamp: string) {
         this.updateTimestamp(timestamp);
-        console.log(betInfo);
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
         tableInfo.totalWin = this.computeTotalWin(tableInfo.bets);
@@ -568,8 +560,6 @@ namespace we {
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
-        console.log('PlayerClient::onBetTableListUpdate: tableList: ');
-        console.log(tableList);
 
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = tableList.tablesList;

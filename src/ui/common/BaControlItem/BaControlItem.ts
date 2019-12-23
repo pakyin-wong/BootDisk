@@ -117,23 +117,17 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        console.log(we.utils.getClass(this).toString(), '::onBetDetailUpdate');
-
         const tableInfo = <data.TableInfo> evt.data;
+        logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
             case we.ba.GameState.BET:
-              console.log(we.utils.getClass(this).toString(), ':onBetDetailUpdate-we.ba.GameState.BET');
-              console.log('tableId, evt.data :', this._tableId, evt.data);
               this.onBetDetailUpdateInBetState();
               break;
             case we.ba.GameState.FINISH:
-              console.log(we.utils.getClass(this).toString(), ':onBetDetailUpdate-we.ba.GameState.FINISH');
-              console.log('tableId, evt.data :', this._tableId, evt.data);
               this.onBetDetailUpdateInFinishState();
             default:
-              console.log(we.utils.getClass(this).toString(), ':break');
               break;
           }
         }
@@ -142,16 +136,13 @@ namespace we {
       protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate() {
-        // console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');
+        // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
       protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
-        console.log('tototo', this._betDetails);
-        console.log('tototo', (this._bettingTable.$children[0] as any).$children);
-
         if (this._betDetails && this._bettingTable) {
           this._bettingTable.updateBetFields(this._betDetails);
         }
@@ -170,7 +161,6 @@ namespace we {
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
-        // console.log('Baccarat listener');
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
@@ -186,12 +176,10 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        console.log('BaccaratScene::onRoadDataUpdate');
+        logger.l('BaccaratScene::onRoadDataUpdate');
       }
 
       public updateGame() {
-        console.log('LiveBaListItem::updateGame() - this._gameData.state ');
-        console.log(this._gameData);
         if (!this._gameData) {
           return;
         }
@@ -360,7 +348,6 @@ namespace we {
       }
 
       public onRollover(evt: egret.Event) {
-        console.log('LiveBaListItem::onRollover');
         this._mouseOutside = false;
       }
 

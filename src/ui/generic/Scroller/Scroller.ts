@@ -248,7 +248,7 @@ namespace we {
           });
           */
         } catch (err) {
-          logger.l(err);
+          console.error(err);
         }
       }, 1);
 

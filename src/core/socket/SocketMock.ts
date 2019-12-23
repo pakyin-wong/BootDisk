@@ -186,7 +186,6 @@ namespace we {
       public removeGoodRoadmap(id: string) {}
 
       public balanceEvent(myObj: any) {
-        // console.log('SocketMock::balanceEvent() this.balances', myObj.balances);
         if (myObj.balance_index < myObj.balances.length) {
           env.balance = myObj.balances[myObj.balance_index];
           env.currency = myObj.currency[myObj.balance_index];
@@ -200,8 +199,7 @@ namespace we {
 
       public dispatchBetInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
-        console.log('SocketMock::dispatchBetInfoUpdateEvent');
-        console.log(data);
+        logger.l('SocketMock::dispatchBetInfoUpdateEvent', data);
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, data);
       }
 
@@ -387,12 +385,9 @@ namespace we {
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {
-        logger.l('SocketMock::bet()');
         // add the bets to confirmed bet Array
         const data = this.tables[parseInt(tableID, 10) - 1];
         this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
-        console.log('SocketMock::bet() betDetails');
-        console.dir(betDetails);
         for (const betDetail of betDetails) {
           let isMatch = false;
           for (const cfmBetDetail of data.bets) {

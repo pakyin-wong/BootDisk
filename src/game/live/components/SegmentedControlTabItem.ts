@@ -39,10 +39,6 @@ namespace we {
         }
       }
 
-      // private onClick() {
-      //   console.log('cick', this);
-      // }
-
       private isDeltaIdentity(m) {
         return m.a === 1 && m.b === 0 && m.c === 0 && m.d === 1;
       }

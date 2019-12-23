@@ -100,7 +100,6 @@ namespace we {
       }
 
       set type(value: number) {
-        console.log('BetChip::type1 ', this._type, value);
         if (!this._type) {
           this._type = +value;
         }

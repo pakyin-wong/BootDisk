@@ -17,7 +17,7 @@ class Main extends eui.UILayer {
     // };
 
     this.init().catch(error => {
-      console.log(error);
+      console.error(error);
     });
   }
 
@@ -56,8 +56,8 @@ class Main extends eui.UILayer {
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 

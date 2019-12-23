@@ -102,20 +102,16 @@ namespace we {
 
       get denomLayer() {
         if (this._denomLayer) {
-          console.log('BettingTable::denomLayer()::hasDenomLayer 1 ');
           return this._denomLayer;
         }
         if (!this._gridPlayer) {
-          console.log('BettingTable::denomLayer()::hasDenomLayer 2 ');
           return null;
         }
         if (!we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
-          console.log('BettingTable::denomLayer()::hasDenomLayer 3 ' + this._gridPlayer.hasDenomLayer);
           return null;
         }
         this._denomLayer = new eui.Component();
         if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
-          console.log('BettingTable::denomLayer()::hasDenomLayer 4 ');
           this.setDenomGrid(this._gridPlayer);
           this._denomLayer.addChild(this._gridPlayer.denomLayer);
         }
@@ -181,10 +177,8 @@ namespace we {
       }
 
       public removeAllMouseListeners() {
-        console.log('BettingTable::removeAllMouseListeners 1');
         this.removeRolloverListeners();
         this.removeTouchTapListeners();
-        console.log('BettingTable::removeAllMouseListeners 2');
       }
 
       public addAllMouseListeners() {
@@ -230,12 +224,9 @@ namespace we {
       }
 
       public updateBetFields(betDetails: data.BetDetail[]) {
-        // logger.l('BettingTable::updateBetFields' + betDetails);
         this.betDetails = betDetails;
 
         // TODO: update the already bet amount of each bet field
-        console.log('BettingTable::betDetails');
-        console.log(betDetails);
         betDetails.map((value, index) => {
           if (this.mapping[value.field]) {
             this.mapping[value.field].setCfmBet(value.amount);
@@ -255,7 +246,6 @@ namespace we {
 
       protected onBetFieldUpdate(grid: BettingTableGrid) {
         return (event: egret.Event) => {
-          console.log('BettingTable::onBetFieldUpdate()');
           const betDetail = { field: grid.getFieldName(), amount: grid.getAmount() };
           // validate bet action
           if (this.validateBetAction(betDetail)) {
@@ -315,7 +305,6 @@ namespace we {
         // TODO: check balance
         const balance = env.balance;
         if (balance < totalBetAmount) {
-          logger.l(core.Event.INSUFFICIENT_BALANCE);
           dir.evtHandler.dispatch(core.Event.INSUFFICIENT_BALANCE);
           return false;
         }
@@ -328,7 +317,6 @@ namespace we {
           fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxlimit ||
           fieldAmounts[BetField.SUPER_SIX] > betLimit.maxlimit;
         if (exceedBetLimit) {
-          logger.l(core.Event.EXCEED_BET_LIMIT);
           dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
           return false;
         }
@@ -354,8 +342,7 @@ namespace we {
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
-            // console.log(value);
-            // To be filled
+            // TODO To be filled
             // this.mapping[value].pushUnconfirmedBetToWaitingConfirmBet();
           });
         }
@@ -374,7 +361,6 @@ namespace we {
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
-            // console.log(value);
             this.mapping[value].setUncfmBet(0);
           });
         }
@@ -393,7 +379,6 @@ namespace we {
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
-            // console.log(value);
             this.mapping[value].setCfmBet(0);
           });
         }

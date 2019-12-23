@@ -10,7 +10,6 @@ namespace we {
       private _volumeLive = 0.5;
 
       constructor(stage: egret.Stage) {
-        // init dummy scene
         logger.l('AudioCtr is created');
       }
 

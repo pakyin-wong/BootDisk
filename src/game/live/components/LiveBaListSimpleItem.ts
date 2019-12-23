@@ -151,7 +151,6 @@ namespace we {
               .to({ y: this._originaly - this._offsetY, scaleX: 1.1, scaleY: 1.1 }, this._tweenInterval1)
               .call(resolve)
           );
-          console.log('quickbetpanel go tableid: ' + this._tableId);
           const p2 = new Promise(resolve =>
             egret.Tween.get(this._quickbetPanel)
               .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
@@ -240,7 +239,7 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate() {
-        console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');
+        logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -254,7 +253,6 @@ namespace we {
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
-        // console.log('Baccarat listener');
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
@@ -269,7 +267,6 @@ namespace we {
         }
       }
       protected onRoadDataUpdate(evt: egret.Event) {
-        console.log('BaccaratScene::onRoadDataUpdate');
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
@@ -279,11 +276,9 @@ namespace we {
       }
 
       public updateGame() {
-        console.log('LiveBaListItem::updateGame() - this._gameData.state ', this._gameData);
         if (!this._gameData) {
           return;
         }
-        console.log('state:        ' + this._gameData.state);
         switch (this._gameData.state) {
           case we.ba.GameState.BET:
             this.setQuickbetPanelVisible(true);
@@ -335,10 +330,8 @@ namespace we {
           if (enable) {
             this._timer.visible = true;
             // this.setChildIndex(this._timer, 30000);
-            // console.log('LiveBaListItem::setQuickbetPanelVisible-enable()' + this.tableId);
           } else {
             this._timer.visible = false;
-            // console.log('LiveBaListItem::setQuickbetPanelVisible-disable1()' + this.tableId);
             /*
             this.setChildIndex(this._quickbetPanel, 1000);
             this.setChildIndex(this._group, 1500);
@@ -356,7 +349,6 @@ namespace we {
 
             setTimeout(() => {
               if (this.holder.isFocus) {
-                console.log('LiveBaListItem::setQuickbetPanelVisible-disable2()' + this.tableId);
                 // this.onClickButton(null);
                 this.holder.changeState(ui.TableListItemHolder.STATE_NORMAL);
                 // this.toggleLivePageLock();
@@ -378,7 +370,6 @@ namespace we {
       }
 
       public onRollover(evt: egret.Event) {
-        console.log('LiveBaListItem::onRollover');
         this._mouseOutside = false;
         if (!this.list.isLocked) {
           // this.setChildIndex(this._timer, 25000);

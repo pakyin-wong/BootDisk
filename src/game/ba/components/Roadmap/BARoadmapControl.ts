@@ -70,7 +70,7 @@ namespace we {
                   }
                 }
               } catch (e) {
-                console.log('doPredict Error');
+                console.error('doPredict Error');
               }
 
               if (v === 0) {
