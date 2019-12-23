@@ -184,15 +184,13 @@ namespace we {
               },
               action: {
                 text: i18n.t('baccarat.confirmRemoveGoodRoad'),
-                onClick: this.onBinConfirm,
+                onClick: () => {
+                  this.dispatchEvent(new egret.Event('onBinTap'));
+                },
               },
             },
           ],
         });
-      }
-
-      private onBinConfirm() {
-        this.dispatchEvent(new egret.Event('onBinTap'));
       }
 
       private onActiveTap(evt: egret.Event) {
