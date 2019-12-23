@@ -17,20 +17,20 @@ namespace we {
         const link = msg.match(/http[^\)]+/)[0];
         msg = msg.replace(link, '').replace(' ()', '');
 
-        const font = 'font: 12px monospace';
+        const font = 'font: 12px monospace; font-weight: bold';
         if (!this._logmsgmeasurer) {
           this._logmsgmeasurer = document.createElement('span');
           this._logmsgmeasurer.setAttribute('style', `${font}; position: fixed; top: -9999px`);
           document.body.appendChild(this._logmsgmeasurer);
         }
-        this._logmsgmeasurer.innerHTML = link.slice(0, link.lastIndexOf('/'));
+        this._logmsgmeasurer.innerHTML = link.slice(0, link.lastIndexOf('/') + 1);
         let marleft = this._logmsgmeasurer.clientWidth + 24;
         if (window.navigator.userAgent.indexOf('ectron') > 0) {
-          // egret player
-          marleft /= window.devicePixelRatio;
+          // egret player (hardcoded 2)
+          marleft /= 2;
         }
 
-        setTimeout(console.log.bind(console, `%c${link} %c=> %c${msg}`, `${font}; margin-left: -${marleft}px`, 'color: #e70', 'color: inherit', args), 0);
+        setTimeout(console.log.bind(console, `%c${link} %c=> %c${msg}`, `${font}; margin-left: -${marleft}px; letter-spacing: 4px`, 'color: #e70', 'color: inherit', args), 0);
       }
     }
   }
