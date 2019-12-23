@@ -1,3 +1,48 @@
+## Roadmap
+
+### current week
+
+### next demo (TBC)
+- Already bet baccarat grid
+- Side panel baccarat grid
+- Already bet label in lobby table list grid
+---
+- Live Side Panel Filtering
+- Good Road Notification
+- Result Notification
+---
+- Loading scene fetch banner from url
+- Lobby scene fetch banners from url (fetch at least one hero banner on each page before goto lobby scene)
+- Member Report Panel
+- Bet Log Date Selection
+- Bet Log Search
+- Good Road Enabled List Update
+---
+- Bet Chip Modification (using bitmapfont)
+- Confirmed bet chip Modification
+- Unconfirmed bet chip modification
+- Rebet and double bet button
+---
+### pending tasks
+- Light/ Dark Mode handling
+- Light/ Dark Mode selection panel
+- Ba Result Message Modification (using animation)
+- Disconnect handling
+- Video
+- Baccarat Scene all panel slide out & in
+- Tooltips
+- UI Tutorial
+- **Mobile Layout**
+
+### testing tasks
+- import [spine](https://github.com/fightingcat/egret-spine) animation 
+- import dragonbones mesh animation
+
+### other tasks
+- Tidy up the skin folder
+- Clean up deprecated class
+
+
 ## Publish
 To build the project, please use the publish.sh
 
@@ -42,3 +87,7 @@ if (list has new goodroad) we send out Notification.
 4. [Invision Template](https://projects.invisionapp.com/prototype/Quick-Bet-ck3dwku8c00f0el01k01o5kam/)
 
 5. [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
+
+6. [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
+
+7. [Baccarat Requirement](https://docs.google.com/document/d/1LnNBQPlFsOTKK8xodzg-xC5P_9_uzOzWBsiqt_5ThLw/edit)

@@ -9,17 +9,17 @@ namespace we {
 
     export class BaseImageButton extends we.core.BaseEUI {
       // components
-      private _background: eui.Image;
-      private _activeTransitionStopper: () => void;
-      private _group: eui.Group;
-      private _label: eui.Label;
+      protected _background: eui.Image;
+      protected _activeTransitionStopper: () => void;
+      protected _group: eui.Group;
+      protected _label: eui.Label;
 
       // button states
-      private _buttonState: BaseImageButtonState = BaseImageButtonState.normal;
-      private _enabled: boolean = false;
-      private _hover: boolean = false;
-      private _active: boolean = false;
-      private _down: boolean = false;
+      protected _buttonState: BaseImageButtonState = BaseImageButtonState.normal;
+      protected _enabled: boolean = false;
+      protected _hover: boolean = false;
+      protected _active: boolean = false;
+      protected _down: boolean = false;
 
       constructor() {
         super();
@@ -86,10 +86,7 @@ namespace we {
       }
 
       public get text() {
-        if (this._label) {
-          return this._label.text;
-        }
-        return null;
+        return this._label.text;
       }
 
       public set text(text) {

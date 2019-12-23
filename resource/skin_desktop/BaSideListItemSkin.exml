@@ -18,6 +18,9 @@
                          size="26" />
         <ba:BetInfoBigRoad id="_bigRoad" width="339" height="127" bottom="0" />
         <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />
+        <ba:InGameMessage id="_message" anchorOffsetX="152"
+	                  anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin" width="303" height="32" horizontalCenter="0.5" y="105" 
+					  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
         <ui:RoundButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
                         hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0" horizontalCenter="0"
                         y="186" width="148" height="42" label1text="加注" label2text="X" scale9Grid="20,21,108,0" />

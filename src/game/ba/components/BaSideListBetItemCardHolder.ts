@@ -29,26 +29,26 @@ namespace we {
             this.setBankerBgColor(false);
             break;
           case we.ba.WinType.NONE:
+          default:
             this.setPlayerBgColor(false);
             this.setBankerBgColor(false);
-          default:
             break;
         }
       }
 
       public setPlayerBgColor(value: boolean) {
         if (value) {
-          this._playerPanel.source = 'd_lobby_panel_gamelist_betresult_player_png';
+          this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playwinbg_png');
         } else {
-          this._playerPanel.source = 'd_lobby_panel_gamelist_betresult_playbg_png';
+          this._playerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
         }
       }
 
       public setBankerBgColor(value: boolean) {
         if (value) {
-          this._bankerPanel.source = 'd_lobby_panel_gamelist_betresult_banker_png';
+          this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankwinbg_png');
         } else {
-          this._bankerPanel.source = 'd_lobby_panel_gamelist_betresult_bankerbg_png';
+          this._bankerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
         }
       }
     }

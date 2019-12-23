@@ -71,5 +71,9 @@ namespace we {
       }
       return true;
     }
+
+    export function getClass(obj) {
+      return obj.__proto__.constructor.name;
+    }
   }
 }

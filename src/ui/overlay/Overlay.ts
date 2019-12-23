@@ -16,8 +16,8 @@ namespace we {
       }
 
       protected mount() {
-        this.width = this.stage.width;
-        this.height = this.stage.height;
+        this.width = this.stage.stageWidth;
+        this.height = this.stage.stageHeight;
         this._overlayMask.graphics.beginFill(0x000000, 0.7);
         this._overlayMask.graphics.drawRect(0, 0, this.width, this.height);
         this._overlayMask.graphics.endFill();

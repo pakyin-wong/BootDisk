@@ -10,7 +10,6 @@ namespace we {
       private _volumeLive = 0.5;
 
       constructor(stage: egret.Stage) {
-        // init dummy scene
         logger.l('AudioCtr is created');
       }
 
@@ -60,12 +59,12 @@ namespace we {
             this._channelFX = soundFx.play(0, 1);
             // set initial volume to current fx volume
             this._channelFX.volume = this._volumeFX;
-            console.log('playing', `sn_${name}_${env.voice}_mp3`);
+            logger.l('playing', `sn_${name}_${env.voice}_mp3`);
             return new Promise<void>(resolve => {
               this._channelFX.addEventListener(
                 egret.Event.SOUND_COMPLETE,
                 () => {
-                  console.log('play end', `sn_${name}_${env.voice}_mp3`);
+                  logger.l('play end', `sn_${name}_${env.voice}_mp3`);
                   this._channelFX = null;
                   resolve();
                 },

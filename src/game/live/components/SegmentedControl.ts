@@ -60,7 +60,6 @@ namespace we {
       }
 
       private async onSelectedIndexChanged(fromItemRenderer = false) {
-        console.log(fromItemRenderer);
         const { width } = this.tabBar.$children[this.tabBar.selectedIndex];
         const x = (this.tabBar.$children[this.tabBar.selectedIndex] as SegmentedControlTabItem).destinationX;
         egret.Tween.removeTweens(this.activeLine);

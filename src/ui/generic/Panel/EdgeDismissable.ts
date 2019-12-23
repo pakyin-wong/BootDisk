@@ -9,7 +9,7 @@ namespace we {
         if (this.isAnimating) {
           return;
         }
-        egret.log('toggle');
+        logger.l('toggle');
         this.isAnimating = true;
         if (this._isDismiss) {
           this._isDismiss = false;
@@ -68,13 +68,13 @@ namespace we {
       }
 
       public removeFromGlobalList() {
-        egret.log('Remove');
+        logger.l('Remove');
         EdgeDismissableAddon.removeDismissable(this);
         this.target.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.removeFromGlobalList, this);
       }
 
       public async show() {
-        egret.log('Show');
+        logger.l('Show');
         if (!this.target || !this.target.stage) {
           return Promise.resolve();
         }
@@ -87,7 +87,7 @@ namespace we {
       }
 
       public async dismiss() {
-        egret.log('Dismiss');
+        logger.l('Dismiss');
         if (!this.target || !this.target.stage) {
           return Promise.resolve();
         }

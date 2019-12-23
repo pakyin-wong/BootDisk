@@ -78,6 +78,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._confirmButton) {
@@ -85,6 +86,12 @@ namespace we {
         }
         if (this._cancelButton) {
           this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        }
+      }
+
+      public insufficientBalance() {
+        if (this._message) {
+          this._message.showMessage(InGameMessage.ERROR, 'Insufficient Balance');
         }
       }
 
@@ -118,6 +125,7 @@ namespace we {
 
       protected onBetDetailUpdate(evt: egret.Event) {
         const tableInfo = <data.TableInfo> evt.data;
+        logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -135,7 +143,7 @@ namespace we {
       protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate() {
-        console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');
+        // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
@@ -160,7 +168,6 @@ namespace we {
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
-        // console.log('Baccarat listener');
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
@@ -176,16 +183,13 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        console.log('BaccaratScene::onRoadDataUpdate');
+        logger.l('BaccaratScene::onRoadDataUpdate');
       }
 
       public updateGame() {
-        console.log('LiveBaListItem::updateGame() - this._gameData.state ');
-        console.log(this._gameData);
         if (!this._gameData) {
           return;
         }
-        console.log('state:        ' + this._gameData.state);
         switch (this._gameData.state) {
           case ba.GameState.IDLE:
             this.setStateIdle();
@@ -351,7 +355,6 @@ namespace we {
       }
 
       public onRollover(evt: egret.Event) {
-        console.log('LiveBaListItem::onRollover');
         this._mouseOutside = false;
       }
 
@@ -362,7 +365,6 @@ namespace we {
       protected onConfirmPressed(evt: egret.Event) {
         if (this._bettingTable) {
           if (this._bettingTable.getTotalUncfmBetAmount() > 0) {
-            egret.log('Confirm');
             const bets = this._bettingTable.getUnconfirmedBetDetails();
             this._bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
             dir.socket.bet(this._tableId, bets);

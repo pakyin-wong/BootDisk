@@ -155,7 +155,6 @@ namespace we {
       }
 
       set chipType(value: number) {
-        console.log('BettingTableGrid::chiptype: ', value);
         this._chipType = value;
       }
 
@@ -221,7 +220,6 @@ namespace we {
       }
 
       public addUncfmBet(amount: number): void {
-        // console.log('BettingTableGrid::addUncfmBet() - outside');
         this._uncfmBet += amount;
         this.drawStack();
       }
@@ -289,7 +287,6 @@ namespace we {
           this._image.texture = RES.getRes(this._imageRes);
           this._image.width = this.width;
           this._image.height = this.height;
-          console.log('BettingTableGrid::draw: ', this._imageRes, this._image.x, this._image.y, this._image.width, this._image.height, this.x, this.y, this.width, this.height);
         }
 
         if (this._lblName) {
@@ -306,10 +303,8 @@ namespace we {
       set hasDenomLayer(value: string) {
         this._hasDenomLayer = value;
         if (we.utils.convertToBoolean(value)) {
-          console.log('BettingTableGrid::hasDenomLayer true ' + value);
           this._denomLayer = new eui.Component();
         } else {
-          console.log('BettingTableGrid::hasDenomLayer false ' + value);
           this._denomLayer = this;
         }
       }

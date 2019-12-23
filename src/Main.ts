@@ -16,8 +16,8 @@ class Main extends eui.UILayer {
     //   egret.ticker.resume();
     // };
 
-    this.init().catch(e => {
-      console.log(e);
+    this.init().catch(error => {
+      console.error(error);
     });
   }
 
@@ -56,12 +56,13 @@ class Main extends eui.UILayer {
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
   private loadTheme(): Promise<{}> {
+    const prerequisiteTheme = new eui.Theme('resource/preloaddefault.thm.json', this.stage);
     const theme = new eui.Theme('resource/default.thm.json', this.stage);
     return we.utils.wait(theme, eui.UIEvent.COMPLETE);
   }

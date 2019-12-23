@@ -88,7 +88,6 @@ namespace we {
         if (evt.target === target || this.isFocus) {
           return;
         }
-        console.log('we.live.LiveBaccartListItem::onclick - tableid' + this.itemData);
         dir.socket.enterTable(this.itemData);
         dir.sceneCtr.goto('ba', { tableid: this.itemData });
       }
