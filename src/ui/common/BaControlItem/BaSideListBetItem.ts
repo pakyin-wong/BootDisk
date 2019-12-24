@@ -22,7 +22,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._betChipSet.resetDenomNum(2);
+        this._betChipSet.resetDenomNum(1);
         this._bettingTable.setGameMode(false);
       }
 
