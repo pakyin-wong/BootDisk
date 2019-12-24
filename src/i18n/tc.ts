@@ -130,6 +130,11 @@ namespace we {
         startBet: '開始下注',
         stopBet: '停止下注',
       },
+      sidePanel: {
+        bet: '已下注',
+        goodroad: '好路',
+        allgame: '全部遊戲',
+      },
       baccarat: {
         playerPair: '閒對',
         bankerPair: '庄對',

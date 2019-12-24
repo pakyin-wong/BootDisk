@@ -2,11 +2,15 @@ namespace we {
   export namespace ui {
     export class SidePanel extends core.BaseEUI {
       protected _tabbar: eui.List;
+      protected _tabBarGroup: eui.Group;
       protected _viewStack: eui.ViewStack;
       protected _scroller: Scroller;
       protected activeLine: eui.Rect;
+      protected _label: ui.RunTimeLabel;
 
       protected lineMoveDuration: number = 100;
+
+      protected resizeWidthTimeoutId = null;
 
       constructor() {
         super();
@@ -24,12 +28,18 @@ namespace we {
         this._tabbar.addEventListener('CLEAR_SELECTION', this.onClearSelection, this);
 
         this.activeLine = new eui.Rect();
-        this.activeLine.y = this._tabbar.y + this._tabbar.height + 2;
         this.activeLine.fillColor = 0xffffff;
         this.activeLine.height = 3;
-        this.addChild(this.activeLine);
+        this._tabBarGroup.addChild(this.activeLine);
+
+        this.initTabs();
+        this.width = this._tabbar.width + 100;
+        this.activeLine.y = this._tabbar.height + 3;
+
         this.dispatchChange();
       }
+
+      protected initTabs() {}
 
       protected destroy() {
         super.destroy();
@@ -46,6 +56,16 @@ namespace we {
             this._tabbar.touchEnabled = true;
             this._tabbar.touchChildren = true;
           }, 400);
+          const content = <eui.Group> this._scroller.viewport;
+          if (this.resizeWidthTimeoutId) {
+            clearTimeout(this.resizeWidthTimeoutId);
+          }
+          this.resizeWidthTimeoutId = setTimeout(() => {
+            if (this._label) {
+              this._label.visible = false;
+            }
+            this.width = this._tabbar.width + 100;
+          }, 200);
 
           egret.Tween.removeTweens(this.activeLine);
           egret.Tween.get(this.activeLine).to({ width: 0 }, this.lineMoveDuration);
@@ -62,9 +82,14 @@ namespace we {
           if (!this._scroller.isAnimating()) {
             this._scroller.toggle();
             this._viewStack.selectedIndex = this._tabbar.selectedIndex;
+            const content = <eui.Group> this._scroller.viewport;
+            if (this.resizeWidthTimeoutId) {
+              clearTimeout(this.resizeWidthTimeoutId);
+            }
+            this.width = this.measuredWidth;
 
             const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-            this.activeLine.x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
+            this.activeLine.x = (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
             egret.Tween.removeTweens(this.activeLine);
             egret.Tween.get(this.activeLine).to({ width }, this.lineMoveDuration);
             this.dispatchChange();
@@ -75,9 +100,13 @@ namespace we {
           this._viewStack.selectedIndex = this._tabbar.selectedIndex;
 
           const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-          const x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
+          const x = (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
           egret.Tween.removeTweens(this.activeLine);
           egret.Tween.get(this.activeLine).to({ x, width }, this.lineMoveDuration);
+        }
+        if (this._label) {
+          this._label.visible = true;
+          this._label.renderText = () => `${i18n.t(`sidePanel.${this._viewStack.getChildAt(this._viewStack.selectedIndex).name}`)}`;
         }
       }
     }

@@ -30,7 +30,7 @@ namespace we {
         this._originalQuickBetPanelY = 0;
         this._offsetLimit = 10000;
         this._offsetMovement = 0;
-        this._hoverScale = 1;
+        this._hoverScale = 1.06;
       }
 
       protected initChildren() {

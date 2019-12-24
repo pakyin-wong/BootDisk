@@ -83,6 +83,8 @@ namespace we {
 
       protected showQuickBetGroup() {
         this._quickbetButton.tweenLabel(!this.list.isLocked);
+        this._quickBetGroup.height = this._quickBetGroup.contentHeight;
+
         this.holder.changeState(ui.TableListItemHolder.STATE_FOCUS);
         if (this.parent.localToGlobal(this.x, this._originaly).y > this._offsetLimit) {
           this._offsetY = this.parent.localToGlobal(this.x, this._originaly).y - this._offsetMovement;
@@ -117,6 +119,7 @@ namespace we {
       protected hideQuickBetGroup() {
         this._quickbetButton.tweenLabel(!this.list.isLocked);
 
+        this._quickBetGroup.height = this._contentContainer.height;
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
         if (this._denomLayer) {

@@ -5,12 +5,19 @@ namespace we {
       protected goodRoadTableList: TableList;
       protected allTableList: TableList;
 
+      protected dropdown: Dropdown;
+      protected _label: ui.RunTimeLabel;
+
       constructor() {
         super();
       }
 
       protected mount() {
         super.mount();
+        this.addEventListeners();
+      }
+
+      protected initTabs() {
         const group = <eui.Group> this._scroller.viewport;
 
         this._viewStack = new eui.ViewStack();
@@ -68,9 +75,6 @@ namespace we {
         scroller.viewport = this.allTableList;
 
         this._tabbar.dataProvider = this._viewStack;
-        this.activeLine.y = this._tabbar.y + this._tabbar.height;
-
-        this.addEventListeners();
       }
 
       protected getLayout() {
@@ -118,6 +122,20 @@ namespace we {
         const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate(count);
+        }
+      }
+
+      protected onSelected() {
+        super.onSelected();
+        switch (this._viewStack.selectedIndex) {
+          case 0:
+          case 1:
+            this._label.visible = true;
+            this._label.renderText = () => `${i18n.t(`sidePanel.${this._viewStack.getChildAt(this._viewStack.selectedIndex).name}`)}`;
+            break;
+          case 2:
+            this._label.visible = false;
+            break;
         }
       }
     }
