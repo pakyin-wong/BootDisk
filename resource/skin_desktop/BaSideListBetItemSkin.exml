@@ -25,12 +25,11 @@
 			<ba:CountdownTimer id="_timer" width="47" height="47" x="0" y="0"
 			                   skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
 			<ba:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.BaSideListBettingTableSkin" anchorOffsetY="0"
-			                 height="110" left="0" y="47" />			
+			                 height="110" left="0" y="47" />
 			<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
 			                       skinName="BetLimitDropdownSkin" visible="false" />
-			<ui:RoundButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
-			                hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0" horizontalCenter="0" y="168"
-			                width="148" height="42" label1text="追注" label2text="X" scale9Grid="20,21,108,0" />
+			<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification" skinName="ImageButtonSkinLobby" alpha="0" horizontalCenter="0"
+			                    width="148" y="168" height="42" text="加注" />
 		</e:Group>
 	</e:Group>
 </e:Skin>

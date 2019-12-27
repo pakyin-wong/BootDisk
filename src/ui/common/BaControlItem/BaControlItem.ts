@@ -10,8 +10,6 @@ namespace we {
       protected _cancelButton: ui.BaseImageButton;
       protected _resultMessage: GameResultMessage;
       protected _message: InGameMessage;
-      protected _denomLayer: eui.Component;
-
       protected _dropdown: live.BetLimitDropdown;
 
       // table name label
@@ -43,27 +41,25 @@ namespace we {
       }
 
       protected initChildren() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this.initDenom();
+        this.initBettingTable();
+      }
 
+      protected initDenom() {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
           this._betChipSet.init(3, denominationList);
         }
+      }
 
+      protected initBettingTable() {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._bettingTable) {
           this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
           this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
           this._bettingTable.type = we.core.BettingTableType.NORMAL;
           this._bettingTable.denomList = denominationList;
           this._bettingTable.init();
-
-          if (this._bettingTable.denomLayer) {
-            this._denomLayer = this._bettingTable.denomLayer;
-            this._denomLayer.y = this._bettingTable.y;
-            this._denomLayer.x = this._bettingTable.x;
-            this._denomLayer.alpha = 0;
-            this.addChild(this._denomLayer);
-            this.setChildIndex(this._denomLayer, 30000);
-          }
         }
       }
 
