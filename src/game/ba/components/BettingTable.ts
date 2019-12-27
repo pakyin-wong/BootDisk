@@ -275,8 +275,8 @@ namespace we {
           }
           return false;
         });
-        for (let i = 0; i < validDoubleBet.length; i++) {
-          if (!validDoubleBet[i]) {
+        for (let valid of validDoubleBet) {
+          if (!valid) {
             return;
           }
         }
