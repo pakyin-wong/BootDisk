@@ -274,6 +274,10 @@ namespace we {
         this.setUncfmBet(0);
       }
 
+      public getCfmBet(): number {
+        return this._cfmBet;
+      }
+
       public getUncfmBet(): number {
         return this._uncfmBet;
       }

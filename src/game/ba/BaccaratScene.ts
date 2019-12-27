@@ -138,7 +138,9 @@ namespace we {
 
       private onRepeatPressed() {}
 
-      private onDoublePressed() {}
+      private onDoublePressed() {
+        this.bettingTable.doubleBetFields();
+      }
 
       private onCancelPressed() {
         this.bettingTable.cancelBet();

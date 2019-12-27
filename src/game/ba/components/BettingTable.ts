@@ -264,6 +264,37 @@ namespace we {
         };
       }
 
+      public doubleBetFields() {
+        const validDoubleBet = Object.keys(this.mapping).map(value => {
+          if (this.mapping[value].getCfmBet() === 0) {
+            return true;
+          }
+          const betDetail = { field: value, amount: this.mapping[value].getCfmBet() };
+          if (this.validateBetAction(betDetail)) {
+            return true;
+          }
+          return false;
+        });
+        for (let i = 0; i < validDoubleBet.length; i++) {
+          if (!validDoubleBet[i]) {
+            return;
+          }
+        }
+        Object.keys(this.mapping).map(value => {
+          if (this.mapping[value].getCfmBet() > 0) {
+            this.mapping[value].addUncfmBet(this.mapping[value].getCfmBet());
+            this.totalUncfmBetAmount += this.mapping[value].getCfmBet();
+            this.mapping[value].draw();
+            for (const detail of this.uncfmBetDetails) {
+              if (detail.field === value) {
+                detail.amount += this.mapping[value].getCfmBet();
+                break;
+              }
+            }
+          }
+        });
+      }
+
       set getSelectedChipIndex(value: () => number) {
         this._getSelectedChipIndex = value;
         this._gridPlayer.getSelectedChipIndex = this._getSelectedChipIndex;
