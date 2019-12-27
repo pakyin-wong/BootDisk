@@ -244,6 +244,10 @@ namespace we {
         const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
         gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
+        if (tableInfo.roundid !== gameStatus.gameroundid) {
+          tableInfo.prevroundid = tableInfo.roundid;
+          tableInfo.roundid = gameStatus.gameroundid;
+        }
         tableInfo.data = gameStatus;
 
         logger.l(`Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);

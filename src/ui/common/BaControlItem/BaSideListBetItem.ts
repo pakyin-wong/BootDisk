@@ -7,6 +7,7 @@ namespace we {
       protected _betEnabled: boolean = false;
       protected _quickbetButton: ui.BaseImageButton;
       protected _closeButton: ui.BaseImageButton;
+      protected _prevButton: ui.BaseImageButton;
 
       public constructor(skinName: string = 'BaSideListBetItemSkin') {
         super(skinName);
@@ -46,6 +47,18 @@ namespace we {
         this._bettingTable.setTouchEnabled(this._betEnabled);
       }
 
+      public onClickRepeatButton(evt: egret.Event) {
+        this._bettingTable.repeatBetFields();
+      }
+
+      protected setStateDeal() {
+        super.setStateDeal();
+        if (this._previousState !== we.ba.GameState.DEAL) {
+          env.tableInfos[this._tableId].prevbets = env.tableInfos[this._tableId].bets;
+          env.tableInfos[this._tableId].prevbetsroundid = env.tableInfos[this._tableId].roundid;
+        }
+      }
+
       public getActionButton(): eui.Component {
         return this._quickbetButton;
       }
@@ -62,12 +75,14 @@ namespace we {
 
       protected addEventListeners() {
         super.addEventListeners();
+        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickRepeatButton, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
+        this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickRepeatButton, this);
         this._quickbetButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
       }

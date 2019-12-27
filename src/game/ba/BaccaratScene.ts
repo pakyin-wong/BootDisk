@@ -102,6 +102,7 @@ namespace we {
         this.bettingTable.getSelectedChipIndex = this.betChipSet.getSelectedChipIndex.bind(this.betChipSet);
         this.bettingTable.type = we.core.BettingTableType.NORMAL;
         this.bettingTable.denomList = denominationList;
+        this.bettingTable.tableId = this._tableID;
         this.bettingTable.init();
 
         if (this._switchBaMode) {
@@ -136,7 +137,9 @@ namespace we {
         }
       }
 
-      private onRepeatPressed() {}
+      private onRepeatPressed() {
+        this.bettingTable.repeatBetFields();
+      }
 
       private onDoublePressed() {
         this.bettingTable.doubleBetFields();
@@ -288,7 +291,7 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        console.log('BaccaratScene::onTableBetInfoUpdate', evt.data);
+        // console.log('BaccaratScene::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this.tableID) {
@@ -325,9 +328,10 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        console.log('BaccaratScene::onRoadDataUpdate');
+        // console.log('BaccaratScene::onRoadDataUpdate');
         const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this.tableID) {
+          this.bettingTable.tableId = this._tableID;
           if (tableInfo.roadmap) {
             this.roadmapControl.updateRoadData(tableInfo.roadmap);
           }

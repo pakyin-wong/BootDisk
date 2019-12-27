@@ -275,21 +275,62 @@ namespace we {
           }
           return false;
         });
-        for (let valid of validDoubleBet) {
+        for (const valid of validDoubleBet) {
           if (!valid) {
             return;
           }
         }
         Object.keys(this.mapping).map(value => {
-          if (this.mapping[value].getCfmBet() > 0) {
-            this.mapping[value].addUncfmBet(this.mapping[value].getCfmBet());
-            this.totalUncfmBetAmount += this.mapping[value].getCfmBet();
+          const addedAmount = this.mapping[value].getCfmBet();
+          if (addedAmount > 0) {
+            this.mapping[value].addUncfmBet(addedAmount);
+            this.totalUncfmBetAmount += addedAmount;
             this.mapping[value].draw();
             for (const detail of this.uncfmBetDetails) {
               if (detail.field === value) {
-                detail.amount += this.mapping[value].getCfmBet();
+                detail.amount += addedAmount;
                 break;
               }
+            }
+          }
+        });
+      }
+
+      public repeatBetFields() {
+        if (!env.tableInfos[this._tableId].prevbets || !env.tableInfos[this._tableId].prevroundid) {
+          return;
+        }
+        if (env.tableInfos[this._tableId].prevroundid !== env.tableInfos[this._tableId].prevbetsroundid) {
+          return;
+        }
+        const validRepeatBet = Object.keys(this.mapping).map(value => {
+          if (this.mapping[value].getCfmBet() === 0) {
+            return true;
+          }
+          let betDetail = { field: value, amount: 0 };
+          for (const bets of env.tableInfos[this._tableId].prevbets) {
+            if (bets.field === value) {
+              betDetail = { field: value, amount: bets.amount };
+            }
+          }
+          if (this.validateBetAction(betDetail)) {
+            return true;
+          }
+          return false;
+        });
+        for (const valid of validRepeatBet) {
+          if (!valid) {
+            return;
+          }
+        }
+        env.tableInfos[this._tableId].prevbets.map(value => {
+          this.mapping[value.field].addUncfmBet(value.amount);
+          this.totalUncfmBetAmount += value.amount;
+          this.mapping[value.field].draw();
+          for (const detail of this.uncfmBetDetails) {
+            if (detail.field === value.field) {
+              detail.amount += value.amount;
+              break;
             }
           }
         });
