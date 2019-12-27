@@ -154,6 +154,7 @@ namespace we {
         dealer: '荷官',
         time: '时间',
         betLimit: '下注限红',
+        betLimitshort: '限红',
         baccarat: '百家樂',
         gameroundid: '遊戏编号',
         totalbet: '总投注',

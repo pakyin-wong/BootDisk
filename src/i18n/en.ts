@@ -153,6 +153,7 @@ namespace we {
         dealer: 'Dealer',
         time: 'Time',
         betLimit: 'Bet Limit',
+        betLimitshort: 'Limit',
         baccarat: 'Baccarat',
         gameroundid: 'Game Round',
         totalbet: 'Total Bet',

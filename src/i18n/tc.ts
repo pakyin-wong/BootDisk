@@ -153,6 +153,7 @@ namespace we {
         dealer: '荷官',
         time: '時間',
         betLimit: '下注限紅',
+        betLimitshort: '限紅',
         baccarat: '百家樂',
         gameroundid: '遊戲編號',
         totalbet: '總投注',
