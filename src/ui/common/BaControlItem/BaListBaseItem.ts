@@ -76,6 +76,7 @@ namespace we {
         }
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
+        this._quickBetGroup.height = this._quickBetGroup.contentHeight;
 
         const p1 = new Promise(resolve =>
           egret.Tween.get(this)
@@ -92,6 +93,7 @@ namespace we {
       protected hideQuickBetGroup() {
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
+        this._quickBetGroup.height = 0;
 
         egret.Tween.get(this._quickBetGroup).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
 

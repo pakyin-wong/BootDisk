@@ -120,7 +120,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -136,21 +136,21 @@ namespace we {
         }
       }
 
-      protected onMatchGoodRoadUpdate() { }
+      protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate() {
         // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
-      protected onTouchTap(evt: egret.Event) { }
+      protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
         if (this._betDetails && this._bettingTable) {
           this._bettingTable.updateBetFields(this._betDetails);
         }
       }
-      protected onBetDetailUpdateInFinishState() { }
+      protected onBetDetailUpdateInFinishState() {}
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
@@ -165,13 +165,13 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
             this._previousState = this._gameData ? this._gameData.previousstate : null;
-            this._gameData = <we.ba.GameData>this._tableInfo.data;
+            this._gameData = <we.ba.GameData> this._tableInfo.data;
 
             this.updateGame();
           }
