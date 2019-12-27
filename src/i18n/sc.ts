@@ -107,6 +107,7 @@ namespace we {
       },
       live: {
         gametype: {
+          allGame: '全部游戏',
           bacarrat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',

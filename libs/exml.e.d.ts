@@ -168,6 +168,10 @@ declare class DropdownSkin extends eui.Skin{
 }
 declare class RoundDropdownSkin extends eui.Skin{
 }
+declare class SidePanelAllGameDropdownItemSkin extends eui.Skin{
+}
+declare class SidePanelAllGameDropdownSkin extends eui.Skin{
+}
 declare module skin_desktop{
 	class DropdownItem extends eui.Skin{
 	}
@@ -211,6 +215,8 @@ declare module skin_desktop{
 	}
 }
 declare class ImageTabItemWithBadgeSkin extends eui.Skin{
+}
+declare class LiveSidePanelSkin extends eui.Skin{
 }
 declare class SidePanelSkin extends eui.Skin{
 }

@@ -5,15 +5,17 @@ namespace we {
       protected goodRoadTableList: TableList;
       protected allTableList: TableList;
 
-      protected dropdown: Dropdown;
+      protected _dropdown: SidePanelAllGameDropdown;
       protected _label: ui.RunTimeLabel;
 
       constructor() {
         super();
+        this.skinName = 'LiveSidePanelSkin';
       }
 
       protected mount() {
         super.mount();
+        this._dropdown.visible = false;
         this.addEventListeners();
       }
 
@@ -125,16 +127,24 @@ namespace we {
         }
       }
 
+      protected onCollapse() {
+        super.onCollapse();
+        this._dropdown.visible = false;
+      }
+
       protected onSelected() {
         super.onSelected();
         switch (this._viewStack.selectedIndex) {
           case 0:
           case 1:
+            this._dropdown.visible = false;
             this._label.visible = true;
             this._label.renderText = () => `${i18n.t(`sidePanel.${this._viewStack.getChildAt(this._viewStack.selectedIndex).name}`)}`;
             break;
           case 2:
             this._label.visible = false;
+            this._dropdown.visible = true;
+
             break;
         }
       }

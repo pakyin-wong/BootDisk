@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LiveSidePanelSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*">
+    <e:Group left="0" right="0">
+        <e:Image source="nav_panel_bg" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" bottom="0" top="0"
+                 left="0" right="0" />
+        <ui:Scroller id="_scroller" collapseOnStart="true" isCollapsible="true" iscollapseAnimate="true" right="14"
+                     left="14" bottom="24" top="76">
+            <e:Group anchorOffsetX="0" anchorOffsetY="0" width="389" height="1150"></e:Group>
+        </ui:Scroller>
+        <e:Group id="_tabBarGroup" y="36" right="51">
+            <e:List id="_tabbar" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="ImageTabItemWithBadgeSkin"
+                    scaleX="1" scaleY="1">
+                <e:layout>
+                    <e:HorizontalLayout gap="30" />
+                </e:layout>
+            </e:List>
+        </e:Group>
+        <ui:RunTimeLabel id="_label" text="" y="36" left="33" />
+        <ui:SidePanelAllGameDropdown id="_dropdown" y="36" left="33" skinName="SidePanelAllGameDropdownSkin" />
+    </e:Group>
+</e:Skin>

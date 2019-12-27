@@ -19,8 +19,9 @@ namespace we {
       public mount() {
         super.mount();
 
-        this._scroller.setToggler(this._toggler, null);
-
+        this._scroller.setToggler(this._toggler, () => {
+          this.onToggle();
+        });
         this._collection = new eui.ArrayCollection(this._items);
         // this._list = this._scroller.viewport as List;
         this._list.dataProvider = this._collection;
@@ -32,6 +33,8 @@ namespace we {
           this._list.selectedIndex = this._selectedIndex;
         }
       }
+
+      protected onToggle() {}
 
       public setItems(items: string[]) {
         this._items = items;

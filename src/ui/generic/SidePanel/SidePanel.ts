@@ -61,16 +61,20 @@ namespace we {
             clearTimeout(this.resizeWidthTimeoutId);
           }
           this.resizeWidthTimeoutId = setTimeout(() => {
-            if (this._label) {
-              this._label.visible = false;
-            }
-            this.width = this._tabbar.width + 100;
+            this.onCollapse();
           }, 200);
 
           egret.Tween.removeTweens(this.activeLine);
           egret.Tween.get(this.activeLine).to({ width: 0 }, this.lineMoveDuration);
           this.dispatchChange();
         }
+      }
+
+      protected onCollapse() {
+        if (this._label) {
+          this._label.visible = false;
+        }
+        this.width = this._tabbar.width + 100;
       }
 
       public get isCollapsed() {
