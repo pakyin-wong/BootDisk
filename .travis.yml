@@ -1,0 +1,81 @@
+if: branch =~ ^master$|^development$|^staging$|^uat$|^ci
+
+language: python
+group: stable
+dist: trusty
+os: linux
+sudo: required
+services:
+  - docker
+
+cache: pip
+
+install: # install awscli for ecr upload
+  - pip install awscli --upgrade
+script: |-
+  set -e
+
+  if [ "master" == "${TRAVIS_BRANCH}" ]; then
+    for env_value in $(compgen -v |grep '.*_PRODUCTION$'); do
+      eval export ${env_value%_PRODUCTION}="${!env_value}"
+    done
+    ENVIRONMENT="production"
+  elif [ "staging" == "${TRAVIS_BRANCH}" ]; then
+    for env_value in $(compgen -v |grep '.*_STAGING$'); do
+      eval export ${env_value%_STAGING}="${!env_value}"
+    done
+    ENVIRONMENT="staging"
+  elif [ "uat" == "${TRAVIS_BRANCH}" ]; then
+    for env_value in $(compgen -v |grep '.*_UAT$'); do
+      eval export ${env_value%_UAT}="${!env_value}"
+    done
+    ENVIRONMENT='uat'
+  
+  else 
+    for env_value in $(compgen -v |grep '.*_DEVELOPMENT$'); do
+      eval export ${env_value%_DEVELOPMENT}="${!env_value}"
+    done
+    ENVIRONMENT="development"
+  fi
+
+  tag_build_num="v${TRAVIS_BUILD_NUMBER}-build"
+  export IMAGE="${AWS_REGISTRY_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/$AWS_ECR_NAME:$tag_build_num"
+  export IMAGE_LATEST="${AWS_REGISTRY_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/$AWS_ECR_NAME:latest"
+  export IMAGE_INSTALLER=test
+  export ECR_LOGIN="aws ecr get-login --registry-ids $AWS_REGISTRY_ID --region $AWS_REGION --no-include-email"
+  NAME=$AWS_ECR_NAME
+
+  # build image for deploy
+  echo ${ENVIRONMENT}
+  docker build -t "$IMAGE" -t $IMAGE_LATEST \
+    --build-arg ENVIRONMENT=$ENVIRONMENT \
+    .
+
+  # cp static for s3
+  docker run --rm \
+    -v $PWD/s3_upload:/tmp \
+    --entrypoint "" \
+    $IMAGE \
+    sh -c "cp -r /usr/share/nginx/html/js /tmp/js && cp -r /usr/share/nginx/html/resource /tmp/resource"
+
+deploy:
+  # upload to ecr
+  - provider: script
+    script: >-
+      $(AWS_ACCESS_KEY_ID=$AWS_ECR_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_ECR_SECRET_ACCESS_KEY $ECR_LOGIN)
+      && docker push "$IMAGE"
+      && docker push "$IMAGE_LATEST"
+    skip_cleanup: true
+    on:
+      all_branches: true
+  # upload static to s3
+  - provider: s3
+    access_key_id: $AWS_S3_STATIC_ASSETS_ACCESS_KEY_ID
+    secret_access_key: $AWS_S3_STATIC_ASSETS_SECRET_KEY
+    bucket: $AWS_S3_STATIC_ASSETS_BUCKET
+    region: $AWS_REGION
+    local_dir: s3_upload
+    skip_cleanup: true
+    on:
+      all_branches: true
+      
