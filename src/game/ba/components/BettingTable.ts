@@ -156,9 +156,6 @@ namespace we {
 
       public isAlreadyBet() {
         const result = Object.keys(this.mapping).reduce((acc, cur) => {
-          if (this._tableId === 'T-BAC-004') {
-            console.log('this.mapping[cur].getCfmBet cur: ', cur, ' getCfmBet(): ', this.mapping[cur], ' ', this.mapping[cur].getCfmBet(), ' acc:', acc);
-          }
           return this.mapping[cur].getCfmBet() > 0 || acc;
         }, false);
         return result;

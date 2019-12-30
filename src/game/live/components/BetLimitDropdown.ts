@@ -49,7 +49,9 @@ namespace we {
 
       protected updateLabel() {
         this._label.text = `${i18n.t('baccarat.betLimitshort')} ${this._items.length > 0 ? this._items[this._selectedIndex] : ''}`;
-        if (this._toggleArrow) { this._toggleArrow.rotation = this._scroller.isCollapsed() ? 0 : 180; }
+        if (this._toggleArrow) {
+          this._toggleArrow.rotation = this._scroller.isCollapsed() ? 0 : 180;
+        }
       }
 
       protected onBetLimitChanged(evt: egret.Event) {
