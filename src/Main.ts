@@ -16,8 +16,8 @@ class Main extends eui.UILayer {
     //   egret.ticker.resume();
     // };
 
-    this.init().catch(error => {
-      console.error(error);
+    this.init().catch(err => {
+      logger.e(err);
     });
   }
 
@@ -56,8 +56,8 @@ class Main extends eui.UILayer {
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      logger.e(err);
     }
   }
 
