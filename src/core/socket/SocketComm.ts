@@ -476,6 +476,7 @@ namespace we {
         env.balance = balance.balance;
         env.balanceOnHold = balance.amountOnHold;
         env.currency = balance.currency;
+        logger.l(balance.balance);
 
         dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
       }
