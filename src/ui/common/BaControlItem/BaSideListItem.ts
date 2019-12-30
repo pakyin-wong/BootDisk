@@ -6,7 +6,7 @@ namespace we {
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
-
+      protected _alreadyBetSign: eui.Group;
       protected _tweenInterval1: number = 250;
 
       // protected _originalyhover: number;
@@ -49,6 +49,24 @@ namespace we {
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected setStateBet() {
+        super.setStateBet();
+        if (this._bettingTable.isAlreadyBet()) {
+          this._alreadyBetSign.visible = true;
+        } else {
+          this._alreadyBetSign.visible = false;
+        }
+      }
+
+      protected onTableBetInfoUpdate() {
+        super.onTableBetInfoUpdate();
+        if (this._bettingTable.isAlreadyBet()) {
+          this._alreadyBetSign.visible = true;
+        } else {
+          this._alreadyBetSign.visible = false;
         }
       }
 

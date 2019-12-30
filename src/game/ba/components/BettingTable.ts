@@ -111,6 +111,13 @@ namespace we {
           return null;
         }
         this._denomLayer = new eui.Component();
+        Object.keys(this.mapping).map(value => {
+          if (we.utils.convertToBoolean(this.mapping[value].hasDenomLayer)) {
+            this.setDenomGrid(this.mapping[value]);
+            this._denomLayer.addChild(this.mapping[value].denomLayer);
+          }
+        });
+        /*
         if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
           this.setDenomGrid(this._gridPlayer);
           this._denomLayer.addChild(this._gridPlayer.denomLayer);
@@ -139,11 +146,22 @@ namespace we {
           this.setDenomGrid(this._gridSuperSix);
           this._denomLayer.addChild(this._gridSuperSix.denomLayer);
         }
+        */
 
         this._denomLayer.touchEnabled = false;
         this._denomLayer.touchChildren = false;
 
         return this._denomLayer;
+      }
+
+      public isAlreadyBet() {
+        const result = Object.keys(this.mapping).reduce((acc, cur) => {
+          if (this._tableId === 'T-BAC-004') {
+            console.log('this.mapping[cur].getCfmBet cur: ', cur, ' getCfmBet(): ', this.mapping[cur], ' ', this.mapping[cur].getCfmBet(), ' acc:', acc);
+          }
+          return this.mapping[cur].getCfmBet() > 0 || acc;
+        }, false);
+        return result;
       }
 
       private setDenomGrid(grid: BettingTableGrid) {
@@ -265,6 +283,7 @@ namespace we {
       }
 
       public doubleBetFields() {
+        /*
         const validDoubleBet = Object.keys(this.mapping).map(value => {
           if (this.mapping[value].getCfmBet() === 0) {
             return true;
@@ -279,6 +298,17 @@ namespace we {
           if (!valid) {
             return;
           }
+        }
+        */
+        const validDoubleBet = Object.keys(this.mapping).reduce((acc, cur) => {
+          if (this.mapping[cur].getCfmBet() === 0) {
+            return acc && true;
+          }
+          const betDetail = { field: cur, amount: this.mapping[cur].getCfmBet() };
+          return this.validateBetAction(betDetail) ? acc && true : false;
+        }, true);
+        if (!validDoubleBet) {
+          return;
         }
         Object.keys(this.mapping).map(value => {
           const addedAmount = this.mapping[value].getCfmBet();
