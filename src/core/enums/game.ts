@@ -52,5 +52,10 @@ namespace we {
       LIGHT: 1,
       DARK: 2,
     };
+
+    export const NotificationType = {
+      GoodRoad: 0,
+      Result: 1,
+    }
   }
 }
