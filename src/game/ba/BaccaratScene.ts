@@ -133,7 +133,6 @@ namespace we {
         if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
           const bets = this.bettingTable.getUnconfirmedBetDetails();
           this.bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
-          logger.l(bets);
           dir.socket.bet(this.tableID, bets);
         }
       }
