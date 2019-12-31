@@ -253,6 +253,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class ResultNotificationSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ImageButtonSkin extends eui.Skin{
 	}
 }

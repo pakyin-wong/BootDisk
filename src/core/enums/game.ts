@@ -56,6 +56,6 @@ namespace we {
     export const NotificationType = {
       GoodRoad: 0,
       Result: 1,
-    }
+    };
   }
 }

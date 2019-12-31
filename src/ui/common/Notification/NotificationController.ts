@@ -18,8 +18,8 @@ namespace we {
         this._activeNotificationCount = notTypes.map(value => {
           return {
             type: value,
-            value: 0
-          }
+            value: 0,
+          };
         });
         this._activeNotificationCount = utils.arrayToKeyValue(this._activeNotificationCount, 'type', 'value');
         this._activeNotificationCount.total = 0;
@@ -36,18 +36,17 @@ namespace we {
 
         // group with horizontal layout
         // holding 2 notification holder
-
+        this.notificationHolders = [];
+        this.notificationList = [];
         const group = new eui.Group();
         this.addChild(group);
 
-        for (var i = 0; i < 2; i++) {
+        for (let i = 0; i < 2; i++) {
           const holder: NotificationHolder = new NotificationHolder();
           holder.controller = this;
           this.notificationHolders.push(holder);
           group.addChild(holder);
         }
-
-
 
         // const collection = new eui.ArrayCollection([]);
         // const notificationList = new ui.List();
@@ -75,16 +74,16 @@ namespace we {
       }
 
       public updatePosition(evt: egret.Event) {
-        const sidePanel = <LiveSidePanel>evt.data;
-        let x = this.stage.stageWidth - this.width;
+        const sidePanel = <LiveSidePanel> evt.data;
+        let right = 410;
         if (!sidePanel.isCollapsed) {
-          x -= sidePanel.width + 20;
+          right += sidePanel.width + 20;
         }
-        egret.Tween.get(this).to({ x }, 300, egret.Ease.quintIn);
+        egret.Tween.get(this).to({ right }, 300, egret.Ease.quintIn);
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification>(evt.data);
+        const notification: data.Notification = <data.Notification> evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -95,29 +94,31 @@ namespace we {
 
       protected isTypeAvailable(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
-        return this._activeNotificationCount[typeStr] == 0;
+        return this._activeNotificationCount[typeStr] === 0;
       }
 
       public dismissNotification(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
-        this._activeNotificationCount[typeStr] == 0;
+        this._activeNotificationCount[typeStr] = 0;
         this._activeNotificationCount.total -= 1;
       }
       protected showNotification(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
-        this._activeNotificationCount[typeStr] == 1;
+        this._activeNotificationCount[typeStr] = 1;
         this._activeNotificationCount.total += 1;
       }
 
       public showNextNotification() {
         // check if there is empty holder
-        if (!this.hasAvailableHolder) return;
+        if (!this.hasAvailableHolder) {
+          return;
+        }
         const holder = this.availableHolder;
         if (holder) {
           const notification = this.nextNotification;
           if (notification) {
             holder.itemData = notification;
-            this.showNotification(notification.type)
+            this.showNotification(notification.type);
           }
         }
       }
@@ -131,10 +132,13 @@ namespace we {
       }
 
       protected get nextNotification(): data.Notification {
+        let idx = 0;
         for (const notification of this.notificationList) {
           if (this.isTypeAvailable(notification.type)) {
+            this.notificationList.splice(idx, 1);
             return notification;
           }
+          idx++;
         }
       }
     }

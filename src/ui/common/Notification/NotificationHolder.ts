@@ -9,12 +9,16 @@ namespace we {
 
       constructor() {
         super();
+      }
+
+      public mount() {
+        super.mount();
         this._content = new eui.Group();
         this.addChild(this._content);
       }
 
       public get isAvailable() {
-        return !!this._itemData;
+        return !this._itemRenderer;
       }
 
       public set itemData(value: data.Notification) {
@@ -22,7 +26,7 @@ namespace we {
         // create new item renderer
         this.createItemRenderer(this._itemData.type);
         // transition in
-        this.moveIn();
+        // this.moveIn();
       }
 
       public get itemData() {
@@ -39,15 +43,14 @@ namespace we {
             break;
         }
         this._itemRenderer.holder = this;
-        this._itemRenderer.data = this._itemData.data;
         this._content.addChild(this._itemRenderer);
+        this._itemRenderer.data = this._itemData.data;
       }
 
       protected moveIn() {
         this._itemRenderer.x = this._itemRenderer.width;
         this._itemRenderer.alpha = 0;
-        egret.Tween.get(this._itemRenderer)
-          .to({ x: 0, alpha: 1 }, 200);
+        egret.Tween.get(this._itemRenderer).to({ x: 0, alpha: 1 }, 200);
       }
 
       public removeItem() {

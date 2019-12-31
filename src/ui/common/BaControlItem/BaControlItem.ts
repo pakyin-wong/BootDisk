@@ -150,7 +150,14 @@ namespace we {
           this._bettingTable.updateBetFields(this._betDetails);
         }
       }
-      protected onBetDetailUpdateInFinishState() {}
+      protected onBetDetailUpdateInFinishState() {
+        this._bettingTable.showWinEffect(this._betDetails);
+        if (this._betDetails && this._bettingTable) {
+          if (this._resultMessage) {
+            this.checkResultMessage(this.tableInfo.totalWin);
+          }
+        }
+      }
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);

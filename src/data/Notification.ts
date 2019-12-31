@@ -1,8 +1,8 @@
 namespace we {
-    export namespace data {
-        export class Notification {
-            public type: number;
-            public data: any;
-        }
+  export namespace data {
+    export class Notification {
+      public type: number;
+      public data: any;
     }
+  }
 }
