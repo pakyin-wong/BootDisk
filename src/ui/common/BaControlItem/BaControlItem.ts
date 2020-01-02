@@ -11,6 +11,7 @@ namespace we {
       protected _resultMessage: GameResultMessage;
       protected _message: InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
+      protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
       // table name label
       protected _label: ui.RunTimeLabel;
@@ -59,6 +60,7 @@ namespace we {
           this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
           this._bettingTable.type = we.core.BettingTableType.NORMAL;
           this._bettingTable.denomList = denominationList;
+          this._bettingTable.undoStack = this._undoStack;
           this._bettingTable.init();
         }
       }
