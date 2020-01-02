@@ -95,6 +95,7 @@
 		"resource/skin_desktop/NavDropdown.exml",
 		"resource/skin_desktop/NavPlayerProfile.exml",
 		"resource/skin_desktop/NavSideMenu.exml",
+		"resource/skin_desktop/notification/ResultNotificationSkin.exml",
 		"resource/skin_desktop/OldImageButton.exml",
 		"resource/skin_desktop/overlay/BaResultItem.exml",
 		"resource/skin_desktop/overlay/OverlayPanelButton.exml",

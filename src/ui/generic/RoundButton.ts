@@ -9,6 +9,7 @@ namespace we {
       private _tw4: egret.Tween;
       private _label1text: string;
       private _label2text: string;
+      private _originalWidth: number;
 
       constructor() {
         super('RoundButton');
@@ -94,19 +95,42 @@ namespace we {
         }
       }
 
-      public tweenLabel(direction: boolean) {
+      public tweenLabel(direction: boolean, isAnimate: boolean = true) {
         egret.Tween.removeTweens(this._label1);
         egret.Tween.removeTweens(this._label2);
-        if (direction) {
-          this._tw1 = egret.Tween.get(this._label1).to({ alpha: 0 }, 250);
-          this._tw2 = egret.Tween.get(this._label2).to({ alpha: 1 }, 250);
-          this._tw3 = egret.Tween.get(this._image).to({ width: 50 }, 250);
+        egret.Tween.removeTweens(this._image);
+        if (isAnimate) {
+          if (direction) {
+            this._tw1 = egret.Tween.get(this._label1).to({ alpha: 0 }, 250);
+            this._tw2 = egret.Tween.get(this._label2).to({ alpha: 1 }, 250);
+            this._tw3 = egret.Tween.get(this._image).to({ width: 50 }, 250);
+          } else {
+            this._tw1 = egret.Tween.get(this._label1).to({ alpha: 1 }, 250);
+            this._tw2 = egret.Tween.get(this._label2).to({ alpha: 0 }, 250);
+            this._tw3 = egret.Tween.get(this._image).to({ width: 148 }, 250);
+          }
+          return [this._tw1, this._tw2, this._tw3];
         } else {
-          this._tw1 = egret.Tween.get(this._label1).to({ alpha: 1 }, 250);
-          this._tw2 = egret.Tween.get(this._label2).to({ alpha: 0 }, 250);
-          this._tw3 = egret.Tween.get(this._image).to({ width: 148 }, 250);
+          if (direction) {
+            this._label1.alpha = 0;
+            this._label2.alpha = 1;
+            this._image.width = 50;
+          } else {
+            this._label1.alpha = 1;
+            this._label2.alpha = 0;
+            this._image.width = 148;
+          }
         }
-        return [this._tw1, this._tw2, this._tw3];
+      }
+
+      public tweenSize(direction: boolean) {
+        egret.Tween.removeTweens(this);
+        if (direction) {
+          this._originalWidth = this.width;
+          this._tw1 = egret.Tween.get(this).to({ width: 0 }, 250);
+        } else {
+          this._tw1 = egret.Tween.get(this).to({ width: this._originalWidth }, 250);
+        }
       }
     }
   }

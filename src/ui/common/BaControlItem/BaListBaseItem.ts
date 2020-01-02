@@ -55,6 +55,13 @@ namespace we {
         this._quickBetGroup.y = this._originalQuickBetPanelY;
       }
 
+      protected onBetDetailUpdateInBetState() {
+        super.onBetDetailUpdateInBetState();
+        if (this.holder.isFocus) {
+          this.hideQuickBetGroup();
+        }
+      }
+
       protected onTouchTap(evt: egret.Event) {
         const target = evt.target;
         if (target.parent && target.parent instanceof eui.ItemRenderer) {

@@ -5,9 +5,28 @@ namespace we {
       protected _quickbetButton: ui.RoundButton;
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
+      protected _alreadyBetSign: eui.Group;
 
       public constructor(skinName: string = 'BaLiveListSimpleItemSkin') {
         super(skinName);
+      }
+
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet(isInit);
+        if (this._bettingTable.isAlreadyBet()) {
+          this._alreadyBetSign.visible = true;
+        } else {
+          this._alreadyBetSign.visible = false;
+        }
+      }
+
+      protected onTableBetInfoUpdate() {
+        super.onTableBetInfoUpdate();
+        if (this._bettingTable.isAlreadyBet()) {
+          this._alreadyBetSign.visible = true;
+        } else {
+          this._alreadyBetSign.visible = false;
+        }
       }
 
       protected addEventListeners() {
@@ -54,7 +73,7 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable) {
         super.setBetRelatedComponentsEnabled(enable);
         if (!this._mouseOutside && enable) {
-          this._quickbetButton.tweenLabel(false);
+          this._quickbetButton.tweenLabel(false, false);
         }
       }
 
