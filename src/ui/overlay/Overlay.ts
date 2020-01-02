@@ -33,8 +33,8 @@ namespace we {
         try {
           const opt: IOverlayToggleOpt = e.data;
           panel = new we.overlay[opt.class](...opt.args);
-        } catch (e) {
-          logger.l(`panel ${e.data} defined error`, e.data);
+        } catch (err) {
+          logger.l(`panel ${e.data} defined error`, e.data, err);
           return;
         }
 
