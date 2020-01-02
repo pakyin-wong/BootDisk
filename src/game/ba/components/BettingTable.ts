@@ -404,7 +404,8 @@ namespace we {
         // TODO: check balance
         const balance = env.balance;
         if (balance < totalBetAmount) {
-          dir.evtHandler.dispatch(core.Event.INSUFFICIENT_BALANCE);
+          this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
+          // dir.evtHandler.dispatch(core.Event.INSUFFICIENT_BALANCE);
           return false;
         }
         // check betlimit
