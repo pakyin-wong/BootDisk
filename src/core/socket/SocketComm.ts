@@ -90,7 +90,7 @@ namespace we {
       }
 
       protected onConnectError(err) {
-        console.error('SocketComm -> onConnectError', err);
+        logger.e(err);
       }
 
       // Handler for Ready event

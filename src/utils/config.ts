@@ -7,7 +7,7 @@ namespace we {
         text = await this.getText(`./config.${obj.target}.json?t=${Date.now()}`);
         obj = JSON.parse(text);
       } catch (error) {
-        console.error('getConfig error. ' + error + '. Therefore it use ./config.json.');
+        console.log('getConfig error. ' + error + '. Therefore it use ./config.json.');
       }
       return obj;
     }

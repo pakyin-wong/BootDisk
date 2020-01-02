@@ -9,6 +9,7 @@ namespace we {
       private _tw4: egret.Tween;
       private _label1text: string;
       private _label2text: string;
+      private _originalWidth: number;
 
       constructor() {
         super('RoundButton');
@@ -107,6 +108,16 @@ namespace we {
           this._tw3 = egret.Tween.get(this._image).to({ width: 148 }, 250);
         }
         return [this._tw1, this._tw2, this._tw3];
+      }
+
+      public tweenSize(direction: boolean) {
+        egret.Tween.removeTweens(this);
+        if (direction) {
+          this._originalWidth = this.width;
+          this._tw1 = egret.Tween.get(this).to({ width: 0 }, 250);
+        } else {
+          this._tw1 = egret.Tween.get(this).to({ width: this._originalWidth }, 250);
+        }
       }
     }
   }

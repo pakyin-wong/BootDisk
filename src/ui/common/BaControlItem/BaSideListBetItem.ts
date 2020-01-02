@@ -8,6 +8,7 @@ namespace we {
       protected _quickbetButton: ui.BaseImageButton;
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
+      //protected _originalQuickBetButtonWidth: number;
 
       public constructor(skinName: string = 'BaSideListBetItemSkin') {
         super(skinName);
@@ -71,6 +72,18 @@ namespace we {
         } else {
           egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250);
         }
+      }
+
+      protected hideQuickBetGroup() {
+        egret.Tween.removeTweens(this._quickbetButton);        
+        egret.Tween.get(this._quickbetButton).to({ alpha: 1 }, 250);
+        super.hideQuickBetGroup();
+      }
+
+      protected showQuickBetGroup() {
+        egret.Tween.removeTweens(this._quickbetButton);
+        egret.Tween.get(this._quickbetButton).to({ alpha: 0 }, 250);
+        super.showQuickBetGroup();
       }
 
       protected addEventListeners() {
