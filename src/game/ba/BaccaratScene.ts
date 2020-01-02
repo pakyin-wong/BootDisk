@@ -8,6 +8,8 @@ namespace we {
   export namespace ba {
     export class Scene extends core.BaseScene {
       protected _header: eui.Group;
+      protected undoButton: ui.BaseImageButton;
+      protected undoStack: we.utils.UndoStack = new we.utils.UndoStack();
       private bettingTable: BettingTable;
       private betChipSet: BetChipSet;
       private cardHolder: CardHolder;
@@ -96,6 +98,7 @@ namespace we {
         this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         this.repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
         this.doubleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
+        this.undoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
         this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
         this.bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
@@ -103,6 +106,7 @@ namespace we {
         this.bettingTable.type = we.core.BettingTableType.NORMAL;
         this.bettingTable.denomList = denominationList;
         this.bettingTable.tableId = this._tableID;
+        this.bettingTable.undoStack = this.undoStack;
         this.bettingTable.init();
 
         if (this._switchBaMode) {
@@ -133,20 +137,40 @@ namespace we {
         if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
           const bets = this.bettingTable.getUnconfirmedBetDetails();
           this.bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
+          this.undoStack.clearStack();
           dir.socket.bet(this.tableID, bets);
         }
       }
 
       private onRepeatPressed() {
         this.bettingTable.repeatBetFields();
+        this.undoStack.push(new Date(), null, this.undoRepeatPressed.bind(this));
+      }
+
+      private undoRepeatPressed() {
+        console.log('BaccaratScene::undoRepeatPressed');
       }
 
       private onDoublePressed() {
         this.bettingTable.doubleBetFields();
+        this.undoStack.push(new Date(), null, this.undoRepeatPressed.bind(this));
+      }
+
+      private undoDoublePressed() {
+        console.log('BaccaratScene::undoDoublePressed');
       }
 
       private onCancelPressed() {
         this.bettingTable.cancelBet();
+        this.undoStack.push(new Date(), null, this.undoCancelPressed.bind(this));
+      }
+
+      private undoCancelPressed() {
+        console.log('BaccaratScene::undoCancelPressed');
+      }
+
+      private onUndoPressed() {
+        this.undoStack.popAndUndo();
       }
 
       public playVideo(scene: any) {
@@ -291,7 +315,8 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        // console.log('BaccaratScene::onTableBetInfoUpdate', evt.data);
+        console.log('BaccaratScene::onTableBetInfoUpdate');
+        console.log(evt.data);
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this.tableID) {

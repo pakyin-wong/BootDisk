@@ -14,6 +14,7 @@ namespace we {
       private _denomLayer: eui.Component;
       private _getSelectedChipIndex: () => number;
       private _getSelectedBetLimitIndex: () => number;
+      private _undoStack: we.utils.UndoStack;
       private mapping: { [s: string]: BettingTableGrid };
 
       private uncfmBetDetails: data.BetDetail[];
@@ -53,6 +54,14 @@ namespace we {
 
       get type() {
         return this._type;
+      }
+
+      set undoStack(value: we.utils.UndoStack) {
+        this._undoStack = value;
+      }
+
+      get undoStack() {
+        return this._undoStack;
       }
 
       private createMapping() {
@@ -272,11 +281,23 @@ namespace we {
               }
             }
             // update the corresponding table grid
+            this.undoStack.push(null, { fieldName: grid.getFieldName(), amount: grid.getAmount() }, this.undoBetFieldUpdate.bind(this));
             this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
             this.totalUncfmBetAmount += betDetail.amount;
           }
           grid.draw();
         };
+      }
+
+      protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {
+        this.mapping[data.fieldName].reduceUnCfmBet(data.amount);
+        this.totalUncfmBetAmount -= data.amount;
+        for (const detail of this.uncfmBetDetails) {
+          if (detail.field === data.fieldName) {
+            detail.amount -= data.amount;
+            break;
+          }
+        }
       }
 
       public doubleBetFields() {
