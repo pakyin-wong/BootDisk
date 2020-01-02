@@ -26,7 +26,7 @@ namespace we {
         // create new item renderer
         this.createItemRenderer(this._itemData.type);
         // transition in
-        // this.moveIn();
+        this.moveIn();
       }
 
       public get itemData() {
@@ -44,11 +44,13 @@ namespace we {
         }
         this._itemRenderer.holder = this;
         this._content.addChild(this._itemRenderer);
+        this._content.width = this._itemRenderer.width;
+
         this._itemRenderer.data = this._itemData.data;
       }
 
       protected moveIn() {
-        this._itemRenderer.x = this._itemRenderer.width;
+        this._itemRenderer.x = this._content.width;
         this._itemRenderer.alpha = 0;
         egret.Tween.get(this._itemRenderer).to({ x: 0, alpha: 1 }, 200);
       }
@@ -56,7 +58,7 @@ namespace we {
       public removeItem() {
         this._itemRenderer.alpha = 1;
         egret.Tween.get(this._itemRenderer)
-          .to({ x: this._itemRenderer.width, alpha: 0 }, 200)
+          .to({ x: this._content.width, alpha: 0 }, 200)
           .call(() => {
             this._content.removeChild(this._itemRenderer);
             this._itemRenderer.holder = null;

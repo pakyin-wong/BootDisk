@@ -75,7 +75,7 @@ namespace we {
 
       public updatePosition(evt: egret.Event) {
         const sidePanel = <LiveSidePanel> evt.data;
-        let right = 410;
+        let right = 30;
         if (!sidePanel.isCollapsed) {
           right += sidePanel.width + 20;
         }

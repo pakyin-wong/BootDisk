@@ -20,7 +20,7 @@ namespace we {
         super.$setData(value);
         const { tableNo, winAmount, winType, gameType } = value;
         this._lblName.renderText = () => `${i18n.t('gametype_' + we.core.GameType[gameType])} ${tableNo}`;
-        this._lblWinAMount.text = `${winAmount >= 0 ? '+' : '-'}${winAmount}`;
+        this._lblWinAMount.text = `${winAmount >= 0 ? '+' : ''}${utils.formatNumber(winAmount)}`;
         this.updateResult(winType);
       }
 
