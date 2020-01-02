@@ -8,7 +8,7 @@ namespace we {
       protected _quickbetButton: ui.BaseImageButton;
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
-      //protected _originalQuickBetButtonWidth: number;
+      // protected _originalQuickBetButtonWidth: number;
 
       public constructor(skinName: string = 'BaSideListBetItemSkin') {
         super(skinName);
@@ -52,8 +52,13 @@ namespace we {
         this._bettingTable.repeatBetFields();
       }
 
-      protected setStateDeal() {
-        super.setStateDeal();
+      protected setStateIdle(isInit: boolean = false) {
+        super.setStateIdle(isInit);
+        this.list.removeTable(this._tableId);
+      }
+
+      protected setStateDeal(isInit: boolean = false) {
+        super.setStateDeal(isInit);
         if (this._previousState !== we.ba.GameState.DEAL) {
           env.tableInfos[this._tableId].prevbets = env.tableInfos[this._tableId].bets;
           env.tableInfos[this._tableId].prevbetsroundid = env.tableInfos[this._tableId].roundid;
@@ -75,7 +80,7 @@ namespace we {
       }
 
       protected hideQuickBetGroup() {
-        egret.Tween.removeTweens(this._quickbetButton);        
+        egret.Tween.removeTweens(this._quickbetButton);
         egret.Tween.get(this._quickbetButton).to({ alpha: 1 }, 250);
         super.hideQuickBetGroup();
       }

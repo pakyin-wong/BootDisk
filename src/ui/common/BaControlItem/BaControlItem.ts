@@ -168,7 +168,7 @@ namespace we {
         if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         }
-        this.updateGame();
+        this.updateGame(true);
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
@@ -190,51 +190,53 @@ namespace we {
         logger.l('BaccaratScene::onRoadDataUpdate');
       }
 
-      public updateGame() {
+      public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
           return;
         }
         switch (this._gameData.state) {
           case ba.GameState.IDLE:
-            this.setStateIdle();
+            this.setStateIdle(isInit);
             break;
           case ba.GameState.BET:
-            this.setStateBet();
+            this.setStateBet(isInit);
             break;
           case ba.GameState.DEAL:
-            this.setStateDeal();
+            this.setStateDeal(isInit);
             break;
           case ba.GameState.FINISH:
-            this.setStateFinish();
+            this.setStateFinish(isInit);
             break;
           case ba.GameState.REFUND:
-            this.setStateRefund();
+            this.setStateRefund(isInit);
             break;
           case ba.GameState.SHUFFLE:
-            this.setStateShuffle();
+            this.setStateShuffle(isInit);
             break;
           default:
-            this.setStateUnknown();
+            this.setStateUnknown(isInit);
             break;
         }
       }
 
-      protected setStateUnknown() {
+      protected setStateUnknown(isInit: boolean = false) {
         this.setBetRelatedComponentsEnabled(false);
         this.setResultRelatedComponentsEnabled(false);
       }
 
-      protected setStateIdle() {
-        if (this._previousState !== we.ba.GameState.IDLE) {
+      protected setStateIdle(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.IDLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
-      protected setStateBet() {
-        if (this._previousState !== we.ba.GameState.BET) {
+      protected setStateBet(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);
           this.setResultRelatedComponentsEnabled(false);
+        }
 
+        if (this._previousState !== we.ba.GameState.BET) {
           if (this._bettingTable) {
             this._bettingTable.resetUnconfirmedBet();
             this._bettingTable.resetConfirmedBet();
@@ -244,7 +246,7 @@ namespace we {
             this._resultMessage.clearMessage();
           }
 
-          if (this._message) {
+          if (this._message && !isInit) {
             this._message.showMessage(InGameMessage.INFO, i18n.t('game.startBet'));
           }
 
@@ -256,16 +258,18 @@ namespace we {
         this.updateCountdownTimer();
       }
 
-      protected setStateDeal() {
-        if (this._previousState !== we.ba.GameState.DEAL) {
+      protected setStateDeal(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
+        }
 
+        if (this._previousState !== we.ba.GameState.DEAL) {
           if (this._cardHolder) {
             this._cardHolder.resetCards();
           }
 
-          if (this._previousState === GameState.BET && this._message) {
+          if (this._previousState === GameState.BET && this._message && !isInit) {
             this._message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
@@ -277,11 +281,12 @@ namespace we {
           this._cardHolder.updateResult(this._gameData);
         }
       }
-      protected setStateFinish() {
-        if (this._previousState !== we.ba.GameState.FINISH) {
+      protected setStateFinish(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.FINISH || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
-
+        }
+        if (this._previousState !== we.ba.GameState.FINISH) {
           if (this._cardHolder) {
             this._cardHolder.updateResult(this._gameData);
           }
@@ -291,14 +296,14 @@ namespace we {
           }
         }
       }
-      protected setStateRefund() {
-        if (this._previousState !== we.ba.GameState.REFUND) {
+      protected setStateRefund(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.REFUND || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
-      protected setStateShuffle() {
-        if (this._previousState !== we.ba.GameState.SHUFFLE) {
+      protected setStateShuffle(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.SHUFFLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }

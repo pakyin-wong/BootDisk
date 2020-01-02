@@ -52,8 +52,8 @@ namespace we {
         }
       }
 
-      protected setStateBet() {
-        super.setStateBet();
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet(isInit);
         if (this._bettingTable.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {

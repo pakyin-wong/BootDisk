@@ -11,8 +11,8 @@ namespace we {
         super(skinName);
       }
 
-      protected setStateBet() {
-        super.setStateBet();
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet(isInit);
         if (this._bettingTable.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
@@ -73,7 +73,7 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable) {
         super.setBetRelatedComponentsEnabled(enable);
         if (!this._mouseOutside && enable) {
-          this._quickbetButton.tweenLabel(false);
+          this._quickbetButton.tweenLabel(false, false);
         }
       }
 
