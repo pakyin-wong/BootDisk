@@ -143,30 +143,15 @@ namespace we {
       }
 
       private onRepeatPressed() {
-        this.bettingTable.repeatBetFields();
-        this.undoStack.push(new Date(), null, this.undoRepeatPressed.bind(this));
-      }
-
-      private undoRepeatPressed() {
-        console.log('BaccaratScene::undoRepeatPressed');
+        this.bettingTable.onRepeatPressed();
       }
 
       private onDoublePressed() {
-        this.bettingTable.doubleBetFields();
-        this.undoStack.push(new Date(), null, this.undoRepeatPressed.bind(this));
-      }
-
-      private undoDoublePressed() {
-        console.log('BaccaratScene::undoDoublePressed');
+        this.bettingTable.onDoublePressed();
       }
 
       private onCancelPressed() {
-        this.bettingTable.cancelBet();
-        this.undoStack.push(new Date(), null, this.undoCancelPressed.bind(this));
-      }
-
-      private undoCancelPressed() {
-        console.log('BaccaratScene::undoCancelPressed');
+        this.bettingTable.onCancelPressed();
       }
 
       private onUndoPressed() {
