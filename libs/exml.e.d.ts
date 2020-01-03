@@ -123,10 +123,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BetInfoBaQuickBetPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BetInfoHolder extends eui.Skin{
 	}
 }

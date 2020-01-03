@@ -12,7 +12,7 @@ namespace we {
       protected _undoButton: ui.BaseImageButton;
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
       protected _bettingTable: BettingTable;
-      protected _betChipSet: BetChipSet;
+      protected _betChipSet: we.ba.BetChipSetHorizontal;
       protected _cardHolder: CardHolder;
       protected _countdownTimer: CountdownTimer;
       protected _confirmButton: eui.Button;
@@ -390,7 +390,7 @@ namespace we {
           // reset data betinfo
           this._bettingTable.resetUnconfirmedBet();
           this._bettingTable.resetConfirmedBet();
-
+          this._undoStack.clearStack();
           this._resultMessage.clearMessage();
 
           // if (this.betDetails) {

@@ -2,6 +2,11 @@ namespace we {
   export namespace ba {
     export interface IBetChipSet {
       resetDenominationList(denominationList: number[]);
+      resetFormat(format: any);
+      init(format: any, denominationList: number[]);
+      getSelectedChipIndex();
+      setTouchEnabled(enable: boolean);
+
       // setChipSet(denominationList: number[]);
       // onChipSelected(index: number);
     }

@@ -26,7 +26,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._betChipSet.resetDenomNum(1);
+        this._betChipSet.resetFormat(1);
         this._bettingTable.setGameMode(false);
       }
 
@@ -48,8 +48,8 @@ namespace we {
         this._bettingTable.setTouchEnabled(this._betEnabled);
       }
 
-      public onClickRepeatButton(evt: egret.Event) {
-        this._bettingTable.repeatBetFields();
+      public onClickUndoButton(evt: egret.Event) {
+        this._undoStack.popAndUndo();
       }
 
       protected setStateIdle(isInit: boolean = false) {
@@ -93,14 +93,14 @@ namespace we {
 
       protected addEventListeners() {
         super.addEventListeners();
-        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickRepeatButton, this);
+        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
-        this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickRepeatButton, this);
+        this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
         this._quickbetButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
       }

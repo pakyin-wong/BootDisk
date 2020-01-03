@@ -35,7 +35,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._betChipSet.resetDenomNum(1);
+        this._betChipSet.resetFormat(1);
         this._goodRoadLabel.visible = false;
       }
 
