@@ -289,7 +289,7 @@ namespace we {
               }
             }
             // update the corresponding table grid
-            this.undoStack.push(null, { fieldName: grid.getFieldName(), amount: grid.getAmount() }, this.undoBetFieldUpdate.bind(this));
+            this.undoStack.push(new Date().getTime(), { fieldName: grid.getFieldName(), amount: grid.getAmount() }, this.undoBetFieldUpdate.bind(this));
             this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
             this.totalUncfmBetAmount += betDetail.amount;
           }
