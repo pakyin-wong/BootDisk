@@ -55,6 +55,12 @@ namespace we {
           const col = Math.floor(posX / this.gridSize);
           const row = Math.floor(posY / this.gridSize);
           const index = col * 6 + row;
+
+          // dispatch the result rolled over by the user
+          this.dispatchEvent(new egret.Event('RollOverResult', false, false, { index }));
+        } else {
+          // dispatch rolled out result
+          this.dispatchEvent(new egret.Event('RollOutResult'));
         }
       }
 
@@ -63,6 +69,8 @@ namespace we {
           mouse.setMouseMoveEnabled(false);
           this.stage.removeEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
         }
+        // dispatch rolled out result
+        this.dispatchEvent(new egret.Event('RollOutResult'));
       }
 
       public dispose() {}
