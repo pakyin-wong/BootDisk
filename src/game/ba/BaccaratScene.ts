@@ -8,43 +8,46 @@ namespace we {
   export namespace ba {
     export class Scene extends core.BaseScene {
       protected _header: eui.Group;
-      private bettingTable: BettingTable;
-      private betChipSet: BetChipSet;
-      private cardHolder: CardHolder;
-      private countdownTimer: CountdownTimer;
-      private confirmButton: eui.Button;
-      private repeatButton: ui.BaseImageButton;
-      private cancelButton: ui.BaseImageButton;
-      private doubleButton: ui.BaseImageButton;
-      private roundPanel: eui.Rect;
-      private switchLang: ui.SwitchLang;
-      private _tableID: string;
-      private previousState: number;
-      private tableInfo: data.TableInfo;
-      private gameData: GameData;
-      private betDetails: data.BetDetail[];
+      protected _betRelatedGroup: eui.Group;
+      protected _undoButton: ui.BaseImageButton;
+      protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
+      protected _bettingTable: BettingTable;
+      protected _betChipSet: BetChipSet;
+      protected _cardHolder: CardHolder;
+      protected _countdownTimer: CountdownTimer;
+      protected _confirmButton: eui.Button;
+      protected _repeatButton: ui.BaseImageButton;
+      protected _cancelButton: ui.BaseImageButton;
+      protected _doubleButton: ui.BaseImageButton;
+      protected _roundPanel: eui.Rect;
+      protected _switchLang: ui.SwitchLang;
+      protected _tableID: string;
+      protected _previousState: number;
+      protected _tableInfo: data.TableInfo;
+      protected _gameData: GameData;
+      protected _betDetails: data.BetDetail[];
 
-      private btnBack: egret.DisplayObject;
-      private lblRoomInfo: eui.Label;
-      private lblRoomNo: ui.RunTimeLabel;
-      private lblBetLimit: eui.Label;
-      private lblBetLimitInfo: eui.Label;
+      protected _btnBack: egret.DisplayObject;
+      protected _lblRoomInfo: eui.Label;
+      protected _lblRoomNo: ui.RunTimeLabel;
+      protected _lblBetLimit: eui.Label;
+      protected _lblBetLimitInfo: eui.Label;
 
-      private tableInfoWindow: ui.TableInfoPanel;
-      private gameBar: GameBar;
+      protected _tableInfoWindow: ui.TableInfoPanel;
+      protected _gameBar: GameBar;
 
-      private bgImg: eui.Image;
-      private _video: egret.FlvVideo;
+      protected _bgImg: eui.Image;
+      protected _video: egret.FlvVideo;
 
-      private roadmapControl: BARoadmapControl;
-      private roadmapLeftPanel: BARoadmapLeftPanel;
-      private roadmapRightPanel: BARoadmapRightPanel;
+      protected _roadmapControl: BARoadmapControl;
+      protected _roadmapLeftPanel: BARoadmapLeftPanel;
+      protected _roadmapRightPanel: BARoadmapRightPanel;
 
-      private resultMessage: GameResultMessage;
-      private message: InGameMessage;
+      protected _resultMessage: GameResultMessage;
+      protected _message: InGameMessage;
 
-      private _switchBaMode: eui.ToggleSwitch;
-      private _lblBaMode: ui.RunTimeLabel;
+      protected _switchBaMode: eui.ToggleSwitch;
+      protected _lblBaMode: ui.RunTimeLabel;
 
       constructor(data: any) {
         super(data);
@@ -59,14 +62,14 @@ namespace we {
       }
 
       public insufficientBalance() {
-        if (this.message) {
-          this.message.showMessage(InGameMessage.ERROR, 'Insufficient Balance');
+        if (this._message) {
+          this._message.showMessage(InGameMessage.ERROR, 'Insufficient Balance');
         }
       }
 
       public set tableID(tableID: string) {
         this._tableID = tableID;
-        this.lblRoomNo.text = `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableID)}`;
+        this._lblRoomNo.text = `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableID)}`;
       }
 
       public get tableID() {
@@ -74,47 +77,45 @@ namespace we {
       }
 
       public onEnter() {
-        // this.lblRoomNo.text = this.tableInfo.tablename;
-        // this.lblBetLimit.text = env.betLimits;
-
-        // this.tableInfoWindow.visible = false;
         this.initRoadMap();
         this.setupTableInfo();
         this.addChild(this._video);
         this.setChildIndex(this._video, 0);
         // this.playVideo();
 
-        this.gameBar.setPlayFunc(this.playVideo(this));
-        this.gameBar.setStopFunc(this.stopVideo(this));
+        this._gameBar.setPlayFunc(this.playVideo(this));
+        this._gameBar.setStopFunc(this.stopVideo(this));
 
         // setInterval(() => ui.EdgeDismissableAddon.toggle(), 2000);
 
         // work around currentSelectedBetLimitIndex = 0 choose by the
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
-        this.betChipSet.init(4, denominationList);
+        this._betChipSet.init(4, denominationList);
 
-        this.confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
-        this.repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
-        this.doubleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
-        this.cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+        this._repeatButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRepeatPressed, this, true);
+        this._doubleButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDoublePressed, this, true);
+        this._undoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onUndoPressed, this, true);
+        this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
 
-        this.bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
-        this.bettingTable.getSelectedChipIndex = this.betChipSet.getSelectedChipIndex.bind(this.betChipSet);
-        this.bettingTable.type = we.core.BettingTableType.NORMAL;
-        this.bettingTable.denomList = denominationList;
-        this.bettingTable.tableId = this._tableID;
-        this.bettingTable.init();
+        this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
+        this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
+        this._bettingTable.type = we.core.BettingTableType.NORMAL;
+        this._bettingTable.denomList = denominationList;
+        this._bettingTable.tableId = this._tableID;
+        this._bettingTable.undoStack = this._undoStack;
+        this._bettingTable.init();
 
         if (this._switchBaMode) {
-          this.bettingTable.setGameMode(this._switchBaMode.selected);
+          this._bettingTable.setGameMode(this._switchBaMode.selected);
           this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
 
         this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
-        this.lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableID)}`;
+        this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableID)}`;
 
-        this.tableInfoWindow.setToggler(this.lblRoomInfo);
-        this.tableInfoWindow.setValue(this.tableInfo);
+        this._tableInfoWindow.setToggler(this._lblRoomInfo);
+        this._tableInfoWindow.setValue(this._tableInfo);
 
         // Below two must be run after the component initialization finished
         this.updateGame();
@@ -122,31 +123,36 @@ namespace we {
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
-        this.bettingTable.setGameMode(this._switchBaMode.selected);
+        this._bettingTable.setGameMode(this._switchBaMode.selected);
       }
 
-      private getSelectedBetLimitIndex() {
+      protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
       }
 
-      private onConfirmPressed() {
-        if (this.bettingTable.getTotalUncfmBetAmount() > 0) {
-          const bets = this.bettingTable.getUnconfirmedBetDetails();
-          this.bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
+      protected onConfirmPressed() {
+        if (this._bettingTable.getTotalUncfmBetAmount() > 0) {
+          const bets = this._bettingTable.getUnconfirmedBetDetails();
+          this._bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
+          this._undoStack.clearStack();
           dir.socket.bet(this.tableID, bets);
         }
       }
 
-      private onRepeatPressed() {
-        this.bettingTable.repeatBetFields();
+      protected onRepeatPressed() {
+        this._bettingTable.onRepeatPressed();
       }
 
-      private onDoublePressed() {
-        this.bettingTable.doubleBetFields();
+      protected onDoublePressed() {
+        this._bettingTable.onDoublePressed();
       }
 
-      private onCancelPressed() {
-        this.bettingTable.cancelBet();
+      protected onCancelPressed() {
+        this._bettingTable.onCancelPressed();
+      }
+
+      protected onUndoPressed() {
+        this._undoStack.popAndUndo();
       }
 
       public playVideo(scene: any) {
@@ -165,24 +171,24 @@ namespace we {
         };
       }
 
-      private setupTableInfo() {
+      protected setupTableInfo() {
         // console.log(env.tableInfoArray);
         const self = this;
         env.tableInfoArray.forEach(value => {
           if (value.tableid === self._tableID) {
-            self.tableInfo = value;
-            self.betDetails = self.tableInfo.bets;
-            self.gameData = self.tableInfo.data;
-            self.previousState = GameState.UNKNOWN; // self.tableInfo.data.previousstate;
-            self.roadmapControl.updateRoadData(self.tableInfo.roadmap);
-            if (self.tableInfo.betInfo) {
-              self.roadmapLeftPanel.setGameInfo(self.tableInfo.betInfo.gameroundid, self.tableInfo.betInfo.total);
+            self._tableInfo = value;
+            self._betDetails = self._tableInfo.bets;
+            self._gameData = self._tableInfo.data;
+            self._previousState = GameState.UNKNOWN; // self.tableInfo.data.previousstate;
+            self._roadmapControl.updateRoadData(self._tableInfo.roadmap);
+            if (self._tableInfo.betInfo) {
+              self._roadmapLeftPanel.setGameInfo(self._tableInfo.betInfo.gameroundid, self._tableInfo.betInfo.total);
             }
           }
         });
       }
 
-      private addEventListeners() {
+      protected addEventListeners() {
         dir.evtHandler.addEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
@@ -191,20 +197,20 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
-        this.btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+        this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
         // this.lblRoomInfo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toggleRoomInfo, this);
       }
 
-      private onBetLimitChanged(evt: egret.Event) {
+      protected onBetLimitChanged(evt: egret.Event) {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
-        this.betChipSet.resetDenominationList(denominationList);
+        this._betChipSet.resetDenominationList(denominationList);
       }
 
-      private toggleRoomInfo() {
-        this.tableInfoWindow.visible = !this.tableInfoWindow.visible;
+      protected toggleRoomInfo() {
+        this._tableInfoWindow.visible = !this._tableInfoWindow.visible;
       }
 
-      private removeEventListeners() {
+      protected removeEventListeners() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_INFO_UPDATE, this.onTableInfoUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_RESULT, this.onBetResultReceived, this);
@@ -212,7 +218,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
 
-        this.btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+        this._btnBack.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
       }
 
       public async onFadeEnter() {}
@@ -229,27 +235,27 @@ namespace we {
       }
 
       public onChangeLang() {
-        this.bettingTable.onChangeLang();
+        this._bettingTable.onChangeLang();
       }
 
       public async onFadeExit() {}
 
       protected initRoadMap() {
-        this.roadmapControl = new BARoadmapControl(this._tableID);
-        this.roadmapControl.setRoads(
-          this.roadmapLeftPanel.beadRoad,
-          this.roadmapRightPanel.bigRoad,
-          this.roadmapRightPanel.bigEyeRoad,
-          this.roadmapRightPanel.smallRoad,
-          this.roadmapRightPanel.cockroachRoad,
+        this._roadmapControl = new BARoadmapControl(this._tableID);
+        this._roadmapControl.setRoads(
+          this._roadmapLeftPanel.beadRoad,
+          this._roadmapRightPanel.bigRoad,
+          this._roadmapRightPanel.bigEyeRoad,
+          this._roadmapRightPanel.smallRoad,
+          this._roadmapRightPanel.cockroachRoad,
           [16, 33, 66, 34, 32],
-          this.roadmapRightPanel
+          this._roadmapRightPanel
         );
       }
 
       protected mount() {
         super.mount();
-        mouse.setButtonMode(this.btnBack, true);
+        mouse.setButtonMode(this._btnBack, true);
       }
 
       protected socketConnect() {}
@@ -271,27 +277,28 @@ namespace we {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this.tableID) {
             // update the scene
-            this.tableInfo = tableInfo;
-            this.betDetails = tableInfo.bets;
-            this.gameData = <GameData> this.tableInfo.data;
-            this.previousState = this.gameData ? this.gameData.previousstate : GameState.UNKNOWN;
+            this._tableInfo = tableInfo;
+            this._betDetails = tableInfo.bets;
+            this._gameData = <GameData> this._tableInfo.data;
+            this._previousState = this._gameData ? this._gameData.previousstate : GameState.UNKNOWN;
             if (tableInfo.roadmap) {
-              this.roadmapControl.updateRoadData(tableInfo.roadmap);
+              this._roadmapControl.updateRoadData(tableInfo.roadmap);
             }
             if (tableInfo.betInfo) {
-              this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
+              this._roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
             }
 
             // console.log('BaccaratScene::onTableInfoUpdate', this.gameData);
             this.updateGame();
 
-            this.tableInfoWindow.setValue(this.tableInfo);
+            this._tableInfoWindow.setValue(this._tableInfo);
           }
         }
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        // console.log('BaccaratScene::onTableBetInfoUpdate', evt.data);
+        console.log('BaccaratScene::onTableBetInfoUpdate');
+        console.log(evt.data);
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this.tableID) {
@@ -303,18 +310,18 @@ namespace we {
       protected onBetDetailUpdate(evt: egret.Event) {
         const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this.tableID) {
-          this.betDetails = tableInfo.bets;
-          switch (this.gameData.state) {
+          this._betDetails = tableInfo.bets;
+          switch (this._gameData.state) {
             case GameState.BET:
-              this.bettingTable.updateBetFields(this.betDetails);
-              this.message.showMessage(InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+              this._bettingTable.updateBetFields(this._betDetails);
+              this._message.showMessage(InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
               break;
             case GameState.FINISH:
             default:
               // this.winAmountLabel.visible = true;
               // this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
-              this.bettingTable.showWinEffect(this.betDetails);
-              this.checkResultMessage(this.tableInfo.totalWin);
+              this._bettingTable.showWinEffect(this._betDetails);
+              this.checkResultMessage(this._tableInfo.totalWin);
               break;
           }
         }
@@ -331,18 +338,18 @@ namespace we {
         // console.log('BaccaratScene::onRoadDataUpdate');
         const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this.tableID) {
-          this.bettingTable.tableId = this._tableID;
+          this._bettingTable.tableId = this._tableID;
           if (tableInfo.roadmap) {
-            this.roadmapControl.updateRoadData(tableInfo.roadmap);
+            this._roadmapControl.updateRoadData(tableInfo.roadmap);
           }
           if (tableInfo.betInfo) {
-            this.roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
+            this._roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
           }
         }
       }
 
       protected updateGame() {
-        switch (this.gameData && this.gameData.state) {
+        switch (this._gameData && this._gameData.state) {
           case GameState.IDLE:
             this.setStateIdle();
             break;
@@ -367,9 +374,9 @@ namespace we {
       }
 
       protected setStateIdle() {
-        if (this.previousState !== GameState.IDLE) {
-          this.bettingTable.setTouchEnabled(false);
-          this.cardHolder.visible = false;
+        if (this._previousState !== GameState.IDLE) {
+          this._bettingTable.setTouchEnabled(false);
+          this._cardHolder.visible = false;
           // this.winAmountLabel.visible = false;
           // this.setBetRelatedComponentsTouchEnabled(false);
           // hide state
@@ -379,19 +386,19 @@ namespace we {
       }
 
       protected setStateBet() {
-        if (this.previousState !== GameState.BET) {
+        if (this._previousState !== GameState.BET) {
           // reset data betinfo
-          this.bettingTable.resetUnconfirmedBet();
-          this.bettingTable.resetConfirmedBet();
+          this._bettingTable.resetUnconfirmedBet();
+          this._bettingTable.resetConfirmedBet();
 
-          this.resultMessage.clearMessage();
+          this._resultMessage.clearMessage();
 
           // if (this.betDetails) {
           //   this.betDetails.splice(0, this.betDetails.length);
           // }
 
           // show start bet message to the client for few seconds
-          this.message.showMessage(InGameMessage.INFO, i18n.t('game.startBet'));
+          this._message.showMessage(InGameMessage.INFO, i18n.t('game.startBet'));
           // this.stateLabel.text = 'Betting';
           // this.winAmountLabel.visible = false;
 
@@ -399,30 +406,30 @@ namespace we {
           // this.stateLabel.visible = true;
 
           // hide cardHolder
-          this.cardHolder.visible = false;
+          this._cardHolder.visible = false;
 
           // show the betchipset, countdownTimer, confirm, cancel and other bet related buttons
           this.setBetRelatedComponentsVisibility(true);
 
           // enable betting table
-          this.bettingTable.setTouchEnabled(true);
+          this._bettingTable.setTouchEnabled(true);
           this.setBetRelatedComponentsTouchEnabled(true);
 
           // update the bet amount of each bet field in betting table
         }
-        if (this.betDetails) {
-          this.bettingTable.updateBetFields(this.betDetails);
+        if (this._betDetails) {
+          this._bettingTable.updateBetFields(this._betDetails);
         }
 
         // update the countdownTimer
         this.updateCountdownTimer();
       }
       protected setStateDeal() {
-        if (this.previousState !== GameState.DEAL) {
-          this.cardHolder.resetCards();
+        if (this._previousState !== GameState.DEAL) {
+          this._cardHolder.resetCards();
           // show stop bet message to the client for few seconds
-          if (this.previousState === GameState.BET) {
-            this.message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
+          if (this._previousState === GameState.BET) {
+            this._message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
           // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
@@ -433,23 +440,23 @@ namespace we {
           // this.stateLabel.visible = true;
 
           // show cardHolder
-          this.cardHolder.visible = true;
-          this.cardHolder.updateResult(this.gameData);
+          this._cardHolder.visible = true;
+          this._cardHolder.updateResult(this._gameData);
 
           // disable betting table
-          this.bettingTable.setTouchEnabled(false);
+          this._bettingTable.setTouchEnabled(false);
           this.setBetRelatedComponentsTouchEnabled(false);
 
           // this.winAmountLabel.visible = false;
         }
-        if (this.betDetails) {
-          this.bettingTable.updateBetFields(this.betDetails);
+        if (this._betDetails) {
+          this._bettingTable.updateBetFields(this._betDetails);
         }
         // update card result in cardHolder
-        this.cardHolder.updateResult(this.gameData);
+        this._cardHolder.updateResult(this._gameData);
       }
       protected setStateFinish() {
-        if (this.previousState !== GameState.FINISH) {
+        if (this._previousState !== GameState.FINISH) {
           // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
           this.setBetRelatedComponentsVisibility(false);
 
@@ -457,25 +464,25 @@ namespace we {
           // this.stateLabel.visible = true;
 
           // show cardHolder
-          this.cardHolder.visible = true;
-          this.cardHolder.updateResult(this.gameData);
+          this._cardHolder.visible = true;
+          this._cardHolder.updateResult(this._gameData);
 
           // disable betting table
-          this.bettingTable.setTouchEnabled(false);
+          this._bettingTable.setTouchEnabled(false);
           this.setBetRelatedComponentsTouchEnabled(false);
 
           // TODO: show effect on each winning bet field
-          logger.l(`this.gameData.winType ${this.gameData.wintype} ${utils.EnumHelpers.getKeyByValue(WinType, this.gameData.wintype)}`);
+          logger.l(`this.gameData.winType ${this._gameData.wintype} ${utils.EnumHelpers.getKeyByValue(WinType, this._gameData.wintype)}`);
           // this.stateLabel.text = `Finish, ${utils.EnumHelpers.getKeyByValue(WinType, this.gameData.wintype)}`;
 
           // TODO: show win message and the total win ammount to the client for few seconds
-          this.checkResultMessage(this.tableInfo.totalWin);
+          this.checkResultMessage(this._tableInfo.totalWin);
 
           // TODO: after win message has shown, show win/ lose effect of each bet
         }
       }
       protected setStateRefund() {
-        if (this.previousState !== GameState.REFUND) {
+        if (this._previousState !== GameState.REFUND) {
           // TODO: show round cancel message to the client for few seconds
           // this.stateLabel.text = 'Refunding';
 
@@ -493,7 +500,7 @@ namespace we {
           // this.winAmountLabel.visible = false;
 
           // disable betting table
-          this.bettingTable.setTouchEnabled(false);
+          this._bettingTable.setTouchEnabled(false);
         }
       }
       protected setStateShuffle() {
@@ -509,24 +516,24 @@ namespace we {
         // this.stateLabel.visible = true;
 
         // hide cardHolder
-        this.cardHolder.visible = false;
+        this._cardHolder.visible = false;
         // this.winAmountLabel.visible = false;
 
         // disable betting table
-        this.bettingTable.setTouchEnabled(false);
+        this._bettingTable.setTouchEnabled(false);
         // }
       }
 
       public checkResultMessage(totalWin: number = NaN) {
         if (this.hasBet()) {
-          if (this.gameData && this.gameData.wintype != WinType.NONE && !isNaN(totalWin)) {
-            this.resultMessage.showResult(this.gameData.wintype, totalWin);
+          if (this._gameData && this._gameData.wintype != WinType.NONE && !isNaN(totalWin)) {
+            this._resultMessage.showResult(this._gameData.wintype, totalWin);
             // play sound
             dir.audioCtr.playSequence(['player', 'win']);
           }
         } else {
-          if (this.gameData && this.gameData.wintype != WinType.NONE) {
-            this.resultMessage.showResult(this.gameData.wintype);
+          if (this._gameData && this._gameData.wintype != WinType.NONE) {
+            this._resultMessage.showResult(this._gameData.wintype);
             // play sound
             dir.audioCtr.playSequence(['player', 'win']);
           }
@@ -534,34 +541,37 @@ namespace we {
       }
 
       public onBetConfirmed() {
-        this.bettingTable.resetUnconfirmedBet();
+        this._bettingTable.resetUnconfirmedBet();
       }
 
       protected setBetRelatedComponentsVisibility(visible: boolean) {
-        this.roundPanel.visible = visible;
-        this.betChipSet.visible = visible;
-        this.countdownTimer.visible = visible;
-        this.confirmButton.visible = visible;
-        this.cancelButton.visible = visible;
-        this.doubleButton.visible = visible;
-        this.repeatButton.visible = visible;
+        this._betRelatedGroup.visible = visible;
+        /*
+        this._roundPanel.visible = visible;
+        this._betChipSet.visible = visible;
+        this._countdownTimer.visible = visible;
+        this._confirmButton.visible = visible;
+        this._cancelButton.visible = visible;
+        this._doubleButton.visible = visible;
+        this._repeatButton.visible = visible;
+        */
       }
 
       protected setBetRelatedComponentsTouchEnabled(enabled: boolean) {
-        this.betChipSet.setTouchEnabled(enabled);
-        this.confirmButton.touchEnabled = enabled;
-        this.cancelButton.touchEnabled = enabled;
+        this._betChipSet.setTouchEnabled(enabled);
+        this._confirmButton.touchEnabled = enabled;
+        this._cancelButton.touchEnabled = enabled;
       }
 
       protected updateCountdownTimer() {
-        this.countdownTimer.countdownValue = this.gameData.countdown * 1000;
-        this.countdownTimer.remainingTime = this.gameData.countdown * 1000 - (env.currTime - this.gameData.starttime);
-        this.countdownTimer.start();
+        this._countdownTimer.countdownValue = this._gameData.countdown * 1000;
+        this._countdownTimer.remainingTime = this._gameData.countdown * 1000 - (env.currTime - this._gameData.starttime);
+        this._countdownTimer.start();
       }
 
       protected hasBet(): boolean {
-        if (this.betDetails) {
-          for (const betDetail of this.betDetails) {
+        if (this._betDetails) {
+          for (const betDetail of this._betDetails) {
             if (betDetail.amount > 0) {
               return true;
             }

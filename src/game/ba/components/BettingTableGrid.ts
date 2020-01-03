@@ -224,6 +224,11 @@ namespace we {
         this.drawStack();
       }
 
+      public reduceUnCfmBet(amount: number): void {
+        this._uncfmBet -= amount;
+        this.drawStack();
+      }
+
       public drawStack() {
         if (!this._denomList) {
           return;
