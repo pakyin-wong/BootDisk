@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BaBeadRoadResultCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:w="http://ns.egret.com/wing" width="320" height="105">
+        <e:Image id="_playerPanel" source="d_lobby_panel_gamelist_betresult_playbg_png" width="152" left="0"
+                 height="100%" y="0" />
+        <e:Label id="playerSum" text="6" x="80" y="0" fontFamily="Barlow" textAlign="right" anchorOffsetX="0" width="64"
+                 size="24" />
+        <e:Label id="lblPlayerName" text="閒" y="7" textAlign="left" x="11" anchorOffsetX="0" width="105" size="18" />
+        <e:Group id="playerSumGroup" width="152" height="100%" anchorOffsetY="0" x="0" y="0">
+                <ui:Card id="card3Player" width="52" height="36" left="10" top="50" />
+                <ui:Card id="card2Player" width="36" height="52" top="42" left="66" />
+                <ui:Card id="card1Player" width="36" height="52" top="42" left="106" />
+        </e:Group>
+        <e:Image id="_bankerPanel" source="d_lobby_panel_gamelist_betresult_bankerbg_png" width="152" right="-1"
+                 height="100%" y="0" />
+        <e:Label id="bankerSum" text="8" x="182" y="0" fontFamily="Barlow" textAlign="left" anchorOffsetX="0" width="38"
+                 size="24" />
+        <e:Label id="lblBankerName" text="莊" y="7" textAlign="right" anchorOffsetX="0" width="79" size="18" x="230" />
+        <e:Group id="bankerSumGroup" width="152" height="100%" anchorOffsetY="0" x="168" y="0">
+                <ui:Card id="card3Banker" width="52" height="36" anchorOffsetX="0" anchorOffsetY="0" top="50" left="90" />
+                <ui:Card id="card2Banker" width="36" height="52" anchorOffsetX="0" anchorOffsetY="0" top="42" left="50" />
+                <ui:Card id="card1Banker" width="36" height="52" top="42" left="10" />
+        </e:Group>
+</e:Skin>
