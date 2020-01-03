@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class CountdownTimer extends eui.Component implements eui.UIComponent {
       private progressIndicator: ui.RadialProgressIndicator;
       private countdownLabel: eui.Label;

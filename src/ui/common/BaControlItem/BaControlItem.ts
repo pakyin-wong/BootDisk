@@ -18,7 +18,7 @@ namespace we {
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
       protected _gameData: we.ba.GameData;
-      protected _timer: CountdownTimer;
+      protected _timer: ui.CountdownTimer;
       protected _mouseOutside: boolean = true;
 
       // this is the component that contain all other child components, use to control the grid size by setting the size of it.
@@ -41,8 +41,10 @@ namespace we {
       }
 
       protected initChildren() {
-        this.initDenom();
-        this.initBettingTable();
+        if (env.betLimits) {
+          this.initDenom();
+          this.initBettingTable();
+        }
       }
 
       protected initDenom() {
@@ -163,7 +165,9 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        this._bettingTable.tableId = this._tableInfo.tableid;
+        if (this._bettingTable) {
+          this._bettingTable.tableId = this._tableInfo.tableid;
+        }
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
         this._previousState = this._gameData ? this._gameData.previousstate : null;

@@ -11,7 +11,7 @@ namespace we {
       private bettingTable: BettingTable;
       private betChipSet: BetChipSet;
       private cardHolder: CardHolder;
-      private countdownTimer: CountdownTimer;
+      private countdownTimer: ui.CountdownTimer;
       private confirmButton: eui.Button;
       private repeatButton: ui.BaseImageButton;
       private cancelButton: ui.BaseImageButton;

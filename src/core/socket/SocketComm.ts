@@ -641,9 +641,20 @@ namespace we {
         env.mergeTableInfoList(tableInfos);
         // save the list to env.goodRoadTableList
         const goodRoadTableList = tableInfos.map(data => data.tableid);
+        const added = utils.arrayDiff(goodRoadTableList, env.goodRoadTableList);
         const removed = utils.arrayDiff(env.goodRoadTableList, goodRoadTableList);
         env.goodRoadTableList = goodRoadTableList;
 
+        for (const tableid of added) {
+          const data = {
+            tableid,
+          };
+          const notification: data.Notification = {
+            type: core.NotificationType.GoodRoad,
+            data,
+          };
+          dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+        }
         for (const tableid of removed) {
           const tableInfo = env.tableInfos[tableid];
           if (tableInfo) {
