@@ -88,8 +88,8 @@ namespace we {
                     data[animatedIndex[i]][animated[i]].isPredict = 1;
                   }
                 }
-              } catch (e) {
-                console.error('doPredict Error');
+              } catch (err) {
+                logger.e(err);
               }
 
               if (v === 0) {

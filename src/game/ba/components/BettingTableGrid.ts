@@ -224,6 +224,11 @@ namespace we {
         this.drawStack();
       }
 
+      public reduceUnCfmBet(amount: number): void {
+        this._uncfmBet -= amount;
+        this.drawStack();
+      }
+
       public drawStack() {
         if (!this._denomList) {
           return;
@@ -272,6 +277,10 @@ namespace we {
 
       public cancelBet(): void {
         this.setUncfmBet(0);
+      }
+
+      public getCfmBet(): number {
+        return this._cfmBet;
       }
 
       public getUncfmBet(): number {

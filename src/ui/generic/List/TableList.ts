@@ -42,17 +42,17 @@ namespace we {
           removed.forEach(item => {
             this.collection.removeItemAt(this.collection.getItemIndex(item));
           });
-          this.tableList = tableList;
-          this.tableList.forEach((x, inx) => {
-            this.collection.replaceItemAt(x, inx);
-          });
+          // this.tableList = tableList;
+          // this.tableList.forEach((x, inx) => {
+          //   this.collection.replaceItemAt(x, inx);
+          // });
         }
       }
 
       public addTable(tableid: string) {
         if (!this.tableList) {
           this.tableList = [];
-          this.collection = new eui.ArrayCollection();
+          this.collection = new eui.ArrayCollection(this.tableList);
           this.dataProvider = this.collection;
         }
         if (this.tableList.indexOf(tableid) < 0) {
@@ -63,14 +63,14 @@ namespace we {
             this.nextTableList.push(tableid);
             return;
           }
-          this.tableList.push(tableid);
+          // this.tableList.push(tableid);
           this.collection.addItem(tableid);
         }
       }
       public addTableAt(tableid: string, idx: number) {
         if (!this.tableList) {
           this.tableList = [];
-          this.collection = new eui.ArrayCollection();
+          this.collection = new eui.ArrayCollection(this.tableList);
           this.dataProvider = this.collection;
         }
         if (this.tableList.indexOf(tableid) < 0) {
@@ -81,7 +81,7 @@ namespace we {
             this.nextTableList.splice(idx, 0, tableid);
             return;
           }
-          this.tableList.splice(idx, 0, tableid);
+          // this.tableList.splice(idx, 0, tableid);
           this.collection.addItemAt(tableid, idx);
         }
       }
@@ -89,7 +89,7 @@ namespace we {
       public removeTable(tableid: string) {
         if (!this.tableList) {
           this.tableList = [];
-          this.collection = new eui.ArrayCollection();
+          this.collection = new eui.ArrayCollection(this.tableList);
           this.dataProvider = this.collection;
         }
         const idx = this.tableList.indexOf(tableid);
@@ -101,7 +101,7 @@ namespace we {
             this.nextTableList.splice(idx, 1);
             return;
           }
-          this.tableList.splice(idx, 1);
+          // this.tableList.splice(idx, 1);
           this.collection.removeItemAt(idx);
         }
       }

@@ -6,7 +6,7 @@ namespace we {
       private startStageY: number = 0;
 
       public iscollapseAnimate: boolean = true;
-      public collapseDuration: number = 300;
+      public collapseDuration: number = 150;
       public collapseOnStart: boolean = true;
       public collapseAddon: CollapseAddon;
 
@@ -248,7 +248,7 @@ namespace we {
           });
           */
         } catch (err) {
-          console.error(err);
+          logger.e(err);
         }
       }, 1);
 

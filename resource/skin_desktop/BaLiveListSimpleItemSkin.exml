@@ -20,6 +20,10 @@
 		<ba:InGameMessage id="_message" anchorOffsetX="152"
 	                  anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin" width="303" height="32" horizontalCenter="0.5" y="115" 
 					  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
+        <e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
+            <e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0" width="100" height="30" />
+            <e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18"/>
+        </e:Group>
 		<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
 		                       skinName="BetLimitDropdownSkin" />
 							   

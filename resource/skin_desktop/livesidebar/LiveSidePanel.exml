@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="SidePanelSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+<e:Skin class="LiveSidePanelSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*">
     <e:Group left="0" right="0">
         <e:Image source="nav_panel_bg" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" bottom="0" top="0"
                  left="0" right="0" />
@@ -16,5 +17,6 @@
             </e:List>
         </e:Group>
         <ui:RunTimeLabel id="_label" text="" y="36" left="33" />
+        <ui:SidePanelAllGameDropdown id="_dropdown" y="36" left="33" skinName="SidePanelAllGameDropdownSkin" />
     </e:Group>
 </e:Skin>

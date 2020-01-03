@@ -10,9 +10,8 @@ namespace we {
       protected _cancelButton: ui.BaseImageButton;
       protected _resultMessage: GameResultMessage;
       protected _message: InGameMessage;
-      protected _denomLayer: eui.Component;
-
       protected _dropdown: live.BetLimitDropdown;
+      protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
       // table name label
       protected _label: ui.RunTimeLabel;
@@ -43,27 +42,26 @@ namespace we {
       }
 
       protected initChildren() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this.initDenom();
+        this.initBettingTable();
+      }
 
+      protected initDenom() {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
           this._betChipSet.init(3, denominationList);
         }
+      }
 
+      protected initBettingTable() {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._bettingTable) {
           this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
           this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
           this._bettingTable.type = we.core.BettingTableType.NORMAL;
           this._bettingTable.denomList = denominationList;
+          this._bettingTable.undoStack = this._undoStack;
           this._bettingTable.init();
-
-          if (this._bettingTable.denomLayer) {
-            this._denomLayer = this._bettingTable.denomLayer;
-            this._denomLayer.y = this._bettingTable.y;
-            this._denomLayer.x = this._bettingTable.x;
-            this._denomLayer.alpha = 0;
-            this.addChild(this._denomLayer);
-            this.setChildIndex(this._denomLayer, 30000);
-          }
         }
       }
 
@@ -78,9 +76,11 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
-        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
+        if (this._bettingTable) {
+          this._bettingTable.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        }
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
@@ -154,17 +154,25 @@ namespace we {
           this._bettingTable.updateBetFields(this._betDetails);
         }
       }
-      protected onBetDetailUpdateInFinishState() {}
+      protected onBetDetailUpdateInFinishState() {
+        this._bettingTable.showWinEffect(this._betDetails);
+        if (this._betDetails && this._bettingTable) {
+          if (this._resultMessage) {
+            this.checkResultMessage(this.tableInfo.totalWin);
+          }
+        }
+      }
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
+        this._bettingTable.tableId = this._tableInfo.tableid;
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
-        this._previousState = null;
+        this._previousState = this._gameData ? this._gameData.previousstate : null;
         if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         }
-        this.updateGame();
+        this.updateGame(true);
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
@@ -186,51 +194,53 @@ namespace we {
         logger.l('BaccaratScene::onRoadDataUpdate');
       }
 
-      public updateGame() {
+      public updateGame(isInit: boolean = false) {
         if (!this._gameData) {
           return;
         }
         switch (this._gameData.state) {
           case ba.GameState.IDLE:
-            this.setStateIdle();
+            this.setStateIdle(isInit);
             break;
           case ba.GameState.BET:
-            this.setStateBet();
+            this.setStateBet(isInit);
             break;
           case ba.GameState.DEAL:
-            this.setStateDeal();
+            this.setStateDeal(isInit);
             break;
           case ba.GameState.FINISH:
-            this.setStateFinish();
+            this.setStateFinish(isInit);
             break;
           case ba.GameState.REFUND:
-            this.setStateRefund();
+            this.setStateRefund(isInit);
             break;
           case ba.GameState.SHUFFLE:
-            this.setStateShuffle();
+            this.setStateShuffle(isInit);
             break;
           default:
-            this.setStateUnknown();
+            this.setStateUnknown(isInit);
             break;
         }
       }
 
-      protected setStateUnknown() {
+      protected setStateUnknown(isInit: boolean = false) {
         this.setBetRelatedComponentsEnabled(false);
         this.setResultRelatedComponentsEnabled(false);
       }
 
-      protected setStateIdle() {
-        if (this._previousState !== we.ba.GameState.IDLE) {
+      protected setStateIdle(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.IDLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
-      protected setStateBet() {
-        if (this._previousState !== we.ba.GameState.BET) {
+      protected setStateBet(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);
           this.setResultRelatedComponentsEnabled(false);
+        }
 
+        if (this._previousState !== we.ba.GameState.BET) {
           if (this._bettingTable) {
             this._bettingTable.resetUnconfirmedBet();
             this._bettingTable.resetConfirmedBet();
@@ -240,7 +250,7 @@ namespace we {
             this._resultMessage.clearMessage();
           }
 
-          if (this._message) {
+          if (this._message && !isInit) {
             this._message.showMessage(InGameMessage.INFO, i18n.t('game.startBet'));
           }
 
@@ -252,16 +262,18 @@ namespace we {
         this.updateCountdownTimer();
       }
 
-      protected setStateDeal() {
-        if (this._previousState !== we.ba.GameState.DEAL) {
+      protected setStateDeal(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
+        }
 
+        if (this._previousState !== we.ba.GameState.DEAL) {
           if (this._cardHolder) {
             this._cardHolder.resetCards();
           }
 
-          if (this._previousState === GameState.BET && this._message) {
+          if (this._previousState === GameState.BET && this._message && !isInit) {
             this._message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
@@ -273,11 +285,12 @@ namespace we {
           this._cardHolder.updateResult(this._gameData);
         }
       }
-      protected setStateFinish() {
-        if (this._previousState !== we.ba.GameState.FINISH) {
+      protected setStateFinish(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.FINISH || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
-
+        }
+        if (this._previousState !== we.ba.GameState.FINISH) {
           if (this._cardHolder) {
             this._cardHolder.updateResult(this._gameData);
           }
@@ -287,14 +300,14 @@ namespace we {
           }
         }
       }
-      protected setStateRefund() {
-        if (this._previousState !== we.ba.GameState.REFUND) {
+      protected setStateRefund(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.REFUND || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
-      protected setStateShuffle() {
-        if (this._previousState !== we.ba.GameState.SHUFFLE) {
+      protected setStateShuffle(isInit: boolean = false) {
+        if (this._previousState !== we.ba.GameState.SHUFFLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }

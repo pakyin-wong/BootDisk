@@ -24,7 +24,7 @@ namespace we {
       }
 
       public changeLang() {
-        const arr = [i18n.t('baccarat.bankerRoadmap'), i18n.t('baccarat.playerRoadmap'), i18n.t('baccarat.tieRoadmap')];
+        const arr = [i18n.t('baccarat.bankerShort'), i18n.t('baccarat.playerShort'), i18n.t('baccarat.tieShort')];
 
         for (let d = 0; d < 2; d++) {
           for (let i = 0; i < 3; i++) {

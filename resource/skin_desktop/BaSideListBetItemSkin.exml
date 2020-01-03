@@ -3,8 +3,12 @@
         xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" minHeight="158">
 	<e:Group id="_quickBetGroup" width="100%" alpha="0" locked="true">
 		<e:Rect width="339" height="100" x="0" y="0" fillColor="0x202020" ellipseWidth="5" ellipseHeight="5" />
-		<ba:BetChipSet id="_betChipSet" x="12" y="10" width="220" height="80" />
-		<ui:BaseImageButton id="_confirmButton" right="16" top="30" width="80" height="40" currentState="lobby_confirm_button"
+		<ba:BetChipSet id="_betChipSet" x="132" y="10" width="110" height="80" />
+		<ui:BaseImageButton id="_closeButton" x="12" y="20" width="56" height="60" currentState="lobby_betcontrol_close"
+		                    skinName="ImageButtonSkinLobby" />
+		<ui:BaseImageButton id="_prevButton" x="68" y="20" width="56" height="60" currentState="lobby_betcontrol_previous"
+		                    skinName="ImageButtonSkinLobby" />
+		<ui:BaseImageButton id="_confirmButton" right="10" top="30" width="80" height="40" currentState="lobby_confirm_button"
 		                    skinName="ImageButtonSkinLobby" />
 	</e:Group>
 	<e:Group id="_contentContainer" x="0" height="158" width="100%" touchEnabled="false" touchChildren="true" locked="true">
@@ -24,9 +28,8 @@
 			                 height="110" left="0" y="47" />
 			<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
 			                       skinName="BetLimitDropdownSkin" visible="false" />
-			<ui:RoundButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
-			                hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0" horizontalCenter="0" y="168"
-			                width="148" height="42" label1text="追注" label2text="X" scale9Grid="20,21,108,0" />
+			<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification" skinName="ImageButtonSkinLobby" alpha="0" horizontalCenter="0"
+			                    width="148" y="168" height="42" text="加注" />
 		</e:Group>
 	</e:Group>
 </e:Skin>

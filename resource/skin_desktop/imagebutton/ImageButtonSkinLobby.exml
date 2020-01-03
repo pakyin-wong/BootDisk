@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="lobby_mode_01,lobby_mode_02,lobby_confirm_button">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="lobby_mode_01,lobby_mode_02,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification">
     <e:Image id="_background" left="0" right="0" top="0" bottom="0"
              source.lobby_mode_01="d_lobby_icon_view_01_normal_png"
              source.lobby_mode_02="d_lobby_icon_view_02_normal_png"
-             source.lobby_confirm_button="d_lobby_confirm_btn_normal_png" locked="true" />
+             source.lobby_confirm_button="d_lobby_confirm_btn_normal_png"
+             source.lobby_betcontrol_close="d_lobby_panel_betcontrol_btn_close_normal_png"
+             source.lobby_betcontrol_previous="d_lobby_panel_betcontrol_btn_previous_normal_png" 
+             source.lobby_quick_bet_notification="d_lobby_quick_bet_notification_follow_normal_png"
+             locked="true"/>
     <e:Group id="_group" left="0" right="0" top="0" bottom="0">
         <ui:RunTimeLabel id="_label" text="" fontFamily="NotoSansCJKtc-Regular" size="24" verticalCenter="0"
                          horizontalCenter="0" />

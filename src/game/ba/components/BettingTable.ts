@@ -14,9 +14,10 @@ namespace we {
       private _denomLayer: eui.Component;
       private _getSelectedChipIndex: () => number;
       private _getSelectedBetLimitIndex: () => number;
+      private _undoStack: we.utils.UndoStack;
       private mapping: { [s: string]: BettingTableGrid };
 
-      private uncfmBetDetails: data.BetDetail[];
+      private _uncfmBetDetails: data.BetDetail[];
       private totalUncfmBetAmount: number;
       private betDetails: data.BetDetail[];
 
@@ -39,6 +40,14 @@ namespace we {
         return this._denomList;
       }
 
+      set uncfmBetDetails(value: data.BetDetail[]) {
+        this._uncfmBetDetails = value;
+      }
+
+      get uncfmBetDetails() {
+        return this._uncfmBetDetails;
+      }
+
       set tableId(value: string) {
         this._tableId = value;
       }
@@ -53,6 +62,14 @@ namespace we {
 
       get type() {
         return this._type;
+      }
+
+      set undoStack(value: we.utils.UndoStack) {
+        this._undoStack = value;
+      }
+
+      get undoStack() {
+        return this._undoStack;
       }
 
       private createMapping() {
@@ -111,6 +128,13 @@ namespace we {
           return null;
         }
         this._denomLayer = new eui.Component();
+        Object.keys(this.mapping).map(value => {
+          if (we.utils.convertToBoolean(this.mapping[value].hasDenomLayer)) {
+            this.setDenomGrid(this.mapping[value]);
+            this._denomLayer.addChild(this.mapping[value].denomLayer);
+          }
+        });
+        /*
         if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
           this.setDenomGrid(this._gridPlayer);
           this._denomLayer.addChild(this._gridPlayer.denomLayer);
@@ -139,11 +163,19 @@ namespace we {
           this.setDenomGrid(this._gridSuperSix);
           this._denomLayer.addChild(this._gridSuperSix.denomLayer);
         }
+        */
 
         this._denomLayer.touchEnabled = false;
         this._denomLayer.touchChildren = false;
 
         return this._denomLayer;
+      }
+
+      public isAlreadyBet() {
+        const result = Object.keys(this.mapping).reduce((acc, cur) => {
+          return this.mapping[cur].getCfmBet() > 0 || acc;
+        }, false);
+        return result;
       }
 
       private setDenomGrid(grid: BettingTableGrid) {
@@ -216,7 +248,7 @@ namespace we {
       }
 
       public getUnconfirmedBetDetails() {
-        return this.uncfmBetDetails;
+        return this._uncfmBetDetails;
       }
 
       public getTotalUncfmBetAmount() {
@@ -250,18 +282,125 @@ namespace we {
           // validate bet action
           if (this.validateBetAction(betDetail)) {
             // update the uncfmBetDetails
-            for (const detail of this.uncfmBetDetails) {
+            for (const detail of this._uncfmBetDetails) {
               if (detail.field === betDetail.field) {
                 detail.amount += betDetail.amount;
                 break;
               }
             }
             // update the corresponding table grid
+            this.undoStack.push(new Date().getTime(), we.utils.clone({ fieldName: grid.getFieldName(), amount: grid.getAmount() }), this.undoBetFieldUpdate.bind(this));
             this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
             this.totalUncfmBetAmount += betDetail.amount;
           }
           grid.draw();
         };
+      }
+
+      protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {
+        this.mapping[data.fieldName].reduceUnCfmBet(data.amount);
+        this.totalUncfmBetAmount -= data.amount;
+        this._uncfmBetDetails.forEach(value => {
+          if (value.field === data.fieldName) {
+            value.amount -= data.amount;
+          }
+        });
+
+        /* else{
+          this._uncfmBetDetails[data.fieldName] = new we.data.BetDetail();
+          this._uncfmBetDetails[data.fieldName].amount = -
+        } */
+      }
+
+      public onDoublePressed() {
+        this._undoStack.push(new Date().getTime(), we.utils.clone(this._uncfmBetDetails), this.undoDoubleBetFields.bind(this));
+        this.doubleBetFields();
+      }
+
+      public undoDoubleBetFields(betDetails: data.BetDetail[]) {
+        betDetails.map(value => {
+          this.mapping[value.field].setUncfmBet(value.amount);
+        });
+        this._uncfmBetDetails = betDetails;
+      }
+
+      public doubleBetFields() {
+        const validDoubleBet = Object.keys(this.mapping).reduce((acc, cur) => {
+          if (this.mapping[cur].getCfmBet() === 0) {
+            return acc && true;
+          }
+          const betDetail = { field: cur, amount: this.mapping[cur].getCfmBet() };
+          return this.validateBetAction(betDetail) ? acc && true : false;
+        }, true);
+        if (!validDoubleBet) {
+          return;
+        }
+        Object.keys(this.mapping).map(value => {
+          const addedAmount = this.mapping[value].getCfmBet();
+          if (addedAmount > 0) {
+            this.mapping[value].addUncfmBet(addedAmount);
+            this.totalUncfmBetAmount += addedAmount;
+            this.mapping[value].draw();
+            for (const detail of this._uncfmBetDetails) {
+              if (detail.field === value) {
+                detail.amount += addedAmount;
+                break;
+              }
+            }
+          }
+        });
+      }
+
+      public onRepeatPressed() {
+        this._undoStack.push(new Date(), we.utils.clone(this._uncfmBetDetails), this.undoRepeatBetFields.bind(this));
+        this.repeatBetFields();
+      }
+
+      private undoRepeatBetFields(betDetails: data.BetDetail[]) {
+        betDetails.map(value => {
+          this.mapping[value.field].setUncfmBet(value.amount);
+        });
+        this._uncfmBetDetails = betDetails;
+      }
+
+      public repeatBetFields() {
+        if (!env.tableInfos[this._tableId].prevbets || !env.tableInfos[this._tableId].prevroundid) {
+          return;
+        }
+        if (env.tableInfos[this._tableId].prevroundid !== env.tableInfos[this._tableId].prevbetsroundid) {
+          return;
+        }
+        const validRepeatBet = Object.keys(this.mapping).map(value => {
+          if (this.mapping[value].getCfmBet() === 0) {
+            return true;
+          }
+          let betDetail = { field: value, amount: 0 };
+          for (const bets of env.tableInfos[this._tableId].prevbets) {
+            if (bets.field === value) {
+              betDetail = { field: value, amount: bets.amount };
+            }
+          }
+          if (this.validateBetAction(betDetail)) {
+            return true;
+          }
+          return false;
+        });
+        for (const valid of validRepeatBet) {
+          if (!valid) {
+            return;
+          }
+        }
+        env.tableInfos[this._tableId].prevbets.map(value => {
+          this.mapping[value.field].addUncfmBet(value.amount);
+          this.totalUncfmBetAmount += value.amount;
+          this.mapping[value.field].draw();
+          for (const detail of this._uncfmBetDetails) {
+            if (detail.field === value.field) {
+              detail.amount += value.amount;
+              break;
+            }
+          }
+        });
       }
 
       set getSelectedChipIndex(value: () => number) {
@@ -295,7 +434,7 @@ namespace we {
       }
 
       protected validateBet(): boolean {
-        const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
+        const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
         return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount);
       }
 
@@ -305,10 +444,9 @@ namespace we {
         // TODO: check balance
         const balance = env.balance;
         if (balance < totalBetAmount) {
-          dir.evtHandler.dispatch(core.Event.INSUFFICIENT_BALANCE);
+          this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
           return false;
         }
-        // check betlimit
         const exceedBetLimit =
           Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
           Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
@@ -325,13 +463,13 @@ namespace we {
 
       // check if the current bet action is valid
       protected validateBetAction(betDetail: data.BetDetail): boolean {
-        const fieldAmounts = utils.arrayToKeyValue(this.uncfmBetDetails, 'field', 'amount');
+        const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
         fieldAmounts[betDetail.field] += betDetail.amount;
         return this.validateFieldAmounts(fieldAmounts, this.totalUncfmBetAmount + betDetail.amount);
       }
 
       public pushUnconfirmedBetToWaitingConfirmBet() {
-        this.uncfmBetDetails = [
+        this._uncfmBetDetails = [
           { field: BetField.BANKER, amount: 0 },
           { field: BetField.PLAYER, amount: 0 },
           { field: BetField.TIE, amount: 0 },
@@ -350,7 +488,7 @@ namespace we {
       }
 
       public resetUnconfirmedBet() {
-        this.uncfmBetDetails = [
+        this._uncfmBetDetails = [
           { field: BetField.BANKER, amount: 0 },
           { field: BetField.PLAYER, amount: 0 },
           { field: BetField.TIE, amount: 0 },
@@ -383,6 +521,12 @@ namespace we {
           });
         }
       }
+
+      public onCancelPressed() {
+        this._undoStack.push(null, we.utils.clone(this._uncfmBetDetails), this.undoCancelBet.bind(this));
+        this.cancelBet();
+      }
+
       public cancelBet() {
         this.resetUnconfirmedBet();
         this._gridPlayer.cancelBet();
@@ -392,6 +536,17 @@ namespace we {
         this._gridBankerPair.cancelBet();
         this._gridSuperSixBanker.cancelBet();
         this._gridSuperSix.cancelBet();
+      }
+
+      public undoCancelBet(betDetails: data.BetDetail[]) {
+        if (betDetails) {
+          betDetails.forEach(value => {
+            if (value) {
+              this.mapping[value.field].setUncfmBet(value.amount);
+            }
+          });
+          this._uncfmBetDetails = betDetails;
+        }
       }
 
       public onChangeLang() {
