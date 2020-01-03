@@ -131,6 +131,25 @@ namespace we {
         // group.addChild(sections);
 
         this.scroller.viewport = group;
+
+        const skeletonData = RES.getRes('game_result_test_ske_json');
+        const textureData = RES.getRes('game_result_test_tex_json');
+        const texture = RES.getRes('game_result_test_tex_png');
+        const factory = new dragonBones.EgretFactory();
+        factory.addSkeletonData(dragonBones.DataParser.parseDragonBonesData(skeletonData));
+        factory.addTextureAtlas(new dragonBones.EgretTextureAtlas(texture, textureData));
+        const armature = factory.buildArmature('Armature');
+        const group2 = new eui.Group();
+        const display = armature.display as dragonBones.EgretArmatureDisplay;
+        group2.addChild(display);
+        group2.horizontalCenter = 0;
+        group2.verticalCenter = 0;
+        this.addChild(group2);
+        armature.animation.gotoAndPlay('badges_start');
+        dragonBones.WorldClock.clock.add(armature);
+        egret.Ticker.getInstance().register(advancedTime => {
+          dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);
+        }, this);
       }
     }
   }

@@ -21,7 +21,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,game_result_test_tex_png,game_result_test_tex_json,game_result_test_ske_json",
 			"name": "temp"
 		},
 		{
@@ -2479,6 +2479,21 @@
 			"url": "assets/d/lobby/d_lobby_panel_betcontrol_btn_previous_hover.png",
 			"type": "image",
 			"name": "d_lobby_panel_betcontrol_btn_previous_hover_png"
+		},
+		{
+			"url": "assets/dragonbones/game_result_test/game_result_test_tex.png",
+			"type": "image",
+			"name": "game_result_test_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/game_result_test/game_result_test_ske.json",
+			"type": "json",
+			"name": "game_result_test_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/game_result_test/game_result_test_tex.json",
+			"type": "json",
+			"name": "game_result_test_tex_json"
 		}
 	]
 }
