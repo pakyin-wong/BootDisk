@@ -16,11 +16,13 @@ namespace we {
         return command;
       }
       public popAndUndo() {
-        if (!this._stack) {
+        if (!this._stack || this._stack.length === 0) {
           return;
         }
         const command = this._stack.pop();
-        command.undoCallback(command.undoData);
+        if (command) {
+          command.undoCallback(command.undoData);
+        }
       }
       public clearStack() {
         this._stack = new Array<{ id: string; undoData: any; undoCallback: (undoData: any) => void }>();

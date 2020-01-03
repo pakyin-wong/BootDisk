@@ -289,7 +289,7 @@ namespace we {
               }
             }
             // update the corresponding table grid
-            this.undoStack.push(new Date().getTime(), { fieldName: grid.getFieldName(), amount: grid.getAmount() }, this.undoBetFieldUpdate.bind(this));
+            this.undoStack.push(new Date().getTime(), we.utils.clone({ fieldName: grid.getFieldName(), amount: grid.getAmount() }), this.undoBetFieldUpdate.bind(this));
             this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
             this.totalUncfmBetAmount += betDetail.amount;
           }
@@ -300,7 +300,16 @@ namespace we {
       protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {
         this.mapping[data.fieldName].reduceUnCfmBet(data.amount);
         this.totalUncfmBetAmount -= data.amount;
-        this._uncfmBetDetails[data.fieldName].amount -= data.amount;
+        this._uncfmBetDetails.forEach(value => {
+          if (value.field === data.fieldName) {
+            value.amount -= data.amount;
+          }
+        });
+
+        /* else{
+          this._uncfmBetDetails[data.fieldName] = new we.data.BetDetail();
+          this._uncfmBetDetails[data.fieldName].amount = -
+        } */
       }
 
       public onDoublePressed() {
