@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.DatePickerItem" width="70" height="70" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
-	<ui:RunTimeLabel id="_text" text="Label" left="0" right="0" top="0" bottom="0" textAlign="center" verticalAlign="middle" size="24" fontFamily="Helvetica"/>
+	<ui:RunTimeLabel id="_text" text="Label" left="0" right="0" top="0" bottom="0" textAlign="center" verticalAlign="middle" size="24" fontFamily="Barlow"/>
 </e:Skin>

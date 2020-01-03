@@ -25,10 +25,11 @@ namespace we {
         super();
         if (!this.skinName || this.skinName === '') {
           this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
+        } else {
+          this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
         }
         this.touchChildren = false;
         this.buttonEnabled = true;
-        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
       }
 
       public onSkinChanged() {
@@ -133,10 +134,14 @@ namespace we {
         if (buttonState === this._buttonState) {
           return;
         }
+
+        this._buttonState = buttonState;
+
         // update button's apperance
         const source = this._background.source;
-        if (source instanceof egret.Texture) {
-          throw new Error('Source cannot be texture');
+        if (!source || source instanceof egret.Texture) {
+          // throw new Error('Source cannot be texture');
+          return;
         }
         const newSource = source.replace(this._buttonState.toString(), buttonState);
         if (RES.getRes(newSource)) {
@@ -146,7 +151,6 @@ namespace we {
           }
           this.changeSourceWithAnimation(source, newSource);
         }
-        this._buttonState = buttonState;
       }
 
       private changeSourceWithAnimation(oldsrc, newsrc) {

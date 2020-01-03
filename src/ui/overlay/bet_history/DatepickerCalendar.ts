@@ -13,14 +13,14 @@ namespace we {
 
         this._headerItems = [];
         for (let w = 0; w < 7; w++) {
-          const headeritem = new Datepickeritem();
+          const headeritem = new Datepickeritem(w);
           this._headerItems.push(headeritem);
           this.addChild(headeritem);
         }
 
         this._dateItems = [];
         for (let d = 0; d < 31; d++) {
-          const dateitem = new Datepickeritem();
+          const dateitem = new Datepickeritem(d + 1);
           this._dateItems.push(dateitem);
           this.addChild(dateitem);
         }
@@ -33,12 +33,10 @@ namespace we {
         }
 
         for (let d = 0; d < 31; d++) {
-          this._dateItems[d].label.text = d.toString();
+          this._dateItems[d].label.text = this._dateItems[d].id.toString();
         }
 
         this._itemMargin = this._headerItems[0].width;
-
-        this.update();
       }
 
       protected destroy() {
@@ -54,10 +52,6 @@ namespace we {
           this._headerItems[w].$x = w * this._itemMargin;
         }
 
-        if (!this._year || !this._month) {
-          return;
-        }
-
         this._tday = moment()
           .year(this._year)
           .month(this._month)
@@ -65,9 +59,10 @@ namespace we {
         let c = moment()
           .year(this._year)
           .month(this._month)
-          .date(1)
+          .startOf('month')
           .day();
         let r = 1;
+
         for (let d = 0; d < this._tday; d++) {
           this.addChild(this._dateItems[d]);
           this._dateItems[d].$x = c * this._itemMargin;
@@ -80,12 +75,8 @@ namespace we {
         }
       }
 
-      public set year(y: number) {
+      public setTo(y: number, m: number) {
         this._year = y;
-        this.update();
-      }
-
-      public set month(m: number) {
         this._month = m;
         this.update();
       }

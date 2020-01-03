@@ -2,8 +2,16 @@
 <e:Skin class="skin_desktop.DoubleCalendarPicker" width="1207" height="718" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
 
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="0" top="0" bottom="0" right="0"/>
-		<overlay:DatepickerCalendar id="_calender_left" width="490" height="490" x="39" y="262" year="2019" month="12"/>
+		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="2" top="0" bottom="0" right="-2"/>
+		<overlay:DatepickerCalendar id="_calender_prev" width="490" height="490" x="39" y="262"/>
+		<overlay:DatepickerCalendar id="_calender_next" width="490" height="490" y="262" x="678"/>
+		<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="64" y="203" skinName="skin_desktop.ImageButtonSkinNav" currentState="page_prev_icon"/>
+		<ui:BaseImageButton id="_btn_next" width="46" height="46" y="203" x="1097" skinName="skin_desktop.ImageButtonSkinNav" currentState="page_next_icon"/>
+		<e:Label id="_txt_prev" text="Label" x="132" y="202" height="45" textAlign="left" verticalAlign="middle" width="200"/>
+		<e:Label id="_txt_next" text="Label" y="202" height="45" textAlign="right" verticalAlign="middle" width="200" x="875"/>
+		<ui:BaseImageButton id="_btn_confirm" width="200" height="60" y="67" right="62"/>
+		<ui:BaseImageButton id="_btn_clean" width="48" height="36" x="319" y="78"/>
+		<e:Label id="_txt_current" text="Label" x="64" y="67" width="209" height="60" textAlign="center" verticalAlign="middle" fontFamily="Barlow" size="28"/>
 	</e:Group>
 
 </e:Skin>
