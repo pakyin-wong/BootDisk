@@ -63,7 +63,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BABeadRoadResultPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaLiveListItemBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -111,10 +123,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BetInfoBaItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BetInfoBaQuickBetPanel extends eui.Skin{
 	}
 }
@@ -150,6 +158,10 @@ declare module skin_desktop{
 	class CountdownTimerRoundSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class CountdownTimerRoundSmallSkin extends eui.Skin{
+	}
+}
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
 }
 declare class BaBetLimitDropdownSkin extends eui.Skin{
@@ -163,6 +175,10 @@ declare class DropdownItemSkin extends eui.Skin{
 declare class DropdownSkin extends eui.Skin{
 }
 declare class RoundDropdownSkin extends eui.Skin{
+}
+declare class SidePanelAllGameDropdownItemSkin extends eui.Skin{
+}
+declare class SidePanelAllGameDropdownSkin extends eui.Skin{
 }
 declare module skin_desktop{
 	class DropdownItem extends eui.Skin{
@@ -203,26 +219,12 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class LiveBaBettingTableSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LiveBaListItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LiveBaListSimpleItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LiveBaQuickBetPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class LivePage extends eui.Skin{
 	}
 }
 declare class ImageTabItemWithBadgeSkin extends eui.Skin{
+}
+declare class LiveSidePanelSkin extends eui.Skin{
 }
 declare class SidePanelSkin extends eui.Skin{
 }
@@ -272,6 +274,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class Datepicker extends eui.Skin{
 	}
 }
 declare module skin_desktop{

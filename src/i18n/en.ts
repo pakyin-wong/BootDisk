@@ -106,6 +106,7 @@ namespace we {
       },
       live: {
         gametype: {
+          allGame: 'All Game',
           bacarrat: 'Baccarat',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
@@ -129,6 +130,11 @@ namespace we {
       game: {
         startBet: 'Start Bet',
         stopBet: 'Stop Bet',
+      },
+      sidePanel: {
+        bet: 'Bet',
+        goodroad: 'Good Road',
+        allgame: 'All Game',
       },
       baccarat: {
         playerPair: 'Player Pair',
@@ -154,6 +160,9 @@ namespace we {
         betSuccess: 'betSuccess',
         addNewGoodRoad: 'New Good Road',
         newGoodRoadName: 'My Road',
+        removeGoodRoad: 'Delete Road Sheet?',
+        confirmRemoveGoodRoad: 'Delete',
+        cancelRemoveGoodRoad: 'Cancel',
         result: {
           BANKER: 'Banker Win',
           PLAYER: 'Player Win',

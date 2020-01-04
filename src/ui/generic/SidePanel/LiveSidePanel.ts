@@ -5,12 +5,21 @@ namespace we {
       protected goodRoadTableList: TableList;
       protected allTableList: TableList;
 
+      protected _dropdown: SidePanelAllGameDropdown;
+      protected _label: ui.RunTimeLabel;
+
       constructor() {
         super();
+        this.skinName = 'LiveSidePanelSkin';
       }
 
       protected mount() {
         super.mount();
+        this._dropdown.visible = false;
+        this.addEventListeners();
+      }
+
+      protected initTabs() {
         const group = <eui.Group> this._scroller.viewport;
 
         this._viewStack = new eui.ViewStack();
@@ -29,6 +38,7 @@ namespace we {
         scroller.height = group.height;
         betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
+        this.betTableList.isAnimateItemTransition = true;
         this.betTableList.itemRenderer = BaSideListBetItemHolder;
         this.betTableList.layout = this.getLayout();
         scroller.viewport = this.betTableList;
@@ -44,6 +54,7 @@ namespace we {
         scroller.height = group.height;
         goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
+        this.goodRoadTableList.isAnimateItemTransition = true;
         this.goodRoadTableList.itemRenderer = BaSideListItemHolder;
         this.goodRoadTableList.layout = this.getLayout();
         scroller.viewport = this.goodRoadTableList;
@@ -59,21 +70,20 @@ namespace we {
         scroller.height = group.height;
         allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
+        this.allTableList.isAnimateItemTransition = true;
         this.allTableList.itemRenderer = BaSideListItemHolder;
         this.allTableList.layout = this.getLayout();
         allTableGroup.addChild(this.allTableList);
         scroller.viewport = this.allTableList;
 
         this._tabbar.dataProvider = this._viewStack;
-        this.activeLine.y = this._tabbar.y + this._tabbar.height;
-
-        this.addEventListeners();
       }
 
       protected getLayout() {
         const layout = new eui.VerticalLayout();
         layout.paddingTop = 20;
         layout.paddingBottom = 20;
+        layout.horizontalAlign = egret.HorizontalAlign.CENTER;
         return layout;
       }
 
@@ -81,7 +91,7 @@ namespace we {
         // listen to table list update
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update
-        dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
         // listen to bet list update
         dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
       }
@@ -114,6 +124,28 @@ namespace we {
         const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate(count);
+        }
+      }
+
+      protected onCollapse() {
+        super.onCollapse();
+        this._dropdown.visible = false;
+      }
+
+      protected onSelected() {
+        super.onSelected();
+        switch (this._viewStack.selectedIndex) {
+          case 0:
+          case 1:
+            this._dropdown.visible = false;
+            this._label.visible = true;
+            this._label.renderText = () => `${i18n.t(`sidePanel.${this._viewStack.getChildAt(this._viewStack.selectedIndex).name}`)}`;
+            break;
+          case 2:
+            this._label.visible = false;
+            this._dropdown.visible = true;
+
+            break;
         }
       }
     }

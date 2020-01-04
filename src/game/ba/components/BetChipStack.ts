@@ -123,8 +123,6 @@ namespace we {
 
       protected drawChips() {
         this._chips.map((value, index) => {
-          console.log('BetChipStack::drawChips - ', this._chipWidth, this._chipHeight, index);
-          console.log(value);
           value.horizontalCenter = 0;
           value.y = index * -this._chipInterval;
           value.width = this._chipWidth;
@@ -186,10 +184,8 @@ namespace we {
       }
 
       set chipType(value: number) {
-        console.log('BetChipStack::chipType1: ', value);
         if (this._chipType) {
           this._chipType = value;
-          console.log('BetChipStack::chipType2: ', this.chipType);
         }
       }
 

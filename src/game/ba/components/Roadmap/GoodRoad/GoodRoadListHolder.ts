@@ -73,16 +73,12 @@ namespace we {
         }
       }
       private onItemEnableChanged(e: egret.Event) {
-        let enabled: boolean = false;
-        if (e.data === 0) {
-          enabled = true;
-        }
         if (this.roadType === 1) {
           // default
-          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, enabled, roadType: 1 });
+          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, enabled: e.data, roadType: 1 });
         } else if (this.roadType === 2) {
           // custom
-          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, name: this.roadName, pattern: this.roadPattern, enabled, roadType: 2 });
+          dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, name: this.roadName, pattern: this.roadPattern, enabled: e.data, roadType: 2 });
         }
       }
 

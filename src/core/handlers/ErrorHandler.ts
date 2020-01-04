@@ -18,7 +18,6 @@ namespace we {
         /*
         switch (error.code) {
           case 1001: {
-            console.log('hanle');
             this.createDialog('hello world', {
               dismiss: {
                 text: 'single',

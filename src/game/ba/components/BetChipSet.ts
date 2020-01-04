@@ -66,14 +66,11 @@ namespace we {
       public init(visibleDenomNum: number, denomList: number[]) {
         this._visibleDenomNum = visibleDenomNum;
         this._denomList = denomList;
-        this._selectedChipIndex = Math.min(this._denomList.length - 1, this._selectedChipIndex);
+        this._selectedChipIndex = this._denomList.length - 1;
         this.setChipSet(denomList);
         this._startIndex = this._chipList.length - this._visibleDenomNum;
-        console.log('BetChipSet::init()', this._selectedChipIndex, this._visibleDenomNum, this._startIndex, this._denomList);
         this._renderItems();
       }
-
-      public setDenominationList(denominationList: number[]) {}
 
       public resetDenomNum(denomNum: number) {
         this._visibleDenomNum = denomNum;
@@ -85,7 +82,7 @@ namespace we {
       public resetDenominationList(denomList: number[]) {
         this._denomList = denomList;
         this.clearChipList();
-        this._selectedChipIndex = Math.min(this._denomList.length - 1, this._selectedChipIndex);
+        this._selectedChipIndex = this._denomList.length - 1;
         this.setChipSet(denomList);
         this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
@@ -96,20 +93,18 @@ namespace we {
         let newStart: number;
         if (dir > 0) {
           // right
-          newStart = Math.min(this._startIndex + this._visibleDenomNum, this._denomList.length - this._visibleDenomNum);
-          newSelected =
-            newStart === this._denomList.length - this._visibleDenomNum
-              ? this.denomList.length - this._visibleDenomNum + (this._selectedChipIndex - this._startIndex)
-              : Math.min(this._startIndex + this._visibleDenomNum, this._denomList.length - 1);
-          this._startIndex = newStart;
-          console.log('BetChipSet::_navigate()- right', this._selectedChipIndex, this._visibleDenomNum, this._startIndex, newSelected);
+          const oldPagePos = this._selectedChipIndex - this._startIndex;
+          const lastPageStart = this._denomList.length - this._visibleDenomNum;
+          newStart = Math.min(this._startIndex + this._visibleDenomNum, lastPageStart);
+          newSelected = newStart === lastPageStart ? lastPageStart + oldPagePos : Math.min(this._selectedChipIndex + this._visibleDenomNum, this._denomList.length - 1);
         } else {
           // left
-          newStart = Math.max(this._startIndex - this._visibleDenomNum, 0);
-          newSelected = newStart === 0 ? this._selectedChipIndex - this._startIndex : Math.max(this._selectedChipIndex - this._visibleDenomNum, 0);
-          this._startIndex = newStart;
-          console.log('BetChipSet::_navigate()- left', this._selectedChipIndex, this._visibleDenomNum, this._startIndex, newSelected);
+          const oldPagePos = this._selectedChipIndex - this._startIndex;
+          const firstPageStart = 0;
+          newStart = Math.max(this._startIndex - this._visibleDenomNum, firstPageStart);
+          newSelected = newStart === firstPageStart ? oldPagePos : Math.max(this._selectedChipIndex - this._visibleDenomNum, firstPageStart);
         }
+        this._startIndex = newStart;
         this._onChipSelected(newSelected);
         this._renderItems();
       }
@@ -137,7 +132,6 @@ namespace we {
       public setChipSet(denomList: number[]) {
         this._denomList = denomList;
         this._denomList.map((value, index) => {
-          console.log('BetChipSet::setChipSet : ', index, value);
           const betChip = new BetChip(value);
           betChip.index = index;
           if (index === this._selectedChipIndex) {

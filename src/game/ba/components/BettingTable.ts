@@ -93,7 +93,7 @@ namespace we {
         this.setDenomLists();
         this.changeLang();
         this.resetUnconfirmedBet();
-        this.setListeners();
+        this.addTouchTapListeners();
       }
 
       set denomLayer(value: eui.Component) {
@@ -102,20 +102,16 @@ namespace we {
 
       get denomLayer() {
         if (this._denomLayer) {
-          console.log('BettingTable::denomLayer()::hasDenomLayer 1 ');
           return this._denomLayer;
         }
         if (!this._gridPlayer) {
-          console.log('BettingTable::denomLayer()::hasDenomLayer 2 ');
           return null;
         }
         if (!we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
-          console.log('BettingTable::denomLayer()::hasDenomLayer 3 ' + this._gridPlayer.hasDenomLayer);
           return null;
         }
         this._denomLayer = new eui.Component();
         if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
-          console.log('BettingTable::denomLayer()::hasDenomLayer 4 ');
           this.setDenomGrid(this._gridPlayer);
           this._denomLayer.addChild(this._gridPlayer.denomLayer);
         }
@@ -157,25 +153,37 @@ namespace we {
         grid.denomLayer.height = grid.height;
       }
 
-      public addRolloverEffect() {
+      public addRolloverListeners() {
         Object.keys(this.mapping).forEach(value => {
           this.mapping[value].addRolloverEffect();
         });
       }
-      public removeRolloverEffect() {
+      public removeRolloverListeners() {
         Object.keys(this.mapping).forEach(value => {
           this.mapping[value].removeRolloverEffect();
         });
       }
 
-      private setListeners() {
-        this._gridPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayer), this);
-        this._gridBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBanker), this);
-        this._gridPlayerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridPlayerPair), this);
-        this._gridTie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridTie), this);
-        this._gridBankerPair.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridBankerPair), this);
-        this._gridSuperSixBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSixBanker), this);
-        this._gridSuperSix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this._gridSuperSix), this);
+      public addTouchTapListeners() {
+        Object.keys(this.mapping).forEach(value => {
+          this.mapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.mapping[value]), this);
+        });
+      }
+
+      public removeTouchTapListeners() {
+        Object.keys(this.mapping).forEach(value => {
+          this.mapping[value].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.mapping[value]), this);
+        });
+      }
+
+      public removeAllMouseListeners() {
+        this.removeRolloverListeners();
+        this.removeTouchTapListeners();
+      }
+
+      public addAllMouseListeners() {
+        this.addRolloverListeners();
+        this.addTouchTapListeners();
       }
 
       public setGameMode(isNoCommission: boolean) {
@@ -216,16 +224,10 @@ namespace we {
       }
 
       public updateBetFields(betDetails: data.BetDetail[]) {
-        // logger.l('BettingTable::updateBetFields' + betDetails);
         this.betDetails = betDetails;
 
         // TODO: update the already bet amount of each bet field
-        console.log('BettingTable::betDetails');
-        console.log(betDetails);
         betDetails.map((value, index) => {
-          console.log('BettingTable::betDetails.map ');
-          console.log(value);
-
           if (this.mapping[value.field]) {
             this.mapping[value.field].setCfmBet(value.amount);
           }
@@ -244,7 +246,6 @@ namespace we {
 
       protected onBetFieldUpdate(grid: BettingTableGrid) {
         return (event: egret.Event) => {
-          console.log('BettingTable::onBetFieldUpdate()');
           const betDetail = { field: grid.getFieldName(), amount: grid.getAmount() };
           // validate bet action
           if (this.validateBetAction(betDetail)) {
@@ -261,6 +262,37 @@ namespace we {
           }
           grid.draw();
         };
+      }
+
+      public doubleBetFields() {
+        const validDoubleBet = Object.keys(this.mapping).map(value => {
+          if (this.mapping[value].getCfmBet() === 0) {
+            return true;
+          }
+          const betDetail = { field: value, amount: this.mapping[value].getCfmBet() };
+          if (this.validateBetAction(betDetail)) {
+            return true;
+          }
+          return false;
+        });
+        for (let valid of validDoubleBet) {
+          if (!valid) {
+            return;
+          }
+        }
+        Object.keys(this.mapping).map(value => {
+          if (this.mapping[value].getCfmBet() > 0) {
+            this.mapping[value].addUncfmBet(this.mapping[value].getCfmBet());
+            this.totalUncfmBetAmount += this.mapping[value].getCfmBet();
+            this.mapping[value].draw();
+            for (const detail of this.uncfmBetDetails) {
+              if (detail.field === value) {
+                detail.amount += this.mapping[value].getCfmBet();
+                break;
+              }
+            }
+          }
+        });
       }
 
       set getSelectedChipIndex(value: () => number) {
@@ -304,7 +336,6 @@ namespace we {
         // TODO: check balance
         const balance = env.balance;
         if (balance < totalBetAmount) {
-          egret.log(core.Event.INSUFFICIENT_BALANCE);
           dir.evtHandler.dispatch(core.Event.INSUFFICIENT_BALANCE);
           return false;
         }
@@ -317,7 +348,6 @@ namespace we {
           fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxlimit ||
           fieldAmounts[BetField.SUPER_SIX] > betLimit.maxlimit;
         if (exceedBetLimit) {
-          egret.log(core.Event.EXCEED_BET_LIMIT);
           dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
           return false;
         }
@@ -343,8 +373,7 @@ namespace we {
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
-            // console.log(value);
-            // To be filled
+            // TODO To be filled
             // this.mapping[value].pushUnconfirmedBetToWaitingConfirmBet();
           });
         }
@@ -363,7 +392,6 @@ namespace we {
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
-            // console.log(value);
             this.mapping[value].setUncfmBet(0);
           });
         }
@@ -382,7 +410,6 @@ namespace we {
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
-            // console.log(value);
             this.mapping[value].setCfmBet(0);
           });
         }

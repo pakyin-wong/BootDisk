@@ -10,7 +10,7 @@ namespace we {
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
         this.bigRoad = new BABigRoad(16, 23);
-        this.bigRoad.scaleX = this.bigRoad.scaleY = (442 / 575) * 1.5625;
+        this.bigRoad.scaleX = this.bigRoad.scaleY = (339 / 575) * 1.5625;
         this.addChild(this.bigRoad);
       }
 

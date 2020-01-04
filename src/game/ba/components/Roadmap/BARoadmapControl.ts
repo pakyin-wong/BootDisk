@@ -25,6 +25,9 @@ namespace we {
         this.cockroachRoad = r5;
         this.rightPanel = rightPanel;
 
+        this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+        this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+
         this.parser = new BARoadParser(columnArray);
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
         this.parser.addEventListener('onPredict', this.onParserPredict, this);
@@ -41,6 +44,22 @@ namespace we {
 
         // dark/light mode
         dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+      }
+
+      private onBeadRoadOver(e: egret.Event) {
+        if (env.tableInfos[this.tableid]) {
+          if (env.tableInfos[this.tableid].roadmap) {
+            const data = env.tableInfos[this.tableid].roadmap;
+          }
+        }
+      }
+
+      private onBeadRoadOut(e: egret.Event) {
+        if (env.tableInfos[this.tableid]) {
+          if (env.tableInfos[this.tableid].roadmap) {
+            const data = env.tableInfos[this.tableid].roadmap;
+          }
+        }
       }
 
       // predict banker win
@@ -70,7 +89,7 @@ namespace we {
                   }
                 }
               } catch (e) {
-                console.log('doPredict Error');
+                console.error('doPredict Error');
               }
 
               if (v === 0) {

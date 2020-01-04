@@ -10,8 +10,6 @@ namespace we {
       protected _cancelButton: ui.BaseImageButton;
       protected _resultMessage: GameResultMessage;
       protected _message: InGameMessage;
-      protected _denomLayer: eui.Component;
-
       protected _dropdown: live.BetLimitDropdown;
 
       // table name label
@@ -43,27 +41,25 @@ namespace we {
       }
 
       protected initChildren() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this.initDenom();
+        this.initBettingTable();
+      }
 
+      protected initDenom() {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
           this._betChipSet.init(3, denominationList);
         }
+      }
 
+      protected initBettingTable() {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._bettingTable) {
           this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
           this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
           this._bettingTable.type = we.core.BettingTableType.NORMAL;
           this._bettingTable.denomList = denominationList;
           this._bettingTable.init();
-
-          if (this._bettingTable.denomLayer) {
-            this._denomLayer = this._bettingTable.denomLayer;
-            this._denomLayer.y = this._bettingTable.y;
-            this._denomLayer.x = this._bettingTable.x;
-            this._denomLayer.alpha = 0;
-            this.addChild(this._denomLayer);
-            this.setChildIndex(this._denomLayer, 30000);
-          }
         }
       }
 
@@ -78,12 +74,20 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
         if (this._cancelButton) {
           this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        }
+      }
+
+      public insufficientBalance() {
+        if (this._message) {
+          this._message.showMessage(InGameMessage.ERROR, 'Insufficient Balance');
         }
       }
 
@@ -98,6 +102,7 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
+        dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
 
       protected destroy() {
@@ -107,7 +112,7 @@ namespace we {
       protected onBetLimitUpdate(evt: egret.Event) {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
-          this._betChipSet.setDenominationList(denominationList);
+          this._betChipSet.resetDenominationList(denominationList);
         }
         if (this._bettingTable) {
           this._bettingTable.denomList = denominationList;
@@ -116,6 +121,7 @@ namespace we {
 
       protected onBetDetailUpdate(evt: egret.Event) {
         const tableInfo = <data.TableInfo> evt.data;
+        logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -130,8 +136,10 @@ namespace we {
         }
       }
 
+      protected onMatchGoodRoadUpdate() {}
+
       protected onTableBetInfoUpdate() {
-        console.log('LiveBaListSimpleItem::onTableBetInfoUpdate');
+        // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
@@ -148,7 +156,7 @@ namespace we {
         super.setData(tableInfo);
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
-        this._previousState = null;
+        this._previousState = this._gameData ? this._gameData.previousstate : null;
         if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this.tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
         }
@@ -156,7 +164,6 @@ namespace we {
       }
 
       protected onTableInfoUpdate(evt: egret.Event) {
-        // console.log('Baccarat listener');
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
@@ -172,16 +179,13 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        console.log('BaccaratScene::onRoadDataUpdate');
+        logger.l('BaccaratScene::onRoadDataUpdate');
       }
 
       public updateGame() {
-        console.log('LiveBaListItem::updateGame() - this._gameData.state ');
-        console.log(this._gameData);
         if (!this._gameData) {
           return;
         }
-        console.log('state:        ' + this._gameData.state);
         switch (this._gameData.state) {
           case ba.GameState.IDLE:
             this.setStateIdle();
@@ -347,7 +351,6 @@ namespace we {
       }
 
       public onRollover(evt: egret.Event) {
-        console.log('LiveBaListItem::onRollover');
         this._mouseOutside = false;
       }
 
@@ -358,7 +361,6 @@ namespace we {
       protected onConfirmPressed(evt: egret.Event) {
         if (this._bettingTable) {
           if (this._bettingTable.getTotalUncfmBetAmount() > 0) {
-            egret.log('Confirm');
             const bets = this._bettingTable.getUnconfirmedBetDetails();
             this._bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
             dir.socket.bet(this._tableId, bets);

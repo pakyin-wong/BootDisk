@@ -73,7 +73,7 @@ namespace we {
       protected updateStoredPosition() {
         const pos = { x: this.target.x, y: this.target.y };
         env.storedPositions[this.target.panelName] = pos;
-        egret.log(env.storedPositions);
+        logger.l(env.storedPositions);
         // TODO: upload to server
       }
     }

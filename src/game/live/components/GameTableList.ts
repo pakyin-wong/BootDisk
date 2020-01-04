@@ -161,13 +161,13 @@ namespace we {
       private onSelectedIndexSorted(evt: any) {
         const prevIdx = evt.data.prevIdx;
         const newIdx = evt.data.newIdx;
-        egret.log(prevIdx, newIdx);
+        logger.l(prevIdx, newIdx);
         const removed = this.tabItems.splice(prevIdx, 1);
         this.tabItems.splice(newIdx, 0, removed[0]);
       }
 
       private onSelectedIndexChanged(evt: any) {
-        egret.log(this.tabs.tabBar.selectedIndex);
+        logger.l(this.tabs.tabBar.selectedIndex);
         const item = this.tabItems[this.tabs.tabBar.selectedIndex];
 
         // TODO: Clear Table Array

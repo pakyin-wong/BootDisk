@@ -171,10 +171,10 @@ namespace we {
               enabled: this.roadEnabled,
             });
           }
+          // hide this panel after save
+          this.hide();
+          (this.parent.parent as we.overlay.CustomRoad)._cover.visible = false;
         }
-        // hide this panel after save
-        this.hide();
-        (this.parent.parent as we.overlay.CustomRoad)._cover.visible = false;
       }
 
       private onClose() {

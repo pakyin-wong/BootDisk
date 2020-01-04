@@ -1,12 +1,12 @@
 namespace we {
   export namespace core {
     export class LayerCtr {
-      public bottom: egret.DisplayObjectContainer;
-      public scene: egret.DisplayObjectContainer;
-      public top: egret.DisplayObjectContainer;
-      public nav: egret.DisplayObjectContainer;
-      public overlay: egret.DisplayObjectContainer;
-      public msg: egret.DisplayObjectContainer;
+      public bottom: eui.Group;
+      public scene: eui.Group;
+      public top: eui.Group;
+      public nav: eui.Group;
+      public overlay: eui.Group;
+      public msg: eui.Group;
 
       constructor(stage: egret.Stage) {
         this.bottom = this.newLayer(stage);
@@ -26,8 +26,10 @@ namespace we {
         logger.l('LayerCtr is created');
       }
 
-      private newLayer(stage: egret.Stage): egret.DisplayObjectContainer {
-        const layer: egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
+      private newLayer(stage: egret.Stage): eui.Group {
+        const layer: eui.Group = new eui.Group();
+        layer.touchEnabled = false;
+        layer.touchChildren = true;
         layer.width = stage.stageWidth;
         layer.height = stage.stageHeight;
         return layer;

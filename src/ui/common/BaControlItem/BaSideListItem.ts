@@ -24,13 +24,13 @@ namespace we {
       }
 
       protected initCustomPos() {
-        this._targetQuickBetButtonY = 250;
-        this._originalQuickBetButtonY = 137;
-        this._targetQuickbetPanelY = 251;
+        this._targetQuickBetButtonY = 199;
+        this._originalQuickBetButtonY = 85;
+        this._targetQuickbetPanelY = 170;
         this._originalQuickBetPanelY = 0;
         this._offsetLimit = 10000;
         this._offsetMovement = 0;
-        this._hoverScale = 1;
+        this._hoverScale = 1.06;
       }
 
       protected initChildren() {
@@ -41,6 +41,18 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
+        if (this.tableInfo.goodRoad) {
+          this._goodRoadLabel.visible = true;
+          const goodRoadData = this.tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          // this._goodRoadLabel.text = goodRoadName;
+          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+        } else {
+          this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected onMatchGoodRoadUpdate() {
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;

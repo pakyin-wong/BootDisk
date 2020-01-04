@@ -42,10 +42,10 @@ namespace we {
           removed.forEach(item => {
             this.collection.removeItemAt(this.collection.getItemIndex(item));
           });
-          this.tableList = tableList;
-          this.tableList.forEach((x, inx) => {
-            this.collection.replaceItemAt(x, inx);
-          });
+          // this.tableList = tableList;
+          // this.tableList.forEach((x, inx) => {
+          //   this.collection.replaceItemAt(x, inx);
+          // });
         }
       }
 

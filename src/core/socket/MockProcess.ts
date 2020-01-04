@@ -170,7 +170,7 @@ namespace we {
         await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
         // done
-        egret.log('Round Completed');
+        logger.l('Round Completed');
       }
 
       public async bankerWin(data: data.TableInfo) {
@@ -197,7 +197,7 @@ namespace we {
         await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
         // done
-        egret.log('Round Completed');
+        logger.l('Round Completed');
       }
 
       public async bankerPairWin(data: data.TableInfo) {
@@ -224,7 +224,7 @@ namespace we {
         await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
         // done
-        egret.log('Round Completed');
+        logger.l('Round Completed');
       }
 
       public async bankerWinPlayerPair(data: data.TableInfo) {
@@ -251,7 +251,7 @@ namespace we {
         await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
         // done
-        egret.log('Round Completed');
+        logger.l('Round Completed');
       }
 
       public async tie(data: data.TableInfo) {
@@ -278,7 +278,7 @@ namespace we {
         await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
 
         // done
-        egret.log('Round Completed');
+        logger.l('Round Completed');
       }
 
       public async shuffle(data: data.TableInfo) {
@@ -292,7 +292,7 @@ namespace we {
         await this.sleep(this.shuffleStateInterval, 'tableInfoListInternal');
 
         // done
-        egret.log('Shuffle Completed');
+        logger.l('Shuffle Completed');
       }
     }
   }

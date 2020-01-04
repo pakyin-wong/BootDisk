@@ -106,6 +106,7 @@ namespace we {
       },
       live: {
         gametype: {
+          allGame: '全部遊戲',
           bacarrat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
@@ -129,6 +130,11 @@ namespace we {
       game: {
         startBet: '開始下注',
         stopBet: '停止下注',
+      },
+      sidePanel: {
+        bet: '已下注',
+        goodroad: '好路',
+        allgame: '全部遊戲',
       },
       baccarat: {
         playerPair: '閒對',
@@ -154,6 +160,9 @@ namespace we {
         betSuccess: '下注成功',
         addNewGoodRoad: '新增好路',
         newGoodRoadName: '我的好路',
+        removeGoodRoad: '刪除路紙？',
+        confirmRemoveGoodRoad: '刪除',
+        cancelRemoveGoodRoad: '取消',
         result: {
           BANKER: '庄贏',
           PLAYER: '閒贏',

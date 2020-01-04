@@ -65,11 +65,9 @@ namespace we {
       }
 
       protected clearAllTimeout() {
-        egret.log('clear all timeout');
         this.target.parent.dispatchEvent(new egret.Event('CLEAR_ALL_TIMEOUT'));
       }
       public startAllTimeout() {
-        egret.log('start all timeout');
         if (this.target.parent) {
           this.target.parent.dispatchEvent(new egret.Event('Start_ALL_TIMEOUT'));
         }

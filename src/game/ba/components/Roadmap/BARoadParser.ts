@@ -306,7 +306,7 @@ namespace we {
             }
           }
         } catch (e) {
-          console.log('Predict Road Error');
+          console.error('Predict Road Error');
         }
 
         this.predictBankerIcons = [predictResult[2], predictResult[3], predictResult[4]];

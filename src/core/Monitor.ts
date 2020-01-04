@@ -18,6 +18,7 @@ namespace we {
 
       public start(stage: egret.Stage) {
         this._nav = new ui.Nav();
+        this._nav.touchEnabled = false;
         // this._notificationController = new ui.NotificationController();
         this._liveSidePanel = new ui.LiveSidePanel();
         this._overlay = new ui.Overlay();
@@ -30,8 +31,9 @@ namespace we {
         // this._notificationController.x = stage.stageWidth - 410;
         // this._notificationController.y = 240;
 
-        this._liveSidePanel.x = 2050;
-        this._liveSidePanel.y = 120;
+        // this._liveSidePanel.x = 2170;
+        this._liveSidePanel.right = 20;
+        this._liveSidePanel.y = 80;
       }
 
       private addListeners() {

@@ -15,11 +15,6 @@ namespace we {
         this.touchChildren = false;
       }
 
-      protected childrenCreated() {
-        super.childrenCreated();
-        console.log('RoundButton::childrenCreated ' + this.width + ' ' + this._image.width + ' ' + this._image.source);
-      }
-
       set width(value: number) {
         this.$setWidth(value);
         if (this._image) {

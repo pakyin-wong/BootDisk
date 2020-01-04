@@ -56,7 +56,7 @@ namespace we {
       }
 
       public set startIndex(index) {
-        console.log('prev', this._startIndex, 'now', index);
+        // console.log('prev', this._startIndex, 'now', index);
         this._startIndex = index;
         this._renderItems();
       }
@@ -72,13 +72,13 @@ namespace we {
           if (this.items[newIndex]) {
             // swap three item
             this.startIndex = newIndex - 2;
-            console.log('> swap 3 item');
+            // console.log('> swap 3 item');
           } else {
             while (!this.items[newIndex]) {
               newIndex -= 1;
               if (this.items[newIndex]) {
                 this.startIndex = newIndex - 2;
-                console.log('< swap 2 item');
+                // console.log('< swap 2 item');
               }
             }
           }
@@ -88,13 +88,13 @@ namespace we {
           newIndex -= 3; // prev page
           if (this.items[newIndex]) {
             this.startIndex = newIndex;
-            console.log('< swap 3 item');
+            // console.log('< swap 3 item');
           } else {
             while (!this.items[newIndex]) {
               newIndex += 1;
               if (this.items[newIndex]) {
                 this.startIndex = newIndex;
-                console.log('< swap 2 item');
+                // console.log('< swap 2 item');
               }
             }
           }
