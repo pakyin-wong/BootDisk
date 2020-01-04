@@ -9,6 +9,8 @@ RUN cd /egret-core-5.2.31/build/ && tar cf - egret eui assetsmanager dragonBones
 ARG ENVIRONMENT
 
 RUN egret publish -version ${ENVIRONMENT}
+ADD jslib bin-release/web/${ENVIRONMENT}/
+RUN ls -al bin-release/web/${ENVIRONMENT}/
 ADD config.json bin-release/web/${ENVIRONMENT}/config.json
 ADD config.${ENVIRONMENT}.json bin-release/web/${ENVIRONMENT}/config.${ENVIRONMENT}.json
 RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
