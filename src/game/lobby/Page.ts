@@ -132,6 +132,7 @@ namespace we {
 
         this.scroller.viewport = group;
 
+        // Dragonbone animation
         const skeletonData = RES.getRes('game_result_test_ske_json');
         const textureData = RES.getRes('game_result_test_tex_json');
         const texture = RES.getRes('game_result_test_tex_png');
@@ -150,6 +151,16 @@ namespace we {
         egret.Ticker.getInstance().register(advancedTime => {
           dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);
         }, this);
+
+        // texture merger
+        const startJson = RES.getRes('start_json');
+        const startePng = RES.getRes('start_png');
+        const timeFactory: egret.MovieClipDataFactory = new egret.MovieClipDataFactory(startJson, startePng);
+        const time1: egret.MovieClip = new egret.MovieClip(timeFactory.generateMovieClipData('start'));
+        time1.x = 200;
+        time1.y = 400;
+        this.addChild(time1);
+        time1.gotoAndPlay(0, -1);
       }
     }
   }
