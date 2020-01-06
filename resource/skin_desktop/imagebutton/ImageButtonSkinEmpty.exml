@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="ImageButtonSkinEmpty" width="1" height="1" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-    <e:Image id="_background" left="0" right="0" top="0" bottom="0" locked="true"/>
-    <e:Group id="_group" left="0" right="0" top="0" bottom="0" locked="true">
-        <ui:RunTimeLabel id="_label" />
+    <e:Image id="_background" left="0" right="0" top="0" bottom="0"/>
+    <e:Group id="_group" left="0" right="0" top="0" bottom="0">
+        <ui:RunTimeLabel id="_label"  verticalAlign="middle" size="24" textAlign="center"/>
     </e:Group>
 </e:Skin>

@@ -12,7 +12,7 @@ namespace we {
       protected _background: eui.Image;
       protected _activeTransitionStopper: () => void;
       protected _group: eui.Group;
-      protected _label: eui.Label;
+      protected _label: ui.RunTimeLabel;
 
       // button states
       protected _buttonState: BaseImageButtonState = BaseImageButtonState.normal;
@@ -92,6 +92,10 @@ namespace we {
 
       public set text(text) {
         this._label.text = text || '';
+      }
+
+      public get label(): RunTimeLabel {
+        return this._label;
       }
 
       private onRollover() {

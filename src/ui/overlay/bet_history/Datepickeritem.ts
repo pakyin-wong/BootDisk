@@ -16,6 +16,10 @@ namespace we {
       public get id() {
         return this._id;
       }
+
+      public lock;
+      public date;
+      public isToday;
     }
   }
 }
