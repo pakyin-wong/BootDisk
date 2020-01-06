@@ -43,7 +43,7 @@ namespace we {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
-
+        this.skinName = 'skins.ScrollerSkin';
         this.collapseAddon = new CollapseAddon(this);
       }
 
