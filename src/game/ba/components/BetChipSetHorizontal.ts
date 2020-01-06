@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BetChipSet extends eui.Component implements eui.UIComponent, IBetChipSet {
+    export class BetChipSetHorizontal extends core.BaseEUI implements eui.UIComponent, IBetChipSet {
       private _startIndex = 0;
       private _denomList: number[];
       private _visibleDenomNum = 0;
@@ -10,7 +10,7 @@ namespace we {
 
       private _selectedChipIndex: number = 10;
 
-      private _chipList: Array<IBetChip & eui.Component> = [];
+      private _chipList: Array<IBetChip & core.BaseEUI> = [];
 
       public constructor() {
         super();
@@ -72,8 +72,8 @@ namespace we {
         this._renderItems();
       }
 
-      public resetDenomNum(denomNum: number) {
-        this._visibleDenomNum = denomNum;
+      public resetFormat(denomNum: any) {
+        this._visibleDenomNum = +denomNum;
         // this._onChipSelected(this._selectedChipIndex);
         this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();

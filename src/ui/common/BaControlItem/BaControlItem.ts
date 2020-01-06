@@ -4,7 +4,7 @@ namespace we {
     // base control class that hold and manage the basic item in Ba Item
     export class BaControlItem extends ui.TableListItem {
       protected _bettingTable: BettingTable;
-      protected _betChipSet: BetChipSet;
+      protected _betChipSet: IBetChipSet;
       protected _cardHolder: CardHolder;
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
@@ -257,6 +257,8 @@ namespace we {
           if (this._betDetails && this._bettingTable) {
             this._bettingTable.updateBetFields(this._betDetails);
           }
+
+          this._undoStack.clearStack();
         }
         // update the countdownTimer
         this.updateCountdownTimer();

@@ -47,7 +47,7 @@
             "path": "./libs/animtilelayout"
         },
         {
-            "name": "playerClient",
+            "name": "playerclient",
             "path": "./libs/playerclient"
         },
         {
