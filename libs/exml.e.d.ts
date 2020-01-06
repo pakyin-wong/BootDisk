@@ -257,6 +257,18 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class GoodRoadNotificationContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class GoodRoadNotificationSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class GoodRoadQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ResultNotificationSkin extends eui.Skin{
 	}
 }

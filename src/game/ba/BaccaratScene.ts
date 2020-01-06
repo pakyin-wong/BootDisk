@@ -14,7 +14,7 @@ namespace we {
       protected _bettingTable: BettingTable;
       protected _betChipSet: we.ba.BetChipSetHorizontal;
       protected _cardHolder: CardHolder;
-      protected _countdownTimer: CountdownTimer;
+      protected _countdownTimer: ui.CountdownTimer;
       protected _confirmButton: eui.Button;
       protected _repeatButton: ui.BaseImageButton;
       protected _cancelButton: ui.BaseImageButton;
