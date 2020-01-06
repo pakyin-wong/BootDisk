@@ -56,15 +56,18 @@ namespace we {
       }
 
       public removeItem() {
+        const self = this;
         this._itemRenderer.alpha = 1;
         egret.Tween.get(this._itemRenderer)
           .to({ x: this._content.width, alpha: 0 }, 200)
           .call(() => {
-            this._content.removeChild(this._itemRenderer);
-            this._itemRenderer.holder = null;
-            this._itemRenderer = null;
-            this.controller.dismissNotification(this._itemData.type);
-            this.controller.showNextNotification();
+            if (self._itemRenderer) {
+              self._itemRenderer.parent.removeChild(this._itemRenderer);
+              self._itemRenderer.holder = null;
+              self._itemRenderer = null;
+            }
+            self.controller.dismissNotification(this._itemData.type);
+            self.controller.showNextNotification();
           });
       }
     }

@@ -34,6 +34,11 @@ namespace we {
         }
       }
 
+      protected setStateDeal(isInit: boolean = false) {
+        super.setStateDeal(isInit);
+        this.removeSelf();
+      }
+
       protected removeSelf() {
         this.dispatchEvent(new egret.Event('DISMISS'));
       }

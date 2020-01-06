@@ -35,6 +35,8 @@ namespace we {
         this._quickBetContent = new GoodRoadQuickBetContainer();
         this._quickBetContent.scaleX = 1.05;
         this._quickBetContent.scaleY = 1.05;
+        this._quickBetContent.horizontalCenter = 0;
+        this._quickBetContent.top = 8;
         this._quickBetContent.setData(this.tableInfo);
         this._quickBetContent.addEventListener('DISMISS', this.removeSelf, this);
         this.addChild(this._quickBetContent);

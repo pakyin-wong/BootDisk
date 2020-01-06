@@ -5,6 +5,8 @@ namespace we {
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
+      protected _goodRoadLabel: ui.GoodRoadLabel;
+      protected _mask: eui.Rect;
 
       public constructor(skinName: string = 'GoodRoadQuickBetContainerSkin') {
         super(skinName);
@@ -67,19 +69,31 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        if (this._bettingTable && this._bettingTable.denomLayer) {
-          this._denomLayer = this._bettingTable.denomLayer;
-          this._denomLayer.y = this._bettingTable.y;
-          this._denomLayer.x = this._bettingTable.x;
-          this._denomLayer.alpha = 0;
-          this.addChild(this._denomLayer);
-          this.setChildIndex(this._denomLayer, 30000);
-        }
+        this._betChipSet.resetDenomNum(1);
+        this._goodRoadLabel.visible = false;
+        this._contentContainer.mask = this._mask;
       }
 
       protected onBetDetailUpdateInBetState() {
         super.onBetDetailUpdateInBetState();
         if (this.hasBet()) {
+          this.removeSelf();
+        }
+      }
+
+      protected setStateDeal(isInit: boolean = false) {
+        super.setStateDeal(isInit);
+        this.removeSelf();
+      }
+
+      protected onMatchGoodRoadUpdate() {
+        if (this.tableInfo.goodRoad) {
+          this._goodRoadLabel.visible = true;
+          const goodRoadData = this.tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          // this._goodRoadLabel.text = goodRoadName;
+          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+        } else {
           this.removeSelf();
         }
       }
