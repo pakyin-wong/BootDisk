@@ -6,11 +6,13 @@
 	<ba:BettingTable id="_bettingTable" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
 	                 skinName="skin_desktop.BettingTableSkin" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="939.13">
-		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90"
-		        ellipseWidth="90" />
-		<ba:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="0" anchorOffsetX="0" anchorOffsetY="0"  x="25"/>
-		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60" horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
-		<ba:CountdownTimer id="_countdownTimer" width="180" height="60" y="6" horizontalCenter="115" />
+		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
+		<ba:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="0" anchorOffsetX="0" anchorOffsetY="0"
+		                         x="25" />
+		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
+		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
+		<ba:CountdownTimer id="_countdownTimer" width="180" height="60" y="6" horizontalCenter="115"
+		                   skinName="skin_desktop.CountdownTimerSkin" />
 		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="318" skinName="skin_desktop.ImageButtonSkinBacarrat" currentState="b_cancel" />
 		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
