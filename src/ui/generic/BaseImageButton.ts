@@ -12,7 +12,7 @@ namespace we {
       protected _background: eui.Image;
       protected _activeTransitionStopper: () => void;
       protected _group: eui.Group;
-      protected _label: eui.Label;
+      protected _label: ui.RunTimeLabel;
 
       // button states
       protected _buttonState: BaseImageButtonState = BaseImageButtonState.normal;
@@ -29,10 +29,11 @@ namespace we {
         super();
         if (!this.skinName || this.skinName === '') {
           this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
+        } else {
+          this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
         }
         this.touchChildren = false;
         this.buttonEnabled = true;
-        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
       }
 
       public onSkinChanged() {
@@ -97,6 +98,10 @@ namespace we {
         this._label.text = text || '';
       }
 
+      public get label(): RunTimeLabel {
+        return this._label;
+      }
+
       private onRollover() {
         this._hover = true;
         this.update();
@@ -138,13 +143,13 @@ namespace we {
           return;
         }
 
+        this._buttonState = buttonState;
+
         if (this.useColorFilter) {
           this.updateColorFilter(buttonState);
         } else {
           this.updateSource(buttonState);
         }
-
-        this._buttonState = buttonState;
       }
 
       protected updateColorFilter(buttonState) {
@@ -170,8 +175,9 @@ namespace we {
       protected updateSource(buttonState) {
         // update button's apperance
         const source = this._background.source;
-        if (source instanceof egret.Texture) {
-          throw new Error('Source cannot be texture');
+        if (!source || source instanceof egret.Texture) {
+          // throw new Error('Source cannot be texture');
+          return;
         }
         const newSource = source.replace(this._buttonState.toString(), buttonState);
         if (RES.getRes(newSource)) {

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.Datepicker" width="1207" height="718" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
-	<e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2"/>
-
-</e:Skin>
