@@ -137,30 +137,30 @@ namespace we {
         const textureData = RES.getRes('game_result_test_tex_json');
         const texture = RES.getRes('game_result_test_tex_png');
         const factory = new dragonBones.EgretFactory();
-        factory.addSkeletonData(dragonBones.DataParser.parseDragonBonesData(skeletonData));
-        factory.addTextureAtlas(new dragonBones.EgretTextureAtlas(texture, textureData));
-        const armature = factory.buildArmature('Armature');
-        const group2 = new eui.Group();
-        const display = armature.display as dragonBones.EgretArmatureDisplay;
-        group2.addChild(display);
-        group2.horizontalCenter = 0;
-        group2.verticalCenter = 0;
-        this.addChild(group2);
-        armature.animation.gotoAndPlay('badges_start');
-        dragonBones.WorldClock.clock.add(armature);
-        egret.Ticker.getInstance().register(advancedTime => {
-          dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);
-        }, this);
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        const armatureDisplay = factory.buildArmatureDisplay('Armature');
+        armatureDisplay.x = this.$stage.stageWidth / 2;
+        armatureDisplay.y = this.$stage.stageHeight / 2;
+        this.addChild(armatureDisplay);
+        armatureDisplay.animation.play('badges_start', -1);
 
-        // texture merger
-        const startJson = RES.getRes('start_json');
-        const startePng = RES.getRes('start_png');
-        const timeFactory: egret.MovieClipDataFactory = new egret.MovieClipDataFactory(startJson, startePng);
-        const time1: egret.MovieClip = new egret.MovieClip(timeFactory.generateMovieClipData('start'));
-        time1.x = 200;
-        time1.y = 400;
-        this.addChild(time1);
-        time1.gotoAndPlay(0, -1);
+        const slot = armatureDisplay.armature.getSlot('+800');
+        const r = new eui.Rect();
+        r.height = 50;
+        r.width = 50;
+        r.fillColor = 0xff0000;
+        slot.display = r;
+
+        // // texture merger
+        // const startJson = RES.getRes('start_json');
+        // const startePng = RES.getRes('start_png');
+        // const timeFactory: egret.MovieClipDataFactory = new egret.MovieClipDataFactory(startJson, startePng);
+        // const time1: egret.MovieClip = new egret.MovieClip(timeFactory.generateMovieClipData('start'));
+        // time1.x = 200;
+        // time1.y = 400;
+        // this.addChild(time1);
+        // time1.gotoAndPlay(0, -1);
       }
     }
   }

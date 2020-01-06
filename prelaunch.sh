@@ -23,7 +23,7 @@ lastrun=$(expr $now - $lastrun)
 
 echo $now > /tmp/egretlastrun.tmp
 
-if test $lastrun -gt 30; then
+if test $lastrun -gt 60; then
     # greater than 30 seconds
     echo "[prelaunch] started linting (${lastrun}s)"
     sleep 1 && prettier --write 'src/**/*.ts' && sleep 0.5 && tslint -c tslint.json --fix 'src/**/*.ts' && sleep 0.5 && $bin $@
