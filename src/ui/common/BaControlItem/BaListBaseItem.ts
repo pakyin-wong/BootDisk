@@ -48,9 +48,9 @@ namespace we {
         shape.graphics.beginFill(0xffffff, 1);
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
         shape.graphics.endFill();
+
         this._contentContainer.addChild(shape);
         this._contentContainer.mask = shape;
-
         this._quickBetGroup.alpha = 0;
         this._quickBetGroup.y = this._originalQuickBetPanelY;
       }

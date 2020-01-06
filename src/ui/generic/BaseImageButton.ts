@@ -21,6 +21,10 @@ namespace we {
       protected _active: boolean = false;
       protected _down: boolean = false;
 
+      public useColorFilter: boolean = false;
+      public downColorOffset: number = -30;
+      public hoverColorOffset: number = 30;
+
       constructor() {
         super();
         if (!this.skinName || this.skinName === '') {
@@ -133,6 +137,37 @@ namespace we {
         if (buttonState === this._buttonState) {
           return;
         }
+
+        if (this.useColorFilter) {
+          this.updateColorFilter(buttonState);
+        } else {
+          this.updateSource(buttonState);
+        }
+
+        this._buttonState = buttonState;
+      }
+
+      protected updateColorFilter(buttonState) {
+        let colorMatrix;
+        let offset = 0;
+        switch (buttonState) {
+          case BaseImageButtonState.hover:
+            offset = this.hoverColorOffset;
+            break;
+          case BaseImageButtonState.down:
+            offset = this.downColorOffset;
+            break;
+        }
+        if (buttonState === BaseImageButtonState.disabled) {
+          colorMatrix = [0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0, 0, 0, 1, 0];
+        } else {
+          colorMatrix = [1, 0, 0, 0, offset, 0, 1, 0, 0, offset, 0, 0, 1, 0, offset, 0, 0, 0, 1, 0];
+        }
+        const colorFilter = new egret.ColorMatrixFilter(colorMatrix);
+        this.filters = [colorFilter];
+      }
+
+      protected updateSource(buttonState) {
         // update button's apperance
         const source = this._background.source;
         if (source instanceof egret.Texture) {
@@ -146,7 +181,6 @@ namespace we {
           }
           this.changeSourceWithAnimation(source, newSource);
         }
-        this._buttonState = buttonState;
       }
 
       private changeSourceWithAnimation(oldsrc, newsrc) {
