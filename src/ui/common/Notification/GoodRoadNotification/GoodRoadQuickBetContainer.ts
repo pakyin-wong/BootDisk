@@ -2,7 +2,6 @@
 namespace we {
   export namespace ui {
     export class GoodRoadQuickBetContainer extends ba.BaControlItem {
-      protected _quickbetButton: ui.RoundButton;
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
@@ -38,7 +37,7 @@ namespace we {
       }
 
       public getActionButton(): eui.Component {
-        return this._quickbetButton;
+        return null;
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -52,9 +51,6 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable) {
         super.setBetRelatedComponentsEnabled(enable);
-        if (!this._mouseOutside && enable) {
-          this._quickbetButton.tweenLabel(false, false);
-        }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
