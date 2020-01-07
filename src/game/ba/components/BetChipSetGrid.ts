@@ -42,7 +42,6 @@ namespace we {
       }
 
       public setSelectedChip(value: number, index: number) {
-        console.log('BetChipSetGrid::setSelectedChip()');
         if (this._setSelectedChip) {
           this._setSelectedChip(value, index);
         }
