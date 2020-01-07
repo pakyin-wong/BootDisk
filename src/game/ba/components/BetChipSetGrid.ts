@@ -5,33 +5,48 @@ namespace we {
       protected _chipContainer: eui.Group;
       protected _selectedChipIndex: number = 10;
       protected _denomList: number[];
-      protected _chipsetList: ui.TableList;
+      protected _chipsetList: ui.List;
       protected _chipsetLayout: eui.TileLayout;
-      protected _normalGapSize: number = 10;
+      protected _normalGapSize: number = 5;
+      protected _setSelectedChip: (value: number, index: number) => void;
+      public selectedIndex: number;
 
       public constructor() {
         super();
-        // init room grids
+
         this._chipsetLayout = new eui.TileLayout();
+        this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         this._chipsetLayout.horizontalGap = this._normalGapSize;
         this._chipsetLayout.verticalGap = this._normalGapSize;
-        this._chipsetLayout.paddingBottom = this._normalGapSize * 3;
-        this._chipsetLayout.requestedColumnCount = 4;
+        this._chipsetLayout.paddingBottom = this._normalGapSize;
+        this._chipsetLayout.requestedColumnCount = this._numberOfChipsInRow;
 
-        this._chipsetList = new ui.TableList();
-        this._chipsetList.isFreezeScrolling = true;
-        this._chipsetList.isGlobalLock = true;
-        this._chipsetList.itemRenderer = this.addChild(this._chipsetList);
+        this._chipsetList = new ui.List();
+        this._chipsetList.layout = this._chipsetLayout;
+        this._chipsetList.itemRenderer = BetChipSetGridItem;
+        this.addChild(this._chipsetList);
       }
 
       public getSelectedChipIndex() {
-        return this._selectedChipIndex;
+        return this.selectedIndex;
       }
 
       public resetDenominationList(denomList: number[]) {}
       public resetFormat(format: any) {}
-      public init(format: any, denominationList: number[]) {}
+      public init(format: any, denominationList: number[]) {
+        this._chipsetList.dataProvider = new eui.ArrayCollection(denominationList);
+      }
       public setTouchEnabled(enable: boolean) {}
+      public injectSetSelectedChip(value: (value: number, index: number) => void) {
+        this._setSelectedChip = value;
+      }
+
+      public setSelectedChip(value: number, index: number) {
+        console.log('BetChipSetGrid::setSelectedChip()');
+        if (this._setSelectedChip) {
+          this._setSelectedChip(value, index);
+        }
+      }
     }
   }
 }

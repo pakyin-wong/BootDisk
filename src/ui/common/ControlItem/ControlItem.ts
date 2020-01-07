@@ -4,7 +4,7 @@ namespace we {
     // base control class that hold and manage the basic item in Ba Item
     export class ControlItem extends ui.TableListItem {
       protected _bettingTable: BettingTable;
-      protected _betChipSet: IBetChipSet;
+      protected _betChipSet: IBetChipSet & core.BaseEUI;
       protected _cardHolder: CardHolder;
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;

@@ -166,6 +166,8 @@ namespace we {
       public getSelectedChipIndex() {
         return this._selectedChipIndex;
       }
+
+      public injectSetSelectedChip(value: (value: number, index: number) => void) {}
     }
   }
 }

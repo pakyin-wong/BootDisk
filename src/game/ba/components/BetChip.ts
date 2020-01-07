@@ -1,23 +1,44 @@
 namespace we {
   export namespace ba {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
-      private _value: number;
-      private _chipImage: eui.Image;
-      private _chipValueLabel: eui.Label;
-      private _type: we.core.ChipType;
-      private _highlight: boolean;
-      private _glowFilter: egret.GlowFilter;
+      protected _value: number;
+      protected _chipImage: eui.Image;
+      protected _chipValueLabel: eui.Label;
+      protected _type: we.core.ChipType;
+      protected _highlight: boolean;
+      protected _glowFilter: egret.GlowFilter;
 
-      private _index: number;
+      protected _index: number;
 
       public constructor(value: number = null, type: we.core.ChipType = we.core.ChipType.CLIP, highlight: boolean = false) {
-        super();
-        this.skinName = utils.getSkin('BetChip');
+        super('BetChip');
+        // this.skinName = utils.getSkin();
         this._value = value;
         this._type = type;
         this._highlight = highlight;
-        this.setValue(this._value, this._type);
         this.setGlowFilter();
+      }
+
+      set width(value: number) {
+        this.$setWidth(value);
+        if (this._chipImage) {
+          this._chipImage.width = value;
+        }
+      }
+
+      get width() {
+        return this.$getWidth();
+      }
+
+      set height(value: number) {
+        this.$setHeight(value);
+        if (this._chipImage) {
+          this._chipImage.height = value;
+        }
+      }
+
+      get height() {
+        return this.$getHeight();
       }
 
       protected setGlowFilter(
@@ -38,7 +59,8 @@ namespace we {
       }
 
       protected mount() {
-        this.setValue(this._value);
+        // this.setValue(this._value);
+        this.setValue(this._value, this._type);
       }
 
       public setValue(value: number, type: we.core.ChipType = null) {
@@ -109,25 +131,7 @@ namespace we {
         return this._type;
       }
 
-      // private getChipSource(faceValue: string, type): string {
-      //   let filename: string;
-
-      //   switch (type) {
-      //     case we.core.ChipType.CLIP:
-      //       filename = we.core.ChipSetInfo.clip + we.core.ChipSetInfo.HKD.set1[faceValue] + '_png';
-      //       break;
-      //     case we.core.ChipType.FLAT:
-      //       filename = we.core.ChipSetInfo.flat + we.core.ChipSetInfo.HKD.set1[faceValue] + '_png';
-      //       break;
-      //     case we.core.ChipType.BETTING:
-      //     default:
-      //       filename = we.core.ChipSetInfo.betting + '_png';
-      //   }
-
-      //   return filename;
-      // }
-
-      private getChipSource(type): string {
+      protected getChipSource(type): string {
         let filename: string;
 
         switch (type) {
