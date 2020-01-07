@@ -37,7 +37,7 @@ namespace we {
         this.addEventListeners();
       }
 
-      private getSelectedBetLimitIndex() {
+      protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
       }
 

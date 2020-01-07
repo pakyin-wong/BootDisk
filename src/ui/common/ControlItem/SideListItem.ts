@@ -24,6 +24,9 @@ namespace we {
       public constructor(skinName: string = 'BaSideListItemSkin') {
         super(skinName);
         this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this._betChipSetGridSelected.setValue(denominationList[0]);
+        this._betChipSetGridSelected.index = 0;
       }
 
       protected addEventListeners() {
@@ -33,19 +36,16 @@ namespace we {
 
       protected onClickBetChipSelected() {
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
-        console.log('BaSideListItem::onClickBetChipSelected()');
       }
 
       protected showBetChipPanel() {
         egret.Tween.get(this._betChipSet).to({ y: 390, alpha: 1 }, 250);
         this._betChipSetGridEnabled = true;
-        console.log('BaSideListItem::showBetChipPanel', this._betChipSet.y, this._betChipSet.height);
       }
 
       protected hideBetChipPanel() {
         egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
         this._betChipSetGridEnabled = false;
-        console.log('BaSideListItem::hideBetChipPanel', this._betChipSet.y, this._betChipSet.height);
       }
 
       protected initCustomPos() {
