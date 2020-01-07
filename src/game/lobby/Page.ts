@@ -143,7 +143,7 @@ namespace we {
         armatureDisplay.x = this.$stage.stageWidth / 2;
         armatureDisplay.y = this.$stage.stageHeight / 2;
         this.addChild(armatureDisplay);
-        armatureDisplay.animation.play('badges_start', -1);
+        armatureDisplay.animation.play('win_start', -1);
 
         const slot = armatureDisplay.armature.getSlot('+800');
         const r = new eui.Rect();

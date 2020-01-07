@@ -39,7 +39,7 @@ namespace we {
       public onSkinChanged() {
         /*
         ** to fix egret internal state bug
-        ** occurred on programatical use of BaseImageButton
+        ** occurred on programmatic use of BaseImageButton
         ** ex.
           const img = new we.ui.BaseImageButton();
           img.currentState = btn;
