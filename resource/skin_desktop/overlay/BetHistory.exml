@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetHistory" width="2140" height="1147" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+<e:Skin class="skin_desktop.BetHistory" width="2140" height="1147" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48" strokeColor="0x333c4a" strokeWeight="2" locked="true"/>
 		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png"/>
@@ -34,5 +34,6 @@
 			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle" textAlign="center" fontFamily="Barlow" size="28"/>
 		</e:Group>
 		<ui:Panel id="_ddm_page" width="123" x="1009" bottom="65" maxHeight="300" skinName="skin_desktop.NavDropdown"/>
+		<overlay:DoubleCalendarPicker id="_datepicker" width="1207" height="718" horizontalCenter="0" verticalCenter="0" isPoppable="true" hideOnStart="true"/>
 	</e:Group>
 </e:Skin>
