@@ -52,6 +52,7 @@ namespace we {
         this._tip.alignToCenter();
         this._tip.messages = [];
         dir.socket.getStaticInitData(res => {
+          console.log('res', res);
           this._tip.messages = res.Tips;
           this.next();
         }, this);

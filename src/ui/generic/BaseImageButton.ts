@@ -29,9 +29,9 @@ namespace we {
         super();
         if (!this.skinName || this.skinName === '') {
           this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
-        } else {
-          this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
         }
+        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
+        // }
         this.touchChildren = false;
         this.buttonEnabled = true;
       }
@@ -143,13 +143,13 @@ namespace we {
           return;
         }
 
-        this._buttonState = buttonState;
-
         if (this.useColorFilter) {
           this.updateColorFilter(buttonState);
         } else {
           this.updateSource(buttonState);
         }
+
+        this._buttonState = buttonState;
       }
 
       protected updateColorFilter(buttonState) {
