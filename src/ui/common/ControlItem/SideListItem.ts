@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BaSideListItem extends BaLiveListSimpleItem {
+    export class SideListItem extends LiveListSimpleItem {
       protected _bigRoad: we.ba.BetInfoBigRoad;
       protected _quickbetButton: ui.RoundButton;
       protected _quickbetEnable: boolean = false;

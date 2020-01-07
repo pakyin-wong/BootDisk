@@ -1,7 +1,7 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ui {
-    export class GoodRoadQuickBetContainer extends ba.BaControlItem {
+    export class GoodRoadQuickBetContainer extends ba.ControlItem {
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;

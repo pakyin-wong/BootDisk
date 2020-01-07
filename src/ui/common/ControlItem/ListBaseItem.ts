@@ -1,7 +1,7 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ba {
-    export class BaListBaseItem extends BaControlItem {
+    export class BaListBaseItem extends ControlItem {
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
 
@@ -125,7 +125,7 @@ namespace we {
         // this.setChildIndex(this._timer, 2500);
 
         if (!this.list.isLocked) {
-          if (this._gameData.state !== we.ba.GameState.BET) {
+          if (this._gameData.state !== we.core.GameState.BET) {
             return;
           }
           this.showQuickBetGroup();

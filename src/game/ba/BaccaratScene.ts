@@ -179,7 +179,7 @@ namespace we {
             self._tableInfo = value;
             self._betDetails = self._tableInfo.bets;
             self._gameData = self._tableInfo.data;
-            self._previousState = GameState.UNKNOWN; // self.tableInfo.data.previousstate;
+            self._previousState = core.GameState.UNKNOWN; // self.tableInfo.data.previousstate;
             self._roadmapControl.updateRoadData(self._tableInfo.roadmap);
             if (self._tableInfo.betInfo) {
               self._roadmapLeftPanel.setGameInfo(self._tableInfo.betInfo.gameroundid, self._tableInfo.betInfo.total);
@@ -280,7 +280,7 @@ namespace we {
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
             this._gameData = <GameData> this._tableInfo.data;
-            this._previousState = this._gameData ? this._gameData.previousstate : GameState.UNKNOWN;
+            this._previousState = this._gameData ? this._gameData.previousstate : core.GameState.UNKNOWN;
             if (tableInfo.roadmap) {
               this._roadmapControl.updateRoadData(tableInfo.roadmap);
             }
@@ -312,11 +312,11 @@ namespace we {
         if (tableInfo.tableid === this.tableID) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
-            case GameState.BET:
+            case core.GameState.BET:
               this._bettingTable.updateBetFields(this._betDetails);
               this._message.showMessage(InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
               break;
-            case GameState.FINISH:
+            case core.GameState.FINISH:
             default:
               // this.winAmountLabel.visible = true;
               // this.winAmountLabel.text = `This round you got: ${this.totalWin.toString()}`;
@@ -350,22 +350,22 @@ namespace we {
 
       protected updateGame() {
         switch (this._gameData && this._gameData.state) {
-          case GameState.IDLE:
+          case core.GameState.IDLE:
             this.setStateIdle();
             break;
-          case GameState.BET:
+          case core.GameState.BET:
             this.setStateBet();
             break;
-          case GameState.DEAL:
+          case core.GameState.DEAL:
             this.setStateDeal();
             break;
-          case GameState.FINISH:
+          case core.GameState.FINISH:
             this.setStateFinish();
             break;
-          case GameState.REFUND:
+          case core.GameState.REFUND:
             this.setStateRefund();
             break;
-          case GameState.SHUFFLE:
+          case core.GameState.SHUFFLE:
             this.setStateShuffle();
             break;
           default:
@@ -374,7 +374,7 @@ namespace we {
       }
 
       protected setStateIdle() {
-        if (this._previousState !== GameState.IDLE) {
+        if (this._previousState !== core.GameState.IDLE) {
           this._bettingTable.setTouchEnabled(false);
           this._cardHolder.visible = false;
           // this.winAmountLabel.visible = false;
@@ -386,7 +386,7 @@ namespace we {
       }
 
       protected setStateBet() {
-        if (this._previousState !== GameState.BET) {
+        if (this._previousState !== core.GameState.BET) {
           // reset data betinfo
           this._bettingTable.resetUnconfirmedBet();
           this._bettingTable.resetConfirmedBet();
@@ -425,10 +425,10 @@ namespace we {
         this.updateCountdownTimer();
       }
       protected setStateDeal() {
-        if (this._previousState !== GameState.DEAL) {
+        if (this._previousState !== core.GameState.DEAL) {
           this._cardHolder.resetCards();
           // show stop bet message to the client for few seconds
-          if (this._previousState === GameState.BET) {
+          if (this._previousState === core.GameState.BET) {
             this._message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
@@ -456,7 +456,7 @@ namespace we {
         this._cardHolder.updateResult(this._gameData);
       }
       protected setStateFinish() {
-        if (this._previousState !== GameState.FINISH) {
+        if (this._previousState !== core.GameState.FINISH) {
           // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons
           this.setBetRelatedComponentsVisibility(false);
 
@@ -482,7 +482,7 @@ namespace we {
         }
       }
       protected setStateRefund() {
-        if (this._previousState !== GameState.REFUND) {
+        if (this._previousState !== core.GameState.REFUND) {
           // TODO: show round cancel message to the client for few seconds
           // this.stateLabel.text = 'Refunding';
 
@@ -504,7 +504,7 @@ namespace we {
         }
       }
       protected setStateShuffle() {
-        // if (this.previousState !== GameState.SHUFFLE) {
+        // if (this.previousState !== core.GameState.SHUFFLE) {
         // TODO: show shuffle message to the client for few seconds
         // this.stateLabel.text = 'Shuffling';
 

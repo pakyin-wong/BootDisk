@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BaLiveListItem extends BaLiveListSimpleItem {
+    export class LiveListItem extends LiveListSimpleItem {
       protected _dealerImage;
 
       public constructor(skinName: string = 'BaLiveListItemSkin') {

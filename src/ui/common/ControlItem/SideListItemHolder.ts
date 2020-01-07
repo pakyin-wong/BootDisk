@@ -1,9 +1,9 @@
 namespace we {
   export namespace ui {
-    export class BaSideListBetItemHolder extends ui.TableListItemHolder {
+    export class SideListItemHolder extends ui.TableListItemHolder {
       constructor() {
         super();
-        const sideListItem = new ba.BaSideListBetItem();
+        const sideListItem = new ba.SideListItem();
         this.setDisplayItem(sideListItem);
       }
     }

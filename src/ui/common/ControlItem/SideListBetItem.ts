@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BaSideListBetItem extends BaListBaseItem {
+    export class SideListBetItem extends BaListBaseItem {
       protected _resultTable: eui.Image;
       protected _bettingGroup: eui.Group;
       protected _resultGroup: eui.Group;
@@ -59,7 +59,7 @@ namespace we {
 
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
-        if (this._previousState !== we.ba.GameState.DEAL) {
+        if (this._previousState !== we.core.GameState.DEAL) {
           env.tableInfos[this._tableId].prevbets = env.tableInfos[this._tableId].bets;
           env.tableInfos[this._tableId].prevbetsroundid = env.tableInfos[this._tableId].roundid;
         }

@@ -2,7 +2,7 @@
 namespace we {
   export namespace ba {
     // base control class that hold and manage the basic item in Ba Item
-    export class BaControlItem extends ui.TableListItem {
+    export class ControlItem extends ui.TableListItem {
       protected _bettingTable: BettingTable;
       protected _betChipSet: IBetChipSet;
       protected _cardHolder: CardHolder;
@@ -131,10 +131,10 @@ namespace we {
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
-            case we.ba.GameState.BET:
+            case we.core.GameState.BET:
               this.onBetDetailUpdateInBetState();
               break;
-            case we.ba.GameState.FINISH:
+            case we.core.GameState.FINISH:
               this.onBetDetailUpdateInFinishState();
             default:
               break;
@@ -203,22 +203,22 @@ namespace we {
           return;
         }
         switch (this._gameData.state) {
-          case ba.GameState.IDLE:
+          case core.GameState.IDLE:
             this.setStateIdle(isInit);
             break;
-          case ba.GameState.BET:
+          case core.GameState.BET:
             this.setStateBet(isInit);
             break;
-          case ba.GameState.DEAL:
+          case core.GameState.DEAL:
             this.setStateDeal(isInit);
             break;
-          case ba.GameState.FINISH:
+          case core.GameState.FINISH:
             this.setStateFinish(isInit);
             break;
-          case ba.GameState.REFUND:
+          case core.GameState.REFUND:
             this.setStateRefund(isInit);
             break;
-          case ba.GameState.SHUFFLE:
+          case core.GameState.SHUFFLE:
             this.setStateShuffle(isInit);
             break;
           default:
@@ -233,18 +233,18 @@ namespace we {
       }
 
       protected setStateIdle(isInit: boolean = false) {
-        if (this._previousState !== we.ba.GameState.IDLE || isInit) {
+        if (this._previousState !== we.core.GameState.IDLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
       protected setStateBet(isInit: boolean = false) {
-        if (this._previousState !== we.ba.GameState.BET || isInit) {
+        if (this._previousState !== we.core.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);
           this.setResultRelatedComponentsEnabled(false);
         }
 
-        if (this._previousState !== we.ba.GameState.BET) {
+        if (this._previousState !== we.core.GameState.BET) {
           if (this._bettingTable) {
             this._bettingTable.resetUnconfirmedBet();
             this._bettingTable.resetConfirmedBet();
@@ -269,17 +269,17 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
-        if (this._previousState !== we.ba.GameState.DEAL || isInit) {
+        if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
         }
 
-        if (this._previousState !== we.ba.GameState.DEAL) {
+        if (this._previousState !== we.core.GameState.DEAL) {
           if (this._cardHolder) {
             this._cardHolder.resetCards();
           }
 
-          if (this._previousState === GameState.BET && this._message && !isInit) {
+          if (this._previousState === core.GameState.BET && this._message && !isInit) {
             this._message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
@@ -292,11 +292,11 @@ namespace we {
         }
       }
       protected setStateFinish(isInit: boolean = false) {
-        if (this._previousState !== we.ba.GameState.FINISH || isInit) {
+        if (this._previousState !== we.core.GameState.FINISH || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
         }
-        if (this._previousState !== we.ba.GameState.FINISH) {
+        if (this._previousState !== we.core.GameState.FINISH) {
           if (this._cardHolder) {
             this._cardHolder.updateResult(this._gameData);
           }
@@ -307,13 +307,13 @@ namespace we {
         }
       }
       protected setStateRefund(isInit: boolean = false) {
-        if (this._previousState !== we.ba.GameState.REFUND || isInit) {
+        if (this._previousState !== we.core.GameState.REFUND || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
       protected setStateShuffle(isInit: boolean = false) {
-        if (this._previousState !== we.ba.GameState.SHUFFLE || isInit) {
+        if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
