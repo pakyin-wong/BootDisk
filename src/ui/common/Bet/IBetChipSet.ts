@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export interface IBetChipSet {
       resetDenominationList(denominationList: number[]);
       resetFormat(format: any);

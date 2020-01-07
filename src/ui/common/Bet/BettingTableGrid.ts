@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class BettingTableGrid extends core.BaseEUI {
       private _lblName: eui.Label;
       private _denomLayer: eui.Component;

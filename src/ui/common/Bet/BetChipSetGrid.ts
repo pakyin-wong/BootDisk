@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class BetChipSetGrid extends core.BaseEUI implements IBetChipSet {
       protected _numberOfChipsInRow = 4;
       protected _chipContainer: eui.Group;
@@ -28,10 +28,10 @@ namespace we {
         return this._selectedChipIndex;
       }
 
-      public resetDenominationList(denomList: number[]) {}
-      public resetFormat(format: any) {}
-      public init(format: any, denominationList: number[]) {}
-      public setTouchEnabled(enable: boolean) {}
+      public resetDenominationList(denomList: number[]) { }
+      public resetFormat(format: any) { }
+      public init(format: any, denominationList: number[]) { }
+      public setTouchEnabled(enable: boolean) { }
     }
   }
 }
