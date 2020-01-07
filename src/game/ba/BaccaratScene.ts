@@ -274,12 +274,12 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this.tableID) {
             // update the scene
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
-            this._gameData = <GameData> this._tableInfo.data;
+            this._gameData = <GameData>this._tableInfo.data;
             this._previousState = this._gameData ? this._gameData.previousstate : core.GameState.UNKNOWN;
             if (tableInfo.roadmap) {
               this._roadmapControl.updateRoadData(tableInfo.roadmap);
@@ -300,7 +300,7 @@ namespace we {
         console.log('BaccaratScene::onTableBetInfoUpdate');
         console.log(evt.data);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this.tableID) {
             // update the scene
           }
@@ -308,7 +308,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         if (tableInfo.tableid === this.tableID) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -336,7 +336,7 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         // console.log('BaccaratScene::onRoadDataUpdate');
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         if (tableInfo.tableid === this.tableID) {
           this._bettingTable.tableId = this._tableID;
           if (tableInfo.roadmap) {
