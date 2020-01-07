@@ -288,13 +288,13 @@ namespace we {
             case core.GameType.BAS:
             default:
               const data: ba.GameData = tableInfo.data as ba.GameData;
-              if (data.state === ba.GameState.BET && data.previousstate !== ba.GameState.BET) {
+              if (data.state === core.GameState.BET && data.previousstate !== core.GameState.BET) {
                 // reset the betDetails
                 tableInfo.bets = null;
                 tableInfo.totalWin = NaN;
                 dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
               }
-              if (data.state === ba.GameState.FINISH) {
+              if (data.state === core.GameState.FINISH) {
                 this.checkResultNotificationReady(tableInfo);
               }
               break;
@@ -537,8 +537,8 @@ namespace we {
               if (this.hasBet(tableInfo)) {
                 if (
                   tableInfo.data &&
-                  tableInfo.data.previousstate !== ba.GameState.FINISH &&
-                  tableInfo.data.state === ba.GameState.FINISH &&
+                  tableInfo.data.previousstate !== core.GameState.FINISH &&
+                  tableInfo.data.state === core.GameState.FINISH &&
                   tableInfo.data.wintype !== ba.WinType.NONE &&
                   !isNaN(tableInfo.totalWin)
                 ) {

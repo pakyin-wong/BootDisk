@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class GoodRoadNotificationContainer extends ba.BaControlItem {
+    export class GoodRoadNotificationContainer extends ba.ControlItem {
       protected _label: RunTimeLabel;
       protected _lblGoodRoad: RunTimeLabel;
       protected _timer: CountdownTimer;

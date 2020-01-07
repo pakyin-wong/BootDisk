@@ -40,7 +40,7 @@ namespace we {
           case we.lobby.mode.NORMAL:
             this.width = 578;
             this.height = 388;
-            this._displayItem = new we.ba.BaLiveListItem();
+            this._displayItem = new we.ba.LiveListItem();
             this.setDisplayItem(this._displayItem);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
@@ -53,7 +53,7 @@ namespace we {
           default:
             this.width = 578;
             this.height = 219;
-            this._displayItem = new we.ba.BaLiveListSimpleItem();
+            this._displayItem = new we.ba.LiveListSimpleItem();
             this.setDisplayItem(this._displayItem);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);

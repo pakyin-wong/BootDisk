@@ -7,16 +7,6 @@ namespace we {
       TIE,
     }
 
-    export enum GameState {
-      IDLE = 0,
-      BET = 1,
-      DEAL = 2,
-      FINISH = 3,
-      REFUND = 4,
-      SHUFFLE = 5,
-      UNKNOWN = 6,
-    }
-
     export const BetField = {
       BANKER: 'BANKER',
       PLAYER: 'PLAYER',

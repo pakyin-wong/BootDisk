@@ -1,7 +1,7 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ba {
-    export class BaLiveListSimpleItem extends BaListBaseItem {
+    export class LiveListSimpleItem extends BaListBaseItem {
       protected _quickbetButton: ui.RoundButton;
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
