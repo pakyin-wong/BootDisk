@@ -16,6 +16,7 @@ namespace we {
       BAC = 0, // classic baccarat
       BAS = 1, // speed baccarat
       BAI = 2, // insurance baccarat
+      DT = 11, // Dragon Tiger
       DI = 12, // Dice
       MJ = 13, // MaJong
       RO = 14, // Rolette

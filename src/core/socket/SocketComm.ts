@@ -283,22 +283,27 @@ namespace we {
 
       protected localActions(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
-          switch (tableInfo.gametype) {
-            case core.GameType.BAC:
-            case core.GameType.BAS:
-            default:
-              const data: ba.GameData = tableInfo.data as ba.GameData;
-              if (data.state === core.GameState.BET && data.previousstate !== core.GameState.BET) {
-                // reset the betDetails
-                tableInfo.bets = null;
-                tableInfo.totalWin = NaN;
-                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
-              }
-              if (data.state === core.GameState.FINISH) {
-                this.checkResultNotificationReady(tableInfo);
-              }
-              break;
+          const data: data.GameData = tableInfo.data as data.GameData;
+          if (data.state === core.GameState.BET && data.previousstate !== core.GameState.BET) {
+            // reset the betDetails
+            tableInfo.bets = null;
+            tableInfo.totalWin = NaN;
+            dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
           }
+          if (data.state === core.GameState.FINISH) {
+            this.checkResultNotificationReady(tableInfo);
+          }
+
+          // switch (tableInfo.gametype) {
+          //   case core.GameType.BAC:
+          //   case core.GameType.BAS:
+          //     break;
+          //   case core.GameType.DT:
+
+          //     break;
+          //   default:
+          //     break;
+          // }
         }
       }
 
@@ -531,32 +536,33 @@ namespace we {
       }
       public checkResultNotificationReady(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
-          switch (tableInfo.gametype) {
-            case core.GameType.BAC:
-            case core.GameType.BAS:
-              if (this.hasBet(tableInfo)) {
-                if (
-                  tableInfo.data &&
-                  tableInfo.data.previousstate !== core.GameState.FINISH &&
-                  tableInfo.data.state === core.GameState.FINISH &&
-                  tableInfo.data.wintype !== ba.WinType.NONE &&
-                  !isNaN(tableInfo.totalWin)
-                ) {
-                  const data = {
-                    tableNo: tableInfo.tablename,
-                    winAmount: tableInfo.totalWin,
-                    winType: tableInfo.data.wintype,
-                    gameType: tableInfo.gametype,
-                  };
-                  const notification: data.Notification = {
-                    type: core.NotificationType.Result,
-                    data,
-                  };
-                  dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
-                }
-              }
-              break;
+          if (this.hasBet(tableInfo)) {
+            if (
+              tableInfo.data &&
+              tableInfo.data.previousstate !== core.GameState.FINISH &&
+              tableInfo.data.state === core.GameState.FINISH &&
+              tableInfo.data.wintype !== 0 &&
+              !isNaN(tableInfo.totalWin)
+            ) {
+              const data = {
+                tableNo: tableInfo.tablename,
+                winAmount: tableInfo.totalWin,
+                winType: tableInfo.data.wintype,
+                gameType: tableInfo.gametype,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.Result,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
           }
+
+          // switch (tableInfo.gametype) {
+          //   case core.GameType.BAC:
+          //   case core.GameType.BAS:
+          //     break;
+          // }
         }
       }
 

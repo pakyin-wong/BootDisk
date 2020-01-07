@@ -18,7 +18,7 @@ namespace we {
 
       protected _betDetails: data.BetDetail[];
       protected _previousState: number;
-      protected _gameData: we.ba.GameData;
+      protected _gameData: we.data.GameData;
       protected _timer: ui.CountdownTimer;
       protected _mouseOutside: boolean = true;
 
@@ -187,7 +187,7 @@ namespace we {
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
             this._previousState = this._gameData ? this._gameData.previousstate : null;
-            this._gameData = <we.ba.GameData> this._tableInfo.data;
+            this._gameData = this._tableInfo.data;
 
             this.updateGame();
           }
@@ -363,11 +363,11 @@ namespace we {
       }
       public checkResultMessage(totalWin: number = NaN) {
         if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != WinType.NONE && !isNaN(totalWin)) {
+          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._gameData.wintype, totalWin);
           }
         } else {
-          if (this._gameData && this._gameData.wintype != WinType.NONE) {
+          if (this._gameData && this._gameData.wintype != 0) {
             this._resultMessage.showResult(this._gameData.wintype);
           }
         }
