@@ -9,9 +9,10 @@
 		<ui:BaseImageButton id="_btn_next" width="46" height="46" y="203" x="1097" skinName="skin_desktop.ImageButtonSkinNav" currentState="page_next_icon"/>
 		<e:Label id="_txt_prev" text="Label" x="132" y="202" height="45" textAlign="left" verticalAlign="middle" width="200"/>
 		<e:Label id="_txt_next" text="Label" y="202" height="45" textAlign="right" verticalAlign="middle" width="200" x="875"/>
-		<ui:BaseImageButton id="_btn_confirm" width="200" height="60" y="67" right="62"/>
-		<ui:BaseImageButton id="_btn_clean" width="48" height="36" x="319" y="78"/>
-		<e:Label id="_txt_current" text="Label" x="64" y="67" width="209" height="60" textAlign="center" verticalAlign="middle" fontFamily="Barlow" size="28"/>
+		<ui:BaseButton id="_btn_confirm" width="200" height="60" x="945" y="67" skinName="skin_desktop.OverlayPanelButton"/>
+		<ui:BaseImageButton id="_btn_clean" width="48" height="36" x="528" y="78"/>
+		<e:Rect width="418" height="60" x="64" y="67" fillColor="0x1b416e" ellipseHeight="60" ellipseWidth="60"/>
+		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle" fontFamily="Barlow" size="28"/>
 	</e:Group>
 
 </e:Skin>

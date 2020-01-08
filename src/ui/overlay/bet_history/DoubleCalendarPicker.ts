@@ -9,7 +9,7 @@ namespace we {
       private _btn_next: ui.BaseImageButton;
       private _txt_next: eui.Label;
 
-      private _btn_confirm: ui.BaseImageButton;
+      private _btn_confirm: ui.BaseButton;
       private _btn_clean: ui.BaseImageButton;
 
       private _txt_current: eui.Label;
@@ -30,7 +30,7 @@ namespace we {
       protected mount() {
         super.mount();
         this._btn_clean.text = `${i18n.t('datePicker_clean')}`;
-        this._btn_confirm.text = `${i18n.t('datePicker_confirm')}`;
+        this._btn_confirm.label.text = `${i18n.t('datePicker_confirm')}`;
 
         this.update();
         this.addListeners();
@@ -39,6 +39,13 @@ namespace we {
       protected destroy() {
         super.destroy();
         this.removeListeners();
+      }
+
+      protected clean() {
+        this._select = null;
+        this._start = null;
+        this._end = null;
+        this._txt_current.text = '';
       }
 
       protected update() {
@@ -67,6 +74,7 @@ namespace we {
         this._calender_next.$addListener('PICKED_DATE', this.datePicked, this);
         this._calender_prev.$addListener('PICKED_DATE', this.datePicked, this);
         this._btn_clean.$addListener('CLICKED', this.cleanClicked, this);
+        this._btn_confirm.$addListener('CLICKED', this.confirmClicked, this);
       }
 
       protected removeListeners() {
@@ -75,6 +83,7 @@ namespace we {
         this._calender_next.removeEventListener('PICKED_DATE', this.datePicked, this);
         this._calender_prev.removeEventListener('PICKED_DATE', this.datePicked, this);
         this._btn_clean.removeEventListener('CLICKED', this.cleanClicked, this);
+        this._btn_confirm.removeEventListener('CLICKED', this.confirmClicked, this);
       }
 
       protected nextClicked() {
@@ -88,10 +97,7 @@ namespace we {
       }
 
       protected cleanClicked() {
-        this._select = null;
-        this._start = null;
-        this._end = null;
-        this._txt_current.text = '';
+        this.clean();
         this.update();
       }
 
@@ -102,6 +108,41 @@ namespace we {
           this._start = moment.min(e.data, this._select);
           this._end = moment.max(e.data, this._select);
           this._select = null;
+        }
+        this.update();
+      }
+
+      protected confirmClicked() {
+        let data;
+        if (this._select) {
+          data = {
+            starttime: this._select.startOf('day').unix(),
+            endtime: this._select.endOf('day').unix(),
+          };
+        } else if (this._start && this._end) {
+          data = {
+            starttime: this._start.startOf('day').unix(),
+            endtime: this._end.endOf('day').unix(),
+          };
+        } else {
+          data = null;
+        }
+
+        this.hide();
+        this.dispatchEvent(new egret.Event('PICKED_DATE', false, false, data));
+      }
+
+      public setTo(starttime, endtime) {
+        this.clean();
+        const start = moment.unix(starttime).startOf('day');
+        const end = moment.unix(endtime).startOf('day');
+        if (start.isSame(end, 'day')) {
+          this._select = start;
+          this._current = moment([start.year(), start.month()]);
+        } else {
+          this._start = start;
+          this._end = end;
+          this._current = moment([end.year(), end.month()]);
         }
         this.update();
       }

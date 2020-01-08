@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.OverlayPanelButton" minWidth="137" minHeight="60" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"  states="idle,disabled,active,click,hover" >
-	<e:Rect left="0" right="0" top="0" bottom="0" ellipseHeight="72" ellipseWidth="72" strokeAlpha="1" strokeWeight="2" strokeColor="0x5f6973" fillColor="0x14181e" fillColor.active="0x1b416e" strokeAlpha.active="1" strokeWeight.active="0" fillColor.click="0x1b416e" strokeAlpha.click="1" strokeWeight.click="0"/>
+	<e:Rect left="0" right="0" top="0" bottom="0" ellipseHeight="72" ellipseWidth="72" strokeAlpha="1" strokeWeight="2" strokeColor="0x5f6973" fillColor="0x14181e" fillColor.active="0x1b416e" strokeAlpha.active="1" strokeWeight.active="0" fillColor.click="0x1b416e" strokeAlpha.click="1" strokeWeight.click="0" fillAlpha="1" fillAlpha.idle="0" fillAlpha.disabled="0" fillAlpha.hover="0"/>
 	<ui:RunTimeLabel id="_label" text="Label" left="20" right="20" top="10" bottom="10" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" alpha.active="1" alpha.click="1" alpha.hover="1" bold.hover="true"/>
 </e:Skin>
