@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class GameBar extends eui.Component implements eui.UIComponent {
       private videoButton: egret.DisplayObject;
       private played: boolean;

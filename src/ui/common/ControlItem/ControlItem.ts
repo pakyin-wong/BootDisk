@@ -3,13 +3,13 @@ namespace we {
   export namespace ba {
     // base control class that hold and manage the basic item in Ba Item
     export class ControlItem extends ui.TableListItem {
-      protected _bettingTable: BettingTable;
-      protected _betChipSet: IBetChipSet;
+      protected _bettingTable: ui.BettingTable;
+      protected _betChipSet: ui.IBetChipSet & core.BaseEUI;
       protected _cardHolder: CardHolder;
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
-      protected _resultMessage: GameResultMessage;
-      protected _message: InGameMessage;
+      protected _resultMessage: ui.GameResultMessage;
+      protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
@@ -37,7 +37,7 @@ namespace we {
         this.addEventListeners();
       }
 
-      private getSelectedBetLimitIndex() {
+      protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
       }
 
@@ -93,7 +93,7 @@ namespace we {
 
       public insufficientBalance() {
         if (this._message) {
-          this._message.showMessage(InGameMessage.ERROR, 'Insufficient Balance');
+          this._message.showMessage(ui.InGameMessage.ERROR, 'Insufficient Balance');
         }
       }
 
@@ -255,7 +255,7 @@ namespace we {
           }
 
           if (this._message && !isInit) {
-            this._message.showMessage(InGameMessage.INFO, i18n.t('game.startBet'));
+            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
 
           if (this._betDetails && this._bettingTable) {
@@ -280,7 +280,7 @@ namespace we {
           }
 
           if (this._previousState === core.GameState.BET && this._message && !isInit) {
-            this._message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
+            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
           if (this._betDetails) {

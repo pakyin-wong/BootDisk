@@ -1,25 +1,25 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class BettingTable extends ui.Panel {
-      private _gridPlayerPair: BettingTableGrid;
-      private _gridBankerPair: BettingTableGrid;
-      private _gridPlayer: BettingTableGrid;
-      private _gridTie: BettingTableGrid;
-      private _gridSuperSix: BettingTableGrid;
-      private _gridSuperSixBanker: BettingTableGrid;
-      private _gridBanker: BettingTableGrid;
-      private _tableId: string;
-      private _type: we.core.BettingTableType;
-      private _denomList: number[];
-      private _denomLayer: eui.Component;
-      private _getSelectedChipIndex: () => number;
-      private _getSelectedBetLimitIndex: () => number;
-      private _undoStack: we.utils.UndoStack;
-      private mapping: { [s: string]: BettingTableGrid };
+      protected _gridPlayerPair: BettingTableGrid;
+      protected _gridBankerPair: BettingTableGrid;
+      protected _gridPlayer: BettingTableGrid;
+      protected _gridTie: BettingTableGrid;
+      protected _gridSuperSix: BettingTableGrid;
+      protected _gridSuperSixBanker: BettingTableGrid;
+      protected _gridBanker: BettingTableGrid;
+      protected _tableId: string;
+      protected _type: we.core.BettingTableType;
+      protected _denomList: number[];
+      protected _denomLayer: eui.Component;
+      protected _getSelectedChipIndex: () => number;
+      protected _getSelectedBetLimitIndex: () => number;
+      protected _undoStack: we.utils.UndoStack;
+      protected mapping: { [s: string]: BettingTableGrid };
 
-      private _uncfmBetDetails: data.BetDetail[];
-      private totalUncfmBetAmount: number;
-      private betDetails: data.BetDetail[];
+      protected _uncfmBetDetails: data.BetDetail[];
+      protected totalUncfmBetAmount: number;
+      protected betDetails: data.BetDetail[];
 
       constructor() {
         super();
@@ -30,7 +30,7 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
-      public onTableListUpdate() {}
+      public onTableListUpdate() { }
 
       set denomList(value: number[]) {
         this._denomList = value;
@@ -72,28 +72,28 @@ namespace we {
         return this._undoStack;
       }
 
-      private createMapping() {
+      protected createMapping() {
         this.mapping = {};
-        this.mapping[BetField.PLAYER] = this._gridPlayer;
-        this.mapping[BetField.BANKER] = this._gridBanker;
-        this.mapping[BetField.PLAYER_PAIR] = this._gridPlayerPair;
-        this.mapping[BetField.TIE] = this._gridTie;
-        this.mapping[BetField.BANKER_PAIR] = this._gridBankerPair;
-        this.mapping[BetField.SUPER_SIX_BANKER] = this._gridSuperSixBanker;
-        this.mapping[BetField.SUPER_SIX] = this._gridSuperSix;
+        this.mapping[ba.BetField.PLAYER] = this._gridPlayer;
+        this.mapping[ba.BetField.BANKER] = this._gridBanker;
+        this.mapping[ba.BetField.PLAYER_PAIR] = this._gridPlayerPair;
+        this.mapping[ba.BetField.TIE] = this._gridTie;
+        this.mapping[ba.BetField.BANKER_PAIR] = this._gridBankerPair;
+        this.mapping[ba.BetField.SUPER_SIX_BANKER] = this._gridSuperSixBanker;
+        this.mapping[ba.BetField.SUPER_SIX] = this._gridSuperSix;
       }
 
-      private setFieldNames() {
-        this._gridPlayer.setFieldName(BetField.PLAYER);
-        this._gridBanker.setFieldName(BetField.BANKER);
-        this._gridPlayerPair.setFieldName(BetField.PLAYER_PAIR);
-        this._gridTie.setFieldName(BetField.TIE);
-        this._gridBankerPair.setFieldName(BetField.BANKER_PAIR);
-        this._gridSuperSixBanker.setFieldName(BetField.SUPER_SIX_BANKER);
-        this._gridSuperSix.setFieldName(BetField.SUPER_SIX);
+      protected setFieldNames() {
+        this._gridPlayer.setFieldName(ba.BetField.PLAYER);
+        this._gridBanker.setFieldName(ba.BetField.BANKER);
+        this._gridPlayerPair.setFieldName(ba.BetField.PLAYER_PAIR);
+        this._gridTie.setFieldName(ba.BetField.TIE);
+        this._gridBankerPair.setFieldName(ba.BetField.BANKER_PAIR);
+        this._gridSuperSixBanker.setFieldName(ba.BetField.SUPER_SIX_BANKER);
+        this._gridSuperSix.setFieldName(ba.BetField.SUPER_SIX);
       }
 
-      private setDenomLists() {
+      protected setDenomLists() {
         this._gridPlayer.denomList = this._denomList;
         this._gridBanker.denomList = this._denomList;
         this._gridPlayerPair.denomList = this._denomList;
@@ -178,7 +178,7 @@ namespace we {
         return result;
       }
 
-      private setDenomGrid(grid: BettingTableGrid) {
+      protected setDenomGrid(grid: BettingTableGrid) {
         grid.denomLayer.x = grid.x;
         grid.denomLayer.y = grid.y;
         grid.denomLayer.width = grid.width;
@@ -356,7 +356,7 @@ namespace we {
         this.repeatBetFields();
       }
 
-      private undoRepeatBetFields(betDetails: data.BetDetail[]) {
+      protected undoRepeatBetFields(betDetails: data.BetDetail[]) {
         betDetails.map(value => {
           this.mapping[value.field].setUncfmBet(value.amount);
         });
@@ -448,12 +448,12 @@ namespace we {
           return false;
         }
         const exceedBetLimit =
-          Math.abs(fieldAmounts[BetField.BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
-          Math.abs(fieldAmounts[BetField.SUPER_SIX_BANKER] - fieldAmounts[BetField.PLAYER]) > betLimit.maxlimit ||
-          fieldAmounts[BetField.TIE] > betLimit.maxlimit ||
-          fieldAmounts[BetField.BANKER_PAIR] > betLimit.maxlimit ||
-          fieldAmounts[BetField.PLAYER_PAIR] > betLimit.maxlimit ||
-          fieldAmounts[BetField.SUPER_SIX] > betLimit.maxlimit;
+          Math.abs(fieldAmounts[ba.BetField.BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
+          Math.abs(fieldAmounts[ba.BetField.SUPER_SIX_BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
+          fieldAmounts[ba.BetField.TIE] > betLimit.maxlimit ||
+          fieldAmounts[ba.BetField.BANKER_PAIR] > betLimit.maxlimit ||
+          fieldAmounts[ba.BetField.PLAYER_PAIR] > betLimit.maxlimit ||
+          fieldAmounts[ba.BetField.SUPER_SIX] > betLimit.maxlimit;
         if (exceedBetLimit) {
           dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
           return false;
@@ -470,13 +470,13 @@ namespace we {
 
       public pushUnconfirmedBetToWaitingConfirmBet() {
         this._uncfmBetDetails = [
-          { field: BetField.BANKER, amount: 0 },
-          { field: BetField.PLAYER, amount: 0 },
-          { field: BetField.TIE, amount: 0 },
-          { field: BetField.BANKER_PAIR, amount: 0 },
-          { field: BetField.PLAYER_PAIR, amount: 0 },
-          { field: BetField.SUPER_SIX, amount: 0 },
-          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
+          { field: ba.BetField.BANKER, amount: 0 },
+          { field: ba.BetField.PLAYER, amount: 0 },
+          { field: ba.BetField.TIE, amount: 0 },
+          { field: ba.BetField.BANKER_PAIR, amount: 0 },
+          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
+          { field: ba.BetField.SUPER_SIX, amount: 0 },
+          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
@@ -489,13 +489,13 @@ namespace we {
 
       public resetUnconfirmedBet() {
         this._uncfmBetDetails = [
-          { field: BetField.BANKER, amount: 0 },
-          { field: BetField.PLAYER, amount: 0 },
-          { field: BetField.TIE, amount: 0 },
-          { field: BetField.BANKER_PAIR, amount: 0 },
-          { field: BetField.PLAYER_PAIR, amount: 0 },
-          { field: BetField.SUPER_SIX, amount: 0 },
-          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
+          { field: ba.BetField.BANKER, amount: 0 },
+          { field: ba.BetField.PLAYER, amount: 0 },
+          { field: ba.BetField.TIE, amount: 0 },
+          { field: ba.BetField.BANKER_PAIR, amount: 0 },
+          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
+          { field: ba.BetField.SUPER_SIX, amount: 0 },
+          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
@@ -507,13 +507,13 @@ namespace we {
 
       public resetConfirmedBet() {
         this.betDetails = [
-          { field: BetField.BANKER, amount: 0 },
-          { field: BetField.PLAYER, amount: 0 },
-          { field: BetField.TIE, amount: 0 },
-          { field: BetField.BANKER_PAIR, amount: 0 },
-          { field: BetField.PLAYER_PAIR, amount: 0 },
-          { field: BetField.SUPER_SIX, amount: 0 },
-          { field: BetField.SUPER_SIX_BANKER, amount: 0 },
+          { field: ba.BetField.BANKER, amount: 0 },
+          { field: ba.BetField.PLAYER, amount: 0 },
+          { field: ba.BetField.TIE, amount: 0 },
+          { field: ba.BetField.BANKER_PAIR, amount: 0 },
+          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
+          { field: ba.BetField.SUPER_SIX, amount: 0 },
+          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
         ];
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {

@@ -11,8 +11,8 @@ namespace we {
       protected _betRelatedGroup: eui.Group;
       protected _undoButton: ui.BaseImageButton;
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
-      protected _bettingTable: BettingTable;
-      protected _betChipSet: we.ba.BetChipSetHorizontal;
+      protected _bettingTable: ui.BettingTable;
+      protected _betChipSet: ui.BetChipSetHorizontal;
       protected _cardHolder: CardHolder;
       protected _countdownTimer: ui.CountdownTimer;
       protected _confirmButton: eui.Button;
@@ -43,8 +43,8 @@ namespace we {
       protected _roadmapLeftPanel: BARoadmapLeftPanel;
       protected _roadmapRightPanel: BARoadmapRightPanel;
 
-      protected _resultMessage: GameResultMessage;
-      protected _message: InGameMessage;
+      protected _resultMessage: ui.GameResultMessage;
+      protected _message: ui.InGameMessage;
 
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
@@ -63,7 +63,7 @@ namespace we {
 
       public insufficientBalance() {
         if (this._message) {
-          this._message.showMessage(InGameMessage.ERROR, 'Insufficient Balance');
+          this._message.showMessage(ui.InGameMessage.ERROR, 'Insufficient Balance');
         }
       }
 
@@ -314,7 +314,7 @@ namespace we {
           switch (this._gameData.state) {
             case core.GameState.BET:
               this._bettingTable.updateBetFields(this._betDetails);
-              this._message.showMessage(InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+              this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
               break;
             case core.GameState.FINISH:
             default:
@@ -398,7 +398,7 @@ namespace we {
           // }
 
           // show start bet message to the client for few seconds
-          this._message.showMessage(InGameMessage.INFO, i18n.t('game.startBet'));
+          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           // this.stateLabel.text = 'Betting';
           // this.winAmountLabel.visible = false;
 
@@ -429,7 +429,7 @@ namespace we {
           this._cardHolder.resetCards();
           // show stop bet message to the client for few seconds
           if (this._previousState === core.GameState.BET) {
-            this._message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));
+            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
           // hide the betchipset, countdownTimer, confirm, cancel and other bet related buttons

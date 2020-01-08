@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class GameResultMessage extends core.BaseEUI {
       protected _bg: eui.Image;
       protected _label: eui.IDisplayText & egret.DisplayObject;

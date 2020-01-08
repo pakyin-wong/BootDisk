@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class InGameMessage extends core.BaseEUI {
       public static readonly INFO: string = 'INFO';
       public static readonly SUCCESS: string = 'SUCCESS';

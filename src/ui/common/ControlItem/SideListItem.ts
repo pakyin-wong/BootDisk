@@ -2,12 +2,14 @@ namespace we {
   export namespace ba {
     export class SideListItem extends LiveListSimpleItem {
       protected _bigRoad: we.ba.BetInfoBigRoad;
+      protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _quickbetButton: ui.RoundButton;
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
       protected _alreadyBetSign: eui.Group;
       protected _tweenInterval1: number = 250;
+      protected _betChipSetGridEnabled: boolean = false;
 
       // protected _originalyhover: number;
       protected _originaly: number;
@@ -21,6 +23,29 @@ namespace we {
 
       public constructor(skinName: string = 'BaSideListItemSkin') {
         super(skinName);
+        this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this._betChipSetGridSelected.setValue(denominationList[0]);
+        this._betChipSetGridSelected.index = 0;
+      }
+
+      protected addEventListeners() {
+        super.addEventListeners();
+        this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+      }
+
+      protected onClickBetChipSelected() {
+        this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
+      }
+
+      protected showBetChipPanel() {
+        egret.Tween.get(this._betChipSet).to({ y: 390, alpha: 1 }, 250);
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        this._betChipSetGridEnabled = false;
       }
 
       protected initCustomPos() {
@@ -50,6 +75,11 @@ namespace we {
         } else {
           this._goodRoadLabel.visible = false;
         }
+      }
+
+      protected hideQuickBetGroup() {
+        super.hideQuickBetGroup();
+        this.hideBetChipPanel();
       }
 
       protected setStateBet(isInit: boolean = false) {

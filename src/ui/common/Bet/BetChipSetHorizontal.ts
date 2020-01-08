@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class BetChipSetHorizontal extends core.BaseEUI implements eui.UIComponent, IBetChipSet {
       private _startIndex = 0;
       private _denomList: number[];
@@ -166,6 +166,8 @@ namespace we {
       public getSelectedChipIndex() {
         return this._selectedChipIndex;
       }
+
+      public injectSetSelectedChip(value: (value: number, index: number) => void) {}
     }
   }
 }

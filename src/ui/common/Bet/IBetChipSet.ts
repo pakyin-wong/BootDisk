@@ -6,6 +6,7 @@ namespace we {
       init(format: any, denominationList: number[]);
       getSelectedChipIndex();
       setTouchEnabled(enable: boolean);
+      injectSetSelectedChip(value: (value: number, index: number) => void);
 
       // setChipSet(denominationList: number[]);
       // onChipSelected(index: number);
