@@ -4,9 +4,15 @@ namespace we {
       protected _playerPanel: eui.Image;
       protected _bankerPanel: eui.Image;
 
+      protected lblPlayerName: ui.RunTimeLabel;
+      protected lblBankerName: ui.RunTimeLabel;
+
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkin('BaSideListBetItemCardHolder');
+
+        this.lblPlayerName.renderText = () => `${i18n.t('baccarat.player')}`;
+        this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;
       }
 
       constructor() {

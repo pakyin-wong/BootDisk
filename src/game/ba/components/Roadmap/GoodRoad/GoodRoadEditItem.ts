@@ -126,7 +126,7 @@ namespace we {
         if (data.type === 0) {
           // new
           this.roadId = '';
-          this.roadName = i18n.t('baccarat.addNewGoodRoad');
+          this.roadName = i18n.t('baccarat.newGoodRoadName');
           this.roadType = 0;
           this.roadPattern = '';
           this.roadEnabled = true;

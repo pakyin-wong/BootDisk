@@ -42,6 +42,7 @@ namespace we {
       protected _roadmapControl: BARoadmapControl;
       protected _roadmapLeftPanel: BARoadmapLeftPanel;
       protected _roadmapRightPanel: BARoadmapRightPanel;
+      protected _beadRoadResultPanel: BaBeadRoadResultPanel;
 
       protected _resultMessage: ui.GameResultMessage;
       protected _message: ui.InGameMessage;
@@ -249,7 +250,8 @@ namespace we {
           this._roadmapRightPanel.smallRoad,
           this._roadmapRightPanel.cockroachRoad,
           [16, 33, 66, 34, 32],
-          this._roadmapRightPanel
+          this._roadmapRightPanel,
+          this._beadRoadResultPanel
         );
       }
 

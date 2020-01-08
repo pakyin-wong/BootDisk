@@ -21,7 +21,7 @@ namespace we {
           data.tableid = (idx + 1).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = this.mockRoadData2;
+          data.roadmap = this.mockRoadData;
 
           let bankerCount: number = 0;
           let playerCount: number = 0;
@@ -227,48 +227,10 @@ namespace we {
       }
 
       public async getTableHistory() {
-        // env.tableHistory = this.mockRoadData2;
+        // env.tableHistory = this.mockRoadData;
         // dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE);
       }
-      private mockRoadData0: any = {
-        bead: [],
-        bigRoad: [],
-        bigEye: [],
-        small: [],
-        roach: [],
-        bbead: [],
-        bbigRoad: [],
-        bbigEye: [],
-        bsmall: [],
-        broach: [],
-        pbead: [],
-        pbigRoad: [],
-        pbigEye: [],
-        psmall: [],
-        proach: [],
-        animateCell: [0, -1, -1, -1, -1, 0, -1, -1, -1, -1],
-      };
-      private mockRoadData1: any = {
-        bead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }],
-        bigRoad: [{ V: 'p', T: 0 }],
-        bigEye: [{ V: 'p' }],
-        small: [{ V: 'p' }],
-        roach: [{ V: 'p' }],
-
-        bbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'b', B: 0, P: 0, W: 0 }],
-        bbigRoad: [{ V: 'p', T: 0 }],
-        bbigEye: [{ V: 'p' }],
-        bsmall: [{ V: 'p' }],
-        broach: [{ V: 'p' }],
-
-        pbead: [{ V: 't', B: 0, P: 0, W: 2 }, { V: 'p', B: 0, P: 0, W: 4 }, { V: 'p', B: 0, P: 1, W: 7 }],
-        pbigRoad: [{ V: 'p', T: 0 }],
-        pbigEye: [{ V: 'p' }],
-        psmall: [{ V: 'p' }],
-        proach: [{ V: 'p' }],
-        animateCell: [2, 0, 0, 0, 0, 2, 0, 0, 0, 0],
-      };
-      private mockRoadData2: any = {
+      private mockRoadData: any = {
         bead: [
           { V: 't', B: 0, P: 0, W: 2 },
           { V: 'p', B: 0, P: 0, W: 4 },
@@ -381,6 +343,14 @@ namespace we {
         pbigEye: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'p' }],
         psmall: [{ V: 'p' }, { V: 'p' }, { V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: '' }, { V: 'p' }],
         proach: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'p' }],
+        gameRoundResult: [
+          { gameRoundID: 'abc123', a1: 'club3', a2: 'heart2', a3: '', b1: 'diamondj', b2: 'heart7', b3: '', bv: 8, pv: 3, winType: 3 },
+          { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 1 },
+          { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 2 },
+          { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, winType: 3 },
+          { gameRoundID: 'fvgt34', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: 'diamond2', bv: 3, pv: 1, winType: 1 },
+          { gameRoundID: 'd23rg4', a1: 'club5', a2: 'heart7', a3: 'diamond2', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 2 },
+        ],
         animateCell: [9, 18, 7, 11, 7, 9, 13, 12, 12, 12],
       };
 

@@ -170,6 +170,7 @@ namespace we {
           TIE: '和',
         },
         noCommission: '免佣',
+        clickToSeeVideo: '點擊播放本局視頻',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

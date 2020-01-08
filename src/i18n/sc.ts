@@ -181,6 +181,7 @@ namespace we {
           TIE: '和',
         },
         noCommission: '免佣',
+        clickToSeeVideo: '点击播放本局视频',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

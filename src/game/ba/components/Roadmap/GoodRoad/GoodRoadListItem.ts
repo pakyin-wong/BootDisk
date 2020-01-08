@@ -113,7 +113,7 @@ namespace we {
       public changeLang() {
         if (this.roadType === 0) {
           // add icon
-          this._titleLabel.text = i18n.t('baccarat.newGoodRoadName');
+          this._titleLabel.text = i18n.t('baccarat.addNewGoodRoad');
         } else if (this.roadType === 1) {
           // default road
           this._titleLabel.text = i18n.t('goodroad.' + this.roadName);
