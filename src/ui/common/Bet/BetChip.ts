@@ -68,8 +68,12 @@ namespace we {
         this._value = value;
         this._type = type ? type : this._type ? this._type : we.core.ChipType.CLIP;
         this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : utils.numberToFaceValue(value);
+
         if (type === we.core.ChipType.BETTING) {
           this._chipImage.source = we.core.ChipSetInfo.betting + '_png';
+        }
+        if (type === we.core.ChipType.CLIP) {
+          this._chipValueLabel.height = this._chipValueLabel.height * 0.6;
         }
         // this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
       }

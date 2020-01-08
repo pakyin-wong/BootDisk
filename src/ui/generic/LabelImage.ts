@@ -38,16 +38,17 @@ namespace we {
       protected render() {
         const renderTexture = new egret.RenderTexture();
         const label = new eui.Label();
-        if(this._text){
-        label.text = this._text;
+        if (this._text) {
+          label.text = this._text;
         }
-        if(this._fontFamily){
-        label.fontFamily = this._fontFamily;
+        if (this._fontFamily) {
+          label.fontFamily = this._fontFamily;
         }
-        if(this._size){
-        label.size = this._size;
+        if (this._size) {
+          label.size = this._size;
         }
         renderTexture.drawToTexture(label);
+        this.fillMode = egret.BitmapFillMode.SCALE;
         this.texture = renderTexture;
       }
     }
