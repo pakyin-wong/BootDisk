@@ -35,6 +35,7 @@ namespace we {
         const slider = new we.ui.ImageSlider();
         slider.width = this.scroller.width;
         slider.height = 790;
+        slider.configImages([RES.getRes('banner-baccarat_png')]);
         const sliderContainer = new eui.Group();
         sliderContainer.width = slider.width;
         sliderContainer.height = slider.height + offsetForTableList;

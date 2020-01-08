@@ -52,6 +52,7 @@ namespace we {
         const slider = new we.ui.ImageSlider();
         slider.height = 790;
         slider.width = 2600;
+        slider.configImages([RES.getRes('banner-baccarat_png')]);
 
         // init room grids
         this.roomList = new ui.TableList();
