@@ -3,7 +3,7 @@ namespace we {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
       protected _value: number;
       protected _chipImage: eui.Image;
-      protected _chipValueLabel: eui.Label;
+      protected _chipValueLabel: ui.LabelImage;
       protected _type: we.core.ChipType;
       protected _highlight: boolean;
       protected _glowFilter: egret.GlowFilter;
@@ -19,6 +19,7 @@ namespace we {
         this.setGlowFilter();
       }
 
+      /*
       set width(value: number) {
         this.$setWidth(value);
         if (this._chipImage) {
@@ -40,7 +41,7 @@ namespace we {
       get height() {
         return this.$getHeight();
       }
-
+*/
       protected setGlowFilter(
         color: number = 0x33ccff,
         alpha: number = 0.8,
