@@ -21,7 +21,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,game_result_test_tex_png,game_result_test_tex_json,game_result_test_ske_json,start_png,start_json",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,game_result_test_tex_png,game_result_test_tex_json,game_result_test_ske_json,start_png,start_json,Mask_test_png",
 			"name": "temp"
 		},
 		{
@@ -2514,6 +2514,11 @@
 			"url": "assets/d/lobby/d_lobby_notify_btn_hide.png",
 			"type": "image",
 			"name": "d_lobby_notify_btn_hide_png"
+		},
+		{
+			"url": "assets/temp/Mask_test.png",
+			"type": "image",
+			"name": "Mask_test_png"
 		}
 	]
 }

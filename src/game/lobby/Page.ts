@@ -153,6 +153,18 @@ namespace we {
         r.fillColor = 0xff0000;
         slot.display = r;
 
+        // const blendShape = new egret.Shape();
+        // blendShape.graphics.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff], [1, 0], [0, 255]);
+        // blendShape.graphics.drawRect(0, 0, this.width, this.height);
+        // blendShape.graphics.endFill();
+        // this.addChild(blendShape);
+        // blendShape.blendMode = egret.BlendMode.ERASE;
+
+        const blendShape = new eui.Image();
+        blendShape.source = RES.getRes('Mask_test_png');
+        this.addChild(blendShape);
+        blendShape.blendMode = egret.BlendMode.ERASE;
+
         // // texture merger
         // const startJson = RES.getRes('start_json');
         // const startePng = RES.getRes('start_png');
