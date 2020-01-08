@@ -276,7 +276,7 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.DEAL) {
           if (this._cardHolder) {
-            this._cardHolder.resetCards();
+            this._cardHolder.reset();
           }
 
           if (this._previousState === core.GameState.BET && this._message && !isInit) {

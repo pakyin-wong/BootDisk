@@ -30,7 +30,7 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
-      public onTableListUpdate() { }
+      public onTableListUpdate() {}
 
       set denomList(value: number[]) {
         this._denomList = value;

@@ -426,7 +426,7 @@ namespace we {
       }
       protected setStateDeal() {
         if (this._previousState !== core.GameState.DEAL) {
-          this._cardHolder.resetCards();
+          this._cardHolder.reset();
           // show stop bet message to the client for few seconds
           if (this._previousState === core.GameState.BET) {
             this._message.showMessage(InGameMessage.INFO, i18n.t('game.stopBet'));

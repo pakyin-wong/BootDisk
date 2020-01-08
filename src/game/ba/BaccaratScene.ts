@@ -34,7 +34,7 @@ namespace we {
       protected _lblBetLimitInfo: eui.Label;
 
       protected _tableInfoWindow: ui.TableInfoPanel;
-      protected _gameBar: GameBar;
+      protected _gameBar: ui.GameBar;
 
       protected _bgImg: eui.Image;
       protected _video: egret.FlvVideo;
@@ -426,7 +426,7 @@ namespace we {
       }
       protected setStateDeal() {
         if (this._previousState !== core.GameState.DEAL) {
-          this._cardHolder.resetCards();
+          this._cardHolder.reset();
           // show stop bet message to the client for few seconds
           if (this._previousState === core.GameState.BET) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));

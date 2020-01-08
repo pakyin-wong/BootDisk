@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class CardHolder extends eui.Component {
+    export class CardHolder extends eui.Component implements ui.IResultDisplay {
       private gameData: GameData;
 
       private card1Player: ui.Card;
@@ -25,7 +25,7 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.resetCards();
+        this.reset();
       }
 
       public updateResult(gameData: data.GameData) {
@@ -49,7 +49,7 @@ namespace we {
         });
       }
 
-      public resetCards() {
+      public reset() {
         this.card1Player.setCard('BACK', true);
         this.card2Player.setCard('BACK', true);
 
