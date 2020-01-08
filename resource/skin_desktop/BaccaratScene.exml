@@ -22,7 +22,7 @@
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBacarrat" currentState="b_repeat" />
 	</e:Group>
-	<ba:CardHolder id="_cardHolder" width="412" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"
+	<ba:CardHolder id="_resultDisplay" width="412" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"
 	               anchorOffsetY="0" />
 	<ba:BARoadmapLeftPanel id="_roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
 	                       anchorOffsetY="0" />
