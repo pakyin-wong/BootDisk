@@ -3,13 +3,13 @@ namespace we {
     export class CardHolder extends eui.Component {
       private gameData: GameData;
 
-      private card1Player: ui.Card;
-      private card2Player: ui.Card;
-      private card3Player: ui.Card;
+      protected card1Player: ui.Card;
+      protected card2Player: ui.Card;
+      protected card3Player: ui.Card;
 
-      private card1Banker: ui.Card;
-      private card2Banker: ui.Card;
-      private card3Banker: ui.Card;
+      protected card1Banker: ui.Card;
+      protected card2Banker: ui.Card;
+      protected card3Banker: ui.Card;
 
       protected playerSum: eui.Label;
       protected bankerSum: eui.Label;

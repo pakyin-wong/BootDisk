@@ -7,6 +7,7 @@ namespace we {
       private smallRoad: BASmallRoad;
       private cockroachRoad: BACockroachRoad;
       private rightPanel: BARoadmapRightPanel;
+      private beadResultPanel: BaBeadRoadResultPanel;
       public tableid: string;
 
       private parser: BARoadParser;
@@ -17,16 +18,18 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, r2, r3, r4, r5, columnArray, rightPanel) {
+      public setRoads(r1, r2, r3, r4, r5, columnArray, rightPanel, beadResultPanel) {
         this.beadRoad = r1;
         this.bigRoad = r2;
         this.bigEyeRoad = r3;
         this.smallRoad = r4;
         this.cockroachRoad = r5;
         this.rightPanel = rightPanel;
+        this.beadResultPanel = beadResultPanel;
 
         this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
         this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+        this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
 
         this.parser = new BARoadParser(columnArray);
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
@@ -50,6 +53,45 @@ namespace we {
         if (env.tableInfos[this.tableid]) {
           if (env.tableInfos[this.tableid].roadmap) {
             const data = env.tableInfos[this.tableid].roadmap;
+            if (data.gameRoundResult) {
+              if (e.data.index >= 0 && e.data.index < data.gameRoundResult.length) {
+                const rslt = data.gameRoundResult[e.data.index];
+
+                const gameData: GameData = new GameData();
+                gameData.a1 = rslt.a1;
+                gameData.a2 = rslt.a2;
+                gameData.a3 = rslt.a3;
+                gameData.b1 = rslt.b1;
+                gameData.b2 = rslt.b2;
+                gameData.b3 = rslt.b3;
+                gameData.bankerpoint = rslt.bv;
+                gameData.playerpoint = rslt.pv;
+                gameData.wintype = rslt.winType;
+                gameData.gameroundid = rslt.gameRoundID;
+
+                this.beadResultPanel.setCardResult(gameData);
+
+                this.beadResultPanel.visible = true;
+                this.beadResultPanel.x = e.data.mouseX - 30;
+                this.beadResultPanel.y = e.data.mouseY - this.beadResultPanel.height - 10;
+              } else {
+                this.beadResultPanel.visible = false;
+              }
+            }
+          }
+        }
+      }
+
+      private onBeadRoadClick(e: egret.Event) {
+        if (env.tableInfos[this.tableid]) {
+          if (env.tableInfos[this.tableid].roadmap) {
+            const data = env.tableInfos[this.tableid].roadmap;
+            if (data.gameRoundResult) {
+              if (e.data.index >= 0 && e.data.index < data.gameRoundResult.length) {
+                const rslt = data.gameRoundResult[e.data.index];
+                window.open('http://www.google.com', '_blank');
+              }
+            }
           }
         }
       }
@@ -58,6 +100,7 @@ namespace we {
         if (env.tableInfos[this.tableid]) {
           if (env.tableInfos[this.tableid].roadmap) {
             const data = env.tableInfos[this.tableid].roadmap;
+            this.beadResultPanel.visible = false;
           }
         }
       }

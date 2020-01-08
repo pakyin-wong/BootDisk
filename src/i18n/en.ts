@@ -31,7 +31,7 @@ namespace we {
       overlaypanel_memberreport_amountwin: '贏輸金额',
       overlaypanel_memberreport_amounttotal: '总金额',
 
-      overlaypanel_customroad_title: '好路设定',
+      overlaypanel_customroad_title: 'Good Road Settings',
 
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_date: 'Dates',
@@ -170,6 +170,7 @@ namespace we {
           TIE: 'Tie',
         },
         noCommission: 'No Commision',
+        clickToSeeVideo: 'Click to see video for this round',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

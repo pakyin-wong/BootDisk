@@ -8,8 +8,8 @@ namespace we {
         this.gridUnit = 1;
         this.mode = 0;
 
-        // this.touchEnabled = true;
-        // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        this.touchEnabled = true;
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
 
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
@@ -37,7 +37,19 @@ namespace we {
       }
 
       private onClick(event: egret.TouchEvent) {
-        // this.Mode = ++this.Mode % 2;
+        let pt: egret.Point = new egret.Point(0, 0);
+        this.globalToLocal(event.stageX, event.stageY, pt);
+        pt = pt;
+        const posX: number = pt.x;
+        const posY: number = pt.y;
+        if (posX > 0 && posX < this.gridSize * this.numCol && posY > 0 && posY < this.gridSize * 6) {
+          const col = Math.floor(posX / this.gridSize);
+          const row = Math.floor(posY / this.gridSize);
+          const index = col * 6 + row;
+
+          // dispatch the result click by the user
+          this.dispatchEvent(new egret.Event('ClickResult', false, false, { index, mouseX: event.stageX, mouseY: event.stageY }));
+        }
       }
 
       private onOver(event: mouse.MouseEvent) {
@@ -57,7 +69,7 @@ namespace we {
           const index = col * 6 + row;
 
           // dispatch the result rolled over by the user
-          this.dispatchEvent(new egret.Event('RollOverResult', false, false, { index }));
+          this.dispatchEvent(new egret.Event('RollOverResult', false, false, { index, mouseX: event.stageX, mouseY: event.stageY }));
         } else {
           // dispatch rolled out result
           this.dispatchEvent(new egret.Event('RollOutResult'));
