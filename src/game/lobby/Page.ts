@@ -140,6 +140,7 @@ namespace we {
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
+        logger.l(factory.getAllTextureAtlasData());
         const armatureDisplay = factory.buildArmatureDisplay('Armature');
         armatureDisplay.x = this.$stage.stageWidth / 2;
         armatureDisplay.y = this.$stage.stageHeight / 2;
@@ -152,6 +153,39 @@ namespace we {
         r.width = 50;
         r.fillColor = 0xff0000;
         slot.display = r;
+
+        // Dragonbone animation 2 (non sprite)
+        const skeletonData2 = RES.getRes('Icon_ske_json');
+        const factory2 = new dragonBones.EgretFactory();
+        factory2.parseDragonBonesData(skeletonData2);
+        const atlas = new dragonBones.EgretTextureAtlasData();
+
+        for (const name of ['Sound_Off_Line_png', 'Sound_On_Line_png', 'Sound_On_png']) {
+          const rawTex1 = RES.getRes(name) as egret.Texture;
+          const tex1 = atlas.createTexture() as dragonBones.EgretTextureData;
+          tex1.rotated = rawTex1.$rotated;
+          tex1.name = name.replace('_png', '');
+          tex1.region.x = 0.0;
+          tex1.region.y = 0.0;
+          tex1.region.width = rawTex1.textureWidth;
+          tex1.region.height = rawTex1.textureHeight;
+          tex1.frame = dragonBones.TextureData.createRectangle();
+          tex1.frame.x = 0.0;
+          tex1.frame.y = 0.0;
+          tex1.frame.width = rawTex1.textureWidth;
+          tex1.frame.height = rawTex1.textureHeight;
+          tex1.renderTexture = rawTex1;
+          atlas.addTexture(tex1);
+        }
+
+        factory2.addTextureAtlasData(atlas, 'Icon');
+        logger.l(factory2.getAllTextureAtlasData());
+        // factory.parseTextureAtlasData(textureData, texture);
+        const armatureDisplay2 = factory2.buildArmatureDisplay('Sound');
+        armatureDisplay2.x = 160;
+        armatureDisplay2.y = 160;
+        this.addChild(armatureDisplay2);
+        armatureDisplay2.animation.play('Sound_open_ani', 0);
 
         // const blendShape = new egret.Shape();
         // blendShape.graphics.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff], [1, 0], [0, 255]);

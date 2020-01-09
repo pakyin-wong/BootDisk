@@ -27,6 +27,10 @@
 		{
 			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg,d_lobby_navbar_logo_png,nav_panel_bg",
 			"name": "scene_loading"
+		},
+		{
+			"keys": "Icon_ske_json,Sound_Off_Line_png,Sound_On_Line_png,Sound_On_png",
+			"name": "test"
 		}
 	],
 	"resources": [
@@ -2519,6 +2523,26 @@
 			"url": "assets/temp/Mask_test.png",
 			"type": "image",
 			"name": "Mask_test_png"
+		},
+		{
+			"url": "assets/library/Icon_texture/Sound_Off_Line.png",
+			"type": "image",
+			"name": "Sound_Off_Line_png"
+		},
+		{
+			"url": "assets/library/Icon_texture/Sound_On.png",
+			"type": "image",
+			"name": "Sound_On_png"
+		},
+		{
+			"url": "assets/library/Icon_texture/Sound_On_Line.png",
+			"type": "image",
+			"name": "Sound_On_Line_png"
+		},
+		{
+			"url": "assets/library/Icon_ske.json",
+			"type": "json",
+			"name": "Icon_ske_json"
 		}
 	]
 }
