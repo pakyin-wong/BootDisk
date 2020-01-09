@@ -3,6 +3,8 @@ namespace we {
     export interface IResultDisplay {
       updateResult(gameData: data.GameData);
       reset();
+
+      visible: boolean;
     }
   }
 }
