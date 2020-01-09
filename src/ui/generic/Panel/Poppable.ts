@@ -13,7 +13,7 @@ namespace we {
       public dismissOnClickOutside: boolean = false;
       public hideOnStart: boolean = true;
       public isShow: boolean;
-      public isFocusItem: boolean = false;
+      public isFocusItem: boolean = true;
       protected target: egret.DisplayObject & IPoppable;
       protected toggler: egret.DisplayObject;
       private isAnimating: boolean = false;
