@@ -21,21 +21,32 @@ namespace we {
         const { tableNo, winAmount, winType, gameType } = value;
         this._lblName.renderText = () => `${i18n.t('gametype_' + we.core.GameType[gameType])} ${tableNo}`;
         this._lblWinAMount.text = `${winAmount >= 0 ? '+' : ''}${utils.formatNumber(winAmount)}`;
-        this.updateResult(winType);
+        this.updateResult(gameType, winType);
       }
 
-      protected updateResult(winType) {
+      protected updateResult(gameType, winType) {
+        switch (gameType) {
+          case we.core.GameType.BAC:
+          case we.core.GameType.BAS:
+          case we.core.GameType.BAI:
+            this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
+            break;
+          case we.core.GameType.DT:
+            this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
+            break;
+        }
+
         switch (winType) {
           case ba.WinType.BANKER:
-            this._lblResult.renderText = () => i18n.t('baccarat.bankerShort');
+          case dt.WinType.DRAGON:
             this._resultRect.fillColor = 0xff0000;
             break;
           case ba.WinType.PLAYER:
-            this._lblResult.renderText = () => i18n.t('baccarat.playerShort');
+          case dt.WinType.TIGER:
             this._resultRect.fillColor = 0x0000ff;
             break;
           case ba.WinType.TIE:
-            this._lblResult.renderText = () => i18n.t('baccarat.tieShort');
+          case dt.WinType.TIE:
             this._resultRect.fillColor = 0x00ff00;
             break;
         }

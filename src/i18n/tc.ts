@@ -11,6 +11,7 @@ namespace we {
       gametype_DI: '骰寶',
       gametype_MJ: '麻將',
       gametype_RO: '輪盤',
+      gametype_DT: '龍虎',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
@@ -164,17 +165,34 @@ namespace we {
         removeGoodRoad: '刪除路紙？',
         confirmRemoveGoodRoad: '刪除',
         cancelRemoveGoodRoad: '取消',
-        result: {
-          BANKER: '庄贏',
-          PLAYER: '閒贏',
-          TIE: '和',
-        },
         noCommission: '免佣',
         clickToSeeVideo: '點擊播放本局視頻',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',
         unknownError: '發生未知錯誤',
+      },
+      winType: {
+        ba: {
+          BANKER: '庄贏',
+          PLAYER: '閒贏',
+          TIE: '和',
+          short: {
+            BANKER: '庄',
+            PLAYER: '閒',
+            TIE: '和',
+          },
+        },
+        dt: {
+          DRAGON: '龍贏',
+          TIGER: '虎贏',
+          TIE: '和',
+          short: {
+            DRAGON: '龍',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
       },
     };
   }

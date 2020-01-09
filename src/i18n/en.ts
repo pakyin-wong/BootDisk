@@ -11,6 +11,7 @@ namespace we {
       gametype_DI: 'DI',
       gametype_MJ: 'MJ',
       gametype_RO: 'RO',
+      gametype_DT: 'DT',
 
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
@@ -164,17 +165,34 @@ namespace we {
         removeGoodRoad: 'Delete Road Sheet?',
         confirmRemoveGoodRoad: 'Delete',
         cancelRemoveGoodRoad: 'Cancel',
-        result: {
-          BANKER: 'Banker Win',
-          PLAYER: 'Player Win',
-          TIE: 'Tie',
-        },
         noCommission: 'No Commision',
         clickToSeeVideo: 'Click to see video for this round',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
         unknownError: 'An unknown error occurred',
+      },
+      winType: {
+        ba: {
+          BANKER: 'Banker Win',
+          PLAYER: 'Player Win',
+          TIE: 'Tie',
+          short: {
+            BANKER: 'B',
+            PLAYER: 'P',
+            TIE: 'T',
+          },
+        },
+        dt: {
+          DRAGON: 'Dragon Win',
+          TIGER: 'Tiger Win',
+          TIE: 'Tie',
+          short: {
+            DRAGON: 'Dn',
+            TIGER: 'Tr',
+            TIE: 'T',
+          },
+        },
       },
     };
   }

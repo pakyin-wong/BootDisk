@@ -45,5 +45,17 @@ namespace we {
         .replace('diamond', 'diamonds')
         .replace('heart', 'hearts');
     }
+
+    export function getWinMessageKey(gameType, winType, isShort = false) {
+      const shortStr = isShort ? '.short' : '';
+      switch (gameType) {
+        case we.core.GameType.BAC:
+        case we.core.GameType.BAS:
+        case we.core.GameType.BAI:
+          return `winType.ba${shortStr}.${ba.WinType[winType]}`;
+        case we.core.GameType.DT:
+          return `winType.dt${shortStr}.${dt.WinType[winType]}`;
+      }
+    }
   }
 }

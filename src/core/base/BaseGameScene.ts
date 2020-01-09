@@ -54,6 +54,7 @@ namespace we {
       protected mount() {
         super.mount();
         mouse.setButtonMode(this._btnBack, true);
+        mouse.setButtonMode(this._confirmButton, true);
 
         this._video = dir.videoPool.get();
         this._video.x = 0;
@@ -492,12 +493,12 @@ namespace we {
       public checkResultMessage(totalWin: number = NaN) {
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._gameData.wintype, totalWin);
+            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype, totalWin);
             dir.audioCtr.playSequence(['player', 'win']);
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._gameData.wintype);
+            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype);
             dir.audioCtr.playSequence(['player', 'win']);
           }
         }

@@ -15,14 +15,14 @@ namespace we {
         this._isAnimating = false;
       }
 
-      public showResult(winType: ba.WinType, winAmount: number = NaN) {
+      public showResult(gameType: core.GameType, winType: number, winAmount: number = NaN) {
         const isWin = !isNaN(winAmount) && winAmount > 0;
         egret.Tween.removeTweens(this);
         this.changeSkin(isWin);
         if (this._bg) {
           this.setBackground(winType, isWin);
         }
-        this.start(winType, winAmount);
+        this.start(gameType, winType, winAmount);
       }
 
       protected changeSkin(isWin: boolean) {
@@ -67,7 +67,7 @@ namespace we {
         this.visible = false;
       }
 
-      protected start(winType: ba.WinType, winAmount: number) {
+      protected start(gameType: core.GameType, winType: number, winAmount: number) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
         if (this._numlabel) {
@@ -76,8 +76,7 @@ namespace we {
         }
         const tween = egret.Tween.get(this)
           .call(() => {
-            const winTypeKey: string = ba.WinType[winType];
-            const message: string = i18n.t(`baccarat.result.${winTypeKey}`);
+            const message: string = i18n.t(utils.getWinMessageKey(gameType, winType));
             this.visible = true;
             this._label.visible = true;
             this._label.text = message;
