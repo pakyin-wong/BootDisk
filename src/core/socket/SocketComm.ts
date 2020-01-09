@@ -557,12 +557,6 @@ namespace we {
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
           }
-
-          // switch (tableInfo.gametype) {
-          //   case core.GameType.BAC:
-          //   case core.GameType.BAS:
-          //     break;
-          // }
         }
       }
 

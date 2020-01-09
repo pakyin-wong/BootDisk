@@ -16,45 +16,61 @@ namespace we {
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
 
-        this.tables = Array.apply(null, { length: tableCount }).map((value, idx) => {
+        this.tables = this.generateBaccaratTables(6);
+        // this.tables = [...this.tables, ...this.generateDragonTigerTables(3)];
+
+        setInterval(() => {
+          // mock error
+          if (Math.random() > 0.9) {
+            dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
+          }
+        }, 5000);
+      }
+
+      protected generateDummyStatistic(data) {
+        let bankerCount: number = 0;
+        let playerCount: number = 0;
+        let tieCount: number = 0;
+        let playerPairCount: number = 0;
+        let bankerPairCount: number = 0;
+
+        data.roadmap.bead.forEach(item => {
+          if (item.V === 'b') {
+            bankerCount++;
+          } else if (item.V === 'p') {
+            playerCount++;
+          } else if (item.V === 't') {
+            tieCount++;
+          }
+          if (item.B > 0) {
+            bankerPairCount++;
+          }
+          if (item.P > 0) {
+            playerPairCount++;
+          }
+        });
+        const totalCount: number = bankerCount + playerCount + tieCount;
+
+        const stats = new we.data.GameStatistic();
+        stats.bankerCount = bankerCount;
+        stats.playerCount = playerCount;
+        stats.tieCount = tieCount;
+        stats.playerPairCount = playerPairCount;
+        stats.bankerPairCount = bankerPairCount;
+        stats.totalCount = totalCount;
+
+        return stats;
+      }
+      protected generateBaccaratTables(count) {
+        const tables = Array.apply(null, { length: count }).map((value, idx) => {
           const data = new we.data.TableInfo();
           data.tableid = (idx + 1).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData;
+          data.gametype = core.GameType.BAC;
 
-          let bankerCount: number = 0;
-          let playerCount: number = 0;
-          let tieCount: number = 0;
-          let playerPairCount: number = 0;
-          let bankerPairCount: number = 0;
-
-          data.roadmap.bead.forEach(item => {
-            if (item.V === 'b') {
-              bankerCount++;
-            } else if (item.V === 'p') {
-              playerCount++;
-            } else if (item.V === 't') {
-              tieCount++;
-            }
-            if (item.B > 0) {
-              bankerPairCount++;
-            }
-            if (item.P > 0) {
-              playerPairCount++;
-            }
-          });
-          const totalCount: number = bankerCount + playerCount + tieCount;
-
-          const stats = new we.data.GameStatistic();
-          stats.bankerCount = bankerCount;
-          stats.playerCount = playerCount;
-          stats.tieCount = tieCount;
-          stats.playerPairCount = playerPairCount;
-          stats.bankerPairCount = bankerPairCount;
-          stats.totalCount = totalCount;
-
-          data.gamestatistic = stats;
+          data.gamestatistic = this.generateDummyStatistic(data);
 
           data.betInfo = new we.data.GameTableBetInfo();
           data.betInfo.tableid = data.tableid; // Unique table id
@@ -63,33 +79,52 @@ namespace we {
           data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
           data.betInfo.ranking = [];
 
-          data.gametype = GameType.BAC;
           data.bets = [];
-          const mockProcess = new MockProcess(this);
-          if (idx !== tableCount - 1) {
+          const mockProcess = new MockProcessBaccarat(this, core.GameType.BAC);
+          if (idx !== count - 1) {
             mockProcess.startRand = idx;
             mockProcess.endRand = idx + 1;
           }
-          mockProcess.startBaccarat(data);
+          mockProcess.start(data);
           this.mockProcesses.push(mockProcess);
 
           idx++;
           return data;
         });
-        // try remove 1
-        // setTimeout(() => {
-        //   this.tables = this.tables.filter((x, i) => i !== 0);
-        // }, 10000);
-        // setTimeout(() => {
-        //   this.tables = this.tables.filter((x, i) => i !== 6);
-        // }, 14000);
+        return tables;
+      }
 
-        setInterval(() => {
-          // mock error
-          if (Math.random() > 0.9) {
-            dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
+      protected generateDragonTigerTables(count) {
+        const tables = Array.apply(null, { length: count }).map((value, idx) => {
+          const data = new we.data.TableInfo();
+          data.tableid = (idx + 1).toString();
+          data.tablename = data.tableid;
+          data.state = TableState.ONLINE;
+          data.roadmap = this.mockRoadData;
+          data.gametype = core.GameType.DT;
+
+          data.gamestatistic = this.generateDummyStatistic(data);
+
+          data.betInfo = new we.data.GameTableBetInfo();
+          data.betInfo.tableid = data.tableid; // Unique table id
+          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+          data.betInfo.total = 10000; // Total bet amount for this gameround
+          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+          data.betInfo.ranking = [];
+
+          data.bets = [];
+          const mockProcess = new MockProcessDragonTiger(this, core.GameType.DT);
+          if (idx !== count - 1) {
+            mockProcess.startRand = idx;
+            mockProcess.endRand = idx + 1;
           }
-        }, 5000);
+          mockProcess.start(data);
+          this.mockProcesses.push(mockProcess);
+
+          idx++;
+          return data;
+        });
+        return tables;
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
@@ -116,9 +151,9 @@ namespace we {
         env.betLimits = [
           {
             currency: Currency.RMB,
-            maxlimit: 1000,
-            minlimit: 10,
-            chipList: [1, 5, 20, 100, 500],
+            maxlimit: 100000,
+            minlimit: 100,
+            chipList: [100, 500, 2000, 10000, 50000],
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
@@ -162,16 +197,9 @@ namespace we {
           dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
         }, 6000);
 
-        // switch (filter) {
-        //   case enums.TableFilter.BACCARAT:
-        //     setTimeout(() => {
-        //       env.tableInfoArray = this.tables;
-        //       dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE);
-        //     });
-        //     break;
-        //   default:
-        //     break;
-        // }
+        setTimeout(() => {
+          this.dispatchListUpdateEvent();
+        }, 10);
       }
 
       // Good Road
@@ -211,19 +239,47 @@ namespace we {
         env.currTime = Date.now();
         data.complete = 1;
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, data);
+
+        const isJustReady: boolean = env.validateTableInfoDisplayReady(data.tableid);
+        // if true, check if the corresponding tableid is presented in allTableList, goodRoadTableList or betTableList
+        // dispatch corresponding event of true (i.e. dispatch TABLE_LIST_UPDATE if it is in allTableList, dispatch GOOD_ROAD_TABLE_LIST_UPDATE if it is in goodRoadTableList)
+        if (isJustReady) {
+          this.checkAndDispatch(data.tableid);
+        }
       }
 
-      public dispatchListUpdateEvent(data: data.TableInfo) {
+      public dispatchListUpdateEvent() {
+        env.currTime = Date.now();
         env.tableInfoArray = this.tables;
-        const list = this.tables
-          .filter(info => {
-            return info.complete > 0;
-          })
-          .map(info => {
-            return info.tableid;
-          });
-        // logger.l(list);
-        dir.evtHandler.dispatch(core.Event.TABLE_LIST_UPDATE, list);
+        const list = this.tables.map(info => {
+          return info.tableid;
+        });
+        env.allTableList = list;
+        this.filterAndDispatch(list, core.Event.TABLE_LIST_UPDATE);
+      }
+
+      protected checkAndDispatch(tableid) {
+        if (env.allTableList.indexOf(tableid) > -1) {
+          this.filterAndDispatch(env.allTableList, core.Event.TABLE_LIST_UPDATE);
+        }
+        if (env.goodRoadTableList.indexOf(tableid) > -1) {
+          this.filterAndDispatch(env.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        }
+        if (env.betTableList.indexOf(tableid) > -1) {
+          this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
+        }
+      }
+
+      protected filterAndDispatch(tableList: string[], eventName: string) {
+        const list = tableList.filter(tableid => {
+          const tableInfo = env.tableInfos[tableid];
+          if (tableInfo) {
+            return tableInfo.displayReady;
+          } else {
+            return false;
+          }
+        });
+        dir.evtHandler.dispatch(eventName, list);
       }
 
       public async getTableHistory() {
@@ -383,7 +439,6 @@ namespace we {
         this.dispatchInfoUpdateEvent(data);
         this.dispatchBetResultEvent();
         this.dispatchBetInfoUpdateEvent(data);
-        this.dispatchListUpdateEvent(data);
 
         // return promise.resolve with BetResult
       }
