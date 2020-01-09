@@ -1,6 +1,10 @@
 namespace we {
   export namespace ui {
-    export class RoundButton extends OldImageButton {
+    export class QuickBetAnimButton extends BaseButton {
+      protected _image: eui.Image;
+      protected _hoverImage: eui.Image;
+      protected _resName: string;
+      protected _hoverResName: string;
       private _label1: eui.Label;
       private _label2: eui.Label;
       private _tw1: egret.Tween;
@@ -11,9 +15,34 @@ namespace we {
       private _label2text: string;
       private _originalWidth: number;
 
-      constructor() {
-        super('RoundButton');
+      constructor(skin: string = 'QuickBetAnimButton') {
+        super(skin);
         this.touchChildren = false;
+      }
+
+      set resName(value: string) {
+        this._resName = value;
+        if (this._image) {
+          this._image.source = value;
+        }
+      }
+
+      get resName() {
+        return this._resName;
+      }
+
+      set hoverResName(value: string) {
+        this._hoverResName = this._resName;
+        if (value) {
+          this._hoverResName = value;
+        }
+        if (this._hoverImage) {
+          this._hoverImage.source = value;
+        }
+      }
+
+      get hoverResName() {
+        return this._hoverResName;
       }
 
       set width(value: number) {
@@ -99,6 +128,7 @@ namespace we {
         egret.Tween.removeTweens(this._label1);
         egret.Tween.removeTweens(this._label2);
         egret.Tween.removeTweens(this._image);
+
         if (isAnimate) {
           if (direction) {
             this._tw1 = egret.Tween.get(this._label1).to({ alpha: 0 }, 250);

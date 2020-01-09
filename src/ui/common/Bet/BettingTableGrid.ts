@@ -24,7 +24,6 @@ namespace we {
       private _getSelectedChipIndex: () => number;
 
       private _betChipZIndex: number;
-      private _banner: ui.Banner;
 
       private _chipWidth: number;
       private _chipHeight: number;

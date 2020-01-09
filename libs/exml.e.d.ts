@@ -321,7 +321,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class RoundButtonSkin extends eui.Skin{
+	class QuickBetAnimButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
