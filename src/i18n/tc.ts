@@ -61,6 +61,16 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
+      datePicker_clean: '清除',
+      datePicker_confirm: '確定',
+      datePicker_weekday_0: '日',
+      datePicker_weekday_1: '一',
+      datePicker_weekday_2: '二',
+      datePicker_weekday_3: '三',
+      datePicker_weekday_4: '四',
+      datePicker_weekday_5: '五',
+      datePicker_weekday_6: '六',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
