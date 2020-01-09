@@ -1,42 +1,48 @@
 namespace we {
   export namespace ui {
     export class BettingTableGrid extends core.BaseEUI {
-      private _lblName: eui.Label;
-      private _denomLayer: eui.Component;
-      private _denomList: number[];
-      private _fieldName: string;
-      private _cfmBet: number;
-      private _uncfmBet: number;
-      private _image: eui.Image;
-      private _imageRes: string;
-      private _hoverRes: string;
-      private _hasDenomLayer: string;
+      protected _lblName: eui.Label;
+      protected _lblOdds: eui.Label;
+      protected _denomLayer: eui.Component;
+      protected _denomList: number[];
+      protected _fieldName: string;
+      protected _cfmBet: number;
+      protected _uncfmBet: number;
+      protected _image: eui.Image;
+      protected _imageRes: string;
+      protected _hoverRes: string;
+      protected _hasDenomLayer: string;
+      protected _odds: string;
+      protected _oddsH: number;
+      protected _oddsV: number;
 
-      private _textColor: number = 0xffffff;
+      protected _textColor: number = 0xffffff;
 
-      private _cfmDenom: number[];
-      private _uncfmDenom: number[];
+      protected _cfmDenom: number[];
+      protected _uncfmDenom: number[];
 
-      private _type: we.core.BettingTableType;
-      private _betChipStack: BetChipStack;
+      protected _type: we.core.BettingTableType;
+      protected _betChipStack: BetChipStack;
+      protected _nameH: number;
+      protected _nameV: number;
 
-      private _getSelectedBetLimit: () => number;
-      private _getSelectedChipIndex: () => number;
+      protected _getSelectedBetLimit: () => number;
+      protected _getSelectedChipIndex: () => number;
 
-      private _betChipZIndex: number;
+      protected _betChipZIndex: number;
 
-      private _chipWidth: number;
-      private _chipHeight: number;
-      private _chipInterval: number;
-      private _chipType: number;
-      private _chipLabelOffset: number;
-      private _chipLabelSize: number;
-      private _totalCfmOffset: number;
-      private _totalUncfmOffset: number;
-      private _betSumBackgroundRes: string;
-      private _labelSize: number;
-      private _betSumBackgroundWidth: number;
-      private _betSumBackgroundHeight: number;
+      protected _chipWidth: number;
+      protected _chipHeight: number;
+      protected _chipInterval: number;
+      protected _chipType: number;
+      protected _chipLabelOffset: number;
+      protected _chipLabelSize: number;
+      protected _totalCfmOffset: number;
+      protected _totalUncfmOffset: number;
+      protected _betSumBackgroundRes: string;
+      protected _labelSize: number;
+      protected _betSumBackgroundWidth: number;
+      protected _betSumBackgroundHeight: number;
 
       constructor() {
         super();
@@ -64,6 +70,46 @@ namespace we {
 
       get denomLayer() {
         return this._denomLayer;
+      }
+
+      set odds(value: string) {
+        this._odds = value;
+      }
+
+      get odds() {
+        return this._odds;
+      }
+
+      set oddsV(value: number) {
+        this._oddsV = value;
+      }
+
+      get oddsV() {
+        return this._oddsV;
+      }
+
+      set oddsH(value: number) {
+        this._oddsH = value;
+      }
+
+      get oddsH() {
+        return this._oddsH;
+      }
+
+      set nameH(value: number) {
+        this._nameH = value;
+      }
+
+      get nameH() {
+        return this._nameH;
+      }
+
+      set nameV(value: number) {
+        this._nameV = value;
+      }
+
+      get nameV() {
+        return this._nameV;
       }
 
       protected onRollover(evt: egret.Event) {
@@ -352,7 +398,9 @@ namespace we {
       protected onAddToStage() {
         if (!this._denomLayer.contains(this._betChipStack)) {
           this._betChipStack.horizontalCenter = 0;
+
           this._betChipStack.verticalCenter = 0;
+
           this._betChipStack.chipHeight = this._chipHeight;
           this._betChipStack.chipWidth = this._chipWidth;
           this._betChipStack.chipInterval = this._chipInterval;
@@ -362,6 +410,24 @@ namespace we {
           this._betChipStack.betSumLabel.size = this._labelSize;
           this._betChipStack.betSumBackground.width = this._betSumBackgroundWidth;
           this._betChipStack.betSumBackground.height = this._betSumBackgroundHeight;
+          if (this._odds && this._lblOdds) {
+            this._lblOdds.text = this._odds;
+            if (this._oddsH) {
+              this._lblOdds.horizontalCenter = this._oddsH;
+            }
+            if (this._oddsV) {
+              this._lblOdds.verticalCenter = this._oddsV;
+            }
+          }
+          if (this._lblName) {
+            if (this._nameH) {
+              this._lblName.horizontalCenter = this._nameH;
+            }
+            if (this._nameV) {
+              this._lblName.verticalCenter = this._nameV;
+            }
+          }
+
           this._denomLayer.addChild(this._betChipStack);
         }
         if (this.parent) {

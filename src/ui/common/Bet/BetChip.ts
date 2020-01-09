@@ -19,29 +19,10 @@ namespace we {
         this.setGlowFilter();
       }
 
-      /*
-      set width(value: number) {
-        this.$setWidth(value);
-        if (this._chipImage) {
-          this._chipImage.width = value;
-        }
+      protected reviseError() {
+        this._chipValueLabel.verticalCenter = -0.03 * this.height;
       }
 
-      get width() {
-        return this.$getWidth();
-      }
-
-      set height(value: number) {
-        this.$setHeight(value);
-        if (this._chipImage) {
-          this._chipImage.height = value;
-        }
-      }
-
-      get height() {
-        return this.$getHeight();
-      }
-*/
       protected setGlowFilter(
         color: number = 0x33ccff,
         alpha: number = 0.8,
@@ -62,6 +43,7 @@ namespace we {
       protected mount() {
         // this.setValue(this._value);
         this.setValue(this._value, this._type);
+        this.reviseError();
       }
 
       public setValue(value: number, type: we.core.ChipType = null) {
