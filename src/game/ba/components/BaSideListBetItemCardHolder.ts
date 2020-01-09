@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BaSideListBetItemCardHolder extends CardHolder {
+    export class BaSideListBetItemCardHolder extends CardHolder implements ui.IResultDisplay {
       protected _playerPanel: eui.Image;
       protected _bankerPanel: eui.Image;
 

@@ -127,6 +127,10 @@ namespace we {
           goodroad: '好路',
         },
       },
+      dragontiger: {
+        dragon: 'Dragon',
+        tiger: 'Tiger',
+      },
       goodroad: {
         r1: '长庄',
         r2: '长闲',

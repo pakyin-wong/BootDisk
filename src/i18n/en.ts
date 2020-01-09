@@ -168,6 +168,10 @@ namespace we {
         noCommission: 'No Commision',
         clickToSeeVideo: 'Click to see video for this round',
       },
+      dragontiger: {
+        dragon: 'Dragon',
+        tiger: 'Tiger',
+      },
       message: {
         test: 'You won $1, and $2% will belongs to me',
         unknownError: 'An unknown error occurred',
