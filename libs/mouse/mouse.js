@@ -61,13 +61,18 @@ var mouse;
                 }
             }
             var $hitTest = egret.DisplayObjectContainer.prototype.$hitTest;
+            var touchChildrenLock = 0;
             egret.DisplayObjectContainer.prototype.$hitTest = function (stageX, stageY) {
+                !this.$touchChildren && touchChildrenLock++;
                 var rs = $hitTest.call(this, stageX, stageY);
-                if (rs != null) {
-                    detectRollOver(this);
-                    targetList.push(this);
-                } else {
-                    detectRollOut(this);
+                !this.$touchChildren && touchChildrenLock--;
+                if (touchChildrenLock == 0){
+                    if (rs != null) {
+                        detectRollOver(this);
+                        targetList.push(this);
+                    } else {
+                        detectRollOut(this);
+                    }
                 }
                 return rs;
             }

@@ -4,7 +4,7 @@ namespace we {
       public d: string;
       public t: string;
       public dragonpoint: number = 0;
-      public playerpoint: number = 0;
+      public tigerpoint: number = 0;
     }
   }
 }

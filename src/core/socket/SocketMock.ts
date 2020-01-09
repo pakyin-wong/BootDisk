@@ -17,7 +17,7 @@ namespace we {
         this.balance_index = 0;
 
         this.tables = this.generateBaccaratTables(6);
-        // this.tables = [...this.tables, ...this.generateDragonTigerTables(3)];
+        this.tables = [...this.tables, ...this.generateDragonTigerTables(3)];
 
         setInterval(() => {
           // mock error

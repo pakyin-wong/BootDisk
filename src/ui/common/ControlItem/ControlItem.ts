@@ -3,7 +3,7 @@ namespace we {
   export namespace ba {
     // base control class that hold and manage the basic item in Ba Item
     export class ControlItem extends ui.TableListItem {
-      protected _bettingTable: ui.BettingTable;
+      protected _bettingTable: BettingTable;
       protected _betChipSet: ui.IBetChipSet & core.BaseEUI;
       protected _cardHolder: CardHolder;
       protected _confirmButton: eui.Button;
@@ -58,12 +58,12 @@ namespace we {
       protected initBettingTable() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._bettingTable) {
-          this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
-          this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
           this._bettingTable.type = we.core.BettingTableType.NORMAL;
           this._bettingTable.denomList = denominationList;
           this._bettingTable.undoStack = this._undoStack;
           this._bettingTable.init();
+          this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
+          this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
         }
       }
 

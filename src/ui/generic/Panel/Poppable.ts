@@ -13,6 +13,7 @@ namespace we {
       public dismissOnClickOutside: boolean = false;
       public hideOnStart: boolean = true;
       public isShow: boolean;
+      public isFocusItem: boolean = true;
       protected target: egret.DisplayObject & IPoppable;
       protected toggler: egret.DisplayObject;
       private isAnimating: boolean = false;
@@ -93,12 +94,18 @@ namespace we {
         if (!this.isShow) {
           return;
         }
+
+        const c = this.target.stage['inFocusItems'];
+        if (c.length > 0 && c[c.length - 1] !== this.target) {
+          return;
+        }
+
         if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY)) {
           this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         } else if (this.target.hitTestPoint(e.stageX, e.stageY)) {
           return;
-        } else if (this.dismissOnClickOutside && !this.target.stage['inFocus']) {
+        } else if (this.dismissOnClickOutside) {
           this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
         }
@@ -109,6 +116,7 @@ namespace we {
           return;
         }
         this.isShow = true;
+        this.isFocusItem && this.target.stage['inFocusItems'].push(this.target);
         await this.onShow(skipAnimation);
         this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
       }
@@ -117,6 +125,13 @@ namespace we {
         if (!skipAnimation && this.isAnimating) {
           return;
         }
+
+        this.target.stage['inFocusItems'] = this.target.stage['inFocusItems'].filter(
+          function (i) {
+            return i !== this.target;
+          }.bind(this)
+        );
+
         if (this.target && this.target.stage) {
           this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
         }

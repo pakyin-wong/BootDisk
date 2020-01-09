@@ -61,6 +61,16 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: 'All',
 
+      datePicker_clean: 'Clean',
+      datePicker_confirm: 'Confirm',
+      datePicker_weekday_0: 'Su',
+      datePicker_weekday_1: 'Mo',
+      datePicker_weekday_2: 'Tu',
+      datePicker_weekday_3: 'We',
+      datePicker_weekday_4: 'Th',
+      datePicker_weekday_5: 'Fr',
+      datePicker_weekday_6: 'Sa',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
@@ -167,6 +177,10 @@ namespace we {
         cancelRemoveGoodRoad: 'Cancel',
         noCommission: 'No Commision',
         clickToSeeVideo: 'Click to see video for this round',
+      },
+      dragontiger: {
+        dragon: 'Dragon',
+        tiger: 'Tiger',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
