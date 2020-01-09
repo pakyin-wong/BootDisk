@@ -25,8 +25,11 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-
         this.initRoadMap();
+        this._roadmapControl.updateRoadData(this._tableInfo.roadmap);
+        if (this._tableInfo.betInfo) {
+          this._roadmapLeftPanel.setGameInfo(this._tableInfo.betInfo.gameroundid, this._tableInfo.betInfo.total);
+        }
 
         this._bettingTable.type = we.core.BettingTableType.NORMAL;
 
@@ -40,14 +43,6 @@ namespace we {
 
       protected onBaModeToggle(evt: eui.UIEvent) {
         this._bettingTable.setGameMode(this._switchBaMode.selected);
-      }
-
-      protected setupTableInfo() {
-        super.setupTableInfo();
-        this._roadmapControl.updateRoadData(this._tableInfo.roadmap);
-        if (this._tableInfo.betInfo) {
-          this._roadmapLeftPanel.setGameInfo(this._tableInfo.betInfo.gameroundid, this._tableInfo.betInfo.total);
-        }
       }
 
       protected initRoadMap() {
@@ -76,7 +71,7 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         // console.log('BaccaratScene::onRoadDataUpdate');
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         if (tableInfo.tableid === this._tableId) {
           this._bettingTable.tableId = this._tableId;
           if (tableInfo.roadmap) {
