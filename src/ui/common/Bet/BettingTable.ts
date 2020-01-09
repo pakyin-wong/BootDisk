@@ -436,17 +436,6 @@ namespace we {
         Object.keys(ba.BetField).map(value => {
           this._uncfmBetDetails.push({ field: value, amount: 0 });
         });
-        /*
-        this._uncfmBetDetails = [
-          { field: ba.BetField.BANKER, amount: 0 },
-          { field: ba.BetField.PLAYER, amount: 0 },
-          { field: ba.BetField.TIE, amount: 0 },
-          { field: ba.BetField.BANKER_PAIR, amount: 0 },
-          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
-          { field: ba.BetField.SUPER_SIX, amount: 0 },
-          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
-        ];
-        */
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
             // TODO To be filled
@@ -461,17 +450,6 @@ namespace we {
         Object.keys(ba.BetField).map(value => {
           this._uncfmBetDetails.push({ field: value, amount: 0 });
         });
-        /*
-        this._uncfmBetDetails = [
-          { field: ba.BetField.BANKER, amount: 0 },
-          { field: ba.BetField.PLAYER, amount: 0 },
-          { field: ba.BetField.TIE, amount: 0 },
-          { field: ba.BetField.BANKER_PAIR, amount: 0 },
-          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
-          { field: ba.BetField.SUPER_SIX, amount: 0 },
-          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
-        ];
-        */
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
             this.mapping[value].setUncfmBet(0);
@@ -485,17 +463,6 @@ namespace we {
         Object.keys(ba.BetField).map(value => {
           this.betDetails.push({ field: value, amount: 0 });
         });
-        /*
-        this.betDetails = [
-          { field: ba.BetField.BANKER, amount: 0 },
-          { field: ba.BetField.PLAYER, amount: 0 },
-          { field: ba.BetField.TIE, amount: 0 },
-          { field: ba.BetField.BANKER_PAIR, amount: 0 },
-          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
-          { field: ba.BetField.SUPER_SIX, amount: 0 },
-          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
-        ];
-        */
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
             this.mapping[value].setCfmBet(0);
