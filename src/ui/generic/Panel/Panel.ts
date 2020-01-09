@@ -62,6 +62,11 @@ namespace we {
       public get dismissOnClickOutside(): boolean {
         return this._dismissOnClickOutside;
       }
+
+      public set isFocusItem(value: boolean) {
+        this.poppableAddon.isFocusItem = value;
+      }
+
       public set hideOnStart(value: boolean) {
         this._hideOnStart = value;
         this.poppableAddon.hideOnStart = value;

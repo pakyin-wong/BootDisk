@@ -20,7 +20,7 @@ namespace we {
       private _start;
       private _end;
 
-      public range = 8;
+      public range = 7;
 
       constructor() {
         super('overlay/DoubleCalendarPicker');
@@ -29,6 +29,11 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.hideOnStart = true;
+        this.dismissOnClickOutside = true;
+        this.isPoppable = true;
+        this.isFocusItem = true;
+
         this._btn_clean.text = `${i18n.t('datePicker_clean')}`;
         this._btn_confirm.label.text = `${i18n.t('datePicker_confirm')}`;
 
@@ -75,6 +80,7 @@ namespace we {
         this._calender_prev.$addListener('PICKED_DATE', this.datePicked, this);
         this._btn_clean.$addListener('CLICKED', this.cleanClicked, this);
         this._btn_confirm.$addListener('CLICKED', this.confirmClicked, this);
+        this.$addListener('close', this.confirmClicked, this);
       }
 
       protected removeListeners() {
@@ -84,6 +90,7 @@ namespace we {
         this._calender_prev.removeEventListener('PICKED_DATE', this.datePicked, this);
         this._btn_clean.removeEventListener('CLICKED', this.cleanClicked, this);
         this._btn_confirm.removeEventListener('CLICKED', this.confirmClicked, this);
+        this.removeEventListener('close', this.confirmClicked, this);
       }
 
       protected nextClicked() {

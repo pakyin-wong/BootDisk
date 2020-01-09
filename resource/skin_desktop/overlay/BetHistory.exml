@@ -34,6 +34,6 @@
 			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle" textAlign="center" fontFamily="Barlow" size="28"/>
 		</e:Group>
 		<ui:Panel id="_ddm_page" width="123" x="1009" bottom="65" maxHeight="300" skinName="skin_desktop.NavDropdown"/>
-		<overlay:DoubleCalendarPicker id="_datepicker" width="1207" height="718" horizontalCenter="0" verticalCenter="0" isPoppable="true" hideOnStart="true"/>
+		<overlay:DoubleCalendarPicker id="_datepicker" width="1207" height="718" horizontalCenter="0" verticalCenter="0"/>
 	</e:Group>
 </e:Skin>
