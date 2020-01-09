@@ -162,8 +162,11 @@ namespace we {
 
         const blendShape = new eui.Image();
         blendShape.source = RES.getRes('Mask_test_png');
+        blendShape.width = this.stage.stageWidth;
+        blendShape.height = this.stage.stageHeight;
         this.addChild(blendShape);
-        blendShape.blendMode = egret.BlendMode.ERASE;
+        this.mask = blendShape;
+        // blendShape.blendMode = egret.BlendMode.ADD;
 
         // // texture merger
         // const startJson = RES.getRes('start_json');
