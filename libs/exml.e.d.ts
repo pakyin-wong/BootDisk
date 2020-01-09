@@ -208,6 +208,10 @@ declare class ImageButtonSkinDialog extends eui.Skin{
 }
 declare class ImageButtonSkinEmpty extends eui.Skin{
 }
+declare module skin_desktop{
+	class ImageButtonSkinGoodRoad extends eui.Skin{
+	}
+}
 declare class ImageButtonSkinLobby extends eui.Skin{
 }
 declare module skin_desktop{

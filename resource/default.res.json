@@ -1027,24 +1027,24 @@
 			"name": "d_lobby_Icon_setting_normal_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_button_add_road_banker copy.png",
+			"url": "assets/d/lobby/d_lobby_button_add_road_banker.png",
 			"type": "image",
-			"name": "d_lobby_button_add_road_banker copy_png"
+			"name": "d_lobby_button_add_road_banker_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_button_add_road_player copy.png",
+			"url": "assets/d/lobby/d_lobby_button_add_road_player.png",
 			"type": "image",
-			"name": "d_lobby_button_add_road_player copy_png"
+			"name": "d_lobby_button_add_road_player_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_button_clear_road copy.png",
+			"url": "assets/d/lobby/d_lobby_button_clear_road.png",
 			"type": "image",
-			"name": "d_lobby_button_clear_road copy_png"
+			"name": "d_lobby_button_clear_road_png"
 		},
 		{
-			"url": "assets/d/lobby/d_lobby_button_deduct copy.png",
+			"url": "assets/d/lobby/d_lobby_button_deduct.png",
 			"type": "image",
-			"name": "d_lobby_button_deduct copy_png"
+			"name": "d_lobby_button_deduct_png"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_button_down_hover.png",

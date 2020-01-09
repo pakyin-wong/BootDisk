@@ -5,14 +5,14 @@ namespace we {
       public itemIndex: number;
 
       private _bigRoad: we.ba.GoodRoadmapEdit;
-      private _bankerButton: ui.RoundButton;
-      private _playerButton: ui.RoundButton;
+      private _bankerButton: ui.BaseImageButton;
+      private _playerButton: ui.BaseImageButton;
       private _textBg: eui.Rect;
       private _titleLabel: eui.EditableText;
-      private _clearButton: ui.RoundButton;
-      private _removeButton: ui.RoundButton;
-      private _removeAllButton: ui.RoundButton;
-      private _saveButton: ui.RoundButton;
+      private _clearButton: ui.BaseImageButton;
+      private _removeButton: ui.BaseImageButton;
+      private _removeAllButton: ui.BaseImageButton;
+      private _saveButton: ui.BaseImageButton;
       private _bigRoadMask: eui.Rect;
 
       private roadId: string;
