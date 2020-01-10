@@ -12,7 +12,7 @@
 	                     hoverRes="d_dt_betarea_tie_normal_png" chipWidth="100" chipHeight="100" chipInterval="7"
 	                     totalCfmOffset="50" totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png"
 	                     labelSize="18" betSumBackgroundWidth="100" betSumBackgroundHeight="30" betChipZIndex="1010"
-	                     hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30" chipType="2" odds="0.95:1"
+	                     hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30" chipType="2" odds="8:1"
 						  oddsV="20" nameV="-20"/>
 	<ui:BettingTableGrid id="_gridTiger" skinName="skin_desktop.BettingTableGridSkin" x="764" y="0" width="382"
 	                     height="304" imageRes="d_dt_betarea_tiger_normal_png"
@@ -20,7 +20,7 @@
 	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
 	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
-	                     chipType="2" odds="11:1"  oddsV="15" nameV="-15"/>
+	                     chipType="2" odds="1:1"  oddsV="15" nameV="-15"/>
 	
 	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
 	        locked="true" />

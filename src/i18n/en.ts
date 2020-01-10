@@ -147,6 +147,7 @@ namespace we {
         goodroad: 'Good Road',
         allgame: 'All Game',
       },
+
       baccarat: {
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
@@ -181,6 +182,9 @@ namespace we {
       dragontiger: {
         dragon: 'Dragon',
         tiger: 'Tiger',
+        dragonShort: 'D',
+        tigerShort: 'T',
+        tieShort: 'T',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

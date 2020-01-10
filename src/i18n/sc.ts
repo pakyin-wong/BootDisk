@@ -130,6 +130,9 @@ namespace we {
       dragontiger: {
         dragon: 'Dragon',
         tiger: 'Tiger',
+        dragonShort: '龙',
+        tigerShort: '虎',
+        tieShort: '和',
       },
       goodroad: {
         r1: '长庄',

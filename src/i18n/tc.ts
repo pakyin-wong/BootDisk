@@ -181,6 +181,9 @@ namespace we {
       dragontiger: {
         dragon: 'Dragon',
         tiger: 'Tiger',
+        dragonShort: '龍',
+        tigerShort: '虎',
+        tieShort: '和',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

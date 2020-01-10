@@ -20,9 +20,9 @@ namespace we {
 
       protected changeLang() {
         super.changeLang();
-        this._gridDragon.text = i18n.t('baccarat.player');
-        this._gridTiger.text = i18n.t('baccarat.banker');
-        this._gridTie.text = i18n.t('baccarat.tie');
+        this._gridDragon.text = i18n.t('dragontiger.dragonShort');
+        this._gridTiger.text = i18n.t('dragontiger.tigerShort');
+        this._gridTie.text = i18n.t('dragontiger.tieShort');
       }
 
       protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
