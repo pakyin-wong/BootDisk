@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BaccaratScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
+<e:Skin class="skin_desktop.DragonTigerScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:w="http://ns.egret.com/wing"
+        xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0" locked="true" />
 	<ba:BettingTable id="_bettingTable" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
@@ -22,7 +23,7 @@
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBacarrat" currentState="b_repeat" />
 	</e:Group>
-	<ba:CardHolder id="_resultDisplay" width="412" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"
+	<dt:CardHolder id="_resultDisplay" width="742" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"
 	               anchorOffsetY="0" />
 	<ba:BARoadmapLeftPanel id="_roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
 	                       anchorOffsetY="0" />

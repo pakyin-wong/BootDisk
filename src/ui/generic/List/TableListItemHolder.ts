@@ -89,7 +89,19 @@ namespace we {
           return;
         }
         dir.socket.enterTable(this.itemData);
-        dir.sceneCtr.goto('ba', { tableid: this.itemData });
+        this.gotoScene();
+      }
+
+      protected gotoScene() {
+        const gameType = env.tableInfos[this.itemData].gametype;
+        switch (gameType) {
+          case core.GameType.BAC:
+            dir.sceneCtr.goto('ba', { tableid: this.itemData });
+            break;
+          case core.GameType.DT:
+            dir.sceneCtr.goto('dt', { tableid: this.itemData });
+            break;
+        }
       }
     }
   }

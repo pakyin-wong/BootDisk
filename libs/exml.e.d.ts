@@ -184,6 +184,10 @@ declare module skin_desktop{
 	class DropdownItem extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class DragonTigerScene extends eui.Skin{
+	}
+}
 declare module skin_desktop.dt{
 	class CardHolderSkin extends eui.Skin{
 	}
