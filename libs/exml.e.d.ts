@@ -47,7 +47,7 @@ declare module skins_desktop{
 	}
 }
 declare module skin_desktop{
-	class BettingTableSkin extends eui.Skin{
+	class BaBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -182,6 +182,10 @@ declare class SidePanelAllGameDropdownSkin extends eui.Skin{
 }
 declare module skin_desktop{
 	class DropdownItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DtBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

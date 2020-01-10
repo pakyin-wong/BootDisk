@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BettingTableSkin" width="1146" height="204" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.BaBettingTableSkin" width="1146" height="204" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal,SuperSix">
 	<ui:BettingTableGrid id="_gridPlayer" skinName="skin_desktop.BettingTableGridSkin" x="0" y="0" width="573" height="191"
 	                     imageRes="d_ba_betarea_player_normal_png" hoverRes="d_ba_betarea_player_hover_png" chipWidth="100"
@@ -50,5 +50,5 @@
 	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
 	                     chipType="2" odds="12:1"  oddsV="15" nameV="-15"/>
 	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
-	        locked="true" />
+	         locked="true"/>
 </e:Skin>

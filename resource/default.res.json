@@ -31,6 +31,10 @@
 		{
 			"keys": "Icon_ske_json,Sound_Off_Line_png,Sound_On_Line_png,Sound_On_png",
 			"name": "test"
+		},
+		{
+			"keys": "d_dt_betarea_dragon_normal_png,d_dt_betarea_tie_normal_png,d_dt_betarea_tiger_normal_png",
+			"name": "scene_dragontiger"
 		}
 	],
 	"resources": [
@@ -2543,6 +2547,21 @@
 			"url": "assets/library/Icon_ske.json",
 			"type": "json",
 			"name": "Icon_ske_json"
+		},
+		{
+			"url": "assets/d/dt/d_dt_betarea_dragon_normal.png",
+			"type": "image",
+			"name": "d_dt_betarea_dragon_normal_png"
+		},
+		{
+			"url": "assets/d/dt/d_dt_betarea_tie_normal.png",
+			"type": "image",
+			"name": "d_dt_betarea_tie_normal_png"
+		},
+		{
+			"url": "assets/d/dt/d_dt_betarea_tiger_normal.png",
+			"type": "image",
+			"name": "d_dt_betarea_tiger_normal_png"
 		}
 	]
 }
