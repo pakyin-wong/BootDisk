@@ -9,6 +9,7 @@ namespace we {
       protected _getSelectedBetLimitIndex: () => number;
       protected _undoStack: we.utils.UndoStack;
       protected mapping: { [s: string]: BettingTableGrid };
+      protected _betField: any;
 
       protected _uncfmBetDetails: data.BetDetail[];
       protected totalUncfmBetAmount: number;
@@ -24,6 +25,14 @@ namespace we {
       }
 
       public onTableListUpdate() {}
+
+      set betField(value: any) {
+        this._betField = value;
+      }
+
+      get betField() {
+        return this._betField;
+      }
 
       set denomList(value: number[]) {
         this._denomList = value;
@@ -433,7 +442,7 @@ namespace we {
 
       public pushUnconfirmedBetToWaitingConfirmBet() {
         this._uncfmBetDetails = new Array();
-        Object.keys(ba.BetField).map(value => {
+        Object.keys(this._betField).map(value => {
           this._uncfmBetDetails.push({ field: value, amount: 0 });
         });
         if (this.mapping) {
@@ -447,7 +456,7 @@ namespace we {
 
       public resetUnconfirmedBet() {
         this._uncfmBetDetails = new Array();
-        Object.keys(ba.BetField).map(value => {
+        Object.keys(this._betField).map(value => {
           this._uncfmBetDetails.push({ field: value, amount: 0 });
         });
         if (this.mapping) {
@@ -460,7 +469,7 @@ namespace we {
 
       public resetConfirmedBet() {
         this.betDetails = new Array();
-        Object.keys(ba.BetField).map(value => {
+        Object.keys(this._betField).map(value => {
           this.betDetails.push({ field: value, amount: 0 });
         });
         if (this.mapping) {

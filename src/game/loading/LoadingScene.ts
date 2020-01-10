@@ -117,7 +117,7 @@ namespace we {
 
       /** Step 6: load general resource (lobby, baccarat) */
       private async loadGeneralRes() {
-        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.Common, core.res.Nav, 'temp', 'test']);
+        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Common, core.res.Nav, 'temp', 'test']);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
         this._progressbar.minimum = 0;

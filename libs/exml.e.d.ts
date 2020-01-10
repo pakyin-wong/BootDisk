@@ -38,8 +38,16 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class BaccaratScene extends eui.Skin{
+	}
+}
 declare module skins_desktop{
 	class BetConfirmButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -52,6 +60,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class InGameMessageSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class AlreadyBetCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -71,10 +87,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BaccaratScene extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BaLiveListItemBettingTableSkin extends eui.Skin{
 	}
 }
@@ -88,10 +100,6 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BARoadmapLeftPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class AlreadyBetCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -139,15 +147,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BettingTableSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BettingTableGridSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -182,6 +182,22 @@ declare class SidePanelAllGameDropdownSkin extends eui.Skin{
 }
 declare module skin_desktop{
 	class DropdownItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DtBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class AlreadyBetCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.dt.AlreadyBetCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:w="http://ns.egret.com/wing" width="339">
+        <e:Group id="dragonSumGroup" left="0" width="169" height="100%">
+                <e:Image source="d_lobby_panel_gamelist_betresult_player_png" width="40" right="0" height="100%" y="0" />
+                <e:Image id="_dragonPanel" source="d_lobby_panel_gamelist_betresult_playbg_png" width="129" left="0"
+                         height="100%" y="0" />
+                <e:Label id="dragonSum" text="" fontFamily="Barlow" textAlign="center" right="10" y="60" />
+                <ui:RunTimeLabel id="lblDragonName" text="閒" right="5" y="20" />
+                <ui:Card id="cardDragon" width="60" height="80" right="74" verticalCenter="0" />
+        </e:Group>
+        <e:Group id="tigerSumGroup" right="0" width="170" height="100%">
+                <e:Image source="d_lobby_panel_gamelist_betresult_banker_png" width="40" height="100%" />
+                <e:Image id="_tigerPanel" source="d_lobby_panel_gamelist_betresult_bankerbg_png" width="130" right="0"
+                         height="100%" y="0" />
+                <e:Label id="tigerSum" text="" x="10" y="60" fontFamily="Barlow" textAlign="center" />
+                <ui:RunTimeLabel id="lblTigerName" text="莊" x="5" y="20" />
+                <ui:Card id="cardTiger" width="60" height="80" verticalCenter="0" x="76" />
+        </e:Group>
+</e:Skin>

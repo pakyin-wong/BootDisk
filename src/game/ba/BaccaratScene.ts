@@ -20,7 +20,7 @@ namespace we {
       }
 
       protected setSkinName() {
-        this.skinName = utils.getSkin('BaccaratScene');
+        this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
       protected initChildren() {

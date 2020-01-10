@@ -11,6 +11,7 @@ namespace we {
 
       constructor() {
         super();
+        this._betField = ba.BetField;
       }
 
       protected createMapping() {

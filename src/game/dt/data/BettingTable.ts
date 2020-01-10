@@ -7,6 +7,7 @@ namespace we {
 
       constructor() {
         super();
+        this._betField = dt.BetField;
       }
 
       protected createMapping() {

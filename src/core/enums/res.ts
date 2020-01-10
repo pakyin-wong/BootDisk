@@ -7,6 +7,7 @@ namespace we {
       Loading: 'scene_loading',
       Lobby: 'scene_lobby',
       Baccarat: 'scene_baccarat',
+      DragonTiger: 'scene_dragontiger',
     };
   }
 }

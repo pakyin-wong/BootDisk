@@ -20,7 +20,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkin('CardHolder');
+        this.skinName = utils.getSkinByClassname('ba.CardHolderSkin');
       }
 
       protected childrenCreated() {

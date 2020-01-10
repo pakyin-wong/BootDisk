@@ -1,6 +1,6 @@
 namespace we {
   export namespace dt {
-    export class BaSideListBetItemCardHolder extends CardHolder implements ui.IResultDisplay {
+    export class SideListBetItemCardHolder extends CardHolder implements ui.IResultDisplay {
       protected _dragonPanel: eui.Image;
       protected _tigerPanel: eui.Image;
 
@@ -9,7 +9,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkin('BaSideListBetItemCardHolder');
+        this.skinName = utils.getSkinByClassname('dt.AlreadyBetCardHolderSkin');
 
         this.lblDragonName.renderText = () => `${i18n.t('dragontiger.dragon')}`;
         this.lblTigerName.renderText = () => `${i18n.t('dragontiger.tiger')}`;

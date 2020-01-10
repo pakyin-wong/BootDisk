@@ -9,9 +9,9 @@ namespace we {
       private balance_index: number;
       private mockProcesses: MockProcess[] = [];
 
-      constructor() {
-        const tableCount = 6;
+      private _tempIdx: number = 0;
 
+      constructor() {
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
@@ -64,7 +64,7 @@ namespace we {
       protected generateBaccaratTables(count) {
         const tables = Array.apply(null, { length: count }).map((value, idx) => {
           const data = new we.data.TableInfo();
-          data.tableid = (idx + 1).toString();
+          data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData;
@@ -97,7 +97,7 @@ namespace we {
       protected generateDragonTigerTables(count) {
         const tables = Array.apply(null, { length: count }).map((value, idx) => {
           const data = new we.data.TableInfo();
-          data.tableid = (idx + 1).toString();
+          data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData;

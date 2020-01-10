@@ -76,7 +76,7 @@ namespace we {
         this._odds = value;
       }
 
-      get odds() {
+      get odds(): string {
         return this._odds;
       }
 
@@ -84,7 +84,7 @@ namespace we {
         this._oddsV = value;
       }
 
-      get oddsV() {
+      get oddsV(): number {
         return this._oddsV;
       }
 
@@ -92,7 +92,7 @@ namespace we {
         this._oddsH = value;
       }
 
-      get oddsH() {
+      get oddsH(): number {
         return this._oddsH;
       }
 
