@@ -1,0 +1,1 @@
+{"name":"Icon","imagePath":"Icon_tex.png","SubTexture":[{"name":"Sound_On","x":27,"height":26,"y":1,"width":19},{"name":"Sound_On_Line","x":48,"height":12,"frameWidth":5,"y":1,"frameY":-1,"frameHeight":14,"frameX":-1,"width":3},{"name":"Sound_Off_Line","x":1,"height":24,"frameWidth":26,"y":1,"frameY":-1,"frameHeight":26,"frameX":-1,"width":24}],"height":32,"width":64}

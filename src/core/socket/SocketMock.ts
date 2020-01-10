@@ -128,7 +128,7 @@ namespace we {
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
-        callback.call(thisArg, { Tips: ['mock'] });
+        callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
       }
 
       public connect() {

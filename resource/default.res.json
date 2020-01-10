@@ -29,7 +29,7 @@
 			"name": "scene_loading"
 		},
 		{
-			"keys": "Icon_ske_json,Sound_Off_Line_png,Sound_On_Line_png,Sound_On_png",
+			"keys": "Icon_ske_json,Sound_Off_Line_png,Sound_On_Line_png,Sound_On_png,Icon2_tex_png,Icon2_tex_json,Icon2_ske_json",
 			"name": "test"
 		}
 	],
@@ -2543,6 +2543,21 @@
 			"url": "assets/library/Icon_ske.json",
 			"type": "json",
 			"name": "Icon_ske_json"
+		},
+		{
+			"url": "assets/librarysp/Icon_tex.png",
+			"type": "image",
+			"name": "Icon2_tex_png"
+		},
+		{
+			"url": "assets/librarysp/Icon_ske.json",
+			"type": "json",
+			"name": "Icon2_ske_json"
+		},
+		{
+			"url": "assets/librarysp/Icon_tex.json",
+			"type": "json",
+			"name": "Icon2_tex_json"
 		}
 	]
 }

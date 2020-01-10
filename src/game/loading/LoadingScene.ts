@@ -57,8 +57,7 @@ namespace we {
           this._tip.messages = res.Tips;
           // preload loading scene banner images
           this._bannerImages = await Promise.all<egret.Texture>(
-            ['https://na.cx/i/9eSXOM6.jpg'].map(
-              // res.Bannerurls.map(
+            res.Bannerurls.map(
               url =>
                 new Promise(resolve => {
                   const loader = new egret.ImageLoader();
