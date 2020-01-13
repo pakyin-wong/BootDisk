@@ -13,7 +13,8 @@ namespace we {
       public dismissOnClickOutside: boolean = false;
       public hideOnStart: boolean = true;
       public isShow: boolean;
-      public isFocusItem: boolean = true;
+      public isFocusItem: boolean = false;
+      public inFocusIdx: number = 0;
       protected target: egret.DisplayObject & IPoppable;
       protected toggler: egret.DisplayObject;
       private isAnimating: boolean = false;
@@ -96,7 +97,7 @@ namespace we {
         }
 
         const c = this.target.stage['inFocusItems'];
-        if (c.length > 0 && c[c.length - 1] !== this.target) {
+        if (c.length > this.inFocusIdx && c[c.length - 1] !== this.target) {
           return;
         }
 
@@ -117,6 +118,7 @@ namespace we {
         }
         this.isShow = true;
         this.isFocusItem && this.target.stage['inFocusItems'].push(this.target);
+        this.inFocusIdx = this.target.stage['inFocusItems'].length;
         await this.onShow(skipAnimation);
         this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
       }
