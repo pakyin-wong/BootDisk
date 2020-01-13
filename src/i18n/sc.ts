@@ -128,8 +128,9 @@ namespace we {
         },
       },
       dragontiger: {
-        dragon: 'Dragon',
-        tiger: 'Tiger',
+        dragon: '龙',
+        tiger: '虎',
+        tie: '和',
         dragonShort: '龙',
         tigerShort: '虎',
         tieShort: '和',

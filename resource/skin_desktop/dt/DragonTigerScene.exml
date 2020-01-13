@@ -4,8 +4,8 @@
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0" locked="true" />
-	<dt:BettingTable id="_bettingTable" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
-	                 skinName="skin_desktop.DtBettingTableSkin" />
+	<dt:BettingTable id="_bettingTable" width="1146" height="304" y="1020" isEdgeDismissable="true"
+	                 skinName="skin_desktop.DtBettingTableSkin" x="723" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="939.13">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="0" anchorOffsetX="0" anchorOffsetY="0"
@@ -23,7 +23,7 @@
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBacarrat" currentState="b_repeat" />
 	</e:Group>
-	<dt:CardHolder id="_resultDisplay" width="742" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"
+	<dt:CardHolder id="_resultDisplay" width="762" height="152" y="1031" horizontalCenter="-3" anchorOffsetX="0"
 	               anchorOffsetY="0" />
 	<ba:BARoadmapLeftPanel id="_roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
 	                       anchorOffsetY="0" />
@@ -45,9 +45,9 @@
 	<ui:InGameMessage id="_message" x="1300.5" y="911.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
-	<ui:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
-	                   skinName="skin_desktop.TableInfoPanel" isEdgeDismissable="true" dismissOnClickOutside="false"
-	                   isDraggable="true" hideOnStart="true" anchorOffsetY="0" />
+	<dt:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
+	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
+	                   anchorOffsetY="0" skinName="skin_desktop.dt.TableInfoPanel" />
 	<e:Group height="50" x="2274" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="304">
 		<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
 		<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88.32999999999993" y="28.83000000000004" scaleX="1" scaleY="1" />

@@ -96,6 +96,8 @@ namespace we {
         const gameType = env.tableInfos[this.itemData].gametype;
         switch (gameType) {
           case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
             dir.sceneCtr.goto('ba', { tableid: this.itemData });
             break;
           case core.GameType.DT:

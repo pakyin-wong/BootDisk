@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dt.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
-        xmlns:w="http://ns.egret.com/wing" width="742" height="140">
+        xmlns:w="http://ns.egret.com/wing" width="762" height="140">
         <e:Rect width="2" height="100%" fillColor="0x00ffff" horizontalCenter="0" visible="false" />
         <e:Group left="20">
                 <e:Rect width="160" height="40" fillAlpha="0.3" ellipseWidth="50" ellipseHeight="50" />

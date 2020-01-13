@@ -1,35 +1,23 @@
 namespace we {
   export namespace ui {
     export class TableInfoPanel extends Panel {
-      private _visible;
-      private _initY;
+      protected _visible;
+      protected _initY;
       public close: eui.Label;
       public content: eui.Group;
       public moveArea: eui.Component;
 
-      private lblTableInfo: eui.Label;
+      protected lblTableInfo: eui.Label;
 
-      private tableNoLabel: eui.Label;
-      private roundNoLabel: eui.Label;
-      private dealerLabel: eui.Label;
-      private timeLabel: eui.Label;
+      protected tableNoLabel: eui.Label;
+      protected roundNoLabel: eui.Label;
+      protected dealerLabel: eui.Label;
+      protected timeLabel: eui.Label;
 
-      private bankerLabel: eui.Label;
-      private playerLabel: eui.Label;
-      private tieLabel: eui.Label;
-      private bankerPairLabel: eui.Label;
-      private playerPairLabel: eui.Label;
-
-      private pTableID: eui.Label;
-      private pRoundID: eui.Label;
-      private pDealer: eui.Label;
-      private pTime: eui.Label;
-
-      private pBanker: eui.Label;
-      private pPlayer: eui.Label;
-      private pTie: eui.Label;
-      private pBankerPair: eui.Label;
-      private pPlayerPair: eui.Label;
+      protected pTableID: eui.Label;
+      protected pRoundID: eui.Label;
+      protected pDealer: eui.Label;
+      protected pTime: eui.Label;
 
       public constructor() {
         super();
@@ -67,11 +55,6 @@ namespace we {
         this.dealerLabel.text = i18n.t('baccarat.dealer');
         this.timeLabel.text = i18n.t('baccarat.time');
         this.lblTableInfo.text = i18n.t('baccarat.tableInfo');
-        this.bankerLabel.text = i18n.t('baccarat.banker');
-        this.playerLabel.text = i18n.t('baccarat.player');
-        this.tieLabel.text = i18n.t('baccarat.tie');
-        this.bankerPairLabel.text = i18n.t('baccarat.bankerPair');
-        this.playerPairLabel.text = i18n.t('baccarat.playerPair');
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -79,13 +62,6 @@ namespace we {
         this.pRoundID.text = tableInfo.data.gameroundid;
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
         this.pTime.text = moment(env.currTime).format('YYYY/MM/DD');
-        if (tableInfo.gamestatistic) {
-          this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
-          this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
-          this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
-          this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-          this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
-        }
       }
     }
   }

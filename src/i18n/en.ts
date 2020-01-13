@@ -182,9 +182,10 @@ namespace we {
       dragontiger: {
         dragon: 'Dragon',
         tiger: 'Tiger',
-        dragonShort: 'D',
-        tigerShort: 'T',
-        tieShort: 'T',
+        tie: 'Tie',
+        dragonShort: 'Dn',
+        tigerShort: 'Tr',
+        tieShort: 'Ti',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

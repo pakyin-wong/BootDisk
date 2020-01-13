@@ -78,6 +78,10 @@ declare module skin_desktop{
 	class SidePanelGameResultWinSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ba{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
 	}
@@ -198,6 +202,10 @@ declare module skin_desktop.dt{
 }
 declare module skin_desktop.dt{
 	class AlreadyBetCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class TableInfoPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -350,14 +358,6 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class SwitchLang extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class TableInfoPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class TableInfoWindow extends eui.Skin{
 	}
 }
 declare module skin_desktop{

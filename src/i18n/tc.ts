@@ -179,8 +179,9 @@ namespace we {
         clickToSeeVideo: '點擊播放本局視頻',
       },
       dragontiger: {
-        dragon: 'Dragon',
-        tiger: 'Tiger',
+        dragon: '龍',
+        tiger: '虎',
+        tie: '和',
         dragonShort: '龍',
         tigerShort: '虎',
         tieShort: '和',
