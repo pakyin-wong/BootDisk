@@ -213,6 +213,20 @@ namespace we {
 
       public removeGoodRoadmap(id: string) {}
 
+      public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
+        callback({
+          logourl: '', // logo image url
+          homeherobanners: [],
+          homelargebanners: [],
+          homebanners: [],
+          liveherobanners: [],
+          lotteryherobanners: [],
+          egameherobanners: [],
+          favouriteherobanners: [],
+          messages: [],
+        });
+      }
+
       public balanceEvent(myObj: any) {
         if (myObj.balance_index < myObj.balances.length) {
           env.balance = myObj.balances[myObj.balance_index];

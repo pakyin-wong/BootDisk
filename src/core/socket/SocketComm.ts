@@ -82,6 +82,10 @@ namespace we {
         this.client.init(env.language, callback.bind(thisArg));
       }
 
+      public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
+        this.client.getLobbyMaterial(callback);
+      }
+
       public connect() {
         this.subscribeEvents();
         this.client.connect(err => {
