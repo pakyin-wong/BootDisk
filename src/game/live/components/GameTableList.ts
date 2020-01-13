@@ -70,6 +70,7 @@ namespace we {
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;
+        this.roomList.setGameFilters(core.LiveGameTab.ba);
         this.roomList.setTableList(this.roomIds);
 
         const tabBarGroup = new eui.Group();
@@ -170,6 +171,9 @@ namespace we {
       private onSelectedIndexChanged(evt: any) {
         logger.l(this.tabs.tabBar.selectedIndex);
         const item = this.tabItems[this.tabs.tabBar.selectedIndex];
+
+        this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
+        this.roomList.setTableList(this.roomIds, true);
 
         // TODO: Clear Table Array
 
