@@ -133,26 +133,26 @@ namespace we {
 
         this.scroller.viewport = group;
 
-        // // Dragonbone animation
-        // const skeletonData = RES.getRes('game_result_test_ske_json');
-        // const textureData = RES.getRes('game_result_test_tex_json');
-        // const texture = RES.getRes('game_result_test_tex_png');
-        // const factory = new dragonBones.EgretFactory();
-        // factory.parseDragonBonesData(skeletonData);
-        // factory.parseTextureAtlasData(textureData, texture);
-        // logger.l('1>', factory.getAllDragonBonesData(), factory.getAllTextureAtlasData());
-        // const armatureDisplay = factory.buildArmatureDisplay('Armature');
-        // armatureDisplay.x = this.$stage.stageWidth / 2;
-        // armatureDisplay.y = this.$stage.stageHeight / 2;
-        // this.addChild(armatureDisplay);
-        // armatureDisplay.animation.play('win_start', -1);
+        // Dragonbone animation
+        const skeletonData = RES.getRes('game_result_test_ske_json');
+        const textureData = RES.getRes('game_result_test_tex_json');
+        const texture = RES.getRes('game_result_test_tex_png');
+        const factory = new dragonBones.EgretFactory();
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        logger.l('1>', factory.getAllDragonBonesData(), factory.getAllTextureAtlasData());
+        const armatureDisplay = factory.buildArmatureDisplay('Armature');
+        armatureDisplay.x = this.$stage.stageWidth / 2;
+        armatureDisplay.y = this.$stage.stageHeight / 2;
+        this.addChild(armatureDisplay);
+        armatureDisplay.animation.play('win_start', -1);
 
-        // const slot = armatureDisplay.armature.getSlot('+800');
-        // const r = new eui.Rect();
-        // r.height = 50;
-        // r.width = 50;
-        // r.fillColor = 0xff0000;
-        // slot.display = r;
+        const slot = armatureDisplay.armature.getSlot('+800');
+        const r = new eui.Rect();
+        r.height = 50;
+        r.width = 50;
+        r.fillColor = 0xff0000;
+        slot.display = r;
 
         // // Dragonbone animation 2 (self gen sprite)
         // const skeletonData2 = RES.getRes('Icon_ske_json');

@@ -116,12 +116,21 @@ namespace we {
 
       protected onFilterChanged(evt: egret.Event) {
         const selectedIdx = this._dropdown.selectedIndex - 1;
-        if (selectedIdx < 0) {
-          this.filter = null;
-        } else {
-          this.filter = <core.GameType> selectedIdx;
+        // if (selectedIdx < 0) {
+        //   this.filter = null;
+        // } else {
+        //   this.filter = <core.GameType>selectedIdx;
+        // }
+        // this.setAllTableList(this.filter);
+
+        this.allTableList.setGameFiltersByTabIndex(selectedIdx);
+        this.allTableList.setTableList(this.allGameList, true);
+
+        const count = this.allTableList.tableCount;
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        if (tabItem) {
+          tabItem.onBadgeUpdate(count);
         }
-        this.setAllTableList(this.filter);
       }
 
       protected onTableListUpdate(evt: egret.Event) {
@@ -129,7 +138,7 @@ namespace we {
         this.allGameList = tableList;
         // this.allTableList.setTableList(tableList);
         this.setAllTableList(this.filter);
-        const count = tableList.length;
+        const count = this.allTableList.tableCount;
         const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
         if (tabItem) {
           tabItem.onBadgeUpdate(count);
