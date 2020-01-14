@@ -141,6 +141,7 @@ namespace we {
       private handleTableList(event: egret.Event) {
         // if (!env.livepageLocked) {
         const roomIds = event.data as string[];
+        this.roomIds = roomIds;
         this.roomList.setTableList(roomIds);
 
         // const added = utils.arrayDiff(roomIds, this.roomIds);
@@ -174,7 +175,7 @@ namespace we {
 
         this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
-
+        this.roomList.invalidateDisplayList();
         // TODO: Clear Table Array
 
         // dir.socket.getTableList();
@@ -194,6 +195,7 @@ namespace we {
 
         this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
+        this.roomList.invalidateDisplayList();
 
         // get new data List
         // dir.socket.getTableList();
