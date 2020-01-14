@@ -74,8 +74,21 @@ Full List.
 Tableid and goodroad id matched. Event will be dispatched from backend.
 if (list has new goodroad) we send out Notification.
 
-## Betchips interaction
-1. 
+## Installation for development environment
+### MacOS
+1. Install npm
+2. Install the following programs
+```
+npm install -g tslint prettier typescript
+```
+
+### Windows
+1. Download and install bash from http://www.msys2.org/
+2. Install npm
+3. Install the following programs
+```
+npm install -g tslint prettier typescript
+```
 
 ## External Resource
 1. [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
