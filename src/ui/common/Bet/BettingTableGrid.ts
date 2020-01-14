@@ -3,6 +3,13 @@ namespace we {
     export class BettingTableGrid extends core.BaseEUI {
       protected _lblName: eui.Label;
       protected _lblOdds: eui.Label;
+      protected _lblTotalPerson: eui.Label;
+      protected _lblTotalAmount: eui.Label;
+      protected _totalPerson: number;
+      protected _totalAmount: number;
+      // protected _imgTotalPerson: eui.Image;
+      // protected _imgTotalAmount: eui.Image;
+
       protected _denomLayer: eui.Component;
       protected _denomList: number[];
       protected _fieldName: string;
@@ -62,6 +69,28 @@ namespace we {
       public removeRolloverEffect() {
         this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
         this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
+      }
+
+      set totalPerson(value: number) {
+        this._totalPerson = value;
+        if (this._lblTotalPerson) {
+          this._lblTotalPerson.text = value.toString();
+        }
+      }
+
+      get totalPerson() {
+        return this._totalPerson;
+      }
+
+      set totalAmount(value: number) {
+        this._totalAmount = value;
+        if (this._lblTotalAmount) {
+          this._lblTotalAmount.text = (value / 100).toString();
+        }
+      }
+
+      get totalAmount() {
+        return this._totalAmount;
       }
 
       set denomLayer(value: eui.Component) {

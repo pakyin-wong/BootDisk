@@ -267,6 +267,8 @@ namespace we {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
+            this._bettingTable.totalAmount = evt.data.amount;
+            this._bettingTable.totalPerson = evt.data.count;
           }
         }
       }
@@ -374,6 +376,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._bettingTable) {
+            this._bettingTable.totalAmount = { PLAYER: 0, BANKER: 0 };
+            this._bettingTable.totalPerson = { PLAYER: 0, BANKER: 0 };
             this._bettingTable.resetUnconfirmedBet();
             this._bettingTable.resetConfirmedBet();
           }

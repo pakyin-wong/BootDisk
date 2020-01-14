@@ -31,6 +31,7 @@
 		"resource/eui_skins/TextInputSkin.exml",
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VSliderSkin.exml",
+		"resource/skin_desktop/BettingTableGridFull.exml",
 		"resource/skin_desktop/BettingTableGrid.exml",
 		"resource/skin_desktop/ba/BettingTable.exml",
 		"resource/skin_desktop/ba/BetConfirmButton.exml",
