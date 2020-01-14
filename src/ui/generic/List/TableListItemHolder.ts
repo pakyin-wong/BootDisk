@@ -42,7 +42,7 @@ namespace we {
       }
 
       protected get list(): TableList {
-        return <TableList> this.parent;
+        return <TableList>this.parent;
       }
 
       public changeState(state: number): boolean {
@@ -66,12 +66,14 @@ namespace we {
       public itemDataChanged() {
         super.itemDataChanged();
         logger.l('TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
-        if (this.tableInfo && this.tableInfo.tableid !== this.itemData) {
-          this.initDisplayItem();
-        }
         if (this.itemData) {
           if (env && env.tableInfos && env.tableInfos[this.itemData]) {
             this.tableInfo = env.tableInfos[this.itemData];
+
+            if (this.tableInfo && this.tableInfo.tableid !== this.itemData) {
+              this.initDisplayItem();
+            }
+
             if (this._displayItem) {
               this._displayItem.setData(this.tableInfo);
             }
@@ -79,7 +81,7 @@ namespace we {
         }
       }
 
-      protected initDisplayItem() {}
+      protected initDisplayItem() { }
 
       public setDisplayItem(item: TableListItem) {
         this.content.removeChildren();
