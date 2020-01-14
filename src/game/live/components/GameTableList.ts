@@ -52,6 +52,7 @@ namespace we {
         const slider = new we.ui.ImageSlider();
         slider.height = 790;
         slider.width = 2600;
+        slider.configImages([RES.getRes('banner-baccarat_png')]);
 
         // init room grids
         this.roomList = new ui.TableList();
@@ -69,6 +70,7 @@ namespace we {
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;
+        this.roomList.setGameFilters(core.LiveGameTab.ba);
         this.roomList.setTableList(this.roomIds);
 
         const tabBarGroup = new eui.Group();
@@ -170,6 +172,9 @@ namespace we {
         logger.l(this.tabs.tabBar.selectedIndex);
         const item = this.tabItems[this.tabs.tabBar.selectedIndex];
 
+        this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
+        this.roomList.setTableList(this.roomIds, true);
+
         // TODO: Clear Table Array
 
         // dir.socket.getTableList();
@@ -186,6 +191,9 @@ namespace we {
         itemIdx = itemIdx >= 0 ? itemIdx : 0;
 
         this.tabs.setSelectedIndex(itemIdx);
+
+        this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
+        this.roomList.setTableList(this.roomIds, true);
 
         // get new data List
         // dir.socket.getTableList();

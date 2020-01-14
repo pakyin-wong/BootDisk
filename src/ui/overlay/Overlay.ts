@@ -33,8 +33,8 @@ namespace we {
         try {
           const opt: IOverlayToggleOpt = e.data;
           panel = new we.overlay[opt.class](...opt.args);
-        } catch (e) {
-          logger.l(`panel ${e.data} defined error`, e.data);
+        } catch (err) {
+          logger.l(`panel ${e.data} defined error`, e.data, err);
           return;
         }
 
@@ -54,7 +54,6 @@ namespace we {
           this._overlayMask.alpha = 0;
           egret.Tween.removeTweens(this._overlayMask);
           egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
-          this.stage['inFocus'] = true;
         }
 
         this.addItem(item, opt);
@@ -72,8 +71,6 @@ namespace we {
           .call(() => {
             this.removeChildren();
           }, this);
-
-        this.stage['inFocus'] = false;
       }
 
       private addItem(item: Panel, opt: IOverlayToggleOpt) {
@@ -81,6 +78,7 @@ namespace we {
         this._onShowItemClass = opt.class;
         this._onShowItem.isPoppable = true;
         this._onShowItem.dismissOnClickOutside = false;
+        this._onShowItem.isFocusItem = true;
         this._onShowItem.horizontalCenter = 0;
         this._onShowItem.verticalCenter = 0;
         // this._onShowItem.x = (this._overlayMask.width - this._onShowItem.width) * 0.5;

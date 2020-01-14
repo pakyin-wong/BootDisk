@@ -5,7 +5,7 @@ namespace we {
       public itemIndex: number;
 
       private _mode: we.lobby.mode;
-      protected _displayItem: we.ui.TableListItem;
+      protected _displayItem_displayItem: we.ui.TableListItem;
 
       public constructor() {
         super();
@@ -32,15 +32,12 @@ namespace we {
         this.mode = evt.data;
       }
 
-      set mode(value: we.lobby.mode) {
-        if (this._mode === value) {
-          return;
-        }
-        switch (value) {
+      protected initDisplayItem() {
+        switch (this._mode) {
           case we.lobby.mode.NORMAL:
             this.width = 578;
             this.height = 388;
-            this._displayItem = new we.ba.BaLiveListItem();
+            this._displayItem = new we.ba.LiveListItem();
             this.setDisplayItem(this._displayItem);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
@@ -53,7 +50,7 @@ namespace we {
           default:
             this.width = 578;
             this.height = 219;
-            this._displayItem = new we.ba.BaLiveListSimpleItem();
+            this._displayItem = new we.ba.LiveListSimpleItem();
             this.setDisplayItem(this._displayItem);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
@@ -61,7 +58,39 @@ namespace we {
               this.updateDisplayItem();
             }
         }
+      }
+
+      set mode(value: we.lobby.mode) {
+        if (this._mode === value) {
+          return;
+        }
+        // switch (value) {
+        //   case we.lobby.mode.NORMAL:
+        //     this.width = 578;
+        //     this.height = 388;
+        //     this._displayItem = new we.ba.LiveListItem();
+        //     this.setDisplayItem(this._displayItem);
+        //     // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
+        //     // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
+        //     if (this.tableInfo) {
+        //       this.updateDisplayItem();
+        //     }
+        //     break;
+        //   case we.lobby.mode.SIMPLE:
+        //   case we.lobby.mode.ADVANCED:
+        //   default:
+        //     this.width = 578;
+        //     this.height = 219;
+        //     this._displayItem = new we.ba.LiveListSimpleItem();
+        //     this.setDisplayItem(this._displayItem);
+        //     // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
+        //     // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
+        //     if (this.tableInfo) {
+        //       this.updateDisplayItem();
+        //     }
+        // }
         this._mode = value;
+        this.initDisplayItem();
       }
 
       get mode() {

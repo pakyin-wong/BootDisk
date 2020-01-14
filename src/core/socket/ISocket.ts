@@ -9,6 +9,7 @@ namespace we {
       bet(tableID: string, betDetails: data.BetDetail[]);
       getTableHistory();
       getBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
+      getLobbyMaterial(callback: (res: LobbyMaterial) => void);
 
       getGoodRoad();
       updateCustomGoodRoad(id: string, data: any);

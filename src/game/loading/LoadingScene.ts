@@ -1,9 +1,11 @@
 namespace we {
   export namespace loading {
     export class Scene extends core.BaseScene {
+      private _bannerSlider: ui.ImageSlider;
       private _progressbar: eui.ProgressBar;
       private _progressMsg: ui.RunTimeLabel;
       private _tip: ui.NavLantern;
+      private _bannerImages: egret.Texture[];
 
       private step: number = 0;
       private flow = [this.preloadRes, this.initSkin, this.preload, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
@@ -51,8 +53,30 @@ namespace we {
 
         this._tip.alignToCenter();
         this._tip.messages = [];
-        dir.socket.getStaticInitData(res => {
+        dir.socket.getStaticInitData(async res => {
           this._tip.messages = res.Tips;
+          // preload loading scene banner images
+          this._bannerImages = await Promise.all<egret.Texture>(
+            res.Bannerurls.map(
+              url =>
+                new Promise(resolve => {
+                  const loader = new egret.ImageLoader();
+                  loader.crossOrigin = 'anonymous';
+                  loader.once(
+                    egret.Event.COMPLETE,
+                    (event: egret.Event) => {
+                      if (event.currentTarget.data) {
+                        const texture = new egret.Texture();
+                        texture.bitmapData = event.currentTarget.data;
+                        resolve(texture);
+                      }
+                    },
+                    this
+                  );
+                  loader.load(url);
+                })
+            )
+          );
           this.next();
         }, this);
       }
@@ -87,12 +111,16 @@ namespace we {
 
       /** Step 5: Setup and display idle UI element (tips, promote banner...) */
       private idle() {
+        this._bannerSlider.configImages(this._bannerImages);
         this.next();
       }
 
       /** Step 6: load general resource (lobby, baccarat) */
       private async loadGeneralRes() {
-        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.Common, core.res.Nav, 'temp']);
+        dir.socket.getLobbyMaterial(res => {
+          logger.l(res);
+        });
+        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Common, core.res.Nav, 'temp', 'test']);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
         this._progressbar.minimum = 0;

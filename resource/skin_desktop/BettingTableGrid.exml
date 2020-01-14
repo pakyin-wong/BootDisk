@@ -3,4 +3,5 @@
         xmlns:ba="we.ba.*">
 	<e:Image id="_image" />
 	<e:Label id="_lblName" />
+	<e:Label id="_lblOdds" fontFamily="Barlow" horizontalCenter="0" verticalCenter="0" />	
 </e:Skin>

@@ -6,7 +6,7 @@ namespace we {
       private startStageY: number = 0;
 
       public iscollapseAnimate: boolean = true;
-      public collapseDuration: number = 300;
+      public collapseDuration: number = 150;
       public collapseOnStart: boolean = true;
       public collapseAddon: CollapseAddon;
 
@@ -43,7 +43,7 @@ namespace we {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
-
+        this.skinName = 'skins.ScrollerSkin';
         this.collapseAddon = new CollapseAddon(this);
       }
 
@@ -248,7 +248,7 @@ namespace we {
           });
           */
         } catch (err) {
-          console.error(err);
+          logger.e(err);
         }
       }, 1);
 

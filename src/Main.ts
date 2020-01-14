@@ -1,23 +1,13 @@
 class Main extends eui.UILayer {
   protected createChildren(): void {
     super.createChildren();
-    // add global mouse event handler
+
     mouse.enable(this.stage);
 
-    // egret.lifecycle.addLifecycleListener(context => {
-    //   // custom lifecycle plugin
-    // });
+    this.stage['inFocusItems'] = [];
 
-    // egret.lifecycle.onPause = () => {
-    //   egret.ticker.pause();
-    // };
-
-    // egret.lifecycle.onResume = () => {
-    //   egret.ticker.resume();
-    // };
-
-    this.init().catch(error => {
-      console.error(error);
+    this.init().catch(err => {
+      logger.e(err);
     });
   }
 
@@ -56,8 +46,8 @@ class Main extends eui.UILayer {
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      logger.e(err);
     }
   }
 

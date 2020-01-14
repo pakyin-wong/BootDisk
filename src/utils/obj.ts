@@ -75,5 +75,10 @@ namespace we {
     export function getClass(obj) {
       return obj.__proto__.constructor.name;
     }
+
+    export function clone(obj) {
+      const result = JSON.parse(JSON.stringify(obj));
+      return result;
+    }
   }
 }

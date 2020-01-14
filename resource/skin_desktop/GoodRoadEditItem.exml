@@ -11,22 +11,18 @@
 		<e:Rect id="_bigRoadMask" width="292" height="175" x="14" y="75" anchorOffsetX="0" anchorOffsetY="0"
 		        ellipseHeight="30" ellipseWidth="30" alpha="0" />
 		<ba:GoodRoadmapEdit id="_bigRoad" width="291" height="175" y="75" x="14" />
-		<ui:RoundButton id="_clearButton" resName="d_lobby_form_textclear_png" hoverResName="d_lobby_form_textclear_png"
-		                y="29" width="17" height="18" label1text="" label2text="" anchorOffsetX="0" x="238" />
+		<ui:BaseImageButton id="_clearButton" currentState="b_clear" y="29" width="17" height="18" anchorOffsetX="0" x="238"
+		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
 		<e:Image id="close" width="29" height="29" x="282" y="22" source="d-lobby-button-close-none_png" />
-		<ui:RoundButton id="_playerButton" resName="d_lobby_button_add_road_player copy_png"
-		                hoverResName="d_lobby_button_add_road_player copy_png" width="46" height="46" label1text=""
-		                label2text="" anchorOffsetX="0" y="262" x="65" />
-		<ui:RoundButton id="_removeButton" resName="d_lobby_button_deduct copy_png"
-		                hoverResName="d_lobby_button_deduct copy_png" width="46" height="46" label1text="" label2text=""
-		                anchorOffsetX="0" y="262" x="117" />
-		<ui:RoundButton id="_bankerButton" resName="d_lobby_button_add_road_banker copy_png"
-		                hoverResName="d_lobby_button_add_road_banker copy_png" width="46" height="46" label1text=""
-		                label2text="" anchorOffsetX="0" y="262" x="13" />
-		<ui:RoundButton id="_removeAllButton" resName="d_lobby_button_clear_road copy_png"
-		                hoverResName="d_lobby_button_clear_road copy_png" width="46" height="46" label1text="" label2text=""
-		                anchorOffsetX="0" x="169" y="262" />
-		<ui:RoundButton id="_saveButton" resName="d_lobby_confirm_btn_normal_png" hoverResName="d_lobby_confirm_btn_hover_png"
-		                width="85" height="50" label1text="" label2text="" anchorOffsetX="0" x="221" y="259" />
+		<ui:BaseImageButton id="_playerButton" currentState="b_player" width="46" height="46" anchorOffsetX="0" y="262" x="65"
+		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		<ui:BaseImageButton id="_removeButton" currentState="b_remove" width="46" height="46" anchorOffsetX="0" y="262"
+		                    x="117" skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		<ui:BaseImageButton id="_bankerButton" currentState="b_banker" width="46" height="46" anchorOffsetX="0" y="262" x="13"
+		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		<ui:BaseImageButton id="_removeAllButton" currentState="b_removeAll" width="46" height="46" anchorOffsetX="0" x="169"
+		                    y="262" skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		<ui:BaseImageButton id="_saveButton" currentState="b_save" width="85" height="50" anchorOffsetX="0" x="221" y="259"
+		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
 	</e:Group>
 </e:Skin>

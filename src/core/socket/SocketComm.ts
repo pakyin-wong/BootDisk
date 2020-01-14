@@ -82,6 +82,10 @@ namespace we {
         this.client.init(env.language, callback.bind(thisArg));
       }
 
+      public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
+        this.client.getLobbyMaterial(callback);
+      }
+
       public connect() {
         this.subscribeEvents();
         this.client.connect(err => {
@@ -90,7 +94,7 @@ namespace we {
       }
 
       protected onConnectError(err) {
-        console.error('SocketComm -> onConnectError', err);
+        logger.e(err);
       }
 
       // Handler for Ready event
@@ -244,6 +248,10 @@ namespace we {
         const tableInfo = env.getOrCreateTableInfo(gameStatus.tableid);
         gameStatus.previousstate = tableInfo.data ? tableInfo.data.state : null;
         gameStatus.starttime = Math.floor(gameStatus.starttime / 1000000);
+        if (tableInfo.roundid !== gameStatus.gameroundid) {
+          tableInfo.prevroundid = tableInfo.roundid;
+          tableInfo.roundid = gameStatus.gameroundid;
+        }
         tableInfo.data = gameStatus;
 
         logger.l(`Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);
@@ -279,18 +287,27 @@ namespace we {
 
       protected localActions(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
-          switch (tableInfo.gametype) {
-            case core.GameType.BAC:
-            default:
-              const data: ba.GameData = tableInfo.data as ba.GameData;
-              if (data.state === ba.GameState.BET && data.previousstate !== ba.GameState.BET) {
-                // reset the betDetails
-                tableInfo.bets = null;
-                tableInfo.totalWin = NaN;
-                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
-              }
-              break;
+          const data: data.GameData = tableInfo.data as data.GameData;
+          if (data.state === core.GameState.BET && data.previousstate !== core.GameState.BET) {
+            // reset the betDetails
+            tableInfo.bets = null;
+            tableInfo.totalWin = NaN;
+            dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
           }
+          if (data.state === core.GameState.FINISH) {
+            this.checkResultNotificationReady(tableInfo);
+          }
+
+          // switch (tableInfo.gametype) {
+          //   case core.GameType.BAC:
+          //   case core.GameType.BAS:
+          //     break;
+          //   case core.GameType.DT:
+
+          //     break;
+          //   default:
+          //     break;
+          // }
         }
       }
 
@@ -481,7 +498,7 @@ namespace we {
         // dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, betResult);
       }
 
-      protected onBetInfoUpdate(betInfo: any /*PlayerBetInfo*/, timestamp: string) {
+      protected onBetInfoUpdate(betInfo: data.PlayerBetInfo, timestamp: string) {
         this.updateTimestamp(timestamp);
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
@@ -489,7 +506,10 @@ namespace we {
           const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
-        tableInfo.totalWin = this.computeTotalWin(tableInfo.bets);
+        if (betInfo.finish) {
+          tableInfo.totalWin = betInfo.winamount; // this.computeTotalWin(tableInfo.bets);
+          this.checkResultNotificationReady(tableInfo);
+        }
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
 
         // // workaround 1-1-1
@@ -508,16 +528,52 @@ namespace we {
         // dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
       }
 
-      protected computeTotalWin(betDetails: data.BetDetail[]) {
-        let totalWin = 0;
-        if (betDetails) {
-          for (const betDetail of betDetails) {
-            totalWin += betDetail.winamount;
+      protected hasBet(tableInfo: data.TableInfo): boolean {
+        if (tableInfo.bets) {
+          for (const betDetail of tableInfo.bets) {
+            if (betDetail.amount > 0) {
+              return true;
+            }
           }
         }
-
-        return totalWin;
+        return false;
       }
+      public checkResultNotificationReady(tableInfo: data.TableInfo) {
+        if (tableInfo.data) {
+          if (this.hasBet(tableInfo)) {
+            if (
+              tableInfo.data &&
+              tableInfo.data.previousstate !== core.GameState.FINISH &&
+              tableInfo.data.state === core.GameState.FINISH &&
+              tableInfo.data.wintype !== 0 &&
+              !isNaN(tableInfo.totalWin)
+            ) {
+              const data = {
+                tableNo: tableInfo.tablename,
+                winAmount: tableInfo.totalWin,
+                winType: tableInfo.data.wintype,
+                gameType: tableInfo.gametype,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.Result,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
+          }
+        }
+      }
+
+      // protected computeTotalWin(betDetails: data.BetDetail[]) {
+      //   let totalWin = 0;
+      //   if (betDetails) {
+      //     for (const betDetail of betDetails) {
+      //       totalWin += betDetail.winamount;
+      //     }
+      //   }
+
+      //   return totalWin;
+      // }
 
       protected updateTimestamp(timestamp: string) {
         env.currTime = Math.floor(parseInt(timestamp, 10) / 1000000);
@@ -589,9 +645,20 @@ namespace we {
         env.mergeTableInfoList(tableInfos);
         // save the list to env.goodRoadTableList
         const goodRoadTableList = tableInfos.map(data => data.tableid);
+        const added = utils.arrayDiff(goodRoadTableList, env.goodRoadTableList);
         const removed = utils.arrayDiff(env.goodRoadTableList, goodRoadTableList);
         env.goodRoadTableList = goodRoadTableList;
 
+        for (const tableid of added) {
+          const data = {
+            tableid,
+          };
+          const notification: data.Notification = {
+            type: core.NotificationType.GoodRoad,
+            data,
+          };
+          dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+        }
         for (const tableid of removed) {
           const tableInfo = env.tableInfos[tableid];
           if (tableInfo) {

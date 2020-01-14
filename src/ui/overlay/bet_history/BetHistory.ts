@@ -44,6 +44,8 @@ namespace we {
       private _endtime: number;
       private _limit: number = 11;
 
+      private _datepicker: DoubleCalendarPicker;
+
       private _searchDelay: number;
 
       constructor() {
@@ -109,20 +111,24 @@ namespace we {
         this._tf_search.$addListener(egret.Event.CHANGE, this.onSearchEnter, this);
         this._btn_today.$addListener('CLICKED', this.searchToday, this);
         this._btn_week.$addListener('CLICKED', this.searchWeek, this);
+        this._btn_custom.$addListener('CLICKED', this.showPicker, this);
         this._btn_search.$addListener('CLICKED', this.search, this);
         this._btn_next.$addListener('CLICKED', this.onClickNext, this);
         this._btn_prev.$addListener('CLICKED', this.onClickPrev, this);
         this._ddm_page.$addListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
+        this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
       }
 
       protected removeListeners() {
         this._tf_search.removeEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
         this._btn_today.removeEventListener('CLICKED', this.searchToday, this);
         this._btn_week.removeEventListener('CLICKED', this.searchWeek, this);
+        this._btn_custom.removeEventListener('CLICKED', this.showPicker, this);
         this._btn_search.removeEventListener('CLICKED', this.search, this);
         this._btn_next.removeEventListener('CLICKED', this.onClickNext, this);
         this._btn_prev.removeEventListener('CLICKED', this.onClickPrev, this);
         this._ddm_page.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
+        this._datepicker.removeEventListener('PICKED_DATE', this.searchCustomDate, this);
       }
 
       protected searchToday() {
@@ -153,6 +159,23 @@ namespace we {
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
         this._btn_week.active = true;
         this.search();
+      }
+
+      protected searchCustomDate(e: egret.Event) {
+        if (!e.data || (this._starttime === e.data.starttime && this._endtime === e.data.endtime)) {
+          return;
+        }
+
+        this._starttime = e.data.starttime;
+        this._endtime = e.data.endtime;
+        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        this._btn_custom.active = true;
+        this.search();
+      }
+
+      protected showPicker() {
+        this._datepicker.setTo(this._starttime, this._endtime);
+        this._datepicker.show();
       }
 
       private onSearchEnter() {

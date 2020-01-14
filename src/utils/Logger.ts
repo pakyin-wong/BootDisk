@@ -10,9 +10,17 @@ namespace we {
       private _logmsgmeasurer;
 
       public l(...args) {
+        this.log('log', ...args);
+      }
+
+      public e(...args) {
+        this.log('error', ...args);
+      }
+
+      private log(type, ...args) {
         let msg = new Error().stack
-          .split('\n')[2]
-          .trim()
+          .split('\n')
+          [1 /* logger internal */ + 2].trim()
           .replace('at ', '');
         const link = msg.match(/http[^\)]+/)[0];
         msg = msg.replace(link, '').replace(' ()', '');
@@ -25,12 +33,17 @@ namespace we {
         }
         this._logmsgmeasurer.innerHTML = link.slice(0, link.lastIndexOf('/'));
         let marleft = this._logmsgmeasurer.clientWidth + 24;
+
+        if (type === 'error') {
+          marleft += 10;
+        }
+
         if (window.navigator.userAgent.indexOf('ectron') > 0) {
           // egret player (hardcoded 2)
           marleft /= 2;
         }
 
-        setTimeout(console.log.bind(console, `%c${link} %c=> %c${msg}`, `${font}; margin-left: -${marleft}px`, 'color: #e70', 'color: inherit', args), 0);
+        setTimeout(console[type].bind(console, `%c${link} %c=> %c${msg}`, `${font}; margin-left: -${marleft}px`, 'color: #e70', 'color: inherit', args), 0);
       }
     }
   }

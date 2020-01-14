@@ -38,8 +38,16 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class BaccaratScene extends eui.Skin{
+	}
+}
 declare module skins_desktop{
 	class BetConfirmButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BaBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -54,6 +62,14 @@ declare module skin_desktop{
 	class InGameMessageSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ba{
+	class AlreadyBetCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class SidePanelGameResultNormalSkin extends eui.Skin{
 	}
@@ -62,16 +78,16 @@ declare module skin_desktop{
 	class SidePanelGameResultWinSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ba{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class BABeadRoadResultPanelSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BaccaratScene extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -91,10 +107,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class AlreadyBetCardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BaSideListBetItemSkin extends eui.Skin{
 	}
 }
@@ -111,6 +123,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class BetChipSelectedSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BetChipSetSkin extends eui.Skin{
 	}
 }
@@ -120,10 +136,6 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BetInfoBaBettingTableSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetInfoBaQuickBetPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -139,15 +151,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BettingTableSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BettingTableGridSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -185,6 +189,26 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class DtBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class AlreadyBetCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class GameBar extends eui.Skin{
 	}
 }
@@ -207,6 +231,10 @@ declare module skin_desktop{
 declare class ImageButtonSkinDialog extends eui.Skin{
 }
 declare class ImageButtonSkinEmpty extends eui.Skin{
+}
+declare module skin_desktop{
+	class ImageButtonSkinGoodRoad extends eui.Skin{
+	}
 }
 declare class ImageButtonSkinLobby extends eui.Skin{
 }
@@ -261,7 +289,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class ImageButtonSkin extends eui.Skin{
+	class GoodRoadNotificationContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class GoodRoadNotificationSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class GoodRoadQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ResultNotificationSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -277,7 +317,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class Datepicker extends eui.Skin{
+	class DatePickerItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DoubleCalendarPicker extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -297,7 +341,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class RoundButtonSkin extends eui.Skin{
+	class QuickBetAnimButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -314,14 +358,6 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class SwitchLang extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class TableInfoPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class TableInfoWindow extends eui.Skin{
 	}
 }
 declare module skin_desktop{

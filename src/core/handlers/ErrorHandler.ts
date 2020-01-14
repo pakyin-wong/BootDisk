@@ -15,10 +15,9 @@ namespace we {
       }
 
       public handleError(error: IErrorKind) {
-        /*
         switch (error.code) {
           case 1001: {
-            this.createDialog('hello world', {
+            this.createDialog('You have login other session. (1001)', {
               dismiss: {
                 text: 'single',
               },
@@ -32,7 +31,7 @@ namespace we {
           }
           default: {
             // unknown error, show error code restart game
-            console.log('onClientError unknown code', error.code);
+            logger.e('onClientError unknown code', error.code);
             this.createDialog(`${i18n.t('message.unknownError')} (Code: ${error.code})`, {
               dismiss: {
                 text: 'child 1',
@@ -44,7 +43,6 @@ namespace we {
             break;
           }
         }
-        */
       }
 
       private createDialog(title, buttons: we.overlay.IMessageDialogButtonProps) {

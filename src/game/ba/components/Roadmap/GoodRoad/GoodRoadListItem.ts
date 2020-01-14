@@ -5,10 +5,10 @@ namespace we {
       public itemIndex: number;
 
       private _bigRoad: we.ba.GoodRoadmap;
-      private _binButton: ui.RoundButton;
+      private _binButton: ui.BaseImageButton;
       private _activeButton: ui.ToggleButton;
-      private _addButton: ui.RoundButton;
-      private _editButton: ui.RoundButton;
+      private _addButton: ui.BaseImageButton;
+      private _editButton: ui.BaseImageButton;
       private _titleLabel: eui.Label;
       private _group: eui.Group;
 
@@ -113,7 +113,7 @@ namespace we {
       public changeLang() {
         if (this.roadType === 0) {
           // add icon
-          this._titleLabel.text = i18n.t('baccarat.newGoodRoadName');
+          this._titleLabel.text = i18n.t('baccarat.addNewGoodRoad');
         } else if (this.roadType === 1) {
           // default road
           this._titleLabel.text = i18n.t('goodroad.' + this.roadName);

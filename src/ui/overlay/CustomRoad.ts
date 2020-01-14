@@ -6,6 +6,7 @@ namespace we {
       private collection: eui.ArrayCollection;
       private _editRoadPanel: ba.GoodRoadEditItem;
       public _cover: eui.Rect;
+      private _defaultButton: ui.BaseImageButton;
 
       constructor() {
         super('overlay/CustomRoad');
@@ -51,6 +52,13 @@ namespace we {
           this.renderFromGoodRoadData();
         }
         this._cover.visible = false;
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this.changeLang();
+      }
+
+      public changeLang() {
+        this._defaultButton.text = i18n.t('overlaypanel_customroad_title');
       }
 
       protected destroy() {
@@ -73,6 +81,10 @@ namespace we {
 
         if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_DATA_UPDATE)) {
           dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
       }
 
@@ -141,10 +153,12 @@ namespace we {
           this.collection.addItem(element);
         });
 
-        // add road
-        this.collection.addItem({
-          type: 0,
-        });
+        if (roadData.custom.length < 10) {
+          // add road
+          this.collection.addItem({
+            type: 0,
+          });
+        }
       }
 
       private compareItems(a: any, b: any): boolean {

@@ -11,6 +11,7 @@ namespace we {
       gametype_DI: '骰宝',
       gametype_MJ: '麻将',
       gametype_RO: '轮盘',
+      gametype_DT: '龙虎',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
@@ -59,6 +60,16 @@ namespace we {
       overlaypanel_bethistory_baresult_player: '闲',
 
       overlaypanel_bethistory_searchtype_all: '全部游戏',
+
+      datePicker_clean: '清除',
+      datePicker_confirm: '确定',
+      datePicker_weekday_0: '日',
+      datePicker_weekday_1: '一',
+      datePicker_weekday_2: '二',
+      datePicker_weekday_3: '三',
+      datePicker_weekday_4: '四',
+      datePicker_weekday_5: '五',
+      datePicker_weekday_6: '六',
 
       loading: {
         socket: {
@@ -116,6 +127,14 @@ namespace we {
           goodroad: '好路',
         },
       },
+      dragontiger: {
+        dragon: '龙',
+        tiger: '虎',
+        tie: '和',
+        dragonShort: '龙',
+        tigerShort: '虎',
+        tieShort: '和',
+      },
       goodroad: {
         r1: '长庄',
         r2: '长闲',
@@ -141,12 +160,12 @@ namespace we {
         playerPair: '闲对',
         bankerPair: '庄对',
         player: '闲',
-        playerRoadmap: '闲',
+        playerShort: '闲',
         tie: '和',
-        tieRoadmap: '和',
+        tieShort: '和',
         superSix: '超级六',
         banker: '庄',
-        bankerRoadmap: '庄',
+        bankerShort: '庄',
         noComm: '免佣',
         tableInfo: '本台资讯',
         tableNo: '台号',
@@ -154,6 +173,7 @@ namespace we {
         dealer: '荷官',
         time: '时间',
         betLimit: '下注限红',
+        betLimitshort: '限红',
         baccarat: '百家樂',
         gameroundid: '遊戏编号',
         totalbet: '总投注',
@@ -164,16 +184,34 @@ namespace we {
         removeGoodRoad: '删除路纸？',
         confirmRemoveGoodRoad: '删除',
         cancelRemoveGoodRoad: '取消',
-        result: {
-          BANKER: '庄赢',
-          PLAYER: '闲赢',
-          TIE: '和',
-        },
         noCommission: '免佣',
+        clickToSeeVideo: '点击播放本局视频',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',
         unknownError: '亲，花生未知錯誤',
+      },
+      winType: {
+        ba: {
+          BANKER: '庄赢',
+          PLAYER: '闲赢',
+          TIE: '和',
+          short: {
+            BANKER: '庄',
+            PLAYER: '闲',
+            TIE: '和',
+          },
+        },
+        dt: {
+          DRAGON: '龙赢',
+          TIGER: '虎赢',
+          TIE: '和',
+          short: {
+            DRAGON: '龙',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
       },
     };
   }

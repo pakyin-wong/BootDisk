@@ -15,7 +15,6 @@ namespace we {
       public constructor() {
         super();
         this.skinName = utils.getSkin('ImageSlider');
-        this.images = [RES.getRes('banner-baccarat_png')];
         // comment this line in case of performance issues
         // this.mask = new egret.Rectangle(0, 0, this.width, this.height);
       }
@@ -28,6 +27,15 @@ namespace we {
         super.childrenCreated();
 
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+      }
+
+      public configImages(images) {
+        this.images = images;
+        logger.l(this.width, this.height, images);
+
+        if (!this.images.length) {
+          return;
+        }
 
         // create dots
         this.imageVisible.source = this.images[this.currentIndex];
@@ -45,6 +53,9 @@ namespace we {
       private initX;
 
       private onTouchBegin(event: egret.TouchEvent): void {
+        if (!this.touchEnabled) {
+          return;
+        }
         if (this.isAnimating) {
           clearTimeout(this.autoPlayTimer);
           // animation end event will scheduleNext

@@ -11,8 +11,13 @@
             </e:layout>
         </e:Group>
         <ui:Scroller id="_scroller" x="-1" y="38" isCollapsible="true" iscollapseAnimate="true" collapseOnStart="true"
-                     width="100%" collapseDuration="150">
-            <ui:List id="_list" width="100%" itemRendererSkinName="SidePanelAllGameDropdownItemSkin" />
+                     collapseDuration="150">
+            <e:Group>
+                <e:Image source="d_lobby_quick_bet_circle_png" scale9Grid="22,22,0,0" anchorOffsetX="0" left="0" top="0"
+                         bottom="0" right="0" />
+                <ui:List id="_list" itemRendererSkinName="SidePanelAllGameDropdownItemSkin" x="0" scaleX="1" scaleY="1"
+                         top="10" />
+            </e:Group>
         </ui:Scroller>
         <e:layout>
             <e:VerticalLayout gap="0" />
