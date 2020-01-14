@@ -35,7 +35,7 @@ namespace we {
         const slider = new we.ui.ImageSlider();
         slider.width = this.scroller.width;
         slider.height = 790;
-        slider.configImages([RES.getRes('banner-baccarat_png')]);
+        slider.configSlides(dir.lobbyResources.homeHeroBanners);
         const sliderContainer = new eui.Group();
         sliderContainer.width = slider.width;
         sliderContainer.height = slider.height + offsetForTableList;
@@ -50,11 +50,19 @@ namespace we {
         hlayout.gap = gapSize;
         posters.horizontalCenter = 0;
         posters.layout = hlayout;
-        for (let i = 1; i <= 4; i += 1) {
-          const image = new eui.Image();
-          image.source = RES.getRes(`lobby-featured-poster-${i}_png`);
-          image.height = featuredPosterHeight;
-          posters.addChild(image);
+        for (let i = 0; i < 4; i += 1) {
+          const { image, link } = dir.lobbyResources.homeLargeBanners[i];
+          const poster = new eui.Image();
+          poster.source = image;
+          poster.height = featuredPosterHeight;
+          poster.addEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              logger.l('psoter click', i, link);
+            },
+            this
+          );
+          posters.addChild(poster);
         }
         const postersContainer = new eui.Group();
         postersContainer.percentWidth = 100;
@@ -72,17 +80,16 @@ namespace we {
         tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
         grids.layout = tlayout;
         grids.horizontalCenter = 0;
-        const images = [
-          RES.getRes('4-col-features-1_png'),
-          RES.getRes('4-col-features-prestige_png'),
-          RES.getRes('4-col-features-2_png'),
-          RES.getRes('4-col-features-2-copy_png'),
-          RES.getRes('4-col-slot-2_png'),
-          RES.getRes('4-col-slot_png'),
-        ];
-        images.forEach(res => {
+        dir.lobbyResources.homeBanners.forEach(banner => {
           const image = new eui.Image();
-          image.source = res;
+          image.source = banner.image;
+          image.addEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              logger.l('banner click', banner.link);
+            },
+            this
+          );
           grids.addChild(image);
         });
         const gridsContainer = new eui.Group();
@@ -281,12 +288,13 @@ namespace we {
         // this.addChild(blendShape);
         // blendShape.blendMode = egret.BlendMode.ERASE;
 
-        const blendShape = new eui.Image();
-        blendShape.source = RES.getRes('Mask_test_png');
-        blendShape.width = this.stage.stageWidth;
-        blendShape.height = this.stage.stageHeight;
-        this.addChild(blendShape);
-        this.mask = blendShape;
+        // MASK
+        // const blendShape = new eui.Image();
+        // blendShape.source = RES.getRes('Mask_test_png');
+        // blendShape.width = this.stage.stageWidth;
+        // blendShape.height = this.stage.stageHeight;
+        // this.addChild(blendShape);
+        // this.mask = blendShape;
         // blendShape.blendMode = egret.BlendMode.ADD;
 
         // // texture merger
@@ -300,22 +308,22 @@ namespace we {
         // time1.gotoAndPlay(0, -1);
       }
 
-      private combineToSprite(images) {
-        let posx = 0;
-        const displayObj: egret.Sprite = new egret.Sprite();
-        for (const tex of images) {
-          const tempBmp = new egret.Bitmap(tex);
-          tempBmp.smoothing = true;
-          tempBmp.x = posx;
-          tempBmp.y = 0;
-          displayObj.addChild(tempBmp);
-          posx += tex.textureWidth;
-        }
-        const render: egret.RenderTexture = new egret.RenderTexture();
-        render.drawToTexture(displayObj);
-        console.log(render.toDataURL('image/png'));
-        return render;
-      }
+      // private combineToSprite(images) {
+      //   let posx = 0;
+      //   const displayObj: egret.Sprite = new egret.Sprite();
+      //   for (const tex of images) {
+      //     const tempBmp = new egret.Bitmap(tex);
+      //     tempBmp.smoothing = true;
+      //     tempBmp.x = posx;
+      //     tempBmp.y = 0;
+      //     displayObj.addChild(tempBmp);
+      //     posx += tex.textureWidth;
+      //   }
+      //   const render: egret.RenderTexture = new egret.RenderTexture();
+      //   render.drawToTexture(displayObj);
+      //   console.log(render.toDataURL('image/png'));
+      //   return render;
+      // }
     }
   }
 }

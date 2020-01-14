@@ -21,11 +21,11 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,banner-baccarat_png,lobby-featured-poster-4_png,lobby-featured-poster-3_png,lobby-featured-poster-2_png,lobby-featured-poster-1_png,4-col-features-2_png,4-col-features-1_png,4-col-features-prestige_png,4-col-slot_png,4-col-slot-2_png,4-col-features-2-copy_png,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,game_result_test_tex_png,game_result_test_tex_json,game_result_test_ske_json,start_png,start_json,Mask_test_png",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,game_result_test_tex_png,game_result_test_tex_json,game_result_test_ske_json,start_png,start_json,Mask_test_png",
 			"name": "temp"
 		},
 		{
-			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_loading_banner_1_jpg,d_lobby_navbar_logo_png,nav_panel_bg",
+			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,d_lobby_navbar_logo_png,nav_panel_bg",
 			"name": "scene_loading"
 		},
 		{
@@ -438,11 +438,6 @@
 			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-base.png",
 			"type": "image",
 			"name": "d-lobby-loading-progress-bar-base"
-		},
-		{
-			"url": "assets/Scene/loading/d_lobby_loading_banner_1.jpg",
-			"type": "image",
-			"name": "d_lobby_loading_banner_1_jpg"
 		},
 		{
 			"url": "assets/d/ba/d_ba_betarea_banker_normal.png",
@@ -1517,31 +1512,6 @@
 			"name": "d_common_scrollbar_png"
 		},
 		{
-			"url": "assets/temp/banner-baccarat.png",
-			"type": "image",
-			"name": "banner-baccarat_png"
-		},
-		{
-			"url": "assets/temp/lobby-featured-poster-2.png",
-			"type": "image",
-			"name": "lobby-featured-poster-2_png"
-		},
-		{
-			"url": "assets/temp/lobby-featured-poster-4.png",
-			"type": "image",
-			"name": "lobby-featured-poster-4_png"
-		},
-		{
-			"url": "assets/temp/lobby-featured-poster-3.png",
-			"type": "image",
-			"name": "lobby-featured-poster-3_png"
-		},
-		{
-			"url": "assets/temp/lobby-featured-poster-1.png",
-			"type": "image",
-			"name": "lobby-featured-poster-1_png"
-		},
-		{
 			"url": "assets/Nav/d-lobby-button-close-none.png",
 			"type": "image",
 			"name": "d-lobby-button-close-none_png"
@@ -1574,39 +1544,9 @@
 			"name": "frame-3_png"
 		},
 		{
-			"url": "assets/Scene/loading/d_lobby_loading_banner_1.jpg",
-			"type": "image",
-			"name": "d_lobby_loading_banner_12_jpg"
-		},
-		{
 			"url": "assets/d/lobby/d_lobby_confirm_btn_normal.png",
 			"type": "image",
 			"name": "d_lobby_confirm_btn_normal3_png"
-		},
-		{
-			"url": "assets/temp/banner-baccarat.png",
-			"type": "image",
-			"name": "banner-baccarat2_png"
-		},
-		{
-			"url": "assets/temp/lobby-featured-poster-1.png",
-			"type": "image",
-			"name": "lobby-featured-poster-12_png"
-		},
-		{
-			"url": "assets/temp/lobby-featured-poster-2.png",
-			"type": "image",
-			"name": "lobby-featured-poster-22_png"
-		},
-		{
-			"url": "assets/temp/lobby-featured-poster-3.png",
-			"type": "image",
-			"name": "lobby-featured-poster-32_png"
-		},
-		{
-			"url": "assets/temp/lobby-featured-poster-4.png",
-			"type": "image",
-			"name": "lobby-featured-poster-42_png"
 		},
 		{
 			"url": "assets/Nav/d-lobby-button-close-none.png",
@@ -2147,36 +2087,6 @@
 			"url": "assets/d/cards/d_common_poker_vertical_spade_q.png",
 			"type": "image",
 			"name": "d_common_poker_vertical_spade_q_png"
-		},
-		{
-			"url": "assets/temp/4-col-features-2.png",
-			"type": "image",
-			"name": "4-col-features-2_png"
-		},
-		{
-			"url": "assets/temp/4-col-features-1.png",
-			"type": "image",
-			"name": "4-col-features-1_png"
-		},
-		{
-			"url": "assets/temp/4-col-features-prestige.png",
-			"type": "image",
-			"name": "4-col-features-prestige_png"
-		},
-		{
-			"url": "assets/temp/4-col-slot.png",
-			"type": "image",
-			"name": "4-col-slot_png"
-		},
-		{
-			"url": "assets/temp/4-col-slot-2.png",
-			"type": "image",
-			"name": "4-col-slot-2_png"
-		},
-		{
-			"url": "assets/temp/4-col-features-2-copy.png",
-			"type": "image",
-			"name": "4-col-features-2-copy_png"
 		},
 		{
 			"url": "assets/d/ba/d_ba_gamerecord_chipvalue.png",

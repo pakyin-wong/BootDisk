@@ -52,7 +52,7 @@ namespace we {
         const slider = new we.ui.ImageSlider();
         slider.height = 790;
         slider.width = 2600;
-        slider.configImages([RES.getRes('banner-baccarat_png')]);
+        slider.configSlides(dir.liveResources.liveHeroBanners);
 
         // init room grids
         this.roomList = new ui.TableList();
