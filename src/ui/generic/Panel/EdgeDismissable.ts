@@ -68,7 +68,7 @@ namespace we {
       }
 
       public removeFromGlobalList() {
-        logger.l('Remove');
+        // logger.l('Remove');
         EdgeDismissableAddon.removeDismissable(this);
         this.target.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.removeFromGlobalList, this);
       }

@@ -212,26 +212,6 @@ namespace we {
         }
         return null;
       }
-
-      protected wrapData(renderer: eui.IItemRenderer, itemIndex: number, data: any) {
-        const newIdx = this.tempNewItemArray.indexOf(data);
-
-        const isNew = newIdx > -1;
-        if (isNew) {
-          this.tempNewItemArray.splice(newIdx, 1);
-        }
-
-        let isNeedInit = false;
-        if (renderer.data) {
-          isNeedInit = renderer.data.item !== data;
-        }
-
-        return {
-          item: data,
-          isNew,
-          isNeedInit,
-        };
-      }
     }
   }
 }

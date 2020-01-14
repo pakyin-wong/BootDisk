@@ -66,6 +66,9 @@ namespace we {
       public itemDataChanged() {
         super.itemDataChanged();
         logger.l('TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
+        if (this.tableInfo && this.tableInfo.tableid !== this.itemData) {
+          this.initDisplayItem();
+        }
         if (this.itemData) {
           if (env && env.tableInfos && env.tableInfos[this.itemData]) {
             this.tableInfo = env.tableInfos[this.itemData];
@@ -75,6 +78,8 @@ namespace we {
           }
         }
       }
+
+      protected initDisplayItem() {}
 
       public setDisplayItem(item: TableListItem) {
         this.content.removeChildren();

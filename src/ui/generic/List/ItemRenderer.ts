@@ -29,12 +29,6 @@ namespace we {
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
-      protected reInit() {
-        this.isDirty = true;
-        // this.x = this.destinationX;
-        // this.y = this.destinationY;
-      }
-
       protected destroy() {}
 
       public set enterFrom(value: string) {
@@ -98,7 +92,6 @@ namespace we {
       public dataChanged(): void {
         super.dataChanged();
         const isNew = this.data.isNew;
-        const isNeedInit = this.data.isNeedInit;
         this.itemData = this.data.item;
         if (isNew) {
           if (this.parent instanceof List) {
@@ -110,9 +103,6 @@ namespace we {
             this.swipeDirection = list.swipeDirection;
             this.isSwipeable = list.isSwipeable;
           }
-        }
-        if (isNeedInit) {
-          this.reInit();
         }
         this.itemDataChanged();
       }
