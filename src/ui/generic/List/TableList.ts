@@ -12,6 +12,9 @@ namespace we {
 
       public isFreezeScrolling: boolean = false;
       public isGlobalLock: boolean = false;
+      public extendHeight: number = 0;
+      protected _isScrollOffset: boolean = false;
+      protected _originalV: number;
 
       protected _scroller: eui.Scroller = null;
 
@@ -174,9 +177,28 @@ namespace we {
           if (isFocus) {
             scroller.disableVScroller();
             scroller.disableWheel();
+            const focusY = isFocus.y;
+            const focusHeight = isFocus.height;
+            this._originalV = scroller.viewport.scrollV;
+            const targetV = focusY + focusHeight + this.extendHeight - scroller.height;
+            if (targetV > this._originalV) {
+              this._isScrollOffset = true;
+              egret.Tween.get(scroller.viewport).to({ scrollV: targetV }, 300);
+            }
           } else {
-            scroller.enableVScroller();
-            scroller.enableWheel();
+            if (this._isScrollOffset) {
+              this._isScrollOffset = false;
+              egret.Tween.get(scroller.viewport)
+                .to({ scrollV: this._originalV }, 300)
+                .call(() => {
+                  scroller.enableVScroller();
+                  scroller.enableWheel();
+                });
+            } else {
+              scroller.enableVScroller();
+              scroller.enableWheel();
+              scroller.invalidateDisplayList();
+            }
           }
         }
         if (!isFocus && this.nextTableList) {
@@ -197,7 +219,7 @@ namespace we {
         }
       }
 
-      protected getParentScroller() {
+      public getParentScroller() {
         if (this._scroller) {
           return this._scroller;
         }

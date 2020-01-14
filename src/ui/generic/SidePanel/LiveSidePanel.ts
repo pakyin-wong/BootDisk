@@ -43,6 +43,8 @@ namespace we {
         scroller.height = group.height;
         betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
+        this.betTableList.isFreezeScrolling = true;
+        this.betTableList.extendHeight = 250;
         this.betTableList.isAnimateItemTransition = true;
         this.betTableList.itemRenderer = SideListBetItemHolder;
         this.betTableList.layout = this.getLayout();
@@ -59,6 +61,8 @@ namespace we {
         scroller.height = group.height;
         goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
+        this.goodRoadTableList.isFreezeScrolling = true;
+        this.goodRoadTableList.extendHeight = 250;
         this.goodRoadTableList.isAnimateItemTransition = true;
         this.goodRoadTableList.itemRenderer = SideListItemHolder;
         this.goodRoadTableList.layout = this.getLayout();
@@ -75,6 +79,8 @@ namespace we {
         scroller.height = group.height;
         allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
+        this.allTableList.isFreezeScrolling = true;
+        this.allTableList.extendHeight = 250;
         this.allTableList.isAnimateItemTransition = true;
         this.allTableList.itemRenderer = SideListItemHolder;
         this.allTableList.layout = this.getLayout();

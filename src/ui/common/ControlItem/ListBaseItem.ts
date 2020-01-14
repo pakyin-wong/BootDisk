@@ -111,12 +111,13 @@ namespace we {
           egret.Tween.get(this).to({ y: this._originaly }, this._tweenInterval1);
         }
         if (this.holder.isFocus) {
+          // this.list.getParentScroller().invalidateDisplayList();
           setTimeout(() => {
             this.holder.changeState(ui.TableListItemHolder.STATE_NORMAL);
             if (this._mouseOutside) {
               this.showQuickBetButton(false);
             }
-          }, 300);
+          }, 10);
         }
       }
 
