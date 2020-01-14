@@ -14,6 +14,10 @@ namespace we {
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('DragonTigerScene');
       }
+
+      public backToLobby() {
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'dt' });
+      }
     }
   }
 }

@@ -192,6 +192,9 @@ namespace we {
 
         this.tabs.setSelectedIndex(itemIdx);
 
+        this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
+        this.roomList.setTableList(this.roomIds, true);
+
         // get new data List
         // dir.socket.getTableList();
         // dir.socket.getTableHistory();
