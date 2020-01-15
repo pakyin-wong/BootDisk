@@ -2,7 +2,7 @@
 namespace we {
   export namespace ba {
     export class LiveListSimpleItem extends BaListBaseItem {
-      protected _quickbetButton: ui.RoundButton;
+      protected _quickbetButton: ui.QuickBetAnimButton;
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;

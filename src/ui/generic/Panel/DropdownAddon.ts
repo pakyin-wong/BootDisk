@@ -1,9 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IDropdown {
-      dropdownScroller: ui.Scroller;
-    }
-
     export function NewDropdownItem(key: any, renderText?: () => string) {
       return {
         key,

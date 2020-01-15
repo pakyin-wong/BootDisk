@@ -1,13 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IToggler {
-      onToggle(value: boolean);
-    }
-    export interface ICollapsible {
-      setToggler(toggler: egret.DisplayObject, onToggleCallback?: (value: boolean) => void);
-      removeToggler(toggler: egret.DisplayObject);
-    }
-
     export class CollapseAddon extends DisplayObjectAddon {
       public hideOnStart: boolean = true;
       public isShow: boolean;

@@ -43,6 +43,8 @@ namespace we {
         scroller.height = group.height;
         betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
+        this.betTableList.isFreezeScrolling = true;
+        this.betTableList.extendHeight = 250;
         this.betTableList.isAnimateItemTransition = true;
         this.betTableList.itemRenderer = SideListBetItemHolder;
         this.betTableList.layout = this.getLayout();
@@ -59,6 +61,8 @@ namespace we {
         scroller.height = group.height;
         goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
+        this.goodRoadTableList.isFreezeScrolling = true;
+        this.goodRoadTableList.extendHeight = 250;
         this.goodRoadTableList.isAnimateItemTransition = true;
         this.goodRoadTableList.itemRenderer = SideListItemHolder;
         this.goodRoadTableList.layout = this.getLayout();
@@ -75,6 +79,8 @@ namespace we {
         scroller.height = group.height;
         allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
+        this.allTableList.isFreezeScrolling = true;
+        this.allTableList.extendHeight = 250;
         this.allTableList.isAnimateItemTransition = true;
         this.allTableList.itemRenderer = SideListItemHolder;
         this.allTableList.layout = this.getLayout();
@@ -116,12 +122,21 @@ namespace we {
 
       protected onFilterChanged(evt: egret.Event) {
         const selectedIdx = this._dropdown.selectedIndex - 1;
-        if (selectedIdx < 0) {
-          this.filter = null;
-        } else {
-          this.filter = <core.GameType> selectedIdx;
+        // if (selectedIdx < 0) {
+        //   this.filter = null;
+        // } else {
+        //   this.filter = <core.GameType>selectedIdx;
+        // }
+        // this.setAllTableList(this.filter);
+
+        this.allTableList.setGameFiltersByTabIndex(selectedIdx);
+        this.allTableList.setTableList(this.allGameList, true);
+
+        const count = this.allTableList.tableCount;
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        if (tabItem) {
+          tabItem.onBadgeUpdate(count);
         }
-        this.setAllTableList(this.filter);
       }
 
       protected onTableListUpdate(evt: egret.Event) {
@@ -129,7 +144,7 @@ namespace we {
         this.allGameList = tableList;
         // this.allTableList.setTableList(tableList);
         this.setAllTableList(this.filter);
-        const count = tableList.length;
+        const count = this.allTableList.tableCount;
         const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
         if (tabItem) {
           tabItem.onBadgeUpdate(count);

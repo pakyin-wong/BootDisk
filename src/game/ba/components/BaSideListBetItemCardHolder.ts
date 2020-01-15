@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BaSideListBetItemCardHolder extends CardHolder {
+    export class BaSideListBetItemCardHolder extends CardHolder implements ui.IResultDisplay {
       protected _playerPanel: eui.Image;
       protected _bankerPanel: eui.Image;
 
@@ -9,7 +9,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkin('BaSideListBetItemCardHolder');
+        this.skinName = utils.getSkinByClassname('ba.AlreadyBetCardHolderSkin');
 
         this.lblPlayerName.renderText = () => `${i18n.t('baccarat.player')}`;
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;

@@ -82,6 +82,10 @@ namespace we {
         this.client.init(env.language, callback.bind(thisArg));
       }
 
+      public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
+        this.client.getLobbyMaterial(callback);
+      }
+
       public connect() {
         this.subscribeEvents();
         this.client.connect(err => {
@@ -506,12 +510,6 @@ namespace we {
               dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
             }
           }
-
-          // switch (tableInfo.gametype) {
-          //   case core.GameType.BAC:
-          //   case core.GameType.BAS:
-          //     break;
-          // }
         }
       }
 

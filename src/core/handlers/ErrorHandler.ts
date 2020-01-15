@@ -1,12 +1,4 @@
 namespace we {
-  interface IErrorKind {
-    code: number;
-    detail?: string;
-    id?: string;
-    status?: string;
-    timestamp?: number;
-  }
-
   export namespace core {
     export class ErrorHandler extends egret.EventDispatcher {
       constructor() {
@@ -15,10 +7,9 @@ namespace we {
       }
 
       public handleError(error: IErrorKind) {
-        /*
         switch (error.code) {
           case 1001: {
-            this.createDialog('hello world', {
+            this.createDialog('You have login other session. (1001)', {
               dismiss: {
                 text: 'single',
               },
@@ -32,7 +23,7 @@ namespace we {
           }
           default: {
             // unknown error, show error code restart game
-            console.log('onClientError unknown code', error.code);
+            logger.e('onClientError unknown code', error.code);
             this.createDialog(`${i18n.t('message.unknownError')} (Code: ${error.code})`, {
               dismiss: {
                 text: 'child 1',
@@ -44,10 +35,9 @@ namespace we {
             break;
           }
         }
-        */
       }
 
-      private createDialog(title, buttons: we.overlay.IMessageDialogButtonProps) {
+      private createDialog(title, buttons: ui.IMessageDialogOpt) {
         dir.evtHandler.showMessage({
           class: 'MessageDialog',
           args: [title, buttons],

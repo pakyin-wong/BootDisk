@@ -527,13 +527,13 @@ namespace we {
       public checkResultMessage(totalWin: number = NaN) {
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != WinType.NONE && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._gameData.wintype, totalWin);
+            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype, totalWin);
             // play sound
             dir.audioCtr.playSequence(['player', 'win']);
           }
         } else {
           if (this._gameData && this._gameData.wintype != WinType.NONE) {
-            this._resultMessage.showResult(this._gameData.wintype);
+            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype);
             // play sound
             dir.audioCtr.playSequence(['player', 'win']);
           }

@@ -12,8 +12,13 @@ namespace we {
 
       public isFreezeScrolling: boolean = false;
       public isGlobalLock: boolean = false;
+      public extendHeight: number = 0;
+      protected _isScrollOffset: boolean = false;
+      protected _originalV: number;
 
       protected _scroller: eui.Scroller = null;
+
+      protected gameFilters: core.GameType[] = [];
 
       constructor() {
         super();
@@ -21,32 +26,79 @@ namespace we {
         this.addEventListener(TableList.UNLOCK, this.onLockChanged, this);
       }
 
-      public setTableList(tableList: string[]) {
+      public get tableCount() {
+        return this.tableList.length;
+      }
+
+      public setTableList(tableList: string[], isOverride: boolean = false) {
         if (this._isFocus) {
           this.nextTableList = tableList;
           return;
         }
-        if (!this.tableList) {
-          this.tableList = tableList;
-          this.collection = new eui.ArrayCollection(tableList);
+        const filteredList = this.invalidateTableList(tableList);
+        if (!this.tableList || isOverride) {
+          // this.tableList = tableList;
+          this.tableList = filteredList;
+          this.collection = new eui.ArrayCollection(this.tableList);
           this.dataProvider = this.collection;
         } else {
           // check new and removed
-          const added = utils.arrayDiff(tableList, this.tableList);
-          const removed = utils.arrayDiff(this.tableList, tableList);
+          const added = utils.arrayDiff(filteredList, this.tableList);
+          const removed = utils.arrayDiff(this.tableList, filteredList);
           added.forEach(item => {
             // find item index and add to collection
-            const idx: number = tableList.indexOf(item);
+            const idx: number = filteredList.indexOf(item);
             this.collection.addItemAt(item, idx);
           });
           removed.forEach(item => {
-            this.collection.removeItemAt(this.collection.getItemIndex(item));
+            const idx: number = this.collection.getItemIndex(item);
+            if (idx >= 0) {
+              this.collection.removeItemAt(idx);
+            }
           });
           // this.tableList = tableList;
           // this.tableList.forEach((x, inx) => {
           //   this.collection.replaceItemAt(x, inx);
           // });
         }
+      }
+
+      public setGameFilters(tab: core.LiveGameTab) {
+        switch (tab) {
+          case core.LiveGameTab.ba:
+            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS];
+            break;
+          case core.LiveGameTab.dt:
+            this.gameFilters = [core.GameType.DT];
+            break;
+        }
+      }
+      public setGameFiltersByTabIndex(idx: number) {
+        if (idx < 0) {
+          this.gameFilters = [];
+        }
+        const items = utils.EnumHelpers.values(core.LiveGameTab);
+        const key = utils.EnumHelpers.getKeyByValue(core.LiveGameTab, items[idx]);
+        this.setGameFilters(core.LiveGameTab[key]);
+      }
+
+      protected invalidateTableList(tableList: string[]) {
+        return tableList.filter(tableid => {
+          const tableInfo = env.tableInfos[tableid];
+          return this.invalidateFilters(tableInfo);
+        });
+      }
+      protected invalidateFilters(tableInfo: data.TableInfo) {
+        if (!this.gameFilters || this.gameFilters.length === 0) {
+          return true;
+        }
+
+        for (const filter of this.gameFilters) {
+          if (filter === tableInfo.gametype) {
+            return true;
+          }
+        }
+        return false;
       }
 
       public addTable(tableid: string) {
@@ -125,9 +177,28 @@ namespace we {
           if (isFocus) {
             scroller.disableVScroller();
             scroller.disableWheel();
+            const focusY = isFocus.y;
+            const focusHeight = isFocus.height;
+            this._originalV = scroller.viewport.scrollV;
+            const targetV = focusY + focusHeight + this.extendHeight - scroller.height;
+            if (targetV > this._originalV) {
+              this._isScrollOffset = true;
+              egret.Tween.get(scroller.viewport).to({ scrollV: targetV }, 300);
+            }
           } else {
-            scroller.enableVScroller();
-            scroller.enableWheel();
+            if (this._isScrollOffset) {
+              this._isScrollOffset = false;
+              egret.Tween.get(scroller.viewport)
+                .to({ scrollV: this._originalV }, 300)
+                .call(() => {
+                  scroller.enableVScroller();
+                  scroller.enableWheel();
+                });
+            } else {
+              scroller.enableVScroller();
+              scroller.enableWheel();
+              scroller.invalidateDisplayList();
+            }
           }
         }
         if (!isFocus && this.nextTableList) {
@@ -148,7 +219,7 @@ namespace we {
         }
       }
 
-      protected getParentScroller() {
+      public getParentScroller() {
         if (this._scroller) {
           return this._scroller;
         }

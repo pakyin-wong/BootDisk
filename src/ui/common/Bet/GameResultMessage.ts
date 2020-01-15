@@ -15,14 +15,14 @@ namespace we {
         this._isAnimating = false;
       }
 
-      public showResult(winType: ba.WinType, winAmount: number = NaN) {
+      public showResult(gameType: core.GameType, winType: number, winAmount: number = NaN) {
         const isWin = !isNaN(winAmount) && winAmount > 0;
         egret.Tween.removeTweens(this);
         this.changeSkin(isWin);
         if (this._bg) {
-          this.setBackground(winType, isWin);
+          this.setBackground(gameType, winType, isWin);
         }
-        this.start(winType, winAmount);
+        this.start(gameType, winType, winAmount);
       }
 
       protected changeSkin(isWin: boolean) {
@@ -35,23 +35,56 @@ namespace we {
         this.anchorOffsetY = this.height * 0.5;
       }
 
-      protected setBackground(winType: ba.WinType, isWin: boolean) {
-        switch (winType) {
-          case ba.WinType.BANKER:
+      protected setBackground(gameType: core.GameType, winType: number, isWin: boolean) {
+        switch (gameType) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+            switch (winType) {
+              case ba.WinType.BANKER:
+                this.setBackgroundImage('red', isWin);
+                break;
+              case ba.WinType.PLAYER:
+                this.setBackgroundImage('blue', isWin);
+                break;
+              case ba.WinType.TIE:
+                this.setBackgroundImage('green', isWin);
+                break;
+            }
+            break;
+          case core.GameType.DT:
+            switch (winType) {
+              case dt.WinType.DRAGON:
+                this.setBackgroundImage('blue', isWin);
+                break;
+              case dt.WinType.TIGER:
+                this.setBackgroundImage('red', isWin);
+                break;
+              case dt.WinType.TIE:
+                this.setBackgroundImage('green', isWin);
+                break;
+            }
+            break;
+        }
+      }
+
+      protected setBackgroundImage(type: string, isWin: boolean) {
+        switch (type) {
+          case 'red':
             if (isWin) {
               this._bg.source = 'd_ba_gameresult_bankerelement_png';
             } else {
               this._bg.source = 'd_ba_gameresult_bankerwin_png';
             }
             break;
-          case ba.WinType.PLAYER:
+          case 'blue':
             if (isWin) {
               this._bg.source = 'd_ba_gameresult_playerelement_png';
             } else {
               this._bg.source = 'd_ba_gameresult_playerwin_png';
             }
             break;
-          case ba.WinType.TIE:
+          case 'green':
             if (isWin) {
               this._bg.source = 'd_ba_gameresult_tieelement_png';
             } else {
@@ -67,7 +100,7 @@ namespace we {
         this.visible = false;
       }
 
-      protected start(winType: ba.WinType, winAmount: number) {
+      protected start(gameType: core.GameType, winType: number, winAmount: number) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
         if (this._numlabel) {
@@ -76,8 +109,7 @@ namespace we {
         }
         const tween = egret.Tween.get(this)
           .call(() => {
-            const winTypeKey: string = ba.WinType[winType];
-            const message: string = i18n.t(`baccarat.result.${winTypeKey}`);
+            const message: string = i18n.t(utils.getWinMessageKey(gameType, winType));
             this.visible = true;
             this._label.visible = true;
             this._label.text = message;

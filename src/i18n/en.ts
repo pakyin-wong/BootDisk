@@ -11,6 +11,7 @@ namespace we {
       gametype_DI: 'DI',
       gametype_MJ: 'MJ',
       gametype_RO: 'RO',
+      gametype_DT: 'DT',
 
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
@@ -60,6 +61,16 @@ namespace we {
       overlaypanel_bethistory_baresult_player: 'P',
 
       overlaypanel_bethistory_searchtype_all: 'All',
+
+      datePicker_clean: 'Clean',
+      datePicker_confirm: 'Confirm',
+      datePicker_weekday_0: 'Su',
+      datePicker_weekday_1: 'Mo',
+      datePicker_weekday_2: 'Tu',
+      datePicker_weekday_3: 'We',
+      datePicker_weekday_4: 'Th',
+      datePicker_weekday_5: 'Fr',
+      datePicker_weekday_6: 'Sa',
 
       loading: {
         socket: {
@@ -137,6 +148,7 @@ namespace we {
         goodroad: 'Good Road',
         allgame: 'All Game',
       },
+
       baccarat: {
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
@@ -165,17 +177,42 @@ namespace we {
         removeGoodRoad: 'Delete Road Sheet?',
         confirmRemoveGoodRoad: 'Delete',
         cancelRemoveGoodRoad: 'Cancel',
-        result: {
-          BANKER: 'Banker Win',
-          PLAYER: 'Player Win',
-          TIE: 'Tie',
-        },
         noCommission: 'No Commision',
         clickToSeeVideo: 'Click to see video for this round',
+      },
+      dragontiger: {
+        dragon: 'Dragon',
+        tiger: 'Tiger',
+        tie: 'Tie',
+        dragonShort: 'Dn',
+        tigerShort: 'Tr',
+        tieShort: 'Ti',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
         unknownError: 'An unknown error occurred',
+      },
+      winType: {
+        ba: {
+          BANKER: 'Banker Win',
+          PLAYER: 'Player Win',
+          TIE: 'Tie',
+          short: {
+            BANKER: 'B',
+            PLAYER: 'P',
+            TIE: 'T',
+          },
+        },
+        dt: {
+          DRAGON: 'Dragon Win',
+          TIGER: 'Tiger Win',
+          TIE: 'Tie',
+          short: {
+            DRAGON: 'Dn',
+            TIGER: 'Tr',
+            TIE: 'T',
+          },
+        },
       },
     };
   }

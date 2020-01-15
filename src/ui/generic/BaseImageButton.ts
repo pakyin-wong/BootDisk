@@ -31,7 +31,6 @@ namespace we {
           this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
         }
         this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
-        // }
         this.touchChildren = false;
         this.buttonEnabled = true;
       }
@@ -128,6 +127,10 @@ namespace we {
       }
 
       private update() {
+        if (this._activeTransitionStopper) {
+          this._activeTransitionStopper();
+        }
+
         let buttonState;
         if (!this._enabled) {
           buttonState = BaseImageButtonState.disabled;
@@ -182,9 +185,6 @@ namespace we {
         const newSource = source.replace(this._buttonState.toString(), buttonState);
         if (RES.getRes(newSource)) {
           // use res string to allow replace
-          if (this._activeTransitionStopper) {
-            this._activeTransitionStopper();
-          }
           this.changeSourceWithAnimation(source, newSource);
         }
       }

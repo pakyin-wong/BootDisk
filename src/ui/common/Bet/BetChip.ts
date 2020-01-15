@@ -3,7 +3,7 @@ namespace we {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
       protected _value: number;
       protected _chipImage: eui.Image;
-      protected _chipValueLabel: eui.Label;
+      protected _chipValueLabel: ui.LabelImage;
       protected _type: we.core.ChipType;
       protected _highlight: boolean;
       protected _glowFilter: egret.GlowFilter;
@@ -19,26 +19,8 @@ namespace we {
         this.setGlowFilter();
       }
 
-      set width(value: number) {
-        this.$setWidth(value);
-        if (this._chipImage) {
-          this._chipImage.width = value;
-        }
-      }
-
-      get width() {
-        return this.$getWidth();
-      }
-
-      set height(value: number) {
-        this.$setHeight(value);
-        if (this._chipImage) {
-          this._chipImage.height = value;
-        }
-      }
-
-      get height() {
-        return this.$getHeight();
+      protected reviseError() {
+        this._chipValueLabel.verticalCenter = -0.03 * this.height;
       }
 
       protected setGlowFilter(
@@ -61,14 +43,19 @@ namespace we {
       protected mount() {
         // this.setValue(this._value);
         this.setValue(this._value, this._type);
+        this.reviseError();
       }
 
       public setValue(value: number, type: we.core.ChipType = null) {
         this._value = value;
         this._type = type ? type : this._type ? this._type : we.core.ChipType.CLIP;
         this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : utils.numberToFaceValue(value);
+
         if (type === we.core.ChipType.BETTING) {
           this._chipImage.source = we.core.ChipSetInfo.betting + '_png';
+        }
+        if (type === we.core.ChipType.CLIP) {
+          this._chipValueLabel.height = this._chipValueLabel.height * 0.6;
         }
         // this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
       }

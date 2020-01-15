@@ -1,20 +1,10 @@
 class Main extends eui.UILayer {
   protected createChildren(): void {
     super.createChildren();
-    // add global mouse event handler
+
     mouse.enable(this.stage);
 
-    // egret.lifecycle.addLifecycleListener(context => {
-    //   // custom lifecycle plugin
-    // });
-
-    // egret.lifecycle.onPause = () => {
-    //   egret.ticker.pause();
-    // };
-
-    // egret.lifecycle.onResume = () => {
-    //   egret.ticker.resume();
-    // };
+    this.stage['inFocusItems'] = [];
 
     this.init().catch(err => {
       logger.e(err);

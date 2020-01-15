@@ -3,8 +3,8 @@ namespace we {
   export namespace ba {
     // base control class that hold and manage the basic item in Ba Item
     export class ControlItem extends ui.TableListItem {
-      protected _bettingTable: ui.BettingTable;
-      protected _betChipSet: ui.IBetChipSet & core.BaseEUI;
+      protected _bettingTable: BettingTable;
+      protected _betChipSet: ui.BetChipSet;
       protected _cardHolder: CardHolder;
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
@@ -58,12 +58,12 @@ namespace we {
       protected initBettingTable() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._bettingTable) {
-          this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
-          this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
           this._bettingTable.type = we.core.BettingTableType.NORMAL;
           this._bettingTable.denomList = denominationList;
           this._bettingTable.undoStack = this._undoStack;
           this._bettingTable.init();
+          this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
+          this._bettingTable.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
         }
       }
 
@@ -127,7 +127,7 @@ namespace we {
 
       protected onBetDetailUpdate(evt: egret.Event) {
         const tableInfo = <data.TableInfo> evt.data;
-        logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
+        // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -364,11 +364,11 @@ namespace we {
       public checkResultMessage(totalWin: number = NaN) {
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._gameData.wintype, totalWin);
+            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype, totalWin);
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._gameData.wintype);
+            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype);
           }
         }
       }

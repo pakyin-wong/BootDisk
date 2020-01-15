@@ -7,6 +7,7 @@ namespace we {
 
       public constructor() {
         super();
+        this.cacheAsBitmap = true;
       }
 
       protected childrenCreated() {

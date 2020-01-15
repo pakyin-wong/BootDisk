@@ -1,13 +1,6 @@
 namespace we {
   export namespace ui {
     export class BettingTable extends ui.Panel {
-      protected _gridPlayerPair: BettingTableGrid;
-      protected _gridBankerPair: BettingTableGrid;
-      protected _gridPlayer: BettingTableGrid;
-      protected _gridTie: BettingTableGrid;
-      protected _gridSuperSix: BettingTableGrid;
-      protected _gridSuperSixBanker: BettingTableGrid;
-      protected _gridBanker: BettingTableGrid;
       protected _tableId: string;
       protected _type: we.core.BettingTableType;
       protected _denomList: number[];
@@ -16,10 +9,13 @@ namespace we {
       protected _getSelectedBetLimitIndex: () => number;
       protected _undoStack: we.utils.UndoStack;
       protected mapping: { [s: string]: BettingTableGrid };
+      protected _betField: any;
 
       protected _uncfmBetDetails: data.BetDetail[];
       protected totalUncfmBetAmount: number;
       protected betDetails: data.BetDetail[];
+      protected _totalPerson: any; // Total Person for each grid
+      protected _totalAmount: any; // Total amount for each grid
 
       constructor() {
         super();
@@ -31,6 +27,46 @@ namespace we {
       }
 
       public onTableListUpdate() {}
+
+      set totalPerson(persons: any) {
+        console.log('BettingTable ', this._tableId, persons);
+        this._totalPerson = persons;
+        if (this.mapping) {
+          Object.keys(persons).map(value => {
+            if (this.mapping[value]) {
+              this.mapping[value].totalPerson = persons[value];
+            }
+          });
+        }
+      }
+
+      get totalPerson() {
+        return this._totalPerson;
+      }
+
+      set totalAmount(amounts: any) {
+        console.log('BettingTable ', this._tableId, amounts);
+        this._totalAmount = amounts;
+        if (this.mapping) {
+          Object.keys(amounts).map(value => {
+            if (this.mapping[value]) {
+              this.mapping[value].totalAmount = amounts[value];
+            }
+          });
+        }
+      }
+
+      get totalAmount() {
+        return this._totalAmount;
+      }
+
+      set betField(value: any) {
+        this._betField = value;
+      }
+
+      get betField() {
+        return this._betField;
+      }
 
       set denomList(value: number[]) {
         this._denomList = value;
@@ -72,35 +108,18 @@ namespace we {
         return this._undoStack;
       }
 
-      protected createMapping() {
-        this.mapping = {};
-        this.mapping[ba.BetField.PLAYER] = this._gridPlayer;
-        this.mapping[ba.BetField.BANKER] = this._gridBanker;
-        this.mapping[ba.BetField.PLAYER_PAIR] = this._gridPlayerPair;
-        this.mapping[ba.BetField.TIE] = this._gridTie;
-        this.mapping[ba.BetField.BANKER_PAIR] = this._gridBankerPair;
-        this.mapping[ba.BetField.SUPER_SIX_BANKER] = this._gridSuperSixBanker;
-        this.mapping[ba.BetField.SUPER_SIX] = this._gridSuperSix;
-      }
+      protected createMapping() {}
 
       protected setFieldNames() {
-        this._gridPlayer.setFieldName(ba.BetField.PLAYER);
-        this._gridBanker.setFieldName(ba.BetField.BANKER);
-        this._gridPlayerPair.setFieldName(ba.BetField.PLAYER_PAIR);
-        this._gridTie.setFieldName(ba.BetField.TIE);
-        this._gridBankerPair.setFieldName(ba.BetField.BANKER_PAIR);
-        this._gridSuperSixBanker.setFieldName(ba.BetField.SUPER_SIX_BANKER);
-        this._gridSuperSix.setFieldName(ba.BetField.SUPER_SIX);
+        Object.keys(this.mapping).map(value => {
+          this.mapping[value].setFieldName(value);
+        });
       }
 
       protected setDenomLists() {
-        this._gridPlayer.denomList = this._denomList;
-        this._gridBanker.denomList = this._denomList;
-        this._gridPlayerPair.denomList = this._denomList;
-        this._gridTie.denomList = this._denomList;
-        this._gridBankerPair.denomList = this._denomList;
-        this._gridSuperSixBanker.denomList = this._denomList;
-        this._gridSuperSix.denomList = this._denomList;
+        Object.keys(this.mapping).map(value => {
+          this.mapping[value].denomList = this._denomList;
+        });
       }
 
       // Must be called if you change skin
@@ -121,12 +140,20 @@ namespace we {
         if (this._denomLayer) {
           return this._denomLayer;
         }
-        if (!this._gridPlayer) {
+
+        if (!this.mapping) {
           return null;
         }
-        if (!we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
-          return null;
+
+        for (const grid of Object.keys(this.mapping)) {
+          if (!this.mapping[grid]) {
+            return null;
+          }
+          if (!we.utils.convertToBoolean(this.mapping[grid].hasDenomLayer)) {
+            return null;
+          }
         }
+
         this._denomLayer = new eui.Component();
         Object.keys(this.mapping).map(value => {
           if (we.utils.convertToBoolean(this.mapping[value].hasDenomLayer)) {
@@ -134,36 +161,6 @@ namespace we {
             this._denomLayer.addChild(this.mapping[value].denomLayer);
           }
         });
-        /*
-        if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
-          this.setDenomGrid(this._gridPlayer);
-          this._denomLayer.addChild(this._gridPlayer.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridBanker.hasDenomLayer)) {
-          this.setDenomGrid(this._gridBanker);
-          this._denomLayer.addChild(this._gridBanker.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridPlayerPair.hasDenomLayer)) {
-          this.setDenomGrid(this._gridPlayerPair);
-          this._denomLayer.addChild(this._gridPlayerPair.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridTie.hasDenomLayer)) {
-          this.setDenomGrid(this._gridTie);
-          this._denomLayer.addChild(this._gridTie.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridBankerPair.hasDenomLayer)) {
-          this.setDenomGrid(this._gridBankerPair);
-          this._denomLayer.addChild(this._gridBankerPair.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridSuperSixBanker.hasDenomLayer)) {
-          this.setDenomGrid(this._gridSuperSixBanker);
-          this._denomLayer.addChild(this._gridSuperSixBanker.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridSuperSix.hasDenomLayer)) {
-          this.setDenomGrid(this._gridSuperSix);
-          this._denomLayer.addChild(this._gridSuperSix.denomLayer);
-        }
-        */
 
         this._denomLayer.touchEnabled = false;
         this._denomLayer.touchChildren = false;
@@ -220,24 +217,12 @@ namespace we {
 
       public setGameMode(isNoCommission: boolean) {
         this.currentState = isNoCommission ? 'SuperSix' : 'Normal';
-        this._gridPlayer.draw();
-        this._gridBanker.draw();
-        this._gridPlayerPair.draw();
-        this._gridTie.draw();
-        this._gridBankerPair.draw();
-        this._gridSuperSixBanker.draw();
-        this._gridSuperSix.draw();
+        Object.keys(this.mapping).map(value => {
+          this.mapping[value].draw();
+        });
       }
 
-      protected changeLang() {
-        this._gridPlayer.text = i18n.t('baccarat.player');
-        this._gridBanker.text = i18n.t('baccarat.banker');
-        this._gridPlayerPair.text = i18n.t('baccarat.playerPair');
-        this._gridTie.text = i18n.t('baccarat.tie');
-        this._gridBankerPair.text = i18n.t('baccarat.bankerPair');
-        this._gridSuperSixBanker.text = i18n.t('baccarat.banker');
-        this._gridSuperSix.text = i18n.t('baccarat.superSix');
-      }
+      protected changeLang() {}
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
@@ -405,13 +390,9 @@ namespace we {
 
       set getSelectedChipIndex(value: () => number) {
         this._getSelectedChipIndex = value;
-        this._gridPlayer.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridBanker.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridPlayerPair.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridTie.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridBankerPair.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridSuperSixBanker.getSelectedChipIndex = this._getSelectedChipIndex;
-        this._gridSuperSix.getSelectedChipIndex = this._getSelectedChipIndex;
+        Object.keys(this.mapping).map(value => {
+          this.mapping[value].getSelectedChipIndex = this._getSelectedChipIndex;
+        });
       }
 
       get getSelectedChipIndex() {
@@ -420,13 +401,9 @@ namespace we {
 
       set getSelectedBetLimitIndex(value: () => number) {
         this._getSelectedBetLimitIndex = value;
-        this._gridPlayer.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridPlayerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridTie.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridBankerPair.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridSuperSixBanker.getSelectedBetLimit = this._getSelectedBetLimitIndex;
-        this._gridSuperSix.getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        Object.keys(this.mapping).map(value => {
+          this.mapping[value].getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        });
       }
 
       get getSelectedBetLimitIndex() {
@@ -447,18 +424,17 @@ namespace we {
           this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
           return false;
         }
-        const exceedBetLimit =
-          Math.abs(fieldAmounts[ba.BetField.BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
-          Math.abs(fieldAmounts[ba.BetField.SUPER_SIX_BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
-          fieldAmounts[ba.BetField.TIE] > betLimit.maxlimit ||
-          fieldAmounts[ba.BetField.BANKER_PAIR] > betLimit.maxlimit ||
-          fieldAmounts[ba.BetField.PLAYER_PAIR] > betLimit.maxlimit ||
-          fieldAmounts[ba.BetField.SUPER_SIX] > betLimit.maxlimit;
+        const exceedBetLimit = this.isExceedBetLimit(fieldAmounts, betLimit);
+
         if (exceedBetLimit) {
           dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
           return false;
         }
         return true;
+      }
+
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+        return false;
       }
 
       // check if the current bet action is valid
@@ -469,15 +445,10 @@ namespace we {
       }
 
       public pushUnconfirmedBetToWaitingConfirmBet() {
-        this._uncfmBetDetails = [
-          { field: ba.BetField.BANKER, amount: 0 },
-          { field: ba.BetField.PLAYER, amount: 0 },
-          { field: ba.BetField.TIE, amount: 0 },
-          { field: ba.BetField.BANKER_PAIR, amount: 0 },
-          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
-          { field: ba.BetField.SUPER_SIX, amount: 0 },
-          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
-        ];
+        this._uncfmBetDetails = new Array();
+        Object.keys(this._betField).map(value => {
+          this._uncfmBetDetails.push({ field: value, amount: 0 });
+        });
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
             // TODO To be filled
@@ -488,15 +459,10 @@ namespace we {
       }
 
       public resetUnconfirmedBet() {
-        this._uncfmBetDetails = [
-          { field: ba.BetField.BANKER, amount: 0 },
-          { field: ba.BetField.PLAYER, amount: 0 },
-          { field: ba.BetField.TIE, amount: 0 },
-          { field: ba.BetField.BANKER_PAIR, amount: 0 },
-          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
-          { field: ba.BetField.SUPER_SIX, amount: 0 },
-          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
-        ];
+        this._uncfmBetDetails = new Array();
+        Object.keys(this._betField).map(value => {
+          this._uncfmBetDetails.push({ field: value, amount: 0 });
+        });
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
             this.mapping[value].setUncfmBet(0);
@@ -506,15 +472,10 @@ namespace we {
       }
 
       public resetConfirmedBet() {
-        this.betDetails = [
-          { field: ba.BetField.BANKER, amount: 0 },
-          { field: ba.BetField.PLAYER, amount: 0 },
-          { field: ba.BetField.TIE, amount: 0 },
-          { field: ba.BetField.BANKER_PAIR, amount: 0 },
-          { field: ba.BetField.PLAYER_PAIR, amount: 0 },
-          { field: ba.BetField.SUPER_SIX, amount: 0 },
-          { field: ba.BetField.SUPER_SIX_BANKER, amount: 0 },
-        ];
+        this.betDetails = new Array();
+        Object.keys(this._betField).map(value => {
+          this.betDetails.push({ field: value, amount: 0 });
+        });
         if (this.mapping) {
           Object.keys(this.mapping).forEach(value => {
             this.mapping[value].setCfmBet(0);
@@ -529,13 +490,9 @@ namespace we {
 
       public cancelBet() {
         this.resetUnconfirmedBet();
-        this._gridPlayer.cancelBet();
-        this._gridBanker.cancelBet();
-        this._gridPlayerPair.cancelBet();
-        this._gridTie.cancelBet();
-        this._gridBankerPair.cancelBet();
-        this._gridSuperSixBanker.cancelBet();
-        this._gridSuperSix.cancelBet();
+        Object.keys(this.mapping).map(value => {
+          this.mapping[value].cancelBet();
+        });
       }
 
       public undoCancelBet(betDetails: data.BetDetail[]) {
