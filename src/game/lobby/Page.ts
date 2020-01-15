@@ -148,11 +148,34 @@ namespace we {
         armatureDisplay.animation.play('win_start', -1);
 
         const slot = armatureDisplay.armature.getSlot('+800');
-        const r = new eui.Rect();
-        r.height = 50;
-        r.width = 50;
-        r.fillColor = 0xff0000;
-        slot.display = r;
+        // const r = new eui.Label();
+        // r.text = 'This is a testing string.';
+        // const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
+        // r.filters = [shadowFilter];
+        // r.bold = true;
+        // r.textColor = 0xffffff;
+        // const layer = new eui.Group();
+        // layer.addChild(r);
+        // // layer.anchorOffsetX = r.width * 0.5;
+        // // layer.anchorOffsetY = r.height * 0.5;
+        // // slot.display = layer;
+        // const renderTexture = new egret.RenderTexture();
+        // renderTexture.drawToTexture(layer, null, 2);
+        // const i = new eui.Image(renderTexture);
+        // i.anchorOffsetX = renderTexture.$sourceWidth * 0.25;
+        // i.anchorOffsetY = renderTexture.$sourceHeight * 0.25;
+        // i.width = renderTexture.$sourceWidth * 0.5;
+        // i.height = renderTexture.$sourceHeight * 0.5;
+        // slot.display = i;
+
+        const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
+        bmfont.font = RES.getRes('font_fnt');
+        bmfont.text = 'This is a testing string.';
+        slot.display = bmfont;
+        bmfont.scaleX = 0.5;
+        bmfont.scaleY = 0.5;
+        bmfont.anchorOffsetX = bmfont.width * 0.5;
+        bmfont.anchorOffsetY = bmfont.height * 0.5;
 
         // // Dragonbone animation 2 (self gen sprite)
         // const skeletonData2 = RES.getRes('Icon_ske_json');
@@ -281,12 +304,12 @@ namespace we {
         // this.addChild(blendShape);
         // blendShape.blendMode = egret.BlendMode.ERASE;
 
-        const blendShape = new eui.Image();
-        blendShape.source = RES.getRes('Mask_test_png');
-        blendShape.width = this.stage.stageWidth;
-        blendShape.height = this.stage.stageHeight;
-        this.addChild(blendShape);
-        this.mask = blendShape;
+        // const blendShape = new eui.Image();
+        // blendShape.source = RES.getRes('Mask_test_png');
+        // blendShape.width = this.stage.stageWidth;
+        // blendShape.height = this.stage.stageHeight;
+        // this.addChild(blendShape);
+        // this.mask = blendShape;
         // blendShape.blendMode = egret.BlendMode.ADD;
 
         // // texture merger
