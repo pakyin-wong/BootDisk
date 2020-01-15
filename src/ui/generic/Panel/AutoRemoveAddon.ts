@@ -1,10 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IAutoRemove {
-      content: egret.DisplayObject;
-      removeSelf: (isAnimate?: boolean) => void;
-    }
-
     export class AutoRemoveAddon extends DisplayObjectAddon {
       protected target: egret.DisplayObject & IAutoRemove;
       protected customAnimation: () => Promise<void>;

@@ -1,11 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IBetChip {
-      getValue();
-      setValue(value: number); // update the chip appearance according to the value
-      highlight: boolean; // indicate whether the chip is being selected
-    }
-
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
       protected _value: number;
       protected _chipImage: eui.Image;

@@ -37,7 +37,7 @@ namespace we {
         }
       }
 
-      private createDialog(title, buttons: we.overlay.IMessageDialogButtonProps) {
+      private createDialog(title, buttons: ui.IMessageDialogOpt) {
         dir.evtHandler.showMessage({
           class: 'MessageDialog',
           args: [title, buttons],

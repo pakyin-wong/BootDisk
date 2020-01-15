@@ -1,4 +1,4 @@
-// This file contains all we.lobby related typing definitions.
+// This file contains we.lobby related typing definitions.
 namespace we {
   export namespace lobby {
     export interface ILobbyResources {
