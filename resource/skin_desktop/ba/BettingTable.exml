@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BaBettingTableSkin" width="1146" height="204" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal,SuperSix">
-	<ui:BettingTableGrid id="_gridPlayer" skinName="skin_desktop.BettingTableGridSkin" x="0" y="0" width="573" height="191"
+	<ui:BettingTableGrid id="_gridPlayer" skinName="skin_desktop.BettingTableGridFullSkin" x="0" y="0" width="573" height="191"
 	                     imageRes="d_ba_betarea_player_normal_png" hoverRes="d_ba_betarea_player_hover_png" chipWidth="100"
 	                     chipHeight="100" chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
 	                     betSumBackgroundHeight="30" betChipZIndex="1010" hasDenomLayer="false" chipLabelOffset="-3"
 	                     chipLabelSize="30" chipType="2" odds="1:1" oddsV="20" nameV="-20" />
-	<ui:BettingTableGrid id="_gridBanker" skinName="skin_desktop.BettingTableGridSkin" includeIn="Normal" x="573" y="0"
+	<ui:BettingTableGrid id="_gridBanker" skinName="skin_desktop.BettingTableGridFullSkin" includeIn="Normal" x="573" y="0"
 	                     width="573" height="191" imageRes="d_ba_betarea_banker_normal_png"
 	                     hoverRes="d_ba_betarea_banker_hover_png" chipWidth="100" chipHeight="100" chipInterval="7"
 	                     totalCfmOffset="50" totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png"
