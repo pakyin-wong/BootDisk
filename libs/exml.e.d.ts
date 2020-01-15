@@ -46,8 +46,8 @@ declare module skins_desktop{
 	class BetConfirmButtonSkin extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class BaBettingTableSkin extends eui.Skin{
+declare module skin_desktop.ba{
+	class BettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -63,11 +63,35 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.ba{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class LiveListItemBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
 	class AlreadyBetCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ba{
 	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class SideListBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -91,31 +115,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BaLiveListItemBettingTableSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BaLiveListItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BaLiveListSimpleItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BARoadmapLeftPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BaSideListBetItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BaSideListBettingTableSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BaSideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -192,12 +192,24 @@ declare module skin_desktop{
 	class DropdownItem extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class DtBettingTableSkin extends eui.Skin{
+declare module skin_desktop.dt{
+	class BettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class DragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class LiveListItemBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class LiveListSimpleItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.dt{
@@ -206,6 +218,18 @@ declare module skin_desktop.dt{
 }
 declare module skin_desktop.dt{
 	class AlreadyBetCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class SideListBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.dt{

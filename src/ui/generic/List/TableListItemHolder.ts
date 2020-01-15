@@ -66,11 +66,15 @@ namespace we {
       public itemDataChanged() {
         super.itemDataChanged();
         logger.l('TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
+        let prevTableid = '';
         if (this.itemData) {
           if (env && env.tableInfos && env.tableInfos[this.itemData]) {
+            if (this.tableInfo) {
+              prevTableid = this.tableInfo.tableid;
+            }
             this.tableInfo = env.tableInfos[this.itemData];
 
-            if (this.tableInfo && this.tableInfo.tableid !== this.itemData) {
+            if (this.tableInfo && prevTableid !== this.itemData) {
               this.initDisplayItem();
             }
 
