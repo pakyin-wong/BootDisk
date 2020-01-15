@@ -1,6 +1,6 @@
 namespace we {
-  export namespace ba {
-    export class SideListBetItem extends BaListBaseItem {
+  export namespace ui {
+    export class SideListBetItem extends ListBaseItem {
       protected _resultTable: eui.Image;
       protected _bettingGroup: eui.Group;
       protected _resultGroup: eui.Group;
@@ -10,7 +10,7 @@ namespace we {
       protected _prevButton: ui.BaseImageButton;
       // protected _originalQuickBetButtonWidth: number;
 
-      public constructor(skinName: string = 'BaSideListBetItemSkin') {
+      public constructor(skinName: string = null) {
         super(skinName);
       }
 
