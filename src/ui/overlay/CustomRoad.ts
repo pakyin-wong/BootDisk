@@ -53,12 +53,7 @@ namespace we {
         }
         this._cover.visible = false;
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this.changeLang();
-      }
-
-      public changeLang() {
-        this._defaultButton.text = i18n.t('overlaypanel_customroad_title');
+        this._defaultButton.label.renderText = () => `${i18n.t('overlaypanel_customroad_default')}`;
       }
 
       protected destroy() {
@@ -81,10 +76,6 @@ namespace we {
 
         if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_DATA_UPDATE)) {
           dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
-        }
-
-        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
       }
 

@@ -58,7 +58,7 @@ namespace we {
               let isDifferent: boolean = false;
               for (let i = 0; i < this.roadData.length; i++) {
                 if (roadData[i]) {
-                  if (this.roadData[i].V !== roadData[i].V) {
+                  if (this.roadData[i].v !== roadData[i].v) {
                     isDifferent = true;
                     break;
                   }
@@ -87,7 +87,7 @@ namespace we {
           let i: number = roadDataCopy.length - 1;
           let c: number = 0;
           while (i >= 0) {
-            if (!roadDataCopy[i].V) {
+            if (!roadDataCopy[i].v) {
               c++;
               if (c >= 6) {
                 roadDataCopy.splice(i, 6);
@@ -110,7 +110,7 @@ namespace we {
             const icon = this.roadMapIconList[i];
             icon.setByObject(roadDataCopy[i]);
 
-            if (roadDataCopy[i].isPredict && roadDataCopy[i].V) {
+            if (roadDataCopy[i].isPredict && roadDataCopy[i].v) {
               icon.animate();
             }
           }
@@ -189,9 +189,10 @@ namespace we {
         if (this.hasEventListener(egret.Event.REMOVED_FROM_STAGE)) {
           this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
         }
-
-        for (const elem of this.roadMapIconList) {
-          elem.dispose();
+        if (this.roadMapIconList) {
+          for (const elem of this.roadMapIconList) {
+            elem.dispose();
+          }
         }
       }
     }

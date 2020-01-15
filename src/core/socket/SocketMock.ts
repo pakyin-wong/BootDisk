@@ -23,36 +23,13 @@ namespace we {
           data.state = TableState.ONLINE;
           data.roadmap = this.mockRoadData;
 
-          let bankerCount: number = 0;
-          let playerCount: number = 0;
-          let tieCount: number = 0;
-          let playerPairCount: number = 0;
-          let bankerPairCount: number = 0;
-
-          data.roadmap.bead.forEach(item => {
-            if (item.V === 'b') {
-              bankerCount++;
-            } else if (item.V === 'p') {
-              playerCount++;
-            } else if (item.V === 't') {
-              tieCount++;
-            }
-            if (item.B > 0) {
-              bankerPairCount++;
-            }
-            if (item.P > 0) {
-              playerPairCount++;
-            }
-          });
-          const totalCount: number = bankerCount + playerCount + tieCount;
-
           const stats = new we.data.GameStatistic();
-          stats.bankerCount = bankerCount;
-          stats.playerCount = playerCount;
-          stats.tieCount = tieCount;
-          stats.playerPairCount = playerPairCount;
-          stats.bankerPairCount = bankerPairCount;
-          stats.totalCount = totalCount;
+          stats.bankerCount = data.roadmap.bankerwincount;
+          stats.playerCount = data.roadmap.playerwincount;
+          stats.tieCount = data.roadmap.tiewincount;
+          stats.playerPairCount = data.roadmap.playerpairwincount;
+          stats.bankerPairCount = data.roadmap.bankerpairwincount;
+          stats.totalCount = stats.bankerCount + stats.playerCount + stats.tieCount;
 
           data.gamestatistic = stats;
 
@@ -175,15 +152,53 @@ namespace we {
       }
 
       // Good Road
-      public getGoodRoad() {}
+      private mockGoodRoadData: any = {
+        custom: [{ enabled: true, id: 'Abcde', name: 'my road', pattern: 'bbpbb' }],
+        default: [{ enabled: true, id: 'r1', name: 'r1', pattern: 'bbbb' }],
+      };
 
-      public updateCustomGoodRoad(id: string, data: any) {}
+      public getGoodRoad() {
+        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+      }
 
-      public updateDefaultGoodRoad(ids: string[]) {}
+      public updateCustomGoodRoad(id: string, data: any) {
+        this.mockGoodRoadData.custom.forEach(element => {
+          if (element.id === id) {
+            element.enabled = data.enabled;
+            element.name = data.name;
+            element.pattern = data.pattern;
+          }
+        });
 
-      public createGoodRoad(name: string, pattern: string) {}
+        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+      }
 
-      public removeGoodRoadmap(id: string) {}
+      public updateDefaultGoodRoad(ids: string[]) {
+        this.mockGoodRoadData.default.forEach((item, index) => {
+          item.enabled = ids.indexOf(item.id) > -1;
+        });
+
+        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+      }
+
+      public createGoodRoad(name: string, pattern: string) {
+        this.mockGoodRoadData.custom.push({ enabled: true, id: Math.random(), name, pattern });
+        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+      }
+
+      public removeGoodRoadmap(id: string) {
+        this.mockGoodRoadData.custom.forEach((item, index) => {
+          if (item.id === id) {
+            this.mockGoodRoadData.custom.splice(index, 1);
+          }
+        });
+        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+      }
+
+      private _goodRoadUpdateCallback(data: any) {
+        env.goodRoadData = data;
+        dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
+      }
 
       public balanceEvent(myObj: any) {
         if (myObj.balance_index < myObj.balances.length) {
@@ -230,128 +245,100 @@ namespace we {
         // env.tableHistory = this.mockRoadData;
         // dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE);
       }
+
+      // mock road data
       private mockRoadData: any = {
-        bead: [
-          { V: 't', B: 0, P: 0, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-          { V: 'p', B: 0, P: 1, W: 7 },
-          { V: 'p', B: 0, P: 0, W: 6 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-          { V: 'b', B: 1, P: 1, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 5 },
-          { V: 'b', B: 0, P: 0, W: 2 },
-          { V: 't', B: 1, P: 0, W: 0 },
-        ],
-        bigRoad: [
-          { V: 'p', T: 0 },
-          { V: 'p', T: 0 },
-          { V: 'p', T: 4 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: 'b', T: 5 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: 'p', T: 6 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-        ],
-        bigEye: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }],
-        small: [{ V: 'p' }, { V: 'p' }, { V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: '' }],
-        roach: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }],
+        tableid: '1',
+        shoeid: '1',
+        playerwincount: 3,
+        bankerwincount: 3,
+        tiewincount: 3,
+        playerpairwincount: 3,
+        bankerpairwincount: 3,
 
-        bbead: [
-          { V: 't', B: 0, P: 0, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-          { V: 'p', B: 0, P: 1, W: 7 },
-          { V: 'p', B: 0, P: 0, W: 6 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-          { V: 'b', B: 1, P: 1, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 5 },
-          { V: 'b', B: 0, P: 0, W: 2 },
-          { V: 't', B: 1, P: 0, W: 0 },
-          { V: 'b', B: 0, P: 0, W: 0 },
-        ],
-        bbigRoad: [
-          { V: 'p', T: 0 },
-          { V: 'p', T: 0 },
-          { V: 'p', T: 4 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: 'b', T: 5 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: 'p', T: 6 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: 'b', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-        ],
-        bbigEye: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }],
-        bsmall: [{ V: 'p' }, { V: 'p' }, { V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }],
-        broach: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }],
+        inGame: {
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bigEye: [{ v: 'p' }],
+          small: [{ v: 'b' }],
+          roach: [{ v: 'p' }],
+        },
 
-        pbead: [
-          { V: 't', B: 0, P: 0, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-          { V: 'p', B: 0, P: 1, W: 7 },
-          { V: 'p', B: 0, P: 0, W: 6 },
-          { V: 'p', B: 0, P: 0, W: 4 },
-          { V: 'b', B: 1, P: 1, W: 2 },
-          { V: 'p', B: 0, P: 0, W: 5 },
-          { V: 'b', B: 0, P: 0, W: 2 },
-          { V: 't', B: 1, P: 0, W: 0 },
-          { V: 'p', B: 0, P: 0, W: 0 },
-        ],
-        pbigRoad: [
-          { V: 'p', T: 0 },
-          { V: 'p', T: 0 },
-          { V: 'p', T: 4 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: 'b', T: 5 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: 'p', T: 6 },
-          { V: 'p', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-          { V: '', T: 0 },
-        ],
-        pbigEye: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'p' }],
-        psmall: [{ V: 'p' }, { V: 'p' }, { V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: 'b' }, { V: '' }, { V: 'p' }],
-        proach: [{ V: 'p' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'b' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: '' }, { V: 'p' }],
-        gameRoundResult: [
-          { gameRoundID: 'abc123', a1: 'club3', a2: 'heart2', a3: '', b1: 'diamondj', b2: 'heart7', b3: '', bv: 8, pv: 3, winType: 3 },
+        inGameB: {
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
+          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
+          small: [{ v: 'b' }, { v: 'b' }],
+          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
+          beadAni: 3,
+          bigRoadAni: 6,
+          bigEyeAni: 6,
+          smallAni: 1,
+          roachAni: 6,
+        },
+
+        inGameP: {
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
+          bigEye: [{ v: 'p' }, { v: 'p' }],
+          small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
+          roach: [{ v: 'p' }, { v: 'p' }],
+          beadAni: 3,
+          bigRoadAni: 3,
+          bigEyeAni: 1,
+          smallAni: 6,
+          roachAni: 1,
+        },
+
+        lobbyPro: {
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bigEye: [{ v: 'p' }],
+          small: [{ v: 'b' }],
+          roach: [{ v: 'p' }],
+        },
+
+        lobbyProB: {
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
+          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
+          small: [{ v: 'b' }, { v: 'b' }],
+          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
+          beadAni: 3,
+          bigRoadAni: 6,
+          bigEyeAni: 6,
+          smallAni: 1,
+          roachAni: 6,
+        },
+
+        lobbyProP: {
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
+          bigEye: [{ v: 'p' }, { v: 'p' }],
+          small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
+          roach: [{ v: 'p' }, { v: 'p' }],
+          beadAni: 3,
+          bigRoadAni: 3,
+          bigEyeAni: 1,
+          smallAni: 6,
+          roachAni: 1,
+        },
+
+        sideBar: {
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+        },
+
+        lobbyUnPro: {
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+        },
+
+        inGameInfoStart: 0,
+
+        gameInfo: [
           { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 1 },
           { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 2 },
           { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, winType: 3 },
-          { gameRoundID: 'fvgt34', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: 'diamond2', bv: 3, pv: 1, winType: 1 },
-          { gameRoundID: 'd23rg4', a1: 'club5', a2: 'heart7', a3: 'diamond2', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 2 },
         ],
-        animateCell: [9, 18, 7, 11, 7, 9, 13, 12, 12, 12],
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {

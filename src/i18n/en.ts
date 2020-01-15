@@ -32,6 +32,7 @@ namespace we {
       overlaypanel_memberreport_amounttotal: '总金额',
 
       overlaypanel_customroad_title: 'Good Road Settings',
+      overlaypanel_customroad_default: 'Restore Default',
 
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_date: 'Dates',

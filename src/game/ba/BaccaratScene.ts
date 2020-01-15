@@ -227,6 +227,7 @@ namespace we {
       public onExit() {
         super.onExit();
         dir.videoPool.release(this._video);
+        this._roadmapControl.dispose();
         this.removeEventListeners();
         this.removeChildren();
       }

@@ -314,7 +314,7 @@ namespace we {
 
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(tableid);
-        const roadmapData = this.getRoadMapData(gameStatistic);
+        const roadmapData = parseAscString(gameStatistic.roadmapdata);
 
         const bankerCount: number = gameStatistic.bankerwincount;
         const playerCount: number = gameStatistic.playerwincount;
@@ -323,17 +323,17 @@ namespace we {
         const bankerPairCount: number = gameStatistic.bankerpairwincount;
 
         // roadmapData.bead.forEach(item => {
-        //   if (item.V === 'b') {
+        //   if (item.v === 'b') {
         //     bankerCount++;
-        //   } else if (item.V === 'p') {
+        //   } else if (item.v === 'p') {
         //     playerCount++;
-        //   } else if (item.V === 't') {
+        //   } else if (item.v === 't') {
         //     tieCount++;
         //   }
-        //   if (item.B > 0) {
+        //   if (item.b > 0) {
         //     bankerPairCount++;
         //   }
-        //   if (item.P > 0) {
+        //   if (item.p > 0) {
         //     playerPairCount++;
         //   }
         // });
@@ -380,17 +380,17 @@ namespace we {
         // let bankerPairCount: number = 0;
 
         // roadmapData.bead.forEach(item => {
-        //   if (item.V === 'b') {
+        //   if (item.v === 'b') {
         //     bankerCount++;
-        //   } else if (item.V === 'p') {
+        //   } else if (item.v === 'p') {
         //     playerCount++;
-        //   } else if (item.V === 't') {
+        //   } else if (item.v === 't') {
         //     tieCount++;
         //   }
-        //   if (item.B > 0) {
+        //   if (item.b > 0) {
         //     bankerPairCount++;
         //   }
-        //   if (item.P > 0) {
+        //   if (item.p > 0) {
         //     playerPairCount++;
         //   }
         // });
@@ -427,57 +427,6 @@ namespace we {
         //   tableInfo.roadmap = roadmapData;
         //   env.addTableInfo(tableInfo);
         // }
-      }
-
-      private getRoadMapData(rawData: any) {
-        const roadSheetDataMap = {
-          beadLobby: rawData.beadlobby ? rawData.beadlobby : '',
-          bigRoadLobby: rawData.bigroadlobby ? rawData.bigroadlobby : '',
-          bigEyeLobby: rawData.bigeyelobby ? rawData.bigeyelobby : '',
-          smallLobby: rawData.smalllobby ? rawData.smalllobby : '',
-          roachLobby: rawData.roachlobby ? rawData.roachlobby : '',
-          bbead: rawData.bbead ? rawData.bbead : '',
-          bbigEye: rawData.bbigeye ? rawData.bbigeye : '',
-          bbigRoad: rawData.bbigroad ? rawData.bbigroad : '',
-          bead: rawData.bead ? rawData.bead : '',
-          bigEye: rawData.bigeye ? rawData.bigeye : '',
-          bigRoad: rawData.bigroad ? rawData.bigroad : '',
-          broach: rawData.broach ? rawData.broach : '',
-          bsmall: rawData.bsmall ? rawData.bsmall : '',
-          pbead: rawData.pbead ? rawData.pbead : '',
-          pbigEye: rawData.pbigeye ? rawData.pbigeye : '',
-          pbigRoad: rawData.pbigroad ? rawData.pbigroad : '',
-          proach: rawData.proach ? rawData.proach : '',
-          psmall: rawData.psmall ? rawData.psmall : '',
-          roach: rawData.roach ? rawData.roach : '',
-          shoeid: rawData.shoeid ? rawData.shoeid : '',
-          small: rawData.small ? rawData.small : '',
-          animateCell: rawData.animatecell ? rawData.animatecell : '',
-        };
-        const roadmapData = parseAscString(roadSheetDataMap);
-        return {
-          beadLobby: roadmapData.beadLobbyOut,
-          bigRoadLobby: roadmapData.bigRoadLobbyOut,
-          bigEyeLobby: roadmapData.bigEyeLobbyOut,
-          smallLobby: roadmapData.smallLobbyOut,
-          roachLobby: roadmapData.roachLobbyOut,
-          bead: roadmapData.beadOut,
-          bigRoad: roadmapData.bigRoadOut,
-          bigEye: roadmapData.bigEyeOut,
-          small: roadmapData.smallOut,
-          roach: roadmapData.roachOut,
-          bbead: roadmapData.bbeadOut,
-          bbigRoad: roadmapData.bbigRoadOut,
-          bbigEye: roadmapData.bbigEyeOut,
-          bsmall: roadmapData.bsmallOut,
-          broach: roadmapData.broachOut,
-          pbead: roadmapData.pbeadOut,
-          pbigRoad: roadmapData.pbigRoadOut,
-          pbigEye: roadmapData.pbigEyeOut,
-          psmall: roadmapData.psmallOut,
-          proach: roadmapData.proachOut,
-          animateCell: roadmapData.animateCell,
-        };
       }
 
       protected onBalanceUpdate(balance: any, timestamp: string) {
