@@ -3,8 +3,24 @@ namespace we {
     export class NavPlayerProfile extends Panel {
       private _maskContainer: eui.Group;
       private _section_main: eui.Group;
-      private _section_iconSelect: eui.Group;
+
       private _playerIcon: eui.Image;
+      private _username: eui.Label;
+      private _balance: eui.Label;
+      private _maxWinAmount: eui.Label;
+      private _maxWinCount: eui.Label;
+      private _follower: eui.Label;
+      private _following: eui.Label;
+      private _favouriteDealer: eui.Label;
+
+      private _txt_maxWinAmount: RunTimeLabel;
+      private _txt_maxWinCount: RunTimeLabel;
+      private _txt_follower: RunTimeLabel;
+      private _txt_following: RunTimeLabel;
+      private _txt_favouriteDealer: RunTimeLabel;
+
+      private _section_iconSelect: eui.Group;
+
       private _sectionBackIcon: eui.Image;
       private _iconScroller: we.ui.Scroller;
 
@@ -14,6 +30,13 @@ namespace we {
 
       protected mount() {
         super.mount();
+
+        this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
+        this._txt_maxWinCount.renderText = () => `${i18n.t('playerprofile_maxWinCount')}`;
+        this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
+        this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
+        this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
+
         // create mask
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);

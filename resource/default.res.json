@@ -17,7 +17,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_user_info_bg,nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_normal_png,d_lobby_Icon_setting_normal_png,d_lobby_Icon_edit_normal_png,d_lobby_Icon_chart_normal_png,d_lobby_Icon_record_normal_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_normal_png,d_lobby_panel_button_page_prev_normal_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png",
+			"keys": "nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_normal_png,d_lobby_Icon_setting_normal_png,d_lobby_Icon_edit_normal_png,d_lobby_Icon_chart_normal_png,d_lobby_Icon_record_normal_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_normal_png,d_lobby_panel_button_page_prev_normal_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png,d_lobby_profile_reload_hover_png,d_lobby_profile_reload_normal_png,d_lobby_Icon_edit_hover_png,d_lobby_profile_edit_hover_png,d_lobby_profile_edit_normal_png",
 			"name": "nav"
 		},
 		{
@@ -2562,8 +2562,8 @@
 			"url": "assets/librarysp/Icon_tex.json",
 			"type": "json",
 			"name": "Icon2_tex_json"
-        },
-        {
+		},
+		{
 			"url": "assets/d/dt/d_dt_betarea_dragon_normal.png",
 			"type": "image",
 			"name": "d_dt_betarea_dragon_normal_png"
