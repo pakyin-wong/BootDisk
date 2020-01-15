@@ -8,7 +8,7 @@ namespace we {
 
       protected initDisplayItem() {
         super.initDisplayItem();
-        const sideListItem = new ba.SideListItem();
+        const sideListItem = new SideListItem('ba.SideListItemSkin');
         this.setDisplayItem(sideListItem);
       }
     }

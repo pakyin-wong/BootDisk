@@ -1,7 +1,7 @@
 /* tslint:disable triple-equals */
 namespace we {
-  export namespace ba {
-    export class BaListBaseItem extends ControlItem {
+  export namespace ui {
+    export class ListBaseItem extends ControlItem {
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
 
