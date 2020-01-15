@@ -71,7 +71,7 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         // console.log('BaccaratScene::onRoadDataUpdate');
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         if (tableInfo.tableid === this._tableId) {
           this._bettingTable.tableId = this._tableId;
           if (tableInfo.roadmap) {

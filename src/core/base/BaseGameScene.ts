@@ -7,7 +7,7 @@ namespace we {
       protected _betRelatedGroup: eui.Group;
 
       protected _bettingTable: ui.BettingTable;
-      protected _betChipSet: ui.IBetChipSet;
+      protected _betChipSet: ui.BetChipSet;
       protected _resultDisplay: ui.IResultDisplay;
       protected _resultMessage: ui.GameResultMessage;
       protected _message: ui.InGameMessage;
@@ -123,7 +123,7 @@ namespace we {
           this._bettingTable.undoStack = this._undoStack;
           this._bettingTable.init();
           this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
-          this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
+          this._bettingTable.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
         }
       }
 
@@ -242,7 +242,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -264,7 +264,7 @@ namespace we {
         console.log('BaccaratScene::onTableBetInfoUpdate');
         console.log(evt.data);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
             this._bettingTable.totalAmount = evt.data.amount;
@@ -293,7 +293,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;

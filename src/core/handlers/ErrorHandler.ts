@@ -1,12 +1,4 @@
 namespace we {
-  interface IErrorKind {
-    code: number;
-    detail?: string;
-    id?: string;
-    status?: string;
-    timestamp?: number;
-  }
-
   export namespace core {
     export class ErrorHandler extends egret.EventDispatcher {
       constructor() {

@@ -1,15 +1,10 @@
 namespace we {
   export namespace ui {
-    export class BetChipSetHorizontal extends core.BaseEUI implements eui.UIComponent, IBetChipSet {
+    export class BetChipSetHorizontal extends BetChipSet {
       private _startIndex = 0;
-      private _denomList: number[];
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
-      private _chipContainer: eui.Group;
-
-      private _selectedChipIndex: number = 10;
-
       private _chipList: Array<IBetChip & core.BaseEUI> = [];
 
       public constructor() {
@@ -161,10 +156,6 @@ namespace we {
             value.touchEnabled = enabled;
           });
         }
-      }
-
-      public getSelectedChipIndex() {
-        return this._selectedChipIndex;
       }
 
       public injectSetSelectedChip(value: (value: number, index: number) => void) {}
