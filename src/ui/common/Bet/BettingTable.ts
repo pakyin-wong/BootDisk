@@ -14,6 +14,8 @@ namespace we {
       protected _uncfmBetDetails: data.BetDetail[];
       protected totalUncfmBetAmount: number;
       protected betDetails: data.BetDetail[];
+      protected _totalPerson: any; // Total Person for each grid
+      protected _totalAmount: any; // Total amount for each grid
 
       constructor() {
         super();
@@ -25,6 +27,38 @@ namespace we {
       }
 
       public onTableListUpdate() {}
+
+      set totalPerson(persons: any) {
+        console.log('BettingTable ', this._tableId, persons);
+        this._totalPerson = persons;
+        if (this.mapping) {
+          Object.keys(persons).map(value => {
+            if (this.mapping[value]) {
+              this.mapping[value].totalPerson = persons[value];
+            }
+          });
+        }
+      }
+
+      get totalPerson() {
+        return this._totalPerson;
+      }
+
+      set totalAmount(amounts: any) {
+        console.log('BettingTable ', this._tableId, amounts);
+        this._totalAmount = amounts;
+        if (this.mapping) {
+          Object.keys(amounts).map(value => {
+            if (this.mapping[value]) {
+              this.mapping[value].totalAmount = amounts[value];
+            }
+          });
+        }
+      }
+
+      get totalAmount() {
+        return this._totalAmount;
+      }
 
       set betField(value: any) {
         this._betField = value;
@@ -127,36 +161,6 @@ namespace we {
             this._denomLayer.addChild(this.mapping[value].denomLayer);
           }
         });
-        /*
-        if (we.utils.convertToBoolean(this._gridPlayer.hasDenomLayer)) {
-          this.setDenomGrid(this._gridPlayer);
-          this._denomLayer.addChild(this._gridPlayer.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridBanker.hasDenomLayer)) {
-          this.setDenomGrid(this._gridBanker);
-          this._denomLayer.addChild(this._gridBanker.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridPlayerPair.hasDenomLayer)) {
-          this.setDenomGrid(this._gridPlayerPair);
-          this._denomLayer.addChild(this._gridPlayerPair.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridTie.hasDenomLayer)) {
-          this.setDenomGrid(this._gridTie);
-          this._denomLayer.addChild(this._gridTie.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridBankerPair.hasDenomLayer)) {
-          this.setDenomGrid(this._gridBankerPair);
-          this._denomLayer.addChild(this._gridBankerPair.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridSuperSixBanker.hasDenomLayer)) {
-          this.setDenomGrid(this._gridSuperSixBanker);
-          this._denomLayer.addChild(this._gridSuperSixBanker.denomLayer);
-        }
-        if (we.utils.convertToBoolean(this._gridSuperSix.hasDenomLayer)) {
-          this.setDenomGrid(this._gridSuperSix);
-          this._denomLayer.addChild(this._gridSuperSix.denomLayer);
-        }
-        */
 
         this._denomLayer.touchEnabled = false;
         this._denomLayer.touchChildren = false;
