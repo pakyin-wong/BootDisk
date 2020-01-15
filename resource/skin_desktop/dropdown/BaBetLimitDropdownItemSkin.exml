@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="BaBetLimitDropdownItemSkin" currentState="up" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" states="up,down">
-    <e:Group x="0" y="0" width="133" height="29" touchThrough="false" touchEnabled="true" touchChildren="false">
-			<e:Rect left="0" right="0" top="0" bottom="0" fillAlpha="0.6" includeIn="down" fillColor="0x939393"/>
-        <e:Rect left="0" right="0" top="0" bottom="0" fillColor.down="0x88809e" fillAlpha="0.6"  includeIn="up"/>
-        <e:Label id="_label" text="{data.item}" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" top="0"
-                 bottom="0" textAlign="right" size="24" right="8" left="0" y="0" scaleX="1" scaleY="1"  textAlign.down="right" size.down="24" fontFamily.down="Barlow" fontFamily="Barlow"/>
+    <e:Group x="0" y="0" touchThrough="false" touchEnabled="true" touchChildren="false" width="100%">
+        <e:Rect left="0" right="0" fillAlpha="0.5" height="1" bottom="0" fillColor="0x666666" />
+        <e:Label id="_label" text="{data.item}" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" bottom="10"
+                 textAlign="left" size="24" scaleX="1" scaleY="1" left="20" right="20" top="10"
+                 textColor.down="0x53a9ff" fontFamily="Barlow" />
     </e:Group>
-	<e:Rect left="0" right="0" top="0" bottom="0" fillAlpha="0.6" includeIn="up"/>
 </e:Skin>

@@ -44,6 +44,7 @@ namespace we {
       }
 
       protected onToggle() {
+        super.onToggle();
         this.updateLabel();
       }
 
