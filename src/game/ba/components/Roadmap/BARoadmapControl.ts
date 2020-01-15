@@ -12,7 +12,7 @@ namespace we {
 
       private parser: BARoadParser;
       private predictTimeout: number;
-      private useParser: boolean = false;
+      private useParser: boolean = true;
 
       public constructor(tableid: string = null) {
         this.tableid = tableid;
@@ -52,10 +52,10 @@ namespace we {
       private onBeadRoadOver(e: egret.Event) {
         if (env.tableInfos[this.tableid]) {
           if (env.tableInfos[this.tableid].roadmap) {
-            const data = env.tableInfos[this.tableid].roadmap;
-            if (data.gameRoundResult) {
-              if (e.data.index >= 0 && e.data.index < data.gameRoundResult.length) {
-                const rslt = data.gameRoundResult[e.data.index];
+            const roadData = env.tableInfos[this.tableid].roadmap;
+            if (roadData.gameInfo) {
+              if (e.data.index >= 0 && e.data.index + roadData.inGameInfoStart < roadData.gameInfo.length) {
+                const rslt = roadData.gameInfo[e.data.index + roadData.inGameInfoStart];
 
                 const gameData: GameData = new GameData();
                 gameData.a1 = rslt.a1;
@@ -66,7 +66,7 @@ namespace we {
                 gameData.b3 = rslt.b3;
                 gameData.bankerpoint = rslt.bv;
                 gameData.playerpoint = rslt.pv;
-                gameData.wintype = rslt.winType;
+                gameData.wintype = rslt.result;
                 gameData.gameroundid = rslt.gameRoundID;
 
                 this.beadResultPanel.setCardResult(gameData);
@@ -85,10 +85,10 @@ namespace we {
       private onBeadRoadClick(e: egret.Event) {
         if (env.tableInfos[this.tableid]) {
           if (env.tableInfos[this.tableid].roadmap) {
-            const data = env.tableInfos[this.tableid].roadmap;
-            if (data.gameRoundResult) {
-              if (e.data.index >= 0 && e.data.index < data.gameRoundResult.length) {
-                const rslt = data.gameRoundResult[e.data.index];
+            const roadData = env.tableInfos[this.tableid].roadmap;
+            if (roadData.gameInfo) {
+              if (e.data.index >= 0 && e.data.index + roadData.inGameInfoStart < roadData.gameInfo.length) {
+                const rslt = roadData.gameInfo[e.data.index + roadData.inGameInfoStart];
                 window.open('http://www.google.com', '_blank');
               }
             }
@@ -122,31 +122,24 @@ namespace we {
           if (env.tableInfos[this.tableid]) {
             if (env.tableInfos[this.tableid].roadmap) {
               const data = env.tableInfos[this.tableid].roadmap;
-              const animated = data.animateCell;
 
-              const animatedIndex = ['bbead', 'bbigRoad', 'bbigEye', 'bsmall', 'broach', 'pbead', 'pbigRoad', 'pbigEye', 'psmall', 'proach'];
-              try {
-                for (let i = 0; i < animated.length; i++) {
-                  if (animated[i] > -1) {
-                    data[animatedIndex[i]][animated[i]].isPredict = 1;
-                  }
-                }
-              } catch (err) {
-                logger.e(err);
-              }
+              // merge the animation index into the road data
+              this.parser.mergePredictAnimationData(data.inGameB, data.inGameP);
 
               if (v === 0) {
-                this.beadRoad.parseRoadData(data.bbead, 1);
-                this.bigRoad.parseRoadData(data.bbigRoad, 1);
-                this.bigEyeRoad.parseRoadData(data.bbigEye, 1);
-                this.smallRoad.parseRoadData(data.bsmall, 1);
-                this.cockroachRoad.parseRoadData(data.broach, 1);
+                // banker
+                this.beadRoad.parseRoadData(data.inGameB.bead, 1);
+                this.bigRoad.parseRoadData(data.inGameB.bigRoad, 1);
+                this.bigEyeRoad.parseRoadData(data.inGameB.bigEye, 1);
+                this.smallRoad.parseRoadData(data.inGameB.small, 1);
+                this.cockroachRoad.parseRoadData(data.inGameB.roach, 1);
               } else {
-                this.beadRoad.parseRoadData(data.pbead, 1);
-                this.bigRoad.parseRoadData(data.pbigRoad, 1);
-                this.bigEyeRoad.parseRoadData(data.pbigEye, 1);
-                this.smallRoad.parseRoadData(data.psmall, 1);
-                this.cockroachRoad.parseRoadData(data.proach, 1);
+                // player
+                this.beadRoad.parseRoadData(data.inGameP.bead, 1);
+                this.bigRoad.parseRoadData(data.inGameP.bigRoad, 1);
+                this.bigEyeRoad.parseRoadData(data.inGameP.bigEye, 1);
+                this.smallRoad.parseRoadData(data.inGameP.small, 1);
+                this.cockroachRoad.parseRoadData(data.inGameP.roach, 1);
               }
             }
           }
@@ -216,7 +209,7 @@ namespace we {
             // update the gamestatistic
             if (env.tableInfos[this.tableid]) {
               if (env.tableInfos[this.tableid].gamestatistic) {
-                const stats = this.parser.getIconsFromBeadResult(roadmapData.bead);
+                const stats = this.parser.getIconsFromBeadResult(roadmapData.inGame.bead);
                 const data = env.tableInfos[this.tableid].gamestatistic;
                 this.rightPanel.setStats(
                   data.bankerCount,
@@ -235,34 +228,34 @@ namespace we {
               }
             }
 
-            this.parser.parseData(roadmapData.bead);
+            this.parser.parseData(roadmapData.inGame.bead);
           } else {
             // option 2. just display all road data as it is
             // stae 0 = update, 1 = predict, 2 = restore from predict
-            this.beadRoad.parseRoadData(roadmapData.bead, state);
-            this.bigRoad.parseRoadData(roadmapData.bigRoad, state);
-            this.bigEyeRoad.parseRoadData(roadmapData.bigEye, state);
-            this.smallRoad.parseRoadData(roadmapData.small, state);
-            this.cockroachRoad.parseRoadData(roadmapData.roach, state);
+            this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
+            this.bigRoad.parseRoadData(roadmapData.inGame.bigRoad, state);
+            this.bigEyeRoad.parseRoadData(roadmapData.inGame.bigEye, state);
+            this.smallRoad.parseRoadData(roadmapData.inGame.small, state);
+            this.cockroachRoad.parseRoadData(roadmapData.inGame.roach, state);
 
             // update the gamestatistic
             if (env.tableInfos[this.tableid]) {
               if (env.tableInfos[this.tableid].gamestatistic) {
-                const stats = this.parser.getIconsFromRoadData(roadmapData);
-                const data = env.tableInfos[this.tableid].gamestatistic;
+                const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
+                const stat = env.tableInfos[this.tableid].gamestatistic;
                 this.rightPanel.setStats(
-                  data.bankerCount,
-                  data.playerCount,
-                  data.tieCount,
-                  data.bankerPairCount,
-                  data.playerPairCount,
-                  data.totalCount,
-                  stats.predictBankerIcons[0],
-                  stats.predictBankerIcons[1],
-                  stats.predictBankerIcons[2],
-                  stats.predictPlayerIcons[0],
-                  stats.predictPlayerIcons[1],
-                  stats.predictPlayerIcons[2]
+                  stat.bankerCount,
+                  stat.playerCount,
+                  stat.tieCount,
+                  stat.bankerPairCount,
+                  stat.playerPairCount,
+                  stat.totalCount,
+                  prediction.predictBankerIcons[0],
+                  prediction.predictBankerIcons[1],
+                  prediction.predictBankerIcons[2],
+                  prediction.predictPlayerIcons[0],
+                  prediction.predictPlayerIcons[1],
+                  prediction.predictPlayerIcons[2]
                 );
               }
             }
@@ -271,8 +264,43 @@ namespace we {
       }
 
       public dispose() {
+        if (this.predictTimeout) {
+          egret.clearTimeout(this.predictTimeout);
+        }
+
         if (this.parser.hasEventListener('onUpdate')) {
           this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
+        }
+
+        if (this.parser.hasEventListener('onPredict')) {
+          this.parser.removeEventListener('onPredict', this.onParserPredict, this);
+        }
+
+        if (this.parser.hasEventListener('onRestore')) {
+          this.parser.removeEventListener('onRestore', this.onParserRestore, this);
+        }
+
+        if (this.beadRoad.hasEventListener('RollOverResult')) {
+          this.beadRoad.removeEventListener('RollOverResult', this.onBeadRoadOver, this);
+        }
+
+        if (this.beadRoad.hasEventListener('RollOutResult')) {
+          this.beadRoad.removeEventListener('RollOutResult', this.onBeadRoadOut, this);
+        }
+
+        if (this.beadRoad.hasEventListener('ClickResult')) {
+          this.beadRoad.removeEventListener('ClickResult', this.onBeadRoadClick, this);
+        }
+
+        if (this.rightPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.rightPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+        }
+        if (this.rightPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.rightPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
+          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         }
       }
     }

@@ -3,19 +3,17 @@ namespace we {
     export class BABeadRoad extends BARoadBase {
       private mode: number; // the BPT mode (0) or Win value Mode (1)
 
-      public constructor(_numCol: number = 12, _gridSize: number = 30, _scale: number = 1) {
+      public constructor(_numCol: number = 12, _gridSize: number = 30, _scale: number = 1, _showResult: boolean = false) {
         super(_numCol, _gridSize, _scale);
         this.gridUnit = 1;
         this.mode = 0;
 
-        this.touchEnabled = true;
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-
-        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
-        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
-        /*if (!this.roadMapIconList) {
-          this.initRoadData();
-        }*/
+        if (_showResult) {
+          this.touchEnabled = true;
+          this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+          this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
+          this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
+        }
       }
 
       protected createIcon(size: number): BABeadRoadIcon {
@@ -85,7 +83,18 @@ namespace we {
         this.dispatchEvent(new egret.Event('RollOutResult'));
       }
 
-      public dispose() {}
+      public dispose() {
+        if (this.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        }
+        if (this.hasEventListener(mouse.MouseEvent.ROLL_OVER)) {
+          this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
+        }
+        if (this.hasEventListener(mouse.MouseEvent.ROLL_OUT)) {
+          this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
+        }
+        super.dispose();
+      }
     }
   }
 }

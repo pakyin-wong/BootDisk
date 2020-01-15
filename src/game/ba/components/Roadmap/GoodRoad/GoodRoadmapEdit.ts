@@ -69,14 +69,14 @@ namespace we {
         const arr = roadmapData
           .toLowerCase()
           .split('')
-          .forEach(e => data.push({ V: e }));
+          .forEach(e => data.push({ v: e }));
 
         this.parser.parseData(data);
       }
 
       public getRoadData(): string {
         let rslt = '';
-        this.parser.beadRoadResult.forEach(e => (rslt += e.V.toLowerCase()));
+        this.parser.beadRoadResult.forEach(e => (rslt += e.v.toLowerCase()));
         return rslt;
       }
 
@@ -85,6 +85,7 @@ namespace we {
         if (this.parser.hasEventListener('onUpdate')) {
           this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
         }
+        this.bigRoad.dispose();
       }
     }
   }

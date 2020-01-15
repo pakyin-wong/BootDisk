@@ -43,10 +43,10 @@ namespace we {
 
         const useDarkMode = this.darkModeNumber === 0 ? 0 : 2;
 
-        if (value.V) {
-          if (value.V === 'b') {
+        if (value.v) {
+          if (value.v === 'b') {
             this.iconFaceArr[0 + useDarkMode].visible = true;
-          } else if (value.V === 'p') {
+          } else if (value.v === 'p') {
             this.iconFaceArr[1 + useDarkMode].visible = true;
           }
         }

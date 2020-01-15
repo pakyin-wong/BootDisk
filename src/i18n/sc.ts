@@ -33,6 +33,7 @@ namespace we {
       overlaypanel_memberreport_amounttotal: '总金额',
 
       overlaypanel_customroad_title: '好路设定',
+      overlaypanel_customroad_default: '还原预设',
 
       overlaypanel_bethistory_title: '投注记录',
       overlaypanel_bethistory_date: '日期',

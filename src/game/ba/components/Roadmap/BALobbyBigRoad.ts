@@ -36,7 +36,7 @@ namespace we {
           } else {
             // option 2. just display all road data as it is
             if (this.bigRoad) {
-              this.bigRoad.parseRoadData(roadmapData.bigRoad);
+              this.bigRoad.parseRoadData(roadmapData.lobbyUnPro.bigRoad);
             }
           }
         }
@@ -45,7 +45,15 @@ namespace we {
       public updateLobbyRoadData(roadmapData: any) {
         if (roadmapData) {
           if (this.bigRoad) {
-            this.bigRoad.parseRoadData(roadmapData.bigRoadLobby);
+            this.bigRoad.parseRoadData(roadmapData.lobbyUnPro.bigRoad);
+          }
+        }
+      }
+
+      public updateSideBarRoadData(roadmapData: any) {
+        if (roadmapData) {
+          if (this.bigRoad) {
+            this.bigRoad.parseRoadData(roadmapData.sideBar.bigRoad);
           }
         }
       }
