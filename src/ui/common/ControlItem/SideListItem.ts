@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace ui {
     export class SideListItem extends LiveListSimpleItem {
       protected _bigRoad: we.ba.BetInfoBigRoad;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
@@ -66,6 +66,13 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
+
+        if (tableInfo.roadmap) {
+          if (this._bigRoad) {
+            this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
+          }
+        }
+
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
           const goodRoadData = this.tableInfo.goodRoad;
@@ -109,6 +116,18 @@ namespace we {
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
+        if (evt && evt.data) {
+          const tableInfo = <data.TableInfo>evt.data;
+          if (tableInfo.tableid === this._tableId) {
+            if (this._bigRoad) {
+              this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
+            }
+          }
         }
       }
     }

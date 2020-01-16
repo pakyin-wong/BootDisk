@@ -39,6 +39,7 @@ namespace we {
       overlaypanel_memberreport_amounttotal: '总金额',
 
       overlaypanel_customroad_title: '好路设定',
+      overlaypanel_customroad_default: '还原预设',
 
       overlaypanel_bethistory_title: '投注记录',
       overlaypanel_bethistory_date: '日期',
@@ -125,11 +126,11 @@ namespace we {
       live: {
         gametype: {
           allGame: '全部游戏',
-          bacarrat: '百家樂',
-          dragontiger: '龍虎',
-          luckywheel: '幸運輪',
-          wheel: '輪盤',
-          dice: '骰寶',
+          bacarrat: '百家乐',
+          dragontiger: '龙虎',
+          luckywheel: '幸运轮',
+          wheel: '轮盘',
+          dice: '骰宝',
           goodroad: '好路',
         },
       },

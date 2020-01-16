@@ -1,12 +1,4 @@
 namespace we {
-  interface IErrorKind {
-    code: number;
-    detail?: string;
-    id?: string;
-    status?: string;
-    timestamp?: number;
-  }
-
   export namespace core {
     export class ErrorHandler extends egret.EventDispatcher {
       constructor() {
@@ -45,7 +37,7 @@ namespace we {
         }
       }
 
-      private createDialog(title, buttons: we.overlay.IMessageDialogButtonProps) {
+      private createDialog(title, buttons: ui.IMessageDialogOpt) {
         dir.evtHandler.showMessage({
           class: 'MessageDialog',
           args: [title, buttons],

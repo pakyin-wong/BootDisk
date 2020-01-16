@@ -1,13 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IToggler {
-      onToggle(value: boolean);
-    }
-    export interface ICollapsible {
-      setToggler(toggler: egret.DisplayObject, onToggleCallback?: (value: boolean) => void);
-      removeToggler(toggler: egret.DisplayObject);
-    }
-
     export class CollapseAddon extends DisplayObjectAddon {
       public hideOnStart: boolean = true;
       public isShow: boolean;
@@ -58,7 +50,7 @@ namespace we {
 
       protected getExpandedHeight(): number {
         if (this.target instanceof Scroller) {
-          const scroller = <Scroller> this.target;
+          const scroller = <Scroller>this.target;
           const height = Math.min(scroller.viewport.contentHeight, scroller.maxHeight);
           return height;
         } else {
@@ -108,7 +100,7 @@ namespace we {
         }
         let scroller;
         if (this.target instanceof Scroller) {
-          scroller = <Scroller> this.target;
+          scroller = <Scroller>this.target;
           scroller.viewport.scrollV = 0;
         }
         egret.Tween.removeTweens(this.target);

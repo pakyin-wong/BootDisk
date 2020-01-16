@@ -3,6 +3,7 @@ namespace we {
     export class TabItemWithBadge extends eui.ItemRenderer {
       protected _badge: eui.Group;
       protected _badgeLabel: eui.Label;
+      public badgeBg: eui.Image;
 
       constructor() {
         super();
@@ -22,7 +23,7 @@ namespace we {
       protected dataChanged(): void {}
 
       protected onTap(evt: egret.TouchEvent) {
-        const list = <eui.TabBar> this.parent;
+        const list = <eui.TabBar>this.parent;
         // list.selectedIndex = -1;
         list.dispatchEvent(new eui.UIEvent('CLEAR_SELECTION'));
       }

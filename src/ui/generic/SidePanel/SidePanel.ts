@@ -33,7 +33,7 @@ namespace we {
         this._tabBarGroup.addChild(this.activeLine);
 
         this.initTabs();
-        this.width = this._tabbar.width + 100;
+        this.width = this._tabbar.width + 60;
         this.activeLine.y = this._tabbar.height + 3;
 
         this.dispatchChange();
@@ -56,7 +56,7 @@ namespace we {
             this._tabbar.touchEnabled = true;
             this._tabbar.touchChildren = true;
           }, 400);
-          const content = <eui.Group> this._scroller.viewport;
+          const content = <eui.Group>this._scroller.viewport;
           if (this.resizeWidthTimeoutId) {
             clearTimeout(this.resizeWidthTimeoutId);
           }
@@ -74,7 +74,7 @@ namespace we {
         if (this._label) {
           this._label.visible = false;
         }
-        this.width = this._tabbar.width + 100;
+        this.width = this._tabbar.width + 60;
       }
 
       public get isCollapsed() {
@@ -86,7 +86,7 @@ namespace we {
           if (!this._scroller.isAnimating()) {
             this._scroller.toggle();
             this._viewStack.selectedIndex = this._tabbar.selectedIndex;
-            const content = <eui.Group> this._scroller.viewport;
+            const content = <eui.Group>this._scroller.viewport;
             if (this.resizeWidthTimeoutId) {
               clearTimeout(this.resizeWidthTimeoutId);
             }

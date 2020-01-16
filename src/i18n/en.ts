@@ -33,6 +33,7 @@ namespace we {
       overlaypanel_memberreport_amounttotal: '总金额',
 
       overlaypanel_customroad_title: 'Good Road Settings',
+      overlaypanel_customroad_default: 'Restore Default',
 
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_date: 'Dates',
@@ -119,10 +120,10 @@ namespace we {
         gametype: {
           allGame: 'All Game',
           bacarrat: 'Baccarat',
-          dragontiger: '龍虎',
-          luckywheel: '幸運輪',
-          wheel: '輪盤',
-          dice: '骰寶',
+          dragontiger: 'DT',
+          luckywheel: 'Wheel',
+          wheel: 'Wheel',
+          dice: 'Dice',
           goodroad: 'Good Road',
         },
       },

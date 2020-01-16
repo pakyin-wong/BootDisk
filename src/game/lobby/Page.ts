@@ -50,7 +50,7 @@ namespace we {
         hlayout.gap = gapSize;
         posters.horizontalCenter = 0;
         posters.layout = hlayout;
-        for (let i = 0; i < 4; i += 1) {
+        for (let i = 0, len = dir.lobbyResources.homeLargeBanners.length; i < len; i += 1) {
           const { image, link } = dir.lobbyResources.homeLargeBanners[i];
           const poster = new eui.Image();
           poster.source = image;

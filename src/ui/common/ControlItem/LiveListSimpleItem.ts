@@ -1,13 +1,13 @@
 /* tslint:disable triple-equals */
 namespace we {
-  export namespace ba {
-    export class LiveListSimpleItem extends BaListBaseItem {
+  export namespace ui {
+    export class LiveListSimpleItem extends ListBaseItem {
       protected _quickbetButton: ui.QuickBetAnimButton;
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
 
-      public constructor(skinName: string = 'BaLiveListSimpleItemSkin') {
+      public constructor(skinName: string = null) {
         super(skinName);
       }
 
@@ -99,7 +99,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

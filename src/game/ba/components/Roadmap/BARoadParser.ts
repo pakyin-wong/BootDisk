@@ -32,9 +32,9 @@ namespace we {
       public predictWin(v: number) {
         let nextResult = {};
         if (v === 0) {
-          nextResult = { V: 'b', B: 0, P: 0, W: 0, isPredict: 1 };
+          nextResult = { v: 'b', b: 0, p: 0, w: 0, isPredict: 1 };
         } else {
-          nextResult = { V: 'p', B: 0, P: 0, W: 0, isPredict: 1 };
+          nextResult = { v: 'p', b: 0, p: 0, w: 0, isPredict: 1 };
         }
         const predict = this.rawResult.slice();
         predict.push(nextResult);
@@ -68,7 +68,7 @@ namespace we {
         // 1. remove empty elements
         const rslt = [];
         data.forEach(element => {
-          if (element.V) {
+          if (element.v) {
             rslt.push(element);
           }
         });
@@ -91,7 +91,7 @@ namespace we {
         // const pbtResultArr = this.beadRoadResult.slice(); //use trimmed bead to calculate all roads
 
         while (pbtResultArr.length > 0) {
-          if (pbtResultArr[0].V === 't') {
+          if (pbtResultArr[0].v === 't') {
             pbtResultArr.splice(0, 1);
           } else {
             break;
@@ -102,11 +102,11 @@ namespace we {
         let lastUntieData = null;
         for (const currentData of pbtResultArr) {
           // set the number of tie to zero
-          currentData.T = 0;
+          currentData.t = 0;
 
           // add the tie number to the last untie result
-          if (currentData.V === 't') {
-            lastUntieData.T++;
+          if (currentData.v === 't') {
+            lastUntieData.t++;
           } else {
             lastUntieData = currentData;
           }
@@ -115,7 +115,7 @@ namespace we {
         // 3.remove all tie result
         const pbResultArr = [];
         for (const currentData of pbtResultArr) {
-          if (currentData.V !== 't') {
+          if (currentData.v !== 't') {
             pbResultArr.push(currentData);
           }
         }
@@ -148,11 +148,11 @@ namespace we {
         for (const i of pbResult) {
           const currentData = i;
           if (currentV == null) {
-            currentV = currentData.V;
+            currentV = currentData.v;
             tempArr.push(currentData);
             hasNext = true;
-          } else if (currentV !== currentData.V) {
-            currentV = currentData.V;
+          } else if (currentV !== currentData.v) {
+            currentV = currentData.v;
             if (tempArr.length > roadMaxLength) {
               roadMaxLength = tempArr.length;
             }
@@ -199,6 +199,7 @@ namespace we {
           roadRow = 0;
           let turn = false;
           for (const inElement of colArr) {
+            inElement.columnResultIndex = i;
             // get the corresponding elements from column result
             let found = false;
             while (!found) {
@@ -209,17 +210,17 @@ namespace we {
                 break;
               }
               // check if the out element is available
-              if (outElement.V == null) {
+              if (outElement.v == null) {
                 roadResultArr[roadCol][roadRow] = inElement;
                 // store the max column number for trimming
                 if (roadCol > maxRoadCol) {
                   maxRoadCol = roadCol;
                 }
                 found = true;
-              } else if (outElement.V === inElement.V) {
+              } else if (outElement.v === inElement.v) {
                 // find the next place
                 if (roadRow < 5) {
-                  if (roadResultArr[roadCol][roadRow + 1].V != null) {
+                  if (roadResultArr[roadCol][roadRow + 1].v != null) {
                     turn = true;
                   }
                 } else {
@@ -237,12 +238,76 @@ namespace we {
           }
         }
 
-        // 3. trim the 2D result to 1D road result
+        // 3. remove the unused column results
+        let startCol = Math.max(0, maxRoadCol - maxCol + 1);
+        const minIndex = roadResultArr[startCol][0].columnResultIndex;
+
+        // 4. re-render the result
+        // 4.1. create empty 2D arrays
+        const roadResultArr2 = [];
+        for (let i = 0; i < 6 * maxNum; i++) {
+          const tempArr = [];
+          for (let j = 0; j < 6; j++) {
+            tempArr.push({});
+          }
+          roadResultArr2.push(tempArr);
+        }
+
+        // 4.2 push column results into 2D array
+        maxRoadCol = 0;
+        roadCol = 0;
+        roadRow = 0;
+        for (let i = minIndex; i < columnResult.length; i++) {
+          const colArr = columnResult[i];
+          roadCol = i - minIndex;
+          roadRow = 0;
+          let turn = false;
+          for (const inElement of colArr) {
+            inElement.columnResultIndex = i;
+            // get the corresponding elements from column result
+            let found = false;
+            while (!found) {
+              // put the result to the right place in the 2D array
+              const outElement = roadResultArr2[roadCol][roadRow];
+              if (outElement == null) {
+                // break if there is no more out element
+                break;
+              }
+              // check if the out element is available
+              if (outElement.v == null) {
+                roadResultArr2[roadCol][roadRow] = inElement;
+                // store the max column number for trimming
+                if (roadCol > maxRoadCol) {
+                  maxRoadCol = roadCol;
+                }
+                found = true;
+              } else if (outElement.v === inElement.v) {
+                // find the next place
+                if (roadRow < 5) {
+                  if (roadResultArr2[roadCol][roadRow + 1].v != null) {
+                    turn = true;
+                  }
+                } else {
+                  turn = true;
+                }
+                if (turn) {
+                  roadCol++;
+                } else {
+                  roadRow++;
+                }
+              } else {
+                roadCol++;
+              }
+            }
+          }
+        }
+
+        // 5. trim the 2D result to 1D road result
         const finalRoadResult = [];
-        const startCol = Math.max(0, maxRoadCol - maxCol + 1);
+        startCol = Math.max(0, maxRoadCol - maxCol + 1);
         for (let i = startCol; i <= maxRoadCol; i++) {
           for (let j = 0; j < 6; j++) {
-            finalRoadResult.push(roadResultArr[i][j]);
+            finalRoadResult.push(roadResultArr2[i][j]);
           }
         }
         return finalRoadResult;
@@ -260,9 +325,9 @@ namespace we {
               if (col >= 0) {
                 const p = this.bigRoadColumnResult[col].length;
                 if (m === p) {
-                  pbResultArr.push({ V: 'p', isPredict });
+                  pbResultArr.push({ v: 'p', isPredict });
                 } else {
-                  pbResultArr.push({ V: 'b', isPredict });
+                  pbResultArr.push({ v: 'b', isPredict });
                 }
               }
             } else {
@@ -271,9 +336,9 @@ namespace we {
                 const mPrevious: number = this.bigRoadColumnResult[n - 1].length;
                 const p = this.bigRoadColumnResult[col].length;
                 if (mPrevious === p) {
-                  pbResultArr.push({ V: 'b', isPredict });
+                  pbResultArr.push({ v: 'b', isPredict });
                 } else {
-                  pbResultArr.push({ V: 'p', isPredict });
+                  pbResultArr.push({ v: 'p', isPredict });
                 }
               }
             }
@@ -287,35 +352,56 @@ namespace we {
         this.predictPlayerIcons = [-1, -1, -1];
       }
 
-      public getIconsFromRoadData(data: any) {
+      public getIconsFromRoadPredictData(bankerPredictData: any, playerPredictData: any) {
         this.resetIcons();
 
-        const animated = data.animateCell;
-        const animatedIndex = ['bbead', 'bbigRoad', 'bbigEye', 'bsmall', 'broach', 'pbead', 'pbigRoad', 'pbigEye', 'psmall', 'proach'];
-        const predictResult = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
-
+        const predictDataArr = [bankerPredictData, playerPredictData];
+        const roadIndexArr = ['bigEye', 'small', 'roach'];
+        const aniIndexArr = ['bigEyeAni', 'smallAni', 'roachAni'];
+        const predictResults = [];
         try {
-          for (let i = 0; i < animated.length; i++) {
-            if (animated[i] > -1) {
-              const predictV = data[animatedIndex[i]][animated[i]].V;
-              if (predictV === 'b') {
-                predictResult[i] = { V: 'b' };
-              } else if (predictV === 'p') {
-                predictResult[i] = { V: 'p' };
+          predictDataArr.forEach(predictData => {
+            for (let i = 0; i < roadIndexArr.length; i++) {
+              if (predictData[aniIndexArr[i]] > -1) {
+                const dataV = predictData[roadIndexArr[i]][predictData[aniIndexArr[i]]].v;
+                if (dataV === 'b') {
+                  predictResults.push({ v: 'b' });
+                } else if (dataV === 'p') {
+                  predictResults.push({ v: 'p' });
+                }
+              } else {
+                predictResults.push({});
               }
             }
-          }
+          });
+          this.predictBankerIcons = [predictResults[0], predictResults[1], predictResults[2]];
+          this.predictPlayerIcons = [predictResults[3], predictResults[4], predictResults[5]];
         } catch (err) {
           logger.e(err);
         }
-
-        this.predictBankerIcons = [predictResult[2], predictResult[3], predictResult[4]];
-        this.predictPlayerIcons = [predictResult[7], predictResult[8], predictResult[9]];
-
         return {
           predictBankerIcons: this.predictBankerIcons,
           predictPlayerIcons: this.predictPlayerIcons,
         };
+      }
+
+      public mergePredictAnimationData(bankerPredictData: any, playerPredictData: any) {
+        // merge the animation index into the road data
+
+        const predictDataArr = [bankerPredictData, playerPredictData];
+        const roadIndexArr = ['bead', 'bigRoad', 'bigEye', 'small', 'roach'];
+        const aniIndexArr = ['beadAni', 'bigRoadAni', 'bigEyeAni', 'smallAni', 'roachAni'];
+        try {
+          predictDataArr.forEach(predictData => {
+            for (let i = 0; i < roadIndexArr.length; i++) {
+              if (predictData[aniIndexArr[i]] > -1) {
+                predictData[roadIndexArr[i]][predictData[aniIndexArr[i]]].isPredict = 1;
+              }
+            }
+          });
+        } catch (err) {
+          logger.e(err);
+        }
       }
 
       public getIconsFromBeadResult(data: any) {
@@ -323,7 +409,7 @@ namespace we {
 
         // predict banker
         let nextResult = {};
-        nextResult = { V: 'b', B: 0, P: 0, W: 0, isPredict: 1 };
+        nextResult = { v: 'b', b: 0, p: 0, w: 0, isPredict: 1 };
         let predict = data.slice();
         predict.push(nextResult);
 
@@ -337,7 +423,7 @@ namespace we {
 
         // predict player
         nextResult = {};
-        nextResult = { V: 'p', B: 0, P: 0, W: 0, isPredict: 1 };
+        nextResult = { v: 'p', b: 0, p: 0, w: 0, isPredict: 1 };
         predict = data.slice();
         predict.push(nextResult);
 
@@ -360,10 +446,10 @@ namespace we {
         for (let i = rslt.length - 1; i >= 0; i--) {
           const item = rslt[i];
           if (item.isPredict === 1) {
-            if (item.V === 'b') {
-              return { V: 'b' };
-            } else if (item.V === 'p') {
-              return { V: 'p' };
+            if (item.v === 'b') {
+              return { v: 'b' };
+            } else if (item.v === 'p') {
+              return { v: 'p' };
             }
           }
         }

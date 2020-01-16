@@ -1,8 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface ITransitable {
-      content: egret.DisplayObject;
-    }
     export namespace Transition {
       export async function defaultIn(target: egret.DisplayObject, duration: number = 300, delay: number = 0) {
         target.alpha = 0;

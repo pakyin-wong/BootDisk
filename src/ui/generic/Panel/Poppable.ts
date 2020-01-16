@@ -1,14 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IPoppable {
-      content: egret.DisplayObject;
-      close: eui.UIComponent;
-      toggler: egret.DisplayObject;
-
-      setToggler(toggler: egret.DisplayObject, onToggleCallback?: (value: boolean) => void);
-      removeToggler(toggler: egret.DisplayObject);
-    }
-
     export class PoppableAddon extends DisplayObjectAddon {
       public dismissOnClickOutside: boolean = false;
       public hideOnStart: boolean = true;

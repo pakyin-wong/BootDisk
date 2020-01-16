@@ -44,7 +44,7 @@ namespace we {
         // create mask
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRect(0,0, this._maskContainer.width, this._maskContainer.height);
+        shape.graphics.drawRect(0, 0, this._maskContainer.width, this._maskContainer.height);
         shape.graphics.endFill();
         this._maskContainer.addChild(shape);
         this._maskContainer.mask = shape;
@@ -57,6 +57,10 @@ namespace we {
         this._iconList = new eui.List();
         this._iconList.dataProvider = this._iconListData;
         this._iconList.layout = tlayout;
+
+        this._iconScroller.useMiniScrollBar = true;
+        this._iconScroller.viewport = this._iconList;
+
         // for (let i = 1; i <= 8; i += 1) {
         //   for (let abc = 1; abc <= 2; abc += 1) {
         //     const image = new eui.Image();
@@ -65,8 +69,6 @@ namespace we {
         //     grids.addChild(image);
         //   }
         // }
-        this._iconScroller.useMiniScrollBar = true;
-        this._iconScroller.viewport = this._iconList;
 
         this.addListeners();
       }

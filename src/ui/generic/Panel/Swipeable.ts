@@ -1,12 +1,6 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ui {
-    export interface ISwipeable {
-      moveArea: egret.DisplayObject;
-      content: egret.DisplayObject;
-      onSwipeFinished(): void;
-    }
-
     export enum SwipeDirection {
       left = 'left',
       right = 'right',

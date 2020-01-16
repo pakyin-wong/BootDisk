@@ -14,7 +14,7 @@ namespace we {
 
       public set active(value: boolean) {
         if (this.target && this.target.parent instanceof List) {
-          const list = <List> this.target.parent;
+          const list = <List>this.target.parent;
           if (value && list.useVirtualLayout) {
             egret.error('virtual layout not supported');
           }

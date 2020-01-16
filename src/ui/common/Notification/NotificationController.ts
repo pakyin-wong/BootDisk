@@ -74,7 +74,7 @@ namespace we {
       }
 
       public updatePosition(evt: egret.Event) {
-        const sidePanel = <LiveSidePanel> evt.data;
+        const sidePanel = <LiveSidePanel>evt.data;
         let right = 30;
         if (!sidePanel.isCollapsed) {
           right += sidePanel.width + 20;
@@ -83,7 +83,7 @@ namespace we {
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification> evt.data;
+        const notification: data.Notification = <data.Notification>evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
