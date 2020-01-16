@@ -120,11 +120,11 @@ namespace we {
       live: {
         gametype: {
           allGame: '全部游戏',
-          bacarrat: '百家樂',
-          dragontiger: '龍虎',
-          luckywheel: '幸運輪',
-          wheel: '輪盤',
-          dice: '骰寶',
+          bacarrat: '百家乐',
+          dragontiger: '龙虎',
+          luckywheel: '幸运轮',
+          wheel: '轮盘',
+          dice: '骰宝',
           goodroad: '好路',
         },
       },

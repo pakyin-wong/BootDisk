@@ -17,6 +17,6 @@
             </e:List>
         </e:Group>
         <ui:RunTimeLabel id="_label" text="" y="36" left="33" />
-        <ui:SidePanelAllGameDropdown id="_dropdown" y="36" left="33" skinName="SidePanelAllGameDropdownSkin" />
+        <ui:SidePanelAllGameDropdown id="_dropdown" y="29" left="33" skinName="SidePanelAllGameDropdownSkin" />
     </e:Group>
 </e:Skin>

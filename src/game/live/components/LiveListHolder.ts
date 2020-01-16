@@ -5,7 +5,7 @@ namespace we {
       public itemIndex: number;
 
       private _mode: we.lobby.mode;
-      protected _displayItem_displayItem: we.ui.TableListItem;
+      protected _displayItem: we.ui.TableListItem;
 
       public constructor() {
         super();
@@ -15,7 +15,7 @@ namespace we {
 
       protected async mount() {
         super.mount();
-        // this.mode = env.lobbyGridType;
+        this._mode = env.lobbyGridType;
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
         // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
         // console.log('we.live.LiveListHolder::mount()');
