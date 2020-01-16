@@ -50,7 +50,7 @@ namespace we {
             generalGameType = 'ba';
           case we.core.GameType.DT:
           default:
-            generalGameType = 'ba';
+            generalGameType = 'dt';
         }
 
         switch (this._mode) {

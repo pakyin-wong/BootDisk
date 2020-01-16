@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dt.LiveListItemSkin" width="578" height="388" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:dt="we.dt.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_quickBetGroup" width="578" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Group width="100%" x="0" y="169" scaleX="1" scaleY="1">
 			<e:Rect width="100%" height="95" x="0" alpha="0.6" y="0" scaleX="1" scaleY="1" />
@@ -9,7 +9,7 @@
 			<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
 			                    skinName="ImageButtonSkinLobby" anchorOffsetX="0" />
 		</e:Group>
-		<ba:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.ba.LiveListItemBettingTableSkin"
+		<dt:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.dt.LiveListItemBettingTableSkin"
 		                 anchorOffsetY="0" left="0" top="0" />
 	</e:Group>
 	<e:Group id="_contentContainer" width="100%" height="388" x="0" y="0">

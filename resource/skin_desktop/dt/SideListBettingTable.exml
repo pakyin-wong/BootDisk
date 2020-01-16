@@ -2,47 +2,26 @@
 <e:Skin class="skin_desktop.dt.SideListBettingTableSkin" currentState="Normal" width="339" height="110"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
-	<ui:BettingTableGrid id="_gridPlayer" includeIn="Normal" x="0" y="0" width="170" height="57"
-	                     imageRes="d_lobby_panel_betcontrol_betarea_player_normal_png"
-	                     hoverRes="d_lobby_panel_betcontrol_betarea_player_hover_png"
+	<ui:BettingTableGrid id="_gridDragon" x="0" y="0" width="113" height="110"
+	                     imageRes="d_dt_betarea_dragon_normal_png"
+	                     hoverRes="d_dt_betarea_dragon_normal_png"
 	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
 	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3"
 	                     chipLabelSize="20" chipType="2" />
-	<ui:BettingTableGrid id="_gridBanker" includeIn="Normal" x="170" y="0" width="169" height="57"
-	                     imageRes="d_lobby_panel_betcontrol_betarea_banker_normal_png"
-	                     hoverRes="d_lobby_panel_betcontrol_betarea_banker_hover_png"
+	<ui:BettingTableGrid id="_gridTie" x="113" y="0" width="113" height="110"
+	                     imageRes="d_dt_betarea_tie_normal_png"
+	                     hoverRes="d_dt_betarea_tie_normal_png"
 	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
 	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3"
 	                     chipLabelSize="20" chipType="2" />
-	<ui:BettingTableGrid id="_gridPlayerPair" includeIn="Normal" x="0" y="57" width="113" height="53"
-	                     imageRes="d_lobby_panel_betcontrol_betarea_playerpair_normal_png"
-	                     hoverRes="d_lobby_panel_betcontrol_betarea_playerpair_hover_png"
+	<ui:BettingTableGrid id="_gridTiger" x="226" y="0" width="113" height="110"
+	                     imageRes="d_dt_betarea_tiger_normal_png"
+	                     hoverRes="d_dt_betarea_tiger_normal_png"
 	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
 	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3"
 	                     chipLabelSize="20" chipType="2" />
-	<ui:BettingTableGrid id="_gridTie" includeIn="Normal" x="113" y="57" width="113" height="53"
-	                     imageRes="d_lobby_panel_betcontrol_betarea_tie_normal_png"
-	                     hoverRes="d_lobby_panel_betcontrol_betarea_tie_hover_png"
-	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
-	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3"
-	                     chipLabelSize="20" chipType="2" />
-	<ui:BettingTableGrid id="_gridBankerPair" includeIn="Normal" x="226" y="57" width="113" height="53"
-	                     imageRes="d_lobby_panel_betcontrol_betarea_bankerpair_normal_png"
-	                     hoverRes="d_lobby_panel_betcontrol_betarea_bankerpair_hover_png"
-	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
-	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3"
-	                     chipLabelSize="20" chipType="2" />
-	<ui:BettingTableGrid id="_gridSuperSix" includeIn="Normal" visible="false" skinName="skin_desktop.BettingTableGridSkin"
-	                     labelSize="15" betChipZIndex="1000" chipWidth="70" chipHeight="70" chipInterval="3"
-	                     totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png"
-	                     hasDenomLayer="false" />
-	<ui:BettingTableGrid id="_gridSuperSixBanker" includeIn="Normal" visible="false"
-	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
-	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" />
+	
 </e:Skin>
