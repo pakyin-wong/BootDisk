@@ -5,7 +5,6 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-        console.log('LiveListItem::skinName: ', skinName);
       }
 
       protected initCustomPos() {

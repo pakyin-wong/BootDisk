@@ -8,7 +8,6 @@ namespace we {
       protected mount() {
         super.mount();
         this.index = 0;
-        console.log(this._chipImage.source);
       }
 
       public setSelectedChip(value: number, index: number) {

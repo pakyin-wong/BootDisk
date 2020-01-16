@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dt.LiveListItemBettingTableSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<ui:BettingTableGrid id="_gridDragon" skinName="skin_desktop.BettingTableGridSkin" x="0" y="0" width="193" height="177"
 	                     imageRes="d_dt_betarea_dragon_normal_png"
 	                     hoverRes="d_dt_betarea_dragon_normal_png" labelSize="15" betChipZIndex="1000"
