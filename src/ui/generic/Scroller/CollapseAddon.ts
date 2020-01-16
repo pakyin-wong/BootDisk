@@ -58,7 +58,7 @@ namespace we {
 
       protected getExpandedHeight(): number {
         if (this.target instanceof Scroller) {
-          const scroller = <Scroller>this.target;
+          const scroller = <Scroller> this.target;
           const height = Math.min(scroller.viewport.contentHeight, scroller.maxHeight);
           return height;
         } else {
@@ -108,7 +108,7 @@ namespace we {
         }
         let scroller;
         if (this.target instanceof Scroller) {
-          scroller = <Scroller>this.target;
+          scroller = <Scroller> this.target;
           scroller.viewport.scrollV = 0;
         }
         egret.Tween.removeTweens(this.target);

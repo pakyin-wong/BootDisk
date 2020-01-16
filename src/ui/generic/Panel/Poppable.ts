@@ -129,7 +129,7 @@ namespace we {
         }
 
         this.target.stage['inFocusItems'] = this.target.stage['inFocusItems'].filter(
-          function(i) {
+          function (i) {
             return i !== this.target;
           }.bind(this)
         );

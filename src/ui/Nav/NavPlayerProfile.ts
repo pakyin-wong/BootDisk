@@ -22,7 +22,11 @@ namespace we {
       private _section_iconSelect: eui.Group;
 
       private _sectionBackIcon: eui.Image;
+
       private _iconScroller: we.ui.Scroller;
+      private _iconListData: eui.ArrayCollection = new eui.ArrayCollection([]);
+      private _iconList: eui.List;
+      private _iconGaySize = 30;
 
       public constructor() {
         super('NavPlayerProfile');
@@ -40,32 +44,29 @@ namespace we {
         // create mask
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRect(this._maskContainer.x, this._maskContainer.y, this._maskContainer.width, this._maskContainer.height);
+        shape.graphics.drawRect(0,0, this._maskContainer.width, this._maskContainer.height);
         shape.graphics.endFill();
         this._maskContainer.addChild(shape);
         this._maskContainer.mask = shape;
         // init scroller
-        const grids = new eui.Group();
         const tlayout = new eui.TileLayout();
-        const gapSize = 20;
-        const paddingHorizontal = 20;
         tlayout.requestedColumnCount = 3;
-        tlayout.paddingLeft = paddingHorizontal;
-        tlayout.paddingRight = paddingHorizontal;
-        tlayout.horizontalGap = gapSize;
-        tlayout.verticalGap = gapSize;
-        tlayout.columnWidth = (this._iconScroller.width - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
-        grids.layout = tlayout;
-        for (let i = 1; i <= 8; i += 1) {
-          for (let abc = 1; abc <= 2; abc += 1) {
-            const image = new eui.Image();
-            image.source = RES.getRes(`d_lobby_profile_pic_0${i}_png`);
-            image.width = image.height = tlayout.columnWidth;
-            grids.addChild(image);
-          }
-        }
+        tlayout.horizontalGap = this._iconGaySize;
+        tlayout.verticalGap = this._iconGaySize;
+
+        this._iconList = new eui.List();
+        this._iconList.dataProvider = this._iconListData;
+        this._iconList.layout = tlayout;
+        // for (let i = 1; i <= 8; i += 1) {
+        //   for (let abc = 1; abc <= 2; abc += 1) {
+        //     const image = new eui.Image();
+        //     image.source = RES.getRes(`d_lobby_profile_pic_0${i}_png`);
+        //     image.width = image.height = tlayout.columnWidth;
+        //     grids.addChild(image);
+        //   }
+        // }
         this._iconScroller.useMiniScrollBar = true;
-        this._iconScroller.viewport = grids;
+        this._iconScroller.viewport = this._iconList;
 
         this.addListeners();
       }

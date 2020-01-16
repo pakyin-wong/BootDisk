@@ -31,8 +31,8 @@ namespace we {
 
       protected onClick() {
         if (this.parent && this.parent.parent) {
-          (<BetChipSetGrid>this.parent.parent).setSelectedChip(+this.itemData, +this.itemIndex);
-          (<BetChipSetGrid>this.parent.parent).selectedIndex = +this.itemIndex;
+          (<BetChipSetGrid> this.parent.parent).setSelectedChip(+this.itemData, +this.itemIndex);
+          (<BetChipSetGrid> this.parent.parent).selectedIndex = +this.itemIndex;
         }
       }
 
