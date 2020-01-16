@@ -132,11 +132,11 @@ namespace we {
         this.allTableList.setGameFiltersByTabIndex(selectedIdx);
         this.allTableList.setTableList(this.allGameList, true);
 
-        const count = this.allTableList.tableCount;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
-        if (tabItem) {
-          tabItem.onBadgeUpdate(count);
-        }
+        // const count = this.allTableList.tableCount;
+        // const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        // if (tabItem) {
+        //   tabItem.onBadgeUpdate(count);
+        // }
       }
 
       protected onTableListUpdate(evt: egret.Event) {
@@ -144,11 +144,11 @@ namespace we {
         this.allGameList = tableList;
         // this.allTableList.setTableList(tableList);
         this.setAllTableList(this.filter);
-        const count = this.allTableList.tableCount;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
-        if (tabItem) {
-          tabItem.onBadgeUpdate(count);
-        }
+        // const count = this.allTableList.tableCount;
+        // const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        // if (tabItem) {
+        //   tabItem.onBadgeUpdate(count);
+        // }
       }
 
       protected setAllTableList(filter: core.GameType = null) {

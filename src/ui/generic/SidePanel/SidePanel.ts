@@ -33,7 +33,7 @@ namespace we {
         this._tabBarGroup.addChild(this.activeLine);
 
         this.initTabs();
-        this.width = this._tabbar.width + 100;
+        this.width = this._tabbar.width + 60;
         this.activeLine.y = this._tabbar.height + 3;
 
         this.dispatchChange();
@@ -74,7 +74,7 @@ namespace we {
         if (this._label) {
           this._label.visible = false;
         }
-        this.width = this._tabbar.width + 100;
+        this.width = this._tabbar.width + 60;
       }
 
       public get isCollapsed() {

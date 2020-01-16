@@ -8,7 +8,7 @@
                      left="14" bottom="24" top="76">
             <e:Group anchorOffsetX="0" anchorOffsetY="0" width="389" height="1150"></e:Group>
         </ui:Scroller>
-        <e:Group id="_tabBarGroup" y="36" right="51">
+        <e:Group id="_tabBarGroup" y="36" right="28">
             <e:List id="_tabbar" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="ImageTabItemWithBadgeSkin"
                     scaleX="1" scaleY="1">
                 <e:layout>
