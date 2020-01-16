@@ -1,12 +1,11 @@
 namespace we {
   export namespace ba {
-    export class BARoadmapLeftPanel extends ui.Panel {
+    export class BARoadmapLeftPanel extends core.BaseGamePanel {
       public beadRoad: BABeadRoad;
       private gameIdLabel: ui.RunTimeLabel;
       private totalBetLabel: ui.RunTimeLabel;
       private gameId: string;
       private totalBet: number;
-      private contentMask: egret.Rectangle;
       private switchModeButton: eui.Component;
 
       public constructor() {
@@ -16,13 +15,8 @@ namespace we {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
       }
-      protected mount() {
-        this.init();
-      }
 
       protected init() {
-        this.mask = this.contentMask;
-
         this.gameId = '';
         this.totalBet = 0;
 
