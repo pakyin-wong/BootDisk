@@ -1,18 +1,11 @@
 namespace we {
   export namespace overlay {
-    export interface IMessageDialogButtonProps {
-      [button: string]: {
-        text: string;
-        onClick?: () => Promise<void>;
-      };
-    }
-
     export class MessageDialog extends we.ui.Panel {
       private _txt_title: ui.RunTimeLabel;
       private _btn_dismiss: ui.BaseImageButton;
       private _btn_action: ui.BaseImageButton;
 
-      constructor(title, buttonProps: IMessageDialogButtonProps) {
+      constructor(title, buttonProps: ui.IMessageDialogOpt) {
         super('overlay/MessageDialog');
         const buttonNames = Object.keys(buttonProps);
         this.currentState = buttonNames.length === 2 ? 'two' : 'one';

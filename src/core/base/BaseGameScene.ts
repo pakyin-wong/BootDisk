@@ -7,7 +7,7 @@ namespace we {
       protected _betRelatedGroup: eui.Group;
 
       protected _bettingTable: ui.BettingTable;
-      protected _betChipSet: ui.IBetChipSet;
+      protected _betChipSet: ui.BetChipSet;
       protected _resultDisplay: ui.IResultDisplay;
       protected _resultMessage: ui.GameResultMessage;
       protected _message: ui.InGameMessage;
@@ -123,7 +123,7 @@ namespace we {
           this._bettingTable.undoStack = this._undoStack;
           this._bettingTable.init();
           this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
-          this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
+          this._bettingTable.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
         }
       }
 
@@ -267,6 +267,8 @@ namespace we {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
+            this._bettingTable.totalAmount = evt.data.amount;
+            this._bettingTable.totalPerson = evt.data.count;
           }
         }
       }
@@ -374,6 +376,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._bettingTable) {
+            this._bettingTable.totalAmount = { PLAYER: 0, BANKER: 0 };
+            this._bettingTable.totalPerson = { PLAYER: 0, BANKER: 0 };
             this._bettingTable.resetUnconfirmedBet();
             this._bettingTable.resetConfirmedBet();
           }

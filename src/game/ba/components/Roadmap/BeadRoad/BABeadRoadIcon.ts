@@ -135,16 +135,16 @@ namespace we {
         this.value = value;
         this.reset();
 
-        if (value.V) {
+        if (value.v) {
           // use different icon face for light/dark mode
           const useDarkMode = this.darkModeNumber === 0 ? 0 : 6;
 
           if (this.iconModeNumber === 0) {
             // BPT mode
-            if (value.V === 'b') {
+            if (value.v === 'b') {
               this.iconFaceArr[0 + useDarkMode].visible = true;
               this.iconTextArr[0 + useDarkMode].visible = true;
-            } else if (value.V === 'p') {
+            } else if (value.v === 'p') {
               this.iconFaceArr[1 + useDarkMode].visible = true;
               this.iconTextArr[1 + useDarkMode].visible = true;
             } else {
@@ -152,26 +152,26 @@ namespace we {
               this.iconTextArr[2 + useDarkMode].visible = true;
             }
             if (this.darkModeNumber === 0) {
-              this.bankerDot.visible = value.B === 1;
-              this.playerDot.visible = value.P === 1;
+              this.bankerDot.visible = value.b === 1;
+              this.playerDot.visible = value.p === 1;
             } else {
-              this.bankerDotDark.visible = value.B === 1;
-              this.playerDotDark.visible = value.P === 1;
+              this.bankerDotDark.visible = value.b === 1;
+              this.playerDotDark.visible = value.p === 1;
             }
           } else {
             // Win value mode
-            if (value.V === 'b') {
+            if (value.v === 'b') {
               this.iconFaceArr[3 + useDarkMode].visible = true;
               this.iconTextArr[3 + useDarkMode].visible = !value.isPredict;
-              this.iconTextArr[3 + useDarkMode].text = value.W + '';
-            } else if (value.V === 'p') {
+              this.iconTextArr[3 + useDarkMode].text = value.w + '';
+            } else if (value.v === 'p') {
               this.iconFaceArr[4 + useDarkMode].visible = true;
               this.iconTextArr[4 + useDarkMode].visible = !value.isPredict;
-              this.iconTextArr[4 + useDarkMode].text = value.W + '';
+              this.iconTextArr[4 + useDarkMode].text = value.w + '';
             } else {
               this.iconFaceArr[5 + useDarkMode].visible = true;
               this.iconTextArr[5 + useDarkMode].visible = !value.isPredict;
-              this.iconTextArr[5 + useDarkMode].text = value.W + '';
+              this.iconTextArr[5 + useDarkMode].text = value.w + '';
             }
           }
         }

@@ -1,7 +1,7 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ui {
-    export class GoodRoadQuickBetContainer extends ba.ControlItem {
+    export class GoodRoadQuickBetContainer extends ui.ControlItem {
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
@@ -46,7 +46,7 @@ namespace we {
         super.setData(tableInfo);
         if (tableInfo.roadmap) {
           if (this._bigRoad) {
-            this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+            this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
           }
         }
       }
@@ -61,7 +61,7 @@ namespace we {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
-              this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+              this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
             }
           }
         }

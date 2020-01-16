@@ -1,13 +1,13 @@
 /* tslint:disable triple-equals */
 namespace we {
-  export namespace ba {
-    export class LiveListSimpleItem extends BaListBaseItem {
+  export namespace ui {
+    export class LiveListSimpleItem extends ListBaseItem {
       protected _quickbetButton: ui.QuickBetAnimButton;
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
 
-      public constructor(skinName: string = 'BaLiveListSimpleItemSkin') {
+      public constructor(skinName: string = null) {
         super(skinName);
       }
 

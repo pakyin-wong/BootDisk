@@ -1,3 +1,4 @@
+// This file contains global typing definitions.
 namespace we {
   export namespace core {
     export interface ISocket {
@@ -16,6 +17,21 @@ namespace we {
       updateDefaultGoodRoad(ids: string[]);
       createGoodRoad(name: string, pattern: string);
       removeGoodRoadmap(id: string);
+    }
+
+    export interface IErrorKind {
+      code: number;
+      detail?: string;
+      id?: string;
+      status?: string;
+      timestamp?: number;
+    }
+
+    export interface IRemoteResourceItem {
+      imageUrl: string;
+      image: egret.Texture;
+      link: string;
+      loaded: boolean;
     }
   }
 }

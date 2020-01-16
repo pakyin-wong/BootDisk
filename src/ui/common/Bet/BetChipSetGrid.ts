@@ -1,15 +1,11 @@
 namespace we {
   export namespace ui {
-    export class BetChipSetGrid extends core.BaseEUI implements IBetChipSet {
-      protected _numberOfChipsInRow = 4;
-      protected _chipContainer: eui.Group;
-      protected _selectedChipIndex: number = 10;
-      protected _denomList: number[];
-      protected _chipsetList: ui.List;
-      protected _chipsetLayout: eui.TileLayout;
-      protected _normalGapSize: number = 5;
-      protected _setSelectedChip: (value: number, index: number) => void;
-      public selectedIndex: number;
+    export class BetChipSetGrid extends BetChipSet {
+      private _numberOfChipsInRow = 4;
+      private _chipsetList: ui.List;
+      private _chipsetLayout: eui.TileLayout;
+      private _normalGapSize: number = 5;
+      private _setSelectedChip: (value: number, index: number) => void;
 
       public constructor() {
         super();
@@ -27,16 +23,10 @@ namespace we {
         this.addChild(this._chipsetList);
       }
 
-      public getSelectedChipIndex() {
-        return this.selectedIndex;
-      }
-
-      public resetDenominationList(denomList: number[]) {}
-      public resetFormat(format: any) {}
       public init(format: any, denominationList: number[]) {
         this._chipsetList.dataProvider = new eui.ArrayCollection(denominationList);
       }
-      public setTouchEnabled(enable: boolean) {}
+
       public injectSetSelectedChip(value: (value: number, index: number) => void) {
         this._setSelectedChip = value;
       }

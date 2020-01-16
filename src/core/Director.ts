@@ -18,6 +18,8 @@ namespace we {
       public meterCtr: MeterCtr;
       public moniter: Monitor;
       public videoPool: utils.Pool<egret.FlvVideo>;
+      public lobbyResources: lobby.ILobbyResources;
+      public liveResources: live.ILiveResources;
     }
   }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BaSideListItemSkin" width="339" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.ba.SideListItemSkin" width="339" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
         xmlns:live="we.live.*" minHeight="174">
     <e:Group id="_betChipSetPanel">
@@ -9,7 +9,7 @@
         <e:Rect width="100%" height="100" x="0" alpha="0.6" y="100" />
         <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="90" height="90" anchorOffsetX="0" x="131"
                                    anchorOffsetY="0" y="112" skinName="skin_desktop.BetChipSelectedSkin" />
-        <ba:BettingTable id="_bettingTable" width="339" skinName="skin_desktop.BaSideListBettingTableSkin"
+        <ba:BettingTable id="_bettingTable" width="339" skinName="skin_desktop.ba.SideListBettingTableSkin"
                          anchorOffsetY="0" height="110" left="0" top="0" name="sidebettingtable" />
         <ui:BaseImageButton id="_confirmButton" x="235" y="135" width="85" height="50"
                             currentState="lobby_confirm_button" skinName="ImageButtonSkinLobby" />

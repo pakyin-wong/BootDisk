@@ -33,6 +33,7 @@ namespace we {
       overlaypanel_memberreport_amounttotal: '總金額',
 
       overlaypanel_customroad_title: '好路設定',
+      overlaypanel_customroad_default: '還原預設',
 
       overlaypanel_bethistory_title: '投註記錄',
       overlaypanel_bethistory_date: '日期',

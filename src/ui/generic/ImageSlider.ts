@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class ImageSlider extends eui.Component implements eui.UIComponent {
-      private images = [];
+      private slides = [];
       private duration = 0.3;
       private currentIndex = 0;
       private direction: string;
@@ -29,23 +29,25 @@ namespace we {
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
       }
 
-      public configImages(images) {
-        this.images = images;
-        logger.l(this.width, this.height, images);
+      public configSlides(slides: core.IRemoteResourceItem[]) {
+        this.slides = slides;
+        logger.l(this.width, this.height, slides);
 
-        if (!this.images.length) {
+        if (!this.slides.length) {
           return;
         }
 
-        // create dots
-        this.imageVisible.source = this.images[this.currentIndex];
-        this.imageVisible.width = 2600;
-        this.imageVisible.height = 2600 / ((this.images[this.currentIndex] as egret.Texture).$bitmapWidth / (this.images[this.currentIndex] as egret.Texture).$bitmapHeight);
-        this.imageVisible.y = (this.imageVisible.height - this.height) / -2;
+        // reset dimensions
+        this.imageVisible.width = this.width;
+        this.imageVisible.height = this.height;
+        this.imageInvisible.width = this.width;
+        this.imageInvisible.height = this.height;
 
-        this.imageInvisible.width = 2600;
-        this.imageInvisible.height = 2600 / ((this.images[this.currentIndex] as egret.Texture).$bitmapWidth / (this.images[this.currentIndex] as egret.Texture).$bitmapHeight);
-        this.imageInvisible.y = (this.imageVisible.height - this.height) / -2;
+        // create dots
+        const slide = this.slides[this.currentIndex];
+        if (slide.loaded) {
+          this.imageVisible.source = slide.image;
+        }
 
         this.scheduleNext();
       }
@@ -69,6 +71,11 @@ namespace we {
 
       private onTouchMove(event: egret.TouchEvent): void {
         this.isMoved = true;
+
+        if (!this.slides.length) {
+          return;
+        }
+
         this.imageVisible.x = event.$stageX - this.initX;
         if (this.imageVisible.x > 0) {
           // invisible one to left (prev)
@@ -79,8 +86,8 @@ namespace we {
           this.imageInvisible.x = this.imageVisible.x + 2600;
           this.direction = 'next';
         }
-        const index = (this.images.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.images.length;
-        this.imageInvisible.source = this.images[index];
+        const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
+        this.imageInvisible.source = this.slides[index].image;
         this.imageInvisible.alpha = 1;
       }
 
@@ -115,7 +122,7 @@ namespace we {
         }
 
         // Before Animate
-        this.currentIndex = (this.images.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.images.length;
+        this.currentIndex = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
 
         TweenLite.to(this.imageInvisible, this.duration, {
           x: 0,
@@ -126,7 +133,7 @@ namespace we {
 
         // After Animate
         setTimeout(() => {
-          this.imageVisible.source = this.images[this.currentIndex];
+          this.imageVisible.source = this.slides[this.currentIndex].image;
           this.imageVisible.x = 0;
           this.imageInvisible.alpha = 0;
           this.isAnimating = false;
@@ -142,12 +149,12 @@ namespace we {
             return;
           }
 
-          this.currentIndex = (this.currentIndex + 1) % this.images.length;
+          this.currentIndex = (this.currentIndex + 1) % this.slides.length;
 
           this.isAnimating = true;
           this.imageVisible.x = 0;
           this.imageInvisible.x = 2600;
-          this.imageInvisible.source = this.images[this.currentIndex];
+          this.imageInvisible.source = this.slides[this.currentIndex].image;
           this.imageInvisible.alpha = 1;
 
           TweenLite.to(this.imageInvisible, this.duration, {
@@ -159,7 +166,7 @@ namespace we {
 
           setTimeout(() => {
             this.imageVisible.x = 0;
-            this.imageVisible.source = this.images[this.currentIndex];
+            this.imageVisible.source = this.slides[this.currentIndex].image;
             this.imageInvisible.alpha = 0;
             this.isAnimating = false;
             this.scheduleNext();
@@ -168,7 +175,7 @@ namespace we {
       }
 
       private onTap() {
-        logger.l('carousel', this.currentIndex);
+        logger.l('carousel', this.slides[this.currentIndex].link);
       }
     }
   }

@@ -93,6 +93,13 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
+        if (this._bigRoad.hasEventListener('update')) {
+          this._bigRoad.removeEventListener('update', this.onBigRoadUpdated, this);
+        }
+
+        if (this.hasEventListener('close')) {
+          this.removeEventListener('close', this.onClose, this);
+        }
       }
 
       private onBigRoadUpdated(e: egret.Event) {

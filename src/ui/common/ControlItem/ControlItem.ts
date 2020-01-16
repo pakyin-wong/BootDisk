@@ -1,11 +1,13 @@
 /* tslint:disable triple-equals */
 namespace we {
-  export namespace ba {
+  export namespace ui {
     // base control class that hold and manage the basic item in Ba Item
     export class ControlItem extends ui.TableListItem {
       protected _bettingTable: BettingTable;
-      protected _betChipSet: ui.IBetChipSet & core.BaseEUI;
-      protected _cardHolder: CardHolder;
+
+      protected _betChipSet: ui.BetChipSet;
+      protected _cardHolder: we.ba.CardHolder;
+
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
       protected _resultMessage: ui.GameResultMessage;
@@ -28,6 +30,7 @@ namespace we {
       public constructor(skinName: string = null) {
         super();
         if (skinName) {
+          console.log('ControlItem::', skinName);
           this.skinName = utils.getSkinByClassname(skinName);
         }
         this.touchEnabled = true;
@@ -63,7 +66,7 @@ namespace we {
           this._bettingTable.undoStack = this._undoStack;
           this._bettingTable.init();
           this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
-          this._bettingTable.getSelectedChipIndex = this._betChipSet.getSelectedChipIndex.bind(this._betChipSet);
+          this._bettingTable.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
         }
       }
 

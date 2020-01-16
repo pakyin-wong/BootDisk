@@ -5,7 +5,7 @@ namespace we {
       public itemIndex: number;
 
       private _mode: we.lobby.mode;
-      protected _displayItem_displayItem: we.ui.TableListItem;
+      protected _displayItem: we.ui.TableListItem;
 
       public constructor() {
         super();
@@ -15,7 +15,7 @@ namespace we {
 
       protected async mount() {
         super.mount();
-        this.mode = env.lobbyGridType;
+        this._mode = env.lobbyGridType;
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
         // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
         // console.log('we.live.LiveListHolder::mount()');
@@ -33,14 +33,32 @@ namespace we {
       }
 
       protected initDisplayItem() {
+        let generalGameType: string;
+        console.log('LiveListHolder::initDisplayItem()');
+        console.log(this.tableInfo);
+
+        if (!this.tableInfo) {
+          return;
+        }
+        console.log(this.tableInfo);
+
+        switch (this.tableInfo.gametype) {
+          //  switch (0) {
+          case we.core.GameType.BAC:
+          case we.core.GameType.BAI:
+          case we.core.GameType.BAS:
+            generalGameType = 'ba';
+          case we.core.GameType.DT:
+          default:
+            generalGameType = 'ba';
+        }
+
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
             this.width = 578;
             this.height = 388;
-            this._displayItem = new we.ba.LiveListItem();
+            this._displayItem = new we.ui.LiveListItem(generalGameType + '.LiveListItemSkin');
             this.setDisplayItem(this._displayItem);
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
             if (this.tableInfo) {
               this.updateDisplayItem();
             }
@@ -50,7 +68,7 @@ namespace we {
           default:
             this.width = 578;
             this.height = 219;
-            this._displayItem = new we.ba.LiveListSimpleItem();
+            this._displayItem = new we.ui.LiveListSimpleItem(generalGameType + '.LiveListSimpleItemSkin');
             this.setDisplayItem(this._displayItem);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
@@ -64,31 +82,7 @@ namespace we {
         if (this._mode === value) {
           return;
         }
-        // switch (value) {
-        //   case we.lobby.mode.NORMAL:
-        //     this.width = 578;
-        //     this.height = 388;
-        //     this._displayItem = new we.ba.LiveListItem();
-        //     this.setDisplayItem(this._displayItem);
-        //     // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
-        //     // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
-        //     if (this.tableInfo) {
-        //       this.updateDisplayItem();
-        //     }
-        //     break;
-        //   case we.lobby.mode.SIMPLE:
-        //   case we.lobby.mode.ADVANCED:
-        //   default:
-        //     this.width = 578;
-        //     this.height = 219;
-        //     this._displayItem = new we.ba.LiveListSimpleItem();
-        //     this.setDisplayItem(this._displayItem);
-        //     // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
-        //     // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
-        //     if (this.tableInfo) {
-        //       this.updateDisplayItem();
-        //     }
-        // }
+
         this._mode = value;
         this.initDisplayItem();
       }
@@ -121,6 +115,9 @@ namespace we {
       }
 
       protected updateDisplayItem() {
+        if (!this._displayItem) {
+          return;
+        }
         this._displayItem.setData(this.tableInfo);
         this.setZIndex();
       }

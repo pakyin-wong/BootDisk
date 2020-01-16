@@ -29,7 +29,7 @@ namespace we {
         const gridSize = 43;
         const numColumn = 16;
 
-        this.beadRoad = new BABeadRoad(numColumn, gridSize);
+        this.beadRoad = new BABeadRoad(numColumn, gridSize, 1, true);
         this.beadRoad.x = 0;
         this.beadRoad.y = 44;
         this.beadRoad.scaleX = 690 / 689;
@@ -52,6 +52,20 @@ namespace we {
         this.gameId = gameId;
         this.totalBet = totalBet;
         this.changeLang();
+      }
+
+      public destroy() {
+        super.destroy();
+
+        this.beadRoad.dispose();
+
+        if (this.switchModeButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.switchModeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
+        }
+
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
       }
     }
   }
