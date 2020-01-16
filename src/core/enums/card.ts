@@ -2,7 +2,7 @@
 module we {
   export module core {
     export enum Card {
-      BACK = 'card_back_png',
+      BACK = 'back_png',
       hearta = 'h1_png',
       heart2 = 'h2_png',
       heart3 = 'h3_png',

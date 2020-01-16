@@ -38,15 +38,15 @@ namespace we {
             cardHolderArr[index].setCard(utils.formatCard(value), (index + 1) % 3 !== 0);
           } else {
             if ((index + 1) % 3 !== 0) {
-              cardHolderArr[index].setCard('BACK', true);
+              cardHolderArr[index].setCard('back', true);
             }
           }
         });
       }
 
       public reset() {
-        this.cardDragon.setCard('BACK', true);
-        this.cardTiger.setCard('BACK', true);
+        this.cardDragon.setCard('back', true);
+        this.cardTiger.setCard('back', true);
       }
     }
   }
