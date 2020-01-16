@@ -88,6 +88,12 @@ namespace we {
         scroller.viewport = this.allTableList;
 
         this._tabbar.dataProvider = this._viewStack;
+        this._tabbar.validateNow();
+        let tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_green_png';
+
+        tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_png';
       }
 
       protected getLayout() {
