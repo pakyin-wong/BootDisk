@@ -2535,7 +2535,8 @@
 		{
 			"url": "assets/d/common/d_common_panel_gamelist_bg.png",
 			"type": "image",
-			"name": "d_common_panel_gamelist_bg_png"
+			"name": "d_common_panel_gamelist_bg_png",
+			"scale9grid": "13,13,1,1"
 		},
 		{
 			"url": "assets/d/common/d_common_panel_gamelist_notifydot_green.png",
