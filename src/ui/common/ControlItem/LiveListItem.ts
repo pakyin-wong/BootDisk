@@ -18,7 +18,8 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._dealerImage.texture = RES.getRes('temp_baccarat_dealer_' + (Math.round(Math.random() * 4) + 1));
+        const randNo = Math.round(Math.random() * 4) + 1;
+        this._dealerImage.texture = RES.getRes('temp_baccarat_dealer_' + randNo);
       }
 
       get dealerImage() {
