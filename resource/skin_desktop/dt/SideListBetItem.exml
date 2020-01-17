@@ -24,7 +24,7 @@
 		<e:Group id="_bettingGroup" width="100%" height="158" x="0" y="0" touchEnabled="false" touchChildren="true">
 			<ui:CountdownTimer id="_timer" width="47" height="47" x="0" y="0"
 			                   skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
-			<dt:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.ba.SideListBettingTableSkin" anchorOffsetY="0"
+			<dt:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.dt.SideListBettingTableSkin" anchorOffsetY="0"
 			                 height="110" left="0" y="47" />
 			<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
 			                       skinName="BetLimitDropdownSkin" visible="false" />
