@@ -8,10 +8,21 @@ namespace we {
       protected _quickbetButton: ui.BaseImageButton;
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
+      protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
+      protected _betChipSetGridEnabled: boolean = false;
+
       // protected _originalQuickBetButtonWidth: number;
 
       public constructor(skinName: string = null) {
         super(skinName);
+        this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this._betChipSetGridSelected.setValue(denominationList[0]);
+        this._betChipSetGridSelected.index = 0;
+      }
+
+      protected onClickBetChipSelected() {
+        this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
       }
 
       protected initCustomPos() {
@@ -52,6 +63,16 @@ namespace we {
         this._undoStack.popAndUndo();
       }
 
+      protected showBetChipPanel() {
+        egret.Tween.get(this._betChipSet).to({ y: 290, alpha: 1 }, 250);
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        this._betChipSetGridEnabled = false;
+      }
+
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
         this.list.removeTable(this._tableId);
@@ -82,12 +103,16 @@ namespace we {
       protected hideQuickBetGroup() {
         egret.Tween.removeTweens(this._quickbetButton);
         egret.Tween.get(this._quickbetButton).to({ alpha: 1 }, 250);
+        this._betChipSetGridEnabled = false;
+        this.hideBetChipPanel();
         super.hideQuickBetGroup();
       }
 
       protected showQuickBetGroup() {
         egret.Tween.removeTweens(this._quickbetButton);
         egret.Tween.get(this._quickbetButton).to({ alpha: 0 }, 250);
+        this._betChipSetGridEnabled = true;
+        // this.showBetChipPanel();
         super.showQuickBetGroup();
       }
 
@@ -96,6 +121,7 @@ namespace we {
         this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
       }
 
       protected removeEventListeners() {
