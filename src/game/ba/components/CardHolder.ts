@@ -43,18 +43,18 @@ namespace we {
             cardHolderArr[index].setCard(utils.formatCard(value), (index + 1) % 3 !== 0);
           } else {
             if ((index + 1) % 3 !== 0) {
-              cardHolderArr[index].setCard('BACK', true);
+              cardHolderArr[index].setCard('back', true);
             }
           }
         });
       }
 
       public reset() {
-        this.card1Player.setCard('BACK', true);
-        this.card2Player.setCard('BACK', true);
+        this.card1Player.setCard('back', true);
+        this.card2Player.setCard('back', true);
 
-        this.card1Banker.setCard('BACK', true);
-        this.card2Banker.setCard('BACK', true);
+        this.card1Banker.setCard('back', true);
+        this.card2Banker.setCard('back', true);
 
         this.card3Banker.clear();
         this.card3Player.clear();

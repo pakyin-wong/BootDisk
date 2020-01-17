@@ -30,7 +30,6 @@ namespace we {
       public constructor(skinName: string = null) {
         super();
         if (skinName) {
-          console.log('ControlItem::', skinName);
           this.skinName = utils.getSkinByClassname(skinName);
         }
         this.touchEnabled = true;

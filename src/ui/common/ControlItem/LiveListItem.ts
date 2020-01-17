@@ -5,7 +5,6 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-        console.log('LiveListItem::skinName: ', skinName);
       }
 
       protected initCustomPos() {
@@ -19,8 +18,8 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        const imageResName = Math.round(Math.random()) ? 'temp_baccarat_dealer_1' : 'temp_baccarat_dealer_2';
-        this._dealerImage.texture = RES.getRes(imageResName);
+        const randNo = Math.round(Math.random() * 4) + 1;
+        this._dealerImage.texture = RES.getRes('temp_baccarat_dealer_' + randNo);
       }
 
       get dealerImage() {

@@ -3,7 +3,7 @@ namespace we {
     export class SegmentedControlTabItem extends ui.SortableItemRenderer {
       public itemIndex: number;
 
-      private label: eui.Label;
+      private label: ui.RunTimeLabel;
       private boldWidth = null;
 
       public destinationX: number = Infinity;
@@ -22,7 +22,7 @@ namespace we {
 
       public dataChanged() {
         super.dataChanged();
-        this.label.text = i18n.t(this.data);
+        this.label.renderText = () => i18n.t(this.data);
 
         // set tab item min width to bold text width
         const bold = this.label.bold;

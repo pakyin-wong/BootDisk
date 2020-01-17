@@ -34,13 +34,10 @@ namespace we {
 
       protected initDisplayItem() {
         let generalGameType: string;
-        console.log('LiveListHolder::initDisplayItem()');
-        console.log(this.tableInfo);
 
         if (!this.tableInfo) {
           return;
         }
-        console.log(this.tableInfo);
 
         switch (this.tableInfo.gametype) {
           //  switch (0) {
@@ -48,9 +45,10 @@ namespace we {
           case we.core.GameType.BAI:
           case we.core.GameType.BAS:
             generalGameType = 'ba';
+            break;
           case we.core.GameType.DT:
           default:
-            generalGameType = 'ba';
+            generalGameType = 'dt';
         }
 
         switch (this._mode) {

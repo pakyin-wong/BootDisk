@@ -13,6 +13,8 @@ namespace we {
 
       protected filter: core.GameType;
 
+      protected _bg: eui.Image;
+
       constructor() {
         super();
         this.skinName = 'LiveSidePanelSkin';
@@ -88,6 +90,14 @@ namespace we {
         scroller.viewport = this.allTableList;
 
         this._tabbar.dataProvider = this._viewStack;
+        this._tabbar.validateNow();
+        let tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_green_png';
+
+        tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_png';
+
+        this._bg.alpha = 0;
       }
 
       protected getLayout() {
@@ -132,11 +142,11 @@ namespace we {
         this.allTableList.setGameFiltersByTabIndex(selectedIdx);
         this.allTableList.setTableList(this.allGameList, true);
 
-        const count = this.allTableList.tableCount;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
-        if (tabItem) {
-          tabItem.onBadgeUpdate(count);
-        }
+        // const count = this.allTableList.tableCount;
+        // const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        // if (tabItem) {
+        //   tabItem.onBadgeUpdate(count);
+        // }
       }
 
       protected onTableListUpdate(evt: egret.Event) {
@@ -144,11 +154,11 @@ namespace we {
         this.allGameList = tableList;
         // this.allTableList.setTableList(tableList);
         this.setAllTableList(this.filter);
-        const count = this.allTableList.tableCount;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
-        if (tabItem) {
-          tabItem.onBadgeUpdate(count);
-        }
+        // const count = this.allTableList.tableCount;
+        // const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        // if (tabItem) {
+        //   tabItem.onBadgeUpdate(count);
+        // }
       }
 
       protected setAllTableList(filter: core.GameType = null) {
@@ -191,8 +201,18 @@ namespace we {
         this._dropdown.visible = false;
       }
 
+      protected onClearSelection() {
+        super.onClearSelection();
+        egret.Tween.removeTweens(this._bg);
+        egret.Tween.get(this._bg).to({ alpha: 0 }, 200);
+      }
+
       protected onSelected() {
         super.onSelected();
+        if (this._bg.alpha < 1) {
+          egret.Tween.removeTweens(this._bg);
+          egret.Tween.get(this._bg).to({ alpha: 1 }, 200);
+        }
         switch (this._viewStack.selectedIndex) {
           case 0:
           case 1:
@@ -203,7 +223,6 @@ namespace we {
           case 2:
             this._label.visible = false;
             this._dropdown.visible = true;
-
             break;
         }
       }

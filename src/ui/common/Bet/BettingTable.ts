@@ -29,7 +29,6 @@ namespace we {
       public onTableListUpdate() {}
 
       set totalPerson(persons: any) {
-        console.log('BettingTable ', this._tableId, persons);
         this._totalPerson = persons;
         if (this.mapping) {
           Object.keys(persons).map(value => {
@@ -45,7 +44,6 @@ namespace we {
       }
 
       set totalAmount(amounts: any) {
-        console.log('BettingTable ', this._tableId, amounts);
         this._totalAmount = amounts;
         if (this.mapping) {
           Object.keys(amounts).map(value => {
