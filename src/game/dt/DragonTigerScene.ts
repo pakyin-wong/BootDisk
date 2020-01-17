@@ -19,7 +19,7 @@ namespace we {
         dir.sceneCtr.goto('lobby', { page: 'live', tab: 'dt' });
       }
 
-      protected setStateBet(){
+      protected setStateBet() {
         super.setStateBet();
 
         if (this._previousState !== we.core.GameState.BET) {

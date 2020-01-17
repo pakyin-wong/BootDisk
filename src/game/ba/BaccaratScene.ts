@@ -23,7 +23,7 @@ namespace we {
         this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
-      protected setStateBet(){
+      protected setStateBet() {
         super.setStateBet();
 
         if (this._previousState !== we.core.GameState.BET) {
