@@ -89,6 +89,15 @@ npm install -g tslint prettier typescript
 ```
 npm install -g tslint prettier typescript
 ```
+## Testing Site
+1. [Development](https://dev-web-game-fe.wehosts247.com/)
+
+2. [Staging](https://web-game-fe.wehosts247.com/)
+
+## Auto Dealer
+1. [Development](http://18.139.237.86:8901/?checked=true&uid=H003&local=test)
+
+2. [Staging](http://18.139.237.86:8901/?checked=true&uid=H003)
 
 ## External Resource
 1. [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
