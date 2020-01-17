@@ -23,6 +23,17 @@ namespace we {
         this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
+      protected setStateBet() {
+        super.setStateBet();
+
+        if (this._previousState !== we.core.GameState.BET) {
+          if (this._bettingTable) {
+            this._bettingTable.totalAmount = { PLAYER: 0, BANKER: 0 };
+            this._bettingTable.totalPerson = { PLAYER: 0, BANKER: 0 };
+          }
+        }
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
@@ -38,7 +49,9 @@ namespace we {
           this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
 
-        this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+        if (this._lblBaMode) {
+          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+        }
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {

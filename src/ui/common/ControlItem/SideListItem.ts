@@ -3,13 +3,13 @@ namespace we {
     export class SideListItem extends LiveListSimpleItem {
       protected _bigRoad: we.ba.BetInfoBigRoad;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
+      protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetButton: ui.QuickBetAnimButton;
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
       protected _alreadyBetSign: eui.Group;
       protected _tweenInterval1: number = 250;
-      protected _betChipSetGridEnabled: boolean = false;
 
       // protected _originalyhover: number;
       protected _originaly: number;
