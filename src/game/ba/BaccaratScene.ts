@@ -49,7 +49,9 @@ namespace we {
           this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
 
-        this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+        if (this._lblBaMode) {
+          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+        }
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
