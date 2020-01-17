@@ -42,12 +42,12 @@ namespace we {
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
 
         // create mask
-        const shape = new egret.Shape();
-        shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRect(0, 0, this._maskContainer.width, this._maskContainer.height);
-        shape.graphics.endFill();
-        this._maskContainer.addChild(shape);
-        this._maskContainer.mask = shape;
+        // const shape = new egret.Shape();
+        // shape.graphics.beginFill(0xffffff, 1);
+        // shape.graphics.drawRect(this._section_main.$x, this._section_main.$y, this._section_main.width, this._section_main.height);
+        // shape.graphics.endFill();
+        // this._maskContainer.addChild(shape);
+        // this._maskContainer.mask = shape;
         // init scroller
         const tlayout = new eui.TileLayout();
         tlayout.requestedColumnCount = 3;

@@ -22,7 +22,7 @@
 	                       dismissOnClickOutside="true" />
 	-->
 	<ui:NavSideMenu id="_menu" width="363" height="576" x="2219" y="94" isPoppable="true" dismissOnClickOutside="true" />
-	<ui:NavPlayerProfile id="_profile" width="1480" height="789" x="1500" y="94" isPoppable="true"
+	<ui:NavPlayerProfile id="_profile" width="516" height="789" x="1980" y="100" isPoppable="true"
 	                     dismissOnClickOutside="true" />
 	<e:Image width="22" height="23" source="d_ba_navbar_icon_rss_png" x.left="335" y.left="21" x.right="2092" y.right="19" />
 </e:Skin>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.NavPlayerProfile" height="789" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1470">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="516">
     <e:Group id="content" left="0" right="0" top="0" bottom="0">
-        <e:Image source="nav_panel_bg" width="516" height="789"  horizontalCenter="0"/>
-        <e:Group id="_maskContainer" width="490" height="764" horizontalCenter="0" verticalCenter="0">
-            <e:Group id="_section_main" width="490" height="764" left="0">
+        <e:Image source="nav_panel_bg" width="516" height="789"/>
+        <e:Group id="_maskContainer" width="490" height="764" y="13" x="13">
+            <e:Group id="_section_main" width="490" height="764">
 				<e:Image id="_playerIcon" width="114" height="114" y="63" anchorOffsetX="0" anchorOffsetY="0" source="d_lobby_profile_pic_03_png" horizontalCenter="0"/>
 				<e:Label id="_username" text="Johathan" y="195" textColor="0xc59466" size="30" anchorOffsetY="0" height="36" fontFamily="Barlow" textAlign="center" width="280" horizontalCenter="0" verticalAlign="middle"/>
                 <e:Label id="_balance" text="RMB 120,889,200" y="245" size="22"  height="36" width="280" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
