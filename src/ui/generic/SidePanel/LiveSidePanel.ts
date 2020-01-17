@@ -13,6 +13,8 @@ namespace we {
 
       protected filter: core.GameType;
 
+      protected _bg: eui.Image;
+
       constructor() {
         super();
         this.skinName = 'LiveSidePanelSkin';
@@ -94,6 +96,8 @@ namespace we {
 
         tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
         tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_png';
+
+        this._bg.alpha = 0;
       }
 
       protected getLayout() {
@@ -197,8 +201,18 @@ namespace we {
         this._dropdown.visible = false;
       }
 
+      protected onClearSelection() {
+        super.onClearSelection();
+        egret.Tween.removeTweens(this._bg);
+        egret.Tween.get(this._bg).to({ alpha: 0 }, 200);
+      }
+
       protected onSelected() {
         super.onSelected();
+        if (this._bg.alpha < 1) {
+          egret.Tween.removeTweens(this._bg);
+          egret.Tween.get(this._bg).to({ alpha: 1 }, 200);
+        }
         switch (this._viewStack.selectedIndex) {
           case 0:
           case 1:
@@ -209,7 +223,6 @@ namespace we {
           case 2:
             this._label.visible = false;
             this._dropdown.visible = true;
-
             break;
         }
       }
