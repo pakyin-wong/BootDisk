@@ -21,6 +21,12 @@ namespace we {
       betfield_baccarat_super_six: '超级六',
       betfield_baccarat_super_six_banker: '庄',
 
+      playerprofile_maxWinAmount: '最大嬴钱数目',
+      playerprofile_maxWinCount: '最大连嬴次数',
+      playerprofile_follower: '追随者',
+      playerprofile_following: '追随中',
+      playerprofile_favouriteDealer: '最爱荷官',
+
       overlaypanel_memberreport_title: '会员报表',
       overlaypanel_memberreport_date: '日期',
       overlaypanel_memberreport_today: '今日',

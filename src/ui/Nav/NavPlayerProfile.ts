@@ -3,10 +3,30 @@ namespace we {
     export class NavPlayerProfile extends Panel {
       private _maskContainer: eui.Group;
       private _section_main: eui.Group;
-      private _section_iconSelect: eui.Group;
+
       private _playerIcon: eui.Image;
+      private _username: eui.Label;
+      private _balance: eui.Label;
+      private _maxWinAmount: eui.Label;
+      private _maxWinCount: eui.Label;
+      private _follower: eui.Label;
+      private _following: eui.Label;
+      private _favouriteDealer: eui.Label;
+
+      private _txt_maxWinAmount: RunTimeLabel;
+      private _txt_maxWinCount: RunTimeLabel;
+      private _txt_follower: RunTimeLabel;
+      private _txt_following: RunTimeLabel;
+      private _txt_favouriteDealer: RunTimeLabel;
+
+      private _section_iconSelect: eui.Group;
+
       private _sectionBackIcon: eui.Image;
+
       private _iconScroller: we.ui.Scroller;
+      private _iconListData: eui.ArrayCollection = new eui.ArrayCollection([]);
+      private _iconList: eui.List;
+      private _iconGaySize = 30;
 
       public constructor() {
         super('NavPlayerProfile');
@@ -14,10 +34,17 @@ namespace we {
 
       protected mount() {
         super.mount();
+
+        this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
+        this._txt_maxWinCount.renderText = () => `${i18n.t('playerprofile_maxWinCount')}`;
+        this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
+        this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
+        this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
+
         // create mask
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRect(this._maskContainer.x, this._maskContainer.y, this._maskContainer.width, this._maskContainer.height);
+        shape.graphics.drawRect(0, 0, this._maskContainer.width, this._maskContainer.height);
         shape.graphics.endFill();
         this._maskContainer.addChild(shape);
         this._maskContainer.mask = shape;
@@ -43,6 +70,18 @@ namespace we {
         }
         this._iconScroller.useMiniScrollBar = true;
         this._iconScroller.viewport = grids;
+
+        // const tlayout = new eui.TileLayout();
+        // tlayout.requestedColumnCount = 3;
+        // tlayout.horizontalGap = this._iconGaySize;
+        // tlayout.verticalGap = this._iconGaySize;
+
+        // this._iconList = new eui.List();
+        // this._iconList.dataProvider = this._iconListData;
+        // this._iconList.layout = tlayout;
+
+        // this._iconScroller.useMiniScrollBar = true;
+        // this._iconScroller.viewport = this._iconList;
 
         this.addListeners();
       }
