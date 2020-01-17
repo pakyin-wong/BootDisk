@@ -21,6 +21,8 @@ namespace we {
         this._chipsetList.layout = this._chipsetLayout;
         this._chipsetList.itemRenderer = BetChipSetGridItem;
         this.addChild(this._chipsetList);
+
+        this._selectedChipIndex = 0;
       }
 
       public init(format: any, denominationList: number[]) {

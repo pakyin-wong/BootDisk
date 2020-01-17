@@ -427,9 +427,7 @@ namespace we {
       protected onAddToStage() {
         if (!this._denomLayer.contains(this._betChipStack)) {
           this._betChipStack.horizontalCenter = 0;
-
           this._betChipStack.verticalCenter = 0;
-
           this._betChipStack.chipHeight = this._chipHeight;
           this._betChipStack.chipWidth = this._chipWidth;
           this._betChipStack.chipInterval = this._chipInterval;

@@ -39,10 +39,14 @@ class Main extends eui.UILayer {
   }
 
   private async initRes() {
+    const versionController = new we.core.VersionController();
+    await versionController.init();
+
     egret.registerImplementation('eui.IAssetAdapter', new AssetAdapter());
     egret.registerImplementation('eui.IThemeAdapter', new ThemeAdapter());
+    RES.registerVersionController(versionController);
     try {
-      await RES.loadConfig('resource/default.res.json', 'resource/');
+      await RES.loadConfig(`resource/default.res.json`, 'resource/');
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);
@@ -52,8 +56,8 @@ class Main extends eui.UILayer {
   }
 
   private loadTheme(): Promise<{}> {
-    const prerequisiteTheme = new eui.Theme('resource/preloaddefault.thm.json', this.stage);
-    const theme = new eui.Theme('resource/default.thm.json', this.stage);
+    const prerequisiteTheme = new eui.Theme(`resource/preloaddefault.thm.json`, this.stage);
+    const theme = new eui.Theme(`resource/default.thm.json`, this.stage);
     return we.utils.wait(theme, eui.UIEvent.COMPLETE);
   }
 }
