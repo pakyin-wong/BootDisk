@@ -18,21 +18,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        let imageResName: string;
-        switch (Math.round(Math.random() * 2)) {
-          case 0:
-            imageResName = 'temp_baccarat_dealer_1';
-            break;
-          case 1:
-            imageResName = 'temp_baccarat_dealer_2';
-            break;
-          case 2:
-          default:
-            imageResName = 'temp_baccarat_dealer_3';
-            break;
-        }
-
-        this._dealerImage.texture = RES.getRes(imageResName);
+        this._dealerImage.texture = RES.getRes('temp_baccarat_dealer_' + (Math.round(Math.random() * 4) + 1));
       }
 
       get dealerImage() {
