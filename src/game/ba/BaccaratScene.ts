@@ -23,6 +23,17 @@ namespace we {
         this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
+      protected setStateBet(){
+        super.setStateBet();
+
+        if (this._previousState !== we.core.GameState.BET) {
+          if (this._bettingTable) {
+            this._bettingTable.totalAmount = { PLAYER: 0, BANKER: 0 };
+            this._bettingTable.totalPerson = { PLAYER: 0, BANKER: 0 };
+          }
+        }
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
