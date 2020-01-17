@@ -209,6 +209,7 @@ namespace we {
 
       protected onSelected() {
         super.onSelected();
+        this.width = 397;
         if (this._bg.alpha < 1) {
           egret.Tween.removeTweens(this._bg);
           egret.Tween.get(this._bg).to({ alpha: 1 }, 200);
