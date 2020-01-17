@@ -253,7 +253,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class ImageButtonSkinBacarrat extends eui.Skin{
+	class ImageButtonSkinBettingPanel extends eui.Skin{
 	}
 }
 declare class ImageButtonSkinDialog extends eui.Skin{

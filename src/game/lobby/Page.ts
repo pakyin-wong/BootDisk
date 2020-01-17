@@ -271,6 +271,19 @@ namespace we {
         this.addChild(armatureDisplay1);
         armatureDisplay1.animation.play('Sound_close_ani', 0);
 
+        // const shp: egret.Shape = new egret.Shape();
+        // shp.x = 300;
+        // shp.y = 300;
+        // // shp.graphics.lineStyle(10, 0x00ff00);
+        // shp.graphics.beginFill(0xff0000, 1);
+        // shp.graphics.moveTo(400, 200);
+        // shp.graphics.lineTo(600, 200);
+        // shp.graphics.drawArc(200, 200, 400, 0, Math.PI * 0.5, false);
+        // shp.graphics.lineTo(200, 400);
+        // shp.graphics.drawArc(200, 200, 200, Math.PI * 0.5, 0, true);
+        // shp.graphics.endFill();
+        // this.addChild(shp);
+
         // // Dragonbone animation 4 (non sprite)
         // const skeletonData4 = RES.getRes('Icon_ske_json');
         // const factory4 = new dragonBones.EgretFactory();
