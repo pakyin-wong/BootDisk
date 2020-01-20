@@ -199,11 +199,8 @@ class IPhone8Helper extends IPhone7Helper {
   }
 
   public UpdateScrollable(scrollable) {
-    // document.body.style.position = scrollable ? 'static' : 'fixed';
-    this.canvas.style.position = scrollable ? 'static' : 'fixed';
-    if (!scrollable) {
-      this.canvas.style.top = 0;
-    }
+    document.body.style.position = scrollable ? 'static' : 'fixed';
+    this.canvas.parentElement.style.position = scrollable ? 'fixed' : 'static';
   }
 
   public HandleTouchStart(event: Event) {
