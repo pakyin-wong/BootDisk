@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dt.SideListBetItemSkin" width="339" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
         xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:dt="we.dt.*" xmlns:w="http://ns.egret.com/wing" minHeight="158">
+    <e:Group id="_betChipSetPanel">
+        <ui:BetChipSetGrid id="_betChipSet" width="200" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
+    </e:Group>
 	<e:Group id="_quickBetGroup" width="100%" alpha="0" locked="true">
 		<e:Rect width="339" height="100" x="0" y="0" fillColor="0x202020" ellipseWidth="5" ellipseHeight="5" />
-		<ui:BetChipSetHorizontal id="_betChipSet" x="132" y="10" width="110" height="80" />
+        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="90" height="90" anchorOffsetX="0" x="131"
+                                   anchorOffsetY="0" y="10" skinName="skin_desktop.BetChipSelectedSkin" />
 		<ui:BaseImageButton id="_closeButton" x="12" y="20" width="56" height="60" currentState="lobby_betcontrol_close"
 		                    skinName="ImageButtonSkinLobby" />
 		<ui:BaseImageButton id="_prevButton" x="68" y="20" width="56" height="60" currentState="lobby_betcontrol_previous"
@@ -24,7 +28,7 @@
 		<e:Group id="_bettingGroup" width="100%" height="158" x="0" y="0" touchEnabled="false" touchChildren="true">
 			<ui:CountdownTimer id="_timer" width="47" height="47" x="0" y="0"
 			                   skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
-			<dt:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.ba.SideListBettingTableSkin" anchorOffsetY="0"
+			<dt:BettingTable id="_bettingTable" width="100%" skinName="skin_desktop.dt.SideListBettingTableSkin" anchorOffsetY="0"
 			                 height="110" left="0" y="47" />
 			<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
 			                       skinName="BetLimitDropdownSkin" visible="false" />

@@ -17,11 +17,11 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_user_info_bg,nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_normal_png,d_lobby_Icon_setting_normal_png,d_lobby_Icon_edit_normal_png,d_lobby_Icon_chart_normal_png,d_lobby_Icon_record_normal_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_normal_png,d_lobby_panel_button_page_prev_normal_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png",
+			"keys": "nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_normal_png,d_lobby_Icon_setting_normal_png,d_lobby_Icon_edit_normal_png,d_lobby_Icon_chart_normal_png,d_lobby_Icon_record_normal_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_normal_png,d_lobby_panel_button_page_prev_normal_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png,d_lobby_profile_reload_hover_png,d_lobby_profile_reload_normal_png,d_lobby_Icon_edit_hover_png,d_lobby_profile_edit_hover_png,d_lobby_profile_edit_normal_png,d_common_panel_systemsetting_pressedbg_png,d_common_panel_systemsetting_pressed_select_png",
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,game_result_test_tex_png,game_result_test_tex_json,game_result_test_ske_json,start_png,start_json,Mask_test_png",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,game_result_test_tex_png,game_result_test_tex_json,game_result_test_ske_json,start_png,start_json,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5",
 			"name": "temp"
 		},
 		{
@@ -2535,7 +2535,8 @@
 		{
 			"url": "assets/d/common/d_common_panel_gamelist_bg.png",
 			"type": "image",
-			"name": "d_common_panel_gamelist_bg_png"
+			"name": "d_common_panel_gamelist_bg_png",
+			"scale9grid": "13,13,1,1"
 		},
 		{
 			"url": "assets/d/common/d_common_panel_gamelist_notifydot_green.png",
@@ -2611,6 +2612,21 @@
 			"url": "assets/d/common/d_common_panel_gamelist_notifydot.png",
 			"type": "image",
 			"name": "d_common_panel_gamelist_notifydot_png"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_3.jpg",
+			"type": "image",
+			"name": "temp_baccarat_dealer_3"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_4.jpg",
+			"type": "image",
+			"name": "temp_baccarat_dealer_4"
+		},
+		{
+			"url": "assets/temp/baccarat_dealer_5.jpg",
+			"type": "image",
+			"name": "temp_baccarat_dealer_5"
 		}
 	]
 }

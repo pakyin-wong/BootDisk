@@ -12,10 +12,10 @@ namespace we {
 
       protected createMapping() {
         super.createMapping();
-        this.mapping = {};
-        this.mapping[dt.BetField.DRAGON] = this._gridDragon;
-        this.mapping[dt.BetField.TIGER] = this._gridTiger;
-        this.mapping[dt.BetField.TIE] = this._gridTie;
+        this._mapping = {};
+        this._mapping[dt.BetField.DRAGON] = this._gridDragon;
+        this._mapping[dt.BetField.TIGER] = this._gridTiger;
+        this._mapping[dt.BetField.TIE] = this._gridTie;
       }
 
       protected changeLang() {

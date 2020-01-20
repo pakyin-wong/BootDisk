@@ -3,15 +3,14 @@ namespace we {
     export class SideListItem extends LiveListSimpleItem {
       protected _bigRoad: we.ba.BetInfoBigRoad;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
+      protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetButton: ui.QuickBetAnimButton;
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
       protected _alreadyBetSign: eui.Group;
       protected _tweenInterval1: number = 250;
-      protected _betChipSetGridEnabled: boolean = false;
 
-      // protected _originalyhover: number;
       protected _originaly: number;
       protected _originalQuickBetButtonY: number;
       protected _targetQuickBetButtonY: number;
@@ -20,6 +19,9 @@ namespace we {
       protected _offsetY: number;
       protected _offsetLimit: number;
       protected _offsetMovement: number;
+
+      protected _closeButton: ui.BaseImageButton;
+      protected _prevButton: ui.BaseImageButton;
 
       public constructor(skinName: string = 'BaSideListItemSkin') {
         super(skinName);
@@ -32,6 +34,23 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+      }
+
+      protected removeEventListeners() {
+        super.removeEventListeners();
+        this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+      }
+
+      public onClickButton(evt: egret.Event) {
+        super.onClickButton(evt);
+      }
+
+      public onClickUndoButton(evt: egret.Event) {
+        this._undoStack.popAndUndo();
       }
 
       protected onClickBetChipSelected() {

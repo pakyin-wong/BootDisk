@@ -162,10 +162,12 @@ namespace we {
               link: (item as any).link,
               loaded: false,
             }));
-            liveHeroBanners.push({ ...liveHeroBanners[0] }); // mock unloaded second image
-            // init first banner
-            liveHeroBanners[0].image = await this._loadRemoteImage(liveHeroBanners[0].imageUrl);
-            liveHeroBanners[0].loaded = true;
+            if (liveHeroBanners.length > 0) {
+              liveHeroBanners.push({ ...liveHeroBanners[0] }); // mock unloaded second image
+              // init first banner
+              liveHeroBanners[0].image = await this._loadRemoteImage(liveHeroBanners[0].imageUrl);
+              liveHeroBanners[0].loaded = true;
+            }
             dir.liveResources = { liveHeroBanners };
             resolve();
           });

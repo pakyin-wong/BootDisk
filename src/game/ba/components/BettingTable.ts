@@ -16,14 +16,14 @@ namespace we {
 
       protected createMapping() {
         super.createMapping();
-        this.mapping = {};
-        this.mapping[ba.BetField.PLAYER] = this._gridPlayer;
-        this.mapping[ba.BetField.BANKER] = this._gridBanker;
-        this.mapping[ba.BetField.PLAYER_PAIR] = this._gridPlayerPair;
-        this.mapping[ba.BetField.TIE] = this._gridTie;
-        this.mapping[ba.BetField.BANKER_PAIR] = this._gridBankerPair;
-        this.mapping[ba.BetField.SUPER_SIX_BANKER] = this._gridSuperSixBanker;
-        this.mapping[ba.BetField.SUPER_SIX] = this._gridSuperSix;
+        this._mapping = {};
+        this._mapping[ba.BetField.PLAYER] = this._gridPlayer;
+        this._mapping[ba.BetField.BANKER] = this._gridBanker;
+        this._mapping[ba.BetField.PLAYER_PAIR] = this._gridPlayerPair;
+        this._mapping[ba.BetField.TIE] = this._gridTie;
+        this._mapping[ba.BetField.BANKER_PAIR] = this._gridBankerPair;
+        this._mapping[ba.BetField.SUPER_SIX_BANKER] = this._gridSuperSixBanker;
+        this._mapping[ba.BetField.SUPER_SIX] = this._gridSuperSix;
       }
 
       protected changeLang() {

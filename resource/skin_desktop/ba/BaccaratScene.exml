@@ -14,13 +14,13 @@
 		<ui:CountdownTimer id="_timer" width="180" height="60" y="6" horizontalCenter="115"
 		                   skinName="skin_desktop.CountdownTimerSkin" />
 		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="318" skinName="skin_desktop.ImageButtonSkinBacarrat" currentState="b_cancel" />
+		                    horizontalCenter="318" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_cancel" />
 		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="243" skinName="skin_desktop.ImageButtonSkinBacarrat" currentState="b_repeat" />
+		                    horizontalCenter="243" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_repeat" />
 		<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="393" skinName="skin_desktop.ImageButtonSkinBacarrat" currentState="b_double" />
+		                    horizontalCenter="393" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_double" />
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBacarrat" currentState="b_repeat" />
+		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_undo" />
 	</e:Group>
 	<ba:CardHolder id="_resultDisplay" width="412" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"
 	               anchorOffsetY="0" />
