@@ -17,6 +17,7 @@ class IPhone7Helper {
 class IPhone8Helper extends IPhone7Helper {
   public root = null;
   public canvas = null;
+  public canvasContainer = null;
   public isTouch = false;
   public isTopPanel = false;
   public isLandscape = false;
@@ -30,6 +31,7 @@ class IPhone8Helper extends IPhone7Helper {
 
     this.root = null;
     this.canvas = null;
+    this.canvasContainer = null;
     this.isTouch = false;
     this.isTopPanel = false;
     this.isLandscape = false;
@@ -109,6 +111,7 @@ class IPhone8Helper extends IPhone7Helper {
       false
     );
     this.canvas = document.getElementsByTagName('canvas')[0];
+    this.canvasContainer = this.canvas.parentElement;
   }
 
   public PreventEvent(e: Event) {
@@ -200,7 +203,7 @@ class IPhone8Helper extends IPhone7Helper {
 
   public UpdateScrollable(scrollable) {
     document.body.style.position = scrollable ? 'static' : 'fixed';
-    this.canvas.parentElement.style.position = scrollable ? 'fixed' : 'static';
+    this.canvasContainer.style.position = scrollable ? 'fixed' : 'static';
   }
 
   public HandleTouchStart(event: Event) {
@@ -418,6 +421,7 @@ class IPhoneChromeFullscreen {
   public root;
   public reserve;
   public canvas;
+  public canvasContainer;
   public minHeight;
   public maxHeight;
   public topBarHeightLand;
@@ -474,9 +478,9 @@ class IPhoneChromeFullscreen {
     document.documentElement.className = cn.join(' ');
     this.root.className = visible ? 'fullscreen-root-visible' : 'fullscreen-root-hidden';
 
-    this.canvas.style.position = 'fixed';
+    this.canvasContainer.style.position = 'fixed';
     if (!visible) {
-      this.canvas.style.top = 0;
+      this.canvasContainer.style.top = 0;
     }
   }
 
@@ -524,7 +528,8 @@ class IPhoneChromeFullscreen {
     this.reserve = document.createElement('div');
     // document.body.insertBefore(this.reserve, document.getElementsByTagName('canvas')[0]);
     this.canvas = document.getElementsByTagName('canvas')[0];
-    this.canvas.parentNode.insertBefore(this.reserve, this.canvas);
+    this.canvasContainer = this.canvas.parentElement;
+    this.canvasContainer.parentNode.insertBefore(this.reserve, this.canvasContainer);
     this.UpdateReserve();
     this.isInit = true;
   }
