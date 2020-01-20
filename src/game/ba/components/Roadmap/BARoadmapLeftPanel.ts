@@ -1,28 +1,22 @@
 namespace we {
   export namespace ba {
-    export class BARoadmapLeftPanel extends ui.Panel {
+    export class BARoadmapLeftPanel extends core.BaseGamePanel {
       public beadRoad: BABeadRoad;
-      private gameIdLabel: ui.RunTimeLabel;
-      private totalBetLabel: ui.RunTimeLabel;
-      private gameId: string;
-      private totalBet: number;
-      private contentMask: egret.Rectangle;
-      private switchModeButton: eui.Component;
+      protected gameIdLabel: ui.RunTimeLabel;
+      protected totalBetLabel: ui.RunTimeLabel;
+      protected gameId: string;
+      protected totalBet: number;
+      protected switchModeButton: eui.Component;
 
-      public constructor() {
-        super('BARoadmapLeftPanel');
+      public constructor(skin?: string) {
+        super(skin ? skin : 'BARoadmapLeftPanel');
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
       }
-      protected mount() {
-        this.init();
-      }
 
       protected init() {
-        this.mask = this.contentMask;
-
         this.gameId = '';
         this.totalBet = 0;
 
@@ -44,14 +38,18 @@ namespace we {
         this.changeLang();
       }
 
-      private onSwitchModeClick(e: egret.TouchEvent) {
+      protected onSwitchModeClick(e: egret.TouchEvent) {
         this.beadRoad.Mode = ++this.beadRoad.Mode % 2;
       }
 
-      public setGameInfo(gameId: string, totalBet: number) {
-        this.gameId = gameId;
-        this.totalBet = totalBet;
-        this.changeLang();
+      public update() {
+        if (this.tableInfo) {
+          if (this.tableInfo.betInfo) {
+            this.gameId = this.tableInfo.betInfo.gameroundid;
+            this.totalBet = this.tableInfo.betInfo.total;
+            this.changeLang();
+          }
+        }
       }
 
       public destroy() {

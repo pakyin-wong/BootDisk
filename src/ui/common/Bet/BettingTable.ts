@@ -8,7 +8,7 @@ namespace we {
       protected _getSelectedChipIndex: () => number;
       protected _getSelectedBetLimitIndex: () => number;
       protected _undoStack: we.utils.UndoStack;
-      protected mapping: { [s: string]: BettingTableGrid };
+      protected _mapping: { [s: string]: BettingTableGrid };
       protected _betField: any;
 
       protected _uncfmBetDetails: data.BetDetail[];
@@ -30,10 +30,10 @@ namespace we {
 
       set totalPerson(persons: any) {
         this._totalPerson = persons;
-        if (this.mapping) {
+        if (this._mapping) {
           Object.keys(persons).map(value => {
-            if (this.mapping[value]) {
-              this.mapping[value].totalPerson = persons[value];
+            if (this._mapping[value]) {
+              this._mapping[value].totalPerson = persons[value];
             }
           });
         }
@@ -45,10 +45,10 @@ namespace we {
 
       set totalAmount(amounts: any) {
         this._totalAmount = amounts;
-        if (this.mapping) {
+        if (this._mapping) {
           Object.keys(amounts).map(value => {
-            if (this.mapping[value]) {
-              this.mapping[value].totalAmount = amounts[value];
+            if (this._mapping[value]) {
+              this._mapping[value].totalAmount = amounts[value];
             }
           });
         }
@@ -109,14 +109,14 @@ namespace we {
       protected createMapping() {}
 
       protected setFieldNames() {
-        Object.keys(this.mapping).map(value => {
-          this.mapping[value].setFieldName(value);
+        Object.keys(this._mapping).map(value => {
+          this._mapping[value].setFieldName(value);
         });
       }
 
       protected setDenomLists() {
-        Object.keys(this.mapping).map(value => {
-          this.mapping[value].denomList = this._denomList;
+        Object.keys(this._mapping).map(value => {
+          this._mapping[value].denomList = this._denomList;
         });
       }
 
@@ -139,24 +139,24 @@ namespace we {
           return this._denomLayer;
         }
 
-        if (!this.mapping) {
+        if (!this._mapping) {
           return null;
         }
 
-        for (const grid of Object.keys(this.mapping)) {
-          if (!this.mapping[grid]) {
+        for (const grid of Object.keys(this._mapping)) {
+          if (!this._mapping[grid]) {
             return null;
           }
-          if (!we.utils.convertToBoolean(this.mapping[grid].hasDenomLayer)) {
+          if (!we.utils.convertToBoolean(this._mapping[grid].hasDenomLayer)) {
             return null;
           }
         }
 
         this._denomLayer = new eui.Component();
-        Object.keys(this.mapping).map(value => {
-          if (we.utils.convertToBoolean(this.mapping[value].hasDenomLayer)) {
-            this.setDenomGrid(this.mapping[value]);
-            this._denomLayer.addChild(this.mapping[value].denomLayer);
+        Object.keys(this._mapping).map(value => {
+          if (we.utils.convertToBoolean(this._mapping[value].hasDenomLayer)) {
+            this.setDenomGrid(this._mapping[value]);
+            this._denomLayer.addChild(this._mapping[value].denomLayer);
           }
         });
 
@@ -167,8 +167,8 @@ namespace we {
       }
 
       public isAlreadyBet() {
-        const result = Object.keys(this.mapping).reduce((acc, cur) => {
-          return this.mapping[cur].getCfmBet() > 0 || acc;
+        const result = Object.keys(this._mapping).reduce((acc, cur) => {
+          return this._mapping[cur].getCfmBet() > 0 || acc;
         }, false);
         return result;
       }
@@ -181,25 +181,25 @@ namespace we {
       }
 
       public addRolloverListeners() {
-        Object.keys(this.mapping).forEach(value => {
-          this.mapping[value].addRolloverEffect();
+        Object.keys(this._mapping).forEach(value => {
+          this._mapping[value].addRolloverEffect();
         });
       }
       public removeRolloverListeners() {
-        Object.keys(this.mapping).forEach(value => {
-          this.mapping[value].removeRolloverEffect();
+        Object.keys(this._mapping).forEach(value => {
+          this._mapping[value].removeRolloverEffect();
         });
       }
 
       public addTouchTapListeners() {
-        Object.keys(this.mapping).forEach(value => {
-          this.mapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.mapping[value]), this);
+        Object.keys(this._mapping).forEach(value => {
+          this._mapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(value), this);
         });
       }
 
       public removeTouchTapListeners() {
-        Object.keys(this.mapping).forEach(value => {
-          this.mapping[value].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(this.mapping[value]), this);
+        Object.keys(this._mapping).forEach(value => {
+          this._mapping[value].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(value), this);
         });
       }
 
@@ -215,8 +215,8 @@ namespace we {
 
       public setGameMode(isNoCommission: boolean) {
         this.currentState = isNoCommission ? 'SuperSix' : 'Normal';
-        Object.keys(this.mapping).map(value => {
-          this.mapping[value].draw();
+        Object.keys(this._mapping).map(value => {
+          this._mapping[value].draw();
         });
       }
 
@@ -243,8 +243,8 @@ namespace we {
 
         // TODO: update the already bet amount of each bet field
         betDetails.map((value, index) => {
-          if (this.mapping[value.field]) {
-            this.mapping[value.field].setCfmBet(value.amount);
+          if (this._mapping[value.field]) {
+            this._mapping[value.field].setCfmBet(value.amount);
           }
         });
       }
@@ -259,8 +259,9 @@ namespace we {
         this.betDetails = betDetails;
       }
 
-      protected onBetFieldUpdate(grid: BettingTableGrid) {
-        return (event: egret.Event) => {
+      protected onBetFieldUpdate(fieldname: string) {
+        return () => {
+          const grid = this._mapping[fieldname];
           const betDetail = { field: grid.getFieldName(), amount: grid.getAmount() };
           // validate bet action
           if (this.validateBetAction(betDetail)) {
@@ -273,7 +274,7 @@ namespace we {
             }
             // update the corresponding table grid
             this.undoStack.push(new Date().getTime(), we.utils.clone({ fieldName: grid.getFieldName(), amount: grid.getAmount() }), this.undoBetFieldUpdate.bind(this));
-            this.mapping[betDetail.field].addUncfmBet(betDetail.amount);
+            this._mapping[betDetail.field].addUncfmBet(betDetail.amount);
             this.totalUncfmBetAmount += betDetail.amount;
           }
           grid.draw();
@@ -281,7 +282,7 @@ namespace we {
       }
 
       protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {
-        this.mapping[data.fieldName].reduceUnCfmBet(data.amount);
+        this._mapping[data.fieldName].reduceUnCfmBet(data.amount);
         this.totalUncfmBetAmount -= data.amount;
         this._uncfmBetDetails.forEach(value => {
           if (value.field === data.fieldName) {
@@ -302,28 +303,28 @@ namespace we {
 
       public undoDoubleBetFields(betDetails: data.BetDetail[]) {
         betDetails.map(value => {
-          this.mapping[value.field].setUncfmBet(value.amount);
+          this._mapping[value.field].setUncfmBet(value.amount);
         });
         this._uncfmBetDetails = betDetails;
       }
 
       public doubleBetFields() {
-        const validDoubleBet = Object.keys(this.mapping).reduce((acc, cur) => {
-          if (this.mapping[cur].getCfmBet() === 0) {
+        const validDoubleBet = Object.keys(this._mapping).reduce((acc, cur) => {
+          if (this._mapping[cur].getCfmBet() === 0) {
             return acc && true;
           }
-          const betDetail = { field: cur, amount: this.mapping[cur].getCfmBet() };
+          const betDetail = { field: cur, amount: this._mapping[cur].getCfmBet() };
           return this.validateBetAction(betDetail) ? acc && true : false;
         }, true);
         if (!validDoubleBet) {
           return;
         }
-        Object.keys(this.mapping).map(value => {
-          const addedAmount = this.mapping[value].getCfmBet();
+        Object.keys(this._mapping).map(value => {
+          const addedAmount = this._mapping[value].getCfmBet();
           if (addedAmount > 0) {
-            this.mapping[value].addUncfmBet(addedAmount);
+            this._mapping[value].addUncfmBet(addedAmount);
             this.totalUncfmBetAmount += addedAmount;
-            this.mapping[value].draw();
+            this._mapping[value].draw();
             for (const detail of this._uncfmBetDetails) {
               if (detail.field === value) {
                 detail.amount += addedAmount;
@@ -341,7 +342,7 @@ namespace we {
 
       protected undoRepeatBetFields(betDetails: data.BetDetail[]) {
         betDetails.map(value => {
-          this.mapping[value.field].setUncfmBet(value.amount);
+          this._mapping[value.field].setUncfmBet(value.amount);
         });
         this._uncfmBetDetails = betDetails;
       }
@@ -353,8 +354,8 @@ namespace we {
         if (env.tableInfos[this._tableId].prevroundid !== env.tableInfos[this._tableId].prevbetsroundid) {
           return;
         }
-        const validRepeatBet = Object.keys(this.mapping).map(value => {
-          if (this.mapping[value].getCfmBet() === 0) {
+        const validRepeatBet = Object.keys(this._mapping).map(value => {
+          if (this._mapping[value].getCfmBet() === 0) {
             return true;
           }
           let betDetail = { field: value, amount: 0 };
@@ -374,9 +375,9 @@ namespace we {
           }
         }
         env.tableInfos[this._tableId].prevbets.map(value => {
-          this.mapping[value.field].addUncfmBet(value.amount);
+          this._mapping[value.field].addUncfmBet(value.amount);
           this.totalUncfmBetAmount += value.amount;
-          this.mapping[value.field].draw();
+          this._mapping[value.field].draw();
           for (const detail of this._uncfmBetDetails) {
             if (detail.field === value.field) {
               detail.amount += value.amount;
@@ -388,8 +389,8 @@ namespace we {
 
       set getSelectedChipIndex(value: () => number) {
         this._getSelectedChipIndex = value;
-        Object.keys(this.mapping).map(value => {
-          this.mapping[value].getSelectedChipIndex = this._getSelectedChipIndex;
+        Object.keys(this._mapping).map(value => {
+          this._mapping[value].getSelectedChipIndex = this._getSelectedChipIndex;
         });
       }
 
@@ -399,8 +400,8 @@ namespace we {
 
       set getSelectedBetLimitIndex(value: () => number) {
         this._getSelectedBetLimitIndex = value;
-        Object.keys(this.mapping).map(value => {
-          this.mapping[value].getSelectedBetLimit = this._getSelectedBetLimitIndex;
+        Object.keys(this._mapping).map(value => {
+          this._mapping[value].getSelectedBetLimit = this._getSelectedBetLimitIndex;
         });
       }
 
@@ -447,10 +448,10 @@ namespace we {
         Object.keys(this._betField).map(value => {
           this._uncfmBetDetails.push({ field: value, amount: 0 });
         });
-        if (this.mapping) {
-          Object.keys(this.mapping).forEach(value => {
+        if (this._mapping) {
+          Object.keys(this._mapping).forEach(value => {
             // TODO To be filled
-            // this.mapping[value].pushUnconfirmedBetToWaitingConfirmBet();
+            // this._mapping[value].pushUnconfirmedBetToWaitingConfirmBet();
           });
         }
         this.totalUncfmBetAmount = 0;
@@ -461,9 +462,9 @@ namespace we {
         Object.keys(this._betField).map(value => {
           this._uncfmBetDetails.push({ field: value, amount: 0 });
         });
-        if (this.mapping) {
-          Object.keys(this.mapping).forEach(value => {
-            this.mapping[value].setUncfmBet(0);
+        if (this._mapping) {
+          Object.keys(this._mapping).forEach(value => {
+            this._mapping[value].setUncfmBet(0);
           });
         }
         this.totalUncfmBetAmount = 0;
@@ -474,9 +475,9 @@ namespace we {
         Object.keys(this._betField).map(value => {
           this.betDetails.push({ field: value, amount: 0 });
         });
-        if (this.mapping) {
-          Object.keys(this.mapping).forEach(value => {
-            this.mapping[value].setCfmBet(0);
+        if (this._mapping) {
+          Object.keys(this._mapping).forEach(value => {
+            this._mapping[value].setCfmBet(0);
           });
         }
       }
@@ -488,8 +489,8 @@ namespace we {
 
       public cancelBet() {
         this.resetUnconfirmedBet();
-        Object.keys(this.mapping).map(value => {
-          this.mapping[value].cancelBet();
+        Object.keys(this._mapping).map(value => {
+          this._mapping[value].cancelBet();
         });
       }
 
@@ -497,7 +498,7 @@ namespace we {
         if (betDetails) {
           betDetails.forEach(value => {
             if (value) {
-              this.mapping[value.field].setUncfmBet(value.amount);
+              this._mapping[value.field].setUncfmBet(value.amount);
             }
           });
           this._uncfmBetDetails = betDetails;

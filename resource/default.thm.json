@@ -82,6 +82,8 @@
 		"resource/skin_desktop/dt/BettingTable.exml",
 		"resource/skin_desktop/dt/TableInfoPanel.exml",
 		"resource/skin_desktop/dt/DragonTigerScene.exml",
+		"resource/skin_desktop/dt/DTBeadRoadResultPanel.exml",
+		"resource/skin_desktop/dt/DTRoadmapRightPanel.exml",
 		"resource/skin_desktop/dt/LiveListItemBettingTable.exml",
 		"resource/skin_desktop/dt/LiveListItem.exml",
 		"resource/skin_desktop/dt/LiveListSimpleItem.exml",

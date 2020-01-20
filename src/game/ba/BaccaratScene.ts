@@ -8,8 +8,8 @@ namespace we {
   export namespace ba {
     export class Scene extends core.BaseGameScene {
       protected _roadmapControl: BARoadmapControl;
-      protected _roadmapLeftPanel: BARoadmapLeftPanel;
-      protected _roadmapRightPanel: BARoadmapRightPanel;
+      protected _leftGamePanel: BARoadmapLeftPanel;
+      protected _rightGamePanel: BARoadmapRightPanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
 
       protected _switchBaMode: eui.ToggleSwitch;
@@ -17,6 +17,8 @@ namespace we {
 
       constructor(data: any) {
         super(data);
+        // this._leftGamePanel = this._roadmapLeftPanel;
+        // this._rightGamePanel = this._roadmapRightPanel;
       }
 
       protected setSkinName() {
@@ -37,10 +39,7 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        this._roadmapControl.updateRoadData(this._tableInfo.roadmap);
-        if (this._tableInfo.betInfo) {
-          this._roadmapLeftPanel.setGameInfo(this._tableInfo.betInfo.gameroundid, this._tableInfo.betInfo.total);
-        }
+        this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._bettingTable.type = we.core.BettingTableType.NORMAL;
 
@@ -56,44 +55,25 @@ namespace we {
 
       protected onBaModeToggle(evt: eui.UIEvent) {
         this._bettingTable.setGameMode(this._switchBaMode.selected);
+        this._bettingTable.cancelBet();
       }
 
       protected initRoadMap() {
         this._roadmapControl = new BARoadmapControl(this._tableId);
         this._roadmapControl.setRoads(
-          this._roadmapLeftPanel.beadRoad,
-          this._roadmapRightPanel.bigRoad,
-          this._roadmapRightPanel.bigEyeRoad,
-          this._roadmapRightPanel.smallRoad,
-          this._roadmapRightPanel.cockroachRoad,
+          this._leftGamePanel.beadRoad,
+          this._rightGamePanel.bigRoad,
+          this._rightGamePanel.bigEyeRoad,
+          this._rightGamePanel.smallRoad,
+          this._rightGamePanel.cockroachRoad,
           [16, 33, 66, 34, 32],
-          this._roadmapRightPanel,
+          this._rightGamePanel,
           this._beadRoadResultPanel
         );
       }
 
-      protected updateTableInfoRelatedComponents() {
-        super.updateTableInfoRelatedComponents();
-        if (this._tableInfo.roadmap) {
-          this._roadmapControl.updateRoadData(this._tableInfo.roadmap);
-        }
-        if (this._tableInfo.betInfo) {
-          this._roadmapLeftPanel.setGameInfo(this._tableInfo.betInfo.gameroundid, this._tableInfo.betInfo.total);
-        }
-      }
-
       protected onRoadDataUpdate(evt: egret.Event) {
-        // console.log('BaccaratScene::onRoadDataUpdate');
-        const tableInfo = <data.TableInfo> evt.data;
-        if (tableInfo.tableid === this._tableId) {
-          this._bettingTable.tableId = this._tableId;
-          if (tableInfo.roadmap) {
-            this._roadmapControl.updateRoadData(tableInfo.roadmap);
-          }
-          if (tableInfo.betInfo) {
-            this._roadmapLeftPanel.setGameInfo(tableInfo.betInfo.gameroundid, tableInfo.betInfo.total);
-          }
-        }
+        this._roadmapControl.updateRoadData();
       }
     }
   }

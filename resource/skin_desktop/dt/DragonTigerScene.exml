@@ -25,9 +25,8 @@
 	</e:Group>
 	<dt:CardHolder id="_resultDisplay" width="762" height="152" y="1031" horizontalCenter="-3" anchorOffsetX="0"
 	               anchorOffsetY="0" />
-	<ba:BARoadmapLeftPanel id="_roadmapLeftPanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
-	                       anchorOffsetY="0" />
-	<ba:BARoadmapRightPanel id="_roadmapRightPanel" width="698" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
+	<dt:DTRoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0" anchorOffsetY="0" />
+	<dt:DTRoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
 	                        anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
@@ -48,7 +47,7 @@
 	<dt:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.dt.TableInfoPanel" />
-	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
+	<dt:DTBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
 </e:Skin>
 

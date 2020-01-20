@@ -11,7 +11,11 @@
                                    anchorOffsetY="0" y="112" skinName="skin_desktop.BetChipSelectedSkin" />
         <ba:BettingTable id="_bettingTable" width="339" skinName="skin_desktop.ba.SideListBettingTableSkin"
                          anchorOffsetY="0" height="110" left="0" top="0" name="sidebettingtable" />
-        <ui:BaseImageButton id="_confirmButton" x="235" y="135" width="85" height="50"
+		<ui:BaseImageButton id="_closeButton" x="12" y="125" width="56" height="60" currentState="lobby_betcontrol_close"
+		                    skinName="ImageButtonSkinLobby" />
+		<ui:BaseImageButton id="_prevButton" x="68" y="125" width="56" height="60" currentState="lobby_betcontrol_previous"
+		                    skinName="ImageButtonSkinLobby" />
+        <ui:BaseImageButton id="_confirmButton" x="235" y="130" width="85" height="50"
                             currentState="lobby_confirm_button" skinName="ImageButtonSkinLobby" />
     </e:Group>
     <e:Group id="_contentContainer" width="339" height="174" x="0" y="0">

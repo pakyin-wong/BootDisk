@@ -11,8 +11,6 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
 
-      // protected _originalQuickBetButtonWidth: number;
-
       public constructor(skinName: string = null) {
         super(skinName);
         this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
@@ -55,8 +53,6 @@ namespace we {
 
       public onClickButton(evt: egret.Event) {
         super.onClickButton(evt);
-        this._betEnabled = !this._betEnabled;
-        this._bettingTable.setTouchEnabled(this._betEnabled);
       }
 
       public onClickUndoButton(evt: egret.Event) {
@@ -104,6 +100,8 @@ namespace we {
         egret.Tween.removeTweens(this._quickbetButton);
         egret.Tween.get(this._quickbetButton).to({ alpha: 1 }, 250);
         this._betChipSetGridEnabled = false;
+        this._betEnabled = false;
+        this._bettingTable.setTouchEnabled(this._betEnabled);
         this.hideBetChipPanel();
         super.hideQuickBetGroup();
       }
@@ -112,7 +110,8 @@ namespace we {
         egret.Tween.removeTweens(this._quickbetButton);
         egret.Tween.get(this._quickbetButton).to({ alpha: 0 }, 250);
         this._betChipSetGridEnabled = true;
-        // this.showBetChipPanel();
+        this._betEnabled = true;
+        this._bettingTable.setTouchEnabled(this._betEnabled);
         super.showQuickBetGroup();
       }
 

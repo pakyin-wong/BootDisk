@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BARoadmapLeftPanel" width="698" height="304" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect id="contentMask" width="690" height="301" x="4" y="0" strokeWeight="0" ellipseHeight="16"
-                ellipseWidth="16" fillColor="0x7c7c7c" />
+        <e:Rect id="mask" width="690" height="301" x="4" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
+                fillColor="0x7c7c7c" />
         <e:Rect id="topBar" width="694" height="47" x="2" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
                 ellipseWidth="0" />
         <ui:RunTimeLabel id="totalCountLabel" text="00" x="560" y="13" textAlign="right" anchorOffsetX="0"

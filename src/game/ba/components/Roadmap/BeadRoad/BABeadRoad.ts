@@ -1,7 +1,7 @@
 namespace we {
   export namespace ba {
     export class BABeadRoad extends BARoadBase {
-      private mode: number; // the BPT mode (0) or Win value Mode (1)
+      protected mode: number; // the BPT mode (0) or Win value Mode (1)
 
       public constructor(_numCol: number = 12, _gridSize: number = 30, _scale: number = 1, _showResult: boolean = false) {
         super(_numCol, _gridSize, _scale);
