@@ -200,6 +200,14 @@ declare module skin_desktop{
 	class DragonTigerScene extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class DTBeadRoadResultPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DTRoadmapLeftPanel extends eui.Skin{
+	}
+}
 declare module skin_desktop.dt{
 	class LiveListItemSkin extends eui.Skin{
 	}

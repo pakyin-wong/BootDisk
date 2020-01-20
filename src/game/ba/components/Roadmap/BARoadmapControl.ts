@@ -1,18 +1,19 @@
 namespace we {
   export namespace ba {
     export class BARoadmapControl {
-      private beadRoad: BABeadRoad;
-      private bigRoad: BABigRoad;
-      private bigEyeRoad: BABigEyeRoad;
-      private smallRoad: BASmallRoad;
-      private cockroachRoad: BACockroachRoad;
-      private rightPanel: BARoadmapRightPanel;
-      private beadResultPanel: BaBeadRoadResultPanel;
+      protected tableInfo: data.TableInfo;
+      protected beadRoad: BABeadRoad;
+      protected bigRoad: BABigRoad;
+      protected bigEyeRoad: BABigEyeRoad;
+      protected smallRoad: BASmallRoad;
+      protected cockroachRoad: BACockroachRoad;
+      protected rightPanel: BARoadmapRightPanel;
+      protected beadResultPanel: BaBeadRoadResultPanel;
       public tableid: string;
 
-      private parser: BARoadParser;
-      private predictTimeout: number;
-      private useParser: boolean = true;
+      protected parser: BARoadParser;
+      protected predictTimeout: number;
+      protected useParser: boolean = false;
 
       public constructor(tableid: string = null) {
         this.tableid = tableid;
@@ -49,10 +50,10 @@ namespace we {
         dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
       }
 
-      private onBeadRoadOver(e: egret.Event) {
-        if (env.tableInfos[this.tableid]) {
-          if (env.tableInfos[this.tableid].roadmap) {
-            const roadData = env.tableInfos[this.tableid].roadmap;
+      protected onBeadRoadOver(e: egret.Event) {
+        if (this.tableInfo) {
+          if (this.tableInfo.roadmap) {
+            const roadData = this.tableInfo.roadmap;
             if (roadData.gameInfo) {
               if (e.data.index >= 0 && e.data.index + roadData.inGameInfoStart < roadData.gameInfo.length) {
                 const rslt = roadData.gameInfo[e.data.index + roadData.inGameInfoStart];
@@ -82,10 +83,10 @@ namespace we {
         }
       }
 
-      private onBeadRoadClick(e: egret.Event) {
-        if (env.tableInfos[this.tableid]) {
-          if (env.tableInfos[this.tableid].roadmap) {
-            const roadData = env.tableInfos[this.tableid].roadmap;
+      protected onBeadRoadClick(e: egret.Event) {
+        if (this.tableInfo) {
+          if (this.tableInfo.roadmap) {
+            const roadData = this.tableInfo.roadmap;
             if (roadData.gameInfo) {
               if (e.data.index >= 0 && e.data.index + roadData.inGameInfoStart < roadData.gameInfo.length) {
                 const rslt = roadData.gameInfo[e.data.index + roadData.inGameInfoStart];
@@ -96,32 +97,32 @@ namespace we {
         }
       }
 
-      private onBeadRoadOut(e: egret.Event) {
-        if (env.tableInfos[this.tableid]) {
-          if (env.tableInfos[this.tableid].roadmap) {
-            const data = env.tableInfos[this.tableid].roadmap;
+      protected onBeadRoadOut(e: egret.Event) {
+        if (this.tableInfo) {
+          if (this.tableInfo.roadmap) {
+            const data = this.tableInfo.roadmap;
             this.beadResultPanel.visible = false;
           }
         }
       }
 
       // predict banker win
-      private onBankerClick(e: egret.TouchEvent) {
+      protected onBankerClick(e: egret.TouchEvent) {
         this.doPredict(0);
       }
 
       // predict banker win
-      private onPlayerClick(e: egret.TouchEvent) {
+      protected onPlayerClick(e: egret.TouchEvent) {
         this.doPredict(1);
       }
 
-      private doPredict(v: number) {
+      protected doPredict(v: number) {
         if (this.useParser) {
           this.parser.predictWin(v);
         } else {
-          if (env.tableInfos[this.tableid]) {
-            if (env.tableInfos[this.tableid].roadmap) {
-              const data = env.tableInfos[this.tableid].roadmap;
+          if (this.tableInfo) {
+            if (this.tableInfo.roadmap) {
+              const data = this.tableInfo.roadmap;
 
               // merge the animation index into the road data
               this.parser.mergePredictAnimationData(data.inGameB, data.inGameP);
@@ -151,7 +152,7 @@ namespace we {
       }
 
       // DarkMode
-      private onModeUpdate(e: egret.Event) {
+      protected onModeUpdate(e: egret.Event) {
         this.beadRoad.DarkMode = e.data.mode === 1 ? 1 : 0;
         this.bigRoad.DarkMode = this.beadRoad.DarkMode;
         this.bigEyeRoad.DarkMode = this.beadRoad.DarkMode;
@@ -159,7 +160,7 @@ namespace we {
         this.cockroachRoad.DarkMode = this.beadRoad.DarkMode;
       }
 
-      private clearPredict() {
+      protected clearPredict() {
         if (this.useParser) {
           this.parser.clearPredict();
         } else {
@@ -167,20 +168,19 @@ namespace we {
         }
       }
 
-      private onDisplayUpdate(e: egret.Event) {
+      protected onDisplayUpdate(e: egret.Event) {
         if (this.predictTimeout) {
           egret.clearTimeout(this.predictTimeout);
         }
 
-        if (env.tableInfos[this.tableid]) {
-          if (env.tableInfos[this.tableid].roadmap) {
-            const data = env.tableInfos[this.tableid].roadmap;
-            this.updateRoadData(data, 2);
+        if (this.tableInfo) {
+          if (this.tableInfo.roadmap) {
+            this.updateRoadData(2);
           }
         }
       }
 
-      private doParserUpdate(state: number) {
+      protected doParserUpdate(state: number) {
         // stae 0 = update, 1 = predict, 2 = restore from predict
         this.beadRoad.parseRoadData(this.parser.beadRoadResult, state);
         this.bigRoad.parseRoadData(this.parser.bigRoadResult, state);
@@ -189,74 +189,70 @@ namespace we {
         this.cockroachRoad.parseRoadData(this.parser.cockroachRoadResult, state);
       }
 
-      private onParserUpdate(e: egret.Event) {
+      protected onParserUpdate(e: egret.Event) {
         this.doParserUpdate(0);
       }
 
-      private onParserPredict(e: egret.Event) {
+      protected onParserPredict(e: egret.Event) {
         this.doParserUpdate(1);
       }
 
-      private onParserRestore(e: egret.Event) {
+      protected onParserRestore(e: egret.Event) {
         this.doParserUpdate(2);
       }
 
-      public updateRoadData(roadmapData: any, state: number = 0) {
-        if (roadmapData) {
-          if (this.useParser) {
-            // option 1. parse from bead road data
+      public setTableInfo(tableInfo: data.TableInfo) {
+        this.tableInfo = tableInfo;
+        this.updateRoadData(0);
+      }
 
-            // update the gamestatistic
-            if (env.tableInfos[this.tableid]) {
-              if (env.tableInfos[this.tableid].gamestatistic) {
-                const stats = this.parser.getIconsFromBeadResult(roadmapData.inGame.bead);
-                const data = env.tableInfos[this.tableid].gamestatistic;
-                this.rightPanel.setStats(
-                  data.bankerCount,
-                  data.playerCount,
-                  data.tieCount,
-                  data.bankerPairCount,
-                  data.playerPairCount,
-                  data.totalCount,
-                  stats.predictBankerIcons[0],
-                  stats.predictBankerIcons[1],
-                  stats.predictBankerIcons[2],
-                  stats.predictPlayerIcons[0],
-                  stats.predictPlayerIcons[1],
-                  stats.predictPlayerIcons[2]
-                );
+      public updateRoadData(state: number = 0) {
+        if (this.tableInfo) {
+          const roadmapData = this.tableInfo.roadmap;
+          if (roadmapData) {
+            if (this.useParser) {
+              // option 1. parse from bead road data
+
+              // update the gamestatistic
+              if (this.tableInfo) {
+                if (this.tableInfo.gamestatistic) {
+                  const stats = this.parser.getIconsFromBeadResult(roadmapData.inGame.bead);
+                  const data = this.tableInfo.gamestatistic;
+                  this.rightPanel.setPredictIcons(
+                    stats.predictBankerIcons[0],
+                    stats.predictBankerIcons[1],
+                    stats.predictBankerIcons[2],
+                    stats.predictPlayerIcons[0],
+                    stats.predictPlayerIcons[1],
+                    stats.predictPlayerIcons[2]
+                  );
+                }
               }
-            }
 
-            this.parser.parseData(roadmapData.inGame.bead);
-          } else {
-            // option 2. just display all road data as it is
-            // stae 0 = update, 1 = predict, 2 = restore from predict
-            this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
-            this.bigRoad.parseRoadData(roadmapData.inGame.bigRoad, state);
-            this.bigEyeRoad.parseRoadData(roadmapData.inGame.bigEye, state);
-            this.smallRoad.parseRoadData(roadmapData.inGame.small, state);
-            this.cockroachRoad.parseRoadData(roadmapData.inGame.roach, state);
+              this.parser.parseData(roadmapData.inGame.bead);
+            } else {
+              // option 2. just display all road data as it is
+              // stae 0 = update, 1 = predict, 2 = restore from predict
+              this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
+              this.bigRoad.parseRoadData(roadmapData.inGame.bigRoad, state);
+              this.bigEyeRoad.parseRoadData(roadmapData.inGame.bigEye, state);
+              this.smallRoad.parseRoadData(roadmapData.inGame.small, state);
+              this.cockroachRoad.parseRoadData(roadmapData.inGame.roach, state);
 
-            // update the gamestatistic
-            if (env.tableInfos[this.tableid]) {
-              if (env.tableInfos[this.tableid].gamestatistic) {
-                const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
-                const stat = env.tableInfos[this.tableid].gamestatistic;
-                this.rightPanel.setStats(
-                  stat.bankerCount,
-                  stat.playerCount,
-                  stat.tieCount,
-                  stat.bankerPairCount,
-                  stat.playerPairCount,
-                  stat.totalCount,
-                  prediction.predictBankerIcons[0],
-                  prediction.predictBankerIcons[1],
-                  prediction.predictBankerIcons[2],
-                  prediction.predictPlayerIcons[0],
-                  prediction.predictPlayerIcons[1],
-                  prediction.predictPlayerIcons[2]
-                );
+              // update the gamestatistic
+              if (this.tableInfo) {
+                if (this.tableInfo.gamestatistic) {
+                  const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
+                  const stat = this.tableInfo.gamestatistic;
+                  this.rightPanel.setPredictIcons(
+                    prediction.predictBankerIcons[0],
+                    prediction.predictBankerIcons[1],
+                    prediction.predictBankerIcons[2],
+                    prediction.predictPlayerIcons[0],
+                    prediction.predictPlayerIcons[1],
+                    prediction.predictPlayerIcons[2]
+                  );
+                }
               }
             }
           }
