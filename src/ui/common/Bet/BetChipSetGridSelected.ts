@@ -10,6 +10,10 @@ namespace we {
         this.index = 0;
       }
 
+      protected reviseError() {
+        this._chipValueLabel.verticalCenter = -0.01 * this.height;
+      }
+
       public setSelectedChip(value: number, index: number) {
         this.setValue(value);
         this.index = index;
