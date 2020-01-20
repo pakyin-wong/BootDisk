@@ -35,7 +35,7 @@
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
 	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
 	                     chipType="2" odds="11:1"  oddsV="15" nameV="-15"/>
-	<ui:BettingTableGrid id="_gridSuperSixBanker" skinName="skin_desktop.BettingTableGridSkin" includeIn="SuperSix" x="573"
+	<ui:BettingTableGrid id="_gridSuperSixBanker" skinName="skin_desktop.BettingTableGridFullSkin" includeIn="SuperSix" x="573"
 	                     width="573" height="191" y="0" imageRes="d_ba_betarea_banker_normal_png"
 	                     hoverRes="d_ba_betarea_banker_hover_png" betChipZIndex="1010" chipWidth="100" chipHeight="100"
 	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
