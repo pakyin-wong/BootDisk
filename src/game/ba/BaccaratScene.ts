@@ -56,6 +56,7 @@ namespace we {
 
       protected onBaModeToggle(evt: eui.UIEvent) {
         this._bettingTable.setGameMode(this._switchBaMode.selected);
+        this._bettingTable.cancelBet();
       }
 
       protected initRoadMap() {
