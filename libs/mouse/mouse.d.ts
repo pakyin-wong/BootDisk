@@ -13,6 +13,7 @@ declare namespace mouse {
          * @platform Web
          */
         static MOUSE_MOVE: string;
+
         /**
         * @language en_US
         * Called when the mouse is within the area where the object (not covered by other object).

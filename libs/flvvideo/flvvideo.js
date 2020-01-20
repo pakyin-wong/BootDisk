@@ -96,7 +96,7 @@ var egret;
                 }
 
                 var player1 = new WFPlayer()
-                WFPlayer.debug(true)
+                WFPlayer.debug(false)
                 player1.enableAudio(true)
                 player1.setView(videoCanvasId)
                 player1.setScaleMode(1)
@@ -131,6 +131,14 @@ var egret;
                 this.userPlay = false;
                 this.stopFunc1();
             };
+
+            /**
+             * @inheritDoc
+             */
+            WebFlvVideo.prototype.reset = function () {
+                this.stop();
+            };
+
 
             Object.defineProperty(WebFlvVideo.prototype, "volume", {
                 /**

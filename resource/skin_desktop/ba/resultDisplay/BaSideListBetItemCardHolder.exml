@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ba.AlreadyBetCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:w="http://ns.egret.com/wing" width="339">
+        <e:Group id="playerSumGroup" left="0" width="169" height="100%">
+                <e:Image source="d_lobby_panel_gamelist_betresult_player_png" width="40" right="0" height="100%" y="0" />
+                <e:Image id="_playerPanel" source="d_lobby_panel_gamelist_betresult_playbg_png" width="129" left="0"
+                         height="100%" y="0" />
+                <e:Label id="playerSum" text="" fontFamily="Barlow" textAlign="center" right="10" y="60" />
+                <ui:RunTimeLabel id="lblPlayerName" text="閒" right="5" y="20" />
+                <ui:Card id="card3Player" width="40" height="30" right="122" verticalCenter="0" />
+                <ui:Card id="card2Player" width="30" height="40" right="82" verticalCenter="0" />
+                <ui:Card id="card1Player" width="30" height="40" right="44" verticalCenter="0" />
+        </e:Group>
+        <e:Group id="bankerSumGroup" right="0" width="170" height="100%">
+                <e:Image source="d_lobby_panel_gamelist_betresult_banker_png" width="40" height="100%" />
+                <e:Image id="_bankerPanel" source="d_lobby_panel_gamelist_betresult_bankerbg_png" width="130" right="0"
+                         height="100%" y="0" />
+                <e:Label id="bankerSum" text="" x="10" y="60" fontFamily="Barlow" textAlign="center" />
+                <ui:RunTimeLabel id="lblBankerName" text="莊" x="5" y="20" />
+                <ui:Card id="card3Banker" width="40" height="30" verticalCenter="0" x="123" anchorOffsetX="0"
+                         anchorOffsetY="0" />
+                <ui:Card id="card2Banker" width="30" height="40" verticalCenter="0" x="82" anchorOffsetX="0"
+                         anchorOffsetY="0" />
+                <ui:Card id="card1Banker" width="30" height="40" verticalCenter="0" x="44" />
+        </e:Group>
+</e:Skin>

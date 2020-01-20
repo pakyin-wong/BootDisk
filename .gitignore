@@ -1,7 +1,11 @@
 bin-debug
+.DS_Store
 .wing/*
 !.wing/tasks.json
 bin-release
 debug.log
 libs/modules
 manifest.json
+config.local.json
+config.self.json
+config.selfs.json

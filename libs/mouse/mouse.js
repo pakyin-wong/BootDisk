@@ -39,13 +39,12 @@ var mouse;
      */
     mouse.enable = function (stage) {
         isPC = egret.Capabilities.os == "Windows PC" || egret.Capabilities.os == "Mac OS";
-        stageObj = currentTarget = stage;
-        // if (isPC) {
-        //     addMouseWheelEvent();
-        // }
+        stageObj = stage;
+        currentTarget = [stageObj];
 
         var check = function (x, y) {
             var pointer = false;
+            var targetList = [];
             var detectRollOver = function (displayObject) {
                 if(!displayObject["isRollOver"]) {
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OVER, false, false, x, y, null);
@@ -62,25 +61,34 @@ var mouse;
                 }
             }
             var $hitTest = egret.DisplayObjectContainer.prototype.$hitTest;
+            var touchChildrenLock = 0;
             egret.DisplayObjectContainer.prototype.$hitTest = function (stageX, stageY) {
+                !this.$touchChildren && touchChildrenLock++;
                 var rs = $hitTest.call(this, stageX, stageY);
-                if (rs != null) {
-                    detectRollOver(this);
-                } else {
-                    detectRollOut(this);
+                !this.$touchChildren && touchChildrenLock--;
+                if (touchChildrenLock == 0){
+                    if (rs != null) {
+                        detectRollOver(this);
+                        targetList.push(this);
+                    } else {
+                        detectRollOut(this);
+                    }
                 }
                 return rs;
             }
             var target = stageObj.$hitTest(x,y);
             if (target != null) {
                 detectRollOver(target);
+                targetList.push(target);
             }
-            if (target != currentTarget) {
-                if(currentTarget != null) {
-                    detectRollOut(currentTarget);
+
+            currentTarget.forEach(function(i){
+                if(targetList.indexOf(i) < 0) {
+                    detectRollOut(i);
                 }
-                currentTarget = target;
-            }
+            })
+
+            currentTarget = targetList;
             if (isPC) {
                 try {
                     var canvas = stageObj.$displayList.renderBuffer.surface;
@@ -146,7 +154,7 @@ var mouse;
     mouse.setButtonMode = function (displayObjcet, buttonMode) {
         displayObjcet["buttonModeForMouse"] = buttonMode;
     };
-
+    
     var mouseMoveEnabled = false;
     /**
      * @language en_US
@@ -163,28 +171,5 @@ var mouse;
     mouse.setMouseMoveEnabled = function (enabled) {
         mouseMoveEnabled = enabled;
     };
-    var addMouseWheelEvent = function () {
-        var type = "mousewheel";
-        var _eventCompat = function (event) {
-            var type = event.type;
-            if (type == "DOMMouseScroll" || type == "mousewheel") {
-                event.delta = event.wheelDelta ? event.wheelDelta : -(event.detail || 0);
-                stageObj.dispatchEventWith(mouse.MouseEvent.MOUSE_WHEEL, false, event.delta);
-            }
-        };
-        if (window.addEventListener) {
-            if (type === "mousewheel" && document["mozFullScreen"] !== undefined) {
-                type = "DOMMouseScroll";
-            }
-            window.addEventListener(type, function (event) {
-                _eventCompat(event);
-            }, false);
-        }
-        else if (window["attachEvent"]) {
-            window["attachEvent"]("on" + type, function (event) {
-                event = event || window.event;
-                _eventCompat(event);
-            });
-        }
-    };
+
 })(mouse || (mouse = {}));

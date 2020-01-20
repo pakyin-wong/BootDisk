@@ -1,0 +1,30 @@
+{
+	"skins": {
+		"eui.Button": "resource/eui_skins/ButtonSkin.exml",
+		"eui.CheckBox": "resource/eui_skins/CheckBoxSkin.exml",
+		"eui.HSlider": "resource/eui_skins/HSliderSkin.exml",
+		"eui.Panel": "resource/eui_skins/PanelSkin.exml",
+		"eui.TextInput": "resource/eui_skins/TextInputSkin.exml",
+		"eui.RadioButton": "resource/eui_skins/RadioButtonSkin.exml",
+		"eui.Scroller": "resource/eui_skins/ScrollerSkin.exml",
+		"eui.ToggleSwitch": "resource/eui_skins/ToggleSwitchSkin.exml",
+		"eui.VSlider": "resource/eui_skins/VSliderSkin.exml",
+		"eui.ItemRenderer": "resource/eui_skins/ItemRendererSkin.exml",
+		"we.ui.ImageSlider": "resource/skin_desktop/ImageSlider.exml",
+		"we.ui.UserInfoWindow": "resource/skin_desktop/UserInfoWindow.exml",
+		"we.ba.BetChip": "resource/skin_desktop/BetChip.exml",
+		"we.ba.BetChipSet": "resource/skin_desktop/BetChipSet.exml",
+		"we.ba.CountdownTimer": "resource/skin_desktop/CountdownTimer.exml",
+		"we.ui.NavSideMenu": "resource/skin_desktop/NavSideMenu.exml",
+		"we.ui.NavPlayerProfile": "resource/skin_desktop/NavPlayerProfile.exml",
+		"we.ui.TableInfoPanel": "resource/skin_desktop/TableInfoWindow.exml"
+	},
+	"autoGenerateExmlsList": false,
+	"exmls": [
+		"resource/skin_desktop/imagebutton/ImageButtonSkinDialog.exml",
+		"resource/skin_desktop/imagebutton/ImageButtonSkinEmpty.exml",
+		"resource/skin_desktop/imagebutton/ImageButtonSkinNav.exml",
+		"resource/skin_desktop/ToggleButton.exml"
+	],
+	"path": "resource/preloaddefault.thm.json"
+}

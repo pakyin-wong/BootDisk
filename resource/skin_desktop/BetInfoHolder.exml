@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BetInfoHolder" height="400" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"></e:Skin>
