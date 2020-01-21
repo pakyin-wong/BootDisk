@@ -13,6 +13,10 @@ namespace we {
       visible: boolean;
     }
 
+    export interface IQuickBetAnimButton {
+      tween(direction: boolean, isAnimate?: boolean);
+    }
+
     export interface IBetChip {
       getValue();
       setValue(value: number, index: number); // update the chip appearance according to the value
