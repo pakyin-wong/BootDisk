@@ -13,7 +13,7 @@ namespace we {
       private _timeInterval: number;
 
       public constructor() {
-        super('Nav');
+        super('nav/Nav');
       }
 
       protected mount() {

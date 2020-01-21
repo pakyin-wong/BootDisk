@@ -8,10 +8,10 @@ namespace we {
     }
 
     export class DropdownItemRenderer extends eui.ItemRenderer {
-      private review: ui.RunTimeLabel;
-      private _isSelected: boolean = false;
-      private _isHover: boolean = false;
-      private _key;
+      protected review: ui.RunTimeLabel;
+      protected _isSelected: boolean = false;
+      protected _isHover: boolean = false;
+      protected _key;
 
       public constructor() {
         super();

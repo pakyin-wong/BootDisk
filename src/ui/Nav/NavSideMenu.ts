@@ -19,7 +19,7 @@ namespace we {
       private txt_logout: RunTimeLabel;
 
       public constructor() {
-        super('NavSideMenu');
+        super('nav/NavSideMenu');
       }
 
       protected mount() {
