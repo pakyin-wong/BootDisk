@@ -34,6 +34,12 @@ namespace we {
         // this._liveSidePanel.x = 2170;
         this._liveSidePanel.right = 20;
         this._liveSidePanel.y = 80;
+
+        if (env.mode < 0) {
+          dir.evtHandler.createOverlay({
+            class: 'ModeSelect',
+          });
+        }
       }
 
       private addListeners() {

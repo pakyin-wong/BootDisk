@@ -38,8 +38,11 @@ namespace we {
           case 1:
             this.currentState = 'dark';
             break;
-          default:
+          case 0:
             this.currentState = 'light';
+            break;
+          default:
+            // this.onClickLightMode();
             break;
         }
       }
@@ -63,6 +66,7 @@ namespace we {
         utils.addButtonListener(this.btn_road, this.onClickRoad, this);
         utils.addButtonListener(this.btn_system, this.onClickSystem, this);
         utils.addButtonListener(this.btn_logout, this.onClickLogout, this);
+        dir.evtHandler.$addListener(core.Event.MODE_UPDATE, this.update, this);
       }
 
       private removeListeners() {
@@ -73,20 +77,21 @@ namespace we {
         this.btn_road.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickRoad, this);
         this.btn_system.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSystem, this);
         this.btn_logout.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickLogout, this);
+        dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.update, this);
       }
 
       private onClickLightMode() {
         logger.l(`NavSideMenu::onClickLightMode`);
         env.mode = 0;
+        dir.socket.updateSetting('mode', '0');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 0 });
-        this.update();
       }
 
       private onClickDarkMode() {
         logger.l(`NavSideMenu::onClickDarkMode`);
         env.mode = 1;
+        dir.socket.updateSetting('mode', '1');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 1 });
-        this.update();
       }
 
       private onClickHistory() {
