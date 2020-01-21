@@ -10,10 +10,10 @@ namespace we {
 
       protected _index: number;
 
-      public constructor(value: number = null, type: we.core.ChipType = we.core.ChipType.CLIP, highlight: boolean = false) {
+      public constructor(value: number = null, index: number = null, type: we.core.ChipType = we.core.ChipType.CLIP, highlight: boolean = false) {
         super('BetChip');
-        // this.skinName = utils.getSkin();
         this._value = value;
+        this._index = index;
         this._type = type;
         this._highlight = highlight;
         this.setGlowFilter();
@@ -41,23 +41,33 @@ namespace we {
       }
 
       protected mount() {
-        // this.setValue(this._value);
-        this.setValue(this._value, this._type);
+        this.setValue(this._value, this._index, this._type);
         this.reviseError();
       }
 
-      public setValue(value: number, type: we.core.ChipType = null) {
+      public setValue(value: number, index: number, type: we.core.ChipType = null) {
         this._value = value;
-        this._type = type ? type : this._type ? this._type : we.core.ChipType.CLIP;
-        this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : utils.numberToFaceValue(value);
+        this._index = index;
 
-        if (type === we.core.ChipType.BETTING) {
-          this._chipImage.source = we.core.ChipSetInfo.betting + '_png';
+        switch (type) {
+          case we.core.ChipType.FLAT:
+            this._type = type;
+            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipImage.source = this.getChipSource(this._type);
+            break;
+          case we.core.ChipType.BETTING:
+            this._type = type;
+            this._chipValueLabel.text = '';
+            this._chipImage.source = this.getChipSource(this._type);
+            break;
+          case we.core.ChipType.CLIP:
+          default:
+            this._type = we.core.ChipType.CLIP;
+            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipValueLabel.height = this._chipValueLabel.height * 0.6;
+            this._chipImage.source = this.getChipSource(this._type);
+            break;
         }
-        if (type === we.core.ChipType.CLIP) {
-          this._chipValueLabel.height = this._chipValueLabel.height * 0.6;
-        }
-        // this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
       }
 
       public getValue() {

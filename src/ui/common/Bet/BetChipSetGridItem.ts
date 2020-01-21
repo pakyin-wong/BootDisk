@@ -23,6 +23,7 @@ namespace we {
         this._betChip.height = this._betChipHeight;
         this._betChip.width = this._betChipWidth;
         this.addChild(this._betChip);
+        mouse.setButtonMode(this._betChip, true);
       }
 
       protected addEventListeners() {
@@ -39,7 +40,7 @@ namespace we {
       public itemDataChanged() {
         super.itemDataChanged();
         if (this.itemData) {
-          this._betChip.setValue(this.itemData, we.core.ChipType.FLAT);
+          this._betChip.setValue(this.itemData, this.itemIndex, we.core.ChipType.FLAT);
           this._betChip.index = this.itemIndex;
         }
       }
