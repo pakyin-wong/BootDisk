@@ -26,8 +26,7 @@ namespace we {
         super(skinName);
         this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
-        this._betChipSetGridSelected.setValue(denominationList[0]);
-        this._betChipSetGridSelected.index = 0;
+        this._betChipSet.init(null, denominationList);
       }
 
       protected addEventListeners() {
@@ -134,6 +133,19 @@ namespace we {
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
           this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected animateQuickBetButton(show: boolean) {
+        egret.Tween.removeTweens(this._quickbetButton);
+        if (show) {
+          egret.Tween.get(this._quickbetButton)
+            .set({ visible: true })
+            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+        } else {
+          egret.Tween.get(this._quickbetButton)
+            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+            .set({ visible: false });
         }
       }
 
