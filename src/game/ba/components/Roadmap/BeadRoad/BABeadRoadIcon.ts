@@ -1,17 +1,17 @@
 namespace we {
   export namespace ba {
     export class BABeadRoadIcon extends BARoadIconBase {
-      private iconFaceArr: egret.DisplayObjectContainer[];
-      private iconTextArr: egret.TextField[];
-      private iconFace: egret.DisplayObjectContainer;
-      private iconText: egret.DisplayObjectContainer;
-      private playerDot: egret.Shape;
-      private bankerDot: egret.Shape;
-      private playerDotDark: egret.Shape;
-      private bankerDotDark: egret.Shape;
+      protected iconFaceArr: egret.DisplayObjectContainer[];
+      protected iconTextArr: egret.TextField[];
+      protected iconFace: egret.DisplayObjectContainer;
+      protected iconText: egret.DisplayObjectContainer;
+      protected playerDot: egret.Shape;
+      protected bankerDot: egret.Shape;
+      protected playerDotDark: egret.Shape;
+      protected bankerDotDark: egret.Shape;
 
-      private iconModeNumber: number; // display standard B/P/T (0) or Win value (1)
-      private winValue: number;
+      protected iconModeNumber: number; // display standard B/P/T (0) or Win value (1)
+      protected winValue: number;
 
       public constructor(size: number = 30) {
         super(size);

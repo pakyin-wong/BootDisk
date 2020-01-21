@@ -1,8 +1,8 @@
 namespace we {
   export namespace ba {
     export class BaBeadRoadResultPanel extends ui.Panel {
-      private gameRoundID: string;
-      private winType: number;
+      protected gameRoundID: string;
+      protected winType: number;
 
       protected _winBg: eui.Image;
       protected _gameNumLabel: ui.RunTimeLabel;
@@ -21,13 +21,13 @@ namespace we {
 
       public changeLang() {
         if (this.winType === 1) {
-          this._winLabel.text = i18n.t('baccarat.result.BANKER');
+          this._winLabel.text = i18n.t('winType.ba.BANKER');
           this._winBg.texture = RES.getRes('d_ba_betarea_banker_hover_png');
         } else if (this.winType === 2) {
-          this._winLabel.text = i18n.t('baccarat.result.PLAYER');
+          this._winLabel.text = i18n.t('winType.ba.PLAYER');
           this._winBg.texture = RES.getRes('d_ba_betarea_player_hover_png');
         } else {
-          this._winLabel.text = i18n.t('baccarat.result.TIE');
+          this._winLabel.text = i18n.t('winType.ba.TIE');
           this._winBg.texture = RES.getRes('d_ba_betarea_supersix_tie_hover_png');
         }
 

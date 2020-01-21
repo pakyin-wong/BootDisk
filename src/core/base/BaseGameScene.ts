@@ -41,6 +41,9 @@ namespace we {
       protected _bgImg: eui.Image;
       protected _video: egret.FlvVideo;
 
+      protected _leftGamePanel: BaseGamePanel;
+      protected _rightGamePanel: BaseGamePanel;
+
       constructor(data: any) {
         super(data);
         this._tableId = data.tableid;
@@ -106,6 +109,9 @@ namespace we {
 
         this._tableInfoWindow.setToggler(this._lblRoomInfo);
         this._tableInfoWindow.setValue(this._tableInfo);
+
+        this._leftGamePanel.setTableInfo(this._tableInfo);
+        this._rightGamePanel.setTableInfo(this._tableInfo);
       }
 
       protected initDenom() {
@@ -309,6 +315,8 @@ namespace we {
 
       protected updateTableInfoRelatedComponents() {
         this._tableInfoWindow.setValue(this._tableInfo);
+        this._leftGamePanel.update();
+        this._rightGamePanel.update();
       }
 
       protected onBetResultReceived(evt: egret.Event) {
@@ -323,7 +331,8 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        logger.l('BaccaratScene::onRoadDataUpdate');
+        this._leftGamePanel.update();
+        this._rightGamePanel.update();
       }
 
       public updateGame(isInit: boolean = false) {

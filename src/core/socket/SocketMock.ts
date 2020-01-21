@@ -87,13 +87,6 @@ namespace we {
           }
           mockProcess.start(data);
           this.mockProcesses.push(mockProcess);
-          const stats = new we.data.GameStatistic();
-          stats.bankerCount = data.roadmap.bankerwincount;
-          stats.playerCount = data.roadmap.playerwincount;
-          stats.tieCount = data.roadmap.tiewincount;
-          stats.playerPairCount = data.roadmap.playerpairwincount;
-          stats.bankerPairCount = data.roadmap.bankerpairwincount;
-          stats.totalCount = stats.bankerCount + stats.playerCount + stats.tieCount;
 
           idx++;
           return data;
