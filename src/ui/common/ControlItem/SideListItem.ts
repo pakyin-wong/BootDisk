@@ -4,7 +4,6 @@ namespace we {
       protected _bigRoad: we.ba.BetInfoBigRoad;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
-      protected _quickbetButton: ui.QuickBetAnimButton;
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;

@@ -1458,7 +1458,8 @@
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_notification_follow_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_notification_follow_normal_png"
+			"name": "d_lobby_quick_bet_notification_follow_normal_png",
+			"scale9grid": "20,21,109,0"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_quick_bet_notification_mask.png",

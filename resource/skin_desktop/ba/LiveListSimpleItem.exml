@@ -27,8 +27,8 @@
 		</e:Group>
 		<live:BetLimitDropdown id="_dropdown" width="200" y="20" anchorOffsetX="0" anchorOffsetY="0"
 		                       skinName="BetLimitDropdownSkin" right="7" />
-		<ui:QuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
+		<ui:LobbyQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
 		                       hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0" horizontalCenter="0"
-		                       y="180" width="148" height="42" label1text="快速投注" label2text="X" scale9Grid="20,21,108,0" />
+		                       y="180" width="148" height="42" label1text="快速投注" label2text="X" />
 	</e:Group>
 </e:Skin>
