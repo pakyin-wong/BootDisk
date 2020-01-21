@@ -14,6 +14,7 @@ namespace we {
         mode: number;
         categoryorders: string;
         panelpositions: string;
+        settings: any;
       };
     }
   }

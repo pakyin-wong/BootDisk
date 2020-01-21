@@ -11,7 +11,7 @@ namespace we {
       getTableHistory();
       getBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
       getLobbyMaterial(callback: (res: LobbyMaterial) => void);
-
+      updateSetting(key: string, value: string);
       getGoodRoad();
       updateCustomGoodRoad(id: string, data: any);
       updateDefaultGoodRoad(ids: string[]);
