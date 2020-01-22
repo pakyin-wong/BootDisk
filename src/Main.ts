@@ -30,12 +30,41 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
+    dir.uaParser = new UAParser();
+    env.UAInfo = dir.uaParser.getResult();
+    const cn = [];
+    cn.push('MainWindow');
+    cn.push(env.UAInfo.os.name);
+    cn.push(env.UAInfo.browser.name);
+    if (env.UAInfo.device.vendor === 'Apple' && env.UAInfo.device.type === 'mobile') {
+      cn.push('iPhone');
+    }
+    document.documentElement.className = cn.join(' ');
+    FullScreenManager.OnLoad();
+    IPhoneChromeFullscreen.OnLoad(this.stage);
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
 
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
+    // egret.sys.resizeContext
+    // egret.updateAllScreens();
+    const newScreenFunction = () => {
+      this.updateAllScreens();
+      console.log('*******************************updateAllScreens***********************************');
+    };
+    egret.updateAllScreens = newScreenFunction;
+  }
+
+  private updateAllScreens() {
+    const containerList = document.querySelectorAll('.egret-player');
+    const length = containerList.length;
+    for (let i = 0; i < length; i++) {
+      const container = containerList[i];
+      const player = container['egret-player'];
+      player.updateScreenSize();
+    }
   }
 
   private async initRes() {

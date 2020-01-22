@@ -9,6 +9,7 @@ namespace we {
         this._env = env;
         return env;
       }
+      public UAInfo: any;
 
       /* Global Environment Variable */
       public version: string = '0.1.3';
