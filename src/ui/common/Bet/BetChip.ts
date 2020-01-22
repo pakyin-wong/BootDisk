@@ -10,67 +10,27 @@ namespace we {
 
       protected _index: number;
 
-      public constructor(value: number = null, index: number = null, type: we.core.ChipType = we.core.ChipType.CLIP, highlight: boolean = false) {
+      public constructor(value: number = null, index: number = null, type: we.core.ChipType = we.core.ChipType.BETTING, highlight: boolean = false) {
         super('BetChip');
         this._value = value;
         this._index = index;
         this._type = type;
         this._highlight = highlight;
-        // this.setGlowFilter();
       }
-
-      protected reviseError() {
-        this._chipValueLabel.verticalCenter = -0.15 * this._chipValueLabel.height;
-        this._chipValueLabel.height = this._chipValueLabel.height * 0.7;
-      }
-
-      /*
-      protected setGlowFilter(
-        color: number = 0x33ccff,
-        alpha: number = 0.8,
-        blurX: number = 35,
-        blurY: number = 35,
-        strength: number = 2,
-        quality: number = egret.BitmapFilterQuality.HIGH,
-        inner: boolean = false,
-        knockout: boolean = false
-      ) {
-        this._glowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
-      }
-      */
 
       protected partAdded(partName: string, instance: any): void {
         super.partAdded(partName, instance);
       }
 
       protected mount() {
-        this.setValue(this._value, this._index, this._type);
-        this.reviseError();
+        this._render();
       }
 
       public setValue(value: number, index: number, type: we.core.ChipType = null) {
         this._value = value;
         this._index = index;
-
-        switch (type) {
-          case we.core.ChipType.FLAT:
-            this._type = type;
-            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
-            this._chipImage.source = this.getChipSource(this._type);
-            break;
-          case we.core.ChipType.BETTING:
-            this._type = type;
-            this._chipValueLabel.text = '';
-            this._chipImage.source = this.getChipSource(this._type);
-            break;
-          case we.core.ChipType.CLIP:
-          default:
-            this._type = we.core.ChipType.CLIP;
-            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
-            // this._chipValueLabel.height = this._chipValueLabel.height * 0.65;
-            this._chipImage.source = this.getChipSource(this._type);
-            break;
-        }
+        this._type = type;
+        this._render();
       }
 
       public getValue() {
@@ -102,31 +62,31 @@ namespace we {
         }
       }
 
-      set index(value: number) {
+      public set index(value: number) {
         this._index = value;
         this._chipImage.source = this.getChipSource(this._type);
       }
 
-      set labelOffset(value: number) {
+      public set labelOffset(value: number) {
         if (this._chipValueLabel) {
           this._chipValueLabel.verticalCenter = value;
         }
       }
 
-      get labelOffset() {
+      public get labelOffset() {
         if (this._chipValueLabel) {
           return this._chipValueLabel.verticalCenter;
         }
         return null;
       }
 
-      set labelSize(value: number) {
+      public set labelSize(value: number) {
         if (this._chipValueLabel) {
           this._chipValueLabel.size = value;
         }
       }
 
-      get labelSize() {
+      public get labelSize() {
         if (this._chipValueLabel) {
           return this._chipValueLabel.size;
         }
@@ -137,11 +97,32 @@ namespace we {
         if (value) {
           this._type = +value;
         }
-        this.setValue(this._value, this._index, this._type);
+        this._render();
       }
 
       get type() {
         return this._type;
+      }
+
+      protected _render() {
+        switch (this._type) {
+          case we.core.ChipType.FLAT:
+            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipImage.source = this.getChipSource(this._type);
+            this._chipValueLabel.height = this.height * 0.6;
+            break;
+          case we.core.ChipType.CLIP:
+            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipImage.source = this.getChipSource(this._type);
+            this._chipValueLabel.verticalCenter = this.height * -0.01;
+            this._chipValueLabel.height = this.height * 0.3;
+            break;
+          case we.core.ChipType.BETTING:
+          default:
+            this._chipValueLabel.text = '';
+            this._chipImage.source = this.getChipSource(this._type);
+            break;
+        }
       }
 
       protected getChipSource(type): string {
@@ -160,6 +141,10 @@ namespace we {
         }
 
         return filename;
+      }
+
+      public draw() {
+        this._render();
       }
     }
   }
