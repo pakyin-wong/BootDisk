@@ -119,7 +119,7 @@ namespace we {
           child.verticalCenter = 0;
           child.percentWidth = 100 / this._visibleDenomNum;
           child.x = childx;
-          childx += (1 / this._visibleDenomNum) * this._chipContainer.width;
+          childx += (1 / this._visibleDenomNum) * (this.width - this._padding * 2);
         }
         this._updateNavigationDisplay();
       }
