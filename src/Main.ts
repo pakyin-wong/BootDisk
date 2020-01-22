@@ -41,7 +41,7 @@ class Main extends eui.UILayer {
     }
     document.documentElement.className = cn.join(' ');
     FullScreenManager.OnLoad();
-    // IPhoneChromeFullscreen.OnLoad(this.stage);
+    IPhoneChromeFullscreen.OnLoad(this.stage);
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
