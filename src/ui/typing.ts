@@ -21,6 +21,7 @@ namespace we {
       getValue();
       setValue(value: number, index: number); // update the chip appearance according to the value
       highlight: boolean; // indicate whether the chip is being selected
+      type: number;
     }
 
     // Opt

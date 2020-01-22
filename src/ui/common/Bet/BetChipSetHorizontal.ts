@@ -69,7 +69,6 @@ namespace we {
 
       public resetFormat(denomNum: any) {
         this._visibleDenomNum = +denomNum;
-        // this._onChipSelected(this._selectedChipIndex);
         this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
       }
@@ -118,7 +117,6 @@ namespace we {
           const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
           child.verticalCenter = 0;
-          child.percentHeight = 100;
           child.percentWidth = 100 / this._visibleDenomNum;
         }
         this._updateNavigationDisplay();
@@ -129,7 +127,11 @@ namespace we {
         this._denomList.map((value, index) => {
           const betChip = new BetChip(value);
           betChip.index = index;
+          betChip.percentHeight = 90;
+          betChip.type = we.core.ChipType.CLIP;
           if (index === this._selectedChipIndex) {
+            betChip.percentHeight = 100;
+            betChip.type = we.core.ChipType.FLAT;
             betChip.highlight = true;
           }
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
@@ -146,7 +148,12 @@ namespace we {
 
       private _onChipSelected(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
+        this._chipList[this._selectedChipIndex].type = we.core.ChipType.CLIP;
+        this._chipList[index].percentHeight = 90;
+
         this._chipList[index].highlight = true;
+        this._chipList[index].type = we.core.ChipType.FLAT;
+        this._chipList[index].percentHeight = 100;
         this._selectedChipIndex = index;
       }
 
