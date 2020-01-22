@@ -20,6 +20,9 @@ namespace we {
       betfield_baccarat_player_pair: '閒對',
       betfield_baccarat_super_six: '超級六',
       betfield_baccarat_super_six_banker: '庄',
+      betfield_dragonTiger_dragon: '龍',
+      betfield_dragonTiger_tiger: '虎',
+      betfield_dragonTiger_tie: '和',
 
       overlaypanel_memberreport_title: '會員報表',
       overlaypanel_memberreport_date: '日期',
@@ -59,6 +62,8 @@ namespace we {
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '閒',
+      overlaypanel_bethistory_dtresult_dragon: '龍',
+      overlaypanel_bethistory_dtresult_tiger: '虎',
 
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
@@ -90,6 +95,7 @@ namespace we {
           road: '好路提示',
           system: '系統設定',
           logout: '登出',
+          confirm: '確定',
         },
         system: {
           title: '系統設定',
