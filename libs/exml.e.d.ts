@@ -309,6 +309,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class IconItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class Nav extends eui.Skin{
 	}
 }
@@ -366,6 +370,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class MessageDialog extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ModeSelect extends eui.Skin{
 	}
 }
 declare module skin_desktop{

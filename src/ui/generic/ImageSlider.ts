@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class ImageSlider extends eui.Component implements eui.UIComponent {
       private slides = [];
-      private duration = 0.3;
+      private duration = 1.0;
       private currentIndex = 0;
       private direction: string;
       private isDown = false;
@@ -171,7 +171,7 @@ namespace we {
             this.isAnimating = false;
             this.scheduleNext();
           }, this.duration * 1000 + 50);
-        }, 3000);
+        }, 5000);
       }
 
       private onTap() {

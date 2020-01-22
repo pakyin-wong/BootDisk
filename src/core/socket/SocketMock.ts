@@ -127,6 +127,8 @@ namespace we {
         return tables;
       }
 
+      public updateSetting(key: string, value: string) {}
+
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
       }

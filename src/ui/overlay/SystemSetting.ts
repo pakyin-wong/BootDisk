@@ -29,6 +29,7 @@ namespace we {
       }
 
       protected mount() {
+        super.mount();
         this._txt_title.renderText = () => `${i18n.t('nav.system.title')}`;
         this._txt_lang.renderText = () => `${i18n.t('nav.system.lang')}`;
         this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
@@ -78,6 +79,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this.removeListeners();
       }
 

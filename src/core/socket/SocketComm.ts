@@ -108,6 +108,10 @@ namespace we {
         this.client.getLobbyMaterial(callback);
       }
 
+      public updateSetting(key: string, value: string) {
+        this.client.updateSetting(key, value);
+      }
+
       public connect() {
         this.subscribeEvents();
         this.client.connect(err => {
@@ -144,7 +148,7 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
-        env.mode = player.profile.mode || -1;
+        env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
         if (player.profile.categoryorders) {
           env.categorySortOrder = player.profile.categoryorders;
         }
