@@ -25,7 +25,7 @@ namespace we {
       public voice: string = 'mandarin';
       public bgm = 1;
       public betLimits: data.BetLimit[];
-      public goodRoadData: any;
+      public goodRoadData: data.GoodRoadMapData;
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};

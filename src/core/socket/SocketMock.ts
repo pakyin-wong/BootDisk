@@ -203,17 +203,44 @@ namespace we {
       }
 
       // Good Road
-      private mockGoodRoadData: any = {
+
+      private mockGoodRoadRawData: any = {
         custom: [{ enabled: true, id: 'Abcde', name: 'my road', pattern: 'bbpbb' }],
         default: [{ enabled: true, id: 'r1', name: 'r1', pattern: 'bbbb' }],
       };
+      private mockGoodRoadMapData: data.GoodRoadMapData = this.createMockGoodRoadMapData();
+
+      private createMockGoodRoadMapData(): data.GoodRoadMapData {
+        const map = new data.GoodRoadMapData();
+        map.custom = [];
+        map.default = [];
+
+        this.mockGoodRoadRawData.custom.forEach(element => {
+          const item = new data.GoodRoadMapItemData();
+          item.enabled = element.enabled;
+          item.id = element.id;
+          item.name = element.name;
+          item.pattern = element.pattern;
+          map.custom.push(item);
+        });
+
+        this.mockGoodRoadRawData.default.forEach(element => {
+          const item = new data.GoodRoadMapItemData();
+          item.enabled = element.enabled;
+          item.id = element.id;
+          item.name = element.name;
+          item.pattern = element.pattern;
+          map.default.push(item);
+        });
+        return map;
+      }
 
       public getGoodRoad() {
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
       public updateCustomGoodRoad(id: string, data: any) {
-        this.mockGoodRoadData.custom.forEach(element => {
+        this.mockGoodRoadMapData.custom.forEach(element => {
           if (element.id === id) {
             element.enabled = data.enabled;
             element.name = data.name;
@@ -221,32 +248,36 @@ namespace we {
           }
         });
 
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
       public updateDefaultGoodRoad(ids: string[]) {
-        this.mockGoodRoadData.default.forEach((item, index) => {
+        this.mockGoodRoadMapData.default.forEach((item, index) => {
           item.enabled = ids.indexOf(item.id) > -1;
         });
 
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
       public createGoodRoad(name: string, pattern: string) {
-        this.mockGoodRoadData.custom.push({ enabled: true, id: Math.random(), name, pattern });
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        const road = new data.GoodRoadMapItemData();
+        road.id = Math.random().toString();
+        road.name = name;
+        road.pattern = pattern;
+        this.mockGoodRoadMapData.custom.push(road);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
       public removeGoodRoadmap(id: string) {
-        this.mockGoodRoadData.custom.forEach((item, index) => {
+        this.mockGoodRoadMapData.custom.forEach((item, index) => {
           if (item.id === id) {
-            this.mockGoodRoadData.custom.splice(index, 1);
+            this.mockGoodRoadMapData.custom.splice(index, 1);
           }
         });
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
-      private _goodRoadUpdateCallback(data: any) {
+      private _goodRoadUpdateCallback(data: data.GoodRoadMapData) {
         env.goodRoadData = data;
         dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
       }
@@ -350,7 +381,7 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
           bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
