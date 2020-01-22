@@ -112,6 +112,7 @@ class IPhone8Helper extends IPhone7Helper {
     );
     this.canvas = document.getElementsByTagName('canvas')[0];
     this.canvasContainer = this.canvas.parentElement;
+    this.canvasContainer.style.position = 'fixed';
   }
 
   public PreventEvent(e: Event) {
@@ -143,8 +144,10 @@ class IPhone8Helper extends IPhone7Helper {
         }
       } else {
         this.ResetScroll();
+        this.resizeCanvas();
       }
     }
+
     let screenHeight = this.isLandscape ? Math.min(screen.width, screen.height) : Math.max(screen.width, screen.height) - 60;
     if (!this.isLandscape && screenHeight === 752) {
       screenHeight -= 35;
@@ -154,11 +157,13 @@ class IPhone8Helper extends IPhone7Helper {
     }
     this.clientHeight = this.GetClientHeight();
     const wasTopPanel = this.isTopPanel;
-    this.isTopPanel = this.clientHeight < screenHeight;
+    this.isTopPanel = window.innerHeight < screenHeight;
+    console.log(window.innerHeight, screenHeight);
     if (this.isTopPanel) {
       if (!wasTopPanel) {
         this.UpdateStyle(true);
         this.ResetScroll();
+        this.resizeCanvas();
         this.UpdateScrollable(true);
         // UHTEventBroker.Trigger(UHTEventBroker.Type.Game, JSON.stringify({
         //   common: "EVT_FULLSCREEN_OVERLAY_SHOWN",
@@ -174,6 +179,7 @@ class IPhone8Helper extends IPhone7Helper {
         //   args: null
         // }));
         this.panelHiddenTime = Date.now();
+        this.resizeCanvas();
       }
       this.UpdateScrollable(false);
     }
@@ -202,8 +208,12 @@ class IPhone8Helper extends IPhone7Helper {
   }
 
   public UpdateScrollable(scrollable) {
-    document.body.style.position = scrollable ? 'static' : 'fixed';
-    this.canvasContainer.style.position = scrollable ? 'fixed' : 'static';
+    // this.canvasContainer.style.overflow = 'scroll';
+    // this.canvasContainer.style.position = scrollable ? 'fixed' : 'static';
+    // this.canvasContainer.style.display = scrollable ? 'block' : 'inline';
+    // document.body.style.position = scrollable ? 'static' : 'fixed';
+    this.canvasContainer.style.pointerEvents = scrollable ? 'none' : 'auto';
+    document.body.style.pointerEvents = scrollable ? 'none' : 'auto';
   }
 
   public HandleTouchStart(event: Event) {
@@ -232,6 +242,7 @@ class IPhone8Helper extends IPhone7Helper {
     this.UpdateScrollable(false);
     this.resetScrollTimeout = setTimeout(function () {
       self.ResetScroll();
+      this.resizeCanvas();
     }, 200);
   }
 
@@ -247,6 +258,12 @@ class IPhone8Helper extends IPhone7Helper {
     if (window.scrollY !== 0) {
       window.scrollTo(0, 0);
     }
+  }
+
+  public resizeCanvas() {
+    this.canvasContainer.style.width = `${window.innerWidth}px`;
+    this.canvasContainer.style.height = `${window.innerHeight}px`;
+    egret.updateAllScreens();
   }
 
   public GetClientHeight() {

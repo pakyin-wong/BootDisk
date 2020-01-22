@@ -1,3 +1,7 @@
+html {
+    height: calc(100% + 72px);
+}
+
 .iPhone.MainWindow.MobileSafari {
     -webkit-user-drag: none
 }
@@ -7,8 +11,7 @@
 }
 
 .iPhone.MainWindow.Chrome .egret-player {
-    position: fixed;
-    top: 0;
+    position: fixed
 }
 
 .iPhone.MainWindow .egret-player {
@@ -22,7 +25,7 @@
 }
 
 .fullscreen-reserve {
-    height: 8192px
+    height: 6969px
 }
 
 .fullscreen-root-hidden {
@@ -45,84 +48,84 @@
     -webkit-user-drag: none
 }
 
-@media only screen and (min-device-width:320px) and (max-device-width:568px) and (-webkit-min-device-pixel-ratio:2) and (orientation:portrait) {
+@media only screen and (min-device-width: 320px) and(max-device-width: 568px) and(-webkit-min-device-pixel-ratio: 2) and(orientation: portrait) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 529px;
         min-height: 529px
     }
 }
 
-@media only screen and (min-device-width:320px) and (max-device-width:568px) and (-webkit-min-device-pixel-ratio:2) and (orientation:landscape) {
+@media only screen and (min-device-width: 320px) and(max-device-width: 568px) and(-webkit-min-device-pixel-ratio: 2) and(orientation: landscape) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 321px;
         min-height: 321px
     }
 }
 
-@media only screen and (min-device-width:375px) and (max-device-width:667px) and (-webkit-min-device-pixel-ratio:2) and (orientation:portrait) {
+@media only screen and (min-device-width: 375px) and(max-device-width: 667px) and(-webkit-min-device-pixel-ratio: 2) and(orientation: portrait) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 628px;
         min-height: 628px
     }
 }
 
-@media only screen and (min-device-width:375px) and (max-device-width:667px) and (-webkit-min-device-pixel-ratio:2) and (orientation:landscape) {
+@media only screen and (min-device-width: 375px) and(max-device-width: 667px) and(-webkit-min-device-pixel-ratio: 2) and(orientation: landscape) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 375px;
         min-height: 375px
     }
 }
 
-@media only screen and (min-device-width:414px) and (max-device-width:736px) and (-webkit-min-device-pixel-ratio:3) and (orientation:portrait) {
+@media only screen and (min-device-width: 414px) and(max-device-width: 736px) and(-webkit-min-device-pixel-ratio: 3) and(orientation: portrait) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 698px;
         min-height: 698px
     }
 }
 
-@media only screen and (min-device-width:414px) and (max-device-width:736px) and (-webkit-min-device-pixel-ratio:3) and (orientation:landscape) {
+@media only screen and (min-device-width: 414px) and(max-device-width: 736px) and(-webkit-min-device-pixel-ratio: 3) and(orientation: landscape) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 414px;
         min-height: 414px
     }
 }
 
-@media only screen and (min-device-width:375px) and (max-device-width:812px) and (-webkit-min-device-pixel-ratio:3) and (orientation:portrait) {
+@media only screen and (min-device-width: 375px) and(max-device-width: 812px) and(-webkit-min-device-pixel-ratio: 3) and(orientation: portrait) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 773px;
         min-height: 773px
     }
 }
 
-@media only screen and (min-device-width:375px) and (max-device-width:812px) and (-webkit-min-device-pixel-ratio:3) and (orientation:landscape) {
+@media only screen and (min-device-width: 375px) and(max-device-width: 812px) and(-webkit-min-device-pixel-ratio: 3) and(orientation: landscape) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 375px;
         min-height: 375px
     }
 }
 
-@media only screen and (min-device-width:414px) and (max-device-width:896px) and (-webkit-min-device-pixel-ratio:3) and (orientation:portrait) {
+@media only screen and (min-device-width: 414px) and(max-device-width: 896px) and(-webkit-min-device-pixel-ratio: 3) and(orientation: portrait) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 857px;
         min-height: 857px
     }
 }
 
-@media only screen and (min-device-width:414px) and (max-device-width:896px) and (-webkit-min-device-pixel-ratio:3) and (orientation:landscape) {
+@media only screen and (min-device-width: 414px) and(max-device-width: 896px) and(-webkit-min-device-pixel-ratio: 3) and(orientation: landscape) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 414px;
         min-height: 414px
     }
 }
 
-@media only screen and (min-device-width:414px) and (max-device-width:896px) and (-webkit-min-device-pixel-ratio:2) and (orientation:portrait) {
+@media only screen and (min-device-width: 414px) and(max-device-width: 896px) and(-webkit-min-device-pixel-ratio: 2) and(orientation: portrait) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 833px;
         min-height: 833px
     }
 }
 
-@media only screen and (min-device-width:414px) and (max-device-width:896px) and (-webkit-min-device-pixel-ratio:2) and (orientation:landscape) {
+@media only screen and (min-device-width: 414px) and(max-device-width: 896px) and(-webkit-min-device-pixel-ratio: 2) and(orientation: landscape) {
     .iPhone.MainWindow.MobileSafari {
         max-height: 414px;
         min-height: 414px
@@ -154,7 +157,7 @@ canvas.SwedishCanvas {
     display: block
 }
 
-@media only screen and (orientation:landscape) {
+@media only screen and (orientation: landscape) {
     #RGSLandscape {
         display: block !important
     }
@@ -164,7 +167,7 @@ canvas.SwedishCanvas {
     }
 }
 
-@media only screen and (orientation:portrait) {
+@media only screen and (orientation: portrait) {
     #RGSLandscape {
         display: none !important
     }
@@ -424,7 +427,7 @@ canvas.SwedishCanvas {
     margin: 0 0 24px -36px
 }
 
-@media all and (orientation:portrait) {
+@media all and (orientation: portrait) {
     #Mobile .history-button {
         bottom: 0;
         left: 50%;
@@ -432,7 +435,7 @@ canvas.SwedishCanvas {
     }
 }
 
-@media all and (orientation:landscape) {
+@media all and (orientation: landscape) {
     #Mobile .history-button {
         top: 50%;
         right: 0;
@@ -525,7 +528,7 @@ canvas.SwedishCanvas {
     min-width: 78px
 }
 
-@media all and (orientation:portrait) {
+@media all and (orientation: portrait) {
     #Mobile.StandardMode .sys-msg {
         -moz-transform: scale(1.5);
         -webkit-transform: scale(1.5);
@@ -594,6 +597,9 @@ canvas.SwedishCanvas {
 #Desktop.StandardMode .BtCLOSE {
     display: none
 }
+
+
+
 
 /*@font-face {
     font-family: 'Barlow';

@@ -48,6 +48,23 @@ class Main extends eui.UILayer {
 
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
+    // egret.sys.resizeContext
+    // egret.updateAllScreens();
+    const newScreenFunction = () => {
+      this.updateAllScreens();
+      console.log('*******************************updateAllScreens***********************************');
+    };
+    egret.updateAllScreens = newScreenFunction;
+  }
+
+  private updateAllScreens() {
+    const containerList = document.querySelectorAll('.egret-player');
+    const length = containerList.length;
+    for (let i = 0; i < length; i++) {
+      const container = containerList[i];
+      const player = container['egret-player'];
+      player.updateScreenSize();
+    }
   }
 
   private async initRes() {
