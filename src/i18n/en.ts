@@ -20,6 +20,9 @@ namespace we {
       betfield_baccarat_player_pair: 'p-pair',
       betfield_baccarat_super_six: 'super 6',
       betfield_baccarat_super_six_banker: 'banker',
+      betfield_dragonTiger_dragon: 'dragon',
+      betfield_dragonTiger_tiger: 'tiger',
+      betfield_dragonTiger_tie: 'tie',
 
       overlaypanel_memberreport_title: '会员报表',
       overlaypanel_memberreport_date: '日期',
@@ -59,6 +62,8 @@ namespace we {
 
       overlaypanel_bethistory_baresult_banker: 'B',
       overlaypanel_bethistory_baresult_player: 'P',
+      overlaypanel_bethistory_dtresult_dragon: 'D',
+      overlaypanel_bethistory_dtresult_tiger: 'T',
 
       overlaypanel_bethistory_searchtype_all: 'All',
 
@@ -90,6 +95,7 @@ namespace we {
           road: 'Road Notice',
           system: 'System',
           logout: 'Logout',
+          confirm: 'Confirm',
         },
         system: {
           title: 'System',

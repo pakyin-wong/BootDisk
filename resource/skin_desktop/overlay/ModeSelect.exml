@@ -3,20 +3,20 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" currentState="light">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Image left="0" right="0" top="0" bottom="0" source="nav_panel_bg" width="400" height="300"/>
-		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="37" anchorOffsetX="0" width="282" anchorOffsetY="0" height="36" textAlign="center" fontFamily="NotoSansCJKtc" size="24" textColor="0xffffff" x="59" verticalAlign="middle"/>
-		<e:Group id="btn_lightMode" x="117" y="105">
+		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="28" anchorOffsetX="0" width="282" anchorOffsetY="0" height="36" textAlign="center" fontFamily="NotoSansCJKtc" size="24" textColor="0xffffff" x="59" verticalAlign="middle"/>
+		<e:Group id="btn_lightMode" x="117" y="96">
 			<e:Image width="56" height="40.3" x="0" y="0"/>
 			<ui:RunTimeLabel id="txt_lightMode" text="l" y="44.8" height="27" size="18" fontFamily="NotoSansCJKtc" textAlign="center" verticalAlign="middle" left="0" right="0"/>
 			<e:Image width="18" height="18" x="19" y="78" source.dark="d_lobby_select_round_no_png" source.light="d_lobby_select_round_yes_png"/>
 			<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1"/>
 		</e:Group>
-		<e:Group id="btn_darkMode" x="229" y="105">
+		<e:Group id="btn_darkMode" x="229" y="96">
 			<e:Image width="56" height="40.3" x="0" y="0"/>
 			<ui:RunTimeLabel id="txt_darkMode" text="l" y="44.8" height="27" size="18" fontFamily="NotoSansCJKtc" textAlign="center" verticalAlign="middle" left="0" right="0"/>
 			<e:Image width="18" height="18" x="19" y="78" source.light="d_lobby_select_round_no_png" source.dark="d_lobby_select_round_yes_png"/>
 			<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1"/>
 		</e:Group>
-		<ui:BaseImageButton id="close" width="162" height="58" y="217" horizontalCenter="0" skinName="ImageButtonSkinDialog"/>
+		<ui:BaseImageButton id="close" width="162" height="68" y="208" horizontalCenter="0" skinName="ImageButtonSkinDialog"/>
 
 
 
