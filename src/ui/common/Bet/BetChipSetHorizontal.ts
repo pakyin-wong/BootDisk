@@ -1,11 +1,13 @@
 namespace we {
   export namespace ui {
     export class BetChipSetHorizontal extends BetChipSet {
+      private _padding = 40;
       private _startIndex = 0;
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
       private _chipList: Array<IBetChip & core.BaseEUI> = [];
+      protected _chipContainer: eui.Component;
 
       public constructor() {
         super();
@@ -19,15 +21,12 @@ namespace we {
         this._rightNav.right = 0;
         this._rightNav.verticalCenter = 0;
         this._rightNav.addEventListener(egret.TouchEvent.TOUCH_TAP, this._navigate.bind(this, 1), this);
-        this._chipContainer = new eui.Group();
-        const hlayout = new eui.HorizontalLayout();
-        hlayout.useVirtualLayout = false;
-        hlayout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
-        this._chipContainer.layout = hlayout;
+
+        this._chipContainer = new eui.Component();
         this._chipContainer.top = 0;
         this._chipContainer.bottom = 0;
-        this._chipContainer.left = 40;
-        this._chipContainer.right = 40;
+        this._chipContainer.left = this._padding;
+        this._chipContainer.right = this._padding;
         this.addChild(this._leftNav);
         this.addChild(this._chipContainer);
         this.addChild(this._rightNav);
@@ -113,11 +112,14 @@ namespace we {
           return;
         }
         this._chipContainer.removeChildren();
+        let childx = 0;
         for (let i = 0; i < this._visibleDenomNum; i += 1) {
           const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
           child.verticalCenter = 0;
           child.percentWidth = 100 / this._visibleDenomNum;
+          child.x = childx;
+          childx += (1 / this._visibleDenomNum) * this._chipContainer.width;
         }
         this._updateNavigationDisplay();
       }
@@ -127,10 +129,10 @@ namespace we {
         this._denomList.map((value, index) => {
           const betChip = new BetChip(value);
           betChip.index = index;
-          betChip.percentHeight = 90;
+          betChip.height = this.height * 0.9;
           betChip.type = we.core.ChipType.CLIP;
           if (index === this._selectedChipIndex) {
-            betChip.percentHeight = 100;
+            betChip.height = this.height;
             betChip.type = we.core.ChipType.FLAT;
             betChip.highlight = true;
           }
@@ -149,11 +151,13 @@ namespace we {
       private _onChipSelected(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
         this._chipList[this._selectedChipIndex].type = we.core.ChipType.CLIP;
-        this._chipList[index].percentHeight = 90;
+        this._chipList[this._selectedChipIndex].height = this.height * 0.9;
+        this._chipList[this._selectedChipIndex].verticalCenter = 0;
 
         this._chipList[index].highlight = true;
         this._chipList[index].type = we.core.ChipType.FLAT;
-        this._chipList[index].percentHeight = 100;
+        this._chipList[index].height = this.height;
+        this._chipList[index].verticalCenter = 0;
         this._selectedChipIndex = index;
       }
 
