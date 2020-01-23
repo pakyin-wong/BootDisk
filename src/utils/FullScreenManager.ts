@@ -430,6 +430,8 @@ class FullScreenManager {
     const player: any = document.getElementsByClassName('egret-player')[0];
     player.style.position = 'fixed';
 
+    egret.updateAllScreens();
+
     FullScreenIPhoneHelper.Init();
   }
 
