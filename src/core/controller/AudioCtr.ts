@@ -9,6 +9,25 @@ namespace we {
       private _volumeFX = 0.5;
       private _volumeLive = 0.5;
 
+      private _volumeBGMStored = 0.5;
+      private _volumeFXStored = 0.5;
+      private _volumeLiveStored = 0.5;
+
+      public pause() {
+        this._volumeBGMStored = this._volumeBGM;
+        this._volumeFXStored = this._volumeFX;
+        this._volumeLiveStored = this._volumeLive;
+        this.volumeBGM = 0;
+        this._volumeFX = 0;
+        this._volumeLive = 0;
+      }
+
+      public resume() {
+        this.volumeBGM = this._volumeBGMStored;
+        this._volumeFX = this._volumeFXStored;
+        this._volumeLive = this._volumeLiveStored;
+      }
+
       constructor(stage: egret.Stage) {
         logger.l('AudioCtr is created');
       }

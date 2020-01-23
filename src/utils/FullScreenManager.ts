@@ -426,6 +426,10 @@ class FullScreenManager {
     if (this.screenfull && this.screenfull.enabled) {
       stage.addEventListener(egret.TouchEvent.TOUCH_TAP, self.RequestFullscreen, self);
     }
+
+    const player: any = document.getElementsByClassName('egret-player')[0];
+    player.style.position = 'fixed';
+
     FullScreenIPhoneHelper.Init();
   }
 
