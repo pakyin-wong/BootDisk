@@ -201,9 +201,6 @@ namespace we {
 
       private search() {
         clearTimeout(this._searchDelay);
-
-        console.log(this._type);
-
         const opt = {
           startdate: this._starttime * 1000,
           enddate: this._endtime * 1000,
