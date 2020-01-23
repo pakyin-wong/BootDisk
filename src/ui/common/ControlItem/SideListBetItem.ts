@@ -74,7 +74,7 @@ namespace we {
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        this.list.removeTable(this._tableId);
+        // this.list.removeTable(this._tableId);
       }
 
       protected setStateDeal(isInit: boolean = false) {
