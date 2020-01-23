@@ -45,10 +45,6 @@ namespace we {
         this._visibleDenomNum = count;
       }
 
-      public setLast() {
-        this._renderItems();
-      }
-
       set denomList(value: number[]) {
         this._denomList = value;
       }
@@ -64,12 +60,14 @@ namespace we {
         this.setChipSet(denomList);
         this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
+        this._onChipSelected(this._selectedChipIndex);
       }
 
       public resetFormat(denomNum: any) {
         this._visibleDenomNum = +denomNum;
         this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
+        this._onChipSelected(this._selectedChipIndex);
       }
 
       public resetDenominationList(denomList: number[]) {
@@ -79,6 +77,7 @@ namespace we {
         this.setChipSet(denomList);
         this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
+        this._onChipSelected(this._selectedChipIndex);
       }
 
       private _navigate(dir) {
@@ -98,8 +97,8 @@ namespace we {
           newSelected = newStart === firstPageStart ? oldPagePos : Math.max(this._selectedChipIndex - this._visibleDenomNum, firstPageStart);
         }
         this._startIndex = newStart;
-        this._onChipSelected(newSelected);
         this._renderItems();
+        this._onChipSelected(newSelected);
       }
 
       private _updateNavigationDisplay() {
@@ -112,14 +111,14 @@ namespace we {
           return;
         }
         this._chipContainer.removeChildren();
-        let childx = 0;
+        let childpos = 0;
         for (let i = 0; i < this._visibleDenomNum; i += 1) {
           const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
           child.verticalCenter = 0;
-          child.percentWidth = 100 / this._visibleDenomNum;
-          child.x = childx;
-          childx += (1 / this._visibleDenomNum) * (this.width - this._padding * 2);
+          child.width = (this.width - this._padding * 2) / this._visibleDenomNum;
+          child.x = childpos;
+          childpos += (1 / this._visibleDenomNum) * (this.width - this._padding * 2);
         }
         this._updateNavigationDisplay();
       }
@@ -129,13 +128,8 @@ namespace we {
         this._denomList.map((value, index) => {
           const betChip = new BetChip(value);
           betChip.index = index;
-          betChip.height = this.height * 0.9;
+          betChip.height = this.height * 0.75;
           betChip.type = we.core.ChipType.CLIP;
-          if (index === this._selectedChipIndex) {
-            betChip.height = this.height;
-            betChip.type = we.core.ChipType.FLAT;
-            betChip.highlight = true;
-          }
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
           this._chipList.push(betChip);
         });
@@ -151,13 +145,15 @@ namespace we {
       private _onChipSelected(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
         this._chipList[this._selectedChipIndex].type = we.core.ChipType.CLIP;
-        this._chipList[this._selectedChipIndex].height = this.height * 0.9;
+        this._chipList[this._selectedChipIndex].height = this.height * 0.75;
         this._chipList[this._selectedChipIndex].verticalCenter = 0;
 
         this._chipList[index].highlight = true;
         this._chipList[index].type = we.core.ChipType.FLAT;
         this._chipList[index].height = this.height;
         this._chipList[index].verticalCenter = 0;
+        this._chipList[index].draw();
+
         this._selectedChipIndex = index;
       }
 
