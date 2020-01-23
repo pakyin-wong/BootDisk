@@ -47,8 +47,8 @@ namespace we {
         this.rightPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
 
         // dark/light mode
-        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
-        this.onModeUpdate(null);
+        // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        // this.onModeUpdate(null);
       }
 
       protected onBeadRoadOver(e: egret.Event) {
@@ -153,13 +153,14 @@ namespace we {
       }
 
       // DarkMode
+      /*
       protected onModeUpdate(e: egret.Event) {
         this.beadRoad.DarkMode = env.mode === 1 ? 1 : 0;
         this.bigRoad.DarkMode = this.beadRoad.DarkMode;
         this.bigEyeRoad.DarkMode = this.beadRoad.DarkMode;
         this.smallRoad.DarkMode = this.beadRoad.DarkMode;
         this.cockroachRoad.DarkMode = this.beadRoad.DarkMode;
-      }
+      }*/
 
       protected clearPredict() {
         if (this.useParser) {
@@ -296,9 +297,9 @@ namespace we {
           this.rightPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
         }
 
-        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
-          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
-        }
+        // if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
+        // dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        // }
       }
     }
   }

@@ -17,6 +17,7 @@ namespace we {
       updateDefaultGoodRoad(ids: string[]);
       createGoodRoad(name: string, pattern: string);
       removeGoodRoadmap(id: string);
+      resetGoodRoadmap();
     }
 
     export interface IErrorKind {

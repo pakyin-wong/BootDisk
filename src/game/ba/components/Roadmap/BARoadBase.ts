@@ -25,6 +25,8 @@ namespace we {
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
+        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        this.onModeUpdate(null);
       }
 
       protected initRoadData() {
@@ -168,6 +170,10 @@ namespace we {
         return this.darkModeNumber;
       }
 
+      protected onModeUpdate(e: egret.Event) {
+        this.DarkMode = env.mode === 1 ? 1 : 0;
+      }
+
       protected onRemoved(e) {
         if (this.hasEventListener(egret.Event.ENTER_FRAME)) {
           this.removeEventListener(egret.Event.ENTER_FRAME, this.render, this);
@@ -190,6 +196,11 @@ namespace we {
         if (this.hasEventListener(egret.Event.REMOVED_FROM_STAGE)) {
           this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
         }
+
+        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
+          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        }
+
         if (this.roadMapIconList) {
           for (const elem of this.roadMapIconList) {
             elem.dispose();
