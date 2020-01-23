@@ -13,10 +13,14 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-        this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
-        this._betChipSetGridSelected.setValue(denominationList[0]);
-        this._betChipSetGridSelected.index = 0;
+      }
+
+      protected initDenom() {
+        const denomList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        if (this._betChipSet) {
+          this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+          this._betChipSet.init(null, denomList);
+        }
       }
 
       protected onClickBetChipSelected() {
@@ -35,7 +39,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._betChipSet.resetFormat(1);
         this._bettingTable.setGameMode(false);
       }
 
@@ -71,7 +74,7 @@ namespace we {
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        this.list.removeTable(this._tableId);
+        // this.list.removeTable(this._tableId);
       }
 
       protected setStateDeal(isInit: boolean = false) {

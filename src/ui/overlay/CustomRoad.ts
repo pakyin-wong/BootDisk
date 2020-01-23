@@ -105,7 +105,7 @@ namespace we {
         if (e.data.roadType === 1) {
           // default
           const roadsEnabled = [];
-          const defaults = env.goodRoadData.default.slice();
+          const defaults: data.GoodRoadMapItemData[] = env.goodRoadData.default.slice();
           defaults.forEach(element => {
             if (element.id === e.data.id) {
               element.enabled = e.data.enabled;
@@ -127,7 +127,7 @@ namespace we {
       }
 
       private renderFromGoodRoadData() {
-        const roadData = env.goodRoadData;
+        const roadData: data.GoodRoadMapData = env.goodRoadData;
 
         // clean existing roads
         this.collection.removeAll();

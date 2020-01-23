@@ -156,10 +156,11 @@ namespace we {
         this.darkModeNumber = n;
 
         this.renderGrid();
-
-        for (const elem of this.roadMapIconList) {
-          const icon = elem;
-          icon.DarkMode = n;
+        if (this.roadMapIconList) {
+          for (const elem of this.roadMapIconList) {
+            const icon = elem;
+            icon.DarkMode = n;
+          }
         }
       }
 

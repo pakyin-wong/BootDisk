@@ -93,6 +93,9 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAI:
               return i18n.t(`betfield_baccarat_${bettype.toLowerCase()}`);
+
+            case we.core.GameType.DT:
+              return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);
           }
@@ -106,6 +109,9 @@ namespace we {
             case we.core.GameType.BAS:
             case we.core.GameType.BAI:
               p = new BaResultItem(gameResult);
+              break;
+            case we.core.GameType.DT:
+              p = new DtResultItem(gameResult);
               break;
             default:
               p = new core.BaseEUI();

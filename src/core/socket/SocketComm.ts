@@ -74,7 +74,7 @@ namespace we {
       }
 
       private _goodRoadUpdateCallback(data: any) {
-        env.goodRoadData = data;
+        env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
         dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
       }
 
@@ -84,6 +84,10 @@ namespace we {
 
       public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
         this.client.getLobbyMaterial(callback);
+      }
+
+      public updateSetting(key: string, value: string) {
+        this.client.updateSetting(key, value);
       }
 
       public connect() {
@@ -122,7 +126,7 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
-        env.mode = player.profile.mode || -1;
+        env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
         if (player.profile.categoryorders) {
           env.categorySortOrder = player.profile.categoryorders;
         }
@@ -344,7 +348,7 @@ namespace we {
 
         const totalCount: number = bankerCount + playerCount + tieCount;
 
-        tableInfo.roadmap = roadmapData;
+        tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
         const stats = new we.data.GameStatistic();
         stats.bankerCount = bankerCount;

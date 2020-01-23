@@ -6,34 +6,16 @@ namespace we {
       protected _chipValueLabel: ui.LabelImage;
       protected _type: we.core.ChipType;
       protected _highlight: boolean;
-      protected _glowFilter: egret.GlowFilter;
+      protected _glowImage: eui.Image;
 
       protected _index: number;
 
-      public constructor(value: number = null, type: we.core.ChipType = we.core.ChipType.CLIP, highlight: boolean = false) {
+      public constructor(value: number = null, index: number = null, type: we.core.ChipType = we.core.ChipType.BETTING, highlight: boolean = false) {
         super('BetChip');
-        // this.skinName = utils.getSkin();
         this._value = value;
+        this._index = index;
         this._type = type;
         this._highlight = highlight;
-        this.setGlowFilter();
-      }
-
-      protected reviseError() {
-        this._chipValueLabel.verticalCenter = -0.03 * this.height;
-      }
-
-      protected setGlowFilter(
-        color: number = 0x33ccff,
-        alpha: number = 0.8,
-        blurX: number = 35,
-        blurY: number = 35,
-        strength: number = 2,
-        quality: number = egret.BitmapFilterQuality.HIGH,
-        inner: boolean = false,
-        knockout: boolean = false
-      ) {
-        this._glowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -41,23 +23,14 @@ namespace we {
       }
 
       protected mount() {
-        // this.setValue(this._value);
-        this.setValue(this._value, this._type);
-        this.reviseError();
+        this._render();
       }
 
-      public setValue(value: number, type: we.core.ChipType = null) {
+      public setValue(value: number, index: number, type: we.core.ChipType = null) {
         this._value = value;
-        this._type = type ? type : this._type ? this._type : we.core.ChipType.CLIP;
-        this._chipValueLabel.text = this._type === we.core.ChipType.BETTING ? null : utils.numberToFaceValue(value);
-
-        if (type === we.core.ChipType.BETTING) {
-          this._chipImage.source = we.core.ChipSetInfo.betting + '_png';
-        }
-        if (type === we.core.ChipType.CLIP) {
-          this._chipValueLabel.height = this._chipValueLabel.height * 0.6;
-        }
-        // this._chipImage.source = this.getChipSource(this._chipValueLabel.text, this._type);
+        this._index = index;
+        this._type = type;
+        this._render();
       }
 
       public getValue() {
@@ -71,37 +44,49 @@ namespace we {
       set highlight(value: boolean) {
         this._highlight = value;
         if (value) {
-          this._chipImage.filters = [this._glowFilter];
+          this._glowImage = new eui.Image();
+          this._glowImage.source = 'd_lobby_panel_betcontrol_chips_select_png';
+          this._glowImage.bottom = this._chipImage.bottom - 6;
+          this._glowImage.top = this._chipImage.top - 6;
+          this._glowImage.left = this._chipImage.left - 6;
+          this._glowImage.right = this._chipImage.right - 6;
+          this._glowImage.verticalCenter = this._chipImage.verticalCenter;
+          this._glowImage.horizontalCenter = this._chipImage.horizontalCenter;
+          this._glowImage.height = this._chipImage.height;
+          this._glowImage.width = this._chipImage.width;
+          this.addChild(this._glowImage);
         } else {
-          this._chipImage.filters = [];
+          if (this._glowImage && this.contains(this._glowImage)) {
+            this.removeChild(this._glowImage);
+          }
         }
       }
 
-      set index(value: number) {
+      public set index(value: number) {
         this._index = value;
         this._chipImage.source = this.getChipSource(this._type);
       }
 
-      set labelOffset(value: number) {
+      public set labelOffset(value: number) {
         if (this._chipValueLabel) {
           this._chipValueLabel.verticalCenter = value;
         }
       }
 
-      get labelOffset() {
+      public get labelOffset() {
         if (this._chipValueLabel) {
           return this._chipValueLabel.verticalCenter;
         }
         return null;
       }
 
-      set labelSize(value: number) {
+      public set labelSize(value: number) {
         if (this._chipValueLabel) {
           this._chipValueLabel.size = value;
         }
       }
 
-      get labelSize() {
+      public get labelSize() {
         if (this._chipValueLabel) {
           return this._chipValueLabel.size;
         }
@@ -109,13 +94,38 @@ namespace we {
       }
 
       set type(value: number) {
-        if (!this._type) {
+        if (value) {
           this._type = +value;
         }
+        this._render();
       }
 
       get type() {
         return this._type;
+      }
+
+      protected _render() {
+        switch (this._type) {
+          case we.core.ChipType.FLAT:
+            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipImage.source = this.getChipSource(this._type);
+            this._chipValueLabel.verticalCenter = this.height * -0.012;
+            this._chipValueLabel.height = this.height * 0.5;
+            // this._chipValueLabel.width = this.width * 0.3;
+            break;
+          case we.core.ChipType.CLIP:
+            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipImage.source = this.getChipSource(this._type);
+            this._chipValueLabel.verticalCenter = this.height * -0.072;
+            this._chipValueLabel.height = this.height * 0.3;
+            // this._chipValueLabel.width = this.width * 0.3;
+            break;
+          case we.core.ChipType.BETTING:
+          default:
+            this._chipValueLabel.text = '';
+            this._chipImage.source = this.getChipSource(this._type);
+            break;
+        }
       }
 
       protected getChipSource(type): string {
@@ -134,6 +144,10 @@ namespace we {
         }
 
         return filename;
+      }
+
+      public draw() {
+        this._render();
       }
     }
   }

@@ -67,7 +67,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = this.mockRoadData;
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
           data.gametype = core.GameType.BAC;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -100,7 +100,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = this.mockRoadData;
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
           data.gametype = core.GameType.DT;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -126,6 +126,8 @@ namespace we {
         });
         return tables;
       }
+
+      public updateSetting(key: string, value: string) {}
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
@@ -203,17 +205,20 @@ namespace we {
       }
 
       // Good Road
-      private mockGoodRoadData: any = {
+
+      private mockGoodRoadRawData: any = {
         custom: [{ enabled: true, id: 'Abcde', name: 'my road', pattern: 'bbpbb' }],
         default: [{ enabled: true, id: 'r1', name: 'r1', pattern: 'bbbb' }],
       };
 
+      private mockGoodRoadMapData: data.GoodRoadMapData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(this.mockGoodRoadRawData);
+
       public getGoodRoad() {
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
       public updateCustomGoodRoad(id: string, data: any) {
-        this.mockGoodRoadData.custom.forEach(element => {
+        this.mockGoodRoadMapData.custom.forEach(element => {
           if (element.id === id) {
             element.enabled = data.enabled;
             element.name = data.name;
@@ -221,32 +226,36 @@ namespace we {
           }
         });
 
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
       public updateDefaultGoodRoad(ids: string[]) {
-        this.mockGoodRoadData.default.forEach((item, index) => {
+        this.mockGoodRoadMapData.default.forEach((item, index) => {
           item.enabled = ids.indexOf(item.id) > -1;
         });
 
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
       public createGoodRoad(name: string, pattern: string) {
-        this.mockGoodRoadData.custom.push({ enabled: true, id: Math.random(), name, pattern });
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        const road = new data.GoodRoadMapItemData();
+        road.id = Math.random().toString();
+        road.name = name;
+        road.pattern = pattern;
+        this.mockGoodRoadMapData.custom.push(road);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
       public removeGoodRoadmap(id: string) {
-        this.mockGoodRoadData.custom.forEach((item, index) => {
+        this.mockGoodRoadMapData.custom.forEach((item, index) => {
           if (item.id === id) {
-            this.mockGoodRoadData.custom.splice(index, 1);
+            this.mockGoodRoadMapData.custom.splice(index, 1);
           }
         });
-        this._goodRoadUpdateCallback(this.mockGoodRoadData);
+        this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
-      private _goodRoadUpdateCallback(data: any) {
+      private _goodRoadUpdateCallback(data: data.GoodRoadMapData) {
         env.goodRoadData = data;
         dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
       }
@@ -350,7 +359,7 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
           bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
@@ -428,9 +437,9 @@ namespace we {
         inGameInfoStart: 0,
 
         gameInfo: [
-          { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 1 },
-          { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 2 },
-          { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, winType: 3 },
+          { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
+          { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
+          { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
         ],
       };
 

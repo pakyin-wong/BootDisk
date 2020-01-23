@@ -2,7 +2,7 @@
 namespace we {
   export namespace ui {
     export class LiveListSimpleItem extends ListBaseItem {
-      protected _quickbetButton: ui.QuickBetAnimButton;
+      protected _quickbetButton: eui.Component & IQuickBetAnimButton;
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
@@ -53,7 +53,7 @@ namespace we {
       }
 
       protected showQuickBetGroup() {
-        this._quickbetButton.tweenLabel(!this.list.isLocked);
+        this._quickbetButton.tween(!this.list.isLocked);
         super.showQuickBetGroup();
         if (this._denomLayer) {
           egret.Tween.removeTweens(this._denomLayer);
@@ -62,7 +62,7 @@ namespace we {
       }
 
       protected hideQuickBetGroup() {
-        this._quickbetButton.tweenLabel(!this.list.isLocked);
+        this._quickbetButton.tween(!this.list.isLocked);
         super.hideQuickBetGroup();
         if (this._denomLayer) {
           egret.Tween.removeTweens(this._denomLayer);
@@ -73,7 +73,7 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable) {
         super.setBetRelatedComponentsEnabled(enable);
         if (!this._mouseOutside && enable) {
-          this._quickbetButton.tweenLabel(false, false);
+          this._quickbetButton.tween(false, false);
         }
       }
 
@@ -81,7 +81,7 @@ namespace we {
         super.onRollover(evt);
         if (!this.list.isLocked) {
           if (this._quickbetEnable) {
-            this._quickbetButton.tweenLabel(false);
+            this._quickbetButton.tween(false);
           }
         }
       }
@@ -90,9 +90,13 @@ namespace we {
         super.animateQuickBetButton(show);
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
-          egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._quickbetButton)
+            .set({ visible: true })
+            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250);
+          egret.Tween.get(this._quickbetButton)
+            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+            .set({ visible: false });
         }
       }
 

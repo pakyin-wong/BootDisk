@@ -89,7 +89,7 @@ namespace we {
         const total = this._uncfmBet + this._cfmBet;
         if (this._uncfmBet) {
           // Contains uncfmBet, show one coin and total
-          const chip = new BetChip(total, we.core.ChipType.BETTING);
+          const chip = new BetChip(total);
           this._chips.push(chip);
         } else {
           // No uncfmBet, show stack and total
@@ -98,11 +98,9 @@ namespace we {
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = new BetChip(this._denomList[value]);
-              chip.index = value;
-              chip.labelSize = this._chipLabelSize;
-              chip.labelOffset = this._chipLabelOffset;
-              chip.type = this._chipType;
+              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.CLIP);
+              // chip.labelSize = this._chipLabelSize;
+              // chip.labelOffset = this._chipLabelOffset;
               this._chips.push(chip);
             }
           });

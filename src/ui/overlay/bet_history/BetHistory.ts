@@ -43,6 +43,7 @@ namespace we {
       private _starttime: number;
       private _endtime: number;
       private _limit: number = 11;
+      private _type: number = -1;
 
       private _datepicker: DoubleCalendarPicker;
 
@@ -81,8 +82,8 @@ namespace we {
         this._ddm_searchType.dismissOnClickOutside = true;
         this._ddm_searchType.setToggler(this._btn_searchType);
         this._ddm_searchType.dropdown.review = this._btn_searchType.label;
-        this._ddm_searchType.dropdown.data.replaceAll([ui.NewDropdownItem(0, () => `${i18n.t('overlaypanel_bethistory_searchtype_all')}`)]);
-        this._ddm_searchType.dropdown.select(0);
+        this._ddm_searchType.dropdown.data.replaceAll(this.genGameTypeList());
+        this._ddm_searchType.dropdown.select(this._type);
 
         this._ddm_page.isDropdown = true;
         this._ddm_page.isPoppable = true;
@@ -116,6 +117,7 @@ namespace we {
         this._btn_next.$addListener('CLICKED', this.onClickNext, this);
         this._btn_prev.$addListener('CLICKED', this.onClickPrev, this);
         this._ddm_page.$addListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
+        this._ddm_searchType.$addListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
       }
 
@@ -128,7 +130,16 @@ namespace we {
         this._btn_next.removeEventListener('CLICKED', this.onClickNext, this);
         this._btn_prev.removeEventListener('CLICKED', this.onClickPrev, this);
         this._ddm_page.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
+        this._ddm_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.removeEventListener('PICKED_DATE', this.searchCustomDate, this);
+      }
+
+      protected genGameTypeList(): any {
+        const list = [ui.NewDropdownItem(-1, () => `${i18n.t('overlaypanel_bethistory_searchtype_all')}`)];
+        for (const k in core.GameType) {
+          isNaN(Number(k)) && list.push(ui.NewDropdownItem(core.GameType[k], () => `${i18n.t('gametype_' + k)}`));
+        }
+        return list;
       }
 
       protected searchToday() {
@@ -190,13 +201,12 @@ namespace we {
 
       private search() {
         clearTimeout(this._searchDelay);
-
         const opt = {
           startdate: this._starttime * 1000,
           enddate: this._endtime * 1000,
           limit: this._limit,
           offset: (this._page - 1) * this._limit,
-          // filter: int,
+          filter: this._type,
           search: this._tf_search.text,
         };
 
@@ -227,6 +237,11 @@ namespace we {
 
       private onPageChange(e) {
         this._page = e.data;
+        this.search();
+      }
+
+      private onTypeChange(e) {
+        this._type = e.data;
         this.search();
       }
 

@@ -51,6 +51,10 @@
             "path": "./libs/playerclient"
         },
         {
+            "name": "uaparser",
+            "path": "./libs/uaparser"
+        },
+        {
             "name": "moment",
             "path": "./libs/moment"
         },

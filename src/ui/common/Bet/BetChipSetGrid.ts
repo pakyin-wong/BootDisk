@@ -4,12 +4,11 @@ namespace we {
       private _numberOfChipsInRow = 4;
       private _chipsetList: ui.List;
       private _chipsetLayout: eui.TileLayout;
-      private _normalGapSize: number = 5;
+      private _normalGapSize: number = 15;
       private _setSelectedChip: (value: number, index: number) => void;
 
       public constructor() {
         super();
-
         this._chipsetLayout = new eui.TileLayout();
         this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         this._chipsetLayout.horizontalGap = this._normalGapSize;
@@ -21,12 +20,13 @@ namespace we {
         this._chipsetList.layout = this._chipsetLayout;
         this._chipsetList.itemRenderer = BetChipSetGridItem;
         this.addChild(this._chipsetList);
-
-        this._selectedChipIndex = 0;
       }
 
-      public init(format: any, denominationList: number[]) {
-        this._chipsetList.dataProvider = new eui.ArrayCollection(denominationList);
+      public init(format: any, denomList: number[]) {
+        this._denomList = denomList;
+        this._chipsetList.dataProvider = new eui.ArrayCollection(denomList);
+        this._selectedChipIndex = this._denomList.length - 1;
+        this.setSelectedChip(this._denomList[this._denomList.length - 1], this._denomList.length - 1);
       }
 
       public injectSetSelectedChip(value: (value: number, index: number) => void) {
@@ -37,6 +37,13 @@ namespace we {
         if (this._setSelectedChip) {
           this._setSelectedChip(value, index);
         }
+      }
+
+      public resetDenominationList(denomList: number[]) {
+        this._denomList = denomList;
+        this._chipsetList.dataProvider = new eui.ArrayCollection(denomList);
+        this._selectedChipIndex = this._denomList.length - 1;
+        this.setSelectedChip(denomList[this._denomList.length - 1], this._denomList.length - 1);
       }
     }
   }

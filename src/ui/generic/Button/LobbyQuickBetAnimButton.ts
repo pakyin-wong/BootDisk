@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class QuickBetAnimButton extends BaseButton {
+    export class LobbyQuickBetAnimButton extends BaseButton implements IQuickBetAnimButton {
       protected _image: eui.Image;
       protected _hoverImage: eui.Image;
       protected _resName: string;
@@ -10,7 +10,6 @@ namespace we {
       private _tw1: egret.Tween;
       private _tw2: egret.Tween;
       private _tw3: egret.Tween;
-      private _tw4: egret.Tween;
       private _label1text: string;
       private _label2text: string;
       private _originalWidth: number;
@@ -104,27 +103,7 @@ namespace we {
         return this._label2text;
       }
 
-      set scale9Grid(value) {
-        const v = value.split(',');
-        if (this._image) {
-          this._image.fillMode = egret.BitmapFillMode.SCALE;
-          this._image.scale9Grid = new egret.Rectangle(+v[0], +v[1], +v[2], +v[3]);
-        }
-        if (this._hoverImage) {
-          this._hoverImage.fillMode = egret.BitmapFillMode.SCALE;
-          this._hoverImage.scale9Grid = new egret.Rectangle(+v[0], +v[1], +v[2], +v[3]);
-        }
-      }
-
-      get scale9Grid() {
-        if (this._image && this._image.scale9Grid) {
-          return this._image.scale9Grid.toString();
-        } else {
-          return null;
-        }
-      }
-
-      public tweenLabel(direction: boolean, isAnimate: boolean = true) {
+      public tween(direction: boolean, isAnimate: boolean = true) {
         egret.Tween.removeTweens(this._label1);
         egret.Tween.removeTweens(this._label2);
         egret.Tween.removeTweens(this._image);
@@ -150,16 +129,6 @@ namespace we {
             this._label2.alpha = 0;
             this._image.width = 148;
           }
-        }
-      }
-
-      public tweenSize(direction: boolean) {
-        egret.Tween.removeTweens(this);
-        if (direction) {
-          this._originalWidth = this.width;
-          this._tw1 = egret.Tween.get(this).to({ width: 0 }, 250);
-        } else {
-          this._tw1 = egret.Tween.get(this).to({ width: this._originalWidth }, 250);
         }
       }
     }

@@ -3,7 +3,7 @@ namespace we {
     export abstract class BetChipSet extends core.BaseEUI {
       protected _denomList: number[];
       protected _selectedChipIndex: number = 10;
-      protected _chipContainer: eui.Group;
+      // protected _chipContainer: eui.Group;
 
       public resetDenominationList(denominationList: number[]) {}
 
@@ -22,6 +22,10 @@ namespace we {
       public setTouchEnabled(enable: boolean) {}
 
       public injectSetSelectedChip(value: (value: number, index: number) => void) {}
+
+      public set clipChipHeightPortion(value: number) {}
+
+      public set flatChipHeightPortion(value: number) {}
 
       // setChipSet(denominationList: number[]) {}
       // onChipSelected(index: number) {}

@@ -1,8 +1,6 @@
 namespace we {
   export namespace ba {
     export class GoodRoadParser extends BARoadParser {
-      public public;
-
       public constructor(maxCols: any) {
         super(maxCols);
       }
@@ -106,6 +104,31 @@ namespace we {
           }
         });
         return cleanRslt;
+      }
+
+      public static CreateGoodRoadMapDataFromObject(obj: any): data.GoodRoadMapData {
+        const map = new data.GoodRoadMapData();
+        map.custom = [];
+        map.default = [];
+
+        obj.custom.forEach(element => {
+          const item = new data.GoodRoadMapItemData();
+          item.enabled = element.enabled;
+          item.id = element.id;
+          item.name = element.name;
+          item.pattern = element.pattern;
+          map.custom.push(item);
+        });
+
+        obj.default.forEach(element => {
+          const item = new data.GoodRoadMapItemData();
+          item.enabled = element.enabled;
+          item.id = element.id;
+          item.name = element.name;
+          item.pattern = element.pattern;
+          map.default.push(item);
+        });
+        return map;
       }
     }
   }

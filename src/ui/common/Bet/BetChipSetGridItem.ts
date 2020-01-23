@@ -11,8 +11,8 @@ namespace we {
       public content: eui.Group;
 
       protected _betChip: BetChip;
-      protected _betChipHeight: number = 85;
-      protected _betChipWidth: number = 85;
+      protected _betChipHeight: number = 56;
+      protected _betChipWidth: number = 70;
 
       public constructor() {
         super();
@@ -20,9 +20,11 @@ namespace we {
         this.width = this._betChipWidth;
         this.height = this._betChipHeight;
         this._betChip = new BetChip(0);
+
         this._betChip.height = this._betChipHeight;
         this._betChip.width = this._betChipWidth;
         this.addChild(this._betChip);
+        mouse.setButtonMode(this._betChip, true);
       }
 
       protected addEventListeners() {
@@ -39,7 +41,7 @@ namespace we {
       public itemDataChanged() {
         super.itemDataChanged();
         if (this.itemData) {
-          this._betChip.setValue(this.itemData, we.core.ChipType.FLAT);
+          this._betChip.setValue(this.itemData, this.itemIndex, we.core.ChipType.CLIP);
           this._betChip.index = this.itemIndex;
         }
       }
