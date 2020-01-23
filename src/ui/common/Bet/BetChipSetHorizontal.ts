@@ -9,6 +9,8 @@ namespace we {
       private _rightNav: eui.Label;
       private _chipList: Array<IBetChip & core.BaseEUI> = [];
       protected _chipContainer: eui.Component;
+      protected _clipChipHeightPortion: number = 0.85;
+      protected _flatChipHeightPortion: number = 1.05;
 
       public constructor() {
         super();
@@ -34,11 +36,19 @@ namespace we {
         this._visibleDenomNum = 5; // default value
       }
 
-      set visibleDenomNum(value: number) {
+      public set clipChipHeightPortion(value: number) {
+        this._clipChipHeightPortion = value;
+      }
+
+      public set flatChipHeightPortion(value: number) {
+        this._flatChipHeightPortion = value;
+      }
+
+      public set visibleDenomNum(value: number) {
         this._visibleDenomNum = value;
       }
 
-      get visibleDenomNum() {
+      public get visibleDenomNum() {
         return this._visibleDenomNum;
       }
 
@@ -130,7 +140,7 @@ namespace we {
         this._denomList.map((value, index) => {
           const betChip = new BetChip(value);
           betChip.index = index;
-          betChip.height = this.height * 0.75;
+          betChip.height = this.height * this._clipChipHeightPortion;
           betChip.type = we.core.ChipType.CLIP;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
           this._chipList.push(betChip);
@@ -147,12 +157,12 @@ namespace we {
       private _onChipSelected(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
         this._chipList[this._selectedChipIndex].type = we.core.ChipType.CLIP;
-        this._chipList[this._selectedChipIndex].height = this.height * 0.75;
+        this._chipList[this._selectedChipIndex].height = this.height * this._clipChipHeightPortion;
         this._chipList[this._selectedChipIndex].verticalCenter = 0;
 
         this._chipList[index].highlight = true;
         this._chipList[index].type = we.core.ChipType.FLAT;
-        this._chipList[index].height = this.height;
+        this._chipList[index].height = this.height * this._flatChipHeightPortion;
         this._chipList[index].verticalCenter = 0;
         this._chipList[index].draw();
 
