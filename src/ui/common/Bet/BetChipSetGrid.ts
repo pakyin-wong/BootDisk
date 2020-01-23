@@ -4,7 +4,7 @@ namespace we {
       private _numberOfChipsInRow = 4;
       private _chipsetList: ui.List;
       private _chipsetLayout: eui.TileLayout;
-      private _normalGapSize: number = 5;
+      private _normalGapSize: number = 15;
       private _setSelectedChip: (value: number, index: number) => void;
 
       public constructor() {

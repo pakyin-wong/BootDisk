@@ -1,7 +1,8 @@
 namespace we {
   export namespace ui {
     export class BetChipSetHorizontal extends BetChipSet {
-      private _padding = 40;
+      private _navWidth = 40;
+      private _containerPadding = 5;
       private _startIndex = 0;
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
@@ -25,8 +26,8 @@ namespace we {
         this._chipContainer = new eui.Component();
         this._chipContainer.top = 0;
         this._chipContainer.bottom = 0;
-        this._chipContainer.left = this._padding;
-        this._chipContainer.right = this._padding;
+        this._chipContainer.left = this._navWidth;
+        this._chipContainer.right = this._navWidth;
         this.addChild(this._leftNav);
         this.addChild(this._chipContainer);
         this.addChild(this._rightNav);
@@ -112,13 +113,14 @@ namespace we {
         }
         this._chipContainer.removeChildren();
         let childpos = 0;
+        const childInterval = (this.width - this._navWidth * 2) / this._visibleDenomNum;
         for (let i = 0; i < this._visibleDenomNum; i += 1) {
           const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
           child.verticalCenter = 0;
-          child.width = (this.width - this._padding * 2) / this._visibleDenomNum;
+          child.width = childInterval - this._containerPadding * 2;
           child.x = childpos;
-          childpos += (1 / this._visibleDenomNum) * (this.width - this._padding * 2);
+          childpos += childInterval;
         }
         this._updateNavigationDisplay();
       }
