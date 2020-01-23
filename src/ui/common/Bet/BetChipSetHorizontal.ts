@@ -1,13 +1,16 @@
 namespace we {
   export namespace ui {
     export class BetChipSetHorizontal extends BetChipSet {
-      private _padding = 40;
+      private _navWidth = 40;
+      private _containerPadding = 5;
       private _startIndex = 0;
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
       private _chipList: Array<IBetChip & core.BaseEUI> = [];
       protected _chipContainer: eui.Component;
+      protected _clipChipHeightPortion: number = 0.85;
+      protected _flatChipHeightPortion: number = 1.05;
 
       public constructor() {
         super();
@@ -25,19 +28,27 @@ namespace we {
         this._chipContainer = new eui.Component();
         this._chipContainer.top = 0;
         this._chipContainer.bottom = 0;
-        this._chipContainer.left = this._padding;
-        this._chipContainer.right = this._padding;
+        this._chipContainer.left = this._navWidth;
+        this._chipContainer.right = this._navWidth;
         this.addChild(this._leftNav);
         this.addChild(this._chipContainer);
         this.addChild(this._rightNav);
         this._visibleDenomNum = 5; // default value
       }
 
-      set visibleDenomNum(value: number) {
+      public set clipChipHeightPortion(value: number) {
+        this._clipChipHeightPortion = value;
+      }
+
+      public set flatChipHeightPortion(value: number) {
+        this._flatChipHeightPortion = value;
+      }
+
+      public set visibleDenomNum(value: number) {
         this._visibleDenomNum = value;
       }
 
-      get visibleDenomNum() {
+      public get visibleDenomNum() {
         return this._visibleDenomNum;
       }
 
@@ -112,13 +123,14 @@ namespace we {
         }
         this._chipContainer.removeChildren();
         let childpos = 0;
+        const childInterval = (this.width - this._navWidth * 2) / this._visibleDenomNum;
         for (let i = 0; i < this._visibleDenomNum; i += 1) {
           const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
           this._chipContainer.addChild(child);
           child.verticalCenter = 0;
-          child.width = (this.width - this._padding * 2) / this._visibleDenomNum;
+          child.width = childInterval - this._containerPadding * 2;
           child.x = childpos;
-          childpos += (1 / this._visibleDenomNum) * (this.width - this._padding * 2);
+          childpos += childInterval;
         }
         this._updateNavigationDisplay();
       }
@@ -128,7 +140,7 @@ namespace we {
         this._denomList.map((value, index) => {
           const betChip = new BetChip(value);
           betChip.index = index;
-          betChip.height = this.height * 0.75;
+          betChip.height = this.height * this._clipChipHeightPortion;
           betChip.type = we.core.ChipType.CLIP;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
           this._chipList.push(betChip);
@@ -145,12 +157,12 @@ namespace we {
       private _onChipSelected(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
         this._chipList[this._selectedChipIndex].type = we.core.ChipType.CLIP;
-        this._chipList[this._selectedChipIndex].height = this.height * 0.75;
+        this._chipList[this._selectedChipIndex].height = this.height * this._clipChipHeightPortion;
         this._chipList[this._selectedChipIndex].verticalCenter = 0;
 
         this._chipList[index].highlight = true;
         this._chipList[index].type = we.core.ChipType.FLAT;
-        this._chipList[index].height = this.height;
+        this._chipList[index].height = this.height * this._flatChipHeightPortion;
         this._chipList[index].verticalCenter = 0;
         this._chipList[index].draw();
 

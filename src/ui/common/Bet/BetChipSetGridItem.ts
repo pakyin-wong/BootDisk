@@ -11,8 +11,8 @@ namespace we {
       public content: eui.Group;
 
       protected _betChip: BetChip;
-      protected _betChipHeight: number = 85;
-      protected _betChipWidth: number = 85;
+      protected _betChipHeight: number = 56;
+      protected _betChipWidth: number = 70;
 
       public constructor() {
         super();

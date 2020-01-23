@@ -98,9 +98,9 @@ namespace we {
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = new BetChip(this._denomList[value], value, this._chipType);
-              chip.labelSize = this._chipLabelSize;
-              chip.labelOffset = this._chipLabelOffset;
+              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.CLIP);
+              // chip.labelSize = this._chipLabelSize;
+              // chip.labelOffset = this._chipLabelOffset;
               this._chips.push(chip);
             }
           });

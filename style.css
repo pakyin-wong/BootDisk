@@ -1,7 +1,3 @@
-html {
-    height: calc(100% + 72px);
-}
-
 .iPhone.MainWindow.MobileSafari {
     -webkit-user-drag: none
 }
@@ -21,7 +17,7 @@ html {
 
 .iPhone.MainWindow.fullscreen-visible,
 .iPhone.MainWindow.fullscreen-visible body {
-    background: gray
+    background: #222222;
 }
 
 .fullscreen-reserve {

@@ -2,6 +2,20 @@ class Main extends eui.UILayer {
   protected createChildren(): void {
     super.createChildren();
 
+    egret.lifecycle.addLifecycleListener(context => {
+      // custom lifecycle plugin
+    });
+
+    egret.lifecycle.onPause = () => {
+      dir.audioCtr.pause();
+      // egret.ticker.pause();
+    };
+
+    egret.lifecycle.onResume = () => {
+      dir.audioCtr.resume();
+      // egret.ticker.resume();
+    };
+
     mouse.enable(this.stage);
     this.stage['inFocusItems'] = [];
 
