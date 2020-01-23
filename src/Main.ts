@@ -17,8 +17,9 @@ class Main extends eui.UILayer {
     };
 
     mouse.enable(this.stage);
-
     this.stage['inFocusItems'] = [];
+
+    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
 
     this.init().catch(err => {
       logger.e(err);

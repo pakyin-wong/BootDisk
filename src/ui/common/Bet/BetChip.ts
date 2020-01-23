@@ -46,10 +46,10 @@ namespace we {
         if (value) {
           this._glowImage = new eui.Image();
           this._glowImage.source = 'd_lobby_panel_betcontrol_chips_select_png';
-          this._glowImage.bottom = this._chipImage.bottom;
-          this._glowImage.top = this._chipImage.top;
-          this._glowImage.left = this._chipImage.left;
-          this._glowImage.right = this._chipImage.right;
+          this._glowImage.bottom = this._chipImage.bottom - 6;
+          this._glowImage.top = this._chipImage.top - 6;
+          this._glowImage.left = this._chipImage.left - 6;
+          this._glowImage.right = this._chipImage.right - 6;
           this._glowImage.verticalCenter = this._chipImage.verticalCenter;
           this._glowImage.horizontalCenter = this._chipImage.horizontalCenter;
           this._glowImage.height = this._chipImage.height;
@@ -109,13 +109,16 @@ namespace we {
           case we.core.ChipType.FLAT:
             this._chipValueLabel.text = utils.numberToFaceValue(this._value);
             this._chipImage.source = this.getChipSource(this._type);
-            this._chipValueLabel.height = this.height * 0.6;
+            this._chipValueLabel.verticalCenter = this.height * -0.012;
+            this._chipValueLabel.height = this.height * 0.5;
+            // this._chipValueLabel.width = this.width * 0.3;
             break;
           case we.core.ChipType.CLIP:
             this._chipValueLabel.text = utils.numberToFaceValue(this._value);
             this._chipImage.source = this.getChipSource(this._type);
-            this._chipValueLabel.verticalCenter = this.height * -0.01;
+            this._chipValueLabel.verticalCenter = this.height * -0.072;
             this._chipValueLabel.height = this.height * 0.3;
+            // this._chipValueLabel.width = this.width * 0.3;
             break;
           case we.core.ChipType.BETTING:
           default:

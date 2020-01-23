@@ -74,7 +74,7 @@ namespace we {
       }
 
       private _goodRoadUpdateCallback(data: any) {
-        env.goodRoadData = data;
+        env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
         dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
       }
 
@@ -348,7 +348,7 @@ namespace we {
 
         const totalCount: number = bankerCount + playerCount + tieCount;
 
-        tableInfo.roadmap = roadmapData;
+        tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
         const stats = new we.data.GameStatistic();
         stats.bankerCount = bankerCount;

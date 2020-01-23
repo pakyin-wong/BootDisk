@@ -65,16 +65,17 @@ namespace we {
             for (let i = 0; i < 3; i++) {
               const face = new egret.DisplayObjectContainer();
               const circle = new egret.Shape();
-              if (m === 0) {
-                const fillMatrix = new egret.Matrix();
-                fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);
-                circle.graphics.beginGradientFill(egret.GradientType.LINEAR, gradientColors[i + d * 3], [1, 1], [0, 255], fillMatrix);
-                circle.graphics.drawCircle(circleRadius + offset, circleRadius + offset, circleRadius);
-                circle.graphics.endFill();
-              } else if (m === 1) {
+
+              // if (m === 0) {
+              const fillMatrix = new egret.Matrix();
+              fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);
+              circle.graphics.beginGradientFill(egret.GradientType.LINEAR, gradientColors[i + d * 3], [1, 1], [0, 255], fillMatrix);
+              circle.graphics.drawCircle(circleRadius + offset, circleRadius + offset, circleRadius);
+              circle.graphics.endFill();
+              /*} else if (m === 1) {
                 circle.graphics.lineStyle(3, colors[i + d * 3], 1, true);
                 circle.graphics.drawCircle(circleRadius + offset, circleRadius + offset, circleRadius);
-              }
+              }*/
 
               face.addChild(circle);
 
@@ -83,11 +84,12 @@ namespace we {
               const tf = new egret.TextField();
               tf.textAlign = egret.HorizontalAlign.CENTER;
               tf.verticalAlign = egret.VerticalAlign.MIDDLE;
-              if (m === 0) {
-                tf.textColor = 0xffffff;
-              } else if (m === 1) {
+              // if (m === 0) {
+              tf.textColor = 0xffffff;
+              /*} else if (m === 1) {
                 tf.textColor = tfColor[i + d * 3];
-              }
+              }*/
+
               tf.text = '';
               tf.width = this.size;
               tf.height = this.size;
