@@ -39,6 +39,7 @@ declare class PlayerClient {
         [key: string]: string;
     }): void;
     getLobbyMaterial(callback: (data: LobbyMaterial) => any): void;
+    resetRoadmap(callback: Function): void;
     getRoadmap(callback: Function): void;
     updateDefaultRoadmap(ids: string[], callback: Function): void;
     createCustomRoadmap(name: string, pattern: string, callback: Function): void;
