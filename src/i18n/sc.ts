@@ -20,6 +20,9 @@ namespace we {
       betfield_baccarat_player_pair: '闲对',
       betfield_baccarat_super_six: '超级六',
       betfield_baccarat_super_six_banker: '庄',
+      betfield_dragonTiger_dragon: '龙',
+      betfield_dragonTiger_tiger: '虎',
+      betfield_dragonTiger_tie: '和',
 
       playerprofile_maxWinAmount: '最大嬴钱数目',
       playerprofile_maxWinCount: '最大连嬴次数',
@@ -65,6 +68,8 @@ namespace we {
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '闲',
+      overlaypanel_bethistory_dtresult_dragon: '龙',
+      overlaypanel_bethistory_dtresult_tiger: '虎',
 
       overlaypanel_bethistory_searchtype_all: '全部游戏',
 
@@ -97,6 +102,7 @@ namespace we {
           road: '好路提示',
           system: '系统设定',
           logout: '登出',
+          confirm: '确定',
         },
         system: {
           title: '系统设定',

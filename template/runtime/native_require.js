@@ -13,17 +13,16 @@ egret_native.requireFiles = function () {
 };
 
 egret_native.egretInit = function () {
-    if(egret_native.featureEnable) {
+    if (egret_native.featureEnable) {
         //控制一些优化方案是否开启
         //Control whether some optimization options are open
         var result = egret_native.featureEnable({
-            
+
         });
     }
     egret_native.requireFiles();
     egret.dom = {};
-    egret.dom.drawAsCanvas = function () {
-    };
+    egret.dom.drawAsCanvas = function () {};
 };
 
 egret_native.egretStart = function () {
@@ -31,19 +30,19 @@ egret_native.egretStart = function () {
         //以下为自动修改，请勿修改
         //The following is automatically modified, please do not modify
         //----auto option start----
-		entryClassName: "Main",
-		frameRate:  30,
-		scaleMode: "showAll",
-		contentWidth: 2600,
-		contentHeight: 1340,
-		showPaintRect: false,
-		showFPS: false,
-		fpsStyles: "x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9",
-		showLog: false,
-		logFilter: "",
-		maxTouches: 2,
-		textureScaleFactor: 1
-		//----auto option end----
+        entryClassName: "Main",
+        frameRate: 30,
+        scaleMode: "showAll",
+        contentWidth: 2600,
+        contentHeight: 1340,
+        showPaintRect: false,
+        showFPS: false,
+        fpsStyles: "x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9",
+        showLog: false,
+        logFilter: "",
+        maxTouches: 2,
+        textureScaleFactor: 1
+        //----auto option end----
     };
 
     egret.native.NativePlayer.option = option;
