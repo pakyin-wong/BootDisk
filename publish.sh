@@ -2,10 +2,10 @@ arch=$(uname -s)
 
 if [ -z "$1" ]
   then
-    echo "Please specify the target platform (testing|staging|production)"
+    echo "Please specify the target platform (testing|staging|production|development)"
     exit 1
-elif [ "$1" != "staging" ] && [ "$1" != "production" ] && [ "$1" != "testing" ]; then
-    echo "Unknown target platform (testing|staging|production)"
+elif [ "$1" != "staging" ] && [ "$1" != "production" ] && [ "$1" != "development" ] && [ "$1" != "testing" ]; then
+    echo "Unknown target platform (development|testing|staging|production)"
     exit 1
 fi
 

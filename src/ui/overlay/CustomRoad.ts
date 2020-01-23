@@ -54,6 +54,12 @@ namespace we {
         this._cover.visible = false;
 
         this._defaultButton.label.renderText = () => `${i18n.t('overlaypanel_customroad_default')}`;
+
+        this._defaultButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDefaultClicked, this);
+      }
+
+      private onDefaultClicked(e: egret.TouchEvent) {
+        dir.socket.resetGoodRoadmap();
       }
 
       protected destroy() {

@@ -9,7 +9,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkinByClassname('dt.AlreadyBetCardHolderSkin');
+        this.skinName = utils.getSkinByClassname('dt.BetItemCardHolderSkin');
 
         this.lblDragonName.renderText = () => `${i18n.t('dragontiger.dragon')}`;
         this.lblTigerName.renderText = () => `${i18n.t('dragontiger.tiger')}`;

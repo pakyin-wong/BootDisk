@@ -75,11 +75,11 @@ declare module skin_desktop.ba{
 	}
 }
 declare module skin_desktop.ba{
-	class AlreadyBetCardHolderSkin extends eui.Skin{
+	class CardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ba{
-	class CardHolderSkin extends eui.Skin{
+	class BetItemCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ba{
@@ -225,7 +225,7 @@ declare module skin_desktop.dt{
 	}
 }
 declare module skin_desktop.dt{
-	class AlreadyBetCardHolderSkin extends eui.Skin{
+	class BetItemCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.dt{

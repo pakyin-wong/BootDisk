@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ba.AlreadyBetCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+<e:Skin class="skin_desktop.ba.BetItemCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
         xmlns:w="http://ns.egret.com/wing" width="339">
         <e:Group id="playerSumGroup" left="0" width="169" height="100%">
                 <e:Image source="d_lobby_panel_gamelist_betresult_player_png" width="40" right="0" height="100%" y="0" />

@@ -255,6 +255,15 @@ namespace we {
         this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
       }
 
+      public resetGoodRoadmap() {
+        this.mockGoodRoadMapData.default.forEach((item, index) => {
+          item.enabled = true;
+        });
+        this.mockGoodRoadMapData.custom.forEach((item, index) => {
+          item.enabled = false;
+        });
+      }
+
       private _goodRoadUpdateCallback(data: data.GoodRoadMapData) {
         env.goodRoadData = data;
         dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
