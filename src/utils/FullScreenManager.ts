@@ -352,11 +352,14 @@ class ScreenFull {
       elem[request]({
         navigationUI: 'hide',
       });
-    } else if (/5\.1[\.\d]* Safari/.test(navigator.userAgent)) {
-      elem[request]();
     } else {
-      elem[request](this.keyboardAllowed && elem.ALLOW_KEYBOARD_INPUT);
+      elem[request]();
     }
+    // else if (/5\.1[\.\d]* Safari/.test(navigator.userAgent)) {
+    //   elem[request]();
+    // } else {
+    //   elem[request](this.keyboardAllowed && elem.ALLOW_KEYBOARD_INPUT);
+    // }
   }
 
   public exit() {
@@ -407,7 +410,7 @@ class FullScreenManager {
     return this.screenfull.isFullscreen;
   }
 
-  public static Init() {
+  public static Init(stage: egret.Stage) {
     if (env.UAInfo.device.type !== 'mobile') {
       return;
     }
@@ -420,14 +423,15 @@ class FullScreenManager {
     //   setTimeout(self.Init, 50);
     //   return
     // }
-    // if (this.screenfull && this.screenfull.enabled)
-    //   inputMng.addEventHandler(ColliderEvent.ButtonUp, new EventHandler(self, self.RequestFullscreen));
+    if (this.screenfull && this.screenfull.enabled) {
+      stage.addEventListener(egret.TouchEvent.TOUCH_TAP, self.RequestFullscreen, self);
+    }
     FullScreenIPhoneHelper.Init();
   }
 
-  public static OnLoad() {
+  public static OnLoad(stage: egret.Stage) {
     const self = FullScreenManager;
-    self.Init();
+    self.Init(stage);
     (<any> window).RequestFullscreen = self.RequestFullscreen;
     (<any> window).ExitFullscreen = self.ExitFullscreen;
     (<any> window).IsFullscreen = self.IsFullscreen;
