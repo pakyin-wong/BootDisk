@@ -73,6 +73,10 @@ namespace we {
         this.client.removeCustomRoadmap(id, this._goodRoadUpdateCallback);
       }
 
+      public resetGoodRoadmap() {
+        this.client.resetRoadmap(this._goodRoadUpdateCallback);
+      }
+
       private _goodRoadUpdateCallback(data: any) {
         env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
         dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
