@@ -67,7 +67,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = this.mockRoadData;
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
           data.gametype = core.GameType.BAC;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -100,7 +100,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = this.mockRoadData;
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
           data.gametype = core.GameType.DT;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -210,32 +210,8 @@ namespace we {
         custom: [{ enabled: true, id: 'Abcde', name: 'my road', pattern: 'bbpbb' }],
         default: [{ enabled: true, id: 'r1', name: 'r1', pattern: 'bbbb' }],
       };
-      private mockGoodRoadMapData: data.GoodRoadMapData = this.createMockGoodRoadMapData();
 
-      private createMockGoodRoadMapData(): data.GoodRoadMapData {
-        const map = new data.GoodRoadMapData();
-        map.custom = [];
-        map.default = [];
-
-        this.mockGoodRoadRawData.custom.forEach(element => {
-          const item = new data.GoodRoadMapItemData();
-          item.enabled = element.enabled;
-          item.id = element.id;
-          item.name = element.name;
-          item.pattern = element.pattern;
-          map.custom.push(item);
-        });
-
-        this.mockGoodRoadRawData.default.forEach(element => {
-          const item = new data.GoodRoadMapItemData();
-          item.enabled = element.enabled;
-          item.id = element.id;
-          item.name = element.name;
-          item.pattern = element.pattern;
-          map.default.push(item);
-        });
-        return map;
-      }
+      private mockGoodRoadMapData: data.GoodRoadMapData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(this.mockGoodRoadRawData);
 
       public getGoodRoad() {
         this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
@@ -461,9 +437,9 @@ namespace we {
         inGameInfoStart: 0,
 
         gameInfo: [
-          { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 1 },
-          { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, winType: 2 },
-          { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, winType: 3 },
+          { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
+          { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
+          { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
         ],
       };
 

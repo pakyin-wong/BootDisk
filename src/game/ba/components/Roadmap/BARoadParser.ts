@@ -455,6 +455,163 @@ namespace we {
         }
         return {};
       }
+
+      public static CreateRoadmapDataFromObject(data: any): we.data.RoadmapData {
+        const road: we.data.RoadmapData = new we.data.RoadmapData();
+        road.tableID = data.tableID;
+        road.shoeID = data.shoeID;
+
+        // road.playerwincount = data.playerwincount;
+        // road.bankerwincount = data.bankerwincount;
+        // road.tiewincount = data.tiewincount;
+        // road.playerpairwincount = data.playerpairwincount;
+        // road.bankerpairwincount = data.bankerpairwincount;
+
+        road.inGameInfoStart = data.inGameInfoStart;
+
+        if (data.inGame !== undefined) {
+          road.inGame = BARoadParser.CreateRoadmapSetFromObject(data.inGame);
+        }
+        if (data.inGameB !== undefined) {
+          road.inGameB = BARoadParser.CreateRoadmapSetFromObject(data.inGameB);
+        }
+        if (data.inGameP !== undefined) {
+          road.inGameP = BARoadParser.CreateRoadmapSetFromObject(data.inGameP);
+        }
+        if (data.lobbyPro !== undefined) {
+          road.lobbyPro = BARoadParser.CreateRoadmapSetFromObject(data.lobbyPro);
+        }
+        if (data.lobbyProB !== undefined) {
+          road.lobbyProB = BARoadParser.CreateRoadmapSetFromObject(data.lobbyProB);
+        }
+        if (data.lobbyProP !== undefined) {
+          road.lobbyProP = BARoadParser.CreateRoadmapSetFromObject(data.lobbyProP);
+        }
+        if (data.sideBar !== undefined) {
+          road.sideBar = BARoadParser.CreateRoadmapSetFromObject(data.sideBar);
+        }
+        if (data.lobbyUnPro !== undefined) {
+          road.lobbyUnPro = BARoadParser.CreateRoadmapSetFromObject(data.lobbyUnPro);
+        }
+
+        if (data.gameInfo !== undefined) {
+          road.gameInfo = [];
+          data.gameInfo.forEach(element => {
+            road.gameInfo.push(BARoadParser.CreateRoadmapGameInfoFromObject(element));
+          });
+        }
+
+        return road;
+      }
+
+      private static CreateRoadmapSetFromObject(data: any): we.data.RoadmapSet {
+        const roadSet = new we.data.RoadmapSet();
+        if (data.bead !== undefined) {
+          roadSet.bead = [];
+          data.bead.forEach(element => {
+            roadSet.bead.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.bigRoad !== undefined) {
+          roadSet.bigRoad = [];
+          data.bigRoad.forEach(element => {
+            roadSet.bigRoad.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.bigEye !== undefined) {
+          roadSet.bigEye = [];
+          data.bigEye.forEach(element => {
+            roadSet.bigEye.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.small !== undefined) {
+          roadSet.small = [];
+          data.small.forEach(element => {
+            roadSet.small.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.roach !== undefined) {
+          roadSet.roach = [];
+          data.roach.forEach(element => {
+            roadSet.roach.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.beadAni !== undefined) {
+          roadSet.beadAni = data.beadAni;
+        }
+        if (data.bigRoadAni !== undefined) {
+          roadSet.bigRoadAni = data.bigRoadAni;
+        }
+        if (data.bigEyeAni !== undefined) {
+          roadSet.bigEyeAni = data.bigEyeAni;
+        }
+        if (data.smallAni !== undefined) {
+          roadSet.smallAni = data.smallAni;
+        }
+        if (data.roachAni !== undefined) {
+          roadSet.roachAni = data.roachAni;
+        }
+
+        return roadSet;
+      }
+
+      private static CreateRoadmapCellFromObject(data: any): we.data.RoadmapCell {
+        const roadCell = new we.data.RoadmapCell();
+        if (data.v !== undefined) {
+          roadCell.v = data.v;
+        }
+        if (data.b !== undefined) {
+          roadCell.b = data.b;
+        }
+        if (data.p !== undefined) {
+          roadCell.p = data.p;
+        }
+        if (data.w !== undefined) {
+          roadCell.w = data.w;
+        }
+        return roadCell;
+      }
+
+      private static CreateRoadmapGameInfoFromObject(data: any): we.data.RoadmapGameInfo {
+        const roadInfo = new we.data.RoadmapGameInfo();
+        if (data.a1 !== undefined) {
+          roadInfo.a1 = data.a1;
+        }
+        if (data.a2 !== undefined) {
+          roadInfo.a2 = data.a2;
+        }
+        if (data.a3 !== undefined) {
+          roadInfo.a3 = data.a3;
+        }
+        if (data.b1 !== undefined) {
+          roadInfo.b1 = data.b1;
+        }
+        if (data.b2 !== undefined) {
+          roadInfo.b2 = data.b2;
+        }
+        if (data.b3 !== undefined) {
+          roadInfo.b3 = data.b3;
+        }
+        if (data.bv !== undefined) {
+          roadInfo.bv = data.bv;
+        }
+        if (data.pv !== undefined) {
+          roadInfo.pv = data.pv;
+        }
+        if (data.gameRoundID !== undefined) {
+          roadInfo.gameRoundID = data.gameRoundID;
+        }
+        if (data.result !== undefined) {
+          roadInfo.result = data.result;
+        }
+
+        return roadInfo;
+      }
     }
   }
 }

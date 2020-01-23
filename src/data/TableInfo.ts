@@ -16,7 +16,7 @@ namespace we {
       public roundid?: string;
       public totalWin?: number = NaN;
       public data?: any;
-      public roadmap?: any;
+      public roadmap?: RoadmapData;
       public complete?: number;
       public gamestatistic?: GameStatistic; // game statistics (banker/player/tie Count)
       public betInfo?: GameTableBetInfo;

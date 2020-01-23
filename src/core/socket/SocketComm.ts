@@ -74,29 +74,7 @@ namespace we {
       }
 
       private _goodRoadUpdateCallback(data: any) {
-        const map = new we.data.GoodRoadMapData();
-        map.custom = [];
-        map.default = [];
-
-        data.custom.forEach(element => {
-          const item: data.GoodRoadMapItemData = new we.data.GoodRoadMapItemData();
-          item.enabled = element.enabled;
-          item.id = element.id;
-          item.name = element.name;
-          item.pattern = element.pattern;
-          map.custom.push(item);
-        });
-
-        data.default.forEach(element => {
-          const item: data.GoodRoadMapItemData = new we.data.GoodRoadMapItemData();
-          item.enabled = element.enabled;
-          item.id = element.id;
-          item.name = element.name;
-          item.pattern = element.pattern;
-          map.default.push(item);
-        });
-
-        env.goodRoadData = map;
+        env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
         dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
       }
 
@@ -370,7 +348,7 @@ namespace we {
 
         const totalCount: number = bankerCount + playerCount + tieCount;
 
-        tableInfo.roadmap = roadmapData;
+        tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
         const stats = new we.data.GameStatistic();
         stats.bankerCount = bankerCount;
