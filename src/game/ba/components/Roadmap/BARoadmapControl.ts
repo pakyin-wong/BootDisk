@@ -48,6 +48,7 @@ namespace we {
 
         // dark/light mode
         dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        this.onModeUpdate(null);
       }
 
       protected onBeadRoadOver(e: egret.Event) {
@@ -153,7 +154,7 @@ namespace we {
 
       // DarkMode
       protected onModeUpdate(e: egret.Event) {
-        this.beadRoad.DarkMode = e.data.mode === 1 ? 1 : 0;
+        this.beadRoad.DarkMode = env.mode === 1 ? 1 : 0;
         this.bigRoad.DarkMode = this.beadRoad.DarkMode;
         this.bigEyeRoad.DarkMode = this.beadRoad.DarkMode;
         this.smallRoad.DarkMode = this.beadRoad.DarkMode;
