@@ -206,10 +206,10 @@ namespace we {
           enddate: this._endtime * 1000,
           limit: this._limit,
           offset: (this._page - 1) * this._limit,
+          filter: this._type,
           search: this._tf_search.text,
         };
 
-        this._type >= 0 && (opt['filter'] = this._type);
         dir.socket.getBetHistory(opt, this.update, this);
       }
 
