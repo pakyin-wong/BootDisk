@@ -66,15 +66,26 @@ namespace we {
       public itemDataChanged() {
         super.itemDataChanged();
         logger.l('TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
+        let prevTableid = '';
         if (this.itemData) {
           if (env && env.tableInfos && env.tableInfos[this.itemData]) {
+            if (this.tableInfo) {
+              prevTableid = this.tableInfo.tableid;
+            }
             this.tableInfo = env.tableInfos[this.itemData];
+
+            if (this.tableInfo && prevTableid !== this.itemData) {
+              this.initDisplayItem();
+            }
+
             if (this._displayItem) {
               this._displayItem.setData(this.tableInfo);
             }
           }
         }
       }
+
+      protected initDisplayItem() {}
 
       public setDisplayItem(item: TableListItem) {
         this.content.removeChildren();
@@ -89,7 +100,21 @@ namespace we {
           return;
         }
         dir.socket.enterTable(this.itemData);
-        dir.sceneCtr.goto('ba', { tableid: this.itemData });
+        this.gotoScene();
+      }
+
+      protected gotoScene() {
+        const gameType = env.tableInfos[this.itemData].gametype;
+        switch (gameType) {
+          case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
+            dir.sceneCtr.goto('ba', { tableid: this.itemData });
+            break;
+          case core.GameType.DT:
+            dir.sceneCtr.goto('dt', { tableid: this.itemData });
+            break;
+        }
       }
     }
   }

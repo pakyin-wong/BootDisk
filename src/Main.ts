@@ -1,23 +1,28 @@
 class Main extends eui.UILayer {
   protected createChildren(): void {
     super.createChildren();
-    // add global mouse event handler
+
+    egret.lifecycle.addLifecycleListener(context => {
+      // custom lifecycle plugin
+    });
+
+    egret.lifecycle.onPause = () => {
+      dir.audioCtr.pause();
+      // egret.ticker.pause();
+    };
+
+    egret.lifecycle.onResume = () => {
+      dir.audioCtr.resume();
+      // egret.ticker.resume();
+    };
+
     mouse.enable(this.stage);
+    this.stage['inFocusItems'] = [];
 
-    // egret.lifecycle.addLifecycleListener(context => {
-    //   // custom lifecycle plugin
-    // });
+    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
 
-    // egret.lifecycle.onPause = () => {
-    //   egret.ticker.pause();
-    // };
-
-    // egret.lifecycle.onResume = () => {
-    //   egret.ticker.resume();
-    // };
-
-    this.init().catch(error => {
-      console.error(error);
+    this.init().catch(err => {
+      logger.e(err);
     });
   }
 
@@ -40,30 +45,63 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
+    dir.uaParser = new UAParser();
+    env.UAInfo = dir.uaParser.getResult();
+    const cn = [];
+    cn.push('MainWindow');
+    cn.push(env.UAInfo.os.name);
+    cn.push(env.UAInfo.browser.name);
+    if (env.UAInfo.device.vendor === 'Apple' && env.UAInfo.device.type === 'mobile') {
+      cn.push('iPhone');
+    }
+    document.documentElement.className = cn.join(' ');
+    FullScreenManager.OnLoad(this.stage);
+    IPhoneChromeFullscreen.OnLoad(this.stage);
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
 
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
+    // egret.sys.resizeContext
+    // egret.updateAllScreens();
+    const newScreenFunction = () => {
+      this.updateAllScreens();
+      console.log('*******************************updateAllScreens***********************************');
+    };
+    egret.updateAllScreens = newScreenFunction;
+  }
+
+  private updateAllScreens() {
+    const containerList = document.querySelectorAll('.egret-player');
+    const length = containerList.length;
+    for (let i = 0; i < length; i++) {
+      const container = containerList[i];
+      const player = container['egret-player'];
+      player.updateScreenSize();
+    }
   }
 
   private async initRes() {
+    const versionController = new we.core.VersionController();
+    await versionController.init();
+
     egret.registerImplementation('eui.IAssetAdapter', new AssetAdapter());
     egret.registerImplementation('eui.IThemeAdapter', new ThemeAdapter());
+    RES.registerVersionController(versionController);
     try {
-      await RES.loadConfig('resource/default.res.json', 'resource/');
+      await RES.loadConfig(`resource/default.res.json`, 'resource/');
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      logger.e(err);
     }
   }
 
   private loadTheme(): Promise<{}> {
-    const prerequisiteTheme = new eui.Theme('resource/preloaddefault.thm.json', this.stage);
-    const theme = new eui.Theme('resource/default.thm.json', this.stage);
+    const prerequisiteTheme = new eui.Theme(`resource/preloaddefault.thm.json`, this.stage);
+    const theme = new eui.Theme(`resource/default.thm.json`, this.stage);
     return we.utils.wait(theme, eui.UIEvent.COMPLETE);
   }
 }

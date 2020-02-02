@@ -34,15 +34,17 @@ namespace we {
         const arr = roadmapData
           .toLowerCase()
           .split('')
-          .forEach(e => data.push({ V: e }));
+          .forEach(e => data.push({ v: e }));
 
         this.parser.parseData(data);
       }
 
-      public dispose() {
+      public destroy() {
+        super.destroy();
         if (this.parser.hasEventListener('onUpdate')) {
           this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
         }
+        this.bigRoad.dispose();
       }
     }
   }

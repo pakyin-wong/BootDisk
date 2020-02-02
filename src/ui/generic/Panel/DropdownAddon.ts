@@ -1,9 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IDropdown {
-      dropdownScroller: ui.Scroller;
-    }
-
     export function NewDropdownItem(key: any, renderText?: () => string) {
       return {
         key,
@@ -32,6 +28,8 @@ namespace we {
           super.init();
           this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onTapItem, this);
           this._list.addEventListener(egret.Event.CHANGE, this.onChange, this);
+          this._list.addEventListener(egret.Event.RENDER, this.onRender, this);
+
           this.target.dropdownScroller.useMiniScrollBar = true;
           this.target.dropdownScroller.viewport = this._list;
         }
@@ -41,6 +39,7 @@ namespace we {
         if (this.isInit) {
           this._list.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onTapItem, this);
           this._list.removeEventListener(egret.Event.CHANGE, this.onChange, this);
+          this._list.removeEventListener(egret.Event.RENDER, this.onRender, this);
           this.target.dropdownScroller.viewport = null;
           this._review = null;
         }
@@ -74,6 +73,10 @@ namespace we {
       protected onChange() {
         this._review.renderText = this._list.selectedItem.renderText;
         this.target.dispatchEvent(new egret.Event('DROPDOWN_ITEM_CHANGE', false, false, this._list.selectedItem.key));
+      }
+
+      protected onRender() {
+        this.target.$setHeight(Math.min(this._list.measuredHeight + this.target.dropdownScroller.top + this.target.dropdownScroller.bottom, this.target.maxHeight));
       }
 
       protected onTapItem(e: eui.PropertyEvent) {

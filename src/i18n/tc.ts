@@ -11,6 +11,7 @@ namespace we {
       gametype_DI: '骰寶',
       gametype_MJ: '麻將',
       gametype_RO: '輪盤',
+      gametype_DT: '龍虎',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
@@ -19,6 +20,9 @@ namespace we {
       betfield_baccarat_player_pair: '閒對',
       betfield_baccarat_super_six: '超級六',
       betfield_baccarat_super_six_banker: '庄',
+      betfield_dragonTiger_dragon: '龍',
+      betfield_dragonTiger_tiger: '虎',
+      betfield_dragonTiger_tie: '和',
 
       overlaypanel_memberreport_title: '會員報表',
       overlaypanel_memberreport_date: '日期',
@@ -32,6 +36,7 @@ namespace we {
       overlaypanel_memberreport_amounttotal: '總金額',
 
       overlaypanel_customroad_title: '好路設定',
+      overlaypanel_customroad_default: '還原預設',
 
       overlaypanel_bethistory_title: '投註記錄',
       overlaypanel_bethistory_date: '日期',
@@ -57,8 +62,20 @@ namespace we {
 
       overlaypanel_bethistory_baresult_banker: '庄',
       overlaypanel_bethistory_baresult_player: '閒',
+      overlaypanel_bethistory_dtresult_dragon: '龍',
+      overlaypanel_bethistory_dtresult_tiger: '虎',
 
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
+
+      datePicker_clean: '清除',
+      datePicker_confirm: '確定',
+      datePicker_weekday_0: '日',
+      datePicker_weekday_1: '一',
+      datePicker_weekday_2: '二',
+      datePicker_weekday_3: '三',
+      datePicker_weekday_4: '四',
+      datePicker_weekday_5: '五',
+      datePicker_weekday_6: '六',
 
       loading: {
         socket: {
@@ -78,6 +95,7 @@ namespace we {
           road: '好路提示',
           system: '系統設定',
           logout: '登出',
+          confirm: '確定',
         },
         system: {
           title: '系統設定',
@@ -140,12 +158,12 @@ namespace we {
         playerPair: '閒對',
         bankerPair: '庄對',
         player: '閒',
-        playerRoadmap: '閒',
+        playerShort: '閒',
         tie: '和',
-        tieRoadmap: '和',
+        tieShort: '和',
         superSix: '超級六',
         banker: '庄',
-        bankerRoadmap: '庄',
+        bankerShort: '庄',
         noComm: '免佣',
         tableInfo: '本檯資訊',
         tableNo: '檯號',
@@ -153,6 +171,7 @@ namespace we {
         dealer: '荷官',
         time: '時間',
         betLimit: '下注限紅',
+        betLimitshort: '限紅',
         baccarat: '百家樂',
         gameroundid: '遊戲編號',
         totalbet: '總投注',
@@ -163,16 +182,42 @@ namespace we {
         removeGoodRoad: '刪除路紙？',
         confirmRemoveGoodRoad: '刪除',
         cancelRemoveGoodRoad: '取消',
-        result: {
-          BANKER: '庄贏',
-          PLAYER: '閒贏',
-          TIE: '和',
-        },
         noCommission: '免佣',
+        clickToSeeVideo: '點擊播放本局視頻',
+      },
+      dragontiger: {
+        dragon: '龍',
+        tiger: '虎',
+        tie: '和',
+        dragonShort: '龍',
+        tigerShort: '虎',
+        tieShort: '和',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',
         unknownError: '發生未知錯誤',
+      },
+      winType: {
+        ba: {
+          BANKER: '庄贏',
+          PLAYER: '閒贏',
+          TIE: '和',
+          short: {
+            BANKER: '庄',
+            PLAYER: '閒',
+            TIE: '和',
+          },
+        },
+        dt: {
+          DRAGON: '龍贏',
+          TIGER: '虎贏',
+          TIE: '和',
+          short: {
+            DRAGON: '龍',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
       },
     };
   }

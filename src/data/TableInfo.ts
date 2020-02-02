@@ -10,9 +10,13 @@ namespace we {
       public videourls?: [string];
       public state?: number;
       public bets?: BetDetail[];
+      public prevbets?: BetDetail[];
+      public prevbetsroundid?: string;
+      public prevroundid?: string;
+      public roundid?: string;
       public totalWin?: number = NaN;
       public data?: any;
-      public roadmap?: any;
+      public roadmap?: RoadmapData;
       public complete?: number;
       public gamestatistic?: GameStatistic; // game statistics (banker/player/tie Count)
       public betInfo?: GameTableBetInfo;

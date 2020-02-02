@@ -112,37 +112,37 @@ namespace we {
       public setByObject(value: any) {
         this.reset();
 
-        if (value.V != null) {
+        if (value.v != null) {
           const useDarkMode = this.darkModeNumber === 0 ? 0 : 2;
 
-          if (value.V === 'b') {
+          if (value.v === 'b') {
             this.iconFaceArr[0 + useDarkMode].visible = true;
-          } else if (value.V === 'p') {
+          } else if (value.v === 'p') {
             this.iconFaceArr[1 + useDarkMode].visible = true;
           }
 
           if (this.darkModeNumber === 0) {
-            if (!value.T) {
+            if (!value.t) {
               //
-            } else if (value.T === 1) {
+            } else if (value.t === 1) {
               this.tieLine.visible = true;
-            } else if (value.T > 1) {
+            } else if (value.t > 1) {
               this.tieLine.visible = true;
-              this.iconText.text = value.T;
+              this.iconText.text = value.t;
             }
-            this.bankerDot.visible = value.B === 1;
-            this.playerDot.visible = value.P === 1;
+            this.bankerDot.visible = value.b === 1;
+            this.playerDot.visible = value.p === 1;
           } else {
-            if (!value.T) {
+            if (!value.t) {
               //
-            } else if (value.T === 1) {
+            } else if (value.t === 1) {
               this.tieLineDark.visible = true;
-            } else if (value.T > 1) {
+            } else if (value.t > 1) {
               this.tieLineDark.visible = true;
-              this.iconText.text = value.T;
+              this.iconText.text = value.t;
             }
-            this.bankerDotDark.visible = value.B === 1;
-            this.playerDotDark.visible = value.P === 1;
+            this.bankerDotDark.visible = value.b === 1;
+            this.playerDotDark.visible = value.p === 1;
           }
         }
       }

@@ -74,8 +74,30 @@ Full List.
 Tableid and goodroad id matched. Event will be dispatched from backend.
 if (list has new goodroad) we send out Notification.
 
-## Betchips interaction
-1. 
+## Installation for development environment
+### MacOS
+1. Install npm
+2. Install the following programs
+```
+npm install -g tslint prettier typescript
+```
+
+### Windows
+1. Download and install bash from http://www.msys2.org/
+2. Install npm
+3. Install the following programs
+```
+npm install -g tslint prettier typescript
+```
+## Testing Site
+1. [Development](https://dev-web-game-fe.wehosts247.com/)
+
+2. [Staging](https://web-game-fe.wehosts247.com/)
+
+## Auto Dealer
+1. [Development](http://18.139.237.86:8901/?checked=true&uid=H003&local=test)
+
+2. [Staging](http://18.139.237.86:8901/?checked=true&uid=H003)
 
 ## External Resource
 1. [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
@@ -91,3 +113,7 @@ if (list has new goodroad) we send out Notification.
 6. [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
 
 7. [Baccarat Requirement](https://docs.google.com/document/d/1LnNBQPlFsOTKK8xodzg-xC5P_9_uzOzWBsiqt_5ThLw/edit)
+
+8. [Dragon Tiger Requirement](https://docs.google.com/document/d/1V4wFAZuuf6rmdggRk4UrmOkmLd-5Pd28SWY3J96bWNc/edit?ts=5e0ad733)
+
+9. [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)

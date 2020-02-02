@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.DatePickerItem" width="70" height="70" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*"  states="enabled,disabled,single,begin,end,multi" >
+	<e:Rect width="70" height="70" includeIn="single,begin,end,multi" horizontalCenter="0" verticalCenter="0" ellipseHeight="70" ellipseWidth="70" fillColor="0x46bffd" fillColor.begin="0x46bffd" fillColor.end="0x46bffd" ellipseWidth.multi="0" ellipseHeight.multi="0"/>
+	<e:Rect width.begin="35" width.single="35" width.disabled="35" width.enabled="35" height="70" includeIn="begin,end" verticalCenter="0" right.begin="0" right.single="0" right.disabled="0" right.enabled="0" fillColor="0x46bffd" width.end="35" x.end="0" y.end="0" width.multi="35" right.multi="0"/>
+	<ui:RunTimeLabel id="_text" text="Label" left="0" right="0" top="0" bottom="0" textAlign="center" verticalAlign="middle" size="24" fontFamily="Barlow" alpha.disabled="0.7"/>
+</e:Skin>

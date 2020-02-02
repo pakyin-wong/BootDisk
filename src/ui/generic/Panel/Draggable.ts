@@ -1,10 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IDraggable {
-      moveArea: egret.DisplayObject;
-      panelName: string;
-    }
-
     export class DraggableAddon extends DisplayObjectAddon {
       protected target: eui.Component & IDraggable;
 

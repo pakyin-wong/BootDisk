@@ -33,8 +33,8 @@ namespace we {
         this._tabBarGroup.addChild(this.activeLine);
 
         this.initTabs();
-        this.width = this._tabbar.width + 100;
-        this.activeLine.y = this._tabbar.height + 3;
+        this.width = this._tabbar.width + 60;
+        this.activeLine.y = this._tabbar.top + this._tabbar.height + 3;
 
         this.dispatchChange();
       }
@@ -74,7 +74,7 @@ namespace we {
         if (this._label) {
           this._label.visible = false;
         }
-        this.width = this._tabbar.width + 100;
+        this.width = this._tabbar.width + 60;
       }
 
       public get isCollapsed() {
@@ -93,7 +93,7 @@ namespace we {
             this.width = this.measuredWidth;
 
             const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-            this.activeLine.x = (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
+            this.activeLine.x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
             egret.Tween.removeTweens(this.activeLine);
             egret.Tween.get(this.activeLine).to({ width }, this.lineMoveDuration);
             this.dispatchChange();
@@ -104,7 +104,7 @@ namespace we {
           this._viewStack.selectedIndex = this._tabbar.selectedIndex;
 
           const { width } = this._tabbar.$children[this._tabbar.selectedIndex];
-          const x = (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
+          const x = this._tabbar.x + (this._tabbar.$children[this._tabbar.selectedIndex] as ItemRenderer).x;
           egret.Tween.removeTweens(this.activeLine);
           egret.Tween.get(this.activeLine).to({ x, width }, this.lineMoveDuration);
         }

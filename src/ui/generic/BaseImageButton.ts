@@ -12,7 +12,7 @@ namespace we {
       protected _background: eui.Image;
       protected _activeTransitionStopper: () => void;
       protected _group: eui.Group;
-      protected _label: eui.Label;
+      protected _label: ui.RunTimeLabel;
 
       // button states
       protected _buttonState: BaseImageButtonState = BaseImageButtonState.normal;
@@ -21,20 +21,24 @@ namespace we {
       protected _active: boolean = false;
       protected _down: boolean = false;
 
+      public useColorFilter: boolean = false;
+      public downColorOffset: number = -30;
+      public hoverColorOffset: number = 30;
+
       constructor() {
         super();
         if (!this.skinName || this.skinName === '') {
           this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
         }
+        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
         this.touchChildren = false;
         this.buttonEnabled = true;
-        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
       }
 
       public onSkinChanged() {
         /*
         ** to fix egret internal state bug
-        ** occurred on programatical use of BaseImageButton
+        ** occurred on programmatic use of BaseImageButton
         ** ex.
           const img = new we.ui.BaseImageButton();
           img.currentState = btn;
@@ -93,6 +97,10 @@ namespace we {
         this._label.text = text || '';
       }
 
+      public get label(): RunTimeLabel {
+        return this._label;
+      }
+
       private onRollover() {
         this._hover = true;
         this.update();
@@ -119,6 +127,10 @@ namespace we {
       }
 
       private update() {
+        if (this._activeTransitionStopper) {
+          this._activeTransitionStopper();
+        }
+
         let buttonState;
         if (!this._enabled) {
           buttonState = BaseImageButtonState.disabled;
@@ -133,20 +145,48 @@ namespace we {
         if (buttonState === this._buttonState) {
           return;
         }
+
+        if (this.useColorFilter) {
+          this.updateColorFilter(buttonState);
+        } else {
+          this.updateSource(buttonState);
+        }
+
+        this._buttonState = buttonState;
+      }
+
+      protected updateColorFilter(buttonState) {
+        let colorMatrix;
+        let offset = 0;
+        switch (buttonState) {
+          case BaseImageButtonState.hover:
+            offset = this.hoverColorOffset;
+            break;
+          case BaseImageButtonState.down:
+            offset = this.downColorOffset;
+            break;
+        }
+        if (buttonState === BaseImageButtonState.disabled) {
+          colorMatrix = [0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0, 0, 0, 1, 0];
+        } else {
+          colorMatrix = [1, 0, 0, 0, offset, 0, 1, 0, 0, offset, 0, 0, 1, 0, offset, 0, 0, 0, 1, 0];
+        }
+        const colorFilter = new egret.ColorMatrixFilter(colorMatrix);
+        this.filters = [colorFilter];
+      }
+
+      protected updateSource(buttonState) {
         // update button's apperance
         const source = this._background.source;
-        if (source instanceof egret.Texture) {
-          throw new Error('Source cannot be texture');
+        if (!source || source instanceof egret.Texture) {
+          // throw new Error('Source cannot be texture');
+          return;
         }
         const newSource = source.replace(this._buttonState.toString(), buttonState);
         if (RES.getRes(newSource)) {
           // use res string to allow replace
-          if (this._activeTransitionStopper) {
-            this._activeTransitionStopper();
-          }
           this.changeSourceWithAnimation(source, newSource);
         }
-        this._buttonState = buttonState;
       }
 
       private changeSourceWithAnimation(oldsrc, newsrc) {

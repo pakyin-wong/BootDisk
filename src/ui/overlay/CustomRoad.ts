@@ -6,6 +6,7 @@ namespace we {
       private collection: eui.ArrayCollection;
       private _editRoadPanel: ba.GoodRoadEditItem;
       public _cover: eui.Rect;
+      private _defaultButton: ui.BaseImageButton;
 
       constructor() {
         super('overlay/CustomRoad');
@@ -51,6 +52,14 @@ namespace we {
           this.renderFromGoodRoadData();
         }
         this._cover.visible = false;
+
+        this._defaultButton.label.renderText = () => `${i18n.t('overlaypanel_customroad_default')}`;
+
+        this._defaultButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDefaultClicked, this);
+      }
+
+      private onDefaultClicked(e: egret.TouchEvent) {
+        dir.socket.resetGoodRoadmap();
       }
 
       protected destroy() {
@@ -102,7 +111,7 @@ namespace we {
         if (e.data.roadType === 1) {
           // default
           const roadsEnabled = [];
-          const defaults = env.goodRoadData.default.slice();
+          const defaults: data.GoodRoadMapItemData[] = env.goodRoadData.default.slice();
           defaults.forEach(element => {
             if (element.id === e.data.id) {
               element.enabled = e.data.enabled;
@@ -124,7 +133,7 @@ namespace we {
       }
 
       private renderFromGoodRoadData() {
-        const roadData = env.goodRoadData;
+        const roadData: data.GoodRoadMapData = env.goodRoadData;
 
         // clean existing roads
         this.collection.removeAll();
@@ -141,10 +150,12 @@ namespace we {
           this.collection.addItem(element);
         });
 
-        // add road
-        this.collection.addItem({
-          type: 0,
-        });
+        if (roadData.custom.length < 10) {
+          // add road
+          this.collection.addItem({
+            type: 0,
+          });
+        }
       }
 
       private compareItems(a: any, b: any): boolean {

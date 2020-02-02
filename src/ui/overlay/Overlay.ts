@@ -1,10 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IOverlayToggleOpt {
-      class: string;
-      args?: any[];
-    }
-
     export class Overlay extends core.BaseEUI {
       private _overlayMask: egret.Shape;
       private _onShowItem: Panel;
@@ -31,17 +26,17 @@ namespace we {
       protected onToggle(e: egret.Event) {
         let panel: Panel;
         try {
-          const opt: IOverlayToggleOpt = e.data;
+          const opt: IOverlayOpt = e.data;
           panel = new we.overlay[opt.class](...opt.args);
-        } catch (e) {
-          logger.l(`panel ${e.data} defined error`, e.data);
+        } catch (err) {
+          logger.l(`panel ${e.data} defined error`, e.data, err);
           return;
         }
 
         this.show(panel, e.data);
       }
 
-      public async show(item: Panel, opt: IOverlayToggleOpt) {
+      public async show(item: Panel, opt: IOverlayOpt) {
         if (this._onShowItem != null && this._onShowItemClass === opt.class && this._onShowItemClass !== '') {
           return;
         }
@@ -54,7 +49,6 @@ namespace we {
           this._overlayMask.alpha = 0;
           egret.Tween.removeTweens(this._overlayMask);
           egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
-          this.stage['inFocus'] = true;
         }
 
         this.addItem(item, opt);
@@ -72,15 +66,14 @@ namespace we {
           .call(() => {
             this.removeChildren();
           }, this);
-
-        this.stage['inFocus'] = false;
       }
 
-      private addItem(item: Panel, opt: IOverlayToggleOpt) {
+      private addItem(item: Panel, opt: IOverlayOpt) {
         this._onShowItem = item;
         this._onShowItemClass = opt.class;
         this._onShowItem.isPoppable = true;
         this._onShowItem.dismissOnClickOutside = false;
+        this._onShowItem.isFocusItem = true;
         this._onShowItem.horizontalCenter = 0;
         this._onShowItem.verticalCenter = 0;
         // this._onShowItem.x = (this._overlayMask.width - this._onShowItem.width) * 0.5;

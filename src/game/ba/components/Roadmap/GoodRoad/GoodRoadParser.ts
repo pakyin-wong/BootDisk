@@ -1,8 +1,6 @@
 namespace we {
   export namespace ba {
     export class GoodRoadParser extends BARoadParser {
-      public public;
-
       public constructor(maxCols: any) {
         super(maxCols);
       }
@@ -11,9 +9,9 @@ namespace we {
       public addWin(v: number) {
         let nextResult = {};
         if (v === 0) {
-          nextResult = { V: 'b', B: 0, P: 0, W: 0 };
+          nextResult = { v: 'b', b: 0, p: 0, w: 0 };
         } else {
-          nextResult = { V: 'p', B: 0, P: 0, W: 0 };
+          nextResult = { v: 'p', b: 0, p: 0, w: 0 };
         }
         const result = this.rawResult.slice();
         result.push(nextResult);
@@ -59,13 +57,13 @@ namespace we {
             const currentCol = result[result.length - 1];
 
             // check if there are more than 5 result at current column
-            if (currentCol.length > 5 && currentCol[0].V === 'b') {
+            if (currentCol.length > 5 && currentCol[0].v === 'b') {
               return false;
             }
 
             // if currently is the last column
             if (result.length === this.maxCols[0]) {
-              if (currentCol[0].V !== 'b') {
+              if (currentCol[0].v !== 'b') {
                 return false;
               }
             }
@@ -81,13 +79,13 @@ namespace we {
             const currentCol = result[result.length - 1];
 
             // check if there are more than 5 result at current column
-            if (currentCol.length > 5 && currentCol[0].V === 'p') {
+            if (currentCol.length > 5 && currentCol[0].v === 'p') {
               return false;
             }
 
             // if currently is the last column
             if (result.length === this.maxCols[0]) {
-              if (currentCol[0].V !== 'p') {
+              if (currentCol[0].v !== 'p') {
                 return false;
               }
             }
@@ -101,11 +99,36 @@ namespace we {
         const result = rslt.slice();
         const cleanRslt = [];
         result.forEach(r => {
-          if (r.V) {
+          if (r.v) {
             cleanRslt.push(r);
           }
         });
         return cleanRslt;
+      }
+
+      public static CreateGoodRoadMapDataFromObject(obj: any): data.GoodRoadMapData {
+        const map = new data.GoodRoadMapData();
+        map.custom = [];
+        map.default = [];
+
+        obj.custom.forEach(element => {
+          const item = new data.GoodRoadMapItemData();
+          item.enabled = element.enabled;
+          item.id = element.id;
+          item.name = element.name;
+          item.pattern = element.pattern;
+          map.custom.push(item);
+        });
+
+        obj.default.forEach(element => {
+          const item = new data.GoodRoadMapItemData();
+          item.enabled = element.enabled;
+          item.id = element.id;
+          item.name = element.name;
+          item.pattern = element.pattern;
+          map.default.push(item);
+        });
+        return map;
       }
     }
   }

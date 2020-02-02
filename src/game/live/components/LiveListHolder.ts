@@ -15,7 +15,7 @@ namespace we {
 
       protected async mount() {
         super.mount();
-        this.mode = env.lobbyGridType;
+        this._mode = env.lobbyGridType;
         dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.switchMode, this);
         // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
         // console.log('we.live.LiveListHolder::mount()');
@@ -32,18 +32,31 @@ namespace we {
         this.mode = evt.data;
       }
 
-      set mode(value: we.lobby.mode) {
-        if (this._mode === value) {
+      protected initDisplayItem() {
+        let generalGameType: string;
+
+        if (!this.tableInfo) {
           return;
         }
-        switch (value) {
+
+        switch (this.tableInfo.gametype) {
+          //  switch (0) {
+          case we.core.GameType.BAC:
+          case we.core.GameType.BAI:
+          case we.core.GameType.BAS:
+            generalGameType = 'ba';
+            break;
+          case we.core.GameType.DT:
+          default:
+            generalGameType = 'dt';
+        }
+
+        switch (this._mode) {
           case we.lobby.mode.NORMAL:
             this.width = 578;
             this.height = 388;
-            this._displayItem = new we.ba.BaLiveListItem();
+            this._displayItem = new we.ui.LiveListItem(generalGameType + '.LiveListItemSkin');
             this.setDisplayItem(this._displayItem);
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
             if (this.tableInfo) {
               this.updateDisplayItem();
             }
@@ -53,7 +66,7 @@ namespace we {
           default:
             this.width = 578;
             this.height = 219;
-            this._displayItem = new we.ba.BaLiveListSimpleItem();
+            this._displayItem = new we.ui.LiveListSimpleItem(generalGameType + '.LiveListSimpleItemSkin');
             this.setDisplayItem(this._displayItem);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
@@ -61,7 +74,15 @@ namespace we {
               this.updateDisplayItem();
             }
         }
+      }
+
+      set mode(value: we.lobby.mode) {
+        if (this._mode === value) {
+          return;
+        }
+
         this._mode = value;
+        this.initDisplayItem();
       }
 
       get mode() {
@@ -92,6 +113,9 @@ namespace we {
       }
 
       protected updateDisplayItem() {
+        if (!this._displayItem) {
+          return;
+        }
         this._displayItem.setData(this.tableInfo);
         this.setZIndex();
       }

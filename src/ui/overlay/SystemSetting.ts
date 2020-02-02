@@ -29,6 +29,7 @@ namespace we {
       }
 
       protected mount() {
+        super.mount();
         this._txt_title.renderText = () => `${i18n.t('nav.system.title')}`;
         this._txt_lang.renderText = () => `${i18n.t('nav.system.lang')}`;
         this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
@@ -68,7 +69,7 @@ namespace we {
         ]);
         this._ddm_currBgm.dropdown.select(env.bgm);
 
-        this._txt_version.text = 'v0.00.001';
+        this._txt_version.text = env.version;
 
         this._slider_liveRecord.value = dir.audioCtr.volumeLive;
         this._slider_bgm.value = dir.audioCtr.volumeBGM;
@@ -78,6 +79,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this.removeListeners();
       }
 

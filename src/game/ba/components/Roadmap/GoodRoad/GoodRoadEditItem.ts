@@ -5,14 +5,14 @@ namespace we {
       public itemIndex: number;
 
       private _bigRoad: we.ba.GoodRoadmapEdit;
-      private _bankerButton: ui.RoundButton;
-      private _playerButton: ui.RoundButton;
+      private _bankerButton: ui.BaseImageButton;
+      private _playerButton: ui.BaseImageButton;
       private _textBg: eui.Rect;
       private _titleLabel: eui.EditableText;
-      private _clearButton: ui.RoundButton;
-      private _removeButton: ui.RoundButton;
-      private _removeAllButton: ui.RoundButton;
-      private _saveButton: ui.RoundButton;
+      private _clearButton: ui.BaseImageButton;
+      private _removeButton: ui.BaseImageButton;
+      private _removeAllButton: ui.BaseImageButton;
+      private _saveButton: ui.BaseImageButton;
       private _bigRoadMask: eui.Rect;
 
       private roadId: string;
@@ -93,6 +93,13 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
+        if (this._bigRoad.hasEventListener('update')) {
+          this._bigRoad.removeEventListener('update', this.onBigRoadUpdated, this);
+        }
+
+        if (this.hasEventListener('close')) {
+          this.removeEventListener('close', this.onClose, this);
+        }
       }
 
       private onBigRoadUpdated(e: egret.Event) {
@@ -126,7 +133,7 @@ namespace we {
         if (data.type === 0) {
           // new
           this.roadId = '';
-          this.roadName = i18n.t('baccarat.addNewGoodRoad');
+          this.roadName = i18n.t('baccarat.newGoodRoadName');
           this.roadType = 0;
           this.roadPattern = '';
           this.roadEnabled = true;

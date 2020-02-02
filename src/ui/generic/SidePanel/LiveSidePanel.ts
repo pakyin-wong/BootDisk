@@ -1,3 +1,4 @@
+/* tslint:disable triple-equals */
 namespace we {
   export namespace ui {
     export class LiveSidePanel extends SidePanel {
@@ -7,6 +8,12 @@ namespace we {
 
       protected _dropdown: SidePanelAllGameDropdown;
       protected _label: ui.RunTimeLabel;
+
+      protected allGameList: string[];
+
+      protected filter: core.GameType;
+
+      protected _bg: eui.Image;
 
       constructor() {
         super();
@@ -38,8 +45,10 @@ namespace we {
         scroller.height = group.height;
         betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
+        this.betTableList.isFreezeScrolling = true;
+        this.betTableList.extendHeight = 250;
         this.betTableList.isAnimateItemTransition = true;
-        this.betTableList.itemRenderer = BaSideListBetItemHolder;
+        this.betTableList.itemRenderer = SideListBetItemHolder;
         this.betTableList.layout = this.getLayout();
         scroller.viewport = this.betTableList;
 
@@ -54,8 +63,10 @@ namespace we {
         scroller.height = group.height;
         goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
+        this.goodRoadTableList.isFreezeScrolling = true;
+        this.goodRoadTableList.extendHeight = 250;
         this.goodRoadTableList.isAnimateItemTransition = true;
-        this.goodRoadTableList.itemRenderer = BaSideListItemHolder;
+        this.goodRoadTableList.itemRenderer = SideListItemHolder;
         this.goodRoadTableList.layout = this.getLayout();
         scroller.viewport = this.goodRoadTableList;
 
@@ -70,13 +81,23 @@ namespace we {
         scroller.height = group.height;
         allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
+        this.allTableList.isFreezeScrolling = true;
+        this.allTableList.extendHeight = 250;
         this.allTableList.isAnimateItemTransition = true;
-        this.allTableList.itemRenderer = BaSideListItemHolder;
+        this.allTableList.itemRenderer = SideListItemHolder;
         this.allTableList.layout = this.getLayout();
         allTableGroup.addChild(this.allTableList);
         scroller.viewport = this.allTableList;
 
         this._tabbar.dataProvider = this._viewStack;
+        this._tabbar.validateNow();
+        let tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_green_png';
+
+        tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_png';
+
+        this._bg.alpha = 0;
       }
 
       protected getLayout() {
@@ -94,17 +115,65 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
         // listen to bet list update
         dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+
+        this._dropdown.addEventListener(eui.UIEvent.CHANGE, this.onFilterChanged, this);
+      }
+
+      protected destroy() {
+        // listen to table list update
+        dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
+        // listen to good road list update
+        dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
+        // listen to bet list update
+        dir.evtHandler.removeEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+
+        this._dropdown.removeEventListener(eui.UIEvent.CHANGE, this.onFilterChanged, this);
+      }
+
+      protected onFilterChanged(evt: egret.Event) {
+        const selectedIdx = this._dropdown.selectedIndex - 1;
+        // if (selectedIdx < 0) {
+        //   this.filter = null;
+        // } else {
+        //   this.filter = <core.GameType>selectedIdx;
+        // }
+        // this.setAllTableList(this.filter);
+
+        this.allTableList.setGameFiltersByTabIndex(selectedIdx);
+        this.allTableList.setTableList(this.allGameList, true);
+
+        // const count = this.allTableList.tableCount;
+        // const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        // if (tabItem) {
+        //   tabItem.onBadgeUpdate(count);
+        // }
       }
 
       protected onTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
-        this.allTableList.setTableList(tableList);
+        this.allGameList = tableList;
+        // this.allTableList.setTableList(tableList);
+        this.setAllTableList(this.filter);
+        // const count = this.allTableList.tableCount;
+        // const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
+        // if (tabItem) {
+        //   tabItem.onBadgeUpdate(count);
+        // }
+      }
 
-        const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(2);
-        if (tabItem) {
-          tabItem.onBadgeUpdate(count);
+      protected setAllTableList(filter: core.GameType = null) {
+        let tableList = this.allGameList;
+        if (filter) {
+          tableList = tableList.filter(tableid => {
+            const tableInfo = env.tableInfos[tableid];
+            if (tableInfo) {
+              return tableInfo.gametype == filter;
+            } else {
+              return false;
+            }
+          });
         }
+        this.allTableList.setTableList(tableList);
       }
 
       protected onGoodRoadTableListUpdate(evt: egret.Event) {
@@ -132,8 +201,19 @@ namespace we {
         this._dropdown.visible = false;
       }
 
+      protected onClearSelection() {
+        super.onClearSelection();
+        egret.Tween.removeTweens(this._bg);
+        egret.Tween.get(this._bg).to({ alpha: 0 }, 200);
+      }
+
       protected onSelected() {
         super.onSelected();
+        this.width = 397;
+        if (this._bg.alpha < 1) {
+          egret.Tween.removeTweens(this._bg);
+          egret.Tween.get(this._bg).to({ alpha: 1 }, 200);
+        }
         switch (this._viewStack.selectedIndex) {
           case 0:
           case 1:
@@ -144,7 +224,6 @@ namespace we {
           case 2:
             this._label.visible = false;
             this._dropdown.visible = true;
-
             break;
         }
       }

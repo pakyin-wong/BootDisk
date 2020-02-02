@@ -3,6 +3,7 @@ namespace we {
     export class TabItemWithBadge extends eui.ItemRenderer {
       protected _badge: eui.Group;
       protected _badgeLabel: eui.Label;
+      public badgeBg: eui.Image;
 
       constructor() {
         super();
