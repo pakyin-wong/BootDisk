@@ -1,12 +1,14 @@
 namespace we {
   export namespace loading {
     export class Scene extends core.BaseScene {
+      private _bannerSlider: ui.ImageSlider;
       private _progressbar: eui.ProgressBar;
       private _progressMsg: ui.RunTimeLabel;
       private _tip: ui.NavLantern;
+      private _bannerImages: core.IRemoteResourceItem[];
 
       private step: number = 0;
-      private flow = [this.preloadRes, this.initSkin, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
+      private flow = [this.preloadRes, this.initSkin, this.preload, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
 
       public onEnter() {
         this.init();
@@ -37,6 +39,11 @@ namespace we {
         this.skinName = utils.getSkin('LoadingScene');
       }
 
+      private preload() {
+        dir.moniter.preload();
+        this.next();
+      }
+
       /** Step 2.5: Get Static Server Init Data */
       private getStaticData() {
         this._progressMsg.renderText = () => `${i18n.t('loading.socket.connecting')}`;
@@ -46,8 +53,12 @@ namespace we {
 
         this._tip.alignToCenter();
         this._tip.messages = [];
-        dir.socket.getStaticInitData(res => {
+        dir.socket.getStaticInitData(async res => {
           this._tip.messages = res.Tips;
+          // preload loading scene banner images
+          let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
+          images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
+          this._bannerImages = images;
           this.next();
         }, this);
       }
@@ -82,18 +93,85 @@ namespace we {
 
       /** Step 5: Setup and display idle UI element (tips, promote banner...) */
       private idle() {
+        this._bannerSlider.configSlides(this._bannerImages);
         this.next();
+      }
+
+      private _loadRemoteImage(url) {
+        return new Promise<egret.Texture>(resolve => {
+          const loader = new egret.ImageLoader();
+          loader.crossOrigin = 'anonymous';
+          loader.once(
+            egret.Event.COMPLETE,
+            (event: egret.Event) => {
+              if (event.currentTarget.data) {
+                const texture = new egret.Texture();
+                texture.bitmapData = event.currentTarget.data;
+                resolve(texture);
+              }
+            },
+            this
+          );
+          loader.load(url);
+        });
       }
 
       /** Step 6: load general resource (lobby, baccarat) */
       private async loadGeneralRes() {
-        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.Common, core.res.Nav]);
+        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Common, core.res.Nav, 'temp', 'test']);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
         this._progressbar.minimum = 0;
         this._progressbar.maximum = 0;
         this._progressbar.value = 0;
         await RES.loadGroup('firstRun');
+        await new Promise(resolve => {
+          dir.socket.getLobbyMaterial(async res => {
+            logger.l(res);
+            let offset = 0;
+            const allResources = await Promise.all([
+              ...res.homeherobanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
+              ...res.homelargebanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
+              ...res.homebanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
+            ]);
+            const homeHeroBanners = res.homeherobanners.map((item, index) => ({
+              image: allResources[offset + index],
+              imageUrl: (item as any).imageurl,
+              link: (item as any).link,
+              loaded: true,
+            }));
+            offset += res.homeherobanners.length;
+            const homeLargeBanners = res.homelargebanners.map((item, index) => ({
+              image: allResources[offset + index],
+              imageUrl: (item as any).imageurl,
+              link: (item as any).link,
+              loaded: true,
+            }));
+            offset += res.homelargebanners.length;
+            const homeBanners = res.homebanners.map((item, index) => ({
+              image: allResources[offset + index],
+              imageUrl: (item as any).imageurl,
+              link: (item as any).link,
+              loaded: true,
+            }));
+            offset += res.homebanners.length;
+            dir.lobbyResources = { homeHeroBanners, homeLargeBanners, homeBanners };
+            const liveHeroBanners = res.liveherobanners.map(item => ({
+              image: null,
+              imageUrl: (item as any).imageurl,
+              link: (item as any).link,
+              loaded: false,
+            }));
+            if (liveHeroBanners.length > 0) {
+              liveHeroBanners.push({ ...liveHeroBanners[0] }); // mock unloaded second image
+              // init first banner
+              liveHeroBanners[0].image = await this._loadRemoteImage(liveHeroBanners[0].imageUrl);
+              liveHeroBanners[0].loaded = true;
+            }
+            dir.liveResources = { liveHeroBanners };
+            resolve();
+          });
+        });
         RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         await utils.sleep(1000);
         this.next();
@@ -111,6 +189,7 @@ namespace we {
       private loadingComplete() {
         dir.moniter.start(this.stage);
         dir.sceneCtr.goto('lobby');
+        dir.audioCtr.init();
       }
 
       private next() {

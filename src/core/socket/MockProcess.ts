@@ -1,20 +1,9 @@
 namespace we {
   export namespace core {
     export class MockProcess {
-      private _sleepCounter = {
-        tableInfoListInternal: 0,
-        tableInfoList: 0,
-        baccaratInternal: 0,
-        baccarat: 0,
-      };
-      private _sleepCounterReset = {
-        tableInfoList: false,
-        baccarat: false,
-      };
+      protected socket: SocketMock;
 
-      private socket: SocketMock;
-
-      private roundID: number = 1;
+      protected roundID: number = 1;
       public finishStateInterval: number = 5000;
       public shuffleStateInterval: number = 10000;
       public cardInterval: number = 1000;
@@ -24,256 +13,112 @@ namespace we {
       public startRand = 0;
       public endRand = 6;
 
-      constructor(socket: SocketMock) {
+      public gameType = core.GameType.BAC;
+
+      constructor(socket: SocketMock, gameType = core.GameType.BAC) {
         this.socket = socket;
+        this.gameType = gameType;
       }
 
-      private async sleep(ms, sleepCounter: string) {
-        return new Promise(r => (this._sleepCounter[sleepCounter] = setTimeout(r, ms)));
+      protected async sleep(ms) {
+        return new Promise(r => setTimeout(r, ms));
       }
 
-      public startBaccarat(data: data.TableInfo) {
+      public start(data: data.TableInfo) {
         // random choose a result process
         setTimeout(() => {
           this.randomWin(data).then(() => {
-            this.startBaccarat(data);
+            this.start(data);
           });
         });
       }
 
-      public stopBaccarat() {
-        clearTimeout(this._sleepCounter.tableInfoListInternal);
-      }
+      protected async setResults(data: data.TableInfo, results: string[], points: number[]) {}
 
-      private async setCards(data: data.TableInfo, cards: string[]) {
-        let idx = 0;
-        const gameData = data.data;
-        for (const card of cards) {
-          switch (idx++) {
-            case 2:
-              gameData.a1 = card;
-              break;
-            case 3:
-              gameData.a2 = card;
-              break;
-            case 0:
-              gameData.b1 = card;
-              break;
-            case 1:
-              gameData.b2 = card;
-              break;
-            case 5:
-              gameData.a3 = card;
-              break;
-            case 4:
-              gameData.b3 = card;
-              break;
-          }
-          this.dispatchEvent(data);
-          await this.sleep(this.cardInterval, 'tableInfoListInternal');
-        }
-      }
-
-      private updateBetResult(data: data.TableInfo, winningFields: string[]) {
-        for (const winningField of winningFields) {
+      protected updateBetResult(data: data.TableInfo, winningFields: string[]) {
+        let totalWin = 0;
+        for (const betDetail of data.bets) {
           let isMatch = false;
-          for (const betDetail of data.bets) {
+          for (const winningField of winningFields) {
             if (betDetail.field === winningField) {
               betDetail.iswin = 1;
-              betDetail.winamount = betDetail.amount;
+              betDetail.winamount = betDetail.amount * 2;
+              totalWin += betDetail.amount * 2;
               isMatch = true;
               break;
             }
           }
           if (!isMatch) {
-            data.bets.push({
-              field: winningField,
-              winamount: 0,
-              iswin: 1,
-            });
+            if (betDetail.amount) {
+              betDetail.winamount = -betDetail.amount;
+              totalWin -= betDetail.amount;
+            }
           }
         }
+        data.totalWin = totalWin; // this.computeTotalWin(tableInfo.bets);
+        this.checkResultNotificationReady(data);
+
         this.socket.dispatchBetInfoUpdateEvent(data);
       }
 
-      private async initGameData(data: data.TableInfo, gameData: ba.GameData) {
-        await this.sleep(3000 + Math.random() * 5000, 'tableInfoListInternal');
+      protected hasBet(tableInfo: data.TableInfo): boolean {
+        if (tableInfo.bets) {
+          for (const betDetail of tableInfo.bets) {
+            if (betDetail.amount > 0) {
+              return true;
+            }
+          }
+        }
+        return false;
+      }
+      public checkResultNotificationReady(tableInfo: data.TableInfo) {
+        if (tableInfo.data) {
+          if (this.hasBet(tableInfo)) {
+            if (
+              tableInfo.data &&
+              tableInfo.data.previousstate !== core.GameState.FINISH &&
+              tableInfo.data.state === core.GameState.FINISH &&
+              tableInfo.data.wintype !== 0 &&
+              !isNaN(tableInfo.totalWin)
+            ) {
+              const data = {
+                tableNo: tableInfo.tablename,
+                winAmount: tableInfo.totalWin,
+                winType: tableInfo.data.wintype,
+                gameType: tableInfo.gametype,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.Result,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
+          }
+        }
+      }
+
+      protected async initGameData(data: data.TableInfo, gameData: data.GameData) {
+        await this.sleep(3000 + Math.random() * 5000);
         data.data = gameData;
         data.bets = [];
-        gameData.state = ba.GameState.BET;
+        gameData.previousstate = gameData.state ? gameData.state : null;
+        gameData.state = core.GameState.BET;
         gameData.starttime = Date.now();
         gameData.countdown = this.betStateInterval;
         gameData.gameroundid = (this.roundID++).toString();
       }
 
-      private dispatchEvent(data: data.TableInfo) {
+      protected dispatchEvent(data: data.TableInfo) {
         this.socket.dispatchInfoUpdateEvent(data);
-        this.socket.dispatchListUpdateEvent(data);
       }
 
       public async randomWin(data: data.TableInfo) {
         const rand = Math.floor(Math.random() * (this.endRand - this.startRand)) + this.startRand;
         switch (rand) {
-          case 0:
-            await this.playerWin(data);
-            break;
-          case 1:
-            await this.bankerWin(data);
-            break;
-          case 2:
-            await this.bankerPairWin(data);
-            break;
-          case 3:
-            await this.bankerWinPlayerPair(data);
-            break;
-          case 4:
-            await this.tie(data);
-            break;
-          case 5:
-            await this.shuffle(data);
-            break;
           default:
-            await this.shuffle(data);
+            await this.sleep(10000);
             break;
         }
-      }
-
-      public async playerWin(data: data.TableInfo) {
-        const gameData = new ba.GameData();
-        // set to bet state and wait
-        await this.initGameData(data, gameData);
-        this.dispatchEvent(data);
-        await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
-
-        // set to deal state and start showing the result
-        gameData.state = ba.GameState.DEAL;
-        this.dispatchEvent(data);
-        await this.sleep(this.startCardInterval, 'tableInfoListInternal');
-
-        await this.setCards(data, ['cluba', 'heartk', 'diamonda', 'spade2', 'diamond6', 'spade9']);
-
-        // set to finish state and calculate the bet result
-        gameData.state = ba.GameState.FINISH;
-        gameData.wintype = ba.WinType.PLAYER;
-        this.updateBetResult(data, [ba.BetField.PLAYER]);
-        this.dispatchEvent(data);
-        await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
-
-        // done
-        egret.log('Round Completed');
-      }
-
-      public async bankerWin(data: data.TableInfo) {
-        const gameData = new ba.GameData();
-        // set to bet state and wait
-        await this.initGameData(data, gameData);
-        this.dispatchEvent(data);
-        await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
-
-        // set to deal state and start showing the result
-        gameData.state = ba.GameState.DEAL;
-        this.dispatchEvent(data);
-        await this.sleep(this.startCardInterval, 'tableInfoListInternal');
-
-        await this.setCards(data, ['cluba', 'heartq', 'diamond6', 'spade3']);
-
-        // set to finish state and calculate the bet result
-        gameData.state = ba.GameState.FINISH;
-        gameData.wintype = ba.WinType.BANKER;
-        this.updateBetResult(data, [ba.BetField.BANKER]);
-        this.dispatchEvent(data);
-        await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
-
-        // done
-        egret.log('Round Completed');
-      }
-
-      public async bankerPairWin(data: data.TableInfo) {
-        const gameData = new ba.GameData();
-        // set to bet state and wait
-        await this.initGameData(data, gameData);
-        this.dispatchEvent(data);
-        await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
-
-        // set to deal state and start showing the result
-        gameData.state = ba.GameState.DEAL;
-        this.dispatchEvent(data);
-        await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
-
-        await this.setCards(data, ['hearta', 'club6', 'diamond4', 'spade4']);
-
-        // set to finish state and calculate the bet result
-        gameData.state = ba.GameState.FINISH;
-        gameData.wintype = ba.WinType.BANKER;
-        this.updateBetResult(data, [ba.BetField.BANKER, ba.BetField.BANKER_PAIR]);
-        this.dispatchEvent(data);
-        await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
-
-        // done
-        egret.log('Round Completed');
-      }
-
-      public async bankerWinPlayerPair(data: data.TableInfo) {
-        const gameData = new ba.GameData();
-        // set to bet state and wait
-        await this.initGameData(data, gameData);
-        this.dispatchEvent(data);
-        await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
-
-        // set to deal state and start showing the result
-        gameData.state = ba.GameState.DEAL;
-        this.dispatchEvent(data);
-        await this.sleep(this.startCardInterval, 'tableInfoListInternal');
-
-        await this.setCards(data, ['hearta', 'cluba', 'diamond4', 'spade3']);
-
-        // set to finish state and calculate the bet result
-        gameData.state = ba.GameState.FINISH;
-        gameData.wintype = ba.WinType.BANKER;
-        this.updateBetResult(data, [ba.BetField.BANKER, ba.BetField.PLAYER_PAIR]);
-        this.dispatchEvent(data);
-        await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
-
-        // done
-        egret.log('Round Completed');
-      }
-
-      public async tie(data: data.TableInfo) {
-        const gameData = new ba.GameData();
-        // set to bet state and wait
-        await this.initGameData(data, gameData);
-        this.dispatchEvent(data);
-        await this.sleep(gameData.countdown * 1000, 'tableInfoListInternal');
-
-        // set to deal state and start showing the result
-        gameData.state = ba.GameState.DEAL;
-        this.dispatchEvent(data);
-        await this.sleep(this.startCardInterval, 'tableInfoListInternal');
-
-        await this.setCards(data, ['diamond5', 'spade3', 'cluba', 'heart7']);
-
-        // set to finish state and calculate the bet result
-        gameData.state = ba.GameState.FINISH;
-        gameData.wintype = ba.WinType.TIE;
-        this.updateBetResult(data, [ba.BetField.TIE]);
-        this.dispatchEvent(data);
-        await this.sleep(this.finishStateInterval, 'tableInfoListInternal');
-
-        // done
-        egret.log('Round Completed');
-      }
-
-      public async shuffle(data: data.TableInfo) {
-        const gameData = new ba.GameData();
-        data.data = gameData;
-        data.bets = [];
-        // set to bet state and wait
-        gameData.state = ba.GameState.SHUFFLE;
-        this.dispatchEvent(data);
-        await this.sleep(this.shuffleStateInterval, 'tableInfoListInternal');
-
-        // done
-        egret.log('Shuffle Completed');
       }
     }
   }

@@ -1,0 +1,11 @@
+{
+    "target": "development",
+    "mode": "comm",
+    "playerID": "BMJCQSLH5S5VDBFBP1A0",
+    "secret": "JWT_TOKEN_HERE",
+    "endpoint": "https://dev-rest-gateway.weapi247.com",
+    "rabbitmqhostname": "dev-rabbitmq-mqtt.weapi247.com",
+    "rabbitmqport": "443",
+    "rabbitmqprotocol": "wss",
+    "connectTimeout": 1000000
+}

@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class ItemRenderer extends eui.ItemRenderer implements ITransitable, ISwipeable, IAutoRemove {
       public moveArea: eui.Component;
-      public content: egret.DisplayObject;
+      public content: egret.DisplayObjectContainer;
 
       protected _enterFrom: string = null;
       protected _leaveTo: string = null;
@@ -26,7 +26,10 @@ namespace we {
         this.onEnterTransitionAddon = new OnEnterTransitionAddon(this);
         this.autoRemoveAddon = new AutoRemoveAddon(this);
         this.swipeableAddon = new SwipeableAddon(this);
+        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
+
+      protected destroy() {}
 
       public set enterFrom(value: string) {
         this._enterFrom = value;
@@ -88,12 +91,13 @@ namespace we {
 
       public dataChanged(): void {
         super.dataChanged();
-        this.isDirty = true;
         const isNew = this.data.isNew;
         this.itemData = this.data.item;
         if (isNew) {
           if (this.parent instanceof List) {
             const list = <List> this.parent;
+            this.isFadeEnter = list.isFade;
+            this.isFadeLeave = list.isFade;
             this.enterFrom = list.enterFrom;
             this.leaveTo = list.leaveTo;
             this.swipeDirection = list.swipeDirection;
@@ -109,46 +113,46 @@ namespace we {
         return m.a === 1 && m.b === 0 && m.c === 0 && m.d === 1;
       }
 
-      public setLayoutBoundsPosition(x: number, y: number) {
-        if (this.parent instanceof List) {
-          const list = <List> this.parent;
-          const matrix = this.$getMatrix();
-          if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
-            const bounds = egret.$TempRectangle;
-            this.getLayoutBounds(bounds);
-            x += this.$getX() - bounds.x;
-            y += this.$getY() - bounds.y;
-          }
-          if (this.isDirty || !list.isAnimateItemTransition) {
-            this.isDirty = false;
-            this.destinationX = x;
-            this.destinationY = y;
-            const changed = super.$setX.call(this, x);
-            if (super.$setY.call(this, y) || changed) {
-              eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
-            }
-          } else {
-            if (this.destinationX !== x || this.destinationY !== y) {
-              this.destinationX = x;
-              this.destinationY = y;
-              // cancel current tween
-              egret.Tween.removeTweens(this);
-              // tween move to new position
-              const previousTouchSetting = this.touchEnabled;
-              this.touchEnabled = false;
-              egret.Tween.get(this)
-                .to({ x, y }, list.itemTransitionDuration)
-                .call(() => {
-                  this.touchEnabled = previousTouchSetting;
-                });
-              // dispatch move event
-              eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
-            }
-          }
-        } else {
-          super.setLayoutBoundsPosition(x, y);
-        }
-      }
+      // public setLayoutBoundsPosition(x: number, y: number) {
+      //   if (this.parent instanceof List) {
+      //     const list = <List> this.parent;
+      //     const matrix = this.$getMatrix();
+      //     if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
+      //       const bounds = egret.$TempRectangle;
+      //       this.getLayoutBounds(bounds);
+      //       x += this.$getX() - bounds.x;
+      //       y += this.$getY() - bounds.y;
+      //     }
+      //     if (this.isDirty || !list.isAnimateItemTransition) {
+      //       this.isDirty = false;
+      //       this.destinationX = x;
+      //       this.destinationY = y;
+      //       const changed = super.$setX.call(this, x);
+      //       if (super.$setY.call(this, y) || changed) {
+      //         eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
+      //       }
+      //     } else {
+      //       if (this.destinationX !== x || this.destinationY !== y) {
+      //         this.destinationX = x;
+      //         this.destinationY = y;
+      //         // cancel current tween
+      //         egret.Tween.removeTweens(this);
+      //         // tween move to new position
+      //         const previousTouchSetting = this.touchEnabled;
+      //         this.touchEnabled = false;
+      //         egret.Tween.get(this)
+      //           .to({ x, y }, list.itemTransitionDuration)
+      //           .call(() => {
+      //             this.touchEnabled = previousTouchSetting;
+      //           });
+      //         // dispatch move event
+      //         eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
+      //       }
+      //     }
+      //   } else {
+      //     super.setLayoutBoundsPosition(x, y);
+      //   }
+      // }
     }
   }
 }

@@ -16,9 +16,30 @@ namespace we {
       BAC = 0, // classic baccarat
       BAS = 1, // speed baccarat
       BAI = 2, // insurance baccarat
-      DI = 12, // Dice
-      MJ = 13, // MaJong
-      RO = 14, // Rolette
+      DT = 5, // Dragon Tiger
+      // DI = 12, // Dice
+      // MJ = 13, // MaJong
+      // RO = 14, // Rolette
+    }
+
+    export enum ChipType {
+      FLAT = 1,
+      CLIP = 2,
+      BETTING = 3,
+    }
+
+    export enum GameName {
+      lobby = 'lobby',
+      ba = 'ba',
+    }
+    export enum PageName {
+      lobby = 'lobby',
+      live = 'live',
+    }
+    export enum LiveGameTab {
+      ba = 'bacarrat',
+      dt = 'dragontiger',
+      // goodroad = 'goodroad',
     }
 
     export const TableFilter = {
@@ -34,17 +55,19 @@ namespace we {
       DARK: 2,
     };
 
-    export enum GameName {
-      lobby = 'lobby',
-      ba = 'ba',
-    }
-    export enum PageName {
-      lobby = 'lobby',
-      live = 'live',
-    }
-    export enum LiveGameTab {
-      ba = 'bacarrat',
-      goodroad = 'goodroad',
+    export const NotificationType = {
+      GoodRoad: 0,
+      Result: 1,
+    };
+
+    export enum GameState {
+      IDLE = 0,
+      BET = 1,
+      DEAL = 2,
+      FINISH = 3,
+      REFUND = 4,
+      SHUFFLE = 5,
+      UNKNOWN = 6,
     }
   }
 }

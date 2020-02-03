@@ -1,10 +1,5 @@
 namespace we {
   export namespace ui {
-    export interface IAutoRemove {
-      content: egret.DisplayObject;
-      removeSelf: (isAnimate?: boolean) => void;
-    }
-
     export class AutoRemoveAddon extends DisplayObjectAddon {
       protected target: egret.DisplayObject & IAutoRemove;
       protected customAnimation: () => Promise<void>;
@@ -44,8 +39,8 @@ namespace we {
         this.reset();
         if (this.target.parent) {
           this.target.once(egret.Event.ENTER_FRAME, this.start, this);
-          this.target.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
-          this.target.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
+          this.target.addEventListener(mouse.MouseEvent.ROLL_OVER, this.clearAllTimeout, this);
+          this.target.addEventListener(mouse.MouseEvent.ROLL_OUT, this.startAllTimeout, this);
           this.target.parent.addEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
           this.target.parent.addEventListener('Start_ALL_TIMEOUT', this.start, this);
         } else {
@@ -57,19 +52,17 @@ namespace we {
         super.deactivate();
         this.reset();
         if (this.target.parent) {
-          this.target.removeEventListener(mouse.MouseEvent.MOUSE_OVER, this.clearAllTimeout, this);
-          this.target.removeEventListener(mouse.MouseEvent.MOUSE_OUT, this.startAllTimeout, this);
+          this.target.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.clearAllTimeout, this);
+          this.target.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.startAllTimeout, this);
           this.target.parent.removeEventListener('CLEAR_ALL_TIMEOUT', this.reset, this);
           this.target.parent.removeEventListener('Start_ALL_TIMEOUT', this.start, this);
         }
       }
 
       protected clearAllTimeout() {
-        egret.log('clear all timeout');
         this.target.parent.dispatchEvent(new egret.Event('CLEAR_ALL_TIMEOUT'));
       }
       public startAllTimeout() {
-        egret.log('start all timeout');
         if (this.target.parent) {
           this.target.parent.dispatchEvent(new egret.Event('Start_ALL_TIMEOUT'));
         }

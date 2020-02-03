@@ -6,7 +6,7 @@ namespace we {
       private startStageY: number = 0;
 
       public iscollapseAnimate: boolean = true;
-      public collapseDuration: number = 300;
+      public collapseDuration: number = 150;
       public collapseOnStart: boolean = true;
       public collapseAddon: CollapseAddon;
 
@@ -29,11 +29,21 @@ namespace we {
         return this._isCollapsible;
       }
 
+      public get useMiniScrollBar(): boolean {
+        return this.verticalScrollBar && this.verticalScrollBar.currentState === 'mini';
+      }
+
+      public set useMiniScrollBar(mini) {
+        if (this.verticalScrollBar) {
+          this.verticalScrollBar.currentState = mini ? 'mini' : null;
+        }
+      }
+
       public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
-
+        this.skinName = 'skins.ScrollerSkin';
         this.collapseAddon = new CollapseAddon(this);
       }
 
@@ -126,6 +136,18 @@ namespace we {
 
       public removeToggler() {
         this.collapseAddon.removeToggler();
+      }
+
+      public toggle() {
+        this.collapseAddon.onToggle();
+      }
+
+      public isAnimating() {
+        return this.collapseAddon.isAnimating;
+      }
+
+      public isCollapsed() {
+        return this.isCollapsible && !this.collapseAddon.isShow;
       }
 
       private _firstYForMovement = 0;
@@ -225,8 +247,8 @@ namespace we {
             });
           });
           */
-        } catch (e) {
-          console.log(e);
+        } catch (err) {
+          logger.e(err);
         }
       }, 1);
 

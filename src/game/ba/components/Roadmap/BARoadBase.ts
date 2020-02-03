@@ -25,6 +25,8 @@ namespace we {
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
+        dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        this.onModeUpdate(null);
       }
 
       protected initRoadData() {
@@ -58,7 +60,7 @@ namespace we {
               let isDifferent: boolean = false;
               for (let i = 0; i < this.roadData.length; i++) {
                 if (roadData[i]) {
-                  if (this.roadData[i].V !== roadData[i].V) {
+                  if (this.roadData[i].v !== roadData[i].v) {
                     isDifferent = true;
                     break;
                   }
@@ -81,8 +83,25 @@ namespace we {
           if (state === 0) {
             this.roadData = roadData;
           }
-          const roadDataCopy = roadData.slice(); // copy the array;
 
+          // trim the leading empty cells
+          const roadDataCopy = roadData.slice();
+          let i: number = roadDataCopy.length - 1;
+          let c: number = 0;
+          while (i >= 0) {
+            if (!roadDataCopy[i].v) {
+              c++;
+              if (c >= 6) {
+                roadDataCopy.splice(i, 6);
+                c = 0;
+              }
+            } else {
+              break;
+            }
+            i--;
+          }
+
+          // trim the ending extra cells
           const maxNum = this.numCol * 6;
 
           const exceed = roadDataCopy.length - maxNum;
@@ -93,7 +112,7 @@ namespace we {
             const icon = this.roadMapIconList[i];
             icon.setByObject(roadDataCopy[i]);
 
-            if (roadDataCopy[i].isPredict && roadDataCopy[i].V) {
+            if (roadDataCopy[i].isPredict && roadDataCopy[i].v) {
               icon.animate();
             }
           }
@@ -106,7 +125,7 @@ namespace we {
 
       protected renderGrid() {
         const bgColors = [0xffffff, 0x333333];
-        const gridColors = [0xaaaaaa, 0x555555];
+        const gridColors = [0xafafaf, 0x555555];
 
         const size = (this.gridSize / this.gridUnit) * this.scale;
         this.grid.graphics.clear();
@@ -139,15 +158,20 @@ namespace we {
         this.darkModeNumber = n;
 
         this.renderGrid();
-
-        for (const elem of this.roadMapIconList) {
-          const icon = elem;
-          icon.DarkMode = n;
+        if (this.roadMapIconList) {
+          for (const elem of this.roadMapIconList) {
+            const icon = elem;
+            icon.DarkMode = n;
+          }
         }
       }
 
       public get DarkMode(): number {
         return this.darkModeNumber;
+      }
+
+      protected onModeUpdate(e: egret.Event) {
+        this.DarkMode = env.mode === 1 ? 1 : 0;
       }
 
       protected onRemoved(e) {
@@ -173,8 +197,14 @@ namespace we {
           this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
         }
 
-        for (const elem of this.roadMapIconList) {
-          elem.dispose();
+        if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
+          dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
+        }
+
+        if (this.roadMapIconList) {
+          for (const elem of this.roadMapIconList) {
+            elem.dispose();
+          }
         }
       }
     }

@@ -1,25 +1,33 @@
 namespace we {
   export namespace ui {
-    export class RunTimeLabel extends eui.Label {
-      private _r: () => string;
+    export class RunTimeLabel extends eui.Label implements ui.IRunTimeComponent {
+      private _renderer: () => string;
+      private _isReg: boolean = false;
 
       constructor() {
         super();
-        i18n.register(this);
-        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
       protected destroy() {
         i18n.drop(this);
+        this._isReg = false;
       }
 
-      public set renderText(r: () => string) {
-        this._r = r;
+      public set renderText(renderer: () => string) {
+        this._renderer = renderer;
+        if (!this._isReg) {
+          i18n.register(this);
+          this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
+        }
         this.render();
       }
 
+      public get renderText() {
+        return this._renderer;
+      }
+
       public render() {
-        return this._r && (this.text = this._r());
+        return this._renderer && (this.text = this._renderer());
       }
     }
   }

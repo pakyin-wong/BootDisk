@@ -9,6 +9,7 @@ namespace we {
       public isAnimateItemTransition: boolean = false;
       public itemTransitionDuration: number = 300;
       public maxDisplayCount: number = -1;
+      public isFade: boolean = false;
 
       protected itemQueue: any[] = [];
 
@@ -72,6 +73,11 @@ namespace we {
       }
 
       public updateRenderer(renderer: eui.IItemRenderer, itemIndex: number, data: any): eui.IItemRenderer {
+        const wrapData = this.wrapData(renderer, itemIndex, data);
+        return super.updateRenderer(renderer, itemIndex, wrapData);
+      }
+
+      protected wrapData(renderer: eui.IItemRenderer, itemIndex: number, data: any) {
         const newIdx = this.tempNewItemArray.indexOf(data);
 
         const isNew = newIdx > -1;
@@ -79,11 +85,10 @@ namespace we {
           this.tempNewItemArray.splice(newIdx, 1);
         }
 
-        const wrapData = {
+        return {
           item: data,
           isNew,
         };
-        return super.updateRenderer(renderer, itemIndex, wrapData);
       }
     }
   }

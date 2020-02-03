@@ -1,12 +1,13 @@
 namespace we {
   export namespace ba {
     export class BALobbyBigRoad extends ui.Panel {
-      private bigRoad: BABigRoad;
-      private parser: BARoadParser;
-      private useParser: boolean = false;
+      protected bigRoad: BABigRoad;
+      protected parser: BARoadParser;
+      protected useParser: boolean = false;
 
       public constructor() {
         super();
+        this.cacheAsBitmap = true;
       }
 
       protected childrenCreated() {
@@ -23,7 +24,7 @@ namespace we {
         this.addChild(this.bigRoad);
       }
 
-      private onParserUpdate(e: egret.Event) {
+      protected onParserUpdate(e: egret.Event) {
         this.bigRoad.parseRoadData(this.parser.bigRoadResult);
       }
 
@@ -35,8 +36,24 @@ namespace we {
           } else {
             // option 2. just display all road data as it is
             if (this.bigRoad) {
-              this.bigRoad.parseRoadData(roadmapData.bigRoad);
+              this.bigRoad.parseRoadData(roadmapData.lobbyUnPro.bigRoad);
             }
+          }
+        }
+      }
+
+      public updateLobbyRoadData(roadmapData: any) {
+        if (roadmapData) {
+          if (this.bigRoad) {
+            this.bigRoad.parseRoadData(roadmapData.lobbyUnPro.bigRoad);
+          }
+        }
+      }
+
+      public updateSideBarRoadData(roadmapData: any) {
+        if (roadmapData) {
+          if (this.bigRoad) {
+            this.bigRoad.parseRoadData(roadmapData.sideBar.bigRoad);
           }
         }
       }

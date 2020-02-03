@@ -16,7 +16,7 @@ namespace we {
         this.addChild(this.iconFace);
 
         // const colors = [0xdd0000, 0x0000dd, 0xaa0000, 0x0000aa];
-        const gradientColors = [[0xffaaaa, 0xdd0000], [0xaaaaff, 0x0000dd], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066]];
+        const gradientColors = [[0xee2e2e, 0xee2e2e], [0x3531ec, 0x3531ec], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066]];
 
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.8;
@@ -46,10 +46,10 @@ namespace we {
 
         const useDarkMode = this.darkModeNumber === 0 ? 0 : 2;
 
-        if (value.V != null) {
-          if (value.V === 'b') {
+        if (value.v != null) {
+          if (value.v === 'b') {
             this.iconFaceArr[0 + useDarkMode].visible = true;
-          } else if (value.V === 'p') {
+          } else if (value.v === 'p') {
             this.iconFaceArr[1 + useDarkMode].visible = true;
           }
         }

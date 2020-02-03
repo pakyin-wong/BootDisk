@@ -27,7 +27,7 @@ namespace we {
     }
 
     export function setLang(s) {
-      i18n.lang = s;
+      env.language = i18n.lang = s;
       dir.evtHandler.dispatch(core.Event.SWITCH_LANGUAGE, s);
     }
 

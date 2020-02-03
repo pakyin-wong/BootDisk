@@ -12,7 +12,7 @@ namespace we {
         return keys.map(key => enumType[key]);
       }
 
-      public static getKeyByValue(enumType: any, value: number): string {
+      public static getKeyByValue(enumType: any, value: any): string {
         const keys: string[] = Object.keys(enumType);
         for (const key of keys) {
           if (enumType[key] === value) {

@@ -12,11 +12,15 @@ namespace we {
       public socket: ISocket;
       public evtHandler: EventHandler;
       public errHandler: ErrorHandler;
+      public audioCtr: AudioCtr;
       public layerCtr: LayerCtr;
       public sceneCtr: SceneCtr;
       public meterCtr: MeterCtr;
       public moniter: Monitor;
       public videoPool: utils.Pool<egret.FlvVideo>;
+      public lobbyResources: lobby.ILobbyResources;
+      public liveResources: live.ILiveResources;
+      public uaParser: UAParser;
     }
   }
 }

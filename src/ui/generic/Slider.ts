@@ -1,6 +1,8 @@
 namespace we {
   export namespace ui {
     export class Slider extends core.BaseEUI {
+      public static PROGRESS = 'sliderProgress';
+
       //   public customSkin:string = "baseSlider";
       private _mask: egret.Shape;
       private _toggle: egret.DisplayObject;
@@ -30,15 +32,23 @@ namespace we {
         this.render();
       }
 
+      protected destroy() {
+        this._toggle.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onToggleClick, this);
+      }
+
       protected onToggleClick() {
-        this._stageX = this.localToGlobal(this.$x, this.$y).x;
+        this._stageX = this.localToGlobal(0, 0).x;
         this.stage.$addListener(egret.TouchEvent.TOUCH_MOVE, this.onToggleMove, this);
         this.stage.$addListener(egret.TouchEvent.TOUCH_END, this.onToggleRelease, this);
       }
 
       protected onToggleMove(e: egret.TouchEvent) {
-        const movedTo = Math.max(this._stageX, Math.min(e.$stageX, this._stageX + this.width - this._toggle.width)) - this._stageX;
-        this.value = this._max * (movedTo / (this.width - this._toggle.width));
+        const start = this._stageX + this._toggle.width * 0.5;
+        const end = this._stageX + this.width - this._toggle.width * 0.5;
+        const movedTo = Math.max(start, Math.min(e.$stageX, end)) - start;
+        const val = this._max * (movedTo / (this.width - this._toggle.width));
+        this.value = val;
+        this.dispatchEvent(new egret.Event(we.ui.Slider.PROGRESS, false, false, val));
       }
 
       protected onToggleRelease() {
@@ -59,6 +69,7 @@ namespace we {
       private render() {
         this._mask.$setScaleX(this._v / this._max);
         this._toggle.$x = (this.width - this._toggle.width) * (this._v / this._max);
+        this.validateNow();
       }
     }
   }

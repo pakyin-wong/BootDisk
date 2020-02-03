@@ -47,8 +47,12 @@
             "path": "./libs/animtilelayout"
         },
         {
-            "name": "playerClient",
+            "name": "playerclient",
             "path": "./libs/playerclient"
+        },
+        {
+            "name": "uaparser",
+            "path": "./libs/uaparser"
         },
         {
             "name": "moment",

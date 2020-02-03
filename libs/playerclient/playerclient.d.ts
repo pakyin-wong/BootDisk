@@ -30,15 +30,21 @@ declare class PlayerClient {
     unsubscribe(eventName: string, f: Function, options?: any): void;
     getTableList(filter?: string): void;
     getBalance(): void;
-    getHistory(tableID: string): void;
+    getBetHistory(filter: object, callback: (data: BetHistory) => void): void;
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
-    bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
+    bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;    
     updateSetting(key: string, value: string): void;
     updateSettings(settings: {
         [key: string]: string;
     }): void;
     getLobbyMaterial(callback: (data: LobbyMaterial) => any): void;
+    resetRoadmap(callback: Function): void;
+    getRoadmap(callback: Function): void;
+    updateDefaultRoadmap(ids: string[], callback: Function): void;
+    createCustomRoadmap(name: string, pattern: string, callback: Function): void;
+    updateCustomRoadmap(id: string, data: object, callback: Function): void;
+    removeCustomRoadmap(id: string, callback: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
     private _isTableInfoCallbackEmpty;
@@ -72,6 +78,7 @@ interface GameTypeMap {
     BAC: 0;
     BAS: 1;
     BAI: 2;
+    DT: 5;
     DI: 12;
     MJ: 13;
     RO: 14;
@@ -97,10 +104,24 @@ declare enum BAGameStateType {
     REFUND = 4,
     SHUFFLE = 5
 }
+declare enum DTGameStateType {
+    IDLE = 0,
+    BET = 1,
+    DEAL = 2,
+    FINISH = 3,
+    REFUND = 4,
+    SHUFFLE = 5
+}
 declare enum BAWinType {
     NONE = 0,
     BANKER = 1,
     PLAYER = 2,
+    TIE = 3
+}
+declare enum DTWinType {
+    NONE = 0,
+    DRAGON = 1,
+    TIGER = 2,
     TIE = 3
 }
 interface BetValueCommand {
@@ -120,3 +141,31 @@ interface LobbyMaterial {
 	messages:string[]    
 }
 
+interface BetHistoryDetail {
+    id: string;
+    datetime: number;
+    gametype: number;
+    tablename: string;
+    roundid: string;
+    replayurl: string;
+    remark: number;
+    field: string;
+    betAmount: number;
+    winAmount: number;
+    prevremaining: number;
+    endremaining: number;
+}
+interface BetHistory {
+    history: BetHistoryDetail[];
+}
+
+interface BetHistoryResults {
+    a1: string,		// banker 1st card
+    a2: string,
+    a3: string,
+    b1: string,		// player 1st card
+    b2: string,
+    b3: string,
+    playerpoint: number,
+    bankerpoint: number
+}

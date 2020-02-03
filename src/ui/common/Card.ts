@@ -9,7 +9,7 @@ namespace we {
       }
       public setCard(resName: string, vertical: boolean) {
         this.removeChildren();
-        console.log('resName', resName);
+        // console.log('resName', resName);
         if (resName) {
           const card: egret.Bitmap = new egret.Bitmap();
           // console.log(resName);
@@ -21,7 +21,7 @@ namespace we {
             card.width = this.width;
             card.height = this.height;
           } else {
-            console.log('horizontal');
+            // console.log('horizontal');
             // card.rotation = 90;
             // card.texture = RES.getRes(core.Card[resName]);
             card.texture = RES.getRes(texName);

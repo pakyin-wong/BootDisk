@@ -8,7 +8,6 @@ var mouse;
         function MouseEvent() {
         }
         MouseEvent.MOUSE_MOVE = "mouseMove";
-        MouseEvent.DRAG_MOVE = "dragMove";
         // MouseEvent.MOUSE_OVER = "mouseOver";
         // MouseEvent.MOUSE_OUT = "mouseOut";
         MouseEvent.ROLL_OVER = "rollOver";
@@ -42,9 +41,6 @@ var mouse;
         isPC = egret.Capabilities.os == "Windows PC" || egret.Capabilities.os == "Mac OS";
         stageObj = stage;
         currentTarget = [stageObj];
-        // if (isPC) {
-        //     addMouseWheelEvent();
-        // }
 
         var check = function (x, y) {
             var pointer = false;
@@ -65,13 +61,18 @@ var mouse;
                 }
             }
             var $hitTest = egret.DisplayObjectContainer.prototype.$hitTest;
+            var touchChildrenLock = 0;
             egret.DisplayObjectContainer.prototype.$hitTest = function (stageX, stageY) {
+                !this.$touchChildren && touchChildrenLock++;
                 var rs = $hitTest.call(this, stageX, stageY);
-                if (rs != null) {
-                    detectRollOver(this);
-                    targetList.push(this);
-                } else {
-                    detectRollOut(this);
+                !this.$touchChildren && touchChildrenLock--;
+                if (touchChildrenLock == 0){
+                    if (rs != null) {
+                        detectRollOver(this);
+                        targetList.push(this);
+                    } else {
+                        detectRollOut(this);
+                    }
                 }
                 return rs;
             }
@@ -153,7 +154,7 @@ var mouse;
     mouse.setButtonMode = function (displayObjcet, buttonMode) {
         displayObjcet["buttonModeForMouse"] = buttonMode;
     };
-
+    
     var mouseMoveEnabled = false;
     /**
      * @language en_US
@@ -170,28 +171,5 @@ var mouse;
     mouse.setMouseMoveEnabled = function (enabled) {
         mouseMoveEnabled = enabled;
     };
-    var addMouseWheelEvent = function () {
-        var type = "mousewheel";
-        var _eventCompat = function (event) {
-            var type = event.type;
-            if (type == "DOMMouseScroll" || type == "mousewheel") {
-                event.delta = event.wheelDelta ? event.wheelDelta : -(event.detail || 0);
-                stageObj.dispatchEventWith(mouse.MouseEvent.MOUSE_WHEEL, false, event.delta);
-            }
-        };
-        if (window.addEventListener) {
-            if (type === "mousewheel" && document["mozFullScreen"] !== undefined) {
-                type = "DOMMouseScroll";
-            }
-            window.addEventListener(type, function (event) {
-                _eventCompat(event);
-            }, false);
-        }
-        else if (window["attachEvent"]) {
-            window["attachEvent"]("on" + type, function (event) {
-                event = event || window.event;
-                _eventCompat(event);
-            });
-        }
-    };
+
 })(mouse || (mouse = {}));

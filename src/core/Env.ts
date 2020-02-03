@@ -5,11 +5,15 @@ namespace we {
       private static _env: Env;
 
       public static get Instance(): Env {
-        return this._env ? this._env : new Env();
+        const env = this._env ? this._env : new Env();
+        this._env = env;
+        return env;
       }
+      public UAInfo: any;
 
       /* Global Environment Variable */
-      public balance: number = undefined;
+      public version: string = '0.1.5';
+      public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
@@ -19,15 +23,40 @@ namespace we {
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
       public language: string;
+      public voice: string = 'mandarin';
+      public bgm = 1;
       public betLimits: data.BetLimit[];
-      public tableHistory: any;
-      private _tableInfoArray: data.TableInfo[];
-      private _tableInfos: { [key: string]: data.TableInfo };
-      // public currentChipSelectedIndex: number = 10;
-      public currentSelectedBetLimitIndex: number = 0;
+      public goodRoadData: data.GoodRoadMapData;
+
+      private _tableInfoArray: data.TableInfo[] = [];
+      private _tableInfos: { [key: string]: data.TableInfo } = {};
+
+      // array of table id
+      public allTableList: string[] = [];
+      public goodRoadTableList: string[] = [];
+      public betTableList: string[] = [];
+
       private _currTime: number = Date.now();
       private _currTimeLastUpdateTime: number = Date.now();
-      public livepageLocked: string = null;
+
+      // local game state
+      public currentSelectedBetLimitIndex: number = 0;
+      // public currentChipSelectedIndex: number = 10;
+      private _livepageLocked: any = false;
+      public sidePanelExpanded: boolean = false;
+      public lobbyGridType: number = 1;
+
+      public init() {
+        dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
+      }
+      private onLockChanged(evt: egret.Event) {
+        const isLock = evt.data;
+        this._livepageLocked = isLock;
+      }
+
+      public get livepageLocked() {
+        return this._livepageLocked;
+      }
 
       set currTime(value: number) {
         this._currTime = value;
@@ -45,9 +74,6 @@ namespace we {
       }
 
       public addTableInfo(tableInfo: data.TableInfo) {
-        if (!this._tableInfoArray) {
-          this._tableInfoArray = [];
-        }
         this._tableInfoArray.push(tableInfo);
         this._tableInfos[tableInfo.tableid] = tableInfo;
       }
@@ -58,6 +84,50 @@ namespace we {
 
       get tableInfos(): { [key: string]: data.TableInfo } {
         return this._tableInfos;
+      }
+
+      public getOrCreateTableInfo(tableid: string) {
+        const tableInfo = this.tableInfos[tableid];
+        if (tableInfo) {
+          return tableInfo;
+        } else {
+          const newInfo = new data.TableInfo();
+          newInfo.tableid = tableid;
+          this.addTableInfo(newInfo);
+          return newInfo;
+        }
+      }
+
+      public mergeTableInfoList(newTableInfoList: data.TableInfo[]) {
+        // merge new table list to tableInfoArray
+        if (this.tableInfos) {
+          for (const tableInfo of newTableInfoList) {
+            const prevTableInfo = env.tableInfos[tableInfo.tableid];
+
+            if (prevTableInfo) {
+              utils.mergeObjects(prevTableInfo, tableInfo);
+            } else {
+              this.addTableInfo(tableInfo);
+            }
+          }
+        }
+      }
+      public validateTableInfoDisplayReady(tableid: string): boolean {
+        // check if the tableInfo is displayReady
+        const tableInfo = this.tableInfos[tableid];
+        if (tableInfo && !tableInfo.displayReady) {
+          if (tableInfo.data != null && tableInfo.roadmap != null) {
+            tableInfo.displayReady = true;
+            return true;
+          }
+        }
+        return false;
+      }
+      public getTableNameByID(tableid: string): string {
+        if (env && tableid && env.tableInfos && env.tableInfos[tableid]) {
+          return env.tableInfos[tableid].tablename;
+        }
+        return null;
       }
 
       /*
