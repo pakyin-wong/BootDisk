@@ -2,7 +2,9 @@ namespace we {
   export namespace ui {
     export class NotificationController extends core.BaseEUI {
       protected notificationList: data.Notification[];
-      protected notificationHolders: NotificationHolder[];
+      // protected notificationHolders: NotificationHolder[];
+
+      protected listDisplay: ui.List;
 
       protected _activeNotificationCount: any;
 
@@ -36,41 +38,36 @@ namespace we {
 
         // group with horizontal layout
         // holding 2 notification holder
-        this.notificationHolders = [];
+        // this.notificationHolders = [];
         this.notificationList = [];
-        const group = new eui.Group();
-        this.addChild(group);
+        // const group = new eui.Group();
+        // this.addChild(group);
 
-        for (let i = 0; i < 2; i++) {
-          const holder: NotificationHolder = new NotificationHolder();
-          holder.controller = this;
-          this.notificationHolders.push(holder);
-          group.addChild(holder);
-        }
+        // for (let i = 0; i < 2; i++) {
+        //   const holder: NotificationHolder = new NotificationHolder();
+        //   holder.controller = this;
+        //   this.notificationHolders.push(holder);
+        //   group.addChild(holder);
+        // }
 
-        // const collection = new eui.ArrayCollection([]);
-        // const notificationList = new ui.List();
-        // const layout2 = new eui.VerticalLayout();
-        // layout2.paddingBottom = 1;
-        // notificationList.layout = layout2;
-        // notificationList.isFade = true;
-        // notificationList.enterFrom = 'right';
-        // notificationList.leaveTo = 'right';
-        // notificationList.isSwipeable = true;
-        // notificationList.swipeDirection = ui.SwipeDirection.right;
-        // notificationList.isAnimateItemTransition = true;
-        // notificationList.dataProvider = collection;
-        // notificationList.itemRenderer = ui.TestItem;
-        // // notificationList.right = 0;
-        // // notificationList.y = 240;
-        // notificationList.width = 410;
-        // notificationList.useVirtualLayout = false;
-        // notificationList.maxDisplayCount = 2;
-        // setInterval(() => {
-        //   notificationList.addItem(Math.floor(Math.random() * 1000));
-        // }, 2000);
-        // // scroller.viewport = roomList;
-        // this.addChild(notificationList);
+        this.listDisplay = new ui.List();
+
+        const collection = new eui.ArrayCollection([]);
+        const layout2 = new eui.VerticalLayout();
+        layout2.paddingBottom = 1;
+        this.listDisplay.layout = layout2;
+        this.listDisplay.isFade = false;
+        this.listDisplay.isSwipeable = false;
+        this.listDisplay.isAnimateItemTransition = true;
+        this.listDisplay.dataProvider = collection;
+        this.listDisplay.itemRenderer = NotificationItemHolder;
+        // notificationList.right = 0;
+        // notificationList.y = 240;
+        this.listDisplay.width = 410;
+        this.listDisplay.isAnimateItemTransition = true;
+        this.listDisplay.useVirtualLayout = false;
+        this.listDisplay.maxDisplayCount = 7;
+        this.addChild(this.listDisplay);
       }
 
       public updatePosition(evt: egret.Event) {
@@ -89,22 +86,28 @@ namespace we {
       }
 
       protected hasAvailableHolder() {
-        return this._activeNotificationCount.total < this.notificationHolders.length;
+        return this._activeNotificationCount.total < this.listDisplay.maxDisplayCount;
       }
 
       protected isTypeAvailable(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
-        return this._activeNotificationCount[typeStr] === 0;
+        switch (type) {
+          case core.NotificationType.GoodRoad:
+            return this._activeNotificationCount['GoodRoad'] === 0;
+          case core.NotificationType.Result:
+            return this._activeNotificationCount['Result'] <= 6;
+        }
+        return false;
       }
 
       public dismissNotification(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
-        this._activeNotificationCount[typeStr] = 0;
+        this._activeNotificationCount[typeStr] -= 1;
         this._activeNotificationCount.total -= 1;
       }
       protected showNotification(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
-        this._activeNotificationCount[typeStr] = 1;
+        this._activeNotificationCount[typeStr] += 1;
         this._activeNotificationCount.total += 1;
       }
 
@@ -113,22 +116,11 @@ namespace we {
         if (!this.hasAvailableHolder) {
           return;
         }
-        const holder = this.availableHolder;
-        if (holder) {
-          const notification = this.nextNotification;
-          if (notification) {
-            holder.itemData = notification;
-            this.showNotification(notification.type);
-          }
+        const notification = this.nextNotification;
+        if (notification) {
+          this.listDisplay.addItem(notification);
+          this.showNotification(notification.type);
         }
-      }
-      protected get availableHolder() {
-        for (const holder of this.notificationHolders) {
-          if (holder.isAvailable) {
-            return holder;
-          }
-        }
-        return null;
       }
 
       protected get nextNotification(): data.Notification {

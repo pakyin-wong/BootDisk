@@ -29,7 +29,7 @@ namespace we {
         dir.layerCtr.overlay.addChild(this._overlay);
 
         this._notificationController.x = stage.stageWidth - 410;
-        this._notificationController.y = 240;
+        this._notificationController.y = 180;
 
         // this._liveSidePanel.x = 2170;
         this._liveSidePanel.right = 20;

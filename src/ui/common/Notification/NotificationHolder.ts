@@ -42,7 +42,7 @@ namespace we {
             this._itemRenderer = new ResultNotificationItem();
             break;
         }
-        this._itemRenderer.holder = this;
+        // this._itemRenderer.holder = this;
         this._content.addChild(this._itemRenderer);
         this._content.width = this._itemRenderer.width;
 

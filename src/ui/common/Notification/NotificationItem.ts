@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class NotificationItem extends core.BaseEUI {
       protected _data: any;
-      public holder: NotificationHolder;
+      public holder: NotificationItemHolder;
 
       constructor() {
         super();
