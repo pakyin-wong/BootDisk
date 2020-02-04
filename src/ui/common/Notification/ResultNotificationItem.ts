@@ -16,9 +16,9 @@ namespace we {
         }, this.duration);
       }
 
-      protected $setData(value: any) {
-        super.$setData(value);
-        const { tableNo, winAmount, winType, gameType } = value;
+      protected $setData(notification: data.Notification) {
+        super.$setData(notification);
+        const { tableNo, winAmount, winType, gameType } = notification.data;
         this._lblName.renderText = () => `${i18n.t('gametype_' + we.core.GameType[gameType])} ${tableNo}`;
         this._lblWinAMount.text = `${winAmount >= 0 ? '+' : ''}${utils.formatNumber(winAmount)}`;
         this.updateResult(gameType, winType);

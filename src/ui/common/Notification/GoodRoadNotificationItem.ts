@@ -6,14 +6,17 @@ namespace we {
 
       protected tableInfo: data.TableInfo;
 
-      constructor() {
+      protected _state: number;
+
+      constructor(state: number) {
         super();
+        this._state = state;
         this.skinName = utils.getSkinByClassname('GoodRoadNotificationSkin');
       }
 
-      protected $setData(value: any) {
-        super.$setData(value);
-        const { tableid } = value;
+      protected $setData(notification: data.Notification) {
+        super.$setData(notification);
+        const { tableid } = notification.data;
         this.tableInfo = env.tableInfos[tableid];
         if (this._content) {
           this.removeChild(this._content);
@@ -21,14 +24,23 @@ namespace we {
         this._content = new GoodRoadNotificationContainer();
         this._content.setData(this.tableInfo);
         this._content.addEventListener('DISMISS', this.removeSelf, this);
-        this._content.addEventListener('QUICK_BET', this.onQuickBet, this);
+        this._content.addEventListener('QUICK_BET', this.setFocus, this);
         this.addChild(this._content);
+
+        if (this._state === NotificationItemHolder.STATE_FOCUS) {
+          this.onQuickBet();
+        }
       }
 
       protected removeSelf() {
         this.holder.removeItem();
       }
-      protected onQuickBet() {
+
+      protected setFocus() {
+        this.holder.controller.setFocus(this.holder);
+      }
+
+      public onQuickBet() {
         if (this._content) {
           this.removeChild(this._content);
         }

@@ -4,9 +4,11 @@ namespace we {
       protected notificationList: data.Notification[];
       // protected notificationHolders: NotificationHolder[];
 
-      protected listDisplay: ui.List;
+      public listDisplay: ui.List;
 
       protected _activeNotificationCount: any;
+
+      protected _collection: eui.ArrayCollection;
 
       constructor() {
         super();
@@ -52,17 +54,15 @@ namespace we {
 
         this.listDisplay = new ui.List();
 
-        const collection = new eui.ArrayCollection([]);
+        this._collection = new eui.ArrayCollection([]);
         const layout2 = new eui.VerticalLayout();
         layout2.paddingBottom = 1;
         this.listDisplay.layout = layout2;
         this.listDisplay.isFade = false;
         this.listDisplay.isSwipeable = false;
         this.listDisplay.isAnimateItemTransition = true;
-        this.listDisplay.dataProvider = collection;
+        this.listDisplay.dataProvider = this._collection;
         this.listDisplay.itemRenderer = NotificationItemHolder;
-        // notificationList.right = 0;
-        // notificationList.y = 240;
         this.listDisplay.width = 410;
         this.listDisplay.isAnimateItemTransition = true;
         this.listDisplay.useVirtualLayout = false;
@@ -132,6 +132,27 @@ namespace we {
           }
           idx++;
         }
+      }
+
+      public setFocus(holder: NotificationItemHolder) {
+        // get notification index from _collection
+        const notification: data.Notification = holder.itemData;
+        const idx = this._collection.getItemIndex(notification);
+        if (idx > -1) {
+          // store the selected item and the position of that and remove from list
+          const x = holder.x;
+          const y = holder.y;
+          notification.state = NotificationItemHolder.STATE_FOCUS;
+          notification.x = x;
+          notification.y = y;
+          this.listDisplay.removeItem(notification);
+          // add back to the top of the list and provide the previous position and the status from the data object
+          this.listDisplay.addItem(notification);
+        }
+      }
+
+      public dismissFocus() {
+        // remove the focus item if exist
       }
     }
   }
