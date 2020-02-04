@@ -10,6 +10,8 @@ namespace we {
 
       protected _collection: eui.ArrayCollection;
 
+      protected _currentFocus: any;
+
       constructor() {
         super();
         this.init();
@@ -139,6 +141,7 @@ namespace we {
         const notification: data.Notification = holder.itemData;
         const idx = this._collection.getItemIndex(notification);
         if (idx > -1) {
+          this.dismissFocus();
           // store the selected item and the position of that and remove from list
           const x = holder.x;
           const y = holder.y;
@@ -148,11 +151,17 @@ namespace we {
           this.listDisplay.removeItem(notification);
           // add back to the top of the list and provide the previous position and the status from the data object
           this.listDisplay.addItem(notification);
+
+          this._currentFocus = notification;
         }
       }
 
       public dismissFocus() {
         // remove the focus item if exist
+        if (this._currentFocus) {
+          this.listDisplay.removeItem(this._currentFocus);
+          this._currentFocus = null;
+        }
       }
     }
   }
