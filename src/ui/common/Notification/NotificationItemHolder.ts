@@ -70,7 +70,7 @@ namespace we {
         }
         this._displayItem.holder = this;
         this.content.addChild(this._displayItem);
-        this.content.width = this._displayItem.width;
+        // this.content.width = this._displayItem.width;
 
         this._displayItem.data = this.itemData;
       }
@@ -88,7 +88,7 @@ namespace we {
         const controller = self.controller;
         this._displayItem.alpha = 1;
         egret.Tween.get(this._displayItem)
-          .to({ x: this.content.width, alpha: 0 }, 200)
+          .to({ x: this.content.contentWidth, alpha: 0 }, 200)
           .call(() => {
             if (self._displayItem) {
               self._displayItem.parent.removeChild(this._displayItem);
