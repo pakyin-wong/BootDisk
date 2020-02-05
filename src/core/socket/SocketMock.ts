@@ -18,6 +18,7 @@ namespace we {
 
         this.tables = this.generateBaccaratTables(6);
         this.tables = [...this.tables, ...this.generateDragonTigerTables(3)];
+        this.tables = [...this.tables, ...this.generateRouletteTables(3)];
 
         setInterval(() => {
           // mock error
@@ -81,6 +82,39 @@ namespace we {
 
           data.bets = [];
           const mockProcess = new MockProcessBaccarat(this, core.GameType.BAC);
+          if (idx !== count - 1) {
+            mockProcess.startRand = idx;
+            mockProcess.endRand = idx + 1;
+          }
+          mockProcess.start(data);
+          this.mockProcesses.push(mockProcess);
+
+          idx++;
+          return data;
+        });
+        return tables;
+      }
+
+      protected generateRouletteTables(count) {
+        const tables = Array.apply(null, { length: count }).map((value, idx) => {
+          const data = new we.data.TableInfo();
+          data.tableid = (++this._tempIdx).toString();
+          data.tablename = data.tableid;
+          data.state = TableState.ONLINE;
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
+          data.gametype = core.GameType.RO;
+
+          data.gamestatistic = this.generateDummyStatistic(data);
+
+          data.betInfo = new we.data.GameTableBetInfo();
+          data.betInfo.tableid = data.tableid; // Unique table id
+          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+          data.betInfo.total = 10000; // Total bet amount for this gameround
+          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+          data.betInfo.ranking = [];
+
+          data.bets = [];
+          const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
           if (idx !== count - 1) {
             mockProcess.startRand = idx;
             mockProcess.endRand = idx + 1;
