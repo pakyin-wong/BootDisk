@@ -22,7 +22,7 @@ namespace we {
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
 
-      public constructor(skinName: string = 'BaSideListItemSkin') {
+      public constructor(skinName: string = null) {
         super(skinName);
         this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;

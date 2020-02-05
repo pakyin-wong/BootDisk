@@ -36,7 +36,7 @@ namespace we {
       protected createItemRenderer(type: number) {
         switch (type) {
           case core.NotificationType.GoodRoad:
-            this._itemRenderer = new GoodRoadNotificationItem(null);
+            this._itemRenderer = new GoodRoadNotificationItem();
             break;
           case core.NotificationType.Result:
             this._itemRenderer = new ResultNotificationItem();

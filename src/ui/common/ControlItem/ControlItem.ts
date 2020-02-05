@@ -159,8 +159,8 @@ namespace we {
         }
       }
       protected onBetDetailUpdateInFinishState() {
-        this._bettingTable.showWinEffect(this._betDetails);
         if (this._betDetails && this._bettingTable) {
+          this._bettingTable.showWinEffect(this._betDetails);
           if (this._resultMessage) {
             this.checkResultMessage(this.tableInfo.totalWin);
           }
