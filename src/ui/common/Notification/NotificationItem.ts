@@ -71,7 +71,9 @@ namespace we {
 
       protected createNormalContent() {}
 
-      protected createQuickBetContent() {}
+      protected createQuickBetContent() {
+        this.horizontalCenter = 0;
+      }
     }
   }
 }

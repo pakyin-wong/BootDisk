@@ -24,6 +24,13 @@ namespace we {
         super();
         this.content = new eui.Group();
         this.addChild(this.content);
+        const mask = new eui.Rect();
+        mask.top = 0;
+        mask.bottom = 0;
+        mask.left = 0;
+        mask.right = 0;
+        this.mask = mask;
+        this.addChild(mask);
 
         this.touchEnabled = true;
         this.mount();
@@ -39,20 +46,20 @@ namespace we {
         if (!this.itemData) {
           return;
         }
-        const isNew = this.data.isNew;
         const { type, x, y, state } = this.itemData;
         this._holderState = state;
-        if (isNew) {
+        if (this.isNew) {
           this.createItemRenderer(this.itemData.type);
 
           if (x !== null && y !== null) {
-            this.$x = x;
-            this.$y = y;
+            this.x = x;
+            this.y = y;
           }
           if (state !== NotificationItemHolder.STATE_FOCUS) {
             this.moveIn();
           }
         }
+        this.isNew = false;
       }
 
       protected onFocus() {
@@ -70,24 +77,41 @@ namespace we {
         }
         this._displayItem.holder = this;
         this.content.addChild(this._displayItem);
-        // this.content.width = this._displayItem.width;
+        // const self = this;
+        // setTimeout(() => {
+        //   this.content.width = this.content.contentWidth;
+        //   this.width = this.content.contentWidth;
+        // }, 33);
 
         this._displayItem.data = this.itemData;
       }
 
+      // public $setHeight(value: number) {
+      //   value = isNaN(value) ? NaN : value;
+      //   if (this.$explicitHeight === value) {
+      //     return;
+      //   }
+      //   egret.Tween.get(this).to({ $explicitHeight: value }, 200);
+      // }
+
       protected moveIn() {
-        this._displayItem.x = this._displayItem.width;
-        this._displayItem.alpha = 0;
+        this.content.alpha = 0;
         setTimeout(() => {
-          egret.Tween.get(this._displayItem).to({ x: 0, alpha: 1 }, 200);
+          this.content.x = this.content.width;
+          egret.Tween.removeTweens(this.content);
+          egret.Tween.get(this.content).to({ x: 0, alpha: 1 }, 400);
         }, 100);
       }
 
       public removeItem() {
         const self = this;
         const controller = self.controller;
+        if (!controller || !this._displayItem) {
+          return;
+        }
         this._displayItem.alpha = 1;
-        egret.Tween.get(this._displayItem)
+        egret.Tween.removeTweens(this.content);
+        egret.Tween.get(this.content)
           .to({ x: this.content.contentWidth, alpha: 0 }, 200)
           .call(() => {
             if (self._displayItem) {
@@ -96,7 +120,7 @@ namespace we {
               self._displayItem = null;
             }
             if (this._holderState === NotificationItemHolder.STATE_FOCUS) {
-              controller.dismissFocus();
+              controller.dismissFocus(true);
             }
             controller.listDisplay.removeItem(self.itemData);
             controller.dismissNotification(this.itemData.type);
@@ -117,10 +141,9 @@ namespace we {
           // cancel current tween
           egret.Tween.removeTweens(this);
           // tween move to new position
-          egret.Tween.get(this).to({ x, y }, 400);
+          egret.Tween.get(this).to({ x, y }, 200);
           eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
         } else {
-          this.isNew = false;
           const changed = super.$setX.call(this, x);
           if (super.$setY.call(this, y) || changed) {
             eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);

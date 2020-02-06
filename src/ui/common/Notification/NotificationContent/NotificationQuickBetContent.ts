@@ -12,7 +12,7 @@ namespace we {
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
 
-      protected _mask: eui.Rect;
+      protected _contentMask: eui.Rect;
 
       public constructor(skinName: string = 'BaQuickBetContainerSkin') {
         super(skinName);
@@ -91,7 +91,7 @@ namespace we {
         super.initChildren();
         this._betChipSet.resetFormat(1);
         this._goodRoadLabel.visible = false;
-        this._contentContainer.mask = this._mask;
+        this._contentContainer.mask = this._contentMask;
       }
 
       protected onBetDetailUpdateInBetState() {

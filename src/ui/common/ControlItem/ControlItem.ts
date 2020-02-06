@@ -285,7 +285,7 @@ namespace we {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
-          if (this._betDetails) {
+          if (this._betDetails && this._bettingTable) {
             this._bettingTable.updateBetFields(this._betDetails);
           }
         }

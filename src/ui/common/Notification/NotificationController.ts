@@ -59,6 +59,7 @@ namespace we {
         this._collection = new eui.ArrayCollection([]);
         const layout2 = new eui.VerticalLayout();
         layout2.paddingBottom = 1;
+        layout2.horizontalAlign = egret.HorizontalAlign.CENTER;
         this.listDisplay.layout = layout2;
         this.listDisplay.isFade = false;
         this.listDisplay.isSwipeable = false;
@@ -68,7 +69,6 @@ namespace we {
         this.listDisplay.width = 410;
         this.listDisplay.isAnimateItemTransition = true;
         this.listDisplay.useVirtualLayout = false;
-        this.listDisplay.maxDisplayCount = 7;
         this.addChild(this.listDisplay);
       }
 
@@ -88,7 +88,7 @@ namespace we {
       }
 
       protected hasAvailableHolder() {
-        return this._activeNotificationCount.total < this.listDisplay.maxDisplayCount;
+        return this._activeNotificationCount.total < 7;
       }
 
       protected isTypeAvailable(type: number) {
@@ -141,7 +141,7 @@ namespace we {
         const notification: data.Notification = holder.itemData;
         const idx = this._collection.getItemIndex(notification);
         if (idx > -1) {
-          this.dismissFocus();
+          this.dismissFocus(false);
           // store the selected item and the position of that and remove from list
           const x = holder.x;
           const y = holder.y;
@@ -150,15 +150,18 @@ namespace we {
           notification.y = y;
           this.listDisplay.removeItem(notification);
           // add back to the top of the list and provide the previous position and the status from the data object
-          this.listDisplay.addItem(notification);
+          this.listDisplay.addItemAt(notification, 0);
           this._currentFocus = notification;
         }
       }
 
-      public dismissFocus() {
+      public dismissFocus(isRemoved: boolean) {
         // remove the focus item if exist
         if (this._currentFocus) {
-          this.listDisplay.removeItem(this._currentFocus);
+          if (!isRemoved) {
+            const holder = <NotificationItemHolder> this.listDisplay.getChildAt(0);
+            holder.removeItem();
+          }
           this._currentFocus = null;
         }
       }

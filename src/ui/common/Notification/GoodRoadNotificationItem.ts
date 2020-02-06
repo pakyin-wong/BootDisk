@@ -11,6 +11,7 @@ namespace we {
       }
 
       protected createQuickBetContent() {
+        super.createQuickBetContent();
         this._quickBetContent = new NotificationQuickBetContent();
         this._quickBetContent.scaleX = 1.05;
         this._quickBetContent.scaleY = 1.05;

@@ -11,11 +11,11 @@ namespace we {
       }
 
       protected createQuickBetContent() {
+        super.createQuickBetContent();
         const skinName = this.getQuickBetContentSkinName();
         this._quickBetContent = new NotificationQuickBetContent(skinName);
         this._quickBetContent.scaleX = 1.05;
         this._quickBetContent.scaleY = 1.05;
-        this._quickBetContent.horizontalCenter = 0;
         this._quickBetContent.top = 8;
         this._quickBetContent.setData(this.tableInfo);
       }
