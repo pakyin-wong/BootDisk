@@ -97,7 +97,7 @@ namespace we {
           case core.NotificationType.GoodRoad:
             return this._activeNotificationCount['GoodRoad'] === 0;
           case core.NotificationType.Result:
-            return this._activeNotificationCount['Result'] <= 6;
+            return this._activeNotificationCount['Result'] < 6;
         }
         return false;
       }
