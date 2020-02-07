@@ -1,4 +1,6 @@
 class Main extends eui.UILayer {
+  protected orientationManager: we.utils.OrientationManager;
+
   protected createChildren(): void {
     super.createChildren();
 
@@ -57,6 +59,10 @@ class Main extends eui.UILayer {
     document.documentElement.className = cn.join(' ');
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
+
+    if (env.UAInfo.device.type === 'mobile') {
+      this.orientationManager = new we.utils.OrientationManager(this.stage);
+    }
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
