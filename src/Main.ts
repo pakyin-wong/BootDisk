@@ -51,13 +51,6 @@ class Main extends eui.UILayer {
     logger.l(env.UAInfo);
     logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
 
-    if (egret.Capabilities.isMobile) {
-      this.stage.setContentSize(1242, 2105);
-      this.stage.orientation = egret.OrientationMode.PORTRAIT;
-      env.isMobile = true;
-      env.orientation = egret.OrientationMode.PORTRAIT;
-    }
-
     const cn = [];
     cn.push('MainWindow');
     cn.push(env.UAInfo.os.name);
@@ -70,7 +63,15 @@ class Main extends eui.UILayer {
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
     if (env.UAInfo.device.type === 'mobile') {
-      this.orientationManager = new we.utils.OrientationManager(this.stage);
+      env.isMobile = true;
+
+      // use these when there is portrait mode only
+      this.stage.setContentSize(1242, 2105);
+      this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      env.orientation = egret.OrientationMode.PORTRAIT;
+
+      // uncomment below when there are both portrait and landscape layout
+      // this.orientationManager = new we.utils.OrientationManager(this.stage);
     }
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
