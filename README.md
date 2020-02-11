@@ -104,9 +104,13 @@ npm install -g tslint prettier typescript
 ```
 
 ### Windows
-1. Download and install bash from http://www.msys2.org/
-2. Install npm
-3. Install the following programs
+0. Please be reminded that your user folder name "C:\Users\xxx" has no space.
+1. Install Egret Launcher. (Don't install EgretWing solely)
+2. Download and install bash from http://www.msys2.org/
+3. Set Bash in System Properties -> PATH
+4. Install npm
+5. Install the following programs
+
 ```
 npm install -g tslint prettier typescript
 ```
