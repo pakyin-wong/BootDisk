@@ -82,6 +82,10 @@ declare module skin_desktop.ba{
 	class BetItemCardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class RouletteScene extends eui.Skin{
+	}
+}
 declare module skin_desktop.ba{
 	class SideListBetItemSkin extends eui.Skin{
 	}
@@ -386,6 +390,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class QuickBetAnimButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class BettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
