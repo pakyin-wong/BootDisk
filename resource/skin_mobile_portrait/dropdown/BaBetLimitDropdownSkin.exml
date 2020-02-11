@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BaBetLimitDropdownSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*">
+    <e:Rect id="_mask" ellipseWidth="20" ellipseHeight="20" width="100%" x="0" height="100%" y="0" fillColor="0xffffff" />
+    <e:Rect id="_bg" left="0" right="0" x="-7" scaleX="1" scaleY="1" fillColor="0x232323" top="0" bottom="0" />
+    <e:Rect left="0" right="0" x="-7" scaleX="1" scaleY="1" fillColor="0x000000" fillAlpha="0.5" top="46" height="1" />
+    <e:Group x="0" y="0">
+        <e:Group id="_toggler" x="6" y="5" touchEnabled="true" touchThrough="false" touchChildren="false" height="46"
+                 width="100%">
+            <e:Label id="_label" text="" top="0" bottom="0" textAlign="right" verticalAlign="middle" size="24" left="0"
+                     fontFamily="Barlow, Arial" />
+            <e:Image id="_toggleArrow" source="d_ba_navbar_icon_dropdown_png" x="110" y="12" />
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle" paddingLeft="10" paddingRight="10" paddingTop="8"
+                                    paddingBottom="8" horizontalAlign="right" />
+            </e:layout>
+        </e:Group>
+        <ui:Scroller id="_scroller" x="-1" y="38" isCollapsible="true" iscollapseAnimate="true" collapseOnStart="true"
+                     collapseDuration="150" width="100%">
+            <e:Group width="100%">
+                <ui:List id="_list" width="100%" itemRendererSkinName="SidePanelAllGameDropdownItemSkin" x="0"
+                         scaleX="1" scaleY="1" top="0" />
+            </e:Group>
+        </ui:Scroller>
+        <e:layout>
+            <e:VerticalLayout gap="0" />
+        </e:layout>
+    </e:Group>
+</e:Skin>

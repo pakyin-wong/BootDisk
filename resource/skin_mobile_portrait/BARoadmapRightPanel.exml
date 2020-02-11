@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.BARoadmapLeftPanel" width="698" height="304" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <e:Rect id="mask" width="690" height="301" x="4" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
+                fillColor="0x7c7c7c" />
+        <e:Rect id="topBar" width="694" height="47" x="2" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
+                ellipseWidth="0" />
+        <ui:RunTimeLabel id="totalCountLabel" text="00" x="560" y="13" textAlign="right" anchorOffsetX="0"
+                         width="111.67" size="25" />
+        <ui:RunTimeLabel id="bankerCountLabel" text="00" x="264" y="13" textAlign="left" anchorOffsetX="0" width="61"
+                         size="25" />
+        <ui:RunTimeLabel id="playerCountLabel" text="00" x="334" y="13" textAlign="left" anchorOffsetX="0" width="61"
+                         size="25" />
+        <ui:RunTimeLabel id="tieCountLabel" text="00" x="403.5" y="13" textAlign="left" anchorOffsetX="0" width="61"
+                         size="25" />
+        <ui:RunTimeLabel id="bankerPairCountLabel" text="00" x="473.5" y="13" textAlign="left" anchorOffsetX="0"
+                         width="61" size="25" />
+        <ui:RunTimeLabel id="playerPairCountLabel" text="00" x="543.5" y="13" textAlign="left" anchorOffsetX="0"
+                         width="61" size="25" />
+        <e:Image width="22" height="22" x="239" y="14" source="d_ba_roadmap_bar_bankerstate_png" />
+        <e:Image width="22" height="22" x="309" y="14" source="d_ba_roadmap_bar_playerstate_png" />
+        <e:Image width="22" height="22" x="379" y="14" source="d_ba_roadmap_bar_tierstate_png" />
+        <e:Image width="22" height="22" x="449" y="14" source="d_ba_roadmap_bar_bankerpairstate_png" />
+        <e:Image width="22" height="22" x="519" y="14" source="d_ba_roadmap_bar_playerpairstate_png" />
+</e:Skin>

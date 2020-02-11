@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.LoadingScene" width="1242" height="2105" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<ui:ImageSlider id="_bannerSlider" left="0" top="0" right="0" bottom="0" touchEnabled="false" />
+	<e:Image id="logo" width="378" height="108" x="822" y="26.8" source="d_lobby_navbar_logo_png"/>
+	<e:ProgressBar id="_progressbar" width="678" height="22" horizontalCenter="0" y="1794" anchorOffsetY="0"  skinName="skin_desktop.LoadingProgressBar" touchEnabled="false"/>
+	<ui:RunTimeLabel id="_progressMsg" text="" y="1748" textAlign="center"  left="0" right="0" fontFamily="PingFangTC" size="24" height="33"/>
+	<e:Rect width="750" height="52" y="1840" ellipseHeight="50" ellipseWidth="50" fillColor="0x000000" fillAlpha="0.4" horizontalCenter="0"/>
+	<ui:NavLantern id="_tip" width="704" height="33" y="1848" alpha="0.8" horizontalCenter="0"/>
+</e:Skin>
