@@ -42,7 +42,7 @@ namespace we {
       }
 
       protected get list(): TableList {
-        return <TableList>this.parent;
+        return <TableList> this.parent;
       }
 
       public changeState(state: number): boolean {
@@ -85,7 +85,7 @@ namespace we {
         }
       }
 
-      protected initDisplayItem() { }
+      protected initDisplayItem() {}
 
       public setDisplayItem(item: TableListItem) {
         this.content.removeChildren();
@@ -118,7 +118,7 @@ namespace we {
             dir.sceneCtr.goto('ro', { tableid: this.itemData });
             break;
           default:
-            console.error('error in TableListItemHolder')
+            console.error('error in TableListItemHolder');
             break;
         }
       }

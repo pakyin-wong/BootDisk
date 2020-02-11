@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.dt.LiveListItemBettingTableSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<ui:BettingTableGrid id="_gridDragon" skinName="skin_desktop.BettingTableGridSkin" x="0" y="0" width="193" height="177"
+	                     imageRes="d_common_quickbet_betarea_general_dragon_png"
+	                     hoverRes="d_common_quickbet_betarea_general_dragon_hover_png" labelSize="15" betChipZIndex="1000"
+	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true" />
+	<ui:BettingTableGrid id="_gridTie" skinName="skin_desktop.BettingTableGridSkin" x="193" y="0" width="193"
+	                     height="177" imageRes="d_common_quickbet_betarea_general_tie_png" labelSize="15"
+	                     hoverRes="d_common_quickbet_betarea_general_tie_hover_png" betChipZIndex="1000" chipWidth="50"
+	                     chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true" />
+	<ui:BettingTableGrid id="_gridTiger" skinName="skin_desktop.BettingTableGridSkin" x="386" y="0" width="192"
+	                     height="177" imageRes="d_common_quickbet_betarea_general_tiger_png" labelSize="15"
+	                     hoverRes="d_common_quickbet_betarea_general_tiger_hover_png" betChipZIndex="1010"
+	                     chipWidth="50" chipHeight="50" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="true" />
+</e:Skin>

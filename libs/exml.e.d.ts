@@ -412,3 +412,7 @@ declare module skin_desktop{
 	class UserInfoWindow extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait{
+	class LoadingScene extends eui.Skin{
+	}
+}

@@ -19,8 +19,6 @@ class Main extends eui.UILayer {
     mouse.enable(this.stage);
     this.stage['inFocusItems'] = [];
 
-    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
-
     this.init().catch(err => {
       logger.e(err);
     });
@@ -47,6 +45,17 @@ class Main extends eui.UILayer {
 
     dir.uaParser = new UAParser();
     env.UAInfo = dir.uaParser.getResult();
+
+    logger.l(env.UAInfo);
+    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
+
+    if (egret.Capabilities.isMobile) {
+      this.stage.setContentSize(1242, 2105);
+      this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      env.isMobile = true;
+      env.orientation = egret.OrientationMode.PORTRAIT;
+    }
+
     const cn = [];
     cn.push('MainWindow');
     cn.push(env.UAInfo.os.name);

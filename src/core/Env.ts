@@ -27,6 +27,8 @@ namespace we {
       public bgm = 1;
       public betLimits: data.BetLimit[];
       public goodRoadData: data.GoodRoadMapData;
+      public isMobile: boolean = false;
+      public orientation: string = egret.OrientationMode.LANDSCAPE;
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
