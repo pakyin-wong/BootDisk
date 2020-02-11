@@ -107,6 +107,7 @@ class Main extends eui.UILayer {
     RES.registerVersionController(versionController);
     try {
       await RES.loadConfig(`resource/default.res.json`, 'resource/');
+      await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}.res.json`, 'resource/');
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);

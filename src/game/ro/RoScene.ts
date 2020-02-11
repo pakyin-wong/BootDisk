@@ -22,7 +22,7 @@ namespace we {
       }
 
       protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('BaccaratScene');
+        this.skinName = utils.getSkinByClassname('RouletteScene');
       }
 
       protected setStateBet() {
