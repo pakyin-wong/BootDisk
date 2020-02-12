@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="BaBetLimitDropdownSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+<e:Skin class="skin_mobile_portrait.BaBetLimitDropdownSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
         xmlns:ui="we.ui.*">
     <e:Rect id="_mask" ellipseWidth="20" ellipseHeight="20" width="100%" x="0" height="100%" y="0" fillColor="0xffffff" />
     <e:Rect id="_bg" left="0" right="0" x="-7" scaleX="1" scaleY="1" fillColor="0x232323" top="0" bottom="0" />

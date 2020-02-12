@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.dt.SideListBettingTableSkin" currentState="Normal" width="339" height="110"
+<e:Skin class="skin_mobile_portrait.dt.SideListBettingTableSkin" currentState="Normal" width="339" height="110"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
 	<ui:BettingTableGrid id="_gridDragon" x="0" y="0" width="113" height="110"
 	                     imageRes="d_common_quickbet_betarea_general_dragon_png"
 	                     hoverRes="d_common_quickbet_betarea_general_dragon_hover_png"
-	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
+	                     skinName="skin_mobile_portrait.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
 	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3"
 	                     chipLabelSize="20" chipType="2" />
 	<ui:BettingTableGrid id="_gridTie" x="113" y="0" width="113" height="110"
 	                     imageRes="d_common_quickbet_betarea_general_tie_png"
 	                     hoverRes="d_common_quickbet_betarea_general_tie_hover_png"
-	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
+	                     skinName="skin_mobile_portrait.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
 	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3"
 	                     chipLabelSize="20" chipType="2" />
 	<ui:BettingTableGrid id="_gridTiger" x="226" y="0" width="113" height="110"
 	                     imageRes="d_common_quickbet_betarea_general_tiger_png"
 	                     hoverRes="d_common_quickbet_betarea_general_tiger_hover_png"
-	                     skinName="skin_desktop.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
+	                     skinName="skin_mobile_portrait.BettingTableGridSkin" labelSize="15" betChipZIndex="1000" chipWidth="70"
 	                     chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" hasDenomLayer="false" chipLabelOffset="-3"
 	                     chipLabelSize="20" chipType="2" />

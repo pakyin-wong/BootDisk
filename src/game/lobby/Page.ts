@@ -23,8 +23,8 @@ namespace we {
         group.layout = vlayout;
 
         this.scroller = new ui.Scroller();
-        this.scroller.width = 2600;
-        this.scroller.height = 1340;
+        this.scroller.width = this.stage.stageWidth;
+        this.scroller.height = this.stage.stageHeight;
         this.addChild(this.scroller);
 
         const gapSize = 48;

@@ -13,7 +13,7 @@ namespace we {
         super(data);
         this._data = data;
         this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LEFT;
-        this.skinName = utils.getSkin('LobbyScene');
+        this.skinName = utils.getSkinByClassname('LobbyScene');
         this._list = new eui.TabBar();
         this._list.useVirtualLayout = false;
         const layout = new eui.HorizontalLayout();

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ToggleButtonSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_mobile_portrait.ToggleButtonSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="_image" horizontalCenter="0" verticalCenter="0" />
 </e:Skin>
