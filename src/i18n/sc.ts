@@ -225,6 +225,16 @@ namespace we {
             TIE: '和',
           },
         },
+        ro: {
+          DRAGON: '龙赢',
+          TIGER: '虎赢',
+          TIE: '和',
+          short: {
+            DRAGON: '龙',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
       },
     };
   }

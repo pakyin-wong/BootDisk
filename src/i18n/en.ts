@@ -219,6 +219,16 @@ namespace we {
             TIE: 'T',
           },
         },
+        ro: {
+          DRAGON: 'Dragon Win',
+          TIGER: 'Tiger Win',
+          TIE: 'Tie',
+          short: {
+            DRAGON: 'Dn',
+            TIGER: 'Tr',
+            TIE: 'T',
+          },
+        },
       },
     };
   }

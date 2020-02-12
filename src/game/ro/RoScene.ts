@@ -12,13 +12,8 @@ namespace we {
       protected _rightGamePanel: we.ba.BARoadmapRightPanel;
       protected _beadRoadResultPanel: we.ba.BaBeadRoadResultPanel;
 
-      protected _switchBaMode: eui.ToggleSwitch;
-      protected _lblBaMode: ui.RunTimeLabel;
-
       constructor(data: any) {
         super(data);
-        // this._leftGamePanel = this._roadmapLeftPanel;
-        // this._rightGamePanel = this._roadmapRightPanel;
       }
 
       protected setSkinName() {
@@ -42,20 +37,6 @@ namespace we {
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._bettingTable.type = we.core.BettingTableType.NORMAL;
-
-        if (this._switchBaMode) {
-          this._bettingTable.setGameMode(this._switchBaMode.selected);
-          this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
-        }
-
-        if (this._lblBaMode) {
-          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
-        }
-      }
-
-      protected onBaModeToggle(evt: eui.UIEvent) {
-        this._bettingTable.setGameMode(this._switchBaMode.selected);
-        this._bettingTable.cancelBet();
       }
 
       protected initRoadMap() {
