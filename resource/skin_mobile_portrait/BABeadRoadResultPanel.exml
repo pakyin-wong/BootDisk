@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BABeadRoadResultPanelSkin" width="368" height="241.6" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.BABeadRoadResultPanelSkin" width="368" height="241.6" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
         <e:Rect id="mask" width="100%" height="100%" x="2" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
                 fillColor="0x7c7c7c" />

@@ -21,10 +21,17 @@
 	},
 	"autoGenerateExmlsList": false,
 	"exmls": [
+		"resource/skin_desktop/BetChip.exml",
+		"resource/skin_desktop/GoodRoadLabelSkin.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinDialog.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinEmpty.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinNav.exml",
-		"resource/skin_desktop/ToggleButton.exml"
+		"resource/skin_mobile_portrait/imagebutton/ImageButtonSkinDialog.exml",
+		"resource/skin_desktop/ToggleButton.exml",
+		"resource/skin_mobile_portrait/GoodRoadLabelSkin.exml",
+		"resource/skin_mobile_portrait/imagebutton/ImageButtonSkinEmpty.exml",
+		"resource/skin_mobile_portrait/imagebutton/ImageButtonSkinNav.exml",
+		"resource/skin_mobile_portrait/ToggleButton.exml"
 	],
 	"path": "resource/preloaddefault.thm.json"
 }

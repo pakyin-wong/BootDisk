@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.CountdownTimerRoundSmallSkin" width="47" height="47" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.CountdownTimerRoundSmallSkin" width="47" height="47" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<w:Config id="16dcf084172"></w:Config>
 	<e:Image source="d_lobby_quick_bet_circle_png" left="0" right="0" top="0" bottom="0" />
