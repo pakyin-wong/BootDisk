@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.LivePage" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
-        xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_mobile_portrait.LivePage" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect id="background" width="100%" height="100%" x="0" y="0" fillColor="0x181818" />
 	<live:GameTableList id="_gameTableList" width="100%" height="100%" x="0" y="0" anchorOffsetY="0" />
 </e:Skin>
