@@ -7,7 +7,7 @@ namespace we {
       private simpleGapSize: number = 20;
       private roomLayout: eui.AnimTileLayout;
 
-      constructor() { }
+      constructor() {}
 
       public initContent(root: GameTableList) {
         if (env.orientation === egret.OrientationMode.PORTRAIT) {
@@ -20,18 +20,18 @@ namespace we {
       public initPortraitContent(root: GameTableList) {
         this.root = root;
         root.scroller = new ui.Scroller();
-        root.scroller.width = 2600;
-        root.scroller.height = 1340;
+        root.scroller.width = root.stage.stageWidth;
+        root.scroller.height = root.stage.stageHeight;
         root.scroller.headerOffset = 100;
         root.addChild(root.scroller);
 
-        const paddingHorizontal = 71;
+        const paddingHorizontal = 14;
         const offsetForTableList = -paddingHorizontal * 3;
 
         // init image slider
         const slider = new we.ui.ImageSlider();
-        slider.height = 790;
-        slider.width = 2600;
+        slider.height = 1242;
+        slider.width = 1242;
         slider.configSlides(dir.liveResources.liveHeroBanners);
 
         // init room grids
@@ -42,7 +42,7 @@ namespace we {
         this.roomLayout.horizontalGap = this.normalGapSize;
         this.roomLayout.verticalGap = this.normalGapSize;
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
-        this.roomLayout.requestedColumnCount = 4;
+        this.roomLayout.requestedColumnCount = 2;
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         root.roomList.layout = this.roomLayout;
         // this.roomList.dataProvider = this.collection;
@@ -81,7 +81,7 @@ namespace we {
         root.scroller.viewport = group;
       }
 
-      public initLandscapeContent(root: GameTableList) { }
+      public initLandscapeContent(root: GameTableList) {}
 
       public onDisplayMode(evt: egret.Event) {
         switch (evt.data) {
