@@ -4,5 +4,9 @@ namespace we {
     export interface ILiveResources {
       liveHeroBanners: core.IRemoteResourceItem[];
     }
+
+    export interface IContentInitializer extends core.IContentInitializer {
+      onDisplayMode(evt: egret.Event);
+    }
   }
 }
