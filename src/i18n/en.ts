@@ -77,6 +77,8 @@ namespace we {
       datePicker_weekday_5: 'Fr',
       datePicker_weekday_6: 'Sa',
 
+      mobile_lobby_feature_title: 'Hot Game',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',

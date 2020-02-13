@@ -77,6 +77,8 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
+      mobile_lobby_feature_title: '熱門遊戲',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',

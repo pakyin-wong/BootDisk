@@ -83,6 +83,8 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
+      mobile_lobby_feature_title: '热门游戏',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',
