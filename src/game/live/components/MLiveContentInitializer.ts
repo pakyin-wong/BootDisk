@@ -54,11 +54,6 @@ namespace we {
         root.roomList.setTableList(root.roomIds);
 
         const tabBarGroup = new eui.Group();
-        tabBarGroup.percentWidth = 100;
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
-        root.tabs = new we.live.SegmentedControl(root.tabItems);
-        tabBarGroup.addChild(root.tabs);
-        tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
         // tabs.left = paddingHorizontal;
         // tabs.bottom = gapSize + -offsetForTableList;
@@ -77,6 +72,13 @@ namespace we {
         const group = new eui.Group();
         group.addChild(slider);
         group.addChild(section);
+
+        tabBarGroup.percentWidth = 100;
+        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        root.tabs = new LiveGameTabbar(root.tabItems);
+        tabBarGroup.addChild(root.tabs);
+        root.tabs.percentWidth = 100;
+        // tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
         root.scroller.viewport = group;
       }

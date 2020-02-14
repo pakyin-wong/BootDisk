@@ -5,7 +5,7 @@ namespace we {
       // private collection: eui.ArrayCollection;
       public roomIds: string[] = [];
 
-      public tabs: SegmentedControl;
+      public tabs: LiveGameTabbar;
       public tabItems: string[];
       public roomList: ui.TableList;
 
