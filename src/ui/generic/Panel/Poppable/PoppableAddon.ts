@@ -8,8 +8,8 @@ namespace we {
       public inFocusIdx: number = 0;
       protected target: egret.DisplayObject & IPoppable;
       protected toggler: egret.DisplayObject;
-      private isAnimating: boolean = false;
-      private _contentPos: egret.Point;
+      protected isAnimating: boolean = false;
+      protected _contentPos: egret.Point;
 
       private onToggleCallback: (value: boolean) => void;
 
@@ -140,21 +140,30 @@ namespace we {
         }
         egret.Tween.removeTweens(content);
         content.visible = true;
-        // Set attributes for animating
-        content.alpha = 0;
-        content.$x = this._contentPos.x;
-        content.$y = this._contentPos.y - 20;
+
         // Run animation
         if (skipAnimation) {
           return Promise.resolve();
         }
+
         this.isAnimating = true;
+        await this.onShowAnimation();
+        this.isAnimating = false;
+      }
+
+      protected async onShowAnimation() {
+        const content = this.target.content;
+
+        // Set attributes for animating
+        content.alpha = 0;
+        content.$x = this._contentPos.x;
+        content.$y = this._contentPos.y - 20;
+
         await new Promise((resolve, reject) => {
           egret.Tween.get(content)
             .to({ alpha: 1, $y: this._contentPos.y }, 200)
             .call(resolve);
         });
-        this.isAnimating = false;
       }
 
       protected async onHide(skipAnimation: boolean = false) {
@@ -164,22 +173,30 @@ namespace we {
           return;
         }
         egret.Tween.removeTweens(content);
-        content.visible = true;
-        // Set attributes for animating
-        content.alpha = 1;
+
         // Run animation
         if (skipAnimation) {
           content.visible = false;
           return Promise.resolve();
         }
+
         this.isAnimating = true;
+        await this.onHideAnimation();
+        this.isAnimating = false;
+        content.visible = false;
+      }
+
+      protected async onHideAnimation() {
+        const content = this.target.content;
+        // Set attributes for animating
+        content.visible = true;
+        content.alpha = 1;
+
         await new Promise((resolve, reject) => {
           egret.Tween.get(content)
             .to({ alpha: 0, $y: this._contentPos.y - 20 }, 200)
             .call(resolve);
         });
-        this.isAnimating = false;
-        content.visible = false;
       }
     }
   }

@@ -309,6 +309,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LobbyTabListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class IconItem extends eui.Skin{
 	}
 }
@@ -666,6 +670,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LobbyScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LobbyTabListItemRenderer extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
