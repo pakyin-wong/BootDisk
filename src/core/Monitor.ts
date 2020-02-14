@@ -3,6 +3,7 @@ namespace we {
   export namespace core {
     export class Monitor {
       private _nav: ui.Nav;
+      private _navSilderMenu: ui.NavSilderMenu;
       private _notificationController: ui.NotificationController;
       private _liveSidePanel: ui.LiveSidePanel;
       private _overlay: ui.Overlay;
@@ -18,7 +19,8 @@ namespace we {
 
       public start(stage: egret.Stage) {
         this._nav = new ui.Nav();
-        this._nav.touchEnabled = false;
+        this._navSilderMenu = new ui.NavSilderMenu();
+        // this._nav.touchEnabled = false;
         this._notificationController = new ui.NotificationController();
         this._liveSidePanel = new ui.LiveSidePanel();
         this._overlay = new ui.Overlay();
@@ -26,6 +28,7 @@ namespace we {
         dir.layerCtr.nav.addChild(this._nav);
         dir.layerCtr.top.addChild(this._notificationController);
         dir.layerCtr.top.addChild(this._liveSidePanel);
+        dir.layerCtr.overlay.addChild(this._navSilderMenu);
         dir.layerCtr.overlay.addChild(this._overlay);
 
         this._notificationController.x = stage.stageWidth - 410;

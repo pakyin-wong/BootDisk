@@ -3,7 +3,7 @@ namespace we {
   export namespace core {
     // base control class that hold and manage the basic item in Ba Item
     export class BaseGameScene extends core.BaseScene {
-      protected _header: eui.Group;
+      protected _header: egret.DisplayObjectContainer;
       protected _betRelatedGroup: eui.Group;
 
       protected _bettingTable: ui.BettingTable;
