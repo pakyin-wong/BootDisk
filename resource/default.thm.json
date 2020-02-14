@@ -205,6 +205,7 @@
 		"resource/skin_mobile_portrait/imagebutton/ImageButtonSkinLobby.exml",
 		"resource/skin_mobile_portrait/imagebutton/ImageButtonSkinNav.exml",
 		"resource/skin_mobile_portrait/ImageSlider.exml",
+		"resource/skin_mobile_portrait/LiveGameTabItem.exml",
 		"resource/skin_mobile_portrait/LivePage.exml",
 		"resource/skin_mobile_portrait/livesidebar/ImageTabItemWithBadge.exml",
 		"resource/skin_mobile_portrait/livesidebar/LiveSidePanel.exml",
@@ -237,7 +238,6 @@
 		"resource/skin_mobile_portrait/overlay/SystemSetting.exml",
 		"resource/skin_mobile_portrait/QuickBetAnimButton.exml",
 		"resource/skin_mobile_portrait/ScrollBarVertical.exml",
-		"resource/skin_mobile_portrait/SegmentedControlTabItem.exml",
 		"resource/skin_mobile_portrait/SwitchLang.exml",
 		"resource/skin_mobile_portrait/ToggleButton.exml",
 		"resource/skin_mobile_portrait/UserInfoWindow.exml"
