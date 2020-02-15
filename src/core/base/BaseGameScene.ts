@@ -134,7 +134,6 @@ namespace we {
       }
 
       protected setupTableInfo() {
-        // console.log(env.tableInfoArray);
         const tableInfo = env.tableInfos[this._tableId];
         this.setData(tableInfo);
       }
