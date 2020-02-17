@@ -3,8 +3,8 @@ namespace we {
     export class LiveGameTabItem extends ui.ItemRenderer {
       public itemIndex: number;
 
-      private image: eui.Image;
-      private label: ui.RunTimeLabel;
+      private _image: eui.Image;
+      private _label: ui.RunTimeLabel;
       private boldWidth = null;
 
       public destinationX: number = Infinity;
@@ -17,7 +17,20 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        this.label.renderText = () => i18n.t(this.data);
+
+        this._label.renderText = () => i18n.t(`live.gametype.${this.data}`);
+        this.setIcon();
+      }
+
+      protected setIcon() {
+        switch (this.data) {
+          case 'bacarrat':
+            this._image.source = 'm_lobby_submenu_icon_baccarat_png';
+            break;
+          case 'other':
+            this._image.source = 'm_lobby_submenu_icon_other_png';
+            break;
+        }
       }
     }
   }

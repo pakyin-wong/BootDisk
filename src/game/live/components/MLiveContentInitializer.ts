@@ -26,7 +26,7 @@ namespace we {
         root.addChild(root.scroller);
 
         const paddingHorizontal = 14;
-        const offsetForTableList = -paddingHorizontal * 3;
+        const offsetForTableList = -208;
 
         // init image slider
         const slider = new we.ui.ImageSlider();
@@ -41,6 +41,9 @@ namespace we {
         this.roomLayout = new eui.AnimTileLayout();
         this.roomLayout.horizontalGap = this.normalGapSize;
         this.roomLayout.verticalGap = this.normalGapSize;
+        this.roomLayout.paddingLeft = paddingHorizontal;
+        this.roomLayout.paddingRight = paddingHorizontal;
+
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
         this.roomLayout.requestedColumnCount = 2;
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
@@ -65,8 +68,6 @@ namespace we {
         section.scroller = root.scroller;
         section.isHeaderSticky = true;
         section.contentPaddingTop = this.normalGapSize;
-        section.left = paddingHorizontal;
-        section.right = paddingHorizontal;
         section.y = slider.height + offsetForTableList + this.normalGapSize;
 
         const group = new eui.Group();
@@ -74,6 +75,10 @@ namespace we {
         group.addChild(section);
 
         tabBarGroup.percentWidth = 100;
+        const tabbarBg: eui.Image = new eui.Image('m_lobby_submenu_bg_png');
+        tabbarBg.percentWidth = 100;
+        tabbarBg.percentHeight = 100;
+        tabBarGroup.addChild(tabbarBg);
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         root.tabs = new LiveGameTabbar(root.tabItems);
         tabBarGroup.addChild(root.tabs);

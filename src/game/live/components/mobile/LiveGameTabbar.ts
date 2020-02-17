@@ -8,10 +8,9 @@ namespace we {
 
       public constructor(items: string[] = []) {
         super();
+        this.height = 160;
 
-        this.items = items.map(value => {
-          return `live.gametype.${value}`;
-        });
+        this.items = items;
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -27,7 +26,6 @@ namespace we {
         this.tabBar = new ui.SortableList();
         this.addChild(this.tabBar);
         this.tabBar.percentWidth = 100;
-        this.tabBar.percentHeight = 100;
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
 
