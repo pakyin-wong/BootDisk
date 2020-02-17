@@ -19,8 +19,8 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData) {
-        if ((<ro.GameData> gameData).result) {
-          this._lblResult.text = (<ro.GameData> gameData).result.toString();
+        if ((<ro.GameData>gameData).result) {
+          this._lblResult.text = (<ro.GameData>gameData).result.toString();
         } else {
           this._lblResult.text = 'Waiting Result';
         }
