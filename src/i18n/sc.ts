@@ -140,6 +140,7 @@ namespace we {
           wheel: '轮盘',
           dice: '骰宝',
           goodroad: '好路',
+          other: '其他',
         },
       },
       dragontiger: {

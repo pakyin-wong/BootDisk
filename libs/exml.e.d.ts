@@ -661,6 +661,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class SegmentedControl extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class LivePage extends eui.Skin{
 	}
 }
@@ -762,10 +766,6 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class ScrollBarVertical extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class SegmentedControl extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

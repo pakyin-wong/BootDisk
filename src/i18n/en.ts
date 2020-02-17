@@ -133,6 +133,7 @@ namespace we {
           wheel: 'Wheel',
           dice: 'Dice',
           goodroad: 'Good Road',
+          other: 'Others',
         },
       },
       goodroad: {
