@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.RouletteScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:w="http://ns.egret.com/wing"
+        xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0" locked="true" />
 	<ro:BettingTable id="_bettingTable" width="1208" height="340" x="692" y="1002" isEdgeDismissable="true"
@@ -23,8 +24,8 @@
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_undo" />
 	</e:Group>
 	<ro:ResultHolder id="_resultDisplay" width="412" height="152" y="631" horizontalCenter="1" anchorOffsetX="0"
-	               anchorOffsetY="0" />
-	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="668" height="304" x="14" y="1020" anchorOffsetX="0" anchorOffsetY="0" />
+	                 anchorOffsetY="0" />
+	<ro:RoLeftPanel id="_leftGamePanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0" anchorOffsetY="0" />
 	<ba:BARoadmapRightPanel id="_rightGamePanel" width="668" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
 	                        anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
