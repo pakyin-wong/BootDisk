@@ -138,6 +138,8 @@
 		"resource/skin_desktop/ro/ChipLayer.exml",
 		"resource/skin_desktop/ro/GameResult/ResultHolder.exml",
 		"resource/skin_desktop/ro/OrderLayer.exml",
+		"resource/skin_desktop/ro/RoLeftPanel.exml",
+		"resource/skin_desktop/ro/RoScene.exml",
 		"resource/skin_desktop/ro/RouletteScene.exml",
 		"resource/skin_desktop/ro/TableLayer.exml",
 		"resource/skin_desktop/ScrollBarVertical.exml",

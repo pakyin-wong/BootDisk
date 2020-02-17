@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.RoLeftPanel" width="692" height="304" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <e:Rect id="mask" width="688" height="301" x="2" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
+                fillColor="0x7c7c7c" />
+        <e:Rect id="topBar" width="694" height="47" x="0" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
+                ellipseWidth="0" />
+        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="17" y="10" textAlign="left" anchorOffsetX="0"
+                         width="514" size="25" />
+        <ui:RunTimeLabel id="totalBetLabel" text="0" x="409.69" y="10" textAlign="right" anchorOffsetX="0" width="260"
+                         size="25" />
+        <e:RadioButton id="pageRadioBtn1" x="35" y="254" width="150" height="50" value="0" selected="true"
+                       groupName="pageRadioBtnGroup">
+                <e:skinName>
+                        <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
+                                         horizontalCenter="0" alpha="0" />
+                                <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xcccccc" includeIn="up" />
+                                <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" />
+                        </e:Skin>
+                </e:skinName>
+        </e:RadioButton>
+        <e:RadioButton id="pageRadioBtn2" x="289" y="261" width="150" height="50" value="1"
+                       groupName="pageRadioBtnGroup">
+                <e:skinName>
+                        <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
+                                         horizontalCenter="0" alpha="0" />
+                                <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xcccccc" includeIn="up" />
+                                <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" />
+                        </e:Skin>
+                </e:skinName>
+        </e:RadioButton>
+        <e:RadioButton id="pageRadioBtn3" x="531" y="261" width="150" height="50" value="2"
+                       groupName="pageRadioBtnGroup">
+                <e:skinName>
+                        <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
+                                         horizontalCenter="0" alpha="0" />
+                                <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xcccccc" includeIn="up" />
+                                <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" />
+                        </e:Skin>
+                </e:skinName>
+        </e:RadioButton>
+        <e:ViewStack id="pageStack" width="689" height="184" x="2" y="77" selectedIndex="2" anchorOffsetX="0"
+                     anchorOffsetY="0">
+                <e:Group id="page1" width="100%" height="100%" name="Group">
+                        <e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" />
+                        <ui:RunTimeLabel text="hot" x="63" y="16" textAlign="left" anchorOffsetX="0" width="122"
+                                         size="25" />
+                        <ui:RunTimeLabel text="Cold" x="492.5" y="16" textAlign="left" anchorOffsetX="0" width="73"
+                                         size="25" />
+                        <e:Label text="6" x="199" y="16" scaleX="1" scaleY="1" />
+                        <e:Label text="1" x="453" y="17.5" scaleX="1" scaleY="1" />
+                        <e:Label text="3" x="33" y="112.5" scaleX="1" scaleY="1" />
+                        <e:Label text="8" x="82.5" y="112.5" scaleX="1" scaleY="1" />
+                        <e:Label text="19" x="137" y="112.5" scaleX="1" scaleY="1" />
+                        <e:Label text="19" x="199" y="112.5" scaleX="1" scaleY="1" />
+                        <e:Label text="19" x="345" y="112.5" scaleX="1" scaleY="1" />
+                        <e:Label text="19" x="403" y="112.5" scaleX="1" scaleY="1" />
+                        <e:Label text="19" x="458.5" y="112.5" scaleX="1" scaleY="1" />
+                        <e:Label text="19" x="520.69" y="112.5" scaleX="1" scaleY="1" />
+                </e:Group>
+                <e:Group id="page2" width="100%" height="100%" name="View">
+                        <e:Rect width="100%" height="100%" x="0" y="0" />
+                        <e:Label text="Label2" x="243" y="35" scaleX="1" scaleY="1" />
+                </e:Group>
+                <e:Group id="page3" width="100%" height="100%" name="View">
+                        <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xffffff" />
+                        <e:ViewStack id="roadStack" width="685" height="143" x="0" y="2" scaleX="1" scaleY="1"
+                                     anchorOffsetX="0" anchorOffsetY="0" selectedIndex="0">
+                                <e:Group width="100%" height="100%" name="View">
+                                        <e:Label text="page3" x="143" y="1" scaleX="1" scaleY="1" textColor="0x000000" />
+                                </e:Group>
+                                <e:Group width="100%" height="100%" name="View" />
+                                <e:Group width="100%" height="100%" name="View" />
+                        </e:ViewStack>
+                        <e:RadioButton id="roadRadioBtn1" x="32" y="85" width="150" height="50" value="0"
+                                       selected="true" groupName="roadRadioBtnGroup">
+                                <e:skinName>
+                                        <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                <e:Image id="buttonImageUp" width="100%" height="100%"
+                                                         source="button_up_png" horizontalCenter="0" includeIn="up" />
+                                                <e:Image id="buttonImageDown" width="100%" height="100%"
+                                                         source="button_down_png" horizontalCenter="0"
+                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                                <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                                         textColor="0x000000" includeIn="up" />
+                                                <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                                         textColor="0xffffff"
+                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                        </e:Skin>
+                                </e:skinName>
+                        </e:RadioButton>
+                        <e:RadioButton id="roadRadioBtn2" x="273" y="80" width="150" height="50" value="1"
+                                       groupName="roadRadioBtnGroup">
+                                <e:skinName>
+                                        <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                <e:Image id="buttonImageUp" width="100%" height="100%"
+                                                         source="button_up_png" horizontalCenter="0" includeIn="up" />
+                                                <e:Image id="buttonImageDown" width="100%" height="100%"
+                                                         source="button_down_png" horizontalCenter="0"
+                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                                <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                                         textColor="0x000000" includeIn="up" />
+                                                <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                                         textColor="0xffffff"
+                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                        </e:Skin>
+                                </e:skinName>
+                        </e:RadioButton>
+                        <e:RadioButton id="roadRadioBtn3" x="499" y="85" width="150" height="50" value="2"
+                                       groupName="roadRadioBtnGroup">
+                                <e:skinName>
+                                        <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                                <e:Image id="buttonImageUp" width="100%" height="100%"
+                                                         source="button_up_png" horizontalCenter="0" includeIn="up" />
+                                                <e:Image id="buttonImageDown" width="100%" height="100%"
+                                                         source="button_down_png" horizontalCenter="0"
+                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                                <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                                         textColor="0x000000" includeIn="up" />
+                                                <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                                         textColor="0xffffff"
+                                                         includeIn="down,upAndSelected,downAndSelected" />
+                                        </e:Skin>
+                                </e:skinName>
+                        </e:RadioButton>
+                </e:Group>
+        </e:ViewStack>
+</e:Skin>
