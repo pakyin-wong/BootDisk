@@ -1,4 +1,6 @@
 class Main extends eui.UILayer {
+  protected orientationManager: we.utils.OrientationManager;
+
   protected createChildren(): void {
     super.createChildren();
 
@@ -49,13 +51,6 @@ class Main extends eui.UILayer {
     logger.l(env.UAInfo);
     logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
 
-    if (egret.Capabilities.isMobile) {
-      this.stage.setContentSize(1242, 2105);
-      this.stage.orientation = egret.OrientationMode.PORTRAIT;
-      env.isMobile = true;
-      env.orientation = egret.OrientationMode.PORTRAIT;
-    }
-
     const cn = [];
     cn.push('MainWindow');
     cn.push(env.UAInfo.os.name);
@@ -66,6 +61,18 @@ class Main extends eui.UILayer {
     document.documentElement.className = cn.join(' ');
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
+
+    if (env.UAInfo.device.type === 'mobile') {
+      env.isMobile = true;
+
+      // use these when there is portrait mode only
+      this.stage.setContentSize(1242, 2155);
+      this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      env.orientation = egret.OrientationMode.PORTRAIT;
+
+      // uncomment below when there are both portrait and landscape layout
+      // this.orientationManager = new we.utils.OrientationManager(this.stage);
+    }
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
@@ -100,6 +107,7 @@ class Main extends eui.UILayer {
     RES.registerVersionController(versionController);
     try {
       await RES.loadConfig(`resource/default.res.json`, 'resource/');
+      await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}.res.json`, 'resource/');
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);

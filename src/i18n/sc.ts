@@ -83,6 +83,8 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
+      mobile_lobby_feature_title: '热门游戏',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',
@@ -138,6 +140,7 @@ namespace we {
           wheel: '轮盘',
           dice: '骰宝',
           goodroad: '好路',
+          other: '其他',
         },
       },
       dragontiger: {
@@ -216,6 +219,16 @@ namespace we {
           },
         },
         dt: {
+          DRAGON: '龙赢',
+          TIGER: '虎赢',
+          TIE: '和',
+          short: {
+            DRAGON: '龙',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
+        ro: {
           DRAGON: '龙赢',
           TIGER: '虎赢',
           TIE: '和',

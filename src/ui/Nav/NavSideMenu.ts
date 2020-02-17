@@ -18,8 +18,9 @@ namespace we {
       private txt_system: RunTimeLabel;
       private txt_logout: RunTimeLabel;
 
-      public constructor() {
+      public constructor(slider?) {
         super('nav/NavSideMenu');
+        slider && (this.poppableAddon = new PoppableAddonSilder(this));
       }
 
       protected mount() {

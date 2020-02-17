@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ResultNotificationSkin" width="385" height="100" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.ResultNotificationSkin" width="385" height="100" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
     <e:Image source="nav_panel_bg" scale9Grid="25,20,23,10" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0"
              bottom="0" right="0" />

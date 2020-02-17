@@ -13,18 +13,15 @@ namespace we {
         super(data);
         this._data = data;
         this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LEFT;
-        this.skinName = utils.getSkin('LobbyScene');
-        this._list = new eui.TabBar();
+        this.skinName = utils.getSkinByClassname('LobbyScene');
+      }
+
+      protected mount() {
+        super.mount();
         this._list.useVirtualLayout = false;
-        const layout = new eui.HorizontalLayout();
-        layout.gap = 30;
-        this._list.layout = layout;
         this._list.itemRenderer = LobbyTabListItemRenderer;
         this._list.dataProvider = new eui.ArrayCollection(this._items);
-        this._list.x = this._header.$children[0].width + layout.gap;
-        this._list.verticalCenter = 0;
         this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
-        this._header.addChild(this._list);
       }
 
       public onEnter() {
@@ -110,28 +107,24 @@ namespace we {
 
     class LobbyTabListItemRenderer extends ui.SortableItemRenderer {
       private label: ui.RunTimeLabel;
-      private boldWidth = null;
 
       public constructor() {
         super();
-        this.skinName = `
-<e:Skin height="50" xmlns:e="http://ns.egret.com/eui" states="up,down" xmlns:ui="we.ui.*">
-  <e:Group x="0" y="0" width="100%" height="100%">
-    <ui:RunTimeLabel id="label" text="{data}" verticalCenter="0" textColor="0xffffff" horizontalCenter="0"  alpha.up="0.7" bold.down="true"/>
-  </e:Group>
-</e:Skin>
-        `;
+        this.skinName = utils.getSkin('LobbyTabListItemRenderer');
+        mouse.setButtonMode(this, true);
       }
 
       public dataChanged() {
         super.dataChanged();
+
         this.label.renderText = () => `${i18n.t(`lobby.header.${this.data}`)}`;
-        // set tab item min width to bold text width
-        const bold = this.label.bold;
-        this.label.bold = true;
-        this.boldWidth = this.width;
-        this.label.bold = bold;
-        this.minWidth = this.boldWidth;
+        if (!this.label.bold) {
+          this.label.bold = true;
+          this.label.minWidth = this.label.textWidth;
+          this.label.bold = false;
+        } else {
+          this.label.minWidth = this.label.textWidth;
+        }
       }
     }
   }

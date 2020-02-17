@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.GoodRoadEditItem" width="321" height="319" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.GoodRoadEditItem" width="321" height="319" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="content" width="100%" height="100%" x="0" y="0">
 		<e:Rect id="mask" width="100%" height="100%" x="0" y="0" ellipseHeight="30" ellipseWidth="30" fillColor="0xff0000" />
@@ -12,17 +12,17 @@
 		        ellipseHeight="30" ellipseWidth="30" alpha="0" />
 		<ba:GoodRoadmapEdit id="_bigRoad" width="291" height="175" y="75" x="14" />
 		<ui:BaseImageButton id="_clearButton" currentState="b_clear" y="29" width="17" height="18" anchorOffsetX="0" x="238"
-		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<e:Image id="close" width="29" height="29" x="282" y="22" source="d-lobby-button-close-none_png" />
 		<ui:BaseImageButton id="_playerButton" currentState="b_player" width="46" height="46" anchorOffsetX="0" y="262" x="65"
-		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<ui:BaseImageButton id="_removeButton" currentState="b_remove" width="46" height="46" anchorOffsetX="0" y="262"
-		                    x="117" skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    x="117" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<ui:BaseImageButton id="_bankerButton" currentState="b_banker" width="46" height="46" anchorOffsetX="0" y="262" x="13"
-		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<ui:BaseImageButton id="_removeAllButton" currentState="b_removeAll" width="46" height="46" anchorOffsetX="0" x="169"
-		                    y="262" skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    y="262" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 		<ui:BaseImageButton id="_saveButton" currentState="b_save" width="85" height="50" anchorOffsetX="0" x="221" y="259"
-		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
 	</e:Group>
 </e:Skin>

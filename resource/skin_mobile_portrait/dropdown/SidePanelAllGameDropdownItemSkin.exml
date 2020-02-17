@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="SidePanelAllGameDropdownItemSkin" currentState="up" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.SidePanelAllGameDropdownItemSkin" currentState="up" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" states="up,down">
     <e:Group x="0" y="0" touchThrough="false" touchEnabled="true" touchChildren="false" width="100%">
         <e:Rect left="0" right="0" fillAlpha="0.5" height="1" bottom="0" fillColor="0x666666" />

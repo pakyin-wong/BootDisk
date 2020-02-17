@@ -43,6 +43,7 @@ namespace we {
             }
             break;
           case we.core.GameType.DT:
+          default:
             this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
             switch (winType) {
               case dt.WinType.DRAGON:
