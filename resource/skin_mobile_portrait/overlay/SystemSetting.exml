@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.SystemSetting" width="516" height="785" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.SystemSetting" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Image source="nav_panel_bg" left="0" top="0" right="0" bottom="0" />
-		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" />
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="61" y="39.3" fontFamily="NotoSansCJKtc" textColor="0xce925e"
-		                 width="120" height="45" />
-		<ui:RunTimeLabel id="_txt_lang" text="Label" x="61" y="108.3" fontFamily="NotoSansCJKtc" size="24" height="36"
-		                 anchorOffsetX="0" width="390" />
-		<e:Rect width="400" height="1" x="58" y="257.5" fillColor="0x979797" />
-		<ui:RunTimeLabel id="_txt_liveRecord" text="Label" x="61" y="286.3" size="24" fontFamily="NotoSansCJKtc" width="96"
-		                 height="36" />
-		<ui:RunTimeLabel id="_txt_soundfx" text="Label" x="61" y="433.2" size="24" fontFamily="NotoSansCJKtc" width="96"
-		                 height="36" />
-		<ui:RunTimeLabel id="_txt_bgm" text="Label" x="61" y="569.3" size="24" fontFamily="NotoSansCJKtc" width="96"
-		                 height="36" />
-		<ui:RunTimeLabel id="_txt_term" text="Label" x="60" y="701.5" size="20" fontFamily="NotoSansCJKtc" width="80"
-		                 height="29" textColor="0xb2b2b2" />
-		<e:Label id="_txt_version" text="Label" x="366" y="702.5" textColor="0xb2b2b2" width="90" height="26" size="22"
-		         fontFamily="Barlow" />
-		<ui:Slider id="_slider_liveRecord" width="400" height="36" x="58" y="350" skinName="skin_mobile_portrait.Slider" />
-		<ui:Slider id="_slider_soundfx" width="400" height="36" x="58" y="497" skinName="skin_mobile_portrait.Slider" />
-		<ui:Slider id="_slider_bgm" width="400" height="36" x="58" y="623" skinName="skin_mobile_portrait.Slider" />
-		<e:Group id="_btn_currLang" width="251" height="50" x="61" y="166.5">
-			<e:Rect fillColor="0xffffff" fillAlpha="0" strokeWeight="2" strokeColor="0x4b535b" ellipseWidth="50"
-			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
-			<ui:RunTimeLabel id="_txt_currLang" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
-			                 textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" locked="true"/>
+
+		<e:Image id="close" width="96" height="96" source="d-lobby-button-close-none_png"  x="1120" y="66"/>
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="53"
+		                 width="1000" height="119"  verticalAlign="middle" textColor="0xc59466" size="80"/>
+		<e:Image width="60" height="60" x="97" y="331"/>
+		<ui:RunTimeLabel id="_txt_lang" text="Label" x="178" y="316" size="56" height="83"
+		                 anchorOffsetX="0" width="850"  verticalAlign="middle"/>
+		<e:Group id="_btn_currLang" width="700" height="130" x="97" y="431">
+			<e:Rect fillColor="0xffffff" fillAlpha="0" strokeWeight="2" strokeColor="0x4b535b" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"/>
+			<ui:RunTimeLabel id="_txt_currLang" text="Label" x="123" y="16" width="453" height="89" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1"/>
 		</e:Group>
-		<e:Group id="_btn_currFx" width="251" height="50" x="205" y="428.5">
+		<e:Rect width="1048" height="4" x="97" y="657" fillColor="0x979797" />
+		<ui:RunTimeLabel id="_txt_liveRecord" text="Label" x="208" y="709.3" size="24" fontFamily="NotoSansCJKtc" width="96"
+		                 height="36" />
+		<ui:RunTimeLabel id="_txt_soundfx" text="Label" x="208" y="856.2" size="24" fontFamily="NotoSansCJKtc" width="96"
+		                 height="36" />
+		<ui:RunTimeLabel id="_txt_bgm" text="Label" x="208" y="992.3" size="24" fontFamily="NotoSansCJKtc" width="96"
+		                 height="36" />
+		<ui:RunTimeLabel id="_txt_term" text="Label" x="207" y="1124.5" size="20" fontFamily="NotoSansCJKtc" width="80"
+		                 height="29" textColor="0xb2b2b2" />
+		<e:Label id="_txt_version" text="Label" x="513" y="1125.5" textColor="0xb2b2b2" width="90" height="26" size="22"
+		         fontFamily="Barlow" />
+		<ui:Slider id="_slider_liveRecord" width="400" height="36" x="205" y="773" skinName="skin_mobile_portrait.Slider" />
+		<ui:Slider id="_slider_soundfx" width="400" height="36" x="205" y="920" skinName="skin_mobile_portrait.Slider" />
+		<ui:Slider id="_slider_bgm" width="400" height="36" x="205" y="1046" skinName="skin_mobile_portrait.Slider" />
+
+		<e:Group id="_btn_currFx" width="251" height="50" x="352" y="851.5">
 			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
 			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
 			<ui:RunTimeLabel id="_txt_currFx" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
@@ -40,8 +41,8 @@
 			<ui:RunTimeLabel id="_txt_currBgm" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
 			                 textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
 		</e:Group>
-		<ui:Panel id="_ddm_currBgm" width="251" x="205" y="624.5" skinName="skin_mobile_portrait.NavDropdown" maxHeight="200" />
-		<ui:Panel id="_ddm_currFx" width="251" x="205" y="488.5" skinName="skin_mobile_portrait.NavDropdown" maxHeight="200" />
-		<ui:Panel id="_ddm_currLang" width="251" x="61" y="226.5" skinName="skin_mobile_portrait.NavDropdown"  maxHeight="200"/>
+		<ui:Panel id="_ddm_currBgm" width="251" x="352" y="1047.5" skinName="skin_mobile_portrait.NavDropdown" maxHeight="200" />
+		<ui:Panel id="_ddm_currFx" width="251" x="352" y="911.5" skinName="skin_mobile_portrait.NavDropdown" maxHeight="200" />
+		<ui:Panel id="_ddm_currLang" width="251" x="208" y="649.5" skinName="skin_mobile_portrait.NavDropdown"  maxHeight="200"/>
 	</e:Group>
 </e:Skin>

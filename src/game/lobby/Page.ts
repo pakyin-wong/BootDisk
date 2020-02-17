@@ -26,6 +26,7 @@ namespace we {
         }
 
         // Dragonbone animation
+        /*
         const skeletonData = RES.getRes('game_result_test_ske_json');
         const textureData = RES.getRes('game_result_test_tex_json');
         const texture = RES.getRes('game_result_test_tex_png');
@@ -40,6 +41,7 @@ namespace we {
         armatureDisplay.animation.play('win_start', -1);
 
         const slot = armatureDisplay.armature.getSlot('+800');
+        */
         // const r = new eui.Label();
         // r.text = 'This is a testing string.';
         // const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
@@ -60,6 +62,7 @@ namespace we {
         // i.height = renderTexture.$sourceHeight * 0.5;
         // slot.display = i;
 
+        /*
         const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
         bmfont.font = RES.getRes('font_fnt');
         bmfont.text = 'This is a testing string.';
@@ -68,6 +71,7 @@ namespace we {
         bmfont.scaleY = 0.5;
         bmfont.anchorOffsetX = bmfont.width * 0.5;
         bmfont.anchorOffsetY = bmfont.height * 0.5;
+        */
 
         // // Dragonbone animation 2 (self gen sprite)
         // const skeletonData2 = RES.getRes('Icon_ske_json');
@@ -133,6 +137,7 @@ namespace we {
         // armatureDisplay2.animation.play('Sound_close_ani', 0);
 
         // Dragonbone animation 3 (sprite)
+        /*
         const skeletonData3 = RES.getRes('Icon2_ske_json');
         const textureData3 = RES.getRes('Icon2_tex_json');
         const texture3 = RES.getRes('Icon2_tex_png');
@@ -155,6 +160,7 @@ namespace we {
         armatureDisplay1.y = 160;
         this.addChild(armatureDisplay1);
         armatureDisplay1.animation.play('Sound_close_ani', 0);
+        */
 
         // const shp: egret.Shape = new egret.Shape();
         // shp.x = 300;
