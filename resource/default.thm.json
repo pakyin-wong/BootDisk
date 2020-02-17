@@ -162,6 +162,8 @@
 		"resource/skin_mobile_portrait/Slider.exml",
 		"resource/skin_desktop/overlay/SystemSetting.exml",
 		"resource/skin_desktop/QuickBetAnimButton.exml",
+		"resource/skin_desktop/ro/RoLeftPanel.exml",
+		"resource/skin_desktop/ro/RoScene.exml",
 		"resource/skin_desktop/ScrollBarVertical.exml",
 		"resource/skin_desktop/SegmentedControlTabItem.exml",
 		"resource/skin_desktop/SwitchLang.exml",
