@@ -409,6 +409,14 @@ declare module skin_desktop.ro.bettingTable{
 	}
 }
 declare module skin_desktop{
+	class RoLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RouletteScene extends eui.Skin{
 	}
 }
