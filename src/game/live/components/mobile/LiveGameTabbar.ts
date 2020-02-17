@@ -1,19 +1,16 @@
 namespace we {
   export namespace live {
-    export class SegmentedControl extends LiveGameTabbar implements eui.UIComponent {
+    export class LiveGameTabbar extends core.BaseEUI implements eui.UIComponent {
       public tabBar: ui.SortableList;
       public collection: eui.ArrayCollection;
-      private activeLine: eui.Rect;
 
       protected items: string[];
 
       public constructor(items: string[] = []) {
         super();
-        this.height = 50;
+        this.height = 160;
 
-        this.items = items.map(value => {
-          return `live.gametype.${value}`;
-        });
+        this.items = items;
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -22,33 +19,25 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
+        this.initContent();
       }
 
       protected initContent() {
         this.tabBar = new ui.SortableList();
         this.addChild(this.tabBar);
         this.tabBar.percentWidth = 100;
-        this.tabBar.percentHeight = 100;
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
 
         // ['live.gametype.bacarrat', 'live.gametype.dragontiger', 'live.gametype.luckywheel', 'live.gametype.wheel', 'live.gametype.dice', 'live.gametype.goodroad'];
 
         const tlayout = new eui.HorizontalLayout();
-        tlayout.gap = 30;
+        tlayout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
         // tlayout.requestedColumnCount = items.length;
         this.collection = new eui.ArrayCollection(this.items);
-        this.tabBar.itemRenderer = SegmentedControlTabItem;
+        this.tabBar.itemRenderer = LiveGameTabItem;
         this.tabBar.layout = tlayout;
         this.tabBar.dataProvider = this.collection;
-        this.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onSelectedIndexChanged.bind(this, false), this);
-        this.tabBar.addEventListener(eui.UIEvent.MOVE, this.onSelectedIndexChanged.bind(this, true), this);
-
-        this.activeLine = new eui.Rect();
-        this.addChild(this.activeLine);
-        this.activeLine.bottom = -2;
-        this.activeLine.fillColor = 0xffffff;
-        this.activeLine.height = 3;
 
         dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLockChanged, this);
       }
@@ -61,17 +50,6 @@ namespace we {
         const isLock = evt.data;
         this.tabBar.touchEnabled = !isLock;
         this.tabBar.touchChildren = !isLock;
-      }
-
-      private async onSelectedIndexChanged(fromItemRenderer = false) {
-        const { width } = this.tabBar.$children[this.tabBar.selectedIndex];
-        const x = (this.tabBar.$children[this.tabBar.selectedIndex] as SegmentedControlTabItem).destinationX;
-        egret.Tween.removeTweens(this.activeLine);
-        await new Promise((resolve, reject) => {
-          egret.Tween.get(this.activeLine)
-            .to({ x, width }, fromItemRenderer ? 400 : 200)
-            .call(resolve);
-        });
       }
 
       public setSelectedIndex(idx: number) {

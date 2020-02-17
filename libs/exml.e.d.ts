@@ -396,12 +396,32 @@ declare module skin_desktop.ro{
 	class BettingTableSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ro.bettingTable{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.ro{
 	class ResultHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ro.bettingTable{
+	class OrderLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoScene extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RouletteScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro.bettingTable{
+	class TableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -661,6 +681,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class SegmentedControl extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class LivePage extends eui.Skin{
 	}
 }
@@ -762,10 +786,6 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class ScrollBarVertical extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class SegmentedControl extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

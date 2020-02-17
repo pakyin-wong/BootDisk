@@ -133,6 +133,7 @@ namespace we {
           wheel: '輪盤',
           dice: '骰寶',
           goodroad: '好路',
+          other: '其他',
         },
       },
       goodroad: {

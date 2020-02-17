@@ -38,7 +38,8 @@ namespace we {
     }
     export enum LiveGameTab {
       ba = 'bacarrat',
-      dt = 'dragontiger',
+      // dt = 'dragontiger',
+      other = 'other',
       // goodroad = 'goodroad',
     }
 
