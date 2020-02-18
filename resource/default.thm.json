@@ -135,6 +135,7 @@
 		"resource/skin_desktop/overlay/SystemSetting.exml",
 		"resource/skin_desktop/QuickBetAnimButton.exml",
 		"resource/skin_desktop/ro/BettingTable.exml",
+		"resource/skin_desktop/ro/BettingTable/TableGrid.exml",
 		"resource/skin_desktop/ro/ChipLayer.exml",
 		"resource/skin_desktop/ro/GameResult/ResultHolder.exml",
 		"resource/skin_desktop/ro/OrderLayer.exml",

@@ -396,6 +396,10 @@ declare module skin_desktop.ro{
 	class BettingTableSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ro.BettingTable{
+	class TableGridSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.ro.bettingTable{
 	class ChipLayerSkin extends eui.Skin{
 	}
