@@ -86,6 +86,13 @@ namespace we {
         // tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
         root.scroller.viewport = group;
+
+        const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
+        gridSwitch.x = 1078;
+        gridSwitch.y = 1960;
+        gridSwitch.width = 144;
+        gridSwitch.height = 144;
+        this.root.addChild(gridSwitch);
       }
 
       public initLandscapeContent(root: GameTableList) {}
@@ -96,17 +103,18 @@ namespace we {
             this.roomLayout.horizontalGap = this.normalGapSize;
             this.roomLayout.verticalGap = this.normalGapSize;
             this.roomLayout.paddingBottom = this.normalGapSize * 3;
-            this.roomLayout.rowHeight = 388;
+            this.roomLayout.requestedColumnCount = 1;
+            this.roomLayout.rowHeight = 399;
             // this.roomList.layout = this.roomLayout;
 
             break;
           case we.lobby.mode.SIMPLE:
-          case we.lobby.mode.ADVANCED:
           default:
             this.roomLayout.horizontalGap = this.normalGapSize;
             this.roomLayout.verticalGap = this.normalGapSize;
             this.roomLayout.paddingBottom = this.normalGapSize * 3;
-            this.roomLayout.rowHeight = 219;
+            this.roomLayout.requestedColumnCount = 2;
+            this.roomLayout.rowHeight = 270;
             // this.roomList.layout = this.roomLayout;
             break;
         }
