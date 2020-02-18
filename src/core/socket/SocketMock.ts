@@ -60,6 +60,9 @@ namespace we {
         stats.bankerPairCount = bankerPairCount;
         stats.totalCount = totalCount;
 
+        stats.hotNumbers = [1, 2, 3, 4, 5];
+        stats.coldNumbers = [6, 7, 8, 9, 10];
+
         return stats;
       }
       protected generateBaccaratTables(count) {
