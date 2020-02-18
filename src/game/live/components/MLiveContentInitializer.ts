@@ -49,7 +49,7 @@ namespace we {
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         root.roomList.layout = this.roomLayout;
         // this.roomList.dataProvider = this.collection;
-        root.roomList.itemRenderer = LiveListHolder;
+        root.roomList.itemRenderer = MobileLiveListHolder;
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;
