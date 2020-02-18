@@ -8,5 +8,12 @@ namespace we {
     export interface IContentInitializer extends core.IContentInitializer {
       onDisplayMode(evt: egret.Event);
     }
+
+    export class ALobbyGridLayoutSwitch extends we.core.BaseEUI {
+      protected setGridType(type: number) {
+        env.lobbyGridType = type;
+        dir.evtHandler.dispatch(core.Event.LIVE_DISPLAY_MODE, type);
+      }
+    }
   }
 }
