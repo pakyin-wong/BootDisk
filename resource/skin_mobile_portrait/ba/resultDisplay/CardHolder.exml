@@ -2,20 +2,20 @@
 <e:Skin class="skin_mobile_portrait.ba.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="1120"
         height="220">
         <e:Rect width="2" height="100%" fillColor="0x00ffff" horizontalCenter="0" visible="false" />
-        <e:Group horizontalCenter="-100">
-                <e:Rect width="160" height="40" fillAlpha="0.3" ellipseWidth="50" ellipseHeight="50" />
+        <e:Group horizontalCenter="-50" y="75">
+                <e:Rect width="58" height="74" fillAlpha="1" ellipseWidth="50" ellipseHeight="50"  fillColor="0x497faf"/>
                 <e:Label id="playerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="0" />
         </e:Group>
-        <e:Group horizontalCenter="100">
-                <e:Rect width="160" height="40" fillAlpha="0.3" ellipseWidth="50" ellipseHeight="50" />
+        <e:Group horizontalCenter="50" y="75">
+                <e:Rect width="58" height="74" fillAlpha="1" ellipseWidth="50" ellipseHeight="50"  fillColor="0xd84b4b"/>
                 <e:Label id="bankerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
                          verticalCenter="0" />
         </e:Group>
-        <ui:Card id="card3Banker" width="64" height="44" horizontalCenter="100" y="131" />
-        <ui:Card id="card2Banker" width="44" height="64" horizontalCenter="130" y="56" />
-        <ui:Card id="card1Banker" width="44" height="64" horizontalCenter="71" y="56" />
-        <ui:Card id="card3Player" width="64" height="44" horizontalCenter="-100" y="131" />
-        <ui:Card id="card2Player" width="44" height="64" horizontalCenter="-70" y="56" />
-        <ui:Card id="card1Player" width="44" height="64" horizontalCenter="-129" y="56" />
+        <ui:Card id="card3Banker" width="140" height="96" horizontalCenter="450" y="84" />
+        <ui:Card id="card2Banker" width="96" height="140" horizontalCenter="300" y="40" />
+        <ui:Card id="card1Banker" width="96" height="140" horizontalCenter="170" y="40" />
+        <ui:Card id="card3Player" width="140" height="96" horizontalCenter="-450" y="84" />
+        <ui:Card id="card2Player" width="96" height="140" horizontalCenter="-300" y="40" />
+        <ui:Card id="card1Player" width="96" height="140" horizontalCenter="-170" y="40" />
 </e:Skin>
