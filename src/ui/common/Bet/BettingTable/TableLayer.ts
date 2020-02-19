@@ -10,8 +10,8 @@ namespace we {
       protected _totalPerson: any; // Total Person for each grid
       protected _totalAmount: any; // Total amount for each grid
 
-      constructor() {
-        super();
+      constructor(skinName?: string) {
+        super(skinName);
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
@@ -20,39 +20,6 @@ namespace we {
       }
 
       public onTableListUpdate() {}
-
-      /*
-      set totalPerson(persons: any) {
-        this._totalPerson = persons;
-        if (this._mapping) {
-          Object.keys(persons).map(value => {
-            if (this._mapping[value]) {
-              this._mapping[value].totalPerson = persons[value];
-            }
-          });
-        }
-      }
-
-      get totalPerson() {
-        return this._totalPerson;
-      }
-*/
-      /*
-      set totalAmount(amounts: any) {
-        this._totalAmount = amounts;
-        if (this._mapping) {
-          Object.keys(amounts).map(value => {
-            if (this._mapping[value]) {
-              this._mapping[value].totalAmount = amounts[value];
-            }
-          });
-        }
-      }
-
-      get totalAmount() {
-        return this._totalAmount;
-      }
-*/
 
       set tableId(value: string) {
         this._tableId = value;

@@ -1,5 +1,7 @@
 namespace we {
   export namespace ro {
-    export class ChipLayer extends we.ui.ChipLayer {}
+    export namespace bettingTable {
+      export class ChipLayer extends we.ui.ChipLayer {}
+    }
   }
 }
