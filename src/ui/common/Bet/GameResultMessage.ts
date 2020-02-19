@@ -69,8 +69,7 @@ namespace we {
         const background = this.getBackground(gameType, winType, isWin);
 
         this.visible = true;
-        logger.l(background, gameType, winType, winAmount);
-        logger.l(i18n.t(utils.getWinMessageKey(gameType, winType)));
+        logger.l(i18n.t(utils.getWinMessageKey(gameType, winType)), background, gameType, winType, winAmount);
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
