@@ -1,7 +1,7 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ui {
-    export class MobileLiveListSimpleItem extends MobileListBaseItem {
+    export class MobileLiveListItem extends MobileLiveListSimpleItem {
       protected _bigRoad: we.ba.BALobbyBigRoad;
       protected _alreadyBetSign: eui.Group;
 
