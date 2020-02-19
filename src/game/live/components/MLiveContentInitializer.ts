@@ -45,7 +45,7 @@ namespace we {
         this.roomLayout.paddingRight = paddingHorizontal;
 
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
-        this.roomLayout.requestedColumnCount = 2;
+        this.roomLayout.requestedColumnCount = 1;
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         root.roomList.layout = this.roomLayout;
         // this.roomList.dataProvider = this.collection;
@@ -69,6 +69,7 @@ namespace we {
         section.isHeaderSticky = true;
         section.contentPaddingTop = this.normalGapSize;
         section.y = slider.height + offsetForTableList + this.normalGapSize;
+        section.percentWidth = 100;
 
         const group = new eui.Group();
         group.addChild(slider);
@@ -105,6 +106,7 @@ namespace we {
             this.roomLayout.paddingBottom = this.normalGapSize * 3;
             this.roomLayout.requestedColumnCount = 1;
             this.roomLayout.rowHeight = 399;
+            this.roomLayout.columnWidth = 1140;
             // this.roomList.layout = this.roomLayout;
 
             break;
@@ -115,6 +117,7 @@ namespace we {
             this.roomLayout.paddingBottom = this.normalGapSize * 3;
             this.roomLayout.requestedColumnCount = 2;
             this.roomLayout.rowHeight = 270;
+            this.roomLayout.columnWidth = 578;
             // this.roomList.layout = this.roomLayout;
             break;
         }
