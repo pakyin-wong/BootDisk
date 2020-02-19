@@ -79,6 +79,9 @@ namespace we {
 
       mobile_lobby_feature_title: 'Hot Game',
 
+      mobile_quick_bet_button_label: 'QuickBet',
+      mobile_enter_table_button_label: 'Enter',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
