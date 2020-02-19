@@ -28,7 +28,7 @@ namespace we {
         this._infoBg = value;
       }
 
-      get infoBg() {
+      get infoBg(): string {
         return this._infoBg;
       }
 
@@ -36,7 +36,7 @@ namespace we {
         this._successBg = value;
       }
 
-      get successBg() {
+      get successBg(): string {
         return this._successBg;
       }
 
@@ -44,7 +44,7 @@ namespace we {
         this._errorBg = value;
       }
 
-      get errorBg() {
+      get errorBg(): string {
         return this._errorBg;
       }
 

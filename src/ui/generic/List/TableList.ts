@@ -209,6 +209,10 @@ namespace we {
 
       protected onLockChanged(evt: egret.Event) {
         const focusItem: TableListItemHolder = evt.data;
+        let listItem: TableListItemHolder;
+        if (this.isFocus) {
+          listItem = this._isFocus as TableListItemHolder;
+        }
         switch (evt.type) {
           case TableList.LOCK:
             this.onFocusChanged(focusItem);
@@ -216,6 +220,9 @@ namespace we {
           case TableList.UNLOCK:
             this.onFocusChanged(null);
             break;
+        }
+        if (listItem) {
+          listItem.onOutFocus();
         }
       }
 
