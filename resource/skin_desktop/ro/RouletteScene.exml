@@ -4,9 +4,8 @@
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0" locked="true" />
-	<ro:BettingTable id="_bettingTable" width="1" height="1" x="692" y="1002" isEdgeDismissable="true"
-	                 skinName="skin_desktop.ro.BettingTableSkin" />
-	<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="1002" />
+	<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="1002" skinName="skin_desktop.ro.TableLayerSkin" isEdgeDismissable="true" />
+	<ro:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="1002" skinName="skin_desktop.ro.ChipLayerSkin" isEdgeDismissable="true" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="939.13">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="0" anchorOffsetX="0" anchorOffsetY="0"

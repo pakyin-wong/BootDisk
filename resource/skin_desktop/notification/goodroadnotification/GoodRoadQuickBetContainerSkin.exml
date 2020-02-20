@@ -6,8 +6,10 @@
         <e:Rect width="100%" height="100" x="0" alpha="0.6" y="100" />
         <ui:BetChipSetHorizontal id="_betChipSet" width="200" height="87" anchorOffsetX="0" x="0" anchorOffsetY="0"
                                  y="112" />
-        <ba:BettingTable id="_bettingTable" width="339" skinName="skin_desktop.ba.SideListBettingTableSkin"
-                         anchorOffsetY="0" height="110" left="0" top="0" name="sidebettingtable" />
+        <ba:TableLayer id="_tableLayer" width="339" skinName="skin_desktop.ba.SideListTableLayerSkin" anchorOffsetY="0"
+                       height="110" left="0" top="0" name="sidebettingtable" />
+        <ba:ChipLayer id="_chipLayer" width="339" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
+                      height="110" left="0" top="0" name="sidebettingtable" />
         <ui:BaseImageButton id="_confirmButton" x="235" y="135" width="85" height="50"
                             currentState="lobby_confirm_button" skinName="ImageButtonSkinLobby" />
     </e:Group>

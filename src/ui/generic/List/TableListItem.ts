@@ -37,6 +37,8 @@ namespace we {
       public getActionButton() {
         return null;
       }
+
+      public onOutFocus() {}
     }
   }
 }

@@ -27,7 +27,7 @@ if test $lastrun -gt 60; then
     # greater than 30 seconds
     echo "[prelaunch] started linting (${lastrun}s)"
     # $0[0]=space=unstaged, $0[1]=character=staged (git added)
-    flist="$(git status --porcelain | awk '{ if ( (substr($0,1,1) ~ /^[[:space:]]$/ || substr($0,1,1) !~ /^[[:space:]]$/) && $2 ~ /\.ts$/ ) print $2 }')"
+    flist="$(git status --porcelain | awk '{ if ( (substr($0,1,1) ~ /^[[:space:]]$/ || substr($0,1,1) !~ /^[[:space:]]$/) && $2 ~ /\.ts$/ && $2 !~ /\.d\.ts$/ ) print $2 }')"
     echo -e "[prelaunch] file list:\n$flist"
     flist="$(echo $flist | tr '\r\n' ' ' | awk '{$1=$1};1')"
     if [ ! "$flist" ]; then

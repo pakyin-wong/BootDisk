@@ -14,7 +14,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (this._bettingTable.isAlreadyBet()) {
+        if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -23,7 +23,7 @@ namespace we {
 
       protected onTableBetInfoUpdate() {
         super.onTableBetInfoUpdate();
-        if (this._bettingTable.isAlreadyBet()) {
+        if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;

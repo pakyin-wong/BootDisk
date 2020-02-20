@@ -83,6 +83,9 @@ namespace we {
       mobile_ba_double: 'Double',
       mobile_ba_betagain: 'Bet Again',
 
+      mobile_quick_bet_button_label: 'QuickBet',
+      mobile_enter_table_button_label: 'Enter',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',

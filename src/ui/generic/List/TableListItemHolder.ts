@@ -63,6 +63,10 @@ namespace we {
         }
       }
 
+      public onOutFocus() {
+        this.displayItem.onOutFocus();
+      }
+
       public itemDataChanged() {
         super.itemDataChanged();
         logger.l('TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);

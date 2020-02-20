@@ -3,12 +3,14 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*">
 	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betboard_inactive_png"
 	         fillMode="scale" />
-	<bt:TableGrid id="_direct_1" hoverRes="" text="" x="105" y="1" width="80" height="70" />
-	<bt:TableGrid id="_direct_2" hoverRes="" text="" x="0" y="0" width="80" height="70" />
-	<bt:TableGrid id="_direct_3" hoverRes="" text="" x="0" y="0" width="80" height="70" />
-	<bt:TableGrid id="_direct_4" hoverRes="" text="" x="0" y="0" width="80" height="70" />
-	<bt:TableGrid id="_direct_5" hoverRes="" text="" x="0" y="0" width="80" height="70" />
-	<bt:TableGrid id="_direct_6" hoverRes="" text="" x="0" y="0" width="80" height="70" />
-	<bt:TableGrid id="_direct_7" hoverRes="" text="" x="0" y="0" width="80" height="70" />
-	<bt:TableGrid id="_direct_8" hoverRes="" text="" x="0" y="0" width="80" height="70" />
+	<e:Group x="105" y="1" width="80" height="70" id="_direct_3_group">
+	</e:Group>
+	<e:Group x="187" y="1" width="80" height="70" id="_direct_6_group">
+	</e:Group>
+	<e:Group x="252" y="1" width="80" height="70" id="_direct_9_group">
+	</e:Group>
+	<e:Group x="324" y="1" width="80" height="70" id="_direct_12_group">
+	</e:Group>
+	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betborad_outline_png"
+	         fillMode="scale" />
 </e:Skin>

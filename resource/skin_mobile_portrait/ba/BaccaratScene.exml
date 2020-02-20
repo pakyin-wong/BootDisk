@@ -3,9 +3,11 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0"  width="1242" locked="true"/>
-	<ba:BettingTable id="_bettingTable" width="1182" height="464" x="30" y="983" isEdgeDismissable="true"
-	                 skinName="skin_mobile_portrait.ba.BettingTableSkin" />
-	<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="455" anchorOffsetX="0" anchorOffsetY="0" x="449" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2"/>
+	<ba:TableLayer id="_tableLayer" width="1146" height="304" x="58" y="1020" isEdgeDismissable="true"
+	               skinName="skin_mobile_portrait.ba.TableLayerSkin" />
+	<ba:ChipLayer id="_chipLayer" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
+	              skinName="skin_mobile_portrait.ba.ChipLayerSkin" />
+	<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="455" anchorOffsetX="0" anchorOffsetY="0" x="449" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" visible="false"/>
 	<e:Group id="_betRelatedGroup" x="34" y="824">
 		<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"  fillColor="0x444444"/>
 
@@ -16,7 +18,6 @@
 		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="-111" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"/>
 		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
 		                    horizontalCenter="40" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" />
-
 		<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
 		                    horizontalCenter="190" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" />
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"

@@ -9,8 +9,10 @@
         <e:Rect width="100%" height="100" x="0" alpha="0.6" y="100" />
         <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="118"
                                    skinName="skin_mobile_portrait.BetChipSkin" />
-        <ba:BettingTable id="_bettingTable" width="339" skinName="skin_mobile_portrait.ba.SideListBettingTableSkin"
-                         anchorOffsetY="0" height="110" left="0" top="0" name="sidebettingtable" />
+        <ba:TableLayer id="_tableLayer" width="339" skinName="skin_mobile_portrait.ba.SideListTableLayerSkin"
+                       anchorOffsetY="0" height="110" left="0" top="0" name="sidebettingtable" />
+        <ba:ChipLayer id="_chipLayer" width="339" skinName="skin_mobile_portrait.ba.SideListChipLayerSkin"
+                      anchorOffsetY="0" height="110" left="0" top="0" name="sidebettingtable" />
         <ui:BaseImageButton id="_closeButton" x="12" y="125" width="56" height="60"
                             currentState="lobby_betcontrol_close" skinName="ImageButtonSkinLobby" />
         <ui:BaseImageButton id="_prevButton" x="68" y="125" width="56" height="60"
@@ -26,10 +28,10 @@
                          size="26" />
         <ba:BetInfoBigRoad id="_bigRoad" width="339" height="127" bottom="0" />
         <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13" bottom="10" />
-        <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_mobile_portrait.InGameMessageSkin"
-                          width="303" height="32" horizontalCenter="0.5" y="105"
-                          infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-                          errorBg="d_ba_gamerecord_bankerelement_png" />
+        <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16"
+                          skinName="skin_mobile_portrait.InGameMessageSkin" width="303" height="32"
+                          horizontalCenter="0.5" y="105" infoBg="d_ba_gamerecord_playerelement_png"
+                          successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
         <e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
             <e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
                      width="100" height="30" />

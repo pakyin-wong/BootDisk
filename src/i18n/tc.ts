@@ -83,6 +83,9 @@ namespace we {
       mobile_ba_double: '雙倍',
       mobile_ba_betagain: '再次下注',
 
+      mobile_quick_bet_button_label: '快速投注',
+      mobile_enter_table_button_label: '進入遊戲',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',

@@ -24,6 +24,7 @@ namespace we {
         root.scroller.height = root.stage.stageHeight;
         root.scroller.headerOffset = 100;
         root.addChild(root.scroller);
+        root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
 
         const paddingHorizontal = 14;
         const offsetForTableList = -208;
@@ -45,11 +46,11 @@ namespace we {
         this.roomLayout.paddingRight = paddingHorizontal;
 
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
-        this.roomLayout.requestedColumnCount = 2;
+        this.roomLayout.requestedColumnCount = 1;
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         root.roomList.layout = this.roomLayout;
         // this.roomList.dataProvider = this.collection;
-        root.roomList.itemRenderer = LiveListHolder;
+        root.roomList.itemRenderer = MobileLiveListHolder;
         // roomList.left = paddingHorizontal;
         // roomList.right = paddingHorizontal;
         // roomList.y = slider.height + offsetForTableList + gapSize;
@@ -69,6 +70,7 @@ namespace we {
         section.isHeaderSticky = true;
         section.contentPaddingTop = this.normalGapSize;
         section.y = slider.height + offsetForTableList + this.normalGapSize;
+        section.percentWidth = 100;
 
         const group = new eui.Group();
         group.addChild(slider);
@@ -105,6 +107,7 @@ namespace we {
             this.roomLayout.paddingBottom = this.normalGapSize * 3;
             this.roomLayout.requestedColumnCount = 1;
             this.roomLayout.rowHeight = 399;
+            this.roomLayout.columnWidth = 1140;
             // this.roomList.layout = this.roomLayout;
 
             break;
@@ -115,9 +118,22 @@ namespace we {
             this.roomLayout.paddingBottom = this.normalGapSize * 3;
             this.roomLayout.requestedColumnCount = 2;
             this.roomLayout.rowHeight = 270;
+            this.roomLayout.columnWidth = 578;
             // this.roomList.layout = this.roomLayout;
             break;
         }
+      }
+
+      protected onScroll() {
+        const currentScrollV = this.root.scroller.viewport.scrollV;
+        this.updateNavbarOpacity(currentScrollV);
+      }
+
+      protected updateNavbarOpacity(scrollV: number) {
+        const scrollTarget = 1100;
+        const ratio = Math.min(1, scrollV / scrollTarget);
+        const opacity = egret.Ease.quintIn(ratio);
+        dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
     }
   }
