@@ -2659,6 +2659,196 @@
 			"url": "assets/m/lobby/m_lobby_view_icon_2column.png",
 			"type": "image",
 			"name": "m_lobby_view_icon_2column_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betarea_banker.png",
+			"type": "image",
+			"name": "m_ba_betarea_banker_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betarea_bankerpair.png",
+			"type": "image",
+			"name": "m_ba_betarea_bankerpair_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betarea_chipsbg.png",
+			"type": "image",
+			"name": "m_ba_betarea_chipsbg_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betarea_player.png",
+			"type": "image",
+			"name": "m_ba_betarea_player_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betarea_playerpair.png",
+			"type": "image",
+			"name": "m_ba_betarea_playerpair_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betarea_tie.png",
+			"type": "image",
+			"name": "m_ba_betarea_tie_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betcontrol_btn_betconfirm.png",
+			"type": "image",
+			"name": "m_ba_betcontrol_btn_betconfirm_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betcontrol_btn_clear.png",
+			"type": "image",
+			"name": "m_ba_betcontrol_btn_clear_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betcontrol_btn_double.png",
+			"type": "image",
+			"name": "m_ba_betcontrol_btn_double_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betcontrol_btn_rebet.png",
+			"type": "image",
+			"name": "m_ba_betcontrol_btn_rebet_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_betcontrol_btn_undo.png",
+			"type": "image",
+			"name": "m_ba_betcontrol_btn_undo_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_bg_offvideo.png",
+			"type": "image",
+			"name": "m_ba_bg_offvideo_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_btn_bg.png",
+			"type": "image",
+			"name": "m_ba_btn_bg_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_btn_bg_hover.png",
+			"type": "image",
+			"name": "m_ba_btn_bg_hover_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_btn_chatroom.png",
+			"type": "image",
+			"name": "m_ba_btn_chatroom_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_btn_video.png",
+			"type": "image",
+			"name": "m_ba_btn_video_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_info_line_banker.png",
+			"type": "image",
+			"name": "m_ba_goodroad_info_line_banker_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_info_line_player.png",
+			"type": "image",
+			"name": "m_ba_goodroad_info_line_player_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_info_ring_banker.png",
+			"type": "image",
+			"name": "m_ba_goodroad_info_ring_banker_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_info_ring_player.png",
+			"type": "image",
+			"name": "m_ba_goodroad_info_ring_player_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_info_round_banker.png",
+			"type": "image",
+			"name": "m_ba_goodroad_info_round_banker_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_info_round_player.png",
+			"type": "image",
+			"name": "m_ba_goodroad_info_round_player_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_info_state_banker.png",
+			"type": "image",
+			"name": "m_ba_goodroad_info_state_banker_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_info_state_player.png",
+			"type": "image",
+			"name": "m_ba_goodroad_info_state_player_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_infobg_banker.png",
+			"type": "image",
+			"name": "m_ba_goodroad_infobg_banker_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_goodroad_infobg_player.png",
+			"type": "image",
+			"name": "m_ba_goodroad_infobg_player_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_picker.png",
+			"type": "image",
+			"name": "m_ba_picker_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_result_poker_banker.png",
+			"type": "image",
+			"name": "m_ba_result_poker_banker_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_result_poker_player.png",
+			"type": "image",
+			"name": "m_ba_result_poker_player_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_setting_btn_liveverification.png",
+			"type": "image",
+			"name": "m_ba_setting_btn_liveverification_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_setting_btn_verification.png",
+			"type": "image",
+			"name": "m_ba_setting_btn_verification_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_tab_bottom.png",
+			"type": "image",
+			"name": "m_ba_tab_bottom_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_tab_btn_dropdown.png",
+			"type": "image",
+			"name": "m_ba_tab_btn_dropdown_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_tab_roadmap_active.png",
+			"type": "image",
+			"name": "m_ba_tab_roadmap_active_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_tab_roadmap_bg.png",
+			"type": "image",
+			"name": "m_ba_tab_roadmap_bg_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_tag_btn_detail.png",
+			"type": "image",
+			"name": "m_ba_tag_btn_detail_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_tag_redlimit_bg.png",
+			"type": "image",
+			"name": "m_ba_tag_redlimit_bg_png"
+		},
+		{
+			"url": "assets/m/ba/m_ba_tag_redlimit_btn_dropdown.png",
+			"type": "image",
+			"name": "m_ba_tag_redlimit_btn_dropdown_png"
 		}
 	]
 }

@@ -84,6 +84,10 @@ namespace we {
       datePicker_weekday_6: '六',
 
       mobile_lobby_feature_title: '热门游戏',
+      mobile_ba_recovery: '复原',
+      mobile_ba_clear: '清除',
+      mobile_ba_double: '双倍',
+      mobile_ba_betagain: '再次下注',
 
       loading: {
         socket: {

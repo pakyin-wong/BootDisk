@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.GameResultWinSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-    <e:Image id="_bg" width="620" height="171" x="0" y="0" source="d_ba_gameresult_playerelement_png" />
+    <e:Image id="_bg" width="829" height="229" x="0" y="0" source="d_ba_gameresult_playerelement_png" />
     <e:Label id="_label" text="Label" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="10"
-             size="56" />
+             size="80"  bold="true"/>
 </e:Skin>

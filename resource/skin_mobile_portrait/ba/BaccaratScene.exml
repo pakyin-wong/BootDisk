@@ -5,24 +5,24 @@
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0"  width="1242" locked="true"/>
 	<ba:BettingTable id="_bettingTable" width="1182" height="464" x="30" y="983" isEdgeDismissable="true"
 	                 skinName="skin_mobile_portrait.ba.BettingTableSkin" />
-	<e:Group id="_betRelatedGroup" x="21" y="824">
-		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
-		<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="0" anchorOffsetX="0" anchorOffsetY="0"
-		                         x="25" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" />
-		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
-		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
-		<ui:CountdownTimer id="_timer" width="180" height="60" y="6" horizontalCenter="115"
-		                   skinName="skin_mobile_portrait.CountdownTimerSkin" />
-		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="318" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" />
-		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="243" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" />
-		<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="393" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" />
-		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="467" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" />
+	<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="455" anchorOffsetX="0" anchorOffsetY="0" x="449" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2"/>
+	<e:Group id="_betRelatedGroup" x="34" y="824">
+		<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"  fillColor="0x444444"/>
+
+		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120"
+		          skinName="skins_desktop.BetConfirmButtonSkin"  x="0" verticalCenter="0"/>
+		<ui:CountdownTimer id="_timer" width="300" height="120"
+		                   skinName="skin_mobile_portrait.CountdownTimerSkin"  x="0" verticalCenter="0"/>
+		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="-111" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"/>
+		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+		                    horizontalCenter="40" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" />
+
+		<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+		                    horizontalCenter="190" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" />
+		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
+		                    horizontalCenter="360" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" />
 	</e:Group>
-	<ba:CardHolder id="_resultDisplay" width="412" height="152" y="784" horizontalCenter="-29" anchorOffsetX="0"
+	<ba:CardHolder id="_resultDisplay" width="412" height="152" y="800" horizontalCenter="0" anchorOffsetX="0"
 	               anchorOffsetY="0" />
 	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="592" height="444" x="0" y="1669" anchorOffsetX="0" anchorOffsetY="0" />
 	<ba:BARoadmapRightPanel id="_rightGamePanel" width="650" height="444" x="368" y="1303" anchorOffsetX="0"
@@ -38,9 +38,9 @@
 		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar" />
 	</e:Group>
-    <ui:GameResultMessage id="_resultMessage" x="604.98" y="627.26" anchorOffsetX="309" anchorOffsetY="55" scaleX="1"
+    <ui:GameResultMessage id="_resultMessage" x="207" y="398" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
                           scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin" />
-    <ui:InGameMessage id="_message" x="592.5" y="738.26" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="152"
+    <ui:InGameMessage id="_message" x="592.5" y="623" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
 	<ba:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
