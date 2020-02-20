@@ -7,7 +7,7 @@ namespace we {
       private simpleGapSize: number = 20;
       private roomLayout: eui.AnimTileLayout;
 
-      constructor() {}
+      constructor() { }
 
       public initContent(root: GameTableList) {
         if (env.orientation === egret.OrientationMode.PORTRAIT) {
@@ -46,7 +46,7 @@ namespace we {
         this.roomLayout.paddingRight = paddingHorizontal;
 
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
-        this.roomLayout.requestedColumnCount = 1;
+        this.setDisplayMode(env.lobbyGridType);
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         root.roomList.layout = this.roomLayout;
         // this.roomList.dataProvider = this.collection;
@@ -97,10 +97,14 @@ namespace we {
         this.root.addChild(gridSwitch);
       }
 
-      public initLandscapeContent(root: GameTableList) {}
+      public initLandscapeContent(root: GameTableList) { }
 
       public onDisplayMode(evt: egret.Event) {
-        switch (evt.data) {
+        this.setDisplayMode(evt.data);
+      }
+
+      protected setDisplayMode(mode) {
+        switch (mode) {
           case we.lobby.mode.NORMAL:
             this.roomLayout.horizontalGap = this.normalGapSize;
             this.roomLayout.verticalGap = this.normalGapSize;

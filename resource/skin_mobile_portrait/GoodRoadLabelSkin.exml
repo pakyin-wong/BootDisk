@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.GoodRoadLabelSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
-        xmlns:ui="we.ui.*">
+<e:Skin class="skin_mobile_portrait.GoodRoadLabelSkin" currentState="normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="small,normal">
     <e:Rect anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x000000" fillAlpha="0.7"
-            ellipseWidth="28" ellipseHeight="28" left="0" right="0" top="0" bottom="0" />
-    <e:Group top="2" bottom="2" left="8" right="8">
-        <e:Image source="d_lobby_panel_gamelist_icon_goodroad_active_png" x="9" y="14" height="24" width="24" />
-        <ui:RunTimeLabel id="label" text="" x="12" y="7" size="24" />
+            ellipseWidth="80" ellipseHeight="80" left="0" right="0" top="0" bottom="0" ellipseWidth.small="50"
+            ellipseHeight.small="50" />
+    <e:Group top="12" bottom="12" left="8" right="8" top.small="5" bottom.small="5" left.small="12" right.small="12"
+             left.normal="20" right.normal="20">
+        <e:Image source="d_lobby_panel_gamelist_icon_goodroad_active_png" x="9" y="14" height="56" width="56"
+                 width.small="40" height.small="40" />
+        <ui:RunTimeLabel id="label" text="" x="12" y="7" size="50" size.small="40" text.normal="" size.normal="56"
+                         text.small="" verticalAlign.small="middle" y.normal="8" verticalAlign.normal="middle" />
         <e:layout>
-            <e:HorizontalLayout/>
+            <e:HorizontalLayout />
         </e:layout>
     </e:Group>
 </e:Skin>

@@ -12,13 +12,20 @@
 		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
 		                  y="167.5" infoBg="m_common_gamestate_message_black_png"
 		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
-		<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
-			<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
-			         width="100" height="30" />
-			<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
-		</e:Group>
 		<live:BetLimitDropdown id="_dropdown" width="200" y="20" anchorOffsetX="0" anchorOffsetY="0"
 		                       skinName="BetLimitDropdownSkin" right="7" />
+		<e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20">
+			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13" bottom="10"  currentState="small"/>
+			<e:Group id="_alreadyBetSign" right="5" bottom="40" x="421.00000000000006" y="-5.3300000000000125" scaleX="1"
+			         scaleY="1" height="50" visible="false">
+				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="50" ellipseHeight="50" fillAlpha="0.76"
+				        fillColor="0x42bc60" />
+				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="40" left="20" right="20" />
+			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="left" />
+			</e:layout>
+		</e:Group>
 	</e:Group>
 	<e:Rect id="_dimmer" left="0" top="79" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0" visible="false" />
 	<e:Group id="_buttonGroup" width="552" x="0" y="140" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
