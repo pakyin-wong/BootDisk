@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ba.LiveListItemSkin" width="1140" height="399" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="_contentContainer" width="100%" height="399" x="0" y="0" anchorOffsetY="0">
+		<e:Rect height="80" y="0" fillColor="0x202020" right="0" left="0" />
+		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0"
+		                   skinName="skin_mobile_portrait.CountdownTimerRoundSkin" />
+		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="84.68" y="23.99" />
+		<ba:BAMobileLobbyBigRoad id="_bigRoad" width="100%" height="318.91" y="80" anchorOffsetY="0" />
+		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
+		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
+		                  y="237.19" infoBg="m_common_gamestate_message_black_png"
+		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
+		<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
+			<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
+			         width="100" height="30" />
+			<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
+		</e:Group>
+		<live:BetLimitDropdown id="_dropdown" width="200" y="20" anchorOffsetX="0" anchorOffsetY="0"
+		                       skinName="BetLimitDropdownSkin" right="7" />
+	</e:Group>
+	<e:Rect id="_dimmer" left="0" top="79" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0" visible="false" />
+	<e:Group id="_buttonGroup" width="1140" x="0" y="140" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
+	         touchChildren="true">
+		<ui:BaseImageButton id="_quickBetButton" width="350" height="100" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+		                    scaleY="1" verticalCenter="0" left="200" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+		                    currentState="1col_btn" />
+		<ui:BaseImageButton id="_enterTableButton" width="350" height="100" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+		                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby" verticalCenter="0" right="200"
+		                    currentState="1col_btn" />
+	</e:Group>
+</e:Skin>

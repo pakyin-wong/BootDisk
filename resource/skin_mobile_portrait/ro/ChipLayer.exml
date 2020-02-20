@@ -2,60 +2,6 @@
 <e:Skin class="skin_mobile_portrait.ro.bettingTable.ChipLayerSkin" width="1208" height="340"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*"
         states="Normal">
-	<ui:BettingTableGrid id="_direct_1" skinName="skin_mobile_portrait.BettingTableGridFullSkin" x="0" y="0" width="202"
-	                     height="304" imageRes="" hoverRes="" chipWidth="100" chipHeight="100" chipInterval="7"
-	                     totalCfmOffset="50" totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png"
-	                     labelSize="18" betSumBackgroundWidth="100" betSumBackgroundHeight="30" betChipZIndex="1010"
-	                     hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30" chipType="2" odds="1:1" oddsV="20"
-	                     nameV="-20" anchorOffsetX="0" />
-	<ui:BettingTableGrid id="_direct_2" skinName="skin_mobile_portrait.BettingTableGridFullSkin" x="0" y="0" width="382"
-	                     height="304" imageRes="" hoverRes="" chipWidth="100" chipHeight="100" chipInterval="7"
-	                     totalCfmOffset="50" totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png"
-	                     labelSize="18" betSumBackgroundWidth="100" betSumBackgroundHeight="30" betChipZIndex="1010"
-	                     hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30" chipType="2" odds="1:1" oddsV="20"
-	                     nameV="-20" />
-	<ui:BettingTableGrid id="_direct_3" skinName="skin_mobile_portrait.BettingTableGridSkin" includeIn="Normal" x="382"
-	                     y="0" width="382" height="304" imageRes="" hoverRes="" chipWidth="100" chipHeight="100"
-	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
-	                     betSumBackgroundHeight="30" betChipZIndex="1010" hasDenomLayer="false" chipLabelOffset="-3"
-	                     chipLabelSize="30" chipType="2" odds="8:1" oddsV="20" nameV="-20" />
-	<ui:BettingTableGrid id="_direct_4" skinName="skin_mobile_portrait.BettingTableGridFullSkin" x="764" y="0" width="382"
-	                     height="304" imageRes="" hoverRes="" betChipZIndex="1000" chipWidth="100" chipHeight="100"
-	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
-	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
-	                     chipType="2" odds="1:1" oddsV="15" nameV="-15" />
-	<ui:BettingTableGrid id="_direct_5" skinName="skin_mobile_portrait.BettingTableGridFullSkin" x="764" y="0" width="382"
-	                     height="304" imageRes="" hoverRes="" betChipZIndex="1000" chipWidth="100" chipHeight="100"
-	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
-	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
-	                     chipType="2" odds="1:1" oddsV="15" nameV="-15" />
-	<ui:BettingTableGrid id="_direct_6" skinName="skin_mobile_portrait.BettingTableGridFullSkin" x="764" y="0" width="382"
-	                     height="304" imageRes="" hoverRes="" betChipZIndex="1000" chipWidth="100" chipHeight="100"
-	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
-	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
-	                     chipType="2" odds="1:1" oddsV="15" nameV="-15" />
-	<ui:BettingTableGrid id="_direct_7" skinName="skin_mobile_portrait.BettingTableGridFullSkin" x="764" y="0" width="382"
-	                     height="304" imageRes="" hoverRes="" betChipZIndex="1000" chipWidth="100" chipHeight="100"
-	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
-	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
-	                     chipType="2" odds="1:1" oddsV="15" nameV="-15" />
-	<ui:BettingTableGrid id="_direct_8" skinName="skin_mobile_portrait.BettingTableGridFullSkin" x="764" y="0" width="382"
-	                     height="304" imageRes="" hoverRes="" betChipZIndex="1000" chipWidth="100" chipHeight="100"
-	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
-	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
-	                     chipType="2" odds="1:1" oddsV="15" nameV="-15" />
-	<ui:BettingTableGrid id="_direct_9" skinName="skin_mobile_portrait.BettingTableGridFullSkin" x="764" y="0" width="382"
-	                     height="304" imageRes="" hoverRes="" betChipZIndex="1000" chipWidth="100" chipHeight="100"
-	                     chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
-	                     betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" labelSize="18" betSumBackgroundWidth="100"
-	                     betSumBackgroundHeight="30" hasDenomLayer="false" chipLabelOffset="-3" chipLabelSize="30"
-	                     chipType="2" odds="1:1" oddsV="15" nameV="-15" />
 	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betborad_inactive_png"
 	         fillMode="scale" />
 	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betborad_outline_png"

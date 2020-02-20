@@ -24,9 +24,9 @@ namespace we {
         super.setStateBet();
 
         if (this._previousState !== we.core.GameState.BET) {
-          if (this._bettingTable) {
-            this._bettingTable.totalAmount = { PLAYER: 0, BANKER: 0 };
-            this._bettingTable.totalPerson = { PLAYER: 0, BANKER: 0 };
+          if (this._tableLayer) {
+            this._tableLayer.totalAmount = { PLAYER: 0, BANKER: 0 };
+            this._tableLayer.totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -36,7 +36,7 @@ namespace we {
         this.initRoadMap();
         // this._roadmapControl.setTableInfo(this._tableInfo);
 
-        this._bettingTable.type = we.core.BettingTableType.NORMAL;
+        this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
       protected initRoadMap() {
