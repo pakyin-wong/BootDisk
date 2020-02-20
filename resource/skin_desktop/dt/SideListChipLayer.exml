@@ -3,20 +3,20 @@
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
 	<e:Group id="_dragonGroup" x="0" y="0" width="113" height="110">
-		<ui:BetChipStack id="_dragonBetChipStack" verticalCenter="0" horizontalCenter="0" totalCfmOffset="20"
-		                 totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3"
-		                 chipLabelSize="20" chipType="2" />
+		<ui:BetChipStack id="_dragonBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_tieGroup" includeIn="Normal" x="113" y="0" width="113" height="110">
-		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" totalCfmOffset="20"
-		                 totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3"
-		                 chipLabelSize="20" chipType="2" />
+		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_tigerGroup" x="226" y="0" width="113" height="110">
-		<ui:BetChipStack id="_tigerBetChipStack" verticalCenter="0" horizontalCenter="0" totalCfmOffset="20"
-		                 totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3"
-		                 chipLabelSize="20" chipType="2" />
+		<ui:BetChipStack id="_tigerBetChipStack" verticalCenter="0" chipWidth="70" chipHeight="70" chipInterval="3"
+		                 totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png"
+		                 chipLabelOffset="-3" chipLabelSize="20" chipType="2" />
 	</e:Group>
-	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
-	        locked="true" />
 </e:Skin>

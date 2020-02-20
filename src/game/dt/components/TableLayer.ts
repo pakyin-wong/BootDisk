@@ -15,6 +15,8 @@ namespace we {
       protected _dragonTotalPerson: eui.Label;
       protected _tigerTotalPerson: eui.Label;
 
+      protected _imageSourceMapping: {};
+
       constructor() {
         super();
         this._betField = dt.BetField;
@@ -26,6 +28,11 @@ namespace we {
         this._imageMapping[dt.BetField.DRAGON] = this._dragonImage;
         this._imageMapping[dt.BetField.TIE] = this._tieImage;
         this._imageMapping[dt.BetField.TIGER] = this._tigerImage;
+
+        this._imageSourceMapping = {};
+        this._imageSourceMapping[dt.BetField.DRAGON] = [this._imageMapping[dt.BetField.DRAGON].source, this._imageMapping[dt.BetField.DRAGON].name];
+        this._imageSourceMapping[dt.BetField.TIE] = [this._imageMapping[dt.BetField.TIE].source, this._imageMapping[dt.BetField.TIE].name];
+        this._imageSourceMapping[dt.BetField.TIGER] = [this._imageMapping[dt.BetField.TIGER].source, this._imageMapping[dt.BetField.TIGER].name];
 
         this._totalPersonMapping = {};
         this._totalPersonMapping[dt.BetField.DRAGON] = this._dragonTotalPerson;
