@@ -24,6 +24,7 @@ namespace we {
         root.scroller.height = root.stage.stageHeight;
         root.scroller.headerOffset = 100;
         root.addChild(root.scroller);
+        root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
 
         const paddingHorizontal = 14;
         const offsetForTableList = -208;
@@ -121,6 +122,18 @@ namespace we {
             // this.roomList.layout = this.roomLayout;
             break;
         }
+      }
+
+      protected onScroll() {
+        const currentScrollV = this.root.scroller.viewport.scrollV;
+        this.updateNavbarOpacity(currentScrollV);
+      }
+
+      protected updateNavbarOpacity(scrollV: number) {
+        const scrollTarget = 1100;
+        const ratio = Math.min(1, scrollV / scrollTarget);
+        const opacity = egret.Ease.quintIn(ratio);
+        dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
     }
   }
