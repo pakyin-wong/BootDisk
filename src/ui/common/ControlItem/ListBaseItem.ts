@@ -52,6 +52,7 @@ namespace we {
         this._contentContainer.addChild(shape);
         this._contentContainer.mask = shape;
 
+        this._chipLayer.visible = false;
         this._chipLayer.touchEnabled = false;
         this._chipLayer.touchChildren = false;
         this._quickBetGroup.y = this._originalQuickBetPanelY;

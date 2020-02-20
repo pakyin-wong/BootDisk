@@ -57,6 +57,7 @@ namespace we {
         egret.Tween.removeTweens(this._chipLayer);
         const p3 = new Promise(resolve =>
           egret.Tween.get(this._chipLayer)
+            .set({ visible: true })
             .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
             .call(resolve)
         );
@@ -66,7 +67,9 @@ namespace we {
         this._quickbetButton.tween(!this.list.isLocked);
         super.hideQuickBetGroup();
         egret.Tween.removeTweens(this._chipLayer);
-        egret.Tween.get(this._chipLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
+        egret.Tween.get(this._chipLayer)
+          .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
+          .set({ visible: false });
       }
 
       protected setBetRelatedComponentsEnabled(enable) {
