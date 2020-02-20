@@ -13,7 +13,9 @@ namespace we {
         super();
       }
 
-      public onEnter() {}
+      public onEnter() {
+        dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, 0);
+      }
 
       public async onFadeEnter() {}
 
