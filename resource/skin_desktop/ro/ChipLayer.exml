@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ro.bettingTable.ChipLayerSkin" width="1208" height="340"
-        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*"
-        states="Normal">
+<e:Skin class="skin_desktop.ro.ChipLayerSkin" width="1208" height="340" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
 	<e:Group id="_direct_0_group" width="98" height="211" x="3" y="2" anchorOffsetX="0" anchorOffsetY="0" locked="true">
 		<ui:BetChipStack id="_direct_0_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"

@@ -152,14 +152,18 @@ namespace we {
       }
 
       public onGridRollover(fieldName: string) {
-        return () => {
-          this._tableLayer.onRollover(fieldName);
+        return (evt: egret.Event) => {
+          if (evt.target === this._mouseAreaMapping[fieldName]) {
+            this._tableLayer.onRollover(fieldName);
+          }
         };
       }
 
       public onGridRollout(fieldName: string) {
-        return () => {
-          this._tableLayer.onRollout(fieldName);
+        return (evt: egret.Event) => {
+          if (evt.target === this._mouseAreaMapping[fieldName]) {
+            this._tableLayer.onRollout(fieldName);
+          }
         };
       }
 

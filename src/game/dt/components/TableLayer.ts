@@ -46,6 +46,16 @@ namespace we {
         this._dragonLabel.renderText = () => i18n.t('dragontiger.dragonShort');
         this._tieLabel.renderText = () => i18n.t('dragontiger.tieShort');
       }
+
+      public onRollover(fieldName: string) {
+        if (this._imageSourceMapping) {
+          this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][1];
+        }
+      }
+
+      public onRollout(fieldName: string) {
+        this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][0];
+      }
     }
   }
 }

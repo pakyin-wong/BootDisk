@@ -8,6 +8,7 @@ namespace we {
     }
 
     export const BetField = {
+      DIRECT_0: 'DIRECT_0',
       DIRECT_1: 'DIRECT_1',
       DIRECT_2: 'DIRECT_2',
       DIRECT_3: 'DIRECT_3',
