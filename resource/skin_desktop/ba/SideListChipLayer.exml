@@ -3,32 +3,35 @@
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
 	<e:Group id="_playerGroup" x="0" y="0" width="170" height="57">
-		<e:Image id="_playerImage" source="d_lobby_panel_betcontrol_betarea_player_normal_png" x="0" y="0" width="170"
-		         height="57" />
-		<ui:BetChipStack id="_playerBetChipStack" verticalCenter="0" horizontalCenter="0" />
+		<ui:BetChipStack id="_playerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_bankerGroup" x="170" y="0" width="169" height="57">
-		<e:Image id="_bankerImage" source="d_lobby_panel_betcontrol_betarea_banker_normal_png" width="169" height="57" />
-		<ui:BetChipStack id="_bankerBetChipStack" verticalCenter="0" horizontalCenter="0" />
+		<ui:BetChipStack id="_bankerBetChipStack" verticalCenter="0" horizontalCenter="0" chipInterval="3" totalCfmOffset="20"
+		                 totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3"
+		                 chipLabelSize="20" chipType="2" />
 	</e:Group>
 	<e:Group id="_playerPairGroup" x="0" y="57" width="113" height="53">
-		<e:Image id="_playerPairImage" source="d_lobby_panel_betcontrol_betarea_playerpair_normal_png" width="113" height="53" />
-		<ui:BetChipStack id="_playerPairBetChipStack" verticalCenter="0" horizontalCenter="0" />
+		<ui:BetChipStack id="_playerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipInterval="3"
+		                 totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png"
+		                 chipLabelOffset="-3" chipLabelSize="20" chipType="2" />
 	</e:Group>
 	<e:Group id="_tieGroup" x="113" y="57" width="113" height="53">
-		<e:Image id="_tieImage" source="d_lobby_panel_betcontrol_betarea_tie_normal_png" width="113" height="53" />
-		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" />
+		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipInterval="3" totalCfmOffset="20"
+		                 totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3"
+		                 chipLabelSize="20" chipType="2" />
 	</e:Group>
 	<e:Group id="_bankerPair" x="226" y="57" width="113" height="53">
-		<e:Image id="_bankerPairImage" source="d_lobby_panel_betcontrol_betarea_bankerpair_normal_png" width="113" height="53" />
-		<ui:BetChipStack id="_bankerPairBetChipStack" verticalCenter="0" horizontalCenter="0" />
+		<ui:BetChipStack id="_bankerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipInterval="3"
+		                 totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes="d_ba_gamerecord_chipvalue_png"
+		                 chipLabelOffset="-3" chipLabelSize="20" chipType="2" />
 	</e:Group>
 	<e:Group id="_superSixBanker" visible="false">
-		<e:Image id="_superSixBankerImage" />
 		<ui:BetChipStack id="_superSixBankerBetChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_superSix" visible="false">
-		<e:Image id="_superSixImage" />
 		<ui:BetChipStack id="_superSixBetChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 </e:Skin>

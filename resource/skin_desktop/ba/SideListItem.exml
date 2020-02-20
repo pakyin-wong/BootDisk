@@ -42,5 +42,5 @@
                                anchorOffsetY="0" skinName="BetLimitDropdownSkin" visible="false" />
     </e:Group>
     <ba:ChipLayer id="_chipLayer" width="339" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
-                  height="110" left="0" top="0" name="sidebettingtable" alpha="0" />
+                  height="110" left="0" y="0" name="sidebettingtable" alpha="0" />
 </e:Skin>

@@ -53,6 +53,7 @@ namespace we {
         this._contentContainer.mask = shape;
 
         this._chipLayer.touchEnabled = false;
+        this._chipLayer.touchChildren = false;
         this._quickBetGroup.y = this._originalQuickBetPanelY;
       }
 
@@ -77,6 +78,7 @@ namespace we {
 
       protected showQuickBetGroup() {
         this._chipLayer.touchEnabled = true;
+        this._chipLayer.touchChildren = true;
         this.holder.changeState(ui.TableListItemHolder.STATE_FOCUS);
         if (this.parent.localToGlobal(this.x, this._originaly).y > this._offsetLimit) {
           this._offsetY = this.parent.localToGlobal(this.x, this._originaly).y - this._offsetMovement;
@@ -101,6 +103,8 @@ namespace we {
 
       protected hideQuickBetGroup() {
         this._chipLayer.touchEnabled = false;
+        this._chipLayer.touchChildren = false;
+
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
         this._quickBetGroup.height = 0;
