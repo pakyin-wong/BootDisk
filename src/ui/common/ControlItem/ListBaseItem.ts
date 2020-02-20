@@ -51,7 +51,8 @@ namespace we {
 
         this._contentContainer.addChild(shape);
         this._contentContainer.mask = shape;
-        this._quickBetGroup.alpha = 0;
+
+        this._chipLayer.touchEnabled = false;
         this._quickBetGroup.y = this._originalQuickBetPanelY;
       }
 
@@ -75,6 +76,7 @@ namespace we {
       }
 
       protected showQuickBetGroup() {
+        this._chipLayer.touchEnabled = true;
         this.holder.changeState(ui.TableListItemHolder.STATE_FOCUS);
         if (this.parent.localToGlobal(this.x, this._originaly).y > this._offsetLimit) {
           this._offsetY = this.parent.localToGlobal(this.x, this._originaly).y - this._offsetMovement;
@@ -98,6 +100,7 @@ namespace we {
       }
 
       protected hideQuickBetGroup() {
+        this._chipLayer.touchEnabled = false;
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
         this._quickBetGroup.height = 0;

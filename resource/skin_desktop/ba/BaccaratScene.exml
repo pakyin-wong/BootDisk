@@ -3,8 +3,10 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0" locked="true" />
-	<ba:BettingTable id="_bettingTable" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
-	                 skinName="skin_desktop.ba.BettingTableSkin" />
+	<ba:TableLayer id="_tableLayer" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
+	               skinName="skin_desktop.ba.TableLayerSkin" touchEnabled="false" />
+	<ba:ChipLayer id="_chipLayer" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
+	              skinName="skin_desktop.ba.ChipLayerSkin" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="939.13">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="0" anchorOffsetX="0" anchorOffsetY="0"
@@ -38,8 +40,7 @@
 		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
-	<ui:GameResultMessage id="_resultMessage" x="1288.5" y="815.26" anchorOffsetX="309" anchorOffsetY="55" scaleX="1"
-	                      scaleY="1" skinName="skin_desktop.GameResultNormalSkin" />
+	<ui:GameResultMessage id="_resultMessage" x="0" y="676.26"  width="1" height="1" horizontalCenter="0"/>
 	<ui:InGameMessage id="_message" x="1300.5" y="911.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />

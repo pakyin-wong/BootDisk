@@ -47,7 +47,9 @@ namespace we {
         const property: eui.State | eui.SetProperty = this.skin.states.filter(x => x.name === this.currentState)[0];
         if (property) {
           property.overrides.forEach((override: eui.SetProperty) => {
-            this[override.target][override.name] = override.value;
+            if (this[override.target]) {
+              this[override.target][override.name] = override.value;
+            }
           });
         }
       }

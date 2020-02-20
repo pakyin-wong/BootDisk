@@ -4,7 +4,6 @@ namespace we {
     export class LiveListSimpleItem extends ListBaseItem {
       protected _quickbetButton: eui.Component & IQuickBetAnimButton;
       protected _bigRoad: we.ba.BALobbyBigRoad;
-      protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
 
       public constructor(skinName: string = null) {
@@ -13,7 +12,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (this._bettingTable.isAlreadyBet()) {
+        if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -22,7 +21,7 @@ namespace we {
 
       protected onTableBetInfoUpdate() {
         super.onTableBetInfoUpdate();
-        if (this._bettingTable.isAlreadyBet()) {
+        if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -55,19 +54,19 @@ namespace we {
       protected showQuickBetGroup() {
         this._quickbetButton.tween(!this.list.isLocked);
         super.showQuickBetGroup();
-        if (this._denomLayer) {
-          egret.Tween.removeTweens(this._denomLayer);
-          egret.Tween.get(this._denomLayer).to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1);
-        }
+        egret.Tween.removeTweens(this._chipLayer);
+        const p3 = new Promise(resolve =>
+          egret.Tween.get(this._chipLayer)
+            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+            .call(resolve)
+        );
       }
 
       protected hideQuickBetGroup() {
         this._quickbetButton.tween(!this.list.isLocked);
         super.hideQuickBetGroup();
-        if (this._denomLayer) {
-          egret.Tween.removeTweens(this._denomLayer);
-          egret.Tween.get(this._denomLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
-        }
+        egret.Tween.removeTweens(this._chipLayer);
+        egret.Tween.get(this._chipLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
       }
 
       protected setBetRelatedComponentsEnabled(enable) {
@@ -114,14 +113,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        if (this._bettingTable && this._bettingTable.denomLayer) {
-          this._denomLayer = this._bettingTable.denomLayer;
-          this._denomLayer.y = this._bettingTable.y;
-          this._denomLayer.x = this._bettingTable.x;
-          this._denomLayer.alpha = 0;
-          this.addChild(this._denomLayer);
-          this.setChildIndex(this._denomLayer, 30000);
-        }
       }
     }
   }

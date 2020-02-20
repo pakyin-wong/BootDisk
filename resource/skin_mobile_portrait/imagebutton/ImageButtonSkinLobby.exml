@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"
-        states="lobby_mode_01,lobby_mode_02,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification,lobby_notify_btn_action,lobby_notify_btn_hide">
+        states="lobby_mode_01,lobby_mode_02,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification,lobby_notify_btn_action,lobby_notify_btn_hide,2col_btn,1col_btn"
+        height.lobby_mode_01="144" width.lobby_mode_01="144" width.lobby_mode_02="144" height.lobby_mode_02="144"
+        width.2col_btn="219" height.2col_btn="70" width.1col_btn="350" height.1col_btn="100">
     <e:Image id="_background" left="0" right="0" top="0" bottom="0"
-             source.lobby_mode_01="d_lobby_icon_view_01_normal_png"
-             source.lobby_mode_02="d_lobby_icon_view_02_normal_png"
              source.lobby_confirm_button="d_lobby_confirm_btn_normal_png"
              source.lobby_betcontrol_close="d_lobby_panel_betcontrol_btn_close_normal_png"
              source.lobby_betcontrol_previous="d_lobby_panel_betcontrol_btn_previous_normal_png"
              source.lobby_quick_bet_notification="d_lobby_quick_bet_notification_follow_normal_png"
              source.lobby_notify_btn_action="d_lobby_notify_btn_action_png"
-             source.lobby_notify_btn_hide="d_lobby_notify_btn_hide_png" locked="true" />
+             source.lobby_notify_btn_hide="d_lobby_notify_btn_hide_png" source.lobby_mode_01="m_lobby_view_bg_png"
+             source.lobby_mode_02="m_lobby_view_bg_png" source.2col_btn="m_lobby_roadmap_2column_btn_png"
+             source.1col_btn="m_lobby_roadmap_1column_btn_png" />
     <e:Group id="_group" left="0" right="0" top="0" bottom="0">
         <ui:RunTimeLabel id="_label" text="" fontFamily="NotoSansCJKtc-Regular" size="24" verticalCenter="0"
                          horizontalCenter="0" />
+        <e:Image includeIn="lobby_mode_01,lobby_mode_02" x="32.5" y="32.5" source="m_lobby_view_icon_1column_png"
+                 source.lobby_mode_02="m_lobby_view_icon_2column_png" />
     </e:Group>
 </e:Skin>

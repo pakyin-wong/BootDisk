@@ -41,9 +41,9 @@ namespace we {
         super.setStateBet();
 
         if (this._previousState !== we.core.GameState.BET) {
-          if (this._bettingTable) {
-            this._bettingTable.totalAmount = { DRAGON: 0, TIGER: 0 };
-            this._bettingTable.totalPerson = { DRAGON: 0, TIGER: 0 };
+          if (this._tableLayer) {
+            this._tableLayer.totalAmount = { DRAGON: 0, TIGER: 0 };
+            this._tableLayer.totalPerson = { DRAGON: 0, TIGER: 0 };
           }
         }
       }

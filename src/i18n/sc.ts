@@ -85,6 +85,9 @@ namespace we {
 
       mobile_lobby_feature_title: '热门游戏',
 
+      mobile_quick_bet_button_label: '快速投注',
+      mobile_enter_table_button_label: '进入游戏',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',

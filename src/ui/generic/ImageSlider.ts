@@ -144,7 +144,7 @@ namespace we {
       private scheduleNext() {
         clearTimeout(this.autoPlayTimer);
         this.autoPlayTimer = setTimeout(() => {
-          if (this.isDown) {
+          if (!this.slides.length || this.isDown) {
             this.scheduleNext();
             return;
           }
@@ -175,6 +175,9 @@ namespace we {
       }
 
       private onTap() {
+        if (!this.slides.length) {
+          return;
+        }
         logger.l('carousel', this.slides[this.currentIndex].link);
       }
     }
