@@ -2,17 +2,21 @@
 <e:Skin class="skin_desktop.dt.ChipLayerSkin" width="1146" height="204" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
 	<e:Group id="_dragonGroup" x="0" y="0" width="382" height="304">
-		<e:Image id="_dragonImage" source="d_dt_betarea_general_dragon_png" width="382" height="304" />
-		<ui:BetChipStack id="_dragonBetChipStack" verticalCenter="0" horizontalCenter="0" />
+		<ui:BetChipStack id="_dragonBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
 	<e:Group id="_tieGroup" includeIn="Normal" x="382" y="0" width="382" height="304">
-		<e:Image id="_tieImage" source="d_dt_betarea_general_tie_png" width="382" height="304" />
-		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" />
+		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
 	<e:Group id="_tigerGroup" x="764" y="0" width="382" height="304">
-		<e:Image id="_tigerImage" source="d_dt_betarea_general_tiger_png" width="382" height="304" />
-		<ui:BetChipStack id="_tigerBetChipStack" verticalCenter="0" horizontalCenter="0" />
+		<ui:BetChipStack id="_tigerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
-	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
-	        locked="true" />
 </e:Skin>

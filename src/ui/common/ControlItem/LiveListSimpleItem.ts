@@ -54,19 +54,19 @@ namespace we {
       protected showQuickBetGroup() {
         this._quickbetButton.tween(!this.list.isLocked);
         super.showQuickBetGroup();
-        if (this._tableLayer) {
-          egret.Tween.removeTweens(this._tableLayer);
-          egret.Tween.get(this._tableLayer).to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1);
-        }
+        egret.Tween.removeTweens(this._chipLayer);
+        const p3 = new Promise(resolve =>
+          egret.Tween.get(this._chipLayer)
+            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+            .call(resolve)
+        );
       }
 
       protected hideQuickBetGroup() {
         this._quickbetButton.tween(!this.list.isLocked);
         super.hideQuickBetGroup();
-        if (this._tableLayer) {
-          egret.Tween.removeTweens(this._tableLayer);
-          egret.Tween.get(this._tableLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
-        }
+        egret.Tween.removeTweens(this._chipLayer);
+        egret.Tween.get(this._chipLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1);
       }
 
       protected setBetRelatedComponentsEnabled(enable) {
@@ -113,10 +113,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        if (this._chipLayer && this._tableLayer) {
-          this.addChild(this._tableLayer);
-          this.setChildIndex(this._tableLayer, 30000);
-        }
       }
     }
   }

@@ -35,7 +35,7 @@ namespace we {
         super.initChildren();
         this.initRoadMap();
         // this._roadmapControl.setTableInfo(this._tableInfo);
-
+        this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 

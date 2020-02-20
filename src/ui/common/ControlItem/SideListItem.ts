@@ -5,7 +5,6 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetEnable: boolean = false;
-      protected _quickBetGroup: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
       protected _alreadyBetSign: eui.Group;
       protected _tweenInterval1: number = 250;

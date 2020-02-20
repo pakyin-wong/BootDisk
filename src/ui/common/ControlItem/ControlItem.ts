@@ -68,6 +68,9 @@ namespace we {
           this._chipLayer.type = we.core.BettingTableType.NORMAL;
           this._chipLayer.denomList = denominationList;
           this._chipLayer.undoStack = this._undoStack;
+          if (this._tableLayer) {
+            this._chipLayer.tableLayer = this._tableLayer;
+          }
           this._chipLayer.init();
           this._chipLayer.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
           this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
