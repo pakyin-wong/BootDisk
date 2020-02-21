@@ -112,6 +112,15 @@ namespace we {
         }
         anim += background;
 
+        // update slot text
+        const slot = this._display.armature.getSlot('win_txt');
+        const slot2 = this._display.armature.getSlot('loss_txt');
+        const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
+        bmfont.font = RES.getRes('font_fnt');
+        bmfont.text = 'This';
+        slot.display = bmfont;
+        slot2.display = bmfont;
+
         this.visible = true;
         this._display.animation.play(anim, 1);
       }
