@@ -924,17 +924,19 @@ namespace we {
       }
 
       public onRollout(fieldName: string) {
-        this._groupHoverMapping[fieldName].map(value => this.out(this._groupMapping[value]));
+        this._groupHoverMapping[fieldName].map(value => this.out(value));
       }
 
       public hover(fieldName: string) {
+        const group = this._groupMapping[fieldName];
         const image = new eui.Image();
         image.name = 'image';
         image.source = this._groupHoverImageMapping[fieldName];
-        this._groupMapping[fieldName].addChildAt(image, 0);
+        group.addChildAt(image, 0);
       }
 
-      public out(group: eui.Group) {
+      public out(fieldName: string) {
+        const group = this._groupMapping[fieldName];
         const image = group.getChildByName('image');
         if (image) {
           group.removeChild(image);

@@ -11,22 +11,23 @@ namespace we {
 
       public showResult(gameType: core.GameType, resultData: any) {
         let dbClass;
-        let handler
+        let handler;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS: {
             dbClass = 'baccarat';
-            handler = 'startAnimBADT'
+            handler = 'startAnimBADT';
             break;
           }
           case core.GameType.DT: {
             dbClass = 'dragon_tiger';
-            handler = 'startAnimBADT'
+            handler = 'startAnimBADT';
             break;
           }
           case core.GameType.RO: {
             dbClass = 'roulette';
+            handler = 'startAnimBADT';
             break;
           }
           default:
@@ -116,7 +117,7 @@ namespace we {
       }
 
       protected startAnimRO(gameType: core.GameType, resultData: any) {
-        const { result, winAmount } = resultData;
+        const { resultNo, winAmount } = resultData;
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,

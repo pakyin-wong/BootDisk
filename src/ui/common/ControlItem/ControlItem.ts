@@ -375,8 +375,8 @@ namespace we {
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
-                winType: this._gameData.wintype,
-                winAmount: totalWin,
+              winType: this._gameData.wintype,
+              winAmount: totalWin,
             });
           }
         } else {
