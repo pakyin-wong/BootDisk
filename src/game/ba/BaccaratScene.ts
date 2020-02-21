@@ -78,8 +78,12 @@ namespace we {
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-        totalWin = this._tableInfo.totalWin;
+        let totalWin: number;
+        if (this._tableInfo.totalWin) {
+          totalWin = this._tableInfo.totalWin;
+        } else {
+          totalWin = NaN;
+        }
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
@@ -90,7 +94,10 @@ namespace we {
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype);
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: NaN,
+            });
             dir.audioCtr.playSequence(['player', 'win']);
           }
         }

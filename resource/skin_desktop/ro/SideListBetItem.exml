@@ -31,7 +31,7 @@
 			                   skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
 			<ro:LobbyTableLayer id="_tableLayer" width="100%" skinName="skin_desktop.ro.SideListTableLayerSkin" anchorOffsetY="0"
 			               height="110" left="0" y="47" />
-			<dt:LobbyChipLayer id="_chipLayer" width="100%" skinName="skin_desktop.ro.SideListChipLayerSkin" anchorOffsetY="0"
+			<ro:LobbyChipLayer id="_chipLayer" width="100%" skinName="skin_desktop.ro.SideListChipLayerSkin" anchorOffsetY="0"
 			              height="110" left="0" y="47" />
 			<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
 			                       skinName="BetLimitDropdownSkin" visible="false" />
