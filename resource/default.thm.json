@@ -256,6 +256,7 @@
 		"resource/skin_mobile_portrait/ro/RouletteScene.exml",
 		"resource/skin_mobile_portrait/ro/TableLayer.exml",
 		"resource/skin_mobile_portrait/ScrollBarVertical.exml",
+		"resource/skin_mobile_portrait/sidegamelist/GameListButtonSkin.exml",
 		"resource/skin_mobile_portrait/SwitchLang.exml",
 		"resource/skin_mobile_portrait/ToggleButton.exml",
 		"resource/skin_mobile_portrait/UserInfoWindow.exml"

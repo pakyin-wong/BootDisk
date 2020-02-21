@@ -1104,7 +1104,7 @@ var eui;
                         x = columnIndex * (columnWidth + horizontalGap) + paddingL;
                         break;
                     default:
-                        x = columnIndex * (columnWidth + horizontalGap) + paddingL;
+                        x = columnIndex * (columnWidth + horizontalGap) + (width + horizontalGap - columnCount * (columnWidth + horizontalGap)) * 0.5;
                 }
                 switch (this._verticalAlign) {
                     case egret.VerticalAlign.TOP:
