@@ -39,11 +39,13 @@ namespace we {
         root.roomList = new ui.TableList();
         root.roomList.isFreezeScrolling = true;
         root.roomList.isGlobalLock = true;
+        root.roomList.width = root.stage.stageWidth;
         this.roomLayout = new eui.AnimTileLayout();
         this.roomLayout.horizontalGap = this.normalGapSize;
         this.roomLayout.verticalGap = this.normalGapSize;
         this.roomLayout.paddingLeft = paddingHorizontal;
         this.roomLayout.paddingRight = paddingHorizontal;
+        this.roomLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
 
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
         this.setDisplayMode(env.lobbyGridType);
@@ -104,6 +106,8 @@ namespace we {
       }
 
       protected setDisplayMode(mode) {
+        this.roomLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+
         switch (mode) {
           case we.lobby.mode.NORMAL:
             this.roomLayout.horizontalGap = this.normalGapSize;
@@ -122,7 +126,7 @@ namespace we {
             this.roomLayout.paddingBottom = this.normalGapSize * 3;
             this.roomLayout.requestedColumnCount = 2;
             this.roomLayout.rowHeight = 270;
-            this.roomLayout.columnWidth = 578;
+            this.roomLayout.columnWidth = 552;
             // this.roomList.layout = this.roomLayout;
             break;
         }
