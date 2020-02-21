@@ -66,14 +66,14 @@ namespace we {
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
-              left: 1, center :2 , right:3 , winAmount :+800
+              resultNo :2 ,  winAmount :+800
             });
             dir.audioCtr.playSequence(['player', 'win']);
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
             this._resultMessage.showResult(this._tableInfo.gametype,  {
-              left: 1, center :2 , right:3 , winAmount : NaN
+              resultNo :2 , winAmount : NaN
             });
             dir.audioCtr.playSequence(['player', 'win']);
           }

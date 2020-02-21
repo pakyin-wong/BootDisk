@@ -117,7 +117,7 @@ namespace we {
       }
 
       protected startAnimRO(gameType: core.GameType, resultData: any) {
-        const { left, center, right , winAmount } = resultData;
+        const { resultNo , winAmount } = resultData;
 
         this.visible = true;
       }
