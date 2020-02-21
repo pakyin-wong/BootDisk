@@ -62,7 +62,7 @@ class Main extends eui.UILayer {
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
-    if (env.UAInfo.device.type === 'mobile') {
+    if (true || env.UAInfo.device.type === 'mobile') {
       env.isMobile = true;
 
       // use these when there is portrait mode only

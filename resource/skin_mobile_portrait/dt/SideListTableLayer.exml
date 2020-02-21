@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.dt.SideListTableLayerSkin" currentState="Normal" width="339" height="110"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
+        states="Normal">
+	<e:Group id="_dragonGroup" x="0" y="0" width="113" height="110">
+		<e:Image id="_dragonImage" source="d_lobby_panel_betcontrol_betarea_dragon_normal_png" width="113" height="110" />
+		<ui:RunTimeLabel id="_dragonLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+	</e:Group>
+	<e:Group id="_tieGroup" x="113" y="0" width="113" height="110">
+		<e:Image id="_tieImage" source="d_lobby_panel_betcontrol_betarea_tie_normal_png" width="113" height="110" />
+		<ui:RunTimeLabel id="_tieLabel" verticalCenter="0" horizontalCenter="0" size="15" />		
+	</e:Group>	
+	<e:Group id="_tigerGroup" x="226" y="0" width="113" height="110">
+		<e:Image id="_tigerImage" source="d_lobby_panel_betcontrol_betarea_tiger_normal_png" width="113" height="110" />
+		<ui:RunTimeLabel id="_tigerLabel" verticalCenter="0" horizontalCenter="0" size="15" />				
+	</e:Group>	
+</e:Skin>
