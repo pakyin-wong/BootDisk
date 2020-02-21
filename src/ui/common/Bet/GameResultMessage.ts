@@ -116,7 +116,26 @@ namespace we {
       }
 
       protected startAnimRO(gameType: core.GameType, resultData: any) {
+        const { result, winAmount } = resultData;
+
+        this._display.armature.eventDispatcher.addDBEventListener(
+          dragonBones.EventObject.COMPLETE,
+          () => {
+            this.visible = false;
+          },
+          this
+        );
+
+        let anim = 'ani_result_';
+        if (isNaN(winAmount)) {
+          anim += 'nobet_';
+        } else {
+          anim += 'win_loss_';
+        }
+        anim += 'bgr'; // todo
+
         this.visible = true;
+        this._display.animation.play(anim, 1);
       }
     }
   }
