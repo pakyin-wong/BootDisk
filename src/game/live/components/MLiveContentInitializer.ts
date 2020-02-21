@@ -7,7 +7,7 @@ namespace we {
       private simpleGapSize: number = 20;
       private roomLayout: eui.AnimTileLayout;
 
-      constructor() { }
+      constructor() {}
 
       public initContent(root: GameTableList) {
         if (env.orientation === egret.OrientationMode.PORTRAIT) {
@@ -22,7 +22,7 @@ namespace we {
         root.scroller = new ui.Scroller();
         root.scroller.width = root.stage.stageWidth;
         root.scroller.height = root.stage.stageHeight;
-        root.scroller.headerOffset = 100;
+        root.scroller.headerOffset = 220;
         root.addChild(root.scroller);
         root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
 
@@ -97,7 +97,7 @@ namespace we {
         this.root.addChild(gridSwitch);
       }
 
-      public initLandscapeContent(root: GameTableList) { }
+      public initLandscapeContent(root: GameTableList) {}
 
       public onDisplayMode(evt: egret.Event) {
         this.setDisplayMode(evt.data);
