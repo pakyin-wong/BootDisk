@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<e:Skin class="skins_desktop.BetConfirmButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100"
+<e:Skin class="skin_mobile_portrait.ba.BetConfirmButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
     <w:Config id="16e8d1f2d86" />
     <e:Image width="100%" height="100%" alpha.disabled="0.5"

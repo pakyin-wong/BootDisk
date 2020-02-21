@@ -78,6 +78,7 @@ namespace we {
       }
 
       public checkResultMessage() {
+        /*
         let totalWin: number;
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
@@ -101,6 +102,7 @@ namespace we {
             dir.audioCtr.playSequence(['player', 'win']);
           }
         }
+        */
       }
     }
   }

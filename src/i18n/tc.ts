@@ -78,10 +78,10 @@ namespace we {
       datePicker_weekday_6: '六',
 
       mobile_lobby_feature_title: '熱門遊戲',
-      mobile_ba_recovery: '復原',
+      mobile_ba_undo: '復原',
       mobile_ba_clear: '清除',
       mobile_ba_double: '雙倍',
-      mobile_ba_betagain: '再次下注',
+      mobile_ba_repeat: '再次下注',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',

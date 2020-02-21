@@ -78,10 +78,10 @@ namespace we {
       datePicker_weekday_6: 'Sa',
 
       mobile_lobby_feature_title: 'Hot Game',
-      mobile_ba_recovery: 'Recovery',
+      mobile_ba_undo: 'Undo',
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
-      mobile_ba_betagain: 'Bet Again',
+      mobile_ba_repeat: 'Bet Again',
 
       mobile_quick_bet_button_label: 'QuickBet',
       mobile_enter_table_button_label: 'Enter',
