@@ -11,18 +11,18 @@ namespace we {
 
       public showResult(gameType: core.GameType, resultData: any) {
         let dbClass;
-        let handler
+        let handler;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS: {
             dbClass = 'baccarat';
-            handler = 'startAnimBADT'
+            handler = 'startAnimBADT';
             break;
           }
           case core.GameType.DT: {
             dbClass = 'dragon_tiger';
-            handler = 'startAnimBADT'
+            handler = 'startAnimBADT';
             break;
           }
           case core.GameType.RO: {
