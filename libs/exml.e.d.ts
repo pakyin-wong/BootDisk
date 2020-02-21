@@ -420,12 +420,44 @@ declare module skin_desktop.ro{
 	class ResultHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ro{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class LiveListItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RoLeftPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class RouletteScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class SideListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{
