@@ -1,9 +1,9 @@
 namespace we {
   export namespace dt {
     export class ChipLayer extends ui.ChipLayer {
-      protected _dragonImage: eui.Image;
-      protected _tigerImage: eui.Image;
-      protected _tieImage: eui.Image;
+      protected _dragonGroup: eui.Image;
+      protected _tigerGroup: eui.Image;
+      protected _tieGroup: eui.Image;
 
       protected _dragonBetChipStack: ui.BetChipStack;
       protected _tigerBetChipStack: ui.BetChipStack;
@@ -17,9 +17,9 @@ namespace we {
       protected createMapping() {
         super.createMapping();
         this._mouseAreaMapping = {};
-        this._mouseAreaMapping[dt.BetField.DRAGON] = this._dragonImage;
-        this._mouseAreaMapping[dt.BetField.TIE] = this._tieImage;
-        this._mouseAreaMapping[dt.BetField.TIGER] = this._tigerImage;
+        this._mouseAreaMapping[dt.BetField.DRAGON] = this._dragonGroup;
+        this._mouseAreaMapping[dt.BetField.TIE] = this._tieGroup;
+        this._mouseAreaMapping[dt.BetField.TIGER] = this._tigerGroup;
 
         this._betChipStackMapping = {};
         this._betChipStackMapping[dt.BetField.DRAGON] = this._dragonBetChipStack;

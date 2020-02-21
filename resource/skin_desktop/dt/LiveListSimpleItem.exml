@@ -33,5 +33,5 @@
 		                            horizontalCenter="0" y="180" width="148" height="42" label1text="快速投注" label2text="X" />
 	</e:Group>
 	<dt:ChipLayer id="_chipLayer" width="100%" skinName="skin_desktop.dt.LiveListItemChipLayerSkin" anchorOffsetY="0"
-	              left="0" top="0" alpha="0" />
+	              left="0" y="0" alpha="0" />
 </e:Skin>

@@ -167,8 +167,8 @@ namespace we {
         }
       }
       protected onBetDetailUpdateInFinishState() {
-        this._chipLayer.showWinEffect(this._betDetails);
         if (this._betDetails && this._chipLayer) {
+          this._chipLayer.showWinEffect(this._betDetails);
           if (this._resultMessage) {
             this.checkResultMessage(this.tableInfo.totalWin);
           }

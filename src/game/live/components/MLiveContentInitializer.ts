@@ -22,7 +22,7 @@ namespace we {
         root.scroller = new ui.Scroller();
         root.scroller.width = root.stage.stageWidth;
         root.scroller.height = root.stage.stageHeight;
-        root.scroller.headerOffset = 100;
+        root.scroller.headerOffset = 220;
         root.addChild(root.scroller);
         root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
 
@@ -46,7 +46,7 @@ namespace we {
         this.roomLayout.paddingRight = paddingHorizontal;
 
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
-        this.roomLayout.requestedColumnCount = 1;
+        this.setDisplayMode(env.lobbyGridType);
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         root.roomList.layout = this.roomLayout;
         // this.roomList.dataProvider = this.collection;
@@ -100,7 +100,11 @@ namespace we {
       public initLandscapeContent(root: GameTableList) {}
 
       public onDisplayMode(evt: egret.Event) {
-        switch (evt.data) {
+        this.setDisplayMode(evt.data);
+      }
+
+      protected setDisplayMode(mode) {
+        switch (mode) {
           case we.lobby.mode.NORMAL:
             this.roomLayout.horizontalGap = this.normalGapSize;
             this.roomLayout.verticalGap = this.normalGapSize;

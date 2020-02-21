@@ -1,7 +1,7 @@
 namespace we {
   export namespace live {
     export class LiveGameTabbar extends core.BaseEUI implements eui.UIComponent {
-      public tabBar: ui.SortableList;
+      public tabBar: eui.ListBase;
       public background: eui.Rect;
       public collection: eui.ArrayCollection;
 
@@ -33,8 +33,9 @@ namespace we {
         this.background.left = 0;
         this.background.right = 0;
 
-        this.tabBar = new ui.SortableList();
+        this.tabBar = new ui.List();
         this.addChild(this.tabBar);
+        this.tabBar.useVirtualLayout = false;
         this.tabBar.percentWidth = 100;
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
@@ -42,6 +43,7 @@ namespace we {
         // ['live.gametype.bacarrat', 'live.gametype.dragontiger', 'live.gametype.luckywheel', 'live.gametype.wheel', 'live.gametype.dice', 'live.gametype.goodroad'];
 
         const tlayout = new eui.HorizontalLayout();
+        tlayout.gap = 0;
         tlayout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
         // tlayout.requestedColumnCount = items.length;
         this.collection = new eui.ArrayCollection(this.items);

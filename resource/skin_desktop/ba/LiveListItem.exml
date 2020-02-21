@@ -32,5 +32,5 @@
 	</e:Group>
 	<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="20" y="198" />
 	<ba:ChipLayer id="_chipLayer" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
-	              alpha="0" left="0" top="0" />
+	              alpha="0" y="0" left="0" />
 </e:Skin>

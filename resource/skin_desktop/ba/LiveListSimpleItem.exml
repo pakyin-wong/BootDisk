@@ -10,7 +10,7 @@
 			                    skinName="ImageButtonSkinLobby" anchorOffsetX="0" />
 		</e:Group>
 		<ba:TableLayer id="_tableLayer" width="100%" skinName="skin_desktop.ba.LiveListItemTableLayerSkin" anchorOffsetY="0"
-		              left="0" top="0" />
+		               left="0" top="0" />
 	</e:Group>
 	<e:Group id="_contentContainer" width="100%" height="219" x="0" y="0">
 		<e:Rect width="578" height="80" x="0" y="0" fillColor="0x202020" />
@@ -31,6 +31,6 @@
 		                            hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
 		                            horizontalCenter="0" y="180" width="148" height="42" label1text="快速投注" label2text="X" />
 	</e:Group>
-		<ba:ChipLayer id="_chipLayer" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
-		              left="0" top="0" alpha="0"/>
+	<ba:ChipLayer id="_chipLayer" width="100%" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0" y="0"
+	              left="0" alpha="0" />
 </e:Skin>
