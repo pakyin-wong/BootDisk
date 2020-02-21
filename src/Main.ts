@@ -35,6 +35,20 @@ class Main extends eui.UILayer {
     } else {
       dir.socket = new we.core.SocketMock();
     }
+    dir.uaParser = new UAParser();
+    env.UAInfo = dir.uaParser.getResult();
+
+    logger.l(env.UAInfo);
+    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
+
+    const cn = [];
+    cn.push('MainWindow');
+    cn.push(env.UAInfo.os.name);
+    cn.push(env.UAInfo.browser.name);
+    if (env.UAInfo.device.vendor === 'Apple' && env.UAInfo.device.type === 'mobile') {
+      cn.push('iPhone');
+    }
+    document.documentElement.className = cn.join(' ');
 
     if (env.UAInfo.device.type === 'mobile') {
       env.isMobile = true;
@@ -58,20 +72,6 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
-    dir.uaParser = new UAParser();
-    env.UAInfo = dir.uaParser.getResult();
-
-    logger.l(env.UAInfo);
-    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
-
-    const cn = [];
-    cn.push('MainWindow');
-    cn.push(env.UAInfo.os.name);
-    cn.push(env.UAInfo.browser.name);
-    if (env.UAInfo.device.vendor === 'Apple' && env.UAInfo.device.type === 'mobile') {
-      cn.push('iPhone');
-    }
-    document.documentElement.className = cn.join(' ');
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
 

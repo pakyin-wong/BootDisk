@@ -44,11 +44,10 @@ namespace we {
           this._badgeGroup.addChildAt(this._goodRoadGroup, 1);
           this._lblGoodRoad.text = count;
         } else {
-          if (this._goodRoadGroup.parent) this._badgeGroup.removeChild(this._goodRoadGroup);
+          if (this._goodRoadGroup.parent) { this._badgeGroup.removeChild(this._goodRoadGroup); }
 
           // this._goodRoadGroup.visible = true;
           // this._lblGoodRoad.text = '30';
-
         }
       }
 
@@ -60,10 +59,9 @@ namespace we {
 
           this._lblBetted.text = count;
         } else {
-          if (this._badgeGroup.parent) this._badgeGroup.removeChild(this._badgeGroup);
+          if (this._badgeGroup.parent) { this._badgeGroup.removeChild(this._badgeGroup); }
         }
       }
-
     }
   }
 }
