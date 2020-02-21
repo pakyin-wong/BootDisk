@@ -853,6 +853,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class GameListButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class Slider extends eui.Skin{
 	}
 }

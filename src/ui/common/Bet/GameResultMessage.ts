@@ -2,10 +2,11 @@ namespace we {
   export namespace ui {
     export class GameResultMessage extends core.BaseEUI {
       private _display: dragonBones.EgretArmatureDisplay = null;
+      private testing = true;
 
       public constructor() {
         super();
-        this.visible = false;
+        this.visible = !this.testing;
         // this.skinName = 'GameResultNormalSkin';
       }
 
@@ -33,7 +34,7 @@ namespace we {
           default:
             break;
         }
-        console.log('GameResultMessage::xxxxxxx ', dbClass, handler);
+
         if (!this._display) {
           const skeletonData = RES.getRes(`${dbClass}_game_result_ske_json`);
           const textureData = RES.getRes(`${dbClass}_game_result_tex_json`);
@@ -82,10 +83,14 @@ namespace we {
       }
 
       public clearMessage() {
+        if (this.testing) {
+          return;
+        }
+
         if (this._display && this._display.animation) {
           this._display.animation.stop();
         }
-        this.visible = false;
+        this.visible = true;
       }
 
       // animation for Baccarat / Dragon Tiger
@@ -112,7 +117,6 @@ namespace we {
           anim += 'loss_';
         }
         anim += background;
-        console.log('GameResultMessage::xxxxxxx anim', resultData, anim);
 
         // update slot text
         const slot = this._display.armature.getSlot('win_txt');
@@ -120,15 +124,28 @@ namespace we {
         const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
         bmfont.font = RES.getRes('font_fnt');
         bmfont.text = 'This';
-        slot.display = bmfont;
-        slot2.display = bmfont;
-
+        const bmfont2: eui.BitmapLabel = new eui.BitmapLabel();
+        bmfont2.font = RES.getRes('font_fnt');
+        bmfont2.text = 'This';
         this.visible = true;
         this._display.animation.play(anim, 1);
+
+        // setTimeout(() => {
+        //   slot.display = bmfont;
+        //   slot2.display = bmfont2;
+        // }, 100);
       }
 
       protected startAnimRO(gameType: core.GameType, resultData: any) {
         const { resultNo, winAmount } = resultData;
+
+        this._display.armature.eventDispatcher.addDBEventListener(
+          dragonBones.EventObject.FRAME_EVENT,
+          xxx => {
+            logger.l(xxx);
+          },
+          this
+        );
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
@@ -146,8 +163,32 @@ namespace we {
         }
         anim += 'bgr'; // todo
 
+        const array = [['L_txt', 60, '5', 16], ['middle_txt', 90, '32', 0], ['L_txt3', 60, '12', 16]];
+
+        for (const [slotName, fontSize, text, rotate] of array) {
+          console.log(this._display);
+          const slot = this._display.armature.getSlot(<string> slotName);
+          const lbl = new eui.Label();
+          lbl.text = <string> text;
+          lbl.fontFamily = 'Barlow';
+          lbl.size = <number> fontSize;
+          lbl.width = lbl.size * 2;
+          lbl.height = lbl.size;
+          lbl.anchorOffsetX = lbl.size;
+          lbl.anchorOffsetY = lbl.size / 2;
+          lbl.textAlign = egret.HorizontalAlign.CENTER;
+          lbl.verticalAlign = egret.VerticalAlign.MIDDLE;
+          slot.display = lbl;
+        }
+
         this.visible = true;
         this._display.animation.play(anim, 1);
+
+        if (this.testing) {
+          setTimeout(() => {
+            this._display.animation.timeScale = 0;
+          }, 1500);
+        }
       }
     }
   }
