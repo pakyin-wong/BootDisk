@@ -2,8 +2,8 @@
 namespace we {
   export namespace ui {
     export class MobileLiveListItem extends MobileLiveListSimpleItem {
-      protected _bigRoad: we.ba.BALobbyBigRoad;
-      protected _alreadyBetSign: eui.Group;
+      // protected _bigRoad: we.ba.BALobbyBigRoad;
+      // protected _alreadyBetSign: eui.Group;
 
       public constructor(skinName: string = null) {
         super(skinName);

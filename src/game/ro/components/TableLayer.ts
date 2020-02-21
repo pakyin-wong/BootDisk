@@ -527,24 +527,226 @@ namespace we {
         this._groupHoverMapping[ro.BetField.LINE_25_30] = [ro.BetField.DIRECT_25, ro.BetField.DIRECT_26, ro.BetField.DIRECT_27, ro.BetField.DIRECT_28, ro.BetField.DIRECT_29, ro.BetField.DIRECT_30];
         this._groupHoverMapping[ro.BetField.LINE_28_33] = [ro.BetField.DIRECT_28, ro.BetField.DIRECT_29, ro.BetField.DIRECT_30, ro.BetField.DIRECT_31, ro.BetField.DIRECT_32, ro.BetField.DIRECT_33];
         this._groupHoverMapping[ro.BetField.LINE_31_36] = [ro.BetField.DIRECT_31, ro.BetField.DIRECT_32, ro.BetField.DIRECT_33, ro.BetField.DIRECT_34, ro.BetField.DIRECT_35, ro.BetField.DIRECT_36];
-        this._groupHoverMapping[ro.BetField.ROW_1] = [ro.BetField.ROW_3, ro.BetField.DIRECT_3, ro.BetField.DIRECT_6, ro.BetField.DIRECT_9, ro.BetField.DIRECT_12, ro.BetField.DIRECT_15, ro.BetField.DIRECT_18, ro.BetField.DIRECT_21, ro.BetField.DIRECT_24, ro.BetField.DIRECT_27, ro.BetField.DIRECT_30, ro.BetField.DIRECT_33, ro.BetField.DIRECT_36];
-        this._groupHoverMapping[ro.BetField.ROW_2] = [ro.BetField.ROW_2, ro.BetField.DIRECT_2, ro.BetField.DIRECT_5, ro.BetField.DIRECT_8, ro.BetField.DIRECT_11, ro.BetField.DIRECT_14, ro.BetField.DIRECT_17, ro.BetField.DIRECT_20, ro.BetField.DIRECT_23, ro.BetField.DIRECT_26, ro.BetField.DIRECT_29, ro.BetField.DIRECT_32, ro.BetField.DIRECT_36]
-        this._groupHoverMapping[ro.BetField.ROW_3] = [ro.BetField.ROW_1, ro.BetField.DIRECT_1, ro.BetField.DIRECT_4, ro.BetField.DIRECT_7, ro.BetField.DIRECT_10, ro.BetField.DIRECT_13, ro.BetField.DIRECT_16, ro.BetField.DIRECT_19, ro.BetField.DIRECT_22, ro.BetField.DIRECT_25, ro.BetField.DIRECT_28, ro.BetField.DIRECT_31, ro.BetField.DIRECT_34]
-        this._groupHoverMapping[ro.BetField.DOZEN_1_12] = [ro.BetField.DOZEN_1_12, ro.BetField.DIRECT_1, ro.BetField.DIRECT_2, ro.BetField.DIRECT_3, ro.BetField.DIRECT_4, ro.BetField.DIRECT_5, ro.BetField.DIRECT_6, ro.BetField.DIRECT_7, ro.BetField.DIRECT_8, ro.BetField.DIRECT_9, ro.BetField.DIRECT_10, ro.BetField.DIRECT_11, ro.BetField.DIRECT_12];
-        this._groupHoverMapping[ro.BetField.DOZEN_13_24] = [ro.BetField.DOZEN_13_24, ro.BetField.DIRECT_13, ro.BetField.DIRECT_14, ro.BetField.DIRECT_15, ro.BetField.DIRECT_16, ro.BetField.DIRECT_17, ro.BetField.DIRECT_18, ro.BetField.DIRECT_19, ro.BetField.DIRECT_20, ro.BetField.DIRECT_21, ro.BetField.DIRECT_22, ro.BetField.DIRECT_23, ro.BetField.DIRECT_24];
-        this._groupHoverMapping[ro.BetField.DOZEN_25_36] = [ro.BetField.DOZEN_25_36, ro.BetField.DIRECT_25, ro.BetField.DIRECT_26, ro.BetField.DIRECT_27, ro.BetField.DIRECT_28, ro.BetField.DIRECT_29, ro.BetField.DIRECT_30, ro.BetField.DIRECT_31, ro.BetField.DIRECT_32, ro.BetField.DIRECT_33, ro.BetField.DIRECT_34, ro.BetField.DIRECT_35, ro.BetField.DIRECT_36];
+        this._groupHoverMapping[ro.BetField.ROW_1] = [
+          ro.BetField.ROW_3,
+          ro.BetField.DIRECT_3,
+          ro.BetField.DIRECT_6,
+          ro.BetField.DIRECT_9,
+          ro.BetField.DIRECT_12,
+          ro.BetField.DIRECT_15,
+          ro.BetField.DIRECT_18,
+          ro.BetField.DIRECT_21,
+          ro.BetField.DIRECT_24,
+          ro.BetField.DIRECT_27,
+          ro.BetField.DIRECT_30,
+          ro.BetField.DIRECT_33,
+          ro.BetField.DIRECT_36,
+        ];
+        this._groupHoverMapping[ro.BetField.ROW_2] = [
+          ro.BetField.ROW_2,
+          ro.BetField.DIRECT_2,
+          ro.BetField.DIRECT_5,
+          ro.BetField.DIRECT_8,
+          ro.BetField.DIRECT_11,
+          ro.BetField.DIRECT_14,
+          ro.BetField.DIRECT_17,
+          ro.BetField.DIRECT_20,
+          ro.BetField.DIRECT_23,
+          ro.BetField.DIRECT_26,
+          ro.BetField.DIRECT_29,
+          ro.BetField.DIRECT_32,
+          ro.BetField.DIRECT_36,
+        ];
+        this._groupHoverMapping[ro.BetField.ROW_3] = [
+          ro.BetField.ROW_1,
+          ro.BetField.DIRECT_1,
+          ro.BetField.DIRECT_4,
+          ro.BetField.DIRECT_7,
+          ro.BetField.DIRECT_10,
+          ro.BetField.DIRECT_13,
+          ro.BetField.DIRECT_16,
+          ro.BetField.DIRECT_19,
+          ro.BetField.DIRECT_22,
+          ro.BetField.DIRECT_25,
+          ro.BetField.DIRECT_28,
+          ro.BetField.DIRECT_31,
+          ro.BetField.DIRECT_34,
+        ];
+        this._groupHoverMapping[ro.BetField.DOZEN_1_12] = [
+          ro.BetField.DOZEN_1_12,
+          ro.BetField.DIRECT_1,
+          ro.BetField.DIRECT_2,
+          ro.BetField.DIRECT_3,
+          ro.BetField.DIRECT_4,
+          ro.BetField.DIRECT_5,
+          ro.BetField.DIRECT_6,
+          ro.BetField.DIRECT_7,
+          ro.BetField.DIRECT_8,
+          ro.BetField.DIRECT_9,
+          ro.BetField.DIRECT_10,
+          ro.BetField.DIRECT_11,
+          ro.BetField.DIRECT_12,
+        ];
+        this._groupHoverMapping[ro.BetField.DOZEN_13_24] = [
+          ro.BetField.DOZEN_13_24,
+          ro.BetField.DIRECT_13,
+          ro.BetField.DIRECT_14,
+          ro.BetField.DIRECT_15,
+          ro.BetField.DIRECT_16,
+          ro.BetField.DIRECT_17,
+          ro.BetField.DIRECT_18,
+          ro.BetField.DIRECT_19,
+          ro.BetField.DIRECT_20,
+          ro.BetField.DIRECT_21,
+          ro.BetField.DIRECT_22,
+          ro.BetField.DIRECT_23,
+          ro.BetField.DIRECT_24,
+        ];
+        this._groupHoverMapping[ro.BetField.DOZEN_25_36] = [
+          ro.BetField.DOZEN_25_36,
+          ro.BetField.DIRECT_25,
+          ro.BetField.DIRECT_26,
+          ro.BetField.DIRECT_27,
+          ro.BetField.DIRECT_28,
+          ro.BetField.DIRECT_29,
+          ro.BetField.DIRECT_30,
+          ro.BetField.DIRECT_31,
+          ro.BetField.DIRECT_32,
+          ro.BetField.DIRECT_33,
+          ro.BetField.DIRECT_34,
+          ro.BetField.DIRECT_35,
+          ro.BetField.DIRECT_36,
+        ];
 
+        this._groupHoverMapping[ro.BetField.RED] = [
+          ro.BetField.RED,
+          ro.BetField.DIRECT_1,
+          ro.BetField.DIRECT_3,
+          ro.BetField.DIRECT_5,
+          ro.BetField.DIRECT_6,
+          ro.BetField.DIRECT_7,
+          ro.BetField.DIRECT_9,
+          ro.BetField.DIRECT_12,
+          ro.BetField.DIRECT_14,
+          ro.BetField.DIRECT_16,
+          ro.BetField.DIRECT_18,
+          ro.BetField.DIRECT_19,
+          ro.BetField.DIRECT_21,
+          ro.BetField.DIRECT_23,
+          ro.BetField.DIRECT_25,
+          ro.BetField.DIRECT_27,
+          ro.BetField.DIRECT_30,
+          ro.BetField.DIRECT_32,
+          ro.BetField.DIRECT_34,
+          ro.BetField.DIRECT_36,
+        ];
 
-        this._groupHoverMapping[ro.BetField.RED] = [ro.BetField.RED, ro.BetField.DIRECT_1, ro.BetField.DIRECT_3, ro.BetField.DIRECT_5, ro.BetField.DIRECT_6, ro.BetField.DIRECT_7, ro.BetField.DIRECT_9, ro.BetField.DIRECT_12, ro.BetField.DIRECT_14, ro.BetField.DIRECT_16, ro.BetField.DIRECT_18, ro.BetField.DIRECT_19, ro.BetField.DIRECT_21, ro.BetField.DIRECT_23, ro.BetField.DIRECT_25, ro.BetField.DIRECT_27, ro.BetField.DIRECT_30, ro.BetField.DIRECT_32, ro.BetField.DIRECT_34, ro.BetField.DIRECT_36];
+        this._groupHoverMapping[ro.BetField.BLACK] = [
+          ro.BetField.BLACK,
+          ro.BetField.DIRECT_2,
+          ro.BetField.DIRECT_4,
+          ro.BetField.DIRECT_6,
+          ro.BetField.DIRECT_8,
+          ro.BetField.DIRECT_10,
+          ro.BetField.DIRECT_11,
+          ro.BetField.DIRECT_13,
+          ro.BetField.DIRECT_15,
+          ro.BetField.DIRECT_17,
+          ro.BetField.DIRECT_20,
+          ro.BetField.DIRECT_22,
+          ro.BetField.DIRECT_24,
+          ro.BetField.DIRECT_26,
+          ro.BetField.DIRECT_28,
+          ro.BetField.DIRECT_29,
+          ro.BetField.DIRECT_31,
+          ro.BetField.DIRECT_33,
+          ro.BetField.DIRECT_35,
+        ];
 
-
-        this._groupHoverMapping[ro.BetField.BLACK] = [ro.BetField.BLACK, ro.BetField.DIRECT_2, ro.BetField.DIRECT_4, ro.BetField.DIRECT_6, ro.BetField.DIRECT_8, ro.BetField.DIRECT_10, ro.BetField.DIRECT_11, ro.BetField.DIRECT_13, ro.BetField.DIRECT_15, ro.BetField.DIRECT_17, ro.BetField.DIRECT_20, ro.BetField.DIRECT_22, ro.BetField.DIRECT_24, ro.BetField.DIRECT_26, ro.BetField.DIRECT_28, ro.BetField.DIRECT_29, ro.BetField.DIRECT_31, ro.BetField.DIRECT_33, ro.BetField.DIRECT_35];
-
-
-        this._groupHoverMapping[ro.BetField.ODD] = [ro.BetField.ODD, ro.BetField.DIRECT_1, ro.BetField.DIRECT_3, ro.BetField.DIRECT_5, ro.BetField.DIRECT_7, ro.BetField.DIRECT_9, ro.BetField.DIRECT_11, ro.BetField.DIRECT_13, ro.BetField.DIRECT_15, ro.BetField.DIRECT_17, ro.BetField.DIRECT_19, ro.BetField.DIRECT_21, ro.BetField.DIRECT_23, ro.BetField.DIRECT_25, ro.BetField.DIRECT_27, ro.BetField.DIRECT_29, ro.BetField.DIRECT_31, ro.BetField.DIRECT_33, ro.BetField.DIRECT_35];
-        this._groupHoverMapping[ro.BetField.EVEN] = [ro.BetField.EVEN, ro.BetField.DIRECT_2, ro.BetField.DIRECT_4, ro.BetField.DIRECT_6, ro.BetField.DIRECT_8, ro.BetField.DIRECT_10, ro.BetField.DIRECT_12, ro.BetField.DIRECT_14, ro.BetField.DIRECT_16, ro.BetField.DIRECT_18, ro.BetField.DIRECT_20, ro.BetField.DIRECT_22, ro.BetField.DIRECT_24, ro.BetField.DIRECT_26, ro.BetField.DIRECT_28, ro.BetField.DIRECT_30, ro.BetField.DIRECT_32, ro.BetField.DIRECT_34, ro.BetField.DIRECT_36];
-        this._groupHoverMapping[ro.BetField.SMALL] = [ro.BetField.SMALL, ro.BetField.DIRECT_1, ro.BetField.DIRECT_2, ro.BetField.DIRECT_3, ro.BetField.DIRECT_4, ro.BetField.DIRECT_5, ro.BetField.DIRECT_6, ro.BetField.DIRECT_7, ro.BetField.DIRECT_8, ro.BetField.DIRECT_9, ro.BetField.DIRECT_10, ro.BetField.DIRECT_11, ro.BetField.DIRECT_12, ro.BetField.DIRECT_13, ro.BetField.DIRECT_14, ro.BetField.DIRECT_15, ro.BetField.DIRECT_16, ro.BetField.DIRECT_17, ro.BetField.DIRECT_18];
-        this._groupHoverMapping[ro.BetField.BIG] = [ro.BetField.BIG, ro.BetField.DIRECT_19, ro.BetField.DIRECT_20, ro.BetField.DIRECT_21, ro.BetField.DIRECT_22, ro.BetField.DIRECT_23, ro.BetField.DIRECT_24, ro.BetField.DIRECT_25, ro.BetField.DIRECT_26, ro.BetField.DIRECT_27, ro.BetField.DIRECT_28, ro.BetField.DIRECT_29, ro.BetField.DIRECT_30, ro.BetField.DIRECT_31, ro.BetField.DIRECT_32, ro.BetField.DIRECT_33, ro.BetField.DIRECT_34, ro.BetField.DIRECT_35, ro.BetField.DIRECT_36];
+        this._groupHoverMapping[ro.BetField.ODD] = [
+          ro.BetField.ODD,
+          ro.BetField.DIRECT_1,
+          ro.BetField.DIRECT_3,
+          ro.BetField.DIRECT_5,
+          ro.BetField.DIRECT_7,
+          ro.BetField.DIRECT_9,
+          ro.BetField.DIRECT_11,
+          ro.BetField.DIRECT_13,
+          ro.BetField.DIRECT_15,
+          ro.BetField.DIRECT_17,
+          ro.BetField.DIRECT_19,
+          ro.BetField.DIRECT_21,
+          ro.BetField.DIRECT_23,
+          ro.BetField.DIRECT_25,
+          ro.BetField.DIRECT_27,
+          ro.BetField.DIRECT_29,
+          ro.BetField.DIRECT_31,
+          ro.BetField.DIRECT_33,
+          ro.BetField.DIRECT_35,
+        ];
+        this._groupHoverMapping[ro.BetField.EVEN] = [
+          ro.BetField.EVEN,
+          ro.BetField.DIRECT_2,
+          ro.BetField.DIRECT_4,
+          ro.BetField.DIRECT_6,
+          ro.BetField.DIRECT_8,
+          ro.BetField.DIRECT_10,
+          ro.BetField.DIRECT_12,
+          ro.BetField.DIRECT_14,
+          ro.BetField.DIRECT_16,
+          ro.BetField.DIRECT_18,
+          ro.BetField.DIRECT_20,
+          ro.BetField.DIRECT_22,
+          ro.BetField.DIRECT_24,
+          ro.BetField.DIRECT_26,
+          ro.BetField.DIRECT_28,
+          ro.BetField.DIRECT_30,
+          ro.BetField.DIRECT_32,
+          ro.BetField.DIRECT_34,
+          ro.BetField.DIRECT_36,
+        ];
+        this._groupHoverMapping[ro.BetField.SMALL] = [
+          ro.BetField.SMALL,
+          ro.BetField.DIRECT_1,
+          ro.BetField.DIRECT_2,
+          ro.BetField.DIRECT_3,
+          ro.BetField.DIRECT_4,
+          ro.BetField.DIRECT_5,
+          ro.BetField.DIRECT_6,
+          ro.BetField.DIRECT_7,
+          ro.BetField.DIRECT_8,
+          ro.BetField.DIRECT_9,
+          ro.BetField.DIRECT_10,
+          ro.BetField.DIRECT_11,
+          ro.BetField.DIRECT_12,
+          ro.BetField.DIRECT_13,
+          ro.BetField.DIRECT_14,
+          ro.BetField.DIRECT_15,
+          ro.BetField.DIRECT_16,
+          ro.BetField.DIRECT_17,
+          ro.BetField.DIRECT_18,
+        ];
+        this._groupHoverMapping[ro.BetField.BIG] = [
+          ro.BetField.BIG,
+          ro.BetField.DIRECT_19,
+          ro.BetField.DIRECT_20,
+          ro.BetField.DIRECT_21,
+          ro.BetField.DIRECT_22,
+          ro.BetField.DIRECT_23,
+          ro.BetField.DIRECT_24,
+          ro.BetField.DIRECT_25,
+          ro.BetField.DIRECT_26,
+          ro.BetField.DIRECT_27,
+          ro.BetField.DIRECT_28,
+          ro.BetField.DIRECT_29,
+          ro.BetField.DIRECT_30,
+          ro.BetField.DIRECT_31,
+          ro.BetField.DIRECT_32,
+          ro.BetField.DIRECT_33,
+          ro.BetField.DIRECT_34,
+          ro.BetField.DIRECT_35,
+          ro.BetField.DIRECT_36,
+        ];
 
         this._groupHoverImageMapping = {};
         this._groupHoverImageMapping[ro.BetField.DIRECT_0] = 'd_ro_betboard_hover_0_png';
