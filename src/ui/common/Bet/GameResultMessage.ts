@@ -27,12 +27,13 @@ namespace we {
           }
           case core.GameType.RO: {
             dbClass = 'roulette';
-            handler = 'startAnimBADT';
+            handler = 'startAnimRO';
             break;
           }
           default:
             break;
         }
+        console.log('GameResultMessage::xxxxxxx ', dbClass, handler);
         if (!this._display) {
           const skeletonData = RES.getRes(`${dbClass}_game_result_ske_json`);
           const textureData = RES.getRes(`${dbClass}_game_result_tex_json`);
@@ -111,6 +112,7 @@ namespace we {
           anim += 'loss_';
         }
         anim += background;
+        console.log('GameResultMessage::xxxxxxx anim', resultData, anim);
 
         // update slot text
         const slot = this._display.armature.getSlot('win_txt');
