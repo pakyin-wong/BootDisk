@@ -152,14 +152,18 @@ namespace we {
       }
 
       public onGridRollover(fieldName: string) {
-        return () => {
-          this._tableLayer.onRollover(fieldName);
+        return (evt: egret.Event) => {
+          if (evt.target === this._mouseAreaMapping[fieldName]) {
+            this._tableLayer.onRollover(fieldName);
+          }
         };
       }
 
       public onGridRollout(fieldName: string) {
-        return () => {
-          this._tableLayer.onRollout(fieldName);
+        return (evt: egret.Event) => {
+          if (evt.target === this._mouseAreaMapping[fieldName]) {
+            this._tableLayer.onRollout(fieldName);
+          }
         };
       }
 
@@ -216,8 +220,9 @@ namespace we {
       public updateBetFields(betDetails: data.BetDetail[]) {
         this._cfmBetDetails = betDetails;
 
-        // TODO: update the already bet amount of each bet field
+        // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
+          console.log('updateBetFields xxxxxxxxxxxxxx: ', value);
           if (this._betChipStackMapping[value.field]) {
             this._betChipStackMapping[value.field].cfmBet = value.amount;
             this._betChipStackMapping[value.field].draw();

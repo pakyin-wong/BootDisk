@@ -5,14 +5,12 @@
     <e:Group id="_betChipSetPanel">
         <ui:BetChipSetGrid id="_betChipSet" width="200" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
     </e:Group>
-    <e:Group id="_quickBetGroup" width="339" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0">
+    <e:Group id="_quickBetGroup" width="339" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0">
         <e:Rect width="100%" height="100" x="0" alpha="0.6" y="100" />
         <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="118"
                                    skinName="skin_desktop.BetChipSkin" />
         <ba:TableLayer id="_tableLayer" width="339" skinName="skin_desktop.ba.SideListTableLayerSkin" anchorOffsetY="0"
                        height="110" left="0" top="0" name="sidebettingtable" />
-        <ba:ChipLayer id="_chipLayer" width="339" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
-                      height="110" left="0" top="0" name="sidebettingtable" />
         <ui:BaseImageButton id="_closeButton" x="12" y="125" width="56" height="60"
                             currentState="lobby_betcontrol_close" skinName="ImageButtonSkinLobby" />
         <ui:BaseImageButton id="_prevButton" x="68" y="125" width="56" height="60"
@@ -43,4 +41,6 @@
         <live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0"
                                anchorOffsetY="0" skinName="BetLimitDropdownSkin" visible="false" />
     </e:Group>
+    <ba:ChipLayer id="_chipLayer" width="339" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
+                  height="110" left="0" y="0" name="sidebettingtable" alpha="0" />
 </e:Skin>

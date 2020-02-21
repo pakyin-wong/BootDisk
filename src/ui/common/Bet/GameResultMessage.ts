@@ -9,11 +9,35 @@ namespace we {
         // this.skinName = 'GameResultNormalSkin';
       }
 
-      public showResult(gameType: core.GameType, winType: number, winAmount: number = NaN) {
+      public showResult(gameType: core.GameType, resultData: any) {
+        let dbClass;
+        let handler;
+        switch (gameType) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS: {
+            dbClass = 'baccarat';
+            handler = 'startAnimBADT';
+            break;
+          }
+          case core.GameType.DT: {
+            dbClass = 'dragon_tiger';
+            handler = 'startAnimBADT';
+            break;
+          }
+          case core.GameType.RO: {
+            dbClass = 'roulette';
+            handler = 'startAnimRO';
+            break;
+          }
+          default:
+            break;
+        }
+        console.log('GameResultMessage::xxxxxxx ', dbClass, handler);
         if (!this._display) {
-          const skeletonData = RES.getRes('baccarat_game_result_ske_json');
-          const textureData = RES.getRes('baccarat_game_result_tex_json');
-          const texture = RES.getRes('baccarat_game_result_tex_png');
+          const skeletonData = RES.getRes(`${dbClass}_game_result_ske_json`);
+          const textureData = RES.getRes(`${dbClass}_game_result_tex_json`);
+          const texture = RES.getRes(`${dbClass}_game_result_tex_png`);
           const factory = new dragonBones.EgretFactory();
           factory.parseDragonBonesData(skeletonData);
           factory.parseTextureAtlasData(textureData, texture);
@@ -23,10 +47,10 @@ namespace we {
           this.addChild(this._display);
         }
 
-        this.startDragonBoneAnim(gameType, winType, winAmount);
+        this[handler](gameType, resultData);
       }
 
-      protected getBackground(gameType: core.GameType, winType: number, isWin: boolean) {
+      protected getBackground(gameType: core.GameType, winType: number) {
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAI:
@@ -64,11 +88,11 @@ namespace we {
         this.visible = false;
       }
 
-      protected startDragonBoneAnim(gameType: core.GameType, winType: number, winAmount: number) {
-        const isWin = !isNaN(winAmount) && winAmount > 0;
-        const background = this.getBackground(gameType, winType, isWin);
+      // animation for Baccarat / Dragon Tiger
+      protected startAnimBADT(gameType: core.GameType, resultData: any) {
+        const { winType, winAmount } = resultData;
+        const background = this.getBackground(gameType, winType);
 
-        this.visible = true;
         logger.l(i18n.t(utils.getWinMessageKey(gameType, winType)), background, gameType, winType, winAmount);
 
         this._display.armature.eventDispatcher.addDBEventListener(
@@ -82,12 +106,38 @@ namespace we {
         let anim = 'ani_result_';
         if (isNaN(winAmount)) {
           anim += 'no_bets_';
-        } else if (isWin) {
+        } else if (winAmount > 0) {
           anim += 'win_';
         } else {
           anim += 'loss_';
         }
         anim += background;
+        console.log('GameResultMessage::xxxxxxx anim', resultData, anim);
+
+        this.visible = true;
+        this._display.animation.play(anim, 1);
+      }
+
+      protected startAnimRO(gameType: core.GameType, resultData: any) {
+        const { resultNo, winAmount } = resultData;
+
+        this._display.armature.eventDispatcher.addDBEventListener(
+          dragonBones.EventObject.COMPLETE,
+          () => {
+            this.visible = false;
+          },
+          this
+        );
+
+        let anim = 'ani_result_';
+        if (isNaN(winAmount)) {
+          anim += 'nobet_';
+        } else {
+          anim += 'win_loss_';
+        }
+        anim += 'bgr'; // todo
+
+        this.visible = true;
         this._display.animation.play(anim, 1);
       }
     }

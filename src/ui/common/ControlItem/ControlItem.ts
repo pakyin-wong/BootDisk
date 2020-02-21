@@ -68,6 +68,9 @@ namespace we {
           this._chipLayer.type = we.core.BettingTableType.NORMAL;
           this._chipLayer.denomList = denominationList;
           this._chipLayer.undoStack = this._undoStack;
+          if (this._tableLayer) {
+            this._chipLayer.tableLayer = this._tableLayer;
+          }
           this._chipLayer.init();
           this._chipLayer.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
           this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
@@ -164,8 +167,8 @@ namespace we {
         }
       }
       protected onBetDetailUpdateInFinishState() {
-        this._chipLayer.showWinEffect(this._betDetails);
         if (this._betDetails && this._chipLayer) {
+          this._chipLayer.showWinEffect(this._betDetails);
           if (this._resultMessage) {
             this.checkResultMessage(this.tableInfo.totalWin);
           }
@@ -371,7 +374,10 @@ namespace we {
       public checkResultMessage(totalWin: number = NaN) {
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype, totalWin);
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: totalWin,
+            });
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {

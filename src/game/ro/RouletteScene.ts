@@ -1,8 +1,10 @@
 /* tslint:disable triple-equals */
 /**
- * BaccaratScene
+ * RouletteScene
  *
- * BaccaratScene consist of serveral components: Betting table, Video, serveral roadmap, table list panel on right hand side, table info panel and some statistic graph
+ * RouletteScene consist of serveral components: Betting table, Video, serveral roadmap, table list panel on right hand side, table info panel and some statistic graph
+ * It also contains
+ *
  */
 namespace we {
   export namespace ro {
@@ -35,7 +37,7 @@ namespace we {
         super.initChildren();
         this.initRoadMap();
         // this._roadmapControl.setTableInfo(this._tableInfo);
-
+        this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
@@ -56,6 +58,28 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         // this._roadmapControl.updateRoadData();
+      }
+
+      public checkResultMessage() {
+        let totalWin: number = NaN;
+        totalWin = this._tableInfo.totalWin;
+        if (this.hasBet()) {
+          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              resultNo: 2,
+              winAmount: +800,
+            });
+            dir.audioCtr.playSequence(['player', 'win']);
+          }
+        } else {
+          if (this._gameData && this._gameData.wintype != 0) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              resultNo: 2,
+              winAmount: NaN,
+            });
+            dir.audioCtr.playSequence(['player', 'win']);
+          }
+        }
       }
     }
   }

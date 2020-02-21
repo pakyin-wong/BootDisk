@@ -1,13 +1,13 @@
 namespace we {
   export namespace ba {
     export class ChipLayer extends ui.ChipLayer {
-      protected _playerPairImage: eui.Image;
-      protected _bankerPairImage: eui.Image;
-      protected _playerImage: eui.Image;
-      protected _tieImage: eui.Image;
-      protected _superSixImage: eui.Image;
-      protected _superSixBankerImage: eui.Image;
-      protected _bankerImage: eui.Image;
+      protected _playerPairGroup: eui.Group;
+      protected _bankerPairGroup: eui.Group;
+      protected _playerGroup: eui.Group;
+      protected _tieGroup: eui.Group;
+      protected _superSixGroup: eui.Group;
+      protected _superSixBankerGroup: eui.Group;
+      protected _bankerGroup: eui.Group;
 
       protected _playerPairBetChipStack: ui.BetChipStack;
       protected _bankerPairBetChipStack: ui.BetChipStack;
@@ -25,13 +25,13 @@ namespace we {
       protected createMapping() {
         super.createMapping();
         this._mouseAreaMapping = {};
-        this._mouseAreaMapping[ba.BetField.PLAYER] = this._playerImage;
-        this._mouseAreaMapping[ba.BetField.BANKER] = this._bankerImage;
-        this._mouseAreaMapping[ba.BetField.PLAYER_PAIR] = this._playerPairImage;
-        this._mouseAreaMapping[ba.BetField.TIE] = this._tieImage;
-        this._mouseAreaMapping[ba.BetField.BANKER_PAIR] = this._bankerPairImage;
-        this._mouseAreaMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerImage;
-        this._mouseAreaMapping[ba.BetField.SUPER_SIX] = this._superSixImage;
+        this._mouseAreaMapping[ba.BetField.PLAYER] = this._playerGroup;
+        this._mouseAreaMapping[ba.BetField.BANKER] = this._bankerGroup;
+        this._mouseAreaMapping[ba.BetField.PLAYER_PAIR] = this._playerPairGroup;
+        this._mouseAreaMapping[ba.BetField.TIE] = this._tieGroup;
+        this._mouseAreaMapping[ba.BetField.BANKER_PAIR] = this._bankerPairGroup;
+        this._mouseAreaMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerGroup;
+        this._mouseAreaMapping[ba.BetField.SUPER_SIX] = this._superSixGroup;
 
         this._betChipStackMapping = {};
 
