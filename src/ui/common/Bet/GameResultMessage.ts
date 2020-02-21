@@ -27,6 +27,7 @@ namespace we {
           }
           case core.GameType.RO: {
             dbClass = 'roulette';
+            handler = 'startAnimBADT';
             break;
           }
           default:
@@ -116,6 +117,8 @@ namespace we {
       }
 
       protected startAnimRO(gameType: core.GameType, resultData: any) {
+        const { left, center, right , winAmount } = resultData;
+
         this.visible = true;
       }
     }
