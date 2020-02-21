@@ -22,7 +22,7 @@ namespace we {
         root.scroller = new ui.Scroller();
         root.scroller.width = root.stage.stageWidth;
         root.scroller.height = root.stage.stageHeight;
-        root.scroller.headerOffset = 100;
+        root.scroller.headerOffset = 238;
         root.addChild(root.scroller);
 
         const paddingHorizontal = 14;
