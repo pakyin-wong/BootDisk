@@ -1103,6 +1103,9 @@ var eui;
                     case egret.HorizontalAlign.LEFT:
                         x = columnIndex * (columnWidth + horizontalGap) + paddingL;
                         break;
+                    case egret.HorizontalAlign.CENTER:
+                        x = columnIndex * (columnWidth + horizontalGap) + (width + horizontalGap - columnCount * (columnWidth + horizontalGap)) * 0.5;
+                        break;
                     default:
                         x = columnIndex * (columnWidth + horizontalGap) + paddingL;
                 }

@@ -37,6 +37,11 @@ namespace we {
           dir.layerCtr.top.addChild(this._liveSidePanel);
           this._liveSidePanel.right = 20;
           this._liveSidePanel.y = 80;
+        } else {
+          const gameListButton = new ui.GameListButton();
+          dir.layerCtr.top.addChild(gameListButton);
+          gameListButton.right = 50;
+          gameListButton.y = 241;
         }
 
         if (env.mode < 0) {

@@ -3,10 +3,6 @@
 		{
 			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,description_json",
 			"name": "egret_basic"
-		},
-		{
-			"name": "preload",
-			"keys": "d_ro_betborad_disable_png,d_ro_betborad_hover_png,d_ro_betborad_inactive_png,d_ro_betborad_outline_png,d_ro_betborad_result_hl_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_history_hotclod_under_line_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_racetrack_bg_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_ro_history_status_bar_box_png,d_ro_history_status_bar_down_png,d_ro_history_status_bar_top_png,d_ro_panel_betcontrol_betarea_even_inactive_png,d_ro_panel_betcontrol_betarea_odd_hover_png,d_ro_panel_betcontrol_betarea_odd_inactive_png,d_ro_panel_gamelist_betarea_black_inactive_png,d_ro_panel_gamelist_betarea_disable_png,d_ro_panel_gamelist_betrarea_red_inactive_png,d_ro_panel_gamelist_history_ball_gray_png,d_ro_panel_gamelist_history_ball_hl_png,d_ro_racetrack_hover_png,d_ro_racetrack_inactive_png,d_ro_racetrack_outline_png,d_ro_rm_add_btn_active_png,d_ro_rm_add_btn_hover_png,d_ro_rm_add_btn_inactive_png,d_ro_rm_less_btn_active_png,d_ro_rm_less_btn_hover_png,d_ro_rm_less_btn_inactive_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,d_ro_savelayout_star_icon_png"
 		}
 	],
 	"resources": [
@@ -2603,274 +2599,1619 @@
 			"name": "d_lobby_panel_betcontrol_chips_select_png"
 		},
 		{
-			"name": "d_ro_betborad_disable_png",
+			"url": "assets/m/ba/m_ba_betarea_banker.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_betborad_disable.png"
+			"name": "m_ba_betarea_banker_png"
 		},
 		{
-			"name": "d_ro_betborad_hover_png",
+			"url": "assets/m/ba/m_ba_betarea_bankerpair.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_betborad_hover.png"
+			"name": "m_ba_betarea_bankerpair_png"
 		},
 		{
-			"name": "d_ro_betborad_inactive_png",
+			"url": "assets/m/ba/m_ba_betarea_chipsbg.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_betborad_inactive.png"
+			"name": "m_ba_betarea_chipsbg_png"
 		},
 		{
-			"name": "d_ro_betborad_outline_png",
+			"url": "assets/m/ba/m_ba_betarea_player.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_betborad_outline.png"
+			"name": "m_ba_betarea_player_png"
 		},
 		{
-			"name": "d_ro_betborad_result_hl_png",
+			"url": "assets/m/ba/m_ba_betarea_playerpair.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_betborad_result_hl.png"
+			"name": "m_ba_betarea_playerpair_png"
 		},
 		{
-			"name": "d_ro_game_record_black_ball_large_png",
+			"url": "assets/m/ba/m_ba_betarea_tie.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_game_record_black_ball_large.png"
+			"name": "m_ba_betarea_tie_png"
 		},
 		{
-			"name": "d_ro_game_record_green_ball_large_png",
+			"url": "assets/m/ba/m_ba_betcontrol_btn_betconfirm.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_game_record_green_ball_large.png"
+			"name": "m_ba_betcontrol_btn_betconfirm_png"
 		},
 		{
-			"name": "d_ro_game_record_red_ball_large_png",
+			"url": "assets/m/ba/m_ba_betcontrol_btn_clear.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_game_record_red_ball_large.png"
+			"name": "m_ba_betcontrol_btn_clear_png"
 		},
 		{
-			"name": "d_ro_history_cold_bg_png",
+			"url": "assets/m/ba/m_ba_betcontrol_btn_double.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_cold_bg.png"
+			"name": "m_ba_betcontrol_btn_double_png"
 		},
 		{
-			"name": "d_ro_history_cold_icon_png",
+			"url": "assets/m/ba/m_ba_betcontrol_btn_rebet.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_cold_icon.png"
+			"name": "m_ba_betcontrol_btn_rebet_png"
 		},
 		{
-			"name": "d_ro_history_hotclod_balck_ball_medium_png",
+			"url": "assets/m/ba/m_ba_betcontrol_btn_undo.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hotclod_balck_ball_medium.png"
+			"name": "m_ba_betcontrol_btn_undo_png"
 		},
 		{
-			"name": "d_ro_history_hotclod_bg_png",
+			"url": "assets/m/ba/m_ba_bg_offvideo.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hotclod_bg.png"
+			"name": "m_ba_bg_offvideo_png"
 		},
 		{
-			"name": "d_ro_history_hotclod_black_ball_extra_large_png",
+			"url": "assets/m/ba/m_ba_btn_bg.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hotclod_black_ball_extra_large.png"
+			"name": "m_ba_btn_bg_png"
 		},
 		{
-			"name": "d_ro_history_hotclod_green_ball_extra_large_png",
+			"url": "assets/m/ba/m_ba_btn_bg_hover.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hotclod_green_ball_extra_large.png"
+			"name": "m_ba_btn_bg_hover_png"
 		},
 		{
-			"name": "d_ro_history_hotclod_green_ball_medium_png",
+			"url": "assets/m/ba/m_ba_btn_chatroom.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hotclod_green_ball_medium.png"
+			"name": "m_ba_btn_chatroom_png"
 		},
 		{
-			"name": "d_ro_history_hotclod_red_ball_extra_large_png",
+			"url": "assets/m/ba/m_ba_btn_video.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hotclod_red_ball_extra_large.png"
+			"name": "m_ba_btn_video_png"
 		},
 		{
-			"name": "d_ro_history_hotclod_red_ball_medium_png",
+			"url": "assets/m/ba/m_ba_goodroad_info_line_banker.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hotclod_red_ball_medium.png"
+			"name": "m_ba_goodroad_info_line_banker_png"
 		},
 		{
-			"name": "d_ro_history_hotclod_under_line_png",
+			"url": "assets/m/ba/m_ba_goodroad_info_line_player.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hotclod_under_line.png"
+			"name": "m_ba_goodroad_info_line_player_png"
 		},
 		{
-			"name": "d_ro_history_hot_bg_png",
+			"url": "assets/m/ba/m_ba_goodroad_info_ring_banker.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hot_bg.png"
+			"name": "m_ba_goodroad_info_ring_banker_png"
 		},
 		{
-			"name": "d_ro_history_hot_icon_png",
+			"url": "assets/m/ba/m_ba_goodroad_info_ring_player.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_hot_icon.png"
+			"name": "m_ba_goodroad_info_ring_player_png"
 		},
 		{
-			"name": "d_ro_history_racetrack_bg_png",
+			"url": "assets/m/ba/m_ba_goodroad_info_round_banker.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_racetrack_bg.png"
+			"name": "m_ba_goodroad_info_round_banker_png"
 		},
 		{
-			"name": "d_ro_history_result_ball_hl_png",
+			"url": "assets/m/ba/m_ba_goodroad_info_round_player.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_result_ball_hl.png"
+			"name": "m_ba_goodroad_info_round_player_png"
 		},
 		{
-			"name": "d_ro_history_result_black_ball_samll_png",
+			"url": "assets/m/ba/m_ba_goodroad_info_state_banker.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_result_black_ball_samll.png"
+			"name": "m_ba_goodroad_info_state_banker_png"
 		},
 		{
-			"name": "d_ro_history_result_green_ball_samll_png",
+			"url": "assets/m/ba/m_ba_goodroad_info_state_player.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_result_green_ball_samll.png"
+			"name": "m_ba_goodroad_info_state_player_png"
 		},
 		{
-			"name": "d_ro_history_result_red_ball_samll_png",
+			"url": "assets/m/ba/m_ba_goodroad_infobg_banker.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_result_red_ball_samll.png"
+			"name": "m_ba_goodroad_infobg_banker_png"
 		},
 		{
-			"name": "d_ro_history_status_bar_box_png",
+			"url": "assets/m/ba/m_ba_goodroad_infobg_player.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_status_bar_box.png"
+			"name": "m_ba_goodroad_infobg_player_png"
 		},
 		{
-			"name": "d_ro_history_status_bar_down_png",
+			"url": "assets/m/ba/m_ba_picker.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_status_bar_down.png"
+			"name": "m_ba_picker_png"
 		},
 		{
-			"name": "d_ro_history_status_bar_top_png",
+			"url": "assets/m/ba/m_ba_result_poker_banker.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_history_status_bar_top.png"
+			"name": "m_ba_result_poker_banker_png"
 		},
 		{
-			"name": "d_ro_panel_betcontrol_betarea_even_inactive_png",
+			"url": "assets/m/ba/m_ba_result_poker_player.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_panel_betcontrol_betarea_even_inactive.png"
+			"name": "m_ba_result_poker_player_png"
 		},
 		{
-			"name": "d_ro_panel_betcontrol_betarea_odd_hover_png",
+			"url": "assets/m/ba/m_ba_setting_btn_liveverification.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_panel_betcontrol_betarea_odd_hover.png"
+			"name": "m_ba_setting_btn_liveverification_png"
 		},
 		{
-			"name": "d_ro_panel_betcontrol_betarea_odd_inactive_png",
+			"url": "assets/m/ba/m_ba_setting_btn_verification.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_panel_betcontrol_betarea_odd_inactive.png"
+			"name": "m_ba_setting_btn_verification_png"
 		},
 		{
-			"name": "d_ro_panel_gamelist_betarea_black_inactive_png",
+			"url": "assets/m/ba/m_ba_tab_bottom.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_panel_gamelist_betarea_black_inactive.png"
+			"name": "m_ba_tab_bottom_png"
 		},
 		{
-			"name": "d_ro_panel_gamelist_betarea_disable_png",
+			"url": "assets/m/ba/m_ba_tab_btn_dropdown.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_panel_gamelist_betarea_disable.png"
+			"name": "m_ba_tab_btn_dropdown_png"
 		},
 		{
-			"name": "d_ro_panel_gamelist_betrarea_red_inactive_png",
+			"url": "assets/m/ba/m_ba_tab_roadmap_active.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_panel_gamelist_betrarea_red_inactive.png"
+			"name": "m_ba_tab_roadmap_active_png"
 		},
 		{
-			"name": "d_ro_panel_gamelist_history_ball_gray_png",
+			"url": "assets/m/ba/m_ba_tab_roadmap_bg.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_panel_gamelist_history_ball_gray.png"
+			"name": "m_ba_tab_roadmap_bg_png"
 		},
 		{
-			"name": "d_ro_panel_gamelist_history_ball_hl_png",
+			"url": "assets/m/ba/m_ba_tag_btn_detail.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_panel_gamelist_history_ball_hl.png"
+			"name": "m_ba_tag_btn_detail_png"
 		},
 		{
-			"name": "d_ro_racetrack_hover_png",
+			"url": "assets/m/ba/m_ba_tag_redlimit_bg.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_racetrack_hover.png"
+			"name": "m_ba_tag_redlimit_bg_png"
 		},
 		{
-			"name": "d_ro_racetrack_inactive_png",
+			"url": "assets/m/ba/m_ba_tag_redlimit_btn_dropdown.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_racetrack_inactive.png"
+			"name": "m_ba_tag_redlimit_btn_dropdown_png"
 		},
 		{
-			"name": "d_ro_racetrack_outline_png",
+			"url": "assets/m/common/m_common_betarea_icon_totalbet.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_racetrack_outline.png"
+			"name": "m_common_betarea_icon_totalbet_png"
 		},
 		{
-			"name": "d_ro_rm_add_btn_active_png",
+			"url": "assets/m/common/m_common_betarea_icon_totalperson.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_add_btn_active.png"
+			"name": "m_common_betarea_icon_totalperson_png"
 		},
 		{
-			"name": "d_ro_rm_add_btn_hover_png",
+			"url": "assets/m/common/m_common_btn.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_add_btn_hover.png"
+			"name": "m_common_btn_png"
 		},
 		{
-			"name": "d_ro_rm_add_btn_inactive_png",
+			"url": "assets/m/common/m_common_btn_disabled.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_add_btn_inactive.png"
+			"name": "m_common_btn_disabled_png"
 		},
 		{
-			"name": "d_ro_rm_less_btn_active_png",
+			"url": "assets/m/common/m_common_btn_previous.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_less_btn_active.png"
+			"name": "m_common_btn_previous_png"
 		},
 		{
-			"name": "d_ro_rm_less_btn_hover_png",
+			"url": "assets/m/common/m_common_btn_red.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_less_btn_hover.png"
+			"name": "m_common_btn_red_png"
 		},
 		{
-			"name": "d_ro_rm_less_btn_inactive_png",
+			"url": "assets/m/common/m_common_form_captcha.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_less_btn_inactive.png"
+			"name": "m_common_form_captcha_png"
 		},
 		{
-			"name": "d_ro_rm_switch_tag_btn_active_png",
+			"url": "assets/m/common/m_common_gamestate_message_black.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_active.png"
+			"name": "m_common_gamestate_message_black_png"
 		},
 		{
-			"name": "d_ro_rm_switch_tag_btn_hover_png",
+			"url": "assets/m/common/m_common_gamestate_message_green.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_hover.png"
+			"name": "m_common_gamestate_message_green_png"
 		},
 		{
-			"name": "d_ro_rm_switch_tag_btn_inactive_png",
+			"url": "assets/m/common/m_common_gamestate_message_red.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_inactive.png"
+			"name": "m_common_gamestate_message_red_png"
 		},
 		{
-			"name": "d_ro_savelayout_active_bg_png",
+			"url": "assets/m/common/m_common_header_bg.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_savelayout_active_bg.png"
+			"name": "m_common_header_bg_png"
 		},
 		{
-			"name": "d_ro_savelayout_cancel_icon_png",
+			"url": "assets/m/common/m_common_header_bg_dim.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_savelayout_cancel_icon.png"
+			"name": "m_common_header_bg_dim_png"
 		},
 		{
-			"name": "d_ro_savelayout_confirm_icon_png",
+			"url": "assets/m/common/m_common_header_icon_logo.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_savelayout_confirm_icon.png"
+			"name": "m_common_header_icon_logo_png"
 		},
 		{
-			"name": "d_ro_savelayout_inactive_bg_png",
+			"url": "assets/m/common/m_common_header_icon_menu.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_savelayout_inactive_bg.png"
+			"name": "m_common_header_icon_menu_png"
 		},
 		{
-			"name": "d_ro_savelayout_rename_mode_bg_png",
+			"url": "assets/m/common/m_common_header_icon_refresh.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_savelayout_rename_mode_bg.png"
+			"name": "m_common_header_icon_refresh_png"
 		},
 		{
-			"name": "d_ro_savelayout_star_icon_png",
+			"url": "assets/m/common/m_common_header_profile_pic_01.png",
 			"type": "image",
-			"url": "assets/d/ro/d_ro_savelayout_star_icon.png"
+			"name": "m_common_header_profile_pic_01_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_02.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_02_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_03.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_03_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_04.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_04_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_05.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_05_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_06.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_06_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_07.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_07_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_08.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_08_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_09.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_09_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_10.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_10_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_11.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_11_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_profile_pic_12.png",
+			"type": "image",
+			"name": "m_common_header_profile_pic_12_png"
+		},
+		{
+			"url": "assets/m/common/m_common_icon_close.png",
+			"type": "image",
+			"name": "m_common_icon_close_png"
+		},
+		{
+			"url": "assets/m/common/m_common_listpanel_betted_bg.png",
+			"type": "image",
+			"name": "m_common_listpanel_betted_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_listpanel_bg.png",
+			"type": "image",
+			"name": "m_common_listpanel_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_listpanel_goodroad_bg.png",
+			"type": "image",
+			"name": "m_common_listpanel_goodroad_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_listpanel_icon_gamelist.png",
+			"type": "image",
+			"name": "m_common_listpanel_icon_gamelist_png"
+		},
+		{
+			"url": "assets/m/common/m_common_notification_bg.png",
+			"type": "image",
+			"name": "m_common_notification_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_notification_close_bg.png",
+			"type": "image",
+			"name": "m_common_notification_close_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_notification_close_icon.png",
+			"type": "image",
+			"name": "m_common_notification_close_icon_png"
+		},
+		{
+			"url": "assets/m/common/m_common_notification_quickbet_bg.png",
+			"type": "image",
+			"name": "m_common_notification_quickbet_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_notification_quickbet_icon.png",
+			"type": "image",
+			"name": "m_common_notification_quickbet_icon_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_icon_dropdown.png",
+			"type": "image",
+			"name": "m_common_panel_icon_dropdown_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_icon_dropdown_active.png",
+			"type": "image",
+			"name": "m_common_panel_icon_dropdown_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_logout_bg.png",
+			"type": "image",
+			"name": "m_common_panel_logout_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_bg_dim.png",
+			"type": "image",
+			"name": "m_common_panel_setting_bg_dim_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_btn_close.png",
+			"type": "image",
+			"name": "m_common_panel_setting_btn_close_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_btn_select.png",
+			"type": "image",
+			"name": "m_common_panel_setting_btn_select_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_btn_select_dim.png",
+			"type": "image",
+			"name": "m_common_panel_setting_btn_select_dim_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_btn_switch_active.png",
+			"type": "image",
+			"name": "m_common_panel_setting_btn_switch_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_btn_switch_disabled.png",
+			"type": "image",
+			"name": "m_common_panel_setting_btn_switch_disabled_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_icon_account.png",
+			"type": "image",
+			"name": "m_common_panel_setting_icon_account_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_icon_gdrdsetting.png",
+			"type": "image",
+			"name": "m_common_panel_setting_icon_gdrdsetting_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_icon_logout.png",
+			"type": "image",
+			"name": "m_common_panel_setting_icon_logout_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_icon_record.png",
+			"type": "image",
+			"name": "m_common_panel_setting_icon_record_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_icon_setting.png",
+			"type": "image",
+			"name": "m_common_panel_setting_icon_setting_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_icon_table.png",
+			"type": "image",
+			"name": "m_common_panel_setting_icon_table_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_line.png",
+			"type": "image",
+			"name": "m_common_panel_setting_line_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_uicolour.png",
+			"type": "image",
+			"name": "m_common_panel_setting_uicolour_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_uicolour_active.png",
+			"type": "image",
+			"name": "m_common_panel_setting_uicolour_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_uicolour_black.png",
+			"type": "image",
+			"name": "m_common_panel_setting_uicolour_black_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_uicolour_btn.png",
+			"type": "image",
+			"name": "m_common_panel_setting_uicolour_btn_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_uicolour_btn_active.png",
+			"type": "image",
+			"name": "m_common_panel_setting_uicolour_btn_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_setting_uicolour_light.png",
+			"type": "image",
+			"name": "m_common_panel_setting_uicolour_light_png"
+		},
+		{
+			"url": "assets/m/common/m_common_panel_systemsetting_icon_language.png",
+			"type": "image",
+			"name": "m_common_panel_systemsetting_icon_language_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_bg_dim.png",
+			"type": "image",
+			"name": "m_common_setting_bg_dim_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_btn_close.png",
+			"type": "image",
+			"name": "m_common_setting_btn_close_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_btn_switch_active.png",
+			"type": "image",
+			"name": "m_common_setting_btn_switch_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_choose_btn.png",
+			"type": "image",
+			"name": "m_common_setting_choose_btn_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic__profilepic06.png",
+			"type": "image",
+			"name": "m_common_setting_editpic__profilepic06_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic01.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic01_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic02.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic02_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic03.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic03_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic04.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic04_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic05.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic05_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic07.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic07_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic08.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic08_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic09.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic09_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic10.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic10_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic11.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic11_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_profilepic12.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_profilepic12_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_editpic_selected.png",
+			"type": "image",
+			"name": "m_common_setting_editpic_selected_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_btn.png",
+			"type": "image",
+			"name": "m_common_setting_form_btn_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_pw_hide.png",
+			"type": "image",
+			"name": "m_common_setting_form_pw_hide_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_pw_hide_dim.png",
+			"type": "image",
+			"name": "m_common_setting_form_pw_hide_dim_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_pw_show.png",
+			"type": "image",
+			"name": "m_common_setting_form_pw_show_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_pw_show_dim.png",
+			"type": "image",
+			"name": "m_common_setting_form_pw_show_dim_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_typebox.png",
+			"type": "image",
+			"name": "m_common_setting_form_typebox_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_typebox_error.png",
+			"type": "image",
+			"name": "m_common_setting_form_typebox_error_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_typebox_error_icon.png",
+			"type": "image",
+			"name": "m_common_setting_form_typebox_error_icon_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_form_typebox_typing.png",
+			"type": "image",
+			"name": "m_common_setting_form_typebox_typing_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_btn_add.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_btn_add_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_btn_delete.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_btn_delete_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_btn_edit.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_btn_edit_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_btn_reset.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_btn_reset_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_footer_bg_dim.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_footer_bg_dim_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_btn_banker.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_btn_banker_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_btn_clear.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_btn_clear_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_btn_confirm_bg.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_btn_confirm_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_btn_confirm_icon.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_btn_confirm_icon_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_btn_deduct.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_btn_deduct_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_btn_palyer.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_btn_palyer_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_msg_bg.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_msg_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_msg_blue.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_msg_blue_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_msg_red.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_msg_red_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_typebox.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_typebox_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_panel_addroad_typebox_close.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_panel_addroad_typebox_close_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_roadmap_checkboxes.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_roadmap_checkboxes_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_goodroad_roadmap_checkboxes_active.png",
+			"type": "image",
+			"name": "m_common_setting_goodroad_roadmap_checkboxes_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_icon_account.png",
+			"type": "image",
+			"name": "m_common_setting_icon_account_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_icon_gdrdsetting.png",
+			"type": "image",
+			"name": "m_common_setting_icon_gdrdsetting_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_icon_logout.png",
+			"type": "image",
+			"name": "m_common_setting_icon_logout_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_icon_setting.png",
+			"type": "image",
+			"name": "m_common_setting_icon_setting_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_line.png",
+			"type": "image",
+			"name": "m_common_setting_line_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_panel_bg.png",
+			"type": "image",
+			"name": "m_common_setting_panel_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic01.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic01_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic02.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic02_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic03.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic03_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic04.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic04_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic05.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic05_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic06.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic06_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic07.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic07_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic08.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic08_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic09.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic09_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic10.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic10_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic11.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic11_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerinfo_profilepic12.png",
+			"type": "image",
+			"name": "m_common_setting_playerinfo_profilepic12_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreport_reportbox.png",
+			"type": "image",
+			"name": "m_common_setting_playerreport_reportbox_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_dateselct_btn_active.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_dateselct_btn_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_dateselct_btn_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_dateselct_btn_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_detail_result_banker_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_detail_result_banker_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_detail_result_player_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_detail_result_player_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_detail_result_replay_box.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_detail_result_replay_box_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_detail_result_replay_icon.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_detail_result_replay_icon_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_list_bg_a.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_list_bg_a_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_list_bg_b.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_list_bg_b_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_list_top_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_list_top_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_panel_dateselect_active.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_panel_dateselect_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_panel_dateselect_active_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_panel_dateselect_active_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_panel_dateselect_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_panel_dateselect_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_panel_dateselect_icon_pagenav_left.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_panel_dateselect_icon_pagenav_left_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_panel_dateselect_icon_pagenav_right.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_panel_dateselect_icon_pagenav_right_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_search_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_search_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_search_icon.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_search_icon_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_searchbox.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_searchbox_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playerreportlist_searchbox_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playerreportlist_searchbox_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playinfo_icon_edit.png",
+			"type": "image",
+			"name": "m_common_setting_playinfo_icon_edit_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playinfo_icon_refresh.png",
+			"type": "image",
+			"name": "m_common_setting_playinfo_icon_refresh_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playinfo_profilepic_edit_bg.png",
+			"type": "image",
+			"name": "m_common_setting_playinfo_profilepic_edit_bg_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playinfo_profilepic_edit_icon.png",
+			"type": "image",
+			"name": "m_common_setting_playinfo_profilepic_edit_icon_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_playinfo_profilepic_oval.png",
+			"type": "image",
+			"name": "m_common_setting_playinfo_profilepic_oval_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_uicolour.png",
+			"type": "image",
+			"name": "m_common_setting_uicolour_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_uicolour_active.png",
+			"type": "image",
+			"name": "m_common_setting_uicolour_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_uicolour_black.png",
+			"type": "image",
+			"name": "m_common_setting_uicolour_black_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_uicolour_btn.png",
+			"type": "image",
+			"name": "m_common_setting_uicolour_btn_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_uicolour_btn_active.png",
+			"type": "image",
+			"name": "m_common_setting_uicolour_btn_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_setting_uicolour_light.png",
+			"type": "image",
+			"name": "m_common_setting_uicolour_light_png"
+		},
+		{
+			"url": "assets/m/common/m_common_slide_bar_active.png",
+			"type": "image",
+			"name": "m_common_slide_bar_active_png"
+		},
+		{
+			"url": "assets/m/common/m_common_slide_bar_base.png",
+			"type": "image",
+			"name": "m_common_slide_bar_base_png"
+		},
+		{
+			"url": "assets/m/common/m_common_slide_bar_btn.png",
+			"type": "image",
+			"name": "m_common_slide_bar_btn_png"
+		},
+		{
+			"url": "assets/m/common/m_common_slide_bar_btn_disabled.png",
+			"type": "image",
+			"name": "m_common_slide_bar_btn_disabled_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_banner_1.png",
+			"type": "image",
+			"name": "m_lobby_banner_1_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_banner_2.png",
+			"type": "image",
+			"name": "m_lobby_banner_2_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_banner_3.png",
+			"type": "image",
+			"name": "m_lobby_banner_3_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_banner_bullet.png",
+			"type": "image",
+			"name": "m_lobby_banner_bullet_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_banner_bullet_active.png",
+			"type": "image",
+			"name": "m_lobby_banner_bullet_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_banner_main.png",
+			"type": "image",
+			"name": "m_lobby_banner_main_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_featured_poster_1.png",
+			"type": "image",
+			"name": "m_lobby_featured_poster_1_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_featured_poster_2.png",
+			"type": "image",
+			"name": "m_lobby_featured_poster_2_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_header_line.png",
+			"type": "image",
+			"name": "m_lobby_header_line_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_loading_banner.png",
+			"type": "image",
+			"name": "m_lobby_loading_banner_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_loading_progress_bar_active.png",
+			"type": "image",
+			"name": "m_lobby_loading_progress_bar_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_loading_progress_bar_base.png",
+			"type": "image",
+			"name": "m_lobby_loading_progress_bar_base_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_login_banner.png",
+			"type": "image",
+			"name": "m_lobby_login_banner_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_login_btn_login.png",
+			"type": "image",
+			"name": "m_lobby_login_btn_login_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_login_form_typebox.png",
+			"type": "image",
+			"name": "m_lobby_login_form_typebox_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_login_logo.png",
+			"type": "image",
+			"name": "m_lobby_login_logo_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_betarea_banker.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_betarea_banker_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_betarea_bankerpair.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_betarea_bankerpair_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_betarea_player.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_betarea_player_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_betarea_playerpair.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_betarea_playerpair_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_betarea_tie.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_betarea_tie_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_btn_close.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_btn_close_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_btn_confirm_bg.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_btn_confirm_bg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_btn_confirm_icon.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_btn_confirm_icon_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_btn_previous.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_btn_previous_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip01.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip01_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip01_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip01_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip02.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip02_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip02_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip02_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip03.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip03_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip03_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip03_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip04.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip04_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip04_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip04_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip05.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip05_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip05_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip05_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip06.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip06_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip06_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip06_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip07.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip07_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip07_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip07_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip08.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip08_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip08_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip08_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip09.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip09_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip09_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip09_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip10.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip10_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip10_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip10_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip11.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip11_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip11_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip11_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chip_bg.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chip_bg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_betcontrol_chips_select.png",
+			"type": "image",
+			"name": "m_lobby_panel_betcontrol_chips_select_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_allgame_gamesubcat_active.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_allgame_gamesubcat_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betrecord_banker.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betrecord_banker_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betrecord_bankerpair.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betrecord_bankerpair_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betrecord_player.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betrecord_player_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betrecord_playerpair.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betrecord_playerpair_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betrecord_tie.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betrecord_tie_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betresult_banker.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betresult_banker_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betresult_bankerbg.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betresult_bankerbg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betresult_bankerwinbg.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betresult_bankerwinbg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betresult_dim_banker.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betresult_dim_banker_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betresult_dim_player.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betresult_dim_player_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betresult_player.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betresult_player_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betresult_playerbg.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betresult_playerbg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betresult_playerwinbg.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betresult_playerwinbg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betted_remark_bg.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betted_remark_bg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_betted_remark_icon.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_betted_remark_icon_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_gameresult_bankerloss.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_gameresult_bankerloss_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_gameresult_bankerwin.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_gameresult_bankerwin_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_gameresult_dim_all.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_gameresult_dim_all_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_gameresult_playerloss.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_gameresult_playerloss_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_gameresult_playerwin.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_gameresult_playerwin_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_gameresult_tieloss.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_gameresult_tieloss_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_gameresult_tiewin.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_gameresult_tiewin_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_goodroad_remark_bg.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_goodroad_remark_bg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_goodroad_remark_icon.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_goodroad_remark_icon_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_remark_box.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_remark_box_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_bg_allgame.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_bg_allgame_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_bg_betted.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_bg_betted_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_bg_goodroad.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_bg_goodroad_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_icon_allgame.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_icon_allgame_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_icon_allgame_dim.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_icon_allgame_dim_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_icon_betted.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_icon_betted_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_icon_betted_dim.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_icon_betted_dim_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_icon_goodroad.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_icon_goodroad_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_icon_goodroad_dim.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_icon_goodroad_dim_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_bar_box.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_bar_box_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_bar_top.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_bar_top_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_btn.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_btn_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_dim.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_dim_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_blue.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_blue_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_bluetie.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_bluetie_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_red.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_red_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_redtie.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_redtie_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_smallroad_circleblue.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_smallroad_circleblue_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_smallroad_circlered.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_smallroad_circlered_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_smallroad_ovalblue.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_smallroad_ovalblue_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_smallroad_ovalred.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_smallroad_ovalred_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_element_smallroad_slashblue.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_element_smallroad_slashblue_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_grid.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_grid_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_icon_dropdowm.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_icon_dropdowm_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_icon_quickbet.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_icon_quickbet_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_1column_smallroad_grid.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_1column_smallroad_grid_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_bar_box.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_bar_box_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_bar_top.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_bar_top_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_btn.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_btn_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_dim.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_dim_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_element_blue.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_element_blue_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_element_bluetie.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_element_bluetie_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_element_red.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_element_red_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_element_redtie.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_element_redtie_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_grid.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_grid_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_icon_dropdowm.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_icon_dropdowm_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_roadmap_2column_icon_quickbet.png",
+			"type": "image",
+			"name": "m_lobby_roadmap_2column_icon_quickbet_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_setting_panel_setting_uicolour.png",
+			"type": "image",
+			"name": "m_lobby_setting_panel_setting_uicolour_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_setting_panel_setting_uicolour_active.png",
+			"type": "image",
+			"name": "m_lobby_setting_panel_setting_uicolour_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_setting_panel_setting_uicolour_bg.png",
+			"type": "image",
+			"name": "m_lobby_setting_panel_setting_uicolour_bg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_setting_panel_setting_uicolour_black.png",
+			"type": "image",
+			"name": "m_lobby_setting_panel_setting_uicolour_black_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_setting_panel_setting_uicolour_btn.png",
+			"type": "image",
+			"name": "m_lobby_setting_panel_setting_uicolour_btn_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_setting_panel_setting_uicolour_btn_active.png",
+			"type": "image",
+			"name": "m_lobby_setting_panel_setting_uicolour_btn_active_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_setting_panel_setting_uicolour_light.png",
+			"type": "image",
+			"name": "m_lobby_setting_panel_setting_uicolour_light_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_submenu_bg.png",
+			"type": "image",
+			"name": "m_lobby_submenu_bg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_submenu_icon_baccarat.png",
+			"type": "image",
+			"name": "m_lobby_submenu_icon_baccarat_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_submenu_icon_other.png",
+			"type": "image",
+			"name": "m_lobby_submenu_icon_other_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_submenu_icon_roulette.png",
+			"type": "image",
+			"name": "m_lobby_submenu_icon_roulette_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_submenu_icon_sicbo.png",
+			"type": "image",
+			"name": "m_lobby_submenu_icon_sicbo_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_submenu_line.png",
+			"type": "image",
+			"name": "m_lobby_submenu_line_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_view_bg.png",
+			"type": "image",
+			"name": "m_lobby_view_bg_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_view_icon_1column.png",
+			"type": "image",
+			"name": "m_lobby_view_icon_1column_png"
+		},
+		{
+			"url": "assets/m/lobby/m_lobby_view_icon_2column.png",
+			"type": "image",
+			"name": "m_lobby_view_icon_2column_png"
 		}
 	]
 }

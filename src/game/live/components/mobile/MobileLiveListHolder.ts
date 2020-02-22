@@ -64,7 +64,7 @@ namespace we {
           default:
             this._displayItem = new we.ui.MobileLiveListSimpleItem(generalGameType + '.LiveListSimpleItemSkin');
             this.setDisplayItem(this._displayItem);
-            this.width = 578;
+            this.width = 552;
             this.height = 219;
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
             // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);

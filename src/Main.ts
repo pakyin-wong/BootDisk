@@ -35,16 +35,6 @@ class Main extends eui.UILayer {
     } else {
       dir.socket = new we.core.SocketMock();
     }
-    dir.evtHandler = new we.core.EventHandler();
-    dir.errHandler = new we.core.ErrorHandler();
-    dir.audioCtr = new we.core.AudioCtr(this.stage);
-    dir.layerCtr = new we.core.LayerCtr(this.stage);
-    dir.sceneCtr = new we.core.SceneCtr();
-    dir.meterCtr = new we.core.MeterCtr();
-    dir.moniter = new we.core.Monitor();
-    dir.videoPool = new we.utils.Pool(egret.FlvVideo);
-    env.init();
-
     dir.uaParser = new UAParser();
     env.UAInfo = dir.uaParser.getResult();
 
@@ -59,20 +49,32 @@ class Main extends eui.UILayer {
       cn.push('iPhone');
     }
     document.documentElement.className = cn.join(' ');
+
+    if (env.UAInfo.device.type === 'mobile') {
+      env.isMobile = true;
+
+      // use these when there is portrait mode only
+      this.stage.setContentSize(1242, 2155);
+      this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      env.orientation = egret.OrientationMode.PORTRAIT;
+
+      // uncomment below when there are both portrait and landscape layout
+      // this.orientationManager = new we.utils.OrientationManager(this.stage);
+    }
+
+    dir.evtHandler = new we.core.EventHandler();
+    dir.errHandler = new we.core.ErrorHandler();
+    dir.audioCtr = new we.core.AudioCtr(this.stage);
+    dir.layerCtr = new we.core.LayerCtr(this.stage);
+    dir.sceneCtr = new we.core.SceneCtr();
+    dir.meterCtr = new we.core.MeterCtr();
+    dir.moniter = new we.core.Monitor();
+    dir.videoPool = new we.utils.Pool(egret.FlvVideo);
+    env.init();
+
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
-    // if (env.UAInfo.device.type === 'mobile') {
-    env.isMobile = true;
-
-    // use these when there is portrait mode only
-    this.stage.setContentSize(1242, 2155);
-    this.stage.orientation = egret.OrientationMode.PORTRAIT;
-    env.orientation = egret.OrientationMode.PORTRAIT;
-
-    // uncomment below when there are both portrait and landscape layout
-    // this.orientationManager = new we.utils.OrientationManager(this.stage);
-    // }
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
