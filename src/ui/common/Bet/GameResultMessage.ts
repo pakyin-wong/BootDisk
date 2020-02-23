@@ -163,15 +163,19 @@ namespace we {
         }
         anim += 'bgr'; // todo
 
-        const array = [['L_txt', 60, '5', 16], ['middle_txt', 90, '32', 0], ['L_txt3', 60, '12', 16]];
+        const array = [
+          ['L_txt', 60, '5', 16],
+          ['middle_txt', 90, '32', 0],
+          ['L_txt3', 60, '12', 16],
+        ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
           console.log(this._display);
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const lbl = new eui.Label();
-          lbl.text = <string> text;
+          lbl.text = <string>text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
+          lbl.size = <number>fontSize;
           lbl.width = lbl.size * 2;
           lbl.height = lbl.size;
           lbl.anchorOffsetX = lbl.size;

@@ -82,6 +82,9 @@ namespace we {
       mobile_ba_clear: '清除',
       mobile_ba_double: '雙倍',
       mobile_ba_repeat: '再次下注',
+      mobile_game_panel_road_sheet: '路紙',
+      mobile_game_panel_statistic_chart: '統計圖表',
+      mobile_game_panel_table_info: '本檯資訊',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',

@@ -488,16 +488,12 @@ declare module skin_desktop{
 	class UserInfoWindow extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait{
+declare module skin_mobile_portrait.ba{
 	class BaccaratScene extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
 	class BetConfirmButtonSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.ba{
-	class BettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
@@ -528,7 +524,9 @@ declare module skin_mobile_portrait.ba{
 	class LiveListSimpleItemSkin extends eui.Skin{
 	}
 }
-declare class MobileBottomGamePanelSkin extends eui.Skin{
+declare module skin_mobile_portrait.ba{
+	class MobileBottomGamePanelSkin extends eui.Skin{
+	}
 }
 declare module skin_mobile_portrait.ba{
 	class CardHolderSkin extends eui.Skin{

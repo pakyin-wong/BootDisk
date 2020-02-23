@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.BaccaratScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.ba.BaccaratScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:ns1="*" states="left_hand_mode,right_hand_mode" >
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0"  width="1242" locked="true"/>
@@ -56,5 +56,5 @@
 	</e:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<ns1:MobileBottomGamePanel id="_bottomGamePanel" width="1242" height="684" includeIn="left_hand_mode" x="0" y="1471"/>
+	<ba:MobileBottomGamePanel id="_bottomGamePanel" width="1242" height="684" x="0" y="1471"/>
 </e:Skin>
