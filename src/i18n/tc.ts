@@ -79,6 +79,9 @@ namespace we {
 
       mobile_lobby_feature_title: '熱門遊戲',
 
+      mobile_quick_bet_button_label: '快速投注',
+      mobile_enter_table_button_label: '進入遊戲',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
@@ -195,6 +198,20 @@ namespace we {
         dragonShort: '龍',
         tigerShort: '虎',
         tieShort: '和',
+      },
+      roulette: {
+        row_1: '第一行',
+        row_2: '第二行',
+        row_3: '第三行',
+        dozen_1_12: '第一組',
+        dozen_13_24: '第二組',
+        dozen_25_36: '第三組',
+        small: '1-18',
+        big: '19-36',
+        odd: '單',
+        even: '雙',
+        red: '紅',
+        black: '黑',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

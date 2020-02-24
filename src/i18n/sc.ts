@@ -85,6 +85,9 @@ namespace we {
 
       mobile_lobby_feature_title: '热门游戏',
 
+      mobile_quick_bet_button_label: '快速投注',
+      mobile_enter_table_button_label: '进入游戏',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',
@@ -150,6 +153,20 @@ namespace we {
         dragonShort: '龙',
         tigerShort: '虎',
         tieShort: '和',
+      },
+      roulette: {
+        row_1: '第一行',
+        row_2: '第二行',
+        row_3: '第三行',
+        dozen_1_12: '第一组',
+        dozen_13_24: '第二组',
+        dozen_25_36: '第三组',
+        small: '1-18',
+        big: '19-36',
+        odd: '单',
+        even: '双',
+        red: '红',
+        black: '黑',
       },
       goodroad: {
         r1: '长庄',

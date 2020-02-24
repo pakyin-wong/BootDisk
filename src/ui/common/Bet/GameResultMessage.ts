@@ -1,140 +1,194 @@
 namespace we {
   export namespace ui {
     export class GameResultMessage extends core.BaseEUI {
-      protected _bg: eui.Image;
-      protected _label: eui.IDisplayText & egret.DisplayObject;
-      protected _numlabel: eui.IDisplayText & egret.DisplayObject;
-
-      protected _isAnimating: boolean;
-
-      public duration: number = 1600;
+      private _display: dragonBones.EgretArmatureDisplay = null;
+      private testing = true;
 
       public constructor() {
         super();
-        this.visible = false;
-        this._isAnimating = false;
+        this.visible = !this.testing;
+        // this.skinName = 'GameResultNormalSkin';
       }
 
-      public showResult(gameType: core.GameType, winType: number, winAmount: number = NaN) {
-        const isWin = !isNaN(winAmount) && winAmount > 0;
-        egret.Tween.removeTweens(this);
-        this.changeSkin(isWin);
-        if (this._bg) {
-          this.setBackground(gameType, winType, isWin);
+      public showResult(gameType: core.GameType, resultData: any) {
+        let dbClass;
+        let handler;
+        switch (gameType) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS: {
+            dbClass = 'baccarat';
+            handler = 'startAnimBADT';
+            break;
+          }
+          case core.GameType.DT: {
+            dbClass = 'dragon_tiger';
+            handler = 'startAnimBADT';
+            break;
+          }
+          case core.GameType.RO: {
+            dbClass = 'roulette';
+            handler = 'startAnimRO';
+            break;
+          }
+          default:
+            break;
         }
-        this.start(gameType, winType, winAmount);
-      }
 
-      protected changeSkin(isWin: boolean) {
-        if (isWin) {
-          this.skinName = utils.getSkinByClassname('GameResultWinSkin');
-        } else {
-          this.skinName = utils.getSkinByClassname('GameResultNormalSkin');
+        if (!this._display) {
+          const skeletonData = RES.getRes(`${dbClass}_game_result_ske_json`);
+          const textureData = RES.getRes(`${dbClass}_game_result_tex_json`);
+          const texture = RES.getRes(`${dbClass}_game_result_tex_png`);
+          const factory = new dragonBones.EgretFactory();
+          factory.parseDragonBonesData(skeletonData);
+          factory.parseTextureAtlasData(textureData, texture);
+          this._display = factory.buildArmatureDisplay('armatureName');
+          this._display.x = this.width / 2;
+          this._display.y = this.height / 2;
+          this.addChild(this._display);
         }
-        this.anchorOffsetX = this.width * 0.5;
-        this.anchorOffsetY = this.height * 0.5;
+
+        this[handler](gameType, resultData);
       }
 
-      protected setBackground(gameType: core.GameType, winType: number, isWin: boolean) {
+      protected getBackground(gameType: core.GameType, winType: number) {
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
             switch (winType) {
               case ba.WinType.BANKER:
-                this.setBackgroundImage('red', isWin);
-                break;
+                return 'r';
               case ba.WinType.PLAYER:
-                this.setBackgroundImage('blue', isWin);
-                break;
+                return 'b';
               case ba.WinType.TIE:
-                this.setBackgroundImage('green', isWin);
-                break;
+                return 'g';
+              default:
+                return null;
             }
-            break;
           case core.GameType.DT:
             switch (winType) {
               case dt.WinType.DRAGON:
-                this.setBackgroundImage('blue', isWin);
-                break;
+                return 'b';
               case dt.WinType.TIGER:
-                this.setBackgroundImage('red', isWin);
-                break;
+                return 'r';
               case dt.WinType.TIE:
-                this.setBackgroundImage('green', isWin);
-                break;
+                return 'g';
+              default:
+                return null;
             }
-            break;
-        }
-      }
-
-      protected setBackgroundImage(type: string, isWin: boolean) {
-        switch (type) {
-          case 'red':
-            if (isWin) {
-              this._bg.source = 'd_ba_gameresult_bankerelement_png';
-            } else {
-              this._bg.source = 'd_ba_gameresult_bankerwin_png';
-            }
-            break;
-          case 'blue':
-            if (isWin) {
-              this._bg.source = 'd_ba_gameresult_playerelement_png';
-            } else {
-              this._bg.source = 'd_ba_gameresult_playerwin_png';
-            }
-            break;
-          case 'green':
-            if (isWin) {
-              this._bg.source = 'd_ba_gameresult_tieelement_png';
-            } else {
-              this._bg.source = 'd_ba_gameresult_tie_png';
-            }
-            break;
+          default:
+            return null;
         }
       }
 
       public clearMessage() {
-        egret.Tween.removeTweens(this);
-        this._isAnimating = false;
-        this.visible = false;
+        if (this.testing) {
+          return;
+        }
+
+        if (this._display && this._display.animation) {
+          this._display.animation.stop();
+        }
+        this.visible = true;
       }
 
-      protected start(gameType: core.GameType, winType: number, winAmount: number) {
-        egret.Tween.removeTweens(this);
-        this._isAnimating = true;
-        if (this._numlabel) {
-          this._numlabel.text = ``;
-          this._numlabel.visible = false;
-        }
-        const tween = egret.Tween.get(this)
-          .call(() => {
-            const message: string = i18n.t(utils.getWinMessageKey(gameType, winType));
-            this.visible = true;
-            this._label.visible = true;
-            this._label.text = message;
-          })
-          .wait(this.duration);
-        if (!isNaN(winAmount)) {
-          tween
-            .call(() => {
-              const numStr: string = utils.formatNumber(winAmount, true);
-              if (this._numlabel) {
-                this._numlabel.text = `${winAmount > 0 ? '+' : ''}${numStr}`;
-                this._numlabel.visible = true;
-                this._label.visible = false;
-              } else {
-                this._label.text = `${winAmount > 0 ? '+' : ''}${numStr}`;
-              }
-            })
-            .wait(this.duration);
+      // animation for Baccarat / Dragon Tiger
+      protected startAnimBADT(gameType: core.GameType, resultData: any) {
+        const { winType, winAmount } = resultData;
+        const background = this.getBackground(gameType, winType);
+
+        logger.l(i18n.t(utils.getWinMessageKey(gameType, winType)), background, gameType, winType, winAmount);
+
+        this._display.armature.eventDispatcher.addDBEventListener(
+          dragonBones.EventObject.COMPLETE,
+          () => {
+            this.visible = false;
+          },
+          this
+        );
+
+        let anim = 'ani_result_';
+        if (isNaN(winAmount)) {
+          anim += 'no_bets_';
+        } else if (winAmount > 0) {
+          anim += 'win_';
         } else {
-          tween.wait(this.duration);
+          anim += 'loss_';
         }
-        tween.call(() => {
-          this._isAnimating = false;
-          this.visible = false;
-        });
+        anim += background;
+
+        // update slot text
+        const slot = this._display.armature.getSlot('win_txt');
+        const slot2 = this._display.armature.getSlot('loss_txt');
+        const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
+        bmfont.font = RES.getRes('font_fnt');
+        bmfont.text = 'This';
+        const bmfont2: eui.BitmapLabel = new eui.BitmapLabel();
+        bmfont2.font = RES.getRes('font_fnt');
+        bmfont2.text = 'This';
+        this.visible = true;
+        this._display.animation.play(anim, 1);
+
+        // setTimeout(() => {
+        //   slot.display = bmfont;
+        //   slot2.display = bmfont2;
+        // }, 100);
+      }
+
+      protected startAnimRO(gameType: core.GameType, resultData: any) {
+        const { resultNo, winAmount } = resultData;
+
+        this._display.armature.eventDispatcher.addDBEventListener(
+          dragonBones.EventObject.FRAME_EVENT,
+          xxx => {
+            logger.l(xxx);
+          },
+          this
+        );
+
+        this._display.armature.eventDispatcher.addDBEventListener(
+          dragonBones.EventObject.COMPLETE,
+          () => {
+            this.visible = false;
+          },
+          this
+        );
+
+        let anim = 'ani_result_';
+        if (isNaN(winAmount)) {
+          anim += 'nobet_';
+        } else {
+          anim += 'win_loss_';
+        }
+        anim += 'bgr'; // todo
+
+        const array = [['L_txt', 60, '5', 16], ['middle_txt', 90, '32', 0], ['L_txt3', 60, '12', 16]];
+
+        for (const [slotName, fontSize, text, rotate] of array) {
+          console.log(this._display);
+          const slot = this._display.armature.getSlot(<string> slotName);
+          const lbl = new eui.Label();
+          lbl.text = <string> text;
+          lbl.fontFamily = 'Barlow';
+          lbl.size = <number> fontSize;
+          lbl.width = lbl.size * 2;
+          lbl.height = lbl.size;
+          lbl.anchorOffsetX = lbl.size;
+          lbl.anchorOffsetY = lbl.size / 2;
+          lbl.textAlign = egret.HorizontalAlign.CENTER;
+          lbl.verticalAlign = egret.VerticalAlign.MIDDLE;
+          slot.display = lbl;
+        }
+
+        this.visible = true;
+        this._display.animation.play(anim, 1);
+
+        if (this.testing) {
+          setTimeout(() => {
+            this._display.animation.timeScale = 0;
+          }, 1500);
+        }
       }
     }
   }

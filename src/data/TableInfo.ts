@@ -15,6 +15,7 @@ namespace we {
       public prevroundid?: string;
       public roundid?: string;
       public totalWin?: number = NaN;
+      public totalBet?: number = NaN;
       public data?: any;
       public roadmap?: RoadmapData;
       public complete?: number;

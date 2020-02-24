@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ba.TableLayerSkin" width="1146" height="204" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal,SuperSix">
+	<e:Group id="_playerGroup" x="0" y="0" width="573" height="191">
+		<e:Image id="_playerImage" source="d_ba_betarea_player_normal_png" name="d_ba_betarea_player_hover_png" width="573"
+		         height="191" />
+		<ui:RunTimeLabel id="_playerLabel" verticalCenter="-35" horizontalCenter="0" />
+		<e:Label text="1:1" verticalCenter="25" horizontalCenter="0" size="30" />
+		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" />
+		<e:Label id="_playerTotalAmount" horizontalCenter="-70" verticalCenter="60"  />
+		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" />
+		<e:Label id="_playerTotalPerson" horizontalCenter="90" verticalCenter="60"  />
+	</e:Group>
+	<e:Group id="_bankerGroup" includeIn="Normal" x="573" y="0" width="573" height="191">
+		<e:Image id="_bankerImage" source="d_ba_betarea_banker_normal_png" name="d_ba_betarea_banker_hover_png" width="573"
+		         height="191" />
+		<ui:RunTimeLabel id="_bankerLabel" verticalCenter="-35" horizontalCenter="0" />
+		<e:Label text="0.95:1" verticalCenter="25" horizontalCenter="0" size="30" />
+		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" />
+		<e:Label id="_bankerTotalAmount" horizontalCenter="-70" verticalCenter="60"  />
+		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" />
+		<e:Label id="_bankerTotalPerson" horizontalCenter="90" verticalCenter="60"  />
+	</e:Group>
+	<e:Group id="_playerPairGroup" x="0" y="191" width="382" height="113">
+		<e:Image id="_playerPairImage" source="d_ba_betarea_playerpair_normal_png" name="d_ba_betarea_playerpair_hover_png"
+		         width="382" height="113" />
+		<ui:RunTimeLabel id="_playerPairLabel" verticalCenter="-10" horizontalCenter="0" />
+		<e:Label text="11:1" verticalCenter="15" horizontalCenter="0" size="20" />
+	</e:Group>
+	<e:Group id="_tieGroup" x="382" y="191" width="382" height="113" width.SuperSix="191">
+		<e:Image id="_tieImage" source="d_ba_betarea_tie_normal_png" name="d_ba_betarea_tie_hover_png" width="382"
+		         height="113" width.SuperSix="191" />
+		<ui:RunTimeLabel id="_tieLabel" verticalCenter="-10" horizontalCenter="0" />
+		<e:Label text="8:1" verticalCenter="15" horizontalCenter="0" size="20" />
+	</e:Group>
+	<e:Group id="_bankerPairGroup" x="764" y="191" width="382" height="113">
+		<e:Image id="_bankerPairImage" source="d_ba_betarea_bankerpair_normal_png" name="d_ba_betarea_bankerpair_hover_png"
+		         width="382" height="113" />
+		<ui:RunTimeLabel id="_bankerPairLabel" verticalCenter="-10" horizontalCenter="0" />
+		<e:Label text="11:1" verticalCenter="15" horizontalCenter="0" size="20" />
+	</e:Group>
+	<e:Group id="_superSixBankerGroup" includeIn="SuperSix" x="573" y="0" width="573" height="191">
+		<e:Image id="_superSixBankerImage" source="d_ba_betarea_banker_normal_png" name="d_ba_betarea_banker_hover_png"
+		         width="573" height="191" />
+		<ui:RunTimeLabel id="_superSixBankerLabel" verticalCenter="-15" horizontalCenter="0" />
+		<e:Label text="1:1" verticalCenter="45" horizontalCenter="0" size="30" />
+	</e:Group>
+	<e:Group id="_superSixGroup" includeIn="SuperSix" x="573" y="191" width="191" height="113">
+		<e:Image id="_superSixImage" source="d_ba_betarea_supersix_tie_normal_png" name="d_ba_betarea_supersix_tie_hover_png"
+		         width="191" height="113" />
+		<ui:RunTimeLabel id="_superSixLabel" verticalCenter="-10" horizontalCenter="0" />
+		<e:Label text="12:1" verticalCenter="15" horizontalCenter="0" size="20" />
+	</e:Group>
+	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
+	        locked="true" />
+</e:Skin>

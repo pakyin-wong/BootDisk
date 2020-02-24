@@ -79,6 +79,9 @@ namespace we {
 
       mobile_lobby_feature_title: 'Hot Game',
 
+      mobile_quick_bet_button_label: 'QuickBet',
+      mobile_enter_table_button_label: 'Enter',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
@@ -196,6 +199,20 @@ namespace we {
         dragonShort: 'Dn',
         tigerShort: 'Tr',
         tieShort: 'Ti',
+      },
+      roulette: {
+        row_1: 'ROW 1',
+        row_2: 'ROW 2',
+        row_3: 'ROW 3',
+        dozen_1_12: '1ST GROUP',
+        dozen_13_24: '2ND GROUP',
+        dozen_25_36: '3RD GROUP',
+        small: '1-18',
+        big: '19-36',
+        odd: 'ODD',
+        even: 'EVEN',
+        red: 'RED',
+        black: 'BLACK',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
