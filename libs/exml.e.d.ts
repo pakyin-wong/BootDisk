@@ -492,9 +492,11 @@ declare module skin_desktop{
 	class UserInfoWindow extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.ba{
+declare module skin_mobile_portrait{
 	class BaccaratScene extends eui.Skin{
 	}
+}
+declare class BetChipSetGroupSkin extends eui.Skin{
 }
 declare module skin_mobile_portrait.ba{
 	class BetConfirmButtonSkin extends eui.Skin{

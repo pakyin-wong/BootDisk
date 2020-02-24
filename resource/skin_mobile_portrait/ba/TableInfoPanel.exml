@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.TableInfoPanel" width="600" height="350" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.ba.TableInfoPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing">
-	<e:Group id="content" left="0" top="0" bottom="0" right="0" width="1242" height="532">
+	<e:Group id="content" left="0" top="0" width="100%" height="100%">
 		<e:Rect id="moveArea0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1"
 		         fillColor="0x212425"/>
 		<e:Image id="moveArea" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"  visible="false"/>

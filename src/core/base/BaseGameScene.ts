@@ -108,8 +108,10 @@ namespace we {
 
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
 
-        this._tableInfoWindow.setToggler(this._lblRoomInfo);
-        this._tableInfoWindow.setValue(this._tableInfo);
+        if (this._tableInfoWindow) {
+          this._tableInfoWindow.setToggler(this._lblRoomInfo);
+          this._tableInfoWindow.setValue(this._tableInfo);
+        }
 
         this._leftGamePanel.setTableInfo(this._tableInfo);
         this._rightGamePanel.setTableInfo(this._tableInfo);
@@ -248,7 +250,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -288,7 +290,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -303,7 +305,9 @@ namespace we {
       }
 
       protected updateTableInfoRelatedComponents() {
-        this._tableInfoWindow.setValue(this._tableInfo);
+        if (this._tableInfoWindow) {
+          this._tableInfoWindow.setValue(this._tableInfo);
+        }
         this._leftGamePanel.update();
         this._rightGamePanel.update();
       }
