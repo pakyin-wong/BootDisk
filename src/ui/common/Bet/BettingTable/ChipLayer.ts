@@ -222,7 +222,6 @@ namespace we {
 
         // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
-          console.log('updateBetFields xxxxxxxxxxxxxx: ', value);
           if (this._betChipStackMapping[value.field]) {
             this._betChipStackMapping[value.field].cfmBet = value.amount;
             this._betChipStackMapping[value.field].draw();
