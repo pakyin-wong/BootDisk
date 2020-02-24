@@ -14,7 +14,9 @@ namespace we {
 
         const options: any = {};
         options.playerID = playerID;
-        options.secret = secret;
+        if (secret) {
+          options.secret = secret;
+        }
         options.connectTimeout = dir.config.connectTimeout;
         options.endpoint = dir.config.endpoint;
         if (dir.config.rabbitmqhostname) {

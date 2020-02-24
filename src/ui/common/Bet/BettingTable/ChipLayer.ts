@@ -113,10 +113,13 @@ namespace we {
       }
 
       public isAlreadyBet() {
-        const result = this._cfmBetDetails.reduce((acc, cur) => {
-          return cur.amount > 0 || acc;
-        }, false);
-        return result;
+        if (this._cfmBetDetails) {
+          const result = this._cfmBetDetails.reduce((acc, cur) => {
+            return cur.amount > 0 || acc;
+          }, false);
+          return result;
+        }
+        return null;
       }
 
       public addRolloverListeners() {
