@@ -22,17 +22,6 @@ namespace we {
         this.skinName = utils.getSkinByClassname('RouletteScene');
       }
 
-      protected setStateBet() {
-        super.setStateBet();
-
-        if (this._previousState !== we.core.GameState.BET) {
-          if (this._tableLayer) {
-            this._tableLayer.totalAmount = { PLAYER: 0, BANKER: 0 };
-            this._tableLayer.totalPerson = { PLAYER: 0, BANKER: 0 };
-          }
-        }
-      }
-
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
