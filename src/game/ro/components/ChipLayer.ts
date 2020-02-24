@@ -318,6 +318,8 @@ namespace we {
       protected _small_betChipStack: ui.BetChipStack;
       protected _big_betChipStack: ui.BetChipStack;
 
+      protected _groupHoverMapping: {};
+
       constructor() {
         super();
         this._betField = ro.BetField;
@@ -643,6 +645,27 @@ namespace we {
         this._betChipStackMapping[ro.BetField.EVEN] = this._even_betChipStack;
         this._betChipStackMapping[ro.BetField.SMALL] = this._small_betChipStack;
         this._betChipStackMapping[ro.BetField.BIG] = this._big_betChipStack;
+
+        this._groupHoverMapping = {};
+        Object.keys(we.ro.BETFIELD_MAPPING).map(value => {
+          this._groupHoverMapping[value] = we.ro.BETFIELD_MAPPING[value];
+        });
+      }
+
+      public onGridRollover(fieldName: string) {
+        return (evt: egret.Event) => {
+          if (evt.target === this._mouseAreaMapping[fieldName]) {
+            this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollover(value));
+          }
+        };
+      }
+
+      public onGridRollout(fieldName: string) {
+        return (evt: egret.Event) => {
+          if (evt.target === this._mouseAreaMapping[fieldName]) {
+          }
+          this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
+        };
       }
     }
   }
