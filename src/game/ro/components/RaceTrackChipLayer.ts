@@ -222,9 +222,9 @@ namespace we {
       protected onInnerFieldRollover(fieldName: string) {
         return (evt: egret.Event) => {
           this._raceTrackTableLayer.onRollover(fieldName);
-          this._chipLayer.onGridRollover(fieldName)(null);
           RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
             this._raceTrackTableLayer.onRollover(value);
+            this._chipLayer.onGridRollover(value)(null);
           });
         };
       }
@@ -232,9 +232,9 @@ namespace we {
       protected onInnerFieldRollout(fieldName: string) {
         return (evt: egret.Event) => {
           this._raceTrackTableLayer.onRollout(fieldName);
-          this._chipLayer.onGridRollout(fieldName)(null);
           RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
             this._raceTrackTableLayer.onRollout(value);
+            this._chipLayer.onGridRollout(value)(null);
           });
         };
       }
