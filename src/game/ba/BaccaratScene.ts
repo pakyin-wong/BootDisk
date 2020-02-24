@@ -89,11 +89,9 @@ namespace we {
       }
 
       public checkResultMessage() {
-        let totalWin: number;
+        let totalWin: number = NaN;
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
-        } else {
-          totalWin = NaN;
         }
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
