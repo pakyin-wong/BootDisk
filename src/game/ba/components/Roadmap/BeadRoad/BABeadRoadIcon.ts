@@ -207,6 +207,14 @@ namespace we {
       public get Mode(): number {
         return this.iconModeNumber;
       }
+
+      public dispose() {
+        super.dispose();
+
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+      }
     }
   }
 }

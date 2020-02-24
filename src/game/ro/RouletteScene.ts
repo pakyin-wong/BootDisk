@@ -11,7 +11,7 @@ namespace we {
     export class Scene extends core.BaseGameScene {
       protected _roadmapControl: we.ba.BARoadmapControl;
       protected _leftGamePanel: we.ro.RoLeftPanel;
-      protected _rightGamePanel: we.ba.BARoadmapRightPanel;
+      protected _rightGamePanel: we.ro.RoRightPanel;
       protected _beadRoadResultPanel: we.ba.BaBeadRoadResultPanel;
 
       constructor(data: any) {
@@ -20,17 +20,6 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('RouletteScene');
-      }
-
-      protected setStateBet() {
-        super.setStateBet();
-
-        if (this._previousState !== we.core.GameState.BET) {
-          if (this._tableLayer) {
-            this._tableLayer.totalAmount = { PLAYER: 0, BANKER: 0 };
-            this._tableLayer.totalPerson = { PLAYER: 0, BANKER: 0 };
-          }
-        }
       }
 
       protected initChildren() {

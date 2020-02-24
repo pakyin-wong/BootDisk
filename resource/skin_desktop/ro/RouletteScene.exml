@@ -26,8 +26,8 @@
 	<ro:ResultHolder id="_resultDisplay" width="412" height="152" y="631" horizontalCenter="1" anchorOffsetX="0"
 	                 anchorOffsetY="0" />
 	<ro:RoLeftPanel id="_leftGamePanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0" anchorOffsetY="0" />
-	<ba:BARoadmapRightPanel id="_rightGamePanel" width="668" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
-	                        anchorOffsetY="0" />
+	<ro:RoRightPanel id="_rightGamePanel" width="668" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
+	                 anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
