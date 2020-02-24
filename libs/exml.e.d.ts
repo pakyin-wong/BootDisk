@@ -852,9 +852,23 @@ declare module skin_mobile_portrait{
 	class ScrollBarVertical extends eui.Skin{
 	}
 }
+declare class AllGameSubTabItemSkin extends eui.Skin{
+}
 declare module skin_mobile_portrait{
 	class GameListButtonSkin extends eui.Skin{
 	}
+}
+declare class GamePanel extends eui.Skin{
+}
+declare module skin_mobile_portrait{
+	class GamePanelTabButtonSkin extends eui.Skin{
+	}
+}
+declare class AllGameGamePanelSkin extends eui.Skin{
+}
+declare class AlreadyBetGamePanel extends eui.Skin{
+}
+declare class GoodRoadGamePanel extends eui.Skin{
 }
 declare module skin_mobile_portrait{
 	class Slider extends eui.Skin{

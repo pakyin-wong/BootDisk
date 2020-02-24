@@ -4,10 +4,12 @@ namespace we {
       private tweenDuration: number = 250;
 
       private _badge: eui.Group;
-      private _badgeLabel: eui.Group;
       private _label: ui.RunTimeLabel;
+      private _image: eui.Image;
+      private _badgeLabel: eui.Label;
       private _background: eui.Image;
       public labelKey: string;
+      public imageKey: string;
 
       private _content: eui.Group;
 
@@ -20,22 +22,26 @@ namespace we {
       protected mount() {
         super.mount();
         this._content.removeChild(this._label);
+        this._background.alpha = 0;
+        this.width = this._content.width;
+        this._label.renderText = () => i18n.t(this.labelKey);
+        this._image.source = `${this.imageKey}_dim_png`;
         this.addEventListeners();
       }
 
       protected destroy() {
-        super.mount();
+        super.destroy();
         this.removeEventListeners();
       }
 
-      protected addEventListeners() {
-      }
+      protected addEventListeners() {}
 
-      protected removeEventListeners() {
-
-      }
+      protected removeEventListeners() {}
 
       public set focus(value: boolean) {
+        if (this._focus === value) {
+          return;
+        }
         this._focus = value;
         this._setFocus(value);
       }
@@ -45,50 +51,76 @@ namespace we {
       }
 
       private _setFocus(isFocus) {
-        if (this._focus === isFocus) return;
         this.setBadgeVisible(!isFocus);
         this.setBackgroundVisible(isFocus);
         if (isFocus) {
           this._content.addChild(this._label);
+          this.validateSize(true);
+          egret.Tween.removeTweens(this);
+          egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
+          this._image.source = `${this.imageKey}_png`;
         } else {
           this._content.removeChild(this._label);
+          this.validateSize(true);
+          egret.Tween.removeTweens(this);
+          egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
+          this._image.source = `${this.imageKey}_dim_png`;
         }
-      }
-
-      public $setWidth(value: number) {
-        value = isNaN(value) ? NaN : value;
-        if (this.$explicitWidth == value) {
-          return;
-        }
-        egret.Tween.removeTweens(this);
-        egret.Tween.get(this).to({ $explicitWidth: value }, this.tweenDuration);
-        // this.$explicitWidth = value;
       }
 
       private setBadgeVisible(isVisible) {
         if (isVisible) {
+          if (parseInt(this._badgeLabel.text, 10) <= 0) {
+            return;
+          }
           this._badge.visible = true;
           this._badge.scaleX = 0;
           this._badge.scaleY = 0;
           egret.Tween.removeTweens(this._badge);
-          egret.Tween.get(this._badge).to({
-            scaleX: 1, scaleY: 1
-          }, this.tweenDuration, egret.Ease.elasticOut);
+          egret.Tween.get(this._badge).to(
+            {
+              scaleX: 1,
+              scaleY: 1,
+            },
+            this.tweenDuration,
+            egret.Ease.backOut
+          );
         } else {
+          if (!this._badge.visible) {
+            return;
+          }
           egret.Tween.removeTweens(this._badge);
-          egret.Tween.get(this._badge).to({
-            scaleX: 0, scaleY: 0
-          }, this.tweenDuration, egret.Ease.elasticIn).call(() => {
-            this._badge.visible = false;
-          });
+          egret.Tween.get(this._badge)
+            .to(
+              {
+                scaleX: 0,
+                scaleY: 0,
+              },
+              this.tweenDuration,
+              egret.Ease.backIn
+            )
+            .call(() => {
+              this._badge.visible = false;
+            });
         }
       }
 
       private setBackgroundVisible(isVisible) {
         if (isVisible) {
-          egret.Tween.get(this).to({ alpha: 1 }, this.tweenDuration * 0.5);
+          egret.Tween.get(this._background).to({ alpha: 1 }, this.tweenDuration * 0.5);
         } else {
-          egret.Tween.get(this).to({ alpha: 0 }, this.tweenDuration * 0.5);
+          egret.Tween.get(this._background).to({ alpha: 0 }, this.tweenDuration * 0.5);
+        }
+      }
+
+      public setBadge(value: number) {
+        this._badgeLabel.text = value.toString();
+        if (!this.focus) {
+          if (value > 0) {
+            this.setBadgeVisible(true);
+          } else {
+            this.setBadgeVisible(false);
+          }
         }
       }
     }

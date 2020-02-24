@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.GamePanelTabButtonSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
-        xmlns:ui="we.ui.*">
+<e:Skin class="skin_mobile_portrait.GamePanelTabButtonSkin" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
     <e:Image id="_background" source="m_lobby_panel_gamelist_tag_bg_allgame_png" scale9Grid="49,49,2,2" top="0"
              bottom="0" right="0" left="0" />
     <e:Group id="_content" left="20" right="20" bottom="20" top="20">
-        <e:Image source="m_lobby_panel_gamelist_tag_icon_allgame_png" x="21" y="45" width="60" height="60" />
+        <e:Image id="_image" source="m_lobby_panel_gamelist_tag_icon_allgame_png" x="21" y="45" width="60" height="60" />
         <ui:RunTimeLabel id="_label" text="Label" x="52" y="23" size="42" />
         <e:layout>
             <e:HorizontalLayout verticalAlign="middle" gap="15" />
         </e:layout>
     </e:Group>
-    <e:Group id="_badge" width="52" height="52" anchorOffsetX="25" anchorOffsetY="25" right="-25" top="-25">
+    <e:Group id="_badge" width="52" height="52" anchorOffsetX="25" anchorOffsetY="25" x="98" y="1">
         <e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="52" ellipseHeight="52" fillAlpha="0.1" />
-        <e:Label id="_badgeLabel" text="0" horizontalCenter="0" verticalCenter="0" textAlign="center" verticalAlign="middle" />
+        <e:Label id="_badgeLabel" text="0" horizontalCenter="0" verticalCenter="0" textAlign="center"
+                 verticalAlign="middle" />
     </e:Group>
 </e:Skin>
