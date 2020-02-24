@@ -213,6 +213,7 @@ namespace we {
         even: 'EVEN',
         red: 'RED',
         black: 'BLACK',
+        distribution: 'distribution',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

@@ -167,6 +167,7 @@ namespace we {
         even: '双',
         red: '红',
         black: '黑',
+        distribution: '散布',
       },
       goodroad: {
         r1: '长庄',

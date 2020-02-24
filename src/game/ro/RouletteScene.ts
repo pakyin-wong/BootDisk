@@ -22,6 +22,11 @@ namespace we {
         super(data);
       }
 
+      protected mount() {
+        super.mount();
+        this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
+      }
+
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('RouletteScene');
       }

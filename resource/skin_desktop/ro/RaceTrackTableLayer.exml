@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ro.RaceTrackTableLayerSkin" width="618" height="192" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
+	<e:Image x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_racetrack_normal_png" locked="true" />
+	<e:Image id="_section_3" source="d_ro_racetrack_3_hover_png" x="549" y="19.5" />
+	<e:Image id="_section_0" source="d_ro_racetrack_0_hover_png" x="548.5" y="110.5" />
+	<e:Image id="_section_26" source="d_ro_racetrack_26_hover_png" x="565.5" y="65.5" />
+	<e:Image id="_section_35" source="d_ro_racetrack_35_hover_png" x="520.5" y="0.5" />
+	<e:Image id="_section_32" source="d_ro_racetrack_32_hover_png" x="519.5" y="135.5" />
+	<e:Image id="_section_24" source="d_ro_racetrack_24_hover_png" x="49.5" y="1" />
+	<e:Image id="_section_5" source="d_ro_racetrack_5_hover_png" x="15" y="14" />
+	<e:Image id="_section_8" source="d_ro_racetrack_8_hover_png" x="14.5" y="119.5" />
+	<e:Image id="_section_10" source="d_ro_racetrack_10_hover_png" x="1" y="49" />
+	<e:Image id="_section_23" source="d_ro_racetrack_23_hover_png" x="0.5" y="96" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="129" y="0.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="194" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="259" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="324" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="389.5" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="455" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="487" y="144" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="422" y="143.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="357.5" y="143.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="292.5" y="143.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="227" y="144" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="161" y="144.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_black_hover_png" x="96.5" y="144.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="97.5" y="1.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="162.5" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="228" y="0.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="293" y="0" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="358" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="423.5" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="489" y="1" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="456" y="144" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="391" y="143.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="326.5" y="143.5" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="261" y="144" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="195.5" y="144" />
+	<e:Image id="_section_" source="d_ro_racetrack_red_hover_png" x="130" y="144" />
+	<e:Image x="0" y="0" source="d_ro_racetrack_outline_png" />
+</e:Skin>
