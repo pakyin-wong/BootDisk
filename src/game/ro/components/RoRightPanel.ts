@@ -18,8 +18,6 @@ namespace we {
       public initRaceTrack(chipLayer: we.ui.ChipLayer, tableLayer: we.ui.TableLayer) {
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
-
-
         this._raceTrackControl = new RaceTrackControl();
         this._raceTrackControl.horizontalCenter = 0;
         this._raceTrackControl.y = 200;
@@ -31,6 +29,9 @@ namespace we {
         this._raceTrackChipLayer = new RaceTrackChipLayer();
         this._raceTrackChipLayer.horizontalCenter = 0;
         this._raceTrackChipLayer.y = 0;
+        this._raceTrackChipLayer.raceTrackTableLayer = this._raceTrackTableLayer;
+        this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
+        this._raceTrackChipLayer.chipLayer = chipLayer;
 
         page1Group.addChild(this._raceTrackTableLayer);
         page1Group.addChild(this._raceTrackChipLayer);

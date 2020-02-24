@@ -254,7 +254,7 @@ namespace we {
         return env.betLimits[this._getSelectedBetLimitIndex()].chipList[this._getSelectedChipIndex()];
       }
 
-      protected onBetFieldUpdate(fieldName: string) {
+      public onBetFieldUpdate(fieldName: string) {
         return () => {
           const grid = this.getUncfmBetByField(fieldName);
           const betDetail = { field: fieldName, amount: this.getOrderAmount() };

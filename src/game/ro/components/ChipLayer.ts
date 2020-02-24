@@ -654,7 +654,7 @@ namespace we {
 
       public onGridRollover(fieldName: string) {
         return (evt: egret.Event) => {
-          if (evt.target === this._mouseAreaMapping[fieldName]) {
+          if (!evt || evt.target === this._mouseAreaMapping[fieldName]) {
             this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollover(value));
           }
         };
@@ -662,9 +662,9 @@ namespace we {
 
       public onGridRollout(fieldName: string) {
         return (evt: egret.Event) => {
-          if (evt.target === this._mouseAreaMapping[fieldName]) {
+          if (!evt || evt.target === this._mouseAreaMapping[fieldName]) {
+            this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
           }
-          this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
         };
       }
     }

@@ -1,6 +1,10 @@
 namespace we {
   export namespace ro {
     export function getNeighbour(num: number, interval: number) {
+      if (interval === 0) {
+        return [num];
+      }
+
       const index = RACETRACK.indexOf(num);
       const lastElementIndex = RACETRACK.length - 1;
       console.log(index);
