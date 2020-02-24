@@ -56,5 +56,8 @@
 	</e:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
+	<e:Label id="_forTesting1" text="Result:" x="971.5" y="631"/>
+	<e:Label id="_forTesting2" text="Win Amount:" x="893.5" y="568"/>
+	<e:Label id="_testingWinAmount" text="" x="1105" y="569"/>
 </e:Skin>
 

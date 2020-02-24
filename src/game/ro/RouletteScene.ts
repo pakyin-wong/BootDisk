@@ -13,6 +13,7 @@ namespace we {
       protected _leftGamePanel: we.ro.RoLeftPanel;
       protected _rightGamePanel: we.ro.RoRightPanel;
       protected _beadRoadResultPanel: we.ba.BaBeadRoadResultPanel;
+      protected _testingWinAmount: eui.Label;
 
       constructor(data: any) {
         super(data);
@@ -52,6 +53,7 @@ namespace we {
       public checkResultMessage() {
         let totalWin: number = NaN;
         totalWin = this._tableInfo.totalWin;
+        this._testingWinAmount.text = (this._tableInfo.totalWin / 100).toString();
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
