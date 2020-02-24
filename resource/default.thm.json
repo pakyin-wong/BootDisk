@@ -146,6 +146,7 @@
 		"resource/skin_desktop/ro/LiveListItem.exml",
 		"resource/skin_desktop/ro/LiveListSimpleItem.exml",
 		"resource/skin_desktop/ro/RoLeftPanel.exml",
+		"resource/skin_desktop/ro/RoRightPanel.exml",
 		"resource/skin_desktop/ro/TableLayer.exml",
 		"resource/skin_desktop/ro/RouletteScene.exml",
 		"resource/skin_desktop/ro/SideListTableLayer.exml",
