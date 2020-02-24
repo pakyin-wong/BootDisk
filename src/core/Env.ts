@@ -117,6 +117,10 @@ namespace we {
       public validateTableInfoDisplayReady(tableid: string): boolean {
         // check if the tableInfo is displayReady
         const tableInfo = this.tableInfos[tableid];
+        if (tableInfo) { tableInfo.displayReady = true; }
+        return true;
+        /*
+        const tableInfo = this.tableInfos[tableid];
         if (tableInfo && !tableInfo.displayReady) {
           if (tableInfo.data != null && tableInfo.roadmap != null) {
             tableInfo.displayReady = true;
@@ -124,6 +128,7 @@ namespace we {
           }
         }
         return false;
+        */
       }
       public getTableNameByID(tableid: string): string {
         if (env && tableid && env.tableInfos && env.tableInfos[tableid]) {
