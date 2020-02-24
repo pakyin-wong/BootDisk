@@ -330,11 +330,11 @@
 	<e:Group id="_street_34_35_36_group" width="40" height="35" x="1037" y="196" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_street_34_35_36_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_triangle_0_1_2_group" width="40" height="35" x="83" y="124" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Label id="_triangle_0_1_2_betChipStack" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_street_0_1_2_group" width="40" height="35" x="83" y="124" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Label id="_street_0_1_2_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_triangle_0_2_3_group" width="40" height="35" x="83" y="53" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Label id="_triangle_0_2_3_betChipStack" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_street_0_2_3_group" width="40" height="35" x="83" y="53" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Label id="_street_0_2_3_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_corner_1_2_4_5_group" width="40" height="35" x="166" y="124" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_corner_1_2_4_5_betChipStack" verticalCenter="0" horizontalCenter="0" />
@@ -402,8 +402,8 @@
 	<e:Group id="_corner_32_33_35_36_group" width="40" height="35" x="996" y="53" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_corner_32_33_35_36_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_four_number_0_1_2_3_group" width="40" height="35" x="83" y="196" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Label id="_four_number_0_1_2_3_betChipStack" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_corner_0_1_2_3_group" width="40" height="35" x="83" y="196" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Label id="_corner_0_1_2_3_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_line_1_6_group" width="40" height="35" x="166" y="196" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_line_1_6_label" verticalCenter="0" horizontalCenter="0" />

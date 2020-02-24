@@ -111,8 +111,8 @@ namespace we {
       protected _street_28_29_30_group: eui.Group;
       protected _street_31_32_33_group: eui.Group;
       protected _street_34_35_36_group: eui.Group;
-      protected _triangle_0_1_2_group: eui.Group;
-      protected _triangle_0_2_3_group: eui.Group;
+      protected _street_0_1_2_group: eui.Group;
+      protected _street_0_2_3_group: eui.Group;
       protected _corner_1_2_4_5_group: eui.Group;
       protected _corner_2_3_5_6_group: eui.Group;
       protected _corner_4_5_7_8_group: eui.Group;
@@ -135,7 +135,7 @@ namespace we {
       protected _corner_29_30_32_33_group: eui.Group;
       protected _corner_31_32_34_35_group: eui.Group;
       protected _corner_32_33_35_36_group: eui.Group;
-      protected _four_number_0_1_2_3_group: eui.Group;
+      protected _corner_0_1_2_3_group: eui.Group;
       protected _line_1_6_group: eui.Group;
       protected _line_4_9_group: eui.Group;
       protected _line_7_12_group: eui.Group;
@@ -269,8 +269,8 @@ namespace we {
       protected _street_28_29_30_label: eui.Label;
       protected _street_31_32_33_label: eui.Label;
       protected _street_34_35_36_label: eui.Label;
-      protected _triangle_0_1_2_label: eui.Label;
-      protected _triangle_0_2_3_label: eui.Label;
+      protected _street_0_1_2_label: eui.Label;
+      protected _street_0_2_3_label: eui.Label;
       protected _corner_1_2_4_5_label: eui.Label;
       protected _corner_2_3_5_6_label: eui.Label;
       protected _corner_4_5_7_8_label: eui.Label;
@@ -293,7 +293,7 @@ namespace we {
       protected _corner_29_30_32_33_label: eui.Label;
       protected _corner_31_32_34_35_label: eui.Label;
       protected _corner_32_33_35_36_label: eui.Label;
-      protected _four_number_0_1_2_3_label: eui.Label;
+      protected _corner_0_1_2_3_label: eui.Label;
       protected _line_1_6_label: eui.Label;
       protected _line_4_9_label: eui.Label;
       protected _line_7_12_label: eui.Label;
@@ -491,8 +491,8 @@ namespace we {
         this._groupHoverMapping[ro.BetField.STREET_28_29_30] = [ro.BetField.DIRECT_28, ro.BetField.DIRECT_29, ro.BetField.DIRECT_30];
         this._groupHoverMapping[ro.BetField.STREET_31_32_33] = [ro.BetField.DIRECT_31, ro.BetField.DIRECT_32, ro.BetField.DIRECT_33];
         this._groupHoverMapping[ro.BetField.STREET_34_35_36] = [ro.BetField.DIRECT_34, ro.BetField.DIRECT_35, ro.BetField.DIRECT_36];
-        this._groupHoverMapping[ro.BetField.TRIANGLE_0_1_2] = [ro.BetField.DIRECT_0, ro.BetField.DIRECT_1, ro.BetField.DIRECT_2];
-        this._groupHoverMapping[ro.BetField.TRIANGLE_0_2_3] = [ro.BetField.DIRECT_0, ro.BetField.DIRECT_2, ro.BetField.DIRECT_3];
+        this._groupHoverMapping[ro.BetField.STREET_0_1_2] = [ro.BetField.DIRECT_0, ro.BetField.DIRECT_1, ro.BetField.DIRECT_2];
+        this._groupHoverMapping[ro.BetField.STREET_0_2_3] = [ro.BetField.DIRECT_0, ro.BetField.DIRECT_2, ro.BetField.DIRECT_3];
         this._groupHoverMapping[ro.BetField.CORNER_1_2_4_5] = [ro.BetField.DIRECT_1, ro.BetField.DIRECT_2, ro.BetField.DIRECT_4, ro.BetField.DIRECT_5];
         this._groupHoverMapping[ro.BetField.CORNER_2_3_5_6] = [ro.BetField.DIRECT_2, ro.BetField.DIRECT_3, ro.BetField.DIRECT_5, ro.BetField.DIRECT_6];
         this._groupHoverMapping[ro.BetField.CORNER_4_5_7_8] = [ro.BetField.DIRECT_4, ro.BetField.DIRECT_5, ro.BetField.DIRECT_7, ro.BetField.DIRECT_8];
@@ -515,7 +515,7 @@ namespace we {
         this._groupHoverMapping[ro.BetField.CORNER_29_30_32_33] = [ro.BetField.DIRECT_29, ro.BetField.DIRECT_30, ro.BetField.DIRECT_32, ro.BetField.DIRECT_33];
         this._groupHoverMapping[ro.BetField.CORNER_31_32_34_35] = [ro.BetField.DIRECT_31, ro.BetField.DIRECT_32, ro.BetField.DIRECT_34, ro.BetField.DIRECT_35];
         this._groupHoverMapping[ro.BetField.CORNER_32_33_35_36] = [ro.BetField.DIRECT_32, ro.BetField.DIRECT_33, ro.BetField.DIRECT_35, ro.BetField.DIRECT_36];
-        this._groupHoverMapping[ro.BetField.FOUR_NUMBER_0_1_2_3] = [ro.BetField.DIRECT_0, ro.BetField.DIRECT_1, ro.BetField.DIRECT_2, ro.BetField.DIRECT_3];
+        this._groupHoverMapping[ro.BetField.CORNER_0_1_2_3] = [ro.BetField.DIRECT_0, ro.BetField.DIRECT_1, ro.BetField.DIRECT_2, ro.BetField.DIRECT_3];
         this._groupHoverMapping[ro.BetField.LINE_1_6] = [ro.BetField.DIRECT_1, ro.BetField.DIRECT_2, ro.BetField.DIRECT_3, ro.BetField.DIRECT_4, ro.BetField.DIRECT_5, ro.BetField.DIRECT_6];
         this._groupHoverMapping[ro.BetField.LINE_4_9] = [ro.BetField.DIRECT_4, ro.BetField.DIRECT_5, ro.BetField.DIRECT_6, ro.BetField.DIRECT_7, ro.BetField.DIRECT_8, ro.BetField.DIRECT_9];
         this._groupHoverMapping[ro.BetField.LINE_7_12] = [ro.BetField.DIRECT_7, ro.BetField.DIRECT_8, ro.BetField.DIRECT_9, ro.BetField.DIRECT_10, ro.BetField.DIRECT_11, ro.BetField.DIRECT_12];
@@ -858,8 +858,8 @@ namespace we {
         this._groupHoverImageMapping[ro.BetField.STREET_28_29_30] = '';
         this._groupHoverImageMapping[ro.BetField.STREET_31_32_33] = '';
         this._groupHoverImageMapping[ro.BetField.STREET_34_35_36] = '';
-        this._groupHoverImageMapping[ro.BetField.TRIANGLE_0_1_2] = '';
-        this._groupHoverImageMapping[ro.BetField.TRIANGLE_0_2_3] = '';
+        this._groupHoverImageMapping[ro.BetField.STREET_0_1_2] = '';
+        this._groupHoverImageMapping[ro.BetField.STREET_0_2_3] = '';
         this._groupHoverImageMapping[ro.BetField.CORNER_1_2_4_5] = '';
         this._groupHoverImageMapping[ro.BetField.CORNER_2_3_5_6] = '';
         this._groupHoverImageMapping[ro.BetField.CORNER_4_5_7_8] = '';
@@ -882,7 +882,7 @@ namespace we {
         this._groupHoverImageMapping[ro.BetField.CORNER_29_30_32_33] = '';
         this._groupHoverImageMapping[ro.BetField.CORNER_31_32_34_35] = '';
         this._groupHoverImageMapping[ro.BetField.CORNER_32_33_35_36] = '';
-        this._groupHoverImageMapping[ro.BetField.FOUR_NUMBER_0_1_2_3] = '';
+        this._groupHoverImageMapping[ro.BetField.CORNER_0_1_2_3] = '';
         this._groupHoverImageMapping[ro.BetField.LINE_1_6] = '';
         this._groupHoverImageMapping[ro.BetField.LINE_4_9] = '';
         this._groupHoverImageMapping[ro.BetField.LINE_7_12] = '';

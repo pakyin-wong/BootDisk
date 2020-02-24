@@ -111,8 +111,8 @@ namespace we {
       protected _street_28_29_30_group: eui.Group;
       protected _street_31_32_33_group: eui.Group;
       protected _street_34_35_36_group: eui.Group;
-      protected _triangle_0_1_2_group: eui.Group;
-      protected _triangle_0_2_3_group: eui.Group;
+      protected _street_0_1_2_group: eui.Group;
+      protected _street_0_2_3_group: eui.Group;
       protected _corner_1_2_4_5_group: eui.Group;
       protected _corner_2_3_5_6_group: eui.Group;
       protected _corner_4_5_7_8_group: eui.Group;
@@ -135,7 +135,7 @@ namespace we {
       protected _corner_29_30_32_33_group: eui.Group;
       protected _corner_31_32_34_35_group: eui.Group;
       protected _corner_32_33_35_36_group: eui.Group;
-      protected _four_number_0_1_2_3_group: eui.Group;
+      protected _corner_0_1_2_3_group: eui.Group;
       protected _line_1_6_group: eui.Group;
       protected _line_4_9_group: eui.Group;
       protected _line_7_12_group: eui.Group;
@@ -269,8 +269,8 @@ namespace we {
       protected _street_28_29_30_betChipStack: ui.BetChipStack;
       protected _street_31_32_33_betChipStack: ui.BetChipStack;
       protected _street_34_35_36_betChipStack: ui.BetChipStack;
-      protected _triangle_0_1_2_betChipStack: ui.BetChipStack;
-      protected _triangle_0_2_3_betChipStack: ui.BetChipStack;
+      protected _street_0_1_2_betChipStack: ui.BetChipStack;
+      protected _street_0_2_3_betChipStack: ui.BetChipStack;
       protected _corner_1_2_4_5_betChipStack: ui.BetChipStack;
       protected _corner_2_3_5_6_betChipStack: ui.BetChipStack;
       protected _corner_4_5_7_8_betChipStack: ui.BetChipStack;
@@ -293,7 +293,7 @@ namespace we {
       protected _corner_29_30_32_33_betChipStack: ui.BetChipStack;
       protected _corner_31_32_34_35_betChipStack: ui.BetChipStack;
       protected _corner_32_33_35_36_betChipStack: ui.BetChipStack;
-      protected _four_number_0_1_2_3_betChipStack: ui.BetChipStack;
+      protected _corner_0_1_2_3_betChipStack: ui.BetChipStack;
       protected _line_1_6_betChipStack: ui.BetChipStack;
       protected _line_4_9_betChipStack: ui.BetChipStack;
       protected _line_7_12_betChipStack: ui.BetChipStack;
@@ -435,8 +435,8 @@ namespace we {
         this._mouseAreaMapping[ro.BetField.STREET_28_29_30] = this._street_28_29_30_group;
         this._mouseAreaMapping[ro.BetField.STREET_31_32_33] = this._street_31_32_33_group;
         this._mouseAreaMapping[ro.BetField.STREET_34_35_36] = this._street_34_35_36_group;
-        this._mouseAreaMapping[ro.BetField.TRIANGLE_0_1_2] = this._triangle_0_1_2_group;
-        this._mouseAreaMapping[ro.BetField.TRIANGLE_0_2_3] = this._triangle_0_2_3_group;
+        this._mouseAreaMapping[ro.BetField.STREET_0_1_2] = this._street_0_1_2_group;
+        this._mouseAreaMapping[ro.BetField.STREET_0_2_3] = this._street_0_2_3_group;
         this._mouseAreaMapping[ro.BetField.CORNER_1_2_4_5] = this._corner_1_2_4_5_group;
         this._mouseAreaMapping[ro.BetField.CORNER_2_3_5_6] = this._corner_2_3_5_6_group;
         this._mouseAreaMapping[ro.BetField.CORNER_4_5_7_8] = this._corner_4_5_7_8_group;
@@ -459,7 +459,7 @@ namespace we {
         this._mouseAreaMapping[ro.BetField.CORNER_29_30_32_33] = this._corner_29_30_32_33_group;
         this._mouseAreaMapping[ro.BetField.CORNER_31_32_34_35] = this._corner_31_32_34_35_group;
         this._mouseAreaMapping[ro.BetField.CORNER_32_33_35_36] = this._corner_32_33_35_36_group;
-        this._mouseAreaMapping[ro.BetField.FOUR_NUMBER_0_1_2_3] = this._four_number_0_1_2_3_group;
+        this._mouseAreaMapping[ro.BetField.CORNER_0_1_2_3] = this._corner_0_1_2_3_group;
         this._mouseAreaMapping[ro.BetField.LINE_1_6] = this._line_1_6_group;
         this._mouseAreaMapping[ro.BetField.LINE_4_9] = this._line_4_9_group;
         this._mouseAreaMapping[ro.BetField.LINE_7_12] = this._line_7_12_group;
@@ -595,8 +595,8 @@ namespace we {
         this._betChipStackMapping[ro.BetField.STREET_28_29_30] = this._street_28_29_30_betChipStack;
         this._betChipStackMapping[ro.BetField.STREET_31_32_33] = this._street_31_32_33_betChipStack;
         this._betChipStackMapping[ro.BetField.STREET_34_35_36] = this._street_34_35_36_betChipStack;
-        this._betChipStackMapping[ro.BetField.TRIANGLE_0_1_2] = this._triangle_0_1_2_betChipStack;
-        this._betChipStackMapping[ro.BetField.TRIANGLE_0_2_3] = this._triangle_0_2_3_betChipStack;
+        this._betChipStackMapping[ro.BetField.STREET_0_1_2] = this._street_0_1_2_betChipStack;
+        this._betChipStackMapping[ro.BetField.STREET_0_2_3] = this._street_0_2_3_betChipStack;
         this._betChipStackMapping[ro.BetField.CORNER_1_2_4_5] = this._corner_1_2_4_5_betChipStack;
         this._betChipStackMapping[ro.BetField.CORNER_2_3_5_6] = this._corner_2_3_5_6_betChipStack;
         this._betChipStackMapping[ro.BetField.CORNER_4_5_7_8] = this._corner_4_5_7_8_betChipStack;
@@ -619,7 +619,7 @@ namespace we {
         this._betChipStackMapping[ro.BetField.CORNER_29_30_32_33] = this._corner_29_30_32_33_betChipStack;
         this._betChipStackMapping[ro.BetField.CORNER_31_32_34_35] = this._corner_31_32_34_35_betChipStack;
         this._betChipStackMapping[ro.BetField.CORNER_32_33_35_36] = this._corner_32_33_35_36_betChipStack;
-        this._betChipStackMapping[ro.BetField.FOUR_NUMBER_0_1_2_3] = this._four_number_0_1_2_3_betChipStack;
+        this._betChipStackMapping[ro.BetField.CORNER_0_1_2_3] = this._corner_0_1_2_3_betChipStack;
         this._betChipStackMapping[ro.BetField.LINE_1_6] = this._line_1_6_betChipStack;
         this._betChipStackMapping[ro.BetField.LINE_4_9] = this._line_4_9_betChipStack;
         this._betChipStackMapping[ro.BetField.LINE_7_12] = this._line_7_12_betChipStack;

@@ -117,8 +117,8 @@ namespace we {
       STREET_28_29_30: 'STREET_28_29_30',
       STREET_31_32_33: 'STREET_31_32_33',
       STREET_34_35_36: 'STREET_34_35_36',
-      TRIANGLE_0_1_2: 'TRIANGLE_0_1_2',
-      TRIANGLE_0_2_3: 'TRIANGLE_0_2_3',
+      STREET_0_1_2: 'STREET_0_1_2',
+      STREET_0_2_3: 'STREET_0_2_3',
       CORNER_1_2_4_5: 'CORNER_1_2_4_5',
       CORNER_2_3_5_6: 'CORNER_2_3_5_6',
       CORNER_4_5_7_8: 'CORNER_4_5_7_8',
@@ -141,7 +141,7 @@ namespace we {
       CORNER_29_30_32_33: 'CORNER_29_30_32_33',
       CORNER_31_32_34_35: 'CORNER_31_32_34_35',
       CORNER_32_33_35_36: 'CORNER_32_33_35_36',
-      FOUR_NUMBER_0_1_2_3: 'FOUR_NUMBER_0_1_2_3',
+      CORNER_0_1_2_3: 'CORNER_0_1_2_3',
       LINE_1_6: 'LINE_1_6', // 1_2_3_4_5_6
       LINE_4_9: 'LINE_4_9', // 4_5_6_7_8_9
       LINE_7_12: 'LINE_7_12', // 7_8_9_10_11_12

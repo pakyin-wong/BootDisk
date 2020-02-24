@@ -656,14 +656,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_triangle_0_1_2_group" width="40" height="35" x="83" y="124" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_triangle_0_1_2_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_street_0_1_2_group" width="40" height="35" x="83" y="124" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_street_0_1_2_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_triangle_0_2_3_group" width="40" height="35" x="83" y="53" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_triangle_0_2_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_street_0_2_3_group" width="40" height="35" x="83" y="53" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_street_0_2_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -800,8 +800,8 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_four_number_0_1_2_3_group" width="40" height="35" x="83" y="196" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_four_number_0_1_2_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_corner_0_1_2_3_group" width="40" height="35" x="83" y="196" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_corner_0_1_2_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
