@@ -38,10 +38,15 @@ namespace we {
       protected _section_7: eui.Image;
       protected _section_28: eui.Image;
       protected _section_12: eui.Image;
+      protected _section_orphelins: eui.Image;
+      protected _section_tiers: eui.Image;
+      protected _section_voisins: eui.Image;
+      protected _section_zero: eui.Image;
 
       protected _numberToSectionMapping: { [a: number]: string };
       protected _sectionToNumberMapping: { [s: string]: number };
       protected _sectionMapping: { [s: string]: eui.Image };
+      protected _innerfieldMapping: { [s: string]: any };
 
       protected _raceTrackControl: RaceTrackControl;
       protected _raceTrackTableLayer: RaceTrackTableLayer;
@@ -169,10 +174,22 @@ namespace we {
         this._numberToSectionMapping[35] = we.ro.BetField.DIRECT_35;
         this._numberToSectionMapping[36] = we.ro.BetField.DIRECT_36;
 
+        this._innerfieldMapping = {};
+        this._innerfieldMapping[ro.RACETRACK_INNERFIELD.ORPHELINS] = this._section_orphelins;
+        this._innerfieldMapping[ro.RACETRACK_INNERFIELD.TIERS] = this._section_tiers;
+        this._innerfieldMapping[ro.RACETRACK_INNERFIELD.VOISINS] = this._section_voisins;
+        this._innerfieldMapping[ro.RACETRACK_INNERFIELD.ZERO] = this._section_zero;
+
         Object.keys(this._sectionMapping).map(value => {
           this._sectionMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover(value), this);
           this._sectionMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout(value), this);
           this._sectionMapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap(value), this);
+        });
+
+        Object.keys(this._innerfieldMapping).map(value => {
+          this._innerfieldMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onInnerFieldRollover(value), this);
+          this._innerfieldMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onInnerFieldRollout(value), this);
+          this._innerfieldMapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onInnerFieldTouchTap(value), this);
         });
       }
 
@@ -198,6 +215,34 @@ namespace we {
         return (evt: egret.Event) => {
           we.ro.getNeighbour(this._sectionToNumberMapping[fieldName], this._raceTrackControl.value).map(value => {
             this._chipLayer.onBetFieldUpdate(this._numberToSectionMapping[value])();
+          });
+        };
+      }
+
+      protected onInnerFieldRollover(fieldName: string) {
+        return (evt: egret.Event) => {
+          this._raceTrackTableLayer.onRollover(fieldName);
+          this._chipLayer.onGridRollover(fieldName)(null);
+          RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
+            this._raceTrackTableLayer.onRollover(value);
+          });
+        };
+      }
+
+      protected onInnerFieldRollout(fieldName: string) {
+        return (evt: egret.Event) => {
+          this._raceTrackTableLayer.onRollout(fieldName);
+          this._chipLayer.onGridRollout(fieldName)(null);
+          RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
+            this._raceTrackTableLayer.onRollout(value);
+          });
+        };
+      }
+
+      protected onInnerFieldTouchTap(fieldName: string) {
+        return (evt: egret.Event) => {
+          RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
+            this._chipLayer.onBetFieldUpdate(value);
           });
         };
       }

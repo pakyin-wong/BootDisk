@@ -38,6 +38,10 @@ namespace we {
       protected _section_7: eui.Image;
       protected _section_28: eui.Image;
       protected _section_12: eui.Image;
+      protected _section_orphelins: eui.Image;
+      protected _section_tiers: eui.Image;
+      protected _section_voisins: eui.Image;
+      protected _section_zero: eui.Image;
 
       protected _sectionMapping: { [s: string]: eui.Image };
 
@@ -84,6 +88,10 @@ namespace we {
         this._sectionMapping[we.ro.BetField.DIRECT_34] = this._section_34;
         this._sectionMapping[we.ro.BetField.DIRECT_35] = this._section_35;
         this._sectionMapping[we.ro.BetField.DIRECT_36] = this._section_36;
+        this._sectionMapping[ro.RACETRACK_INNERFIELD.ORPHELINS] = this._section_orphelins;
+        this._sectionMapping[ro.RACETRACK_INNERFIELD.TIERS] = this._section_tiers;
+        this._sectionMapping[ro.RACETRACK_INNERFIELD.VOISINS] = this._section_voisins;
+        this._sectionMapping[ro.RACETRACK_INNERFIELD.ZERO] = this._section_zero;
       }
 
       public onRollover(fieldName: string) {

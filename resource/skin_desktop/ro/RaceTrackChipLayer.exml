@@ -38,4 +38,11 @@
 	<e:Image id="_section_7" source="d_ro_racetrack_red_hover_png" x="423.5" y="1" alpha="0.01" />
 	<e:Image id="_section_28" source="d_ro_racetrack_black_hover_png" x="455" y="1" alpha="0.01" />
 	<e:Image id="_section_12" source="d_ro_racetrack_red_hover_png" x="489" y="1" alpha="0.01" />
+	<e:Image id="_section_tiers" source="d_ro_racetrack_tiers_hover_png" x="47" y="46" width="177" height="97" alpha="0.01" />
+	<e:Image id="_section_voisins" source="d_ro_racetrack_voisins_hover_png" x="325" y="48" width="160" height="95"
+	         alpha="0.01" />
+	<e:Image id="_section_zero" source="d_ro_racetrack_zero_hover_png" x="452.5" y="49" width="114" height="94"
+	         alpha="0.01" />
+	<e:Image id="_section_orphelins" source="d_ro_racetrack_orphelins_hover_png" x="160" y="46" width="165" height="97"
+	         alpha="0.01" />
 </e:Skin>

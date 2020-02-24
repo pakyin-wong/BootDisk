@@ -6,6 +6,53 @@ namespace we {
       RED,
     }
 
+    export enum RACETRACK_INNERFIELD {
+      TIERS = 'TIERS',
+      VOISINS = 'VOISINS',
+      ZERO = 'ZERO',
+      ORPHELINS = 'ORPHELINS',
+    }
+
+    export const RACETRACK_INNERFIELD_MAPPING = {
+      [ro.RACETRACK_INNERFIELD.TIERS]: [
+        ro.BetField.DIRECT_27,
+        ro.BetField.DIRECT_13,
+        ro.BetField.DIRECT_36,
+        ro.BetField.DIRECT_11,
+        ro.BetField.DIRECT_30,
+        ro.BetField.DIRECT_8,
+        ro.BetField.DIRECT_23,
+        ro.BetField.DIRECT_10,
+        ro.BetField.DIRECT_5,
+        ro.BetField.DIRECT_24,
+        ro.BetField.DIRECT_16,
+        ro.BetField.DIRECT_33,
+      ],
+      [ro.RACETRACK_INNERFIELD.ORPHELINS]: [
+        ro.BetField.DIRECT_1,
+        ro.BetField.DIRECT_20,
+        ro.BetField.DIRECT_14,
+        ro.BetField.DIRECT_31,
+        ro.BetField.DIRECT_9,
+        ro.BetField.DIRECT_17,
+        ro.BetField.DIRECT_34,
+        ro.BetField.DIRECT_6,
+      ],
+      [ro.RACETRACK_INNERFIELD.VOISINS]: [
+        ro.BetField.DIRECT_22,
+        ro.BetField.DIRECT_18,
+        ro.BetField.DIRECT_29,
+        ro.BetField.DIRECT_7,
+        ro.BetField.DIRECT_28,
+        ro.BetField.DIRECT_19,
+        ro.BetField.DIRECT_4,
+        ro.BetField.DIRECT_21,
+        ro.BetField.DIRECT_2,
+        ro.BetField.DIRECT_25,
+      ],
+      [ro.RACETRACK_INNERFIELD.ZERO]: [ro.BetField.DIRECT_12, ro.BetField.DIRECT_35, ro.BetField.DIRECT_3, ro.BetField.DIRECT_26, ro.BetField.DIRECT_0, ro.BetField.DIRECT_32, ro.BetField.DIRECT_15],
+    };
+
     export const BETFIELD_MAPPING = {
       [ro.BetField.DIRECT_0]: [ro.BetField.DIRECT_0],
       [ro.BetField.DIRECT_1]: [ro.BetField.DIRECT_1],
