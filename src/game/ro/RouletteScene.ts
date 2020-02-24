@@ -9,7 +9,7 @@ namespace we {
     export class Scene extends core.BaseGameScene {
       protected _roadmapControl: we.ba.BARoadmapControl;
       protected _leftGamePanel: we.ro.RoLeftPanel;
-      protected _rightGamePanel: we.ba.BARoadmapRightPanel;
+      protected _rightGamePanel: we.ro.RoRightPanel;
       protected _beadRoadResultPanel: we.ba.BaBeadRoadResultPanel;
 
       constructor(data: any) {

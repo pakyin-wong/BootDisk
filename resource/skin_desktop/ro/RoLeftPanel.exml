@@ -48,24 +48,14 @@
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
-        <e:ViewStack id="pageStack" width="689" height="184" x="2" y="77" selectedIndex="2" anchorOffsetX="0"
+        <e:ViewStack id="pageStack" width="689" height="200" x="2" y="50" selectedIndex="0" anchorOffsetX="0"
                      anchorOffsetY="0">
                 <e:Group id="page1" width="100%" height="100%" name="Group">
                         <e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" />
-                        <ui:RunTimeLabel text="hot" x="63" y="16" textAlign="left" anchorOffsetX="0" width="122"
-                                         size="25" />
-                        <ui:RunTimeLabel text="Cold" x="492.5" y="16" textAlign="left" anchorOffsetX="0" width="73"
-                                         size="25" />
-                        <e:Label text="6" x="199" y="16" scaleX="1" scaleY="1" />
-                        <e:Label text="1" x="453" y="17.5" scaleX="1" scaleY="1" />
-                        <e:Label text="3" x="33" y="112.5" scaleX="1" scaleY="1" />
-                        <e:Label text="8" x="82.5" y="112.5" scaleX="1" scaleY="1" />
-                        <e:Label text="19" x="137" y="112.5" scaleX="1" scaleY="1" />
-                        <e:Label text="19" x="199" y="112.5" scaleX="1" scaleY="1" />
-                        <e:Label text="19" x="345" y="112.5" scaleX="1" scaleY="1" />
-                        <e:Label text="19" x="403" y="112.5" scaleX="1" scaleY="1" />
-                        <e:Label text="19" x="458.5" y="112.5" scaleX="1" scaleY="1" />
-                        <e:Label text="19" x="520.69" y="112.5" scaleX="1" scaleY="1" />
+                        <ui:RunTimeLabel id="labelHot" text="hot" x="63" y="16" textAlign="left" anchorOffsetX="0"
+                                         width="122" size="25" />
+                        <ui:RunTimeLabel id="labelCold" text="Cold" x="492.5" y="16" textAlign="left" anchorOffsetX="0"
+                                         width="73" size="25" />
                 </e:Group>
                 <e:Group id="page2" width="100%" height="100%" name="View">
                         <e:Rect width="100%" height="100%" x="0" y="0" />
@@ -73,13 +63,17 @@
                 </e:Group>
                 <e:Group id="page3" width="100%" height="100%" name="View">
                         <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xffffff" />
-                        <e:ViewStack id="roadStack" width="685" height="143" x="0" y="2" scaleX="1" scaleY="1"
+                        <e:ViewStack id="roadStack" width="685" height="143" x="0" y="20" scaleX="1" scaleY="1"
                                      anchorOffsetX="0" anchorOffsetY="0" selectedIndex="0">
                                 <e:Group width="100%" height="100%" name="View">
-                                        <e:Label text="page3" x="143" y="1" scaleX="1" scaleY="1" textColor="0x000000" />
+                                        <e:Label text="road1" x="163" y="130" scaleX="1" scaleY="1" textColor="0x000000" />
                                 </e:Group>
-                                <e:Group width="100%" height="100%" name="View" />
-                                <e:Group width="100%" height="100%" name="View" />
+                                <e:Group width="100%" height="100%" name="View">
+                                        <e:Label text="road2" x="163" y="130" scaleX="1" scaleY="1" textColor="0x000000" />
+                                </e:Group>
+                                <e:Group width="100%" height="100%" name="View">
+                                        <e:Label text="road3" x="163" y="130" scaleX="1" scaleY="1" textColor="0x000000" />
+                                </e:Group>
                         </e:ViewStack>
                         <e:RadioButton id="roadRadioBtn1" x="32" y="85" width="150" height="50" value="0"
                                        selected="true" groupName="roadRadioBtnGroup">
