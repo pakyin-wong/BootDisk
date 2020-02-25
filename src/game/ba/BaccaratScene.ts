@@ -6,7 +6,7 @@
  */
 namespace we {
   export namespace ba {
-    export class Scene extends core.BaseGameScene {
+    export class Scene extends core.DesktopBaseGameScene {
       protected _roadmapControl: BARoadmapControl;
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
