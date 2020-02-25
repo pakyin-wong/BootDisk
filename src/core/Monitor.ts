@@ -44,10 +44,10 @@ namespace we {
           gameListButton.y = 241;
 
           const sideGameList = new ui.MobileSideGameList();
-          dir.layerCtr.top.addChild(sideGameList);
+          dir.layerCtr.overlay.addChild(sideGameList);
           sideGameList.setToggler(gameListButton);
           sideGameList.isPoppable = true;
-          sideGameList.dismissOnClickOutside = true;
+          sideGameList.dismissOnClickOutside = false;
         }
 
         if (env.mode < 0) {
