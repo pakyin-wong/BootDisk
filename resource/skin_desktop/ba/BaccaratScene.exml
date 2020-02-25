@@ -55,6 +55,6 @@
 		</e:layout>
 	</e:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
-	                          anchorOffsetY="0" visible="false" />
+	                          anchorOffsetY="0"  visible="false"/>
 </e:Skin>
 
