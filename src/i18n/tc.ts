@@ -219,6 +219,7 @@ namespace we {
         even: '雙',
         red: '紅',
         black: '黑',
+        distribution: '散佈',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

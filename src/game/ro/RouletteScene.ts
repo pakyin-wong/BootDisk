@@ -13,9 +13,18 @@ namespace we {
       protected _leftGamePanel: we.ro.RoLeftPanel;
       protected _rightGamePanel: we.ro.RoRightPanel;
       protected _beadRoadResultPanel: we.ba.BaBeadRoadResultPanel;
+      protected _testingWinAmount: eui.Label;
+      protected _testingResult: eui.Label;
+      protected _testing1: eui.Label;
+      protected _testing2: eui.Label;
 
       constructor(data: any) {
         super(data);
+      }
+
+      protected mount() {
+        super.mount();
+        this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
       }
 
       protected setSkinName() {
@@ -49,21 +58,48 @@ namespace we {
         // this._roadmapControl.updateRoadData();
       }
 
+      // for testing
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet();
+        if (this._previousState !== we.core.GameState.BET) {
+          this._testing1.visible = false;
+          this._testing2.visible = false;
+          this._testingResult.visible = false;
+          this._testingWinAmount.visible = false;
+        }
+      }
+      // end;
+
       public checkResultMessage() {
         let totalWin: number = NaN;
-        totalWin = this._tableInfo.totalWin;
+        if (this._tableInfo.totalWin) {
+          totalWin = this._tableInfo.totalWin;
+        }
+
+        // for testing
+        this._testing1.visible = true;
+        this._testing2.visible = true;
+        this._testingResult.visible = true;
+        this._testingWinAmount.visible = true;
+        this._testingResult.text = (<ro.GameData> this._gameData).value.toString();
+        if (isNaN(this._tableInfo.totalWin)) {
+          this._testingWinAmount.text = '0';
+        } else {
+          this._testingWinAmount.text = (this._tableInfo.totalWin / 100).toString();
+        }
+        /////////////
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
-              resultNo: 2,
-              winAmount: +800,
+              resultNo: (<ro.GameData> this._gameData).value,
+              winAmount: this._tableInfo.totalWin,
             });
             dir.audioCtr.playSequence(['player', 'win']);
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
-              resultNo: 2,
+              resultNo: (<ro.GameData> this._gameData).value,
               winAmount: NaN,
             });
             dir.audioCtr.playSequence(['player', 'win']);

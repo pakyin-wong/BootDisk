@@ -3,6 +3,9 @@ namespace we {
     export class RoRightPanel extends core.BaseGamePanel {
       protected pageRadioBtn1: eui.RadioButton;
       protected pageRadioBtn2: eui.RadioButton;
+      protected _raceTrackChipLayer: RaceTrackChipLayer;
+      protected _raceTrackTableLayer: RaceTrackTableLayer;
+      protected _raceTrackControl: RaceTrackControl;
 
       protected activeLine: egret.Shape;
 
@@ -11,6 +14,30 @@ namespace we {
       public constructor(skin?: string) {
         super(skin ? skin : 'ro/RoRightPanel');
       }
+
+      public initRaceTrack(chipLayer: we.ui.ChipLayer, tableLayer: we.ui.TableLayer) {
+        const page1Group = this.pageStack.getChildAt(0) as eui.Group;
+
+        this._raceTrackControl = new RaceTrackControl();
+        this._raceTrackControl.horizontalCenter = 0;
+        this._raceTrackControl.y = 200;
+
+        this._raceTrackTableLayer = new RaceTrackTableLayer();
+        this._raceTrackTableLayer.horizontalCenter = 0;
+        this._raceTrackTableLayer.y = 0;
+
+        this._raceTrackChipLayer = new RaceTrackChipLayer();
+        this._raceTrackChipLayer.horizontalCenter = 0;
+        this._raceTrackChipLayer.y = 0;
+        this._raceTrackChipLayer.raceTrackTableLayer = this._raceTrackTableLayer;
+        this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
+        this._raceTrackChipLayer.chipLayer = chipLayer;
+
+        page1Group.addChild(this._raceTrackTableLayer);
+        page1Group.addChild(this._raceTrackChipLayer);
+        page1Group.addChild(this._raceTrackControl);
+      }
+
       public changeLang() {
         this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = 'page1';
         this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = 'page2';
