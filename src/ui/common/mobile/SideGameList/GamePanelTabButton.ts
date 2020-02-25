@@ -8,8 +8,8 @@ namespace we {
       private _image: eui.Image;
       private _badgeLabel: eui.Label;
       private _background: eui.Image;
-      public labelKey: string;
-      public imageKey: string;
+      public labelKey: string = '';
+      public imageKey: string = '';
 
       private _content: eui.Group;
 
@@ -118,8 +118,10 @@ namespace we {
         if (!this.focus) {
           if (value > 0) {
             this.setBadgeVisible(true);
+            this._label.renderText = () => `${i18n.t(this.labelKey)} (${value})`;
           } else {
             this.setBadgeVisible(false);
+            this._label.renderText = () => `${i18n.t(this.labelKey)}`;
           }
         }
       }

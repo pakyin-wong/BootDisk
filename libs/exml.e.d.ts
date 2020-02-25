@@ -858,7 +858,9 @@ declare module skin_mobile_portrait{
 	class GameListButtonSkin extends eui.Skin{
 	}
 }
-declare class GamePanel extends eui.Skin{
+declare module skin_mobile_portrait{
+	class GamePanelSkin extends eui.Skin{
+	}
 }
 declare module skin_mobile_portrait{
 	class GamePanelTabButtonSkin extends eui.Skin{

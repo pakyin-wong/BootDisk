@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.GamePanelTabButtonSkin" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="all_game,good_road,already_bet">
     <e:Image id="_background" source="m_lobby_panel_gamelist_tag_bg_allgame_png" scale9Grid="49,49,2,2" top="0"
-             bottom="0" right="0" left="0" />
+             bottom="0" right="0" left="0" source.good_road="m_lobby_panel_gamelist_tag_bg_goodroad_png"
+             source.already_bet="m_lobby_panel_gamelist_tag_bg_betted_png" />
     <e:Group id="_content" left="20" right="20" bottom="20" top="20">
-        <e:Image id="_image" source="m_lobby_panel_gamelist_tag_icon_allgame_png" x="21" y="45" width="60" height="60" />
-        <ui:RunTimeLabel id="_label" text="Label" x="52" y="23" size="42" />
+        <e:Image id="_image" source="m_lobby_panel_gamelist_tag_icon_allgame_png" x="21" y="45" width="60" height="60"
+                 source.good_road="m_lobby_panel_gamelist_tag_icon_goodroad_png"
+                 source.already_bet="m_lobby_panel_gamelist_tag_icon_betted_png" />
+        <ui:RunTimeLabel id="_label" text="" x="52" y="23" size="42" />
         <e:layout>
             <e:HorizontalLayout verticalAlign="middle" gap="15" />
         </e:layout>

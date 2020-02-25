@@ -25,20 +25,20 @@ namespace we {
           contentInitializer.initContent(this);
         }
 
-        const button = new ui.GamePanelTabButton();
-        button.skinName = utils.getSkinByClassname('GamePanelTabButtonSkin');
-        button.imageKey = 'm_lobby_panel_gamelist_tag_icon_allgame';
-        button.labelKey = 'sidePanel.allgame';
-        this.addChild(button);
-        button.x = 100;
-        button.y = 400;
-        button.addEventListener(
-          egret.TouchEvent.TOUCH_TAP,
-          () => {
-            button.focus = !button.focus;
-          },
-          this
-        );
+        // const button = new ui.GamePanelTabButton();
+        // button.skinName = utils.getSkinByClassname('GamePanelTabButtonSkin');
+        // button.imageKey = 'm_lobby_panel_gamelist_tag_icon_allgame';
+        // button.labelKey = 'sidePanel.allgame';
+        // this.addChild(button);
+        // button.x = 100;
+        // button.y = 400;
+        // button.addEventListener(
+        //   egret.TouchEvent.TOUCH_TAP,
+        //   () => {
+        //     button.focus = !button.focus;
+        //   },
+        //   this
+        // );
 
         // Dragonbone animation
         /*

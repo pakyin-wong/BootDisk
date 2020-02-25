@@ -42,6 +42,12 @@ namespace we {
           dir.layerCtr.top.addChild(gameListButton);
           gameListButton.right = 50;
           gameListButton.y = 241;
+
+          const sideGameList = new ui.MobileSideGameList();
+          dir.layerCtr.top.addChild(sideGameList);
+          sideGameList.setToggler(gameListButton);
+          sideGameList.isPoppable = true;
+          sideGameList.dismissOnClickOutside = true;
         }
 
         if (env.mode < 0) {

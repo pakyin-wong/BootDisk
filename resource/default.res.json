@@ -3946,7 +3946,8 @@
 		{
 			"url": "assets/m/lobby/m_lobby_panel_gamelist_remark_box.png",
 			"type": "image",
-			"name": "m_lobby_panel_gamelist_remark_box_png"
+			"name": "m_lobby_panel_gamelist_remark_box_png",
+			"scale9grid": "24,24,1,1"
 		},
 		{
 			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_bg_allgame.png",
