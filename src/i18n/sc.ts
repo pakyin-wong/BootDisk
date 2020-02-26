@@ -90,6 +90,8 @@ namespace we {
 
       mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
 
+      mobile_dropdown_confirm: '确定',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',

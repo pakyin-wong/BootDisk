@@ -241,6 +241,8 @@
 		"resource/skin_mobile_portrait/LoadingScene.exml",
 		"resource/skin_mobile_portrait/LobbyScene.exml",
 		"resource/skin_mobile_portrait/LobbyTabListItemRenderer.exml",
+		"resource/skin_mobile_portrait/MobileDropdown.exml",
+		"resource/skin_mobile_portrait/MobileDropdownItem.exml",
 		"resource/skin_mobile_portrait/nav/IconItem.exml",
 		"resource/skin_mobile_portrait/nav/Nav.exml",
 		"resource/skin_mobile_portrait/nav/NavDropdown.exml",

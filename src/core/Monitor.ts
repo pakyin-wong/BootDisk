@@ -4,6 +4,7 @@ namespace we {
     export class Monitor {
       private _nav: ui.Nav;
       private _navSilderMenu: ui.NavSilderMenu;
+      private _mDropdown: ui.MobileDropdown;
       private _notificationController: ui.NotificationController;
       private _liveSidePanel: ui.LiveSidePanel;
       private _overlay: ui.Overlay;
@@ -21,43 +22,52 @@ namespace we {
 
       public start(stage: egret.Stage) {
         this._nav = new ui.Nav();
-        this._navSilderMenu = new ui.NavSilderMenu();
-        this._nav.touchEnabled = false;
         this._notificationController = new ui.NotificationController();
         this._overlay = new ui.Overlay();
 
         dir.layerCtr.nav.addChild(this._nav);
         dir.layerCtr.top.addChild(this._notificationController);
-        dir.layerCtr.overlay.addChild(this._navSilderMenu);
-        dir.layerCtr.overlay.addChild(this._overlay);
 
-        this._notificationController.x = stage.stageWidth - 410;
-        this._notificationController.y = 240;
-
-        if (!env.isMobile) {
-          this._liveSidePanel = new ui.LiveSidePanel();
-          dir.layerCtr.top.addChild(this._liveSidePanel);
-          this._liveSidePanel.right = 20;
-          this._liveSidePanel.y = 80;
-        } else {
+        if (env.isMobile) {
           const gameListButton = new ui.GameListButton();
           dir.layerCtr.top.addChild(gameListButton);
           gameListButton.right = 50;
           gameListButton.y = 241;
 
           this._sideGameList = new ui.MobileSideGameList();
-          dir.layerCtr.overlay.addChild(this._sideGameList);
           this._sideGameList.bottom = 0;
           this._sideGameList.setToggler(gameListButton);
           this._sideGameList.isPoppable = true;
           this._sideGameList.dismissOnClickOutside = true;
+
+          this._navSilderMenu = new ui.NavSilderMenu();
+          this._mDropdown = new ui.MobileDropdown();
+
+          dir.layerCtr.overlay.addChild(this._sideGameList);
+          dir.layerCtr.overlay.addChild(this._navSilderMenu);
+          dir.layerCtr.overlay.addChild(this._overlay);
+          dir.layerCtr.overlay.addChild(this._mDropdown);
+        } else {
+          this._liveSidePanel = new ui.LiveSidePanel();
+          this._liveSidePanel.right = 20;
+          this._liveSidePanel.y = 80;
+
+          dir.layerCtr.top.addChild(this._liveSidePanel);
+          dir.layerCtr.overlay.addChild(this._overlay);
         }
+
+        this._nav.touchEnabled = false;
+
+        this._notificationController.x = stage.stageWidth - 410;
+        this._notificationController.y = 240;
 
         if (env.mode < 0) {
           dir.evtHandler.createOverlay({
             class: 'ModeSelect',
           });
         }
+
+        this.mobileDropdownDemo();
       }
 
       private addListeners() {
@@ -72,6 +82,44 @@ namespace we {
         if (this._sideGameList) {
           this._sideGameList.hide();
         }
+      }
+
+      public mobileDropdownDemo() {
+        const demoButton = new eui.Button();
+        const demoReview = new ui.RunTimeLabel();
+        const demoSource = new eui.ArrayCollection([
+          ui.NewDropdownItem(1, () => `option 01`),
+          ui.NewDropdownItem(2, () => `option 02`),
+          ui.NewDropdownItem(3, () => `option 03`),
+          ui.NewDropdownItem('a', () => `option A`),
+          ui.NewDropdownItem('b', () => `option B`),
+          ui.NewDropdownItem('c', () => `option C`),
+          ui.NewDropdownItem('d', () => `option D`),
+          ui.NewDropdownItem('e', () => `option E`),
+        ]);
+
+        demoButton.width = 200;
+        demoButton.height = 200;
+        demoButton.horizontalCenter = 0;
+        demoButton.verticalCenter = 0;
+
+        demoReview.size = 48;
+        demoReview.left = 0;
+        demoReview.right = 0;
+        demoReview.textAlign = egret.HorizontalAlign.CENTER;
+
+        demoButton.addChild(demoReview);
+        dir.layerCtr.top.addChild(demoButton);
+
+        utils.DropdownCreator.new({
+          toggler: demoButton,
+          review: demoReview,
+          arrCol: demoSource,
+          title: () => `Demo Title`,
+          selected: 'c',
+        });
+
+        demoButton.addEventListener('DROPDOWN_ITEM_CHANGE', e => console.log(e.data), this);
       }
     }
   }

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.MobileDropdownItem" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" states="up,down" height="116">
+<ui:RunTimeLabel id="review" horizontalCenter="0" textColor.up="0x9d9d9d" textColor.down="0x53a9ff" size="76" text="Label" top="0" bottom="0" verticalAlign="middle" textAlign="center"/>
+</e:Skin>
