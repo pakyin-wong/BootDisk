@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="TabItemWithBadgeSkin" currentState="up" xmlns:e="http://ns.egret.com/eui"
-        states="up,down,upAndSelected,downAndSelected">
-    <e:Label text="{data}" textColor.up="0x6d6d6d" textColor.downAndSelected="0xd3d3d3" />
-</e:Skin>
