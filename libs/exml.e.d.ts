@@ -541,6 +541,10 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait.ba{
+	class LiveOverlayItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
@@ -553,11 +557,15 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait.ba{
-	class SideListBettingTableSkin extends eui.Skin{
+	class SideListChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
 	class SideListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -830,6 +838,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class MessageDialog extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class MobileQuickBet extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

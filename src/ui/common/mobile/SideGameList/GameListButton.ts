@@ -62,7 +62,7 @@ namespace we {
           this._lblBetted.text = count;
         } else {
           if (this._badgeGroup.parent) {
-            this._badgeGroup.removeChild(this._badgeGroup);
+            this._badgeGroup.parent.removeChild(this._badgeGroup);
           }
         }
       }

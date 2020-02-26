@@ -30,6 +30,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        // draw border corner radius
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 48, 48);
@@ -115,6 +116,10 @@ namespace we {
 
       public onClickQuickBetButton(evt: egret.Event) {
         // show quick bet popover panel
+        dir.evtHandler.createOverlay({
+          class: 'MobileQuickBet',
+          args: [this._tableId],
+        });
       }
 
       public onClickEnterRoomButton(evt: egret.Event) {
