@@ -17,10 +17,9 @@ namespace we {
         let _next: BaseScene;
         try {
           _prev = this._currScene;
-          // if (env.isMobile && typeof we[id].MobileScene === 'function') {
-          // _next = new we[id].MobileScene(data);
-          // } else
-          _next = new we[id].Scene(data);
+          if (env.isMobile && typeof we[id].MobileScene === 'function') {
+            _next = new we[id].MobileScene(data);
+          } else _next = new we[id].Scene(data);
         } catch (e) {
           logger.l(`scene ${id} defined error`);
           return;
@@ -30,7 +29,6 @@ namespace we {
         this._currScene = _next;
         logger.l(`enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
-        4;
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         _next.onEnter();
         _prev.onExit();
@@ -43,7 +41,9 @@ namespace we {
         let _next: BaseScene;
         try {
           _prev = this._currScene;
-          _next = new we[id].Scene(data);
+          if (env.isMobile && typeof we[id].MobileScene === 'function') {
+            _next = new we[id].MobileScene(data);
+          } else _next = new we[id].Scene(data);
         } catch (e) {
           logger.l(`scene ${id} defined error`);
           return;

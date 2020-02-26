@@ -52,26 +52,13 @@ namespace we {
 
       // viewStack and radioBtn
 
-      private radioBtn: eui.RadioButton;
-      private viewStack: eui.ViewStack;
+      protected roadSheetBtn: eui.RadioButton;
+      protected chartBtn: eui.RadioButton;
+      protected tableInfoBtn: eui.RadioButton;
+      protected viewStack: eui.ViewStack;
 
       public constructor(skin?: string) {
         super(skin ? skin : 'ba/MobileBottomGamePanel');
-      }
-
-      public changeLang() {
-        this.gameIdLabel.text = this.gameId + ' ' + i18n.t('baccarat.gameroundid');
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
-        this.totalCountLabel.text = i18n.t('baccarat.totalcount') + ' ' + this.totalCount;
-      }
-
-      public childrenCreated() {
-        this.radioBtn.group.addEventListener(eui.UIEvent.CHANGE, this.onChange, this);
-      }
-
-      private onChange(e: eui.UIEvent) {
-        const radioGroup: eui.RadioButtonGroup = e.target;
-        this.viewStack.selectedIndex = radioGroup.selectedValue;
       }
 
       protected init() {
@@ -141,8 +128,8 @@ namespace we {
         this.roadsContainer = new egret.DisplayObjectContainer();
         this.roadsContainer.x = 4;
         this.roadsContainer.y = 47;
-        this.roadsContainer.scaleX = 690 / 693;
-        this.roadsContainer.scaleY = 260 / 257;
+        // this.roadsContainer.scaleX = 690 / 693;
+        // this.roadsContainer.scaleY = 260 / 257;
         // this.roadsContainer.alpha = 0.5;
         this.addChild(this.roadsContainer);
 
@@ -173,9 +160,27 @@ namespace we {
         // if (this._tableInfoPanel) {
         //   this._tableInfoPanel.setValue(this._tableInfo);
         // }
+        this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
+      }
+
+      public changeLang() {
+        this.gameIdLabel.text = this.gameId + ' ' + i18n.t('baccarat.gameroundid');
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalCountLabel.text = i18n.t('baccarat.totalcount') + ' ' + this.totalCount;
+
+        // this.roadSheetBtn['labelDisplayDown']['text'] = this.roadSheetBtn['labelDisplayUp']['text'] = i18n.t('mobile_game_panel_road_sheet');
+        // this.chartBtn['labelDisplayDown']['text'] = this.chartBtn['labelDisplayUp']['text'] = i18n.t('mobile_game_panel_statistic_chart');
+        // this.tableInfoBtn['labelDisplayDown']['text'] = this.tableInfoBtn['labelDisplayUp']['text'] = i18n.t('mobile_game_panel_table_info');
+      }
+
+      protected onViewChange(e: eui.UIEvent) {
+        const radio: eui.RadioButton = e.target;
+        this.viewStack.selectedIndex = radio.value;
       }
 
       protected onSwitchModeClick(e: egret.TouchEvent) {

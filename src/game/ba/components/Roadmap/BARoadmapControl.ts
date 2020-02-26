@@ -8,6 +8,7 @@ namespace we {
       protected smallRoad: BASmallRoad;
       protected cockroachRoad: BACockroachRoad;
       protected rightPanel: BARoadmapRightPanel;
+      protected mobilePanel: MobileBottomGamePanel;
       protected beadResultPanel: BaBeadRoadResultPanel;
       public tableid: string;
 
@@ -25,7 +26,7 @@ namespace we {
         this.bigEyeRoad = r3;
         this.smallRoad = r4;
         this.cockroachRoad = r5;
-        this.rightPanel = rightPanel;
+        this.mobilePanel = rightPanel;
         this.beadResultPanel = beadResultPanel;
 
         this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
@@ -40,11 +41,11 @@ namespace we {
         this.onDisplayUpdate(null);
 
         // predict roads
-        this.rightPanel.iconBankerBead.touchEnabled = true;
-        this.rightPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+        this.mobilePanel.iconBankerBead.touchEnabled = true;
+        this.mobilePanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
 
-        this.rightPanel.iconPlayerBead.touchEnabled = true;
-        this.rightPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        this.mobilePanel.iconPlayerBead.touchEnabled = true;
+        this.mobilePanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
 
         // dark/light mode
         // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
@@ -220,7 +221,7 @@ namespace we {
                 if (this.tableInfo.gamestatistic) {
                   const stats = this.parser.getIconsFromBeadResult(roadmapData.inGame.bead);
                   const data = this.tableInfo.gamestatistic;
-                  this.rightPanel.setPredictIcons(
+                  this.mobilePanel.setPredictIcons(
                     stats.predictBankerIcons[0],
                     stats.predictBankerIcons[1],
                     stats.predictBankerIcons[2],
@@ -246,7 +247,7 @@ namespace we {
                 if (this.tableInfo.gamestatistic) {
                   const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
                   const stat = this.tableInfo.gamestatistic;
-                  this.rightPanel.setPredictIcons(
+                  this.mobilePanel.setPredictIcons(
                     prediction.predictBankerIcons[0],
                     prediction.predictBankerIcons[1],
                     prediction.predictBankerIcons[2],
@@ -290,11 +291,11 @@ namespace we {
           this.beadRoad.removeEventListener('ClickResult', this.onBeadRoadClick, this);
         }
 
-        if (this.rightPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.rightPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+        if (this.mobilePanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.mobilePanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
         }
-        if (this.rightPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.rightPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        if (this.mobilePanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.mobilePanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
         }
 
         // if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {

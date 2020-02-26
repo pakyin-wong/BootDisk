@@ -512,6 +512,12 @@ declare module skin_mobile_portrait{
 	class BaccaratScene extends eui.Skin{
 	}
 }
+declare class BetChipSetGroupSkin extends eui.Skin{
+}
+declare module skin_mobile_portrait.ba{
+	class BetConfirmButtonSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.ba{
 	class ChipLayerSkin extends eui.Skin{
 	}
@@ -549,6 +555,10 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait.ba{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
@@ -581,7 +591,7 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait.ba{
-	class BettingTableSkin extends eui.Skin{
+	class TableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
