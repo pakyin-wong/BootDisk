@@ -5,6 +5,9 @@ namespace we {
         super();
         // this.initDisplayItem();
       }
+      protected async mount() {}
+
+      protected destroy() {}
 
       protected initDisplayItem() {
         super.initDisplayItem();
