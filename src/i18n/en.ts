@@ -84,6 +84,8 @@ namespace we {
 
       mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
 
+      mobile_dropdown_confirm: 'Confirm',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
@@ -216,6 +218,21 @@ namespace we {
         red: 'RED',
         black: 'BLACK',
         distribution: 'distribution',
+        tiers: {
+          text: 'Tiers',
+          x: 51,
+        },
+        orphelins: {
+          text: 'Orphelins',
+          x: 57,
+        },
+        voisins: {
+          text: 'Voisins',
+          x: 34,
+        },
+        zero: {
+          text: 'Zero',
+        },
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

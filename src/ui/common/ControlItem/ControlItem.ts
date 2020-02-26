@@ -170,7 +170,7 @@ namespace we {
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.showWinEffect(this._betDetails);
           if (this._resultMessage) {
-            this.checkResultMessage(this.tableInfo.totalWin);
+            this.checkResultMessage();
           }
         }
       }
@@ -312,7 +312,7 @@ namespace we {
           }
 
           if (this._resultMessage) {
-            this.checkResultMessage(this.tableInfo.totalWin);
+            this.checkResultMessage();
           }
         }
       }
@@ -371,7 +371,11 @@ namespace we {
         }
         return false;
       }
-      public checkResultMessage(totalWin: number = NaN) {
+      public checkResultMessage() {
+        let totalWin: number = NaN;
+        if (this._tableInfo.totalWin) {
+          totalWin = this._tableInfo.totalWin;
+        }
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {

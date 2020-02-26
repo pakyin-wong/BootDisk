@@ -769,6 +769,14 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class MobileDropdown extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class MobileDropdownItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class IconItem extends eui.Skin{
 	}
 }
@@ -854,6 +862,10 @@ declare module skin_mobile_portrait.ro.bettingTable{
 }
 declare module skin_mobile_portrait.ro{
 	class ResultHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class LiveListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
