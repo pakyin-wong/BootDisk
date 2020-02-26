@@ -8,17 +8,17 @@ namespace we {
 
           _toggler['mDropdownItem'] = opt;
 
-          const toggleCallback = function() {
+          const toggleCallback = function () {
             dir.evtHandler.createDropDown(this['mDropdownItem']);
           };
           _toggler.addEventListener(egret.TouchEvent.TOUCH_TAP, toggleCallback, _toggler);
 
-          const selectedCallback = function(e) {
+          const selectedCallback = function (e) {
             this['mDropdownItem'].selected = e.data;
           };
           _toggler.addEventListener('DROPDOWN_ITEM_CHANGE', selectedCallback, _toggler);
 
-          const removeCallback = function() {
+          const removeCallback = function () {
             this.removeEventListener('DROPDOWN_ITEM_CHANGE', selectedCallback, this);
             this.removeEventListener(egret.TouchEvent.TOUCH_TAP, toggleCallback, this);
           };
