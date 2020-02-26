@@ -3,8 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_contentContainer" width="100%" height="399" x="0" y="0" anchorOffsetY="0">
 		<e:Rect height="80" y="0" fillColor="0x202020" right="0" left="0" />
-		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0"
-		                   skinName="skin_mobile_portrait.CountdownTimerRoundSkin" />
+		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0" skinName="skin_mobile.CountdownTimerRoundSkin" />
 		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="84.68" y="23.99" />
 		<ba:BAMobileLobbyBigRoad id="_bigRoad" width="100%" height="318.91" y="80" anchorOffsetY="0" />
 		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.MobileDropdown" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+
+
+
+	<e:Group id="content" y="1294" left="0" right="0">
+		<e:Rect fillColor="0x1a1a1a" top="0" bottom="0" left="0" right="0"/>
+		<ui:RunTimeLabel id="close" text="Label" y="0" height="146" verticalAlign="middle" textAlign="right" size="60" x="1055"/>
+		<ui:RunTimeLabel id="_title" text="Label" y="0" height="146" textAlign="center" verticalAlign="middle" size="70" left="0" right="0"/>
+		<e:Scroller id="_scroller" height="718" y="143" left="0" right="0">
+			<e:List id="_list">
+			<e:layout>
+				<e:VerticalLayout paddingTop="303" paddingBottom="297" gap="0" horizontalAlign="center"/>
+			</e:layout>
+			</e:List>
+		</e:Scroller>
+	</e:Group>
+
+</e:Skin>

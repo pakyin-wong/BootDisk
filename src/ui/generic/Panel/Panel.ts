@@ -2,7 +2,7 @@ namespace we {
   export namespace ui {
     export class Panel extends core.BaseEUI implements IPoppable, IDraggable {
       public content: egret.DisplayObjectContainer;
-      public close: eui.UIComponent;
+      public close: egret.DisplayObject;
       public toggler: egret.DisplayObject;
       public moveArea: egret.DisplayObject;
       public dropdownScroller: ui.Scroller;
@@ -75,7 +75,7 @@ namespace we {
         return this._dismissOnClickOutside;
       }
       public get panelName(): string {
-        return (<any> this).constructor.name;
+        return (<any>this).constructor.name;
       }
 
       protected childrenCreated() {

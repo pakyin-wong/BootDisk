@@ -84,6 +84,8 @@ namespace we {
 
       mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
 
+      mobile_dropdown_confirm: 'Confirm',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
