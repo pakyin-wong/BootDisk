@@ -31,7 +31,7 @@ namespace we {
         this.initFilterTabs();
 
         this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
-
+        this.setTab(0);
         this.addEventListeners();
       }
 
@@ -48,6 +48,20 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
 
         this._filterList.addEventListener(eui.UIEvent.CHANGE, this.onFilterChanged, this);
+
+        // this._btnAllGame.addEventListener(egret.TouchEvent.TOUCH_TAP, this.setTab.bind(this, 2), this);
+        // this._btnAlreadyBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.setTab.bind(this, 0), this);
+        // this._btnGoodRoad.addEventListener(egret.TouchEvent.TOUCH_TAP, this.setTab.bind(this, 1), this);
+        Array.apply(null, { length: 3 }).map((value, index) => {
+          const tabButton: ui.GamePanelTabButton = this._tabButtonGroup.getChildAt(index) as ui.GamePanelTabButton;
+          tabButton.addEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              this.setTab(index);
+            },
+            this
+          );
+        });
       }
 
       protected removeEventListeners() {
@@ -59,6 +73,17 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
 
         this._filterList.removeEventListener(eui.UIEvent.CHANGE, this.onFilterChanged, this);
+
+        Array.apply(null, { length: 3 }).map((value, index) => {
+          const tabButton: ui.GamePanelTabButton = this._tabButtonGroup.getChildAt(index) as ui.GamePanelTabButton;
+          tabButton.removeEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              this.setTab(index);
+            },
+            this
+          );
+        });
       }
 
       protected initTabs() {
@@ -93,6 +118,13 @@ namespace we {
         this._filterList.itemRendererSkinName = 'AllGameSubTabItemSkin';
         this._filterList.itemRenderer = ui.RuntimeLabelListItem;
         this._filterList.dataProvider = _collection;
+        const layout = new eui.HorizontalLayout();
+        layout.paddingLeft = 20;
+        layout.paddingRight = 20;
+        layout.gap = 40;
+        layout.verticalAlign = egret.VerticalAlign.MIDDLE;
+        this._filterList.layout = layout;
+        this._filterList.selectedIndex = 0;
       }
 
       protected getLayout() {
@@ -113,7 +145,7 @@ namespace we {
       }
 
       protected updateActiveButton(idx: number) {
-        Array(3).map((value, index) => {
+        Array.apply(null, { length: 3 }).map((value, index) => {
           const tabButton: ui.GamePanelTabButton = this._tabButtonGroup.getChildAt(index) as ui.GamePanelTabButton;
           tabButton.focus = idx === index;
         });

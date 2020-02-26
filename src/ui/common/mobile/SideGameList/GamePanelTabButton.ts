@@ -26,6 +26,7 @@ namespace we {
         this.width = this._content.width;
         this._label.renderText = () => i18n.t(this.labelKey);
         this._image.source = `${this.imageKey}_dim_png`;
+        this._badge.visible = false;
         this.addEventListeners();
       }
 
@@ -60,7 +61,9 @@ namespace we {
           egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
           this._image.source = `${this.imageKey}_png`;
         } else {
-          this._content.removeChild(this._label);
+          if (this._label.parent) {
+            this._content.removeChild(this._label);
+          }
           this.validateSize(true);
           egret.Tween.removeTweens(this);
           egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
