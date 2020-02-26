@@ -42,7 +42,7 @@ namespace we {
 
       protected totalCount: number;
 
-      //table info panel
+      // table info panel
       protected _tableInfoPanel: ui.TableInfoPanel;
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
@@ -75,7 +75,6 @@ namespace we {
       }
 
       protected init() {
-        
         this.gameId = '';
         this.totalBet = 0;
         this.totalCount = 0;

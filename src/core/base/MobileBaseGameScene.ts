@@ -3,7 +3,6 @@ namespace we {
   export namespace core {
     // base control class that hold and manage the basic item in Ba Item
     export class MobileBaseGameScene extends BaseGameScene {
-
       protected _bottomGamePanel: BaseGamePanel;
 
       constructor(data: any) {

@@ -23,7 +23,7 @@ namespace we {
       protected _undoButton: ui.BaseImageButton;
 
       // table name label
-      //protected _label: ui.RunTimeLabel;
+      // protected _label: ui.RunTimeLabel;
 
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
@@ -35,15 +35,15 @@ namespace we {
       protected _btnBack: egret.DisplayObject;
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
-	  
+
       protected _gameBar: ui.GameBar;
       protected _bgImg: eui.Image;
       protected _video: egret.FlvVideo;
 
       // this for desktop
       protected _tableInfoWindow: ui.TableInfoPanel;
-	  
-	  //this also for desktop
+
+      // this also for desktop
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
 

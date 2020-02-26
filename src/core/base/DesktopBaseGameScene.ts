@@ -3,7 +3,6 @@ namespace we {
   export namespace core {
     // base control class that hold and manage the basic item in Ba Item
     export class DesktopBaseGameScene extends BaseGameScene {
-
       protected _leftGamePanel: BaseGamePanel;
       protected _rightGamePanel: BaseGamePanel;
 
