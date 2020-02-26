@@ -73,88 +73,85 @@ namespace we {
         this.beadRoad = new BABeadRoad(numColumn, gridSizeL, 1, true);
         this.beadRoad.x = 0;
         this.beadRoad.y = 198;
-        // this.beadRoad.scaleX = 592 / 591;
-        // this.beadRoad.scaleY = 690 / 689;
         this.addChild(this.beadRoad);
 
-        this.iconBankerBead = new BABeadRoadIcon(28);
-        this.iconBankerBead.x = 22;
-        this.iconBankerBead.y = 9;
+        this.iconBankerBead = new BABeadRoadIcon(52);
+        this.iconBankerBead.x = 15;
+        this.iconBankerBead.y = 123;
         this.iconBankerBead.setByObject({ v: 'b' });
         this.addChild(this.iconBankerBead);
 
-        this.iconBankerBigEye = new BABigEyeRoadIcon(14);
-        this.iconBankerBigEye.x = 58;
-        this.iconBankerBigEye.y = 16;
+        this.iconBankerBigEye = new BABigEyeRoadIcon(27);
+        this.iconBankerBigEye.x = 146;
+        this.iconBankerBigEye.y = 136;
         this.iconBankerBigEye.setByObject({ v: 'b' });
         this.addChild(this.iconBankerBigEye);
 
-        this.iconBankerSmall = new BASmallRoadIcon(14);
-        this.iconBankerSmall.x = 76;
-        this.iconBankerSmall.y = 16;
+        this.iconBankerSmall = new BASmallRoadIcon(27);
+        this.iconBankerSmall.x = 177;
+        this.iconBankerSmall.y = 136;
         this.iconBankerSmall.setByObject({ v: 'b' });
         this.addChild(this.iconBankerSmall);
 
-        this.iconBankerCockroach = new BACockroachRoadIcon(20);
-        this.iconBankerCockroach.x = 94;
-        this.iconBankerCockroach.y = 16;
+        this.iconBankerCockroach = new BACockroachRoadIcon(27);
+        this.iconBankerCockroach.x = 208;
+        this.iconBankerCockroach.y = 136;
         this.iconBankerCockroach.setByObject({ v: 'b' });
         this.addChild(this.iconBankerCockroach);
 
-        this.iconPlayerBead = new BABeadRoadIcon(28);
-        this.iconPlayerBead.x = 124;
-        this.iconPlayerBead.y = 9;
+        this.iconPlayerBead = new BABeadRoadIcon(52);
+        this.iconPlayerBead.x = 247;
+        this.iconPlayerBead.y = 123;
         this.iconPlayerBead.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerBead);
 
-        this.iconPlayerBigEye = new BABigEyeRoadIcon(14);
-        this.iconPlayerBigEye.x = 160;
-        this.iconPlayerBigEye.y = 16;
+        this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
+        this.iconPlayerBigEye.x = 379;
+        this.iconPlayerBigEye.y = 136;
         this.iconPlayerBigEye.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerBigEye);
 
-        this.iconPlayerSmall = new BASmallRoadIcon(14);
-        this.iconPlayerSmall.x = 178;
-        this.iconPlayerSmall.y = 16;
+        this.iconPlayerSmall = new BASmallRoadIcon(27);
+        this.iconPlayerSmall.x = 410;
+        this.iconPlayerSmall.y = 136;
         this.iconPlayerSmall.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerSmall);
 
-        this.iconPlayerCockroach = new BACockroachRoadIcon(20);
-        this.iconPlayerCockroach.x = 196;
-        this.iconPlayerCockroach.y = 16;
+        this.iconPlayerCockroach = new BACockroachRoadIcon(27);
+        this.iconPlayerCockroach.x = 441;
+        this.iconPlayerCockroach.y = 136;
         this.iconPlayerCockroach.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerCockroach);
 
         this.roadsContainer = new egret.DisplayObjectContainer();
-        this.roadsContainer.x = 4;
-        this.roadsContainer.y = 47;
-        // this.roadsContainer.scaleX = 690 / 693;
-        // this.roadsContainer.scaleY = 260 / 257;
-        // this.roadsContainer.alpha = 0.5;
+        this.roadsContainer.x = 0;
+        this.roadsContainer.y = 0;
         this.addChild(this.roadsContainer);
 
-        this.bigRoad = new BABigRoad(33, gridSizeR);
-        this.bigRoad.x = 0;
-        this.bigRoad.y = 0;
+        this.bigRoad = new BABigRoad(18, gridSizeR);
+        this.bigRoad.x = 584;
+        this.bigRoad.y = 198;
         this.roadsContainer.addChild(this.bigRoad);
 
-        this.bigEyeRoad = new BABigEyeRoad(33 * 2, gridSizeR);
-        this.bigEyeRoad.x = 0;
-        this.bigEyeRoad.y = 6 * gridSizeR;
+        this.bigEyeRoad = new BABigEyeRoad(18 * 2, gridSizeR);
+        this.bigEyeRoad.x = 584;
+        this.bigEyeRoad.y = 198 + 6 * gridSizeR;
         this.roadsContainer.addChild(this.bigEyeRoad);
 
-        this.smallRoad = new BASmallRoad(17 * 2, gridSizeR);
-        this.smallRoad.x = 0;
-        this.smallRoad.y = 6 * gridSizeR + 6 * (gridSizeR / 2);
+        this.smallRoad = new BASmallRoad(9 * 2, gridSizeR);
+        this.smallRoad.x = 584;
+        this.smallRoad.y = 198 + 6 * gridSizeR + 6 * (gridSizeR / 2);
         this.roadsContainer.addChild(this.smallRoad);
 
-        this.cockroachRoad = new BACockroachRoad(16 * 2, gridSizeR);
-        this.cockroachRoad.x = gridSizeR * 17;
-        this.cockroachRoad.y = 6 * gridSizeR + 6 * (gridSizeR / 2);
+        this.cockroachRoad = new BACockroachRoad(9 * 2, gridSizeR);
+        this.cockroachRoad.x = 584 + gridSizeR * 9;
+        this.cockroachRoad.y = 198 + 6 * gridSizeR + 6 * (gridSizeR / 2);
         this.roadsContainer.addChild(this.cockroachRoad);
 
         this.switchModeButton.touchEnabled = true;
         this.switchModeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
+        this.switchModeButton.x = 510;
+        this.switchModeButton.y = 562;
         this.addChild(this.switchModeButton);
 
         // if (this._tableInfoPanel) {
@@ -171,7 +168,7 @@ namespace we {
       public changeLang() {
         this.gameIdLabel.text = this.gameId + ' ' + i18n.t('baccarat.gameroundid');
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
-        this.totalCountLabel.text = i18n.t('baccarat.totalcount') + ' ' + this.totalCount;
+        this.totalCountLabel.text = '' + this.totalCount;
 
         // this.roadSheetBtn['labelDisplayDown']['text'] = this.roadSheetBtn['labelDisplayUp']['text'] = i18n.t('mobile_game_panel_road_sheet');
         // this.chartBtn['labelDisplayDown']['text'] = this.chartBtn['labelDisplayUp']['text'] = i18n.t('mobile_game_panel_statistic_chart');
