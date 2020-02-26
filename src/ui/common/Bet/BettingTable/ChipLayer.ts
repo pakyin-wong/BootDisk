@@ -113,10 +113,13 @@ namespace we {
       }
 
       public isAlreadyBet() {
-        const result = this._cfmBetDetails.reduce((acc, cur) => {
-          return cur.amount > 0 || acc;
-        }, false);
-        return result;
+        if (this._cfmBetDetails) {
+          const result = this._cfmBetDetails.reduce((acc, cur) => {
+            return cur.amount > 0 || acc;
+          }, false);
+          return result;
+        }
+        return null;
       }
 
       public addRolloverListeners() {
@@ -222,7 +225,6 @@ namespace we {
 
         // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
-          console.log('updateBetFields xxxxxxxxxxxxxx: ', value);
           if (this._betChipStackMapping[value.field]) {
             this._betChipStackMapping[value.field].cfmBet = value.amount;
             this._betChipStackMapping[value.field].draw();
@@ -252,7 +254,7 @@ namespace we {
         return env.betLimits[this._getSelectedBetLimitIndex()].chipList[this._getSelectedChipIndex()];
       }
 
-      protected onBetFieldUpdate(fieldName: string) {
+      public onBetFieldUpdate(fieldName: string) {
         return () => {
           const grid = this.getUncfmBetByField(fieldName);
           const betDetail = { field: fieldName, amount: this.getOrderAmount() };

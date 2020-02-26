@@ -29,41 +29,45 @@ namespace we {
       }
 
       protected generateDummyStatistic(data) {
-        let bankerCount: number = 0;
-        let playerCount: number = 0;
-        let tieCount: number = 0;
-        let playerPairCount: number = 0;
-        let bankerPairCount: number = 0;
+        if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC) {
+          let bankerCount: number = 0;
+          let playerCount: number = 0;
+          let tieCount: number = 0;
+          let playerPairCount: number = 0;
+          let bankerPairCount: number = 0;
 
-        data.roadmap.inGame.bead.forEach(item => {
-          if (item.v === 'b') {
-            bankerCount++;
-          } else if (item.v === 'p') {
-            playerCount++;
-          } else if (item.v === 't') {
-            tieCount++;
-          }
-          if (item.b > 0) {
-            bankerPairCount++;
-          }
-          if (item.p > 0) {
-            playerPairCount++;
-          }
-        });
-        const totalCount: number = bankerCount + playerCount + tieCount;
+          data.roadmap.inGame.bead.forEach(item => {
+            if (item.v === 'b') {
+              bankerCount++;
+            } else if (item.v === 'p') {
+              playerCount++;
+            } else if (item.v === 't') {
+              tieCount++;
+            }
+            if (item.b > 0) {
+              bankerPairCount++;
+            }
+            if (item.p > 0) {
+              playerPairCount++;
+            }
+          });
+          const totalCount: number = bankerCount + playerCount + tieCount;
 
-        const stats = new we.data.GameStatistic();
-        stats.bankerCount = bankerCount;
-        stats.playerCount = playerCount;
-        stats.tieCount = tieCount;
-        stats.playerPairCount = playerPairCount;
-        stats.bankerPairCount = bankerPairCount;
-        stats.totalCount = totalCount;
+          const stats = new we.data.GameStatistic();
+          stats.bankerCount = bankerCount;
+          stats.playerCount = playerCount;
+          stats.tieCount = tieCount;
+          stats.playerPairCount = playerPairCount;
+          stats.bankerPairCount = bankerPairCount;
+          stats.totalCount = totalCount;
 
-        stats.hotNumbers = [1, 2, 3, 4, 5];
-        stats.coldNumbers = [6, 7, 8, 9, 10];
-
-        return stats;
+          return stats;
+        } else if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC) {
+          const stats = new we.data.GameStatistic();
+          stats.hotNumbers = [1, 2, 3, 4, 5];
+          stats.coldNumbers = [6, 7, 8, 9, 10];
+          return stats;
+        }
       }
       protected generateBaccaratTables(count) {
         const tables = Array.apply(null, { length: count }).map((value, idx) => {

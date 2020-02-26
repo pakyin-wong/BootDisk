@@ -436,8 +436,28 @@ declare module skin_desktop.ro{
 	class LiveListSimpleItemSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ro{
+	class RaceTrackChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class RaceTrackControlSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class RaceTrackTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class BetItemCardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RoLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoRightPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{

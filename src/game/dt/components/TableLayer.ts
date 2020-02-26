@@ -15,6 +15,9 @@ namespace we {
       protected _dragonTotalPerson: eui.Label;
       protected _tigerTotalPerson: eui.Label;
 
+      protected _totalPersonMapping: any; // Total Person for each grid
+      protected _totalAmountMapping: any; // Total amount for each grid
+
       protected _imageSourceMapping: {};
 
       constructor() {
@@ -45,6 +48,34 @@ namespace we {
         this._tigerLabel.renderText = () => i18n.t('dragontiger.tigerShort');
         this._dragonLabel.renderText = () => i18n.t('dragontiger.dragonShort');
         this._tieLabel.renderText = () => i18n.t('dragontiger.tieShort');
+      }
+
+      set totalPerson(persons: any) {
+        if (this._totalPersonMapping) {
+          Object.keys(persons).map(value => {
+            if (this._totalPersonMapping[value]) {
+              this._totalPersonMapping[value].text = persons[value];
+            }
+          });
+        }
+      }
+
+      get totalPerson() {
+        return this._totalPersonMapping;
+      }
+
+      set totalAmount(amounts: any) {
+        if (this._totalAmountMapping) {
+          Object.keys(amounts).map(value => {
+            if (this._totalAmountMapping[value]) {
+              this._totalAmountMapping[value].text = amounts[value];
+            }
+          });
+        }
+      }
+
+      get totalAmount() {
+        return this._totalAmountMapping;
       }
 
       public onRollover(fieldName: string) {
