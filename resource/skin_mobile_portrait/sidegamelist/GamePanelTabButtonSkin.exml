@@ -5,9 +5,9 @@
              bottom="0" right="0" left="0" source.good_road="m_lobby_panel_gamelist_tag_bg_goodroad_png"
              source.already_bet="m_lobby_panel_gamelist_tag_bg_betted_png" />
     <e:Group id="_content" left="20" right="20" bottom="20" top="20">
-        <e:Image id="_image" source="m_lobby_panel_gamelist_tag_icon_allgame_png" x="21" y="45" width="60" height="60"
-                 source.good_road="m_lobby_panel_gamelist_tag_icon_goodroad_png"
-                 source.already_bet="m_lobby_panel_gamelist_tag_icon_betted_png" />
+        <e:Image id="_image" source="m_lobby_panel_gamelist_tag_icon_allgame_dim_png" x="21" y="45" width="60"
+                 height="60" source.already_bet="m_lobby_panel_gamelist_tag_icon_betted_dim_png"
+                 source.good_road="m_lobby_panel_gamelist_tag_icon_goodroad_dim_png" />
         <ui:RunTimeLabel id="_label" text="" x="52" y="23" size="42" />
         <e:layout>
             <e:HorizontalLayout verticalAlign="middle" gap="15" />

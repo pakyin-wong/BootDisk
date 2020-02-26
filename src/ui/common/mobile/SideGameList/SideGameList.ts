@@ -91,7 +91,7 @@ namespace we {
         this._betTableList.isFreezeScrolling = true;
         this._betTableList.extendHeight = 250;
         this._betTableList.isAnimateItemTransition = true;
-        this._betTableList.itemRenderer = MobileSideListItemHolder;
+        this._betTableList.itemRenderer = MobileSideListBetItemHolder;
         this._betTableList.layout = this.getLayout();
 
         // create good road list
@@ -115,7 +115,7 @@ namespace we {
           return i18n.t(`live.gametype.${game}`);
         });
         const _collection = new eui.ArrayCollection(gameListItems);
-        this._filterList.itemRendererSkinName = 'AllGameSubTabItemSkin';
+        this._filterList.itemRendererSkinName = utils.getSkinByClassname('AllGameSubTabItemSkin', false);
         this._filterList.itemRenderer = ui.RuntimeLabelListItem;
         this._filterList.dataProvider = _collection;
         const layout = new eui.HorizontalLayout();
@@ -131,6 +131,7 @@ namespace we {
         const layout = new eui.VerticalLayout();
         layout.paddingTop = 20;
         layout.paddingBottom = 20;
+        layout.gap = 30;
         layout.horizontalAlign = egret.HorizontalAlign.CENTER;
         return layout;
       }

@@ -11,7 +11,7 @@ namespace we {
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
-      protected _resultMessage: ui.GameResultMessage;
+      protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
