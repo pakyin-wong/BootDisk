@@ -486,6 +486,10 @@ namespace we {
         this._mouseAreaMapping[ro.BetField.SMALL] = this._small_group;
         this._mouseAreaMapping[ro.BetField.BIG] = this._big_group;
 
+        Object.keys(this._mouseAreaMapping).map(value => {
+          mouse.setButtonMode(this._mouseAreaMapping[value], true);
+        });
+
         this._betChipStackMapping = {};
         this._betChipStackMapping[ro.BetField.DIRECT_0] = this._direct_0_betChipStack;
         this._betChipStackMapping[ro.BetField.DIRECT_1] = this._direct_1_betChipStack;

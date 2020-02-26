@@ -216,6 +216,21 @@ namespace we {
         red: 'RED',
         black: 'BLACK',
         distribution: 'distribution',
+        tiers: {
+          text: 'Tiers',
+          x: 51,
+        },
+        orphelins: {
+          text: 'Orphelins',
+          x: 57,
+        },
+        voisins: {
+          text: 'Voisins',
+          x: 34,
+        },
+        zero: {
+          text: 'Zero',
+        },
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

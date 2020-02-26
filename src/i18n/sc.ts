@@ -170,6 +170,24 @@ namespace we {
         red: '红',
         black: '黑',
         distribution: '散布',
+        tiers: {
+          text: '轮盘下角注',
+          x: 23,
+        },
+
+        orphelins: {
+          text: '轮上孤注',
+          x: 62,
+        },
+
+        voisins: {
+          text: '零旁注上角',
+          x: 16,
+        },
+
+        zero: {
+          text: '轮上零旁',
+        },
       },
       goodroad: {
         r1: '长庄',

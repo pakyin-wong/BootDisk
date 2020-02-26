@@ -69,7 +69,9 @@ namespace we {
       }
 
       public dismissMobileGameList() {
-        if (this._sideGameList) { this._sideGameList.hide(); }
+        if (this._sideGameList) {
+          this._sideGameList.hide();
+        }
       }
     }
   }

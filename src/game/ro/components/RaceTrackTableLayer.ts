@@ -42,6 +42,10 @@ namespace we {
       protected _section_tiers: eui.Image;
       protected _section_voisins: eui.Image;
       protected _section_zero: eui.Image;
+      protected _label_orphelins: ui.RunTimePropertyLabel;
+      protected _label_tiers: ui.RunTimePropertyLabel;
+      protected _label_voisins: ui.RunTimePropertyLabel;
+      protected _label_zero: ui.RunTimePropertyLabel;
 
       protected _sectionMapping: { [s: string]: eui.Image };
 
@@ -92,15 +96,27 @@ namespace we {
         this._sectionMapping[ro.RACETRACK_INNERFIELD.TIERS] = this._section_tiers;
         this._sectionMapping[ro.RACETRACK_INNERFIELD.VOISINS] = this._section_voisins;
         this._sectionMapping[ro.RACETRACK_INNERFIELD.ZERO] = this._section_zero;
+
+        Object.keys(this._sectionMapping).map(value => {
+          this._sectionMapping[value].name = '0';
+        });
+
+        this._label_tiers.renderProperty = () => i18n.e('roulette.tiers');
+        this._label_voisins.renderProperty = () => i18n.e('roulette.voisins');
+        this._label_orphelins.renderProperty = () => i18n.e('roulette.orphelins');
+        this._label_zero.renderProperty = () => i18n.e('roulette.zero');
       }
 
       public onRollover(fieldName: string) {
-        console.log('RaceTrackTableLayer::onRollover', fieldName);
         this._sectionMapping[fieldName].visible = true;
+        this._sectionMapping[fieldName].name = (+this._sectionMapping[fieldName].name + 1).toString();
       }
 
       public onRollout(fieldName: string) {
-        this._sectionMapping[fieldName].visible = false;
+        this._sectionMapping[fieldName].name = (+this._sectionMapping[fieldName].name - 1).toString();
+        if (+this._sectionMapping[fieldName].name <= 0) {
+          this._sectionMapping[fieldName].visible = false;
+        }
       }
     }
   }

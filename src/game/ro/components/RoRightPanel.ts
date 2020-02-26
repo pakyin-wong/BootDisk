@@ -15,6 +15,10 @@ namespace we {
         super(skin ? skin : 'ro/RoRightPanel');
       }
 
+      public get raceTrackChipLayer() {
+        return this._raceTrackChipLayer;
+      }
+
       public initRaceTrack(chipLayer: we.ui.ChipLayer, tableLayer: we.ui.TableLayer) {
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 

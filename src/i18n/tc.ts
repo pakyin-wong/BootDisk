@@ -215,6 +215,22 @@ namespace we {
         red: '紅',
         black: '黑',
         distribution: '散佈',
+        tiers: {
+          text: '輪盤下角注',
+          x: 23,
+        },
+        orphelins: {
+          text: '輪上孤注',
+          x: 62,
+        },
+        voisins: {
+          text: '零旁注上角',
+          x: 16,
+        },
+
+        zero: {
+          text: '輪上零旁',
+        },
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

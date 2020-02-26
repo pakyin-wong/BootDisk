@@ -856,6 +856,10 @@ declare module skin_mobile_portrait.ro{
 	class ResultHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.ro{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class RoLeftPanel extends eui.Skin{
 	}
