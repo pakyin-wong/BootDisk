@@ -37,64 +37,64 @@ namespace we {
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
         this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
 
-        const _arrCol_currLang = [ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)];
+        const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
         if (this._ddm_currLang) {
           this._ddm_currLang.isDropdown = true;
           this._ddm_currLang.isPoppable = true;
           this._ddm_currLang.dismissOnClickOutside = true;
           this._ddm_currLang.setToggler(this._btn_currLang);
           this._ddm_currLang.dropdown.review = this._txt_currLang;
-          this._ddm_currLang.dropdown.data.replaceAll(_arrCol_currLang);
+          this._ddm_currLang.dropdown.data.replaceAll(_arrCol_currLang.source);
           this._ddm_currLang.dropdown.select(env.language);
         }
         utils.DropdownCreator.new({
           toggler: this._btn_currLang,
           review: this._txt_currLang,
-          source: _arrCol_currLang,
+          arrCol: _arrCol_currLang,
           title: () => ``,
           selected: env.language,
         });
 
-        const _arrCol_currFx = [
+        const _arrCol_currFx = new eui.ArrayCollection([
           ui.NewDropdownItem('cantonese', () => `${i18n.t('voice_cantonese')}`),
           ui.NewDropdownItem('mandarin', () => `${i18n.t('voice_mandarin')}`),
           ui.NewDropdownItem('english', () => `${i18n.t('voice_english')}`),
-        ];
+        ]);
         if (this._ddm_currFx) {
           this._ddm_currFx.isDropdown = true;
           this._ddm_currFx.isPoppable = true;
           this._ddm_currFx.dismissOnClickOutside = true;
           this._ddm_currFx.setToggler(this._btn_currFx);
           this._ddm_currFx.dropdown.review = this._txt_currFx;
-          this._ddm_currFx.dropdown.data.replaceAll(_arrCol_currFx);
+          this._ddm_currFx.dropdown.data.replaceAll(_arrCol_currFx.source);
           this._ddm_currFx.dropdown.select(env.voice);
         }
         utils.DropdownCreator.new({
           toggler: this._btn_currFx,
           review: this._txt_currFx,
-          source: _arrCol_currFx,
+          arrCol: _arrCol_currFx,
           title: () => ``,
           selected: env.voice,
         });
 
-        const _arrCol_currBgm = [
+        const _arrCol_currBgm = new eui.ArrayCollection([
           ui.NewDropdownItem(1, () => `${i18n.t('nav.system.bgm')} 01`),
           ui.NewDropdownItem(2, () => `${i18n.t('nav.system.bgm')} 02`),
           ui.NewDropdownItem(3, () => `${i18n.t('nav.system.bgm')} 03`),
-        ];
+        ]);
         if (this._ddm_currBgm) {
           this._ddm_currBgm.isDropdown = true;
           this._ddm_currBgm.isPoppable = true;
           this._ddm_currBgm.dismissOnClickOutside = true;
           this._ddm_currBgm.setToggler(this._btn_currBgm);
           this._ddm_currBgm.dropdown.review = this._txt_currBgm;
-          this._ddm_currBgm.dropdown.data.replaceAll(_arrCol_currBgm);
+          this._ddm_currBgm.dropdown.data.replaceAll(_arrCol_currBgm.source);
           this._ddm_currBgm.dropdown.select(env.bgm);
         }
         utils.DropdownCreator.new({
           toggler: this._btn_currBgm,
           review: this._txt_currBgm,
-          source: _arrCol_currBgm,
+          arrCol: _arrCol_currBgm,
           title: () => ``,
           selected: env.bgm,
         });

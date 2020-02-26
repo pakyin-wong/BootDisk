@@ -3,7 +3,7 @@ namespace we {
     export interface IDropdownOptM {
       toggler: egret.DisplayObject;
       review: RunTimeLabel;
-      source: any[];
+      arrCol: eui.ArrayCollection;
       title: () => string;
       selected: any;
     }
@@ -22,6 +22,7 @@ namespace we {
         this.isPoppable = true;
         this.hideOnStart = true;
         this.dismissOnClickOutside = true;
+        this.poppableAddon = new PoppableAddonBottomSilder(this);
       }
 
       protected mount() {
@@ -65,11 +66,11 @@ namespace we {
 
         this._opt = e.data;
         this._title.renderText = e.data.title;
-        this._dataCollection.replaceAll([].concat(e.data.source));
+        this._dataCollection.replaceAll([].concat(e.data.arrCol.source));
         this._list.dataProviderRefreshed();
         this._list.selectedIndex = 0;
 
-        const source = e.data.source;
+        const source = e.data.arrCol.source;
         for (let i = 0; i < source.length; i++) {
           if (source[i].key === e.data.selected || source === e.data.selected) {
             this._list.selectedIndex = i;

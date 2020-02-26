@@ -374,7 +374,10 @@ namespace we {
       public checkResultMessage(totalWin: number = NaN) {
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype, totalWin);
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: totalWin,
+            });
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {

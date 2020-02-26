@@ -266,18 +266,7 @@ namespace we {
 
       protected onMatchGoodRoadUpdate() {}
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        console.log('BaccaratScene::onTableBetInfoUpdate');
-        console.log(evt.data);
-        if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
-          if (betInfo.tableid === this._tableId) {
-            // update the scene
-            this._tableLayer.totalAmount = evt.data.amount;
-            this._tableLayer.totalPerson = evt.data.count;
-          }
-        }
-      }
+      protected onTableBetInfoUpdate(evt: egret.Event) {}
 
       // item clicked
       protected onTouchTap(evt: egret.Event) {}
@@ -292,7 +281,7 @@ namespace we {
         this._chipLayer.showWinEffect(this._betDetails);
         if (this._betDetails && this._chipLayer) {
           if (this._resultMessage) {
-            this.checkResultMessage(this._tableInfo.totalWin);
+            this.checkResultMessage();
           }
         }
       }
@@ -441,7 +430,7 @@ namespace we {
           }
 
           if (this._resultMessage) {
-            this.checkResultMessage(this._tableInfo.totalWin);
+            this.checkResultMessage();
           }
         }
       }
@@ -501,19 +490,8 @@ namespace we {
         }
         return false;
       }
-      public checkResultMessage(totalWin: number = NaN) {
-        if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype, totalWin);
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        } else {
-          if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype);
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        }
-      }
+
+      public checkResultMessage() {}
 
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {

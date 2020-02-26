@@ -24,6 +24,15 @@ namespace we {
             this.removeEventListener(egret.TouchEvent.TOUCH_TAP, toggleCallback, this);
           };
           _toggler.once(eui.UIEvent.REMOVED_FROM_STAGE, removeCallback, _toggler);
+
+          const source = opt.arrCol.source;
+          for (const data of source) {
+            if (data.key === opt.selected || data === opt.selected) {
+              const key = data.key ? data.key : data;
+              opt.review.renderText = data.renderText ? data.renderText : () => key;
+              break;
+            }
+          }
         }
       }
     }

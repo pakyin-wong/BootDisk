@@ -88,6 +88,10 @@ namespace we {
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '进入游戏',
 
+      mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
+
+      mobile_dropdown_confirm: '确定',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',
@@ -167,6 +171,25 @@ namespace we {
         even: '双',
         red: '红',
         black: '黑',
+        distribution: '散布',
+        tiers: {
+          text: '轮盘下角注',
+          x: 23,
+        },
+
+        orphelins: {
+          text: '轮上孤注',
+          x: 62,
+        },
+
+        voisins: {
+          text: '零旁注上角',
+          x: 16,
+        },
+
+        zero: {
+          text: '轮上零旁',
+        },
       },
       goodroad: {
         r1: '长庄',
