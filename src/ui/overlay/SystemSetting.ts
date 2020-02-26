@@ -37,37 +37,67 @@ namespace we {
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
         this._txt_term.renderText = () => `${i18n.t('nav.system.term')}`;
 
-        this._ddm_currLang.isDropdown = true;
-        this._ddm_currLang.isPoppable = true;
-        this._ddm_currLang.dismissOnClickOutside = true;
-        this._ddm_currLang.setToggler(this._btn_currLang);
-        this._ddm_currLang.dropdown.review = this._txt_currLang;
-        this._ddm_currLang.dropdown.data.replaceAll([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
-        this._ddm_currLang.dropdown.select(env.language);
+        const _arrCol_currLang = [ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)];
+        if (this._ddm_currLang) {
+          this._ddm_currLang.isDropdown = true;
+          this._ddm_currLang.isPoppable = true;
+          this._ddm_currLang.dismissOnClickOutside = true;
+          this._ddm_currLang.setToggler(this._btn_currLang);
+          this._ddm_currLang.dropdown.review = this._txt_currLang;
+          this._ddm_currLang.dropdown.data.replaceAll(_arrCol_currLang);
+          this._ddm_currLang.dropdown.select(env.language);
+        }
+        utils.DropdownCreator.new({
+          toggler: this._btn_currLang,
+          review: this._txt_currLang,
+          source: _arrCol_currLang,
+          title: () => ``,
+          selected: env.language,
+        });
 
-        this._ddm_currFx.isDropdown = true;
-        this._ddm_currFx.isPoppable = true;
-        this._ddm_currFx.dismissOnClickOutside = true;
-        this._ddm_currFx.setToggler(this._btn_currFx);
-        this._ddm_currFx.dropdown.review = this._txt_currFx;
-        this._ddm_currFx.dropdown.data.replaceAll([
+        const _arrCol_currFx = [
           ui.NewDropdownItem('cantonese', () => `${i18n.t('voice_cantonese')}`),
           ui.NewDropdownItem('mandarin', () => `${i18n.t('voice_mandarin')}`),
           ui.NewDropdownItem('english', () => `${i18n.t('voice_english')}`),
-        ]);
-        this._ddm_currFx.dropdown.select(env.voice);
+        ];
+        if (this._ddm_currFx) {
+          this._ddm_currFx.isDropdown = true;
+          this._ddm_currFx.isPoppable = true;
+          this._ddm_currFx.dismissOnClickOutside = true;
+          this._ddm_currFx.setToggler(this._btn_currFx);
+          this._ddm_currFx.dropdown.review = this._txt_currFx;
+          this._ddm_currFx.dropdown.data.replaceAll(_arrCol_currFx);
+          this._ddm_currFx.dropdown.select(env.voice);
+        }
+        utils.DropdownCreator.new({
+          toggler: this._btn_currFx,
+          review: this._txt_currFx,
+          source: _arrCol_currFx,
+          title: () => ``,
+          selected: env.voice,
+        });
 
-        this._ddm_currBgm.isDropdown = true;
-        this._ddm_currBgm.isPoppable = true;
-        this._ddm_currBgm.dismissOnClickOutside = true;
-        this._ddm_currBgm.setToggler(this._btn_currBgm);
-        this._ddm_currBgm.dropdown.review = this._txt_currBgm;
-        this._ddm_currBgm.dropdown.data.replaceAll([
+        const _arrCol_currBgm = [
           ui.NewDropdownItem(1, () => `${i18n.t('nav.system.bgm')} 01`),
           ui.NewDropdownItem(2, () => `${i18n.t('nav.system.bgm')} 02`),
           ui.NewDropdownItem(3, () => `${i18n.t('nav.system.bgm')} 03`),
-        ]);
-        this._ddm_currBgm.dropdown.select(env.bgm);
+        ];
+        if (this._ddm_currBgm) {
+          this._ddm_currBgm.isDropdown = true;
+          this._ddm_currBgm.isPoppable = true;
+          this._ddm_currBgm.dismissOnClickOutside = true;
+          this._ddm_currBgm.setToggler(this._btn_currBgm);
+          this._ddm_currBgm.dropdown.review = this._txt_currBgm;
+          this._ddm_currBgm.dropdown.data.replaceAll(_arrCol_currBgm);
+          this._ddm_currBgm.dropdown.select(env.bgm);
+        }
+        utils.DropdownCreator.new({
+          toggler: this._btn_currBgm,
+          review: this._txt_currBgm,
+          source: _arrCol_currBgm,
+          title: () => ``,
+          selected: env.bgm,
+        });
 
         this._txt_version.text = env.version;
 
@@ -88,9 +118,15 @@ namespace we {
         this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.onSoundFxAdjust, this);
         this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.onBGMAdjust, this);
 
-        this._ddm_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
-        this._ddm_currFx.addEventListener('DROPDOWN_ITEM_CHANGE', this.onFxSelect, this);
-        this._ddm_currBgm.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
+        if (env.isMobile) {
+          this._btn_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+          this._btn_currFx.addEventListener('DROPDOWN_ITEM_CHANGE', this.onFxSelect, this);
+          this._btn_currBgm.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
+        } else {
+          this._ddm_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+          this._ddm_currFx.addEventListener('DROPDOWN_ITEM_CHANGE', this.onFxSelect, this);
+          this._ddm_currBgm.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
+        }
       }
 
       protected removeListeners() {
@@ -98,9 +134,15 @@ namespace we {
         this._slider_soundfx.removeEventListener(ui.Slider.PROGRESS, this.onSoundFxAdjust, this);
         this._slider_bgm.removeEventListener(ui.Slider.PROGRESS, this.onBGMAdjust, this);
 
-        this._ddm_currLang.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
-        this._ddm_currFx.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onFxSelect, this);
-        this._ddm_currBgm.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
+        if (env.isMobile) {
+          this._btn_currLang.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+          this._btn_currFx.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onFxSelect, this);
+          this._btn_currBgm.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
+        } else {
+          this._ddm_currLang.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+          this._ddm_currFx.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onFxSelect, this);
+          this._ddm_currBgm.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
+        }
       }
 
       private onLiveRecordAdjust(e) {
@@ -120,19 +162,19 @@ namespace we {
 
       private onLangSelect(e) {
         i18n.setLang(e.data);
-        this._ddm_currLang.dropdown.select(env.language);
+        this._ddm_currLang && this._ddm_currLang.dropdown.select(env.language);
       }
 
       private onFxSelect(e) {
         env.voice = e.data;
         dir.evtHandler.dispatch(core.Event.VOICE_UPDATE, e.data);
-        this._ddm_currFx.dropdown.select(env.voice);
+        this._ddm_currFx && this._ddm_currFx.dropdown.select(env.voice);
       }
 
       private onBgmSelect(e) {
         env.bgm = e.data;
         dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
-        this._ddm_currBgm.dropdown.select(env.bgm);
+        this._ddm_currBgm && this._ddm_currBgm.dropdown.select(env.bgm);
       }
     }
   }

@@ -4,6 +4,7 @@ namespace we {
     export class Monitor {
       private _nav: ui.Nav;
       private _navSilderMenu: ui.NavSilderMenu;
+      private _mDropdown: ui.MobileDropdown;
       private _notificationController: ui.NotificationController;
       private _liveSidePanel: ui.LiveSidePanel;
       private _overlay: ui.Overlay;
@@ -19,26 +20,32 @@ namespace we {
 
       public start(stage: egret.Stage) {
         this._nav = new ui.Nav();
-        this._navSilderMenu = new ui.NavSilderMenu();
         this._notificationController = new ui.NotificationController();
         this._overlay = new ui.Overlay();
 
         dir.layerCtr.nav.addChild(this._nav);
         dir.layerCtr.top.addChild(this._notificationController);
-        dir.layerCtr.overlay.addChild(this._navSilderMenu);
-        dir.layerCtr.overlay.addChild(this._overlay);
+
+        if (env.isMobile) {
+          this._navSilderMenu = new ui.NavSilderMenu();
+          this._mDropdown = new ui.MobileDropdown();
+
+          dir.layerCtr.overlay.addChild(this._navSilderMenu);
+          dir.layerCtr.overlay.addChild(this._overlay);
+          dir.layerCtr.overlay.addChild(this._mDropdown);
+        } else {
+          this._liveSidePanel = new ui.LiveSidePanel();
+          this._liveSidePanel.right = 20;
+          this._liveSidePanel.y = 80;
+
+          dir.layerCtr.top.addChild(this._liveSidePanel);
+          dir.layerCtr.overlay.addChild(this._overlay);
+        }
 
         this._nav.touchEnabled = false;
 
         this._notificationController.x = stage.stageWidth - 410;
         this._notificationController.y = 240;
-
-        if (!env.isMobile) {
-          this._liveSidePanel = new ui.LiveSidePanel();
-          dir.layerCtr.top.addChild(this._liveSidePanel);
-          this._liveSidePanel.right = 20;
-          this._liveSidePanel.y = 80;
-        }
 
         if (env.mode < 0) {
           dir.evtHandler.createOverlay({

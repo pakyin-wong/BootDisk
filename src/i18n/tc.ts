@@ -82,6 +82,8 @@ namespace we {
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',
 
+      mobile_dropdown_confirm: '確定',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
