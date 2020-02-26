@@ -1,6 +1,11 @@
 namespace we {
   export namespace ui {
-    export class GameResultMessage extends core.BaseEUI {
+    export interface IGameResultMessage {
+      showResult(gameType: core.GameType, resultData: any);
+      clearMessage();
+    }
+
+    export class GameResultMessage extends core.BaseEUI implements IGameResultMessage {
       private _display: dragonBones.EgretArmatureDisplay = null;
       private testing = true;
 

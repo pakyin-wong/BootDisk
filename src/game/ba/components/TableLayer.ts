@@ -45,13 +45,20 @@ namespace we {
         this._imageMapping[ba.BetField.SUPER_SIX] = this._superSixImage;
 
         this._imageSourceMapping = {};
-        this._imageSourceMapping[ba.BetField.PLAYER] = [this._imageMapping[ba.BetField.PLAYER].source, this._imageMapping[ba.BetField.PLAYER].name];
-        this._imageSourceMapping[ba.BetField.BANKER] = [this._imageMapping[ba.BetField.BANKER].source, this._imageMapping[ba.BetField.BANKER].name];
-        this._imageSourceMapping[ba.BetField.PLAYER_PAIR] = [this._imageMapping[ba.BetField.PLAYER_PAIR].source, this._imageMapping[ba.BetField.PLAYER_PAIR].name];
-        this._imageSourceMapping[ba.BetField.TIE] = [this._imageMapping[ba.BetField.TIE].source, this._imageMapping[ba.BetField.TIE].name];
-        this._imageSourceMapping[ba.BetField.BANKER_PAIR] = [this._imageMapping[ba.BetField.BANKER_PAIR].source, this._imageMapping[ba.BetField.BANKER_PAIR].name];
-        this._imageSourceMapping[ba.BetField.SUPER_SIX_BANKER] = [this._imageMapping[ba.BetField.SUPER_SIX_BANKER].source, this._imageMapping[ba.BetField.SUPER_SIX_BANKER].name];
-        this._imageSourceMapping[ba.BetField.SUPER_SIX] = [this._imageMapping[ba.BetField.SUPER_SIX].source, this._imageMapping[ba.BetField.SUPER_SIX].name];
+        let image = this._imageMapping[ba.BetField.PLAYER];
+        this._imageSourceMapping[ba.BetField.PLAYER] = [image.source, image.name ? image.name : image.source];
+        image = this._imageMapping[ba.BetField.BANKER];
+        this._imageSourceMapping[ba.BetField.BANKER] = [image.source, image.name ? image.name : image.source];
+        image = this._imageMapping[ba.BetField.PLAYER_PAIR];
+        this._imageSourceMapping[ba.BetField.PLAYER_PAIR] = [image.source, image.name ? image.name : image.source];
+        image = this._imageMapping[ba.BetField.TIE];
+        this._imageSourceMapping[ba.BetField.TIE] = [image.source, image.name ? image.name : image.source];
+        image = this._imageMapping[ba.BetField.BANKER_PAIR];
+        this._imageSourceMapping[ba.BetField.BANKER_PAIR] = [image.source, image.name ? image.name : image.source];
+        image = this._imageMapping[ba.BetField.SUPER_SIX_BANKER];
+        this._imageSourceMapping[ba.BetField.SUPER_SIX_BANKER] = [image.source, image.name ? image.name : image.source];
+        image = this._imageMapping[ba.BetField.SUPER_SIX];
+        this._imageSourceMapping[ba.BetField.SUPER_SIX] = [image.source, image.name ? image.name : image.source];
 
         this._totalPersonMapping = {};
         this._totalPersonMapping[ba.BetField.PLAYER] = this._playerTotalPerson;

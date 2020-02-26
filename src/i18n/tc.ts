@@ -91,6 +91,8 @@ namespace we {
 
       mobile_game_panel_bet_hint_label: '提示：點擊下注區進行追注或進入遊戲',
 
+      mobile_dropdown_confirm: '確定',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',

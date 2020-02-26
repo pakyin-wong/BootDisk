@@ -50,17 +50,18 @@ class Main extends eui.UILayer {
     }
     document.documentElement.className = cn.join(' ');
 
-    // if (env.UAInfo.device.type === 'mobile') {
-    env.isMobile = true;
+    const { type } = env.UAInfo.device;
+    if ('mobile' === 'mobile') {
+      env.isMobile = true;
 
-    // use these when there is portrait mode only
-    this.stage.setContentSize(1242, 2155);
-    this.stage.orientation = egret.OrientationMode.PORTRAIT;
-    env.orientation = egret.OrientationMode.PORTRAIT;
+      // use these when there is portrait mode only
+      this.stage.setContentSize(1242, 2155);
+      this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      env.orientation = egret.OrientationMode.PORTRAIT;
 
-    // uncomment below when there are both portrait and landscape layout
-    // this.orientationManager = new we.utils.OrientationManager(this.stage);
-    // }
+      // uncomment below when there are both portrait and landscape layout
+      // this.orientationManager = new we.utils.OrientationManager(this.stage);
+    }
 
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.LiveListItemBettingTableSkin" currentState="Normal"
+<e:Skin class="skin_mobile_portrait.ba.LiveListItemChipLayerSkin" currentState="Normal"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal,SuperSix">
 	<e:Group id="_playerGroup" x="0" y="0" width="289" height="96">
