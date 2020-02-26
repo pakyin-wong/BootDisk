@@ -70,6 +70,14 @@ namespace we {
       }
       // end;
 
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        if (this._rightGamePanel.raceTrackChipLayer) {
+          this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
+          this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
+        }
+      }
+
       public checkResultMessage() {
         let totalWin: number = NaN;
         if (this._tableInfo.totalWin) {

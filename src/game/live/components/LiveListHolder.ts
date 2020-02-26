@@ -46,6 +46,9 @@ namespace we {
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
+          case we.core.GameType.RO:
+            generalGameType = 'ro';
+            break;
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';

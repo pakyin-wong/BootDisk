@@ -95,7 +95,7 @@ namespace we {
         if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY)) {
           this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
-        } else if (this.target.hitTestPoint(e.stageX, e.stageY)) {
+        } else if (this.target.$hitTest(e.stageX, e.stageY)) {
           return;
         } else if (this.dismissOnClickOutside) {
           this.target.dispatchEvent(new egret.Event('close'));

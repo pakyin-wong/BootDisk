@@ -448,6 +448,10 @@ declare module skin_desktop.ro{
 	class RaceTrackTableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ro{
+	class BetItemCardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RoLeftPanel extends eui.Skin{
 	}
@@ -862,6 +866,10 @@ declare module skin_mobile_portrait.ro{
 	class ResultHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.ro{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class RoLeftPanel extends eui.Skin{
 	}
@@ -878,9 +886,25 @@ declare module skin_mobile_portrait{
 	class ScrollBarVertical extends eui.Skin{
 	}
 }
+declare class AllGameSubTabItemSkin extends eui.Skin{
+}
 declare module skin_mobile_portrait{
 	class GameListButtonSkin extends eui.Skin{
 	}
+}
+declare module skin_mobile_portrait{
+	class GamePanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class GamePanelTabButtonSkin extends eui.Skin{
+	}
+}
+declare class AllGameGamePanelSkin extends eui.Skin{
+}
+declare class AlreadyBetGamePanel extends eui.Skin{
+}
+declare class GoodRoadGamePanel extends eui.Skin{
 }
 declare module skin_mobile_portrait{
 	class Slider extends eui.Skin{
