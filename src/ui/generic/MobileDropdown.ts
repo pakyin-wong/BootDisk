@@ -115,6 +115,7 @@ namespace we {
       }
 
       protected syncResult() {
+        this._scroller.stopAnimation();
         this._opt.review && (this._opt.review.renderText = this._list.selectedItem.renderText);
         this._opt.toggler.dispatchEvent(new egret.Event('DROPDOWN_ITEM_CHANGE', false, false, this._list.selectedItem.key));
         this._opt = null;
