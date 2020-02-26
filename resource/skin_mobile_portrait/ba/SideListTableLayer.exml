@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.SideListBettingTableSkin" currentState="Normal" width="339" height="110"
+<e:Skin class="skin_mobile_portrait.ba.SideListTableLayerSkin" currentState="Normal" width="1140" height="294"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
-	<e:Group id="_playerGroup" x="0" y="0" width="170" height="57">
-		<e:Image id="_playerImage" source="d_lobby_panel_betcontrol_betarea_player_normal_png" x="0" y="0" width="170"
-		         height="57" />
-		<ui:RunTimeLabel id="_playerLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+	<e:Group id="_playerGroup" x="0" y="0" width="570" height="147">
+		<e:Image id="_playerImage" source="m_lobby_panel_gamelist_betrecord_player_png" left="0" top="0" bottom="0" right="0" />
+		<ui:RunTimeLabel id="_playerLabel" verticalCenter="0" horizontalCenter="0" size="24" />
 	</e:Group>
-	<e:Group id="_bankerGroup" x="170" y="0" width="169" height="57">
-		<e:Image id="_bankerImage" source="d_lobby_panel_betcontrol_betarea_banker_normal_png" width="573" height="191" />
-		<ui:RunTimeLabel id="_bankerLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+	<e:Group id="_bankerGroup" x="570" y="0" width="570" height="147">
+		<e:Image id="_bankerImage" source="m_lobby_panel_gamelist_betrecord_banker_png" top="0" bottom="0" right="0" left="0" />
+		<ui:RunTimeLabel id="_bankerLabel" verticalCenter="0" horizontalCenter="0" size="24" />
 	</e:Group>
-	<e:Group id="_playerPairGroup" x="0" y="57" width="113" height="53">
-		<e:Image id="_playerPairImage" source="d_lobby_panel_betcontrol_betarea_playerpair_normal_png" width="113" height="53" />
-		<ui:RunTimeLabel id="_playerPairLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+	<e:Group id="_playerPairGroup" x="0" y="147" width="380" height="147">
+		<e:Image id="_playerPairImage" source="m_lobby_panel_gamelist_betrecord_playerpair_png" left="0" top="0" bottom="0"
+		         right="0" />
+		<ui:RunTimeLabel id="_playerPairLabel" verticalCenter="0" horizontalCenter="0" size="24" />
 	</e:Group>
-	<e:Group id="_tieGroup" x="113" y="57" width="113" height="53">
-		<e:Image id="_tieImage" source="d_lobby_panel_betcontrol_betarea_tie_normal_png" width="113" height="53" />
-		<ui:RunTimeLabel id="_tieLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+	<e:Group id="_tieGroup" x="380" y="147" width="380" height="147">
+		<e:Image id="_tieImage" source="m_lobby_panel_gamelist_betrecord_tie_png" left="0" top="0" bottom="0" right="0" />
+		<ui:RunTimeLabel id="_tieLabel" verticalCenter="0" horizontalCenter="0" size="24" />
 	</e:Group>
-	<e:Group id="_bankerPair" x="226" y="57" width="113" height="53">
-		<e:Image id="_bankerPairImage" source="d_lobby_panel_betcontrol_betarea_bankerpair_normal_png" width="113" height="53" />
-		<ui:RunTimeLabel id="_bankerPairLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+	<e:Group id="_bankerPair" x="760" y="147" width="380" height="147">
+		<e:Image id="_bankerPairImage" source="m_lobby_panel_gamelist_betrecord_bankerpair_png" left="0" top="0" bottom="0"
+		         right="0" />
+		<ui:RunTimeLabel id="_bankerPairLabel" verticalCenter="0" horizontalCenter="0" size="24" />
 	</e:Group>
 	<e:Group id="_superSixBanker" visible="false">
 		<e:Image id="_superSixBankerImage" />

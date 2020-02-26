@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class SidePanelGameResultMessage extends GameResultMessage {
+    export class SidePanelGameResultMessage extends ImageGameResultMessage {
       protected _bg: eui.Image;
       protected _label: eui.IDisplayText & egret.DisplayObject;
       protected _numlabel: eui.IDisplayText & egret.DisplayObject;
