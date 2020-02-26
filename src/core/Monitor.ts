@@ -9,6 +9,8 @@ namespace we {
       private _overlay: ui.Overlay;
       private _msg: ui.MsgOverlay;
 
+      private _sideGameList: ui.MobileSideGameList;
+
       public preload() {
         this._msg = new ui.MsgOverlay();
 
@@ -42,6 +44,13 @@ namespace we {
           dir.layerCtr.top.addChild(gameListButton);
           gameListButton.right = 50;
           gameListButton.y = 241;
+
+          this._sideGameList = new ui.MobileSideGameList();
+          dir.layerCtr.overlay.addChild(this._sideGameList);
+          this._sideGameList.bottom = 0;
+          this._sideGameList.setToggler(gameListButton);
+          this._sideGameList.isPoppable = true;
+          this._sideGameList.dismissOnClickOutside = true;
         }
 
         if (env.mode < 0) {
@@ -57,6 +66,10 @@ namespace we {
 
       private updateBalance() {
         dir.meterCtr.rackTo('balance', env.balance, 0);
+      }
+
+      public dismissMobileGameList() {
+        if (this._sideGameList) { this._sideGameList.hide(); }
       }
     }
   }

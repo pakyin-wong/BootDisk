@@ -82,6 +82,8 @@ namespace we {
       mobile_quick_bet_button_label: 'QuickBet',
       mobile_enter_table_button_label: 'Enter',
 
+      mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
