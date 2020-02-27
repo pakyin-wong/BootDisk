@@ -173,7 +173,7 @@ namespace we {
       public addTouchTapListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(value), this);
+            this._mouseAreaMapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdateEvent, this);
           }
         });
       }
@@ -181,7 +181,7 @@ namespace we {
       public removeTouchTapListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdate(value), this);
+            this._mouseAreaMapping[value].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdateEvent, this);
           }
         });
       }
@@ -207,6 +207,13 @@ namespace we {
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
         this.touchChildren = enable;
+        Object.keys(this._mouseAreaMapping).forEach(value => {
+          if (this._mouseAreaMapping[value]) {
+            this._mouseAreaMapping[value].touchEnabled = enable;
+            this._mouseAreaMapping[value].touchChildren = enable;
+          }
+        });
+
         if (!enable) {
           this.cancelBet();
         }
@@ -254,7 +261,14 @@ namespace we {
         return env.betLimits[this._getSelectedBetLimitIndex()].chipList[this._getSelectedChipIndex()];
       }
 
-      public onBetFieldUpdate(fieldName: string) {
+      public onBetFieldUpdateEvent(evt: egret.Event) {
+        const target = evt.target;
+        console.log(evt);
+        const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
+        this.onBetFieldUpdate(fieldName)();
+      }
+
+      public onBetFieldUpdate(fieldName) {
         return () => {
           const grid = this.getUncfmBetByField(fieldName);
           const betDetail = { field: fieldName, amount: this.getOrderAmount() };

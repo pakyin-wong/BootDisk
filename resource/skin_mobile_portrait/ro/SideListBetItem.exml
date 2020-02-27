@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.dt.SideListBetItemSkin" width="1140" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.ro.SideListBetItemSkin" width="1140" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:live="we.live.*"
         xmlns:w="http://ns.egret.com/wing" minHeight="158" height="399">
 	<e:Group id="_contentContainer" x="0" height="399" width="100%" touchEnabled="false" touchChildren="true">

@@ -50,7 +50,8 @@ class Main extends eui.UILayer {
     }
     document.documentElement.className = cn.join(' ');
 
-    if (env.UAInfo.device.type === 'mobile') {
+    const { type } = env.UAInfo.device;
+    if ('mobile' === 'mobile') {
       env.isMobile = true;
 
       // use these when there is portrait mode only
