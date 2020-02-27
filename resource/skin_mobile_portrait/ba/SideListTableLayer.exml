@@ -4,23 +4,28 @@
         states="Normal">
 	<e:Group id="_playerGroup" x="0" y="0" width="570" height="163">
 		<e:Image id="_playerImage" source="m_lobby_panel_gamelist_betrecord_player_png" width="570" height="163" />
-		<ui:RunTimeLabel id="_playerLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+		<ui:RunTimeLabel id="_playerLabel" verticalCenter="0" horizontalCenter="0" size="64"
+		                 fontFamily="Microsoft JhengHei,Helvetica" text="" bold="true" />
 	</e:Group>
 	<e:Group id="_bankerGroup" x="570" y="0" width="570" height="163" anchorOffsetX="0">
 		<e:Image id="_bankerImage" source="m_lobby_panel_gamelist_betrecord_banker_png" width="570" height="163" />
-		<ui:RunTimeLabel id="_bankerLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+		<ui:RunTimeLabel id="_bankerLabel" verticalCenter="0" horizontalCenter="0" size="64"
+		                 fontFamily="Microsoft JhengHei,Helvetica" bold="true" />
 	</e:Group>
 	<e:Group id="_playerPairGroup" x="0" y="163" width="380" height="144">
 		<e:Image id="_playerPairImage" source="m_lobby_panel_gamelist_betrecord_playerpair_png" width="380" height="144" />
-		<ui:RunTimeLabel id="_playerPairLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+		<ui:RunTimeLabel id="_playerPairLabel" verticalCenter="0" horizontalCenter="0" size="64"
+		                 fontFamily="Microsoft JhengHei,Helvetica" bold="true" />
 	</e:Group>
 	<e:Group id="_tieGroup" x="380" y="163" width="380" height="144">
 		<e:Image id="_tieImage" source="m_lobby_panel_gamelist_betrecord_tie_png" width="380" height="144" />
-		<ui:RunTimeLabel id="_tieLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+		<ui:RunTimeLabel id="_tieLabel" verticalCenter="0" horizontalCenter="0" size="64"
+		                 fontFamily="Microsoft JhengHei,Helvetica" bold="true" />
 	</e:Group>
 	<e:Group id="_bankerPair" x="760" y="163" width="380" height="144">
 		<e:Image id="_bankerPairImage" source="m_lobby_panel_gamelist_betrecord_bankerpair_png" width="380" height="144" />
-		<ui:RunTimeLabel id="_bankerPairLabel" verticalCenter="0" horizontalCenter="0" size="15" />
+		<ui:RunTimeLabel id="_bankerPairLabel" verticalCenter="0" horizontalCenter="0" size="64"
+		                 fontFamily="Microsoft JhengHei,Helvetica" bold="true" />
 	</e:Group>
 	<e:Group id="_superSixBanker" visible="false">
 		<e:Image id="_superSixBankerImage" />
