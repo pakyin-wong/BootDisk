@@ -437,6 +437,22 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop.ro{
+	class RaceTrackChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class RaceTrackControlSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class RaceTrackTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class BetItemCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
 	class ROBigRoadResultPanelSkin extends eui.Skin{
 	}
 }
@@ -521,11 +537,19 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait.ba{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
 	class LiveListItemBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
 	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
+	class LiveOverlayItemSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
@@ -541,11 +565,11 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait.ba{
-	class SideListBettingTableSkin extends eui.Skin{
+	class SideListChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
-	class SideListItemSkin extends eui.Skin{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -617,14 +641,6 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class CountdownTimerRoundSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class CountdownTimerRoundSmallSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
 	class BaBetLimitDropdownSkin extends eui.Skin{
 	}
 }
@@ -682,10 +698,6 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class SideListChipLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.dt{
-	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dt{
@@ -757,6 +769,14 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class MobileDropdown extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class MobileDropdownItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class IconItem extends eui.Skin{
 	}
 }
@@ -821,6 +841,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class MobileQuickBet extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class ModeSelect extends eui.Skin{
 	}
 }
@@ -844,12 +868,20 @@ declare module skin_mobile_portrait.ro{
 	class ResultHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.ro{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class RoLeftPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
 	class RouletteScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class SideListBetItemSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro.bettingTable{
@@ -860,9 +892,27 @@ declare module skin_mobile_portrait{
 	class ScrollBarVertical extends eui.Skin{
 	}
 }
+declare module skin_mobile{
+	class AllGameSubTabItemSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class GameListButtonSkin extends eui.Skin{
 	}
+}
+declare module skin_mobile_portrait{
+	class GamePanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class GamePanelTabButtonSkin extends eui.Skin{
+	}
+}
+declare class AllGameGamePanelSkin extends eui.Skin{
+}
+declare class AlreadyBetGamePanel extends eui.Skin{
+}
+declare class GoodRoadGamePanel extends eui.Skin{
 }
 declare module skin_mobile_portrait{
 	class Slider extends eui.Skin{
@@ -878,5 +928,13 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class UserInfoWindow extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class CountdownTimerRoundSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class CountdownTimerRoundSmallSkin extends eui.Skin{
 	}
 }

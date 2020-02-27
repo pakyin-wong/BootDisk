@@ -44,9 +44,26 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        this._tableLayer.visible = enable;
         this._chipLayer.visible = enable;
         this._chipLayer.setTouchEnabled(this._betEnabled);
+        if (this._tableInfo) {
+          switch (this._tableInfo.gametype) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAI:
+            case we.core.GameType.DT:
+              this._tableLayer.visible = enable;
+              break;
+            case we.core.GameType.RO:
+            default:
+              if (enable) {
+                this._tableLayer.alpha = 1;
+              } else {
+                this._tableLayer.alpha = 0.4;
+              }
+              break;
+          }
+        }
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {

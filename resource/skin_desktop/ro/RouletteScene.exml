@@ -25,7 +25,7 @@
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_undo" />
 	</e:Group>
-	<ro:ResultHolder id="_resultDisplay" width="412" height="152" y="631" horizontalCenter="1" anchorOffsetX="0"
+	<ro:ResultHolder id="_resultDisplay" width="219" height="88" y="510" horizontalCenter="440.5" anchorOffsetX="0"
 	                 anchorOffsetY="0" />
 	<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />
 	<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />
@@ -48,14 +48,11 @@
 	<ba:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel" />
-	<e:Group height="50" x="2274" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="304">
-		<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
-		<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88.32999999999993" y="28.83000000000004" scaleX="1" scaleY="1" />
-		<e:layout>
-			<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
-		</e:layout>
-	</e:Group>
 	<ro:ROBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
 	                         anchorOffsetY="0" visible="false" />
+	<e:Label id="_testing1" text="Result:" x="971.5" y="631" />
+	<e:Label id="_testing2" text="Win Amount:" x="893.5" y="568" />
+	<e:Label id="_testingWinAmount" text="" x="1105" y="569" />
+	<e:Label id="_testingResult" text="" x="1115" y="636" anchorOffsetY="0" />
 </e:Skin>
 

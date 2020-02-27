@@ -44,6 +44,10 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        if (this._dropdown) {
+          this._toggler = this._dropdown.toggler;
+        }
+
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
@@ -71,7 +75,7 @@ namespace we {
           evt.stopPropagation();
           return;
         }
-        if (evt.target === this._dropdown.toggler || evt.target === this) {
+        if (evt.target === this._toggler || evt.target === this) {
           evt.stopPropagation();
           return;
         }

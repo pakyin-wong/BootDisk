@@ -11,9 +11,10 @@ namespace we {
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
-      protected _resultMessage: ui.GameResultMessage;
+      protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
+      protected _toggler: egret.DisplayObject;
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
       // table name label
@@ -170,7 +171,7 @@ namespace we {
         if (this._betDetails && this._chipLayer) {
           this._chipLayer.showWinEffect(this._betDetails);
           if (this._resultMessage) {
-            this.checkResultMessage(this.tableInfo.totalWin);
+            this.checkResultMessage();
           }
         }
       }
@@ -312,7 +313,7 @@ namespace we {
           }
 
           if (this._resultMessage) {
-            this.checkResultMessage(this.tableInfo.totalWin);
+            this.checkResultMessage();
           }
         }
       }
@@ -371,7 +372,11 @@ namespace we {
         }
         return false;
       }
-      public checkResultMessage(totalWin: number = NaN) {
+      public checkResultMessage() {
+        let totalWin: number = NaN;
+        if (this._tableInfo.totalWin) {
+          totalWin = this._tableInfo.totalWin;
+        }
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {

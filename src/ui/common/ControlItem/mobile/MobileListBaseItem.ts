@@ -14,6 +14,8 @@ namespace we {
 
       protected _isButtonGroupShow: boolean = false;
 
+      protected _toggler: ui.RunTimeLabel;
+
       public constructor(skinName: string = null) {
         super(skinName);
 
@@ -30,6 +32,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        // draw border corner radius
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 48, 48);
@@ -50,6 +53,55 @@ namespace we {
         this._enterTableButton.label.renderText = () => {
           return i18n.t('mobile_enter_table_button_label');
         };
+
+        if (this._toggler) {
+          this.initBetLimitSelector();
+        }
+      }
+
+      protected initBetLimitSelector() {
+        const betLimitList = env.betLimits;
+        const betLimitItems = betLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        const dropdownSource = betLimitList.map((data, index) => {
+          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+        });
+
+        const selectedIndex = env.currentSelectedBetLimitIndex;
+
+        utils.DropdownCreator.new({
+          toggler: this._toggler,
+          review: this._toggler,
+          arrCol: new eui.ArrayCollection(dropdownSource),
+          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+          selected: 0,
+        });
+
+        this.updateBetLimit(selectedIndex);
+
+        this._toggler.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      }
+
+      protected onBetLimitSelected(evt: egret.Event) {
+        const selected = evt.data;
+        env.currentSelectedBetLimitIndex = selected;
+        dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
+        this.updateBetLimit(selected);
+      }
+      protected onBetLimitChanged(evt: egret.Event) {
+        const selectedIndex = env.currentSelectedBetLimitIndex;
+        this.updateBetLimit(selectedIndex);
+      }
+
+      protected updateBetLimit(selectedIndex) {
+        const betLimitList = env.betLimits;
+        const betLimitItems = betLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        if (this._toggler) {
+          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+        }
       }
 
       public getActionButton(): eui.Component {
@@ -57,7 +109,7 @@ namespace we {
       }
 
       protected onTouchTap(evt: egret.Event) {
-        if (evt.target === this._dropdown.toggler || evt.target === this) {
+        if (evt.target === this._toggler || evt.target === this) {
           evt.stopPropagation();
           return;
         }
@@ -78,12 +130,14 @@ namespace we {
         super.addEventListeners();
         this._quickBetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickQuickBetButton, this);
         this._enterTableButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickEnterRoomButton, this);
+        dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
         this._quickBetButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickQuickBetButton, this);
         this._enterTableButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickEnterRoomButton, this);
+        dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
       }
 
       protected showButtonGroup() {
@@ -115,10 +169,15 @@ namespace we {
 
       public onClickQuickBetButton(evt: egret.Event) {
         // show quick bet popover panel
+        dir.evtHandler.createOverlay({
+          class: 'MobileQuickBet',
+          args: [this._tableId],
+        });
       }
 
       public onClickEnterRoomButton(evt: egret.Event) {
         // enter game room
+        dir.moniter.dismissMobileGameList();
         this.gotoScene();
       }
 

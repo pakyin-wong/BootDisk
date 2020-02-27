@@ -82,6 +82,10 @@ namespace we {
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',
 
+      mobile_game_panel_bet_hint_label: '提示：點擊下注區進行追注或進入遊戲',
+
+      mobile_dropdown_confirm: '確定',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
@@ -233,6 +237,23 @@ namespace we {
         roadmap: '路紙',
         jockeyBet: '馬場下注區',
         customBet: '自選投注組合',
+        distribution: '散佈',
+        tiers: {
+          text: '輪盤下角注',
+          x: 23,
+        },
+        orphelins: {
+          text: '輪上孤注',
+          x: 62,
+        },
+        voisins: {
+          text: '零旁注上角',
+          x: 16,
+        },
+
+        zero: {
+          text: '輪上零旁',
+        },
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',

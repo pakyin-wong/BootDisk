@@ -19,6 +19,24 @@ namespace we {
       return ds(i18n[i18n.lang], s);
     }
 
+    // waiting to be reviewed - if it is right, it will be used to replace this.t()
+    export function e(s: string, ...variables: any[]) {
+      function ds(p: any, c: string) {
+        const a: string[] = c.split('.');
+        if (typeof p === 'object' && c !== '') {
+          return ds(p[a.shift()], a.join('.'));
+        } else if (typeof p === 'string') {
+          return replace(p, variables);
+        } else if (typeof p === 'object') {
+          return p;
+        } else {
+          return s;
+        }
+      }
+
+      return ds(i18n[i18n.lang], s);
+    }
+
     function replace(output: string, variables: any[]): string {
       for (let i = 1; i <= replace.length; i++) {
         output = output.replace('$' + i, variables[i - 1]);

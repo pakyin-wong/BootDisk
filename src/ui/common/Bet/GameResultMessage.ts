@@ -1,6 +1,11 @@
 namespace we {
   export namespace ui {
-    export class GameResultMessage extends core.BaseEUI {
+    export interface IGameResultMessage {
+      showResult(gameType: core.GameType, resultData: any);
+      clearMessage();
+    }
+
+    export class GameResultMessage extends core.BaseEUI implements IGameResultMessage {
       private _display: dragonBones.EgretArmatureDisplay = null;
       private testing = true;
 
@@ -98,7 +103,7 @@ namespace we {
         const { winType, winAmount } = resultData;
         const background = this.getBackground(gameType, winType);
 
-        logger.l(i18n.t(utils.getWinMessageKey(gameType, winType)), background, gameType, winType, winAmount);
+        logger.l(background, gameType, winType, winAmount);
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
@@ -119,21 +124,45 @@ namespace we {
         anim += background;
 
         // update slot text
-        const slot = this._display.armature.getSlot('win_txt');
-        const slot2 = this._display.armature.getSlot('loss_txt');
-        const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
-        bmfont.font = RES.getRes('font_fnt');
-        bmfont.text = 'This';
-        const bmfont2: eui.BitmapLabel = new eui.BitmapLabel();
-        bmfont2.font = RES.getRes('font_fnt');
-        bmfont2.text = 'This';
-        this.visible = true;
-        this._display.animation.play(anim, 1);
+        for (const slotName of ['win_txt', 'loss_txt']) {
+          const slot = this._display.armature.getSlot(slotName);
+          const text: eui.Label = new eui.Label();
+          text.width = 320;
+          text.height = 50;
+          text.size = 50;
+          text.anchorOffsetX = 160;
+          text.anchorOffsetY = 25;
+          text.verticalAlign = egret.VerticalAlign.MIDDLE;
+          text.textAlign = egret.HorizontalAlign.CENTER;
+          text.text = i18n.t(utils.getWinMessageKey(gameType, winType));
+          this.visible = true;
+          this._display.animation.play(anim, 1);
+          slot.display = text;
+        }
+
+        if (!isNaN(winAmount)) {
+          let slotName;
+          if (winAmount > 0) {
+            slotName = '+800';
+          } else {
+            slotName = '+8001';
+          }
+          const slot = this._display.armature.getSlot(slotName);
+          const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
+          bmfont.font = RES.getRes('font_fnt');
+          bmfont.text = 'This';
+          bmfont.width = 320;
+          bmfont.height = 60;
+          bmfont.anchorOffsetX = 160;
+          bmfont.anchorOffsetY = 30;
+          bmfont.verticalAlign = egret.VerticalAlign.MIDDLE;
+          bmfont.textAlign = egret.HorizontalAlign.CENTER;
+          slot.display = bmfont;
+        }
 
         // setTimeout(() => {
-        //   slot.display = bmfont;
-        //   slot2.display = bmfont2;
-        // }, 100);
+        //   this._display.animation.timeScale = 0;
+        // }, 1500);
       }
 
       protected startAnimRO(gameType: core.GameType, resultData: any) {
@@ -155,18 +184,24 @@ namespace we {
           this
         );
 
+        const [numLeft, numCenter, numRight] = we.ro.getNeighbour(resultNo, 1);
+        const colorMap = {
+          [we.ro.Color.BLACK]: 'b',
+          [we.ro.Color.GREEN]: 'g',
+          [we.ro.Color.RED]: 'r',
+        };
+
         let anim = 'ani_result_';
         if (isNaN(winAmount)) {
           anim += 'nobet_';
         } else {
           anim += 'win_loss_';
         }
-        anim += 'bgr'; // todo
+        anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
 
-        const array = [['L_txt', 60, '5', 16], ['middle_txt', 90, '32', 0], ['L_txt3', 60, '12', 16]];
+        const array = [['L_txt', 60, numLeft, -16], ['middle_txt', 90, numCenter, 0], ['L_txt3', 60, numRight, 16]];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          console.log(this._display);
           const slot = this._display.armature.getSlot(<string> slotName);
           const lbl = new eui.Label();
           lbl.text = <string> text;
@@ -179,6 +214,7 @@ namespace we {
           lbl.textAlign = egret.HorizontalAlign.CENTER;
           lbl.verticalAlign = egret.VerticalAlign.MIDDLE;
           slot.display = lbl;
+          slot.display.rotation = <number> rotate;
         }
 
         this.visible = true;

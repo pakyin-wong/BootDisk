@@ -51,7 +51,6 @@ namespace we {
       }
 
       set totalPerson(persons: any) {
-        this._totalPersonMapping = persons;
         if (this._totalPersonMapping) {
           Object.keys(persons).map(value => {
             if (this._totalPersonMapping[value]) {
@@ -66,7 +65,6 @@ namespace we {
       }
 
       set totalAmount(amounts: any) {
-        this._totalAmountMapping = amounts;
         if (this._totalAmountMapping) {
           Object.keys(amounts).map(value => {
             if (this._totalAmountMapping[value]) {

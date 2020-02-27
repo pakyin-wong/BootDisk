@@ -61,8 +61,8 @@ namespace we {
 
           this._lblBetted.text = count;
         } else {
-          if (this._badgeGroup.parent) {
-            this._badgeGroup.removeChild(this._badgeGroup);
+          if (this._bettedGroup.parent) {
+            this._badgeGroup.removeChild(this._bettedGroup);
           }
         }
       }

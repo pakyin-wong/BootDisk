@@ -2358,21 +2358,6 @@
 			"name": "d_lobby_panel_betcontrol_btn_previous_hover_png"
 		},
 		{
-			"url": "assets/dragonbones/game_result_test/game_result_test_tex.png",
-			"type": "image",
-			"name": "game_result_test_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/game_result_test/game_result_test_ske.json",
-			"type": "json",
-			"name": "game_result_test_ske_json"
-		},
-		{
-			"url": "assets/dragonbones/game_result_test/game_result_test_tex.json",
-			"type": "json",
-			"name": "game_result_test_tex_json"
-		},
-		{
 			"url": "assets/temp/start.png",
 			"type": "image",
 			"name": "start_png"
@@ -3946,7 +3931,8 @@
 		{
 			"url": "assets/m/lobby/m_lobby_panel_gamelist_remark_box.png",
 			"type": "image",
-			"name": "m_lobby_panel_gamelist_remark_box_png"
+			"name": "m_lobby_panel_gamelist_remark_box_png",
+			"scale9grid": "24,24,1,1"
 		},
 		{
 			"url": "assets/m/lobby/m_lobby_panel_gamelist_tag_bg_allgame.png",
