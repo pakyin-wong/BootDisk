@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class MobileBottomGamePanel extends core.BaseGamePanel {
+    export class MobileBottomGamePanel extends core.BaseGamePanel implements IBARoadmapDisplayObject {
       // Left Roadmap
       public beadRoad: BABeadRoad;
 

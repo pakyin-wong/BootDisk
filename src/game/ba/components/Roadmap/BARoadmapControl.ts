@@ -7,8 +7,7 @@ namespace we {
       protected bigEyeRoad: BABigEyeRoad;
       protected smallRoad: BASmallRoad;
       protected cockroachRoad: BACockroachRoad;
-      protected rightPanel: BARoadmapRightPanel;
-      protected mobilePanel: MobileBottomGamePanel;
+      protected targetPanel: core.BaseGamePanel & IBARoadmapDisplayObject; // BARoadmapRightPanel;
       protected beadResultPanel: BaBeadRoadResultPanel;
       public tableid: string;
 
@@ -28,8 +27,7 @@ namespace we {
         this.cockroachRoad = r5;
         this.beadResultPanel = beadResultPanel;
 
-        if (env.isMobile) this.mobilePanel = panel;
-        else this.rightPanel = panel;
+        this.targetPanel = panel;
 
         this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
         this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
@@ -44,19 +42,11 @@ namespace we {
 
         // predict roads
 
-        if (env.isMobile) {
-          this.mobilePanel.iconBankerBead.touchEnabled = true;
-          this.mobilePanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+        this.targetPanel.iconBankerBead.touchEnabled = true;
+        this.targetPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
 
-          this.mobilePanel.iconPlayerBead.touchEnabled = true;
-          this.mobilePanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
-        } else {
-          this.rightPanel.iconBankerBead.touchEnabled = true;
-          this.rightPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
-
-          this.rightPanel.iconPlayerBead.touchEnabled = true;
-          this.rightPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
-        }
+        this.targetPanel.iconPlayerBead.touchEnabled = true;
+        this.targetPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
         // dark/light mode
         // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         // this.onModeUpdate(null);
@@ -231,7 +221,7 @@ namespace we {
                 if (this.tableInfo.gamestatistic) {
                   const stats = this.parser.getIconsFromBeadResult(roadmapData.inGame.bead);
                   const data = this.tableInfo.gamestatistic;
-                  this.mobilePanel.setPredictIcons(
+                  this.targetPanel.setPredictIcons(
                     stats.predictBankerIcons[0],
                     stats.predictBankerIcons[1],
                     stats.predictBankerIcons[2],
@@ -257,7 +247,7 @@ namespace we {
                 if (this.tableInfo.gamestatistic) {
                   const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
                   const stat = this.tableInfo.gamestatistic;
-                  this.mobilePanel.setPredictIcons(
+                  this.targetPanel.setPredictIcons(
                     prediction.predictBankerIcons[0],
                     prediction.predictBankerIcons[1],
                     prediction.predictBankerIcons[2],
@@ -301,18 +291,11 @@ namespace we {
           this.beadRoad.removeEventListener('ClickResult', this.onBeadRoadClick, this);
         }
 
-        if (this.mobilePanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.mobilePanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+        if (this.targetPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.targetPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
         }
-        if (this.mobilePanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.mobilePanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
-        }
-
-        if (this.rightPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.rightPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
-        }
-        if (this.rightPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.rightPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        if (this.targetPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.targetPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
         }
 
         // if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
