@@ -435,9 +435,9 @@ namespace we {
             this._resultDisplay.updateResult(this._gameData);
           }
 
-          if (this._resultMessage) {
-            this.checkResultMessage();
-          }
+          // if (this._resultMessage) {
+          //   this.checkResultMessage();
+          // }
         }
       }
       protected setStateRefund(isInit: boolean = false) {

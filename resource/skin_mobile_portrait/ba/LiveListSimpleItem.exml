@@ -5,14 +5,19 @@
 	<e:Group id="_contentContainer" width="100%" height="272" x="0" y="0" anchorOffsetY="0">
 		<e:Rect height="80" y="0" fillColor="0x202020" left="0" right="0" />
 		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0" skinName="skin_mobile.CountdownTimerRoundSmallSkin" />
-		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="84.68" y="23.99" />
+		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="85" y="24" text="" />
 		<ba:BAMobileLobbyBigRoad id="_bigRoad" width="100%" height="192" y="80" anchorOffsetY="0" />
 		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
 		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
 		                  y="167.5" infoBg="m_common_gamestate_message_black_png"
 		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
-		<live:BetLimitDropdown id="_dropdown" width="200" y="20" anchorOffsetX="0" anchorOffsetY="0"
-		                       skinName="BetLimitDropdownSkin" right="7" />
+		<e:Group right="20" y="24">
+			<ui:RunTimeLabel id="_toggler" textAlign="left" fontFamily="Barlow" />
+			<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="34" height="19" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" />
+			</e:layout>
+		</e:Group>
 		<e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20">
 			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13" bottom="10"
 			                  currentState="small" />

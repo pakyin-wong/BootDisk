@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.Nav" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Rect id="_background" right="0" left="0" top="0" anchorOffsetY="0" height="228.79" fillColor="0x121212"
-	        fillAlpha="1" />
-	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false" />
+	<e:Rect id="_background" right="0" left="0" top="0" anchorOffsetY="0" height="156"
+	        fillAlpha="0.3"  fillColor="0x000000"/>
+	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
 	<e:Group id="_profile_toggle" x="639" y="32">
 		<e:Label id="_user" text="User" x="102" y="0" width="220" height="46" size="37.8" fontFamily="Barlow"
 		         textColor="0xffffff" scaleX="1" scaleY="1" textAlign="left" verticalAlign="bottom" />
