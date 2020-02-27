@@ -14,6 +14,8 @@ namespace we {
 
       protected _isButtonGroupShow: boolean = false;
 
+      protected _toggler: ui.RunTimeLabel;
+
       public constructor(skinName: string = null) {
         super(skinName);
 
@@ -51,6 +53,53 @@ namespace we {
         this._enterTableButton.label.renderText = () => {
           return i18n.t('mobile_enter_table_button_label');
         };
+
+        if (this._toggler) {
+          this.initBetLimitSelector();
+        }
+      }
+
+      protected initBetLimitSelector() {
+        const betLimitList = env.betLimits;
+        const betLimitItems = betLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        const dropdownSource = betLimitList.map((data, index) => {
+          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+        });
+
+        const selectedIndex = env.currentSelectedBetLimitIndex;
+
+        utils.DropdownCreator.new({
+          toggler: this._toggler,
+          review: this._toggler,
+          arrCol: new eui.ArrayCollection(dropdownSource),
+          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+          selected: 0,
+        });
+
+        this.updateBetLimit(selectedIndex);
+
+        this._toggler.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      }
+
+      protected onBetLimitSelected(evt: egret.Event) {
+        const selected = evt.data;
+        env.currentSelectedBetLimitIndex = selected;
+        dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
+        this.updateBetLimit(selected);
+      }
+      protected onBetLimitChanged(evt: egret.Event) {
+        const selectedIndex = env.currentSelectedBetLimitIndex;
+        this.updateBetLimit(selectedIndex);
+      }
+
+      protected updateBetLimit(selectedIndex) {
+        const betLimitList = env.betLimits;
+        const betLimitItems = betLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
       }
 
       public getActionButton(): eui.Component {
@@ -58,7 +107,7 @@ namespace we {
       }
 
       protected onTouchTap(evt: egret.Event) {
-        if (evt.target === this._dropdown.toggler || evt.target === this) {
+        if (evt.target === this._toggler || evt.target === this) {
           evt.stopPropagation();
           return;
         }
@@ -79,12 +128,14 @@ namespace we {
         super.addEventListeners();
         this._quickBetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickQuickBetButton, this);
         this._enterTableButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickEnterRoomButton, this);
+        dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
         this._quickBetButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickQuickBetButton, this);
         this._enterTableButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickEnterRoomButton, this);
+        dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
       }
 
       protected showButtonGroup() {
