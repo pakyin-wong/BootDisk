@@ -1,6 +1,10 @@
 namespace we {
   export namespace ui {
-    export class BaseButton extends core.BaseEUI {
+    export interface IButton extends core.BaseEUI {
+      readonly label: RunTimeLabel;
+    }
+
+    export class BaseButton extends core.BaseEUI implements IButton {
       private _label: RunTimeLabel;
       private _enabled: boolean = false;
       private _hover: boolean = false;

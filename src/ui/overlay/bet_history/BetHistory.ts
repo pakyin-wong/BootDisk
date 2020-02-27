@@ -77,21 +77,25 @@ namespace we {
         this._txt_record_finbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_finbalance')}`;
         this._txt_record_result.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_resuit')}`;
 
-        this._ddm_searchType.isDropdown = true;
-        this._ddm_searchType.isPoppable = true;
-        this._ddm_searchType.dismissOnClickOutside = true;
-        this._ddm_searchType.setToggler(this._btn_searchType);
-        this._ddm_searchType.dropdown.review = this._btn_searchType.label;
-        this._ddm_searchType.dropdown.data.replaceAll(this.genGameTypeList());
-        this._ddm_searchType.dropdown.select(this._type);
+        if (this._ddm_searchType) {
+          this._ddm_searchType.isDropdown = true;
+          this._ddm_searchType.isPoppable = true;
+          this._ddm_searchType.dismissOnClickOutside = true;
+          this._ddm_searchType.setToggler(this._btn_searchType);
+          this._ddm_searchType.dropdown.review = this._btn_searchType.label;
+          this._ddm_searchType.dropdown.data.replaceAll(this.genGameTypeList());
+          this._ddm_searchType.dropdown.select(this._type);
+        }
 
-        this._ddm_page.isDropdown = true;
-        this._ddm_page.isPoppable = true;
-        this._ddm_page.dismissOnClickOutside = true;
-        this._ddm_page.setToggler(this._btn_page);
-        this._ddm_page.dropdown.review = this._txt_page;
-        this._ddm_page.dropdown.data.replaceAll([ui.NewDropdownItem(1, () => `1/1`)]);
-        this._ddm_page.dropdown.select(1);
+        if (this._ddm_page) {
+          this._ddm_page.isDropdown = true;
+          this._ddm_page.isPoppable = true;
+          this._ddm_page.dismissOnClickOutside = true;
+          this._ddm_page.setToggler(this._btn_page);
+          this._ddm_page.dropdown.review = this._txt_page;
+          this._ddm_page.dropdown.data.replaceAll([ui.NewDropdownItem(1, () => `1/1`)]);
+          this._ddm_page.dropdown.select(1);
+        }
 
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = betHistory.BetHistoryItem;
@@ -116,8 +120,8 @@ namespace we {
         this._btn_search.$addListener('CLICKED', this.search, this);
         this._btn_next.$addListener('CLICKED', this.onClickNext, this);
         this._btn_prev.$addListener('CLICKED', this.onClickPrev, this);
-        this._ddm_page.$addListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
-        this._ddm_searchType.$addListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
+        this._ddm_page && this._ddm_page.$addListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
+        this._ddm_searchType && this._ddm_searchType.$addListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.$addListener('PICKED_DATE', this.searchCustomDate, this);
       }
 
@@ -129,8 +133,8 @@ namespace we {
         this._btn_search.removeEventListener('CLICKED', this.search, this);
         this._btn_next.removeEventListener('CLICKED', this.onClickNext, this);
         this._btn_prev.removeEventListener('CLICKED', this.onClickPrev, this);
-        this._ddm_page.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
-        this._ddm_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
+        this._ddm_page && this._ddm_page.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onPageChange, this);
+        this._ddm_searchType && this._ddm_searchType.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onTypeChange, this);
         this._datepicker.removeEventListener('PICKED_DATE', this.searchCustomDate, this);
       }
 
@@ -231,7 +235,7 @@ namespace we {
         logger.l('getBetHistory', res);
         this.total = Math.ceil(res.total / this._limit);
         this._page = Math.floor(res.offset / this._limit) + 1;
-        this._ddm_page.dropdown.select(this._page);
+        this._ddm_page && this._ddm_page.dropdown.select(this._page);
         this._dataColl.replaceAll(res.history);
       }
 
