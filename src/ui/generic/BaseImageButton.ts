@@ -7,7 +7,7 @@ namespace we {
       hover = 'hover',
     }
 
-    export class BaseImageButton extends we.core.BaseEUI {
+    export class BaseImageButton extends we.core.BaseEUI implements IButton {
       // components
       protected _background: eui.Image;
       protected _activeTransitionStopper: () => void;
