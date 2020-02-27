@@ -104,9 +104,11 @@ namespace we {
       },
       nav: {
         menu: {
+          title: 'Settings',
           selectMode: 'Color Mode',
           whiteMode: 'Light',
           darkMode: 'Dark',
+          info: 'Player Info',
           history: 'Bet Record',
           member: 'Member Report',
           road: 'Road Notice',

@@ -104,9 +104,11 @@ namespace we {
       },
       nav: {
         menu: {
+          title: '設定',
           selectMode: '介面色調',
           whiteMode: '亮色',
           darkMode: '暗色',
+          info: '賬戶資訊',
           history: '投註記錄',
           member: '會員報表',
           road: '好路提示',

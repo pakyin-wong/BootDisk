@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class NavSilderMenu extends core.BaseEUI {
+    export class NavMobileSilder extends core.BaseEUI {
       private _overlayMask: egret.Shape;
       private _sliderMenu: NavSideMenu;
 
@@ -13,7 +13,7 @@ namespace we {
         this.height = this.stage.stageHeight;
 
         if (env.isMobile) {
-          this._sliderMenu = new NavSideMenu(true);
+          this._sliderMenu = new NavMobileSideMenu();
           this._sliderMenu.isPoppable = true;
           this._sliderMenu.dismissOnClickOutside = true;
           this._sliderMenu.isFocusItem = true;

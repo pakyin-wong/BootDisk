@@ -333,19 +333,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class IconItem extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class Nav extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class NavDropdown extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class NavPlayerProfile extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -402,6 +394,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class OverlayPanelButton extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class PlayerProfile extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class PlayerProfileIconItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -787,19 +787,11 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class IconItem extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
 	class Nav extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
 	class NavDropdown extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class NavPlayerProfile extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -860,6 +852,18 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class OverlayPanelButton extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class OverlayPanelSwitch extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class PlayerProfile extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class PlayerProfileIconItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

@@ -30,8 +30,8 @@
 		<ui:BaseImageButton id="_btn_search" width="63" height="63" x="1101" y="345" currentState="search_icon" skinName="skin_mobile_portrait.ImageButtonSkinNav" locked="true"/>
 		<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle" fontFamily="NotoSansCJKtc" size="24" visible="false"/>
 		<ui:BaseButton id="_btn_searchType" width="400" height="120" x="48" y="318" skinName="skin_mobile_portrait.OverlayPanelButton" active="true" locked="true"/>
-		<ui:BaseButton id="_btn_custom" width="252" height="120" x="727" y="318" skinName="skin_mobile_portrait.OverlayPanelButton"/>
-		<ui:BaseButton id="_btn_date" width="252" height="120" y="318" skinName="skin_mobile_portrait.OverlayPanelButton" active="true" x="510"/>
+		<ui:BaseButton id="_btn_custom" width="252" height="120" x="727" y="318" skinName="skin_mobile_portrait.OverlayPanelSwitch"/>
+		<ui:BaseButton id="_btn_date" width="252" height="120" y="318" active="true" x="510" skinName="skin_mobile_portrait.OverlayPanelSwitch"/>
 
 		<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" visible="false"/>
 		<ui:BaseImageButton id="_btn_next" width="46" height="46" x="1132" y="1077" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_next_icon" visible="false"/>

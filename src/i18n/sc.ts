@@ -111,9 +111,11 @@ namespace we {
       },
       nav: {
         menu: {
+          title: '设定',
           selectMode: '介面色调',
           whiteMode: '亮色',
           darkMode: '暗色',
+          info: '账户资讯',
           history: '投注记录',
           member: '会员报表',
           road: '好路提示',
