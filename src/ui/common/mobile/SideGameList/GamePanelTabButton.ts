@@ -35,9 +35,9 @@ namespace we {
         this.removeEventListeners();
       }
 
-      protected addEventListeners() {}
+      protected addEventListeners() { }
 
-      protected removeEventListeners() {}
+      protected removeEventListeners() { }
 
       public set focus(value: boolean) {
         if (this._focus === value) {
@@ -56,7 +56,7 @@ namespace we {
         this.setBackgroundVisible(isFocus);
         if (isFocus) {
           this._content.addChild(this._label);
-          this.validateSize(true);
+          this.validateNow();
           egret.Tween.removeTweens(this);
           egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
           this._image.source = `${this.imageKey}_png`;
@@ -64,7 +64,7 @@ namespace we {
           if (this._label.parent) {
             this._content.removeChild(this._label);
           }
-          this.validateSize(true);
+          this.validateNow();
           egret.Tween.removeTweens(this);
           egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
           this._image.source = `${this.imageKey}_dim_png`;
@@ -95,12 +95,12 @@ namespace we {
           egret.Tween.removeTweens(this._badge);
           egret.Tween.get(this._badge)
             .to(
-              {
-                scaleX: 0,
-                scaleY: 0,
-              },
-              this.tweenDuration,
-              egret.Ease.backIn
+            {
+              scaleX: 0,
+              scaleY: 0,
+            },
+            this.tweenDuration,
+            egret.Ease.backIn
             )
             .call(() => {
               this._badge.visible = false;

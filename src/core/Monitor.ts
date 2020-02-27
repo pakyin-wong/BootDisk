@@ -67,7 +67,7 @@ namespace we {
           });
         }
 
-        this.mobileDropdownDemo();
+        // this.mobileDropdownDemo();
       }
 
       private addListeners() {
@@ -84,43 +84,43 @@ namespace we {
         }
       }
 
-      public mobileDropdownDemo() {
-        const demoButton = new eui.Button();
-        const demoReview = new ui.RunTimeLabel();
-        const demoSource = new eui.ArrayCollection([
-          ui.NewDropdownItem(1, () => `option 01`),
-          ui.NewDropdownItem(2, () => `option 02`),
-          ui.NewDropdownItem(3, () => `option 03`),
-          ui.NewDropdownItem('a', () => `option A`),
-          ui.NewDropdownItem('b', () => `option B`),
-          ui.NewDropdownItem('c', () => `option C`),
-          ui.NewDropdownItem('d', () => `option D`),
-          ui.NewDropdownItem('e', () => `option E`),
-        ]);
+      // public mobileDropdownDemo() {
+      //   const demoButton = new eui.Button();
+      //   const demoReview = new ui.RunTimeLabel();
+      //   const demoSource = new eui.ArrayCollection([
+      //     ui.NewDropdownItem(1, () => `option 01`),
+      //     ui.NewDropdownItem(2, () => `option 02`),
+      //     ui.NewDropdownItem(3, () => `option 03`),
+      //     ui.NewDropdownItem('a', () => `option A`),
+      //     ui.NewDropdownItem('b', () => `option B`),
+      //     ui.NewDropdownItem('c', () => `option C`),
+      //     ui.NewDropdownItem('d', () => `option D`),
+      //     ui.NewDropdownItem('e', () => `option E`),
+      //   ]);
 
-        demoButton.width = 200;
-        demoButton.height = 200;
-        demoButton.horizontalCenter = 0;
-        demoButton.verticalCenter = 0;
+      //   demoButton.width = 200;
+      //   demoButton.height = 200;
+      //   demoButton.horizontalCenter = 0;
+      //   demoButton.verticalCenter = 0;
 
-        demoReview.size = 48;
-        demoReview.left = 0;
-        demoReview.right = 0;
-        demoReview.textAlign = egret.HorizontalAlign.CENTER;
+      //   demoReview.size = 48;
+      //   demoReview.left = 0;
+      //   demoReview.right = 0;
+      //   demoReview.textAlign = egret.HorizontalAlign.CENTER;
 
-        demoButton.addChild(demoReview);
-        dir.layerCtr.top.addChild(demoButton);
+      //   demoButton.addChild(demoReview);
+      //   dir.layerCtr.top.addChild(demoButton);
 
-        utils.DropdownCreator.new({
-          toggler: demoButton,
-          review: demoReview,
-          arrCol: demoSource,
-          title: () => `Demo Title`,
-          selected: 'c',
-        });
+      //   utils.DropdownCreator.new({
+      //     toggler: demoButton,
+      //     review: demoReview,
+      //     arrCol: demoSource,
+      //     title: () => `Demo Title`,
+      //     selected: 'c',
+      //   });
 
-        demoButton.addEventListener('DROPDOWN_ITEM_CHANGE', e => console.log(e.data), this);
-      }
+      //   demoButton.addEventListener('DROPDOWN_ITEM_CHANGE', e => console.log(e.data), this);
+      // }
     }
   }
 }

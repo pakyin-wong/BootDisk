@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" currentState="light">
 	<w:Config id="16df87cf43a"></w:Config>
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect top="0" bottom="0" left="0" right="0" fillAlpha="0.5" locked="true"/>
+		<e:Rect top="0" bottom="0" left="0" right="0" fillAlpha="0.9" fillColor="0x14181e"/>
 		<ui:RunTimeLabel id="txt_title" text="Label" x="48" y="54" size="80" height="119" verticalAlign="middle" width="600" textColor="0xc59466"/>
 		<e:Rect width="800" height="3" x="156" y="572" fillAlpha="0.4" fillColor="0x616161" />
 		<e:Image id="close" width="54" height="54" x="899" y="87"/>
