@@ -44,14 +44,10 @@ namespace we {
 
       // table info panel
       protected _tableInfoPanel: ui.TableInfoPanel;
-      protected _tableId: string;
-      protected _tableInfo: data.TableInfo;
-      protected _betDetails: data.BetDetail[];
-      protected _previousState: number;
-      protected _gameData: we.data.GameData;
 
       // viewStack and radioBtn
       protected _roadmapGroup: eui.Group;
+      protected _infoGroup: eui.Group;
 
       protected roadSheetBtn: eui.RadioButton;
       protected chartBtn: eui.RadioButton;
@@ -155,9 +151,6 @@ namespace we {
         this.switchModeButton.y = 462;
         this._roadmapGroup.addChild(this.switchModeButton);
 
-        // if (this._tableInfoPanel) {
-        //   this._tableInfoPanel.setValue(this._tableInfo);
-        // }
         this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -171,9 +164,9 @@ namespace we {
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
         this.totalCountLabel.text = '' + this.totalCount;
 
-        // this.roadSheetBtn['labelDisplayDown']['text'] = this.roadSheetBtn['labelDisplayUp']['text'] = i18n.t('mobile_game_panel_road_sheet');
-        // this.chartBtn['labelDisplayDown']['text'] = this.chartBtn['labelDisplayUp']['text'] = i18n.t('mobile_game_panel_statistic_chart');
-        // this.tableInfoBtn['labelDisplayDown']['text'] = this.tableInfoBtn['labelDisplayUp']['text'] = i18n.t('mobile_game_panel_table_info');
+        this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
+        this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
+        this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
       }
 
       protected onViewChange(e: eui.UIEvent) {
@@ -197,20 +190,6 @@ namespace we {
         this.update();
       }
 
-      protected onTableInfoUpdate(evt: egret.Event) {
-        if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
-          if (tableInfo.tableid === this._tableId) {
-            // update the scene
-            this._tableInfo = tableInfo;
-            this._betDetails = tableInfo.bets;
-            this._previousState = this._gameData ? this._gameData.previousstate : null;
-            this._gameData = this._tableInfo.data;
-            this.update();
-          }
-        }
-      }
-
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.betInfo || this.tableInfo.gamestatistic) {
@@ -225,9 +204,6 @@ namespace we {
             this.changeLang();
           }
         }
-        // if (this._tableInfoPanel) {
-        //   this._tableInfoPanel.setValue(this._tableInfo);
-        // }
       }
 
       public destroy() {

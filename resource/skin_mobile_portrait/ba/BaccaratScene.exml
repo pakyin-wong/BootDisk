@@ -8,8 +8,8 @@
 	               skinName="skin_mobile_portrait.ba.TableLayerSkin" />
 	<ba:ChipLayer id="_chipLayer" width="1182" height="464" x="30" y="983" isEdgeDismissable="true"
 	              skinName="skin_mobile_portrait.ba.ChipLayerSkin" />
-	<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="353" anchorOffsetX="0" anchorOffsetY="0"
-	                         x="449" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" />
+	<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="745.91" anchorOffsetX="0" anchorOffsetY="0"
+	                         x="715.03" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" />
 	<e:Group id="_betRelatedGroup" x="34" y="824">
 		<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 		        fillColor="0x444444" />
@@ -35,9 +35,9 @@
 	<e:Group id="_header" height="100" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
-		<ui:RunTimeLabel id="_lblRoomNo" x="91" y="15" size="40" height="56" verticalAlign="middle" width="134"
-		                 textAlign="left" anchorOffsetX="0" />
-		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />
+		<ui:RunTimeLabel id="_lblRoomNo" x="91" y="15" size="40" height="56" verticalAlign="middle" width="180"
+		                 textAlign="center" anchorOffsetX="0" />
+		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0"  x="0" visible="false"/>
 		<e:Image id="_btnBack" width="38" height="35" x="32" y="44" source="d_ba_navbar_chevron_png" />
 		<e:Image id="_lblRoomInfo" width="48" height="48" x="274" y="38" source="d_ba_navbar_icon_info_png" />
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
@@ -50,7 +50,7 @@
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />
 	<ba:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
-	                   anchorOffsetY="0" skinName="skin_mobile_portrait.ba.TableInfoPanel" visible="false" />
+	                   anchorOffsetY="0" skinName="skin_mobile_portrait.ba.TableInfoPanel"  visible="false"/>
 	<e:Group height="50" x="1108" anchorOffsetX="0" anchorOffsetY="0" y="655">
 		<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
 		<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88.32999999999993" y="28.83000000000004" scaleX="1" scaleY="1" />

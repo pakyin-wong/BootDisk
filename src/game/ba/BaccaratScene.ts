@@ -17,7 +17,7 @@ namespace we {
 
       constructor(data: any) {
         super(data);
-        // this._leftGamePanel = this._roadmapLeftPanel;
+        // this._leftGamePanel = this._roadmapLeftPanel;onTableInfoUpdate
         // this._rightGamePanel = this._roadmapRightPanel;
       }
 

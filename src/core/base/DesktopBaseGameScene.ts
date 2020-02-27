@@ -6,6 +6,8 @@ namespace we {
       protected _leftGamePanel: BaseGamePanel;
       protected _rightGamePanel: BaseGamePanel;
 
+      protected _tableInfoWindow: ui.TableInfoPanel;
+
       constructor(data: any) {
         super(data);
       }
@@ -14,10 +16,18 @@ namespace we {
         super.initChildren();
         this._leftGamePanel.setTableInfo(this._tableInfo);
         this._rightGamePanel.setTableInfo(this._tableInfo);
+
+        if (this._tableInfoWindow) {
+          this._tableInfoWindow.setToggler(this._lblRoomInfo);
+          this._tableInfoWindow.setValue(this._tableInfo);
+        }
       }
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
+        if (this._tableInfoWindow) {
+          this._tableInfoWindow.setValue(this._tableInfo);
+        }
         this._leftGamePanel.update();
         this._rightGamePanel.update();
       }

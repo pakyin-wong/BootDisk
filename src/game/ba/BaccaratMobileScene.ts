@@ -14,10 +14,10 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
+      protected _tableInfoPanel: ui.TableInfoPanel;
+
       constructor(data: any) {
         super(data);
-        // this._leftGamePanel = this._roadmapLeftPanel;
-        // this._rightGamePanel = this._roadmapRightPanel;
       }
 
       protected setSkinName() {
@@ -85,6 +85,10 @@ namespace we {
             (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
+      }
+
+      protected updateTableInfoRelatedComponents() {
+        super.updateTableInfoRelatedComponents();
       }
 
       public checkResultMessage() {
