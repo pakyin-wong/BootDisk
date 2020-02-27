@@ -2847,12 +2847,14 @@
 		{
 			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_active.png",
 			"type": "image",
-			"name": "d_ro_rm_switch_tag_btn_active_png"
+			"name": "d_ro_rm_switch_tag_btn_active_png",
+			"scale9grid": "18,17,3,2"
 		},
 		{
 			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_hover.png",
 			"type": "image",
-			"name": "d_ro_rm_switch_tag_btn_hover_png"
+			"name": "d_ro_rm_switch_tag_btn_hover_png",
+			"scale9grid": "18,17,3,2"
 		},
 		{
 			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_inactive.png",

@@ -85,7 +85,7 @@ namespace we {
 
         if (tableInfo.roadmap) {
           if (this._bigRoad) {
-            this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
+            // this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
           }
         }
 

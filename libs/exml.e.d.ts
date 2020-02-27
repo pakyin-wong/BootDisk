@@ -436,6 +436,10 @@ declare module skin_desktop.ro{
 	class LiveListSimpleItemSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ro{
+	class ROBigRoadResultPanelSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RoLeftPanel extends eui.Skin{
 	}

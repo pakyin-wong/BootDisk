@@ -4,8 +4,10 @@
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0" locked="true" />
-	<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="1002" skinName="skin_desktop.ro.TableLayerSkin" isEdgeDismissable="true" />
-	<ro:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="1002" skinName="skin_desktop.ro.ChipLayerSkin" isEdgeDismissable="true" />
+	<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="1002" skinName="skin_desktop.ro.TableLayerSkin"
+	               isEdgeDismissable="true" />
+	<ro:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="1002" skinName="skin_desktop.ro.ChipLayerSkin"
+	              isEdgeDismissable="true" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="939.13">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="0" anchorOffsetX="0" anchorOffsetY="0"
@@ -25,9 +27,8 @@
 	</e:Group>
 	<ro:ResultHolder id="_resultDisplay" width="412" height="152" y="631" horizontalCenter="1" anchorOffsetX="0"
 	                 anchorOffsetY="0" />
-	<ro:RoLeftPanel id="_leftGamePanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0" anchorOffsetY="0" />
-	<ro:RoRightPanel id="_rightGamePanel" width="668" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
-	                 anchorOffsetY="0" />
+	<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />
+	<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
@@ -54,7 +55,7 @@
 			<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
 		</e:layout>
 	</e:Group>
-	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
-	                          anchorOffsetY="0" visible="false" />
+	<ro:ROBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
+	                         anchorOffsetY="0" visible="false" />
 </e:Skin>
 

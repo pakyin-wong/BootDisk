@@ -12,8 +12,8 @@ namespace we {
         super(skin ? skin : 'ro/RoRightPanel');
       }
       public changeLang() {
-        this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = 'page1';
-        this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = 'page2';
+        this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.jockeyBet');
+        this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('roulette.customBet');
 
         this.updateActiveLine(false);
       }
@@ -28,7 +28,7 @@ namespace we {
         gr.drawRect(0, 0, 100, 3);
         gr.endFill();
         this.addChild(this.activeLine);
-        this.activeLine.y = this.pageRadioBtn1.y;
+        this.activeLine.y = 331;
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
