@@ -20,14 +20,16 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, r2, r3, r4, r5, columnArray, rightPanel, beadResultPanel) {
+      public setRoads(r1, r2, r3, r4, r5, columnArray, panel, beadResultPanel) {
         this.beadRoad = r1;
         this.bigRoad = r2;
         this.bigEyeRoad = r3;
         this.smallRoad = r4;
         this.cockroachRoad = r5;
-        this.mobilePanel = rightPanel;
         this.beadResultPanel = beadResultPanel;
+
+        if (env.isMobile) this.mobilePanel = panel;
+        else this.rightPanel = panel;
 
         this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
         this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
@@ -41,12 +43,20 @@ namespace we {
         this.onDisplayUpdate(null);
 
         // predict roads
-        this.mobilePanel.iconBankerBead.touchEnabled = true;
-        this.mobilePanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
 
-        this.mobilePanel.iconPlayerBead.touchEnabled = true;
-        this.mobilePanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        if (env.isMobile) {
+          this.mobilePanel.iconBankerBead.touchEnabled = true;
+          this.mobilePanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
 
+          this.mobilePanel.iconPlayerBead.touchEnabled = true;
+          this.mobilePanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        } else {
+          this.rightPanel.iconBankerBead.touchEnabled = true;
+          this.rightPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+
+          this.rightPanel.iconPlayerBead.touchEnabled = true;
+          this.rightPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        }
         // dark/light mode
         // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         // this.onModeUpdate(null);
@@ -296,6 +306,13 @@ namespace we {
         }
         if (this.mobilePanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
           this.mobilePanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        }
+
+        if (this.rightPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.rightPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+        }
+        if (this.rightPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.rightPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
         }
 
         // if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
