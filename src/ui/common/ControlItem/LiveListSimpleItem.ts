@@ -46,7 +46,7 @@ namespace we {
         super.setData(tableInfo);
         if (tableInfo.roadmap) {
           if (this._bigRoad) {
-            this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+            // this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
           }
         }
       }

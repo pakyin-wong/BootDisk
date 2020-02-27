@@ -2,16 +2,32 @@ namespace we {
   export namespace ro {
     export class ROBeadRoad extends ba.BARoadBase {
       protected numRow: number;
+      private emptyColor: number; // color for the empty cell
+      private emptyAlpha: number; // alpha for the empty cell
+      private xOffset: number;
+      private yOffset: number;
 
-      public constructor(_numRow: number = 3, _numCol: number = 10, _gridSize: number = 30, _scale: number = 1) {
+      public constructor(
+        _numRow: number = 3,
+        _numCol: number = 10,
+        _gridSize: number = 30,
+        _scale: number = 1,
+        _xOffset: number,
+        _yOffset: number,
+        _emptyColor: number = 0xc1c1c1,
+        _emptyAlpha: number = 0.2
+      ) {
         super(_numCol, _gridSize, _scale);
-
+        this.xOffset = _xOffset;
+        this.yOffset = _yOffset;
+        this.emptyColor = _emptyColor;
+        this.emptyAlpha = _emptyAlpha;
         this.numRow = _numRow;
         this.gridUnit = 1;
       }
 
       protected createIcon(size: number): ROBeadRoadIcon {
-        const icon = new ROBeadRoadIcon(size);
+        const icon = new ROBeadRoadIcon(size, this.emptyColor, this.emptyAlpha);
         return icon;
       }
 
@@ -26,8 +42,8 @@ namespace we {
         for (let i = 0; i < n; i++) {
           const icon = this.createIcon(this.gridSize / this.gridUnit);
           icon.setByObject({});
-          icon.x = (this.gridSize / this.gridUnit) * (iconIndex % this.numCol);
-          icon.y = (this.gridSize / this.gridUnit) * Math.floor(iconIndex / this.numCol);
+          icon.x = (this.gridSize / this.gridUnit + this.xOffset) * (iconIndex % this.numCol);
+          icon.y = (this.gridSize / this.gridUnit + this.yOffset) * Math.floor(iconIndex / this.numCol);
           this.addChild(icon);
           this.roadMapIconList.push(icon);
           iconIndex++;

@@ -3,11 +3,12 @@ namespace we {
     export class RORoadmapControl {
       protected tableInfo: data.TableInfo;
       protected beadRoad: ROBeadRoad;
-      // protected colorRoad: ROColorBigRoad;
-      // protected sizeRoad: ROSizeBigRoad;
-      // protected oddRoad: ROOddBigRoad;
+      protected colorRoad: ROColorBigRoad;
+      protected sizeRoad: ROSizeBigRoad;
+      protected oddRoad: ROOddBigRoad;
       protected leftPanel: RoLeftPanel;
-      protected beadResultPanel: ba.BaBeadRoadResultPanel;
+      protected rightPanel: RoRightPanel;
+      protected resultPanel: ro.ROBigRoadResultPanel;
       public tableid: string;
 
       protected parser: ba.BARoadParser;
@@ -18,15 +19,21 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, columnArray, rightPanel, beadResultPanel) {
+      public setRoads(r1, r2, r3, r4, leftPanel, rightPanel, resultPanel) {
         this.beadRoad = r1;
+        this.colorRoad = r2;
+        this.sizeRoad = r3;
+        this.oddRoad = r4;
+        this.leftPanel = leftPanel;
+        this.rightPanel = rightPanel;
+        this.resultPanel = resultPanel;
 
-        // this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
-        // this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
-        // this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        this.colorRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+        this.colorRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+        this.colorRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
 
-        this.parser = new ba.BARoadParser(columnArray);
-        this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
+        // this.parser = new ba.BARoadParser(columnArray);
+        // this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
         // dark/light mode
         // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
@@ -38,19 +45,19 @@ namespace we {
           if (this.tableInfo.roadmap) {
             const roadData = this.tableInfo.roadmap;
             if (roadData.gameInfo) {
-              if (e.data.index >= 0 && e.data.index + roadData.inGameInfoStart < roadData.gameInfo.length) {
-                const rslt = roadData.gameInfo[e.data.index + roadData.inGameInfoStart];
+              if (e.data.gameInfoIndex >= 0 && e.data.gameInfoIndex < roadData.gameInfo.length) {
+                const rslt = roadData.gameInfo[e.data.gameInfoIndex];
 
                 const gameData: GameData = new GameData();
                 gameData.wintype = rslt.result;
                 gameData.gameroundid = rslt.gameRoundID;
 
-                this.beadResultPanel.setCardResult(null);
-                this.beadResultPanel.visible = true;
-                this.beadResultPanel.x = e.data.mouseX - 30;
-                this.beadResultPanel.y = e.data.mouseY - this.beadResultPanel.height - 10;
+                this.resultPanel.setResult(rslt);
+                this.resultPanel.visible = true;
+                this.resultPanel.x = e.data.mouseX - 30;
+                this.resultPanel.y = e.data.mouseY - this.resultPanel.height - 10;
               } else {
-                this.beadResultPanel.visible = false;
+                this.resultPanel.visible = false;
               }
             }
           }
@@ -75,7 +82,7 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.roadmap) {
             const data = this.tableInfo.roadmap;
-            this.beadResultPanel.visible = false;
+            this.resultPanel.visible = false;
           }
         }
       }

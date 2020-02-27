@@ -452,6 +452,10 @@ declare module skin_desktop.ro{
 	class BetItemCardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ro{
+	class ROBigRoadResultPanelSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class RoLeftPanel extends eui.Skin{
 	}
