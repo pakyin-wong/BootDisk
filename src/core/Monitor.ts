@@ -3,7 +3,7 @@ namespace we {
   export namespace core {
     export class Monitor {
       private _nav: ui.Nav;
-      private _navSilderMenu: ui.NavSilderMenu;
+      private _navMobileSilder: ui.NavMobileSilder;
       private _mDropdown: ui.MobileDropdown;
       private _notificationController: ui.NotificationController;
       private _liveSidePanel: ui.LiveSidePanel;
@@ -40,11 +40,11 @@ namespace we {
           this._sideGameList.isPoppable = true;
           this._sideGameList.dismissOnClickOutside = true;
 
-          this._navSilderMenu = new ui.NavSilderMenu();
+          this._navMobileSilder = new ui.NavMobileSilder();
           this._mDropdown = new ui.MobileDropdown();
 
           dir.layerCtr.overlay.addChild(this._sideGameList);
-          dir.layerCtr.overlay.addChild(this._navSilderMenu);
+          dir.layerCtr.overlay.addChild(this._navMobileSilder);
           dir.layerCtr.overlay.addChild(this._overlay);
           dir.layerCtr.overlay.addChild(this._mDropdown);
         } else {
