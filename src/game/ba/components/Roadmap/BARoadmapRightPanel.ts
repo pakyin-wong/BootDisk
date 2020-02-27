@@ -1,6 +1,11 @@
 namespace we {
   export namespace ba {
-    export class BARoadmapRightPanel extends core.BaseGamePanel {
+    export interface IBARoadmapDisplayObject {
+      iconBankerBead: BABeadRoadIcon;
+      iconPlayerBead: BABeadRoadIcon;
+      setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any);
+    }
+    export class BARoadmapRightPanel extends core.BaseGamePanel implements IBARoadmapDisplayObject {
       public bigRoad: BABigRoad;
       public bigEyeRoad: BABigEyeRoad;
       public smallRoad: BASmallRoad;

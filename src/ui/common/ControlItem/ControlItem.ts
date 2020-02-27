@@ -14,6 +14,7 @@ namespace we {
       protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
+      protected _toggler: egret.DisplayObject;
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
       // table name label
@@ -385,7 +386,10 @@ namespace we {
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype);
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: NaN,
+            });
           }
         }
       }

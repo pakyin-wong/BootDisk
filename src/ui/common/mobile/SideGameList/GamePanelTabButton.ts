@@ -56,7 +56,7 @@ namespace we {
         this.setBackgroundVisible(isFocus);
         if (isFocus) {
           this._content.addChild(this._label);
-          this.validateSize(true);
+          this.validateNow();
           egret.Tween.removeTweens(this);
           egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
           this._image.source = `${this.imageKey}_png`;
@@ -64,7 +64,7 @@ namespace we {
           if (this._label.parent) {
             this._content.removeChild(this._label);
           }
-          this.validateSize(true);
+          this.validateNow();
           egret.Tween.removeTweens(this);
           egret.Tween.get(this).to({ width: this._content.measuredWidth + 40 }, this.tweenDuration);
           this._image.source = `${this.imageKey}_dim_png`;
