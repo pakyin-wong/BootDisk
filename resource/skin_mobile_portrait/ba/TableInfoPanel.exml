@@ -27,10 +27,10 @@
 		<e:Label id="tieLabel" text="和" y="236" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
 		<e:Label id="bankerPairLabel" text="庄對" y="314" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
 		<e:Label id="playerPairLabel" text="閒對" y="392" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
-		<e:Label id="pTableID" text="-" y="86" textAlign="right" scaleX="1" scaleY="1" size="44"  x="167" width="381" height="44"/>
-		<e:Label id="pRoundID" text="-" y="160" textAlign="right" scaleX="1" scaleY="1" size="44"  bold="true" x="167" width="440"/>
-		<e:Label id="pGameID" text="-" y="240" textAlign="right" scaleX="1" scaleY="1" size="44"  bold="true" x="167" width="440"/>
-		<e:Label id="pDealer" text="-" y="320" textAlign="right" scaleX="1" scaleY="1" size="44"  bold="true" x="167" width="440"/>
+		<e:Label id="pTableID" text="-" y="86" textAlign="right" scaleX="1" scaleY="1" size="40"  x="167" width="381" height="44" bold="true"/>
+		<e:Label id="pRoundID" text="-" y="160" textAlign="right" scaleX="1" scaleY="1" size="40"  bold="true" x="167" width="440"/>
+		<e:Label id="pGameID" text="-" y="240" textAlign="right" scaleX="1" scaleY="1" size="40"  bold="true" x="167" width="440"/>
+		<e:Label id="pDealer" text="-" y="320" textAlign="right" scaleX="1" scaleY="1" size="40"  bold="true" x="167" width="440" verticalAlign="middle"/>
 		<e:Group id="betLimitBtnGroup" width="304" height="74" x="311" y="385">
 			<e:Image id="limitBg" width="304" height="74" x="0" y="0" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1"/>
 			<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png"/>

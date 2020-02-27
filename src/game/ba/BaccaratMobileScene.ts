@@ -14,8 +14,6 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
-      protected _tableInfoPanel: ui.TableInfoPanel;
-
       constructor(data: any) {
         super(data);
       }
@@ -49,6 +47,11 @@ namespace we {
 
         if (this._lblBaMode) {
           this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
+        }
+
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
       }
 
@@ -89,6 +92,9 @@ namespace we {
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
       }
 
       public checkResultMessage() {

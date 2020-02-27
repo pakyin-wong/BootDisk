@@ -43,7 +43,7 @@ namespace we {
       protected totalCount: number;
 
       // table info panel
-      protected _tableInfoPanel: ui.TableInfoPanel;
+      public _tableInfoPanel: ui.TableInfoPanel;
 
       // viewStack and radioBtn
       protected _roadmapGroup: eui.Group;

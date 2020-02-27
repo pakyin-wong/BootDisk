@@ -43,7 +43,6 @@ namespace we {
       // this for desktop
       // protected _tableInfoWindow: ui.TableInfoPanel;
 
-      // this also for desktop
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
 

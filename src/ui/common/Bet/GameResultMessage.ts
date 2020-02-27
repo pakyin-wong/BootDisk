@@ -199,7 +199,11 @@ namespace we {
         }
         anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
 
-        const array = [['L_txt', 60, numLeft, -16], ['middle_txt', 90, numCenter, 0], ['L_txt3', 60, numRight, 16]];
+        const array = [
+          ['L_txt', 60, numLeft, -16],
+          ['middle_txt', 90, numCenter, 0],
+          ['L_txt3', 60, numRight, 16],
+        ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
           const slot = this._display.armature.getSlot(<string>slotName);
