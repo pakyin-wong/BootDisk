@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.GoodRoadNotificationContainerSkin" width="385" height="100"
+        xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*"
+        xmlns:w="http://ns.egret.com/wing">
+    <e:Image source="nav_panel_bg" scale9Grid="25,20,23,10" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0"
+             bottom="0" right="0" />
+    <ui:CountdownTimer id="_timer" width="47" height="47" x="16" y="12" anchorOffsetX="0" anchorOffsetY="0"
+                       skinName="skin_mobile_portrait.CountdownTimerRoundSmallSkin" />
+    <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="54" text="" size="22" x="70" />
+    <ui:RunTimeLabel id="_lblGoodRoad" text="" x="70" y="21" size="24" fontFamily="Barlow" />
+    <ui:BaseImageButton id="_btnDismiss" width="122" height="39" x="250" y="8.7" anchorOffsetX="0" anchorOffsetY="0"
+                        skinName="ImageButtonSkinLobby" currentState="lobby_notify_btn_hide" useColorFilter="true" />
+    <ui:BaseImageButton id="_btnQuickBet" width="122" height="39" x="250" y="48.01" anchorOffsetX="0" anchorOffsetY="0"
+                        skinName="ImageButtonSkinLobby" currentState="lobby_notify_btn_action" useColorFilter="true" />
+</e:Skin>

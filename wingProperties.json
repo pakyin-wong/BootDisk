@@ -1,12 +1,15 @@
 {
     "resourcePlugin": {
-        "configs": [
-            {
+        "configs": [{
                 "configPath": "resource/default.res.json",
                 "relativePath": "resource/"
             },
             {
-                "configPath": "resource/default.res.json",
+                "configPath": "resource/mobile.res.json",
+                "relativePath": "resource/"
+            },
+            {
+                "configPath": "resource/desktop.res.json",
                 "relativePath": "resource/"
             }
         ]

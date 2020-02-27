@@ -12,7 +12,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.1.5';
+      public version: string = '0.2.0';
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
@@ -27,6 +27,8 @@ namespace we {
       public bgm = 1;
       public betLimits: data.BetLimit[];
       public goodRoadData: data.GoodRoadMapData;
+      public isMobile: boolean = false;
+      public orientation: string = egret.OrientationMode.LANDSCAPE;
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
@@ -114,6 +116,12 @@ namespace we {
       }
       public validateTableInfoDisplayReady(tableid: string): boolean {
         // check if the tableInfo is displayReady
+        /*
+        for testing without roadmap
+        const tableInfo = this.tableInfos[tableid];
+         if (tableInfo) tableInfo.displayReady = true;
+        return true;
+        */
         const tableInfo = this.tableInfos[tableid];
         if (tableInfo && !tableInfo.displayReady) {
           if (tableInfo.data != null && tableInfo.roadmap != null) {

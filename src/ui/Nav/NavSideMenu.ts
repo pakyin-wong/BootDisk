@@ -18,8 +18,9 @@ namespace we {
       private txt_system: RunTimeLabel;
       private txt_logout: RunTimeLabel;
 
-      public constructor() {
+      public constructor(slider?) {
         super('nav/NavSideMenu');
+        slider && (this.poppableAddon = new PoppableAddonSilder(this));
       }
 
       protected mount() {
@@ -49,8 +50,8 @@ namespace we {
 
       private initTxt() {
         this.txt_selectMode.renderText = () => `${i18n.t('nav.menu.selectMode')}`;
-        this.txt_lightMode.renderText = () => `${i18n.t('nav.menu.whiteMode')}`;
-        this.txt_darkMode.renderText = () => `${i18n.t('nav.menu.darkMode')}`;
+        this.txt_lightMode && (this.txt_lightMode.renderText = () => `${i18n.t('nav.menu.whiteMode')}`);
+        this.txt_darkMode && (this.txt_darkMode.renderText = () => `${i18n.t('nav.menu.darkMode')}`);
         this.txt_history.renderText = () => `${i18n.t('nav.menu.history')}`;
         this.txt_member.renderText = () => `${i18n.t('nav.menu.member')}`;
         this.txt_road.renderText = () => `${i18n.t('nav.menu.road')}`;

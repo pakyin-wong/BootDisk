@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.MemberReport" width="1689" height="731" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48" strokeColor="0x333c4a" strokeWeight="2" locked="true"/>
+		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png"/>
+		<ui:RunTimeLabel id="_txt_title" text="Label" left="44" top="44" width="192" height="71" verticalAlign="middle" textColor="0xc59466" size="48" fontFamily="NotoSansCJKtc" bold="true"/>
+
+        <ui:BaseButton id="_btn_searchType" width="210" height="60" x="323.15" y="49.5" skinName="skin_mobile_portrait.OverlayPanelButton" active="true"/>
+
+		<ui:RunTimeLabel id="_txt_date" text="d" x="867" y="56.5" width="48" height="36" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" verticalAlign="middle"/>
+		<ui:BaseButton id="_btn_today" width="137" height="60" x="951" y="45.5" skinName="skin_mobile_portrait.OverlayPanelButton"/>
+		<ui:BaseButton id="_btn_yesterday" width="137" height="60" x="1108" y="45.5" skinName="skin_mobile_portrait.OverlayPanelButton"/>
+		<ui:BaseButton id="_btn_week" width="137" height="60" x="1265" y="45.5" skinName="skin_mobile_portrait.OverlayPanelButton"/>
+		<ui:BaseButton id="_btn_custom" width="137" height="60" x="1422.5" y="45.5" skinName="skin_mobile_portrait.OverlayPanelButton"/>
+
+		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="871.67" y="168.68" anchorOffsetY="0" anchorOffsetX="0"/>
+		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="44" y="168.68" anchorOffsetY="0" anchorOffsetX="0"/>
+		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="44" y="450.38" anchorOffsetY="0" anchorOffsetX="0"/>
+		<e:Rect width="773.33" height="227.7" fillColor="0x1E2126" ellipseHeight="32" ellipseWidth="32" strokeColor="0x2A2D32" strokeWeight="2" x="871.67" y="450.38" anchorOffsetY="0" anchorOffsetX="0"/>
+		<ui:RunTimeLabel id="_txt_betAmount" text="Label" x="74.3" y="198.98" textColor="0xB5B9BC"/>
+		<ui:RunTimeLabel id="_txt_washAmount" text="Label" x="901.97" y="199.28" textColor="0xB5B9BC"/>
+		<ui:RunTimeLabel id="_txt_winAmount" text="Label" x="74.3" y="480.68" textColor="0xb5b9bc"/>
+		<ui:RunTimeLabel id="_txt_totalAmount" text="Label" x="901.97" y="480.68" textColor="0xB5B9BC"/>
+		<ui:RunTimeLabel id="_txt_betAmount_value" text="Label" x="74.8" y="259.58" size="60"/>
+		<ui:RunTimeLabel id="_txt_washAmount_value" text="Label" x="901.97" y="259.58" size="60"/>
+		<ui:RunTimeLabel id="_txt_winAmount_value" text="Label" x="74.8" y="540.98" size="60"/>
+		<ui:RunTimeLabel id="_txt_totalAmount_value" text="Label" x="901.97" y="540.98" size="60"/>
+	</e:Group>
+</e:Skin>

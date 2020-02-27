@@ -18,6 +18,7 @@ namespace we {
 
         this.tables = this.generateBaccaratTables(6);
         this.tables = [...this.tables, ...this.generateDragonTigerTables(3)];
+        this.tables = [...this.tables, ...this.generateRouletteTables(3)];
 
         setInterval(() => {
           // mock error
@@ -28,38 +29,45 @@ namespace we {
       }
 
       protected generateDummyStatistic(data) {
-        let bankerCount: number = 0;
-        let playerCount: number = 0;
-        let tieCount: number = 0;
-        let playerPairCount: number = 0;
-        let bankerPairCount: number = 0;
+        if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC) {
+          let bankerCount: number = 0;
+          let playerCount: number = 0;
+          let tieCount: number = 0;
+          let playerPairCount: number = 0;
+          let bankerPairCount: number = 0;
 
-        data.roadmap.inGame.bead.forEach(item => {
-          if (item.v === 'b') {
-            bankerCount++;
-          } else if (item.v === 'p') {
-            playerCount++;
-          } else if (item.v === 't') {
-            tieCount++;
-          }
-          if (item.b > 0) {
-            bankerPairCount++;
-          }
-          if (item.p > 0) {
-            playerPairCount++;
-          }
-        });
-        const totalCount: number = bankerCount + playerCount + tieCount;
+          data.roadmap.inGame.bead.forEach(item => {
+            if (item.v === 'b') {
+              bankerCount++;
+            } else if (item.v === 'p') {
+              playerCount++;
+            } else if (item.v === 't') {
+              tieCount++;
+            }
+            if (item.b > 0) {
+              bankerPairCount++;
+            }
+            if (item.p > 0) {
+              playerPairCount++;
+            }
+          });
+          const totalCount: number = bankerCount + playerCount + tieCount;
 
-        const stats = new we.data.GameStatistic();
-        stats.bankerCount = bankerCount;
-        stats.playerCount = playerCount;
-        stats.tieCount = tieCount;
-        stats.playerPairCount = playerPairCount;
-        stats.bankerPairCount = bankerPairCount;
-        stats.totalCount = totalCount;
+          const stats = new we.data.GameStatistic();
+          stats.bankerCount = bankerCount;
+          stats.playerCount = playerCount;
+          stats.tieCount = tieCount;
+          stats.playerPairCount = playerPairCount;
+          stats.bankerPairCount = bankerPairCount;
+          stats.totalCount = totalCount;
 
-        return stats;
+          return stats;
+        } else if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC) {
+          const stats = new we.data.GameStatistic();
+          stats.hotNumbers = [1, 2, 3, 4, 5];
+          stats.coldNumbers = [6, 7, 8, 9, 10];
+          return stats;
+        }
       }
       protected generateBaccaratTables(count) {
         const tables = Array.apply(null, { length: count }).map((value, idx) => {
@@ -81,6 +89,39 @@ namespace we {
 
           data.bets = [];
           const mockProcess = new MockProcessBaccarat(this, core.GameType.BAC);
+          if (idx !== count - 1) {
+            mockProcess.startRand = idx;
+            mockProcess.endRand = idx + 1;
+          }
+          mockProcess.start(data);
+          this.mockProcesses.push(mockProcess);
+
+          idx++;
+          return data;
+        });
+        return tables;
+      }
+
+      protected generateRouletteTables(count) {
+        const tables = Array.apply(null, { length: count }).map((value, idx) => {
+          const data = new we.data.TableInfo();
+          data.tableid = (++this._tempIdx).toString();
+          data.tablename = data.tableid;
+          data.state = TableState.ONLINE;
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
+          data.gametype = core.GameType.RO;
+
+          data.gamestatistic = this.generateDummyStatistic(data);
+
+          data.betInfo = new we.data.GameTableBetInfo();
+          data.betInfo.tableid = data.tableid; // Unique table id
+          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+          data.betInfo.total = 10000; // Total bet amount for this gameround
+          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+          data.betInfo.ranking = [];
+
+          data.bets = [];
+          const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
           if (idx !== count - 1) {
             mockProcess.startRand = idx;
             mockProcess.endRand = idx + 1;
@@ -368,16 +409,37 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 12 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
           roach: [{ v: 'p' }],
         },
 
         inGameB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: 'b', t: 5 },
+          ],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -389,8 +451,18 @@ namespace we {
         },
 
         inGameP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: 'p', t: 0 },
+          ],
           bigEye: [{ v: 'p' }, { v: 'p' }],
           small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
           roach: [{ v: 'p' }, { v: 'p' }],
@@ -402,16 +474,37 @@ namespace we {
         },
 
         lobbyPro: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
           roach: [{ v: 'p' }],
         },
 
         lobbyProB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: 'b', t: 5 },
+          ],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -423,8 +516,18 @@ namespace we {
         },
 
         lobbyProP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: 'p', t: 0 },
+          ],
           bigEye: [{ v: 'p' }, { v: 'p' }],
           small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
           roach: [{ v: 'p' }, { v: 'p' }],
@@ -436,11 +539,19 @@ namespace we {
         },
 
         sideBar: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
         },
 
         lobbyUnPro: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
         },
 
         inGameInfoStart: 0,

@@ -1,31 +1,52 @@
 ## Roadmap
 
-### current week
-
 ### next demo (TBC)
-- Already bet baccarat grid
-- Side panel baccarat grid
-- Already bet label in lobby table list grid
+
+**General**
+- Platform Checking and platform specific setting
+- Mobile Fullscreen Handling
 ---
-- Live Side Panel Filtering
-- Good Road Notification
-- Result Notification
+**Mobile Components**
+- Setting Drawer
+- Data Picker
+- Notification Controller
+- Side Panel
+- Top menu bar
+- Live game tab bar
+- Table List View
+- QuickBet overlay
+- MessageBox overlay
+- General Fullpage overlay navigator
+- Setting overlay
+- Player Profile overlay
+- BetLog overlays
+- Custom Goodroad overlay
+- BetRelatedGroup (lefthand/ righthand mode)
+- Betting Table
+- Info Section (Tab mode)
 ---
-- Loading scene fetch banner from url
-- Lobby scene fetch banners from url (fetch at least one hero banner on each page before goto lobby scene)
-- Member Report Panel
-- Bet Log Date Selection
-- Bet Log Search
-- Good Road Enabled List Update
----
-- Bet Chip Modification (using bitmapfont)
-- Confirmed bet chip Modification
-- Unconfirmed bet chip modification
-- Rebet and double bet button
----
+**Desktop Components**
+- Tooltips
+- Roulette Roadmap
+- Roulette, Baccarat, DragonTiger Result animations
+- Roulette menu table item (simple, normal, detail)
+- Roulette side panel item (normal, already bet)
+- Roulette Scene
+- Roulette Betting Table
+- Roulette Scene Left Panel
+    - Hot/ cold number
+    - History
+    - Roadmap
+- Roulette Scene Right Panel
+    - Custom Betting patterns
+    - Roulette French Bets
+- Roulette result notification
+- Notification Controller
+- Baccarat menu table item (detail)
+- DragonTiger menu table item (detail)
+
 ### pending tasks
-- Light/ Dark Mode handling
-- Light/ Dark Mode selection panel
+- Bet Log Search
 - Ba Result Message Modification (using animation)
 - Disconnect handling
 - Video
@@ -83,9 +104,13 @@ npm install -g tslint prettier typescript
 ```
 
 ### Windows
-1. Download and install bash from http://www.msys2.org/
-2. Install npm
-3. Install the following programs
+0. Please be reminded that your user folder name "C:\Users\xxx" has no space.
+1. Install Egret Launcher. (Don't install EgretWing solely)
+2. Download and install bash from http://www.msys2.org/
+3. Set Bash in System Properties -> PATH
+4. Install npm
+5. Install the following programs
+
 ```
 npm install -g tslint prettier typescript
 ```
@@ -117,3 +142,7 @@ npm install -g tslint prettier typescript
 8. [Dragon Tiger Requirement](https://docs.google.com/document/d/1V4wFAZuuf6rmdggRk4UrmOkmLd-5Pd28SWY3J96bWNc/edit?ts=5e0ad733)
 
 9. [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
+
+10. [Roulette Requirement](https://docs.google.com/document/d/1TX5oRcXP26Gc0VONbwtURiGI6CSmx9SbHPlYZA193Qo/edit)
+
+11. [Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1VmyNAUTKaQCB-r9Mlw2Sz8FiQ09LSyCJm1BxpepZsaM/edit)

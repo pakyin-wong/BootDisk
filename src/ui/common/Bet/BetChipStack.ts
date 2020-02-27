@@ -6,6 +6,9 @@ namespace we {
       protected _betSumBackgroundRes: string;
       protected _betSumBackgroundX: number;
       protected _betSumBackgroundY: number;
+      protected _betSumBackgroundWidth: number;
+      protected _betSumBackgroundHeight: number;
+
       protected _betSum: number;
       protected _denomList: number[];
       protected _cfmDenomList: number[];
@@ -27,6 +30,22 @@ namespace we {
 
       constructor() {
         super('BetChipStack');
+      }
+
+      set betSumBackgroundWidth(value: number) {
+        this._betSumBackgroundWidth = value;
+      }
+
+      get betSumBackgroundWidth() {
+        return this._betSumBackgroundWidth;
+      }
+
+      set betSumBackgroundHeight(value: number) {
+        this._betSumBackgroundHeight = value;
+      }
+
+      get betSumBackgroundHeight() {
+        return this._betSumBackgroundHeight;
       }
 
       set chipInterval(value: number) {

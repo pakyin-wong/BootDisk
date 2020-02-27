@@ -77,6 +77,15 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
+      mobile_lobby_feature_title: '熱門遊戲',
+
+      mobile_quick_bet_button_label: '快速投注',
+      mobile_enter_table_button_label: '進入遊戲',
+
+      mobile_game_panel_bet_hint_label: '提示：點擊下注區進行追注或進入遊戲',
+
+      mobile_dropdown_confirm: '確定',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
@@ -131,6 +140,7 @@ namespace we {
           wheel: '輪盤',
           dice: '骰寶',
           goodroad: '好路',
+          other: '其他',
         },
       },
       goodroad: {
@@ -193,6 +203,37 @@ namespace we {
         tigerShort: '虎',
         tieShort: '和',
       },
+      roulette: {
+        row_1: '第一行',
+        row_2: '第二行',
+        row_3: '第三行',
+        dozen_1_12: '第一組',
+        dozen_13_24: '第二組',
+        dozen_25_36: '第三組',
+        small: '1-18',
+        big: '19-36',
+        odd: '單',
+        even: '雙',
+        red: '紅',
+        black: '黑',
+        distribution: '散佈',
+        tiers: {
+          text: '輪盤下角注',
+          x: 23,
+        },
+        orphelins: {
+          text: '輪上孤注',
+          x: 62,
+        },
+        voisins: {
+          text: '零旁注上角',
+          x: 16,
+        },
+
+        zero: {
+          text: '輪上零旁',
+        },
+      },
       message: {
         test: '你贏左 $1，$2% 會比左我',
         unknownError: '發生未知錯誤',
@@ -209,6 +250,16 @@ namespace we {
           },
         },
         dt: {
+          DRAGON: '龍贏',
+          TIGER: '虎贏',
+          TIE: '和',
+          short: {
+            DRAGON: '龍',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
+        ro: {
           DRAGON: '龍贏',
           TIGER: '虎贏',
           TIE: '和',

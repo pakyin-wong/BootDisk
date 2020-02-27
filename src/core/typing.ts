@@ -34,5 +34,9 @@ namespace we {
       link: string;
       loaded: boolean;
     }
+
+    export interface IContentInitializer {
+      initContent(root: eui.Component);
+    }
   }
 }

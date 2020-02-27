@@ -63,6 +63,10 @@ namespace we {
         }
       }
 
+      public onOutFocus() {
+        this.displayItem.onOutFocus();
+      }
+
       public itemDataChanged() {
         super.itemDataChanged();
         logger.l('TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
@@ -113,6 +117,12 @@ namespace we {
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: this.itemData });
+            break;
+          case core.GameType.RO:
+            dir.sceneCtr.goto('ro', { tableid: this.itemData });
+            break;
+          default:
+            console.error('error in TableListItemHolder');
             break;
         }
       }

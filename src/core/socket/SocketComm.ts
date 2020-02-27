@@ -14,7 +14,9 @@ namespace we {
 
         const options: any = {};
         options.playerID = playerID;
-        options.secret = secret;
+        if (secret) {
+          options.secret = secret;
+        }
         options.connectTimeout = dir.config.connectTimeout;
         options.endpoint = dir.config.endpoint;
         if (dir.config.rabbitmqhostname) {
@@ -463,6 +465,9 @@ namespace we {
           const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
+
+        tableInfo.totalBet = this.computeTotalBet(tableInfo.bets);
+
         if (betInfo.finish) {
           tableInfo.totalWin = betInfo.winamount; // this.computeTotalWin(tableInfo.bets);
           this.checkResultNotificationReady(tableInfo);
@@ -521,16 +526,15 @@ namespace we {
         }
       }
 
-      // protected computeTotalWin(betDetails: data.BetDetail[]) {
-      //   let totalWin = 0;
-      //   if (betDetails) {
-      //     for (const betDetail of betDetails) {
-      //       totalWin += betDetail.winamount;
-      //     }
-      //   }
-
-      //   return totalWin;
-      // }
+      protected computeTotalBet(betDetails: data.BetDetail[]) {
+        let totalWin = 0;
+        if (betDetails) {
+          for (const betDetail of betDetails) {
+            totalWin += betDetail.amount;
+          }
+        }
+        return totalWin;
+      }
 
       protected updateTimestamp(timestamp: string) {
         env.currTime = Math.floor(parseInt(timestamp, 10) / 1000000);

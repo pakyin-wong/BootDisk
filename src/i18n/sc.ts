@@ -83,6 +83,15 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
+      mobile_lobby_feature_title: '热门游戏',
+
+      mobile_quick_bet_button_label: '快速投注',
+      mobile_enter_table_button_label: '进入游戏',
+
+      mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
+
+      mobile_dropdown_confirm: '确定',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',
@@ -138,6 +147,7 @@ namespace we {
           wheel: '轮盘',
           dice: '骰宝',
           goodroad: '好路',
+          other: '其他',
         },
       },
       dragontiger: {
@@ -147,6 +157,39 @@ namespace we {
         dragonShort: '龙',
         tigerShort: '虎',
         tieShort: '和',
+      },
+      roulette: {
+        row_1: '第一行',
+        row_2: '第二行',
+        row_3: '第三行',
+        dozen_1_12: '第一组',
+        dozen_13_24: '第二组',
+        dozen_25_36: '第三组',
+        small: '1-18',
+        big: '19-36',
+        odd: '单',
+        even: '双',
+        red: '红',
+        black: '黑',
+        distribution: '散布',
+        tiers: {
+          text: '轮盘下角注',
+          x: 23,
+        },
+
+        orphelins: {
+          text: '轮上孤注',
+          x: 62,
+        },
+
+        voisins: {
+          text: '零旁注上角',
+          x: 16,
+        },
+
+        zero: {
+          text: '轮上零旁',
+        },
       },
       goodroad: {
         r1: '长庄',
@@ -216,6 +259,16 @@ namespace we {
           },
         },
         dt: {
+          DRAGON: '龙赢',
+          TIGER: '虎赢',
+          TIE: '和',
+          short: {
+            DRAGON: '龙',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
+        ro: {
           DRAGON: '龙赢',
           TIGER: '虎赢',
           TIE: '和',

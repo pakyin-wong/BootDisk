@@ -77,6 +77,15 @@ namespace we {
       datePicker_weekday_5: 'Fr',
       datePicker_weekday_6: 'Sa',
 
+      mobile_lobby_feature_title: 'Hot Game',
+
+      mobile_quick_bet_button_label: 'QuickBet',
+      mobile_enter_table_button_label: 'Enter',
+
+      mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
+
+      mobile_dropdown_confirm: 'Confirm',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
@@ -131,6 +140,7 @@ namespace we {
           wheel: 'Wheel',
           dice: 'Dice',
           goodroad: 'Good Road',
+          other: 'Others',
         },
       },
       goodroad: {
@@ -194,6 +204,36 @@ namespace we {
         tigerShort: 'Tr',
         tieShort: 'Ti',
       },
+      roulette: {
+        row_1: 'ROW 1',
+        row_2: 'ROW 2',
+        row_3: 'ROW 3',
+        dozen_1_12: '1ST GROUP',
+        dozen_13_24: '2ND GROUP',
+        dozen_25_36: '3RD GROUP',
+        small: '1-18',
+        big: '19-36',
+        odd: 'ODD',
+        even: 'EVEN',
+        red: 'RED',
+        black: 'BLACK',
+        distribution: 'distribution',
+        tiers: {
+          text: 'Tiers',
+          x: 51,
+        },
+        orphelins: {
+          text: 'Orphelins',
+          x: 57,
+        },
+        voisins: {
+          text: 'Voisins',
+          x: 34,
+        },
+        zero: {
+          text: 'Zero',
+        },
+      },
       message: {
         test: 'You won $1, and $2% will belongs to me',
         unknownError: 'An unknown error occurred',
@@ -210,6 +250,16 @@ namespace we {
           },
         },
         dt: {
+          DRAGON: 'Dragon Win',
+          TIGER: 'Tiger Win',
+          TIE: 'Tie',
+          short: {
+            DRAGON: 'Dn',
+            TIGER: 'Tr',
+            TIE: 'T',
+          },
+        },
+        ro: {
           DRAGON: 'Dragon Win',
           TIGER: 'Tiger Win',
           TIE: 'Tie',
