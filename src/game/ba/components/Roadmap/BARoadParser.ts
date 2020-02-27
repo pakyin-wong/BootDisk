@@ -557,6 +557,28 @@ namespace we {
           roadSet.roachAni = data.roachAni;
         }
 
+        // ro
+        if (data.color !== undefined) {
+          roadSet.color = [];
+          data.color.forEach(element => {
+            roadSet.color.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.size !== undefined) {
+          roadSet.size = [];
+          data.size.forEach(element => {
+            roadSet.size.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.odd !== undefined) {
+          roadSet.odd = [];
+          data.odd.forEach(element => {
+            roadSet.odd.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
         return roadSet;
       }
 

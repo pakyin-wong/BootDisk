@@ -35,9 +35,9 @@ namespace we {
         this.removeEventListeners();
       }
 
-      protected addEventListeners() { }
+      protected addEventListeners() {}
 
-      protected removeEventListeners() { }
+      protected removeEventListeners() {}
 
       public set focus(value: boolean) {
         if (this._focus === value) {
@@ -95,12 +95,12 @@ namespace we {
           egret.Tween.removeTweens(this._badge);
           egret.Tween.get(this._badge)
             .to(
-            {
-              scaleX: 0,
-              scaleY: 0,
-            },
-            this.tweenDuration,
-            egret.Ease.backIn
+              {
+                scaleX: 0,
+                scaleY: 0,
+              },
+              this.tweenDuration,
+              egret.Ease.backIn
             )
             .call(() => {
               this._badge.visible = false;
