@@ -8,6 +8,8 @@ namespace we {
 
       protected gameIdLabel: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
+      protected labelHot: ui.RunTimeLabel;
+      protected labelCold: ui.RunTimeLabel;
       protected gameId: string;
       protected totalBet: number;
       protected btnHotCold: ui.BaseImageButton;
@@ -46,13 +48,16 @@ namespace we {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
 
-        this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = 'page1';
-        this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = 'page2';
-        this.pageRadioBtn3['labelDisplayDown']['text'] = this.pageRadioBtn3['labelDisplayUp']['text'] = 'page3';
+        this.labelHot.text = i18n.t('roulette.hot');
+        this.labelCold.text = i18n.t('roulette.cold');
 
-        this.roadRadioBtn1['labelDisplayDown']['text'] = this.roadRadioBtn1['labelDisplayUp']['text'] = 'road1';
-        this.roadRadioBtn2['labelDisplayDown']['text'] = this.roadRadioBtn2['labelDisplayUp']['text'] = 'road2';
-        this.roadRadioBtn3['labelDisplayDown']['text'] = this.roadRadioBtn3['labelDisplayUp']['text'] = 'road3';
+        this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.hotColdNumber');
+        this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('roulette.history');
+        this.pageRadioBtn3['labelDisplayDown']['text'] = this.pageRadioBtn3['labelDisplayUp']['text'] = i18n.t('roulette.roadmap');
+
+        this.roadRadioBtn1['labelDisplayDown']['text'] = this.roadRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.roadRed') + '/' + i18n.t('roulette.roadBlack');
+        this.roadRadioBtn2['labelDisplayDown']['text'] = this.roadRadioBtn2['labelDisplayUp']['text'] = i18n.t('roulette.roadBig') + '/' + i18n.t('roulette.roadSmall');
+        this.roadRadioBtn3['labelDisplayDown']['text'] = this.roadRadioBtn3['labelDisplayUp']['text'] = i18n.t('roulette.roadOdd') + '/' + i18n.t('roulette.roadEven');
 
         this.updateActiveLine(false);
       }
@@ -61,11 +66,10 @@ namespace we {
         this.gameId = '';
         this.totalBet = 0;
 
-        const gridSize = 43;
-        const numRow = 3;
-        const numColumn = 10;
-
-        this.beadRoad = new ROBeadRoad(numRow, numColumn, gridSize, 1);
+        this.beadRoad = new ROBeadRoad(3, 10, 56, 1, 10, 20, 0x262a2b, 1); // in game
+        // this.beadRoad = new ROBeadRoad(3, 12, 40, 1, 8, 5, 0xc1c1c1, 0.2); // lobby
+        this.beadRoad.x = 10;
+        this.beadRoad.y = 20;
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
 
@@ -155,7 +159,8 @@ namespace we {
           { v: 35, index: 5 },
         ];
 
-        this.colorBigRoad = new ROColorBigRoad(19, 30, 1);
+        this.colorBigRoad = new ROColorBigRoad(19, 35, 1, true);
+        this.colorBigRoad.scaleX = 668 / 666;
         this.colorBigRoad.parseRoadData(rdata2);
 
         // add road to road stack 1
@@ -225,7 +230,8 @@ namespace we {
           { v: 35, index: 5 },
         ];
 
-        this.sizeBigRoad = new ROSizeBigRoad(19, 30, 1);
+        this.sizeBigRoad = new ROSizeBigRoad(19, 35, 1, true);
+        this.sizeBigRoad.scaleX = 668 / 666;
         this.sizeBigRoad.parseRoadData(rdata3);
 
         // add road to road stack 2
@@ -295,7 +301,8 @@ namespace we {
           { v: 2, index: 5 },
         ];
 
-        this.oddBigRoad = new ROOddBigRoad(19, 30, 1);
+        this.oddBigRoad = new ROOddBigRoad(19, 35, 1, true);
+        this.oddBigRoad.scaleX = 668 / 666;
         this.oddBigRoad.parseRoadData(rdata4);
 
         // add road to road stack 3
@@ -321,53 +328,53 @@ namespace we {
         gr.drawRect(0, 0, 100, 3);
         gr.endFill();
         this.addChild(this.activeLine);
-        this.activeLine.y = this.pageRadioBtn1.y;
+        this.activeLine.y = 332;
 
-        this.hotIcon1 = new ROBeadRoadIcon(88);
+        this.hotIcon1 = new ROBeadRoadIcon(88, 0x262a2b, 1);
         this.hotIcon1.setByObject({ v: 1 });
         this.hotIcon1.x = 220;
         this.hotIcon1.y = 29;
 
-        this.hotIcon2 = new ROBeadRoadIcon(58);
+        this.hotIcon2 = new ROBeadRoadIcon(58, 0x262a2b, 1);
         this.hotIcon2.setByObject({ v: 1 });
         this.hotIcon2.x = 21;
         this.hotIcon2.y = 152;
 
-        this.hotIcon3 = new ROBeadRoadIcon(58);
+        this.hotIcon3 = new ROBeadRoadIcon(58, 0x262a2b, 1);
         this.hotIcon3.setByObject({ v: 1 });
         this.hotIcon3.x = 97;
         this.hotIcon3.y = 152;
 
-        this.hotIcon4 = new ROBeadRoadIcon(58);
+        this.hotIcon4 = new ROBeadRoadIcon(58, 0x262a2b, 1);
         this.hotIcon4.setByObject({ v: 1 });
         this.hotIcon4.x = 173;
         this.hotIcon4.y = 152;
 
-        this.hotIcon5 = new ROBeadRoadIcon(58);
+        this.hotIcon5 = new ROBeadRoadIcon(58, 0x262a2b, 1);
         this.hotIcon5.setByObject({ v: 1 });
         this.hotIcon5.x = 249;
         this.hotIcon5.y = 152;
 
-        this.coldIcon1 = new ROBeadRoadIcon(88);
+        this.coldIcon1 = new ROBeadRoadIcon(88, 0x262a2b, 1);
         this.coldIcon1.setByObject({ v: 1 });
         this.coldIcon1.x = 358;
         this.coldIcon1.y = 29;
 
-        this.coldIcon2 = new ROBeadRoadIcon(58);
+        this.coldIcon2 = new ROBeadRoadIcon(58, 0x262a2b, 1);
         this.coldIcon2.setByObject({ v: 1 });
         this.coldIcon2.x = 357;
         this.coldIcon2.y = 152;
 
-        this.coldIcon3 = new ROBeadRoadIcon(58);
+        this.coldIcon3 = new ROBeadRoadIcon(58, 0x262a2b, 1);
         this.coldIcon3.setByObject({ v: 1 });
         this.coldIcon3.x = 433;
         this.coldIcon3.y = 152;
 
-        this.coldIcon4 = new ROBeadRoadIcon(58);
+        this.coldIcon4 = new ROBeadRoadIcon(58, 0x262a2b, 1);
         this.coldIcon4.x = 509;
         this.coldIcon4.y = 152;
 
-        this.coldIcon5 = new ROBeadRoadIcon(58);
+        this.coldIcon5 = new ROBeadRoadIcon(58, 0x262a2b, 1);
         this.coldIcon5.x = 585;
         this.coldIcon5.y = 152;
 

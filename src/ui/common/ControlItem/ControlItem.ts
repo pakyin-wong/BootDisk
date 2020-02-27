@@ -386,7 +386,10 @@ namespace we {
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype);
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: NaN,
+            });
           }
         }
       }

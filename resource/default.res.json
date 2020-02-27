@@ -4198,6 +4198,11 @@
 			"url": "assets/m/lobby/m_lobby_view_icon_2column.png",
 			"type": "image",
 			"name": "m_lobby_view_icon_2column_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_goodroad_info_state_total.png",
+			"type": "image",
+			"name": "d_ba_goodroad_info_state_total_png"
 		}
 	]
 }

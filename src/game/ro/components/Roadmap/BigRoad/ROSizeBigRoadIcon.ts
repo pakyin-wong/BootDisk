@@ -20,13 +20,13 @@ namespace we {
           if (this.value.v !== undefined) {
             if (this.value.v === 0) {
               // green
-              this.iconText.text = i18n.t('baccarat.tieShort');
+              this.iconText.text = i18n.t('roulette.zeroShort');
             } else if (this.value.v <= 18) {
               // blue for small
-              this.iconText.text = i18n.t('baccarat.playerShort');
+              this.iconText.text = i18n.t('roulette.smallShort');
             } else {
               // red for big
-              this.iconText.text = i18n.t('baccarat.bankerShort');
+              this.iconText.text = i18n.t('roulette.bigShort');
             }
           }
         }
@@ -80,7 +80,7 @@ namespace we {
         this.iconText.text = '2';
         this.iconText.width = this.size;
         this.iconText.height = this.size;
-        this.iconText.size = this.size * 0.5;
+        this.iconText.size = this.size * 0.7;
         // this.iconText.fontFamily = 'Times New Roman';
 
         // draw the tie line

@@ -75,7 +75,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
           data.gametype = core.GameType.BAC;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -108,7 +108,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
           data.gametype = core.GameType.RO;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -141,7 +141,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
           data.gametype = core.GameType.DT;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -394,12 +394,12 @@ namespace we {
       }
 
       public async getTableHistory() {
-        // env.tableHistory = this.mockRoadData;
+        // env.tableHistory = this.mockBARoadData;
         // dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE);
       }
 
       // mock road data
-      private mockRoadData: any = {
+      private mockBARoadData: any = {
         tableid: '1',
         shoeid: '1',
         playerwincount: 3,
@@ -409,37 +409,16 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [
-            { v: 't', b: 0, p: 0, w: 12 },
-            { v: 'p', b: 0, p: 0, w: 4 },
-            { v: 'b', b: 0, p: 1, w: 7 },
-          ],
-          bigRoad: [
-            { v: 'p', t: 0 },
-            { v: 'p', t: 0 },
-            { v: 'p', t: 4 },
-          ],
+          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
           roach: [{ v: 'p' }],
         },
 
         inGameB: {
-          bead: [
-            { v: 't', b: 0, p: 0, w: 2 },
-            { v: 'p', b: 0, p: 0, w: 4 },
-            { v: 'b', b: 0, p: 1, w: 7 },
-            { v: 'b', b: 0, p: 0, w: 0 },
-          ],
-          bigRoad: [
-            { v: 'p', t: 0 },
-            { v: 'p', t: 0 },
-            { v: 'p', t: 4 },
-            { v: '', t: 0 },
-            { v: '', t: 0 },
-            { v: '', t: 0 },
-            { v: 'b', t: 5 },
-          ],
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -451,18 +430,8 @@ namespace we {
         },
 
         inGameP: {
-          bead: [
-            { v: 't', b: 0, p: 0, w: 2 },
-            { v: 'p', b: 0, p: 0, w: 4 },
-            { v: 'b', b: 0, p: 1, w: 7 },
-            { v: 'p', b: 0, p: 0, w: 6 },
-          ],
-          bigRoad: [
-            { v: 'p', t: 0 },
-            { v: 'p', t: 0 },
-            { v: 'p', t: 4 },
-            { v: 'p', t: 0 },
-          ],
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
           bigEye: [{ v: 'p' }, { v: 'p' }],
           small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
           roach: [{ v: 'p' }, { v: 'p' }],
@@ -474,37 +443,16 @@ namespace we {
         },
 
         lobbyPro: {
-          bead: [
-            { v: 't', b: 0, p: 0, w: 2 },
-            { v: 'p', b: 0, p: 0, w: 4 },
-            { v: 'b', b: 0, p: 1, w: 7 },
-          ],
-          bigRoad: [
-            { v: 'p', t: 0 },
-            { v: 'p', t: 0 },
-            { v: 'p', t: 4 },
-          ],
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
           roach: [{ v: 'p' }],
         },
 
         lobbyProB: {
-          bead: [
-            { v: 't', b: 0, p: 0, w: 2 },
-            { v: 'p', b: 0, p: 0, w: 4 },
-            { v: 'b', b: 0, p: 1, w: 7 },
-            { v: 'b', b: 0, p: 0, w: 0 },
-          ],
-          bigRoad: [
-            { v: 'p', t: 0 },
-            { v: 'p', t: 0 },
-            { v: 'p', t: 4 },
-            { v: '', t: 0 },
-            { v: '', t: 0 },
-            { v: '', t: 0 },
-            { v: 'b', t: 5 },
-          ],
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -516,18 +464,8 @@ namespace we {
         },
 
         lobbyProP: {
-          bead: [
-            { v: 't', b: 0, p: 0, w: 2 },
-            { v: 'p', b: 0, p: 0, w: 4 },
-            { v: 'b', b: 0, p: 1, w: 7 },
-            { v: 'p', b: 0, p: 0, w: 6 },
-          ],
-          bigRoad: [
-            { v: 'p', t: 0 },
-            { v: 'p', t: 0 },
-            { v: 'p', t: 4 },
-            { v: 'p', t: 0 },
-          ],
+          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
           bigEye: [{ v: 'p' }, { v: 'p' }],
           small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
           roach: [{ v: 'p' }, { v: 'p' }],
@@ -539,19 +477,11 @@ namespace we {
         },
 
         sideBar: {
-          bigRoad: [
-            { v: 'p', t: 0 },
-            { v: 'p', t: 0 },
-            { v: 'p', t: 4 },
-          ],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
         },
 
         lobbyUnPro: {
-          bigRoad: [
-            { v: 'p', t: 0 },
-            { v: 'p', t: 0 },
-            { v: 'p', t: 4 },
-          ],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
         },
 
         inGameInfoStart: 0,
@@ -561,6 +491,23 @@ namespace we {
           { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
           { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
         ],
+      };
+
+      // mock ro road data
+      private mockRORoadData: any = {
+        tableid: '2',
+        shoeid: '1',
+        hot: [1, 2, 3, 4, 5],
+        cold: [1, 2, 3, 4, 5],
+
+        inGame: {
+          bead: [{ v: 1, index: 0 }, { v: 2, index: 1 }, { v: 3, index: 2 }],
+          color: [{ v: 1, index: 0 }, {}, {}, {}, {}, {}, { v: 2, index: 1 }, { v: 3, index: 2 }],
+          size: [{ v: 1, index: 0 }, { v: 2, index: 1 }, {}, {}, {}, {}, { v: 3, index: 2 }],
+          odd: [{ v: 1, index: 0 }, { v: 2, index: 1 }, { v: 3, index: 2 }],
+        },
+
+        gameInfo: [{ gameRoundID: 'cde345', result: 1 }, { gameRoundID: '34345', result: 2 }, { gameRoundID: '45454', result: 3 }],
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {

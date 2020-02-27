@@ -13,6 +13,12 @@ namespace we {
       protected pBankerPair: eui.Label;
       protected pPlayerPair: eui.Label;
 
+      protected gameIdLabel: eui.Label;
+      protected betLimitLabel: eui.Label;
+
+      protected pGameID: eui.Label;
+      protected pBetLimit: eui.Label;
+
       public constructor() {
         super();
       }
@@ -50,15 +56,25 @@ namespace we {
         this.tieLabel.text = i18n.t('baccarat.tie');
         this.bankerPairLabel.text = i18n.t('baccarat.bankerPair');
         this.playerPairLabel.text = i18n.t('baccarat.playerPair');
+        if (this.gameIdLabel) {
+          this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
+        }
+        if (this.betLimitLabel) {
+          this.betLimitLabel.text = i18n.t('baccarat.betLimitshort');
+        }
       }
 
       public setValue(tableInfo: data.TableInfo) {
-        if (tableInfo.gamestatistic) {
-          this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
-          this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
-          this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
-          this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-          this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
+        this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
+        this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
+        this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
+        this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
+        this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
+        if (this.pGameID) {
+          this.pGameID.text = tableInfo.betInfo.gameroundid.toString();
+        }
+        if (this.pGameID) {
+          this.pGameID.text = data.BetLimit.toString();
         }
       }
     }

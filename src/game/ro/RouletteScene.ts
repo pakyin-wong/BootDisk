@@ -9,10 +9,10 @@
 namespace we {
   export namespace ro {
     export class Scene extends core.BaseGameScene {
-      protected _roadmapControl: we.ba.BARoadmapControl;
+      protected _roadmapControl: we.ro.RORoadmapControl;
       protected _leftGamePanel: we.ro.RoLeftPanel;
       protected _rightGamePanel: we.ro.RoRightPanel;
-      protected _beadRoadResultPanel: we.ba.BaBeadRoadResultPanel;
+      protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
       protected _testingWinAmount: eui.Label;
       protected _testingResult: eui.Label;
       protected _testing1: eui.Label;
@@ -31,31 +31,33 @@ namespace we {
         this.skinName = utils.getSkinByClassname('RouletteScene');
       }
 
+      public backToLobby() {
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        // this._roadmapControl.setTableInfo(this._tableInfo);
+        this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
       protected initRoadMap() {
-        /*
-        this._roadmapControl = new we.ba.BARoadmapControl(this._tableId);
+        this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
         this._roadmapControl.setRoads(
           this._leftGamePanel.beadRoad,
-          this._rightGamePanel.bigRoad,
-          this._rightGamePanel.bigEyeRoad,
-          this._rightGamePanel.smallRoad,
-          this._rightGamePanel.cockroachRoad,
-          [16, 33, 66, 34, 32],
+          this._leftGamePanel.colorBigRoad,
+          this._leftGamePanel.sizeBigRoad,
+          this._leftGamePanel.oddBigRoad,
+          this._leftGamePanel,
           this._rightGamePanel,
-          this._beadRoadResultPanel
-        );*/
+          this._bigRoadResultPanel
+        );
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        // this._roadmapControl.updateRoadData();
+        this._roadmapControl.updateRoadData();
       }
 
       // for testing

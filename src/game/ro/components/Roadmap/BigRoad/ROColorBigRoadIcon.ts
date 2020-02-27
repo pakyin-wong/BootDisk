@@ -22,13 +22,13 @@ namespace we {
           if (this.value.v !== undefined) {
             if (this.value.v === 0) {
               // green
-              this.iconText.text = i18n.t('baccarat.tieShort');
+              this.iconText.text = i18n.t('roulette.zeroShort');
             } else if (this.redNumbers.indexOf(this.value.v) === -1) {
               // black
-              this.iconText.text = i18n.t('baccarat.playerShort');
+              this.iconText.text = i18n.t('roulette.blackShort');
             } else {
               // red
-              this.iconText.text = i18n.t('baccarat.bankerShort');
+              this.iconText.text = i18n.t('roulette.redShort');
             }
           }
         }
@@ -45,14 +45,7 @@ namespace we {
         this.addChild(this.iconText);
 
         const colors = [0xee2e2e, 0x333333, 0x00ff00, 0x990909, 0x000000, 0x00dd00];
-        const gradientColors = [
-          [0xb82828, 0x781919],
-          [0x2b2b2b, 0x000000],
-          [0x249336, 0x10662b],
-          [0xff0000, 0xff0000],
-          [0x000000, 0x000000],
-          [0x00ff00, 0x10662b],
-        ];
+        const gradientColors = [[0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b], [0xff0000, 0xff0000], [0x000000, 0x000000], [0x00ff00, 0x10662b]];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const lineWidth = 1;
@@ -88,7 +81,7 @@ namespace we {
         this.iconText.text = '2';
         this.iconText.width = this.size;
         this.iconText.height = this.size;
-        this.iconText.size = this.size * 0.5;
+        this.iconText.size = this.size * 0.7;
         // this.iconText.fontFamily = 'Times New Roman';
 
         // draw the tie line

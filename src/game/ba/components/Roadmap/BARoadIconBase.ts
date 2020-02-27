@@ -3,7 +3,7 @@ namespace we {
     export abstract class BARoadIconBase extends egret.DisplayObjectContainer {
       protected size: number;
       protected tween: egret.Tween;
-      protected value: any;
+      public value: any;
       protected darkModeNumber: number;
 
       public constructor(size: number) {
