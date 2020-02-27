@@ -87,7 +87,7 @@ namespace we {
         this._testing2.visible = true;
         this._testingResult.visible = true;
         this._testingWinAmount.visible = true;
-        this._testingResult.text = (<ro.GameData> this._gameData).value.toString();
+        this._testingResult.text = (<ro.GameData>this._gameData).value.toString();
         if (isNaN(this._tableInfo.totalWin)) {
           this._testingWinAmount.text = '0';
         } else {
@@ -97,7 +97,7 @@ namespace we {
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
-              resultNo: (<ro.GameData> this._gameData).value,
+              resultNo: (<ro.GameData>this._gameData).value,
               winAmount: this._tableInfo.totalWin,
             });
             dir.audioCtr.playSequence(['player', 'win']);
@@ -105,7 +105,7 @@ namespace we {
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
-              resultNo: (<ro.GameData> this._gameData).value,
+              resultNo: (<ro.GameData>this._gameData).value,
               winAmount: NaN,
             });
             dir.audioCtr.playSequence(['player', 'win']);

@@ -202,11 +202,11 @@ namespace we {
         const array = [['L_txt', 60, numLeft, -16], ['middle_txt', 90, numCenter, 0], ['L_txt3', 60, numRight, 16]];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const lbl = new eui.Label();
-          lbl.text = <string> text;
+          lbl.text = <string>text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
+          lbl.size = <number>fontSize;
           lbl.width = lbl.size * 2;
           lbl.height = lbl.size;
           lbl.anchorOffsetX = lbl.size;
@@ -214,7 +214,7 @@ namespace we {
           lbl.textAlign = egret.HorizontalAlign.CENTER;
           lbl.verticalAlign = egret.VerticalAlign.MIDDLE;
           slot.display = lbl;
-          slot.display.rotation = <number> rotate;
+          slot.display.rotation = <number>rotate;
         }
 
         this.visible = true;

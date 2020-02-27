@@ -7,7 +7,7 @@ namespace we {
       protected bigEyeRoad: BABigEyeRoad;
       protected smallRoad: BASmallRoad;
       protected cockroachRoad: BACockroachRoad;
-      protected rightPanel: BARoadmapRightPanel;
+      protected targetPanel: core.BaseGamePanel & IBARoadmapDisplayObject; // BARoadmapRightPanel;
       protected beadResultPanel: BaBeadRoadResultPanel;
       public tableid: string;
 
@@ -19,14 +19,15 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, r2, r3, r4, r5, columnArray, rightPanel, beadResultPanel) {
+      public setRoads(r1, r2, r3, r4, r5, columnArray, panel, beadResultPanel) {
         this.beadRoad = r1;
         this.bigRoad = r2;
         this.bigEyeRoad = r3;
         this.smallRoad = r4;
         this.cockroachRoad = r5;
-        this.rightPanel = rightPanel;
         this.beadResultPanel = beadResultPanel;
+
+        this.targetPanel = panel;
 
         this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
         this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
@@ -40,12 +41,12 @@ namespace we {
         this.onDisplayUpdate(null);
 
         // predict roads
-        this.rightPanel.iconBankerBead.touchEnabled = true;
-        this.rightPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
 
-        this.rightPanel.iconPlayerBead.touchEnabled = true;
-        this.rightPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        this.targetPanel.iconBankerBead.touchEnabled = true;
+        this.targetPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
 
+        this.targetPanel.iconPlayerBead.touchEnabled = true;
+        this.targetPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
         // dark/light mode
         // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         // this.onModeUpdate(null);
@@ -220,7 +221,7 @@ namespace we {
                 if (this.tableInfo.gamestatistic) {
                   const stats = this.parser.getIconsFromBeadResult(roadmapData.inGame.bead);
                   const data = this.tableInfo.gamestatistic;
-                  this.rightPanel.setPredictIcons(
+                  this.targetPanel.setPredictIcons(
                     stats.predictBankerIcons[0],
                     stats.predictBankerIcons[1],
                     stats.predictBankerIcons[2],
@@ -246,7 +247,7 @@ namespace we {
                 if (this.tableInfo.gamestatistic) {
                   const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
                   const stat = this.tableInfo.gamestatistic;
-                  this.rightPanel.setPredictIcons(
+                  this.targetPanel.setPredictIcons(
                     prediction.predictBankerIcons[0],
                     prediction.predictBankerIcons[1],
                     prediction.predictBankerIcons[2],
@@ -290,11 +291,11 @@ namespace we {
           this.beadRoad.removeEventListener('ClickResult', this.onBeadRoadClick, this);
         }
 
-        if (this.rightPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.rightPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+        if (this.targetPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.targetPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
         }
-        if (this.rightPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.rightPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        if (this.targetPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.targetPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
         }
 
         // if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
