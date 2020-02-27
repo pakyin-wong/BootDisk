@@ -99,7 +99,7 @@ namespace we {
         const betLimitItems = betLimitList.map(data => {
           return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
         });
-        this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+        if (this._toggler) { this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`; }
       }
 
       public getActionButton(): eui.Component {
