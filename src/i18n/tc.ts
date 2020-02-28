@@ -87,6 +87,7 @@ namespace we {
       mobile_game_panel_statistic_chart: '統計圖表',
       mobile_game_panel_table_info: '本檯資訊',
       mobile_table_info_gameID: '編號',
+      mobile_panel_game_Info: '遊戲資訊',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',

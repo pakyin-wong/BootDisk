@@ -4,7 +4,6 @@ namespace we {
     // base control class that hold and manage the basic item in Ba Item
     export class MobileBaseGameScene extends BaseGameScene {
       protected _bottomGamePanel: BaseGamePanel;
-      protected _tableInfoPanel: ui.TableInfoPanel;
       protected _lblBetLimit: ui.RunTimeLabel;
 
       constructor(data: any) {
@@ -14,11 +13,6 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this._bottomGamePanel.setTableInfo(this._tableInfo);
-
-        if (this._tableInfoPanel) {
-          this._tableInfoPanel.setToggler(this._lblRoomInfo);
-          this._tableInfoPanel.setValue(this._tableInfo);
-        }
 
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
@@ -73,10 +67,6 @@ namespace we {
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
         this._bottomGamePanel.update();
-
-        if (this._tableInfoPanel) {
-          this._tableInfoPanel.setValue(this._tableInfo);
-        }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

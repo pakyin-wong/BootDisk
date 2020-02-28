@@ -93,6 +93,7 @@ namespace we {
       mobile_game_panel_statistic_chart: '统计图表',
       mobile_game_panel_table_info: '本台资讯',
       mobile_table_info_gameID: '编号',
+      mobile_panel_game_Info: '游戏资讯',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '进入游戏',
