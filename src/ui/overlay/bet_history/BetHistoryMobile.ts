@@ -33,6 +33,7 @@ namespace we {
         this._btn_date.active = true;
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
+        this._scroller.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
       }
 
       protected addListeners() {
@@ -78,13 +79,16 @@ namespace we {
 
       protected update(res: any) {
         super.update(res);
+        this._scroller.viewport.scrollV = 0;
         this._scroller.scrollPolicyV = this._total > 1 ? eui.ScrollPolicy.ON : eui.ScrollPolicy.OFF;
+        this._scroller.verticalScrollBar.autoVisibility = this._total <= 1;
+        this._scroller.verticalScrollBar.visible = this._total > 1;
       }
 
       protected onScrollerChange() {
         const sc = this._scroller;
 
-        if (!this._getFlag && sc.viewport.scrollV + sc.height >= sc.viewport.contentHeight * 1.05) {
+        if (!this._getFlag && sc.viewport.scrollV + sc.height >= sc.viewport.contentHeight + sc.height * 0.05) {
           this._getFlag = true;
         }
       }
