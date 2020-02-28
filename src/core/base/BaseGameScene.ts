@@ -110,10 +110,10 @@ namespace we {
 
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
 
-        if (this._tableInfoWindow) {
-          this._tableInfoWindow.setToggler(this._lblRoomInfo);
-          this._tableInfoWindow.setValue(this._tableInfo);
-        }
+        // if (this._tableInfoWindow) {
+        //   this._tableInfoWindow.setToggler(this._lblRoomInfo);
+        //   this._tableInfoWindow.setValue(this._tableInfo);
+        // }
 
         // this._leftGamePanel.setTableInfo(this._tableInfo);
         // this._rightGamePanel.setTableInfo(this._tableInfo);
@@ -307,9 +307,9 @@ namespace we {
       }
 
       protected updateTableInfoRelatedComponents() {
-        if (this._tableInfoWindow) {
-          this._tableInfoWindow.setValue(this._tableInfo);
-        }
+        // if (this._tableInfoWindow) {
+        //   this._tableInfoWindow.setValue(this._tableInfo);
+        // }
         // this._leftGamePanel.update();
         // this._rightGamePanel.update();
       }

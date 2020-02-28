@@ -302,6 +302,7 @@ namespace we {
             // reset the betDetails
             tableInfo.bets = null;
             tableInfo.totalWin = NaN;
+            tableInfo.totalBet = 0;
             dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
           }
           if (data.state === core.GameState.FINISH) {
