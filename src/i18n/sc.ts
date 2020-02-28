@@ -51,6 +51,7 @@ namespace we {
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
       overlaypanel_bethistory_searchrecord: '搜寻记录',
+      overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注编号',
       overlaypanel_bethistory_recordtab_date: '日期时间',
       overlaypanel_bethistory_recordtab_game: '游戏',

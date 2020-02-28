@@ -3,6 +3,7 @@ namespace we {
     export class BetHistoryMobile extends BetHistory {
       protected _btn_date: ui.BaseButton;
       protected _scroller: eui.Scroller;
+      protected _detail: betHistory.BetHistoryDetail;
 
       protected _getFlag: boolean = false;
       protected _getLock: boolean = false;
@@ -113,7 +114,10 @@ namespace we {
         this._getLock = false;
       }
 
-      protected onClickResult(e) {}
+      protected onClickResult(e) {
+        this._detail.dataChanged(this._dataColl.source[e.itemIndex]);
+        this._detail.show();
+      }
     }
   }
 }

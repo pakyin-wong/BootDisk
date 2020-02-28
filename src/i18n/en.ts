@@ -46,6 +46,7 @@ namespace we {
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'search id',
       overlaypanel_bethistory_recordtab_id: 'ID',
+      overlaypanel_bethistory_recordtab_title: 'Record Detail',
       overlaypanel_bethistory_recordtab_date: 'Date',
       overlaypanel_bethistory_recordtab_game: 'Game',
       overlaypanel_bethistory_recordtab_round: 'Round',
