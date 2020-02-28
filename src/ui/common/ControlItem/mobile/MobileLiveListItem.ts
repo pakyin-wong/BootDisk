@@ -23,6 +23,10 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
+      }
+
+      public setData(tableInfo: data.TableInfo) {
+        super.setData(tableInfo);
         this._roadmapControl.setTableInfo(this._tableInfo);
       }
 
@@ -69,7 +73,7 @@ namespace we {
         rect2.y = gridSize * 3;
         rect3.y = gridSize * 6;
 
-        this._roadmapControl.setRoads(null, this._bigRoadMap, this._bigEyeRoad, this._smallRoad, this._cockroachRoad, [0, 17, 20, 20, 20], null, null, false);
+        this._roadmapControl.setRoads(null, this._bigRoadMap, this._bigEyeRoad, this._smallRoad, this._cockroachRoad, [16, 17, 20, 20, 20], null, null, false);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
