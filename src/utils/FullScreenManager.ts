@@ -1,7 +1,7 @@
 /* tslint:disable max-classes-per-file */
 
 class IPhone7Helper {
-  constructor() { }
+  constructor() {}
 
   public ResetScroll() {
     if (window.scrollY !== 0) {
@@ -388,12 +388,12 @@ class ScreenFull {
   }
 }
 
-(<any>window).screenfull = new ScreenFull();
+(<any> window).screenfull = new ScreenFull();
 
 class FullScreenManager {
   public static overlay = null;
   public static reserve = null;
-  private static screenfull = (<any>window).screenfull;
+  private static screenfull = (<any> window).screenfull;
 
   public static RequestFullscreen() {
     if (!this.screenfull.isFullscreen) {
@@ -439,9 +439,9 @@ class FullScreenManager {
   public static OnLoad(stage: egret.Stage) {
     const self = FullScreenManager;
     self.Init(stage);
-    (<any>window).RequestFullscreen = self.RequestFullscreen;
-    (<any>window).ExitFullscreen = self.ExitFullscreen;
-    (<any>window).IsFullscreen = self.IsFullscreen;
+    (<any> window).RequestFullscreen = self.RequestFullscreen;
+    (<any> window).ExitFullscreen = self.ExitFullscreen;
+    (<any> window).IsFullscreen = self.IsFullscreen;
   }
 }
 

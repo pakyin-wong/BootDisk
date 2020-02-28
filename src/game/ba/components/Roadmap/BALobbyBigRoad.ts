@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class BALobbyBigRoad extends ui.Panel {
+    export class BALobbyBigRoad extends ui.Panel implements we.core.ILobbyRoad {
       protected bigRoad: BABigRoad;
       protected parser: BARoadParser;
       protected useParser: boolean = false;

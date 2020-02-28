@@ -15,6 +15,13 @@ namespace we {
 
     export const RACETRACK_INNERFIELD_MAPPING = {
       [ro.RACETRACK_INNERFIELD.TIERS]: [
+        ro.BetField.SEPARATE_5_8,
+        ro.BetField.SEPARATE_10_11,
+        ro.BetField.SEPARATE_13_16,
+        ro.BetField.SEPARATE_23_24,
+        ro.BetField.SEPARATE_27_30,
+        ro.BetField.SEPARATE_31_34,
+        /*
         ro.BetField.DIRECT_27,
         ro.BetField.DIRECT_13,
         ro.BetField.DIRECT_36,
@@ -27,9 +34,15 @@ namespace we {
         ro.BetField.DIRECT_24,
         ro.BetField.DIRECT_16,
         ro.BetField.DIRECT_33,
+        */
       ],
       [ro.RACETRACK_INNERFIELD.ORPHELINS]: [
+        ro.BetField.SEPARATE_6_9,
+        ro.BetField.SEPARATE_14_17,
+        ro.BetField.SEPARATE_17_20,
+        ro.BetField.SEPARATE_31_34,
         ro.BetField.DIRECT_1,
+        /*
         ro.BetField.DIRECT_20,
         ro.BetField.DIRECT_14,
         ro.BetField.DIRECT_31,
@@ -37,8 +50,17 @@ namespace we {
         ro.BetField.DIRECT_17,
         ro.BetField.DIRECT_34,
         ro.BetField.DIRECT_6,
+        */
       ],
       [ro.RACETRACK_INNERFIELD.VOISINS]: [
+        ro.BetField.STREET_0_2_3,
+        ro.BetField.SEPARATE_4_7,
+        ro.BetField.SEPARATE_12_15,
+        ro.BetField.SEPARATE_18_21,
+        ro.BetField.SEPARATE_19_22,
+        ro.BetField.CORNER_25_26_28_29,
+        ro.BetField.SEPARATE_32_35,
+        /*
         ro.BetField.DIRECT_22,
         ro.BetField.DIRECT_18,
         ro.BetField.DIRECT_29,
@@ -49,8 +71,24 @@ namespace we {
         ro.BetField.DIRECT_21,
         ro.BetField.DIRECT_2,
         ro.BetField.DIRECT_25,
+        */
       ],
-      [ro.RACETRACK_INNERFIELD.ZERO]: [ro.BetField.DIRECT_12, ro.BetField.DIRECT_35, ro.BetField.DIRECT_3, ro.BetField.DIRECT_26, ro.BetField.DIRECT_0, ro.BetField.DIRECT_32, ro.BetField.DIRECT_15],
+      [ro.RACETRACK_INNERFIELD.ZERO]: [
+        ro.BetField.SEPARATE_0_3,
+        ro.BetField.SEPARATE_12_15,
+        ro.BetField.SEPARATE_18_21,
+        ro.BetField.DIRECT_26,
+        ro.BetField.SEPARATE_32_35,
+        /*
+        ro.BetField.DIRECT_12,
+        ro.BetField.DIRECT_35,
+        ro.BetField.DIRECT_3,
+        ro.BetField.DIRECT_26,
+        ro.BetField.DIRECT_0,
+        ro.BetField.DIRECT_32,
+        ro.BetField.DIRECT_15
+        */
+      ],
     };
 
     export const BETFIELD_MAPPING = {

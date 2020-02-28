@@ -25,8 +25,6 @@
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_undo" />
 	</e:Group>
-	<ro:ResultHolder id="_resultDisplay" width="219" height="88" y="510" horizontalCenter="440.5" anchorOffsetX="0"
-	                 anchorOffsetY="0" />
 	<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />
 	<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
@@ -50,9 +48,5 @@
 	                   anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel" />
 	<ro:ROBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
 	                         anchorOffsetY="0" visible="false" />
-	<e:Label id="_testing1" text="Result:" x="971.5" y="631" />
-	<e:Label id="_testing2" text="Win Amount:" x="893.5" y="568" />
-	<e:Label id="_testingWinAmount" text="" x="1105" y="569" />
-	<e:Label id="_testingResult" text="" x="1115" y="636" anchorOffsetY="0" />
 </e:Skin>
 
