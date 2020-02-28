@@ -795,6 +795,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class NavLeftHandModeBtn extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class NavSideMenu extends eui.Skin{
 	}
 }

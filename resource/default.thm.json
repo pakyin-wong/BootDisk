@@ -243,6 +243,7 @@
 		"resource/skin_mobile_portrait/MobileDropdownItem.exml",
 		"resource/skin_mobile_portrait/nav/Nav.exml",
 		"resource/skin_mobile_portrait/nav/NavDropdown.exml",
+		"resource/skin_mobile_portrait/nav/NavLeftHandModeBtn.exml",
 		"resource/skin_mobile_portrait/nav/NavSideMenu.exml",
 		"resource/skin_mobile_portrait/notification/goodroadnotification/GoodRoadNotificationContainerSkin.exml",
 		"resource/skin_mobile_portrait/notification/goodroadnotification/GoodRoadNotificationSkin.exml",
