@@ -41,6 +41,7 @@ namespace we {
       overlaypanel_bethistory_title: '投註記錄',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
+      overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
       overlaypanel_bethistory_searchrecord: '搜尋記錄',
@@ -78,6 +79,14 @@ namespace we {
       datePicker_weekday_6: '六',
 
       mobile_lobby_feature_title: '熱門遊戲',
+      mobile_ba_undo: '復原',
+      mobile_ba_clear: '清除',
+      mobile_ba_double: '雙倍',
+      mobile_ba_repeat: '再次下注',
+      mobile_game_panel_road_sheet: '路紙',
+      mobile_game_panel_statistic_chart: '統計圖表',
+      mobile_game_panel_table_info: '本檯資訊',
+      mobile_table_info_gameID: '編號',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',
@@ -96,14 +105,17 @@ namespace we {
       },
       nav: {
         menu: {
+          title: '設定',
           selectMode: '介面色調',
           whiteMode: '亮色',
           darkMode: '暗色',
+          info: '賬戶資訊',
           history: '投註記錄',
           member: '會員報表',
           road: '好路提示',
           system: '系統設定',
           logout: '登出',
+          leftHandMode: '左手模式',
           confirm: '確定',
         },
         system: {

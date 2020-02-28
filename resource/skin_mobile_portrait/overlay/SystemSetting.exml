@@ -7,9 +7,9 @@
 		<e:Image id="close" width="96" height="96" source="d-lobby-button-close-none_png"  x="1120" y="66"/>
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="53"
 		                 width="1000" height="119"  verticalAlign="middle" textColor="0xc59466" size="80"/>
-		<e:Image width="60" height="60" x="97" y="331"/>
+		<e:Image width="55" height="55" x="100" y="334" source="m_common_panel_systemsetting_icon_language_png" alpha="0.7"/>
 		<ui:RunTimeLabel id="_txt_lang" text="Label" x="178" y="316" size="56" height="83"
-		                 anchorOffsetX="0" width="850"  verticalAlign="middle"/>
+		                 anchorOffsetX="0"  verticalAlign="middle" alpha="0.7"/>
 		<e:Group id="_btn_currLang" width="700" height="130" x="97" y="431">
 			<e:Rect fillColor="0xffffff" fillAlpha="0" strokeWeight="3" strokeColor="0x4b535b" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"/>
 			<ui:RunTimeLabel id="_txt_currLang" text="Label" x="123" y="16" width="453" height="89" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1"/>
@@ -17,14 +17,14 @@
 		<e:Rect width="1048" height="4" x="97" y="657" fillColor="0x979797"  locked="true"/>
 		<ui:RunTimeLabel id="_txt_liveRecord" text="Label" x="97" y="757" size="56" width="1000"
 		                 height="83"  textColor="0xb2b2b2" verticalAlign="middle"/>
-		<ui:Slider id="_slider_liveRecord" width="400" height="36" x="97" y="872" skinName="skin_mobile_portrait.Slider" scaleX="1" scaleY="1"/>
+		<ui:Slider id="_slider_liveRecord" width="1042" height="70" x="97" y="872" skinName="skin_mobile_portrait.Slider" scaleX="1" scaleY="1"/>
 		<ui:RunTimeLabel id="_txt_soundfx" text="Label" x="97" y="1049" size="56" width="400"
 		                 height="83"  verticalAlign="middle" textColor="0xb2b2b2"/>
 		<e:Group id="_btn_currFx" width="609" height="120" x="541" y="1038">
 			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="3" strokeColor="0x4B535B" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"/>
 			<ui:RunTimeLabel id="_txt_currFx" text="Label" x="107" y="11" width="394" height="89" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" textColor="0xb2b2b2"/>
 		</e:Group>
-		<ui:Slider id="_slider_soundfx" width="400" height="36" x="97" y="1190" skinName="skin_mobile_portrait.Slider" scaleX="1" scaleY="1"/>
+		<ui:Slider id="_slider_soundfx" width="1042" height="70" x="97" y="1190" skinName="skin_mobile_portrait.Slider" scaleX="1" scaleY="1"/>
 		<ui:RunTimeLabel id="_txt_bgm" text="Label" x="97" y="1367" size="56" width="400"
 		                 height="83"  textColor="0xb2b2b2" verticalAlign="middle"/>
 		<ui:RunTimeLabel id="_txt_term" text="Label" x="564.58" y="1527.53" size="20" fontFamily="NotoSansCJKtc" width="80"
@@ -33,7 +33,7 @@
 		         fontFamily="Barlow"  visible="false"/>
 
 
-		<ui:Slider id="_slider_bgm" width="400" height="36" x="97" y="1508" skinName="skin_mobile_portrait.Slider"  scaleX="1" scaleY="1"/>
+		<ui:Slider id="_slider_bgm" width="1042" height="70" x="97" y="1508" skinName="skin_mobile_portrait.Slider"  scaleX="1" scaleY="1"/>
 
 
 		<e:Group id="_btn_currBgm" width="251" height="50" x="205" y="564.5" visible="false" locked="true">

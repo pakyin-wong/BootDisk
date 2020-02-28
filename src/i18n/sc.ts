@@ -47,6 +47,7 @@ namespace we {
       overlaypanel_bethistory_title: '投注记录',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
+      overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
       overlaypanel_bethistory_searchrecord: '搜寻记录',
@@ -84,6 +85,14 @@ namespace we {
       datePicker_weekday_6: '六',
 
       mobile_lobby_feature_title: '热门游戏',
+      mobile_ba_undo: '复原',
+      mobile_ba_clear: '清除',
+      mobile_ba_double: '双倍',
+      mobile_ba_repeat: '再次下注',
+      mobile_game_panel_road_sheet: '路纸',
+      mobile_game_panel_statistic_chart: '统计图表',
+      mobile_game_panel_table_info: '本台资讯',
+      mobile_table_info_gameID: '编号',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '进入游戏',
@@ -103,14 +112,17 @@ namespace we {
       },
       nav: {
         menu: {
+          title: '设定',
           selectMode: '介面色调',
           whiteMode: '亮色',
           darkMode: '暗色',
+          info: '账户资讯',
           history: '投注记录',
           member: '会员报表',
           road: '好路提示',
           system: '系统设定',
           logout: '登出',
+          leftHandMode: '左手模式',
           confirm: '确定',
         },
         system: {

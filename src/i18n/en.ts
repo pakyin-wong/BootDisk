@@ -41,6 +41,7 @@ namespace we {
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_date: 'Dates',
       overlaypanel_bethistory_today: 'Today',
+      overlaypanel_bethistory_yesterday: 'Yesterday',
       overlaypanel_bethistory_week: 'This week',
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'search id',
@@ -78,6 +79,14 @@ namespace we {
       datePicker_weekday_6: 'Sa',
 
       mobile_lobby_feature_title: 'Hot Game',
+      mobile_ba_undo: 'Undo',
+      mobile_ba_clear: 'Clear',
+      mobile_ba_double: 'Double',
+      mobile_ba_repeat: 'Bet Again',
+      mobile_game_panel_road_sheet: 'Road Sheet',
+      mobile_game_panel_statistic_chart: 'Statistic Chart',
+      mobile_game_panel_table_info: 'Information',
+      mobile_table_info_gameID: 'ID',
 
       mobile_quick_bet_button_label: 'QuickBet',
       mobile_enter_table_button_label: 'Enter',
@@ -96,14 +105,17 @@ namespace we {
       },
       nav: {
         menu: {
+          title: 'Settings',
           selectMode: 'Color Mode',
           whiteMode: 'Light',
           darkMode: 'Dark',
+          info: 'Player Info',
           history: 'Bet Record',
           member: 'Member Report',
           road: 'Road Notice',
           system: 'System',
           logout: 'Logout',
+          leftHandMode: 'Left Mode',
           confirm: 'Confirm',
         },
         system: {

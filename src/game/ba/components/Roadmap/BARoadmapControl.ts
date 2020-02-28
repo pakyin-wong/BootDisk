@@ -7,7 +7,7 @@ namespace we {
       protected bigEyeRoad: BABigEyeRoad;
       protected smallRoad: BASmallRoad;
       protected cockroachRoad: BACockroachRoad;
-      protected rightPanel: BARoadmapRightPanel;
+      protected targetPanel: core.BaseGamePanel & IBARoadmapDisplayObject; // BARoadmapRightPanel;
       protected beadResultPanel: BaBeadRoadResultPanel;
       public tableid: string;
 
@@ -19,18 +19,20 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, r2, r3, r4, r5, columnArray, rightPanel, beadResultPanel) {
+      public setRoads(r1, r2, r3, r4, r5, columnArray, panel, beadResultPanel, isInteractable = true) {
         this.beadRoad = r1;
         this.bigRoad = r2;
         this.bigEyeRoad = r3;
         this.smallRoad = r4;
         this.cockroachRoad = r5;
-        this.rightPanel = rightPanel;
         this.beadResultPanel = beadResultPanel;
 
-        this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
-        this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
-        this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        this.targetPanel = panel;
+        if (this.beadRoad && isInteractable) {
+          this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+          this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+          this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        }
 
         this.parser = new BARoadParser(columnArray);
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
@@ -40,12 +42,13 @@ namespace we {
         this.onDisplayUpdate(null);
 
         // predict roads
-        this.rightPanel.iconBankerBead.touchEnabled = true;
-        this.rightPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+        if (this.targetPanel) {
+          this.targetPanel.iconBankerBead.touchEnabled = true;
+          this.targetPanel.iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
 
-        this.rightPanel.iconPlayerBead.touchEnabled = true;
-        this.rightPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
-
+          this.targetPanel.iconPlayerBead.touchEnabled = true;
+          this.targetPanel.iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+        }
         // dark/light mode
         // dir.evtHandler.addEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         // this.onModeUpdate(null);
@@ -184,11 +187,21 @@ namespace we {
 
       protected doParserUpdate(state: number) {
         // stae 0 = update, 1 = predict, 2 = restore from predict
-        this.beadRoad.parseRoadData(this.parser.beadRoadResult, state);
-        this.bigRoad.parseRoadData(this.parser.bigRoadResult, state);
-        this.bigEyeRoad.parseRoadData(this.parser.bigEyeRoadResult, state);
-        this.smallRoad.parseRoadData(this.parser.smallRoadResult, state);
-        this.cockroachRoad.parseRoadData(this.parser.cockroachRoadResult, state);
+        if (this.beadRoad) {
+          this.beadRoad.parseRoadData(this.parser.beadRoadResult, state);
+        }
+        if (this.bigRoad) {
+          this.bigRoad.parseRoadData(this.parser.bigRoadResult, state);
+        }
+        if (this.bigEyeRoad) {
+          this.bigEyeRoad.parseRoadData(this.parser.bigEyeRoadResult, state);
+        }
+        if (this.smallRoad) {
+          this.smallRoad.parseRoadData(this.parser.smallRoadResult, state);
+        }
+        if (this.cockroachRoad) {
+          this.cockroachRoad.parseRoadData(this.parser.cockroachRoadResult, state);
+        }
       }
 
       protected onParserUpdate(e: egret.Event) {
@@ -220,14 +233,16 @@ namespace we {
                 if (this.tableInfo.gamestatistic) {
                   const stats = this.parser.getIconsFromBeadResult(roadmapData.inGame.bead);
                   const data = this.tableInfo.gamestatistic;
-                  this.rightPanel.setPredictIcons(
-                    stats.predictBankerIcons[0],
-                    stats.predictBankerIcons[1],
-                    stats.predictBankerIcons[2],
-                    stats.predictPlayerIcons[0],
-                    stats.predictPlayerIcons[1],
-                    stats.predictPlayerIcons[2]
-                  );
+                  if (this.targetPanel) {
+                    this.targetPanel.setPredictIcons(
+                      stats.predictBankerIcons[0],
+                      stats.predictBankerIcons[1],
+                      stats.predictBankerIcons[2],
+                      stats.predictPlayerIcons[0],
+                      stats.predictPlayerIcons[1],
+                      stats.predictPlayerIcons[2]
+                    );
+                  }
                 }
               }
 
@@ -235,25 +250,37 @@ namespace we {
             } else {
               // option 2. just display all road data as it is
               // stae 0 = update, 1 = predict, 2 = restore from predict
-              this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
-              this.bigRoad.parseRoadData(roadmapData.inGame.bigRoad, state);
-              this.bigEyeRoad.parseRoadData(roadmapData.inGame.bigEye, state);
-              this.smallRoad.parseRoadData(roadmapData.inGame.small, state);
-              this.cockroachRoad.parseRoadData(roadmapData.inGame.roach, state);
+              if (this.beadRoad) {
+                this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
+              }
+              if (this.bigRoad) {
+                this.bigRoad.parseRoadData(roadmapData.inGame.bigRoad, state);
+              }
+              if (this.bigEyeRoad) {
+                this.bigEyeRoad.parseRoadData(roadmapData.inGame.bigEye, state);
+              }
+              if (this.smallRoad) {
+                this.smallRoad.parseRoadData(roadmapData.inGame.small, state);
+              }
+              if (this.cockroachRoad) {
+                this.cockroachRoad.parseRoadData(roadmapData.inGame.roach, state);
+              }
 
               // update the gamestatistic
               if (this.tableInfo) {
                 if (this.tableInfo.gamestatistic) {
                   const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
                   const stat = this.tableInfo.gamestatistic;
-                  this.rightPanel.setPredictIcons(
-                    prediction.predictBankerIcons[0],
-                    prediction.predictBankerIcons[1],
-                    prediction.predictBankerIcons[2],
-                    prediction.predictPlayerIcons[0],
-                    prediction.predictPlayerIcons[1],
-                    prediction.predictPlayerIcons[2]
-                  );
+                  if (this.targetPanel) {
+                    this.targetPanel.setPredictIcons(
+                      prediction.predictBankerIcons[0],
+                      prediction.predictBankerIcons[1],
+                      prediction.predictBankerIcons[2],
+                      prediction.predictPlayerIcons[0],
+                      prediction.predictPlayerIcons[1],
+                      prediction.predictPlayerIcons[2]
+                    );
+                  }
                 }
               }
             }
@@ -278,25 +305,28 @@ namespace we {
           this.parser.removeEventListener('onRestore', this.onParserRestore, this);
         }
 
-        if (this.beadRoad.hasEventListener('RollOverResult')) {
-          this.beadRoad.removeEventListener('RollOverResult', this.onBeadRoadOver, this);
+        if (this.beadRoad) {
+          if (this.beadRoad.hasEventListener('RollOverResult')) {
+            this.beadRoad.removeEventListener('RollOverResult', this.onBeadRoadOver, this);
+          }
+
+          if (this.beadRoad.hasEventListener('RollOutResult')) {
+            this.beadRoad.removeEventListener('RollOutResult', this.onBeadRoadOut, this);
+          }
+
+          if (this.beadRoad.hasEventListener('ClickResult')) {
+            this.beadRoad.removeEventListener('ClickResult', this.onBeadRoadClick, this);
+          }
         }
 
-        if (this.beadRoad.hasEventListener('RollOutResult')) {
-          this.beadRoad.removeEventListener('RollOutResult', this.onBeadRoadOut, this);
+        if (this.targetPanel) {
+          if (this.targetPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+            this.targetPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
+          }
+          if (this.targetPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+            this.targetPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
+          }
         }
-
-        if (this.beadRoad.hasEventListener('ClickResult')) {
-          this.beadRoad.removeEventListener('ClickResult', this.onBeadRoadClick, this);
-        }
-
-        if (this.rightPanel.iconBankerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.rightPanel.iconBankerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onBankerClick, this);
-        }
-        if (this.rightPanel.iconPlayerBead.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
-          this.rightPanel.iconPlayerBead.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayerClick, this);
-        }
-
         // if (dir.evtHandler.hasEventListener(we.core.Event.MODE_UPDATE)) {
         // dir.evtHandler.removeEventListener(we.core.Event.MODE_UPDATE, this.onModeUpdate, this);
         // }

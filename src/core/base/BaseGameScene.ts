@@ -10,7 +10,7 @@ namespace we {
       protected _chipLayer: ui.ChipLayer;
       protected _betChipSet: ui.BetChipSet;
       protected _resultDisplay: ui.IResultDisplay;
-      protected _resultMessage: ui.GameResultMessage;
+      protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
 
@@ -23,7 +23,7 @@ namespace we {
       protected _undoButton: ui.BaseImageButton;
 
       // table name label
-      protected _label: ui.RunTimeLabel;
+      // protected _label: ui.RunTimeLabel;
 
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
@@ -36,14 +36,16 @@ namespace we {
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
 
-      protected _tableInfoWindow: ui.TableInfoPanel;
       protected _gameBar: ui.GameBar;
-
       protected _bgImg: eui.Image;
       protected _video: egret.FlvVideo;
 
-      protected _leftGamePanel: BaseGamePanel;
-      protected _rightGamePanel: BaseGamePanel;
+      // this for desktop
+      // protected _tableInfoWindow: ui.TableInfoPanel;
+
+      // this also for desktop
+      // protected _leftGamePanel: BaseGamePanel;
+      // protected _rightGamePanel: BaseGamePanel;
 
       constructor(data: any) {
         super(data);
@@ -108,11 +110,13 @@ namespace we {
 
         this._lblRoomNo.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
 
-        this._tableInfoWindow.setToggler(this._lblRoomInfo);
-        this._tableInfoWindow.setValue(this._tableInfo);
+        // if (this._tableInfoWindow) {
+        //   this._tableInfoWindow.setToggler(this._lblRoomInfo);
+        //   this._tableInfoWindow.setValue(this._tableInfo);
+        // }
 
-        this._leftGamePanel.setTableInfo(this._tableInfo);
-        this._rightGamePanel.setTableInfo(this._tableInfo);
+        // this._leftGamePanel.setTableInfo(this._tableInfo);
+        // this._rightGamePanel.setTableInfo(this._tableInfo);
       }
 
       protected initDenom() {
@@ -154,9 +158,9 @@ namespace we {
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
         this._previousState = this._gameData ? this._gameData.previousstate : null;
-        if (this._label) {
+        /*if (this._label) {
           this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[this._tableInfo.gametype])} ${env.getTableNameByID(this._tableId)}`;
-        }
+        }*/
       }
 
       protected addEventListeners() {
@@ -303,9 +307,11 @@ namespace we {
       }
 
       protected updateTableInfoRelatedComponents() {
-        this._tableInfoWindow.setValue(this._tableInfo);
-        this._leftGamePanel.update();
-        this._rightGamePanel.update();
+        // if (this._tableInfoWindow) {
+        //   this._tableInfoWindow.setValue(this._tableInfo);
+        // }
+        // this._leftGamePanel.update();
+        // this._rightGamePanel.update();
       }
 
       protected onBetResultReceived(evt: egret.Event) {
@@ -320,8 +326,8 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._leftGamePanel.update();
-        this._rightGamePanel.update();
+        // this._leftGamePanel.update();
+        // this._rightGamePanel.update();
       }
 
       public updateGame(isInit: boolean = false) {

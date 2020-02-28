@@ -6,7 +6,7 @@
  */
 namespace we {
   export namespace ba {
-    export class Scene extends core.BaseGameScene {
+    export class Scene extends core.DesktopBaseGameScene {
       protected _roadmapControl: BARoadmapControl;
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
@@ -17,7 +17,7 @@ namespace we {
 
       constructor(data: any) {
         super(data);
-        // this._leftGamePanel = this._roadmapLeftPanel;
+        // this._leftGamePanel = this._roadmapLeftPanel;onTableInfoUpdate
         // this._rightGamePanel = this._roadmapRightPanel;
       }
 

@@ -1,6 +1,6 @@
 namespace we {
-  export namespace ui {
-    export class NavPlayerProfile extends Panel {
+  export namespace overlay {
+    export class PlayerProfile extends ui.Panel {
       private _maskContainer: eui.Group;
       private _section_main: eui.Group;
 
@@ -13,11 +13,11 @@ namespace we {
       private _following: eui.Label;
       private _favouriteDealer: eui.Label;
 
-      private _txt_maxWinAmount: RunTimeLabel;
-      private _txt_maxWinCount: RunTimeLabel;
-      private _txt_follower: RunTimeLabel;
-      private _txt_following: RunTimeLabel;
-      private _txt_favouriteDealer: RunTimeLabel;
+      private _txt_maxWinAmount: ui.RunTimeLabel;
+      private _txt_maxWinCount: ui.RunTimeLabel;
+      private _txt_follower: ui.RunTimeLabel;
+      private _txt_following: ui.RunTimeLabel;
+      private _txt_favouriteDealer: ui.RunTimeLabel;
 
       private _section_iconSelect: eui.Group;
 
@@ -29,7 +29,7 @@ namespace we {
       private _iconGaySize = 10;
 
       public constructor() {
-        super('nav/NavPlayerProfile');
+        super('overlay/PlayerProfile');
 
         this._iconListData = new eui.ArrayCollection([
           {
@@ -56,19 +56,11 @@ namespace we {
         this._maskContainer.addChild(shape);
         this._maskContainer.mask = shape;
         // init scroller
-        const tlayout = new eui.TileLayout();
-        tlayout.requestedColumnCount = 3;
-        tlayout.horizontalGap = this._iconGaySize;
-        tlayout.verticalGap = this._iconGaySize;
-
-        this._iconList = new eui.List();
-        this._iconList.layout = tlayout;
-        this._iconList.itemRenderer = IconItemRenderer;
-        this._iconList.itemRendererSkinName = utils.getSkin('nav/IconItem');
+        this._iconList.itemRenderer = ui.IconItemRenderer;
+        this._iconList.itemRendererSkinName = utils.getSkin('overlay/PlayerProfileIconItem');
         this._iconList.dataProvider = this._iconListData;
 
         this._iconScroller.useMiniScrollBar = true;
-        this._iconScroller.viewport = this._iconList;
 
         this.addListeners();
       }

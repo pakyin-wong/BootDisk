@@ -20,6 +20,10 @@ namespace we {
       resetGoodRoadmap();
     }
 
+    export interface ILobbyRoad {
+      updateLobbyRoadData(roadmapData: any);
+    }
+
     export interface IErrorKind {
       code: number;
       detail?: string;
