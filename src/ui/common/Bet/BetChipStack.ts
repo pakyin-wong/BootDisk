@@ -3,7 +3,7 @@ namespace we {
     export class BetChipStack extends core.BaseEUI {
       protected _betSumLabel: eui.Label;
       protected _betSumBackground: eui.Image;
-      protected _betSumBackgroundRes: string;
+      protected _betSumBackgroundRes: string = null;
       protected _betSumBackgroundX: number;
       protected _betSumBackgroundY: number;
       protected _betSumBackgroundWidth: number;
