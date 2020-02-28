@@ -302,6 +302,7 @@ namespace we {
             // reset the betDetails
             tableInfo.bets = null;
             tableInfo.totalWin = NaN;
+            tableInfo.totalBet = 0;
             dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
           }
           if (data.state === core.GameState.FINISH) {
@@ -322,50 +323,45 @@ namespace we {
       }
 
       protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
-        return;
         this.updateTimestamp(timestamp);
         const tableid = gameStatistic.tableid;
         delete gameStatistic.tableid;
 
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(tableid);
-        const roadmapData = parseAscString(gameStatistic.roadmapdata);
 
-        const bankerCount: number = gameStatistic.bankerwincount;
-        const playerCount: number = gameStatistic.playerwincount;
-        const tieCount: number = gameStatistic.tiewincount;
-        const playerPairCount: number = gameStatistic.playerpairwincount;
-        const bankerPairCount: number = gameStatistic.bankerpairwincount;
+        if (gameStatistic.gametype === core.GameType.RO) {
+          // RO
+          gameStatistic.tableID = tableid;
+          gameStatistic.shoeID = gameStatistic.shoeid;
+          tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic);
 
-        // roadmapData.bead.forEach(item => {
-        //   if (item.v === 'b') {
-        //     bankerCount++;
-        //   } else if (item.v === 'p') {
-        //     playerCount++;
-        //   } else if (item.v === 't') {
-        //     tieCount++;
-        //   }
-        //   if (item.b > 0) {
-        //     bankerPairCount++;
-        //   }
-        //   if (item.p > 0) {
-        //     playerPairCount++;
-        //   }
-        // });
+          const stats = new we.data.GameStatistic();
+          stats.coldNumbers = gameStatistic.cold;
+          stats.hotNumbers = gameStatistic.hot;
+          tableInfo.gamestatistic = stats;
+        } else {
+          // BA/DT
+          const roadmapData = parseAscString(gameStatistic.roadmapdata);
+          const bankerCount: number = gameStatistic.bankerwincount;
+          const playerCount: number = gameStatistic.playerwincount;
+          const tieCount: number = gameStatistic.tiewincount;
+          const playerPairCount: number = gameStatistic.playerpairwincount;
+          const bankerPairCount: number = gameStatistic.bankerpairwincount;
+          const totalCount: number = bankerCount + playerCount + tieCount;
 
-        const totalCount: number = bankerCount + playerCount + tieCount;
+          tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
-        tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
+          const stats = new we.data.GameStatistic();
+          stats.bankerCount = bankerCount;
+          stats.playerCount = playerCount;
+          stats.tieCount = tieCount;
+          stats.playerPairCount = playerPairCount;
+          stats.bankerPairCount = bankerPairCount;
+          stats.totalCount = totalCount;
 
-        const stats = new we.data.GameStatistic();
-        stats.bankerCount = bankerCount;
-        stats.playerCount = playerCount;
-        stats.tieCount = tieCount;
-        stats.playerPairCount = playerPairCount;
-        stats.bankerPairCount = bankerPairCount;
-        stats.totalCount = totalCount;
-
-        tableInfo.gamestatistic = stats;
+          tableInfo.gamestatistic = stats;
+        }
 
         dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
 

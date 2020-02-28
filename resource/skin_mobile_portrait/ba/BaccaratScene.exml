@@ -42,11 +42,11 @@
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
 		                       visible="false" />
 		<e:Image id="_btnBack" width="38" height="35" x="32" y="64" source="d_ba_navbar_chevron_png" />
-		<e:Image id="_lblRoomInfo" width="48" height="48" x="308" y="56" source="d_ba_navbar_icon_info_png" />
+		<e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png" />
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar"  visible="false"/>
 	</e:Group>
-	<ui:ImageGameResultMessage id="_resultMessage" x="585" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+	<ui:ImageGameResultMessage id="_resultMessage" x="620" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 	                           scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin" />
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"

@@ -3,6 +3,7 @@ namespace we {
     export class BetHistoryMobile extends BetHistory {
       protected _btn_date: ui.BaseButton;
       protected _scroller: eui.Scroller;
+      protected _detail: betHistory.BetHistoryDetail;
 
       protected _getFlag: boolean = false;
       protected _getLock: boolean = false;
@@ -33,6 +34,7 @@ namespace we {
         this._btn_date.active = true;
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
+        this._scroller.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
       }
 
       protected addListeners() {
@@ -40,6 +42,7 @@ namespace we {
         this._btn_date.addEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
         this._scroller.addEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
         this._scroller.addEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
+        this._datagroup.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
       }
 
       protected removeListeners() {
@@ -47,6 +50,7 @@ namespace we {
         this._btn_date.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
         this._scroller.removeEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
         this._scroller.removeEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
+        this._datagroup.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
       }
 
       protected onDateDropdownSelected(e: egret.Event) {
@@ -78,13 +82,16 @@ namespace we {
 
       protected update(res: any) {
         super.update(res);
+        this._scroller.viewport.scrollV = 0;
         this._scroller.scrollPolicyV = this._total > 1 ? eui.ScrollPolicy.ON : eui.ScrollPolicy.OFF;
+        this._scroller.verticalScrollBar.autoVisibility = this._total <= 1;
+        this._scroller.verticalScrollBar.visible = this._total > 1;
       }
 
       protected onScrollerChange() {
         const sc = this._scroller;
 
-        if (!this._getFlag && sc.viewport.scrollV + sc.height >= sc.viewport.contentHeight * 1.05) {
+        if (!this._getFlag && sc.viewport.scrollV + sc.height >= sc.viewport.contentHeight + sc.height * 0.05) {
           this._getFlag = true;
         }
       }
@@ -105,6 +112,11 @@ namespace we {
         this._page = Math.floor(res.offset / this._limit) + 1;
         this._dataColl.replaceAll(this._dataColl.source.concat(res.history));
         this._getLock = false;
+      }
+
+      protected onClickResult(e) {
+        this._detail.dataChanged(this._dataColl.source[e.itemIndex]);
+        this._detail.show();
       }
     }
   }

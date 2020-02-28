@@ -29,7 +29,9 @@ namespace we {
       }
 
       public setResult(result: any) {
-        this._beadRoadIcon.setByObject({ v: result.result });
+        this.gameRoundID = result.gameRoundID;
+        this._beadRoadIcon.setByObject({ v: result.v });
+        this.changeLang();
       }
     }
   }

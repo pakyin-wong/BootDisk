@@ -70,7 +70,9 @@ namespace we {
         this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
         this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
         this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-        this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
+        if (tableInfo.gamestatistic.playerPairCount) {
+          this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
+        }
         if (this.pGameID) {
           this.pGameID.text = tableInfo.betInfo.gameroundid;
         }

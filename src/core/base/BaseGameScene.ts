@@ -41,7 +41,7 @@ namespace we {
       protected _video: egret.FlvVideo;
 
       // this for desktop
-      // protected _tableInfoWindow: ui.TableInfoPanel;
+      protected _tableInfoWindow: ui.TableInfoPanel;
 
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;

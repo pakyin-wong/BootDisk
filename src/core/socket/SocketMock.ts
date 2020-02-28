@@ -580,6 +580,7 @@ namespace we {
 
       // mock ro road data
       private mockRORoadData: any = {
+        gametype: 14,
         tableid: '2',
         shoeid: '1',
         hot: [1, 2, 3, 4, 5],
@@ -587,24 +588,20 @@ namespace we {
 
         inGame: {
           bead: [
-            { v: 1, index: 0 },
-            { v: 2, index: 1 },
-            { v: 3, index: 2 },
+            { v: 1, gameRoundID: 'cde345' },
+            { v: 2, gameRoundID: 'g34345' },
+            { v: 3, gameRoundID: 'g45454' },
           ],
-          color: [{ v: 1, index: 0 }, {}, {}, {}, {}, {}, { v: 2, index: 1 }, { v: 3, index: 2 }],
-          size: [{ v: 1, index: 0 }, { v: 2, index: 1 }, {}, {}, {}, {}, { v: 3, index: 2 }],
+          color: [{ v: 1, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g34345' }, { v: 3, gameRoundID: 'g45454' }],
+          size: [{ v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'g34345' }, {}, {}, {}, {}, { v: 3, gameRoundID: 'g45454' }],
           odd: [
-            { v: 1, index: 0 },
-            { v: 2, index: 1 },
-            { v: 3, index: 2 },
+            { v: 1, gameRoundID: 'cde345' },
+            { v: 2, gameRoundID: 'g34345' },
+            { v: 3, gameRoundID: 'g45454' },
           ],
         },
 
-        gameInfo: [
-          { gameRoundID: 'cde345', result: 1 },
-          { gameRoundID: '34345', result: 2 },
-          { gameRoundID: '45454', result: 3 },
-        ],
+        gameInfo: { cde345: { gameRoundID: 'cde345', v: 1, video: 'null' }, g34345: { gameRoundID: 'g34345', v: 2, video: 'null' }, g45454: { gameRoundID: 'g45454', v: 3, video: 'null' } },
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {

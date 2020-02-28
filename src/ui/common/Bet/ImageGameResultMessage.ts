@@ -16,7 +16,7 @@ namespace we {
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
-        const { winAmount, winType } = resultData;
+        const { winType, winAmount } = resultData;
         const isWin = !isNaN(winAmount) && winAmount > 0;
         egret.Tween.removeTweens(this);
         this.changeSkin(isWin);

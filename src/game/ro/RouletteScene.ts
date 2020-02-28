@@ -8,7 +8,7 @@
  */
 namespace we {
   export namespace ro {
-    export class Scene extends core.BaseGameScene {
+    export class Scene extends core.DesktopBaseGameScene {
       protected _roadmapControl: we.ro.RORoadmapControl;
       protected _leftGamePanel: we.ro.RoLeftPanel;
       protected _rightGamePanel: we.ro.RoRightPanel;
