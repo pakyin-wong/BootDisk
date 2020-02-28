@@ -249,7 +249,7 @@ namespace we {
         roadmap: '路紙',
         jockeyBet: '馬場下注區',
         customBet: '自選投注組合',
-        distribution: '散佈',
+        distribution: { text: '散佈', x: 60 },
         tiers: {
           text: '輪盤下角注',
           x: 23,

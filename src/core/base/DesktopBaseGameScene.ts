@@ -17,17 +17,17 @@ namespace we {
         this._leftGamePanel.setTableInfo(this._tableInfo);
         this._rightGamePanel.setTableInfo(this._tableInfo);
 
-        if (this._tableInfoWindow) {
+        /*if (this._tableInfoWindow) {
           this._tableInfoWindow.setToggler(this._lblRoomInfo);
           this._tableInfoWindow.setValue(this._tableInfo);
-        }
+        }*/
       }
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
-        if (this._tableInfoWindow) {
+        /*if (this._tableInfoWindow) {
           this._tableInfoWindow.setValue(this._tableInfo);
-        }
+        }*/
         this._leftGamePanel.update();
         this._rightGamePanel.update();
       }

@@ -60,7 +60,7 @@ namespace we {
       protected removeListeners() {}
 
       protected async toggleDropdown(e) {
-        if (this._opt) {
+        if (this._opt && this.isActivated) {
           return;
         }
 
