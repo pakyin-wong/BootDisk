@@ -2,6 +2,11 @@
 namespace we {
   export namespace ui {
     // Components
+    export interface ILobbyRoad {
+      // updateRoadData(roadmapData: any);
+      updateLobbyRoadData(roadmapData: any);
+    }
+
     export interface IRunTimeComponent extends egret.DisplayObject {
       render(): void;
     }

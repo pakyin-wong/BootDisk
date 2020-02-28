@@ -1,15 +1,17 @@
 namespace we {
   export namespace ro {
-    export class ROLobbyBeadRoad extends ui.Panel {
+    export class ROLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
       protected beadRoad: ROBeadRoad;
 
       private roadGridSize: number = 40;
-      private roadCol: number = 12;
+      private roadCol: number = 10;
       private roadRow: number = 3;
+      private roadIndentX: number = 0;
+      private roadIndentY: number = 0;
       private roadOffsetX: number = 0;
       private roadOffsetY: number = 0;
-      private roadEmptyColor: number = 0xc1c1c1;
-      private roadEmptyAlpha: number = 0.2;
+      private roadEmptyColor: number = 0x000000;
+      private roadEmptyAlpha: number = 1;
       private roadScale: number = 1;
 
       public constructor() {
@@ -24,7 +26,12 @@ namespace we {
 
       protected init() {
         this.beadRoad = new ROBeadRoad(this.roadRow, this.roadCol, this.roadGridSize, 1, this.roadOffsetX, this.roadOffsetY, this.roadEmptyColor, this.roadEmptyAlpha);
+        this.beadRoad.x = this.roadIndentX;
+        this.beadRoad.y = this.roadIndentY;
         this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;
+
+        const rdata: any = [];
+        this.beadRoad.parseRoadData(rdata);
         this.addChild(this.beadRoad);
       }
 
