@@ -282,10 +282,10 @@ namespace we {
               }
             }
             // update the corresponding table grid
-            this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: grid.amount }), this.undoBetFieldUpdate.bind(this));
+            this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: grid ? grid.amount : 0 }), this.undoBetFieldUpdate.bind(this));
           }
           if (this._betChipStackMapping[fieldName]) {
-            this._betChipStackMapping[fieldName].uncfmBet = grid.amount;
+            this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
             this._betChipStackMapping[fieldName].draw();
           }
         };
