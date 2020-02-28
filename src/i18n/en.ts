@@ -41,6 +41,7 @@ namespace we {
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_date: 'Dates',
       overlaypanel_bethistory_today: 'Today',
+      overlaypanel_bethistory_yesterday: 'Yesterday',
       overlaypanel_bethistory_week: 'This week',
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'search id',
@@ -114,6 +115,7 @@ namespace we {
           road: 'Road Notice',
           system: 'System',
           logout: 'Logout',
+          leftHandMode: 'Left Mode',
           confirm: 'Confirm',
         },
         system: {

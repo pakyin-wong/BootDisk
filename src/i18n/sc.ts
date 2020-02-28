@@ -47,6 +47,7 @@ namespace we {
       overlaypanel_bethistory_title: '投注记录',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
+      overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
       overlaypanel_bethistory_searchrecord: '搜寻记录',
@@ -121,6 +122,7 @@ namespace we {
           road: '好路提示',
           system: '系统设定',
           logout: '登出',
+          leftHandMode: '左手模式',
           confirm: '确定',
         },
         system: {

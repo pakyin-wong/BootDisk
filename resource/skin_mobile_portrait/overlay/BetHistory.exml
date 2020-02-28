@@ -39,7 +39,7 @@
 			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle" textAlign="center" fontFamily="Barlow" size="28"/>
 		</e:Group>
 
-		<e:Scroller height="1573" y="582" anchorOffsetY="0" left="0" right="0">
+		<e:Scroller id="_scroller" height="1573" y="582" anchorOffsetY="0" left="0" right="0">
 			<e:List id="_datagroup"/>
 		</e:Scroller>
 		<overlay:DoubleCalendarPicker id="_datepicker" width="1050" height="1402" horizontalCenter="-0.5" y="456"/>

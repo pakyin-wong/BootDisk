@@ -1,7 +1,7 @@
 namespace we {
   export namespace utils {
     export class UndoStack {
-      protected _stack: { id: string; undoData: any; undoCallback: (undoData: any) => void }[];
+      protected _stack: Array<{ id: string; undoData: any; undoCallback: (undoData: any) => void }>;
       public push(id, undoData, undoCallback) {
         if (!this._stack) {
           this._stack = new Array<{ id: string; undoData: any; undoCallback: (undoData: any) => void }>();
