@@ -3,13 +3,16 @@ namespace we {
     export class BetChipSetGrid extends BetChipSet {
       private _numberOfChipsInRow = 4;
       private _chipsetList: ui.List;
-      private _chipsetLayout: eui.TileLayout;
+      private _chipsetLayout: eui.AnimTileLayout;
       private _normalGapSize: number = 15;
       private _setSelectedChip: (value: number, index: number) => void;
 
+      public betChipHeight: number = 56;
+      public betChipWidth: number = 70;
+
       public constructor() {
         super();
-        this._chipsetLayout = new eui.TileLayout();
+        this._chipsetLayout = new eui.AnimTileLayout();
         this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         this._chipsetLayout.horizontalGap = this._normalGapSize;
         this._chipsetLayout.verticalGap = this._normalGapSize;
@@ -19,7 +22,10 @@ namespace we {
         this._chipsetList = new ui.List();
         this._chipsetList.layout = this._chipsetLayout;
         this._chipsetList.itemRenderer = BetChipSetGridItem;
+        this._chipsetList.useVirtualLayout = false;
         this.addChild(this._chipsetList);
+        this._chipsetList.left = 0;
+        this._chipsetList.right = 0;
       }
 
       public init(format: any, denomList: number[]) {

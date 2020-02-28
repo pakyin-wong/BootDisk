@@ -65,16 +65,19 @@ namespace we {
       }
 
       public setValue(tableInfo: data.TableInfo) {
+        super.setValue(tableInfo);
         this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
         this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
         this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
         this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-        this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
-        if (this.pGameID) {
-          this.pGameID.text = tableInfo.betInfo.gameroundid.toString();
+        if (tableInfo.gamestatistic.playerPairCount) {
+          this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
         }
         if (this.pGameID) {
-          this.pGameID.text = data.BetLimit.toString();
+          this.pGameID.text = tableInfo.betInfo.gameroundid;
+        }
+        if (this.pBetLimit) {
+          this.pBetLimit.text = '50-100';
         }
       }
     }

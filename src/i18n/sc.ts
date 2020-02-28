@@ -51,6 +51,7 @@ namespace we {
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
       overlaypanel_bethistory_searchrecord: '搜寻记录',
+      overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注编号',
       overlaypanel_bethistory_recordtab_date: '日期时间',
       overlaypanel_bethistory_recordtab_game: '游戏',
@@ -93,6 +94,7 @@ namespace we {
       mobile_game_panel_statistic_chart: '统计图表',
       mobile_game_panel_table_info: '本台资讯',
       mobile_table_info_gameID: '编号',
+      mobile_panel_game_Info: '游戏资讯',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '进入游戏',
@@ -203,7 +205,7 @@ namespace we {
         roadmap: '路纸',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
-        distribution: '散布',
+        distribution: { text: '散布', x: 60 },
         tiers: {
           text: '轮盘下角注',
           x: 23,

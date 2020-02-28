@@ -18,7 +18,8 @@
 		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0" skinName="skin_desktop.CountdownTimerRoundSkin" />
 		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="150" y="20" />
 		<ro:ROLobbyBeadRoad id="_beadRoad" width="100%" height="139" y="80" roadGridSize="40" roadCol="12" roadRow="3"
-		                    roadOffsetX="8" roadOffsetY="5" roadEmptyColor="0xc1c1c1" roadEmptyAlpha="0.2" roadScale="1" />
+		                    roadIndentX="4" roadIndentY="2.5" roadOffsetX="8" roadOffsetY="5" roadEmptyColor="0xc1c1c1"
+		                    roadEmptyAlpha="0.2" roadScale="1" />
 		<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
 		                  width="303" height="32" horizontalCenter="0.5" y="115" infoBg="d_ba_gamerecord_playerelement_png"
 		                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />

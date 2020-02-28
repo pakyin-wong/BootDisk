@@ -231,7 +231,6 @@ namespace we {
         return (evt: egret.Event) => {
           this._raceTrackTableLayer.onRollover(fieldName);
           RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
-            this._raceTrackTableLayer.onRollover(value);
             this._chipLayer.onGridRollover(value)(null);
           });
         };
@@ -241,7 +240,6 @@ namespace we {
         return (evt: egret.Event) => {
           this._raceTrackTableLayer.onRollout(fieldName);
           RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
-            this._raceTrackTableLayer.onRollout(value);
             this._chipLayer.onGridRollout(value)(null);
           });
         };

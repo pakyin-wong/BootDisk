@@ -46,6 +46,7 @@ namespace we {
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'search id',
       overlaypanel_bethistory_recordtab_id: 'ID',
+      overlaypanel_bethistory_recordtab_title: 'Record Detail',
       overlaypanel_bethistory_recordtab_date: 'Date',
       overlaypanel_bethistory_recordtab_game: 'Game',
       overlaypanel_bethistory_recordtab_round: 'Round',
@@ -87,6 +88,7 @@ namespace we {
       mobile_game_panel_statistic_chart: 'Statistic Chart',
       mobile_game_panel_table_info: 'Information',
       mobile_table_info_gameID: 'ID',
+      mobile_panel_game_Info: 'Game Information',
 
       mobile_quick_bet_button_label: 'QuickBet',
       mobile_enter_table_button_label: 'Enter',
@@ -250,7 +252,10 @@ namespace we {
         roadmap: 'Roadmap',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
-        distribution: 'distribution',
+        distribution: {
+          text: 'Distribution',
+          x: 30,
+        },
         tiers: {
           text: 'Tiers',
           x: 51,

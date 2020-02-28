@@ -3,7 +3,7 @@ namespace we {
   export namespace ui {
     export class LiveListSimpleItem extends ListBaseItem {
       protected _quickbetButton: eui.Component & IQuickBetAnimButton;
-      protected _bigRoad: we.ba.BALobbyBigRoad;
+      protected _bigRoad: we.ui.ILobbyRoad;
       protected _alreadyBetSign: eui.Group;
 
       public constructor(skinName: string = null) {
@@ -46,7 +46,7 @@ namespace we {
         super.setData(tableInfo);
         if (tableInfo.roadmap) {
           if (this._bigRoad) {
-            // this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+            this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
           }
         }
       }
@@ -105,7 +105,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

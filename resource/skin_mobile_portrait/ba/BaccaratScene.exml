@@ -4,53 +4,53 @@
         states="left_hand_mode,right_hand_mode">
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0" width="1242" locked="true" />
-	<ba:TableLayer id="_tableLayer" width="1182" height="464" x="30" y="983" isEdgeDismissable="true"
-	               skinName="skin_mobile_portrait.ba.TableLayerSkin" />
-	<ba:ChipLayer id="_chipLayer" width="1182" height="464" x="30" y="983" isEdgeDismissable="true"
-	              skinName="skin_mobile_portrait.ba.ChipLayerSkin" />
-	<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="745.91" anchorOffsetX="0" anchorOffsetY="0"
-	                         x="715.03" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" />
-	<e:Group id="_betRelatedGroup" x="34" y="824">
-		<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
-		        fillColor="0x444444" />
-		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="0"
-		          verticalCenter="0" skinName="skin_mobile_portrait.ba.BetConfirmButtonSkin" />
-		<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
-		                   verticalCenter="0" />
-		<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
-		                    horizontalCenter="360" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-		                    currentState="b_repeat" />
-		<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-		                    horizontalCenter="40" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-		                    currentState="b_cancel" />
-		<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-		                    horizontalCenter="190" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-		                    currentState="b_double" />
-		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-		                    horizontalCenter="-111" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-		                    currentState="b_undo" />
+	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
+		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+			<ba:TableLayer id="_tableLayer" width="1182" height="464" x="30" y="243" isEdgeDismissable="true" skinName="skin_mobile_portrait.ba.TableLayerSkin" scaleX="1" scaleY="1"/>
+			<ba:ChipLayer id="_chipLayer" width="1182" height="464" x="30" y="243" isEdgeDismissable="true" skinName="skin_mobile_portrait.ba.ChipLayerSkin" scaleX="1" scaleY="1"/>
+			<ui:BetChipSetHorizontal id="_betChipSet" width="500" height="70" y="10" anchorOffsetX="0" anchorOffsetY="0" x="720" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" scaleX="1" scaleY="1"/>
+			<e:Group id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224" scaleX="1" scaleY="1">
+			<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
+			<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="0" verticalCenter="0" skinName="skin_mobile_portrait.ba.BetConfirmButtonSkin" x.right_hand_mode="684"/>
+			<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0" verticalCenter="0" x.right_hand_mode="684"/>
+			<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120" horizontalCenter="360" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" x.right_hand_mode="64" horizontalCenter.right_hand_mode="-370"/>
+			<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="40" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" x.right_hand_mode="500" horizontalCenter.right_hand_mode="-60"/>
+			<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="190" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" x.right_hand_mode="248" horizontalCenter.right_hand_mode="-200"/>
+			<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="-111" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" horizontalCenter.right_hand_mode="90"/>
+			</e:Group>
+			<ba:CardHolder id="_resultDisplay" width="412" height="152" y="40" horizontalCenter="0" anchorOffsetX="0" anchorOffsetY="0" x="415" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<ba:MobileBottomGamePanel skinName="skin_mobile_portrait.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="1242" x="0" scaleY="1" y="731" scaleX="1"/>
 	</e:Group>
-	<ba:CardHolder id="_resultDisplay" width="412" height="152" y="780" horizontalCenter="0" anchorOffsetX="0"
-	               anchorOffsetY="0" />
-	<e:Group id="_header" height="100" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
-	         touchChildren="true" touchThrough="true">
+
+
+
+
+
+	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
+	         touchChildren="true" touchThrough="true" height="121">
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
-		<ui:RunTimeLabel id="_lblRoomNo" x="91" y="15" size="40" height="56" verticalAlign="middle" width="180"
-		                 textAlign="center" anchorOffsetX="0" />
-		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0"  x="0" visible="false"/>
-		<e:Image id="_btnBack" width="38" height="35" x="32" y="44" source="d_ba_navbar_chevron_png" />
-		<e:Image id="_lblRoomInfo" width="48" height="48" x="274" y="38" source="d_ba_navbar_icon_info_png" />
+		<ui:RunTimeLabel id="_lblRoomNo" x="90" y="33" size="40" height="56" verticalAlign="middle" width="200"
+		                 textAlign="left" anchorOffsetX="0" text="" />
+		<e:Group x="90" y="87">
+			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" />
+			<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" />
+			</e:layout>
+		</e:Group>
+		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
+		                       visible="false" />
+		<e:Image id="_btnBack" width="38" height="35" x="32" y="64" source="d_ba_navbar_chevron_png" />
+		<e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png" />
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
-		            skinName="skin_mobile_portrait.GameBar" />
+		            skinName="skin_mobile_portrait.GameBar"  visible="false"/>
 	</e:Group>
-	<ui:ImageGameResultMessage id="_resultMessage" x="207" y="398" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+	<ui:ImageGameResultMessage id="_resultMessage" x="620" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 	                           scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin" />
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />
-	<ba:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
-	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
-	                   anchorOffsetY="0" skinName="skin_mobile_portrait.ba.TableInfoPanel"  visible="false"/>
 	<e:Group height="50" x="1108" anchorOffsetX="0" anchorOffsetY="0" y="655">
 		<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
 		<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88.32999999999993" y="28.83000000000004" scaleX="1" scaleY="1" />
@@ -58,7 +58,7 @@
 			<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
 		</e:layout>
 	</e:Group>
-	<ba:MobileBottomGamePanel skinName="skin_mobile_portrait.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="1242" height="684" x="0" y="1471"/>
+
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
 </e:Skin>

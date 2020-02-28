@@ -34,18 +34,9 @@ namespace we {
 
         // const displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
         // const displayItem = new we.ui.ControlItem(generalGameType + '.LiveOverlayItemSkin');
-        const displayItem = new we.ui.ControlItem(generalGameType + '.LiveOverlayItemSkin');
+        const displayItem = new we.ui.MobileOverlayItem(generalGameType + '.LiveOverlayItemSkin');
         displayItem.setData(tableInfo);
         this._controlGroup.addChild(displayItem);
-
-        // // draw border corner radius
-        // const shape = new egret.Shape();
-        // shape.graphics.beginFill(0xffffff, 1);
-        // shape.graphics.drawRoundRect(0, 0, displayItem.width, displayItem.height, 48, 48);
-        // shape.graphics.endFill();
-
-        // displayItem.addChild(shape);
-        // displayItem.mask = shape;
 
         // this._txt_title.renderText = () => `${i18n.t('overlaypanel_memberreport_title')}`;
         this.addListeners();

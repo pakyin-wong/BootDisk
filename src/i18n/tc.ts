@@ -45,6 +45,7 @@ namespace we {
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
       overlaypanel_bethistory_searchrecord: '搜尋記錄',
+      overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
       overlaypanel_bethistory_recordtab_game: '遊戲',
@@ -87,6 +88,7 @@ namespace we {
       mobile_game_panel_statistic_chart: '統計圖表',
       mobile_game_panel_table_info: '本檯資訊',
       mobile_table_info_gameID: '編號',
+      mobile_panel_game_Info: '遊戲資訊',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',
@@ -249,7 +251,7 @@ namespace we {
         roadmap: '路紙',
         jockeyBet: '馬場下注區',
         customBet: '自選投注組合',
-        distribution: '散佈',
+        distribution: { text: '散佈', x: 60 },
         tiers: {
           text: '輪盤下角注',
           x: 23,

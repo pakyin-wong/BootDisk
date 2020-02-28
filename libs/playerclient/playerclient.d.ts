@@ -45,6 +45,10 @@ declare class PlayerClient {
     createCustomRoadmap(name: string, pattern: string, callback: Function): void;
     updateCustomRoadmap(id: string, data: object, callback: Function): void;
     removeCustomRoadmap(id: string, callback: Function): void;
+    _handleBetTemplateUpdate(result: any, callback: any, f: any): void;
+    createBetTemplate(title: string, betOptions: BetValueCommand[], callback: Function): void;
+    getBetTemplate(callback: Function): void;
+    removeBetTemplate(id: string, callback: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
     private _isTableInfoCallbackEmpty;

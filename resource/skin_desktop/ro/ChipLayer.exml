@@ -367,7 +367,7 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_0_1_group" width="40" height="35" x="83" y="17" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_separate_0_3_group" width="40" height="35" x="83" y="17" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_separate_0_1_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
@@ -379,14 +379,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_0_3_group" width="40" height="35" x="83" y="161" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_separate_0_1_group" width="40" height="35" x="83" y="161" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_separate_0_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_1_4_group" width="40" height="35" x="166" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_1_4_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_3_6_group" width="40" height="35" x="166" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_3_6_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -397,14 +397,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_3_6_group" width="40" height="35" x="166" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_3_6_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_1_4_group" width="40" height="35" x="166" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_1_4_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_4_7_group" width="40" height="35" x="249" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_4_7_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_6_9_group" width="40" height="35" x="249" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_6_9_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -415,14 +415,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_6_9_group" width="40" height="35" x="249" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_6_9_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_4_7_group" width="40" height="35" x="249" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_4_7_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_7_10_group" width="40" height="35" x="332" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_7_10_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_9_12_group" width="40" height="35" x="332" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_9_12_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -433,14 +433,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_9_12_group" width="40" height="35" x="332" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_9_12_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_7_10_group" width="40" height="35" x="332" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_7_10_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_10_13_group" width="40" height="35" x="415" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_10_13_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_12_15_group" width="40" height="35" x="415" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_12_15_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -451,14 +451,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_12_15_group" width="40" height="35" x="415" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_12_15_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_10_13_group" width="40" height="35" x="415" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_10_13_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_13_16_group" width="40" height="35" x="498" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_13_16_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_15_18_group" width="40" height="35" x="498" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_15_18_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -469,14 +469,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_15_18_group" width="40" height="35" x="498" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_15_18_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_13_16_group" width="40" height="35" x="498" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_13_16_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_16_19_group" width="40" height="35" x="581" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_16_19_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_18_21_group" width="40" height="35" x="581" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_18_21_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -487,14 +487,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_18_21_group" width="40" height="35" x="581" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_18_21_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_16_19_group" width="40" height="35" x="581" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_16_19_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_19_22_group" width="40" height="35" x="664" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_19_22_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_21_24_group" width="40" height="35" x="664" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_21_24_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -505,14 +505,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_21_24_group" width="40" height="35" x="664" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_21_24_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_19_22_group" width="40" height="35" x="664" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_19_22_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_22_25_group" width="40" height="35" x="747" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_22_25_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_24_27_group" width="40" height="35" x="747" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_24_27_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -523,14 +523,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_24_27_group" width="40" height="35" x="747" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_24_27_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_22_25_group" width="40" height="35" x="747" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_22_25_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_25_28_group" width="40" height="35" x="830" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_25_28_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_27_30_group" width="40" height="35" x="830" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_27_30_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -541,14 +541,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_27_30_group" width="40" height="35" x="830" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_27_30_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_25_28_group" width="40" height="35" x="830" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_25_28_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_28_31_group" width="40" height="35" x="913" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_28_31_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_30_33_group" width="40" height="35" x="913" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_30_33_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -559,14 +559,14 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_30_33_group" width="40" height="35" x="913" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_30_33_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_28_31_group" width="40" height="35" x="913" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_28_31_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_31_34_group" width="40" height="35" x="996" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_31_34_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_33_36_group" width="40" height="35" x="996" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_33_36_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
@@ -577,8 +577,8 @@
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />
 	</e:Group>
-	<e:Group id="_separate_33_36_group" width="40" height="35" x="993" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:BetChipStack id="_separate_33_36_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
+	<e:Group id="_separate_31_34_group" width="40" height="35" x="993" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:BetChipStack id="_separate_31_34_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"
 		                 chipHeight="70" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
 		                 chipType="2" />

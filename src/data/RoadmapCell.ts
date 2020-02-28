@@ -11,7 +11,7 @@ namespace we {
       public isPredict?: number; // for indicating if the cell is predict
 
       // index for roadinfo
-      public index?: number;
+      public gameRoundID?: string;
     }
   }
 }

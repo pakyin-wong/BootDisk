@@ -1,29 +1,42 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ui {
-    export class MobileLiveListItem extends MobileLiveListSimpleItem {
-      // protected _bigRoad: we.ba.BALobbyBigRoad;
-      // protected _alreadyBetSign: eui.Group;
+    export class MobileOverlayItem extends ControlItem {
+      protected _contentContainer: eui.Group;
+      protected _betChipSetPanel: eui.Group;
       protected _roadmapControl: ba.BARoadmapControl;
       protected _roadsContainer: eui.Group;
       protected _bigRoadMap: ba.BABigRoad;
       protected _bigEyeRoad: ba.BABigEyeRoad;
       protected _smallRoad: ba.BASmallRoad;
       protected _cockroachRoad: ba.BACockroachRoad;
+      protected _closeButton: ui.BaseImageButton;
+      protected _prevButton: ui.BaseImageButton;
+      protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
+      protected _betChipSetGridEnabled: boolean = false;
 
       public constructor(skinName: string = null) {
         super(skinName);
-      }
-
-      protected initCustomPos() {
-        this._buttonGroupShowY = 194;
-        this._buttonGroupHideY = 230;
+        this._betChipSetPanel.alpha = 0;
+        this._betChipSet.alpha = 1;
       }
 
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
+
+        this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this._betChipSet.init(null, denominationList);
+
+        // draw border corner radius
+        const shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        shape.graphics.drawRoundRect(0, 0, this._contentContainer.width, this._contentContainer.height, 48, 48);
+        shape.graphics.endFill();
+        this._contentContainer.addChild(shape);
+        this._contentContainer.mask = shape;
       }
 
       protected initRoadMap() {
@@ -74,6 +87,43 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         this._roadmapControl.updateRoadData();
+      }
+
+      public onClickUndoButton(evt: egret.Event) {
+        this._undoStack.popAndUndo();
+      }
+
+      public onClickButton() {
+        (this.parent.parent as overlay.MobileQuickBet).dispatchEvent(new egret.Event('close'));
+      }
+
+      protected onClickBetChipSelected() {
+        this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
+      }
+
+      protected showBetChipPanel() {
+        this._betChipSetPanel.anchorOffsetY = 30;
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
+        this._betChipSetGridEnabled = false;
+      }
+
+      protected addEventListeners() {
+        super.addEventListeners();
+        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+        this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+      }
+
+      protected removeEventListeners() {
+        super.removeEventListeners();
+        this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+        this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
       }
 
       // public setData(tableInfo: data.TableInfo) {
