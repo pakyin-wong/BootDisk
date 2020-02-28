@@ -827,6 +827,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetHistoryDetail extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BetHistoryItem extends eui.Skin{
 	}
 }

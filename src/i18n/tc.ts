@@ -45,6 +45,7 @@ namespace we {
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
       overlaypanel_bethistory_searchrecord: '搜尋記錄',
+      overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
       overlaypanel_bethistory_recordtab_game: '遊戲',

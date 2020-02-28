@@ -253,6 +253,7 @@
 		"resource/skin_mobile_portrait/overlay/OverlayPanelButton.exml",
 		"resource/skin_mobile_portrait/overlay/OverlayPanelSwitch.exml",
 		"resource/skin_mobile_portrait/overlay/BetHistory.exml",
+		"resource/skin_mobile_portrait/overlay/BetHistoryDetail.exml",
 		"resource/skin_mobile_portrait/overlay/BetHistoryItem.exml",
 		"resource/skin_mobile_portrait/overlay/CustomRoad.exml",
 		"resource/skin_mobile_portrait/overlay/DatePickerItem.exml",
