@@ -26,7 +26,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData) {
         // TODO: update card using the gameData
-        this.gameData = <dt.GameData>gameData;
+        this.gameData = <dt.GameData> gameData;
         const cardArr = [this.gameData.d, this.gameData.t];
         const cardHolderArr = [this.cardDragon, this.cardTiger];
 
