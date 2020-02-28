@@ -11,6 +11,10 @@ namespace we {
       public bv?: number;
       public pv?: number;
       public result: number;
+
+      // ro
+      public v?: number;
+      public video?: string;
     }
   }
 }

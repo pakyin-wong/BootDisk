@@ -40,12 +40,14 @@ namespace we {
       }
 
       public changeLang() {
+        super.changeLang();
         this.tigerLabel.text = i18n.t('dragontiger.tiger');
         this.dragonLabel.text = i18n.t('dragontiger.dragon');
         this.tieLabel.text = i18n.t('dragontiger.tie');
       }
 
       public setValue(tableInfo: data.TableInfo) {
+        super.setValue(tableInfo);
         if (tableInfo.gamestatistic) {
           this.pTiger.text = tableInfo.gamestatistic.bankerCount.toString();
           this.pDragon.text = tableInfo.gamestatistic.playerCount.toString();

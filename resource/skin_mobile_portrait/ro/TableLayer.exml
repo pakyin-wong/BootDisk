@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ro.bettingTable.TableLayerSkin" width="1208" height="340"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*"
+        states="Normal">
+	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betborad_inactive_png"
+	         fillMode="scale" />
+	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betborad_outline_png"
+	         fillMode="scale" />
+</e:Skin>

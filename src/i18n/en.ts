@@ -41,10 +41,12 @@ namespace we {
       overlaypanel_bethistory_title: 'Bet Record',
       overlaypanel_bethistory_date: 'Dates',
       overlaypanel_bethistory_today: 'Today',
+      overlaypanel_bethistory_yesterday: 'Yesterday',
       overlaypanel_bethistory_week: 'This week',
       overlaypanel_bethistory_customperiod: 'Custom',
       overlaypanel_bethistory_searchrecord: 'search id',
       overlaypanel_bethistory_recordtab_id: 'ID',
+      overlaypanel_bethistory_recordtab_title: 'Record Detail',
       overlaypanel_bethistory_recordtab_date: 'Date',
       overlaypanel_bethistory_recordtab_game: 'Game',
       overlaypanel_bethistory_recordtab_round: 'Round',
@@ -77,6 +79,24 @@ namespace we {
       datePicker_weekday_5: 'Fr',
       datePicker_weekday_6: 'Sa',
 
+      mobile_lobby_feature_title: 'Hot Game',
+      mobile_ba_undo: 'Undo',
+      mobile_ba_clear: 'Clear',
+      mobile_ba_double: 'Double',
+      mobile_ba_repeat: 'Bet Again',
+      mobile_game_panel_road_sheet: 'Road Sheet',
+      mobile_game_panel_statistic_chart: 'Statistic Chart',
+      mobile_game_panel_table_info: 'Information',
+      mobile_table_info_gameID: 'ID',
+      mobile_panel_game_Info: 'Game Information',
+
+      mobile_quick_bet_button_label: 'QuickBet',
+      mobile_enter_table_button_label: 'Enter',
+
+      mobile_game_panel_bet_hint_label: 'Hint: Press to add bet or enter room',
+
+      mobile_dropdown_confirm: 'Confirm',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
@@ -87,14 +107,17 @@ namespace we {
       },
       nav: {
         menu: {
+          title: 'Settings',
           selectMode: 'Color Mode',
           whiteMode: 'Light',
           darkMode: 'Dark',
+          info: 'Player Info',
           history: 'Bet Record',
           member: 'Member Report',
           road: 'Road Notice',
           system: 'System',
           logout: 'Logout',
+          leftHandMode: 'Left Mode',
           confirm: 'Confirm',
         },
         system: {
@@ -131,6 +154,7 @@ namespace we {
           wheel: 'Wheel',
           dice: 'Dice',
           goodroad: 'Good Road',
+          other: 'Others',
         },
       },
       goodroad: {
@@ -194,6 +218,60 @@ namespace we {
         tigerShort: 'Tr',
         tieShort: 'Ti',
       },
+      roulette: {
+        row_1: 'ROW 1',
+        row_2: 'ROW 2',
+        row_3: 'ROW 3',
+        dozen_1_12: '1ST GROUP',
+        dozen_13_24: '2ND GROUP',
+        dozen_25_36: '3RD GROUP',
+        small: '1-18',
+        big: '19-36',
+        odd: 'ODD',
+        even: 'EVEN',
+        red: 'RED',
+        black: 'BLACK',
+
+        roadBig: 'Big',
+        roadSmall: 'Small',
+        roadRed: 'Red',
+        roadBlack: 'Black',
+        roadOdd: 'Odd',
+        roadEven: 'Even',
+        bigShort: 'B',
+        smallShort: 'S',
+        redShort: 'R',
+        blackShort: 'B',
+        oddShort: 'O',
+        evenShort: 'E',
+        zeroShort: 'Z',
+        cold: 'Cold',
+        hot: 'Hot',
+        hotColdNumber: 'Hot Cold Numbers',
+        history: 'History',
+        roadmap: 'Roadmap',
+        jockeyBet: 'Jockey Bet',
+        customBet: 'Custom Bet',
+        distribution: {
+          text: 'Distribution',
+          x: 30,
+        },
+        tiers: {
+          text: 'Tiers',
+          x: 51,
+        },
+        orphelins: {
+          text: 'Orphelins',
+          x: 57,
+        },
+        voisins: {
+          text: 'Voisins',
+          x: 34,
+        },
+        zero: {
+          text: 'Zero',
+        },
+      },
       message: {
         test: 'You won $1, and $2% will belongs to me',
         unknownError: 'An unknown error occurred',
@@ -210,6 +288,16 @@ namespace we {
           },
         },
         dt: {
+          DRAGON: 'Dragon Win',
+          TIGER: 'Tiger Win',
+          TIE: 'Tie',
+          short: {
+            DRAGON: 'Dn',
+            TIGER: 'Tr',
+            TIE: 'T',
+          },
+        },
+        ro: {
           DRAGON: 'Dragon Win',
           TIGER: 'Tiger Win',
           TIE: 'Tie',

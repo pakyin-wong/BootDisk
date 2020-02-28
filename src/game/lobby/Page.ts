@@ -1,7 +1,7 @@
 namespace we {
   export namespace lobby {
     export class Page extends core.BasePage {
-      private scroller: ui.Scroller;
+      public scroller: ui.Scroller;
       private collection: eui.ArrayCollection;
       private roomIds: number[] = [];
 
@@ -17,144 +17,46 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        const group = new eui.Group();
-        const vlayout = new eui.VerticalLayout();
-        vlayout.gap = 0;
-        group.layout = vlayout;
-
-        this.scroller = new ui.Scroller();
-        this.scroller.width = 2600;
-        this.scroller.height = 1340;
-        this.addChild(this.scroller);
-
-        const gapSize = 48;
-        const paddingHorizontal = 71;
-        const offsetForTableList = -gapSize * 3;
-
-        // init image slider
-        const slider = new we.ui.ImageSlider();
-        slider.width = this.scroller.width;
-        slider.height = 790;
-        slider.configSlides(dir.lobbyResources.homeHeroBanners);
-        const sliderContainer = new eui.Group();
-        sliderContainer.width = slider.width;
-        sliderContainer.height = slider.height + offsetForTableList;
-        sliderContainer.addChild(slider);
-        group.addChild(sliderContainer);
-
-        // init 4 featured posters
-        const featuredPosterHeight = 800;
-        const posters = new eui.Group();
-        const hlayout = new eui.HorizontalLayout();
-        hlayout.horizontalAlign = egret.HorizontalAlign.JUSTIFY;
-        hlayout.gap = gapSize;
-        posters.horizontalCenter = 0;
-        posters.layout = hlayout;
-        for (let i = 0, len = dir.lobbyResources.homeLargeBanners.length; i < len; i += 1) {
-          const { image, link } = dir.lobbyResources.homeLargeBanners[i];
-          const poster = new eui.Image();
-          poster.source = image;
-          poster.height = featuredPosterHeight;
-          poster.addEventListener(
-            egret.TouchEvent.TOUCH_TAP,
-            () => {
-              logger.l('psoter click', i, link);
-            },
-            this
-          );
-          posters.addChild(poster);
+        if (env.isMobile) {
+          const contentInitializer = new MPageContentInitializer();
+          contentInitializer.initContent(this);
+        } else {
+          const contentInitializer = new DPageContentInitializer();
+          contentInitializer.initContent(this);
         }
-        const postersContainer = new eui.Group();
-        postersContainer.percentWidth = 100;
-        postersContainer.addChild(posters);
-        group.addChild(postersContainer);
 
-        // init 3 grids
-        // const grids = new eui.Group();
-        // const tlayout = new eui.TileLayout();
-        // tlayout.requestedColumnCount = 3;
-        // tlayout.paddingTop = gapSize;
-        // tlayout.paddingBottom = gapSize;
-        // tlayout.horizontalGap = gapSize;
-        // tlayout.verticalGap = gapSize;
-        // tlayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (tlayout.requestedColumnCount - 1)) / tlayout.requestedColumnCount;
-        // grids.layout = tlayout;
-        // grids.horizontalCenter = 0;
-        // dir.lobbyResources.homeBanners.forEach(banner => {
-        //   const image = new eui.Image();
-        //   image.source = banner.image;
-        //   image.addEventListener(
-        //     egret.TouchEvent.TOUCH_TAP,
-        //     () => {
-        //       logger.l('banner click', banner.link);
-        //     },
-        //     this
-        //   );
-        //   grids.addChild(image);
-        // });
-        // const gridsContainer = new eui.Group();
-        // gridsContainer.percentWidth = 100;
-        // gridsContainer.addChild(grids);
-        // group.addChild(gridsContainer);
-
-        // init footer
-        const footer = new eui.Group();
-        footer.width = 2600;
-        footer.height = 200;
-        const label = new eui.Label();
-        label.fontFamily = 'Barlow';
-        label.textAlign = egret.HorizontalAlign.CENTER;
-        label.verticalCenter = 0;
-        label.horizontalCenter = 0;
-        label.text = '© 2020 World Entainment 保留一切權利。';
-        footer.addChild(label);
-        group.addChild(footer);
-
-        // init sections
-        // const sections = new eui.Group();
-        // const vlayout = new eui.VerticalLayout();
-        // vlayout.paddingLeft = paddingHorizontal;
-        // vlayout.paddingRight = paddingHorizontal;
-        // sections.layout = vlayout;
-        // sections.y = slider.height + offsetForTableList;
-        // const createSection = (title, items) => {
-        //   const label = new eui.Label();
-        //   label.size = 40;
-        //   label.height = 100;
-        //   label.verticalAlign = egret.VerticalAlign.MIDDLE;
-        //   label.text = i18n.t(`lobby.header.${title}`);
-        //   const tcslider = new we.lobby.ThreeColumnSlider();
-        //   tcslider.width = this.scroller.width - paddingHorizontal * 2;
-        //   tcslider.height = 500;
-        //   tcslider.items = items;
-        //   sections.addChild(label);
-        //   sections.addChild(tcslider);
-        // };
-
-        // createSection('lobby', ['h4_png', 'h5_png']);
-        // createSection('live', ['h4_png', 'h5_png', 'h6_png']);
-        // createSection('lottery', ['h4_png', 'h5_png', 'h6_png', 'h7_png']);
-        // createSection('egame', ['h4_png', 'h5_png', 'h6_png', 'h7_png', 'h8_png']);
-        // createSection('favorite', ['h4_png', 'h5_png', 'h6_png', 'h7_png', 'h8_png', 'h9_png', 'h10_png']);
-        // group.addChild(sections);
-
-        this.scroller.viewport = group;
+        // const button = new ui.GamePanelTabButton();
+        // button.skinName = utils.getSkinByClassname('GamePanelTabButtonSkin');
+        // button.imageKey = 'm_lobby_panel_gamelist_tag_icon_allgame';
+        // button.labelKey = 'sidePanel.allgame';
+        // this.addChild(button);
+        // button.x = 100;
+        // button.y = 400;
+        // button.addEventListener(
+        //   egret.TouchEvent.TOUCH_TAP,
+        //   () => {
+        //     button.focus = !button.focus;
+        //   },
+        //   this
+        // );
 
         // Dragonbone animation
-        // const skeletonData = RES.getRes('game_result_test_ske_json');
-        // const textureData = RES.getRes('game_result_test_tex_json');
-        // const texture = RES.getRes('game_result_test_tex_png');
-        // const factory = new dragonBones.EgretFactory();
-        // factory.parseDragonBonesData(skeletonData);
-        // factory.parseTextureAtlasData(textureData, texture);
-        // logger.l('1>', factory.getAllDragonBonesData(), factory.getAllTextureAtlasData());
-        // const armatureDisplay = factory.buildArmatureDisplay('Armature');
-        // armatureDisplay.x = this.$stage.stageWidth / 2;
-        // armatureDisplay.y = this.$stage.stageHeight / 2;
-        // this.addChild(armatureDisplay);
-        // armatureDisplay.animation.play('win_start', -1);
+        /*
+        const skeletonData = RES.getRes('game_result_test_ske_json');
+        const textureData = RES.getRes('game_result_test_tex_json');
+        const texture = RES.getRes('game_result_test_tex_png');
+        const factory = new dragonBones.EgretFactory();
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        logger.l('1>', factory.getAllDragonBonesData(), factory.getAllTextureAtlasData());
+        const armatureDisplay = factory.buildArmatureDisplay('Armature');
+        armatureDisplay.x = this.$stage.stageWidth / 2;
+        armatureDisplay.y = this.$stage.stageHeight / 2;
+        this.addChild(armatureDisplay);
+        armatureDisplay.animation.play('win_start', -1);
 
-        // const slot = armatureDisplay.armature.getSlot('+800');
+        const slot = armatureDisplay.armature.getSlot('+800');
+        */
         // const r = new eui.Label();
         // r.text = 'This is a testing string.';
         // const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
@@ -175,14 +77,17 @@ namespace we {
         // i.height = renderTexture.$sourceHeight * 0.5;
         // slot.display = i;
 
-        // const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
-        // bmfont.font = RES.getRes('font_fnt');
-        // bmfont.text = 'This is a testing string.';
-        // slot.display = bmfont;
-        // bmfont.scaleX = 0.5;
-        // bmfont.scaleY = 0.5;
-        // bmfont.anchorOffsetX = bmfont.width * 0.5;
-        // bmfont.anchorOffsetY = bmfont.height * 0.5;
+        /*
+        const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
+        bmfont.font = RES.getRes('font_fnt');
+        bmfont.text = 'This is a testing string.';
+        slot.display = bmfont;
+        bmfont.scaleX = 0.5;
+        bmfont.scaleY = 0.5;
+        bmfont.anchorOffsetX = bmfont.width * 0.5;
+        bmfont.anchorOffsetY = bmfont.height * 0.5;
+        */
+
 
         // // Dragonbone animation 2 (self gen sprite)
         // const skeletonData2 = RES.getRes('Icon_ske_json');
@@ -248,28 +153,30 @@ namespace we {
         // armatureDisplay2.animation.play('Sound_close_ani', 0);
 
         // Dragonbone animation 3 (sprite)
-        // const skeletonData3 = RES.getRes('Icon2_ske_json');
-        // const textureData3 = RES.getRes('Icon2_tex_json');
-        // const texture3 = RES.getRes('Icon2_tex_png');
-        // const factory3 = new dragonBones.EgretFactory();
-        // factory3.parseDragonBonesData(skeletonData3);
-        // factory3.parseTextureAtlasData(textureData3, texture3);
-        // logger.l('3>', factory3.getAllDragonBonesData(), factory3.getAllTextureAtlasData());
-        // const armatureDisplay3 = factory3.buildArmatureDisplay('Sound');
-        // armatureDisplay3.x = 220;
-        // armatureDisplay3.y = 160;
-        // this.addChild(armatureDisplay3);
-        // armatureDisplay3.animation.play('Sound_close_ani', 0);
-        // const armatureDisplay2 = factory3.buildArmatureDisplay('Option');
-        // armatureDisplay2.x = 160;
-        // armatureDisplay2.y = 160;
-        // this.addChild(armatureDisplay2);
-        // armatureDisplay2.animation.play('Option_close_ani', 0);
-        // const armatureDisplay1 = factory3.buildArmatureDisplay('Info');
-        // armatureDisplay1.x = 280;
-        // armatureDisplay1.y = 160;
-        // this.addChild(armatureDisplay1);
-        // armatureDisplay1.animation.play('Sound_close_ani', 0);
+        /*
+        const skeletonData3 = RES.getRes('Icon2_ske_json');
+        const textureData3 = RES.getRes('Icon2_tex_json');
+        const texture3 = RES.getRes('Icon2_tex_png');
+        const factory3 = new dragonBones.EgretFactory();
+        factory3.parseDragonBonesData(skeletonData3);
+        factory3.parseTextureAtlasData(textureData3, texture3);
+        logger.l('3>', factory3.getAllDragonBonesData(), factory3.getAllTextureAtlasData());
+        const armatureDisplay3 = factory3.buildArmatureDisplay('Sound');
+        armatureDisplay3.x = 220;
+        armatureDisplay3.y = 160;
+        this.addChild(armatureDisplay3);
+        armatureDisplay3.animation.play('Sound_close_ani', 0);
+        const armatureDisplay2 = factory3.buildArmatureDisplay('Option');
+        armatureDisplay2.x = 160;
+        armatureDisplay2.y = 160;
+        this.addChild(armatureDisplay2);
+        armatureDisplay2.animation.play('Option_close_ani', 0);
+        const armatureDisplay1 = factory3.buildArmatureDisplay('Info');
+        armatureDisplay1.x = 280;
+        armatureDisplay1.y = 160;
+        this.addChild(armatureDisplay1);
+        armatureDisplay1.animation.play('Sound_close_ani', 0);
+        */
 
         // const shp: egret.Shape = new egret.Shape();
         // shp.x = 300;

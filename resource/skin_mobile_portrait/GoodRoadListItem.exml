@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.GoodRoadListItem" width="293" height="225" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect id="mask" width="100%" height="100%" x="0" y="0" ellipseHeight="30" ellipseWidth="30" fillColor="0xff0000" />
+	<e:Group id="_group" width="100%" height="100%" x="0" y="0">
+		<e:Rect width="100%" height="173" x="0" y="52" fillColor="0xffffff" anchorOffsetY="0" strokeAlpha="1" strokeWeight="2" />
+		<e:Rect width="100%" height="52" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x333333" />
+		<ba:GoodRoadmap id="_bigRoad" width="291" height="175" y="52" x="1" />
+		<ui:BaseImageButton id="_binButton" currentState="b_bin" y="13" width="22" height="22" anchorOffsetX="0" x="216"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
+		<ui:ToggleButton id="_activeButton" resNameOn="d_lobby_panel_button_checkboxes_active_png"
+		                 hoverResNameOn="d_lobby_panel_button_checkboxes_active_png"
+		                 resNameOff="d_lobby_panel_button_checkboxes_normal_png"
+		                 hoverResNameOff="d_lobby_panel_button_checkboxes_hover_png" y="16" width="22" height="22"
+		                 anchorOffsetX="0" x="255" />
+		<ui:BaseImageButton id="_addButton" currentState="b_add" horizontalCenter="0.5" width="44" height="44"
+		                    anchorOffsetX="0" verticalCenter="21.5" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
+		<ui:BaseImageButton id="_editButton" currentState="b_edit" horizontalCenter="0.5" width="30" height="30"
+		                    anchorOffsetX="0" verticalCenter="21.5" skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
+		<e:Label id="_titleLabel" text="百家樂01" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="17" y="14" size="24"
+		         anchorOffsetX="0" width="177" multiline="false" />
+	</e:Group>
+</e:Skin>

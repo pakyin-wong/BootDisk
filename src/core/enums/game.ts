@@ -17,9 +17,9 @@ namespace we {
       BAS = 1, // speed baccarat
       BAI = 2, // insurance baccarat
       DT = 5, // Dragon Tiger
+      RO = 14,
       // DI = 12, // Dice
       // MJ = 13, // MaJong
-      // RO = 14, // Rolette
     }
 
     export enum ChipType {
@@ -38,7 +38,8 @@ namespace we {
     }
     export enum LiveGameTab {
       ba = 'bacarrat',
-      dt = 'dragontiger',
+      // dt = 'dragontiger',
+      other = 'other',
       // goodroad = 'goodroad',
     }
 

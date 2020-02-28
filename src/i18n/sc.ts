@@ -47,9 +47,11 @@ namespace we {
       overlaypanel_bethistory_title: '投注记录',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
+      overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本周',
       overlaypanel_bethistory_customperiod: '自订',
       overlaypanel_bethistory_searchrecord: '搜寻记录',
+      overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注编号',
       overlaypanel_bethistory_recordtab_date: '日期时间',
       overlaypanel_bethistory_recordtab_game: '游戏',
@@ -83,6 +85,24 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
+      mobile_lobby_feature_title: '热门游戏',
+      mobile_ba_undo: '复原',
+      mobile_ba_clear: '清除',
+      mobile_ba_double: '双倍',
+      mobile_ba_repeat: '再次下注',
+      mobile_game_panel_road_sheet: '路纸',
+      mobile_game_panel_statistic_chart: '统计图表',
+      mobile_game_panel_table_info: '本台资讯',
+      mobile_table_info_gameID: '编号',
+      mobile_panel_game_Info: '游戏资讯',
+
+      mobile_quick_bet_button_label: '快速投注',
+      mobile_enter_table_button_label: '进入游戏',
+
+      mobile_game_panel_bet_hint_label: '提示：点击下注区进行追注或进入游戏',
+
+      mobile_dropdown_confirm: '确定',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',
@@ -94,14 +114,17 @@ namespace we {
       },
       nav: {
         menu: {
+          title: '设定',
           selectMode: '介面色调',
           whiteMode: '亮色',
           darkMode: '暗色',
+          info: '账户资讯',
           history: '投注记录',
           member: '会员报表',
           road: '好路提示',
           system: '系统设定',
           logout: '登出',
+          leftHandMode: '左手模式',
           confirm: '确定',
         },
         system: {
@@ -138,6 +161,7 @@ namespace we {
           wheel: '轮盘',
           dice: '骰宝',
           goodroad: '好路',
+          other: '其他',
         },
       },
       dragontiger: {
@@ -147,6 +171,59 @@ namespace we {
         dragonShort: '龙',
         tigerShort: '虎',
         tieShort: '和',
+      },
+      roulette: {
+        row_1: '第一行',
+        row_2: '第二行',
+        row_3: '第三行',
+        dozen_1_12: '第一组',
+        dozen_13_24: '第二组',
+        dozen_25_36: '第三组',
+        small: '1-18',
+        big: '19-36',
+        odd: '单',
+        even: '双',
+        red: '红',
+        black: '黑',
+        roadBig: '大',
+        roadSmall: '小',
+        roadRed: '红',
+        roadBlack: '黑',
+        roadOdd: '单',
+        roadEven: '双',
+        bigShort: '大',
+        smallShort: '小',
+        redShort: '红',
+        blackShort: '黑',
+        oddShort: '单',
+        evenShort: '双',
+        zeroShort: '零',
+        cold: '冷',
+        hot: '热',
+        hotColdNumber: '热冷号码',
+        history: '历史记录',
+        roadmap: '路纸',
+        jockeyBet: '马场下注区',
+        customBet: '自选投注组合',
+        distribution: { text: '散布', x: 60 },
+        tiers: {
+          text: '轮盘下角注',
+          x: 23,
+        },
+
+        orphelins: {
+          text: '轮上孤注',
+          x: 62,
+        },
+
+        voisins: {
+          text: '零旁注上角',
+          x: 16,
+        },
+
+        zero: {
+          text: '轮上零旁',
+        },
       },
       goodroad: {
         r1: '长庄',
@@ -216,6 +293,16 @@ namespace we {
           },
         },
         dt: {
+          DRAGON: '龙赢',
+          TIGER: '虎赢',
+          TIE: '和',
+          short: {
+            DRAGON: '龙',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
+        ro: {
           DRAGON: '龙赢',
           TIGER: '虎赢',
           TIE: '和',

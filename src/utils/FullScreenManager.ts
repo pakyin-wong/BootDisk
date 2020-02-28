@@ -42,10 +42,11 @@ class IPhone8Helper extends IPhone7Helper {
   }
 
   public GameStarted() {
-    if (!(dir.sceneCtr.currScene instanceof we.loading.Scene)) {
-      return true;
-    }
-    return false;
+    return true;
+    // if (!(dir.sceneCtr.currScene instanceof we.loading.Scene)) {
+    //   return true;
+    // }
+    // return false;
   }
 
   public CreateElement(className, append) {

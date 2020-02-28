@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ba.BetItemCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:w="http://ns.egret.com/wing" width="1140" height="294">
+        <e:Group id="playerSumGroup" left="0" width="570" height="100%">
+                <e:Image source="d_lobby_panel_gamelist_betresult_player_png" width="128" right="0" height="100%" y="0" />
+                <e:Image id="_playerPanel" source="d_lobby_panel_gamelist_betresult_playbg_png" width="442" left="0"
+                         height="100%" y="0" />
+                <e:Label id="playerSum" text="" fontFamily="Barlow" textAlign="center" right="30" y="174" size="60" />
+                <ui:RunTimeLabel id="lblPlayerName" text="閒" right="30" y="60" size="60" />
+                <ui:Card id="card3Player" width="142" height="98" right="403" verticalCenter="0" />
+                <ui:Card id="card2Player" width="98" height="142" right="277" verticalCenter="0" />
+                <ui:Card id="card1Player" width="98" height="142" right="153" verticalCenter="0" />
+        </e:Group>
+        <e:Group id="bankerSumGroup" right="0" width="570" height="100%">
+                <e:Image source="d_lobby_panel_gamelist_betresult_banker_png" width="128" height="100%" />
+                <e:Image id="_bankerPanel" source="d_lobby_panel_gamelist_betresult_bankerbg_png" width="442" right="0"
+                         height="100%" y="0" />
+                <e:Label id="bankerSum" text="" x="30" y="174" fontFamily="Barlow" textAlign="center" size="60" />
+                <ui:RunTimeLabel id="lblBankerName" text="莊" x="30" y="60" size="60" />
+                <ui:Card id="card3Banker" width="142" height="98" verticalCenter="0" x="403" anchorOffsetX="0"
+                         anchorOffsetY="0" />
+                <ui:Card id="card2Banker" width="98" height="142" verticalCenter="0" x="277" anchorOffsetX="0"
+                         anchorOffsetY="0" />
+                <ui:Card id="card1Banker" width="98" height="142" verticalCenter="0" x="153" />
+        </e:Group>
+</e:Skin>

@@ -44,6 +44,10 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        if (this._dropdown) {
+          this._toggler = this._dropdown.toggler;
+        }
+
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
@@ -51,7 +55,10 @@ namespace we {
 
         this._contentContainer.addChild(shape);
         this._contentContainer.mask = shape;
-        this._quickBetGroup.alpha = 0;
+
+        this._chipLayer.visible = false;
+        this._chipLayer.touchEnabled = false;
+        this._chipLayer.touchChildren = false;
         this._quickBetGroup.y = this._originalQuickBetPanelY;
       }
 
@@ -68,13 +75,15 @@ namespace we {
           evt.stopPropagation();
           return;
         }
-        if (evt.target === this._dropdown.toggler || evt.target === this) {
+        if (evt.target === this._toggler || evt.target === this) {
           evt.stopPropagation();
           return;
         }
       }
 
       protected showQuickBetGroup() {
+        this._chipLayer.touchEnabled = true;
+        this._chipLayer.touchChildren = true;
         this.holder.changeState(ui.TableListItemHolder.STATE_FOCUS);
         if (this.parent.localToGlobal(this.x, this._originaly).y > this._offsetLimit) {
           this._offsetY = this.parent.localToGlobal(this.x, this._originaly).y - this._offsetMovement;
@@ -98,6 +107,9 @@ namespace we {
       }
 
       protected hideQuickBetGroup() {
+        this._chipLayer.touchEnabled = false;
+        this._chipLayer.touchChildren = false;
+
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
         this._quickBetGroup.height = 0;

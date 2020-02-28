@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.SidePanelGameResultWinSkin" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+    <e:Image id="_bg" width="318" height="88" x="0" y="0" source="d_lobby_panel_gamelist_gameresult_bankerwin_png" />
+    <e:Label id="_label" text="Label" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="6"
+             size="36" />
+</e:Skin>

@@ -41,9 +41,11 @@ namespace we {
       overlaypanel_bethistory_title: '投註記錄',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
+      overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
       overlaypanel_bethistory_searchrecord: '搜尋記錄',
+      overlaypanel_bethistory_recordtab_title: '记录详情',
       overlaypanel_bethistory_recordtab_id: '投注編號',
       overlaypanel_bethistory_recordtab_date: '日期時間',
       overlaypanel_bethistory_recordtab_game: '遊戲',
@@ -77,6 +79,24 @@ namespace we {
       datePicker_weekday_5: '五',
       datePicker_weekday_6: '六',
 
+      mobile_lobby_feature_title: '熱門遊戲',
+      mobile_ba_undo: '復原',
+      mobile_ba_clear: '清除',
+      mobile_ba_double: '雙倍',
+      mobile_ba_repeat: '再次下注',
+      mobile_game_panel_road_sheet: '路紙',
+      mobile_game_panel_statistic_chart: '統計圖表',
+      mobile_game_panel_table_info: '本檯資訊',
+      mobile_table_info_gameID: '編號',
+      mobile_panel_game_Info: '遊戲資訊',
+
+      mobile_quick_bet_button_label: '快速投注',
+      mobile_enter_table_button_label: '進入遊戲',
+
+      mobile_game_panel_bet_hint_label: '提示：點擊下注區進行追注或進入遊戲',
+
+      mobile_dropdown_confirm: '確定',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
@@ -87,14 +107,17 @@ namespace we {
       },
       nav: {
         menu: {
+          title: '設定',
           selectMode: '介面色調',
           whiteMode: '亮色',
           darkMode: '暗色',
+          info: '賬戶資訊',
           history: '投註記錄',
           member: '會員報表',
           road: '好路提示',
           system: '系統設定',
           logout: '登出',
+          leftHandMode: '左手模式',
           confirm: '確定',
         },
         system: {
@@ -131,6 +154,7 @@ namespace we {
           wheel: '輪盤',
           dice: '骰寶',
           goodroad: '好路',
+          other: '其他',
         },
       },
       goodroad: {
@@ -193,6 +217,58 @@ namespace we {
         tigerShort: '虎',
         tieShort: '和',
       },
+      roulette: {
+        row_1: '第一行',
+        row_2: '第二行',
+        row_3: '第三行',
+        dozen_1_12: '第一組',
+        dozen_13_24: '第二組',
+        dozen_25_36: '第三組',
+        small: '1-18',
+        big: '19-36',
+        odd: '單',
+        even: '雙',
+        red: '紅',
+        black: '黑',
+
+        roadBig: '大',
+        roadSmall: '小',
+        roadRed: '紅',
+        roadBlack: '黑',
+        roadOdd: '單',
+        roadEven: '雙',
+        bigShort: '大',
+        smallShort: '小',
+        redShort: '紅',
+        blackShort: '黑',
+        oddShort: '單',
+        evenShort: '雙',
+        zeroShort: '零',
+        cold: '冷',
+        hot: '熱',
+        hotColdNumber: '熱冷號碼',
+        history: '歷史記錄',
+        roadmap: '路紙',
+        jockeyBet: '馬場下注區',
+        customBet: '自選投注組合',
+        distribution: { text: '散佈', x: 60 },
+        tiers: {
+          text: '輪盤下角注',
+          x: 23,
+        },
+        orphelins: {
+          text: '輪上孤注',
+          x: 62,
+        },
+        voisins: {
+          text: '零旁注上角',
+          x: 16,
+        },
+
+        zero: {
+          text: '輪上零旁',
+        },
+      },
       message: {
         test: '你贏左 $1，$2% 會比左我',
         unknownError: '發生未知錯誤',
@@ -209,6 +285,16 @@ namespace we {
           },
         },
         dt: {
+          DRAGON: '龍贏',
+          TIGER: '虎贏',
+          TIE: '和',
+          short: {
+            DRAGON: '龍',
+            TIGER: '虎',
+            TIE: '和',
+          },
+        },
+        ro: {
           DRAGON: '龍贏',
           TIGER: '虎贏',
           TIE: '和',

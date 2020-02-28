@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.dt.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:w="http://ns.egret.com/wing" width="762" height="140">
+        <e:Rect width="2" height="100%" fillColor="0x00ffff" horizontalCenter="0" visible="false" />
+        <e:Group left="20">
+                <e:Rect width="160" height="40" fillAlpha="0.3" ellipseWidth="50" ellipseHeight="50" />
+                <e:Label id="dragonSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
+                         verticalCenter="0" />
+        </e:Group>
+        <e:Group right="20">
+                <e:Rect width="160" height="40" fillAlpha="0.3" ellipseWidth="50" ellipseHeight="50" />
+                <e:Label id="tigerSum" text="" x="53" y="8" fontFamily="Barlow" textAlign="center" horizontalCenter="0"
+                         verticalCenter="0" />
+        </e:Group>
+        <ui:Card id="cardTiger" width="44" height="64" y="56" right="76" />
+        <ui:Card id="cardDragon" width="44" height="64" y="56" left="80" />
+</e:Skin>

@@ -1,6 +1,6 @@
 namespace we {
   export namespace live {
-    export class LiveDisplayModeSwitch extends we.core.BaseEUI {
+    export class LiveDisplayModeSwitch extends ALobbyGridLayoutSwitch {
       private container: eui.Group;
       private buttons = ['lobby_mode_01', 'lobby_mode_02'];
       private images: we.ui.BaseImageButton[] = [];
@@ -34,8 +34,7 @@ namespace we {
         this.images.forEach((img, idx) => {
           img.active = idx === selectedIndex;
         });
-        env.lobbyGridType = selectedIndex;
-        dir.evtHandler.dispatch(core.Event.LIVE_DISPLAY_MODE, selectedIndex);
+        this.setGridType(selectedIndex);
       }
 
       public onItemClick(index: number) {

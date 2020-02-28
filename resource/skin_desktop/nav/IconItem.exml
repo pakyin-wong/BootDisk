@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.IconItem" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="normal,hover,selected,selected-hover" >
-	<e:Image id="_icon" width="114" height="114" source="" x="8" y="8"/>
-	<e:Image width="130" height="146" left="0" top="0" includeIn="selected,selected-hover"/>
-
-
-
-</e:Skin>

@@ -10,6 +10,10 @@ namespace we {
         this.dispatchEvent(new egret.Event(type, false, false, data));
       }
 
+      public createDropDown(opt: ui.IDropdownOptM) {
+        this.dispatch(core.Event.TOGGLE_MOBILE_DROPDOWN, opt);
+      }
+
       public createOverlay(opt: ui.IOverlayOpt) {
         this.dispatchEvent(new egret.Event(core.Event.TOGGLE_OVERLAY_PANEL, false, false, opt));
       }

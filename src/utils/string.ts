@@ -55,6 +55,9 @@ namespace we {
           return `winType.ba${shortStr}.${ba.WinType[winType]}`;
         case we.core.GameType.DT:
           return `winType.dt${shortStr}.${dt.WinType[winType]}`;
+        case we.core.GameType.RO:
+        default:
+          return `winType.ro${shortStr}.${ro.WinType[winType]}`;
       }
     }
   }

@@ -17,7 +17,11 @@ namespace we {
         let _next: BaseScene;
         try {
           _prev = this._currScene;
-          _next = new we[id].Scene(data);
+          if (env.isMobile && typeof we[id].MobileScene === 'function') {
+            _next = new we[id].MobileScene(data);
+          } else {
+            _next = new we[id].Scene(data);
+          }
         } catch (e) {
           logger.l(`scene ${id} defined error`);
           return;
@@ -39,7 +43,11 @@ namespace we {
         let _next: BaseScene;
         try {
           _prev = this._currScene;
-          _next = new we[id].Scene(data);
+          if (env.isMobile && typeof we[id].MobileScene === 'function') {
+            _next = new we[id].MobileScene(data);
+          } else {
+            _next = new we[id].Scene(data);
+          }
         } catch (e) {
           logger.l(`scene ${id} defined error`);
           return;
