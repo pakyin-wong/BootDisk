@@ -252,7 +252,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -292,7 +292,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -435,9 +435,9 @@ namespace we {
             this._resultDisplay.updateResult(this._gameData);
           }
 
-          // if (this._resultMessage) {
-          //   this.checkResultMessage();
-          // }
+          if (this._resultMessage) {
+            this.checkResultMessage();
+          }
         }
       }
       protected setStateRefund(isInit: boolean = false) {
