@@ -1,53 +1,53 @@
 namespace we {
   export namespace overlay {
     export class BetHistory extends ui.Panel {
-      private _txt_title: ui.RunTimeLabel;
-      private _txt_date: ui.RunTimeLabel;
-      private _txt_search: ui.RunTimeLabel;
+      protected _txt_title: ui.RunTimeLabel;
+      protected _txt_date: ui.RunTimeLabel;
+      protected _txt_search: ui.RunTimeLabel;
 
-      private _btn_today: ui.BaseButton;
-      private _btn_week: ui.BaseButton;
-      private _btn_custom: ui.BaseButton;
+      protected _btn_today: ui.BaseButton;
+      protected _btn_week: ui.BaseButton;
+      protected _btn_custom: ui.BaseButton;
 
-      private _txt_record_id: ui.RunTimeLabel;
-      private _txt_record_date: ui.RunTimeLabel;
-      private _txt_record_game: ui.RunTimeLabel;
-      private _txt_record_round: ui.RunTimeLabel;
-      private _txt_record_replay: ui.RunTimeLabel;
-      private _txt_record_remake: ui.RunTimeLabel;
-      private _txt_record_bettype: ui.RunTimeLabel;
-      private _txt_record_betamount: ui.RunTimeLabel;
-      private _txt_record_win: ui.RunTimeLabel;
-      private _txt_record_orgbalance: ui.RunTimeLabel;
-      private _txt_record_finbalance: ui.RunTimeLabel;
-      private _txt_record_result: ui.RunTimeLabel;
+      protected _txt_record_id: ui.RunTimeLabel;
+      protected _txt_record_date: ui.RunTimeLabel;
+      protected _txt_record_game: ui.RunTimeLabel;
+      protected _txt_record_round: ui.RunTimeLabel;
+      protected _txt_record_replay: ui.RunTimeLabel;
+      protected _txt_record_remake: ui.RunTimeLabel;
+      protected _txt_record_bettype: ui.RunTimeLabel;
+      protected _txt_record_betamount: ui.RunTimeLabel;
+      protected _txt_record_win: ui.RunTimeLabel;
+      protected _txt_record_orgbalance: ui.RunTimeLabel;
+      protected _txt_record_finbalance: ui.RunTimeLabel;
+      protected _txt_record_result: ui.RunTimeLabel;
 
-      private _tf_search: eui.EditableText;
-      private _btn_search: ui.BaseImageButton;
+      protected _tf_search: eui.EditableText;
+      protected _btn_search: ui.BaseImageButton;
 
-      private _btn_searchType: ui.BaseButton;
-      private _ddm_searchType: ui.Panel;
+      protected _btn_searchType: ui.BaseButton;
+      protected _ddm_searchType: ui.Panel;
 
-      private _btn_page: egret.DisplayObject;
-      private _ddm_page: ui.Panel;
-      private _txt_page: ui.RunTimeLabel;
+      protected _btn_page: egret.DisplayObject;
+      protected _ddm_page: ui.Panel;
+      protected _txt_page: ui.RunTimeLabel;
 
-      private _btn_prev: ui.BaseImageButton;
-      private _btn_next: ui.BaseImageButton;
+      protected _btn_prev: ui.BaseImageButton;
+      protected _btn_next: ui.BaseImageButton;
 
-      private _datagroup: eui.DataGroup;
-      private _dataColl: eui.ArrayCollection;
+      protected _datagroup: eui.DataGroup;
+      protected _dataColl: eui.ArrayCollection;
 
-      private _total: number = 1;
-      private _page: number = 1;
-      private _starttime: number;
-      private _endtime: number;
-      private _limit: number = 11;
-      private _type: number = -1;
+      protected _total: number = 1;
+      protected _page: number = 1;
+      protected _starttime: number;
+      protected _endtime: number;
+      protected _limit: number = 11;
+      protected _type: number = -1;
 
-      private _datepicker: DoubleCalendarPicker;
+      protected _datepicker: DoubleCalendarPicker;
 
-      private _searchDelay: number;
+      protected _searchDelay: number;
 
       constructor() {
         super('overlay/BetHistory');
@@ -161,6 +161,23 @@ namespace we {
         this.search();
       }
 
+      protected searchYesterday() {
+        this._page = 1;
+        this._starttime = moment()
+          .utcOffset(8)
+          .startOf('day')
+          .subtract(1, 'day')
+          .unix();
+        this._endtime = moment()
+          .utcOffset(8)
+          .endOf('day')
+          .subtract(1, 'day')
+          .unix();
+        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        // this._btn_today.active = true;
+        this.search();
+      }
+
       protected searchWeek() {
         this._page = 1;
         this._starttime = moment()
@@ -193,19 +210,24 @@ namespace we {
         this._datepicker.show();
       }
 
-      private onSearchEnter() {
+      protected onSearchEnter() {
         this.updatePlaceHolder();
         clearTimeout(this._searchDelay);
         this._searchDelay = setTimeout(this.search.bind(this), 1000);
       }
 
-      private updatePlaceHolder() {
+      protected updatePlaceHolder() {
         this._txt_search.$setVisible(this._tf_search.text === '');
       }
 
-      private search() {
+      protected search() {
         clearTimeout(this._searchDelay);
-        const opt = {
+        const opt = this.searchOpt;
+        dir.socket.getBetHistory(opt, this.update, this);
+      }
+
+      protected get searchOpt(): {} {
+        return {
           startdate: this._starttime * 1000,
           enddate: this._endtime * 1000,
           limit: this._limit,
@@ -213,25 +235,23 @@ namespace we {
           filter: this._type,
           search: this._tf_search.text,
         };
-
-        dir.socket.getBetHistory(opt, this.update, this);
       }
 
-      private onClickNext() {
+      protected onClickNext() {
         if (this._total > this._page) {
           this._page++;
           this.search();
         }
       }
 
-      private onClickPrev() {
+      protected onClickPrev() {
         if (this._page > 1) {
           this._page--;
           this.search();
         }
       }
 
-      private update(res: any) {
+      protected update(res: any) {
         logger.l('getBetHistory', res);
         this.total = Math.ceil(res.total / this._limit);
         this._page = Math.floor(res.offset / this._limit) + 1;
@@ -239,17 +259,17 @@ namespace we {
         this._dataColl.replaceAll(res.history);
       }
 
-      private onPageChange(e) {
+      protected onPageChange(e) {
         this._page = e.data;
         this.search();
       }
 
-      private onTypeChange(e) {
+      protected onTypeChange(e) {
         this._type = e.data;
         this.search();
       }
 
-      private set total(t) {
+      protected set total(t) {
         if (this._total === t) {
           return;
         }
@@ -259,7 +279,7 @@ namespace we {
         for (let p = 1; p <= t; p++) {
           a.push(ui.NewDropdownItem(p, () => `${p}/${t}`));
         }
-        this._ddm_page.dropdown.data.replaceAll(a);
+        this._ddm_page && this._ddm_page.dropdown.data.replaceAll(a);
       }
     }
   }

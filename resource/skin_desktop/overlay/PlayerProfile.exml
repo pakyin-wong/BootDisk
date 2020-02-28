@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.NavPlayerProfile" height="789" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.PlayerProfile" height="789" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="516">
     <e:Group id="content" left="0" right="0" top="0" bottom="0">
         <e:Image source="nav_panel_bg" width="516" height="789"/>
@@ -19,14 +19,17 @@
 				<e:Label id="_follower" text="Label" y="582" height="29" right="48" size="24" fontFamily="Barlow" width="99" textAlign="right" verticalAlign="middle"/>
 				<e:Label id="_following" text="Label" y="637" height="29" right="48" size="24" fontFamily="Barlow" width="99" textAlign="right" verticalAlign="middle"/>
 				<e:Label id="_favouriteDealer" text="Label" y="691" height="29" right="48" size="24" fontFamily="Barlow" width="99" textAlign="right" verticalAlign="middle"/>
-							<ui:BaseImageButton width="30" height="30" x="412" y="196" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
-							<ui:BaseImageButton width="30" height="30" x="412" y="248" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
+							<ui:BaseImageButton width="30" height="30" x="412" y="196" skinName="skin_desktop.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
+							<ui:BaseImageButton width="30" height="30" x="412" y="248" skinName="skin_desktop.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
             </e:Group>
             <e:Group id="_section_iconSelect" x="490" width="490" height="764" y="0">
                 <e:Image id="_sectionBackIcon" width="48" height="48" x="19" y="18"
                          source="d_lobby_button_prev_normal_png" />
                 <e:Label text="設定頭像" y="60.8" size="30" anchorOffsetY="0" height="45"  left="0" right="0" textAlign="center" textColor="0xce925e" fontFamily="Barlow" verticalAlign="middle"/>
-                <ui:Scroller id="_iconScroller" height="578" width="420"  x="35" y="135"/>
+                <ui:Scroller id="_iconScroller" height="578" width="420"  x="35" y="135">
+                									<e:List id="_iconList">
+                                    <e:layout><e:TileLayout requestedColumnCount="3" horizontalGap="10" verticalGap="10"/></e:layout>
+                                </e:List></ui:Scroller>
             </e:Group>
         </e:Group>
     </e:Group>

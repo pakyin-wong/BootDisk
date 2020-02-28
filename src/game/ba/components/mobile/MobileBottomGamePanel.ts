@@ -43,7 +43,7 @@ namespace we {
       protected totalCount: number;
 
       // table info panel
-      public _tableInfoPanel: ui.TableInfoPanel;
+      protected _tableInfoPanel: ui.TableInfoPanel;
 
       // viewStack and radioBtn
       protected _roadmapGroup: eui.Group;
@@ -55,7 +55,7 @@ namespace we {
       protected viewStack: eui.ViewStack;
 
       public constructor(skin?: string) {
-        super(skin ? skin : 'ba/MobileBottomGamePanel');
+        super(skin || !env.isMobile ? skin : 'ba/MobileBottomGamePanel');
       }
 
       protected init() {

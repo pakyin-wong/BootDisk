@@ -11,14 +11,18 @@ namespace we {
 
       private _tempIdx: number = 0;
 
+      protected totalBATable = 6;
+      protected totalDTTable = 3;
+      protected totalROTable = 3;
+
       constructor() {
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
 
-        this.tables = this.generateBaccaratTables(6);
-        this.tables = [...this.tables, ...this.generateDragonTigerTables(3)];
-        this.tables = [...this.tables, ...this.generateRouletteTables(3)];
+        this.tables = this.generateBaccaratTables(this.totalBATable);
+        this.tables = [...this.tables, ...this.generateDragonTigerTables(this.totalDTTable)];
+        this.tables = [...this.tables, ...this.generateRouletteTables(this.totalROTable)];
 
         setInterval(() => {
           // mock error
@@ -365,6 +369,16 @@ namespace we {
         const list = this.tables.map(info => {
           return info.tableid;
         });
+        if (list[this.totalBATable - 1]) {
+          env.betTableList = [list[this.totalBATable - 1]];
+        }
+        if (list[this.totalBATable + this.totalDTTable - 1]) {
+          env.betTableList = env.betTableList.concat(list[this.totalBATable + this.totalDTTable - 1]);
+        }
+        if (list[this.totalBATable + this.totalDTTable + this.totalROTable - 1]) {
+          env.betTableList = env.betTableList.concat(list[this.totalBATable + this.totalDTTable + this.totalROTable - 1]);
+        }
+
         env.allTableList = list;
         this.filterAndDispatch(list, core.Event.TABLE_LIST_UPDATE);
       }
@@ -376,6 +390,7 @@ namespace we {
         if (env.goodRoadTableList.indexOf(tableid) > -1) {
           this.filterAndDispatch(env.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
         }
+
         if (env.betTableList.indexOf(tableid) > -1) {
           this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
         }

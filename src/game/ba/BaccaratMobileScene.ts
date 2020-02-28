@@ -14,6 +14,8 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
+      protected _tableInfoPanel: ui.TableInfoPanel;
+
       constructor(data: any) {
         super(data);
       }
@@ -27,8 +29,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -47,11 +49,6 @@ namespace we {
 
         if (this._lblBaMode) {
           this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
-        }
-
-        if (this._bottomGamePanel._tableInfoPanel) {
-          this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
-          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
       }
 
@@ -81,20 +78,17 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
-        if (this._bottomGamePanel._tableInfoPanel) {
-          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
-        }
       }
 
       public checkResultMessage() {
