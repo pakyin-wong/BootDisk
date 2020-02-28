@@ -10,6 +10,10 @@ namespace we {
       protected totalBet: number;
       protected switchModeButton: eui.Component;
 
+      protected _arrow: egret.DisplayObject;
+      protected _arrowUp: egret.DisplayObject;
+      protected isPanelOpen: boolean;
+
       // Right Roadmap
       public bigRoad: BABigRoad;
       public bigEyeRoad: BABigEyeRoad;
@@ -43,7 +47,7 @@ namespace we {
       protected totalCount: number;
 
       // table info panel
-      protected _tableInfoPanel: ui.TableInfoPanel;
+      public _tableInfoPanel: ui.TableInfoPanel;
 
       // viewStack and radioBtn
       protected _roadmapGroup: eui.Group;
@@ -52,7 +56,13 @@ namespace we {
       protected roadSheetBtn: eui.RadioButton;
       protected chartBtn: eui.RadioButton;
       protected tableInfoBtn: eui.RadioButton;
+
+      protected _gameInfoLabel: eui.Label;
+
       protected viewStack: eui.ViewStack;
+      protected viewStackMask: eui.Rect;
+
+      protected _verGroup: eui.Group;
 
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'ba/MobileBottomGamePanel');
@@ -62,6 +72,7 @@ namespace we {
         this.gameId = '';
         this.totalBet = 0;
         this.totalCount = 0;
+        this.isPanelOpen = false;
 
         const gridSizeL = 73;
         const gridSizeR = 38;
@@ -157,6 +168,14 @@ namespace we {
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
+
+        this._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelOpen, this);
+        this._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelOpen, this);
+
+        this.viewStack.mask = this.viewStackMask;
+        this.createVerLayout();
+
+        this.onPanelOpen();
       }
 
       public changeLang() {
@@ -167,6 +186,26 @@ namespace we {
         this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
+        this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
+      }
+
+      protected onPanelOpen() {
+        this.roadSheetBtn.visible = this.isPanelOpen;
+        this.chartBtn.visible = this.isPanelOpen;
+        this.tableInfoBtn.visible = this.isPanelOpen;
+        this._gameInfoLabel.visible = !this.isPanelOpen;
+        this._arrow.visible = this.isPanelOpen;
+        this._arrowUp.visible = !this.isPanelOpen;
+
+        if (this.isPanelOpen) {
+          this.isPanelOpen = false;
+          this.viewStack.height = 532;
+          this.viewStackMask.height = 532;
+        } else {
+          this.isPanelOpen = true;
+          this.viewStack.height = 0;
+          this.viewStackMask.height = 0;
+        }
       }
 
       protected onViewChange(e: eui.UIEvent) {
@@ -176,6 +215,13 @@ namespace we {
 
       protected onSwitchModeClick(e: egret.TouchEvent) {
         this.beadRoad.Mode = ++this.beadRoad.Mode % 2;
+      }
+
+      protected createVerLayout() {
+        const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
+        vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        vLayout.gap = 0;
+        this._verGroup.layout = vLayout;
       }
 
       public setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {
@@ -199,7 +245,9 @@ namespace we {
             this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
             this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
             this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
-            this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
+            if (this.tableInfo.gamestatistic.playerPairCount) {
+              this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
+            }
             this.totalCount = this.tableInfo.gamestatistic.totalCount;
             this.changeLang();
           }
@@ -222,6 +270,9 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
+
+        this._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelOpen, this);
+        this._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelOpen, this);
       }
     }
   }
