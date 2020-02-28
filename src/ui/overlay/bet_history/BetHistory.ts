@@ -222,7 +222,12 @@ namespace we {
 
       protected search() {
         clearTimeout(this._searchDelay);
-        const opt = {
+        const opt = this.searchOpt;
+        dir.socket.getBetHistory(opt, this.update, this);
+      }
+
+      protected get searchOpt(): {} {
+        return {
           startdate: this._starttime * 1000,
           enddate: this._endtime * 1000,
           limit: this._limit,
@@ -230,8 +235,6 @@ namespace we {
           filter: this._type,
           search: this._tf_search.text,
         };
-
-        dir.socket.getBetHistory(opt, this.update, this);
       }
 
       protected onClickNext() {

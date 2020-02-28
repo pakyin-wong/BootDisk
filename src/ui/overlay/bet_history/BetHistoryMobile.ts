@@ -4,6 +4,9 @@ namespace we {
       protected _btn_date: ui.BaseButton;
       protected _scroller: eui.Scroller;
 
+      protected _getFlag: boolean = false;
+      protected _getLock: boolean = false;
+
       protected mount() {
         super.mount();
         utils.DropdownCreator.new({
@@ -29,17 +32,21 @@ namespace we {
         });
         this._btn_date.active = true;
 
-        this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
+        // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
       }
 
       protected addListeners() {
         super.addListeners();
         this._btn_date.addEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
+        this._scroller.addEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
+        this._scroller.addEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
       }
 
       protected removeListeners() {
         super.removeListeners();
         this._btn_date.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
+        this._scroller.removeEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
+        this._scroller.removeEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
       }
 
       protected onDateDropdownSelected(e: egret.Event) {
@@ -47,11 +54,9 @@ namespace we {
           case 'today':
             this.searchToday();
             break;
-
           case 'yesterday':
             this.searchYesterday();
             break;
-
           case 'week':
             this.searchWeek();
             break;
@@ -69,6 +74,37 @@ namespace we {
 
       protected updatePlaceHolder() {
         this._txt_search.$setVisible(false);
+      }
+
+      protected update(res: any) {
+        super.update(res);
+        this._scroller.scrollPolicyV = this._total > 1 ? eui.ScrollPolicy.ON : eui.ScrollPolicy.OFF;
+      }
+
+      protected onScrollerChange() {
+        const sc = this._scroller;
+
+        if (!this._getFlag && sc.viewport.scrollV + sc.height >= sc.viewport.contentHeight * 1.05) {
+          this._getFlag = true;
+        }
+      }
+
+      protected onScrollerChangeEnd() {
+        if (this._getFlag && this._total > this._page && !this._getLock) {
+          clearTimeout(this._searchDelay);
+          this._page++;
+          const opt = this.searchOpt;
+          this._getLock = true;
+          dir.socket.getBetHistory(opt, this.scrollUpdate, this);
+        }
+        this._getFlag = false;
+      }
+
+      protected scrollUpdate(res: any) {
+        this.total = Math.ceil(res.total / this._limit);
+        this._page = Math.floor(res.offset / this._limit) + 1;
+        this._dataColl.replaceAll(this._dataColl.source.concat(res.history));
+        this._getLock = false;
       }
     }
   }
