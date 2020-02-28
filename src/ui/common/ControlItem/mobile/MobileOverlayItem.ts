@@ -93,7 +93,9 @@ namespace we {
         this._undoStack.popAndUndo();
       }
 
-      public onClickButton() {}
+      public onClickButton() {
+        (this.parent.parent as overlay.MobileQuickBet).dispatchEvent(new egret.Event('close'));
+      }
 
       protected onClickBetChipSelected() {
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
