@@ -123,7 +123,16 @@ namespace we {
          if (tableInfo) tableInfo.displayReady = true;
         return true;
         */
+
         const tableInfo = this.tableInfos[tableid];
+
+        if (env.isMobile) {
+          const gameType = tableInfo.gametype;
+          if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
+            return false;
+          }
+        }
+
         if (tableInfo && !tableInfo.displayReady) {
           if (tableInfo.data != null && tableInfo.roadmap != null) {
             tableInfo.displayReady = true;
