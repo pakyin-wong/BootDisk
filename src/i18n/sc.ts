@@ -203,7 +203,7 @@ namespace we {
         roadmap: '路纸',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
-        distribution: '散布',
+        distribution: { text: '散布', x: 60 },
         tiers: {
           text: '轮盘下角注',
           x: 23,
