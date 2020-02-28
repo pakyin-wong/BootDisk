@@ -322,6 +322,7 @@ namespace we {
       }
 
       protected onGameStatisticUpdate(gameStatistic: any, timestamp: string) {
+        return;
         this.updateTimestamp(timestamp);
         const tableid = gameStatistic.tableid;
         delete gameStatistic.tableid;

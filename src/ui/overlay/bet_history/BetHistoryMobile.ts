@@ -32,7 +32,7 @@ namespace we {
         });
         this._btn_date.active = true;
 
-        this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
+        // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
       }
 
       protected addListeners() {
@@ -78,7 +78,7 @@ namespace we {
 
       protected update(res: any) {
         super.update(res);
-        this._scroller.scrollPolicyV = this.total > 1 ? eui.ScrollPolicy.ON : eui.ScrollPolicy.OFF;
+        this._scroller.scrollPolicyV = this._total > 1 ? eui.ScrollPolicy.ON : eui.ScrollPolicy.OFF;
       }
 
       protected onScrollerChange() {
