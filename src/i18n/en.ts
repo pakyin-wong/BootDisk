@@ -250,7 +250,10 @@ namespace we {
         roadmap: 'Roadmap',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
-        distribution: 'distribution',
+        distribution: {
+          text: 'Distribution',
+          x: 30,
+        },
         tiers: {
           text: 'Tiers',
           x: 51,
