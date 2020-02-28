@@ -485,6 +485,10 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop.ro{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
@@ -747,6 +751,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class ImageButtonSkinMobileOverlay extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class ImageButtonSkinNav extends eui.Skin{
 	}
 }
@@ -900,6 +908,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait.ro{
 	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class TableInfoPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro.bettingTable{
