@@ -19,7 +19,9 @@ namespace we {
           _prev = this._currScene;
           if (env.isMobile && typeof we[id].MobileScene === 'function') {
             _next = new we[id].MobileScene(data);
-          } else _next = new we[id].Scene(data);
+          } else {
+            _next = new we[id].Scene(data);
+          }
         } catch (e) {
           logger.l(`scene ${id} defined error`);
           return;
@@ -43,7 +45,9 @@ namespace we {
           _prev = this._currScene;
           if (env.isMobile && typeof we[id].MobileScene === 'function') {
             _next = new we[id].MobileScene(data);
-          } else _next = new we[id].Scene(data);
+          } else {
+            _next = new we[id].Scene(data);
+          }
         } catch (e) {
           logger.l(`scene ${id} defined error`);
           return;

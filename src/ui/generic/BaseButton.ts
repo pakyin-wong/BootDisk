@@ -50,6 +50,10 @@ namespace we {
         this.update();
       }
 
+      public get active(): boolean {
+        return this._active;
+      }
+
       private onRollover() {
         this._hover = true;
         this.update();

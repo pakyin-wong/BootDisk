@@ -41,6 +41,7 @@ namespace we {
       overlaypanel_bethistory_title: '投註記錄',
       overlaypanel_bethistory_date: '日期',
       overlaypanel_bethistory_today: '今日',
+      overlaypanel_bethistory_yesterday: '昨天',
       overlaypanel_bethistory_week: '本週',
       overlaypanel_bethistory_customperiod: '自訂',
       overlaypanel_bethistory_searchrecord: '搜尋記錄',
@@ -104,14 +105,17 @@ namespace we {
       },
       nav: {
         menu: {
+          title: '設定',
           selectMode: '介面色調',
           whiteMode: '亮色',
           darkMode: '暗色',
+          info: '賬戶資訊',
           history: '投註記錄',
           member: '會員報表',
           road: '好路提示',
           system: '系統設定',
           logout: '登出',
+          leftHandMode: '左手模式',
           confirm: '確定',
         },
         system: {
