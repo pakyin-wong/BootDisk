@@ -2,6 +2,11 @@
 namespace we {
   export namespace ui {
     // Components
+    export interface ILobbyRoad {
+      // updateRoadData(roadmapData: any);
+      updateLobbyRoadData(roadmapData: any);
+    }
+
     export interface IRunTimeComponent extends egret.DisplayObject {
       render(): void;
     }
@@ -55,7 +60,7 @@ namespace we {
 
     export interface IPoppable {
       content: egret.DisplayObject;
-      close: eui.UIComponent;
+      close: egret.DisplayObject;
       toggler: egret.DisplayObject;
       setToggler(toggler: egret.DisplayObject, onToggleCallback?: (value: boolean) => void);
       removeToggler(toggler: egret.DisplayObject);

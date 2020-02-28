@@ -8,6 +8,7 @@ namespace we {
       Lobby: 'scene_lobby',
       Baccarat: 'scene_baccarat',
       DragonTiger: 'scene_dragontiger',
+      Roulette: 'scene_roulette',
     };
   }
 }

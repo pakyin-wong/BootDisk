@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.GamePanelSkin" width="1242" height="2000" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+    <e:Group id="content" left="0" right="0" top="0" bottom="0" touchChildren="true" touchEnabled="false">
+        <e:Rect left="0" right="0" top="0" bottom="0" ellipseHeight="80" ellipseWidth="80" strokeWeight="3"
+                fillColor="0x1a1a1a" strokeColor="0x282828" locked="true" />
+        <e:Group id="_tabButtonGroup" height="100" x="60" y="60" anchorOffsetX="0" anchorOffsetY="0">
+            <ui:GamePanelTabButton id="_btnAlreadyBet" width="100" height="100" scaleX="1" scaleY="1"
+                                   skinName="skin_mobile_portrait.GamePanelTabButtonSkin" currentState="already_bet"
+                                   imageKey="m_lobby_panel_gamelist_tag_icon_betted" labelKey="sidePanel.bet" />
+            <ui:GamePanelTabButton id="_btnGoodRoad" width="100" height="100" scaleX="1" scaleY="1"
+                                   skinName="skin_mobile_portrait.GamePanelTabButtonSkin" currentState="good_road"
+                                   imageKey="m_lobby_panel_gamelist_tag_icon_goodroad" labelKey="sidePanel.goodroad" />
+            <ui:GamePanelTabButton id="_btnAllGame" width="100" height="100" scaleX="1" scaleY="1"
+                                   skinName="skin_mobile_portrait.GamePanelTabButtonSkin"
+                                   imageKey="m_lobby_panel_gamelist_tag_icon_allgame" labelKey="sidePanel.allgame" />
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle" gap="40" />
+            </e:layout>
+        </e:Group>
+        <e:Group id="close" width="100" height="100" x="1121.15" y="18">
+            <ui:BaseImageButton width="40" height="40" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+                                currentState="game_list_close_btn" scaleX="1" scaleY="1" horizontalCenter="0"
+                                verticalCenter="0" useColorFilter="true" />
+        </e:Group>
+        <e:ViewStack id="_viewStack" anchorOffsetX="0" anchorOffsetY="0" top="200" bottom="0" left="0" right="0"
+                     selectedIndex="0">
+            <e:Group width="100%" height="100%" name="bet">
+                <e:Scroller height="110" x="139" y="152">
+                    <e:Group>
+                        <ui:RunTimeLabel id="_lblBetHint" text="Label" horizontalCenter="0" verticalCenter="0"
+                                         textAlign="center" verticalAlign="middle" size="42" />
+                        <e:Image source="m_lobby_panel_gamelist_remark_box_png" scale9Grid="24,24,1,1" right="0"
+                                 left="0" top="2" bottom="0" />
+                    </e:Group>
+                </e:Scroller>
+                <ui:Scroller height="1650" x="139" y="152" anchorOffsetY="0">
+                    <ui:TableList id="_betTableList" />
+                </ui:Scroller>
+                <e:layout>
+                    <e:VerticalLayout verticalAlign="top" horizontalAlign="justify" gap="40" />
+                </e:layout>
+            </e:Group>
+            <e:Group width="100%" height="100%" name="goodroad">
+                <ui:Scroller height="1800" x="139" y="152" anchorOffsetY="0">
+                    <ui:TableList id="_goodRoadTableList" />
+                </ui:Scroller>
+                <e:layout>
+                    <e:VerticalLayout verticalAlign="top" horizontalAlign="justify" gap="10" />
+                </e:layout>
+            </e:Group>
+            <e:Group width="100%" height="100%" name="allgame">
+                <e:Scroller height="80" x="139" y="152">
+                    <ui:List id="_filterList" />
+                </e:Scroller>
+                <ui:Scroller height="1710" x="139" y="152" anchorOffsetY="0">
+                    <ui:TableList id="_allTableList" />
+                </ui:Scroller>
+                <e:layout>
+                    <e:VerticalLayout verticalAlign="top" horizontalAlign="justify" gap="10" />
+                </e:layout>
+            </e:Group>
+        </e:ViewStack>
+    </e:Group>
+</e:Skin>

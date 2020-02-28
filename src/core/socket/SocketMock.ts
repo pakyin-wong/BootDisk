@@ -11,13 +11,18 @@ namespace we {
 
       private _tempIdx: number = 0;
 
+      protected totalBATable = 6;
+      protected totalDTTable = 3;
+      protected totalROTable = 3;
+
       constructor() {
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
 
-        this.tables = this.generateBaccaratTables(6);
-        this.tables = [...this.tables, ...this.generateDragonTigerTables(3)];
+        this.tables = this.generateBaccaratTables(this.totalBATable);
+        this.tables = [...this.tables, ...this.generateDragonTigerTables(this.totalDTTable)];
+        this.tables = [...this.tables, ...this.generateRouletteTables(this.totalROTable)];
 
         setInterval(() => {
           // mock error
@@ -28,38 +33,45 @@ namespace we {
       }
 
       protected generateDummyStatistic(data) {
-        let bankerCount: number = 0;
-        let playerCount: number = 0;
-        let tieCount: number = 0;
-        let playerPairCount: number = 0;
-        let bankerPairCount: number = 0;
+        if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC) {
+          let bankerCount: number = 0;
+          let playerCount: number = 0;
+          let tieCount: number = 0;
+          let playerPairCount: number = 0;
+          let bankerPairCount: number = 0;
 
-        data.roadmap.inGame.bead.forEach(item => {
-          if (item.v === 'b') {
-            bankerCount++;
-          } else if (item.v === 'p') {
-            playerCount++;
-          } else if (item.v === 't') {
-            tieCount++;
-          }
-          if (item.b > 0) {
-            bankerPairCount++;
-          }
-          if (item.p > 0) {
-            playerPairCount++;
-          }
-        });
-        const totalCount: number = bankerCount + playerCount + tieCount;
+          data.roadmap.inGame.bead.forEach(item => {
+            if (item.v === 'b') {
+              bankerCount++;
+            } else if (item.v === 'p') {
+              playerCount++;
+            } else if (item.v === 't') {
+              tieCount++;
+            }
+            if (item.b > 0) {
+              bankerPairCount++;
+            }
+            if (item.p > 0) {
+              playerPairCount++;
+            }
+          });
+          const totalCount: number = bankerCount + playerCount + tieCount;
 
-        const stats = new we.data.GameStatistic();
-        stats.bankerCount = bankerCount;
-        stats.playerCount = playerCount;
-        stats.tieCount = tieCount;
-        stats.playerPairCount = playerPairCount;
-        stats.bankerPairCount = bankerPairCount;
-        stats.totalCount = totalCount;
+          const stats = new we.data.GameStatistic();
+          stats.bankerCount = bankerCount;
+          stats.playerCount = playerCount;
+          stats.tieCount = tieCount;
+          stats.playerPairCount = playerPairCount;
+          stats.bankerPairCount = bankerPairCount;
+          stats.totalCount = totalCount;
 
-        return stats;
+          return stats;
+        } else if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC) {
+          const stats = new we.data.GameStatistic();
+          stats.hotNumbers = [1, 2, 3, 4, 5];
+          stats.coldNumbers = [6, 7, 8, 9, 10];
+          return stats;
+        }
       }
       protected generateBaccaratTables(count) {
         const tables = Array.apply(null, { length: count }).map((value, idx) => {
@@ -67,7 +79,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
           data.gametype = core.GameType.BAC;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -94,13 +106,46 @@ namespace we {
         return tables;
       }
 
+      protected generateRouletteTables(count) {
+        const tables = Array.apply(null, { length: count }).map((value, idx) => {
+          const data = new we.data.TableInfo();
+          data.tableid = (++this._tempIdx).toString();
+          data.tablename = data.tableid;
+          data.state = TableState.ONLINE;
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
+          data.gametype = core.GameType.RO;
+
+          data.gamestatistic = this.generateDummyStatistic(data);
+
+          data.betInfo = new we.data.GameTableBetInfo();
+          data.betInfo.tableid = data.tableid; // Unique table id
+          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+          data.betInfo.total = 10000; // Total bet amount for this gameround
+          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+          data.betInfo.ranking = [];
+
+          data.bets = [];
+          const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
+          if (idx !== count - 1) {
+            mockProcess.startRand = idx;
+            mockProcess.endRand = idx + 1;
+          }
+          mockProcess.start(data);
+          this.mockProcesses.push(mockProcess);
+
+          idx++;
+          return data;
+        });
+        return tables;
+      }
+
       protected generateDragonTigerTables(count) {
         const tables = Array.apply(null, { length: count }).map((value, idx) => {
           const data = new we.data.TableInfo();
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRoadData);
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
           data.gametype = core.GameType.DT;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -324,6 +369,16 @@ namespace we {
         const list = this.tables.map(info => {
           return info.tableid;
         });
+        if (list[this.totalBATable - 1]) {
+          env.betTableList = [list[this.totalBATable - 1]];
+        }
+        if (list[this.totalBATable + this.totalDTTable - 1]) {
+          env.betTableList = env.betTableList.concat(list[this.totalBATable + this.totalDTTable - 1]);
+        }
+        if (list[this.totalBATable + this.totalDTTable + this.totalROTable - 1]) {
+          env.betTableList = env.betTableList.concat(list[this.totalBATable + this.totalDTTable + this.totalROTable - 1]);
+        }
+
         env.allTableList = list;
         this.filterAndDispatch(list, core.Event.TABLE_LIST_UPDATE);
       }
@@ -335,6 +390,7 @@ namespace we {
         if (env.goodRoadTableList.indexOf(tableid) > -1) {
           this.filterAndDispatch(env.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
         }
+
         if (env.betTableList.indexOf(tableid) > -1) {
           this.filterAndDispatch(env.betTableList, core.Event.BET_TABLE_LIST_UPDATE);
         }
@@ -353,12 +409,12 @@ namespace we {
       }
 
       public async getTableHistory() {
-        // env.tableHistory = this.mockRoadData;
+        // env.tableHistory = this.mockBARoadData;
         // dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE);
       }
 
       // mock road data
-      private mockRoadData: any = {
+      private mockBARoadData: any = {
         tableid: '1',
         shoeid: '1',
         playerwincount: 3,
@@ -450,6 +506,24 @@ namespace we {
           { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
           { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
         ],
+      };
+
+      // mock ro road data
+      private mockRORoadData: any = {
+        gametype: 14,
+        tableid: '2',
+        shoeid: '1',
+        hot: [1, 2, 3, 4, 5],
+        cold: [1, 2, 3, 4, 5],
+
+        inGame: {
+          bead: [{ v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'g34345' }, { v: 3, gameRoundID: 'g45454' }],
+          color: [{ v: 1, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g34345' }, { v: 3, gameRoundID: 'g45454' }],
+          size: [{ v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'g34345' }, {}, {}, {}, {}, { v: 3, gameRoundID: 'g45454' }],
+          odd: [{ v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'g34345' }, { v: 3, gameRoundID: 'g45454' }],
+        },
+
+        gameInfo: { cde345: { gameRoundID: 'cde345', v: 1, video: 'null' }, g34345: { gameRoundID: 'g34345', v: 2, video: 'null' }, g45454: { gameRoundID: 'g45454', v: 3, video: 'null' } },
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {

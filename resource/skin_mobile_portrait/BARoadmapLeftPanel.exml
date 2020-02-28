@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.BARoadmapLeftPanel" width="692" height="304" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<w:Config id="170676844ea"/>
+        <e:Rect id="mask" width="688" height="301" x="2" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
+                fillColor="0x7c7c7c" />
+        <e:Rect id="topBar" width="694" height="47" x="0" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
+                ellipseWidth="0" />
+        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="17" y="10" textAlign="left" anchorOffsetX="0"
+                         width="514" size="25" />
+        <ui:RunTimeLabel id="totalBetLabel" text="0" x="409.69" y="10" textAlign="right" anchorOffsetX="0" width="260"
+                         size="25" />
+        <e:Image id="switchModeButton" width="58" height="58" x="626" y="238"
+                 source="d_ba_swaproadmap_button_element_png" />
+</e:Skin>

@@ -1,22 +1,22 @@
 namespace we {
   export namespace ui {
     export class NavSideMenu extends Panel {
-      private btn_lightMode: eui.Component;
-      private btn_darkMode: eui.Component;
-      private btn_history: eui.Component;
-      private btn_member: eui.Component;
-      private btn_road: eui.Component;
-      private btn_system: eui.Component;
-      private btn_logout: eui.Component;
+      protected btn_lightMode: eui.Component;
+      protected btn_darkMode: eui.Component;
+      protected btn_history: eui.Component;
+      protected btn_member: eui.Component;
+      protected btn_road: eui.Component;
+      protected btn_system: eui.Component;
+      protected btn_logout: eui.Component;
 
-      private txt_selectMode: RunTimeLabel;
-      private txt_lightMode: RunTimeLabel;
-      private txt_darkMode: RunTimeLabel;
-      private txt_history: RunTimeLabel;
-      private txt_member: RunTimeLabel;
-      private txt_road: RunTimeLabel;
-      private txt_system: RunTimeLabel;
-      private txt_logout: RunTimeLabel;
+      protected txt_selectMode: RunTimeLabel;
+      protected txt_lightMode: RunTimeLabel;
+      protected txt_darkMode: RunTimeLabel;
+      protected txt_history: RunTimeLabel;
+      protected txt_member: RunTimeLabel;
+      protected txt_road: RunTimeLabel;
+      protected txt_system: RunTimeLabel;
+      protected txt_logout: RunTimeLabel;
 
       public constructor() {
         super('nav/NavSideMenu');
@@ -47,10 +47,10 @@ namespace we {
         }
       }
 
-      private initTxt() {
+      protected initTxt() {
         this.txt_selectMode.renderText = () => `${i18n.t('nav.menu.selectMode')}`;
-        this.txt_lightMode.renderText = () => `${i18n.t('nav.menu.whiteMode')}`;
-        this.txt_darkMode.renderText = () => `${i18n.t('nav.menu.darkMode')}`;
+        this.txt_lightMode && (this.txt_lightMode.renderText = () => `${i18n.t('nav.menu.whiteMode')}`);
+        this.txt_darkMode && (this.txt_darkMode.renderText = () => `${i18n.t('nav.menu.darkMode')}`);
         this.txt_history.renderText = () => `${i18n.t('nav.menu.history')}`;
         this.txt_member.renderText = () => `${i18n.t('nav.menu.member')}`;
         this.txt_road.renderText = () => `${i18n.t('nav.menu.road')}`;
@@ -58,7 +58,7 @@ namespace we {
         this.txt_logout.renderText = () => `${i18n.t('nav.menu.logout')}`;
       }
 
-      private addListeners() {
+      protected addListeners() {
         utils.addButtonListener(this.btn_lightMode, this.onClickLightMode, this);
         utils.addButtonListener(this.btn_darkMode, this.onClickDarkMode, this);
         utils.addButtonListener(this.btn_history, this.onClickHistory, this);
@@ -69,7 +69,7 @@ namespace we {
         dir.evtHandler.$addListener(core.Event.MODE_UPDATE, this.update, this);
       }
 
-      private removeListeners() {
+      protected removeListeners() {
         this.btn_lightMode.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickLightMode, this);
         this.btn_darkMode.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDarkMode, this);
         this.btn_history.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickHistory, this);
@@ -80,35 +80,35 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.update, this);
       }
 
-      private onClickLightMode() {
+      protected onClickLightMode() {
         logger.l(`NavSideMenu::onClickLightMode`);
         env.mode = 0;
         dir.socket.updateSetting('mode', '0');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 0 });
       }
 
-      private onClickDarkMode() {
+      protected onClickDarkMode() {
         logger.l(`NavSideMenu::onClickDarkMode`);
         env.mode = 1;
         dir.socket.updateSetting('mode', '1');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 1 });
       }
 
-      private onClickHistory() {
+      protected onClickHistory() {
         dir.evtHandler.createOverlay({
           class: 'BetHistory',
         });
         logger.l(`NavSideMenu::onClickHistory`);
       }
 
-      private onClickMember() {
+      protected onClickMember() {
         dir.evtHandler.createOverlay({
           class: 'MemberReport',
         });
         logger.l(`NavSideMenu::onClickMember`);
       }
 
-      private onClickRoad() {
+      protected onClickRoad() {
         dir.evtHandler.createOverlay({
           class: 'CustomRoad',
         });
@@ -122,7 +122,7 @@ namespace we {
         logger.l(`NavSideMenu::onClickSystem`);
       }
 
-      private onClickLogout() {
+      protected onClickLogout() {
         logger.l(`NavSideMenu::onClickLogout`);
       }
     }

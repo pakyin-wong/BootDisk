@@ -3,16 +3,18 @@ namespace we {
   export namespace ui {
     // base control class that hold and manage the basic item in Ba Item
     export class ControlItem extends ui.TableListItem {
-      protected _bettingTable: BettingTable;
+      protected _chipLayer: ChipLayer;
+      protected _tableLayer: TableLayer;
 
       protected _betChipSet: ui.BetChipSet;
       protected _cardHolder: we.ba.CardHolder;
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
-      protected _resultMessage: ui.GameResultMessage;
+      protected _resultMessage: ui.IGameResultMessage;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
+      protected _toggler: egret.DisplayObject;
       protected _undoStack: we.utils.UndoStack = new we.utils.UndoStack();
 
       // table name label
@@ -59,13 +61,20 @@ namespace we {
 
       protected initBettingTable() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
-        if (this._bettingTable) {
-          this._bettingTable.type = we.core.BettingTableType.NORMAL;
-          this._bettingTable.denomList = denominationList;
-          this._bettingTable.undoStack = this._undoStack;
-          this._bettingTable.init();
-          this._bettingTable.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
-          this._bettingTable.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
+        if (this._tableLayer) {
+          this._tableLayer.init();
+        }
+
+        if (this._chipLayer) {
+          this._chipLayer.type = we.core.BettingTableType.NORMAL;
+          this._chipLayer.denomList = denominationList;
+          this._chipLayer.undoStack = this._undoStack;
+          if (this._tableLayer) {
+            this._chipLayer.tableLayer = this._tableLayer;
+          }
+          this._chipLayer.init();
+          this._chipLayer.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
+          this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
         }
       }
 
@@ -82,8 +91,8 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
-        if (this._bettingTable) {
-          this._bettingTable.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        if (this._chipLayer) {
+          this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         }
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -122,8 +131,8 @@ namespace we {
         if (this._betChipSet) {
           this._betChipSet.resetDenominationList(denominationList);
         }
-        if (this._bettingTable) {
-          this._bettingTable.denomList = denominationList;
+        if (this._chipLayer) {
+          this._chipLayer.denomList = denominationList;
         }
       }
 
@@ -154,23 +163,23 @@ namespace we {
       protected onTouchTap(evt: egret.Event) {}
 
       protected onBetDetailUpdateInBetState() {
-        if (this._betDetails && this._bettingTable) {
-          this._bettingTable.updateBetFields(this._betDetails);
+        if (this._betDetails && this._chipLayer) {
+          this._chipLayer.updateBetFields(this._betDetails);
         }
       }
       protected onBetDetailUpdateInFinishState() {
-        this._bettingTable.showWinEffect(this._betDetails);
-        if (this._betDetails && this._bettingTable) {
+        if (this._betDetails && this._chipLayer) {
+          this._chipLayer.showWinEffect(this._betDetails);
           if (this._resultMessage) {
-            this.checkResultMessage(this.tableInfo.totalWin);
+            this.checkResultMessage();
           }
         }
       }
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        if (this._bettingTable) {
-          this._bettingTable.tableId = this._tableInfo.tableid;
+        if (this._chipLayer) {
+          this._chipLayer.tableId = this._tableInfo.tableid;
         }
         this._betDetails = this._tableInfo.bets;
         this._gameData = this._tableInfo.data;
@@ -247,9 +256,9 @@ namespace we {
         }
 
         if (this._previousState !== we.core.GameState.BET) {
-          if (this._bettingTable) {
-            this._bettingTable.resetUnconfirmedBet();
-            this._bettingTable.resetConfirmedBet();
+          if (this._chipLayer) {
+            this._chipLayer.resetUnconfirmedBet();
+            this._chipLayer.resetConfirmedBet();
           }
 
           if (this._resultMessage) {
@@ -260,8 +269,8 @@ namespace we {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
 
-          if (this._betDetails && this._bettingTable) {
-            this._bettingTable.updateBetFields(this._betDetails);
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
           }
 
           this._undoStack.clearStack();
@@ -285,8 +294,8 @@ namespace we {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
           }
 
-          if (this._betDetails) {
-            this._bettingTable.updateBetFields(this._betDetails);
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
           }
         }
         if (this._cardHolder) {
@@ -304,7 +313,7 @@ namespace we {
           }
 
           if (this._resultMessage) {
-            this.checkResultMessage(this.tableInfo.totalWin);
+            this.checkResultMessage();
           }
         }
       }
@@ -334,8 +343,8 @@ namespace we {
           this._timer.visible = enable;
         }
 
-        if (this._bettingTable) {
-          this._bettingTable.setTouchEnabled(enable);
+        if (this._chipLayer) {
+          this._chipLayer.setTouchEnabled(enable);
         }
         if (this._betChipSet) {
           this._betChipSet.setTouchEnabled(enable);
@@ -363,14 +372,24 @@ namespace we {
         }
         return false;
       }
-      public checkResultMessage(totalWin: number = NaN) {
+      public checkResultMessage() {
+        let totalWin: number = NaN;
+        if (this._tableInfo.totalWin) {
+          totalWin = this._tableInfo.totalWin;
+        }
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype, totalWin);
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: totalWin,
+            });
           }
         } else {
           if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, this._gameData.wintype);
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: NaN,
+            });
           }
         }
       }
@@ -384,17 +403,19 @@ namespace we {
       }
 
       protected onConfirmPressed(evt: egret.Event) {
-        if (this._bettingTable) {
-          if (this._bettingTable.getTotalUncfmBetAmount() > 0) {
-            const bets = this._bettingTable.getUnconfirmedBetDetails();
-            this._bettingTable.resetUnconfirmedBet(); // Waiting to change to push to waitingforconfirmedbet
+        if (this._chipLayer) {
+          if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
+            const bets = this._chipLayer.getUnconfirmedBetDetails();
+            this._chipLayer.resetUnconfirmedBet();
+            // Not yet decided: any blocking or a new waitingConfirmedBet should be used here.
             dir.socket.bet(this._tableId, bets);
           }
         }
       }
+
       protected onCancelPressed(evt: egret.Event) {
-        if (this._bettingTable) {
-          this._bettingTable.cancelBet();
+        if (this._chipLayer) {
+          this._chipLayer.cancelBet();
         }
       }
     }

@@ -20,6 +20,10 @@ namespace we {
       resetGoodRoadmap();
     }
 
+    export interface ILobbyRoad {
+      updateLobbyRoadData(roadmapData: any);
+    }
+
     export interface IErrorKind {
       code: number;
       detail?: string;
@@ -33,6 +37,10 @@ namespace we {
       image: egret.Texture;
       link: string;
       loaded: boolean;
+    }
+
+    export interface IContentInitializer {
+      initContent(root: eui.Component);
     }
   }
 }

@@ -1,4 +1,6 @@
 class Main extends eui.UILayer {
+  protected orientationManager: we.utils.OrientationManager;
+
   protected createChildren(): void {
     super.createChildren();
 
@@ -19,8 +21,6 @@ class Main extends eui.UILayer {
     mouse.enable(this.stage);
     this.stage['inFocusItems'] = [];
 
-    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
-
     this.init().catch(err => {
       logger.e(err);
     });
@@ -35,6 +35,34 @@ class Main extends eui.UILayer {
     } else {
       dir.socket = new we.core.SocketMock();
     }
+    dir.uaParser = new UAParser();
+    env.UAInfo = dir.uaParser.getResult();
+
+    logger.l(env.UAInfo);
+    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
+
+    const cn = [];
+    cn.push('MainWindow');
+    cn.push(env.UAInfo.os.name);
+    cn.push(env.UAInfo.browser.name);
+    if (env.UAInfo.device.vendor === 'Apple' && env.UAInfo.device.type === 'mobile') {
+      cn.push('iPhone');
+    }
+    document.documentElement.className = cn.join(' ');
+
+    const { type } = env.UAInfo.device;
+    if (type === 'mobile') {
+      env.isMobile = true;
+
+      // use these when there is portrait mode only
+      this.stage.setContentSize(1242, 2155);
+      this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      env.orientation = egret.OrientationMode.PORTRAIT;
+
+      // uncomment below when there are both portrait and landscape layout
+      // this.orientationManager = new we.utils.OrientationManager(this.stage);
+    }
+
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
     dir.audioCtr = new we.core.AudioCtr(this.stage);
@@ -45,18 +73,9 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
-    dir.uaParser = new UAParser();
-    env.UAInfo = dir.uaParser.getResult();
-    const cn = [];
-    cn.push('MainWindow');
-    cn.push(env.UAInfo.os.name);
-    cn.push(env.UAInfo.browser.name);
-    if (env.UAInfo.device.vendor === 'Apple' && env.UAInfo.device.type === 'mobile') {
-      cn.push('iPhone');
-    }
-    document.documentElement.className = cn.join(' ');
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
+
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
@@ -91,6 +110,7 @@ class Main extends eui.UILayer {
     RES.registerVersionController(versionController);
     try {
       await RES.loadConfig(`resource/default.res.json`, 'resource/');
+      await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}.res.json`, 'resource/');
       await this.loadTheme();
       fontMgr.loadFonts([{ res: 'barlow_woff', name: 'Barlow' }]);
       await RES.loadGroup(we.core.res.EgretBasic);

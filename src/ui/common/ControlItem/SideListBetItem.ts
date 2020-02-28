@@ -39,19 +39,37 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._bettingTable.setGameMode(false);
+        this._tableLayer.currentState = 'Normal';
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        this._bettingGroup.visible = enable;
-        this._bettingTable.setTouchEnabled(this._betEnabled);
+        this._chipLayer.visible = enable;
+        this._chipLayer.setTouchEnabled(this._betEnabled);
+        if (this._tableInfo) {
+          switch (this._tableInfo.gametype) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAI:
+            case we.core.GameType.DT:
+              this._tableLayer.visible = enable;
+              break;
+            case we.core.GameType.RO:
+            default:
+              if (enable) {
+                this._tableLayer.alpha = 1;
+              } else {
+                this._tableLayer.alpha = 0.4;
+              }
+              break;
+          }
+        }
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         super.setResultRelatedComponentsEnabled(enable);
         this._resultGroup.visible = enable;
-        this._bettingTable.setTouchEnabled(this._betEnabled);
+        this._chipLayer.setTouchEnabled(this._betEnabled);
       }
 
       public onClickButton(evt: egret.Event) {
@@ -104,7 +122,7 @@ namespace we {
         egret.Tween.get(this._quickbetButton).to({ alpha: 1 }, 250);
         this._betChipSetGridEnabled = false;
         this._betEnabled = false;
-        this._bettingTable.setTouchEnabled(this._betEnabled);
+        this._chipLayer.setTouchEnabled(this._betEnabled);
         this.hideBetChipPanel();
         super.hideQuickBetGroup();
       }
@@ -114,7 +132,7 @@ namespace we {
         egret.Tween.get(this._quickbetButton).to({ alpha: 0 }, 250);
         this._betChipSetGridEnabled = true;
         this._betEnabled = true;
-        this._bettingTable.setTouchEnabled(this._betEnabled);
+        this._chipLayer.setTouchEnabled(this._betEnabled);
         super.showQuickBetGroup();
       }
 
@@ -131,6 +149,7 @@ namespace we {
         this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
         this._quickbetButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
       }
     }
   }

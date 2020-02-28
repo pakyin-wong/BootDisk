@@ -14,27 +14,42 @@ namespace we {
       protected _betChipHeight: number = 56;
       protected _betChipWidth: number = 70;
 
+      protected get betChipSetGrid(): BetChipSetGrid {
+        if (this.parent) {
+          return this.parent.parent as BetChipSetGrid;
+        }
+        return null;
+      }
+
       public constructor() {
         super();
         this.addEventListeners();
-        this.width = this._betChipWidth;
-        this.height = this._betChipHeight;
+        this.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
+        this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
         this._betChip = new BetChip(0);
 
-        this._betChip.height = this._betChipHeight;
-        this._betChip.width = this._betChipWidth;
+        this._betChip.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
+        this._betChip.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
         this.addChild(this._betChip);
         mouse.setButtonMode(this._betChip, true);
       }
 
       protected addEventListeners() {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        this.once(eui.UIEvent.ADDED_TO_STAGE, this.setSize, this);
+      }
+
+      protected setSize() {
+        this.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
+        this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
+        this._betChip.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
+        this._betChip.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
       }
 
       protected onClick() {
         if (this.parent && this.parent.parent) {
-          (<BetChipSetGrid> this.parent.parent).setSelectedChip(+this.itemData, +this.itemIndex);
-          (<BetChipSetGrid> this.parent.parent).selectedChipIndex = +this.itemIndex;
+          this.betChipSetGrid.setSelectedChip(+this.itemData, +this.itemIndex);
+          this.betChipSetGrid.selectedChipIndex = +this.itemIndex;
         }
       }
 

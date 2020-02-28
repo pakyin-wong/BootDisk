@@ -20,7 +20,7 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'dt' });
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
       }
 
       protected initRoadMap() {
@@ -37,13 +37,24 @@ namespace we {
         );
       }
 
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo> evt.data;
+          if (betInfo.tableid === this._tableId) {
+            // update the scene
+            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+          }
+        }
+      }
+
       protected setStateBet() {
         super.setStateBet();
 
         if (this._previousState !== we.core.GameState.BET) {
-          if (this._bettingTable) {
-            this._bettingTable.totalAmount = { DRAGON: 0, TIGER: 0 };
-            this._bettingTable.totalPerson = { DRAGON: 0, TIGER: 0 };
+          if (this._tableLayer) {
+            (<we.dt.TableLayer> this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer> this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
           }
         }
       }
