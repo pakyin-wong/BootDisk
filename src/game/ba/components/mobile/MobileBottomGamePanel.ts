@@ -239,16 +239,30 @@ namespace we {
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.betInfo || this.tableInfo.gamestatistic) {
-            this.gameId = this.tableInfo.betInfo.gameroundid;
-            this.totalBet = this.tableInfo.betInfo.total;
-            this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
-            this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
-            this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
-            this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
+            if (this.tableInfo.betInfo.gameroundid) {
+              this.gameId = this.tableInfo.betInfo.gameroundid;
+            }
+            if (this.tableInfo.betInfo.total) {
+              this.totalBet = this.tableInfo.betInfo.total;
+            }
+            if (this.tableInfo.gamestatistic.bankerCount) {
+              this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
+            }
+            if (this.tableInfo.gamestatistic.playerCount) {
+              this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
+            }
+            if (this.tableInfo.gamestatistic.tieCount) {
+              this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+            }
+            if (this.tableInfo.gamestatistic.bankerPairCount) {
+              this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
+            }
             if (this.tableInfo.gamestatistic.playerPairCount) {
               this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
             }
-            this.totalCount = this.tableInfo.gamestatistic.totalCount;
+            if (this.tableInfo.gamestatistic.totalCount) {
+              this.totalCount = this.tableInfo.gamestatistic.totalCount;
+            }
             this.changeLang();
           }
         }
