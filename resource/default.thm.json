@@ -185,6 +185,7 @@
 		"resource/skin_mobile_portrait/ba/LiveListSimpleItem.exml",
 		"resource/skin_mobile_portrait/ba/SideListTableLayer.exml",
 		"resource/skin_mobile_portrait/ba/SideListChipLayer.exml",
+		"resource/skin_mobile_portrait/imagebutton/ImageButtonSkinMobileOverlay.exml",
 		"resource/skin_mobile_portrait/BetChip.exml",
 		"resource/skin_mobile_portrait/ba/LiveOverlayItemSkin.exml",
 		"resource/skin_mobile_portrait/ba/resultDisplay/CardHolder.exml",
