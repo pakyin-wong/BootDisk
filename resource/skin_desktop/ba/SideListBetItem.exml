@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.ba.SideListBetItemSkin" width="339" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
         xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" minHeight="158">
 	<e:Group id="_betChipSetPanel">
-		<ui:BetChipSetGrid id="_betChipSet" width="200" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
+		<ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
 	</e:Group>
 	<e:Group id="_quickBetGroup" width="100%" alpha="0" locked="true">
 		<e:Rect width="339" height="100" x="0" y="0" fillColor="0x202020" ellipseWidth="5" ellipseHeight="5" />

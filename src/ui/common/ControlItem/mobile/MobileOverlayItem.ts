@@ -2,8 +2,6 @@
 namespace we {
   export namespace ui {
     export class MobileOverlayItem extends ControlItem {
-      // protected _bigRoad: we.ba.BALobbyBigRoad;
-      // protected _alreadyBetSign: eui.Group;
       protected _contentContainer: eui.Group;
       protected _betChipSetPanel: eui.Group;
       protected _roadmapControl: ba.BARoadmapControl;
@@ -27,6 +25,10 @@ namespace we {
         super.initChildren();
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
+
+        this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this._betChipSet.init(null, denominationList);
 
         // draw border corner radius
         const shape = new egret.Shape();
@@ -119,6 +121,7 @@ namespace we {
         super.removeEventListeners();
         this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
         this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
       }
 
       // public setData(tableInfo: data.TableInfo) {
