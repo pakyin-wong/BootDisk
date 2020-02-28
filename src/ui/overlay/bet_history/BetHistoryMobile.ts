@@ -41,6 +41,7 @@ namespace we {
         this._btn_date.addEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
         this._scroller.addEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
         this._scroller.addEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
+        this._datagroup.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
       }
 
       protected removeListeners() {
@@ -48,6 +49,7 @@ namespace we {
         this._btn_date.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
         this._scroller.removeEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
         this._scroller.removeEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
+        this._datagroup.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
       }
 
       protected onDateDropdownSelected(e: egret.Event) {
@@ -110,6 +112,8 @@ namespace we {
         this._dataColl.replaceAll(this._dataColl.source.concat(res.history));
         this._getLock = false;
       }
+
+      protected onClickResult(e) {}
     }
   }
 }
