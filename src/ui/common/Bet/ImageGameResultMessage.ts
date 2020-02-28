@@ -66,6 +66,8 @@ namespace we {
                 break;
             }
             break;
+          case core.GameType.RO:
+            break;
         }
       }
 
