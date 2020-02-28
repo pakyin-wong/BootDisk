@@ -32,6 +32,14 @@ namespace we {
         this.colorRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
         this.colorRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
 
+        this.sizeRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+        this.sizeRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+        this.sizeRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+
+        this.oddRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+        this.oddRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+        this.oddRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+
         // this.parser = new ba.BARoadParser(columnArray);
         // this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
@@ -45,12 +53,8 @@ namespace we {
           if (this.tableInfo.roadmap) {
             const roadData = this.tableInfo.roadmap;
             if (roadData.gameInfo) {
-              if (e.data.gameInfoIndex >= 0 && e.data.gameInfoIndex < roadData.gameInfo.length) {
-                const rslt = roadData.gameInfo[e.data.gameInfoIndex];
-
-                const gameData: GameData = new GameData();
-                gameData.wintype = rslt.result;
-                gameData.gameroundid = rslt.gameRoundID;
+              if (e.data.gameRoundID !== undefined) {
+                const rslt = roadData.gameInfo[e.data.gameRoundID];
 
                 this.resultPanel.setResult(rslt);
                 this.resultPanel.visible = true;
@@ -69,8 +73,9 @@ namespace we {
           if (this.tableInfo.roadmap) {
             const roadData = this.tableInfo.roadmap;
             if (roadData.gameInfo) {
-              if (e.data.index >= 0 && e.data.index + roadData.inGameInfoStart < roadData.gameInfo.length) {
-                const rslt = roadData.gameInfo[e.data.index + roadData.inGameInfoStart];
+              if (e.data.gameRoundID !== undefined) {
+                const rslt = roadData.gameInfo[e.data.gameRoundID];
+
                 window.open('http://www.google.com', '_blank');
               }
             }
