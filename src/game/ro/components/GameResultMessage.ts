@@ -3,7 +3,6 @@ namespace we {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
       public constructor() {
         super();
-        this.visible = !this.testing;
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
@@ -44,37 +43,30 @@ namespace we {
           anim += 'win_loss_';
         }
         anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
+        logger.l(anim, numLeft, numCenter, numRight);
 
         const array = [
-          ['L_txt', 60, numLeft, -16],
-          ['middle_txt', 90, numCenter, 0],
-          ['L_txt3', 60, numRight, 16],
+          ['L_txt', 60, numLeft, 90],
+          ['middle_txt', 90, numCenter, 90],
+          ['L_txt3', 60, numRight, 90],
         ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const lbl = new eui.Label();
-          lbl.text = <string> text;
+          lbl.text = <string>text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
-          lbl.width = lbl.size * 2;
-          lbl.height = lbl.size;
-          lbl.anchorOffsetX = lbl.size;
-          lbl.anchorOffsetY = lbl.size / 2;
-          lbl.textAlign = egret.HorizontalAlign.CENTER;
-          lbl.verticalAlign = egret.VerticalAlign.MIDDLE;
-          slot.display = lbl;
-          slot.display.rotation = <number> rotate;
+          lbl.size = <number>fontSize;
+          lbl.anchorOffsetX = lbl.width / 2;
+          lbl.anchorOffsetY = lbl.height / 2;
+          lbl.rotation = rotate as number;
+          const layer = new eui.Group();
+          layer.addChild(lbl);
+          slot.display = layer;
         }
 
         this.visible = true;
         this._display.animation.play(anim, 1);
-
-        if (this.testing) {
-          setTimeout(() => {
-            this._display.animation.timeScale = 0;
-          }, 1500);
-        }
       }
     }
   }

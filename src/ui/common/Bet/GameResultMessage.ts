@@ -7,12 +7,12 @@ namespace we {
 
     export class GameResultMessage extends core.BaseEUI implements IGameResultMessage {
       protected _display: dragonBones.EgretArmatureDisplay = null;
-      protected testing = false;
       protected _dbClass;
 
       public constructor() {
         super();
-        this.visible = !this.testing;
+        this.touchEnabled = false;
+        this.visible = false;
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
@@ -83,14 +83,10 @@ namespace we {
       }
 
       public clearMessage() {
-        if (this.testing) {
-          return;
-        }
-
-        if (this._display && this._display.animation) {
-          this._display.animation.stop();
-        }
-        this.visible = true;
+        // if (this._display && this._display.animation) {
+        //   this._display.animation.stop();
+        // }
+        // this.visible = false;
       }
 
       // animation for Baccarat / Dragon Tiger
@@ -143,16 +139,32 @@ namespace we {
             slotName = '+8001';
           }
           const slot = this._display.armature.getSlot(slotName);
-          const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
-          bmfont.font = RES.getRes('font_fnt');
-          bmfont.text = 'This';
-          bmfont.width = 320;
-          bmfont.height = 60;
-          bmfont.anchorOffsetX = 160;
-          bmfont.anchorOffsetY = 30;
-          bmfont.verticalAlign = egret.VerticalAlign.MIDDLE;
-          bmfont.textAlign = egret.HorizontalAlign.CENTER;
-          slot.display = bmfont;
+
+          const r = new eui.Label();
+          r.fontFamily = 'barlow';
+          r.size = 60;
+          r.text = utils.formatNumber(winAmount);
+          const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
+          r.filters = [shadowFilter];
+          r.bold = true;
+          r.textColor = 0xffffff;
+          const layer = new eui.Group();
+          layer.addChild(r);
+          layer.anchorOffsetX = r.width * 0.5;
+          layer.anchorOffsetY = r.height * 0.5;
+          slot.display = layer;
+
+          // const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
+          // bmfont.font = RES.getRes('font_fnt');
+          // // bmfont.text = utils.formatNumber(winAmount);
+          // bmfont.text = 'This2.00';
+          // bmfont.width = 320;
+          // bmfont.height = 60;
+          // bmfont.anchorOffsetX = 160;
+          // bmfont.anchorOffsetY = 30;
+          // bmfont.verticalAlign = egret.VerticalAlign.MIDDLE;
+          // bmfont.textAlign = egret.HorizontalAlign.CENTER;
+          // slot.display = bmfont;
         }
       }
     }
