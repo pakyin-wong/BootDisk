@@ -7,11 +7,11 @@ namespace we {
 
     export class GameResultMessage extends core.BaseEUI implements IGameResultMessage {
       private _display: dragonBones.EgretArmatureDisplay = null;
-      private testing = true;
 
       public constructor() {
         super();
-        this.visible = !this.testing;
+        this.touchEnabled = false;
+        this.visible = false;
         // this.skinName = 'GameResultNormalSkin';
       }
 
@@ -88,14 +88,10 @@ namespace we {
       }
 
       public clearMessage() {
-        if (this.testing) {
-          return;
-        }
-
         if (this._display && this._display.animation) {
           this._display.animation.stop();
         }
-        this.visible = true;
+        this.visible = false;
       }
 
       // animation for Baccarat / Dragon Tiger
@@ -198,8 +194,13 @@ namespace we {
           anim += 'win_loss_';
         }
         anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
+        logger.l(anim, numLeft, numCenter, numRight);
 
-        const array = [['L_txt', 60, numLeft, -16], ['middle_txt', 90, numCenter, 0], ['L_txt3', 60, numRight, 16]];
+        const array = [
+          ['L_txt', 60, numLeft, -16],
+          ['middle_txt', 90, numCenter, 0],
+          ['L_txt3', 60, numRight, 16],
+        ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
           const slot = this._display.armature.getSlot(<string> slotName);
@@ -219,12 +220,6 @@ namespace we {
 
         this.visible = true;
         this._display.animation.play(anim, 1);
-
-        if (this.testing) {
-          setTimeout(() => {
-            this._display.animation.timeScale = 0;
-          }, 1500);
-        }
       }
     }
   }
