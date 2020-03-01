@@ -47,7 +47,8 @@ namespace we {
       protected totalCount: number;
 
       // table info panel
-      public _tableInfoPanel: ui.TableInfoPanel;
+      public _tableInfoPanel: ba.TableInfoPanel;
+      public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // viewStack and radioBtn
       protected _roadmapGroup: eui.Group;
@@ -73,6 +74,7 @@ namespace we {
         this.totalBet = 0;
         this.totalCount = 0;
         this.isPanelOpen = false;
+        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
 
         const gridSizeL = 73;
         const gridSizeR = 38;
