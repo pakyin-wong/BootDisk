@@ -52,11 +52,11 @@ namespace we {
         ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const lbl = new eui.Label();
-          lbl.text = <string> text;
+          lbl.text = <string>text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
+          lbl.size = <number>fontSize;
           lbl.anchorOffsetX = lbl.width / 2;
           lbl.anchorOffsetY = lbl.height / 2;
           lbl.rotation = rotate as number;
