@@ -201,12 +201,16 @@ namespace we {
 
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
-          this.viewStack.height = 532;
-          this.viewStackMask.height = 532;
+          egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
+          egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
+          // this.viewStack.height = 532;
+          // this.viewStackMask.height = 532;
         } else {
           this.isPanelOpen = true;
-          this.viewStack.height = 0;
-          this.viewStackMask.height = 0;
+          egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+          // this.viewStack.height = 0;
+          // this.viewStackMask.height = 0;
         }
       }
 
