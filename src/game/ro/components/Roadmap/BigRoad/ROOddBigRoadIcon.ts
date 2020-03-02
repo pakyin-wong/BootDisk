@@ -21,7 +21,7 @@ namespace we {
             if (this.value.v === 0) {
               // green
               this.iconText.text = i18n.t('roulette.zeroShort');
-            } else if (this.value.v % 2 === 0) {
+            } else if (this.value.v === 2) {
               // blue for even
               this.iconText.text = i18n.t('roulette.evenShort');
             } else {
@@ -102,7 +102,7 @@ namespace we {
           if (value.v === 0) {
             // green
             this.iconFaceArr[2 + useDarkMode].visible = true;
-          } else if (value.v % 2 === 0) {
+          } else if (this.value.v === 2) {
             // blue for even
             this.iconFaceArr[1 + useDarkMode].visible = true;
           } else {

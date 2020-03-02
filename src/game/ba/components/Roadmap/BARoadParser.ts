@@ -499,7 +499,6 @@ namespace we {
           if (data.gametype === core.GameType.RO) {
             for (const i in data.gameInfo) {
               road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
-              // road.gameInfo.push(BARoadParser.CreateRoadmapGameInfoFromObject(i));
             }
           } else {
             data.gameInfo.forEach(element => {
