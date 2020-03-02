@@ -29,6 +29,12 @@ namespace we {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
 
+        if (env.isMobile) {
+          options.layout = 'mobile_web';
+        } else {
+          options.layout = 'desktop_web';
+        }
+
         this.client = new PlayerClient(options);
 
         logger.l('MQTTSocketComm is created', this.client);
