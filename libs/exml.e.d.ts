@@ -159,14 +159,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BettingTableGridSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BettingTableGridFullSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class CountdownTimerSkin extends eui.Skin{
 	}
 }
@@ -832,6 +824,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BetHistory extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BetHistoryDetail extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

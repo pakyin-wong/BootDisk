@@ -41,7 +41,7 @@
 			<ui:RunTimeLabel id="txt_member" text="Label" x="184" y="3" anchorOffsetX="0" width="650" anchorOffsetY="0" height="89" size="60" textColor="0xffffff" verticalAlign="middle"/>
 			<e:Image source="m_common_panel_setting_icon_table_png" width="74" height="93" y="1.5" x="11"/>
 			</e:Group>
-			<e:Group id="btn_road" x="0" y="110" height="96">
+			<e:Group id="btn_road" x="0" y="110" height="96" visible="false">
 			<ui:RunTimeLabel id="txt_road" text="Label" x="184" y="3" anchorOffsetX="0" width="650" size="60" textColor="0xffffff" height="89" verticalAlign="middle"/>
 			<e:Image source="m_common_panel_setting_icon_gdrdsetting_png" width="70" height="71" x="13" y="12.5"/>
 			</e:Group>

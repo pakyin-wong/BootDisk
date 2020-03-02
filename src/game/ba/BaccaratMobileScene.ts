@@ -14,7 +14,7 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
-      protected _tableInfoPanel: ui.TableInfoPanel;
+      protected _verticalGroup: eui.Group;
 
       constructor(data: any) {
         super(data);
@@ -50,6 +50,42 @@ namespace we {
         if (this._lblBaMode) {
           this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
         }
+
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
+
+        this.createVerticalLayout();
+
+        this.changeHandMode();
+      }
+
+      protected addEventListeners() {
+        super.addEventListeners();
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
+      }
+
+      protected removeEventListeners() {
+        super.removeEventListeners();
+
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
+      }
+
+      protected changeHandMode() {
+        if (env.leftHandMode) {
+          this.currentState = 'left_hand_mode';
+        } else {
+          this.currentState = 'right_hand_mode';
+        }
+      }
+
+      protected createVerticalLayout() {
+        const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
+        vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        vLayout.gap = 24;
+        this._verticalGroup.layout = vLayout;
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -89,6 +125,10 @@ namespace we {
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
+
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
       }
 
       public checkResultMessage() {

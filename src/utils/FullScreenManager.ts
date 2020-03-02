@@ -1,7 +1,7 @@
 /* tslint:disable max-classes-per-file */
 
 class IPhone7Helper {
-  constructor() {}
+  constructor() { }
 
   public ResetScroll() {
     if (window.scrollY !== 0) {
@@ -215,6 +215,26 @@ class IPhone8Helper extends IPhone7Helper {
     // document.body.style.position = scrollable ? 'static' : 'fixed';
     this.canvasContainer.style.pointerEvents = scrollable ? 'none' : 'auto';
     document.body.style.pointerEvents = scrollable ? 'none' : 'auto';
+    if (scrollable) {
+      this.enableScroll();
+    } else {
+      this.disableScroll();
+    }
+  }
+
+  public disableScroll() {
+    // Get the current page scroll position
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+    // if any scroll is attempted, set this to the previous value
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+  }
+
+  public enableScroll() {
+    window.onscroll = function () { };
   }
 
   public HandleTouchStart(event: Event) {
@@ -388,12 +408,12 @@ class ScreenFull {
   }
 }
 
-(<any> window).screenfull = new ScreenFull();
+(<any>window).screenfull = new ScreenFull();
 
 class FullScreenManager {
   public static overlay = null;
   public static reserve = null;
-  private static screenfull = (<any> window).screenfull;
+  private static screenfull = (<any>window).screenfull;
 
   public static RequestFullscreen() {
     if (!this.screenfull.isFullscreen) {
@@ -439,9 +459,9 @@ class FullScreenManager {
   public static OnLoad(stage: egret.Stage) {
     const self = FullScreenManager;
     self.Init(stage);
-    (<any> window).RequestFullscreen = self.RequestFullscreen;
-    (<any> window).ExitFullscreen = self.ExitFullscreen;
-    (<any> window).IsFullscreen = self.IsFullscreen;
+    (<any>window).RequestFullscreen = self.RequestFullscreen;
+    (<any>window).ExitFullscreen = self.ExitFullscreen;
+    (<any>window).IsFullscreen = self.IsFullscreen;
   }
 }
 

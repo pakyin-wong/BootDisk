@@ -12,7 +12,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.2.2';
+      public version: string = '0.2.6';
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
@@ -123,7 +123,20 @@ namespace we {
          if (tableInfo) tableInfo.displayReady = true;
         return true;
         */
+
         const tableInfo = this.tableInfos[tableid];
+
+        if (env.isMobile) {
+          if (!tableInfo) {
+            return false;
+          }
+          const gameType = tableInfo.gametype;
+          if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
+            tableInfo.displayReady = false;
+            return false;
+          }
+        }
+
         if (tableInfo && !tableInfo.displayReady) {
           if (tableInfo.data != null && tableInfo.roadmap != null) {
             tableInfo.displayReady = true;
