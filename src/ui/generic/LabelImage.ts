@@ -38,6 +38,7 @@ namespace we {
       protected render() {
         const renderTexture = new egret.RenderTexture();
         const label = new eui.Label();
+        label.textColor = 0x000000;
         if (this._text) {
           label.text = this._text;
         }

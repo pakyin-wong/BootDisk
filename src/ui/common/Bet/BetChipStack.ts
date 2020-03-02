@@ -117,7 +117,7 @@ namespace we {
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.CLIP);
+              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
               // chip.labelSize = this._chipLabelSize;
               // chip.labelOffset = this._chipLabelOffset;
               this._chips.push(chip);

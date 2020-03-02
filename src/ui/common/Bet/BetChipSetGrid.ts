@@ -21,11 +21,24 @@ namespace we {
 
         this._chipsetList = new ui.List();
         this._chipsetList.layout = this._chipsetLayout;
-        this._chipsetList.itemRenderer = BetChipSetGridItem;
+        this._chipsetList.itemRenderer = BetChipSetGridItemRenderer;
         this._chipsetList.useVirtualLayout = false;
         this.addChild(this._chipsetList);
         this._chipsetList.left = 0;
         this._chipsetList.right = 0;
+      }
+
+      protected mount() {
+        this._chipsetList.addEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
+      }
+
+      protected destroy() {
+        this._chipsetList.removeEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
+      }
+
+      private onChipChange() {
+        this.setSelectedChip(this._denomList[this._chipsetList.selectedIndex], this._chipsetList.selectedIndex);
+        this.selectedChipIndex = this._chipsetList.selectedIndex;
       }
 
       public init(format: any, denomList: number[]) {
@@ -35,7 +48,7 @@ namespace we {
         this.setSelectedChip(this._denomList[this._denomList.length - 1], this._denomList.length - 1);
       }
 
-      public injectSetSelectedChip(value: (value: number, index: number) => void) {
+      public setUpdateChipSetSelectedChipFunc(value: (value: number, index: number) => void) {
         this._setSelectedChip = value;
       }
 

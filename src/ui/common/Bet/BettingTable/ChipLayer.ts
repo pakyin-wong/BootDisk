@@ -263,7 +263,6 @@ namespace we {
 
       public onBetFieldUpdateEvent(evt: egret.Event) {
         const target = evt.target;
-        console.log(evt);
         const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
         this.onBetFieldUpdate(fieldName)();
       }

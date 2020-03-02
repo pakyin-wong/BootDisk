@@ -40,9 +40,9 @@
             </e:layout>
         </e:Group>
     </e:Group>
-    <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16"
+    <ui:InGameMessage id="_message"
                       skinName="skin_mobile_portrait.InGameMessageSkin" width="1000" height="126" horizontalCenter="0"
-                      verticalCenter="0" infoBg="m_common_gamestate_message_black_png"
+                      verticalCenter="32" infoBg="m_common_gamestate_message_black_png"
                       successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
     <live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0" anchorOffsetY="0"
                            skinName="BetLimitDropdownSkin" visible="false" />

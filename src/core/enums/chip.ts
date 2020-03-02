@@ -1,8 +1,6 @@
 namespace we {
   export namespace core {
     export const ChipSetInfo = {
-      flat: 'd_common_chips_',
-      clip: 'd_common_chips_perspective_',
       betting: 'd_common_chips_betting',
       USD: {
         1: '',

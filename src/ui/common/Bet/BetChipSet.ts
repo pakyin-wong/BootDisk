@@ -21,7 +21,7 @@ namespace we {
 
       public setTouchEnabled(enable: boolean) {}
 
-      public injectSetSelectedChip(value: (value: number, index: number) => void) {}
+      public setUpdateChipSetSelectedChipFunc(value: (value: number, index: number) => void) {}
 
       public set clipChipHeightPortion(value: number) {}
 

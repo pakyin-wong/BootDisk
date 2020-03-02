@@ -24,7 +24,7 @@ namespace we {
 
     export enum ChipType {
       FLAT = 1,
-      CLIP = 2,
+      PERSPECTIVE = 2,
       BETTING = 3,
     }
 

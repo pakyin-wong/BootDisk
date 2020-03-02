@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class BetChipSetGridItem extends we.ui.ItemRenderer {
+    export class BetChipSetGridItemRenderer extends ui.ItemRenderer {
       public selected: boolean;
       public itemIndex: number;
 
@@ -23,7 +23,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.addEventListeners();
+        this.once(eui.UIEvent.ADDED_TO_STAGE, this.setSize, this);
         this.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
         this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
         this._betChip = new BetChip(0);
@@ -34,11 +34,6 @@ namespace we {
         mouse.setButtonMode(this._betChip, true);
       }
 
-      protected addEventListeners() {
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-        this.once(eui.UIEvent.ADDED_TO_STAGE, this.setSize, this);
-      }
-
       protected setSize() {
         this.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
         this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
@@ -46,17 +41,17 @@ namespace we {
         this._betChip.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
       }
 
-      protected onClick() {
-        if (this.parent && this.parent.parent) {
-          this.betChipSetGrid.setSelectedChip(+this.itemData, +this.itemIndex);
-          this.betChipSetGrid.selectedChipIndex = +this.itemIndex;
-        }
+      public dataChanged() {
+        super.dataChanged();
+
+        console.log('dataChanged', this.getCurrentState(), this.selected);
       }
 
       public itemDataChanged() {
         super.itemDataChanged();
+        console.log('itemDataChanged', this.getCurrentState(), this.selected);
         if (this.itemData) {
-          this._betChip.setValue(this.itemData, this.itemIndex, we.core.ChipType.CLIP);
+          this._betChip.setValue(this.itemData, this.itemIndex, we.core.ChipType.PERSPECTIVE);
           this._betChip.index = this.itemIndex;
         }
       }

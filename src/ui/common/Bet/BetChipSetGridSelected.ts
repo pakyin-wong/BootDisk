@@ -11,8 +11,8 @@ namespace we {
       }
 
       public setSelectedChip(value: number, index: number) {
-        this.setValue(value, index, we.core.ChipType.FLAT);
         this.highlight = true;
+        this.setValue(value, index, we.core.ChipType.FLAT);
       }
     }
   }

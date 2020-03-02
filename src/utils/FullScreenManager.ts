@@ -159,7 +159,6 @@ class IPhone8Helper extends IPhone7Helper {
     this.clientHeight = this.GetClientHeight();
     const wasTopPanel = this.isTopPanel;
     this.isTopPanel = window.innerHeight < screenHeight;
-    console.log(window.innerHeight, screenHeight);
     if (this.isTopPanel) {
       if (!wasTopPanel) {
         this.UpdateStyle(true);
