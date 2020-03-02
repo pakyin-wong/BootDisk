@@ -82,9 +82,6 @@ namespace we {
 
       public set labelSize(value: number) {
         if (this._chipValueLabel) {
-          this._chipValueLabel.textColor = 0x000000;
-          this._chipValueLabel.textAlign = egret.HorizontalAlign.CENTER;
-          this._chipValueLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
           this._chipValueLabel.size = value;
         }
       }
@@ -119,7 +116,7 @@ namespace we {
             this._chipImage.source = this.getChipSource(this._type);
             this._chipValueLabel.text = utils.numberToFaceValue(this._value);
             this._chipValueLabel.verticalCenter = this.height * -0.1;
-            this._chipValueLabel.scaleY = 0.7;
+            this._chipValueLabel.scaleY = 0.65;
             break;
           case we.core.ChipType.BETTING:
           default:
@@ -141,7 +138,7 @@ namespace we {
             break;
           case we.core.ChipType.BETTING:
           default:
-            filename = we.core.ChipSetInfo.betting + '_png';
+            filename = 'd_common_chips_betting_png';
         }
 
         return filename;

@@ -32,8 +32,6 @@ namespace we {
       protected setSize() {
         this.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
         this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
-        // this._betChip.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
-        // this._betChip.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
         this._betChip.verticalCenter = 0;
         this._betChip.horizontalCenter = 0;
         this._betChip.scaleX = 0.85;
