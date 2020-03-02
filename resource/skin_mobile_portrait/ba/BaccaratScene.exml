@@ -8,7 +8,7 @@
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<ba:TableLayer id="_tableLayer" width="1182" height="464" x="30" y="243" isEdgeDismissable="true" skinName="skin_mobile_portrait.ba.TableLayerSkin" scaleX="1" scaleY="1"/>
 			<ba:ChipLayer id="_chipLayer" width="1182" height="464" x="30" y="243" isEdgeDismissable="true" skinName="skin_mobile_portrait.ba.ChipLayerSkin" scaleX="1" scaleY="1"/>
-			<ui:BetChipSetHorizontal id="_betChipSet" width="500" height="70" y="10" anchorOffsetX="0" anchorOffsetY="0" x="720" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" scaleX="1" scaleY="1" visible.right_hand_mode="false"/>
+			<ui:BetChipSetHorizontal id="_betChipSet" width="500" height="70" y="10" anchorOffsetX="0" anchorOffsetY="0" x="720" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" scaleX="1" scaleY="1" visible.right_hand_mode="false" visible.left_hand_mode="false"/>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="494" skinName="skin_mobile_portrait.BetChipSkin" bottom="483"  horizontalCenter.right_hand_mode="-495" bottom.right_hand_mode="483" horizontalCenter.left_hand_mode="511" bottom.left_hand_mode="487"/>
 			<e:Group id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224" scaleX="1" scaleY="1">
 			<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
