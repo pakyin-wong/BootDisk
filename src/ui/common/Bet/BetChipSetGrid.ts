@@ -28,6 +28,10 @@ namespace we {
         this._chipsetList.right = 0;
       }
 
+      public init(format: any, denomList: number[]) {
+        this.resetDenominationList(denomList);
+      }
+
       protected mount() {
         this._chipsetList.addEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
       }
@@ -37,32 +41,28 @@ namespace we {
       }
 
       private onChipChange() {
-        this.setSelectedChip(this._denomList[this._chipsetList.selectedIndex], this._chipsetList.selectedIndex);
-        this.selectedChipIndex = this._chipsetList.selectedIndex;
-      }
-
-      public init(format: any, denomList: number[]) {
-        this._denomList = denomList;
-        this._chipsetList.dataProvider = new eui.ArrayCollection(denomList);
-        this._selectedChipIndex = this._denomList.length - 1;
-        this.setSelectedChip(this._denomList[this._denomList.length - 1], this._denomList.length - 1);
+        this.setSelectedChip(this._chipsetList.selectedIndex);
       }
 
       public setUpdateChipSetSelectedChipFunc(value: (value: number, index: number) => void) {
         this._setSelectedChip = value;
       }
 
-      public setSelectedChip(value: number, index: number) {
+      public setSelectedChip(index: number) {
         if (this._setSelectedChip) {
-          this._setSelectedChip(value, index);
+          logger.l('oldindex', this._selectedChipIndex, 'newindex', index);
+          this._setSelectedChip(this._denomList[index], index);
+          this._selectedChipIndex = index;
         }
       }
 
       public resetDenominationList(denomList: number[]) {
         this._denomList = denomList;
-        this._chipsetList.dataProvider = new eui.ArrayCollection(denomList);
-        this._selectedChipIndex = this._denomList.length - 1;
-        this.setSelectedChip(denomList[this._denomList.length - 1], this._denomList.length - 1);
+        const newIndex = this._denomList.length - 1;
+        this._chipsetList.dataProvider = new eui.ArrayCollection(this._denomList);
+        this._chipsetList.selectedIndex = newIndex;
+        // default select last item
+        this.setSelectedChip(this._chipsetList.selectedIndex);
       }
     }
   }
