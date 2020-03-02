@@ -80,6 +80,11 @@ namespace we {
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
       }
 
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        this._betChipSetGridSelected.visible = enable;
+      }
+
       protected showBetChipPanel() {
         this._betChipSetPanel.visible = true;
         this._betChipSetPanel.anchorOffsetY = 30;
