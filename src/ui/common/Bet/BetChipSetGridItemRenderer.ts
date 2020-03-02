@@ -36,8 +36,9 @@ namespace we {
         // this._betChip.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
         this._betChip.verticalCenter = 0;
         this._betChip.horizontalCenter = 0;
-        this._betChip.scaleX = 0.9
-        this._betChip.scaleY = 0.9
+        this._betChip.scaleX = 0.85;
+        this._betChip.scaleY = 0.85;
+        this._betChip.labelSize = 64;
       }
 
       public itemDataChanged() {
@@ -59,8 +60,7 @@ namespace we {
         }
         // update chip face
         if (this.itemData) {
-          const type = value ? we.core.ChipType.FLAT : we.core.ChipType.PERSPECTIVE;
-          this._betChip.setValue(this.itemData, this.itemIndex, type);
+          this._betChip.type = value ? we.core.ChipType.FLAT : we.core.ChipType.PERSPECTIVE;
         }
         this._isSelected = value;
         this.invalidateState();

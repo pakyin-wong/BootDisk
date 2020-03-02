@@ -3,7 +3,7 @@ namespace we {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
       protected _value: number;
       protected _chipImage: eui.Image;
-      protected _chipValueLabel: ui.LabelImage;
+      protected _chipValueLabel: eui.Label;
       protected _type: we.core.ChipType;
       protected _highlight: boolean;
       protected _glowImage: eui.Image;
@@ -82,6 +82,9 @@ namespace we {
 
       public set labelSize(value: number) {
         if (this._chipValueLabel) {
+          this._chipValueLabel.textColor = 0x000000;
+          this._chipValueLabel.textAlign = egret.HorizontalAlign.CENTER;
+          this._chipValueLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
           this._chipValueLabel.size = value;
         }
       }
@@ -109,16 +112,14 @@ namespace we {
           case we.core.ChipType.FLAT:
             this._chipImage.source = this.getChipSource(this._type);
             this._chipValueLabel.text = utils.numberToFaceValue(this._value);
-            this._chipValueLabel.verticalCenter = this.height * -0.012;
-            this._chipValueLabel.height = this.height * 0.5;
-            // this._chipValueLabel.width = this.width * 0.3;
+            this._chipValueLabel.verticalCenter = this.height * -0.025;
+            this._chipValueLabel.scaleY = 1;
             break;
           case we.core.ChipType.PERSPECTIVE:
             this._chipImage.source = this.getChipSource(this._type);
             this._chipValueLabel.text = utils.numberToFaceValue(this._value);
-            this._chipValueLabel.verticalCenter = this.height * -0.072;
-            this._chipValueLabel.height = this.height * 0.3;
-            // this._chipValueLabel.width = this.width * 0.3;
+            this._chipValueLabel.verticalCenter = this.height * -0.1;
+            this._chipValueLabel.scaleY = 0.7;
             break;
           case we.core.ChipType.BETTING:
           default:
@@ -130,8 +131,6 @@ namespace we {
 
       protected getChipSource(type): string {
         let filename: string;
-
-        console.log(type);
 
         switch (type) {
           case we.core.ChipType.FLAT:
