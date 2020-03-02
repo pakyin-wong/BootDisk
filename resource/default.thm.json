@@ -71,8 +71,6 @@
 		"resource/skin_desktop/BetInfoHolder.exml",
 		"resource/skin_desktop/BetSummary.exml",
 		"resource/skin_desktop/BetSummaryToggle.exml",
-		"resource/skin_desktop/BettingTableGrid.exml",
-		"resource/skin_desktop/BettingTableGridFull.exml",
 		"resource/skin_desktop/dropdown/BaBetLimitDropdownItemSkin.exml",
 		"resource/skin_desktop/dropdown/BetLimitDropdownItemSkin.exml",
 		"resource/skin_desktop/dropdown/DropdownItemSkin.exml",
