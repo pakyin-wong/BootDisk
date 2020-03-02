@@ -132,9 +132,9 @@ namespace we {
               this.oddRoad.parseRoadData(roadmapData.inGame.odd, state);
 
               // update the gamestatistic
-
               if (this.tableInfo.gamestatistic) {
                 const stat = this.tableInfo.gamestatistic;
+                this.leftPanel.setHotCold(stat.hotNumbers, stat.coldNumbers);
               }
             }
           }

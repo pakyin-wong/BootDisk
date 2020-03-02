@@ -66,7 +66,7 @@ namespace we {
           stats.totalCount = totalCount;
 
           return stats;
-        } else if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC) {
+        } else if (data.gametype === core.GameType.RO) {
           const stats = new we.data.GameStatistic();
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
@@ -517,13 +517,13 @@ namespace we {
         cold: [1, 2, 3, 4, 5],
 
         inGame: {
-          bead: [{ v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'g34345' }, { v: 3, gameRoundID: 'g45454' }],
-          color: [{ v: 1, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g34345' }, { v: 3, gameRoundID: 'g45454' }],
-          size: [{ v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'g34345' }, {}, {}, {}, {}, { v: 3, gameRoundID: 'g45454' }],
-          odd: [{ v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'g34345' }, { v: 3, gameRoundID: 'g45454' }],
+          bead: [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'g34345' }, { v: 20, gameRoundID: 'g45454' }],
+          color: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          size: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
+          odd: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
         },
 
-        gameInfo: { cde345: { gameRoundID: 'cde345', v: 1, video: 'null' }, g34345: { gameRoundID: 'g34345', v: 2, video: 'null' }, g45454: { gameRoundID: 'g45454', v: 3, video: 'null' } },
+        gameInfo: { cde345: { gameRoundID: 'cde345', v: 0, video: 'null' }, g34345: { gameRoundID: 'g34345', v: 1, video: 'null' }, g45454: { gameRoundID: 'g45454', v: 20, video: 'null' } },
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {
