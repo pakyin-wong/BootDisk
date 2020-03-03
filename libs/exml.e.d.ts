@@ -166,6 +166,26 @@ declare module skin_desktop{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class DiceScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListItemSkin extends eui.Skin{
+	}
+}
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
 }
 declare class BaBetLimitDropdownSkin extends eui.Skin{
