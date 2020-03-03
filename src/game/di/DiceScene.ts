@@ -20,11 +20,10 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
       }
 
       protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('RouletteScene');
+        this.skinName = utils.getSkinByClassname('DiceScene');
       }
 
       public backToLobby() {
