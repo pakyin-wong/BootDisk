@@ -17,7 +17,7 @@ namespace we {
       protected _startPosY: number;
 
       public get controller(): NotificationController {
-        return <any> this.parent.parent;
+        return <any>this.parent.parent;
       }
 
       constructor() {
@@ -129,7 +129,7 @@ namespace we {
       }
 
       public setLayoutBoundsPosition(x: number, y: number) {
-        const list = <List> this.parent;
+        const list = <List>this.parent;
         const matrix = this.$getMatrix();
         if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
           const bounds = egret.$TempRectangle;
@@ -141,7 +141,8 @@ namespace we {
           // cancel current tween
           egret.Tween.removeTweens(this);
           // tween move to new position
-          egret.Tween.get(this).to({ x, y }, 200);
+          const changed = super.$setX.call(this, x);
+          egret.Tween.get(this).to({ y }, 200);
           eui.UIEvent.dispatchUIEvent(this, eui.UIEvent.MOVE);
         } else {
           const changed = super.$setX.call(this, x);
