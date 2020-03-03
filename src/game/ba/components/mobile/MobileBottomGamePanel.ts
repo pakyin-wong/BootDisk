@@ -50,8 +50,6 @@ namespace we {
       public _tableInfoPanel: ba.TableInfoPanel;
       public _betLimitDropDownBtn: ui.RunTimeLabel;
 
-      // 
-
       // viewStack and radioBtn
       protected _roadmapGroup: eui.Group;
       protected _infoGroup: eui.Group;
@@ -179,6 +177,8 @@ namespace we {
         this.viewStack.mask = this.viewStackMask;
         this.createVerLayout();
 
+        this.viewStack.selectedIndex = 0;
+
         this.onPanelOpen();
       }
 
@@ -205,14 +205,10 @@ namespace we {
           this.isPanelOpen = false;
           egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
           egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
-          // this.viewStack.height = 532;
-          // this.viewStackMask.height = 532;
         } else {
           this.isPanelOpen = true;
           egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
           egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
-          // this.viewStack.height = 0;
-          // this.viewStackMask.height = 0;
         }
       }
 
