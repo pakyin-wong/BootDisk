@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.GameBar" width="251" height="52" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+	<e:Group id="videoButton" x="67.5" y="0">
+		<e:Image width="52" height="52" x="0" y="0" source="d_ba_navbar_icon_hoverelement_png"/>
+		<e:Image width="37" height="28" x="8.5" y="13" source="d_ba_navbar_icon_video_png"/>
+	</e:Group>
+	<e:Group x="133" y="0">
+		<e:Image width="52" height="52" x="0" y="0" source="d_ba_navbar_icon_hoverelement_png"/>
+		<e:Image width="28" height="28" x="12" y="13" source="d_ba_navbar_icon_stat_png"/>
+	</e:Group>
+	<e:Group x="199" y="0">
+		<e:Image width="52" height="52" x="0" y="0" source="d_ba_navbar_icon_hoverelement_png"/>
+		<e:Image width="28" height="28" x="12" y="13" source="d_ba_navbar_icon_setting_png"/>
+	</e:Group>
+	<e:Group x="0" y="0">
+		<e:Image width="52" height="52" x="0" y="0" source="d_ba_navbar_icon_hoverelement_png"/>
+		<e:Image width="26" height="26" x="13" y="14.5" source="d_ba_navbar_icon_sound_png"/>
+	</e:Group>
+</e:Skin>

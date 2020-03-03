@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Egret</title>
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="full-screen" content="true" />
     <meta name="screen-orientation" content="portrait" />
@@ -23,81 +22,104 @@
         }
 
     </style>
-    <link href="./style.css" type="text/css" rel="stylesheet">
-    <script src="jslib/vendor-player/WFPlayer.min.js"></script>
+<!--<link href="./style.css" type="text/css" rel="stylesheet">-->
+<script>
+    var head  = document.getElementsByTagName('head')[0];
+    var link  = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = './style.css?v=' + Math.random();
+    link.media = 'all';
+    head.appendChild(link);
+</script>
+<script src="jslib/vendor-player/WFPlayer.min.js"></script>
 </head>
 
 <body>
-    <div style="margin: auto;width: 100%;height: 100%;position: static;" class="egret-player" data-entry-class="Main"
-        data-orientation="landscape" data-scale-mode="showAll" data-frame-rate=" 30" data-content-width="2600"
-        data-content-height="1340" data-multi-fingered="2" data-show-fps="false" data-show-log="false"
-        data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    <div style="margin: auto;width: 100%;height: 100%;position: static;" class="egret-player" data-entry-class="Main" data-multi-fingered="2" data-show-fps="false" data-show-log="false" data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+</div>
+    <div class='fullscreen-overlay'>
+        <img src='swipeup.png'/>
     </div>
-    <script>
-        var loadScript = function (list, callback) {
-            var loaded = 0;
-            var loadNext = function () {
-                loadSingleScript(list[loaded], function () {
-                    loaded++;
-                    if (loaded >= list.length) {
-                        callback();
-                    } else {
-                        loadNext();
-                    }
-                })
-            };
-            loadNext();
+<script>
+    var loadScript = function (list, callback) {
+        var loaded = 0;
+        var loadNext = function () {
+            loadSingleScript(list[loaded], function () {
+                loaded++;
+                if (loaded >= list.length) {
+                    callback();
+                } else {
+                    loadNext();
+                }
+            })
         };
+        loadNext();
+    };
 
-        var loadSingleScript = function (src, callback) {
-            var s = document.createElement('script');
-            s.async = false;
-            s.src = src;
-            s.addEventListener('load', function () {
-                s.parentNode.removeChild(s);
-                s.removeEventListener('load', arguments.callee, false);
-                callback();
-            }, false);
-            document.body.appendChild(s);
-        };
+    var loadSingleScript = function (src, callback) {
+        var s = document.createElement('script');
+        s.async = false;
+        s.src = src;
+        s.addEventListener('load', function () {
+            s.parentNode.removeChild(s);
+            s.removeEventListener('load', arguments.callee, false);
+            callback();
+        }, false);
+        document.body.appendChild(s);
+    };
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', './manifest.json?v=' + Math.random(), true);
-        xhr.addEventListener("load", function () {
-            var manifest = JSON.parse(xhr.response);
-            var list = manifest.initial.concat(manifest.game);
-            loadScript(list, function () {
-                /**
-                 * {
-                 * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
-                 * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
-                 * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
-                 * "calculateCanvasScaleFactor": //a function return canvas scale factor
-                 * }
-                 **/
-                const screenAdapter = new egret.sys.ExtendedScreenAdapter();
-                var isMobile = egret.Capabilities.isMobile;
-                egret.runEgret({
-                    renderMode: "webgl",
-                    audioType: 0,
-                    antialias: true,
-                    retina: true,
-                    calculateCanvasScaleFactor: function (context) {
-                        var backingStore = context.backingStorePixelRatio ||
-                            context.webkitBackingStorePixelRatio ||
-                            context.mozBackingStorePixelRatio ||
-                            context.msBackingStorePixelRatio ||
-                            context.oBackingStorePixelRatio ||
-                            context.backingStorePixelRatio || 1;
-                        return (window.devicePixelRatio || 1) / backingStore;
-                    },
-                    screenAdapter
-                });
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './manifest.json?v=' + Math.random(), true);
+    xhr.addEventListener("load", function () {
+        var manifest = JSON.parse(xhr.response);
+        var list = manifest.initial.concat(manifest.game);
+        loadScript(list, function () {
+            /**
+             * {
+             * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
+             * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
+             * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
+             * "calculateCanvasScaleFactor": //a function return canvas scale factor
+             * }
+             **/
+            // const uaInfo = new UAParser().getResult();
+            // if (uaInfo.device.type === 'mobile') {
+
+            // }
+            const screenAdapter = new egret.sys.ExtendedScreenAdapter();
+            var isMobile = egret.Capabilities.isMobile;
+            var playerDiv = document.getElementsByClassName("egret-player")[0];
+            playerDiv.setAttribute("data-orientation", "auto");
+            playerDiv.setAttribute("data-scale-mode", "showAll");
+            playerDiv.setAttribute("data-frame-rate", "30");
+            playerDiv.setAttribute("data-content-width", "2600");
+            playerDiv.setAttribute("data-content-height", "1340");
+            if (isMobile) {
+                playerDiv.setAttribute("data-orientation", "auto");
+            } else {
+            }
+            egret.runEgret({
+                renderMode: "webgl",
+                audioType: 0,
+                antialias: true,
+                retina: true,
+                calculateCanvasScaleFactor: function (context) {
+                    var backingStore = context.backingStorePixelRatio ||
+                        context.webkitBackingStorePixelRatio ||
+                        context.mozBackingStorePixelRatio ||
+                        context.msBackingStorePixelRatio ||
+                        context.oBackingStorePixelRatio ||
+                        context.backingStorePixelRatio || 1;
+                    return (window.devicePixelRatio || 1) / backingStore;
+                },
+                screenAdapter
             });
         });
-        xhr.send(null);
+    });
+    xhr.send(null);
 
-    </script>
+</script>
 </body>
 
 </html>

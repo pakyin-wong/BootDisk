@@ -10,7 +10,7 @@ namespace we {
       private _txt_next: eui.Label;
 
       private _btn_confirm: ui.BaseButton;
-      private _btn_clean: ui.BaseImageButton;
+      private _btn_clean: ui.IButton;
 
       private _txt_current: eui.Label;
 
@@ -34,8 +34,8 @@ namespace we {
         this.isPoppable = true;
         this.isFocusItem = true;
 
-        this._btn_clean.text = `${i18n.t('datePicker_clean')}`;
         this._btn_confirm.label.text = `${i18n.t('datePicker_confirm')}`;
+        this._btn_clean.label.text = `${i18n.t('datePicker_clean')}`;
 
         this.update();
         this.addListeners();

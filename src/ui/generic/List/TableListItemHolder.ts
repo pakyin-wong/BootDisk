@@ -42,7 +42,7 @@ namespace we {
       }
 
       protected get list(): TableList {
-        return <TableList> this.parent;
+        return <TableList>this.parent;
       }
 
       public changeState(state: number): boolean {
@@ -61,6 +61,10 @@ namespace we {
             }
             return false;
         }
+      }
+
+      public onOutFocus() {
+        this.displayItem.onOutFocus();
       }
 
       public itemDataChanged() {
@@ -113,6 +117,12 @@ namespace we {
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: this.itemData });
+            break;
+          case core.GameType.RO:
+            dir.sceneCtr.goto('ro', { tableid: this.itemData });
+            break;
+          default:
+            console.error('error in TableListItemHolder');
             break;
         }
       }

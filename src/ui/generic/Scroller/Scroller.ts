@@ -1,7 +1,6 @@
 namespace we {
   export namespace ui {
     export class Scroller extends eui.Scroller implements ICollapsible {
-      private drag: boolean = false;
       private startSV: number = -1;
       private startStageY: number = 0;
 
@@ -88,9 +87,15 @@ namespace we {
 
       public childrenCreated(): void {
         super.childrenCreated();
-        // disable drag
-        this.scrollPolicyV = eui.ScrollPolicy.OFF;
-        this.scrollPolicyH = eui.ScrollPolicy.OFF;
+        // disable drag when is desktop
+        if (env.isMobile) {
+          this.scrollPolicyV = eui.ScrollPolicy.AUTO;
+          this.scrollPolicyH = eui.ScrollPolicy.OFF;
+          eui.Scroller.scrollThreshold = 30;
+        } else {
+          this.scrollPolicyV = eui.ScrollPolicy.OFF;
+          this.scrollPolicyH = eui.ScrollPolicy.OFF;
+        }
         this.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
         this.verticalScrollBar.autoVisibility = false;
         if (this._isCollapsible && this.collapseOnStart) {
@@ -107,25 +112,29 @@ namespace we {
         this.isCollapsible = this._isCollapsible;
         this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
 
-        // add mouse over/out listeners
-        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
-        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
+        if (!env.isMobile) {
+          // add mouse over/out listeners
+          this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
+          this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
 
-        // add scroll bar listeners
-        this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
-        this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
+          // add scroll bar listeners
+          this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
+          this.verticalScrollBar.addEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
+        }
       }
 
       private onUnmount() {
         this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.onUnmount, this);
 
-        // remove mouse over/out listeners
-        this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
-        this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
+        if (!env.isMobile) {
+          // remove mouse over/out listeners
+          this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onMouseOver, this);
+          this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onMouseOut, this);
 
-        // remove scroll bar listeners
-        this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
-        this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
+          // remove scroll bar listeners
+          this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
+          this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
+        }
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
       }
@@ -158,8 +167,8 @@ namespace we {
           // only draggable if click on thumb
           return;
         }
-        (<any> window).addEventListener('mousemove', this.onMouseMove, { passive: false });
-        (<any> window).addEventListener('mouseup', this.onMouseUp, { passive: false });
+        (<any>window).addEventListener('mousemove', this.onMouseMove, { passive: false });
+        (<any>window).addEventListener('mouseup', this.onMouseUp, { passive: false });
         const viewHeight = this.viewport.contentHeight - this.height;
         this._initProgress = this.viewport.scrollV / viewHeight;
       }
@@ -177,8 +186,8 @@ namespace we {
       }
 
       private onMouseUp = (event: MouseEvent) => {
-        (<any> window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
-        (<any> window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
+        (<any>window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
+        (<any>window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
         this._firstYForMovement = 0;
       }
 
@@ -194,19 +203,19 @@ namespace we {
       }
 
       private onMouseOver(event: egret.TouchEvent) {
-        (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       private onMouseOut(event: egret.TouchEvent) {
-        (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public disableWheel() {
-        (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public enableWheel() {
-        (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public enableVScroller() {

@@ -7,13 +7,15 @@ namespace we {
       public sceneHeader: egret.Sprite = new egret.Sprite();
       public sceneHeaderPlacement: string = BaseScene.HEADER_PLACEMENT_RIGHT;
 
-      protected _header: eui.Group;
+      protected _header: egret.DisplayObjectContainer;
 
       public constructor(data: any = null) {
         super();
       }
 
-      public onEnter() {}
+      public onEnter() {
+        dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, 0);
+      }
 
       public async onFadeEnter() {}
 

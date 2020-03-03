@@ -6,7 +6,7 @@
  */
 namespace we {
   export namespace ba {
-    export class Scene extends core.BaseGameScene {
+    export class Scene extends core.DesktopBaseGameScene {
       protected _roadmapControl: BARoadmapControl;
       protected _leftGamePanel: BARoadmapLeftPanel;
       protected _rightGamePanel: BARoadmapRightPanel;
@@ -17,7 +17,7 @@ namespace we {
 
       constructor(data: any) {
         super(data);
-        // this._leftGamePanel = this._roadmapLeftPanel;
+        // this._leftGamePanel = this._roadmapLeftPanel;onTableInfoUpdate
         // this._rightGamePanel = this._roadmapRightPanel;
       }
 
@@ -29,9 +29,9 @@ namespace we {
         super.setStateBet();
 
         if (this._previousState !== we.core.GameState.BET) {
-          if (this._bettingTable) {
-            this._bettingTable.totalAmount = { PLAYER: 0, BANKER: 0 };
-            this._bettingTable.totalPerson = { PLAYER: 0, BANKER: 0 };
+          if (this._tableLayer) {
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -41,10 +41,10 @@ namespace we {
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
 
-        this._bettingTable.type = we.core.BettingTableType.NORMAL;
+        this._chipLayer.type = we.core.BettingTableType.NORMAL;
 
         if (this._switchBaMode) {
-          this._bettingTable.setGameMode(this._switchBaMode.selected);
+          this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
 
@@ -54,8 +54,9 @@ namespace we {
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
-        this._bettingTable.setGameMode(this._switchBaMode.selected);
-        this._bettingTable.cancelBet();
+        this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+        this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
+        this._chipLayer.cancelBet();
       }
 
       protected initRoadMap() {
@@ -74,6 +75,41 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         this._roadmapControl.updateRoadData();
+      }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt && evt.data) {
+          const betInfo = <data.GameTableBetInfo>evt.data;
+          if (betInfo.tableid === this._tableId) {
+            // update the scene
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+          }
+        }
+      }
+
+      public checkResultMessage() {
+        let totalWin: number = NaN;
+        if (!isNaN(this._tableInfo.totalWin)) {
+          totalWin = this._tableInfo.totalWin;
+        }
+        if (this.hasBet()) {
+          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: totalWin,
+            });
+            dir.audioCtr.playSequence(['player', 'win']);
+          }
+        } else {
+          if (this._gameData && this._gameData.wintype != 0) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              winType: this._gameData.wintype,
+              winAmount: NaN,
+            });
+            dir.audioCtr.playSequence(['player', 'win']);
+          }
+        }
       }
     }
   }

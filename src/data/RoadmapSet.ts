@@ -1,6 +1,7 @@
 namespace we {
   export namespace data {
     export class RoadmapSet {
+      // ba
       public bead?: RoadmapCell[];
       public bigRoad?: RoadmapCell[];
       public bigEye?: RoadmapCell[];
@@ -11,6 +12,11 @@ namespace we {
       public bigEyeAni?: number;
       public smallAni?: number;
       public roachAni?: number;
+
+      // ro
+      public color?: RoadmapCell[];
+      public size?: RoadmapCell[];
+      public odd?: RoadmapCell[];
     }
   }
 }

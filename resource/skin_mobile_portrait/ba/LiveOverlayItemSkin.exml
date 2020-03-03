@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ba.LiveOverlayItemSkin" width="1140" height="1503" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+    <!--<e:Group id="_betChipSetPanel">
+    <ui:BetChipSetGrid id="_betChipSet" width="200" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
+</e:Group>
+-->
+<e:Group id="_quickBetGroup" width="1140" height="560" y="371" anchorOffsetY="16">
+    <ba:TableLayer id="_tableLayer" skinName="skin_mobile_portrait.ba.SideListTableLayerSkin" name="sidebettingtable"
+                   width="1140" height="307" />
+    <ba:ChipLayer id="_chipLayer" skinName="skin_mobile_portrait.ba.SideListChipLayerSkin" name="sidebettingtable"
+                  width="1140" height="307" />
+    <ui:BaseImageButton id="_closeButton" width="183" height="150" currentState="bet_overlay_close" x="0" y="366.5"
+                        anchorOffsetX="-43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
+                        useColorFilter="true" />
+    <ui:BaseImageButton id="_prevButton" width="183" height="150" currentState="bet_overlay_previous" x="269" y="366.5"
+                        anchorOffsetX="43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
+                        useColorFilter="true" />
+    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="237" height="237" horizontalCenter="0"
+                               skinName="skin_mobile_portrait.BetChipSkin" bottom="0" />
+    <ui:BaseImageButton id="_confirmButton" width="360" height="150" currentState="bet_overlay_confirm" x="780"
+                        y="366.5" anchorOffsetX="43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
+                        useColorFilter="true" />
+</e:Group>
+<e:Group id="_contentContainer" width="1140" height="368">
+    <e:Rect height="80" y="0" fillColor="0x202020" right="0" left="0" />
+    <ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0" skinName="skin_mobile.CountdownTimerRoundSkin" />
+    <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="84.68" y="23.99" />
+    <e:Group id="_roadsContainer" width="1136" height="288" x="0" y="80" horizontalCenter="0">
+        <e:Group anchorOffsetX="0" anchorOffsetY="0" x="24" y="189">
+            <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13"
+                              bottom="10" />
+            <e:Group id="_alreadyBetSign" right="5" bottom="40" height="80">
+                <e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="80" ellipseHeight="80" fillAlpha="0.76"
+                        fillColor="0x42bc60" />
+                <e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="56" left="30" right="30" />
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout horizontalAlign="left" gap="12" />
+            </e:layout>
+        </e:Group>
+    </e:Group>
+    <ui:InGameMessage id="_message"
+                      skinName="skin_mobile_portrait.InGameMessageSkin" width="1000" height="126" horizontalCenter="0"
+                      verticalCenter="32" infoBg="m_common_gamestate_message_black_png"
+                      successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
+    <live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0" anchorOffsetY="0"
+                           skinName="BetLimitDropdownSkin" visible="false" />
+</e:Group>
+<e:Group id="_betChipSetPanel" y="915" width="1140" height="588">
+    <e:Image width="100%" top="33" bottom="0" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0"
+             locked="true" />
+    <e:Image width="68" height="40" horizontalCenter="0" source="m_ba_betarea_chipsbg_triangle_png" locked="true" />
+    <ui:BetChipSetGrid id="_betChipSet" width="1085" height="521" alpha="0" anchorOffsetX="0" y="0" x="0"
+                       horizontalCenter="0" verticalCenter="16" betChipWidth="250" betChipHeight="200" labelSize="64"/>
+</e:Group>
+</e:Skin>

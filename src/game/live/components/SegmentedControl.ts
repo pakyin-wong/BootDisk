@@ -1,24 +1,37 @@
 namespace we {
   export namespace live {
-    export class SegmentedControl extends core.BaseEUI implements eui.UIComponent {
+    export class SegmentedControl extends LiveGameTabbar implements eui.UIComponent {
       public tabBar: ui.SortableList;
       public collection: eui.ArrayCollection;
       private activeLine: eui.Rect;
 
-      private items: string[];
+      protected items: string[];
 
       public constructor(items: string[] = []) {
         super();
         this.height = 50;
+
+        this.items = items.map(value => {
+          return `live.gametype.${value}`;
+        });
+      }
+
+      protected partAdded(partName: string, instance: any): void {
+        super.partAdded(partName, instance);
+      }
+
+      protected childrenCreated(): void {
+        super.childrenCreated();
+      }
+
+      protected initContent() {
         this.tabBar = new ui.SortableList();
+        this.addChild(this.tabBar);
         this.tabBar.percentWidth = 100;
         this.tabBar.percentHeight = 100;
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
 
-        this.items = items.map(value => {
-          return `live.gametype.${value}`;
-        });
         // ['live.gametype.bacarrat', 'live.gametype.dragontiger', 'live.gametype.luckywheel', 'live.gametype.wheel', 'live.gametype.dice', 'live.gametype.goodroad'];
 
         const tlayout = new eui.HorizontalLayout();
@@ -30,23 +43,14 @@ namespace we {
         this.tabBar.dataProvider = this.collection;
         this.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onSelectedIndexChanged.bind(this, false), this);
         this.tabBar.addEventListener(eui.UIEvent.MOVE, this.onSelectedIndexChanged.bind(this, true), this);
-        this.addChild(this.tabBar);
 
         this.activeLine = new eui.Rect();
+        this.addChild(this.activeLine);
         this.activeLine.bottom = -2;
         this.activeLine.fillColor = 0xffffff;
         this.activeLine.height = 3;
-        this.addChild(this.activeLine);
 
         dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLockChanged, this);
-      }
-
-      protected partAdded(partName: string, instance: any): void {
-        super.partAdded(partName, instance);
-      }
-
-      protected childrenCreated(): void {
-        super.childrenCreated();
       }
 
       protected destroy() {

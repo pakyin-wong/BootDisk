@@ -3,9 +3,12 @@ namespace we {
     export class BetChipStack extends core.BaseEUI {
       protected _betSumLabel: eui.Label;
       protected _betSumBackground: eui.Image;
-      protected _betSumBackgroundRes: string;
+      protected _betSumBackgroundRes: string = null;
       protected _betSumBackgroundX: number;
       protected _betSumBackgroundY: number;
+      protected _betSumBackgroundWidth: number;
+      protected _betSumBackgroundHeight: number;
+
       protected _betSum: number;
       protected _denomList: number[];
       protected _cfmDenomList: number[];
@@ -27,6 +30,22 @@ namespace we {
 
       constructor() {
         super('BetChipStack');
+      }
+
+      set betSumBackgroundWidth(value: number) {
+        this._betSumBackgroundWidth = value;
+      }
+
+      get betSumBackgroundWidth() {
+        return this._betSumBackgroundWidth;
+      }
+
+      set betSumBackgroundHeight(value: number) {
+        this._betSumBackgroundHeight = value;
+      }
+
+      get betSumBackgroundHeight() {
+        return this._betSumBackgroundHeight;
       }
 
       set chipInterval(value: number) {
@@ -98,7 +117,7 @@ namespace we {
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.CLIP);
+              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
               // chip.labelSize = this._chipLabelSize;
               // chip.labelOffset = this._chipLabelOffset;
               this._chips.push(chip);

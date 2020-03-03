@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ImageButtonSkinNav" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ui="we.ui.*" states="search_icon,page_next_icon,page_prev_icon,lobby_profile_reload,lobby_profile_edit">
+	<e:Image id="_background" left="0" right="0" top="0" bottom="0"            source.search_icon="d_lobby_button_search_normal_png"            source.page_next_icon="d_lobby_panel_button_page_next_normal_png"            source.page_prev_icon="d_lobby_panel_button_page_prev_normal_png"  source.lobby_profile_reload="m_common_setting_playinfo_icon_refresh_png" source.lobby_profile_edit="m_common_setting_playinfo_icon_edit_png"/>
+	<e:Group id="_group" left="0" right="0" top="0" bottom="0">
+		<e:Label id="_label" text="" textAlign="center" verticalAlign="justify" scaleX="1" scaleY="1" left="0" right="0"
+		         top="0" bottom="0" />
+	</e:Group>
+</e:Skin>

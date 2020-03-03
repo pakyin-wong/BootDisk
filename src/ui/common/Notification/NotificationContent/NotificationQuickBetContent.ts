@@ -16,14 +16,14 @@ namespace we {
 
       public constructor(skinName: string = 'BaQuickBetContainerSkin') {
         super(skinName);
-        this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         this._betChipSet.init(null, denominationList);
       }
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (this._bettingTable.isAlreadyBet()) {
+        if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -32,7 +32,7 @@ namespace we {
 
       protected onTableBetInfoUpdate() {
         super.onTableBetInfoUpdate();
-        if (this._bettingTable.isAlreadyBet()) {
+        if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -78,7 +78,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);

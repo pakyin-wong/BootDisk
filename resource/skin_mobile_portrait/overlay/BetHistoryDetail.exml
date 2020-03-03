@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.BetHistoryDetail" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333C4A" strokeWeight="2" fillColor="0x14181E" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:Rect width="1050" height="3" x="96" y="878" fillColor="0x979797"/>
+		                <e:Image id="close" width="30" height="54" x="51" y="87"
+                          source="m_common_btn_previous_png"/>
+                <ui:RunTimeLabel id="_txt_title" text="Label" y="53" size="80" height="119"  textAlign="center" textColor="0xce925e" verticalAlign="middle" x="121"/>
+		<ui:RunTimeLabel id="_txt_record_id" text="Label" x="96" y="1137" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_date" text="Label" x="96" y="954" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_game" text="Label" x="900" y="954" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_round" text="Label" x="900" y="1137" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_replay" text="Label" x="970" y="700" height="74" size="50" verticalAlign="middle" textColor="0xd9a170" textAlign="center"/>
+		<ui:RunTimeLabel id="_txt_record_remark" text="Label" x="900" y="1320" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_bettype" text="Label" x="96" y="1320" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_betamount" text="Label" x="900" y="1509" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_win_s" text="Label" x="900" y="1692" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_win_l" text="Label" x="96" y="595" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" x="96" y="1509" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="96" y="1692" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="96" y="307" height="74" size="50" verticalAlign="middle" alpha="0.5"/>
+
+		<e:Label id="_record_id" text="Label" x="96" y="1220" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_date" text="Label" x="96" y="1037" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_game" text="Label" x="900" y="1031" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_round" text="Label" x="900" y="1220" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_remark" text="Label" x="900" y="1398" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_bettype" text="Label" x="96" y="1398" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_betamount" text="Label" x="900" y="1592" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_win_s" text="Label" x="900" y="1775" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_win_l" text="Label" x="96" y="661" height="144" size="120" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_orgbalance" text="Label" x="96" y="1592" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Label id="_record_finbalance" text="Label" x="96" y="1775" height="67" size="56" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1"/>
+		<e:Image width="24" height="32" x="924" y="721" source="m_common_setting_playerreportlist_detail_result_replay_icon_png"/>
+		<e:Image id="_btn_replay" width="300" height="100" x="846" y="689" scaleX="1" scaleY="1" source="m_common_setting_playerreportlist_detail_result_replay_box_png" scale9Grid="51,51,1,1"/>
+		<e:Group id="_record_result" width="1069" height="165" x="85" y="400" scaleX="1" scaleY="1"/>
+	</e:Group>
+</e:Skin>

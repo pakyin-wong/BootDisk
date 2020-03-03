@@ -5,7 +5,6 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetEnable: boolean = false;
-      protected _quickBetGroup: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
       protected _alreadyBetSign: eui.Group;
       protected _tweenInterval1: number = 250;
@@ -24,7 +23,7 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-        this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         this._betChipSet.init(null, denominationList);
       }
@@ -108,7 +107,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (this._bettingTable.isAlreadyBet()) {
+        if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -117,7 +116,7 @@ namespace we {
 
       protected onTableBetInfoUpdate() {
         super.onTableBetInfoUpdate();
-        if (this._bettingTable.isAlreadyBet()) {
+        if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -152,7 +151,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);

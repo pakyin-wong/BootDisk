@@ -42,10 +42,11 @@ class IPhone8Helper extends IPhone7Helper {
   }
 
   public GameStarted() {
-    if (!(dir.sceneCtr.currScene instanceof we.loading.Scene)) {
-      return true;
-    }
-    return false;
+    return true;
+    // if (!(dir.sceneCtr.currScene instanceof we.loading.Scene)) {
+    //   return true;
+    // }
+    // return false;
   }
 
   public CreateElement(className, append) {
@@ -113,6 +114,7 @@ class IPhone8Helper extends IPhone7Helper {
     this.canvas = document.getElementsByTagName('canvas')[0];
     this.canvasContainer = this.canvas.parentElement;
     this.canvasContainer.style.position = 'fixed';
+    this.setFullscreenOverlayVisible(false);
   }
 
   public PreventEvent(e: Event) {
@@ -158,7 +160,6 @@ class IPhone8Helper extends IPhone7Helper {
     this.clientHeight = this.GetClientHeight();
     const wasTopPanel = this.isTopPanel;
     this.isTopPanel = window.innerHeight < screenHeight;
-    console.log(window.innerHeight, screenHeight);
     if (this.isTopPanel) {
       if (!wasTopPanel) {
         this.UpdateStyle(true);
@@ -169,6 +170,7 @@ class IPhone8Helper extends IPhone7Helper {
         //   common: "EVT_FULLSCREEN_OVERLAY_SHOWN",
         //   args: null
         // }));
+        this.setFullscreenOverlayVisible(true);
         this.panelHiddenTime = -1;
       }
     } else {
@@ -178,6 +180,7 @@ class IPhone8Helper extends IPhone7Helper {
         //   common: "EVT_FULLSCREEN_OVERLAY_HIDDEN",
         //   args: null
         // }));
+        this.setFullscreenOverlayVisible(false);
         this.panelHiddenTime = Date.now();
         this.resizeCanvas();
       }
@@ -188,6 +191,10 @@ class IPhone8Helper extends IPhone7Helper {
         self.ResizeHandler();
       }, 500);
     }
+  }
+  protected setFullscreenOverlayVisible(visible) {
+    const overlay = document.getElementsByClassName('fullscreen-overlay')[0];
+    overlay.className = visible ? 'fullscreen-overlay' : 'fullscreen-overlay hidden';
   }
 
   public UpdateStyle(visible) {
@@ -214,6 +221,26 @@ class IPhone8Helper extends IPhone7Helper {
     // document.body.style.position = scrollable ? 'static' : 'fixed';
     this.canvasContainer.style.pointerEvents = scrollable ? 'none' : 'auto';
     document.body.style.pointerEvents = scrollable ? 'none' : 'auto';
+    if (scrollable) {
+      this.enableScroll();
+    } else {
+      this.disableScroll();
+    }
+  }
+
+  public disableScroll() {
+    // Get the current page scroll position
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+    // if any scroll is attempted, set this to the previous value
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+  }
+
+  public enableScroll() {
+    window.onscroll = function () {};
   }
 
   public HandleTouchStart(event: Event) {
@@ -387,12 +414,12 @@ class ScreenFull {
   }
 }
 
-(<any> window).screenfull = new ScreenFull();
+(<any>window).screenfull = new ScreenFull();
 
 class FullScreenManager {
   public static overlay = null;
   public static reserve = null;
-  private static screenfull = (<any> window).screenfull;
+  private static screenfull = (<any>window).screenfull;
 
   public static RequestFullscreen() {
     if (!this.screenfull.isFullscreen) {
@@ -438,9 +465,9 @@ class FullScreenManager {
   public static OnLoad(stage: egret.Stage) {
     const self = FullScreenManager;
     self.Init(stage);
-    (<any> window).RequestFullscreen = self.RequestFullscreen;
-    (<any> window).ExitFullscreen = self.ExitFullscreen;
-    (<any> window).IsFullscreen = self.IsFullscreen;
+    (<any>window).RequestFullscreen = self.RequestFullscreen;
+    (<any>window).ExitFullscreen = self.ExitFullscreen;
+    (<any>window).IsFullscreen = self.IsFullscreen;
   }
 }
 

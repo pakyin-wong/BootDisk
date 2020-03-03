@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.AllGameSubTabItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        states="up,upAndSelected,down">
+    <e:Group>
+        <e:Image source="m_lobby_panel_gamelist_allgame_gamesubcat_active_png" x="118" y="104"
+                 includeIn="upAndSelected,down" />
+        <ui:RunTimeLabel id="_label" text="" x="82" y="101" size="42" />
+        <e:layout>
+            <e:HorizontalLayout verticalAlign="middle" />
+        </e:layout>
+    </e:Group>
+</e:Skin>

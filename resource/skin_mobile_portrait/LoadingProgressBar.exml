@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.LoadingProgressBar" minWidth="678" minHeight="22" xmlns:e="http://ns.egret.com/eui">
+	<e:Image source="d-lobby-loading-progress-bar-base" scale9Grid="10,1,652,15" top="3" bottom="3" left="3" right="3"/>
+	<e:Image id="thumb" source="d-lobby-loading-progress-bar-active" scale9Grid="10,0,562,20" top="0" bottom="0" left="0" right="0"/>
+</e:Skin>

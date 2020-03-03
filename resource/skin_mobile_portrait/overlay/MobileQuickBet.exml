@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.MobileQuickBet" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+    xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+    <e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" visible="false" touchEnabled="false" locked="true"/>
+    <e:Group id="_controlGroup" left="48" right="48" bottom="25" />
+</e:Skin>

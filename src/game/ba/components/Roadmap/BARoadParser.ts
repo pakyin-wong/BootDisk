@@ -496,9 +496,15 @@ namespace we {
 
         if (data.gameInfo !== undefined) {
           road.gameInfo = [];
-          data.gameInfo.forEach(element => {
-            road.gameInfo.push(BARoadParser.CreateRoadmapGameInfoFromObject(element));
-          });
+          if (data.gametype === core.GameType.RO) {
+            for (const i in data.gameInfo) {
+              road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
+            }
+          } else {
+            data.gameInfo.forEach(element => {
+              road.gameInfo.push(BARoadParser.CreateRoadmapGameInfoFromObject(element));
+            });
+          }
         }
 
         return road;
@@ -506,6 +512,14 @@ namespace we {
 
       private static CreateRoadmapSetFromObject(data: any): we.data.RoadmapSet {
         const roadSet = new we.data.RoadmapSet();
+
+        if (data.beads !== undefined) {
+          roadSet.bead = [];
+          data.beads.forEach(element => {
+            roadSet.bead.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
         if (data.bead !== undefined) {
           roadSet.bead = [];
           data.bead.forEach(element => {
@@ -557,22 +571,49 @@ namespace we {
           roadSet.roachAni = data.roachAni;
         }
 
+        // ro
+        if (data.color !== undefined) {
+          roadSet.color = [];
+          data.color.forEach(element => {
+            roadSet.color.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.size !== undefined) {
+          roadSet.size = [];
+          data.size.forEach(element => {
+            roadSet.size.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.odd !== undefined) {
+          roadSet.odd = [];
+          data.odd.forEach(element => {
+            roadSet.odd.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
         return roadSet;
       }
 
       private static CreateRoadmapCellFromObject(data: any): we.data.RoadmapCell {
         const roadCell = new we.data.RoadmapCell();
-        if (data.v !== undefined) {
-          roadCell.v = data.v;
-        }
-        if (data.b !== undefined) {
-          roadCell.b = data.b;
-        }
-        if (data.p !== undefined) {
-          roadCell.p = data.p;
-        }
-        if (data.w !== undefined) {
-          roadCell.w = data.w;
+        if (data) {
+          if (data.v !== undefined) {
+            roadCell.v = data.v;
+          }
+          if (data.b !== undefined) {
+            roadCell.b = data.b;
+          }
+          if (data.p !== undefined) {
+            roadCell.p = data.p;
+          }
+          if (data.w !== undefined) {
+            roadCell.w = data.w;
+          }
+          if (data.gameRoundID !== undefined) {
+            roadCell.gameRoundID = data.gameRoundID;
+          }
         }
         return roadCell;
       }
@@ -608,6 +649,14 @@ namespace we {
         }
         if (data.result !== undefined) {
           roadInfo.result = data.result;
+        }
+
+        // ro
+        if (data.v !== undefined) {
+          roadInfo.v = data.v;
+        }
+        if (data.video !== undefined) {
+          roadInfo.video = data.video;
         }
 
         return roadInfo;

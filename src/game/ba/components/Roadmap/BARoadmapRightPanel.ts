@@ -1,6 +1,11 @@
 namespace we {
   export namespace ba {
-    export class BARoadmapRightPanel extends core.BaseGamePanel {
+    export interface IBARoadmapDisplayObject {
+      iconBankerBead: BABeadRoadIcon;
+      iconPlayerBead: BABeadRoadIcon;
+      setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any);
+    }
+    export class BARoadmapRightPanel extends core.BaseGamePanel implements IBARoadmapDisplayObject {
       public bigRoad: BABigRoad;
       public bigEyeRoad: BABigEyeRoad;
       public smallRoad: BASmallRoad;
@@ -128,11 +133,21 @@ namespace we {
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
-            this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
-            this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
-            this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
-            this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
-            this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
+            if (this.tableInfo.gamestatistic.bankerCount) {
+              this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
+            }
+            if (this.tableInfo.gamestatistic.playerCount) {
+              this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
+            }
+            if (this.tableInfo.gamestatistic.tieCount) {
+              this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+            }
+            if (this.tableInfo.gamestatistic.bankerPairCount) {
+              this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
+            }
+            if (this.tableInfo.gamestatistic.playerPairCount) {
+              this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
+            }
             this.totalCount = this.tableInfo.gamestatistic.totalCount;
             this.changeLang();
           }

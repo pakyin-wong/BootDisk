@@ -3,7 +3,7 @@ namespace we {
     export class BetChip extends core.BaseEUI implements eui.UIComponent, IBetChip {
       protected _value: number;
       protected _chipImage: eui.Image;
-      protected _chipValueLabel: ui.LabelImage;
+      protected _chipValueLabel: eui.Label;
       protected _type: we.core.ChipType;
       protected _highlight: boolean;
       protected _glowImage: eui.Image;
@@ -23,14 +23,14 @@ namespace we {
       }
 
       protected mount() {
-        this._render();
+        this.draw();
       }
 
       public setValue(value: number, index: number, type: we.core.ChipType = null) {
         this._value = value;
         this._index = index;
         this._type = type;
-        this._render();
+        this.draw();
       }
 
       public getValue() {
@@ -45,7 +45,7 @@ namespace we {
         this._highlight = value;
         if (value) {
           this._glowImage = new eui.Image();
-          this._glowImage.source = 'd_lobby_panel_betcontrol_chips_select_png';
+          this._glowImage.source = env.isMobile ? 'd_lobby_panel_betcontrol_chips_select_png' : 'd_lobby_panel_betcontrol_chips_select_png';
           this._glowImage.bottom = this._chipImage.bottom - 6;
           this._glowImage.top = this._chipImage.top - 6;
           this._glowImage.left = this._chipImage.left - 6;
@@ -97,28 +97,26 @@ namespace we {
         if (value) {
           this._type = +value;
         }
-        this._render();
+        this.draw();
       }
 
       get type() {
         return this._type;
       }
 
-      protected _render() {
+      public draw() {
         switch (this._type) {
           case we.core.ChipType.FLAT:
-            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
             this._chipImage.source = this.getChipSource(this._type);
-            this._chipValueLabel.verticalCenter = this.height * -0.012;
-            this._chipValueLabel.height = this.height * 0.5;
-            // this._chipValueLabel.width = this.width * 0.3;
+            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipValueLabel.verticalCenter = this.height * -0.025;
+            this._chipValueLabel.scaleY = 1;
             break;
-          case we.core.ChipType.CLIP:
-            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+          case we.core.ChipType.PERSPECTIVE:
             this._chipImage.source = this.getChipSource(this._type);
-            this._chipValueLabel.verticalCenter = this.height * -0.072;
-            this._chipValueLabel.height = this.height * 0.3;
-            // this._chipValueLabel.width = this.width * 0.3;
+            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+            this._chipValueLabel.verticalCenter = this.height * -0.1;
+            this._chipValueLabel.scaleY = 0.65;
             break;
           case we.core.ChipType.BETTING:
           default:
@@ -132,22 +130,18 @@ namespace we {
         let filename: string;
 
         switch (type) {
-          case we.core.ChipType.CLIP:
-            filename = we.core.ChipSetInfo.clip + `${this._index + 1}` + '_png';
-            break;
           case we.core.ChipType.FLAT:
-            filename = we.core.ChipSetInfo.flat + `${this._index + 1}` + '_png';
+            filename = 'm_lobby_panel_betcontrol_chip' + `0${this._index + 1}`.slice(-2) + '_active_png';
+            break;
+          case we.core.ChipType.PERSPECTIVE:
+            filename = 'm_lobby_panel_betcontrol_chip' + `0${this._index + 1}`.slice(-2) + '_png';
             break;
           case we.core.ChipType.BETTING:
           default:
-            filename = we.core.ChipSetInfo.betting + '_png';
+            filename = 'd_common_chips_betting_png';
         }
 
         return filename;
-      }
-
-      public draw() {
-        this._render();
       }
     }
   }
