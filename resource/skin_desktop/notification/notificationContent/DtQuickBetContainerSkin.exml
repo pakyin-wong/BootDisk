@@ -38,6 +38,6 @@
         </e:Group>
     </e:Group>
         <dt:ChipLayer id="_chipLayer" width="339" skinName="skin_desktop.dt.SideListChipLayerSkin" anchorOffsetY="0"
-                  height="110" left="0" y="0" name="sidebettingtable" alpha="0" />
+                  height="110" left="0" y="170" name="sidebettingtable"/>
 
 </e:Skin>

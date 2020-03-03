@@ -8,6 +8,7 @@ namespace we {
       protected mount() {
         super.mount();
         mouse.setButtonMode(this, true);
+        this.touchEnabled = true;
       }
 
       public setSelectedChip(value: number, index: number) {

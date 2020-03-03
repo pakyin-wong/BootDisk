@@ -118,7 +118,6 @@
 		"resource/skin_desktop/notification/GoodRoadNotificationContainerSkin.exml",
 		"resource/skin_desktop/notification/notificationContent/BaQuickBetContainerSkin.exml",
 		"resource/skin_desktop/notification/notificationContent/DtQuickBetContainerSkin.exml",
-		"resource/skin_desktop/notification/notificationContent/GoodRoadQuickBetContainerSkin.exml",
 		"resource/skin_desktop/notification/ResultNotificationSkin.exml",
 		"resource/skin_desktop/overlay/BaResultItem.exml",
 		"resource/skin_desktop/overlay/OverlayPanelButton.exml",

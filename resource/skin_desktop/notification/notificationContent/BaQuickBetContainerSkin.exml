@@ -11,6 +11,7 @@
                                    skinName="skin_desktop.BetChipSkin" />
         <ba:TableLayer id="_tableLayer" width="339" skinName="skin_desktop.ba.SideListTableLayerSkin" anchorOffsetY="0"
                        height="110" left="0" top="0" name="sidebettingtable" />
+			<ba:ChipLayer id="_chipLayer" width="339" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0" height="110" left="0"/>
         <ui:BaseImageButton id="_closeButton" x="12" y="125" width="56" height="60"
                             currentState="lobby_betcontrol_close" skinName="ImageButtonSkinLobby" />
         <ui:BaseImageButton id="_prevButton" x="68" y="125" width="56" height="60"
@@ -37,7 +38,6 @@
             <e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
         </e:Group>
     </e:Group>
-        <ba:ChipLayer id="_chipLayer" width="339" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
-                  height="110" left="0" y="0" name="sidebettingtable" alpha="0" />
+
 
 </e:Skin>

@@ -23,6 +23,8 @@ namespace we {
       }
 
       protected mount() {
+        this._chipImage.touchEnabled = false;
+        this._chipValueLabel.touchEnabled = false;
         this.draw();
       }
 
@@ -54,6 +56,7 @@ namespace we {
           this._glowImage.horizontalCenter = this._chipImage.horizontalCenter;
           this._glowImage.height = this._chipImage.height;
           this._glowImage.width = this._chipImage.width;
+          this._glowImage.touchEnabled = false;
           this.addChild(this._glowImage);
         } else {
           if (this._glowImage && this.contains(this._glowImage)) {

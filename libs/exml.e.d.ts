@@ -345,10 +345,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class GoodRoadQuickBetContainerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class ResultNotificationSkin extends eui.Skin{
 	}
 }
