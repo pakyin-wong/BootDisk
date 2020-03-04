@@ -211,6 +211,8 @@ namespace we {
         cancelRemoveGoodRoad: '取消',
         noCommission: '免佣',
         clickToSeeVideo: '點擊播放本局視頻',
+        askBanker: '庄問路',
+        askPlayer: '閒問路',
       },
       dragontiger: {
         dragon: '龍',
@@ -219,6 +221,8 @@ namespace we {
         dragonShort: '龍',
         tigerShort: '虎',
         tieShort: '和',
+        askDragon: '龍問路',
+        askTiger: '虎問路',
       },
       roulette: {
         row_1: '第一行',
