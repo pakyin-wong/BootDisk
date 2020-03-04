@@ -50,6 +50,9 @@ namespace we {
       public _tableInfoPanel: ba.TableInfoPanel;
       public _betLimitDropDownBtn: ui.RunTimeLabel;
 
+      // statisticChartPanel
+      public _statisticChartPanel: ba.StatisticChartPanel;
+
       // viewStack and radioBtn
       protected _roadmapGroup: eui.Group;
       protected _infoGroup: eui.Group;

@@ -30,7 +30,7 @@
 				<e:Label text="%" x="925" y="380" scaleX="1" scaleY="1" width="55" height="46" size="33" textAlign="center" verticalAlign="bottom" bold="true" alpha="0.7"/>
 				<ui:RunTimeLabel id="roundCount" text="99" x="449" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88" height="118" verticalAlign="middle"/>
 				<ui:RunTimeLabel id="roundPairCount" text="9" x="1065" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88" height="118" verticalAlign="middle"/>
-				<e:Label id="roundLabelLeft" text="局" x="449" y="370" scaleX="1" scaleY="1" width="100" height="46" size="35" textAlign="center" verticalAlign="middle" bold="true"/>
-				<e:Label id="roundLabelRight" text="局" x="1065" y="370" scaleX="1" scaleY="1" width="100" height="46" size="33" textAlign="center" verticalAlign="middle" bold="true"/>
+				<e:Label id="roundLabelLeft" text="局" x="449" y="360" scaleX="1" scaleY="1" width="100" height="46" size="35" textAlign="center" verticalAlign="middle" bold="true"/>
+				<e:Label id="roundLabelRight" text="局" x="1065" y="360" scaleX="1" scaleY="1" width="100" height="46" size="33" textAlign="center" verticalAlign="middle" bold="true"/>
 			</e:Group>
 </e:Skin>

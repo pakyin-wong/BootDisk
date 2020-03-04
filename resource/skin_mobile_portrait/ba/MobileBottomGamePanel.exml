@@ -55,7 +55,7 @@
 				<e:Image id="switchModeButton" width="72" height="72" x="504" y="457" source="d_ba_swaproadmap_button_element_png" scaleX="1" scaleY="1"/>
 			</e:Group>
 			<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
-				<ba:TableInfoPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.ba.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+				<ba:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.ba.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			<e:Group id="_infoGroup" width="100%" height="100%" name="Group">
 				<ba:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.ba.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>

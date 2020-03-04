@@ -56,6 +56,10 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
 
+        if (this._bottomGamePanel._statisticChartPanel) {
+          this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
+        }
+
         this.createVerticalLayout();
 
         this.changeHandMode();
@@ -167,6 +171,10 @@ namespace we {
 
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
+
+        if (this._bottomGamePanel._statisticChartPanel) {
+          this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
       }
 
