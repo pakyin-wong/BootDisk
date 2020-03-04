@@ -44,7 +44,7 @@ namespace we {
 
       // local game state
       public currentSelectedBetLimitIndex: number = 0;
-      // public currentChipSelectedIndex: number = 10;
+      public currentChipSelectedIndex: number = 0;
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
