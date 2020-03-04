@@ -18,7 +18,7 @@ namespace we {
       BAI = 2, // insurance baccarat
       DT = 5, // Dragon Tiger
       RO = 14,
-      // DI = 12, // Dice
+      DI = 12, // Dice
       // MJ = 13, // MaJong
     }
 
