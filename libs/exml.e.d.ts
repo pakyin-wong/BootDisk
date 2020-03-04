@@ -39,7 +39,19 @@ declare module skins{
 	}
 }
 declare module skin_desktop{
+	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BABeadRoadResultPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BARoadmapLeftPanel extends eui.Skin{
 	}
 }
 declare module skins_desktop{
@@ -116,18 +128,6 @@ declare module skin_desktop.ba{
 }
 declare module skin_desktop.ba{
 	class TableLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BABeadRoadResultPanelSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BARoadmapLeftPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{

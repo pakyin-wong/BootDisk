@@ -4203,6 +4203,46 @@
 			"url": "assets/d/ba/d_ba_goodroad_info_state_total.png",
 			"type": "image",
 			"name": "d_ba_goodroad_info_state_total_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_cardresult_player.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_cardresult_player_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_result_banker.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_result_banker_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_result_player.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_result_player_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_cardresult_banker.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_cardresult_banker_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_result_tie.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_result_tie_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_topbar_textbg_banker.png",
+			"type": "image",
+			"name": "d_ba_roadmap_topbar_textbg_banker_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_topbar_textbg_player.png",
+			"type": "image",
+			"name": "d_ba_roadmap_topbar_textbg_player_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_goodroadsetting_icon_trash.png",
+			"type": "image",
+			"name": "d_lobby_goodroadsetting_icon_trash_png"
 		}
 	]
 }

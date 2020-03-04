@@ -6,7 +6,7 @@
 		<e:Rect width="100%" height="173" x="0" y="52" fillColor="0xffffff" anchorOffsetY="0" strokeAlpha="1" strokeWeight="2" />
 		<e:Rect width="100%" height="52" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x333333" />
 		<ba:GoodRoadmap id="_bigRoad" width="291" height="175" y="52" x="1" />
-		<ui:BaseImageButton id="_binButton" currentState="b_bin" y="13" width="22" height="22" anchorOffsetX="0" x="216"
+		<ui:BaseImageButton id="_binButton" currentState="b_bin" y="13" width="24" height="26" anchorOffsetX="0" x="216"
 		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
 		<ui:ToggleButton id="_activeButton" resNameOn="d_lobby_panel_button_checkboxes_active_png"
 		                 hoverResNameOn="d_lobby_panel_button_checkboxes_active_png"

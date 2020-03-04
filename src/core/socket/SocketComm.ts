@@ -349,11 +349,11 @@ namespace we {
         } else {
           // BA/DT
           const roadmapData = parseAscString(gameStatistic.roadmapdata);
-          const bankerCount: number = gameStatistic.bankerwincount;
-          const playerCount: number = gameStatistic.playerwincount;
-          const tieCount: number = gameStatistic.tiewincount;
-          const playerPairCount: number = gameStatistic.playerpairwincount;
-          const bankerPairCount: number = gameStatistic.bankerpairwincount;
+          const bankerCount: number = gameStatistic.bankerwincount ? gameStatistic.bankerwincount : 0;
+          const playerCount: number = gameStatistic.playerwincount ? gameStatistic.playerwincount : 0;
+          const tieCount: number = gameStatistic.tiewincount ? gameStatistic.tiewincount : 0;
+          const playerPairCount: number = gameStatistic.playerpairwincount ? gameStatistic.playerpairwincount : 0;
+          const bankerPairCount: number = gameStatistic.bankerpairwincount ? gameStatistic.bankerpairwincount : 0;
           const totalCount: number = bankerCount + playerCount + tieCount;
 
           tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);

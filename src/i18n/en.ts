@@ -209,6 +209,8 @@ namespace we {
         cancelRemoveGoodRoad: 'Cancel',
         noCommission: 'No Commision',
         clickToSeeVideo: 'Click to see video for this round',
+        askBanker: 'Ask B',
+        askPlayer: 'Ask P',
       },
       dragontiger: {
         dragon: 'Dragon',
@@ -217,6 +219,8 @@ namespace we {
         dragonShort: 'Dn',
         tigerShort: 'Tr',
         tieShort: 'Ti',
+        askDragon: 'Ask Dn',
+        askTiger: 'Ask Tr',
       },
       roulette: {
         row_1: 'ROW 1',

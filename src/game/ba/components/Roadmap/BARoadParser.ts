@@ -513,13 +513,6 @@ namespace we {
       private static CreateRoadmapSetFromObject(data: any): we.data.RoadmapSet {
         const roadSet = new we.data.RoadmapSet();
 
-        if (data.beads !== undefined) {
-          roadSet.bead = [];
-          data.beads.forEach(element => {
-            roadSet.bead.push(BARoadParser.CreateRoadmapCellFromObject(element));
-          });
-        }
-
         if (data.bead !== undefined) {
           roadSet.bead = [];
           data.bead.forEach(element => {
