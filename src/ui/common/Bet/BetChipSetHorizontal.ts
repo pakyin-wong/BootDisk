@@ -141,7 +141,7 @@ namespace we {
           const betChip = new BetChip(value);
           betChip.index = index;
           betChip.height = this.height * this._clipChipHeightPortion;
-          betChip.type = we.core.ChipType.CLIP;
+          betChip.type = we.core.ChipType.PERSPECTIVE;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
           this._chipList.push(betChip);
         });
@@ -156,7 +156,7 @@ namespace we {
 
       private _onChipSelected(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
-        this._chipList[this._selectedChipIndex].type = we.core.ChipType.CLIP;
+        this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
         this._chipList[this._selectedChipIndex].height = this.height * this._clipChipHeightPortion;
         this._chipList[this._selectedChipIndex].verticalCenter = 0;
 
@@ -177,7 +177,7 @@ namespace we {
         }
       }
 
-      public injectSetSelectedChip(value: (value: number, index: number) => void) {}
+      public setUpdateChipSetSelectedChipFunc(value: (value: number, index: number) => void) {}
     }
   }
 }

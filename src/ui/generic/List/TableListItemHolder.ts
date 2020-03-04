@@ -121,6 +121,9 @@ namespace we {
           case core.GameType.RO:
             dir.sceneCtr.goto('ro', { tableid: this.itemData });
             break;
+          case core.GameType.DI:
+            dir.sceneCtr.goto('di', { tableid: this.itemData });
+            break;
           default:
             console.error('error in TableListItemHolder');
             break;

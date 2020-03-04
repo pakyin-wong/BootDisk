@@ -135,10 +135,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BetChipSelectedSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BetChipSetSkin extends eui.Skin{
 	}
 }
@@ -168,6 +164,26 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiceScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
@@ -341,11 +357,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class GoodRoadNotificationSkin extends eui.Skin{
+	class BaQuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class GoodRoadQuickBetContainerSkin extends eui.Skin{
+	class DtQuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

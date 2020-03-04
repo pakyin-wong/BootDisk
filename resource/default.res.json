@@ -113,16 +113,6 @@
 			"scale9grid": "25,20,23,10"
 		},
 		{
-			"url": "assets/fonts/barlow.woff2",
-			"type": "bin",
-			"name": "barlow_woff2"
-		},
-		{
-			"url": "assets/fonts/barlow.woff",
-			"type": "bin",
-			"name": "barlow_woff"
-		},
-		{
 			"url": "assets/temp/baccarat_dealer_2.jpg",
 			"type": "image",
 			"name": "temp_baccarat_dealer_2"
@@ -4203,6 +4193,16 @@
 			"url": "assets/d/ba/d_ba_goodroad_info_state_total.png",
 			"type": "image",
 			"name": "d_ba_goodroad_info_state_total_png"
+		},
+		{
+			"url": "assets/fonts/Barlow-Regular.otf",
+			"type": "bin",
+			"name": "Barlow-Regular"
+		},
+		{
+			"url": "assets/fonts/BarlowCondensed-SemiBold.otf",
+			"type": "bin",
+			"name": "BarlowCondensed-SemiBold"
 		},
 		{
 			"url": "assets/d/ba/d_ba_roadmap_record_cardresult_player.png",

@@ -11,18 +11,22 @@ namespace we {
 
       private _tempIdx: number = 0;
 
-      protected totalBATable = 6;
-      protected totalDTTable = 3;
-      protected totalROTable = 3;
+      protected totalTable = {
+        totalBATable: 3,
+        totalDTTable: 3,
+        totalROTable: 3,
+        totalDITable: 3,
+      };
 
       constructor() {
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
 
-        this.tables = this.generateBaccaratTables(this.totalBATable);
-        this.tables = [...this.tables, ...this.generateDragonTigerTables(this.totalDTTable)];
-        this.tables = [...this.tables, ...this.generateRouletteTables(this.totalROTable)];
+        this.tables = this.generateBaccaratTables(this.totalTable['totalBATable']);
+        this.tables = [...this.tables, ...this.generateDragonTigerTables(this.totalTable['totalDTTable'])];
+        this.tables = [...this.tables, ...this.generateRouletteTables(this.totalTable['totalROTable'])];
+        this.tables = [...this.tables, ...this.generateDiceTables(this.totalTable['totalDITable'])];
 
         setInterval(() => {
           // mock error
@@ -67,6 +71,11 @@ namespace we {
 
           return stats;
         } else if (data.gametype === core.GameType.RO) {
+          const stats = new we.data.GameStatistic();
+          stats.hotNumbers = [1, 2, 3, 4, 5];
+          stats.coldNumbers = [6, 7, 8, 9, 10];
+          return stats;
+        } else if (data.gametype === core.GameType.DI) {
           const stats = new we.data.GameStatistic();
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
@@ -126,6 +135,39 @@ namespace we {
 
           data.bets = [];
           const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
+          if (idx !== count - 1) {
+            mockProcess.startRand = idx;
+            mockProcess.endRand = idx + 1;
+          }
+          mockProcess.start(data);
+          this.mockProcesses.push(mockProcess);
+
+          idx++;
+          return data;
+        });
+        return tables;
+      }
+
+      protected generateDiceTables(count) {
+        const tables = Array.apply(null, { length: count }).map((value, idx) => {
+          const data = new we.data.TableInfo();
+          data.tableid = (++this._tempIdx).toString();
+          data.tablename = data.tableid;
+          data.state = TableState.ONLINE;
+          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
+          data.gametype = core.GameType.DI;
+
+          data.gamestatistic = this.generateDummyStatistic(data);
+
+          data.betInfo = new we.data.GameTableBetInfo();
+          data.betInfo.tableid = data.tableid; // Unique table id
+          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+          data.betInfo.total = 10000; // Total bet amount for this gameround
+          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+          data.betInfo.ranking = [];
+
+          data.bets = [];
+          const mockProcess = new MockProcessDice(this, core.GameType.DI);
           if (idx !== count - 1) {
             mockProcess.startRand = idx;
             mockProcess.endRand = idx + 1;
@@ -369,15 +411,15 @@ namespace we {
         const list = this.tables.map(info => {
           return info.tableid;
         });
-        if (list[this.totalBATable - 1]) {
-          env.betTableList = [list[this.totalBATable - 1]];
-        }
-        if (list[this.totalBATable + this.totalDTTable - 1]) {
-          env.betTableList = env.betTableList.concat(list[this.totalBATable + this.totalDTTable - 1]);
-        }
-        if (list[this.totalBATable + this.totalDTTable + this.totalROTable - 1]) {
-          env.betTableList = env.betTableList.concat(list[this.totalBATable + this.totalDTTable + this.totalROTable - 1]);
-        }
+
+        let pos: number = -1;
+        env.betTableList = new Array();
+        Object.keys(this.totalTable).map(value => {
+          pos += this.totalTable[value];
+          if (list[pos]) {
+            env.betTableList = env.betTableList.concat(list[pos]);
+          }
+        });
 
         env.allTableList = list;
         this.filterAndDispatch(list, core.Event.TABLE_LIST_UPDATE);

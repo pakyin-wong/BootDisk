@@ -90,6 +90,9 @@ namespace we {
       mobile_table_info_gameID: 'ID',
       mobile_panel_game_Info: 'Game Information',
 
+      mobile_notification_quick_bet_button_label: 'Bet Now',
+      mobile_notification_close_button_label: 'Dismiss',
+
       mobile_quick_bet_button_label: 'QuickBet',
       mobile_enter_table_button_label: 'Enter',
 

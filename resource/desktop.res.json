@@ -2406,12 +2406,14 @@
 		{
 			"url": "assets/d/lobby/d_lobby_notify_btn_action.png",
 			"type": "image",
-			"name": "d_lobby_notify_btn_action_png"
+			"name": "d_lobby_notify_btn_action_png",
+			"scale9grid": "10,0,102,31"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_notify_btn_hide.png",
 			"type": "image",
-			"name": "d_lobby_notify_btn_hide_png"
+			"name": "d_lobby_notify_btn_hide_png",
+			"scale9grid": "10,10,102,31"
 		},
 		{
 			"url": "assets/temp/Mask_test.png",
