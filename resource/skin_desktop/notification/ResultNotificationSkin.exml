@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ResultNotificationSkin" width="385" height="100" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
-    <e:Image source="nav_panel_bg" scale9Grid="25,20,23,10" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0"
-             bottom="0" right="0" />
-    <ui:RunTimeLabel id="_lblName" text="Label" x="95" y="22" size="22" />
-    <e:Label id="_lblWinAMount" text="Label" x="95" y="50" size="24" />
-    <e:Group x="29" y="20">
-        <e:Rect id="_resultRect" width="54" height="54" x="0" y="0" scaleX="1" scaleY="1" ellipseWidth="54"
-                ellipseHeight="54" fillColor="0xff0000" />
-        <ui:RunTimeLabel id="_lblResult" text="B" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"
-                         verticalAlign="middle" textAlign="center" size="24" />
-    </e:Group>
-    <ui:BaseImageButton id="_btnDismiss" width="122" height="39" x="250" y="8.7" anchorOffsetX="0" anchorOffsetY="0"
-                        skinName="ImageButtonSkinLobby" currentState="lobby_notify_btn_hide" useColorFilter="true" />
-    <ui:BaseImageButton id="_btnQuickBet" width="122" height="39" x="250" y="48.01" anchorOffsetX="0" anchorOffsetY="0"
-                        skinName="ImageButtonSkinLobby" currentState="lobby_notify_btn_action" useColorFilter="true" />
+        <e:Image id="_touchArea" source="nav_panel_bg" scale9Grid="25,20,23,10" anchorOffsetX="0" anchorOffsetY="0"
+                 left="0" top="0" bottom="0" right="0" />
+        <ui:RunTimeLabel id="_lblName" text="Label" x="95" y="22" size="22" touchEnabled="false" />
+        <e:Label id="_lblWinAMount" text="Label" x="95" y="50" size="24" touchEnabled="false" />
+        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true">
+                <e:Rect id="_resultRect" width="54" height="54" x="0" y="0" scaleX="1" scaleY="1" ellipseWidth="54"
+                        ellipseHeight="54" fillColor="0xff0000" />
+                <ui:RunTimeLabel id="_lblResult" text="B" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"
+                                 verticalAlign="middle" textAlign="center" size="24" />
+        </e:Group>
+        <ui:BaseImageButton id="_btnDismiss" width="122" height="39" x="250" y="8.7" anchorOffsetX="0" anchorOffsetY="0"
+                            skinName="ImageButtonSkinLobby" currentState="lobby_notify_btn_hide" useColorFilter="true" />
+        <ui:BaseImageButton id="_btnQuickBet" width="122" height="39" x="250" y="48.01" anchorOffsetX="0"
+                            anchorOffsetY="0" skinName="ImageButtonSkinLobby" currentState="lobby_notify_btn_action"
+                            useColorFilter="true" />
 </e:Skin>

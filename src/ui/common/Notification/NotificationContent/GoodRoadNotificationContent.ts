@@ -7,12 +7,16 @@ namespace we {
 
       protected _btnQuickBet: BaseImageButton;
       protected _btnDismiss: BaseImageButton;
+      protected _touchArea: eui.Component;
 
       constructor() {
         super();
         this.skinName = utils.getSkinByClassname('GoodRoadNotificationContainerSkin');
+        this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
+        this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label');
         this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
         this._btnQuickBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.quickBet, this);
+        this._touchArea.addEventListener(egret.TouchEvent.TOUCH_TAP, this.enterRoom, this);
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -45,6 +49,11 @@ namespace we {
 
       protected quickBet() {
         this.dispatchEvent(new egret.Event('QUICK_BET'));
+      }
+
+      protected enterRoom() {
+        dir.sceneCtr.goto('ba', { tableid: this.tableId });
+        this.removeSelf();
       }
     }
   }

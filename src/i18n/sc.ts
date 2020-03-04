@@ -96,6 +96,9 @@ namespace we {
       mobile_table_info_gameID: '编号',
       mobile_panel_game_Info: '游戏资讯',
 
+      mobile_notification_quick_bet_button_label: '即时投注',
+      mobile_notification_close_button_label: '关闭',
+
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '进入游戏',
 
