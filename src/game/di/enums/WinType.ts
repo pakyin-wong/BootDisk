@@ -51,7 +51,7 @@ namespace we {
       SPECIFIC_3: 'SPECIFIC_3',
       SPECIFIC_4: 'SPECIFIC_4',
       SPECIFIC_5: 'SPECIFIC_5',
-      SPECIFIC_6: 'SPECIFIC_6'
+      SPECIFIC_6: 'SPECIFIC_6',
     };
   }
 }
