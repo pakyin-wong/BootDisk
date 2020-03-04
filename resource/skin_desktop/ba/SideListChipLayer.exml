@@ -5,32 +5,32 @@
 	<e:Group id="_playerGroup" x="0" y="0" width="170" height="57">
 		<ui:BetChipStack id="_playerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
-		                 chipType="2" />
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="70" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2"  touchEnabled="false" touchChildren="false" maxWidth="170"/>
 	</e:Group>
 	<e:Group id="_bankerGroup" x="170" y="0" width="169" height="57">
 		<ui:BetChipStack id="_bankerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
-		                 chipType="2" />
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="70" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2"  touchEnabled="false" touchChildren="false" maxWidth="170"/>
 	</e:Group>
-	<e:Group id="_playerPairGroup" x="0" y="57" width="113" height="53">
+	<e:Group id="_playerPairGroup" x="0" y="57" width="113" height="53" maxWidth="113">
 		<ui:BetChipStack id="_playerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
-		                 chipType="2" />
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="70" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2"  touchEnabled="false" touchChildren="false"/>
 	</e:Group>
-	<e:Group id="_tieGroup" x="113" y="57" width="113" height="53">
+	<e:Group id="_tieGroup" x="113" y="57" width="113" height="53" maxWidth="113">
 		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
-		                 chipType="2" />
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="70" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2"  touchEnabled="false" touchChildren="false"/>
 	</e:Group>
-	<e:Group id="_bankerPairGroup" x="226" y="57" width="113" height="53">
+	<e:Group id="_bankerPairGroup" x="226" y="57" width="113" height="53" maxWidth="113">
 		<ui:BetChipStack id="_bankerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
-		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
-		                 chipType="2" />
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="70" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2"  touchEnabled="false" touchChildren="false"/>
 	</e:Group>
 	<e:Group id="_superSixBankerGroup" visible="false">
 		<ui:BetChipStack id="_superSixBankerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70"

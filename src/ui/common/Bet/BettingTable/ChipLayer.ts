@@ -206,13 +206,13 @@ namespace we {
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
-        this.touchChildren = enable;
-        Object.keys(this._mouseAreaMapping).forEach(value => {
-          if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].touchEnabled = enable;
-            this._mouseAreaMapping[value].touchChildren = enable;
-          }
-        });
+        // this.touchChildren = enable;
+        // Object.keys(this._mouseAreaMapping).forEach(value => {
+        //   if (this._mouseAreaMapping[value]) {
+        //     this._mouseAreaMapping[value].touchEnabled = enable;
+        //     this._mouseAreaMapping[value].touchChildren = false;
+        //   }
+        // });
 
         if (!enable) {
           this.cancelBet();

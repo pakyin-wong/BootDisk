@@ -465,7 +465,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 
@@ -514,10 +514,7 @@ namespace we {
               !isNaN(tableInfo.totalWin)
             ) {
               const data = {
-                tableNo: tableInfo.tablename,
-                winAmount: tableInfo.totalWin,
-                winType: tableInfo.data.wintype,
-                gameType: tableInfo.gametype,
+                tableid: tableInfo.tableid,
               };
               const notification: data.Notification = {
                 type: core.NotificationType.Result,

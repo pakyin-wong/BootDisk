@@ -52,6 +52,6 @@
              locked="true" />
     <e:Image width="68" height="40" horizontalCenter="0" source="m_ba_betarea_chipsbg_triangle_png" locked="true" />
     <ui:BetChipSetGrid id="_betChipSet" width="1085" height="521" alpha="0" anchorOffsetX="0" y="0" x="0"
-                       horizontalCenter="0" verticalCenter="16" betChipWidth="250" betChipHeight="200" />
+                       horizontalCenter="0" verticalCenter="16" betChipWidth="250" betChipHeight="200" labelSize="64"/>
 </e:Group>
 </e:Skin>

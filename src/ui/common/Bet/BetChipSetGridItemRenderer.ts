@@ -13,6 +13,7 @@ namespace we {
       protected _betChip: BetChip;
       protected _betChipHeight: number = 56;
       protected _betChipWidth: number = 70;
+      protected _labelSize: number = 30;
 
       protected get betChipSetGrid(): BetChipSetGrid {
         if (this.parent) {
@@ -32,11 +33,13 @@ namespace we {
       protected setSize() {
         this.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
         this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
+        this._betChip.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
+        this._betChip.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
         this._betChip.verticalCenter = 0;
         this._betChip.horizontalCenter = 0;
         this._betChip.scaleX = 0.85;
         this._betChip.scaleY = 0.85;
-        this._betChip.labelSize = 64;
+        this._betChip.labelSize = this.betChipSetGrid ? this.betChipSetGrid.labelSize : this._labelSize;
       }
 
       public itemDataChanged() {

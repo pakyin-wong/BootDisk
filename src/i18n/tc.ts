@@ -90,6 +90,9 @@ namespace we {
       mobile_table_info_gameID: '編號',
       mobile_panel_game_Info: '遊戲資訊',
 
+      mobile_notification_quick_bet_button_label: '即時投注',
+      mobile_notification_close_button_label: '關閉',
+
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',
 

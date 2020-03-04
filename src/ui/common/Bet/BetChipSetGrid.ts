@@ -9,6 +9,7 @@ namespace we {
 
       public betChipHeight: number = 56;
       public betChipWidth: number = 70;
+      public labelSize: number = 30;
 
       public constructor() {
         super();
