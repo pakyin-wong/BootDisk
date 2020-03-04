@@ -416,7 +416,7 @@ namespace we {
       public flashGrid(fieldName: string) {
         const group = this._groupMapping[fieldName];
         const image = new eui.Image();
-        image.name = 'image';
+        image.name = 'flash';
         image.alpha = 0;
         image.source = this._groupHoverImageMapping[fieldName];
         group.addChildAt(image, 0);
