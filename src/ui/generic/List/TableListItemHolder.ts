@@ -42,7 +42,7 @@ namespace we {
       }
 
       protected get list(): TableList {
-        return <TableList> this.parent;
+        return <TableList>this.parent;
       }
 
       public changeState(state: number): boolean {
@@ -108,26 +108,7 @@ namespace we {
       }
 
       protected gotoScene() {
-        const gameType = env.tableInfos[this.itemData].gametype;
-        switch (gameType) {
-          case core.GameType.BAC:
-          case core.GameType.BAS:
-          case core.GameType.BAI:
-            dir.sceneCtr.goto('ba', { tableid: this.itemData });
-            break;
-          case core.GameType.DT:
-            dir.sceneCtr.goto('dt', { tableid: this.itemData });
-            break;
-          case core.GameType.RO:
-            dir.sceneCtr.goto('ro', { tableid: this.itemData });
-            break;
-          case core.GameType.DI:
-            dir.sceneCtr.goto('di', { tableid: this.itemData });
-            break;
-          default:
-            console.error('error in TableListItemHolder');
-            break;
-        }
+        env.gotoScene(this.itemData);
       }
     }
   }
