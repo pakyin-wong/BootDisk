@@ -29,6 +29,12 @@ namespace we {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
 
+        if (env.isMobile) {
+          options.layout = 'mobile_web';
+        } else {
+          options.layout = 'desktop_web';
+        }
+
         this.client = new PlayerClient(options);
 
         logger.l('MQTTSocketComm is created', this.client);
@@ -343,11 +349,11 @@ namespace we {
         } else {
           // BA/DT
           const roadmapData = parseAscString(gameStatistic.roadmapdata);
-          const bankerCount: number = gameStatistic.bankerwincount;
-          const playerCount: number = gameStatistic.playerwincount;
-          const tieCount: number = gameStatistic.tiewincount;
-          const playerPairCount: number = gameStatistic.playerpairwincount;
-          const bankerPairCount: number = gameStatistic.bankerpairwincount;
+          const bankerCount: number = gameStatistic.bankerwincount ? gameStatistic.bankerwincount : 0;
+          const playerCount: number = gameStatistic.playerwincount ? gameStatistic.playerwincount : 0;
+          const tieCount: number = gameStatistic.tiewincount ? gameStatistic.tiewincount : 0;
+          const playerPairCount: number = gameStatistic.playerpairwincount ? gameStatistic.playerpairwincount : 0;
+          const bankerPairCount: number = gameStatistic.bankerpairwincount ? gameStatistic.bankerpairwincount : 0;
           const totalCount: number = bankerCount + playerCount + tieCount;
 
           tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
@@ -508,10 +514,7 @@ namespace we {
               !isNaN(tableInfo.totalWin)
             ) {
               const data = {
-                tableNo: tableInfo.tablename,
-                winAmount: tableInfo.totalWin,
-                winType: tableInfo.data.wintype,
-                gameType: tableInfo.gametype,
+                tableid: tableInfo.tableid,
               };
               const notification: data.Notification = {
                 type: core.NotificationType.Result,

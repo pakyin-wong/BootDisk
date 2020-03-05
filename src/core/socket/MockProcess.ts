@@ -82,10 +82,7 @@ namespace we {
               !isNaN(tableInfo.totalWin)
             ) {
               const data = {
-                tableNo: tableInfo.tablename,
-                winAmount: tableInfo.totalWin,
-                winType: tableInfo.data.wintype,
-                gameType: tableInfo.gametype,
+                tableid: tableInfo.tableid,
               };
               const notification: data.Notification = {
                 type: core.NotificationType.Result,

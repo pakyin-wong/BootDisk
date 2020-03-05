@@ -10,9 +10,9 @@
              source.lobby_betcontrol_previous="d_lobby_panel_betcontrol_btn_previous_normal_png"
              source.lobby_quick_bet_notification="d_lobby_quick_bet_notification_follow_normal_png"
              source.lobby_notify_btn_action="d_lobby_notify_btn_action_png"
-             source.lobby_notify_btn_hide="d_lobby_notify_btn_hide_png" locked="true" />
+             source.lobby_notify_btn_hide="d_lobby_notify_btn_hide_png" />
     <e:Group id="_group" left="0" right="0" top="0" bottom="0">
-        <ui:RunTimeLabel id="_label" text="" fontFamily="NotoSansCJKtc-Regular" size="24" verticalCenter="0"
-                         horizontalCenter="0" />
+        <ui:RunTimeLabel id="_label" text="" fontFamily="Microsoft YaHei,Helvetica" size="24" verticalCenter="0"
+                         horizontalCenter="0" size.lobby_notify_btn_hide="20" size.lobby_notify_btn_action="20" />
     </e:Group>
 </e:Skin>

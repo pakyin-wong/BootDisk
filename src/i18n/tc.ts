@@ -90,6 +90,9 @@ namespace we {
       mobile_table_info_gameID: '編號',
       mobile_panel_game_Info: '遊戲資訊',
 
+      mobile_notification_quick_bet_button_label: '即時投注',
+      mobile_notification_close_button_label: '關閉',
+
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '進入遊戲',
 
@@ -208,6 +211,8 @@ namespace we {
         cancelRemoveGoodRoad: '取消',
         noCommission: '免佣',
         clickToSeeVideo: '點擊播放本局視頻',
+        askBanker: '庄問路',
+        askPlayer: '閒問路',
       },
       dragontiger: {
         dragon: '龍',
@@ -216,6 +221,8 @@ namespace we {
         dragonShort: '龍',
         tigerShort: '虎',
         tieShort: '和',
+        askDragon: '龍問路',
+        askTiger: '虎問路',
       },
       roulette: {
         row_1: '第一行',

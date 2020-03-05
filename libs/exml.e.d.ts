@@ -39,7 +39,19 @@ declare module skins{
 	}
 }
 declare module skin_desktop{
+	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BABeadRoadResultPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BARoadmapLeftPanel extends eui.Skin{
 	}
 }
 declare module skins_desktop{
@@ -119,23 +131,7 @@ declare module skin_desktop.ba{
 	}
 }
 declare module skin_desktop{
-	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BABeadRoadResultPanelSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BARoadmapLeftPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BetChipSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetChipSelectedSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -159,14 +155,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BettingTableGridSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BettingTableGridFullSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class CountdownTimerSkin extends eui.Skin{
 	}
 }
@@ -176,6 +164,26 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiceScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
@@ -349,11 +357,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class GoodRoadNotificationSkin extends eui.Skin{
+	class BaQuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class GoodRoadQuickBetContainerSkin extends eui.Skin{
+	class DtQuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

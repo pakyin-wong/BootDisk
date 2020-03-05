@@ -412,6 +412,29 @@ namespace we {
           group.removeChild(image);
         }
       }
+
+      public flashGrid(fieldName: string) {
+        const group = this._groupMapping[fieldName];
+        const image = new eui.Image();
+        image.name = 'flash';
+        image.alpha = 0;
+        image.source = this._groupHoverImageMapping[fieldName];
+        group.addChildAt(image, 0);
+
+        let run = 0;
+        const flash = setInterval(() => {
+          if (run % 2 === 0) {
+            image.alpha = 1;
+          } else {
+            image.alpha = 0;
+          }
+          run += 1;
+          if (run >= 6) {
+            clearInterval(flash);
+            group.removeChild(image);
+          }
+        }, 500);
+      }
     }
   }
 }

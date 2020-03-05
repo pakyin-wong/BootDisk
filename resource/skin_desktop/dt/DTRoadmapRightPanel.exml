@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.DTRoadmapLeftPanel" width="698" height="304" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.DTRoadmapLeftPanel" width="675" height="304" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:dt="we.dt.*">
-        <e:Rect id="mask" width="690" height="301" x="4" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
+        <e:Rect id="mask" width="671" height="300" x="2" y="2" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
                 fillColor="0x7c7c7c" />
         <e:Rect id="topBar" width="694" height="47" x="2" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
                 ellipseWidth="0" />
-        <ui:RunTimeLabel id="totalCountLabel" text="00" y="13" textAlign="right" anchorOffsetX="0" width="170.67"
-                         size="25" x="501.33000000000004" />
-        <ui:RunTimeLabel id="bankerCountLabel" text="00" x="318" y="13" textAlign="left" anchorOffsetX="0" width="61"
-                         size="25" />
-        <ui:RunTimeLabel id="playerCountLabel" text="00" x="388" y="13" textAlign="left" anchorOffsetX="0" width="61"
-                         size="25" />
-        <ui:RunTimeLabel id="tieCountLabel" text="00" x="457.5" y="13" textAlign="left" anchorOffsetX="0" width="61"
-                         size="25" />
-        <e:Image width="22" height="22" x="293" y="14" source="d_ba_roadmap_bar_bankerstate_png" />
-        <e:Image width="22" height="22" x="363" y="14" source="d_ba_roadmap_bar_playerstate_png" />
-        <e:Image width="22" height="22" x="433" y="14" source="d_ba_roadmap_bar_tierstate_png" />
+        <ui:RunTimeLabel id="bankerCountLabel" text="0" x="301" y="13" textAlign="left" anchorOffsetX="0" width="61"
+                         size="24" />
+        <ui:RunTimeLabel id="playerCountLabel" text="0" x="360" y="13" textAlign="left" anchorOffsetX="0" width="61"
+                         size="24" />
+        <ui:RunTimeLabel id="tieCountLabel" text="0" x="418.5" y="13" textAlign="left" anchorOffsetX="0" width="61"
+                         size="24" />
+        <e:Image width="20" height="20" x="277" y="14" source="d_ba_roadmap_bar_bankerstate_png" />
+        <e:Image width="20" height="20" x="597.84" y="14" source="d_ba_goodroad_info_state_total_png" />
+        <e:Image width="20" height="20" x="336" y="14" source="d_ba_roadmap_bar_playerstate_png" />
+        <e:Image width="20" height="20" x="395" y="14" source="d_ba_roadmap_bar_tierstate_png" />
+        <ui:RunTimeLabel id="totalCountLabel" text="0" x="622" y="13" textAlign="left" anchorOffsetX="0" width="50.67"
+                         size="24" />
+        <e:Image id="iconBankerBead" width="66" height="30" x="142" y="9" source="d_ba_roadmap_topbar_textbg_banker_png"
+                 anchorOffsetX="0" />
+        <e:Image id="iconPlayerBead" width="66" height="30" x="9" y="9" source="d_ba_roadmap_topbar_textbg_player_png" />
+        <ui:RunTimeLabel id="playerButtonLabel" text="Ask Dn" x="9" y="11" textAlign="center" anchorOffsetX="0"
+                         width="66" size="16" height="28" verticalAlign="middle" touchEnabled="false" />
+        <ui:RunTimeLabel id="bankerButtonLabel" text="Ask Tr" x="142" y="11" textAlign="center" anchorOffsetX="0"
+                         width="66" size="16" verticalAlign="middle" height="28" touchEnabled="false" />
 </e:Skin>

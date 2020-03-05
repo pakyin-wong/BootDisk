@@ -2406,12 +2406,14 @@
 		{
 			"url": "assets/d/lobby/d_lobby_notify_btn_action.png",
 			"type": "image",
-			"name": "d_lobby_notify_btn_action_png"
+			"name": "d_lobby_notify_btn_action_png",
+			"scale9grid": "10,0,102,31"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_notify_btn_hide.png",
 			"type": "image",
-			"name": "d_lobby_notify_btn_hide_png"
+			"name": "d_lobby_notify_btn_hide_png",
+			"scale9grid": "10,10,102,31"
 		},
 		{
 			"url": "assets/temp/Mask_test.png",
@@ -3140,6 +3142,46 @@
 			"url": "assets/d/lobby/d_lobby_ro_panel_gamelist_gameresult_black_win.png",
 			"type": "image",
 			"name": "d_lobby_ro_panel_gamelist_gameresult_black_win_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_cardresult_banker.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_cardresult_banker_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_cardresult_player.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_cardresult_player_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_result_banker.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_result_banker_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_result_tie.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_result_tie_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_topbar_textbg_banker.png",
+			"type": "image",
+			"name": "d_ba_roadmap_topbar_textbg_banker_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_record_result_player.png",
+			"type": "image",
+			"name": "d_ba_roadmap_record_result_player_png"
+		},
+		{
+			"url": "assets/d/ba/d_ba_roadmap_topbar_textbg_player.png",
+			"type": "image",
+			"name": "d_ba_roadmap_topbar_textbg_player_png"
+		},
+		{
+			"url": "assets/d/lobby/d_lobby_goodroadsetting_icon_trash.png",
+			"type": "image",
+			"name": "d_lobby_goodroadsetting_icon_trash_png"
 		}
 	]
 }

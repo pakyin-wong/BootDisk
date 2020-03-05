@@ -13,13 +13,8 @@ namespace we {
       protected startAnim(gameType: core.GameType, resultData: any) {
         const { resultNo, winAmount } = resultData;
 
-        this._display.armature.eventDispatcher.addDBEventListener(
-          dragonBones.EventObject.FRAME_EVENT,
-          xxx => {
-            logger.l(xxx);
-          },
-          this
-        );
+        const tableLayer = (dir.sceneCtr.currScene as ro.Scene).getTableLayer() as ro.TableLayer;
+        tableLayer.flashGrid(`DIRECT_${resultNo}`);
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
@@ -52,11 +47,11 @@ namespace we {
         ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string>slotName);
+          const slot = this._display.armature.getSlot(<string> slotName);
           const lbl = new eui.Label();
-          lbl.text = <string>text;
+          lbl.text = <string> text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number>fontSize;
+          lbl.size = <number> fontSize;
           lbl.anchorOffsetX = lbl.width / 2;
           lbl.anchorOffsetY = lbl.height / 2;
           lbl.rotation = rotate as number;

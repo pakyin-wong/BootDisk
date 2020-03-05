@@ -7,7 +7,6 @@ namespace we {
 
       const index = RACETRACK.indexOf(num);
       const lastElementIndex = RACETRACK.length - 1;
-      console.log(index);
       let computedInterval = interval;
 
       if (lastElementIndex - computedInterval * 2 <= 0) {

@@ -206,13 +206,13 @@ namespace we {
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
-        this.touchChildren = enable;
-        Object.keys(this._mouseAreaMapping).forEach(value => {
-          if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].touchEnabled = enable;
-            this._mouseAreaMapping[value].touchChildren = enable;
-          }
-        });
+        // this.touchChildren = enable;
+        // Object.keys(this._mouseAreaMapping).forEach(value => {
+        //   if (this._mouseAreaMapping[value]) {
+        //     this._mouseAreaMapping[value].touchEnabled = enable;
+        //     this._mouseAreaMapping[value].touchChildren = false;
+        //   }
+        // });
 
         if (!enable) {
           this.cancelBet();
@@ -263,7 +263,6 @@ namespace we {
 
       public onBetFieldUpdateEvent(evt: egret.Event) {
         const target = evt.target;
-        console.log(evt);
         const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
         this.onBetFieldUpdate(fieldName)();
       }
@@ -365,25 +364,15 @@ namespace we {
         if (env.tableInfos[this._tableId].prevroundid !== env.tableInfos[this._tableId].prevbetsroundid) {
           return;
         }
-        const validRepeatBet = this._cfmBetDetails.map(value => {
-          if (value.amount === 0) {
-            return true;
+        const validRepeatBet = this._cfmBetDetails.reduce((acc, cur) => {
+          if (cur.amount === 0) {
+            return acc && true;
           }
-          let betDetail = { field: value.field, amount: 0 };
-          for (const bets of env.tableInfos[this._tableId].prevbets) {
-            if (bets.field === value.field) {
-              betDetail = { field: bets.field, amount: bets.amount };
-            }
-          }
-          if (this.validateBetAction(betDetail)) {
-            return true;
-          }
-          return false;
-        });
-        for (const valid of validRepeatBet) {
-          if (!valid) {
-            return;
-          }
+          const betDetail = { field: cur.field, amount: cur.amount };
+          return this.validateBetAction(betDetail) ? acc && true : false;
+        }, true);
+        if (!validRepeatBet) {
+          return;
         }
         env.tableInfos[this._tableId].prevbets.map(value => {
           this._betChipStackMapping[value.field].uncfmBet = value.amount;

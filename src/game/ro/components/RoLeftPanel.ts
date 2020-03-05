@@ -73,237 +73,26 @@ namespace we {
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
 
-        const rdata: any = [
-          { v: 0, index: 0 },
-          { v: 1, index: 1 },
-          { v: 2, index: 2 },
-          { v: 3, index: 3 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 35, index: 5 },
-        ];
-        this.beadRoad.parseRoadData(rdata);
-
         // add bead road to page stack 2
         const page2Group = this.pageStack.getChildAt(1) as eui.Group;
         page2Group.addChild(this.beadRoad);
 
-        const rdata2: any = [
-          { v: 0, index: 0 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 1, index: 1 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 2, index: 2 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 3, index: 3 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          { v: 4, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 4, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 4, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 4, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 4, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 35, index: 5 },
-        ];
-
         this.colorBigRoad = new ROColorBigRoad(19, 35, 1, true);
         this.colorBigRoad.scaleX = 668 / 666;
-        this.colorBigRoad.parseRoadData(rdata2);
 
         // add road to road stack 1
         const road1Group = this.roadStack.getChildAt(0) as eui.Group;
         road1Group.addChild(this.colorBigRoad);
 
-        const rdata3: any = [
-          { v: 0, index: 0 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 1, index: 1 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 23, index: 2 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 3, index: 3 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 24, index: 4 },
-          { v: 24, index: 4 },
-          { v: 24, index: 4 },
-          { v: 23, index: 4 },
-          { v: 23, index: 4 },
-          { v: 23, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 23, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 23, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 23, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 32, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 35, index: 5 },
-        ];
-
         this.sizeBigRoad = new ROSizeBigRoad(19, 35, 1, true);
         this.sizeBigRoad.scaleX = 668 / 666;
-        this.sizeBigRoad.parseRoadData(rdata3);
 
         // add road to road stack 2
         const road2Group = this.roadStack.getChildAt(1) as eui.Group;
         road2Group.addChild(this.sizeBigRoad);
 
-        const rdata4: any = [
-          { v: 0, index: 0 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 1, index: 1 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 2, index: 2 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 3, index: 3 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 2, index: 4 },
-          { v: 2, index: 4 },
-          { v: 2, index: 4 },
-          { v: 2, index: 4 },
-          { v: 2, index: 4 },
-          { v: 2, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 2, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 2, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 2, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 2, index: 4 },
-          {},
-          {},
-          {},
-          {},
-          {},
-          { v: 2, index: 5 },
-        ];
-
         this.oddBigRoad = new ROOddBigRoad(19, 35, 1, true);
         this.oddBigRoad.scaleX = 668 / 666;
-        this.oddBigRoad.parseRoadData(rdata4);
 
         // add road to road stack 3
         const road3Group = this.roadStack.getChildAt(2) as eui.Group;
@@ -331,42 +120,34 @@ namespace we {
         this.activeLine.y = 332;
 
         this.hotIcon1 = new ROBeadRoadIcon(88, 0x262a2b, 1);
-        this.hotIcon1.setByObject({ v: 1 });
         this.hotIcon1.x = 220;
         this.hotIcon1.y = 29;
 
         this.hotIcon2 = new ROBeadRoadIcon(58, 0x262a2b, 1);
-        this.hotIcon2.setByObject({ v: 1 });
         this.hotIcon2.x = 21;
         this.hotIcon2.y = 152;
 
         this.hotIcon3 = new ROBeadRoadIcon(58, 0x262a2b, 1);
-        this.hotIcon3.setByObject({ v: 1 });
         this.hotIcon3.x = 97;
         this.hotIcon3.y = 152;
 
         this.hotIcon4 = new ROBeadRoadIcon(58, 0x262a2b, 1);
-        this.hotIcon4.setByObject({ v: 1 });
         this.hotIcon4.x = 173;
         this.hotIcon4.y = 152;
 
         this.hotIcon5 = new ROBeadRoadIcon(58, 0x262a2b, 1);
-        this.hotIcon5.setByObject({ v: 1 });
         this.hotIcon5.x = 249;
         this.hotIcon5.y = 152;
 
         this.coldIcon1 = new ROBeadRoadIcon(88, 0x262a2b, 1);
-        this.coldIcon1.setByObject({ v: 1 });
         this.coldIcon1.x = 358;
         this.coldIcon1.y = 29;
 
         this.coldIcon2 = new ROBeadRoadIcon(58, 0x262a2b, 1);
-        this.coldIcon2.setByObject({ v: 1 });
         this.coldIcon2.x = 357;
         this.coldIcon2.y = 152;
 
         this.coldIcon3 = new ROBeadRoadIcon(58, 0x262a2b, 1);
-        this.coldIcon3.setByObject({ v: 1 });
         this.coldIcon3.x = 433;
         this.coldIcon3.y = 152;
 
@@ -421,7 +202,15 @@ namespace we {
         const radioButtons = [this.pageRadioBtn1, this.pageRadioBtn2, this.pageRadioBtn3];
         const btn = radioButtons[this.pageStack.selectedIndex];
 
-        const w = btn['labelDisplayUp']['textWidth'];
+        radioButtons.forEach(element => {
+          if (element === btn) {
+            element.currentState = 'upAndSelected';
+          } else {
+            element.currentState = 'up';
+          }
+        });
+        btn.validateNow();
+        const w = btn['labelDisplayDown']['textWidth'];
         const x = btn.x + (btn.width - w) * 0.5;
 
         egret.Tween.removeTweens(this.activeLine);
@@ -442,7 +231,17 @@ namespace we {
           }
         }
       }
+      public setHotCold(hotNumbers: number[], coldNumbers: number[]) {
+        const hots = [this.hotIcon1, this.hotIcon2, this.hotIcon3, this.hotIcon4, this.hotIcon5];
+        const colds = [this.coldIcon1, this.coldIcon2, this.coldIcon3, this.coldIcon4, this.coldIcon5];
 
+        hotNumbers.forEach((element, index) => {
+          hots[index].setByObject({ v: element });
+        });
+        coldNumbers.forEach((element, index) => {
+          colds[index].setByObject({ v: element });
+        });
+      }
       public destroy() {
         super.destroy();
 

@@ -4,7 +4,7 @@ namespace we {
       public beadRoad: DTBeadRoad;
 
       public constructor() {
-        super('BARoadmapLeftPanel');
+        super('ba/BARoadmapLeftPanel');
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;

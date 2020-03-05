@@ -68,7 +68,9 @@ namespace we {
         super.itemRemoved(item, index);
         if (this.maxDisplayCount > 0) {
           const nextItem = this.itemQueue.shift();
-          this.addItem(nextItem);
+          if (nextItem) {
+            this.addItem(nextItem);
+          }
         }
       }
 

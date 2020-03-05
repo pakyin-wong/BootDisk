@@ -20,6 +20,7 @@ namespace we {
       protected destinationX: number = Infinity;
       protected destinationY: number = Infinity;
       protected isDirty: boolean = true;
+      protected isNew: boolean = true;
 
       constructor() {
         super();
@@ -91,9 +92,9 @@ namespace we {
 
       public dataChanged(): void {
         super.dataChanged();
-        const isNew = this.data.isNew;
+        this.isNew = this.data.isNew;
         this.itemData = this.data.item;
-        if (isNew) {
+        if (this.isNew) {
           if (this.parent instanceof List) {
             const list = <List>this.parent;
             this.isFadeEnter = list.isFade;
@@ -109,7 +110,7 @@ namespace we {
 
       public itemDataChanged() {}
 
-      private isDeltaIdentity(m) {
+      protected isDeltaIdentity(m) {
         return m.a === 1 && m.b === 0 && m.c === 0 && m.d === 1;
       }
 
