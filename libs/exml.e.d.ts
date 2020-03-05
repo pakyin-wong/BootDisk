@@ -429,6 +429,10 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop.ro{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }

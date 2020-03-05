@@ -91,7 +91,7 @@ namespace we {
 
       // animation for Baccarat / Dragon Tiger
       protected startAnim(gameType: core.GameType, resultData: any) {
-        const { winType, winAmount } = resultData;
+        const { winType, winAmount, gameData } = resultData;
         const background = this.getBackground(gameType, winType);
 
         logger.l(background, gameType, winType, winAmount);

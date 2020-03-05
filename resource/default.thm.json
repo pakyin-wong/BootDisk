@@ -148,6 +148,7 @@
 		"resource/skin_desktop/overlay/SystemSetting.exml",
 		"resource/skin_desktop/QuickBetAnimButton.exml",
 		"resource/skin_desktop/ro/GameResult/ResultHolder.exml",
+		"resource/skin_desktop/ro/GameResult/SideBetResultMessage.exml",
 		"resource/skin_desktop/ro/LiveListItem.exml",
 		"resource/skin_desktop/ro/LiveListSimpleItem.exml",
 		"resource/skin_desktop/ro/RaceTrackChipLayer.exml",

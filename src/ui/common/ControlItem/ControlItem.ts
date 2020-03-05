@@ -372,6 +372,7 @@ namespace we {
         }
         return false;
       }
+
       public checkResultMessage() {
         let totalWin: number = NaN;
         if (this._tableInfo.totalWin) {
@@ -382,6 +383,7 @@ namespace we {
             this._resultMessage.showResult(this._tableInfo.gametype, {
               winType: this._gameData.wintype,
               winAmount: totalWin,
+              gameData: this._gameData,
             });
           }
         } else {
@@ -389,6 +391,7 @@ namespace we {
             this._resultMessage.showResult(this._tableInfo.gametype, {
               winType: this._gameData.wintype,
               winAmount: NaN,
+              gameData: this._gameData,
             });
           }
         }
