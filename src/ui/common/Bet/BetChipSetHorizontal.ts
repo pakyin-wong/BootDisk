@@ -36,6 +36,15 @@ namespace we {
         this._visibleDenomNum = 5; // default value
       }
 
+      protected mount() {
+        this.syncChip();
+        dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.syncChip, this);
+      }
+
+      protected destroy() {
+        dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.syncChip, this);
+      }
+
       public set clipChipHeightPortion(value: number) {
         this._clipChipHeightPortion = value;
       }
@@ -155,6 +164,26 @@ namespace we {
       }
 
       private _onChipSelected(index: number) {
+        this.setChip(index);
+        env.currentChipSelectedIndex = index;
+        dir.evtHandler.dispatch(core.Event.BET_DENOMINATION_CHANGE);
+      }
+
+      private syncChip() {
+        // check if the page is correct
+        const index = env.currentChipSelectedIndex;
+        if (!(index - this._startIndex < this._visibleDenomNum && index - this._startIndex > 0)) {
+          // update _startIndex
+          this._startIndex = (index / this._visibleDenomNum) * this._visibleDenomNum;
+          const lastPageStart = this._denomList.length - this._visibleDenomNum;
+          this._startIndex = Math.min(this._startIndex, lastPageStart);
+
+          this._renderItems();
+        }
+        this.setChip(env.currentChipSelectedIndex);
+      }
+
+      private setChip(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
         this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
         this._chipList[this._selectedChipIndex].height = this.height * this._clipChipHeightPortion;
