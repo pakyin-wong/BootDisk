@@ -27,7 +27,7 @@ namespace we {
       }
 
       protected initTabs() {
-        const group = <eui.Group> this._scroller.viewport;
+        const group = <eui.Group>this._scroller.viewport;
 
         this._viewStack = new eui.ViewStack();
         this._viewStack.width = group.width;
@@ -46,7 +46,7 @@ namespace we {
         betTableGroup.addChild(scroller);
         this.betTableList = new TableList();
         this.betTableList.isFreezeScrolling = true;
-        this.betTableList.extendHeight = 250;
+        this.betTableList.extendHeight = 400;
         this.betTableList.isAnimateItemTransition = true;
         this.betTableList.itemRenderer = SideListBetItemHolder;
         this.betTableList.layout = this.getLayout();
@@ -64,7 +64,7 @@ namespace we {
         goodRoadTableGroup.addChild(scroller);
         this.goodRoadTableList = new TableList();
         this.goodRoadTableList.isFreezeScrolling = true;
-        this.goodRoadTableList.extendHeight = 250;
+        this.goodRoadTableList.extendHeight = 400;
         this.goodRoadTableList.isAnimateItemTransition = true;
         this.goodRoadTableList.itemRenderer = SideListItemHolder;
         this.goodRoadTableList.layout = this.getLayout();
@@ -82,7 +82,7 @@ namespace we {
         allTableGroup.addChild(scroller);
         this.allTableList = new TableList();
         this.allTableList.isFreezeScrolling = true;
-        this.allTableList.extendHeight = 250;
+        this.allTableList.extendHeight = 400;
         this.allTableList.isAnimateItemTransition = true;
         this.allTableList.itemRenderer = SideListItemHolder;
         this.allTableList.layout = this.getLayout();
@@ -91,10 +91,10 @@ namespace we {
 
         this._tabbar.dataProvider = this._viewStack;
         this._tabbar.validateNow();
-        let tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        let tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_green_png';
 
-        tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_png';
 
         this._bg.alpha = 0;
@@ -180,7 +180,7 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate(count);
         }
@@ -190,7 +190,7 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate(count);
         }
