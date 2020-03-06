@@ -414,6 +414,7 @@ namespace we {
       }
 
       public flashGrid(fieldName: string) {
+        console.log('TableLayer::flashGrid()' + ro.getWinningFields(fieldName));
         const group = this._groupMapping[fieldName];
         const image = new eui.Image();
         image.name = 'flash';
