@@ -413,28 +413,73 @@ namespace we {
         }
       }
 
-      public flashGrid(fieldName: string) {
-        console.log('TableLayer::flashGrid()' + ro.getWinningFields(fieldName));
-        const group = this._groupMapping[fieldName];
-        const image = new eui.Image();
-        image.name = 'flash';
-        image.alpha = 0;
-        image.source = this._groupHoverImageMapping[fieldName];
-        group.addChildAt(image, 0);
-
-        let run = 0;
-        const flash = setInterval(() => {
-          if (run % 2 === 0) {
-            image.alpha = 1;
-          } else {
-            image.alpha = 0;
+      public async flashFields(fieldName: string) {
+        const winningFields = ro.getWinningFields(fieldName);
+        const initRectPromises = [];
+        // init dim rects
+        for (const field of Object.keys(this._groupMapping)) {
+          const group = this._groupMapping[field];
+          const isWin = winningFields.indexOf(field) >= 0;
+          // try remove existing
+          let rect = group.getChildByName('dim');
+          if (rect) {
+            group.removeChild(rect);
           }
-          run += 1;
+          rect = new eui.Rect();
+          rect.name = 'dim';
+          rect.alpha = 0;
+          rect.fillColor = isWin ? 0xffffff : 0x000000;
+          rect.percentWidth = 100;
+          rect.percentHeight = 100;
+          group.addChildAt(rect, 0);
+          const promise = new Promise(resolve => {
+            egret.Tween.get(rect)
+              .to({ alpha: isWin ? 0 : 0.25 }, 125)
+              .call(resolve);
+          });
+          initRectPromises.push(promise);
+        }
+        await Promise.all(initRectPromises);
+        // start flashing
+        let run = 1;
+        const tick = async () => {
+          // end flashing
           if (run >= 6) {
-            clearInterval(flash);
-            group.removeChild(image);
+            const fadeOutPromises = [];
+            for (const field of Object.keys(this._groupMapping)) {
+              const group = this._groupMapping[field];
+              const isWin = winningFields.indexOf(field) >= 0;
+              const rect = group.getChildByName('dim');
+              const promise = new Promise(resolve => {
+                egret.Tween.get(rect)
+                  .to({ alpha: 0 }, 125)
+                  .call(() => {
+                    group.removeChild(rect);
+                    resolve();
+                  });
+              });
+              fadeOutPromises.push(promise);
+            }
+            await Promise.all(fadeOutPromises);
+            return;
           }
-        }, 500);
+          const tickFlashPromises = [];
+          for (const field of winningFields) {
+            const group = this._groupMapping[field];
+            const rect = group.getChildByName('dim');
+            const prom = new Promise(resolve => {
+              const alpha = run % 2 === 1 ? 0.25 : 0;
+              egret.Tween.get(rect)
+                .to({ alpha }, 125)
+                .call(resolve);
+            });
+            tickFlashPromises.push(prom);
+          }
+          await Promise.all(tickFlashPromises);
+          run += 1;
+          setTimeout(tick, 300);
+        };
+        setTimeout(tick, 300);
       }
     }
   }
