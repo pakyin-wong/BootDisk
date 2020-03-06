@@ -87,50 +87,50 @@ namespace we {
         this.beadRoad.y = 98;
         this._roadmapGroup.addChild(this.beadRoad);
 
-        this.iconBankerBead = new BABeadRoadIcon(52);
-        this.iconBankerBead.x = 15;
-        this.iconBankerBead.y = 23;
-        this.iconBankerBead.setByObject({ v: 'b' });
-        this._roadmapGroup.addChild(this.iconBankerBead);
+        // this.iconBankerBead = new BABeadRoadIcon(52);
+        // this.iconBankerBead.x = 15;
+        // this.iconBankerBead.y = 23;
+        // this.iconBankerBead.setByObject({ v: 'b' });
+        // this._roadmapGroup.addChild(this.iconBankerBead);
 
         this.iconBankerBigEye = new BABigEyeRoadIcon(27);
-        this.iconBankerBigEye.x = 146;
+        this.iconBankerBigEye.x = 379;
         this.iconBankerBigEye.y = 36;
         this.iconBankerBigEye.setByObject({ v: 'b' });
         this._roadmapGroup.addChild(this.iconBankerBigEye);
 
         this.iconBankerSmall = new BASmallRoadIcon(27);
-        this.iconBankerSmall.x = 177;
+        this.iconBankerSmall.x = 410;
         this.iconBankerSmall.y = 36;
         this.iconBankerSmall.setByObject({ v: 'b' });
         this._roadmapGroup.addChild(this.iconBankerSmall);
 
         this.iconBankerCockroach = new BACockroachRoadIcon(27);
-        this.iconBankerCockroach.x = 208;
+        this.iconBankerCockroach.x = 441;
         this.iconBankerCockroach.y = 36;
         this.iconBankerCockroach.setByObject({ v: 'b' });
         this._roadmapGroup.addChild(this.iconBankerCockroach);
 
-        this.iconPlayerBead = new BABeadRoadIcon(52);
-        this.iconPlayerBead.x = 247;
-        this.iconPlayerBead.y = 23;
-        this.iconPlayerBead.setByObject({ v: 'p' });
-        this._roadmapGroup.addChild(this.iconPlayerBead);
+        // this.iconPlayerBead = new BABeadRoadIcon(52);
+        // this.iconPlayerBead.x = 247;
+        // this.iconPlayerBead.y = 23;
+        // this.iconPlayerBead.setByObject({ v: 'p' });
+        // this._roadmapGroup.addChild(this.iconPlayerBead);
 
         this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
-        this.iconPlayerBigEye.x = 379;
+        this.iconPlayerBigEye.x = 146;
         this.iconPlayerBigEye.y = 36;
         this.iconPlayerBigEye.setByObject({ v: 'p' });
         this._roadmapGroup.addChild(this.iconPlayerBigEye);
 
         this.iconPlayerSmall = new BASmallRoadIcon(27);
-        this.iconPlayerSmall.x = 410;
+        this.iconPlayerSmall.x = 177;
         this.iconPlayerSmall.y = 36;
         this.iconPlayerSmall.setByObject({ v: 'p' });
         this._roadmapGroup.addChild(this.iconPlayerSmall);
 
         this.iconPlayerCockroach = new BACockroachRoadIcon(27);
-        this.iconPlayerCockroach.x = 441;
+        this.iconPlayerCockroach.x = 208;
         this.iconPlayerCockroach.y = 36;
         this.iconPlayerCockroach.setByObject({ v: 'p' });
         this._roadmapGroup.addChild(this.iconPlayerCockroach);

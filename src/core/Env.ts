@@ -131,7 +131,11 @@ namespace we {
             return false;
           }
           const gameType = tableInfo.gametype;
-          if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
+          // if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
+          //   tableInfo.displayReady = false;
+          //   return false;
+          // }
+          if (gameType === core.GameType.RO) {
             tableInfo.displayReady = false;
             return false;
           }
