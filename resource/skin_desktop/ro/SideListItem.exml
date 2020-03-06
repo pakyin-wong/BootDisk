@@ -40,7 +40,7 @@
         </e:Group>
         <ui:SideQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
                                    hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
-                                   horizontalCenter="0" y="186" width="148" height="42" label1text="加注" label2text="X" />
+                                   horizontalCenter="0" y="186" width="148" height="42" label1text="加注" label2text="" />
         <live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0"
                                anchorOffsetY="0" skinName="BetLimitDropdownSkin" visible="false" />
     </e:Group>

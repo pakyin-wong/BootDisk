@@ -71,7 +71,7 @@ namespace we {
 
           const exceed = roadDataCopy.length - maxNum;
           if (exceed > 0) {
-            roadDataCopy.splice(0, exceed);
+            roadDataCopy.splice(maxNum, exceed);
           }
           for (let i = 0; i < roadDataCopy.length; i++) {
             const icon = this.roadMapIconList[i];

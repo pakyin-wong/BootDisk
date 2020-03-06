@@ -21,7 +21,7 @@ namespace we {
             if (this.value.v === 0) {
               // green
               this.iconText.text = i18n.t('roulette.zeroShort');
-            } else if (this.value.v <= 18) {
+            } else if (this.value.v === 1) {
               // blue for small
               this.iconText.text = i18n.t('roulette.smallShort');
             } else {
@@ -102,7 +102,7 @@ namespace we {
           if (value.v === 0) {
             // green
             this.iconFaceArr[2 + useDarkMode].visible = true;
-          } else if (value.v <= 18) {
+          } else if (this.value.v === 1) {
             // blue for small
             this.iconFaceArr[1 + useDarkMode].visible = true;
           } else {

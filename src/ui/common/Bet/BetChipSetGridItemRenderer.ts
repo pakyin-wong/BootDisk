@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
-    export class BetChipSetGridItem extends we.ui.ItemRenderer {
-      public selected: boolean;
+    export class BetChipSetGridItemRenderer extends ui.ItemRenderer {
+      private _isSelected: boolean;
       public itemIndex: number;
 
       public static STATE_NORMAL: number = 0;
@@ -13,6 +13,7 @@ namespace we {
       protected _betChip: BetChip;
       protected _betChipHeight: number = 56;
       protected _betChipWidth: number = 70;
+      protected _labelSize: number = 30;
 
       protected get betChipSetGrid(): BetChipSetGrid {
         if (this.parent) {
@@ -23,20 +24,10 @@ namespace we {
 
       public constructor() {
         super();
-        this.addEventListeners();
-        this.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
-        this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
         this._betChip = new BetChip(0);
-
-        this._betChip.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
-        this._betChip.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
+        this.once(eui.UIEvent.ADDED_TO_STAGE, this.setSize, this);
         this.addChild(this._betChip);
         mouse.setButtonMode(this._betChip, true);
-      }
-
-      protected addEventListeners() {
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
-        this.once(eui.UIEvent.ADDED_TO_STAGE, this.setSize, this);
       }
 
       protected setSize() {
@@ -44,21 +35,36 @@ namespace we {
         this.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
         this._betChip.height = this.betChipSetGrid ? this.betChipSetGrid.betChipHeight : this._betChipHeight;
         this._betChip.width = this.betChipSetGrid ? this.betChipSetGrid.betChipWidth : this._betChipWidth;
-      }
-
-      protected onClick() {
-        if (this.parent && this.parent.parent) {
-          this.betChipSetGrid.setSelectedChip(+this.itemData, +this.itemIndex);
-          this.betChipSetGrid.selectedChipIndex = +this.itemIndex;
-        }
+        this._betChip.verticalCenter = 0;
+        this._betChip.horizontalCenter = 0;
+        this._betChip.scaleX = 0.85;
+        this._betChip.scaleY = 0.85;
+        this._betChip.labelSize = this.betChipSetGrid ? this.betChipSetGrid.labelSize : this._labelSize;
       }
 
       public itemDataChanged() {
         super.itemDataChanged();
         if (this.itemData) {
-          this._betChip.setValue(this.itemData, this.itemIndex, we.core.ChipType.CLIP);
+          const type = this.selected ? we.core.ChipType.FLAT : we.core.ChipType.PERSPECTIVE;
+          this._betChip.setValue(this.itemData, this.itemIndex, type);
           this._betChip.index = this.itemIndex;
         }
+      }
+
+      public get selected(): boolean {
+        return this._isSelected;
+      }
+
+      public set selected(value: boolean) {
+        if (this._isSelected === value) {
+          return;
+        }
+        // update chip face
+        if (this.itemData) {
+          this._betChip.type = value ? we.core.ChipType.FLAT : we.core.ChipType.PERSPECTIVE;
+        }
+        this._isSelected = value;
+        this.invalidateState();
       }
     }
   }

@@ -114,6 +114,7 @@ class IPhone8Helper extends IPhone7Helper {
     this.canvas = document.getElementsByTagName('canvas')[0];
     this.canvasContainer = this.canvas.parentElement;
     this.canvasContainer.style.position = 'fixed';
+    this.setFullscreenOverlayVisible(false);
   }
 
   public PreventEvent(e: Event) {
@@ -159,7 +160,6 @@ class IPhone8Helper extends IPhone7Helper {
     this.clientHeight = this.GetClientHeight();
     const wasTopPanel = this.isTopPanel;
     this.isTopPanel = window.innerHeight < screenHeight;
-    console.log(window.innerHeight, screenHeight);
     if (this.isTopPanel) {
       if (!wasTopPanel) {
         this.UpdateStyle(true);
@@ -170,6 +170,7 @@ class IPhone8Helper extends IPhone7Helper {
         //   common: "EVT_FULLSCREEN_OVERLAY_SHOWN",
         //   args: null
         // }));
+        this.setFullscreenOverlayVisible(true);
         this.panelHiddenTime = -1;
       }
     } else {
@@ -179,6 +180,7 @@ class IPhone8Helper extends IPhone7Helper {
         //   common: "EVT_FULLSCREEN_OVERLAY_HIDDEN",
         //   args: null
         // }));
+        this.setFullscreenOverlayVisible(false);
         this.panelHiddenTime = Date.now();
         this.resizeCanvas();
       }
@@ -189,6 +191,10 @@ class IPhone8Helper extends IPhone7Helper {
         self.ResizeHandler();
       }, 500);
     }
+  }
+  protected setFullscreenOverlayVisible(visible) {
+    const overlay = document.getElementsByClassName('fullscreen-overlay')[0];
+    overlay.className = visible ? 'fullscreen-overlay' : 'fullscreen-overlay hidden';
   }
 
   public UpdateStyle(visible) {
@@ -215,6 +221,26 @@ class IPhone8Helper extends IPhone7Helper {
     // document.body.style.position = scrollable ? 'static' : 'fixed';
     this.canvasContainer.style.pointerEvents = scrollable ? 'none' : 'auto';
     document.body.style.pointerEvents = scrollable ? 'none' : 'auto';
+    if (scrollable) {
+      this.enableScroll();
+    } else {
+      this.disableScroll();
+    }
+  }
+
+  public disableScroll() {
+    // Get the current page scroll position
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+    // if any scroll is attempted, set this to the previous value
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+  }
+
+  public enableScroll() {
+    window.onscroll = function () {};
   }
 
   public HandleTouchStart(event: Event) {

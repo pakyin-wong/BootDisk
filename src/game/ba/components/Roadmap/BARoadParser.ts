@@ -499,7 +499,6 @@ namespace we {
           if (data.gametype === core.GameType.RO) {
             for (const i in data.gameInfo) {
               road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
-              // road.gameInfo.push(BARoadParser.CreateRoadmapGameInfoFromObject(i));
             }
           } else {
             data.gameInfo.forEach(element => {
@@ -513,13 +512,6 @@ namespace we {
 
       private static CreateRoadmapSetFromObject(data: any): we.data.RoadmapSet {
         const roadSet = new we.data.RoadmapSet();
-
-        if (data.beads !== undefined) {
-          roadSet.bead = [];
-          data.beads.forEach(element => {
-            roadSet.bead.push(BARoadParser.CreateRoadmapCellFromObject(element));
-          });
-        }
 
         if (data.bead !== undefined) {
           roadSet.bead = [];

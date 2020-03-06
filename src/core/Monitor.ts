@@ -59,7 +59,7 @@ namespace we {
         this._nav.touchEnabled = false;
 
         this._notificationController.x = stage.stageWidth - 410;
-        this._notificationController.y = 240;
+        this._notificationController.y = 180;
 
         if (env.mode < 0) {
           dir.evtHandler.createOverlay({

@@ -152,6 +152,29 @@ namespace we {
         return null;
       }
 
+      public gotoScene(tableId: string) {
+        const gameType = env.tableInfos[tableId].gametype;
+        switch (gameType) {
+          case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
+            dir.sceneCtr.goto('ba', { tableid: tableId });
+            break;
+          case core.GameType.DT:
+            dir.sceneCtr.goto('dt', { tableid: tableId });
+            break;
+          case core.GameType.RO:
+            dir.sceneCtr.goto('ro', { tableid: tableId });
+            break;
+          case core.GameType.DI:
+            dir.sceneCtr.goto('di', { tableid: tableId });
+            break;
+          default:
+            console.error('error in TableListItemHolder');
+            break;
+        }
+      }
+
       /*
       public onTableListUpdate(evt: egret.Event) {
         logger.l('env.onTableListUpdate');

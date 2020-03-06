@@ -8,11 +8,12 @@ namespace we {
       protected mount() {
         super.mount();
         mouse.setButtonMode(this, true);
+        this.touchEnabled = true;
       }
 
       public setSelectedChip(value: number, index: number) {
-        this.setValue(value, index, we.core.ChipType.FLAT);
         this.highlight = true;
+        this.setValue(value, index, we.core.ChipType.FLAT);
       }
     }
   }

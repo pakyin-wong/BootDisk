@@ -31,6 +31,10 @@ namespace we {
         dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
       }
 
+      public getTableLayer() {
+        return this._tableLayer;
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
