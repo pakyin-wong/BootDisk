@@ -177,6 +177,15 @@ namespace we {
         askDragon: '龙问路',
         askTiger: '虎问路',
       },
+      dice: {
+        big: '大',
+        small: '细',
+        even: '双',
+        odd: '单',
+        single: '单骰',
+        double: '双骰',
+        triple: '三骰',
+      },
       roulette: {
         row_1: '第一行',
         row_2: '第二行',

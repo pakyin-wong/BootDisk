@@ -660,5 +660,19 @@ namespace we {
       3: Color.RED,
       26: Color.BLACK,
     };
+
+    export function getWinningFields(winningField: string) {
+      const lightingResult = new Array();
+      Object.keys(BETFIELD_MAPPING).map(key => {
+        BETFIELD_MAPPING[key].map(value => {
+          if (ro.BetField[winningField] === value) {
+            if (ro.BETFIELD_IMAGE_MAPPING[key]) {
+              lightingResult.push(key);
+            }
+          }
+        });
+      });
+      return lightingResult;
+    }
   }
 }

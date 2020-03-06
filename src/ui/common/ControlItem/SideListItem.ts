@@ -33,6 +33,7 @@ namespace we {
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
         this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+        this._contentContainer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.gotoScene, this);
       }
 
       protected removeEventListeners() {
@@ -40,6 +41,7 @@ namespace we {
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
         this._closeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
         this._prevButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+        this._contentContainer.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.gotoScene, this);
       }
 
       public onClickButton(evt: egret.Event) {
@@ -158,6 +160,15 @@ namespace we {
             }
           }
         }
+      }
+
+      protected gotoScene(evt: egret.Event) {
+        const target = this.getActionButton();
+        if (evt.target === target) {
+          return;
+        }
+        dir.socket.enterTable(this.tableId);
+        env.gotoScene(this.tableId);
       }
     }
   }
