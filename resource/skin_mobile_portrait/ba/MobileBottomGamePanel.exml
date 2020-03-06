@@ -33,7 +33,7 @@
 			</e:RadioButton>
 			<e:Image id="_arrow" x="1150" y="10" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1"/>
 			<e:Image id="_arrowUp" x="1230" y="90" width="80" height="80" scaleX="1" scaleY="1" source="d_lobby_button_down_normal_png" anchorOffsetX="0" anchorOffsetY="0" rotation="180"/>
-			<e:Label id="_gameInfoLabel" text="Label" x="47" y="29" size="42" bold="true" visible="false"/>
+			<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="47" y="29" size="42" bold="true" visible="false"/>
 		</e:Group>
 		<e:Group id="_middlePart" width="1242" x="0" y="100" scaleX="1" scaleY="1">
 			<e:Rect id="viewStackMask" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1"/>

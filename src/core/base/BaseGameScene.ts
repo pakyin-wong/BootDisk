@@ -439,12 +439,14 @@ namespace we {
           }
         }
       }
+
       protected setStateRefund(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.REFUND || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
+
       protected setStateShuffle(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -479,6 +481,7 @@ namespace we {
         }
         this._betRelatedGroup.visible = enable;
       }
+
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         if (this._resultDisplay) {
           this._resultDisplay.visible = enable;

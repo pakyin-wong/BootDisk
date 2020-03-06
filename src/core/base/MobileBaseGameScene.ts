@@ -84,6 +84,11 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
         this._betChipSetGridSelected.visible = enable;
+
+        const isEnable = enable;
+        if (!isEnable) {
+          this.hideBetChipPanel();
+        }
       }
 
       protected showBetChipPanel() {

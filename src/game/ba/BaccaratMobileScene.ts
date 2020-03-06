@@ -67,6 +67,8 @@ namespace we {
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
         }
+
+        this.setChipPanelPos();
       }
 
       protected initBottomBetLimitSelector() {
@@ -134,10 +136,12 @@ namespace we {
       protected setChipPanelPos() {
         if (this._bottomGamePanel.isPanelOpen) {
           this._betPanelGroup.scaleY = 1;
-          this._betChipSetMobile.y = 50;
+          this._betPanelGroup.y = 0;
+          this._betChipSetPanel.y = 986;
         } else {
           this._betPanelGroup.scaleY = -1;
-          this._betChipSetMobile.y = -532;
+          this._betPanelGroup.y = 762;
+          this._betChipSetPanel.y = 500;
         }
       }
 
