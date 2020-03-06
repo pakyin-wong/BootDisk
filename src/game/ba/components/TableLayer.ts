@@ -87,6 +87,12 @@ namespace we {
         this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][0];
       }
 
+      public clearAllHighlights() {
+        Object.keys(ba.BetField).map(value => {
+          this.onRollout(value);
+        });
+      }
+
       set totalPerson(persons: any) {
         if (this._totalPersonMapping) {
           Object.keys(persons).map(value => {

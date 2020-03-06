@@ -468,6 +468,9 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
+        if (this._tableLayer) {
+          this._tableLayer.clearAllHighlights();
+        }
         if (this._betChipSet) {
           this._betChipSet.setTouchEnabled(enable);
         }
