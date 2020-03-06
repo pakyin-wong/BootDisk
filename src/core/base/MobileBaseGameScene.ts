@@ -6,8 +6,17 @@ namespace we {
       protected _bottomGamePanel: BaseGamePanel;
       protected _lblBetLimit: ui.RunTimeLabel;
 
+      protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
+      protected _betChipSetMobile: ui.BetChipSet;
+      protected _betChipSetPanel: eui.Group;
+      protected _betPanelGroup: eui.Group;
+      protected _betChipSetGridEnabled: boolean = false;
+
       constructor(data: any) {
         super(data);
+        this._betChipSetPanel.alpha = 0;
+        this._betChipSetPanel.visible = false;
+        this._betChipSetMobile.alpha = 1;
       }
 
       protected initChildren() {
@@ -17,6 +26,10 @@ namespace we {
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
         }
+
+        this._betChipSetMobile.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        this._betChipSetMobile.init(null, denominationList);
       }
 
       protected initBetLimitSelector() {
@@ -64,6 +77,33 @@ namespace we {
         }
       }
 
+      protected onClickBetChipSelected() {
+        this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
+      }
+
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable);
+        this._betChipSetGridSelected.visible = enable;
+
+        const isEnable = enable;
+        if (!isEnable) {
+          this.hideBetChipPanel();
+        }
+      }
+
+      protected showBetChipPanel() {
+        this._betChipSetPanel.visible = true;
+        this._betChipSetPanel.anchorOffsetY = 30;
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
+        this._betChipSetGridEnabled = false;
+        this._betChipSetPanel.visible = false;
+      }
+
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
         this._bottomGamePanel.update();
@@ -72,6 +112,16 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         this._bottomGamePanel.update();
+      }
+
+      protected addEventListeners() {
+        super.addEventListeners();
+        this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+      }
+
+      protected removeEventListeners() {
+        super.addEventListeners();
+        this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
       }
     }
   }

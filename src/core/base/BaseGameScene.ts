@@ -41,7 +41,7 @@ namespace we {
       protected _video: egret.FlvVideo;
 
       // this for desktop
-      protected _tableInfoWindow: ui.TableInfoPanel;
+      // protected _tableInfoWindow: ui.TableInfoPanel;
 
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
@@ -251,7 +251,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -291,7 +291,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -439,12 +439,14 @@ namespace we {
           }
         }
       }
+
       protected setStateRefund(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.REFUND || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
+
       protected setStateShuffle(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -482,6 +484,7 @@ namespace we {
         }
         this._betRelatedGroup.visible = enable;
       }
+
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         if (this._resultDisplay) {
           this._resultDisplay.visible = enable;

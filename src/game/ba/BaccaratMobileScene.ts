@@ -29,8 +29,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -56,9 +56,54 @@ namespace we {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
 
+        if (this._bottomGamePanel._statisticChartPanel) {
+          this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
+        }
+
         this.createVerticalLayout();
 
         this.changeHandMode();
+
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this.initBottomBetLimitSelector();
+        }
+
+        this.setChipPanelPos();
+      }
+
+      protected initBottomBetLimitSelector() {
+        const betLimitList = env.betLimits;
+        const betLimitItems = betLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        const dropdownSource = betLimitList.map((data, index) => {
+          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+        });
+
+        const selectedIndex = env.currentSelectedBetLimitIndex;
+
+        utils.DropdownCreator.new({
+          toggler: this._bottomGamePanel._betLimitDropDownBtn,
+          review: this._bottomGamePanel._betLimitDropDownBtn,
+          arrCol: new eui.ArrayCollection(dropdownSource),
+          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+          selected: 0,
+        });
+
+        this.updateBetLimit(selectedIndex);
+
+        this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      }
+
+      protected updateBetLimit(selectedIndex) {
+        super.updateBetLimit(selectedIndex);
+        const bottomBetLimitList = env.betLimits;
+        const bottomBetLimitItems = bottomBetLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
+        }
       }
 
       protected addEventListeners() {
@@ -88,6 +133,28 @@ namespace we {
         this._verticalGroup.layout = vLayout;
       }
 
+      protected setChipPanelPos() {
+        if (this._bottomGamePanel.isPanelOpen) {
+          this._betPanelGroup.scaleY = 1;
+          this._betPanelGroup.y = 0;
+          this._betChipSetPanel.y = 986;
+        } else {
+          this._betPanelGroup.scaleY = -1;
+          this._betPanelGroup.y = 762;
+          this._betChipSetPanel.y = 500;
+        }
+      }
+
+      protected showBetChipPanel() {
+        this.setChipPanelPos();
+        super.showBetChipPanel();
+      }
+
+      protected hideBetChipPanel() {
+        this.setChipPanelPos();
+        super.hideBetChipPanel();
+      }
+
       protected onBaModeToggle(evt: eui.UIEvent) {
         this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
         this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
@@ -114,11 +181,11 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -128,6 +195,10 @@ namespace we {
 
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
+
+        if (this._bottomGamePanel._statisticChartPanel) {
+          this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
       }
 
