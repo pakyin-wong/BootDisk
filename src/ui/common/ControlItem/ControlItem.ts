@@ -378,8 +378,28 @@ namespace we {
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
         }
+        let pass1: boolean = false;
+        let pass2: boolean = false;
+        switch (this._tableInfo.gametype) {
+          case GameType.BAC:
+          case GameType.BAI:
+          case GameType.BAS:
+          case GameType.DT:
+          pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
+          pass2 = this._gameData && this._gameData.wintype != 0;
+          break;
+          case GameType.RO:
+          case GameType.DI:
+          pass1 = this._gameData  && !isNaN(totalWin);
+          pass2 = !!this._gameData ;
+          break;
+          default:
+          logger.e('No gametype found in ControlItem::checkResultMessage');
+          break;
+        }
+
         if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
+          if (pass1) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
               winType: this._gameData.wintype,
               winAmount: totalWin,
@@ -387,7 +407,7 @@ namespace we {
             });
           }
         } else {
-          if (this._gameData && this._gameData.wintype != 0) {
+          if (pass2) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
               winType: this._gameData.wintype,
               winAmount: NaN,
