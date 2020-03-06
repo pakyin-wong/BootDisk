@@ -385,17 +385,17 @@ namespace we {
           case GameType.BAI:
           case GameType.BAS:
           case GameType.DT:
-          pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
-          pass2 = this._gameData && this._gameData.wintype != 0;
-          break;
+            pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
+            pass2 = this._gameData && this._gameData.wintype != 0;
+            break;
           case GameType.RO:
           case GameType.DI:
-          pass1 = this._gameData  && !isNaN(totalWin);
-          pass2 = !!this._gameData ;
-          break;
+            pass1 = this._gameData && !isNaN(totalWin);
+            pass2 = !!this._gameData;
+            break;
           default:
-          logger.e('No gametype found in ControlItem::checkResultMessage');
-          break;
+            logger.e('No gametype found in ControlItem::checkResultMessage');
+            break;
         }
 
         if (this.hasBet()) {
@@ -436,7 +436,7 @@ namespace we {
         }
       }
 
-      protected onCancelPressed(evt: egret.Event) {
+      protected onCancelPressed(evt: egret.Event = null) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
         }

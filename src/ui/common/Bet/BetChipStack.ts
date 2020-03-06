@@ -158,6 +158,7 @@ namespace we {
           value.y = index * -this._chipInterval;
           value.width = this._chipWidth;
           value.height = this._chipHeight;
+          value.verticalCenter = 0;
           this.addChild(value);
           this.setChildIndex(value, index);
         });

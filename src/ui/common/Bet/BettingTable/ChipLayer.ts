@@ -107,9 +107,27 @@ namespace we {
       // Must be called if you change skin
       public init() {
         this.createMapping();
+        this.restructureChildren();
         this.passDenomListToBetChipStack();
         this.resetUnconfirmedBet();
         this.addAllMouseListeners();
+      }
+
+      protected restructureChildren() {
+        Object.keys(this._betChipStackMapping).forEach(value => {
+          const chipStack = this._betChipStackMapping[value];
+          if (this._betChipStackMapping[value]) {
+            const parent = chipStack.parent;
+            chipStack.verticalCenter = NaN;
+            chipStack.horizontalCenter = NaN;
+            chipStack.x = parent.x + parent.width * 0.5;
+            chipStack.y = parent.y + parent.height * 0.5;
+            chipStack.width = 0;
+            chipStack.height = 0;
+            chipStack.validateNow();
+            this.addChild(chipStack);
+          }
+        });
       }
 
       public isAlreadyBet() {
@@ -206,7 +224,7 @@ namespace we {
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
-        // this.touchChildren = enable;
+        // this.touchChildren = false;
         // Object.keys(this._mouseAreaMapping).forEach(value => {
         //   if (this._mouseAreaMapping[value]) {
         //     this._mouseAreaMapping[value].touchEnabled = enable;
