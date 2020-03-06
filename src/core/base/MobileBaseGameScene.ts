@@ -9,6 +9,7 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetMobile: ui.BetChipSet;
       protected _betChipSetPanel: eui.Group;
+      protected _betPanelGroup: eui.Group;
       protected _betChipSetGridEnabled: boolean = false;
 
       constructor(data: any) {
@@ -26,7 +27,7 @@ namespace we {
           this.initBetLimitSelector();
         }
 
-        this._betChipSetMobile.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        this._betChipSetMobile.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         this._betChipSetMobile.init(null, denominationList);
       }

@@ -12,7 +12,7 @@ namespace we {
 
       protected _arrow: egret.DisplayObject;
       protected _arrowUp: egret.DisplayObject;
-      protected isPanelOpen: boolean;
+      public isPanelOpen: boolean;
 
       // Right Roadmap
       public bigRoad: BABigRoad;

@@ -131,6 +131,26 @@ namespace we {
         this._verticalGroup.layout = vLayout;
       }
 
+      protected setChipPanelPos() {
+        if (this._bottomGamePanel.isPanelOpen) {
+          this._betPanelGroup.scaleY = 1;
+          this._betChipSetMobile.y = 50;
+        } else {
+          this._betPanelGroup.scaleY = -1;
+          this._betChipSetMobile.y = -532;
+        }
+      }
+
+      protected showBetChipPanel() {
+        this.setChipPanelPos();
+        super.showBetChipPanel();
+      }
+
+      protected hideBetChipPanel() {
+        this.setChipPanelPos();
+        super.hideBetChipPanel();
+      }
+
       protected onBaModeToggle(evt: eui.UIEvent) {
         this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
         this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
