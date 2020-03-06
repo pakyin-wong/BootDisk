@@ -73,7 +73,6 @@ namespace we {
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
         }
-        // this._tableInfo.bets
 
         if (!this._gameData) {
           return;

@@ -407,10 +407,19 @@ namespace we {
 
       public onRollout(fieldName: string) {
         const group = this._groupMapping[fieldName];
+        if (!group) {
+          return;
+        }
         const image = group.getChildByName('image');
         if (image) {
           group.removeChild(image);
         }
+      }
+
+      public clearAllHighlights() {
+        Object.keys(ro.BetField).map(value => {
+          this.onRollout(value);
+        });
       }
 
       public async flashFields(fieldName: string) {

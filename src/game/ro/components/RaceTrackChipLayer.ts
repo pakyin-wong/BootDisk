@@ -205,7 +205,7 @@ namespace we {
         return (evt: egret.Event) => {
           we.ro.getNeighbour(this._sectionToNumberMapping[fieldName], this._raceTrackControl.value).map(value => {
             this._raceTrackTableLayer.onRollover(this._numberToSectionMapping[value]);
-            this._chipLayer.onGridRollover(this._numberToSectionMapping[value])(null);
+            this._chipLayer.onGridRollover(this._numberToSectionMapping[value]);
           });
         };
       }
@@ -214,7 +214,7 @@ namespace we {
         return (evt: egret.Event) => {
           we.ro.getNeighbour(this._sectionToNumberMapping[fieldName], this._raceTrackControl.value).map(value => {
             this._raceTrackTableLayer.onRollout(this._numberToSectionMapping[value]);
-            this._chipLayer.onGridRollout(this._numberToSectionMapping[value])(null);
+            this._chipLayer.onGridRollout(this._numberToSectionMapping[value]);
           });
         };
       }
@@ -222,7 +222,7 @@ namespace we {
       protected onTouchTap(fieldName: string) {
         return (evt: egret.Event) => {
           we.ro.getNeighbour(this._sectionToNumberMapping[fieldName], this._raceTrackControl.value).map(value => {
-            this._chipLayer.onBetFieldUpdate(this._numberToSectionMapping[value])();
+            this._chipLayer.onBetFieldUpdate(this._numberToSectionMapping[value]);
           });
         };
       }
@@ -231,7 +231,7 @@ namespace we {
         return (evt: egret.Event) => {
           this._raceTrackTableLayer.onRollover(fieldName);
           RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
-            this._chipLayer.onGridRollover(value)(null);
+            this._chipLayer.onGridRollover(value);
           });
         };
       }
@@ -240,7 +240,7 @@ namespace we {
         return (evt: egret.Event) => {
           this._raceTrackTableLayer.onRollout(fieldName);
           RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
-            this._chipLayer.onGridRollout(value)(null);
+            this._chipLayer.onGridRollout(value);
           });
         };
       }
@@ -248,7 +248,7 @@ namespace we {
       protected onInnerFieldTouchTap(fieldName: string) {
         return (evt: egret.Event) => {
           RACETRACK_INNERFIELD_MAPPING[fieldName].map(value => {
-            this._chipLayer.onBetFieldUpdate(value)();
+            this._chipLayer.onBetFieldUpdate(value);
           });
         };
       }
