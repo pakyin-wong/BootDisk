@@ -41,7 +41,7 @@
 			"name": "scene_roulette"
 		},
 		{
-			"keys": "d_di_betboard_inactive_png",
+			"keys": "d_di_betboard_inactive_png,d_di_betboard_hover_double_png,d_di_betboard_hover_large_group_png,d_di_betboard_hover_specific_png,d_di_betboard_hover_sum_png,d_di_betboard_hover_triple_png,d_di_betboard_hover_triple_all_png,d_di_betboard_hover_combine_png",
 			"name": "scene_dice"
 		}
 	],
@@ -3191,6 +3191,41 @@
 			"url": "assets/d/di/d_di_betboard_inactive.png",
 			"type": "image",
 			"name": "d_di_betboard_inactive_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_double.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_double_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_large_group.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_large_group_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_specific.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_specific_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_sum.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_sum_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_triple.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_triple_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_triple_all.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_triple_all_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_combine.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_combine_png"
 		}
 	]
 }
