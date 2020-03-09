@@ -17,7 +17,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,start_png,start_json,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,start_png,start_json,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5,sn_banker_english_mp3,sn_banker_mandarin_mp3,sn_banker_cantonese_mp3",
 			"name": "temp"
 		},
 		{
@@ -3226,6 +3226,21 @@
 			"url": "assets/d/di/d_di_betboard_hover_combine.png",
 			"type": "image",
 			"name": "d_di_betboard_hover_combine_png"
+		},
+		{
+			"url": "assets/temp/sn_banker_en.mp3",
+			"type": "sound",
+			"name": "sn_banker_english_mp3"
+		},
+		{
+			"url": "assets/temp/sn_banker_sc.mp3",
+			"type": "sound",
+			"name": "sn_banker_mandarin_mp3"
+		},
+		{
+			"url": "assets/temp/sn_banker_tc.mp3",
+			"type": "sound",
+			"name": "sn_banker_cantonese_mp3"
 		}
 	]
 }

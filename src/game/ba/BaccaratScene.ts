@@ -100,18 +100,31 @@ namespace we {
 
         // (this._tableLayer as ba.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
+        const who = (() => {
+          switch (this._gameData.wintype) {
+            case ba.WinType.BANKER:
+              return 'banker';
+            case ba.WinType.PLAYER:
+              return 'player';
+            case ba.WinType.TIE:
+              return 'player';
+            default:
+              return null;
+          }
+        })();
+
         if (this.hasBet() && !isNaN(totalWin)) {
           this._resultMessage.showResult(this._tableInfo.gametype, {
             winType: this._gameData.wintype,
             winAmount: totalWin,
           });
-          dir.audioCtr.playSequence(['player', 'win']);
+          dir.audioCtr.playSequence([who, 'win']);
         } else {
           this._resultMessage.showResult(this._tableInfo.gametype, {
             winType: this._gameData.wintype,
             winAmount: NaN,
           });
-          dir.audioCtr.playSequence(['player', 'win']);
+          dir.audioCtr.playSequence([who, 'win']);
         }
       }
     }
