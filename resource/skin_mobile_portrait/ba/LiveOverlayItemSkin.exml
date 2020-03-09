@@ -17,7 +17,7 @@
                         anchorOffsetX="43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
                         useColorFilter="true" />
     <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="237" height="237" horizontalCenter="0"
-                               skinName="skin_mobile_portrait.BetChipSkin" bottom="0" />
+                               skinName="skin_mobile_portrait.BetChipSkin" bottom="0" labelSize="56" />
     <ui:BaseImageButton id="_confirmButton" width="360" height="150" currentState="bet_overlay_confirm" x="780"
                         y="366.5" anchorOffsetX="43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
                         useColorFilter="true" />
@@ -40,9 +40,8 @@
             </e:layout>
         </e:Group>
     </e:Group>
-    <ui:InGameMessage id="_message"
-                      skinName="skin_mobile_portrait.InGameMessageSkin" width="1000" height="126" horizontalCenter="0"
-                      verticalCenter="32" infoBg="m_common_gamestate_message_black_png"
+    <ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" width="1000" height="126"
+                      horizontalCenter="0" verticalCenter="32" infoBg="m_common_gamestate_message_black_png"
                       successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
     <live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="211" anchorOffsetX="0" anchorOffsetY="0"
                            skinName="BetLimitDropdownSkin" visible="false" />
@@ -52,6 +51,6 @@
              locked="true" />
     <e:Image width="68" height="40" horizontalCenter="0" source="m_ba_betarea_chipsbg_triangle_png" locked="true" />
     <ui:BetChipSetGrid id="_betChipSet" width="1085" height="521" alpha="0" anchorOffsetX="0" y="0" x="0"
-                       horizontalCenter="0" verticalCenter="16" betChipWidth="250" betChipHeight="200" labelSize="64"/>
+                       horizontalCenter="0" verticalCenter="16" betChipWidth="250" betChipHeight="208" labelSize="64" />
 </e:Group>
 </e:Skin>
