@@ -537,6 +537,14 @@ declare module skin_desktop{
 	}
 }
 declare module skin_mobile_portrait{
+	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BABeadRoadResultPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BaccaratScene extends eui.Skin{
 	}
 }
@@ -624,14 +632,6 @@ declare module skin_mobile_portrait.ba{
 }
 declare module skin_mobile_portrait.ba{
 	class TableLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BABeadRoadResultPanelSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
