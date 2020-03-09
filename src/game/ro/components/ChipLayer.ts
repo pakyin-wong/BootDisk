@@ -666,19 +666,11 @@ namespace we {
       }
 
       public onGridRollover(fieldName: string) {
-        return (evt: egret.Event) => {
-          if (!evt || evt.target === this._mouseAreaMapping[fieldName]) {
-            this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollover(value));
-          }
-        };
+        this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollover(value));
       }
 
       public onGridRollout(fieldName: string) {
-        return (evt: egret.Event) => {
-          if (!evt || evt.target === this._mouseAreaMapping[fieldName]) {
-            this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
-          }
-        };
+        this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
       }
     }
   }

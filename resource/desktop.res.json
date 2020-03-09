@@ -39,6 +39,10 @@
 		{
 			"keys": "d_ro_betborad_outline_png,d_ro_betborad_result_hl_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_history_hotclod_under_line_png,d_ro_history_racetrack_bg_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_ro_history_status_bar_box_png,d_ro_history_status_bar_down_png,d_ro_history_status_bar_top_png,d_ro_panel_betcontrol_betarea_even_inactive_png,d_ro_panel_betcontrol_betarea_odd_hover_png,d_ro_panel_betcontrol_betarea_odd_inactive_png,d_ro_panel_gamelist_betarea_black_inactive_png,d_ro_panel_gamelist_betarea_disable_png,d_ro_panel_gamelist_betrarea_red_inactive_png,d_ro_panel_gamelist_history_ball_gray_png,d_ro_panel_gamelist_history_ball_hl_png,d_ro_racetrack_inactive_png,d_ro_racetrack_outline_png,d_ro_rm_add_btn_hover_png,d_ro_rm_less_btn_hover_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,d_ro_savelayout_star_icon_png,d_ro_betboard_disable_png,d_ro_betboard_hover_png,d_ro_betboard_inactive_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_black_square_png,roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,d_ro_betboard_hover_even_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_small_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_png,d_ro_racetrack_normal_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_32_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_normal_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_red_hover_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_less_btn_disabled_png",
 			"name": "scene_roulette"
+		},
+		{
+			"keys": "d_di_betboard_inactive_png,d_di_betboard_hover_double_png,d_di_betboard_hover_large_group_png,d_di_betboard_hover_specific_png,d_di_betboard_hover_sum_png,d_di_betboard_hover_triple_png,d_di_betboard_hover_triple_all_png,d_di_betboard_hover_combine_png",
+			"name": "scene_dice"
 		}
 	],
 	"resources": [
@@ -3182,6 +3186,46 @@
 			"url": "assets/d/lobby/d_lobby_goodroadsetting_icon_trash.png",
 			"type": "image",
 			"name": "d_lobby_goodroadsetting_icon_trash_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_inactive.png",
+			"type": "image",
+			"name": "d_di_betboard_inactive_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_double.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_double_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_large_group.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_large_group_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_specific.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_specific_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_sum.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_sum_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_triple.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_triple_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_triple_all.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_triple_all_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_combine.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_combine_png"
 		}
 	]
 }
