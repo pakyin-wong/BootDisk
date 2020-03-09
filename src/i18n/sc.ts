@@ -174,6 +174,17 @@ namespace we {
         dragonShort: '龙',
         tigerShort: '虎',
         tieShort: '和',
+        askDragon: '龙问路',
+        askTiger: '虎问路',
+      },
+      dice: {
+        big: '大',
+        small: '细',
+        even: '双',
+        odd: '单',
+        single: '单骰',
+        double: '双骰',
+        triple: '三骰',
       },
       roulette: {
         row_1: '第一行',
@@ -279,6 +290,8 @@ namespace we {
         cancelRemoveGoodRoad: '取消',
         noCommission: '免佣',
         clickToSeeVideo: '点击播放本局视频',
+        askBanker: '庄问路',
+        askPlayer: '闲问路',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

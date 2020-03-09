@@ -32,92 +32,82 @@ namespace we {
       protected bankerPairCountLabel: ui.RunTimeLabel;
       protected playerPairCountLabel: ui.RunTimeLabel;
       protected totalCountLabel: ui.RunTimeLabel;
+      protected playerButtonLabel: ui.RunTimeLabel;
+      protected bankerButtonLabel: ui.RunTimeLabel;
 
       protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
 
       public constructor(skin?: string) {
-        super(skin ? skin : 'BARoadmapRightPanel');
+        super(skin ? skin : env.isMobile ? '' : 'ba/BARoadmapRightPanel');
       }
 
       protected init() {
         const gridSize = 21;
         this.totalCount = 0;
 
-        this.iconBankerBead = new BABeadRoadIcon(30);
-        this.iconBankerBead.x = 22;
-        this.iconBankerBead.y = 9;
-        this.iconBankerBead.setByObject({ v: 'b' });
-        this.addChild(this.iconBankerBead);
-
-        this.iconBankerBigEye = new BABigEyeRoadIcon(18);
-        this.iconBankerBigEye.x = 58;
-        this.iconBankerBigEye.y = 16;
-        this.iconBankerBigEye.setByObject({ v: 'b' });
-        this.addChild(this.iconBankerBigEye);
-
-        this.iconBankerSmall = new BASmallRoadIcon(18);
-        this.iconBankerSmall.x = 76;
-        this.iconBankerSmall.y = 16;
-        this.iconBankerSmall.setByObject({ v: 'b' });
-        this.addChild(this.iconBankerSmall);
-
-        this.iconBankerCockroach = new BACockroachRoadIcon(18);
-        this.iconBankerCockroach.x = 94;
-        this.iconBankerCockroach.y = 16;
-        this.iconBankerCockroach.setByObject({ v: 'b' });
-        this.addChild(this.iconBankerCockroach);
-
-        this.iconPlayerBead = new BABeadRoadIcon(30);
-        this.iconPlayerBead.x = 124;
-        this.iconPlayerBead.y = 9;
-        this.iconPlayerBead.setByObject({ v: 'p' });
-        this.addChild(this.iconPlayerBead);
-
-        this.iconPlayerBigEye = new BABigEyeRoadIcon(18);
-        this.iconPlayerBigEye.x = 160;
+        this.iconPlayerBigEye = new BABigEyeRoadIcon(16);
+        this.iconPlayerBigEye.x = 77;
         this.iconPlayerBigEye.y = 16;
         this.iconPlayerBigEye.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerBigEye);
 
-        this.iconPlayerSmall = new BASmallRoadIcon(18);
-        this.iconPlayerSmall.x = 178;
+        this.iconPlayerSmall = new BASmallRoadIcon(16);
+        this.iconPlayerSmall.x = 95;
         this.iconPlayerSmall.y = 16;
         this.iconPlayerSmall.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerSmall);
 
-        this.iconPlayerCockroach = new BACockroachRoadIcon(18);
-        this.iconPlayerCockroach.x = 196;
+        this.iconPlayerCockroach = new BACockroachRoadIcon(16);
+        this.iconPlayerCockroach.x = 113;
         this.iconPlayerCockroach.y = 16;
         this.iconPlayerCockroach.setByObject({ v: 'p' });
         this.addChild(this.iconPlayerCockroach);
 
+        this.iconBankerBigEye = new BABigEyeRoadIcon(16);
+        this.iconBankerBigEye.x = 210;
+        this.iconBankerBigEye.y = 16;
+        this.iconBankerBigEye.setByObject({ v: 'b' });
+        this.addChild(this.iconBankerBigEye);
+
+        this.iconBankerSmall = new BASmallRoadIcon(16);
+        this.iconBankerSmall.x = 228;
+        this.iconBankerSmall.y = 16;
+        this.iconBankerSmall.setByObject({ v: 'b' });
+        this.addChild(this.iconBankerSmall);
+
+        this.iconBankerCockroach = new BACockroachRoadIcon(16);
+        this.iconBankerCockroach.x = 246;
+        this.iconBankerCockroach.y = 16;
+        this.iconBankerCockroach.setByObject({ v: 'b' });
+        this.addChild(this.iconBankerCockroach);
+
         this.roadsContainer = new egret.DisplayObjectContainer();
-        this.roadsContainer.x = 4;
+        this.roadsContainer.x = 2;
         this.roadsContainer.y = 47;
-        this.roadsContainer.scaleX = 690 / 693;
+        this.roadsContainer.scaleX = 671 / 672;
         this.roadsContainer.scaleY = 260 / 257;
         // this.roadsContainer.alpha = 0.5;
         this.addChild(this.roadsContainer);
 
-        this.bigRoad = new BABigRoad(33, gridSize);
+        this.bigRoad = new BABigRoad(32, gridSize);
         this.bigRoad.x = 0;
         this.bigRoad.y = 0;
         this.roadsContainer.addChild(this.bigRoad);
 
-        this.bigEyeRoad = new BABigEyeRoad(33 * 2, gridSize);
+        this.bigEyeRoad = new BABigEyeRoad(32 * 2, gridSize);
         this.bigEyeRoad.x = 0;
         this.bigEyeRoad.y = 6 * gridSize;
         this.roadsContainer.addChild(this.bigEyeRoad);
 
-        this.smallRoad = new BASmallRoad(17 * 2, gridSize);
+        this.smallRoad = new BASmallRoad(16 * 2, gridSize);
         this.smallRoad.x = 0;
         this.smallRoad.y = 6 * gridSize + 6 * (gridSize / 2);
         this.roadsContainer.addChild(this.smallRoad);
 
         this.cockroachRoad = new BACockroachRoad(16 * 2, gridSize);
-        this.cockroachRoad.x = gridSize * 17;
+        this.cockroachRoad.x = gridSize * 16;
         this.cockroachRoad.y = 6 * gridSize + 6 * (gridSize / 2);
         this.roadsContainer.addChild(this.cockroachRoad);
 
@@ -126,28 +116,20 @@ namespace we {
       }
 
       public changeLang() {
-        this.totalCountLabel.text = i18n.t('baccarat.totalcount') + ' ' + this.totalCount;
+        this.totalCountLabel.text = this.totalCount + '';
+        this.playerButtonLabel.text = i18n.t('baccarat.askPlayer');
+        this.bankerButtonLabel.text = i18n.t('baccarat.askBanker');
       }
 
       // render text by tableInfo
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
-            if (this.tableInfo.gamestatistic.bankerCount) {
-              this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
-            }
-            if (this.tableInfo.gamestatistic.playerCount) {
-              this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
-            }
-            if (this.tableInfo.gamestatistic.tieCount) {
-              this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
-            }
-            if (this.tableInfo.gamestatistic.bankerPairCount) {
-              this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
-            }
-            if (this.tableInfo.gamestatistic.playerPairCount) {
-              this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
-            }
+            this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
+            this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
+            this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
+            this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
+            this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
             this.totalCount = this.tableInfo.gamestatistic.totalCount;
             this.changeLang();
           }

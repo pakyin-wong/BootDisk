@@ -1,3 +1,6 @@
+# fe-game-client-egret
+This is the game client for World Entertainment.
+
 ## Roadmap
 
 ### next demo (TBC)
@@ -46,23 +49,21 @@
 - DragonTiger menu table item (detail)
 
 ### pending tasks
-- Bet Log Search
 - Ba Result Message Modification (using animation)
 - Disconnect handling
 - Video
-- Baccarat Scene all panel slide out & in
 - Tooltips
 - UI Tutorial
+- consequence of bet limit / table limit change in different places (e.g scene, side item, lobby item)
 - **Mobile Layout**
 
 ### testing tasks
 - import [spine](https://github.com/fightingcat/egret-spine) animation 
 - import dragonbones mesh animation
 
-### other tasks
-- Tidy up the skin folder
-- Clean up deprecated class
-
+### If you have time, please periodically
+- tidy up the skin folder
+- clean up deprecated class
 
 ## Publish
 To build the project, please use the publish.sh
@@ -71,19 +72,7 @@ To build the project, please use the publish.sh
 ./publish.sh [target_platform staging|production|testing]
 ```
 
-
-# fe-game-client-egret
-This is the live game client for World Entertainment.
-
-## Confirmed Requirement
-1. All bet chips selection are changed.
-
-2. Change bet limit 
-
 ## Notification
-(Waiting to update)
-No specific event from backend. We only create our own event based on the following.
-
 PLAYER_BET_INFO_UPDATE
 backend will send a total bet result for each table
 Data: Bet amount / Total win amount 
@@ -95,25 +84,28 @@ Full List.
 Tableid and goodroad id matched. Event will be dispatched from backend.
 if (list has new goodroad) we send out Notification.
 
-## Installation for development environment
+## Install Egret for development environment
 ### MacOS
-1. Install npm
-2. Install the following programs
+1. Install Egret Launcher. (Don't install Egret Wing solely.)
+2. Install Egret Wing and Egret Engine(5.2.29).
+3. Install npm
+4. Install the following programs
 ```
 npm install -g tslint prettier typescript
 ```
 
 ### Windows
-0. Please be reminded that your user folder name "C:\Users\xxx" has no space.
-1. Install Egret Launcher. (Don't install EgretWing solely)
-2. Download and install bash from http://www.msys2.org/
-3. Set Bash in System Properties -> PATH
-4. Install npm
-5. Install the following programs
-
+0. Please check that your user folder name "C:\Users\xxx" has no space.
+1. Install Egret Launcher. (Don't install Egret Wing solely.)
+2. Install Egret Wing and Egret Engine(5.2.29).
+3. Download and install bash from http://www.msys2.org/
+4. Set Bash in System Properties -> PATH
+5. Install npm
+6. Install the following programs
 ```
 npm install -g tslint prettier typescript
 ```
+
 ## Testing Site
 1. [Development](https://dev-web-game-fe.wehosts247.com/)
 

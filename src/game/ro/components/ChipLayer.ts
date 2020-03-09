@@ -656,20 +656,21 @@ namespace we {
         });
       }
 
-      public onGridRollover(fieldName: string) {
-        return (evt: egret.Event) => {
-          if (!evt || evt.target === this._mouseAreaMapping[fieldName]) {
-            this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollover(value));
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+        for (const key of Object.keys(fieldAmounts)) {
+          if (fieldAmounts[key] > betLimit.maxlimit) {
+            return true;
           }
-        };
+        }
+        return false;
+      }
+
+      public onGridRollover(fieldName: string) {
+        this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollover(value));
       }
 
       public onGridRollout(fieldName: string) {
-        return (evt: egret.Event) => {
-          if (!evt || evt.target === this._mouseAreaMapping[fieldName]) {
-            this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
-          }
-        };
+        this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
       }
     }
   }

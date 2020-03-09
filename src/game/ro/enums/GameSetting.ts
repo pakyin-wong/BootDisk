@@ -660,5 +660,45 @@ namespace we {
       3: Color.RED,
       26: Color.BLACK,
     };
+
+    export function getWinningFields(winningField: string) {
+      const lightingResult = new Array();
+      Object.keys(BETFIELD_MAPPING).map(key => {
+        BETFIELD_MAPPING[key].map(value => {
+          if (ro.BetField[winningField] === value) {
+            if (ro.BETFIELD_IMAGE_MAPPING[key]) {
+              lightingResult.push(key);
+            }
+          }
+        });
+      });
+      return lightingResult;
+    }
+
+    export function getNeighbour(num: number, interval: number) {
+      if (interval === 0) {
+        return [num];
+      }
+
+      const index = RACETRACK.indexOf(num);
+      const lastElementIndex = RACETRACK.length - 1;
+      let computedInterval = interval;
+
+      if (lastElementIndex - computedInterval * 2 <= 0) {
+        computedInterval = 18;
+      }
+
+      if (index < interval) {
+        const diff = computedInterval - index;
+        return RACETRACK.slice(RACETRACK.length - diff).concat(RACETRACK.slice(0, computedInterval + index + 1));
+      }
+
+      if (index + computedInterval > lastElementIndex) {
+        const diff = index + computedInterval - lastElementIndex;
+        return RACETRACK.slice(index - computedInterval).concat(RACETRACK.slice(0, diff));
+      }
+
+      return RACETRACK.slice(index - interval, index + computedInterval + 1);
+    }
   }
 }

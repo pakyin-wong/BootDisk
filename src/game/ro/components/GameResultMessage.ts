@@ -14,14 +14,6 @@ namespace we {
         const { resultNo, winAmount } = resultData;
 
         this._display.armature.eventDispatcher.addDBEventListener(
-          dragonBones.EventObject.FRAME_EVENT,
-          xxx => {
-            logger.l(xxx);
-          },
-          this
-        );
-
-        this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
           () => {
             this.visible = false;
@@ -48,11 +40,11 @@ namespace we {
         const array = [['L_txt', 60, numLeft, 90], ['middle_txt', 90, numCenter, 90], ['L_txt3', 60, numRight, 90]];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string>slotName);
+          const slot = this._display.armature.getSlot(<string> slotName);
           const lbl = new eui.Label();
-          lbl.text = <string>text;
+          lbl.text = <string> text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number>fontSize;
+          lbl.size = <number> fontSize;
           lbl.anchorOffsetX = lbl.width / 2;
           lbl.anchorOffsetY = lbl.height / 2;
           lbl.rotation = rotate as number;

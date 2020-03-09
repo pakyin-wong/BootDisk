@@ -107,9 +107,27 @@ namespace we {
       // Must be called if you change skin
       public init() {
         this.createMapping();
+        this.restructureChildren();
         this.passDenomListToBetChipStack();
         this.resetUnconfirmedBet();
         this.addAllMouseListeners();
+      }
+
+      protected restructureChildren() {
+        Object.keys(this._betChipStackMapping).forEach(value => {
+          const chipStack = this._betChipStackMapping[value];
+          if (this._betChipStackMapping[value]) {
+            const parent = chipStack.parent;
+            chipStack.verticalCenter = NaN;
+            chipStack.horizontalCenter = NaN;
+            chipStack.x = parent.x + parent.width * 0.5;
+            chipStack.y = parent.y + parent.height * 0.5;
+            chipStack.width = 0;
+            chipStack.height = 0;
+            chipStack.validateNow();
+            this.addChild(chipStack);
+          }
+        });
       }
 
       public isAlreadyBet() {
@@ -125,7 +143,7 @@ namespace we {
       public addRolloverListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRollover(value), this);
+            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRolloverEvent, this);
           }
         });
       }
@@ -133,7 +151,7 @@ namespace we {
       public removeRolloverListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRollover(value), this);
+            this._mouseAreaMapping[value].removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRolloverEvent, this);
           }
         });
       }
@@ -141,7 +159,7 @@ namespace we {
       public addRolloutListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRollout(value), this);
+            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRolloutEvent, this);
           }
         });
       }
@@ -149,25 +167,29 @@ namespace we {
       public removeRolloutListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRollout(value), this);
+            this._mouseAreaMapping[value].removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRolloutEvent, this);
           }
         });
       }
 
+      public onGridRolloverEvent(evt: egret.Event) {
+        const target = evt.target;
+        const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
+        this.onGridRollover(fieldName);
+      }
+
       public onGridRollover(fieldName: string) {
-        return (evt: egret.Event) => {
-          if (evt.target === this._mouseAreaMapping[fieldName]) {
-            this._tableLayer.onRollover(fieldName);
-          }
-        };
+        this._tableLayer.onRollover(fieldName);
+      }
+
+      public onGridRolloutEvent(evt: egret.Event) {
+        const target = evt.target;
+        const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
+        this.onGridRollout(fieldName);
       }
 
       public onGridRollout(fieldName: string) {
-        return (evt: egret.Event) => {
-          if (evt.target === this._mouseAreaMapping[fieldName]) {
-            this._tableLayer.onRollout(fieldName);
-          }
-        };
+        this._tableLayer.onRollout(fieldName);
       }
 
       public addTouchTapListeners() {
@@ -206,7 +228,12 @@ namespace we {
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
-        // this.touchChildren = enable;
+        if (enable) {
+          this.addAllMouseListeners();
+        } else {
+          this.removeAllMouseListeners();
+        }
+        // this.touchChildren = false;
         // Object.keys(this._mouseAreaMapping).forEach(value => {
         //   if (this._mouseAreaMapping[value]) {
         //     this._mouseAreaMapping[value].touchEnabled = enable;
@@ -264,30 +291,28 @@ namespace we {
       public onBetFieldUpdateEvent(evt: egret.Event) {
         const target = evt.target;
         const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
-        this.onBetFieldUpdate(fieldName)();
+        this.onBetFieldUpdate(fieldName);
       }
 
       public onBetFieldUpdate(fieldName) {
-        return () => {
-          const grid = this.getUncfmBetByField(fieldName);
-          const betDetail = { field: fieldName, amount: this.getOrderAmount() };
-          // validate bet action
-          if (this.validateBetAction(betDetail)) {
-            // update the uncfmBetDetails
-            for (const detail of this._uncfmBetDetails) {
-              if (detail.field === betDetail.field) {
-                detail.amount += betDetail.amount;
-                break;
-              }
+        const grid = this.getUncfmBetByField(fieldName);
+        const betDetail = { field: fieldName, amount: this.getOrderAmount() };
+        // validate bet action
+        if (this.validateBetAction(betDetail)) {
+          // update the uncfmBetDetails
+          for (const detail of this._uncfmBetDetails) {
+            if (detail.field === betDetail.field) {
+              detail.amount += betDetail.amount;
+              break;
             }
-            // update the corresponding table grid
-            this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: grid ? grid.amount : 0 }), this.undoBetFieldUpdate.bind(this));
           }
-          if (this._betChipStackMapping[fieldName]) {
-            this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
-            this._betChipStackMapping[fieldName].draw();
-          }
-        };
+          // update the corresponding table grid
+          this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: grid ? grid.amount : 0 }), this.undoBetFieldUpdate.bind(this));
+        }
+        if (this._betChipStackMapping[fieldName]) {
+          this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
+          this._betChipStackMapping[fieldName].draw();
+        }
       }
 
       protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {

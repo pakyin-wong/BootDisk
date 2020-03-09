@@ -178,27 +178,7 @@ namespace we {
       public onClickEnterRoomButton(evt: egret.Event) {
         // enter game room
         dir.moniter.dismissMobileGameList();
-        this.gotoScene();
-      }
-
-      protected gotoScene() {
-        const gameType = env.tableInfos[this._tableId].gametype;
-        switch (gameType) {
-          case core.GameType.BAC:
-          case core.GameType.BAS:
-          case core.GameType.BAI:
-            dir.sceneCtr.goto('ba', { tableid: this._tableId });
-            break;
-          case core.GameType.DT:
-            dir.sceneCtr.goto('dt', { tableid: this._tableId });
-            break;
-          case core.GameType.RO:
-            dir.sceneCtr.goto('ro', { tableid: this._tableId });
-            break;
-          default:
-            console.error('error in TableListItemHolder');
-            break;
-        }
+        env.gotoScene(this.tableId);
       }
 
       protected setBetRelatedComponentsEnabled(enable) {

@@ -30,8 +30,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -79,36 +79,39 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (!isNaN(this._tableInfo.totalWin)) {
-          totalWin = this._tableInfo.totalWin;
+        const totalWin: number = this._tableInfo.totalWin;
+
+        if (!(this._gameData && this._gameData.wintype != 0)) {
+          return;
         }
-        if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
+
+        logger.l(this._tableInfo.bets);
+        // const resultNo = (<ro.GameData> this._gameData).value;
+
+        // (this._tableLayer as ba.TableLayer).flashFields(`DIRECT_${resultNo}`);
+
+        if (this.hasBet() && !isNaN(totalWin)) {
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            winType: this._gameData.wintype,
+            winAmount: totalWin,
+          });
+          dir.audioCtr.playSequence(['player', 'win']);
         } else {
-          if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            winType: this._gameData.wintype,
+            winAmount: NaN,
+          });
+          dir.audioCtr.playSequence(['player', 'win']);
         }
       }
     }

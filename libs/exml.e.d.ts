@@ -39,7 +39,19 @@ declare module skins{
 	}
 }
 declare module skin_desktop{
+	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BABeadRoadResultPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BARoadmapLeftPanel extends eui.Skin{
 	}
 }
 declare module skins_desktop{
@@ -119,18 +131,6 @@ declare module skin_desktop.ba{
 	}
 }
 declare module skin_desktop{
-	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BABeadRoadResultPanelSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BARoadmapLeftPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BetChipSkin extends eui.Skin{
 	}
 }
@@ -166,6 +166,10 @@ declare module skin_desktop{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.di{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class DiceScene extends eui.Skin{
 	}
@@ -184,6 +188,10 @@ declare module skin_desktop.di{
 }
 declare module skin_desktop.di{
 	class SideListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class TableLayerSkin extends eui.Skin{
 	}
 }
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
@@ -429,6 +437,10 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop.ro{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
@@ -600,6 +612,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class SidePanelGameResultWinSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
+	class StatisticChartPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{

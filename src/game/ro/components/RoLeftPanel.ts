@@ -202,7 +202,15 @@ namespace we {
         const radioButtons = [this.pageRadioBtn1, this.pageRadioBtn2, this.pageRadioBtn3];
         const btn = radioButtons[this.pageStack.selectedIndex];
 
-        const w = btn['labelDisplayUp']['textWidth'];
+        radioButtons.forEach(element => {
+          if (element === btn) {
+            element.currentState = 'upAndSelected';
+          } else {
+            element.currentState = 'up';
+          }
+        });
+        btn.validateNow();
+        const w = btn['labelDisplayDown']['textWidth'];
         const x = btn.x + (btn.width - w) * 0.5;
 
         egret.Tween.removeTweens(this.activeLine);
