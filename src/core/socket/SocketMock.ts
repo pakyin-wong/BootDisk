@@ -121,7 +121,7 @@ namespace we {
           data.tableid = (++this._tempIdx).toString();
           data.tablename = data.tableid;
           data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
+          data.roadmap = we.ro.RORoadParser.CreateRoRoadmapDataFromObject(this.mockRORoadData);
           data.gametype = core.GameType.RO;
 
           data.gamestatistic = this.generateDummyStatistic(data);
@@ -214,7 +214,7 @@ namespace we {
         return tables;
       }
 
-      public updateSetting(key: string, value: string) {}
+      public updateSetting(key: string, value: string) { }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
@@ -278,7 +278,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) {}
+      public leaveTable(tableID: string) { }
 
       public getTableList(filter: string) {
         setInterval(() => {

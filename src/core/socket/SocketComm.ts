@@ -340,7 +340,7 @@ namespace we {
           // RO
           gameStatistic.tableID = tableid;
           gameStatistic.shoeID = gameStatistic.shoeid;
-          tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic);
+          tableInfo.roadmap = we.ro.RORoadParser.CreateRoRoadmapDataFromObject(gameStatistic);
 
           const stats = new we.data.GameStatistic();
           stats.coldNumbers = gameStatistic.cold;
