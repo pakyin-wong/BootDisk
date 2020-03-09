@@ -137,7 +137,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -192,7 +192,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -346,6 +346,9 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
+        if (this._tableLayer) {
+          this._tableLayer.clearAllHighlights();
+        }
         if (this._betChipSet) {
           this._betChipSet.setTouchEnabled(enable);
         }
@@ -385,17 +388,17 @@ namespace we {
           case GameType.BAI:
           case GameType.BAS:
           case GameType.DT:
-          pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
-          pass2 = this._gameData && this._gameData.wintype != 0;
-          break;
+            pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
+            pass2 = this._gameData && this._gameData.wintype != 0;
+            break;
           case GameType.RO:
           case GameType.DI:
-          pass1 = this._gameData  && !isNaN(totalWin);
-          pass2 = !!this._gameData ;
-          break;
+            pass1 = this._gameData && !isNaN(totalWin);
+            pass2 = !!this._gameData;
+            break;
           default:
-          logger.e('No gametype found in ControlItem::checkResultMessage');
-          break;
+            logger.e('No gametype found in ControlItem::checkResultMessage');
+            break;
         }
 
         if (this.hasBet()) {
@@ -436,7 +439,7 @@ namespace we {
         }
       }
 
-      protected onCancelPressed(evt: egret.Event) {
+      protected onCancelPressed(evt: egret.Event = null) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
         }

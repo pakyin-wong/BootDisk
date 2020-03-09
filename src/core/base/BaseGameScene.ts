@@ -121,7 +121,7 @@ namespace we {
       protected initDenom() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
-          this._betChipSet.init(4, denominationList);
+          this._betChipSet.init(5, denominationList);
         }
       }
 
@@ -251,7 +251,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -291,7 +291,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -469,6 +469,9 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
+        }
+        if (this._tableLayer) {
+          this._tableLayer.clearAllHighlights();
         }
         if (this._betChipSet) {
           this._betChipSet.setTouchEnabled(enable);

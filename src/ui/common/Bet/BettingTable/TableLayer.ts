@@ -44,6 +44,8 @@ namespace we {
       public onRollover(fieldName: string) {}
 
       public onRollout(fieldName: string) {}
+
+      public clearAllHighlights() {}
     }
   }
 }
