@@ -462,22 +462,16 @@ namespace we {
               const promise = new Promise(resolve => {
                 egret.Tween.get(rect)
                   .to({ alpha: 0 }, 125)
-                .call(() => {
-                  // group.removeChild(rect);
-                  resolve();
-                });
+                  .call(() => {
+                    if (rect.parent) {
+                      rect.parent.removeChild(rect);
+                    }
+                    resolve();
+                  });
               });
               fadeOutPromises.push(promise);
             }
             await Promise.all(fadeOutPromises);
-            for (const field of Object.keys(this._groupMapping)) {
-              const group = this._groupMapping[field];
-              const rect = group.getChildByName('dim');
-              if (rect) {
-
-                group.removeChild(rect);
-              }
-            }
             return;
           }
           const tickFlashPromises = [];
