@@ -144,3 +144,7 @@ npm install -g tslint prettier typescript
 13. [Sicbo Requirement](https://docs.google.com/document/d/1bKzi9Yk6RC4YHFefULNfg_dc4LlgjIbx8j9pjoLZnGY/edit?ts=5e5e3ece)
 
 14. [Desktop Notification Requirement](https://drive.google.com/file/d/1Qu5qZL9ATEkmVe0GyYXwh5q_pxArs9b8/view?ts=5e4d0d04)
+
+15. [Dragon Tiger Mobile Requirement (Portrait)](https://docs.google.com/document/d/1ghgGbwSzeV752qOi87mdy8xaFIISzi9Ml4KKy5lKSS0/edit?ts=5e63582e)
+
+16. [Baccarat Mobile Requirement (Landscape)](https://docs.google.com/document/d/1ClByP765L4drUzyGhPCQmsBJt10CyP4VKCiCfTeemlM/edit?ts=5e635d25)
