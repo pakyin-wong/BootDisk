@@ -117,28 +117,30 @@ npm install -g tslint prettier typescript
 2. [Staging](http://18.139.237.86:8901/?checked=true&uid=H003)
 
 ## External Resource
-1. [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
+1. [Slack for whole team](https://perfectgaming.slack.com/)
 
-2. [Frondend Documents](https://drive.google.com/drive/u/0/folders/1HHHJ0gJwfynMjYndl5te1XN4agXu-vn6)
+2. [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
 
-3. [Auto Dealer](http://18.139.237.86:8901/?checked=true)
+3. [Frondend Documents](https://drive.google.com/drive/u/0/folders/1HHHJ0gJwfynMjYndl5te1XN4agXu-vn6)
 
-4. [Invision Template](https://projects.invisionapp.com/prototype/Quick-Bet-ck3dwku8c00f0el01k01o5kam/)
+4. [Auto Dealer](http://18.139.237.86:8901/?checked=true)
 
-5. [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
+5. [Invision Template](https://projects.invisionapp.com/prototype/Quick-Bet-ck3dwku8c00f0el01k01o5kam/)
 
-6. [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
+6. [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
 
-7. [Baccarat Requirement](https://docs.google.com/document/d/1LnNBQPlFsOTKK8xodzg-xC5P_9_uzOzWBsiqt_5ThLw/edit)
+7. [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
 
-8. [Dragon Tiger Requirement](https://docs.google.com/document/d/1V4wFAZuuf6rmdggRk4UrmOkmLd-5Pd28SWY3J96bWNc/edit?ts=5e0ad733)
+8. [Baccarat Requirement](https://docs.google.com/document/d/1LnNBQPlFsOTKK8xodzg-xC5P_9_uzOzWBsiqt_5ThLw/edit)
 
-9. [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
+9. [Dragon Tiger Requirement](https://docs.google.com/document/d/1V4wFAZuuf6rmdggRk4UrmOkmLd-5Pd28SWY3J96bWNc/edit?ts=5e0ad733)
 
-10. [Roulette Requirement](https://docs.google.com/document/d/1TX5oRcXP26Gc0VONbwtURiGI6CSmx9SbHPlYZA193Qo/edit)
+10. [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
 
-11. [Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1VmyNAUTKaQCB-r9Mlw2Sz8FiQ09LSyCJm1BxpepZsaM/edit)
+11. [Roulette Requirement](https://docs.google.com/document/d/1TX5oRcXP26Gc0VONbwtURiGI6CSmx9SbHPlYZA193Qo/edit)
 
-12. [Sicbo Requirement](https://docs.google.com/document/d/1bKzi9Yk6RC4YHFefULNfg_dc4LlgjIbx8j9pjoLZnGY/edit?ts=5e5e3ece)
+12. [Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1VmyNAUTKaQCB-r9Mlw2Sz8FiQ09LSyCJm1BxpepZsaM/edit)
 
-13. [Desktop Notification Requirement](https://drive.google.com/file/d/1Qu5qZL9ATEkmVe0GyYXwh5q_pxArs9b8/view?ts=5e4d0d04)
+13. [Sicbo Requirement](https://docs.google.com/document/d/1bKzi9Yk6RC4YHFefULNfg_dc4LlgjIbx8j9pjoLZnGY/edit?ts=5e5e3ece)
+
+14. [Desktop Notification Requirement](https://drive.google.com/file/d/1Qu5qZL9ATEkmVe0GyYXwh5q_pxArs9b8/view?ts=5e4d0d04)
