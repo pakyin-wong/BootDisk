@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.BetChipSelectedSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
-        xmlns:ui="we.ui.*">
-	<e:Image id="_chipImage" right="10" left="10" top="10" bottom="10" />
-	<ui:LabelImage horizontalCenter="0" verticalCenter="0" fontFamily="Barlow" id="_chipValueLabel" />
-</e:Skin>

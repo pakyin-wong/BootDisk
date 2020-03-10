@@ -15,6 +15,11 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
 
+      protected _alreadyBetSign: eui.Group;
+      protected _goodRoadLabel: ui.GoodRoadLabel;
+
+      protected _toggler: ui.RunTimeLabel;
+
       public constructor(skinName: string = null) {
         super(skinName);
         this._betChipSetPanel.alpha = 0;
@@ -23,7 +28,11 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        this._goodRoadLabel.visible = false;
+        this._alreadyBetSign.visible = false;
+
         this.initRoadMap();
+        this._chipLayer.setTouchEnabled(false);
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
@@ -37,6 +46,10 @@ namespace we {
         shape.graphics.endFill();
         this._contentContainer.addChild(shape);
         this._contentContainer.mask = shape;
+
+        if (this._toggler) {
+          this.initBetLimitSelector();
+        }
       }
 
       protected initRoadMap() {
@@ -85,6 +98,51 @@ namespace we {
         this._roadmapControl.setRoads(null, this._bigRoadMap, this._bigEyeRoad, this._smallRoad, this._cockroachRoad, [0, 17, 20, 20, 20], null, null, false);
       }
 
+      protected initBetLimitSelector() {
+        const betLimitList = env.betLimits;
+        const betLimitItems = betLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        const dropdownSource = betLimitList.map((data, index) => {
+          return ui.NewDropdownItem(index, () => `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`);
+        });
+
+        const selectedIndex = env.currentSelectedBetLimitIndex;
+
+        utils.DropdownCreator.new({
+          toggler: this._toggler,
+          review: this._toggler,
+          arrCol: new eui.ArrayCollection(dropdownSource),
+          title: () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`,
+          selected: 0,
+        });
+
+        this.updateBetLimit(selectedIndex);
+
+        this._toggler.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+      }
+
+      protected onBetLimitSelected(evt: egret.Event) {
+        const selected = evt.data;
+        env.currentSelectedBetLimitIndex = selected;
+        dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
+        this.updateBetLimit(selected);
+      }
+      protected onBetLimitChanged(evt: egret.Event) {
+        const selectedIndex = env.currentSelectedBetLimitIndex;
+        this.updateBetLimit(selectedIndex);
+      }
+
+      protected updateBetLimit(selectedIndex) {
+        const betLimitList = env.betLimits;
+        const betLimitItems = betLimitList.map(data => {
+          return `${utils.numberToFaceValue(data.minlimit)} - ${utils.numberToFaceValue(data.maxlimit)}`;
+        });
+        if (this._toggler) {
+          this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
+        }
+      }
+
       protected onRoadDataUpdate(evt: egret.Event) {
         this._roadmapControl.updateRoadData();
       }
@@ -126,26 +184,51 @@ namespace we {
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
       }
 
-      // public setData(tableInfo: data.TableInfo) {
-      //   super.setData(tableInfo);
-      //   if (tableInfo.roadmap) {
-      //     if (this._bigRoad) {
-      //       this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
-      //     }
-      //   }
-      // }
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet(isInit);
+        if (this.tableInfo.totalBet > 0) {
+          this._alreadyBetSign.visible = true;
+        } else {
+          this._alreadyBetSign.visible = false;
+        }
+      }
 
-      // protected onRoadDataUpdate(evt: egret.Event) {
-      //   super.onRoadDataUpdate(evt);
-      //   if (evt && evt.data) {
-      //     const tableInfo = <data.TableInfo> evt.data;
-      //     if (tableInfo.tableid === this._tableId) {
-      //       if (this._bigRoad) {
-      //         this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
-      //       }
-      //     }
-      //   }
-      // }
+      protected onTableBetInfoUpdate() {
+        super.onTableBetInfoUpdate();
+        if (this.tableInfo.totalBet > 0) {
+          this._alreadyBetSign.visible = true;
+        } else {
+          this._alreadyBetSign.visible = false;
+        }
+      }
+
+      public setData(tableInfo: data.TableInfo) {
+        super.setData(tableInfo);
+        if (tableInfo.roadmap) {
+          this._roadmapControl.updateRoadData();
+        }
+        if (this.tableInfo.goodRoad) {
+          this._goodRoadLabel.visible = true;
+          const goodRoadData = this.tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          // this._goodRoadLabel.text = goodRoadName;
+          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+        } else {
+          this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected onMatchGoodRoadUpdate() {
+        if (this.tableInfo.goodRoad) {
+          this._goodRoadLabel.visible = true;
+          const goodRoadData = this.tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          // this._goodRoadLabel.text = goodRoadName;
+          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+        } else {
+          this._goodRoadLabel.visible = false;
+        }
+      }
     }
   }
 }
