@@ -16,7 +16,7 @@
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 				        fillColor="0x444444" />
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="0"
-				          verticalCenter="0" skinName="skin_mobile_portrait.ba.BetConfirmButtonSkin" x.right_hand_mode="684" />
+				          verticalCenter="0" skinName="skin_mobile_portrait.BetConfirmButtonSkin" x.right_hand_mode="684" />
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
 				                   verticalCenter="0" x.right_hand_mode="684" />
 				<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
