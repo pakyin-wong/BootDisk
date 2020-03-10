@@ -17,7 +17,8 @@ namespace we {
       protected betLimitLabel: eui.Label;
 
       protected pGameID: eui.Label;
-      protected pBetLimit: eui.Label;
+
+      public pBetLimit: ui.RunTimeLabel;
 
       public constructor() {
         super();
@@ -83,9 +84,6 @@ namespace we {
         }
         if (this.pGameID) {
           this.pGameID.text = tableInfo.betInfo.gameroundid;
-        }
-        if (this.pBetLimit) {
-          this.pBetLimit.text = '50-100';
         }
       }
     }

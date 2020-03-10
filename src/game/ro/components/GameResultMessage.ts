@@ -14,14 +14,6 @@ namespace we {
         const { resultNo, winAmount } = resultData;
 
         this._display.armature.eventDispatcher.addDBEventListener(
-          dragonBones.EventObject.FRAME_EVENT,
-          xxx => {
-            logger.l(xxx);
-          },
-          this
-        );
-
-        this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
           () => {
             this.visible = false;

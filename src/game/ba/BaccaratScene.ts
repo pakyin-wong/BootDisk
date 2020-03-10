@@ -89,26 +89,42 @@ namespace we {
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (!isNaN(this._tableInfo.totalWin)) {
-          totalWin = this._tableInfo.totalWin;
+        const totalWin: number = this._tableInfo.totalWin;
+
+        if (!(this._gameData && this._gameData.wintype != 0)) {
+          return;
         }
-        if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
+
+        logger.l(this._tableInfo.bets);
+        // const resultNo = (<ro.GameData> this._gameData).value;
+
+        // (this._tableLayer as ba.TableLayer).flashFields(`DIRECT_${resultNo}`);
+
+        const who = (() => {
+          switch (this._gameData.wintype) {
+            case ba.WinType.BANKER:
+              return 'banker';
+            case ba.WinType.PLAYER:
+              return 'player';
+            case ba.WinType.TIE:
+              return 'player';
+            default:
+              return null;
           }
+        })();
+
+        if (this.hasBet() && !isNaN(totalWin)) {
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            winType: this._gameData.wintype,
+            winAmount: totalWin,
+          });
+          dir.audioCtr.playSequence([who, 'win']);
         } else {
-          if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            winType: this._gameData.wintype,
+            winAmount: NaN,
+          });
+          dir.audioCtr.playSequence([who, 'win']);
         }
       }
     }

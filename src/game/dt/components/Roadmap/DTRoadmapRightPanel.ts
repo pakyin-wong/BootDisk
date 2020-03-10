@@ -2,7 +2,7 @@ namespace we {
   export namespace dt {
     export class DTRoadmapRightPanel extends ba.BARoadmapRightPanel {
       public constructor(skin?: string) {
-        super(skin ? skin : 'dt/DTRoadmapRightPanel');
+        super(skin ? skin : env.isMobile ? '' : 'dt/DTRoadmapRightPanel');
       }
 
       protected init() {

@@ -44,7 +44,7 @@ namespace we {
 
       // local game state
       public currentSelectedBetLimitIndex: number = 0;
-      // public currentChipSelectedIndex: number = 10;
+      public currentChipSelectedIndex: number = 0;
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
@@ -150,6 +150,29 @@ namespace we {
           return env.tableInfos[tableid].tablename;
         }
         return null;
+      }
+
+      public gotoScene(tableId: string) {
+        const gameType = env.tableInfos[tableId].gametype;
+        switch (gameType) {
+          case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
+            dir.sceneCtr.goto('ba', { tableid: tableId });
+            break;
+          case core.GameType.DT:
+            dir.sceneCtr.goto('dt', { tableid: tableId });
+            break;
+          case core.GameType.RO:
+            dir.sceneCtr.goto('ro', { tableid: tableId });
+            break;
+          case core.GameType.DI:
+            dir.sceneCtr.goto('di', { tableid: tableId });
+            break;
+          default:
+            console.error('error in TableListItemHolder');
+            break;
+        }
       }
 
       /*

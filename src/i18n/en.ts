@@ -225,6 +225,15 @@ namespace we {
         askDragon: 'Ask Dn',
         askTiger: 'Ask Tr',
       },
+      dice: {
+        big: 'B',
+        small: 'S',
+        even: 'E',
+        odd: 'O',
+        single: 'single',
+        double: 'double',
+        triple: 'triple',
+      },
       roulette: {
         row_1: 'ROW 1',
         row_2: 'ROW 2',

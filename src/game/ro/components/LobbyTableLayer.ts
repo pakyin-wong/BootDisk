@@ -47,6 +47,13 @@ namespace we {
       public onRollout(fieldName: string) {
         this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][0];
       }
+
+      public clearAllHighlights() {
+        this.onRollout(ro.BetField.ODD);
+        this.onRollout(ro.BetField.EVEN);
+        this.onRollout(ro.BetField.RED);
+        this.onRollout(ro.BetField.BLACK);
+      }
     }
   }
 }
