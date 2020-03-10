@@ -95,10 +95,7 @@ namespace we {
           return;
         }
 
-        logger.l(this._tableInfo.bets);
-        // const resultNo = (<ro.GameData> this._gameData).value;
-
-        // (this._tableLayer as ba.TableLayer).flashFields(`DIRECT_${resultNo}`);
+        (this._tableLayer as ba.TableLayer).flashFields(this._gameData);
 
         const who = (() => {
           switch (this._gameData.wintype) {

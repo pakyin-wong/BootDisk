@@ -457,7 +457,6 @@ namespace we {
             const fadeOutPromises = [];
             for (const field of Object.keys(this._groupMapping)) {
               const group = this._groupMapping[field];
-              const isWin = winningFields.indexOf(field) >= 0;
               const rect = group.getChildByName('dim');
               const promise = new Promise(resolve => {
                 egret.Tween.get(rect)
