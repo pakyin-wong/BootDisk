@@ -14,7 +14,7 @@
 			                         clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" scaleX="1" scaleY="1"
 			                         visible.right_hand_mode="false" visible.left_hand_mode="false" visible="false" />
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="494"
-			                           skinName="skin_mobile_portrait.BetChipSkin" bottom="483"
+			                           skinName="skin_mobile.BetChipSkin" bottom="483"
 			                           horizontalCenter.right_hand_mode="-495" bottom.right_hand_mode="483"
 			                           horizontalCenter.left_hand_mode="511" bottom.left_hand_mode="487" labelSize="48" />
 			<e:Group id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224" scaleX="1" scaleY="1">

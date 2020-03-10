@@ -13,7 +13,7 @@ namespace we {
       protected _labelSize: number = 30;
 
       public constructor(value: number = null, index: number = null, type: we.core.ChipType = we.core.ChipType.BETTING, highlight: boolean = false) {
-        super('BetChip');
+        super('BetChip', false);
         this._value = value;
         this._index = index;
         this._type = type;

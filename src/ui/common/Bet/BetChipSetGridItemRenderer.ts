@@ -48,9 +48,6 @@ namespace we {
         this._betChip.labelSize = this.betChipSetGrid ? this.betChipSetGrid.labelSize : this._labelSize;
         this._clipChipHeightPortion = this.betChipSetGrid ? this.betChipSetGrid.clipChipHeightPortion : this._clipChipHeightPortion;
         this._flatChipHeightPortion = this.betChipSetGrid ? this.betChipSetGrid.flatChipHeightPortion : this._flatChipHeightPortion;
-        if (!this._flatChipHeightPortion) {
-          logger.l('missing value!!');
-        }
       }
 
       public itemDataChanged() {
@@ -66,9 +63,6 @@ namespace we {
             case we.core.ChipType.PERSPECTIVE:
               this._betChip.height = this._betChipHeight * this._clipChipHeightPortion;
               break;
-          }
-          if (this._betChip.height === 228) {
-            logger.l('228!!');
           }
         }
       }
@@ -91,9 +85,6 @@ namespace we {
             case we.core.ChipType.PERSPECTIVE:
               this._betChip.height = this._betChipHeight * this._clipChipHeightPortion;
               break;
-          }
-          if (this._betChip.height === 228) {
-            logger.l('228!!');
           }
         }
         this._isSelected = value;
