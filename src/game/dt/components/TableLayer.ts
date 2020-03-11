@@ -93,6 +93,92 @@ namespace we {
           this.onRollout(value);
         });
       }
+
+      public async flashFields(gameData: we.data.GameData) {
+        const { wintype, issupersix, isbankerpair, isplayerpair } = gameData;
+        let fieldOpen;
+
+        switch (wintype) {
+          case dt.WinType.DRAGON: {
+            fieldOpen = dt.BetField.DRAGON;
+            break;
+          }
+          case dt.WinType.TIGER: {
+            fieldOpen = dt.BetField.TIGER;
+            break;
+          }
+          case dt.WinType.TIE: {
+            fieldOpen = dt.BetField.TIE;
+            break;
+          }
+          default: {
+            break;
+          }
+        }
+
+        // prepare anim
+        const initRectPromises = [];
+        // init dim rects
+        for (const field of Object.keys(dt.BetField)) {
+          const group: any = this._imageMapping[field].parent;
+          const isWin = field === fieldOpen;
+          // try remove existing
+          let rect = group.getChildByName('dim');
+          if (rect) {
+            group.removeChild(rect);
+          }
+          rect = new eui.Rect();
+          rect.name = 'dim';
+          rect.alpha = 0;
+          rect.fillColor = isWin ? 0xffffff : 0x000000;
+          rect.percentWidth = 100;
+          rect.percentHeight = 100;
+          group.addChildAt(rect, 1);
+          const promise = new Promise(resolve => {
+            egret.Tween.get(rect)
+              .to({ alpha: isWin ? 0 : 0.25 }, 125)
+              .call(resolve);
+          });
+          initRectPromises.push(promise);
+        }
+        await Promise.all(initRectPromises);
+        // start flashing
+        let run = 1;
+        const tick = async () => {
+          // end flashing
+          if (run >= 6) {
+            const fadeOutPromises = [];
+            for (const field of Object.keys(dt.BetField)) {
+              const group = this._imageMapping[field].parent;
+              const rect = group.getChildByName('dim');
+              const promise = new Promise(resolve => {
+                egret.Tween.get(rect)
+                  .to({ alpha: 0 }, 125)
+                  .call(() => {
+                    if (rect.parent) {
+                      rect.parent.removeChild(rect);
+                    }
+                    resolve();
+                  });
+              });
+              fadeOutPromises.push(promise);
+            }
+            await Promise.all(fadeOutPromises);
+            return;
+          }
+          const group = this._imageMapping[fieldOpen].parent;
+          const rect = group.getChildByName('dim');
+          await new Promise(resolve => {
+            const alpha = run % 2 === 1 ? 0.25 : 0;
+            egret.Tween.get(rect)
+              .to({ alpha }, 125)
+              .call(resolve);
+          });
+          run += 1;
+          setTimeout(tick, 300);
+        };
+        setTimeout(tick, 300);
+      }
     }
   }
 }
