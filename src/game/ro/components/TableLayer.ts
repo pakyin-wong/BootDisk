@@ -440,7 +440,7 @@ namespace we {
           rect.fillColor = isWin ? 0xffffff : 0x000000;
           rect.percentWidth = 100;
           rect.percentHeight = 100;
-          group.addChildAt(rect, 0);
+          group.addChildAt(rect, 1);
           const promise = new Promise(resolve => {
             egret.Tween.get(rect)
               .to({ alpha: isWin ? 0 : 0.25 }, 125)

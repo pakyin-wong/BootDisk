@@ -509,10 +509,6 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class SwitchLang extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class ToggleButtonSkin extends eui.Skin{
 	}
 }
@@ -792,10 +788,6 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class GoodRoadQuickBetContainerSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class ResultNotificationSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

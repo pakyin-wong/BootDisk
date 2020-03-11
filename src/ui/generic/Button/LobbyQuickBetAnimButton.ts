@@ -15,7 +15,9 @@ namespace we {
       private _originalWidth: number;
 
       constructor(skin: string = 'QuickBetAnimButton') {
-        if (env.isMobile) skin = null;
+        if (env.isMobile) {
+          skin = null;
+        }
         super(skin);
         this.touchChildren = false;
       }

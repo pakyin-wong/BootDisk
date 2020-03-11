@@ -123,35 +123,35 @@ namespace we {
         return this._totalAmountMapping;
       }
 
-      public async flashFields(gameData: we.data.GameData) {
+      public async flashFields(gameData: we.data.GameData, superSixMode: boolean) {
+        const winningFields = [];
         const { wintype, issupersix, isbankerpair, isplayerpair } = gameData;
-        let fieldOpen;
+
+        if (isbankerpair) {
+          winningFields.push(ba.BetField.BANKER_PAIR);
+        }
+        if (isplayerpair) {
+          winningFields.push(ba.BetField.PLAYER_PAIR);
+        }
+        if (issupersix) {
+          winningFields.push(ba.BetField.SUPER_SIX);
+        }
 
         switch (wintype) {
           case ba.WinType.BANKER: {
-            if (issupersix) {
-              fieldOpen = ba.BetField.SUPER_SIX_BANKER;
-            } else if (isbankerpair) {
-              fieldOpen = ba.BetField.BANKER_PAIR;
+            if (superSixMode) {
+              winningFields.push(ba.BetField.SUPER_SIX_BANKER);
             } else {
-              fieldOpen = ba.BetField.BANKER;
+              winningFields.push(ba.BetField.BANKER);
             }
             break;
           }
           case ba.WinType.PLAYER: {
-            if (isplayerpair) {
-              fieldOpen = ba.BetField.PLAYER_PAIR;
-            } else {
-              fieldOpen = ba.BetField.PLAYER;
-            }
+            winningFields.push(ba.BetField.PLAYER);
             break;
           }
           case ba.WinType.TIE: {
-            if (issupersix) {
-              fieldOpen = ba.BetField.SUPER_SIX;
-            } else {
-              fieldOpen = ba.BetField.TIE;
-            }
+            winningFields.push(ba.BetField.TIE);
             break;
           }
           default: {
@@ -159,12 +159,11 @@ namespace we {
           }
         }
 
-        // prepare anim
         const initRectPromises = [];
         // init dim rects
         for (const field of Object.keys(ba.BetField)) {
           const group: any = this._imageMapping[field].parent;
-          const isWin = field === fieldOpen;
+          const isWin = winningFields.indexOf(field) >= 0;
           // try remove existing
           let rect = group.getChildByName('dim');
           if (rect) {
@@ -192,7 +191,7 @@ namespace we {
           if (run >= 6) {
             const fadeOutPromises = [];
             for (const field of Object.keys(ba.BetField)) {
-              const group: any = this._imageMapping[field].parent;
+              const group = this._imageMapping[field].parent;
               const rect = group.getChildByName('dim');
               const promise = new Promise(resolve => {
                 egret.Tween.get(rect)
@@ -209,14 +208,19 @@ namespace we {
             await Promise.all(fadeOutPromises);
             return;
           }
-          const group = this._imageMapping[fieldOpen].parent;
-          const rect = group.getChildByName('dim');
-          await new Promise(resolve => {
-            const alpha = run % 2 === 1 ? 0.25 : 0;
-            egret.Tween.get(rect)
-              .to({ alpha }, 125)
-              .call(resolve);
-          });
+          const tickFlashPromises = [];
+          for (const field of winningFields) {
+            const group = this._imageMapping[field].parent;
+            const rect = group.getChildByName('dim');
+            const prom = new Promise(resolve => {
+              const alpha = run % 2 === 1 ? 0.25 : 0;
+              egret.Tween.get(rect)
+                .to({ alpha }, 125)
+                .call(resolve);
+            });
+            tickFlashPromises.push(prom);
+          }
+          await Promise.all(tickFlashPromises);
           run += 1;
           setTimeout(tick, 300);
         };
