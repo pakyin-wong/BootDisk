@@ -10,7 +10,7 @@
 			               skinName="skin_mobile_portrait.dt.TableLayerSkin" scaleX="1" scaleY="1" />
 			<dt:ChipLayer id="_chipLayer" width="1182" height="348" x="30" y="243" isEdgeDismissable="true"
 			              skinName="skin_mobile_portrait.dt.ChipLayerSkin" scaleX="1" scaleY="1" />
-			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="494"                                skinName="skin_mobile_portrait.BetChipSkin" bottom="373"                                horizontalCenter.right_hand_mode="-495" bottom.right_hand_mode="373"                                horizontalCenter.left_hand_mode="511" bottom.left_hand_mode="373" labelSize="48" />
+			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="494"                                skinName="skin_mobile_portrait.BetChipSkin" bottom="373"                                horizontalCenter.right_hand_mode="-495" bottom.right_hand_mode="373"                                horizontalCenter.left_hand_mode="511" bottom.left_hand_mode="373" labelSize="48"  skinName.left_hand_mode="skin_mobile.BetChipSkin"/>
 			<e:Group id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224" scaleX="1" scaleY="1">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 				        fillColor="0x444444" />
