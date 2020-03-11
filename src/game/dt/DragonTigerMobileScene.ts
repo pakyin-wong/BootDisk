@@ -44,7 +44,7 @@ namespace we {
 
         if (this._switchBaMode) {
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+          // this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
 
         if (this._lblBaMode) {
@@ -137,11 +137,11 @@ namespace we {
         if (this._bottomGamePanel.isPanelOpen) {
           this._betPanelGroup.scaleY = 1;
           this._betPanelGroup.y = 0;
-          this._betChipSetPanel.y = 986;
+          this._betChipSetPanel.y = 1080;
         } else {
           this._betPanelGroup.scaleY = -1;
           this._betPanelGroup.y = 762;
-          this._betChipSetPanel.y = 500;
+          this._betChipSetPanel.y = 600;
         }
       }
 
