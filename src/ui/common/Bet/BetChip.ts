@@ -10,8 +10,10 @@ namespace we {
 
       protected _index: number;
 
+      protected _labelSize: number = 30;
+
       public constructor(value: number = null, index: number = null, type: we.core.ChipType = we.core.ChipType.BETTING, highlight: boolean = false) {
-        super('BetChip');
+        super('BetChip', false);
         this._value = value;
         this._index = index;
         this._type = type;
@@ -25,6 +27,10 @@ namespace we {
       protected mount() {
         this._chipImage.touchEnabled = false;
         this._chipValueLabel.touchEnabled = false;
+        if (this._chipValueLabel) {
+          this._chipValueLabel.size = this._labelSize;
+        }
+
         this.draw();
       }
 
@@ -84,6 +90,7 @@ namespace we {
       }
 
       public set labelSize(value: number) {
+        this._labelSize = value;
         if (this._chipValueLabel) {
           this._chipValueLabel.size = value;
         }
@@ -112,7 +119,8 @@ namespace we {
           case we.core.ChipType.FLAT:
             this._chipImage.source = this.getChipSource(this._type);
             this._chipValueLabel.text = utils.numberToFaceValue(this._value);
-            this._chipValueLabel.verticalCenter = this.height * -0.025;
+            // this._chipValueLabel.verticalCenter = this.height * -0.025;
+            this._chipValueLabel.verticalCenter = 0;
             this._chipValueLabel.scaleY = 1;
             break;
           case we.core.ChipType.PERSPECTIVE:

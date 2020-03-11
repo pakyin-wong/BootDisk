@@ -440,7 +440,7 @@ namespace we {
           rect.fillColor = isWin ? 0xffffff : 0x000000;
           rect.percentWidth = 100;
           rect.percentHeight = 100;
-          group.addChildAt(rect, 0);
+          group.addChildAt(rect, 1);
           const promise = new Promise(resolve => {
             egret.Tween.get(rect)
               .to({ alpha: isWin ? 0 : 0.25 }, 125)
@@ -457,27 +457,20 @@ namespace we {
             const fadeOutPromises = [];
             for (const field of Object.keys(this._groupMapping)) {
               const group = this._groupMapping[field];
-              const isWin = winningFields.indexOf(field) >= 0;
               const rect = group.getChildByName('dim');
               const promise = new Promise(resolve => {
                 egret.Tween.get(rect)
                   .to({ alpha: 0 }, 125)
-                .call(() => {
-                  // group.removeChild(rect);
-                  resolve();
-                });
+                  .call(() => {
+                    if (rect.parent) {
+                      rect.parent.removeChild(rect);
+                    }
+                    resolve();
+                  });
               });
               fadeOutPromises.push(promise);
             }
             await Promise.all(fadeOutPromises);
-            for (const field of Object.keys(this._groupMapping)) {
-              const group = this._groupMapping[field];
-              const rect = group.getChildByName('dim');
-              if (rect) {
-
-                group.removeChild(rect);
-              }
-            }
             return;
           }
           const tickFlashPromises = [];

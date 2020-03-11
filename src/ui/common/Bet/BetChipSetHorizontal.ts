@@ -36,6 +36,30 @@ namespace we {
         this._visibleDenomNum = 5; // default value
       }
 
+      set navWidth(value: number) {
+        this._navWidth = value;
+        this._chipContainer.left = this._navWidth;
+        this._chipContainer.right = this._navWidth;
+      }
+      get navWidth(): number {
+        return this._navWidth;
+      }
+
+      set containerPadding(value: number) {
+        this._containerPadding = value;
+      }
+      get containerPadding(): number {
+        return this._containerPadding;
+      }
+
+      protected mount() {
+        dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.syncChip, this);
+      }
+
+      protected destroy() {
+        dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.syncChip, this);
+      }
+
       public set clipChipHeightPortion(value: number) {
         this._clipChipHeightPortion = value;
       }
@@ -58,6 +82,7 @@ namespace we {
 
       set denomList(value: number[]) {
         this._denomList = value;
+        this.syncChip();
       }
 
       get denomList() {
@@ -67,9 +92,8 @@ namespace we {
       public init(visibleDenomNum: number, denomList: number[]) {
         this._visibleDenomNum = visibleDenomNum;
         this._denomList = denomList;
-        this._selectedChipIndex = this._denomList.length - 1;
+        this._selectedChipIndex = env.currentChipSelectedIndex;
         this.setChipSet(denomList);
-        this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
         this._onChipSelected(this._selectedChipIndex);
       }
@@ -84,9 +108,8 @@ namespace we {
       public resetDenominationList(denomList: number[]) {
         this._denomList = denomList;
         this.clearChipList();
-        this._selectedChipIndex = this._denomList.length - 1;
+        this._selectedChipIndex = env.currentChipSelectedIndex;
         this.setChipSet(denomList);
-        this._startIndex = this._chipList.length - this._visibleDenomNum;
         this._renderItems();
         this._onChipSelected(this._selectedChipIndex);
       }
@@ -122,7 +145,7 @@ namespace we {
           return;
         }
         this._chipContainer.removeChildren();
-        let childpos = 0;
+        let childpos = this._containerPadding;
         const childInterval = (this.width - this._navWidth * 2) / this._visibleDenomNum;
         for (let i = 0; i < this._visibleDenomNum; i += 1) {
           const child: eui.Component & IBetChip = this._chipList[this._startIndex + i];
@@ -155,6 +178,26 @@ namespace we {
       }
 
       private _onChipSelected(index: number) {
+        this.setChip(index);
+        env.currentChipSelectedIndex = index;
+        dir.evtHandler.dispatch(core.Event.BET_DENOMINATION_CHANGE);
+      }
+
+      private syncChip() {
+        // check if the page is correct
+        const index = env.currentChipSelectedIndex;
+        if (!(index - this._startIndex < this._visibleDenomNum && index - this._startIndex > 0)) {
+          // update _startIndex
+          this._startIndex = (index / this._visibleDenomNum) * this._visibleDenomNum;
+          const lastPageStart = this._denomList.length - this._visibleDenomNum;
+          this._startIndex = Math.min(this._startIndex, lastPageStart);
+
+          this._renderItems();
+        }
+        this.setChip(env.currentChipSelectedIndex);
+      }
+
+      private setChip(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
         this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
         this._chipList[this._selectedChipIndex].height = this.height * this._clipChipHeightPortion;

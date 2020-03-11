@@ -2,43 +2,43 @@
 <e:Skin class="skin_mobile_portrait.ba.ChipLayerSkin" width="1182" height="464" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal,SuperSix">
 	<e:Group id="_playerGroup" x="0" y="0" width="591" height="232" touchEnabled="true">
-		<ui:BetChipStack id="_playerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		<ui:BetChipStack id="_playerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
 	<e:Group id="_bankerGroup" includeIn="Normal" x="591" y="0" width="591" height="232" touchEnabled="true">
-		<ui:BetChipStack id="_bankerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		<ui:BetChipStack id="_bankerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
 	<e:Group id="_playerPairGroup" x="0" y="232" width="295" height="232" touchEnabled="true">
-		<ui:BetChipStack id="_playerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		<ui:BetChipStack id="_playerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
 	<e:Group id="_tieGroup" x="295" y="232" width="592" height="232" width.SuperSix="296" touchEnabled="true">
-		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
 	<e:Group id="_bankerPairGroup" x="887" y="232" width="295" height="232" touchEnabled="true">
-		<ui:BetChipStack id="_bankerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		<ui:BetChipStack id="_bankerPairBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
 	<e:Group id="_superSixBankerGroup" includeIn="SuperSix" x="591" y="0" width="591" height="232" touchEnabled="true">
-		<ui:BetChipStack id="_superSixBankerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100"
-		                 chipHeight="100" chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
+		<ui:BetChipStack id="_superSixBankerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200"
+		                 chipHeight="200" chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
 	</e:Group>
 	<e:Group id="_superSixGroup" includeIn="SuperSix" x="591" y="232" width="296" height="232" touchEnabled="true">
-		<ui:BetChipStack id="_superSixBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+		<ui:BetChipStack id="_superSixBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="200" chipHeight="200"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
 		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
