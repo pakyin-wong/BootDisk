@@ -4,20 +4,20 @@
 		<e:Group top="0" bottom="0" left="0" right="0">
 			<e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333c4a" strokeWeight="2" fillColor="0x14181e" x="0" y="0" scaleX="1" scaleY="1"/>
 			<e:Rect width="497" height="142" x="496" y="307" fillColor="0x0c2848" fillAlpha="0.4" ellipseHeight="142" ellipseWidth="142" scaleX="1" scaleY="1"/>
-			<e:Rect width="120" height="120" x="1074" y="318.00000000000006" fillColor="0x1a3f6c" ellipseHeight="120" ellipseWidth="120" scaleX="1" scaleY="1"/>
+			<e:Rect width="120" height="120" x="1074" y="318" fillColor="0x1a3f6c" ellipseHeight="120" ellipseWidth="120" scaleX="1" scaleY="1"/>
 			<e:Rect height="80" y="502" left="0" right="0" fillColor="0x1b416e" x="0" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55.00000000000001" width="1000" height="119" verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_record_date" text="Label" x="47.00000000000001" y="511" width="477" size="40" verticalAlign="middle" height="59" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+			<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="1000" height="119" verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1"/>
+			<ui:RunTimeLabel id="_txt_record_date" text="Label" x="4" y="511" width="477" size="40" verticalAlign="middle" height="59" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_record_game" text="Label" x="571" y="511" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_record_win" text="Label" y="511" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right" right="47" x="920.0000000000001"/>
-			<ui:BaseImageButton id="_btn_search" width="63" height="63" x="1101.0000000000002" y="345" currentState="search_icon" skinName="skin_mobile_portrait.ImageButtonSkinNav" scaleX="1" scaleY="1"/>
-			<ui:BaseButton id="_btn_searchType" width="400" height="120" x="48" y="318.00000000000006" skinName="skin_mobile_portrait.OverlayPanelButton" active="true" scaleX="1" scaleY="1"/>
-			<ui:BaseButton id="_btn_custom" width="252" height="120" x="727.0000000000001" y="318.00000000000006" skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1"/>
-			<ui:BaseButton id="_btn_date" width="252" height="120" y="318.00000000000006" active="true" x="510.00000000000006" skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1"/>
+			<ui:BaseImageButton id="_btn_search" width="63" height="63" x="1101" y="345" currentState="search_icon" skinName="skin_mobile_portrait.ImageButtonSkinNav" scaleX="1" scaleY="1"/>
+			<ui:BaseButton id="_btn_searchType" width="400" height="120" x="48" y="318" skinName="skin_mobile_portrait.OverlayPanelButton" active="true" scaleX="1" scaleY="1"/>
+			<ui:BaseButton id="_btn_custom" width="252" height="120" x="727" y="318" skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1"/>
+			<ui:BaseButton id="_btn_date" width="252" height="120" y="318" active="true" x="510" skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1"/>
 			<e:Scroller id="_scroller" height="1573" y="582" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
 				<e:List id="_datagroup"/>
 			</e:Scroller>
-			<overlay:DoubleCalendarPicker id="_datepicker" width="1050" height="1402" horizontalCenter="-0.5" y="456.00000000000006" x="96" scaleX="1" scaleY="1"/>
+			<overlay:DoubleCalendarPicker id="_datepicker" width="1050" height="1402" horizontalCenter="-0.5" y="456" x="96" scaleX="1" scaleY="1"/>
 		</e:Group>
 		<bh:BetHistoryDetail id="_detail"  left="0" right="0" top="0" bottom="0"/>
 		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png"/>
