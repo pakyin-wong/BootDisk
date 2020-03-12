@@ -1,25 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.di.TableLayerSkin" width="1386" height="482" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*">
-	<e:Image width="1386" height="482" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_di_betboard_inactive_png"
+	<e:Image width="1386" height="482" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_sic_panel_open_png"
 	         fillMode="scale" locked="true" />
-	<e:Group id="_small_group" width="151" height="148" x="1" y="1" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_odd_group" width="151" height="148" x="153" y="1" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_double_1_group" width="127" height="50.33" x="304.5" y="0.67" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_double_2_group" width="127" height="51" x="304.5" y="51" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_double_3_group" width="127" height="50" x="304.5" y="100.34" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_triple_1_group" width="136" height="51" x="431.5" y="0.5" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_triple_2_group" width="136" height="51" x="431.5" y="51" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_triple_3_group" width="136" height="50" x="431.5" y="102" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_triple_all_group" width="251" height="151" x="567.5" y="1" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_triple_4_group" width="136" height="51" x="818.5" y="0" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_triple_5_group" width="136" height="51" x="818.5" y="51.5" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_triple_6_group" width="136" height="50" x="818.5" y="102" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_double_4_group" width="127" height="51" x="954.5" y="0" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_double_5_group" width="127" height="51" x="954.5" y="51" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_double_6_group" width="127" height="51" x="954.5" y="101" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_even_group" width="149" height="149" x="1083.5" y="1" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
-	<e:Group id="_big_group" width="151" height="149" x="1232.5" y="0" anchorOffsetX="0" anchorOffsetY="0"></e:Group>
+	<e:Group id="_small_group" width="151" height="148" x="1" y="1" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_small_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_odd_group" width="151" height="148" x="153" y="1" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_odd_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_double_1_group" width="127" height="50.33" x="304.5" y="0.67" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_double_1_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_double_2_group" width="127" height="51" x="304.5" y="51" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_double_2_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_double_3_group" width="127" height="50" x="304.5" y="100.34" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_double_3_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_triple_1_group" width="136" height="51" x="431.5" y="0.5" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_triple_1_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_triple_2_group" width="136" height="51" x="431.5" y="51" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_triple_2_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_triple_3_group" width="136" height="50" x="431.5" y="102" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_triple_3_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_triple_all_group" width="251" height="151" x="567.5" y="1" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_triple_all_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_triple_4_group" width="136" height="51" x="818.5" y="0" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_triple_4_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_triple_5_group" width="136" height="51" x="818.5" y="51.5" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_triple_5_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_triple_6_group" width="136" height="50" x="818.5" y="102" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_triple_6_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_double_4_group" width="127" height="51" x="954.5" y="0" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_double_4_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_double_5_group" width="127" height="51" x="954.5" y="51" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_double_5_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_double_6_group" width="127" height="51" x="954.5" y="101" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_double_6_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_even_group" width="149" height="149" x="1083.5" y="1" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_even_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group id="_big_group" width="151" height="149" x="1232.5" y="0" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_big_label" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
 	<e:Group id="_sum_4_group" width="96" height="64" x="2.5" y="181" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_sum_4_label" text="4" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
