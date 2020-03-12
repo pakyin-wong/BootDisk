@@ -9,8 +9,6 @@ namespace we {
       private _rightNav: eui.Label;
       private _chipList: Array<IBetChip & core.BaseEUI> = [];
       protected _chipContainer: eui.Component;
-      protected _clipChipHeightPortion: number = 0.85;
-      protected _flatChipHeightPortion: number = 1.05;
 
       public constructor() {
         super();
@@ -58,14 +56,6 @@ namespace we {
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.syncChip, this);
-      }
-
-      public set clipChipHeightPortion(value: number) {
-        this._clipChipHeightPortion = value;
-      }
-
-      public set flatChipHeightPortion(value: number) {
-        this._flatChipHeightPortion = value;
       }
 
       public set visibleDenomNum(value: number) {
@@ -163,7 +153,6 @@ namespace we {
         this._denomList.map((value, index) => {
           const betChip = new BetChip(value);
           betChip.index = index;
-          betChip.height = this.height * this._clipChipHeightPortion;
           betChip.type = we.core.ChipType.PERSPECTIVE;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
           this._chipList.push(betChip);
@@ -200,12 +189,10 @@ namespace we {
       private setChip(index: number) {
         this._chipList[this._selectedChipIndex].highlight = false;
         this._chipList[this._selectedChipIndex].type = we.core.ChipType.PERSPECTIVE;
-        this._chipList[this._selectedChipIndex].height = this.height * this._clipChipHeightPortion;
         this._chipList[this._selectedChipIndex].verticalCenter = 0;
 
         this._chipList[index].highlight = true;
         this._chipList[index].type = we.core.ChipType.FLAT;
-        this._chipList[index].height = this.height * this._flatChipHeightPortion;
         this._chipList[index].verticalCenter = 0;
         this._chipList[index].draw();
 
