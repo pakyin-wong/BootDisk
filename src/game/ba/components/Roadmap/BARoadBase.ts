@@ -5,6 +5,7 @@ namespace we {
       protected grid: egret.Shape;
       protected numCol: number = 12;
       protected gridSize: number = 30;
+      protected gridLine: number = 1;
       protected gridUnit: number = 1; // how many unit for each grid. 1 or 2 unit for each grid
       // private bitmap: ScaleableBitmap;
       protected darkModeNumber: number = 0;
@@ -14,10 +15,11 @@ namespace we {
       protected roadData: any;
       protected abstract createIcon(size: number): BARoadIconBase;
 
-      public constructor(_numCol: number, _gridSize: number, _scale: number) {
+      public constructor(_numCol: number, _gridSize: number, _scale: number, _gridLine: number = 1) {
         super();
         this.scale = _scale;
         this.gridSize = _gridSize;
+        this.gridLine = _gridLine;
         this.numCol = _numCol;
 
         this.grid = new egret.Shape();
@@ -136,7 +138,7 @@ namespace we {
         this.grid.graphics.endFill();
 
         // draw grid lines
-        this.grid.graphics.lineStyle(1 * this.scale, gridColors[this.darkModeNumber], 1, true);
+        this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[this.darkModeNumber], 1, true);
         let lineY: number = 0;
         for (let r = 0; r <= 6; r += this.gridUnit) {
           this.grid.graphics.moveTo(0, lineY);
