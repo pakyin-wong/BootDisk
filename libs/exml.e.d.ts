@@ -509,6 +509,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class RoadmapControlTestPageSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ToggleButtonSkin extends eui.Skin{
 	}
 }

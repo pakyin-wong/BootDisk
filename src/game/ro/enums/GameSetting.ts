@@ -22,13 +22,7 @@ namespace we {
         ro.BetField.SEPARATE_27_30,
         ro.BetField.SEPARATE_31_34,
       ],
-      [ro.RACETRACK_INNERFIELD.ORPHELINS]: [
-        ro.BetField.SEPARATE_6_9,
-        ro.BetField.SEPARATE_14_17,
-        ro.BetField.SEPARATE_17_20,
-        ro.BetField.SEPARATE_31_34,
-        ro.BetField.DIRECT_1,
-      ],
+      [ro.RACETRACK_INNERFIELD.ORPHELINS]: [ro.BetField.SEPARATE_6_9, ro.BetField.SEPARATE_14_17, ro.BetField.SEPARATE_17_20, ro.BetField.SEPARATE_31_34, ro.BetField.DIRECT_1],
       [ro.RACETRACK_INNERFIELD.VOISINS]: [
         ro.BetField.STREET_0_2_3,
         ro.BetField.SEPARATE_4_7,
@@ -38,13 +32,7 @@ namespace we {
         ro.BetField.CORNER_25_26_28_29,
         ro.BetField.SEPARATE_32_35,
       ],
-      [ro.RACETRACK_INNERFIELD.ZERO]: [
-        ro.BetField.SEPARATE_0_3,
-        ro.BetField.SEPARATE_12_15,
-        ro.BetField.SEPARATE_18_21,
-        ro.BetField.DIRECT_26,
-        ro.BetField.SEPARATE_32_35,
-      ],
+      [ro.RACETRACK_INNERFIELD.ZERO]: [ro.BetField.SEPARATE_0_3, ro.BetField.SEPARATE_12_15, ro.BetField.SEPARATE_18_21, ro.BetField.DIRECT_26, ro.BetField.SEPARATE_32_35],
     };
 
     export const BETFIELD_MAPPING = {

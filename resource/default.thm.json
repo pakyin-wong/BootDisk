@@ -161,6 +161,7 @@
 		"resource/skin_desktop/ro/SideListItem.exml",
 		"resource/skin_desktop/ScrollBarVertical.exml",
 		"resource/skin_desktop/SegmentedControlTabItem.exml",
+		"resource/skin_desktop/test/RoadmapControlTestPageSkin.exml",
 		"resource/skin_desktop/ToggleButton.exml",
 		"resource/skin_desktop/UserInfoWindow.exml",
 		"resource/skin_mobile_portrait/ba/BaBeadRoadResultCardHolder.exml",

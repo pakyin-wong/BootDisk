@@ -51,7 +51,7 @@ class Main extends eui.UILayer {
     document.documentElement.className = cn.join(' ');
 
     const { type } = env.UAInfo.device;
-    // if (type === 'mobile') {
+    if (type === 'mobile') {
     env.isMobile = true;
 
     // use these when there is portrait mode only
@@ -61,7 +61,7 @@ class Main extends eui.UILayer {
 
     // uncomment below when there are both portrait and landscape layout
     // this.orientationManager = new we.utils.OrientationManager(this.stage);
-    // }
+    }
 
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
