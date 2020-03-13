@@ -10,8 +10,6 @@ namespace we {
       public betChipHeight: number = 56;
       public betChipWidth: number = 70;
       public labelSize: number = 30;
-      protected _clipChipHeightPortion: number = 0.85;
-      protected _flatChipHeightPortion: number = 1.2;
 
       public constructor() {
         super();
@@ -43,20 +41,6 @@ namespace we {
       protected destroy() {
         this._chipsetList.removeEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
-      }
-
-      public set clipChipHeightPortion(value: number) {
-        this._clipChipHeightPortion = value;
-      }
-      public get clipChipHeightPortion() {
-        return this._clipChipHeightPortion;
-      }
-
-      public set flatChipHeightPortion(value: number) {
-        this._flatChipHeightPortion = value;
-      }
-      public get flatChipHeightPortion() {
-        return this._flatChipHeightPortion;
       }
 
       private onChipChange() {

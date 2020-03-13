@@ -46,6 +46,13 @@ namespace we {
         logger.l(`NavSideMenu::onClickInfo`);
       }
 
+      protected onClickRoad() {
+        dir.evtHandler.createOverlay({
+          class: 'CustomRoadMobile',
+        });
+        logger.l(`NavSideMenu::onClickRoad`);
+      }
+
       protected onClickHistory() {
         dir.evtHandler.createOverlay({
           class: 'BetHistoryMobile',

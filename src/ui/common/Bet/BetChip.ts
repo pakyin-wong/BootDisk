@@ -12,8 +12,10 @@ namespace we {
 
       protected _labelSize: number = 30;
 
+      public aspectRatio: number = 0.7;
+
       public constructor(value: number = null, index: number = null, type: we.core.ChipType = we.core.ChipType.BETTING, highlight: boolean = false) {
-        super('BetChip');
+        super('BetChip', false);
         this._value = value;
         this._index = index;
         this._type = type;
@@ -60,7 +62,7 @@ namespace we {
           this._glowImage.right = this._chipImage.right - 6;
           this._glowImage.verticalCenter = this._chipImage.verticalCenter;
           this._glowImage.horizontalCenter = this._chipImage.horizontalCenter;
-          this._glowImage.height = this._chipImage.height;
+          this._glowImage.height = this._chipImage.width;
           this._glowImage.width = this._chipImage.width;
           this._glowImage.touchEnabled = false;
           this.addChild(this._glowImage);
@@ -114,6 +116,21 @@ namespace we {
         return this._type;
       }
 
+      public $setWidth(value: number) {
+        super.$setWidth(value);
+        switch (this._type) {
+          case we.core.ChipType.PERSPECTIVE:
+            this.$setHeight(value * this.aspectRatio);
+            break;
+          case we.core.ChipType.FLAT:
+          case we.core.ChipType.BETTING:
+          default:
+            this.$setHeight(value);
+            break;
+        }
+        this._chipValueLabel.verticalCenter = this.height * -0.1;
+      }
+
       public draw() {
         switch (this._type) {
           case we.core.ChipType.FLAT:
@@ -122,17 +139,20 @@ namespace we {
             // this._chipValueLabel.verticalCenter = this.height * -0.025;
             this._chipValueLabel.verticalCenter = 0;
             this._chipValueLabel.scaleY = 1;
+            this.height = this.width;
             break;
           case we.core.ChipType.PERSPECTIVE:
             this._chipImage.source = this.getChipSource(this._type);
             this._chipValueLabel.text = utils.numberToFaceValue(this._value);
-            this._chipValueLabel.verticalCenter = this.height * -0.1;
             this._chipValueLabel.scaleY = 0.65;
+            this.height = this.width * this.aspectRatio;
+            this._chipValueLabel.verticalCenter = this.height * -0.1;
             break;
           case we.core.ChipType.BETTING:
           default:
             this._chipValueLabel.text = '';
             this._chipImage.source = this.getChipSource(this._type);
+            this.height = this.width;
             break;
         }
       }

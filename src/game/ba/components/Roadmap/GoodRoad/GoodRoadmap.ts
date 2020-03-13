@@ -4,6 +4,9 @@ namespace we {
       private bigRoad: BABigRoad;
       private parser: BARoadParser;
 
+      public gridSize: number = 29;
+      public gridLine: number = 1;
+
       public constructor() {
         super();
       }
@@ -17,7 +20,7 @@ namespace we {
         this.parser = new BARoadParser([10, 10, 24, 12, 12]);
         this.parser.addEventListener('onUpdate', this.onParserUpdate, this);
 
-        this.bigRoad = new BABigRoad(10, 29);
+        this.bigRoad = new BABigRoad(10, this.gridSize, 1, this.gridLine);
         this.addChild(this.bigRoad);
 
         this.onParserUpdate(null);

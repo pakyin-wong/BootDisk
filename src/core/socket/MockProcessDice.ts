@@ -8,7 +8,9 @@ namespace we {
       protected async setResults(data: data.TableInfo, results: string[], points: number[]) {
         const idx = 0;
         const gameData = data.data;
-        gameData.value = points[0];
+        gameData.dice1 = points[0];
+        gameData.dice2 = points[1];
+        gameData.dice3 = points[2];
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
 

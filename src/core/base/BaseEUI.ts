@@ -1,10 +1,10 @@
 namespace we {
   export namespace core {
     export class BaseEUI extends eui.Component {
-      constructor(skin: string = null) {
+      constructor(skin: string = null, orientationDependent: boolean = true) {
         super();
         if (skin) {
-          this.skinName = utils.getSkin(skin);
+          this.skinName = utils.getSkin(skin, orientationDependent);
         }
       }
 

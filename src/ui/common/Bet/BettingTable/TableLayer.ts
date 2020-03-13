@@ -46,6 +46,8 @@ namespace we {
       public onRollout(fieldName: string) {}
 
       public clearAllHighlights() {}
+
+      public async flashFields(data: any, extra?: any) {}
     }
   }
 }

@@ -22,8 +22,8 @@ namespace we {
       }
 
       private async mount() {
-        this.width = 293;
-        this.height = 225;
+        // this.width = 293;
+        // this.height = 225;
         this._item = new we.ba.GoodRoadListItem();
         this._item.addEventListener('onAddTap', this.onItemAdd, this);
         this._item.addEventListener('onEditTap', this.onItemEdit, this);
@@ -80,6 +80,11 @@ namespace we {
           // custom
           dir.evtHandler.dispatch(core.Event.GOOD_ROAD_MODIFY, { id: this.roadId, name: this.roadName, pattern: this.roadPattern, enabled: e.data, roadType: 2 });
         }
+      }
+
+      protected commitProperties() {
+        super.commitProperties();
+        this._item.currentState = this.getCurrentState();
       }
 
       public itemDataChanged() {

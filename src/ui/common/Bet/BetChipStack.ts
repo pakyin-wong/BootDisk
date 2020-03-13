@@ -29,7 +29,7 @@ namespace we {
       protected _chipType: number;
 
       constructor() {
-        super('BetChipStack');
+        super('BetChipStack', false);
         this.touchEnabled = false;
         this.touchChildren = false;
       }
