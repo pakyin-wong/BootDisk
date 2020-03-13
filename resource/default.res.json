@@ -4243,6 +4243,66 @@
 			"url": "assets/d/lobby/d_lobby_goodroadsetting_icon_trash.png",
 			"type": "image",
 			"name": "d_lobby_goodroadsetting_icon_trash_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_hover_png"
 		}
 	]
 }

@@ -9,6 +9,13 @@ namespace we {
       protected pDragon: eui.Label;
       protected pTie: eui.Label;
 
+      protected gameIdLabel: eui.Label;
+      protected betLimitLabel: eui.Label;
+
+      protected pGameID: eui.Label;
+
+      public pBetLimit: ui.RunTimeLabel;
+
       public constructor() {
         super();
       }
@@ -44,6 +51,12 @@ namespace we {
         this.tigerLabel.text = i18n.t('dragontiger.tiger');
         this.dragonLabel.text = i18n.t('dragontiger.dragon');
         this.tieLabel.text = i18n.t('dragontiger.tie');
+        if (this.gameIdLabel) {
+          this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
+        }
+        if (this.betLimitLabel) {
+          this.betLimitLabel.text = i18n.t('baccarat.betLimitshort');
+        }
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -52,6 +65,9 @@ namespace we {
           this.pTiger.text = tableInfo.gamestatistic.bankerCount.toString();
           this.pDragon.text = tableInfo.gamestatistic.playerCount.toString();
           this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
+        }
+        if (this.pGameID) {
+          this.pGameID.text = tableInfo.betInfo.gameroundid;
         }
       }
     }

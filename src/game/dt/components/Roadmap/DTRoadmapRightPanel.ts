@@ -1,6 +1,11 @@
 namespace we {
   export namespace dt {
-    export class DTRoadmapRightPanel extends ba.BARoadmapRightPanel {
+    export interface IDTRoadmapDisplayObject {
+      iconBankerBead: DTBeadRoadIcon;
+      iconPlayerBead: DTBeadRoadIcon;
+      setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any);
+    }
+    export class DTRoadmapRightPanel extends ba.BARoadmapRightPanel implements IDTRoadmapDisplayObject {
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'dt/DTRoadmapRightPanel');
       }
