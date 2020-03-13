@@ -1,11 +1,10 @@
 namespace we {
   export namespace test {
-    export class RoadmapTestScene extends core.BaseScene {
+    export class RoadmapControlTestPage extends core.BasePage {
       private progressbar: eui.ProgressBar;
 
       public onEnter() {
         this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
-        this.skinName = utils.getSkin('LoadingScene');
       }
 
       public async onFadeEnter() {}
@@ -24,7 +23,7 @@ namespace we {
           const face = new egret.DisplayObjectContainer();
           const circle = new egret.Shape();
           // circle.graphics.lineStyle(2, colors[i], 1, true);
-          circle.graphics.beginFill(0xff0000, 1);
+          circle.graphics.beginFill(0x0000ff, 1);
           circle.graphics.drawCircle(30, 30, 30);
           circle.graphics.endFill();
           face.addChild(circle);
