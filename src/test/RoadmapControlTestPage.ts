@@ -35,12 +35,12 @@ namespace we {
       public async onFadeExit() {}
 
       protected mount() {
-        dir.socket.getTableList();
         this.handleTableList();
+        dir.socket.getTableList();
       }
 
       protected destroy() {
-        // dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        dir.evtHandler.removeEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
       }
 
       protected initRoadMap() {
@@ -86,7 +86,7 @@ namespace we {
         const roomIds = event ? (event.data as string[]) : env.allTableList;
         this.roomIds = roomIds.filter(tableId => {
           const tableInfo = env.tableInfos[tableId];
-          return tableInfo.gametype === core.GameType.BAC;
+          return tableInfo.gametype === core.GameType.BAC || tableInfo.gametype === core.GameType.BAS;
         });
 
         if (this.roomIds.length > 0) {
@@ -96,8 +96,20 @@ namespace we {
           this._roadmapControl.setTableInfo(this._targetTableInfo);
           this._roadmapControl2.setTableInfo(this._targetTableInfo);
           this._roadmapControl3.setTableInfo(this._targetTableInfo);
+          dir.evtHandler.addEventListener(core.Event.ROADMAP_UPDATE, this.onRoadDataUpdate, this);
         } else {
           dir.evtHandler.once(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        }
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        if (evt && evt.data) {
+          const tableInfo = <data.TableInfo> evt.data;
+          if (tableInfo.tableid === this._targetTableId) {
+            this._roadmapControl.updateRoadData();
+            this._roadmapControl2.updateRoadData();
+            this._roadmapControl3.updateRoadData();
+          }
         }
       }
     }
