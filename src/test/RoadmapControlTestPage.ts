@@ -1,10 +1,29 @@
 namespace we {
   export namespace test {
     export class RoadmapControlTestPage extends core.BasePage {
-      private progressbar: eui.ProgressBar;
+      protected _roadmapControl: ba.BARoadmapControl;
+      protected _leftGamePanel: ba.BARoadmapLeftPanel;
+      protected _rightGamePanel: ba.BARoadmapRightPanel;
+      protected _beadRoadResultPanel: ba.BaBeadRoadResultPanel;
+      protected _roadmapControl2: ba.BARoadmapControl;
+      protected _leftGamePanel2: ba.BARoadmapLeftPanel;
+      protected _rightGamePanel2: ba.BARoadmapRightPanel;
+      protected _beadRoadResultPanel2: ba.BaBeadRoadResultPanel;
+      protected _roadmapControl3: ba.BARoadmapControl;
+      protected _leftGamePanel3: ba.BARoadmapLeftPanel;
+      protected _rightGamePanel3: ba.BARoadmapRightPanel;
+      protected _beadRoadResultPanel3: ba.BaBeadRoadResultPanel;
+
+      public roomIds: string[] = [];
+      protected _targetTableId;
+      protected _targetTableInfo;
+
+      public constructor(data: any = null) {
+        super('test/RoadmapControlTestPageSkin', data);
+      }
 
       public onEnter() {
-        this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
+        // this.once(eui.UIEvent.COMPLETE, this.mount, this);
       }
 
       public async onFadeEnter() {}
@@ -16,46 +35,71 @@ namespace we {
       public async onFadeExit() {}
 
       protected mount() {
-        this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
+        dir.socket.getTableList();
+        this.handleTableList();
+      }
 
-        // draw the icon faces
-        for (let i = 0; i < 2; i++) {
-          const face = new egret.DisplayObjectContainer();
-          const circle = new egret.Shape();
-          // circle.graphics.lineStyle(2, colors[i], 1, true);
-          circle.graphics.beginFill(0x0000ff, 1);
-          circle.graphics.drawCircle(30, 30, 30);
-          circle.graphics.endFill();
-          face.addChild(circle);
-          this.addChild(face);
+      protected destroy() {
+        // dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+      }
+
+      protected initRoadMap() {
+        this._roadmapControl = new ba.BARoadmapControl(this._targetTableId);
+        this._roadmapControl.setRoads(
+          this._leftGamePanel.beadRoad,
+          this._rightGamePanel.bigRoad,
+          this._rightGamePanel.bigEyeRoad,
+          this._rightGamePanel.smallRoad,
+          this._rightGamePanel.cockroachRoad,
+          [16, 33, 66, 34, 32],
+          this._rightGamePanel,
+          this._beadRoadResultPanel
+        );
+
+        this._roadmapControl2 = new ba.BARoadmapControl(this._targetTableId);
+        this._roadmapControl2.setRoads(
+          this._leftGamePanel2.beadRoad,
+          this._rightGamePanel2.bigRoad,
+          this._rightGamePanel2.bigEyeRoad,
+          this._rightGamePanel2.smallRoad,
+          this._rightGamePanel2.cockroachRoad,
+          [16, 33, 66, 34, 32],
+          this._rightGamePanel2,
+          this._beadRoadResultPanel2
+        );
+
+        this._roadmapControl3 = new ba.BARoadmapControl(this._targetTableId);
+        this._roadmapControl3.setRoads(
+          this._leftGamePanel3.beadRoad,
+          this._rightGamePanel3.bigRoad,
+          this._rightGamePanel3.bigEyeRoad,
+          this._rightGamePanel3.smallRoad,
+          this._rightGamePanel3.cockroachRoad,
+          [16, 33, 66, 34, 32],
+          this._rightGamePanel3,
+          this._beadRoadResultPanel3
+        );
+      }
+
+      private handleTableList(event: egret.Event = null) {
+        // if (!env.livepageLocked) {
+        const roomIds = event ? (event.data as string[]) : env.allTableList;
+        this.roomIds = roomIds.filter(tableId => {
+          const tableInfo = env.tableInfos[tableId];
+          return tableInfo.gametype === core.GameType.BAC;
+        });
+
+        if (this.roomIds.length > 0) {
+          this._targetTableId = this.roomIds[0];
+          this._targetTableInfo = env.tableInfos[this._targetTableId];
+          this.initRoadMap();
+          this._roadmapControl.setTableInfo(this._targetTableInfo);
+          this._roadmapControl2.setTableInfo(this._targetTableInfo);
+          this._roadmapControl3.setTableInfo(this._targetTableInfo);
+        } else {
+          dir.evtHandler.once(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         }
-
-        // step 3: connect socket
-        // this.socketConnect();
-        // dir.sceneCtr.goto('LobbyScene');
       }
-
-      protected socketConnect() {
-        dir.evtHandler.addEventListener(core.MQTT.CONNECT_SUCCESS, this.socketConnectSuccess, this);
-        dir.evtHandler.addEventListener(core.MQTT.CONNECT_FAIL, this.socketConnectFail, this);
-        // dir.socket.connect();
-      }
-
-      protected socketConnectSuccess() {
-        dir.evtHandler.removeEventListener(core.MQTT.CONNECT_SUCCESS, this.socketConnectSuccess, this);
-        dir.evtHandler.removeEventListener(core.MQTT.CONNECT_FAIL, this.socketConnectFail, this);
-
-        // step 4: auth and get user profiles
-
-        // step 5: get and display tips, promote banner
-
-        // step 6: load general resource (lobby, baccarat)
-
-        // step 7: init complete, transfer to lobby scene
-        // dir.sceneCtr.goto('LobbyScene');
-      }
-
-      protected socketConnectFail() {}
     }
   }
 }
