@@ -130,11 +130,11 @@ namespace we {
           if (!tableInfo) {
             return false;
           }
-          const gameType = tableInfo.gametype;
-          if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
-            tableInfo.displayReady = false;
-            return false;
-          }
+          // const gameType = tableInfo.gametype;
+          // if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
+          //   tableInfo.displayReady = false;
+          //   return false;
+          // }
         }
 
         if (tableInfo && !tableInfo.displayReady) {
