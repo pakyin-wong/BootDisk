@@ -174,6 +174,14 @@ declare module skin_desktop{
 	class DiceScene extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class DiLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiRightPanel extends eui.Skin{
+	}
+}
 declare module skin_desktop.di{
 	class LiveListItemSkin extends eui.Skin{
 	}
@@ -530,6 +538,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class ToggleButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ToggleUpDownSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

@@ -10,8 +10,8 @@ namespace we {
   export namespace di {
     export class Scene extends core.DesktopBaseGameScene {
       protected _roadmapControl: we.ro.RORoadmapControl;
-      protected _leftGamePanel: we.ro.RoLeftPanel;
-      protected _rightGamePanel: we.ro.RoRightPanel;
+      protected _leftGamePanel: we.di.DiLeftPanel;
+      protected _rightGamePanel: we.di.DiRightPanel;
       protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
 
       constructor(data: any) {
@@ -33,14 +33,20 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        this._roadmapControl.setTableInfo(this._tableInfo);
+        // this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+
+        const pc = new we.di.RankedPieChart();
+        pc.x = 100;
+        pc.y = 100;
+        pc.setRanksAndAnimate([30, 15, 55]);
+        this.addChild(pc);
       }
 
       protected initRoadMap() {
         this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(
+        /*this._roadmapControl.setRoads(
           this._leftGamePanel.beadRoad,
           this._leftGamePanel.colorBigRoad,
           this._leftGamePanel.sizeBigRoad,
@@ -48,19 +54,15 @@ namespace we {
           this._leftGamePanel,
           this._rightGamePanel,
           this._bigRoadResultPanel
-        );
+        );*/
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
+        // this._roadmapControl.updateRoadData();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        if (this._rightGamePanel.raceTrackChipLayer) {
-          this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
-          this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
-        }
       }
 
       public checkResultMessage() {

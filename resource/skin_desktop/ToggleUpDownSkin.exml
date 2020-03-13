@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ToggleUpDownSkin"
+        states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" xmlns:e="http://ns.egret.com/eui">
+    <e:Image source="d_lobby_button_down_normal_png" source.up="d_lobby_button_down_hover_png"
+             source.down="d_lobby_button_down_hover_png" source.disabled="d_lobby_button_down_hover_png"
+             horizontalCenter="0" verticalCenter="0" width="46" height="46" />
+    <e:Image width="46" height="46" source="d_lobby_btn_dropup_popover_png" x="0" y="0" alpha="0" />
+</e:Skin>
