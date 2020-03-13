@@ -807,6 +807,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class ResultNotificationSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BaResultItem extends eui.Skin{
 	}
 }

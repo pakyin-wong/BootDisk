@@ -11,9 +11,6 @@ namespace we {
       protected _bottomGamePanel: MobileBottomGamePanel;
       protected _beadRoadResultPanel: DTBeadRoadResultPanel;
 
-      protected _switchBaMode: eui.ToggleSwitch;
-      protected _lblBaMode: ui.RunTimeLabel;
-
       protected _verticalGroup: eui.Group;
 
       constructor(data: any) {
@@ -41,15 +38,6 @@ namespace we {
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
-
-        if (this._switchBaMode) {
-          this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          // this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
-        }
-
-        if (this._lblBaMode) {
-          this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
-        }
 
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
@@ -153,12 +141,6 @@ namespace we {
       protected hideBetChipPanel() {
         this.setChipPanelPos();
         super.hideBetChipPanel();
-      }
-
-      protected onBaModeToggle(evt: eui.UIEvent) {
-        this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-        this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-        this._chipLayer.cancelBet();
       }
 
       protected initRoadMap() {
