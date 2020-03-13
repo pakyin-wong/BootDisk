@@ -23,10 +23,6 @@ namespace we {
 
       public setUpdateChipSetSelectedChipFunc(value: (value: number, index: number) => void) {}
 
-      public set clipChipHeightPortion(value: number) {}
-
-      public set flatChipHeightPortion(value: number) {}
-
       // setChipSet(denominationList: number[]) {}
       // onChipSelected(index: number) {}
     }
