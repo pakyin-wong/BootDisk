@@ -1,5 +1,5 @@
 {
-    "target": "test",
+    "target": "development",
     "mode": "comm",
     "playerID": "BMJCQSLH5S5VDBFBP1A0",
     "endpoint": "http://18.139.237.86:8080",
