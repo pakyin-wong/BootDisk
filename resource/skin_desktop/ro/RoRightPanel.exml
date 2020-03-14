@@ -35,7 +35,9 @@
         </e:RadioButton>
         <e:ViewStack id="pageStack" width="100%" height="290" x="0" y="0" anchorOffsetX="0" selectedIndex="0"
                      anchorOffsetY="0">
-                <e:Group width="100%" height="100%" name="Group"></e:Group>
-                <e:Group width="100%" height="100%" name="View"></e:Group>
+                <e:Group id="page1" width="100%" height="100%" name="Group"></e:Group>
+                <e:Group id="page2" width="100%" height="100%" name="View">
+                        <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" />
+                </e:Group>
         </e:ViewStack>
 </e:Skin>
