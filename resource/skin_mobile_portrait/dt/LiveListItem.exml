@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.dt.LiveListItemSkin" width="1140" height="399" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.dt.LiveListItemSkin" width="1141" height="445" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_contentContainer" width="100%" height="399" x="0" y="0" anchorOffsetY="0">
 		<e:Rect height="105" y="0" fillColor="0x202020" right="0" left="0" />
