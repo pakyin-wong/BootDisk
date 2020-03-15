@@ -21,7 +21,6 @@ namespace we {
         super.childrenCreated();
       }
 
-      
       public updateLobbyRoadData(roadmapData: data.RoadmapData) {}
     }
   }
