@@ -150,13 +150,11 @@ namespace we {
       },
       live: {
         gametype: {
-          allGame: '全部遊戲',
           bacarrat: '百家樂',
           dragontiger: '龍虎',
           luckywheel: '幸運輪',
-          wheel: '輪盤',
+          roulette: '輪盤',
           dice: '骰寶',
-          goodroad: '好路',
           other: '其他',
         },
       },

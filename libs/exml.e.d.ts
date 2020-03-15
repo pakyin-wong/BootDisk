@@ -163,6 +163,14 @@ declare module skin_desktop.di{
 	}
 }
 declare module skin_desktop.di{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
 	class LiveListSimpleItemSkin extends eui.Skin{
 	}
 }
@@ -506,6 +514,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class Slider extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoadmapControlTestPageSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.di.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
+	<e:Group id="_small_group" x="0" y="0" width="289" height="88">
+		<e:Image id="_small_image" width="289" height="88" source="d_lobby_ro_panel_betcontrol_betarea_odd_png"
+		         name="d_lobby_ro_panel_betcontrol_betarea_odd_hover_png" fillMode="scale" />
+		<ui:RunTimeLabel id="_small_label" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_big_group" x="289" y="0" width="288" height="88">
+		<e:Image id="_big_image" source="d_lobby_ro_panel_betcontrol_betarea_even_png"
+		         name="d_lobby_ro_panel_betcontrol_betarea_even_hover_png" width="288" height="88" fillMode="scale" />
+		<ui:RunTimeLabel id="_big_label" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_odd_group" x="0" y="88" width="289" height="88">
+		<e:Image id="_odd_image" source="d_lobby_ro_panel_betcontrol_betarea_red_png"
+		         name="d_lobby_ro_panel_betcontrol_betarea_red_hover_png" width="289" height="88" fillMode="scale" />
+		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_even_group" x="289" y="88" width="288" height="88">
+		<e:Image id="_even_image" source="d_lobby_ro_panel_betcontrol_betarea_black_png"
+		         name="d_lobby_ro_panel_betcontrol_betarea_black_hover_png" width="288" height="88" fillMode="scale" />
+		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+</e:Skin>

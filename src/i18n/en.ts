@@ -150,13 +150,11 @@ namespace we {
       },
       live: {
         gametype: {
-          allGame: 'All Game',
           bacarrat: 'Baccarat',
           dragontiger: 'DT',
           luckywheel: 'Wheel',
-          wheel: 'Wheel',
+          roulette: 'Roulette',
           dice: 'Dice',
-          goodroad: 'Good Road',
           other: 'Others',
         },
       },
