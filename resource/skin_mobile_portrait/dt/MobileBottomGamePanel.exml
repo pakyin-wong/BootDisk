@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.MobileBottomGamePanel" width="1242" 
-        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+<e:Skin class="skin_mobile_portrait.dt.MobileBottomGamePanel" width="1242" 
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*">
 	<e:Group id="_verGroup">
 		<e:Group id="_topPart" width="100%" x="0" y="0" scaleX="1" scaleY="1">
 			<e:Rect id="top_bg" width="100%" height="100" x="0" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425"/>
@@ -59,10 +59,10 @@
 				<ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="15" y="23" textAlign="center" anchorOffsetX="0" width="116" size="28" verticalAlign="middle" height="52" touchEnabled="false" />
 			</e:Group>
 			<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
-				<ba:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.ba.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+				<dt:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.dt.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			<e:Group id="_infoGroup" width="100%" height="100%" name="Group">
-				<ba:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.ba.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+				<dt:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.dt.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			</e:ViewStack>
 		</e:Group>
