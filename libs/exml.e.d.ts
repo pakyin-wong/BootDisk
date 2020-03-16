@@ -683,6 +683,10 @@ declare module skin_mobile_portrait.dt{
 	}
 }
 declare module skin_mobile_portrait.dt{
+	class LiveOverlayItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
 }
