@@ -117,14 +117,13 @@ namespace we {
       }
       public validateTableInfoDisplayReady(tableid: string): boolean {
         // check if the tableInfo is displayReady
-        /*
-        for testing without roadmap
         const tableInfo = this.tableInfos[tableid];
-         if (tableInfo) tableInfo.displayReady = true;
-        return true;
-        */
 
-        const tableInfo = this.tableInfos[tableid];
+        // for testing without roadmap
+        if (tableInfo) {
+          tableInfo.displayReady = true;
+        }
+        return true;
 
         if (env.isMobile) {
           if (!tableInfo) {

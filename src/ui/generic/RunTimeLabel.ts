@@ -13,6 +13,15 @@ namespace we {
         this._isReg = false;
       }
 
+      public set i18n(value: string) {
+        this._renderer = () => i18n.t(value);
+        this.render();
+      }
+
+      public get i18n() {
+        return this._renderer && this._renderer();
+      }
+
       public set renderText(renderer: () => string) {
         this._renderer = renderer;
         if (!this._isReg) {
