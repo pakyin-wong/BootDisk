@@ -42,6 +42,9 @@ namespace we {
       protected playerPairCountLabel: ui.RunTimeLabel;
       protected totalCountLabel: ui.RunTimeLabel;
 
+      protected playerButtonLabel: ui.RunTimeLabel;
+      protected bankerButtonLabel: ui.RunTimeLabel;
+
       protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
@@ -87,11 +90,11 @@ namespace we {
         this.beadRoad.y = 98;
         this._roadmapGroup.addChild(this.beadRoad);
 
-        this.iconBankerBead = new BABeadRoadIcon(52);
-        this.iconBankerBead.x = 15;
-        this.iconBankerBead.y = 23;
-        this.iconBankerBead.setByObject({ v: 'b' });
-        this._roadmapGroup.addChild(this.iconBankerBead);
+        // this.iconBankerBead = new BABeadRoadIcon(52);
+        // this.iconBankerBead.x = 15;
+        // this.iconBankerBead.y = 23;
+        // this.iconBankerBead.setByObject({ v: 'b' });
+        // this._roadmapGroup.addChild(this.iconBankerBead);
 
         this.iconBankerBigEye = new BABigEyeRoadIcon(27);
         this.iconBankerBigEye.x = 146;
@@ -111,11 +114,11 @@ namespace we {
         this.iconBankerCockroach.setByObject({ v: 'b' });
         this._roadmapGroup.addChild(this.iconBankerCockroach);
 
-        this.iconPlayerBead = new BABeadRoadIcon(52);
-        this.iconPlayerBead.x = 247;
-        this.iconPlayerBead.y = 23;
-        this.iconPlayerBead.setByObject({ v: 'p' });
-        this._roadmapGroup.addChild(this.iconPlayerBead);
+        // this.iconPlayerBead = new BABeadRoadIcon(52);
+        // this.iconPlayerBead.x = 247;
+        // this.iconPlayerBead.y = 23;
+        // this.iconPlayerBead.setByObject({ v: 'p' });
+        // this._roadmapGroup.addChild(this.iconPlayerBead);
 
         this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
         this.iconPlayerBigEye.x = 379;
@@ -193,6 +196,9 @@ namespace we {
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
+
+        this.playerButtonLabel.text = i18n.t('baccarat.askPlayer');
+        this.bankerButtonLabel.text = i18n.t('baccarat.askBanker');
       }
 
       protected onPanelOpen() {

@@ -7,7 +7,6 @@ namespace we {
       protected _lblBetLimit: ui.RunTimeLabel;
 
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
-      protected _betChipSetMobile: ui.BetChipSet;
       protected _betChipSetPanel: eui.Group;
       protected _betPanelGroup: eui.Group;
       protected _betChipSetGridEnabled: boolean = false;
@@ -16,7 +15,7 @@ namespace we {
         super(data);
         this._betChipSetPanel.alpha = 0;
         this._betChipSetPanel.visible = false;
-        this._betChipSetMobile.alpha = 1;
+        this._betChipSet.alpha = 1;
       }
 
       protected initChildren() {
@@ -26,10 +25,12 @@ namespace we {
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
         }
+      }
 
-        this._betChipSetMobile.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+      protected initDenom() {
+        this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
-        this._betChipSetMobile.init(null, denominationList);
+        this._betChipSet.init(null, denominationList);
       }
 
       protected initBetLimitSelector() {

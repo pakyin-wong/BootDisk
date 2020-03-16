@@ -187,9 +187,13 @@ namespace we {
 
       /** Last Step: All Loading Complete, switch to Lobby Scene */
       private loadingComplete() {
-        dir.moniter.start(this.stage);
-        dir.sceneCtr.goto('lobby');
-        dir.audioCtr.init();
+        if (DEBUG && dir.config.target && dir.config.target === 'test') {
+          dir.sceneCtr.goto('test');
+        } else {
+          dir.moniter.start(this.stage);
+          dir.sceneCtr.goto('lobby');
+          dir.audioCtr.init();
+        }
       }
 
       private next() {
