@@ -12,6 +12,7 @@ namespace we {
       gametype_MJ: 'MJ',
       gametype_RO: 'RO',
       gametype_DT: 'DT',
+      gametype_LW: 'LW',
 
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
