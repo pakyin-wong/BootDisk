@@ -128,7 +128,7 @@ namespace we {
           //   tableInfo.displayReady = false;
           //   return false;
           // }
-          if (gameType === core.GameType.RO) {
+          if (gameType === core.GameType.DI || gameType === core.GameType.LW) {
             tableInfo.displayReady = false;
             return false;
           }
@@ -166,7 +166,7 @@ namespace we {
           case core.GameType.DI:
             dir.sceneCtr.goto('di', { tableid: tableId });
             break;
-        case core.GameType.LW:
+          case core.GameType.LW:
             dir.sceneCtr.goto('lw', { tableid: tableId });
             break;
           default:
