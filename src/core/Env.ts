@@ -166,8 +166,11 @@ namespace we {
           case core.GameType.DI:
             dir.sceneCtr.goto('di', { tableid: tableId });
             break;
+        case core.GameType.LW:
+            dir.sceneCtr.goto('lw', { tableid: tableId });
+            break;
           default:
-            console.error('error in TableListItemHolder');
+            logger.e(`Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             break;
         }
       }
