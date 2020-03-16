@@ -39,6 +39,8 @@ namespace we {
           return;
         }
 
+        logger.l(this.tableInfo);
+
         switch (this.tableInfo.gametype) {
           case we.core.GameType.BAC:
           case we.core.GameType.BAI:

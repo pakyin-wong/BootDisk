@@ -663,6 +663,9 @@ namespace we {
           ],
         });
       }
+      public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {}
+      public getBetCombination() {}
+      public removeBetCombination(id: string) {}
     }
   }
 }
