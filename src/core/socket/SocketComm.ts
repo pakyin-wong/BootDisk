@@ -336,37 +336,45 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(tableid);
 
-        if (gameStatistic.gametype === core.GameType.RO) {
-          // RO
-          gameStatistic.tableID = tableid;
-          gameStatistic.shoeID = gameStatistic.shoeid;
-          tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic);
+        switch (gameStatistic.gametype) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+          case core.GameType.DT: {
+            const roadmapData = parseAscString(gameStatistic.roadmapdata);
+            const bankerCount: number = gameStatistic.bankerwincount ? gameStatistic.bankerwincount : 0;
+            const playerCount: number = gameStatistic.playerwincount ? gameStatistic.playerwincount : 0;
+            const tieCount: number = gameStatistic.tiewincount ? gameStatistic.tiewincount : 0;
+            const playerPairCount: number = gameStatistic.playerpairwincount ? gameStatistic.playerpairwincount : 0;
+            const bankerPairCount: number = gameStatistic.bankerpairwincount ? gameStatistic.bankerpairwincount : 0;
+            const totalCount: number = bankerCount + playerCount + tieCount;
 
-          const stats = new we.data.GameStatistic();
-          stats.coldNumbers = gameStatistic.cold;
-          stats.hotNumbers = gameStatistic.hot;
-          tableInfo.gamestatistic = stats;
-        } else {
-          // BA/DT
-          const roadmapData = parseAscString(gameStatistic.roadmapdata);
-          const bankerCount: number = gameStatistic.bankerwincount ? gameStatistic.bankerwincount : 0;
-          const playerCount: number = gameStatistic.playerwincount ? gameStatistic.playerwincount : 0;
-          const tieCount: number = gameStatistic.tiewincount ? gameStatistic.tiewincount : 0;
-          const playerPairCount: number = gameStatistic.playerpairwincount ? gameStatistic.playerpairwincount : 0;
-          const bankerPairCount: number = gameStatistic.bankerpairwincount ? gameStatistic.bankerpairwincount : 0;
-          const totalCount: number = bankerCount + playerCount + tieCount;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
-          tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
+            const stats = new we.data.GameStatistic();
+            stats.bankerCount = bankerCount;
+            stats.playerCount = playerCount;
+            stats.tieCount = tieCount;
+            stats.playerPairCount = playerPairCount;
+            stats.bankerPairCount = bankerPairCount;
+            stats.totalCount = totalCount;
 
-          const stats = new we.data.GameStatistic();
-          stats.bankerCount = bankerCount;
-          stats.playerCount = playerCount;
-          stats.tieCount = tieCount;
-          stats.playerPairCount = playerPairCount;
-          stats.bankerPairCount = bankerPairCount;
-          stats.totalCount = totalCount;
+            tableInfo.gamestatistic = stats;
+            break;
+          }
+          case core.GameType.RO:
+          case core.GameType.DI:
+          default: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic);
 
-          tableInfo.gamestatistic = stats;
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = gameStatistic.cold;
+            stats.hotNumbers = gameStatistic.hot;
+            tableInfo.gamestatistic = stats;
+            break;
+          }
         }
 
         dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);

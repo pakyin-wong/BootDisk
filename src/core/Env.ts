@@ -119,12 +119,6 @@ namespace we {
         // check if the tableInfo is displayReady
         const tableInfo = this.tableInfos[tableid];
 
-        // for testing without roadmap
-        if (tableInfo) {
-          tableInfo.displayReady = true;
-        }
-        return true;
-
         if (env.isMobile) {
           if (!tableInfo) {
             return false;
