@@ -6,8 +6,8 @@
 </e:Group>
 -->
 <e:Group id="_quickBetGroup" width="1140" height="560" y="401" anchorOffsetY="16">
-	<dt:TableLayer id="_tableLayer" name="sidebettingtable" width="1140" height="334" skinName="skin_mobile_portrait.dt.SideListTableLayerSkin"/>
-	<dt:ChipLayer id="_chipLayer" name="sidebettingtable" width="1140" height="334" skinName="skin_mobile_portrait.dt.SideListChipLayerSkin"/>
+	<dt:TableLayer id="_tableLayer" name="sidebettingtable" width="1140" height="334" skinName="skin_mobile_portrait.dt.LiveListItemBettingTableSkin"/>
+	<dt:ChipLayer id="_chipLayer" name="sidebettingtable" width="1140" height="334" skinName="skin_mobile_portrait.dt.LiveListItemChipLayerSkin"/>
     <ui:BaseImageButton id="_closeButton" width="183" height="150" currentState="bet_overlay_close" x="0" y="366.5"
                         anchorOffsetX="-43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
                         useColorFilter="true" />

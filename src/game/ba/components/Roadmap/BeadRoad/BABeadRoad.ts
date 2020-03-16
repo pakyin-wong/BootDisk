@@ -8,7 +8,7 @@ namespace we {
         this.gridUnit = 1;
         this.mode = 0;
 
-        if (_showResult) {
+        if (_showResult && !env.isMobile) {
           this.touchEnabled = true;
           this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
