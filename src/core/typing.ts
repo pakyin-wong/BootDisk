@@ -18,6 +18,9 @@ namespace we {
       createGoodRoad(name: string, pattern: string);
       removeGoodRoadmap(id: string);
       resetGoodRoadmap();
+      createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]);
+      getBetCombination();
+      removeBetCombination(id: string);
     }
 
     export interface ILobbyRoad {

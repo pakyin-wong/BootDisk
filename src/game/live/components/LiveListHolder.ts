@@ -39,8 +39,9 @@ namespace we {
           return;
         }
 
+        logger.l(this.tableInfo);
+
         switch (this.tableInfo.gametype) {
-          //  switch (0) {
           case we.core.GameType.BAC:
           case we.core.GameType.BAI:
           case we.core.GameType.BAS:
@@ -48,6 +49,9 @@ namespace we {
             break;
           case we.core.GameType.RO:
             generalGameType = 'ro';
+            break;
+          case we.core.GameType.DI:
+            generalGameType = 'di';
             break;
           case we.core.GameType.DT:
           default:

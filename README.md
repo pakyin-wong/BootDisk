@@ -1,3 +1,6 @@
+# fe-game-client-egret
+This is the game client for World Entertainment.
+
 ## Roadmap
 
 ### next demo (TBC)
@@ -46,23 +49,21 @@
 - DragonTiger menu table item (detail)
 
 ### pending tasks
-- Bet Log Search
 - Ba Result Message Modification (using animation)
 - Disconnect handling
 - Video
-- Baccarat Scene all panel slide out & in
 - Tooltips
 - UI Tutorial
+- consequence of bet limit / table limit change in different places (e.g scene, side item, lobby item)
 - **Mobile Layout**
 
 ### testing tasks
 - import [spine](https://github.com/fightingcat/egret-spine) animation 
 - import dragonbones mesh animation
 
-### other tasks
-- Tidy up the skin folder
-- Clean up deprecated class
-
+### If you have time, please periodically
+- tidy up the skin folder
+- clean up deprecated class
 
 ## Publish
 To build the project, please use the publish.sh
@@ -71,19 +72,7 @@ To build the project, please use the publish.sh
 ./publish.sh [target_platform staging|production|testing]
 ```
 
-
-# fe-game-client-egret
-This is the live game client for World Entertainment.
-
-## Confirmed Requirement
-1. All bet chips selection are changed.
-
-2. Change bet limit 
-
 ## Notification
-(Waiting to update)
-No specific event from backend. We only create our own event based on the following.
-
 PLAYER_BET_INFO_UPDATE
 backend will send a total bet result for each table
 Data: Bet amount / Total win amount 
@@ -95,25 +84,28 @@ Full List.
 Tableid and goodroad id matched. Event will be dispatched from backend.
 if (list has new goodroad) we send out Notification.
 
-## Installation for development environment
+## Install Egret for development environment
 ### MacOS
-1. Install npm
-2. Install the following programs
+1. Install Egret Launcher. (Don't install Egret Wing solely.)
+2. Install Egret Wing and Egret Engine(5.2.29).
+3. Install npm
+4. Install the following programs
 ```
 npm install -g tslint prettier typescript
 ```
 
 ### Windows
-0. Please be reminded that your user folder name "C:\Users\xxx" has no space.
-1. Install Egret Launcher. (Don't install EgretWing solely)
-2. Download and install bash from http://www.msys2.org/
-3. Set Bash in System Properties -> PATH
-4. Install npm
-5. Install the following programs
-
+0. Please check that your user folder name "C:\Users\xxx" has no space.
+1. Install Egret Launcher. (Don't install Egret Wing solely.)
+2. Install Egret Wing and Egret Engine(5.2.29).
+3. Download and install bash from http://www.msys2.org/
+4. Set Bash in System Properties -> PATH
+5. Install npm
+6. Install the following programs
 ```
 npm install -g tslint prettier typescript
 ```
+
 ## Testing Site
 1. [Development](https://dev-web-game-fe.wehosts247.com/)
 
@@ -125,24 +117,34 @@ npm install -g tslint prettier typescript
 2. [Staging](http://18.139.237.86:8901/?checked=true&uid=H003)
 
 ## External Resource
-1. [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
+1. [Slack for whole team](https://perfectgaming.slack.com/)
 
-2. [Frondend Documents](https://drive.google.com/drive/u/0/folders/1HHHJ0gJwfynMjYndl5te1XN4agXu-vn6)
+2. [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
 
-3. [Auto Dealer](http://18.139.237.86:8901/?checked=true)
+3. [Frondend Documents](https://drive.google.com/drive/u/0/folders/1HHHJ0gJwfynMjYndl5te1XN4agXu-vn6)
 
-4. [Invision Template](https://projects.invisionapp.com/prototype/Quick-Bet-ck3dwku8c00f0el01k01o5kam/)
+4. [Auto Dealer](http://18.139.237.86:8901/?checked=true)
 
-5. [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
+5. [Invision Template](https://projects.invisionapp.com/prototype/Quick-Bet-ck3dwku8c00f0el01k01o5kam/)
 
-6. [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
+6. [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
 
-7. [Baccarat Requirement](https://docs.google.com/document/d/1LnNBQPlFsOTKK8xodzg-xC5P_9_uzOzWBsiqt_5ThLw/edit)
+7. [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
 
-8. [Dragon Tiger Requirement](https://docs.google.com/document/d/1V4wFAZuuf6rmdggRk4UrmOkmLd-5Pd28SWY3J96bWNc/edit?ts=5e0ad733)
+8. [Baccarat Requirement](https://docs.google.com/document/d/1LnNBQPlFsOTKK8xodzg-xC5P_9_uzOzWBsiqt_5ThLw/edit)
 
-9. [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
+9. [Dragon Tiger Requirement](https://docs.google.com/document/d/1V4wFAZuuf6rmdggRk4UrmOkmLd-5Pd28SWY3J96bWNc/edit?ts=5e0ad733)
 
-10. [Roulette Requirement](https://docs.google.com/document/d/1TX5oRcXP26Gc0VONbwtURiGI6CSmx9SbHPlYZA193Qo/edit)
+10. [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
 
-11. [Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1VmyNAUTKaQCB-r9Mlw2Sz8FiQ09LSyCJm1BxpepZsaM/edit)
+11. [Roulette Requirement](https://docs.google.com/document/d/1TX5oRcXP26Gc0VONbwtURiGI6CSmx9SbHPlYZA193Qo/edit)
+
+12. [Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1VmyNAUTKaQCB-r9Mlw2Sz8FiQ09LSyCJm1BxpepZsaM/edit)
+
+13. [Sicbo Requirement](https://docs.google.com/document/d/1bKzi9Yk6RC4YHFefULNfg_dc4LlgjIbx8j9pjoLZnGY/edit?ts=5e5e3ece)
+
+14. [Desktop Notification Requirement](https://drive.google.com/file/d/1Qu5qZL9ATEkmVe0GyYXwh5q_pxArs9b8/view?ts=5e4d0d04)
+
+15. [Dragon Tiger Mobile Requirement (Portrait)](https://docs.google.com/document/d/1ghgGbwSzeV752qOi87mdy8xaFIISzi9Ml4KKy5lKSS0/edit?ts=5e63582e)
+
+16. [Baccarat Mobile Requirement (Landscape)](https://docs.google.com/document/d/1ClByP765L4drUzyGhPCQmsBJt10CyP4VKCiCfTeemlM/edit?ts=5e635d25)

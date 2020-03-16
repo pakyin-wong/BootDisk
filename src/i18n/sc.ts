@@ -96,6 +96,9 @@ namespace we {
       mobile_table_info_gameID: '编号',
       mobile_panel_game_Info: '游戏资讯',
 
+      mobile_notification_quick_bet_button_label: '即时投注',
+      mobile_notification_close_button_label: '关闭',
+
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '进入游戏',
 
@@ -154,13 +157,11 @@ namespace we {
       },
       live: {
         gametype: {
-          allGame: '全部游戏',
           bacarrat: '百家乐',
           dragontiger: '龙虎',
           luckywheel: '幸运轮',
-          wheel: '轮盘',
+          roulette: '轮盘',
           dice: '骰宝',
-          goodroad: '好路',
           other: '其他',
         },
       },
@@ -171,6 +172,17 @@ namespace we {
         dragonShort: '龙',
         tigerShort: '虎',
         tieShort: '和',
+        askDragon: '龙问路',
+        askTiger: '虎问路',
+      },
+      dice: {
+        big: '大',
+        small: '细',
+        even: '双',
+        odd: '单',
+        single: '单骰',
+        double: '双骰',
+        triple: '三骰',
       },
       roulette: {
         row_1: '第一行',
@@ -276,6 +288,8 @@ namespace we {
         cancelRemoveGoodRoad: '取消',
         noCommission: '免佣',
         clickToSeeVideo: '点击播放本局视频',
+        askBanker: '庄问路',
+        askPlayer: '闲问路',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

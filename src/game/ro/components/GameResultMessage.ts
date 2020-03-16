@@ -14,14 +14,6 @@ namespace we {
         const { resultNo, winAmount } = resultData;
 
         this._display.armature.eventDispatcher.addDBEventListener(
-          dragonBones.EventObject.FRAME_EVENT,
-          xxx => {
-            logger.l(xxx);
-          },
-          this
-        );
-
-        this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
           () => {
             this.visible = false;
@@ -45,11 +37,7 @@ namespace we {
         anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
         logger.l(anim, numLeft, numCenter, numRight);
 
-        const array = [
-          ['L_txt', 60, numLeft, 90],
-          ['middle_txt', 90, numCenter, 90],
-          ['L_txt3', 60, numRight, 90],
-        ];
+        const array = [['L_txt', 60, numLeft, 90], ['middle_txt', 90, numCenter, 90], ['L_txt3', 60, numRight, 90]];
 
         for (const [slotName, fontSize, text, rotate] of array) {
           const slot = this._display.armature.getSlot(<string> slotName);

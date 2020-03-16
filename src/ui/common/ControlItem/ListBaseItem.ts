@@ -110,6 +110,8 @@ namespace we {
         this._chipLayer.touchEnabled = false;
         this._chipLayer.touchChildren = false;
 
+        this.onCancelPressed();
+
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
         this._quickBetGroup.height = 0;

@@ -89,26 +89,73 @@ namespace we {
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (!isNaN(this._tableInfo.totalWin)) {
-          totalWin = this._tableInfo.totalWin;
+        const totalWin: number = this._tableInfo.totalWin;
+
+        if (!(this._gameData && this._gameData.wintype != 0)) {
+          return;
         }
-        if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
+
+        let subject;
+
+        switch (this._tableInfo.gametype) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS: {
+            (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
+            switch (this._gameData.wintype) {
+              case ba.WinType.BANKER: {
+                subject = 'banker';
+                break;
+              }
+              case ba.WinType.PLAYER: {
+                subject = 'player';
+                break;
+              }
+              case ba.WinType.TIE: {
+                subject = 'player';
+                break;
+              }
+              default:
+                break;
+            }
+            break;
           }
+          case core.GameType.DT: {
+            (this._tableLayer as dt.TableLayer).flashFields(this._gameData);
+            switch (this._gameData.wintype) {
+              case dt.WinType.DRAGON: {
+                subject = 'player';
+                break;
+              }
+              case dt.WinType.TIGER: {
+                subject = 'banker';
+                break;
+              }
+              case dt.WinType.TIE: {
+                subject = 'banker';
+                break;
+              }
+              default:
+                break;
+            }
+            break;
+          }
+          default:
+            break;
+        }
+
+        if (this.hasBet() && !isNaN(totalWin)) {
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            winType: this._gameData.wintype,
+            winAmount: totalWin,
+          });
+          dir.audioCtr.playSequence([subject, 'win']);
         } else {
-          if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            winType: this._gameData.wintype,
+            winAmount: NaN,
+          });
+          dir.audioCtr.playSequence([subject, 'win']);
         }
       }
     }

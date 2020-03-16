@@ -41,7 +41,7 @@ namespace we {
       protected _video: egret.FlvVideo;
 
       // this for desktop
-      protected _tableInfoWindow: ui.TableInfoPanel;
+      // protected _tableInfoWindow: ui.TableInfoPanel;
 
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
@@ -121,7 +121,7 @@ namespace we {
       protected initDenom() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
-          this._betChipSet.init(4, denominationList);
+          this._betChipSet.init(5, denominationList);
         }
       }
 
@@ -439,12 +439,14 @@ namespace we {
           }
         }
       }
+
       protected setStateRefund(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.REFUND || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(false);
         }
       }
+
       protected setStateShuffle(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.SHUFFLE || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -468,6 +470,9 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
+        if (this._tableLayer) {
+          this._tableLayer.clearAllHighlights();
+        }
         if (this._betChipSet) {
           this._betChipSet.setTouchEnabled(enable);
         }
@@ -479,6 +484,7 @@ namespace we {
         }
         this._betRelatedGroup.visible = enable;
       }
+
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         if (this._resultDisplay) {
           this._resultDisplay.visible = enable;

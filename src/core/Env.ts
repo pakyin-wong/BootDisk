@@ -12,7 +12,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.2.6';
+      public version: string = '0.2.7';
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
@@ -44,7 +44,7 @@ namespace we {
 
       // local game state
       public currentSelectedBetLimitIndex: number = 0;
-      // public currentChipSelectedIndex: number = 10;
+      public currentChipSelectedIndex: number = 0;
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
@@ -117,13 +117,6 @@ namespace we {
       }
       public validateTableInfoDisplayReady(tableid: string): boolean {
         // check if the tableInfo is displayReady
-        /*
-        for testing without roadmap
-        const tableInfo = this.tableInfos[tableid];
-         if (tableInfo) tableInfo.displayReady = true;
-        return true;
-        */
-
         const tableInfo = this.tableInfos[tableid];
 
         if (env.isMobile) {
@@ -131,7 +124,11 @@ namespace we {
             return false;
           }
           const gameType = tableInfo.gametype;
-          if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
+          // if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
+          //   tableInfo.displayReady = false;
+          //   return false;
+          // }
+          if (gameType === core.GameType.RO) {
             tableInfo.displayReady = false;
             return false;
           }
@@ -150,6 +147,29 @@ namespace we {
           return env.tableInfos[tableid].tablename;
         }
         return null;
+      }
+
+      public gotoScene(tableId: string) {
+        const gameType = env.tableInfos[tableId].gametype;
+        switch (gameType) {
+          case core.GameType.BAC:
+          case core.GameType.BAS:
+          case core.GameType.BAI:
+            dir.sceneCtr.goto('ba', { tableid: tableId });
+            break;
+          case core.GameType.DT:
+            dir.sceneCtr.goto('dt', { tableid: tableId });
+            break;
+          case core.GameType.RO:
+            dir.sceneCtr.goto('ro', { tableid: tableId });
+            break;
+          case core.GameType.DI:
+            dir.sceneCtr.goto('di', { tableid: tableId });
+            break;
+          default:
+            console.error('error in TableListItemHolder');
+            break;
+        }
       }
 
       /*

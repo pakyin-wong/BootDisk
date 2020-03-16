@@ -68,11 +68,21 @@ namespace we {
           case core.LiveGameTab.ba:
             this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS];
             break;
+          case core.LiveGameTab.dt:
+            this.gameFilters = [core.GameType.DT];
+            break;
+          case core.LiveGameTab.ro:
+            this.gameFilters = [core.GameType.RO];
+            break;
+          case core.LiveGameTab.di:
+            this.gameFilters = [core.GameType.DI];
+            break;
           case core.LiveGameTab.other:
-            this.gameFilters = [core.GameType.DT, core.GameType.RO];
+            this.gameFilters = [10000000];
             break;
         }
       }
+
       public setGameFiltersByTabIndex(idx: number) {
         if (idx < 0) {
           this.gameFilters = [];
@@ -88,6 +98,7 @@ namespace we {
           return this.invalidateFilters(tableInfo);
         });
       }
+
       protected invalidateFilters(tableInfo: data.TableInfo) {
         if (!this.gameFilters || this.gameFilters.length === 0) {
           return true;

@@ -44,6 +44,10 @@ namespace we {
       public onRollover(fieldName: string) {}
 
       public onRollout(fieldName: string) {}
+
+      public clearAllHighlights() {}
+
+      public async flashFields(data: any, extra?: any) {}
     }
   }
 }

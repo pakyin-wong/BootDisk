@@ -39,7 +39,19 @@ declare module skins{
 	}
 }
 declare module skin_desktop{
+	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BABeadRoadResultPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class BaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class BARoadmapLeftPanel extends eui.Skin{
 	}
 }
 declare module skins_desktop{
@@ -119,51 +131,11 @@ declare module skin_desktop.ba{
 	}
 }
 declare module skin_desktop{
-	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BABeadRoadResultPanelSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BARoadmapLeftPanel extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BetChipSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class BetChipSelectedSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetChipSetSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class BetChipStackSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetInfoHolder extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetSummary extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BetSummaryToggle extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BettingTableGridSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class BettingTableGridFullSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -176,6 +148,42 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiceScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class TableLayerSkin extends eui.Skin{
 	}
 }
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
@@ -349,11 +357,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class GoodRoadNotificationSkin extends eui.Skin{
+	class BaQuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class GoodRoadQuickBetContainerSkin extends eui.Skin{
+	class DtQuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -418,6 +426,10 @@ declare module skin_desktop.ro{
 }
 declare module skin_desktop.ro{
 	class ResultHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class SideBetResultMessage extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{
@@ -505,7 +517,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class SwitchLang extends eui.Skin{
+	class RoadmapControlTestPageSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -517,14 +529,18 @@ declare module skin_desktop{
 	}
 }
 declare module skin_mobile_portrait{
+	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BABeadRoadResultPanelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BaccaratScene extends eui.Skin{
 	}
 }
 declare class BetChipSetGroupSkin extends eui.Skin{
-}
-declare module skin_mobile_portrait.ba{
-	class BetConfirmButtonSkin extends eui.Skin{
-	}
 }
 declare module skin_mobile_portrait.ba{
 	class ChipLayerSkin extends eui.Skin{
@@ -595,6 +611,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait.ba{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
 	class TableInfoPanel extends eui.Skin{
 	}
 }
@@ -603,51 +623,11 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait{
-	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BABeadRoadResultPanelSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
 	class BARoadmapLeftPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
-	class BetChipSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BetChipSelectedSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BetChipSetSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BetChipStackSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BetInfoHolder extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BetSummary extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BetSummaryToggle extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BettingTableGridSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class BettingTableGridFullSkin extends eui.Skin{
+	class BetConfirmButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -668,6 +648,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class DropdownItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class ChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -699,6 +683,10 @@ declare module skin_mobile_portrait.dt{
 	}
 }
 declare module skin_mobile_portrait.dt{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
@@ -719,7 +707,15 @@ declare module skin_mobile_portrait.dt{
 	}
 }
 declare module skin_mobile_portrait.dt{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
 	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class TableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -886,10 +882,6 @@ declare module skin_mobile_portrait{
 	class SystemSetting extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait{
-	class QuickBetAnimButtonSkin extends eui.Skin{
-	}
-}
 declare module skin_mobile_portrait.ro.bettingTable{
 	class ChipLayerSkin extends eui.Skin{
 	}
@@ -953,15 +945,15 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class SwitchLang extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
 	class ToggleButtonSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait{
-	class UserInfoWindow extends eui.Skin{
+declare module skin_mobile{
+	class BetChipSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class BetChipStackSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile{

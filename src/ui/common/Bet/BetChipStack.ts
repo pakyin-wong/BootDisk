@@ -29,10 +29,22 @@ namespace we {
       protected _chipType: number;
 
       constructor() {
-        super('BetChipStack');
+        super('BetChipStack', false);
+        this.touchEnabled = false;
+        this.touchChildren = false;
+      }
+
+      public mount() {
+        super.mount();
+        this._betSumBackground.touchEnabled = false;
+        this._betSumLabel.touchEnabled = false;
       }
 
       set betSumBackgroundWidth(value: number) {
+        if (this._betSumBackground) {
+          this._betSumBackground.width = value;
+        }
+
         this._betSumBackgroundWidth = value;
       }
 
@@ -109,6 +121,7 @@ namespace we {
         if (this._uncfmBet) {
           // Contains uncfmBet, show one coin and total
           const chip = new BetChip(total);
+          chip.touchEnabled = false;
           this._chips.push(chip);
         } else {
           // No uncfmBet, show stack and total
@@ -117,7 +130,8 @@ namespace we {
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.CLIP);
+              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
+              chip.touchEnabled = false;
               // chip.labelSize = this._chipLabelSize;
               // chip.labelOffset = this._chipLabelOffset;
               this._chips.push(chip);
@@ -144,6 +158,7 @@ namespace we {
           value.y = index * -this._chipInterval;
           value.width = this._chipWidth;
           value.height = this._chipHeight;
+          value.verticalCenter = 0;
           this.addChild(value);
           this.setChildIndex(value, index);
         });

@@ -6,7 +6,7 @@ namespace we {
       private iconHightLight: egret.Shape;
       private iconFace: egret.DisplayObjectContainer;
 
-      private redNumbers: number[] = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+      // private redNumbers: number[] = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
 
       public constructor(size: number = 30) {
         super(size);
@@ -23,7 +23,7 @@ namespace we {
             if (this.value.v === 0) {
               // green
               this.iconText.text = i18n.t('roulette.zeroShort');
-            } else if (this.redNumbers.indexOf(this.value.v) === -1) {
+            } else if (this.value.v === 2) {
               // black
               this.iconText.text = i18n.t('roulette.blackShort');
             } else {
@@ -103,7 +103,7 @@ namespace we {
           if (value.v === 0) {
             // green
             this.iconFaceArr[2 + useDarkMode].visible = true;
-          } else if (this.redNumbers.indexOf(value.v) === -1) {
+          } else if (value.v === 2) {
             // black
             this.iconFaceArr[1 + useDarkMode].visible = true;
           } else {

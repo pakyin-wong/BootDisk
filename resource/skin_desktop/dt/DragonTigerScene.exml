@@ -10,8 +10,7 @@
 	              skinName="skin_desktop.dt.ChipLayerSkin" x="723" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="939.13">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
-		<ui:BetChipSetHorizontal id="_betChipSet" width="496.97" height="68.18" y="0" anchorOffsetX="0" anchorOffsetY="0"
-		                         x="25" clipChipHeightPortion="0.9" flatChipHeightPortion="1.2" />
+		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
 		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
 		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
 		<ui:CountdownTimer id="_timer" width="180" height="60" y="6" horizontalCenter="115"
@@ -41,7 +40,7 @@
 		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
-	<ui:GameResultMessage id="_resultMessage" x="0" y="676.26"  width="1" height="1" horizontalCenter="0"/>
+	<ui:GameResultMessage id="_resultMessage" x="0" y="676.26" width="1" height="1" horizontalCenter="0" />
 	<ui:InGameMessage id="_message" x="1300.5" y="911.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />

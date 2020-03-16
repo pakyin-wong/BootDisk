@@ -3,7 +3,7 @@ namespace we {
     export class DTBeadRoadResultCardHolder extends ba.BaBeadRoadResultCardHolder {
       protected createChildren() {
         // super.createChildren();
-        this.skinName = utils.getSkin('BaBeadRoadResultCardHolder');
+        this.skinName = utils.getSkin('ba/BaBeadRoadResultCardHolder');
         this.lblPlayerName.renderText = () => `${i18n.t('dragontiger.dragon')}`;
         this.lblBankerName.renderText = () => `${i18n.t('dragontiger.tiger')}`;
       }

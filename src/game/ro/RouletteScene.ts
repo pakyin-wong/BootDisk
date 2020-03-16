@@ -20,6 +20,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this._rightGamePanel.initBetCombination(this._chipLayer);
         this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
       }
 
@@ -29,6 +30,10 @@ namespace we {
 
       public backToLobby() {
         dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
+      }
+
+      public getTableLayer() {
+        return this._tableLayer;
       }
 
       protected initChildren() {
@@ -70,22 +75,25 @@ namespace we {
           totalWin = this._tableInfo.totalWin;
         }
 
-        if (this.hasBet()) {
-          if (this._gameData && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              resultNo: (<ro.GameData> this._gameData).value,
-              winAmount: this._tableInfo.totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
+        if (!this._gameData) {
+          return;
+        }
+
+        const resultNo = (<ro.GameData> this._gameData).value;
+        (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
+
+        if (this.hasBet() && !isNaN(totalWin)) {
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            resultNo,
+            winAmount: this._tableInfo.totalWin,
+          });
+          dir.audioCtr.playSequence(['player', 'win']);
         } else {
-          if (this._gameData) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              resultNo: (<ro.GameData> this._gameData).value,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            resultNo,
+            winAmount: NaN,
+          });
+          dir.audioCtr.playSequence(['player', 'win']);
         }
       }
     }

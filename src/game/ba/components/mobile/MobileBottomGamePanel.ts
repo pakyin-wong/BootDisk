@@ -12,7 +12,7 @@ namespace we {
 
       protected _arrow: egret.DisplayObject;
       protected _arrowUp: egret.DisplayObject;
-      protected isPanelOpen: boolean;
+      public isPanelOpen: boolean = true;
 
       // Right Roadmap
       public bigRoad: BABigRoad;
@@ -42,12 +42,19 @@ namespace we {
       protected playerPairCountLabel: ui.RunTimeLabel;
       protected totalCountLabel: ui.RunTimeLabel;
 
+      protected playerButtonLabel: ui.RunTimeLabel;
+      protected bankerButtonLabel: ui.RunTimeLabel;
+
       protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
 
       // table info panel
-      public _tableInfoPanel: ui.TableInfoPanel;
+      public _tableInfoPanel: ba.TableInfoPanel;
+      public _betLimitDropDownBtn: ui.RunTimeLabel;
+
+      // statisticChartPanel
+      public _statisticChartPanel: ba.StatisticChartPanel;
 
       // viewStack and radioBtn
       protected _roadmapGroup: eui.Group;
@@ -57,7 +64,7 @@ namespace we {
       protected chartBtn: eui.RadioButton;
       protected tableInfoBtn: eui.RadioButton;
 
-      protected _gameInfoLabel: eui.Label;
+      protected _gameInfoLabel: ui.RunTimeLabel;
 
       protected viewStack: eui.ViewStack;
       protected viewStackMask: eui.Rect;
@@ -72,7 +79,7 @@ namespace we {
         this.gameId = '';
         this.totalBet = 0;
         this.totalCount = 0;
-        this.isPanelOpen = false;
+        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
 
         const gridSizeL = 73;
         const gridSizeR = 38;
@@ -83,11 +90,11 @@ namespace we {
         this.beadRoad.y = 98;
         this._roadmapGroup.addChild(this.beadRoad);
 
-        this.iconBankerBead = new BABeadRoadIcon(52);
-        this.iconBankerBead.x = 15;
-        this.iconBankerBead.y = 23;
-        this.iconBankerBead.setByObject({ v: 'b' });
-        this._roadmapGroup.addChild(this.iconBankerBead);
+        // this.iconBankerBead = new BABeadRoadIcon(52);
+        // this.iconBankerBead.x = 15;
+        // this.iconBankerBead.y = 23;
+        // this.iconBankerBead.setByObject({ v: 'b' });
+        // this._roadmapGroup.addChild(this.iconBankerBead);
 
         this.iconBankerBigEye = new BABigEyeRoadIcon(27);
         this.iconBankerBigEye.x = 146;
@@ -107,11 +114,11 @@ namespace we {
         this.iconBankerCockroach.setByObject({ v: 'b' });
         this._roadmapGroup.addChild(this.iconBankerCockroach);
 
-        this.iconPlayerBead = new BABeadRoadIcon(52);
-        this.iconPlayerBead.x = 247;
-        this.iconPlayerBead.y = 23;
-        this.iconPlayerBead.setByObject({ v: 'p' });
-        this._roadmapGroup.addChild(this.iconPlayerBead);
+        // this.iconPlayerBead = new BABeadRoadIcon(52);
+        // this.iconPlayerBead.x = 247;
+        // this.iconPlayerBead.y = 23;
+        // this.iconPlayerBead.setByObject({ v: 'p' });
+        // this._roadmapGroup.addChild(this.iconPlayerBead);
 
         this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
         this.iconPlayerBigEye.x = 379;
@@ -175,6 +182,8 @@ namespace we {
         this.viewStack.mask = this.viewStackMask;
         this.createVerLayout();
 
+        this.viewStack.selectedIndex = 0;
+
         this.onPanelOpen();
       }
 
@@ -187,24 +196,27 @@ namespace we {
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
+
+        this.playerButtonLabel.text = i18n.t('baccarat.askPlayer');
+        this.bankerButtonLabel.text = i18n.t('baccarat.askBanker');
       }
 
       protected onPanelOpen() {
-        this.roadSheetBtn.visible = this.isPanelOpen;
-        this.chartBtn.visible = this.isPanelOpen;
-        this.tableInfoBtn.visible = this.isPanelOpen;
-        this._gameInfoLabel.visible = !this.isPanelOpen;
-        this._arrow.visible = this.isPanelOpen;
-        this._arrowUp.visible = !this.isPanelOpen;
+        this.roadSheetBtn.visible = !this.isPanelOpen;
+        this.chartBtn.visible = !this.isPanelOpen;
+        this.tableInfoBtn.visible = !this.isPanelOpen;
+        this._gameInfoLabel.visible = this.isPanelOpen;
+        this._arrow.visible = !this.isPanelOpen;
+        this._arrowUp.visible = this.isPanelOpen;
 
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
-          this.viewStack.height = 532;
-          this.viewStackMask.height = 532;
+          egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         } else {
           this.isPanelOpen = true;
-          this.viewStack.height = 0;
-          this.viewStackMask.height = 0;
+          egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
+          egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
         }
       }
 
@@ -238,13 +250,15 @@ namespace we {
 
       public update() {
         if (this.tableInfo) {
-          if (this.tableInfo.betInfo || this.tableInfo.gamestatistic) {
+          if (this.tableInfo.betInfo) {
             if (this.tableInfo.betInfo.gameroundid) {
               this.gameId = this.tableInfo.betInfo.gameroundid;
             }
             if (this.tableInfo.betInfo.total) {
               this.totalBet = this.tableInfo.betInfo.total;
             }
+          }
+          if (this.tableInfo.gamestatistic) {
             if (this.tableInfo.gamestatistic.bankerCount) {
               this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
             }
@@ -263,8 +277,8 @@ namespace we {
             if (this.tableInfo.gamestatistic.totalCount) {
               this.totalCount = this.tableInfo.gamestatistic.totalCount;
             }
-            this.changeLang();
           }
+          this.changeLang();
         }
       }
 

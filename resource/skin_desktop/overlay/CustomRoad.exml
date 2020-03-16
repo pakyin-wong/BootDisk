@@ -10,9 +10,17 @@
 		                 anchorOffsetX="0" />
 		<ui:BaseImageButton id="_defaultButton" y="38" anchorOffsetX="0" width="300" anchorOffsetY="0" height="70"
 		                    currentState="b_cancel" x="469.81" skinName="ImageButtonSkinDialog" />
+		<ui:Scroller id="scroller" width="1643" height="766" x="28" y="130">
+			<ui:List id="roomList">
+			<e:layout>
+				<e:AnimTileLayout horizontalGap="32" verticalGap="36" paddingBottom="20" paddingLeft="20" requestedColumnCount="5"/>
+			</e:layout>
+			</ui:List>
+		</ui:Scroller>
 		<e:Rect id="_cover" width="100%" height="811" x="0" y="130" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x000000"
 		        alpha="0" />
 		<ba:GoodRoadEditItem id="_editRoadPanel" width="321" height="319" x="48" y="130" anchorOffsetX="0" anchorOffsetY="0"
-		                     isDraggable="false" />
+		                     isDraggable="false"  locked="true"/>
+
 	</e:Group>
 </e:Skin>

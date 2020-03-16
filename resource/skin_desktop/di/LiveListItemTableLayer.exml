@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.di.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
+	<e:Group id="_small_group" x="0" y="0" width="289" height="88">
+		<e:Image id="_small_image" width="289" height="88"
+		         name="d_sic_lobby_betarea_02_hover_png" fillMode="scale" source="d_sic_lobby_betarea_02_normal_png"/>
+		<ui:RunTimeLabel id="_small_label" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_big_group" x="289" y="0" width="288" height="88">
+		<e:Image id="_big_image"
+		         name="d_sic_lobby_betarea_01_hover_png" width="288" height="88" fillMode="scale" source="d_sic_lobby_betarea_01_normal_png"/>
+		<ui:RunTimeLabel id="_big_label" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_odd_group" x="0" y="88" width="289" height="88">
+		<e:Image id="_odd_image"
+		         name="d_sic_lobby_betarea_03_hover_png" width="289" height="88" fillMode="scale" source="d_sic_lobby_betarea_03_normal_png"/>
+		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_even_group" x="289" y="88" width="288" height="88">
+		<e:Image id="_even_image"
+		         name="d_sic_lobby_betarea_04_hover_png" width="288" height="88" fillMode="scale" source="d_sic_lobby_betarea_04_normal_png"/>
+		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+</e:Skin>

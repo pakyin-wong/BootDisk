@@ -8,6 +8,10 @@ namespace we {
       public countdown: number;
       public shoeid: string;
       public wintype: number;
+      // ba only
+      public isbankerpair?: number;
+      public isplayerpair?: number;
+      public issupersix?: number;
     }
   }
 }

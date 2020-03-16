@@ -32,6 +32,11 @@ namespace we {
       }
 
       protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+        for (const key of Object.keys(fieldAmounts)) {
+          if (fieldAmounts[key] > betLimit.maxlimit) {
+            return true;
+          }
+        }
         return false;
       }
     }
