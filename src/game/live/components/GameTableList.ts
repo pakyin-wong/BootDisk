@@ -75,7 +75,6 @@ namespace we {
       }
 
       private onSelectedIndexChanged(evt: any) {
-        logger.l(this.tabs.tabBar.selectedIndex);
         const item = this.tabItems[this.tabs.tabBar.selectedIndex];
 
         this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);

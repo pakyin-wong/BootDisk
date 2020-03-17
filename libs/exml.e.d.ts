@@ -340,6 +340,10 @@ declare module skin_desktop{
 	class LobbyTabListItemRenderer extends eui.Skin{
 	}
 }
+declare module skin_desktop.lw{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class Nav extends eui.Skin{
 	}

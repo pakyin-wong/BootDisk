@@ -122,6 +122,7 @@
 		"resource/skin_desktop/LoadingScene.exml",
 		"resource/skin_desktop/LobbyScene.exml",
 		"resource/skin_desktop/LobbyTabListItemRenderer.exml",
+		"resource/skin_desktop/lw/LiveListItem.exml",
 		"resource/skin_desktop/nav/Nav.exml",
 		"resource/skin_desktop/nav/NavDropdown.exml",
 		"resource/skin_desktop/nav/NavSideMenu.exml",

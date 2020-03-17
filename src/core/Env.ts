@@ -12,7 +12,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.2.6';
+      public version: string = '0.2.7';
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
@@ -119,12 +119,6 @@ namespace we {
         // check if the tableInfo is displayReady
         const tableInfo = this.tableInfos[tableid];
 
-        // for testing without roadmap
-        if (tableInfo) {
-          tableInfo.displayReady = true;
-        }
-        return true;
-
         if (env.isMobile) {
           if (!tableInfo) {
             return false;
@@ -134,7 +128,7 @@ namespace we {
           //   tableInfo.displayReady = false;
           //   return false;
           // }
-          if (gameType === core.GameType.RO) {
+          if (gameType === core.GameType.DI || gameType === core.GameType.LW) {
             tableInfo.displayReady = false;
             return false;
           }
@@ -172,8 +166,11 @@ namespace we {
           case core.GameType.DI:
             dir.sceneCtr.goto('di', { tableid: tableId });
             break;
+          case core.GameType.LW:
+            dir.sceneCtr.goto('lw', { tableid: tableId });
+            break;
           default:
-            console.error('error in TableListItemHolder');
+            logger.e(`Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             break;
         }
       }

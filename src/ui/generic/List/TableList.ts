@@ -77,6 +77,9 @@ namespace we {
           case core.LiveGameTab.di:
             this.gameFilters = [core.GameType.DI];
             break;
+          case core.LiveGameTab.lw:
+            this.gameFilters = [core.GameType.LW];
+            break;
           case core.LiveGameTab.other:
             this.gameFilters = [10000000];
             break;
