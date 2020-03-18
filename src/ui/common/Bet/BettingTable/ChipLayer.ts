@@ -314,13 +314,13 @@ namespace we {
         }
       }
 
-      protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {
-        if (this._betChipStackMapping[data.fieldName]) {
-          this._betChipStackMapping[data.fieldName].uncfmBet -= data.amount;
-          this._betChipStackMapping[data.fieldName].draw();
+      protected undoBetFieldUpdate(data: { field: string; amount: number }) {
+        if (this._betChipStackMapping[data.field]) {
+          this._betChipStackMapping[data.field].uncfmBet -= data.amount;
+          this._betChipStackMapping[data.field].draw();
         }
         this._uncfmBetDetails.forEach(value => {
-          if (value.field === data.fieldName) {
+          if (value.field === data.field) {
             value.amount -= data.amount;
           }
         });

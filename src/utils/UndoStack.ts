@@ -23,13 +23,13 @@ namespace we {
         if (command) {
           command.undoCallback(command.undoData);
           if (command.hashkey) {
-            if (this._stack[this._stack.length - 1].hashkey === command.hashkey) {
-              this.popAndUndo();
-            }
-            // while (this._stack[this._stack.length - 1].hashkey === command.hashkey) {
-            //   const chainCommand = this._stack.pop();
-            //   chainCommand.undoCallback(chainCommand.undoData);
+            // if (this._stack[this._stack.length - 1].hashkey === command.hashkey) {
+            //   this.popAndUndo();
             // }
+            while (this._stack.length > 0 && this._stack[this._stack.length - 1].hashkey === command.hashkey) {
+              const chainCommand = this._stack.pop();
+              chainCommand.undoCallback(chainCommand.undoData);
+            }
           }
         }
       }
