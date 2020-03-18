@@ -28,7 +28,7 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
-      public onTableListUpdate() { }
+      public onTableListUpdate() {}
 
       set betField(value: any) {
         this._betField = value;
@@ -94,7 +94,7 @@ namespace we {
         return this._undoStack;
       }
 
-      protected createMapping() { }
+      protected createMapping() {}
 
       protected passDenomListToBetChipStack() {
         Object.keys(this._betChipStackMapping).forEach(value => {
@@ -226,7 +226,7 @@ namespace we {
         this.currentState = state;
       }
 
-      protected changeLang() { }
+      protected changeLang() {}
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
@@ -296,24 +296,21 @@ namespace we {
         this.onBetFieldUpdate(fieldName);
       }
 
-      public onBetFieldUpdate(fieldName) {
-        const grid = this.getUncfmBetByField(fieldName);
+      public onBetFieldUpdate(fieldName, hashkey: string = null) {
         const betDetail = { field: fieldName, amount: this.getOrderAmount() };
         // validate bet action
         if (this.validateBetAction(betDetail)) {
           // update the uncfmBetDetails
-          for (const detail of this._uncfmBetDetails) {
-            if (detail.field === betDetail.field) {
-              detail.amount += betDetail.amount;
-              break;
-            }
-          }
+          const grid = this.getUncfmBetByField(fieldName);
+          grid.amount += betDetail.amount;
           // update the corresponding table grid
-          this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: grid ? grid.amount : 0 }), this.undoBetFieldUpdate.bind(this));
-        }
-        if (this._betChipStackMapping[fieldName]) {
-          this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
-          this._betChipStackMapping[fieldName].draw();
+          this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
+
+          // update display
+          if (this._betChipStackMapping[fieldName]) {
+            this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
+            this._betChipStackMapping[fieldName].draw();
+          }
         }
       }
 

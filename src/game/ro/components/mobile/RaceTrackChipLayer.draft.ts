@@ -90,7 +90,6 @@ namespace we {
 
       protected _raceTrackControl: RaceTrackControl;
       protected _raceTrackTableLayer: RaceTrackTableLayer;
-      protected _chipLayer: we.ui.ChipLayer;
 
       public constructor() {
         super('ro/RaceTrackChipLayer');
@@ -263,14 +262,106 @@ namespace we {
         this._betChipStackMapping[ro.BetField.THE_THIRD] = this._section_tiers_betChipStack;
         this._betChipStackMapping[ro.BetField.NEIGHBORS_OF_ZERO] = this._section_voisins_betChipStack;
         this._betChipStackMapping[ro.BetField.ZERO_GAME] = this._section_zero_betChipStack;
+      }
 
+      public onGridRollover(fieldName: string) {
+        switch (fieldName) {
+          case ro.BetField.ORPHANS:
+          case ro.BetField.THE_THIRD:
+          case ro.BetField.NEIGHBORS_OF_ZERO:
+          case ro.BetField.ZERO_GAME:
+            this._raceTrackTableLayer.onRollover(fieldName);
+            break;
+          default:
+            we.ro.getNeighbour(this._sectionToNumberMapping[fieldName], this._raceTrackControl.value).map(value => {
+              this._raceTrackTableLayer.onRollover(this._numberToSectionMapping[value]);
+            });
+            break;
+        }
+      }
+
+      public onGridRollout(fieldName: string) {
+        switch (fieldName) {
+          case ro.BetField.ORPHANS:
+          case ro.BetField.THE_THIRD:
+          case ro.BetField.NEIGHBORS_OF_ZERO:
+          case ro.BetField.ZERO_GAME:
+            this._raceTrackTableLayer.onRollout(fieldName);
+            break;
+          default:
+            we.ro.getNeighbour(this._sectionToNumberMapping[fieldName], this._raceTrackControl.value).map(value => {
+              this._raceTrackTableLayer.onRollout(this._numberToSectionMapping[value]);
+            });
+            break;
+        }
+      }
+
+      public onBetFieldUpdateEvent(evt: egret.Event) {
+        const target = evt.target;
+        const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
+        switch (fieldName) {
+          case ro.BetField.ORPHANS:
+          case ro.BetField.THE_THIRD:
+          case ro.BetField.NEIGHBORS_OF_ZERO:
+          case ro.BetField.ZERO_GAME:
+            this.onBetFieldUpdate(fieldName);
+            break;
+          default:
+            we.ro.getNeighbour(this._sectionToNumberMapping[fieldName], this._raceTrackControl.value).map(value => {
+              this.onBetFieldUpdate(this._numberToSectionMapping[value]);
+            });
+            break;
+        }
+      }
+
+      protected get mappedBetDetails() {
+        const cfmBetDetails = this._cfmBetDetails;
+        const mappedBetDetails = {};
+        const mappedBetDetailArray = [];
+        let betUnit;
+        let match;
+        for (const betDetail of cfmBetDetails) {
+          const clone: data.BetDetail = new data.BetDetail();
+          for (const key in betDetail) {
+            clone[key] = betDetail[key];
+          }
+          mappedBetDetailArray.push(clone);
+          mappedBetDetails[betDetail.field] = clone;
+        }
+        for (const betDetail of mappedBetDetailArray) {
+          match = betDetail.field;
+          switch (betDetail.field) {
+            case ro.BetField.ZERO_GAME:
+              betUnit = Math.round(betDetail.amount / 4);
+              break;
+            case ro.BetField.NEIGHBORS_OF_ZERO:
+              betUnit = Math.round(betDetail.amount / 9);
+              break;
+            case ro.BetField.ORPHANS:
+              betUnit = Math.round(betDetail.amount / 5);
+              break;
+            case ro.BetField.THE_THIRD:
+              betUnit = Math.round(betDetail.amount / 6);
+              break;
+            default:
+              match = null;
+          }
+          if (match) {
+            BETFIELD_MAPPING[match].map(field => {
+              mappedBetDetails[field].amount -= betUnit;
+            });
+          }
+        }
+        return mappedBetDetailArray;
       }
 
       public updateBetFields(betDetails: data.BetDetail[]) {
         this._cfmBetDetails = betDetails;
 
-        // update the already bet amount of each bet field
-        this._cfmBetDetails.map((value, index) => {
+        const mappedBetDetails = this.mappedBetDetails;
+
+        // update the already bet amount of each bet field with the mapped details
+        this.mappedBetDetails.map((value, index) => {
           if (this._betChipStackMapping[value.field]) {
             this._betChipStackMapping[value.field].cfmBet = value.amount;
             this._betChipStackMapping[value.field].draw();
@@ -280,121 +371,39 @@ namespace we {
 
       public onBetFieldUpdate(fieldName) {
         const grid = this.getUncfmBetByField(fieldName);
-        const betDetail = { field: fieldName, amount: this.getOrderAmount() };
+        const chipUnit = this.getOrderAmount();
+        let betAmount = chipUnit;
+        switch (fieldName) {
+          case ro.BetField.ZERO_GAME:
+            betAmount = 4 * chipUnit;
+            break;
+          case ro.BetField.NEIGHBORS_OF_ZERO:
+            betAmount = 9 * chipUnit;
+            break;
+          case ro.BetField.ORPHANS:
+            betAmount = 5 * chipUnit;
+            break;
+          case ro.BetField.THE_THIRD:
+            betAmount = 6 * chipUnit;
+            break;
+        }
+
+        const betDetail = { field: fieldName, amount: betAmount };
         // validate bet action
         if (this.validateBetAction(betDetail)) {
           // update the uncfmBetDetails
-          for (const detail of this._uncfmBetDetails) {
-            if (detail.field === betDetail.field) {
-              detail.amount += betDetail.amount;
-              break;
-            }
-          }
+          const grid = this.getUncfmBetByField(fieldName);
+          grid.amount += betDetail.amount;
           // update the corresponding table grid
-          this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: grid ? grid.amount : 0 }), this.undoBetFieldUpdate.bind(this));
-        }
-        if (this._betChipStackMapping[fieldName]) {
-          this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
-          this._betChipStackMapping[fieldName].draw();
-        }
-      }
+          this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
 
-      protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {
-        if (this._betChipStackMapping[data.fieldName]) {
-          this._betChipStackMapping[data.fieldName].uncfmBet -= data.amount;
-          this._betChipStackMapping[data.fieldName].draw();
-        }
-        this._uncfmBetDetails.forEach(value => {
-          if (value.field === data.fieldName) {
-            value.amount -= data.amount;
+          // update display
+          if (this._betChipStackMapping[fieldName]) {
+            this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
+            this._betChipStackMapping[fieldName].draw();
           }
-        });
-      }
-
-      public onDoublePressed() {
-        this._undoStack.push(new Date().getTime(), we.utils.clone(this._uncfmBetDetails), this.undoDoubleBetFields.bind(this));
-        this.doubleBetFields();
-      }
-
-      public undoDoubleBetFields(betDetails: data.BetDetail[]) {
-        betDetails.map(value => {
-          if (this._betChipStackMapping[value.field]) {
-            this._betChipStackMapping[value.field].uncfmBet = value.amount;
-            this._betChipStackMapping[value.field].draw();
-          }
-        });
-        this._uncfmBetDetails = betDetails;
-      }
-
-      public doubleBetFields() {
-        const validDoubleBet = this._cfmBetDetails.reduce((acc, cur) => {
-          if (cur.amount === 0) {
-            return acc && true;
-          }
-          const betDetail = { field: cur.field, amount: cur.amount };
-          return this.validateBetAction(betDetail) ? acc && true : false;
-        }, true);
-        if (!validDoubleBet) {
-          return;
         }
-        this._cfmBetDetails.map(value => {
-          const addedAmount = value.amount;
-          if (addedAmount > 0) {
-            if (this._betChipStackMapping[value.field]) {
-              this._betChipStackMapping[value.field].uncfmBet += addedAmount;
-              this._betChipStackMapping[value.field].draw();
-            }
-            for (const detail of this._uncfmBetDetails) {
-              if (detail.field === value.field) {
-                detail.amount += addedAmount;
-                break;
-              }
-            }
-          }
-        });
       }
-
-      public onRepeatPressed() {
-        this._undoStack.push(new Date(), we.utils.clone(this._uncfmBetDetails), this.undoRepeatBetFields.bind(this));
-        this.repeatBetFields();
-      }
-
-      protected undoRepeatBetFields(betDetails: data.BetDetail[]) {
-        betDetails.map(value => {
-          this.getUncfmBetByField(value.field).amount = value.amount;
-        });
-        this._uncfmBetDetails = betDetails;
-      }
-
-      public repeatBetFields() {
-        if (!env.tableInfos[this._tableId].prevbets || !env.tableInfos[this._tableId].prevroundid) {
-          return;
-        }
-        if (env.tableInfos[this._tableId].prevroundid !== env.tableInfos[this._tableId].prevbetsroundid) {
-          return;
-        }
-        const validRepeatBet = this._cfmBetDetails.reduce((acc, cur) => {
-          if (cur.amount === 0) {
-            return acc && true;
-          }
-          const betDetail = { field: cur.field, amount: cur.amount };
-          return this.validateBetAction(betDetail) ? acc && true : false;
-        }, true);
-        if (!validRepeatBet) {
-          return;
-        }
-        env.tableInfos[this._tableId].prevbets.map(value => {
-          this._betChipStackMapping[value.field].uncfmBet = value.amount;
-          this._betChipStackMapping[value.field].draw();
-          for (const detail of this._uncfmBetDetails) {
-            if (detail.field === value.field) {
-              detail.amount += value.amount;
-              break;
-            }
-          }
-        });
-      }
-
 
       public set raceTrackControl(value: RaceTrackControl) {
         this._raceTrackControl = value;
@@ -410,14 +419,6 @@ namespace we {
 
       public get raceTrackTableLayer() {
         return this._raceTrackTableLayer;
-      }
-
-      public set chipLayer(value: we.ui.ChipLayer) {
-        this._chipLayer = value;
-      }
-
-      public get chipLayer() {
-        return this._chipLayer;
       }
     }
   }
