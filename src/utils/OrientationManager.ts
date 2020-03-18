@@ -7,9 +7,9 @@ namespace we {
       constructor(stage: egret.Stage) {
         this.stage = stage;
         window.onorientationchange = () => {
-          this.onRotate((<any>screen).orientation.angle);
+          this.onRotate((<any> screen).orientation.angle);
         };
-        this.onRotate((<any>screen).orientation.angle);
+        this.onRotate((<any> screen).orientation.angle);
       }
 
       public onRotate(angle: number) {

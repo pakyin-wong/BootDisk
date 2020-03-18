@@ -30,7 +30,7 @@ namespace we {
         this._imageMapping[lw.BetField.LW_5] = this._whiteDragonImage;
         this._imageMapping[lw.BetField.LW_6] = this._weImage;
 
-/*
+        /*
         image = this._imageMapping[ba.BetField.PLAYER];
         this._imageSourceMapping[ba.BetField.PLAYER] = [image.source, image.name ? image.name : image.source];
         image = this._imageMapping[ba.BetField.BANKER];
