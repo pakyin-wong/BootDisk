@@ -1,3 +1,4 @@
+/* tslint:disable no-eval */
 namespace we {
   export namespace live {
     export class MobileLiveListHolder extends ui.TableListItemHolder {
@@ -50,12 +51,14 @@ namespace we {
         }
 
         let itemName;
+        let skinName;
 
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
             this.width = 1140;
             this.height = 388;
             itemName = 'MobileLiveListItem';
+            skinName = 'LiveListItemSkin';
             break;
           case we.lobby.mode.SIMPLE:
           case we.lobby.mode.ADVANCED:
@@ -63,11 +66,12 @@ namespace we {
             this.width = 552;
             this.height = 219;
             itemName = 'MobileLiveListSimpleItem';
+            skinName = 'LiveListSimpleItemSkin';
         }
 
-        this.assertSkinExists(generalGameType, `${itemName}Skin`);
+        this.assertSkinExists(generalGameType, skinName);
 
-        this._displayItem = new we.ui[itemName](`${generalGameType}.${itemName}Skin`);
+        this._displayItem = new we.ui[itemName](`${generalGameType}.${skinName}`);
         this.setDisplayItem(this._displayItem);
         if (this.tableInfo) {
           this.updateDisplayItem();
@@ -75,10 +79,8 @@ namespace we {
       }
 
       private assertSkinExists(gameType, skinName) {
-        try {
-          //   const _ = (env.orientation ===  egret.OrientationMode.PORTRAIT ? skin_mobile_portrait : skin_mobile)[gameType][skinName];
-          const _ = skin_mobile[gameType][skinName];
-        } catch (err) {
+        const _ = eval(utils.getSkinByClassname(`${gameType}.${skinName}`));
+        if (!_) {
           throw new Error(`Skin ${gameType}.${skinName} does not exists!`);
         }
       }
