@@ -58,6 +58,14 @@ namespace we {
       protected _groupMapping: {};
       protected _groupHoverImageMapping: {};
 
+      protected _bigrow_1: eui.Group;
+      protected _bigrow_2: eui.Group;
+      protected _bigrow_3: eui.Group;
+      protected _label_group_1: eui.Group;
+      protected _label_group_2: eui.Group;
+      protected _label_group_3: eui.Group;
+      protected _specific_odd_group: eui.Group;
+
       constructor() {
         super();
         this._betField = ro.BetField;
@@ -125,6 +133,14 @@ namespace we {
         });
       }
 
+      protected mount() {
+        // draw border corner radius
+        const shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 48, 48);
+        shape.graphics.endFill();
+      }
+
       public onRollover(fieldName: string) {
         const group = this._groupMapping[fieldName];
         const image = new eui.Image();
@@ -148,6 +164,102 @@ namespace we {
         Object.keys(di.BetField).map(value => {
           this.onRollout(value);
         });
+      }
+
+      public async animateToState(collapsed: boolean) {
+        const time = 150;
+        const tweenPromises = [];
+        for (let i = 1; i <= 3; i += 1) {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this[`_label_group_${i}`])
+              .to({ scaleY: collapsed ? 0 : 1 }, 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        }
+        const border = 2;
+        const sizeTransform = {};
+        let incrementOffsetY = 0;
+        // row 1
+        sizeTransform['_bigrow_1'] = [
+          { height: 143, anchorOffsetY: incrementOffsetY }, // collapse
+          { height: 150, anchorOffsetY: 0 }, // expand
+        ];
+        incrementOffsetY += 27 + (sizeTransform['_bigrow_1'][1].height - sizeTransform['_bigrow_1'][0].height) - border;
+        // row 2
+        sizeTransform['_bigrow_2'] = [
+          { height: 62, anchorOffsetY: incrementOffsetY }, // collapse
+          { height: 67, anchorOffsetY: 0 }, // expand
+        ];
+        incrementOffsetY += 27 + (sizeTransform['_bigrow_2'][1].height - sizeTransform['_bigrow_2'][0].height) - border;
+        // row 3
+        sizeTransform['_bigrow_3'] = [
+          { height: 62, anchorOffsetY: incrementOffsetY }, // collapse
+          { height: 103, anchorOffsetY: 0 }, // expand
+        ];
+        incrementOffsetY += 27 + (sizeTransform['_bigrow_3'][1].height - sizeTransform['_bigrow_3'][0].height) - border;
+        // perform first 3 row transform
+        Object.keys(sizeTransform).forEach(group => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this[group])
+              .to(collapsed ? sizeTransform[group][0] : sizeTransform[group][1], 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        });
+        // transform dices in row 3
+        this._bigrow_3.$children.forEach(child => {
+          if (!(child instanceof eui.Group)) {
+            return;
+          }
+          const innerGroup = child.$children[0] as eui.Group;
+          innerGroup.layout = collapsed ? new eui.HorizontalLayout() : new eui.VerticalLayout();
+          innerGroup.scaleX = collapsed ? 0.75 : 1;
+          innerGroup.scaleY = collapsed ? 0.75 : 1;
+          logger.l(innerGroup);
+        });
+        // transform last row
+        (() => {
+          for (let i = 1; i <= 6; i += 1) {
+            const promise = new Promise(resolve => {
+              egret.Tween.get(this[`_specific_${i}_group`])
+                .to(
+                  {
+                    width: collapsed ? 228 : 197,
+                    height: collapsed ? 62 : 67,
+                    x: (collapsed ? 0 : 196) + (collapsed ? 228 : 197) * (i - 1) + border,
+                    anchorOffsetY: collapsed ? incrementOffsetY : 0,
+                  },
+                  125
+                )
+                .call(resolve);
+            });
+            tweenPromises.push(promise);
+          }
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this._specific_odd_group)
+              .to(
+                {
+                  width: collapsed ? 0 : 196,
+                  height: collapsed ? 62 : 67,
+                  anchorOffsetY: collapsed ? incrementOffsetY : 0,
+                },
+                125
+              )
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+        // transform this.height lastly
+        (() => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this)
+              .to({ height: collapsed ? 338 : 473, anchorOffsetY: collapsed ? -144 : 0 }, 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+        await Promise.all(tweenPromises);
       }
 
       /*
