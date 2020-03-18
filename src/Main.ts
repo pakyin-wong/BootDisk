@@ -52,15 +52,15 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
     if (type === 'mobile') {
-    env.isMobile = true;
+      env.isMobile = true;
 
-    // use these when there is portrait mode only
-    this.stage.setContentSize(1242, 2155);
-    this.stage.orientation = egret.OrientationMode.PORTRAIT;
-    env.orientation = egret.OrientationMode.PORTRAIT;
+      // use these when there is portrait mode only
+      this.stage.setContentSize(1242, 2155);
+      this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      env.orientation = egret.OrientationMode.PORTRAIT;
 
-    // uncomment below when there are both portrait and landscape layout
-    // this.orientationManager = new we.utils.OrientationManager(this.stage);
+      // uncomment below when there are both portrait and landscape layout
+      // this.orientationManager = new we.utils.OrientationManager(this.stage);
     }
 
     dir.evtHandler = new we.core.EventHandler();
@@ -111,10 +111,7 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/default.res.json`, 'resource/');
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}.res.json`, 'resource/');
       await this.loadTheme();
-      fontMgr.loadFonts([
-        { res: 'Barlow-Regular', name: 'Barlow' },
-        { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' },
-      ]);
+      fontMgr.loadFonts([{ res: 'Barlow-Regular', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' }]);
       await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
       logger.e(err);
