@@ -12,7 +12,7 @@ namespace we {
       gametype_MJ: '麻将',
       gametype_RO: '轮盘',
       gametype_DT: '龙虎',
-      gametype_LW: '辛運轮',
+      gametype_LW: '幸運轮',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',

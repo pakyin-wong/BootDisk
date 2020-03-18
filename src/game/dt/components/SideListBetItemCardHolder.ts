@@ -44,17 +44,17 @@ namespace we {
 
       public setDragonBgColor(value: boolean) {
         if (value) {
-          this._dragonPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playwinbg_png');
+          this._dragonPanel.texture = RES.getRes('m_common_panel_gamelist_result_dragon_win_png');
         } else {
-          this._dragonPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_playbg_png');
+          this._dragonPanel.texture = RES.getRes('m_common_panel_gamelist_result_dragon_png');
         }
       }
 
       public setTigerBgColor(value: boolean) {
         if (value) {
-          this._tigerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankwinbg_png');
+          this._tigerPanel.texture = RES.getRes('m_common_panel_gamelist_result_tiger_win_png');
         } else {
-          this._tigerPanel.texture = RES.getRes('d_lobby_panel_gamelist_betresult_bankerbg_png');
+          this._tigerPanel.texture = RES.getRes('m_common_panel_gamelist_result_tiger_png');
         }
       }
     }
