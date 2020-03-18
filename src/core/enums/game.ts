@@ -19,7 +19,7 @@ namespace we {
       DT = 5, // Dragon Tiger
       RO = 14, // Roulette
       DI = 12, // Dice
-      LW = 99, // Lucky Wheel
+      LW = 16, // Lucky Wheel
       // MJ = 13, // MaJong
     }
 
