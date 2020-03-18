@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ro.SideListTableLayerSkin"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*"
+        states="Normal">
+	<e:Rect width="567" height="143" x="0" y="0" fillColor="0xad3737"/>
+	<e:Rect width="567" height="143" x="567" y="0" fillColor="0x305acc"/>
+	<e:Rect width="1134" height="144" x="0" y="143" fillColor="0x192f4b"/>
+
+
+</e:Skin>
