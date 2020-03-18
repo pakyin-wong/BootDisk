@@ -25,7 +25,7 @@ namespace we {
       }
 
       protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('RouletteScene');
+        this.skinName = utils.getSkinByClassname('LuckyWheelScene');
       }
 
       public backToLobby() {

@@ -591,6 +591,7 @@ namespace we {
 
       public getBetCombination() {
         this.client.getBetTemplate((data: any[]) => {
+          console.log('SocketComm::getBetCombination data ', data);
           dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
         });
       }

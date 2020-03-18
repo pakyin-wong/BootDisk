@@ -13,33 +13,61 @@ namespace we {
         this._group.removeChildren();
         if (evt) {
           console.log('BetCombination::onUpdateTable() ', evt.data);
-          /*
           if (evt.data) {
             evt.data.map(value => {
-              this._group.addChild(this.newBetCombination());
+              this._group.addChild(this.oldBetCombination(value));
             });
           }
-          */
         }
         this._group.addChild(this.newBetCombination());
       }
 
-      protected newBetCombination() {
+      protected oldBetCombination(betCombination: we.data.BetCombination) {
+        const textField = new eui.EditableText();
+        textField.height = 20;
+        textField.width = 100;
+        textField.text = betCombination.title;
+        const tick = new eui.Image();
+        tick.source = 'd_lobby_confirm_btn_normal_png';
+        tick.x = 120;
+        tick.height = 20;
+        const cancel = new eui.Image();
+        cancel.source = 'd_ba_betcontrol_icon_cancel_png';
+        cancel.x = 100;
+        cancel.height = 20;
+        cancel.addEventListener(egret.TouchEvent.TOUCH_TAP, this.deleteBetCombination(betCombination.id), this);
         const group = new eui.Group();
+        group.addChild(tick);
+        group.addChild(textField);
+        group.addChild(cancel);
+        return group;
+      }
+
+      protected newBetCombination() {
         this._newBetCombinationTextField = new eui.EditableText();
-        this._newBetCombinationTextField.height = 50;
+        this._newBetCombinationTextField.height = 20;
         this._newBetCombinationTextField.width = 100;
         const tick = new eui.Image();
         tick.source = 'd_lobby_confirm_btn_normal_png';
         tick.x = 100;
+        tick.height = 20;
         tick.addEventListener(egret.TouchEvent.TOUCH_TAP, this.saveBetCombination, this);
+
+        const group = new eui.Group();
         group.addChild(this._newBetCombinationTextField);
         group.addChild(tick);
+
         return group;
       }
 
       protected saveBetCombination() {
         dir.socket.createCustomBetCombination(this._newBetCombinationTextField.text, this.getBetOptions());
+      }
+
+      protected deleteBetCombination(id: string) {
+        return () => {
+          dir.socket.removeBetCombination(id);
+        };
       }
 
       protected getBetOptions() {
@@ -62,8 +90,8 @@ namespace we {
       protected mount() {
         dir.evtHandler.addEventListener(core.Event.BET_COMBINATION_UPDATE, this.onUpdateTable, this);
         const layout = new eui.TileLayout();
-        layout.orientation = eui.TileOrientation.ROWS;
-        layout.requestedRowCount = 2;
+        layout.orientation = eui.TileOrientation.COLUMNS;
+        layout.requestedColumnCount = 2;
 
         this._group = new eui.Group();
         this._group.layout = layout;
@@ -73,7 +101,7 @@ namespace we {
 
         this.addChild(this._group);
 
-        this.onUpdateTable(null);
+        dir.socket.getBetCombination();
       }
 
       protected destroy() {

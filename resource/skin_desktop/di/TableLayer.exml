@@ -8,7 +8,7 @@
 		<e:Group horizontalCenter="0" verticalCenter="0">
 			<e:Group>
 				<e:Label fontFamily="Barlow" text="4-10" size="15" />
-				<e:Rect width="2" height="19" fillColor="#257dbb" />
+				<e:Rect width="2" height="19" fillColor="0x257dbb" />
 				<e:Label fontFamily="Barlow" text="41%" size="15" />
 				<e:layout>
 					<e:HorizontalLayout gap="6" horizontalAlign="center" />
@@ -172,7 +172,7 @@
 		<e:Group horizontalCenter="0" verticalCenter="0">
 			<e:Group>
 				<e:Label fontFamily="Barlow" text="4-10" size="15" />
-				<e:Rect width="2" height="19" fillColor="#257dbb" />
+				<e:Rect width="2" height="19" fillColor="0x257dbb" />
 				<e:Label fontFamily="Barlow" text="41%" size="15" />
 				<e:layout>
 					<e:HorizontalLayout gap="6" horizontalAlign="center" />
@@ -188,7 +188,7 @@
 		<e:Group horizontalCenter="0" verticalCenter="0">
 			<e:Group>
 				<e:Label fontFamily="Barlow" text="4-10" size="15" />
-				<e:Rect width="2" height="19" fillColor="#257dbb" />
+				<e:Rect width="2" height="19" fillColor="0x257dbb" />
 				<e:Label fontFamily="Barlow" text="41%" size="15" />
 				<e:layout>
 					<e:HorizontalLayout gap="6" horizontalAlign="center" />
