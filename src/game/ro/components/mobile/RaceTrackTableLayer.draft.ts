@@ -1,6 +1,6 @@
 namespace we {
   export namespace ro {
-    export class RaceTrackTableLayer extends core.BaseEUI {
+    export class MobileRaceTrackTableLayer extends core.BaseEUI {
       protected _section_35: eui.Image;
       protected _section_3: eui.Image;
       protected _section_26: eui.Image;

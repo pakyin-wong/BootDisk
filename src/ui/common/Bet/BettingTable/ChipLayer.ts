@@ -28,7 +28,7 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
-      public onTableListUpdate() {}
+      public onTableListUpdate() { }
 
       set betField(value: any) {
         this._betField = value;
@@ -94,7 +94,7 @@ namespace we {
         return this._undoStack;
       }
 
-      protected createMapping() {}
+      protected createMapping() { }
 
       protected passDenomListToBetChipStack() {
         Object.keys(this._betChipStackMapping).forEach(value => {
@@ -118,14 +118,16 @@ namespace we {
           const chipStack = this._betChipStackMapping[value];
           if (this._betChipStackMapping[value]) {
             const parent = chipStack.parent;
-            chipStack.verticalCenter = NaN;
-            chipStack.horizontalCenter = NaN;
-            chipStack.x = parent.x + parent.width * 0.5;
-            chipStack.y = parent.y + parent.height * 0.5;
-            chipStack.width = 0;
-            chipStack.height = 0;
-            chipStack.validateNow();
-            this.addChild(chipStack);
+            if (parent !== this) {
+              chipStack.verticalCenter = NaN;
+              chipStack.horizontalCenter = NaN;
+              chipStack.x = parent.x + parent.width * 0.5;
+              chipStack.y = parent.y + parent.height * 0.5;
+              chipStack.width = 0;
+              chipStack.height = 0;
+              chipStack.validateNow();
+              this.addChild(chipStack);
+            }
           }
         });
       }
@@ -224,7 +226,7 @@ namespace we {
         this.currentState = state;
       }
 
-      protected changeLang() {}
+      protected changeLang() { }
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;

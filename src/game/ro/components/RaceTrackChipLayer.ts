@@ -97,10 +97,10 @@ namespace we {
         this._sectionMapping[we.ro.BetField.DIRECT_36] = this._section_36;
 
         this._innerSectionMapping = {};
-        this._innerSectionMapping[ro.RACETRACK_INNERFIELD.ORPHELINS] = this._section_orphelins;
-        this._innerSectionMapping[ro.RACETRACK_INNERFIELD.TIERS] = this._section_tiers;
-        this._innerSectionMapping[ro.RACETRACK_INNERFIELD.VOISINS] = this._section_voisins;
-        this._innerSectionMapping[ro.RACETRACK_INNERFIELD.ZERO] = this._section_zero;
+        this._innerSectionMapping[ro.BetField.ORPHANS] = this._section_orphelins;
+        this._innerSectionMapping[ro.BetField.THE_THIRD] = this._section_tiers;
+        this._innerSectionMapping[ro.BetField.NEIGHBORS_OF_ZERO] = this._section_voisins;
+        this._innerSectionMapping[ro.BetField.ZERO_GAME] = this._section_zero;
 
         Object.keys(this._sectionMapping).map(value => {
           mouse.setButtonMode(this._sectionMapping[value], true);
