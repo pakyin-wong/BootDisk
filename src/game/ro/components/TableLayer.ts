@@ -321,6 +321,8 @@ namespace we {
       protected _groupMapping: {};
       protected _groupHoverImageMapping: {};
 
+      protected overCount: { [s: string]: number } = {};
+
       constructor() {
         super();
         this._betField = ro.BetField;
@@ -399,10 +401,18 @@ namespace we {
 
       public onRollover(fieldName: string) {
         const group = this._groupMapping[fieldName];
-        const image = new eui.Image();
-        image.name = 'image';
-        image.source = this._groupHoverImageMapping[fieldName];
-        group.addChildAt(image, 0);
+
+        let image = group.getChildByName('image');
+        if (!this.overCount[fieldName]) {
+          this.overCount[fieldName] = 0;
+        }
+        this.overCount[fieldName]++;
+        if (this.overCount[fieldName] > 0 && !image) {
+          image = new eui.Image();
+          image.name = 'image';
+          image.source = this._groupHoverImageMapping[fieldName];
+          group.addChildAt(image, 0);
+        }
       }
 
       public onRollout(fieldName: string) {
@@ -410,9 +420,16 @@ namespace we {
         if (!group) {
           return;
         }
-        const image = group.getChildByName('image');
-        if (image) {
-          group.removeChild(image);
+        if (!this.overCount[fieldName]) {
+          this.overCount[fieldName] = 0;
+        }
+        this.overCount[fieldName]--;
+        if (this.overCount[fieldName] <= 0) {
+          this.overCount[fieldName] = 0;
+          const image = group.getChildByName('image');
+          if (image) {
+            group.removeChild(image);
+          }
         }
       }
 

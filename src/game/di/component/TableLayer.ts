@@ -133,14 +133,6 @@ namespace we {
         });
       }
 
-      protected mount() {
-        // draw border corner radius
-        const shape = new egret.Shape();
-        shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 48, 48);
-        shape.graphics.endFill();
-      }
-
       public onRollover(fieldName: string) {
         const group = this._groupMapping[fieldName];
         const image = new eui.Image();
@@ -254,11 +246,22 @@ namespace we {
         (() => {
           const promise = new Promise(resolve => {
             egret.Tween.get(this)
-              .to({ height: collapsed ? 338 : 473, anchorOffsetY: collapsed ? -144 : 0 }, 125)
+              .to({ height: collapsed ? 338 : 473, anchorOffsetY: collapsed ? -(473 - 338) : 0 }, 125)
               .call(resolve);
           });
           tweenPromises.push(promise);
         })();
+        // draw border corner radius
+        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
+        if (shape) {
+          this.removeChild(shape);
+        }
+        shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        shape.graphics.drawRoundRect(0, 0, 1386, collapsed ? 338 : 473, 48, 48);
+        shape.graphics.endFill();
+        this.addChild(shape);
+        this.mask = shape;
         await Promise.all(tweenPromises);
       }
 
