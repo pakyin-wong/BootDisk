@@ -184,48 +184,48 @@ namespace we {
       }
 
       public removeAllMouseListeners() {
-        this.removeRolloverListeners();
-        this.removeRolloutListeners();
+        // this.removeRolloverListeners();
+        // this.removeRolloutListeners();
         this.removeTouchTapListeners();
       }
 
       public addAllMouseListeners() {
-        this.addRolloverListeners();
-        this.addRolloutListeners();
+        // this.addRolloverListeners();
+        // this.addRolloutListeners();
         this.addTouchTapListeners();
       }
 
-      public onGridRollover(fieldName: string) {
-        switch (fieldName) {
-          case ro.BetField.ORPHANS:
-          case ro.BetField.THE_THIRD:
-          case ro.BetField.NEIGHBORS_OF_ZERO:
-          case ro.BetField.ZERO_GAME:
-            this._raceTrackTableLayer.onRollover(fieldName);
-            break;
-          default:
-            we.ro.getNeighbour(ro.directfield2num(fieldName), this._raceTrackControl.value).map(value => {
-              this._raceTrackTableLayer.onRollover(ro.num2directfield(value));
-            });
-            break;
-        }
-      }
+      // public onGridRollover(fieldName: string) {
+      //   switch (fieldName) {
+      //     case ro.BetField.ORPHANS:
+      //     case ro.BetField.THE_THIRD:
+      //     case ro.BetField.NEIGHBORS_OF_ZERO:
+      //     case ro.BetField.ZERO_GAME:
+      //       this._raceTrackTableLayer.onRollover(fieldName);
+      //       break;
+      //     default:
+      //       we.ro.getNeighbour(ro.directfield2num(fieldName), this._raceTrackControl.value).map(value => {
+      //         this._raceTrackTableLayer.onRollover(ro.num2directfield(value));
+      //       });
+      //       break;
+      //   }
+      // }
 
-      public onGridRollout(fieldName: string) {
-        switch (fieldName) {
-          case ro.BetField.ORPHANS:
-          case ro.BetField.THE_THIRD:
-          case ro.BetField.NEIGHBORS_OF_ZERO:
-          case ro.BetField.ZERO_GAME:
-            this._raceTrackTableLayer.onRollout(fieldName);
-            break;
-          default:
-            we.ro.getNeighbour(ro.directfield2num(fieldName), this._raceTrackControl.value).map(value => {
-              this._raceTrackTableLayer.onRollout(ro.num2directfield(value));
-            });
-            break;
-        }
-      }
+      // public onGridRollout(fieldName: string) {
+      //   switch (fieldName) {
+      //     case ro.BetField.ORPHANS:
+      //     case ro.BetField.THE_THIRD:
+      //     case ro.BetField.NEIGHBORS_OF_ZERO:
+      //     case ro.BetField.ZERO_GAME:
+      //       this._raceTrackTableLayer.onRollout(fieldName);
+      //       break;
+      //     default:
+      //       we.ro.getNeighbour(ro.directfield2num(fieldName), this._raceTrackControl.value).map(value => {
+      //         this._raceTrackTableLayer.onRollout(ro.num2directfield(value));
+      //       });
+      //       break;
+      //   }
+      // }
 
       public onBetFieldUpdateEvent(evt: egret.Event) {
         const target = evt.target;
