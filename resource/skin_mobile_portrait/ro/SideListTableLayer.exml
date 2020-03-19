@@ -2,9 +2,16 @@
 <e:Skin class="skin_mobile_portrait.ro.SideListTableLayerSkin"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*"
         states="Normal">
-	<e:Rect width="567" height="143" x="0" y="0" fillColor="0xad3737"/>
-	<e:Rect width="567" height="143" x="567" y="0" fillColor="0x305acc"/>
+	<e:Group x="0" y="0">
+		<e:Rect width="567" height="143" x="0" y="0" fillColor="0xad3737"/>
+		<ui:RunTimeLabel id="_oddLabel" size="48" horizontalCenter="0" verticalCenter="0" text="單" bold="true"/>
+	</e:Group>
+
+	<e:Group x="567" y="0">
+		<e:Rect width="567" height="143" x="0" y="0" fillColor="0x305acc"/>
+		<ui:RunTimeLabel id="_evenLabel" size="48" text="雙" horizontalCenter="0" verticalCenter="0" bold="true"/>
+	</e:Group>
 	<e:Rect width="1134" height="144" x="0" y="143" fillColor="0x192f4b"/>
-
-
+	<e:Image width="80" height="80" source="m_lobby_ro_history_red_Rectangle_png" horizontalCenter="-283" verticalCenter="71.5"/>
+	<e:Image width="80" height="80" source="m_lobby_ro_history_black_Rectangle_png" horizontalCenter="284" verticalCenter="71.5"/>
 </e:Skin>
