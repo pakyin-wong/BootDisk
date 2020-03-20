@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ro.SideListTableLayerSkin"
-        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*"
-        states="Normal">
+<e:Skin class="skin_mobile_portrait.ro.LiveListItemBettingTableSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group x="0" y="0">
 		<e:Rect width="570" height="147" x="0" y="0" fillColor="0xad3737"/>
 		<ui:RunTimeLabel id="_oddLabel" size="48" horizontalCenter="0" verticalCenter="0" text="單" bold="true"/>
 	</e:Group>
+
 	<e:Group x="570" y="0">
 		<e:Rect width="570" height="147" x="0" y="0" fillColor="0x305acc"/>
 		<ui:RunTimeLabel id="_evenLabel" size="48" text="雙" horizontalCenter="0" verticalCenter="0" bold="true"/>
