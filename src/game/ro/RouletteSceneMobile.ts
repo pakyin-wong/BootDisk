@@ -8,11 +8,11 @@
  */
 namespace we {
   export namespace ro {
-    export class MobileScene extends core.DesktopBaseGameScene {
-      protected _roadmapControl: we.ro.RORoadmapControl;
-      protected _leftGamePanel: we.ro.RoLeftPanel;
-      protected _rightGamePanel: we.ro.RoRightPanel;
-      protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
+    export class MobileScene extends core.MobileBaseGameScene {
+      // protected _roadmapControl: we.ro.RORoadmapControl;
+      // protected _leftGamePanel: we.ro.RoLeftPanel;
+      // protected _rightGamePanel: we.ro.RoRightPanel;
+      // protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
 
       constructor(data: any) {
         super(data);
@@ -20,7 +20,7 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
+        // this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
       }
 
       protected setSkinName() {
@@ -37,35 +37,35 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this.initRoadMap();
-        this._roadmapControl.setTableInfo(this._tableInfo);
+        // this.initRoadMap();
+        // this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
-      protected initRoadMap() {
-        this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(
-          this._leftGamePanel.beadRoad,
-          this._leftGamePanel.colorBigRoad,
-          this._leftGamePanel.sizeBigRoad,
-          this._leftGamePanel.oddBigRoad,
-          this._leftGamePanel,
-          this._rightGamePanel,
-          this._bigRoadResultPanel
-        );
-      }
+      // protected initRoadMap() {
+      //   this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
+      //   this._roadmapControl.setRoads(
+      //     this._leftGamePanel.beadRoad,
+      //     this._leftGamePanel.colorBigRoad,
+      //     this._leftGamePanel.sizeBigRoad,
+      //     this._leftGamePanel.oddBigRoad,
+      //     this._leftGamePanel,
+      //     this._rightGamePanel,
+      //     this._bigRoadResultPanel
+      //   );
+      // }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
+        // this._roadmapControl.updateRoadData();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        if (this._rightGamePanel.raceTrackChipLayer) {
-          this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
-          this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
-        }
+        // if (this._rightGamePanel.raceTrackChipLayer) {
+        //   this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
+        //   this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
+        // }
       }
 
       public checkResultMessage() {
