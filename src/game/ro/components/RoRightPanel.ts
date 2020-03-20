@@ -19,6 +19,13 @@ namespace we {
         return this._raceTrackChipLayer;
       }
 
+      public initBetCombination(chipLayer: we.ui.ChipLayer) {
+        const page2Group = this.pageStack.getChildAt(1) as eui.Group;
+        const betCombination = new we.ui.BetCombination();
+        betCombination.chipLayer = chipLayer;
+        page2Group.addChild(betCombination);
+      }
+
       public initRaceTrack(chipLayer: we.ui.ChipLayer, tableLayer: we.ui.TableLayer) {
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 

@@ -43,6 +43,10 @@
 		{
 			"keys": "d_di_betboard_inactive_png,d_di_betboard_hover_double_png,d_di_betboard_hover_large_group_png,d_di_betboard_hover_specific_png,d_di_betboard_hover_sum_png,d_di_betboard_hover_triple_png,d_di_betboard_hover_triple_all_png,d_di_betboard_hover_combine_png,d_sic_panel_open-c_6_pressed_png,d_sic_panel_open-c_7_hover_png,d_sic_panel_open-c_7_pressed_png,d_sic_panel_open-c_8_hover_png,d_sic_panel_open-c_8_pressed_png,d_sic_panel_open-c_9_hover_png,d_sic_panel_open-c_9_pressed_png,d_sic_panel_open-c_10_pressed_png,d_sic_panel_open-c_10_hover_png,d_sic_panel_open-c_11_hover_png,d_sic_panel_open-c_11_pressed_png,d_sic_panel_open-c_12_hover_png,d_sic_panel_open-c_13_hover_png,d_sic_panel_open-c_12_pressed_png,d_sic_panel_open-c_13_pressed_png,d_sic_panel_open-c_14_hover_png,d_sic_panel_open-c_15_hover_png,d_sic_panel_open-c_14_pressed_png,d_sic_panel_open-c_15_pressed_png,d_sic_panel_open-d_6_hover_png,d_sic_panel_open-d_6_pressed_png,d_sic_panel_open-d_7_hover_png,d_sic_panel_open-d_7_pressed_png,d_sic_roadmap_blue_png,d_sic_roadmap_disabled_png,d_sic_roadmap_green_png,d_sic_roadmap_grid_png,d_sic_roadmap_hover_png,d_sic_roadmap_line-1_png,d_sic_roadmap_pressed_png,d_sic_roadmap_line-2_png,d_sic_roadmap_red_png,d_sic_history_bg_png,d_sic_history_btn_hide_hover_png,d_sic_history_btn_hide_png,d_sic_history_btn_showall_png,d_sic_history_btn_showall_hover_png,d_sic_history_chart_blue_png,d_sic_history_chart_green_svg,d_sic_history_chart_line-1_png,d_sic_history_chart_line-2_png,d_sic_history_chart_red_png,d_sic_history_disabled_png,d_sic_history_grid_png,d_sic_history_hover_png,d_sic_history_lv1_dice-1_png,d_sic_history_lv1_dice-2_png,d_sic_history_lv1_dice-3_png,d_sic_history_lv1_dice-4_png,d_sic_history_lv1_dice-5_png,d_sic_history_lv1_dice-6_png,d_sic_history_lv2_dice-1_png,d_sic_history_lv2_dice-2_png,d_sic_history_lv2_dice-3_png,d_sic_history_lv2_dice-4_png,d_sic_history_lv2_dice-5_png,d_sic_history_lv2_dice-6_png,d_sic_history_lv3_dice-1_png,d_sic_history_lv3_dice-3_png,d_sic_history_lv3_dice-4_png,d_sic_history_lv3_dice-2_png,d_sic_history_lv3_dice-5_png,d_sic_history_lv3_dice-6_png,d_sic_history_selected_png,d_sic_history_pressed_png,d_sic_history_status-bar_box_png,d_sic_history_status-bar_down_png,d_sic_history_status-bar_top_png,d_sic_lobby_betarea_01_normal_png,d_sic_lobby_betarea_02_hover_png,d_sic_lobby_betarea_01_hover_png,d_sic_lobby_betarea_02_normal_png,d_sic_lobby_betarea_03_hover_png,d_sic_lobby_betarea_03_normal_png,d_sic_lobby_betarea_04_hover_png,d_sic_lobby_betarea_04_normal_png,d_sic_lobby_bg_png,d_sic_lobby_bg_2_png,d_sic_lobby_chart_bg_right_png,d_sic_lobby_chart_bg_left_png,d_sic_lobby_profile_shadow_png,d_sic_lobby_roadmap_blue_png,d_sic_lobby_roadmap_green_png,d_sic_lobby_roadmap_red_png,d_sic_lobby_roundclose_hover_png,d_sic_lobby_roundclose_normal_png,d_sic_lobby_selected_png,d_sic_panel_normal_png,d_sic_panel_open_png,d_sic_panel_open-a_1_hover_png,d_sic_panel_open-a_1_pressed_png,d_sic_panel_open-a_2_hover_png,d_sic_panel_open-a_2_pressed_png,d_sic_panel_open-a_3_hover copy 2_png,d_sic_panel_open-a_3_hover copy_png,d_sic_panel_open-a_3_pressed copy 2_png,d_sic_panel_open-a_3_pressed copy_png,d_sic_panel_open-a_3_pressed_png,d_sic_panel_open-a_4_hover copy 2_png,d_sic_panel_open-a_4_hover copy_png,d_sic_panel_open-a_4_pressed copy_png,d_sic_panel_open-a_4_pressed copy 2_png,d_sic_panel_open-a_4_pressed_png,d_sic_panel_open-a_5_hover_png,d_sic_panel_open-a_5_pressed_png,d_sic_panel_open-a_9_hover_png,d_sic_panel_open-a_9_pressed_png,d_sic_panel_open-b_1_hover_png,d_sic_panel_open-b_1_pressed_png,d_sic_panel_open-b_2_hover_png,d_sic_panel_open-b_2_pressed_png,d_sic_panel_open-b_14_hover_png,d_sic_panel_open-b_14_pressed_png,d_sic_panel_open-c_1_hover_png,d_sic_panel_open-c_1_pressed_png,d_sic_panel_open-c_2_hover_png,d_sic_panel_open-c_2_pressed_png,d_sic_panel_open-c_3_hover_png,d_sic_panel_open-c_3_pressed_png,d_sic_panel_open-c_4_hover_png,d_sic_panel_open-c_4_pressed_png,d_sic_panel_open-c_5_hover_png,d_sic_panel_open-c_5_pressed_png,d_sic_panel_open-c_6_hover_png",
 			"name": "scene_dice"
+		},
+		{
+			"keys": "d_mw_history_result_we_png,d_mw_betarea_five_png,d_mw_history_result_three_png,d_mw_history_result_white_png,d_mw_betarea_one_png,d_mw_betarea_red_png,d_mw_betarea_three_png,d_mw_betarea_green_png,d_mw_betarea_we_png,d_mw_betarea_white_png,d_mw_bg_b_png,d_mw_bg_a_png,d_mw_history_result_five_png,d_mw_history_result_green_png,d_mw_history_result_hl_png,d_mw_history_result_one_png,d_mw_history_result_red_png",
+			"name": "scene_luckywheel"
 		}
 	],
 	"resources": [
@@ -3853,6 +3857,91 @@
 			"url": "assets/d/di/d_sic_panel_open-c_6_hover.png",
 			"type": "image",
 			"name": "d_sic_panel_open-c_6_hover_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_history_result_we.png",
+			"type": "image",
+			"name": "d_mw_history_result_we_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_betarea_five.png",
+			"type": "image",
+			"name": "d_mw_betarea_five_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_history_result_three.png",
+			"type": "image",
+			"name": "d_mw_history_result_three_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_history_result_white.png",
+			"type": "image",
+			"name": "d_mw_history_result_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_betarea_one.png",
+			"type": "image",
+			"name": "d_mw_betarea_one_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_betarea_red.png",
+			"type": "image",
+			"name": "d_mw_betarea_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_betarea_three.png",
+			"type": "image",
+			"name": "d_mw_betarea_three_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_betarea_green.png",
+			"type": "image",
+			"name": "d_mw_betarea_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_betarea_we.png",
+			"type": "image",
+			"name": "d_mw_betarea_we_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_betarea_white.png",
+			"type": "image",
+			"name": "d_mw_betarea_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_bg_b.png",
+			"type": "image",
+			"name": "d_mw_bg_b_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_bg_a.png",
+			"type": "image",
+			"name": "d_mw_bg_a_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_history_result_five.png",
+			"type": "image",
+			"name": "d_mw_history_result_five_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_history_result_green.png",
+			"type": "image",
+			"name": "d_mw_history_result_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_history_result_hl.png",
+			"type": "image",
+			"name": "d_mw_history_result_hl_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_history_result_one.png",
+			"type": "image",
+			"name": "d_mw_history_result_one_png"
+		},
+		{
+			"url": "assets/d/lw/d_mw_history_result_red.png",
+			"type": "image",
+			"name": "d_mw_history_result_red_png"
 		}
 	]
 }

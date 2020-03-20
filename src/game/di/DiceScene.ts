@@ -57,6 +57,8 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
+        // animate table
+        (this._tableLayer as di.TableLayer).animateToState(!enable);
       }
 
       public checkResultMessage() {

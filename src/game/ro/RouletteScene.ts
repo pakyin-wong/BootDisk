@@ -20,6 +20,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this._rightGamePanel.initBetCombination(this._chipLayer);
         this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
       }
 

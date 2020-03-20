@@ -12,6 +12,7 @@ namespace we {
       gametype_MJ: '麻将',
       gametype_RO: '轮盘',
       gametype_DT: '龙虎',
+      gametype_LW: '幸運轮',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
@@ -161,9 +162,8 @@ namespace we {
           bacarrat: '百家乐',
           dragontiger: '龙虎',
           luckywheel: '幸运轮',
-          wheel: '轮盘',
+          roulette: '轮盘',
           dice: '骰宝',
-          goodroad: '好路',
           other: '其他',
         },
       },
@@ -234,22 +234,22 @@ namespace we {
         roadmap: '路纸',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
-        distribution: { text: '散布', x: 60 },
+        distribution: {
+          text: '散布',
+          x: 60,
+        },
         tiers: {
           text: '轮盘下角注',
           x: 23,
         },
-
         orphelins: {
           text: '轮上孤注',
           x: 62,
         },
-
         voisins: {
           text: '零旁注上角',
           x: 16,
         },
-
         zero: {
           text: '轮上零旁',
         },
@@ -285,7 +285,6 @@ namespace we {
         superSix: '超级六',
         banker: '庄',
         bankerShort: '庄',
-        noComm: '免佣',
         tableInfo: '本台资讯',
         tableNo: '台号',
         roundNo: '局号',

@@ -4245,666 +4245,114 @@
 			"name": "d_lobby_goodroadsetting_icon_trash_png"
 		},
 		{
-			"url": "assets/d/di/d_di_betboard_hover_combine.png",
+			"url": "assets/m/dt/m_dt_betarea_dragon.png",
 			"type": "image",
-			"name": "d_di_betboard_hover_combine_png"
+			"name": "m_dt_betarea_dragon_png"
 		},
 		{
-			"url": "assets/d/di/d_di_betboard_hover_double.png",
+			"url": "assets/m/dt/m_dt_betarea_dragon_horizontal.png",
 			"type": "image",
-			"name": "d_di_betboard_hover_double_png"
+			"name": "m_dt_betarea_dragon_horizontal_png"
 		},
 		{
-			"url": "assets/d/di/d_di_betboard_hover_large_group.png",
+			"url": "assets/m/dt/m_dt_betarea_dragon_horizontal_hover.png",
 			"type": "image",
-			"name": "d_di_betboard_hover_large_group_png"
+			"name": "m_dt_betarea_dragon_horizontal_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_di_betboard_hover_specific.png",
+			"url": "assets/m/dt/m_dt_betarea_dragon_hover.png",
 			"type": "image",
-			"name": "d_di_betboard_hover_specific_png"
+			"name": "m_dt_betarea_dragon_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_di_betboard_hover_sum.png",
+			"url": "assets/m/dt/m_dt_betarea_tie.png",
 			"type": "image",
-			"name": "d_di_betboard_hover_sum_png"
+			"name": "m_dt_betarea_tie_png"
 		},
 		{
-			"url": "assets/d/di/d_di_betboard_hover_triple.png",
+			"url": "assets/m/dt/m_dt_betarea_tie_horizontal.png",
 			"type": "image",
-			"name": "d_di_betboard_hover_triple_png"
+			"name": "m_dt_betarea_tie_horizontal_png"
 		},
 		{
-			"url": "assets/d/di/d_di_betboard_hover_triple_all.png",
+			"url": "assets/m/dt/m_dt_betarea_tie_horizontal_hover.png",
 			"type": "image",
-			"name": "d_di_betboard_hover_triple_all_png"
+			"name": "m_dt_betarea_tie_horizontal_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_di_betboard_inactive.png",
+			"url": "assets/m/dt/m_dt_betarea_tie_hover.png",
 			"type": "image",
-			"name": "d_di_betboard_inactive_png"
+			"name": "m_dt_betarea_tie_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_bg.png",
+			"url": "assets/m/dt/m_dt_betarea_tiger.png",
 			"type": "image",
-			"name": "d_sic_history_bg_png"
+			"name": "m_dt_betarea_tiger_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_btn_hide.png",
+			"url": "assets/m/dt/m_dt_betarea_tiger_horizontal.png",
 			"type": "image",
-			"name": "d_sic_history_btn_hide_png"
+			"name": "m_dt_betarea_tiger_horizontal_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_btn_hide_hover.png",
+			"url": "assets/m/dt/m_dt_betarea_tiger_horizontal_hover.png",
 			"type": "image",
-			"name": "d_sic_history_btn_hide_hover_png"
+			"name": "m_dt_betarea_tiger_horizontal_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_btn_showall.png",
+			"url": "assets/m/dt/m_dt_betarea_tiger_hover.png",
 			"type": "image",
-			"name": "d_sic_history_btn_showall_png"
+			"name": "m_dt_betarea_tiger_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_btn_showall_hover.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_dragon_hover.png",
 			"type": "image",
-			"name": "d_sic_history_btn_showall_hover_png"
+			"name": "m_common_panel_gamelist_betarea_dragon_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_chart_blue.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_hover.png",
 			"type": "image",
-			"name": "d_sic_history_chart_blue_png"
+			"name": "m_common_panel_gamelist_betarea_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_chart_green.svg",
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tie.png",
 			"type": "image",
-			"name": "d_sic_history_chart_green_svg"
+			"name": "m_common_panel_gamelist_betarea_tie_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_chart_line-1.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tie_hover.png",
 			"type": "image",
-			"name": "d_sic_history_chart_line-1_png",
-			"scale9grid": "5,0,120,0"
+			"name": "m_common_panel_gamelist_betarea_tie_hover_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_chart_line-2.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tiger.png",
 			"type": "image",
-			"name": "d_sic_history_chart_line-2_png",
-			"scale9grid": "5,0,120,0"
+			"name": "m_common_panel_gamelist_betarea_tiger_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_chart_red.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_result_dragon.png",
 			"type": "image",
-			"name": "d_sic_history_chart_red_png"
+			"name": "m_common_panel_gamelist_result_dragon_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_disabled.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_result_tiger_win.png",
 			"type": "image",
-			"name": "d_sic_history_disabled_png"
+			"name": "m_common_panel_gamelist_result_tiger_win_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_grid.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_result_dragon_win.png",
 			"type": "image",
-			"name": "d_sic_history_grid_png"
+			"name": "m_common_panel_gamelist_result_dragon_win_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_hover.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_result_tiger.png",
 			"type": "image",
-			"name": "d_sic_history_hover_png"
+			"name": "m_common_panel_gamelist_result_tiger_png"
 		},
 		{
-			"url": "assets/d/di/d_sic_history_lv1_dice-1.png",
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_dragon.png",
 			"type": "image",
-			"name": "d_sic_history_lv1_dice-1_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv1_dice-2.png",
-			"type": "image",
-			"name": "d_sic_history_lv1_dice-2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv1_dice-3.png",
-			"type": "image",
-			"name": "d_sic_history_lv1_dice-3_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv1_dice-4.png",
-			"type": "image",
-			"name": "d_sic_history_lv1_dice-4_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv1_dice-5.png",
-			"type": "image",
-			"name": "d_sic_history_lv1_dice-5_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv1_dice-6.png",
-			"type": "image",
-			"name": "d_sic_history_lv1_dice-6_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv2_dice-1.png",
-			"type": "image",
-			"name": "d_sic_history_lv2_dice-1_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv2_dice-2.png",
-			"type": "image",
-			"name": "d_sic_history_lv2_dice-2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv2_dice-3.png",
-			"type": "image",
-			"name": "d_sic_history_lv2_dice-3_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv2_dice-4.png",
-			"type": "image",
-			"name": "d_sic_history_lv2_dice-4_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv2_dice-5.png",
-			"type": "image",
-			"name": "d_sic_history_lv2_dice-5_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv2_dice-6.png",
-			"type": "image",
-			"name": "d_sic_history_lv2_dice-6_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv3_dice-1.png",
-			"type": "image",
-			"name": "d_sic_history_lv3_dice-1_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv3_dice-2.png",
-			"type": "image",
-			"name": "d_sic_history_lv3_dice-2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv3_dice-3.png",
-			"type": "image",
-			"name": "d_sic_history_lv3_dice-3_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv3_dice-4.png",
-			"type": "image",
-			"name": "d_sic_history_lv3_dice-4_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv3_dice-5.png",
-			"type": "image",
-			"name": "d_sic_history_lv3_dice-5_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_lv3_dice-6.png",
-			"type": "image",
-			"name": "d_sic_history_lv3_dice-6_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_pressed.png",
-			"type": "image",
-			"name": "d_sic_history_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_selected.png",
-			"type": "image",
-			"name": "d_sic_history_selected_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_status-bar_box.png",
-			"type": "image",
-			"name": "d_sic_history_status-bar_box_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_status-bar_down.png",
-			"type": "image",
-			"name": "d_sic_history_status-bar_down_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_history_status-bar_top.png",
-			"type": "image",
-			"name": "d_sic_history_status-bar_top_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_betarea_01_hover.png",
-			"type": "image",
-			"name": "d_sic_lobby_betarea_01_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_betarea_01_normal.png",
-			"type": "image",
-			"name": "d_sic_lobby_betarea_01_normal_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_betarea_02_hover.png",
-			"type": "image",
-			"name": "d_sic_lobby_betarea_02_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_betarea_02_normal.png",
-			"type": "image",
-			"name": "d_sic_lobby_betarea_02_normal_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_betarea_03_hover.png",
-			"type": "image",
-			"name": "d_sic_lobby_betarea_03_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_betarea_03_normal.png",
-			"type": "image",
-			"name": "d_sic_lobby_betarea_03_normal_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_betarea_04_hover.png",
-			"type": "image",
-			"name": "d_sic_lobby_betarea_04_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_betarea_04_normal.png",
-			"type": "image",
-			"name": "d_sic_lobby_betarea_04_normal_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_bg.png",
-			"type": "image",
-			"name": "d_sic_lobby_bg_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_bg_2.png",
-			"type": "image",
-			"name": "d_sic_lobby_bg_2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_chart_bg_left.png",
-			"type": "image",
-			"name": "d_sic_lobby_chart_bg_left_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_chart_bg_right.png",
-			"type": "image",
-			"name": "d_sic_lobby_chart_bg_right_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_profile_shadow.png",
-			"type": "image",
-			"name": "d_sic_lobby_profile_shadow_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_roadmap_blue.png",
-			"type": "image",
-			"name": "d_sic_lobby_roadmap_blue_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_roadmap_green.png",
-			"type": "image",
-			"name": "d_sic_lobby_roadmap_green_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_roadmap_red.png",
-			"type": "image",
-			"name": "d_sic_lobby_roadmap_red_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_roundclose_hover.png",
-			"type": "image",
-			"name": "d_sic_lobby_roundclose_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_roundclose_normal.png",
-			"type": "image",
-			"name": "d_sic_lobby_roundclose_normal_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_lobby_selected.png",
-			"type": "image",
-			"name": "d_sic_lobby_selected_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_normal.png",
-			"type": "image",
-			"name": "d_sic_panel_normal_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_1_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_1_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_1_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_1_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_2_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_2_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_2_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_2_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_3_hover copy 2.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_3_hover copy 2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_3_hover copy.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_3_hover copy_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_3_pressed copy 2.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_3_pressed copy 2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_3_pressed copy.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_3_pressed copy_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_3_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_3_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_4_hover copy 2.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_4_hover copy 2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_4_hover copy.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_4_hover copy_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_4_pressed copy 2.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_4_pressed copy 2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_4_pressed copy.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_4_pressed copy_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_4_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_4_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_5_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_5_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_5_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_5_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_9_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_9_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-a_9_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-a_9_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-b_14_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-b_14_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-b_14_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-b_14_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-b_1_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-b_1_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-b_1_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-b_1_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-b_2_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-b_2_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-b_2_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-b_2_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_10_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_10_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_10_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_10_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_11_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_11_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_11_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_11_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_12_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_12_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_12_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_12_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_13_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_13_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_13_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_13_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_14_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_14_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_14_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_14_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_15_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_15_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_15_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_15_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_1_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_1_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_1_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_1_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_2_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_2_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_2_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_2_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_3_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_3_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_3_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_3_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_4_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_4_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_4_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_4_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_5_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_5_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_5_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_5_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_6_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_6_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_6_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_6_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_7_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_7_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_7_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_7_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_8_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_8_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_8_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_8_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_9_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_9_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-c_9_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-c_9_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-d_6_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-d_6_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-d_6_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-d_6_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-d_7_hover.png",
-			"type": "image",
-			"name": "d_sic_panel_open-d_7_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open-d_7_pressed.png",
-			"type": "image",
-			"name": "d_sic_panel_open-d_7_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_panel_open.png",
-			"type": "image",
-			"name": "d_sic_panel_open_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_blue.png",
-			"type": "image",
-			"name": "d_sic_roadmap_blue_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_disabled.png",
-			"type": "image",
-			"name": "d_sic_roadmap_disabled_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_green.png",
-			"type": "image",
-			"name": "d_sic_roadmap_green_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_grid.png",
-			"type": "image",
-			"name": "d_sic_roadmap_grid_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_hover.png",
-			"type": "image",
-			"name": "d_sic_roadmap_hover_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_line-1.png",
-			"type": "image",
-			"name": "d_sic_roadmap_line-1_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_line-2.png",
-			"type": "image",
-			"name": "d_sic_roadmap_line-2_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_pressed.png",
-			"type": "image",
-			"name": "d_sic_roadmap_pressed_png"
-		},
-		{
-			"url": "assets/d/di/d_sic_roadmap_red.png",
-			"type": "image",
-			"name": "d_sic_roadmap_red_png"
+			"name": "m_common_panel_gamelist_betarea_dragon_png"
 		}
 	]
 }

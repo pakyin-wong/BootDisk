@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.RoadmapControlTestPageSkin" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*">
+    <ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0"
+                           anchorOffsetY="0" />
+    <ba:BARoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
+                            anchorOffsetY="0" />
+    <ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
+                              anchorOffsetY="0" visible="false" />
+    <ba:BARoadmapLeftPanel id="_leftGamePanel2" width="692" height="304" x="14" y="20" anchorOffsetX="0"
+                           anchorOffsetY="0" />
+    <ba:BARoadmapRightPanel id="_rightGamePanel2" width="698" height="304" x="1878.39" y="16.51" anchorOffsetX="0"
+                            anchorOffsetY="0" />
+    <ba:BaBeadRoadResultPanel id="_beadRoadResultPanel2" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
+                              anchorOffsetY="0" visible="false" />
+    <ba:BARoadmapLeftPanel id="_leftGamePanel3" width="692" height="304" x="14" y="520" anchorOffsetX="0"
+                           anchorOffsetY="0" />
+    <ba:BARoadmapRightPanel id="_rightGamePanel3" width="698" height="304" x="1878.39" y="516.51" anchorOffsetX="0"
+                            anchorOffsetY="0" />
+    <ba:BaBeadRoadResultPanel id="_beadRoadResultPanel3" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
+                              anchorOffsetY="0" visible="false" />
+</e:Skin>

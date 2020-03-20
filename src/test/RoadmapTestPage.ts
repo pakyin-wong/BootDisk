@@ -1,11 +1,10 @@
 namespace we {
   export namespace test {
-    export class RoadmapTestScene extends core.BaseScene {
+    export class RoadmapTestPage extends core.BasePage {
       private progressbar: eui.ProgressBar;
 
       public onEnter() {
         this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
-        this.skinName = utils.getSkin('LoadingScene');
       }
 
       public async onFadeEnter() {}
