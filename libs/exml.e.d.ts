@@ -154,6 +154,10 @@ declare module skin_desktop.di{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.di{
+	class DiBigRoadResultPanelSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class DiceScene extends eui.Skin{
 	}

@@ -1,10 +1,10 @@
 namespace we {
   export namespace di {
     export class DiLeftPanel extends core.BaseGamePanel {
-      //public beadRoad: ROBeadRoad;
-      //public colorBigRoad: ROColorBigRoad;
-      //public sizeBigRoad: ROSizeBigRoad;
-      //public oddBigRoad: ROOddBigRoad;
+      public beadRoad: DiBeadRoad;
+      public sizeBigRoad: DiSizeBigRoad;
+      public oddBigRoad: DiOddBigRoad;
+      public sumBigRoad: DiSumBigRoad;
 
       protected gameIdLabel: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
@@ -21,14 +21,12 @@ namespace we {
       protected roadRadioBtn2: eui.RadioButton;
       protected roadRadioBtn3: eui.RadioButton;
 
-
       protected activeLine: egret.Shape;
 
       protected pageStack: eui.ViewStack;
       protected roadStack: eui.ViewStack;
 
-
-      //new for di
+      // new for di
       protected topBar: eui.Rect;
       protected beadRadioBtn1: eui.RadioButton;
       protected beadRadioBtn2: eui.RadioButton;
@@ -42,12 +40,15 @@ namespace we {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
 
-        this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.hotColdNumber');
-        this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('roulette.history');
+        this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.history');
+        this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadmap');
 
-        this.roadRadioBtn1['labelDisplayDown']['text'] = this.roadRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.roadRed') + '/' + i18n.t('roulette.roadBlack');
-        this.roadRadioBtn2['labelDisplayDown']['text'] = this.roadRadioBtn2['labelDisplayUp']['text'] = i18n.t('roulette.roadBig') + '/' + i18n.t('roulette.roadSmall');
-        this.roadRadioBtn3['labelDisplayDown']['text'] = this.roadRadioBtn3['labelDisplayUp']['text'] = i18n.t('roulette.roadOdd') + '/' + i18n.t('roulette.roadEven');
+        this.roadRadioBtn1['labelDisplayDown']['text'] = this.roadRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.roadBig') + '/' + i18n.t('roulette.roadSmall');
+        this.roadRadioBtn2['labelDisplayDown']['text'] = this.roadRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadOdd') + '/' + i18n.t('roulette.roadEven');
+        this.roadRadioBtn3['labelDisplayDown']['text'] = this.roadRadioBtn3['labelDisplayUp']['text'] = i18n.t('dice.total');
+
+        this.beadRadioBtn1['labelDisplayDown']['text'] = this.beadRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.roadBig') + '/' + i18n.t('roulette.roadSmall');
+        this.beadRadioBtn2['labelDisplayDown']['text'] = this.beadRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadOdd') + '/' + i18n.t('roulette.roadEven');
 
         this.updateActiveLine(false);
       }
@@ -56,38 +57,66 @@ namespace we {
         this.gameId = '';
         this.totalBet = 0;
 
-        /*
-                this.beadRoad = new ROBeadRoad(3, 10, 56, 1, 10, 20, 0x262a2b, 1); // in game
-                this.beadRoad.x = 10;
-                this.beadRoad.y = 20;
-                this.beadRoad.scaleX = 689 / 689;
-                this.beadRoad.scaleY = 689 / 689;
-        
-                // add bead road to page stack 2
-                const page2Group = this.pageStack.getChildAt(1) as eui.Group;
-                page2Group.addChild(this.beadRoad);
-        
-                this.colorBigRoad = new ROColorBigRoad(19, 35, 1, true);
-                this.colorBigRoad.scaleX = 668 / 666;
-        
-                // add road to road stack 1
-                const road1Group = this.roadStack.getChildAt(0) as eui.Group;
-                road1Group.addChild(this.colorBigRoad);
-        
-                this.sizeBigRoad = new ROSizeBigRoad(19, 35, 1, true);
-                this.sizeBigRoad.scaleX = 668 / 666;
-        
-                // add road to road stack 2
-                const road2Group = this.roadStack.getChildAt(1) as eui.Group;
-                road2Group.addChild(this.sizeBigRoad);
-        
-                this.oddBigRoad = new ROOddBigRoad(19, 35, 1, true);
-                this.oddBigRoad.scaleX = 668 / 666;
-        
-                // add road to road stack 3
-                const road3Group = this.roadStack.getChildAt(2) as eui.Group;
-                road3Group.addChild(this.oddBigRoad);
-        */
+        this.beadRoad = new DiBeadRoad(2, 8, 48, 1, 19, 24, 6, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
+        this.beadRoad.x = 29;
+        this.beadRoad.y = 16;
+        this.beadRoad.scaleX = 689 / 689;
+        this.beadRoad.scaleY = 689 / 689;
+        this.beadRoad.expandRoad(false);
+
+        // add bead road to page stack 1
+        const page2Group = this.pageStack.getChildAt(0) as eui.Group;
+        page2Group.addChild(this.beadRoad);
+
+        const data = [
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 1, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 3, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 4, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 5, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 6, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 7, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 8, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+        ];
+        this.beadRoad.parseRoadData(data);
+
+        this.sizeBigRoad = new DiSizeBigRoad(19, 35, 1, true);
+        this.sizeBigRoad.scaleX = 668 / 666;
+
+        const data2 = [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'cde345' }, { v: 12, gameRoundID: 'cde345' }];
+        this.sizeBigRoad.parseRoadData(data2);
+
+        // add road to road stack 1
+        const road1Group = this.roadStack.getChildAt(0) as eui.Group;
+        road1Group.addChild(this.sizeBigRoad);
+
+        this.oddBigRoad = new DiOddBigRoad(19, 35, 1, true);
+        this.oddBigRoad.scaleX = 668 / 666;
+        this.oddBigRoad.parseRoadData(data2);
+
+        // add road to road stack 2
+        const road2Group = this.roadStack.getChildAt(1) as eui.Group;
+        road2Group.addChild(this.oddBigRoad);
+
+        this.sumBigRoad = new DiSumBigRoad(19, 35, 1, true);
+        this.sumBigRoad.scaleX = 668 / 666;
+        this.sumBigRoad.parseRoadData(data2);
+
+        // add road to road stack 3
+        const road3Group = this.roadStack.getChildAt(2) as eui.Group;
+        road3Group.addChild(this.sumBigRoad);
 
         this.activeLine = new egret.Shape();
         const gr = this.activeLine.graphics;
@@ -99,8 +128,6 @@ namespace we {
         gr.endFill();
         this.addChild(this.activeLine);
         this.activeLine.y = 332;
-
-
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
@@ -115,11 +142,11 @@ namespace we {
         this.beadRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onBeadChange, this);
         this.beadRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onBeadChange, this);
 
-        this.toggleUpDownButton.addEventListener(eui.UIEvent.CHANGE, this.onToggleUpDown, this);
+        this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
         this.changeLang();
       }
-      public onToggleUpDown(evt: eui.UIEvent) {
-        this.expandPanel(evt.target.selected);
+      public onToggleUpDown(evt: egret.TouchEvent) {
+        this.expandPanel(!this.isExpanded);
       }
 
       public expandPanel(expand: boolean) {
@@ -139,7 +166,8 @@ namespace we {
           this.beadRadioBtn2.y += 202;
           this.isExpanded = true;
 
-          this.toggleUpDownButton.selected = true;
+          this.toggleUpDownButton.currentState = 'b_down';
+          this.beadRoad.expandRoad(true);
         } else if (this.isExpanded && !expand) {
           this.mask.height -= 202;
           this.mask.y += 202;
@@ -156,16 +184,17 @@ namespace we {
           this.beadRadioBtn2.y -= 202;
           this.isExpanded = false;
 
-          this.toggleUpDownButton.selected = false;
+          this.toggleUpDownButton.currentState = 'b_up';
+          this.beadRoad.expandRoad(false);
         }
       }
 
       protected onBeadChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
-        if (radio.value === "1") {
-          this.expandPanel(true);
+        if (radio.value === '1') {
+          this.beadRoad.setLayout(1);
         } else {
-          this.expandPanel(false);
+          this.beadRoad.setLayout(0);
         }
       }
 

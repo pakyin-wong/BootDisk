@@ -9,10 +9,10 @@
 namespace we {
   export namespace di {
     export class Scene extends core.DesktopBaseGameScene {
-      protected _roadmapControl: we.ro.RORoadmapControl;
+      protected _roadmapControl: we.di.DiRoadmapControl;
       protected _leftGamePanel: we.di.DiLeftPanel;
       protected _rightGamePanel: we.di.DiRightPanel;
-      protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
+      protected _bigRoadResultPanel: we.di.DiBigRoadResultPanel;
 
       constructor(data: any) {
         super(data);
@@ -33,32 +33,26 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        // this._roadmapControl.setTableInfo(this._tableInfo);
+        this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
-
-        const pc = new we.di.RankedPieChart();
-        pc.x = 100;
-        pc.y = 100;
-        pc.setRanksAndAnimate([30, 15, 55]);
-        this.addChild(pc);
       }
 
       protected initRoadMap() {
-        this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
-        /*this._roadmapControl.setRoads(
+        this._roadmapControl = new we.di.DiRoadmapControl(this._tableId);
+        this._roadmapControl.setRoads(
           this._leftGamePanel.beadRoad,
-          this._leftGamePanel.colorBigRoad,
+          this._leftGamePanel.sumBigRoad,
           this._leftGamePanel.sizeBigRoad,
           this._leftGamePanel.oddBigRoad,
           this._leftGamePanel,
           this._rightGamePanel,
           this._bigRoadResultPanel
-        );*/
+        );
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        // this._roadmapControl.updateRoadData();
+        this._roadmapControl.updateRoadData();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {

@@ -11,8 +11,8 @@
                          width="514" size="24" />
         <ui:RunTimeLabel id="totalBetLabel" text="0" x="312.69" y="10" textAlign="right" anchorOffsetX="0" width="260"
                          size="25" />
-        <e:RadioButton id="pageRadioBtn1" x="0" y="290" height="50" value="0" selected="true"
-                       groupName="pageRadioBtnGroup" width="290">
+        <e:RadioButton id="pageRadioBtn1" y="290" height="50" value="0" selected="true" groupName="pageRadioBtnGroup"
+                       width="188" x="100">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
                                 <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
@@ -24,8 +24,8 @@
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
-        <e:RadioButton id="pageRadioBtn2" y="289" width="290" height="50" value="1" groupName="pageRadioBtnGroup"
-                       right="0">
+        <e:RadioButton id="pageRadioBtn2" y="289" width="188" height="50" value="1" groupName="pageRadioBtnGroup"
+                       anchorOffsetX="0" x="292">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
                                 <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
@@ -41,8 +41,8 @@
                      anchorOffsetY="0">
                 <e:Group id="page1" width="100%" height="250" name="View">
                         <e:Rect height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" width="100%" />
-                        <e:RadioButton id="beadRadioBtn1" x="84" y="211" width="137" height="34" value="0"
-                                       selected="true" groupName="beadRadioBtnGroup">
+                        <e:RadioButton id="beadRadioBtn1" y="211" width="268" height="34" value="0" selected="true"
+                                       groupName="beadRadioBtnGroup" horizontalCenter="-138">
                                 <e:skinName>
                                         <e:Skin states="up,down,upAndSelected,downAndSelected">
                                                 <e:Image id="buttonImageUp" width="100%" height="100%"
@@ -59,8 +59,8 @@
                                         </e:Skin>
                                 </e:skinName>
                         </e:RadioButton>
-                        <e:RadioButton id="beadRadioBtn2" y="211" width="137" height="34" value="1"
-                                       groupName="beadRadioBtnGroup" x="359">
+                        <e:RadioButton id="beadRadioBtn2" y="211" width="268" height="34" value="1"
+                                       groupName="beadRadioBtnGroup" x="294">
                                 <e:skinName>
                                         <e:Skin states="up,down,upAndSelected,downAndSelected">
                                                 <e:Image id="buttonImageUp" width="100%" height="100%"
@@ -142,5 +142,6 @@
                         </e:RadioButton>
                 </e:Group>
         </e:ViewStack>
-        <e:ToggleSwitch id="toggleUpDownButton" x="531" y="295" skinName="skin_desktop.ToggleUpDownSkin" />
+        <ui:BaseImageButton id="toggleUpDownButton" x="535" y="314" skinName="skin_desktop.ImageButtonSkinGoodRoad"
+                            currentState="b_up" />
 </e:Skin>

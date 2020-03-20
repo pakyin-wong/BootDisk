@@ -25,7 +25,7 @@
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_undo" />
 	</e:Group>
 	<di:DiLeftPanel id="_leftGamePanel" width="580" height="341" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />
-	<di:DiRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />
+	<di:DiRightPanel id="_rightGamePanel" width="580" height="341" x="2004" y="988" anchorOffsetX="0" anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />

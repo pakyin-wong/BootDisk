@@ -7,7 +7,7 @@
                 ellipseWidth="0" bottom="0" />
         <e:Rect width="100%" height="290" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x061323"
                 fillAlpha="0.8" />
-        <e:RadioButton id="pageRadioBtn1" x="0" y="290" width="334" height="50" value="0" selected="true"
+        <e:RadioButton id="pageRadioBtn1" x="80" y="290" width="254" height="50" value="0" selected="true"
                        groupName="pageRadioBtnGroup" label="abc">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
@@ -20,7 +20,7 @@
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
-        <e:RadioButton id="pageRadioBtn2" x="334" y="290" width="334" height="50" value="1" selected="true"
+        <e:RadioButton id="pageRadioBtn2" x="334" y="290" width="254" height="50" value="1" selected="false"
                        groupName="pageRadioBtnGroup" label="def">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
