@@ -38,6 +38,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         clearInterval(this._loopInterval);
         egret.Tween.removeTweens(this._label);
         egret.Tween.removeTweens(this._next);

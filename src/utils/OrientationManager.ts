@@ -7,12 +7,12 @@ namespace we {
       constructor(stage: egret.Stage) {
         this.stage = stage;
         window.onorientationchange = () => {
-          this.onRotate((<any>screen).orientation.angle);
+          this.onRotate((<any> screen).orientation.angle);
         };
-        this.onRotate((<any>screen).orientation.angle);
+        this.onRotate((<any> screen).orientation.angle, true);
       }
 
-      public onRotate(angle: number) {
+      public onRotate(angle: number, isInit: boolean = false) {
         if (angle === 0) {
           // portrait
           env.orientation = egret.OrientationMode.PORTRAIT;
@@ -22,7 +22,9 @@ namespace we {
           env.orientation = egret.OrientationMode.LANDSCAPE;
           this.stage.setContentSize(2292, 1242);
         }
-        dir.evtHandler.dispatch(core.Event.ORIENTATION_UPDATE);
+        if (!isInit) {
+          dir.evtHandler.dispatch(core.Event.ORIENTATION_UPDATE);
+        }
       }
     }
   }

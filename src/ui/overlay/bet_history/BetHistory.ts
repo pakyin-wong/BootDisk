@@ -108,6 +108,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         clearTimeout(this._searchDelay);
         this.removeListeners();
       }

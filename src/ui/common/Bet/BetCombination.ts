@@ -105,6 +105,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         dir.evtHandler.removeEventListener(core.Event.BET_COMBINATION_UPDATE, this.onUpdateTable, this);
       }
     }
