@@ -340,6 +340,22 @@ declare module skin_desktop{
 	class LobbyTabListItemRenderer extends eui.Skin{
 	}
 }
+declare module skin_desktop.lw{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LuckyWheelScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class Nav extends eui.Skin{
 	}
@@ -610,7 +626,7 @@ declare module skin_mobile_portrait{
 	class SidePanelGameResultWinSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.ba{
+declare module skin_mobile_portrait.dt{
 	class StatisticChartPanel extends eui.Skin{
 	}
 }
@@ -683,6 +699,10 @@ declare module skin_mobile_portrait.dt{
 	}
 }
 declare module skin_mobile_portrait.dt{
+	class LiveOverlayItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
 }
@@ -704,10 +724,6 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class SideListTableLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.dt{
-	class StatisticChartPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dt{

@@ -11,11 +11,12 @@ namespace we {
 
       private _tempIdx: number = 0;
 
-      protected totalTable = {
-        totalBATable: 3,
-        totalDTTable: 3,
-        totalROTable: 3,
-        totalDITable: 3,
+      protected totalTableCount = {
+        [we.core.GameType.BAC]: 3,
+        [we.core.GameType.DT]: 3,
+        [we.core.GameType.RO]: 3,
+        [we.core.GameType.DI]: 3,
+        [we.core.GameType.LW]: 0,
       };
 
       constructor() {
@@ -23,10 +24,7 @@ namespace we {
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
 
-        this.tables = this.generateBaccaratTables(this.totalTable['totalBATable']);
-        this.tables = [...this.tables, ...this.generateDragonTigerTables(this.totalTable['totalDTTable'])];
-        this.tables = [...this.tables, ...this.generateRouletteTables(this.totalTable['totalROTable'])];
-        this.tables = [...this.tables, ...this.generateDiceTables(this.totalTable['totalDITable'])];
+        this.tables = Object.keys(this.totalTableCount).reduce((tables, key) => [...tables, ...this.createMockGameTable(key)], []);
 
         setInterval(() => {
           // mock error
@@ -82,135 +80,173 @@ namespace we {
           return stats;
         }
       }
-      protected generateBaccaratTables(count) {
-        const tables = Array.apply(null, { length: count }).map((value, idx) => {
-          const data = new we.data.TableInfo();
-          data.tableid = (++this._tempIdx).toString();
-          data.tablename = data.tableid;
-          data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
-          data.gametype = core.GameType.BAC;
 
-          data.gamestatistic = this.generateDummyStatistic(data);
+      protected createMockGameTable(key) {
+        const count = this.totalTableCount[key];
+        let tables = [];
 
-          data.betInfo = new we.data.GameTableBetInfo();
-          data.betInfo.tableid = data.tableid; // Unique table id
-          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
-          data.betInfo.total = 10000; // Total bet amount for this gameround
-          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
-          data.betInfo.ranking = [];
+        switch (+key) {
+          case we.core.GameType.BAC: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.gametype = core.GameType.BAC;
 
-          data.bets = [];
-          const mockProcess = new MockProcessBaccarat(this, core.GameType.BAC);
-          if (idx !== count - 1) {
-            mockProcess.startRand = idx;
-            mockProcess.endRand = idx + 1;
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessBaccarat(this, core.GameType.BAC);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
           }
-          mockProcess.start(data);
-          this.mockProcesses.push(mockProcess);
+          case we.core.GameType.RO: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
+              data.gametype = core.GameType.RO;
 
-          idx++;
-          return data;
-        });
-        return tables;
-      }
+              data.gamestatistic = this.generateDummyStatistic(data);
 
-      protected generateRouletteTables(count) {
-        const tables = Array.apply(null, { length: count }).map((value, idx) => {
-          const data = new we.data.TableInfo();
-          data.tableid = (++this._tempIdx).toString();
-          data.tablename = data.tableid;
-          data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
-          data.gametype = core.GameType.RO;
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
 
-          data.gamestatistic = this.generateDummyStatistic(data);
+              data.bets = [];
+              const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
 
-          data.betInfo = new we.data.GameTableBetInfo();
-          data.betInfo.tableid = data.tableid; // Unique table id
-          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
-          data.betInfo.total = 10000; // Total bet amount for this gameround
-          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
-          data.betInfo.ranking = [];
-
-          data.bets = [];
-          const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
-          if (idx !== count - 1) {
-            mockProcess.startRand = idx;
-            mockProcess.endRand = idx + 1;
+              idx++;
+              return data;
+            });
+            break;
           }
-          mockProcess.start(data);
-          this.mockProcesses.push(mockProcess);
+          case we.core.GameType.DI: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
+              data.gametype = core.GameType.DI;
 
-          idx++;
-          return data;
-        });
-        return tables;
-      }
+              data.gamestatistic = this.generateDummyStatistic(data);
 
-      protected generateDiceTables(count) {
-        const tables = Array.apply(null, { length: count }).map((value, idx) => {
-          const data = new we.data.TableInfo();
-          data.tableid = (++this._tempIdx).toString();
-          data.tablename = data.tableid;
-          data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
-          data.gametype = core.GameType.DI;
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
 
-          data.gamestatistic = this.generateDummyStatistic(data);
+              data.bets = [];
+              const mockProcess = new MockProcessDice(this, core.GameType.DI);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
 
-          data.betInfo = new we.data.GameTableBetInfo();
-          data.betInfo.tableid = data.tableid; // Unique table id
-          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
-          data.betInfo.total = 10000; // Total bet amount for this gameround
-          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
-          data.betInfo.ranking = [];
-
-          data.bets = [];
-          const mockProcess = new MockProcessDice(this, core.GameType.DI);
-          if (idx !== count - 1) {
-            mockProcess.startRand = idx;
-            mockProcess.endRand = idx + 1;
+              idx++;
+              return data;
+            });
+            break;
           }
-          mockProcess.start(data);
-          this.mockProcesses.push(mockProcess);
+          case we.core.GameType.DT: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.gametype = core.GameType.DT;
 
-          idx++;
-          return data;
-        });
-        return tables;
-      }
+              data.gamestatistic = this.generateDummyStatistic(data);
 
-      protected generateDragonTigerTables(count) {
-        const tables = Array.apply(null, { length: count }).map((value, idx) => {
-          const data = new we.data.TableInfo();
-          data.tableid = (++this._tempIdx).toString();
-          data.tablename = data.tableid;
-          data.state = TableState.ONLINE;
-          data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
-          data.gametype = core.GameType.DT;
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
 
-          data.gamestatistic = this.generateDummyStatistic(data);
+              data.bets = [];
+              const mockProcess = new MockProcessDragonTiger(this, core.GameType.DT);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
 
-          data.betInfo = new we.data.GameTableBetInfo();
-          data.betInfo.tableid = data.tableid; // Unique table id
-          data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
-          data.betInfo.total = 10000; // Total bet amount for this gameround
-          data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
-          data.betInfo.ranking = [];
-
-          data.bets = [];
-          const mockProcess = new MockProcessDragonTiger(this, core.GameType.DT);
-          if (idx !== count - 1) {
-            mockProcess.startRand = idx;
-            mockProcess.endRand = idx + 1;
+              idx++;
+              return data;
+            });
           }
-          mockProcess.start(data);
-          this.mockProcesses.push(mockProcess);
+          case we.core.GameType.LW: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.gametype = core.GameType.LW;
 
-          idx++;
-          return data;
-        });
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessLuckyWheel(this, core.GameType.LW);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+          }
+          default:
+            break;
+        }
         return tables;
       }
 
@@ -414,8 +450,8 @@ namespace we {
 
         let pos: number = -1;
         env.betTableList = new Array();
-        Object.keys(this.totalTable).map(value => {
-          pos += this.totalTable[value];
+        Object.keys(this.totalTableCount).map(key => {
+          pos += this.totalTableCount[key];
           if (list[pos]) {
             env.betTableList = env.betTableList.concat(list[pos]);
           }

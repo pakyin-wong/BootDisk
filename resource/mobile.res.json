@@ -4704,6 +4704,116 @@
 			"url": "assets/m/ro/m_ro_v_betborad_outline.png",
 			"type": "image",
 			"name": "m_ro_v_betborad_outline_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_dragon.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_dragon_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_dragon_hover.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_dragon_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_hover.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tie.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_tie_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tie_hover.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_tie_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tiger.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_tiger_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_result_dragon.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_result_dragon_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_result_dragon_win.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_result_dragon_win_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_result_tiger.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_result_tiger_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_result_tiger_win.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_result_tiger_win_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_hover_png"
 		}
 	]
 }

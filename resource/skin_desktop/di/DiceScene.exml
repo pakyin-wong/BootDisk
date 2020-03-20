@@ -7,7 +7,7 @@
 	<di:TableLayer id="_tableLayer" width="1386" height="482" x="600" y="851" skinName="skin_desktop.di.TableLayerSkin"
 	               isEdgeDismissable="true" />
 	<di:ChipLayer id="_chipLayer" width="1386" height="482" x="600" y="851" skinName="skin_desktop.di.ChipLayerSkin"
-	              isEdgeDismissable="true" />
+	              isEdgeDismissable="true" touchEnabled="false" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="769.37">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />

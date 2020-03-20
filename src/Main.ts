@@ -52,15 +52,15 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
     if (type === 'mobile') {
-    env.isMobile = true;
+      env.isMobile = true;
 
-    // use these when there is portrait mode only
-    this.stage.setContentSize(1242, 2155);
-    this.stage.orientation = egret.OrientationMode.PORTRAIT;
-    env.orientation = egret.OrientationMode.PORTRAIT;
+      // use these when there is portrait mode only
+      this.stage.setContentSize(1242, 2155);
+      this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      env.orientation = egret.OrientationMode.PORTRAIT;
 
-    // uncomment below when there are both portrait and landscape layout
-    // this.orientationManager = new we.utils.OrientationManager(this.stage);
+      // uncomment below when there are both portrait and landscape layout
+      // this.orientationManager = new we.utils.OrientationManager(this.stage);
     }
 
     dir.evtHandler = new we.core.EventHandler();

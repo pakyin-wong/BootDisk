@@ -61,6 +61,8 @@ namespace we {
           this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
           this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
         }
+        // animate table
+        (this._tableLayer as di.TableLayer).animateToState(!enable);
       }
 
       public checkResultMessage() {

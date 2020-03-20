@@ -1,3 +1,4 @@
+/* tslint:disable no-eval */
 namespace we {
   export namespace live {
     export class MobileLiveListHolder extends ui.TableListItemHolder {
@@ -49,28 +50,38 @@ namespace we {
             generalGameType = 'dt';
         }
 
+        let itemName;
+        let skinName;
+
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
-            this._displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
-            this.setDisplayItem(this._displayItem);
             this.width = 1140;
             this.height = 388;
-            if (this.tableInfo) {
-              this.updateDisplayItem();
-            }
+            itemName = 'MobileLiveListItem';
+            skinName = 'LiveListItemSkin';
             break;
           case we.lobby.mode.SIMPLE:
           case we.lobby.mode.ADVANCED:
           default:
-            this._displayItem = new we.ui.MobileLiveListSimpleItem(generalGameType + '.LiveListSimpleItemSkin');
-            this.setDisplayItem(this._displayItem);
             this.width = 552;
             this.height = 219;
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
-            if (this.tableInfo) {
-              this.updateDisplayItem();
-            }
+            itemName = 'MobileLiveListSimpleItem';
+            skinName = 'LiveListSimpleItemSkin';
+        }
+
+        this.assertSkinExists(generalGameType, skinName);
+
+        this._displayItem = new we.ui[itemName](`${generalGameType}.${skinName}`);
+        this.setDisplayItem(this._displayItem);
+        if (this.tableInfo) {
+          this.updateDisplayItem();
+        }
+      }
+
+      private assertSkinExists(gameType, skinName) {
+        const _ = eval(utils.getSkinByClassname(`${gameType}.${skinName}`));
+        if (!_) {
+          throw new Error(`Skin ${gameType}.${skinName} does not exists!`);
         }
       }
 

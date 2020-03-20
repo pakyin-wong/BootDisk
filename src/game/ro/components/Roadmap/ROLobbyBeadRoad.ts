@@ -44,7 +44,7 @@ namespace we {
       }
 
       public updateLobbyRoadData(roadmapData: data.RoadmapData) {
-        if (roadmapData) {
+        if (roadmapData && roadmapData.inGame) {
           if (this.beadRoad) {
             this.beadRoad.parseRoadData(roadmapData.inGame.bead);
           }
@@ -52,7 +52,7 @@ namespace we {
       }
 
       public updateSideBarRoadData(roadmapData: data.RoadmapData) {
-        if (roadmapData) {
+        if (roadmapData && roadmapData.inGame) {
           if (this.beadRoad) {
             this.beadRoad.parseRoadData(roadmapData.inGame.bead);
           }

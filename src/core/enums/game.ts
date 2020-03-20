@@ -17,8 +17,9 @@ namespace we {
       BAS = 1, // speed baccarat
       BAI = 2, // insurance baccarat
       DT = 5, // Dragon Tiger
-      RO = 14,
+      RO = 14, // Roulette
       DI = 12, // Dice
+      LW = 16, // Lucky Wheel
       // MJ = 13, // MaJong
     }
 
@@ -41,6 +42,7 @@ namespace we {
       dt = 'dragontiger',
       ro = 'roulette',
       di = 'dice',
+      lw = 'luckywheel',
       other = 'other',
       // goodroad = 'goodroad',
     }
