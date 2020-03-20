@@ -17,6 +17,9 @@ namespace we {
       public color?: RoadmapCell[];
       public size?: RoadmapCell[];
       public odd?: RoadmapCell[];
+
+      // di
+      public sum?: RoadmapCell[];
     }
   }
 }

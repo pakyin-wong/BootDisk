@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ToggleUpDownSkin" states="normal,down,hover" xmlns:e="http://ns.egret.com/eui">
+    <e:Image id="_background" source.normal="d_sic_history_btn_showall_png" source.down="d_sic_history_btn_hide_png"
+             source.hover="d_sic_history_btn_showall_hover_png" horizontalCenter="0" verticalCenter="0" width="20"
+             height="11" />
+</e:Skin>
