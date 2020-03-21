@@ -159,7 +159,7 @@ namespace we {
       }
 
       public async animateToState(collapsed: boolean) {
-        const time = 150;
+        const time = 3000;
         const tweenPromises = [];
         for (let i = 1; i <= 3; i += 1) {
           const promise = new Promise(resolve => {
@@ -252,7 +252,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }
