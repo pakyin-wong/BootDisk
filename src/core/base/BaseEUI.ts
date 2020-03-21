@@ -15,17 +15,7 @@ namespace we {
 
       protected updateSkin(skin: string = null, orientationDependent: boolean = true) {
         if (skin) {
-          const _ = eval(utils.getSkin(skin));
-          if (!_) {
-            let skinName = null;
-            if (env.isMobile && orientationDependent) {
-              skinName = `resource/skin_portrait/${skin}.exml`;
-            }
-            this.skinName = skinName;
-            // check current device
-          } else {
-            this.skinName = utils.getSkin(skin, orientationDependent);
-          }
+          this.skinName = utils.getSkinWithFallbackOrientation(skin, orientationDependent);
         }
       }
 
@@ -74,12 +64,12 @@ namespace we {
         this.initOrientationDependentComponent();
       }
 
-      protected clearOrientationDependentComponent() { }
+      protected clearOrientationDependentComponent() {}
 
-      protected initOrientationDependentComponent() { }
+      protected initOrientationDependentComponent() {}
 
       // set the position of the children components
-      protected arrangeComponents() { }
+      protected arrangeComponents() {}
     }
   }
 }

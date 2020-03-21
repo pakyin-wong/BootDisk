@@ -1,3 +1,4 @@
+/* tslint:disable no-eval */
 namespace we {
   export namespace utils {
     export function getSkin(name: string, orientationDependent: boolean = true) {
@@ -21,6 +22,26 @@ namespace we {
       return `skin_${device}.${name}`;
     }
 
+    export function getSkinWithFallbackOrientation(name: string, orientationDependent: boolean = true, fallbackOrientation: string = 'portrait') {
+      let device = `desktop`;
+
+      if (env.isMobile) {
+        device = `mobile${orientationDependent ? `_${env.orientation.toLowerCase()}` : ''}`;
+        let _ = eval(utils.getSkin(`resource/skin_${device}/${name}.exml`));
+        if (!_) {
+          _ = eval(utils.getSkin(`resource/skin_mobile_${fallbackOrientation}/${name}.exml`));
+          if (!_) {
+            throw new Error(`Skin ${name} does not exists!`);
+          } else {
+            device = `mobile_${fallbackOrientation}`;
+          }
+        }
+      }
+
+      // check current device
+      return `resource/skin_${device}/${name}.exml`;
+    }
+
     export function assertSkinClassExists(skinClass: string) {
       const _ = eval(utils.getSkinByClassname(skinClass));
       if (!_) {
@@ -34,6 +55,5 @@ namespace we {
         throw new Error(`Skin ${skinKey} does not exists!`);
       }
     }
-
   }
 }
