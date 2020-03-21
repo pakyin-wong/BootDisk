@@ -15,7 +15,7 @@ namespace we {
 
       protected updateSkin(skin: string = null, orientationDependent: boolean = true) {
         if (skin) {
-          this.skinName = utils.getSkinWithFallbackOrientation(skin, orientationDependent);
+          this.skinName = utils.getSkin(skin, orientationDependent);
         }
       }
 
@@ -64,12 +64,12 @@ namespace we {
         this.initOrientationDependentComponent();
       }
 
-      protected clearOrientationDependentComponent() {}
+      protected clearOrientationDependentComponent() { }
 
-      protected initOrientationDependentComponent() {}
+      protected initOrientationDependentComponent() { }
 
       // set the position of the children components
-      protected arrangeComponents() {}
+      protected arrangeComponents() { }
     }
   }
 }
