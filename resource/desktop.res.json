@@ -3434,12 +3434,14 @@
 		{
 			"url": "assets/d/di/d_sic_history_chart_line-1.png",
 			"type": "image",
-			"name": "d_sic_history_chart_line-1_png"
+			"name": "d_sic_history_chart_line-1_png",
+			"scale9grid": "5,0,120,0"
 		},
 		{
 			"url": "assets/d/di/d_sic_history_chart_line-2.png",
 			"type": "image",
-			"name": "d_sic_history_chart_line-2_png"
+			"name": "d_sic_history_chart_line-2_png",
+			"scale9grid": "5,0,120,0"
 		},
 		{
 			"url": "assets/d/di/d_sic_history_chart_red.png",

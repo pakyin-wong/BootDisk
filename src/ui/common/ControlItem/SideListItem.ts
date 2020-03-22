@@ -164,7 +164,7 @@ namespace we {
 
       protected gotoScene(evt: egret.Event) {
         const target = this.getActionButton();
-        if (evt.target === target) {
+        if (evt.target === target || !this.holder.isFocus) {
           return;
         }
         dir.socket.enterTable(this.tableId);

@@ -118,14 +118,16 @@ namespace we {
           const chipStack = this._betChipStackMapping[value];
           if (this._betChipStackMapping[value]) {
             const parent = chipStack.parent;
-            chipStack.verticalCenter = NaN;
-            chipStack.horizontalCenter = NaN;
-            chipStack.x = parent.x + parent.width * 0.5;
-            chipStack.y = parent.y + parent.height * 0.5;
-            chipStack.width = 0;
-            chipStack.height = 0;
-            chipStack.validateNow();
-            this.addChild(chipStack);
+            if (parent !== this) {
+              chipStack.verticalCenter = NaN;
+              chipStack.horizontalCenter = NaN;
+              chipStack.x = parent.x + parent.width * 0.5;
+              chipStack.y = parent.y + parent.height * 0.5;
+              chipStack.width = 0;
+              chipStack.height = 0;
+              chipStack.validateNow();
+              this.addChild(chipStack);
+            }
           }
         });
       }
@@ -294,34 +296,31 @@ namespace we {
         this.onBetFieldUpdate(fieldName);
       }
 
-      public onBetFieldUpdate(fieldName) {
-        const grid = this.getUncfmBetByField(fieldName);
+      public onBetFieldUpdate(fieldName, hashkey: string = null) {
         const betDetail = { field: fieldName, amount: this.getOrderAmount() };
         // validate bet action
         if (this.validateBetAction(betDetail)) {
           // update the uncfmBetDetails
-          for (const detail of this._uncfmBetDetails) {
-            if (detail.field === betDetail.field) {
-              detail.amount += betDetail.amount;
-              break;
-            }
-          }
+          const grid = this.getUncfmBetByField(fieldName);
+          grid.amount += betDetail.amount;
           // update the corresponding table grid
-          this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: grid ? grid.amount : 0 }), this.undoBetFieldUpdate.bind(this));
-        }
-        if (this._betChipStackMapping[fieldName]) {
-          this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
-          this._betChipStackMapping[fieldName].draw();
+          this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
+
+          // update display
+          if (this._betChipStackMapping[fieldName]) {
+            this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
+            this._betChipStackMapping[fieldName].draw();
+          }
         }
       }
 
-      protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {
-        if (this._betChipStackMapping[data.fieldName]) {
-          this._betChipStackMapping[data.fieldName].uncfmBet -= data.amount;
-          this._betChipStackMapping[data.fieldName].draw();
+      protected undoBetFieldUpdate(data: { field: string; amount: number }) {
+        if (this._betChipStackMapping[data.field]) {
+          this._betChipStackMapping[data.field].uncfmBet -= data.amount;
+          this._betChipStackMapping[data.field].draw();
         }
         this._uncfmBetDetails.forEach(value => {
-          if (value.field === data.fieldName) {
+          if (value.field === data.field) {
             value.amount -= data.amount;
           }
         });
