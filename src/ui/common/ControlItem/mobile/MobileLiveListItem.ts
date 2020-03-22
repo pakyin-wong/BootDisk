@@ -80,6 +80,10 @@ namespace we {
         this._roadmapControl.updateRoadData();
       }
 
+      public updateLobbyRoadData(roadmapData: data.RoadmapData) {
+        this._roadmapControl.setTableInfo(this._tableInfo);
+      }
+
       // public setData(tableInfo: data.TableInfo) {
       //   super.setData(tableInfo);
       //   if (tableInfo.roadmap) {

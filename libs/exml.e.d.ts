@@ -926,6 +926,22 @@ declare module skin_mobile_portrait.ro{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.ro{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class LiveListItemBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class LiveOverlayItemSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class RoLeftPanel extends eui.Skin{
 	}
@@ -936,6 +952,14 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait.ro{
 	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{

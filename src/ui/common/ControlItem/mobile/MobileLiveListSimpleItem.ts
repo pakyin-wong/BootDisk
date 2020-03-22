@@ -12,8 +12,13 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._goodRoadLabel.visible = false;
-        this._alreadyBetSign.visible = false;
+        if (this._goodRoadLabel) {
+          this._goodRoadLabel.visible = false;
+        }
+        if(this._alreadyBetSign)
+        {
+          this._alreadyBetSign.visible = false;
+        }
       }
 
       protected setStateBet(isInit: boolean = false) {
@@ -55,7 +60,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

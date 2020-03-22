@@ -34,6 +34,5 @@ namespace we {
         throw new Error(`Skin ${skinKey} does not exists!`);
       }
     }
-
   }
 }

@@ -34,7 +34,7 @@ namespace we {
       protected toggleUpDownButton: eui.ToggleSwitch;
 
       public constructor(skin?: string) {
-        super(skin ? skin : 'di/DiLeftPanel');
+        super(skin ? skin : env.isMobile ? '' : 'di/DiLeftPanel');
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
@@ -95,7 +95,12 @@ namespace we {
         this.sizeBigRoad = new DiSizeBigRoad(19, 35, 1, true);
         this.sizeBigRoad.scaleX = 668 / 666;
 
-        const data2 = [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'cde345' }, { v: 12, gameRoundID: 'cde345' }];
+        const data2 = [
+          { v: 0, gameRoundID: 'cde345' },
+          { v: 1, gameRoundID: 'cde345' },
+          { v: 2, gameRoundID: 'cde345' },
+          { v: 12, gameRoundID: 'cde345' },
+        ];
         this.sizeBigRoad.parseRoadData(data2);
 
         // add road to road stack 1

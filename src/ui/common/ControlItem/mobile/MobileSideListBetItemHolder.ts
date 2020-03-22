@@ -27,7 +27,7 @@ namespace we {
 
           case we.core.GameType.RO:
             generalGameType = 'ro';
-            this._displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
+            this._displayItem = new we.ui.MobileLiveListItem(generalGameType + '.SideListBetItemSkin');
             break;
 
           case we.core.GameType.DT:
