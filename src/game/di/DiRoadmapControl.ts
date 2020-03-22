@@ -126,10 +126,12 @@ namespace we {
             } else {
               // option 2. just display all road data as it is
               // stae 0 = update, 1 = predict, 2 = restore from predict
-              this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
-              this.sumRoad.parseRoadData(roadmapData.inGame.sum, state);
-              this.sizeRoad.parseRoadData(roadmapData.inGame.size, state);
-              this.oddRoad.parseRoadData(roadmapData.inGame.odd, state);
+              if (roadmapData.inGame) {
+                this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
+                this.sumRoad.parseRoadData(roadmapData.inGame.sum, state);
+                this.sizeRoad.parseRoadData(roadmapData.inGame.size, state);
+                this.oddRoad.parseRoadData(roadmapData.inGame.odd, state);
+              }
 
               // update the gamestatistic
               if (this.tableInfo.gamestatistic) {
