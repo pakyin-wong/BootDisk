@@ -28,18 +28,32 @@ namespace we {
       if (env.isMobile) {
         device = `mobile${orientationDependent ? `_${env.orientation.toLowerCase()}` : ''}`;
         const skin = `skin_${device}.${name}`;
-        let clazz = eval(skin);
+        let clazz;
+        try {
+          clazz = eval(skin);
+        } catch (err) {
+          return this.getFallbackSkin(name, fallbackOrientation);
+        }
         if (!clazz) {
-          device = `mobile_${fallbackOrientation}`;
-          clazz = eval(`skin_${device}.${name}`);
-          if (!clazz) {
-            throw new Error(`Skin ${name} does not exists!`);
-          }
+          return this.getFallbackSkin(name, fallbackOrientation);
         }
       }
 
       // check current device
       return `skin_${device}.${name}`;
+    }
+
+    export function getFallbackSkin(name: string, fallbackOrientation: string = 'portrait') {
+      try {
+        const device = `mobile_${fallbackOrientation}`;
+        const clazz = eval(`skin_${device}.${name}`);
+        if (!clazz) {
+          throw new Error(`Skin ${name} does not exists!`);
+        }
+        return `skin_${device}.${name}`;
+      } catch (err) {
+        throw new Error(`Skin ${name} does not exists!`);
+      }
     }
 
     export function assertSkinClassExists(skinClass: string) {

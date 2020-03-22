@@ -3,13 +3,14 @@ namespace we {
   export namespace utils {
     export class OrientationManager {
       protected stage: egret.Stage;
+      protected _timeoutId: number;
 
       constructor(stage: egret.Stage) {
         this.stage = stage;
         window.onorientationchange = () => {
-          this.onRotate((<any>screen).orientation.angle);
+          this.onRotate((<any> screen).orientation.angle);
         };
-        this.onRotate((<any>screen).orientation.angle, true);
+        this.onRotate((<any> screen).orientation.angle, true);
       }
 
       public onRotate(angle: number, isInit: boolean = false) {
@@ -23,7 +24,13 @@ namespace we {
           this.stage.setContentSize(2292, 1242);
         }
         if (!isInit) {
-          dir.evtHandler.dispatch(core.Event.ORIENTATION_UPDATE);
+          if (this._timeoutId) {
+            clearTimeout(this._timeoutId);
+            this._timeoutId = null;
+          }
+          setTimeout(function () {
+            dir.evtHandler.dispatch(core.Event.ORIENTATION_UPDATE);
+          }, 100);
         }
       }
     }
