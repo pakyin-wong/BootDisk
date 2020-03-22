@@ -19,7 +19,7 @@
 		</ui:Scroller>
 		<e:Rect id="_cover" width="100%" height="811" x="0" y="130" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x000000"
 		        alpha="0" />
-		<ba:GoodRoadEditItem id="_editRoadPanel" width="321" height="319" x="48" y="130" anchorOffsetX="0" anchorOffsetY="0"
-		                     isDraggable="false" locked="true" />
+		<ba:GoodRoadEditItem skinName="skin_desktop.GoodRoadEditItem" id="_editRoadPanel" width="321" height="319" x="48"
+		                     y="130" anchorOffsetX="0" anchorOffsetY="0" isDraggable="false" locked="true" />
 	</e:Group>
 </e:Skin>

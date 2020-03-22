@@ -33,6 +33,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this._toggle.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onToggleClick, this);
       }
 

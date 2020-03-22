@@ -99,7 +99,9 @@ namespace we {
         this.root.addChild(gridSwitch);
       }
 
-      public initLandscapeContent(root: GameTableList) {}
+      public initLandscapeContent(root: GameTableList) {
+        this.initPortraitContent(root);
+      }
 
       public onDisplayMode(evt: egret.Event) {
         this.setDisplayMode(evt.data);

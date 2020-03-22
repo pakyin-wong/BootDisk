@@ -33,7 +33,8 @@
 			<overlay:DoubleCalendarPicker skinName="skin_mobile_portrait.DoubleCalendarPicker" id="_datepicker" width="1050"
 			                              height="1402" horizontalCenter="-0.5" y="456" x="96" scaleX="1" scaleY="1" />
 		</e:Group>
-		<bh:BetHistoryDetail id="_detail" left="0" right="0" top="0" bottom="0" />
+		<bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
+		                     bottom="0" />
 		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
 		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" fontFamily="NotoSansCJKtc" size="24"
 		                 alpha="0.7" verticalAlign="middle" visible="false" />

@@ -369,6 +369,9 @@ namespace we {
         const predictResults = [];
         try {
           predictDataArr.forEach(predictData => {
+            if (!predictData) {
+              return;
+            }
             for (let i = 0; i < roadIndexArr.length; i++) {
               if (predictData[aniIndexArr[i]] > -1) {
                 const dataV = predictData[roadIndexArr[i]][predictData[aniIndexArr[i]]].v;

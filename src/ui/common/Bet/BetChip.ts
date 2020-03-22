@@ -16,6 +16,7 @@ namespace we {
 
       public constructor(value: number = null, index: number = null, type: we.core.ChipType = we.core.ChipType.BETTING, highlight: boolean = false) {
         super('BetChipSkin', false);
+        // super();
         this._value = value;
         this._index = index;
         this._type = type;

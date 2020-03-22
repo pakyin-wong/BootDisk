@@ -654,7 +654,7 @@ declare module skin_mobile_portrait{
 	class SidePanelGameResultWinSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.dt{
+declare module skin_mobile_portrait.ba{
 	class StatisticChartPanel extends eui.Skin{
 	}
 }
@@ -756,6 +756,10 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class SideListTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class StatisticChartPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dt{
@@ -952,6 +956,10 @@ declare module skin_mobile_portrait.ro{
 }
 declare module skin_mobile_portrait{
 	class RoLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RoRightPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

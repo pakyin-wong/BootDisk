@@ -42,6 +42,7 @@ namespace we {
       protected onClickInfo() {
         dir.evtHandler.createOverlay({
           class: 'PlayerProfile',
+          args: ['PlayerProfile'],
         });
         logger.l(`NavSideMenu::onClickInfo`);
       }

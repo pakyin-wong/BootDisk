@@ -21,7 +21,7 @@ namespace we {
         super();
         this.visible = false;
         this._isAnimating = false;
-        this.skinName = utils.getSkinByClassname('InGameMessageSkin');
+        // this.skinName = utils.getSkinByClassname('InGameMessageSkin');
       }
 
       set infoBg(value: string) {

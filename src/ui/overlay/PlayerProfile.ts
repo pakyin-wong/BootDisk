@@ -28,8 +28,8 @@ namespace we {
       private _iconList: eui.List;
       private _iconGaySize = 10;
 
-      public constructor() {
-        super('PlayerProfile');
+      public constructor(skin = null) {
+        super(skin);
 
         this._iconListData = new eui.ArrayCollection([
           {
@@ -66,6 +66,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this.removeListeners();
       }
 
