@@ -409,7 +409,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BetHistory extends eui.Skin{
+	class BetHistorySkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -879,7 +879,7 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class BetHistory extends eui.Skin{
+	class BetHistorySkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

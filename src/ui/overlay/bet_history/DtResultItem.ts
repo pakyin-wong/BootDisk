@@ -13,7 +13,7 @@ namespace we {
         private _txt_bPoint: eui.Label;
 
         public constructor(gameresult: any) {
-          super('overlay/BaResultItem');
+          super('BaResultItem');
           this._gameResult = gameresult;
         }
 

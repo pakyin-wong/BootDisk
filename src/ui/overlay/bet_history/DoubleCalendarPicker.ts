@@ -23,7 +23,7 @@ namespace we {
       public range = 7;
 
       constructor() {
-        super('DoubleCalendarPicker');
+        super();
         this._current = moment().startOf('month');
       }
 
