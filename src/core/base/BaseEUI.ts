@@ -5,9 +5,9 @@ namespace we {
       protected _orientationDependent: boolean;
       constructor(skin: string = null, orientationDependent: boolean = true) {
         super();
+        this.orientationDependent = orientationDependent;
         if (skin) {
           this._skinKey = skin;
-          this.orientationDependent = orientationDependent;
           this.updateSkin(skin, orientationDependent);
           // this.skinName = utils.getSkin(skin, orientationDependent);
         }
