@@ -20,7 +20,7 @@ namespace we {
       private _txt_totalAmount_value: ui.RunTimeLabel;
 
       constructor() {
-        super('overlay/MemberReport');
+        super('MemberReport');
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 

@@ -11,7 +11,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('SegmentedControlTabItem');
+        this.skinName = utils.getSkinByClassname('SegmentedControl');
       }
 
       public clone() {

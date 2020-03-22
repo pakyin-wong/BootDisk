@@ -51,7 +51,7 @@ namespace we {
       protected _chipLayer: we.ui.ChipLayer;
 
       public constructor() {
-        super('ro/RaceTrackChipLayer');
+        super('ro.RaceTrackChipLayerSkin');
       }
 
       protected mount() {

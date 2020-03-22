@@ -10,7 +10,7 @@ namespace we {
       public duration: number = 1600;
 
       public constructor(skin?: string) {
-        super(skin ? skin : env.isMobile ? '' : 'ro/GameResult/SideBetResultMessage');
+        super(skin ? skin : env.isMobile ? '' : 'ro.SideBetResultMessage');
         this.visible = false;
         // this._isAnimating = false;
       }

@@ -7,11 +7,9 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkin('di/DiBigRoadResultPanel');
+        this.skinName = utils.getSkinByClassname('di.DiBigRoadResultPanelSkin');
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-
-
 
         this._gameInfoLabel.visible = false;
       }
@@ -26,7 +24,6 @@ namespace we {
 
       public setResult(result: any) {
         this.gameRoundID = result.gameRoundID;
-
 
         this.changeLang();
       }

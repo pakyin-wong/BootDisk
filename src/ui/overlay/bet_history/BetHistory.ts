@@ -50,7 +50,7 @@ namespace we {
       protected _searchDelay: number;
 
       constructor() {
-        super('overlay/BetHistory');
+        super('BetHistorySkin');
 
         this._dataColl = new eui.ArrayCollection();
       }
@@ -59,11 +59,9 @@ namespace we {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_bethistory_title')}`;
         this._txt_date.renderText = () => `${i18n.t('overlaypanel_bethistory_date')}`;
         this._txt_search.renderText = () => `${i18n.t('overlaypanel_bethistory_searchrecord')}`;
-
         this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_bethistory_today')}`;
         this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_bethistory_week')}`;
         this._btn_custom.label.renderText = () => `${i18n.t('overlaypanel_bethistory_customperiod')}`;
-
         this._txt_record_id.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_id')}`;
         this._txt_record_date.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_date')}`;
         this._txt_record_game.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_game')}`;
@@ -76,7 +74,6 @@ namespace we {
         this._txt_record_orgbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_orgbalance')}`;
         this._txt_record_finbalance.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_finbalance')}`;
         this._txt_record_result.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_resuit')}`;
-
         if (this._ddm_searchType) {
           this._ddm_searchType.isDropdown = true;
           this._ddm_searchType.isPoppable = true;
@@ -86,7 +83,6 @@ namespace we {
           this._ddm_searchType.dropdown.data.replaceAll(this.genGameTypeList());
           this._ddm_searchType.dropdown.select(this._type);
         }
-
         if (this._ddm_page) {
           this._ddm_page.isDropdown = true;
           this._ddm_page.isPoppable = true;
@@ -96,12 +92,9 @@ namespace we {
           this._ddm_page.dropdown.data.replaceAll([ui.NewDropdownItem(1, () => `1/1`)]);
           this._ddm_page.dropdown.select(1);
         }
-
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = betHistory.BetHistoryItem;
-
         mouse.setButtonMode(this._tf_search, true);
-
         this.updatePlaceHolder();
         this.addListeners();
         this.searchToday();

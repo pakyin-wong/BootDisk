@@ -8,7 +8,7 @@ namespace we {
       private _badgeGroup: eui.Group;
 
       constructor() {
-        super('sidegamelist/GameListButtonSkin');
+        super('GameListButtonSkin');
       }
 
       protected mount() {

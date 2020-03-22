@@ -1,64 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.BetHistory" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" xmlns:bh="we.overlay.betHistory.*">
+<e:Skin class="skin_mobile_portrait.BetHistorySkin" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*"
+        xmlns:bh="we.overlay.betHistory.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Group top="0" bottom="0" left="0" right="0">
-			<e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333c4a" strokeWeight="2" fillColor="0x14181e" x="0" y="0" scaleX="1" scaleY="1"/>
-			<e:Rect width="497" height="142" x="496" y="307" fillColor="0x0c2848" fillAlpha="0.4" ellipseHeight="142" ellipseWidth="142" scaleX="1" scaleY="1"/>
-			<e:Rect width="120" height="120" x="1074" y="318" fillColor="0x1a3f6c" ellipseHeight="120" ellipseWidth="120" scaleX="1" scaleY="1"/>
-			<e:Rect height="80" y="502" left="0" right="0" fillColor="0x1b416e" x="0" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="1000" height="119" verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_record_date" text="Label" x="4" y="511" width="477" size="40" verticalAlign="middle" height="59" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_record_game" text="Label" x="571" y="511" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="_txt_record_win" text="Label" y="511" width="275" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right" right="47" x="920.0000000000001"/>
-			<ui:BaseImageButton id="_btn_search" width="63" height="63" x="1101" y="345" currentState="search_icon" skinName="skin_mobile_portrait.ImageButtonSkinNav" scaleX="1" scaleY="1"/>
-			<ui:BaseButton id="_btn_searchType" width="400" height="120" x="48" y="318" skinName="skin_mobile_portrait.OverlayPanelButton" active="true" scaleX="1" scaleY="1"/>
-			<ui:BaseButton id="_btn_custom" width="252" height="120" x="727" y="318" skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1"/>
-			<ui:BaseButton id="_btn_date" width="252" height="120" y="318" active="true" x="510" skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1"/>
+			<e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333c4a" strokeWeight="2" fillColor="0x14181e" x="0"
+			        y="0" scaleX="1" scaleY="1" />
+			<e:Rect width="497" height="142" x="496" y="307" fillColor="0x0c2848" fillAlpha="0.4" ellipseHeight="142"
+			        ellipseWidth="142" scaleX="1" scaleY="1" />
+			<e:Rect width="120" height="120" x="1074" y="318" fillColor="0x1a3f6c" ellipseHeight="120" ellipseWidth="120"
+			        scaleX="1" scaleY="1" />
+			<e:Rect height="80" y="502" left="0" right="0" fillColor="0x1b416e" x="0" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="1000" height="119" verticalAlign="middle"
+			                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="_txt_record_date" text="Label" x="4" y="511" width="477" size="40" verticalAlign="middle"
+			                 height="59" textColor="0xd5d5d5" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="_txt_record_game" text="Label" x="571" y="511" width="275" height="59" size="40"
+			                 verticalAlign="middle" scaleX="1" scaleY="1" />
+			<ui:RunTimeLabel id="_txt_record_win" text="Label" y="511" width="275" height="59" size="40" verticalAlign="middle"
+			                 scaleX="1" scaleY="1" textAlign="right" right="47" x="920.0000000000001" />
+			<ui:BaseImageButton id="_btn_search" width="63" height="63" x="1101" y="345" currentState="search_icon"
+			                    skinName="skin_mobile_portrait.ImageButtonSkinNav" scaleX="1" scaleY="1" />
+			<ui:BaseButton id="_btn_searchType" width="400" height="120" x="48" y="318"
+			               skinName="skin_mobile_portrait.OverlayPanelButton" active="true" scaleX="1" scaleY="1" />
+			<ui:BaseButton id="_btn_custom" width="252" height="120" x="727" y="318"
+			               skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1" />
+			<ui:BaseButton id="_btn_date" width="252" height="120" y="318" active="true" x="510"
+			               skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1" />
 			<e:Scroller id="_scroller" height="1573" y="582" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
-				<e:List id="_datagroup"/>
+				<e:List id="_datagroup" />
 			</e:Scroller>
-			<overlay:DoubleCalendarPicker id="_datepicker" width="1050" height="1402" horizontalCenter="-0.5" y="456" x="96" scaleX="1" scaleY="1"/>
+			<overlay:DoubleCalendarPicker skinName="skin_mobile_portrait.DoubleCalendarPicker" id="_datepicker" width="1050"
+			                              height="1402" horizontalCenter="-0.5" y="456" x="96" scaleX="1" scaleY="1" />
 		</e:Group>
-		<bh:BetHistoryDetail id="_detail"  left="0" right="0" top="0" bottom="0"/>
-		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png"/>
-
-
-
-
-
-		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" verticalAlign="middle" visible="false"/>
-		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47" skinName="skin_mobile_portrait.OverlayPanelButton" visible="false"/>
-		<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47" skinName="skin_mobile_portrait.OverlayPanelButton" visible="false"/>
-
-
-
-		<ui:RunTimeLabel id="_txt_record_id" text="Label" x="95" y="168" width="191" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" visible="false"/>
-
-
-		<ui:RunTimeLabel id="_txt_record_round" text="Label" x="657" y="168" width="129" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
-		<ui:RunTimeLabel id="_txt_record_replay" text="Label" x="786" y="168" width="79" size="20" verticalAlign="middle" height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
-		<ui:RunTimeLabel id="_txt_record_remake" text="Label" x="865" y="168" width="86" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
-		<ui:RunTimeLabel id="_txt_record_bettype" text="Label" x="951" y="168" width="129" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
-		<ui:RunTimeLabel id="_txt_record_betamount" text="Label" x="1080" y="168" width="147" size="20" verticalAlign="middle" height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
-
-		<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" x="1386" y="168" width="176" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
-		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1562" y="168" width="88" size="20" verticalAlign="middle" height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
-		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1650" y="168" width="490" height="29" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" textAlign="center" visible="false"/>
-
-		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" fontFamily="NotoSansCJKtc" size="24" width="96" alpha="0.7" visible="false"/>
-
-		<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle" fontFamily="NotoSansCJKtc" size="24" visible="false"/>
-
-
-
-
-		<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" visible="false"/>
-		<ui:BaseImageButton id="_btn_next" width="46" height="46" x="1132" y="1077" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_next_icon" visible="false"/>
+		<bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
+		                     bottom="0" />
+		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
+		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" fontFamily="NotoSansCJKtc" size="24"
+		                 alpha="0.7" verticalAlign="middle" visible="false" />
+		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47"
+		               skinName="skin_mobile_portrait.OverlayPanelButton" visible="false" />
+		<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47"
+		               skinName="skin_mobile_portrait.OverlayPanelButton" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_id" text="Label" x="95" y="168" width="191" height="29" size="20"
+		                 verticalAlign="middle" fontFamily="NotoSansCJKtc" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_round" text="Label" x="657" y="168" width="129" height="29" size="20"
+		                 verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_replay" text="Label" x="786" y="168" width="79" size="20" verticalAlign="middle"
+		                 height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_remake" text="Label" x="865" y="168" width="86" height="29" size="20"
+		                 verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_bettype" text="Label" x="951" y="168" width="129" height="29" size="20"
+		                 verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_betamount" text="Label" x="1080" y="168" width="147" size="20" verticalAlign="middle"
+		                 height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" x="1386" y="168" width="176" height="29" size="20"
+		                 verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1562" y="168" width="88" size="20" verticalAlign="middle"
+		                 height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
+		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1650" y="168" width="490" height="29" size="20"
+		                 verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" textAlign="center"
+		                 visible="false" />
+		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle"
+		                 fontFamily="NotoSansCJKtc" size="24" width="96" alpha="0.7" visible="false" />
+		<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle"
+		                fontFamily="NotoSansCJKtc" size="24" visible="false" />
+		<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" visible="false" />
+		<ui:BaseImageButton id="_btn_next" width="46" height="46" x="1132" y="1077"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_next_icon" visible="false" />
 		<e:Group id="_btn_page" width="83" height="46" x="1029" y="1077" visible="false">
-			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle" textAlign="center" fontFamily="Barlow" size="28"/>
+			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle"
+			                 textAlign="center" fontFamily="Barlow" size="28" />
 		</e:Group>
-
-
-
 	</e:Group>
 </e:Skin>

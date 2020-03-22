@@ -7,7 +7,7 @@ namespace we {
     }
     export class DTRoadmapRightPanel extends ba.BARoadmapRightPanel implements IDTRoadmapDisplayObject {
       public constructor(skin?: string) {
-        super(skin ? skin : env.isMobile ? '' : 'dt/DTRoadmapRightPanel');
+        super(skin ? skin : env.isMobile ? '' : 'DTRoadmapLeftPanel');
       }
 
       protected init() {
