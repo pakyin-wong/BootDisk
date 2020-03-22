@@ -29,7 +29,7 @@ namespace we {
       private _iconGaySize = 10;
 
       public constructor() {
-        super('overlay/PlayerProfile');
+        super('PlayerProfile');
 
         this._iconListData = new eui.ArrayCollection([
           {
@@ -57,7 +57,7 @@ namespace we {
         this._maskContainer.mask = shape;
         // init scroller
         this._iconList.itemRenderer = ui.IconItemRenderer;
-        this._iconList.itemRendererSkinName = utils.getSkin('overlay/PlayerProfileIconItem');
+        this._iconList.itemRendererSkinName = utils.getSkinByClassname('PlayerProfileIconItem');
         this._iconList.dataProvider = this._iconListData;
 
         this._iconScroller.useMiniScrollBar = true;

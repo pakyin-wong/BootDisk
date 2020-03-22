@@ -12,7 +12,7 @@ namespace we {
       protected pageStack: eui.ViewStack;
 
       public constructor(skin?: string) {
-        super(skin ? skin : 'ro/RoRightPanel');
+        super(skin ? skin : 'RoRightPanel');
       }
 
       public get raceTrackChipLayer() {

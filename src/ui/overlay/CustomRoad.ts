@@ -10,7 +10,7 @@ namespace we {
       protected _defaultButton: ui.BaseImageButton;
 
       constructor() {
-        super('overlay/CustomRoad');
+        super('CustomRoad');
       }
 
       protected mount() {

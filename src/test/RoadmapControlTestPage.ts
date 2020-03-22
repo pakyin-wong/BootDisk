@@ -19,7 +19,7 @@ namespace we {
       protected _targetTableInfo;
 
       public constructor(data: any = null) {
-        super('test/RoadmapControlTestPageSkin', data);
+        super('RoadmapControlTestPageSkin', data);
       }
 
       public onEnter() {

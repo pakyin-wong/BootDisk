@@ -4,7 +4,7 @@ namespace we {
       constructor(skin: string = null, orientationDependent: boolean = true) {
         super();
         if (skin) {
-          this.skinName = utils.getSkin(skin, orientationDependent);
+          this.skinName = utils.getSkinByClassname(skin, orientationDependent);
         }
       }
 

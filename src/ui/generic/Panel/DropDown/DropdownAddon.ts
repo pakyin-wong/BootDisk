@@ -51,7 +51,7 @@ namespace we {
       }
 
       public set itemSkin(s) {
-        this._list.itemRendererSkinName = utils.getSkin(s);
+        this._list.itemRendererSkinName = utils.getSkinByClassname(s);
       }
 
       public select(key) {

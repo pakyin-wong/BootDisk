@@ -8,7 +8,7 @@
 			<ui:BetChipSetHorizontal id="_betChipSet" width="310" height="65" anchorOffsetX="0" x="14" scaleX="1" scaleY="1"
 			                         anchorOffsetY="0" verticalCenter="2" navWidth="20" containerPadding="6" />
 			<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
-			                    skinName="ImageButtonSkinLobby" anchorOffsetX="0" />
+			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />
 		</e:Group>
 		<ro:LobbyTableLayer id="_tableLayer" width="100%" skinName="skin_desktop.ro.LiveListItemTableLayerSkin"
 		                    anchorOffsetY="0" left="0" top="0" />
