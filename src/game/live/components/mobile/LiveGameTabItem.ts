@@ -12,7 +12,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('LiveGameTabItem');
+        this.skinName = utils.getSkinByClassname('LiveGameTabItemSkin');
         const colorFilter = new egret.ColorMatrixFilter([0.5, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 1, 0]);
         this.filters = [colorFilter];
       }

@@ -35,7 +35,7 @@ namespace we {
         private data;
 
         constructor() {
-          super(env.isMobile ? 'overlay/BetHistoryDetail' : null);
+          super(env.isMobile ? 'BetHistoryDetail' : null);
           // this.poppableAddon = new ui.PoppableAddonSilder(this);
           this.isPoppable = true;
           this.hideOnStart = true;

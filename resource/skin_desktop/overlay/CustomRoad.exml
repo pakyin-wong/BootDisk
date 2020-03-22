@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.BetHistory" width="1689" height="941" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.CustomRoad" width="1689" height="941" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
@@ -12,15 +12,14 @@
 		                    currentState="b_cancel" x="469.81" skinName="ImageButtonSkinDialog" />
 		<ui:Scroller id="scroller" width="1643" height="766" x="28" y="130">
 			<ui:List id="roomList">
-			<e:layout>
-				<e:AnimTileLayout horizontalGap="32" verticalGap="36" paddingBottom="20" paddingLeft="20" requestedColumnCount="5"/>
-			</e:layout>
+				<e:layout>
+					<e:AnimTileLayout horizontalGap="32" verticalGap="36" paddingBottom="20" paddingLeft="20" requestedColumnCount="5" />
+				</e:layout>
 			</ui:List>
 		</ui:Scroller>
 		<e:Rect id="_cover" width="100%" height="811" x="0" y="130" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x000000"
 		        alpha="0" />
 		<ba:GoodRoadEditItem id="_editRoadPanel" width="321" height="319" x="48" y="130" anchorOffsetX="0" anchorOffsetY="0"
-		                     isDraggable="false"  locked="true"/>
-
+		                     isDraggable="false" locked="true" />
 	</e:Group>
 </e:Skin>

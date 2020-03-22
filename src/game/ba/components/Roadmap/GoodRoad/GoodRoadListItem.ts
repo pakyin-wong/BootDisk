@@ -20,7 +20,7 @@ namespace we {
       public constructor() {
         super();
         this.roadType = 0;
-        this.skinName = utils.getSkin('GoodRoadListItem');
+        this.skinName = utils.getSkinByClassname('GoodRoadListItem');
       }
 
       protected mount() {

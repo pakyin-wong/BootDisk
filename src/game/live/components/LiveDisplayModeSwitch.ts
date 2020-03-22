@@ -17,7 +17,7 @@ namespace we {
         this.buttons.forEach((btn, idx) => {
           const img = new we.ui.BaseImageButton();
           img.currentState = btn;
-          img.skinName = utils.getSkin('imagebutton/ImageButtonSkinLobby');
+          img.skinName = utils.getSkinByClassname('ImageButtonSkinLobby');
           img.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onItemClick.bind(this, idx), this);
           //   img.height = 50;
           //   img.width = 50;

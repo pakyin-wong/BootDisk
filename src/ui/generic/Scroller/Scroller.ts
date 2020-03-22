@@ -96,7 +96,7 @@ namespace we {
           this.scrollPolicyV = eui.ScrollPolicy.OFF;
           this.scrollPolicyH = eui.ScrollPolicy.OFF;
         }
-        this.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
+        this.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
         this.verticalScrollBar.autoVisibility = false;
         if (this._isCollapsible && this.collapseOnStart) {
           this.verticalScrollBar.visible = false;

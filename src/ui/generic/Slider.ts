@@ -14,7 +14,7 @@ namespace we {
 
       constructor() {
         super();
-        //  this.skinName = utils.getSkin(this.customSkin);
+        //  this.skinName = utils.getSkinByClassname(this.customSkin);
       }
 
       protected mount() {

@@ -24,7 +24,7 @@ namespace we {
       public constructor() {
         super();
         this.roadType = 0;
-        this.skinName = utils.getSkin('GoodRoadEditItem');
+        this.skinName = utils.getSkinByClassname('GoodRoadEditItem');
       }
 
       protected mount() {

@@ -22,18 +22,11 @@ namespace we {
     }
 
     export function assertSkinClassExists(skinClass: string) {
-      const _ = eval(utils.getSkinByClassname(skinClass));
-      if (!_) {
+      const clazz = egret.getDefinitionByName(utils.getSkinByClassname(skinClass));
+      // const _ = eval(utils.getSkinByClassname(skinClass));
+      if (!clazz) {
         throw new Error(`Skin ${skinClass} does not exists!`);
       }
     }
-
-    export function assertSkinExists(skinKey: string) {
-      const _ = eval(utils.getSkin(skinKey));
-      if (!_) {
-        throw new Error(`Skin ${skinKey} does not exists!`);
-      }
-    }
-
   }
 }

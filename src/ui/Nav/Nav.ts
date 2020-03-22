@@ -17,7 +17,7 @@ namespace we {
       private _timeInterval: number;
 
       public constructor() {
-        super('nav/Nav');
+        super('Nav');
       }
 
       protected mount() {

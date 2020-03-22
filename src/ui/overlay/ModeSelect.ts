@@ -9,7 +9,7 @@ namespace we {
       private txt_darkMode: ui.RunTimeLabel;
 
       public constructor() {
-        super('overlay/ModeSelect');
+        super('ModeSelect');
       }
 
       protected mount() {

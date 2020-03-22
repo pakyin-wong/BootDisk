@@ -50,7 +50,7 @@ namespace we {
       protected _searchDelay: number;
 
       constructor() {
-        super('overlay/BetHistory');
+        super('BetHistory');
 
         this._dataColl = new eui.ArrayCollection();
       }
