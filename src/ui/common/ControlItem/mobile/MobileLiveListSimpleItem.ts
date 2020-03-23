@@ -2,7 +2,7 @@
 namespace we {
   export namespace ui {
     export class MobileLiveListSimpleItem extends MobileListBaseItem {
-      protected _bigRoad: we.ba.BALobbyBigRoad;
+      protected _bigRoad: we.ui.ILobbyRoad;
       protected _alreadyBetSign: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
