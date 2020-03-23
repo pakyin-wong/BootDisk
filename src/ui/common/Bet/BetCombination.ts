@@ -22,7 +22,9 @@ namespace we {
           }
         }
 
-        if (num > 11) { return; }
+        if (num > 11) {
+          return;
+        }
 
         this._group.addChild(this.newBetCombination());
         num++;
