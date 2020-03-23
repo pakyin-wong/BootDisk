@@ -40,7 +40,7 @@ namespace we {
           return;
         }
         for (let i = 0; i < 7; i += 1) {
-          this._rightGamePanel[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`];
+          this._rightGamePanel[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
         }
         logger.l(JSON.stringify(evt.data.count));
         logger.l(JSON.stringify(evt.data.amount));

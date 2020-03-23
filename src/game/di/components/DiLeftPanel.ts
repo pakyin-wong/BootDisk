@@ -95,12 +95,7 @@ namespace we {
         this.sizeBigRoad = new DiSizeBigRoad(19, 35, 1, true);
         this.sizeBigRoad.scaleX = 668 / 666;
 
-        const data2 = [
-          { v: 0, gameRoundID: 'cde345' },
-          { v: 1, gameRoundID: 'cde345' },
-          { v: 2, gameRoundID: 'cde345' },
-          { v: 12, gameRoundID: 'cde345' },
-        ];
+        const data2 = [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'cde345' }, { v: 12, gameRoundID: 'cde345' }];
         this.sizeBigRoad.parseRoadData(data2);
 
         // add road to road stack 1

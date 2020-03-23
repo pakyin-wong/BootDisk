@@ -41,8 +41,8 @@ namespace we {
           this.sizeText.textColor = this.itemColors[1];
           this.oddText.textColor = this.itemColors[1];
         } else {
-          this.sizeText.textColor = this.itemColors[0];
-          this.oddText.textColor = this.itemColors[2];
+          this.sizeText.textColor = this.diceSize === 1 ? this.itemColors[2] : this.itemColors[0];
+          this.oddText.textColor = this.odd === 1 ? this.itemColors[2] : this.itemColors[0];
 
           this.sizeText.text = this.diceSize === 1 ? i18n.t('dice.smallShort') : i18n.t('dice.bigShort');
           this.oddText.text = this.odd === 1 ? i18n.t('dice.oddShort') : i18n.t('dice.evenShort');

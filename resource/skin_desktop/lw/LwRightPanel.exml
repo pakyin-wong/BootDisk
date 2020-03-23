@@ -18,11 +18,11 @@
 	<ui:RunTimeLabel id="_lbl_lwTitle4" x="333.7" y="180" size="16" height="26" verticalAlign="middle" text="發"/>
 	<ui:RunTimeLabel id="_lbl_lwTitle5" x="333.7" y="221" size="16" height="26" verticalAlign="middle" text="白"/>
 	<ui:RunTimeLabel id="_lbl_lwTitle6" x="333.7" y="262" size="16" height="26" verticalAlign="middle" text="WE"/>
-	<ui:RunTimeLabel id="_lbl_lwValue0" x="538.9" y="16" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
-	<ui:RunTimeLabel id="_lbl_lwValue1" x="538.9" y="57" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
-	<ui:RunTimeLabel id="_lbl_lwValue2" x="538.9" y="98" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
-	<ui:RunTimeLabel id="_lbl_lwValue3" x="538.9" y="139" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
-	<ui:RunTimeLabel id="_lbl_lwValue4" x="538.9" y="180" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
-	<ui:RunTimeLabel id="_lbl_lwValue5" x="538.9" y="221" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
-	<ui:RunTimeLabel id="_lbl_lwValue6" x="538.9" y="262" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue0" width="140" right="54" y="16" size="16" height="26" verticalAlign="middle" text="80,000" textAlign="right" fontFamily="Barlow" />
+	<ui:RunTimeLabel id="_lbl_lwValue1" width="140" right="54" y="57" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue2" width="140" right="54" y="98" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue3" width="140" right="54" y="139" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue4" width="140" right="54" y="180" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue5" width="140" right="54" y="221" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue6" width="140" right="54" y="262" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
 </e:Skin>
