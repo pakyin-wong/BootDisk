@@ -54,6 +54,10 @@ declare module skin_desktop{
 	class BARoadmapLeftPanel extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class BARoadmapRightPanel extends eui.Skin{
+	}
+}
 declare module skins_desktop{
 	class BetConfirmButtonSkin extends eui.Skin{
 	}
@@ -154,8 +158,20 @@ declare module skin_desktop.di{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.di{
+	class DiBigRoadResultPanelSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class DiceScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiRightPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
@@ -294,13 +310,17 @@ declare module skin_desktop{
 }
 declare class ImageButtonSkinDialog extends eui.Skin{
 }
-declare class ImageButtonSkinEmpty extends eui.Skin{
+declare module skin_desktop{
+	class ImageButtonSkinEmpty extends eui.Skin{
+	}
 }
 declare module skin_desktop{
 	class ImageButtonSkinGoodRoad extends eui.Skin{
 	}
 }
-declare class ImageButtonSkinLobby extends eui.Skin{
+declare module skin_desktop{
+	class ImageButtonSkinLobby extends eui.Skin{
+	}
 }
 declare module skin_desktop{
 	class ImageButtonSkinNav extends eui.Skin{
@@ -389,11 +409,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class BetHistory extends eui.Skin{
+	class BetHistorySkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class CustomRoad extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -541,6 +565,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class ToggleUpDownSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class UserInfoWindow extends eui.Skin{
 	}
 }
@@ -626,7 +654,7 @@ declare module skin_mobile_portrait{
 	class SidePanelGameResultWinSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.dt{
+declare module skin_mobile_portrait.ba{
 	class StatisticChartPanel extends eui.Skin{
 	}
 }
@@ -640,6 +668,10 @@ declare module skin_mobile_portrait.ba{
 }
 declare module skin_mobile_portrait{
 	class BARoadmapLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BARoadmapRightPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -731,6 +763,10 @@ declare module skin_mobile_portrait.dt{
 	}
 }
 declare module skin_mobile_portrait.dt{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
 	class TableInfoPanel extends eui.Skin{
 	}
 }
@@ -759,6 +795,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class ImageButtonSkinEmpty extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class ImageButtonSkinGoodRoad extends eui.Skin{
 	}
 }
@@ -779,7 +819,7 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class SegmentedControl extends eui.Skin{
+	class LiveGameTabItemSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -847,7 +887,7 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class BetHistory extends eui.Skin{
+	class BetHistorySkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -856,6 +896,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class CustomRoad extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

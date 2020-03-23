@@ -120,6 +120,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         // listen to table list update
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update

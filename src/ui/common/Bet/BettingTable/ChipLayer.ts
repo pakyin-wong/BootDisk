@@ -25,6 +25,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 

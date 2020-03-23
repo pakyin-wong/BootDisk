@@ -8,7 +8,7 @@ namespace we {
         super();
         this.image = new we.ui.BaseImageButton();
         this.image.currentState = this.buttons[env.lobbyGridType];
-        this.image.skinName = utils.getSkin('imagebutton/ImageButtonSkinLobby');
+        this.image.skinName = utils.getSkinByClassname('ImageButtonSkinLobby');
         this.image.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
         this.image.useColorFilter = true;
         this.addChild(this.image);

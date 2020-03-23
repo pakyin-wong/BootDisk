@@ -56,7 +56,7 @@ namespace we {
         this.dispatchEvent(new egret.Event('onUpdate'));
       }
 
-      private doParseRoads(rawResult: any) {
+      protected doParseRoads(rawResult: any) {
         this.doParseBeadRoad(rawResult);
         this.doParseBigRoad();
         this.doParseBigEyeRoad();
@@ -198,7 +198,11 @@ namespace we {
           roadCol = i;
           roadRow = 0;
           let turn = false;
-          for (const inElement of colArr) {
+          for (let c = 0; c < colArr.length; c++) {
+            if (c >= 6 + maxCol - 1) {
+              break;
+            }
+            const inElement = colArr[c];
             inElement.columnResultIndex = i;
             // get the corresponding elements from column result
             let found = false;
@@ -262,7 +266,11 @@ namespace we {
           roadCol = i - minIndex;
           roadRow = 0;
           let turn = false;
-          for (const inElement of colArr) {
+          for (let c = 0; c < colArr.length; c++) {
+            if (c >= 6 + maxCol - 1) {
+              break;
+            }
+            const inElement = colArr[c];
             inElement.columnResultIndex = i;
             // get the corresponding elements from column result
             let found = false;
@@ -361,6 +369,9 @@ namespace we {
         const predictResults = [];
         try {
           predictDataArr.forEach(predictData => {
+            if (!predictData) {
+              return;
+            }
             for (let i = 0; i < roadIndexArr.length; i++) {
               if (predictData[aniIndexArr[i]] > -1) {
                 const dataV = predictData[roadIndexArr[i]][predictData[aniIndexArr[i]]].v;
@@ -564,28 +575,6 @@ namespace we {
           roadSet.roachAni = data.roachAni;
         }
 
-        // ro
-        if (data.color !== undefined) {
-          roadSet.color = [];
-          data.color.forEach(element => {
-            roadSet.color.push(BARoadParser.CreateRoadmapCellFromObject(element));
-          });
-        }
-
-        if (data.size !== undefined) {
-          roadSet.size = [];
-          data.size.forEach(element => {
-            roadSet.size.push(BARoadParser.CreateRoadmapCellFromObject(element));
-          });
-        }
-
-        if (data.odd !== undefined) {
-          roadSet.odd = [];
-          data.odd.forEach(element => {
-            roadSet.odd.push(BARoadParser.CreateRoadmapCellFromObject(element));
-          });
-        }
-
         return roadSet;
       }
 
@@ -642,11 +631,6 @@ namespace we {
         }
         if (data.result !== undefined) {
           roadInfo.result = data.result;
-        }
-
-        // ro
-        if (data.v !== undefined) {
-          roadInfo.v = data.v;
         }
         if (data.video !== undefined) {
           roadInfo.video = data.video;

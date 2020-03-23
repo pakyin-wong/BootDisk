@@ -5,7 +5,7 @@ namespace we {
       private _tableId: string;
 
       constructor(tableId: string) {
-        super('overlay/MobileQuickBet');
+        super('MobileQuickBet');
         this._tableId = tableId;
       }
 

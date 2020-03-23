@@ -10,11 +10,11 @@
 		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="15"
 		                           skinName="skin_desktop.BetChipSkin" />
 		<ui:BaseImageButton id="_closeButton" x="12" y="20" width="56" height="60" currentState="lobby_betcontrol_close"
-		                    skinName="ImageButtonSkinLobby" />
+		                    skinName="skin_desktop.ImageButtonSkinLobby" />
 		<ui:BaseImageButton id="_prevButton" x="68" y="20" width="56" height="60" currentState="lobby_betcontrol_previous"
-		                    skinName="ImageButtonSkinLobby" />
+		                    skinName="skin_desktop.ImageButtonSkinLobby" />
 		<ui:BaseImageButton id="_confirmButton" right="10" top="30" width="80" height="40" currentState="lobby_confirm_button"
-		                    skinName="ImageButtonSkinLobby" />
+		                    skinName="skin_desktop.ImageButtonSkinLobby" />
 	</e:Group>
 	<e:Group id="_contentContainer" x="0" height="158" width="100%" touchEnabled="false" touchChildren="true" locked="true">
 		<e:Rect width="442" height="47" x="0" y="0" fillColor="0x202020" />
@@ -35,7 +35,7 @@
 			                   height="110" left="0" y="47" />
 			<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
 			                       skinName="BetLimitDropdownSkin" visible="false" />
-			<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification" skinName="ImageButtonSkinLobby"
+			<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification" skinName="skin_desktop.ImageButtonSkinLobby"
 			                    alpha="0" horizontalCenter="0" width="148" y="168" height="42" text="加注" />
 		</e:Group>
 	</e:Group>

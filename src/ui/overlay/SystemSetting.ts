@@ -25,7 +25,7 @@ namespace we {
       private _ddm_currBgm: ui.Panel;
 
       constructor() {
-        super('overlay/SystemSetting');
+        super('SystemSetting');
       }
 
       protected mount() {

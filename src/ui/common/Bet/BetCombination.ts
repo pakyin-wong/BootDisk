@@ -11,35 +11,48 @@ namespace we {
 
       protected onUpdateTable(evt: egret.Event) {
         this._group.removeChildren();
+        let num = 0;
         if (evt) {
           console.log('BetCombination::onUpdateTable() ', evt.data);
           if (evt.data) {
             evt.data.map(value => {
               this._group.addChild(this.oldBetCombination(value));
+              num++;
             });
           }
         }
+
+        if (num > 11) { return; }
+
         this._group.addChild(this.newBetCombination());
+        num++;
+
+        while (num < 12) {
+          const emptyGrid = new eui.Component();
+          emptyGrid.height = 20;
+          this._group.addChild(emptyGrid);
+          num++;
+        }
       }
 
       protected oldBetCombination(betCombination: we.data.BetCombination) {
-        const textField = new eui.EditableText();
+        const textField = new eui.Label();
         textField.height = 20;
         textField.width = 100;
         textField.text = betCombination.title;
-        const tick = new eui.Image();
-        tick.source = 'd_lobby_confirm_btn_normal_png';
-        tick.x = 120;
-        tick.height = 20;
+
         const cancel = new eui.Image();
         cancel.source = 'd_ba_betcontrol_icon_cancel_png';
-        cancel.x = 100;
         cancel.height = 20;
         cancel.addEventListener(egret.TouchEvent.TOUCH_TAP, this.deleteBetCombination(betCombination.id), this);
+
+        const layout = new eui.HorizontalLayout();
+
         const group = new eui.Group();
-        group.addChild(tick);
+        group.layout = layout;
         group.addChild(textField);
         group.addChild(cancel);
+
         return group;
       }
 
@@ -47,13 +60,16 @@ namespace we {
         this._newBetCombinationTextField = new eui.EditableText();
         this._newBetCombinationTextField.height = 20;
         this._newBetCombinationTextField.width = 100;
+
         const tick = new eui.Image();
         tick.source = 'd_lobby_confirm_btn_normal_png';
-        tick.x = 100;
         tick.height = 20;
         tick.addEventListener(egret.TouchEvent.TOUCH_TAP, this.saveBetCombination, this);
 
+        const layout = new eui.HorizontalLayout();
+
         const group = new eui.Group();
+        group.layout = layout;
         group.addChild(this._newBetCombinationTextField);
         group.addChild(tick);
 
@@ -105,6 +121,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         dir.evtHandler.removeEventListener(core.Event.BET_COMBINATION_UPDATE, this.onUpdateTable, this);
       }
     }

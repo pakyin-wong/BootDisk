@@ -50,7 +50,7 @@ namespace we {
       protected _sectionMapping: { [s: string]: eui.Image };
 
       public constructor() {
-        super('ro/RaceTrackTableLayer');
+        super('ro.RaceTrackTableLayerSkin');
       }
 
       protected mount() {

@@ -159,7 +159,7 @@ namespace we {
       }
 
       public async animateToState(collapsed: boolean) {
-        const time = 150;
+        const time = 3000;
         const tweenPromises = [];
         for (let i = 1; i <= 3; i += 1) {
           const promise = new Promise(resolve => {

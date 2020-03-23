@@ -28,7 +28,7 @@ namespace we {
       constructor() {
         super();
         if (!this.skinName || this.skinName === '') {
-          this.skinName = utils.getSkin('imagebutton/ImageButtonSkinEmpty');
+          this.skinName = utils.getSkinByClassname('ImageButtonSkinEmpty');
         }
         this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
         this.touchChildren = false;
@@ -42,7 +42,7 @@ namespace we {
         ** ex.
           const img = new we.ui.BaseImageButton();
           img.currentState = btn;
-          img.skinName = utils.getSkin('imagebutton/ImageButtonSkinLobby');
+          img.skinName = utils.getSkinByClassname('ImageButtonSkinLobby');
         */
         const property: eui.State | eui.SetProperty = this.skin.states.filter(x => x.name === this.currentState)[0];
         if (property) {
