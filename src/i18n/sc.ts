@@ -266,6 +266,9 @@ namespace we {
         r9: '拍拍黐',
         r10: '逢庄唔黐',
       },
+      luckywheel: {
+        pool: '即时彩池',
+      },
       game: {
         startBet: '开始下注',
         stopBet: '停止下注',
