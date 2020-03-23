@@ -38,6 +38,7 @@ namespace we {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
       protected destroy() {
+        super.destroy();
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
 

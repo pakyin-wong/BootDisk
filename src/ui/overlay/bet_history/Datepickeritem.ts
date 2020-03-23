@@ -5,7 +5,7 @@ namespace we {
       private _id;
 
       constructor(id) {
-        super('overlay/DatePickerItem');
+        super('DatePickerItem');
         this._id = id;
       }
 

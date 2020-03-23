@@ -69,19 +69,12 @@ namespace we {
             skinName = 'LiveListSimpleItemSkin';
         }
 
-        this.assertSkinExists(generalGameType, skinName);
+        utils.assertSkinClassExists(`${generalGameType}.${skinName}`);
 
         this._displayItem = new we.ui[itemName](`${generalGameType}.${skinName}`);
         this.setDisplayItem(this._displayItem);
         if (this.tableInfo) {
           this.updateDisplayItem();
-        }
-      }
-
-      private assertSkinExists(gameType, skinName) {
-        const _ = eval(utils.getSkinByClassname(`${gameType}.${skinName}`));
-        if (!_) {
-          throw new Error(`Skin ${gameType}.${skinName} does not exists!`);
         }
       }
 

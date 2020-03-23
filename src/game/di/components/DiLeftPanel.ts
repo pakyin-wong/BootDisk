@@ -34,7 +34,7 @@ namespace we {
       protected toggleUpDownButton: eui.ToggleSwitch;
 
       public constructor(skin?: string) {
-        super(skin ? skin : 'di/DiLeftPanel');
+        super(skin ? skin : env.isMobile ? '' : 'DiLeftPanel');
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;

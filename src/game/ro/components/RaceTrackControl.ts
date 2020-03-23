@@ -10,7 +10,7 @@ namespace we {
       protected _max: number = 7;
 
       public constructor() {
-        super('ro/RaceTrackControl');
+        super('ro.RaceTrackControlSkin');
         this._value = 0;
       }
 

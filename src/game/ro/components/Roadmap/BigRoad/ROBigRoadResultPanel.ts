@@ -8,7 +8,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkin('ro/ROBigRoadResultPanel');
+        this.skinName = utils.getSkinByClassname('ro.ROBigRoadResultPanelSkin');
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
