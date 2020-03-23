@@ -35,7 +35,7 @@ namespace we {
             generalGameType = 'dt';
         }
 
-        this._displayItem = new we.ui.SideListItem(generalGameType + '.SideListItemSkin');
+        this._displayItem = new we.ui.SideListItem(this.tableInfo.gametype, 'SideListItemSkin');
         this.setDisplayItem(this._displayItem);
       }
     }

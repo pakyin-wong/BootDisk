@@ -143,6 +143,18 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SideListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class CountdownTimerSkin extends eui.Skin{
 	}
 }

@@ -35,11 +35,20 @@ namespace we {
           this.skinName = utils.getSkinByClassname(skinName);
         }
         this.touchEnabled = true;
+      }
 
+      protected mount() {
+        super.mount();
         this.initChildren();
-
         this.addEventListeners();
       }
+
+      // protected initComponents() {
+      //   super.initComponents();
+      // }
+
+      // protected arrangePosition() {
+      // }
 
       protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
