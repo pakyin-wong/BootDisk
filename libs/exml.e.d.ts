@@ -647,6 +647,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetConfirmButtonMobile extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class CountdownTimerSkin extends eui.Skin{
 	}
 }
