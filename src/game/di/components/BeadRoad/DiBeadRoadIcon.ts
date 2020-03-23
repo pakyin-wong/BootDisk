@@ -1,9 +1,8 @@
 namespace we {
   export namespace di {
     export class DiBeadRoadIcon extends ba.BARoadIconBase {
-
-      private itemYOffset: number;//Y offset of each components 
-      private itemColors: any;//[r_color,g_color,b_color, hightlight_color, hightlight_alpha]
+      private itemYOffset: number; // Y offset of each components
+      private itemColors: any; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
       private iconHightLight: egret.Shape;
       private sizeText: egret.TextField;
       private oddText: egret.TextField;
@@ -12,18 +11,16 @@ namespace we {
       protected dice1: number;
       protected dice2: number;
       protected dice3: number;
-      protected total: number;// total=d1+d2+d3
-      protected odd: number;//odd=1(odd) 2(even)
-      protected diceSize: number;// size=1(small) 2(big)
-      protected tie: number;//tie=0(not tie) 1(tie)
+      protected total: number; // total=d1+d2+d3
+      protected odd: number; // odd=1(odd) 2(even)
+      protected diceSize: number; // size=1(small) 2(big)
+      protected tie: number; // tie=0(not tie) 1(tie)
 
       protected diceImage1: eui.Image;
       protected diceImage2: eui.Image;
       protected diceImage3: eui.Image;
 
-
-
-      protected layout: number;//layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar/lobby
+      protected layout: number; // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar/lobby
 
       public constructor(size: number = 30, itemYOffset: number = 6, itemColors: any) {
         super(size);
@@ -36,23 +33,20 @@ namespace we {
       }
 
       public changeLang() {
-
-        //i18n.t('baccarat.playerShort')
+        // i18n.t('baccarat.playerShort')
         if (this.tie) {
-          this.sizeText.text = i18n.t('dice.tripleShort');;
-          this.oddText.text = i18n.t('dice.tripleShort');;
+          this.sizeText.text = i18n.t('dice.tripleShort');
+          this.oddText.text = i18n.t('dice.tripleShort');
 
           this.sizeText.textColor = this.itemColors[1];
           this.oddText.textColor = this.itemColors[1];
         } else {
-          this.sizeText.textColor = this.itemColors[0];
-          this.oddText.textColor = this.itemColors[2];
+          this.sizeText.textColor = this.diceSize === 1 ? this.itemColors[2] : this.itemColors[0];
+          this.oddText.textColor = this.odd === 1 ? this.itemColors[2] : this.itemColors[0];
 
-          this.sizeText.text = (this.diceSize === 1) ? i18n.t('dice.smallShort') : i18n.t('dice.bigShort');
-          this.oddText.text = (this.odd === 1) ? i18n.t('dice.oddShort') : i18n.t('dice.evenShort');
+          this.sizeText.text = this.diceSize === 1 ? i18n.t('dice.smallShort') : i18n.t('dice.bigShort');
+          this.oddText.text = this.odd === 1 ? i18n.t('dice.oddShort') : i18n.t('dice.evenShort');
         }
-
-
 
         this.totalText.text = this.total + '';
       }
@@ -75,25 +69,21 @@ namespace we {
         this.addChild(this.oddText);
         this.addChild(this.totalText);
 
-
         const iconSize = this.size;
         const displaySize = iconSize * 0.64;
-        const spacing: number = (displaySize + this.itemYOffset);
+        const spacing: number = displaySize + this.itemYOffset;
 
         this.diceImage1.width = this.diceImage1.height = displaySize;
         this.diceImage2.width = this.diceImage2.height = displaySize;
         this.diceImage3.width = this.diceImage3.height = displaySize;
         this.diceImage1.x = this.diceImage2.x = this.diceImage3.x = iconSize * 0.18;
 
-
-
         // draw the hightlight
-        //this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
+        // this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
         this.iconHightLight.graphics.beginFill(this.itemColors[3], this.itemColors[4]);
         this.iconHightLight.graphics.drawRoundRect(0, 0, iconSize, spacing * 4 + displaySize, iconSize / 4, iconSize / 4);
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
-
 
         this.sizeText.textAlign = egret.HorizontalAlign.CENTER;
         this.sizeText.verticalAlign = egret.VerticalAlign.MIDDLE;
@@ -121,15 +111,14 @@ namespace we {
         this.totalText.height = displaySize;
         this.totalText.size = iconSize * 0.5;
         // this.iconText.fontFamily = 'Times New Roman';
-
       }
 
-      //layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar/lobby
+      // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar/lobby
       public setLayout(layout: number) {
         this.layout = layout;
-        const spacing: number = (this.size * 0.64 + this.itemYOffset);
+        const spacing: number = this.size * 0.64 + this.itemYOffset;
         if (this.layout === 0) {
-          //size
+          // size
           this.sizeText.visible = true;
           this.oddText.visible = false;
 
@@ -144,7 +133,7 @@ namespace we {
           this.diceImage3.y = spacing * 3;
           this.totalText.y = spacing * 4;
         } else if (this.layout === 1) {
-          //odd
+          // odd
           this.sizeText.visible = false;
           this.oddText.visible = true;
 
@@ -159,7 +148,7 @@ namespace we {
           this.diceImage3.y = spacing * 3;
           this.totalText.y = spacing * 4;
         } else {
-          //side bar/lobby
+          // side bar/lobby
           this.sizeText.visible = true;
           this.oddText.visible = false;
 
@@ -195,7 +184,6 @@ namespace we {
 
           this.setLayout(this.layout);
         }
-
       }
 
       public showHighLight() {
