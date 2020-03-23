@@ -60,7 +60,18 @@ namespace we {
         this._chipLayerNode.parent.addChildAt(this._chipLayer, idx);
       }
 
-      protected generateRoadmap(namespace: string) {}
+      protected generateRoadmap(namespace: string) {
+        switch (namespace) {
+          case 'ba':
+            break;
+          case 'dt':
+            break;
+          case 'ro':
+            break;
+          case 'di':
+            break;
+        }
+      }
 
       protected addEventListeners() {
         super.addEventListeners();

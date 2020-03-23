@@ -3,7 +3,7 @@ namespace we {
   export namespace ui {
     export class LiveListSimpleItem extends ListBaseItem {
       protected _quickbetButton: eui.Component & IQuickBetAnimButton;
-      protected _bigRoad: we.ui.ILobbyRoad;
+      protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
       protected _alreadyBetSign: eui.Group;
       protected _gameType: core.GameType;
       protected _tableLayerNode: eui.Component;
@@ -58,14 +58,51 @@ namespace we {
         this._chipLayerNode.parent.addChildAt(this._chipLayer, idx);
       }
 
-      protected generateRoadmap(namespace: string) { }
+      protected generateRoadmap(namespace: string) {
+        switch (namespace) {
+          case 'ba':
+            this._bigRoad = new ba.BALobbyBigRoad();
+            break;
+          case 'dt':
+            this._bigRoad = new ba.BALobbyBigRoad();
+            break;
+          case 'ro':
+            this._bigRoad = new ro.ROLobbyBeadRoad();
+            break;
+          case 'di':
+            this._bigRoad = new di.DILobbyBeadRoad();
+            break;
+        }
+        const idx = this._roadmapNode.parent.getChildIndex(this._roadmapNode);
+        this._roadmapNode.parent.addChildAt(this._bigRoad, idx);
+      }
 
       // set the position of the children components
       protected arrangeComponents() {
-        const properties = ['x', 'y', 'width', 'height', 'scaleX', 'scaleY', 'left', 'right', 'top', 'bottom', 'verticalCenter', 'horizontalCenter', 'anchorOffsetX', 'anchorOffsetY'];
+        const properties = [
+          'x',
+          'y',
+          'width',
+          'height',
+          'scaleX',
+          'scaleY',
+          'left',
+          'right',
+          'top',
+          'bottom',
+          'verticalCenter',
+          'horizontalCenter',
+          'anchorOffsetX',
+          'anchorOffsetY',
+          'percentWidth',
+          'percentHeight',
+        ];
         for (const att of properties) {
           this._tableLayer[att] = this._tableLayerNode[att];
           this._chipLayer[att] = this._chipLayerNode[att];
+          if (this._roadmapNode && this._bigRoad) {
+            this._bigRoad[att] = this._roadmapNode[att];
+          }
         }
       }
 
@@ -164,7 +201,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

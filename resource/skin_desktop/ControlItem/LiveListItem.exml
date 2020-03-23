@@ -14,7 +14,7 @@
 	</e:Group>
 	<e:Group id="_contentContainer" width="100%" height="388" x="0" y="0">
 		<e:Image id="_dealerImage" width="100%" height="249" x="0" y="0" />
-		<ba:BALobbyBigRoad id="_bigRoad111" width="100%" height="139" y="249" visible="false" />
+		<e:Component id="_roadmapNode" width="100%" height="139" y="249" visible="false" />
 		<ui:LobbyQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
 		                            hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
 		                            horizontalCenter="0" y="350" width="148" height="42" label1text="快速投注" label2text="X" />
