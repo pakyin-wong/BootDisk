@@ -6,6 +6,15 @@ namespace we {
       public option: we.data.BetValueOption[];
       public id: string;
       public gameType: string;
+      public toBetDetails() {
+        const betDetails: data.BetDetail[] = new Array();
+        if (this.option) {
+          this.option.map(value => {
+            betDetails.push({ field: value.field, amount: value.amount });
+          });
+        }
+        return betDetails;
+      }
     }
   }
 }
