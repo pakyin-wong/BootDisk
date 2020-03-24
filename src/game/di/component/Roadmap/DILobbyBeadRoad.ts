@@ -22,6 +22,7 @@ namespace we {
       }
 
       public updateLobbyRoadData(roadmapData: data.RoadmapData) {}
+      public updateSideBarRoadData(roadmapData: data.RoadmapData) {}
     }
   }
 }

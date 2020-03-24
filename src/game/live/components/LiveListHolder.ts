@@ -79,7 +79,12 @@ namespace we {
 
         this.assertSkinExists(generalGameType, `${itemName}Skin`);
 
-        this._displayItem = new we.ui[itemName](`${generalGameType}.${itemName}Skin`);
+        const listItem = new we.ui[itemName](`${itemName}Skin`);
+        if (we[generalGameType].LiveListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].LiveListItemInitHelper();
+        }
+
+        this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
         if (this.tableInfo) {
           this.updateDisplayItem();

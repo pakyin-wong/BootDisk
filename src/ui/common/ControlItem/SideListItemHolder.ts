@@ -34,8 +34,12 @@ namespace we {
           default:
             generalGameType = 'dt';
         }
+        const listItem = new we.ui.SideListItem('SideListItemSkin');
+        if (we[generalGameType].SideListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].SideListItemInitHelper();
+        }
 
-        this._displayItem = new we.ui.SideListItem(generalGameType + '.SideListItemSkin');
+        this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
       }
     }

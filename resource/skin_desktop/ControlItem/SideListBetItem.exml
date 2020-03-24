@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.dt.SideListBetItemSkin" width="339" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
-        xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:dt="we.dt.*" xmlns:w="http://ns.egret.com/wing" minHeight="158">
+<e:Skin class="skin_desktop.SideListBetItemSkin" width="339" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" minHeight="158">
 	<e:Group id="_betChipSetPanel">
 		<ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
 	</e:Group>
@@ -15,12 +15,12 @@
 		<ui:BaseImageButton id="_confirmButton" right="10" top="30" width="80" height="40" currentState="lobby_confirm_button"
 		                    skinName="skin_desktop.ImageButtonSkinLobby" />
 	</e:Group>
-	<e:Group id="_contentContainer" x="0" height="158" width="100%" touchEnabled="false" touchChildren="true" locked="true">
+	<e:Group id="_contentContainer" x="0" height="158" width="100%" touchEnabled="false" touchChildren="true">
 		<e:Rect width="442" height="47" x="0" y="0" fillColor="0x202020" />
 		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="12" left="56" size="26" />
 		<e:Group id="_resultGroup" x="0" y="47" width="100%" height="158" touchEnabled="false">
-			<dt:SideListBetItemCardHolder id="_cardHolder" width="100%" anchorOffsetY="0" height="139" left="0"
-			                              skinName="skin_desktop.dt.SideListBetItemCardHolder" />
+			<ba:SideListBetItemCardHolder id="_cardHolder" width="100%" anchorOffsetY="0" height="139" left="0"
+			                              skinName="skin_desktop.ba.SideListBetItemCardHolder" />
 			<ui:SidePanelGameResultMessage id="_resultMessage" horizontalCenter="0" verticalCenter="-60"
 			                               skinName="skin_desktop.SidePanelGameResultWinSkin" anchorOffsetX="159"
 			                               anchorOffsetY="44" />
@@ -28,14 +28,15 @@
 		<e:Group id="_bettingGroup" width="100%" height="158" x="0" y="0" touchEnabled="false" touchChildren="true">
 			<ui:CountdownTimer id="_timer" width="47" height="47" x="0" y="0"
 			                   skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
-			<dt:TableLayer id="_tableLayer" width="100%" skinName="skin_desktop.dt.SideListTableLayerSkin" anchorOffsetY="0"
-			               height="110" left="0" y="47" />
-			<dt:ChipLayer id="_chipLayer" width="100%" skinName="skin_desktop.dt.SideListChipLayerSkin" anchorOffsetY="0"
-			              height="110" left="0" y="47" />
+			<e:Component id="_tableLayerNode" width="100%" skinName="skin_desktop.ba.SideListTableLayerSkin" anchorOffsetY="0"
+			             height="110" left="0" y="47" visible="false" />
+			<e:Component id="_chipLayerNode" width="100%" skinName="skin_desktop.ba.SideListChipLayerSkin" anchorOffsetY="0"
+			             height="110" left="0" y="47" visible="false" />
 			<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
 			                       skinName="BetLimitDropdownSkin" visible="false" />
-			<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification" skinName="skin_desktop.ImageButtonSkinLobby"
-			                    alpha="0" horizontalCenter="0" width="148" y="168" height="42" text="加注" />
+			<ui:BaseImageButton id="_quickbetButton" currentState="lobby_quick_bet_notification"
+			                    skinName="skin_desktop.ImageButtonSkinLobby" alpha="0" horizontalCenter="0" width="148" y="168"
+			                    height="42" text="加注" />
 		</e:Group>
 	</e:Group>
 </e:Skin>
