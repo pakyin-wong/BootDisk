@@ -3,9 +3,8 @@ namespace we {
     export class LiveListItem extends LiveListSimpleItem {
       protected _dealerImage;
 
-      public constructor(gameType: core.GameType, skinName: string = null) {
-        super(gameType, skinName);
-        this._gameType = gameType;
+      public constructor(skinName: string = null) {
+        super(skinName);
       }
 
       protected initCustomPos() {

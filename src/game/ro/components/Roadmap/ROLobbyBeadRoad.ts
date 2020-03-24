@@ -3,16 +3,16 @@ namespace we {
     export class ROLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
       protected beadRoad: ROBeadRoad;
 
-      private roadGridSize: number = 40;
-      private roadCol: number = 10;
-      private roadRow: number = 3;
-      private roadIndentX: number = 0;
-      private roadIndentY: number = 0;
-      private roadOffsetX: number = 0;
-      private roadOffsetY: number = 0;
-      private roadEmptyColor: number = 0x000000;
-      private roadEmptyAlpha: number = 1;
-      private roadScale: number = 1;
+      public roadGridSize: number = 40;
+      public roadCol: number = 10;
+      public roadRow: number = 3;
+      public roadIndentX: number = 0;
+      public roadIndentY: number = 0;
+      public roadOffsetX: number = 0;
+      public roadOffsetY: number = 0;
+      public roadEmptyColor: number = 0x000000;
+      public roadEmptyAlpha: number = 1;
+      public roadScale: number = 1;
 
       public constructor() {
         super();

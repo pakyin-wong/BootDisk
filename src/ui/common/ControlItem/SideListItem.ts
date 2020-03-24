@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class SideListItem extends LiveListSimpleItem {
-      protected _bigRoad: we.ba.BetInfoBigRoad;
+      protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetEnable: boolean = false;
@@ -21,56 +21,11 @@ namespace we {
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
 
-      public constructor(gameType: core.GameType, skinName: string = null) {
-        super(gameType, skinName);
+      public constructor(skinName: string = null) {
+        super(skinName);
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         this._betChipSet.init(null, denominationList);
-      }
-
-      protected generateTableLayer(namespace: string) {
-        switch (namespace) {
-          case 'ba':
-          case 'dt':
-            this._tableLayer = new we[namespace].TableLayer();
-            break;
-          case 'ro':
-          case 'di':
-            this._tableLayer = new we[namespace].LobbyTableLayer();
-            break;
-        }
-        this._tableLayer.skinName = `skin_desktop.${namespace}.SideListTableLayerSkin`;
-        const idx = this._tableLayerNode.parent.getChildIndex(this._tableLayerNode);
-        this._tableLayerNode.parent.addChildAt(this._tableLayer, idx);
-      }
-
-      protected generateChipLayer(namespace: string) {
-        switch (namespace) {
-          case 'ba':
-          case 'dt':
-            this._chipLayer = new we[namespace].ChipLayer();
-            break;
-          case 'ro':
-          case 'di':
-            this._chipLayer = new we[namespace].LobbyChipLayer();
-            break;
-        }
-        this._chipLayer.skinName = `skin_desktop.${namespace}.SideListChipLayerSkin`;
-        const idx = this._chipLayerNode.parent.getChildIndex(this._chipLayerNode);
-        this._chipLayerNode.parent.addChildAt(this._chipLayer, idx);
-      }
-
-      protected generateRoadmap(namespace: string) {
-        switch (namespace) {
-          case 'ba':
-            break;
-          case 'dt':
-            break;
-          case 'ro':
-            break;
-          case 'di':
-            break;
-        }
       }
 
       protected addEventListeners() {

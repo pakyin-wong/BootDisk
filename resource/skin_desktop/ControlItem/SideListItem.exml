@@ -24,7 +24,7 @@
                            skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
         <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="12" text="" left="56"
                          size="26" />
-        <ba:BetInfoBigRoad id="_bigRoad11" width="339" height="127" bottom="0" visible="false" />
+        <e:Component id="_roadmapNode" width="339" height="127" bottom="0" visible="false" />
         <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />
         <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
                           width="303" height="32" horizontalCenter="0.5" y="105"
