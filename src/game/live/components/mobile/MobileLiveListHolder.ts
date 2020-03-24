@@ -69,7 +69,7 @@ namespace we {
             skinName = 'LiveListSimpleItemSkin';
         }
 
-        utils.assertSkinClassExists(`${generalGameType}.${skinName}`)
+        utils.assertSkinClassExists(`${generalGameType}.${skinName}`);
 
         this._displayItem = new we.ui[itemName](`${generalGameType}.${skinName}`);
         this.setDisplayItem(this._displayItem);

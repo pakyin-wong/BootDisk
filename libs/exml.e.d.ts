@@ -340,6 +340,10 @@ declare module skin_desktop{
 	class LuckyWheelScene extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class LwRightPanel extends eui.Skin{
+	}
+}
 declare module skin_desktop.lw{
 	class TableLayerSkin extends eui.Skin{
 	}
