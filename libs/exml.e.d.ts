@@ -975,6 +975,10 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class RaceTrackChipLayerSkin extends eui.Skin{
 	}
 }

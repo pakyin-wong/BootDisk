@@ -439,13 +439,13 @@
 		<e:Label id="_line_31_36_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
 	</e:Group>
 	<e:Group id="_row_3_group" width="215" height="121" x="662" y="1646" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:RunTimeLabel id="_row_3_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow" text="row 3"/>
+		<ui:RunTimeLabel id="_row_3_label" verticalCenter="0" horizontalCenter="0"  size="36" fontFamily="Barlow" text="row 3"/>
 	</e:Group>
 	<e:Group id="_row_2_group" width="215" height="121" x="446" y="1646" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:RunTimeLabel id="_row_2_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow" text="row 2"/>
+		<ui:RunTimeLabel id="_row_2_label" verticalCenter="0" horizontalCenter="0"  size="36" fontFamily="Barlow" text="row 2"/>
 	</e:Group>
 	<e:Group id="_row_1_group" width="215" height="121" x="230" y="1646" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:RunTimeLabel id="_row_1_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow" text="row 1"/>
+		<ui:RunTimeLabel id="_row_1_label" verticalCenter="0" horizontalCenter="0"  size="36" fontFamily="Barlow" text="row 1"/>
 	</e:Group>
 	<e:Group id="_dozen_1_12_group" width="110" height="507" x="117" y="122" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_dozen_1_12_label" verticalCenter="0" horizontalCenter="0" size="40" text="第一組" wordWrap="true" width="74" textAlign="center"/>

@@ -8,18 +8,9 @@ namespace we {
       private iconItemColors: any;
       private isExpanded: boolean;
 
-      protected layout: number;//layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar
+      protected layout: number; // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar
 
-      public constructor(
-        _numRow: number = 3,
-        _numCol: number = 10,
-        _gridSize: number = 30,
-        _scale: number = 1,
-        _xOffset: number,
-        _yOffset: number,
-        _iconItemYOffset: number,
-        _iconItemColors: any
-      ) {
+      public constructor(_numRow: number = 3, _numCol: number = 10, _gridSize: number = 30, _scale: number = 1, _xOffset: number, _yOffset: number, _iconItemYOffset: number, _iconItemColors: any) {
         super(_numCol, _gridSize, _scale);
         this.xOffset = _xOffset;
         this.yOffset = _yOffset;
@@ -41,7 +32,7 @@ namespace we {
       }
 
       // override for base class
-      protected renderGrid() { }
+      protected renderGrid() {}
 
       public expandRoad(expand: boolean) {
         if (this.roadMapIconList) {
@@ -64,7 +55,7 @@ namespace we {
         let iconIndex = 0;
 
         const displaySize = this.gridSize * 0.64;
-        const spacing: number = (displaySize + this.iconItemYOffset);
+        const spacing: number = displaySize + this.iconItemYOffset;
 
         this.roadMapIconList = new Array<DiBeadRoadIcon>();
         for (let i = 0; i < n; i++) {

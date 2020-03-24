@@ -23,8 +23,6 @@ namespace we {
         this.iconText.height = this.size;
         this.iconText.size = this.size * 0.7;
         // this.iconText.fontFamily = 'Times New Roman';
-
-
       }
 
       public setByObject(value: any) {
@@ -39,7 +37,6 @@ namespace we {
         this.iconText.text = '';
         this.value = null;
       }
-
     }
   }
 }
