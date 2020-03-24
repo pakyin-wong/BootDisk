@@ -68,6 +68,7 @@
 		"resource/skin_desktop/BetChipStack.exml",
 		"resource/skin_desktop/ControlItem/LiveListItem.exml",
 		"resource/skin_desktop/ControlItem/LiveListSimpleItem.exml",
+		"resource/skin_desktop/ControlItem/SideListBetItem.exml",
 		"resource/skin_desktop/ControlItem/SideListItem.exml",
 		"resource/skin_desktop/di/ChipLayer.exml",
 		"resource/skin_desktop/di/DiBigRoadResultPanel.exml",

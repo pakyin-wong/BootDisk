@@ -29,6 +29,8 @@ namespace we {
       // this is the component that contain all other child components, use to control the grid size by setting the size of it.
       protected _contentContainer: eui.Group;
 
+      public itemInitHelper: IListItemHelper;
+
       public constructor(skinName: string = null) {
         super();
         if (skinName) {

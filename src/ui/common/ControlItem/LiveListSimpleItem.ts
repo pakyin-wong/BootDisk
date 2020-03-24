@@ -9,8 +9,6 @@ namespace we {
       protected _chipLayerNode: eui.Component;
       protected _roadmapNode: eui.Component;
 
-      public itemInitHelper: IListItemHelper;
-
       public constructor(skinName: string = null) {
         super(skinName);
       }
