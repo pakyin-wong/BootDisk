@@ -342,11 +342,11 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.DT: {
             const roadmapData = parseAscString(gameStatistic.roadmapdata);
-            const bankerCount: number = gameStatistic.bankerwincount ? gameStatistic.bankerwincount : 0;
-            const playerCount: number = gameStatistic.playerwincount ? gameStatistic.playerwincount : 0;
-            const tieCount: number = gameStatistic.tiewincount ? gameStatistic.tiewincount : 0;
-            const playerPairCount: number = gameStatistic.playerpairwincount ? gameStatistic.playerpairwincount : 0;
-            const bankerPairCount: number = gameStatistic.bankerpairwincount ? gameStatistic.bankerpairwincount : 0;
+            const bankerCount: number = gameStatistic.statistic.bankerwincount ? gameStatistic.statistic.bankerwincount : 0;
+            const playerCount: number = gameStatistic.statistic.playerwincount ? gameStatistic.statistic.playerwincount : 0;
+            const tieCount: number = gameStatistic.statistic.tiewincount ? gameStatistic.statistic.tiewincount : 0;
+            const playerPairCount: number = gameStatistic.statistic.playerpairwincount ? gameStatistic.statistic.playerpairwincount : 0;
+            const bankerPairCount: number = gameStatistic.statistic.bankerpairwincount ? gameStatistic.statistic.bankerpairwincount : 0;
             const totalCount: number = bankerCount + playerCount + tieCount;
 
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
@@ -367,11 +367,11 @@ namespace we {
           default: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
-            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic);
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
             const stats = new we.data.GameStatistic();
-            stats.coldNumbers = gameStatistic.cold;
-            stats.hotNumbers = gameStatistic.hot;
+            stats.coldNumbers = gameStatistic.statistic.cold;
+            stats.hotNumbers = gameStatistic.statistic.hot;
             tableInfo.gamestatistic = stats;
             break;
           }
