@@ -53,8 +53,8 @@ namespace we {
         frame.graphics.lineTo(1082, this._rowHeight);
 
         frame.graphics.lineStyle(2, 0x417db9);
-        frame.graphics.moveTo(1384, 0);
-        frame.graphics.lineTo(1384, this._rowHeight);
+        frame.graphics.moveTo(1386, 0);
+        frame.graphics.lineTo(1386, this._rowHeight);
 
         renderTexture.drawToTexture(frame);
         this.fillMode = egret.BitmapFillMode.SCALE;

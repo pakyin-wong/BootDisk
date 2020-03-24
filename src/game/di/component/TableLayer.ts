@@ -185,7 +185,7 @@ namespace we {
         ];
         // row 3
         sizeTransform['_bigrow_3'] = [
-          { height: 63, y: 208 }, // collapse
+          { height: 64, y: 209 }, // collapse
           { height: 109, y: 273 }, // expand
         ];
         // perform first 3 row transform
