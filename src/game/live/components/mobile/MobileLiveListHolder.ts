@@ -48,6 +48,10 @@ namespace we {
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
+            break;
+          case we.core.GameType.RO:
+            generalGameType = 'ro';
+            break;
         }
 
         let itemName;
@@ -57,7 +61,13 @@ namespace we {
           case we.lobby.mode.NORMAL:
             this.width = 1140;
             this.height = 388;
-            itemName = 'MobileLiveListItem';
+            if (generalGameType === 'ba' || generalGameType === 'dt') {
+              itemName = 'MobileBALiveListItem';
+            } else if (generalGameType === 'ro') {
+              itemName = 'MobileROLiveListItem';
+            } else {
+              itemName = 'MobileBALiveListItem';
+            }
             skinName = 'LiveListItemSkin';
             break;
           case we.lobby.mode.SIMPLE:

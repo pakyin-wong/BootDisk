@@ -1,8 +1,8 @@
 namespace we {
-  export namespace dt {
-    export class MobileBottomGamePanel extends core.BaseGamePanel implements IDTRoadmapDisplayObject {
+  export namespace ro {
+    export class MobileBottomGamePanel extends core.BaseGamePanel implements dt.IDTRoadmapDisplayObject {
       // Left Roadmap
-      public beadRoad: DTBeadRoad;
+      public beadRoad: dt.DTBeadRoad;
 
       protected gameIdLabel: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
@@ -85,7 +85,7 @@ namespace we {
         const gridSizeR = 38;
         const numColumn = 8;
 
-        this.beadRoad = new DTBeadRoad(numColumn, gridSizeL, 1, true);
+        this.beadRoad = new dt.DTBeadRoad(numColumn, gridSizeL, 1, true);
         this.beadRoad.x = 0;
         this.beadRoad.y = 98;
         this._roadmapGroup.addChild(this.beadRoad);

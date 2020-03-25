@@ -1,5 +1,5 @@
 namespace we {
-  export namespace dt {
+  export namespace ro {
     export class StatisticChartPanel extends ui.Panel {
       protected _leftTitle: eui.Label;
       protected _rightTitle: eui.Label;

@@ -962,10 +962,6 @@ declare module skin_mobile_portrait.ro{
 	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.ro{
-	class TableInfoPanel extends eui.Skin{
-	}
-}
 declare module skin_mobile_portrait.ro.bettingTable{
 	class TableLayerSkin extends eui.Skin{
 	}
