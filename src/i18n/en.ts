@@ -253,6 +253,13 @@ namespace we {
         zero: {
           text: 'Zero',
         },
+        betGroup: {
+          color: 'Red / Black',
+          oddeven: 'Odd / Even',
+          size: 'Big / Small',
+          column: 'Column',
+          row: 'Row',
+        },
       },
       goodroad: {
         r1: 'Long Banker',

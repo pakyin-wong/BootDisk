@@ -251,6 +251,13 @@ namespace we {
         zero: {
           text: '輪上零旁',
         },
+        betGroup: {
+          color: '紅 / 黑',
+          oddeven: '單 / 雙',
+          size: '大 / 小',
+          column: '下注一打',
+          row: '行注',
+        },
       },
       goodroad: {
         r1: '長庄',

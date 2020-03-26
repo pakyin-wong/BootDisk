@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class SideListItem extends LiveListSimpleItem {
-      protected _bigRoad: we.ba.BetInfoBigRoad;
+      protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetEnable: boolean = false;

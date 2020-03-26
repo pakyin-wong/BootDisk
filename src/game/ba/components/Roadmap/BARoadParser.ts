@@ -507,14 +507,14 @@ namespace we {
 
         if (data.gameInfo !== undefined) {
           road.gameInfo = [];
-          if (data.gametype === core.GameType.RO) {
-            for (const i in data.gameInfo) {
-              road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
-            }
-          } else {
+          if (Array.isArray(data.gameInfo)) {
             data.gameInfo.forEach(element => {
               road.gameInfo.push(BARoadParser.CreateRoadmapGameInfoFromObject(element));
             });
+          } else {
+            for (const i in data.gameInfo) {
+              road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
+            }
           }
         }
 
@@ -575,6 +575,36 @@ namespace we {
           roadSet.roachAni = data.roachAni;
         }
 
+        // ro
+        if (data.color !== undefined) {
+          roadSet.color = [];
+          data.color.forEach(element => {
+            roadSet.color.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.size !== undefined) {
+          roadSet.size = [];
+          data.size.forEach(element => {
+            roadSet.size.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.odd !== undefined) {
+          roadSet.odd = [];
+          data.odd.forEach(element => {
+            roadSet.odd.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        // di
+        if (data.sum !== undefined) {
+          roadSet.sum = [];
+          data.sum.forEach(element => {
+            roadSet.sum.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
         return roadSet;
       }
 
@@ -593,6 +623,30 @@ namespace we {
           if (data.w !== undefined) {
             roadCell.w = data.w;
           }
+
+          // di
+          if (data.dice1 !== undefined) {
+            roadCell.dice1 = data.dice1;
+          }
+          if (data.dice2 !== undefined) {
+            roadCell.dice2 = data.dice2;
+          }
+          if (data.dice3 !== undefined) {
+            roadCell.dice3 = data.dice3;
+          }
+          if (data.total !== undefined) {
+            roadCell.total = data.total;
+          }
+          if (data.odd !== undefined) {
+            roadCell.odd = data.odd;
+          }
+          if (data.size !== undefined) {
+            roadCell.size = data.size;
+          }
+          if (data.tie !== undefined) {
+            roadCell.tie = data.tie;
+          }
+
           if (data.gameRoundID !== undefined) {
             roadCell.gameRoundID = data.gameRoundID;
           }
@@ -634,6 +688,34 @@ namespace we {
         }
         if (data.video !== undefined) {
           roadInfo.video = data.video;
+        }
+
+        // ro
+        if (data.v !== undefined) {
+          roadInfo.v = data.v;
+        }
+
+        // di
+        if (data.dice1 !== undefined) {
+          roadInfo.dice1 = data.dice1;
+        }
+        if (data.dice2 !== undefined) {
+          roadInfo.dice2 = data.dice2;
+        }
+        if (data.dice3 !== undefined) {
+          roadInfo.dice3 = data.dice3;
+        }
+        if (data.total !== undefined) {
+          roadInfo.total = data.total;
+        }
+        if (data.odd !== undefined) {
+          roadInfo.odd = data.odd;
+        }
+        if (data.size !== undefined) {
+          roadInfo.size = data.size;
+        }
+        if (data.tie !== undefined) {
+          roadInfo.tie = data.tie;
         }
 
         return roadInfo;

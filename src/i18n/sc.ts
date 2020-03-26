@@ -253,6 +253,13 @@ namespace we {
         zero: {
           text: '轮上零旁',
         },
+        betGroup: {
+          color: '红 / 黑',
+          oddeven: '单 / 双',
+          size: '大 / 小',
+          column: '下注一打',
+          row: '行注',
+        },
       },
       goodroad: {
         r1: '长庄',
@@ -265,6 +272,9 @@ namespace we {
         r8: '逢闲黐',
         r9: '拍拍黐',
         r10: '逢庄唔黐',
+      },
+      luckywheel: {
+        pool: '即时彩池',
       },
       game: {
         startBet: '开始下注',

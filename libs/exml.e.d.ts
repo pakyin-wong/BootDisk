@@ -79,19 +79,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.ba{
-	class LiveListItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.ba{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ba{
 	class LiveListItemTableLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.ba{
-	class LiveListSimpleItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ba{
@@ -103,15 +95,7 @@ declare module skin_desktop.ba{
 	}
 }
 declare module skin_desktop.ba{
-	class SideListBetItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.ba{
 	class SideListChipLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.ba{
-	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ba{
@@ -140,6 +124,22 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class BetChipStackSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SideListBetItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -175,27 +175,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.di{
-	class LiveListItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.di{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
 	class LiveListItemTableLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.di{
-	class LiveListSimpleItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.di{
-	class SideListBetItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.di{
-	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
@@ -241,19 +225,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.dt{
-	class LiveListItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.dt{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.dt{
 	class LiveListItemTableLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.dt{
-	class LiveListSimpleItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.dt{
@@ -265,15 +241,7 @@ declare module skin_desktop.dt{
 	}
 }
 declare module skin_desktop.dt{
-	class SideListBetItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.dt{
 	class SideListChipLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.dt{
-	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.dt{
@@ -370,6 +338,10 @@ declare module skin_desktop.lw{
 }
 declare module skin_desktop{
 	class LuckyWheelScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LwRightPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.lw{
@@ -473,19 +445,11 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop.ro{
-	class LiveListItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.ro{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{
 	class LiveListItemTableLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.ro{
-	class LiveListSimpleItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{
@@ -521,15 +485,7 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.ro{
-	class SideListBetItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.ro{
 	class SideListChipLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop.ro{
-	class SideListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{
@@ -976,6 +932,10 @@ declare module skin_mobile_portrait.ro{
 }
 declare module skin_mobile_portrait.ro{
 	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class MobileSidePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{

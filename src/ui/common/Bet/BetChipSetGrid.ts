@@ -1,24 +1,31 @@
 namespace we {
   export namespace ui {
     export class BetChipSetGrid extends BetChipSet {
-      private _numberOfChipsInRow = 4;
       private _chipsetList: ui.List;
       private _chipsetLayout: eui.AnimTileLayout;
       private _normalGapSize: number = 15;
       private _setSelectedChip: (value: number, index: number) => void;
 
+      public numChipsInRow: number = 4;
       public betChipHeight: number = 56;
       public betChipWidth: number = 70;
       public labelSize: number = 30;
 
       public constructor() {
         super();
+      }
+
+      public init(format: any, denomList: number[]) {
+        this.resetDenominationList(denomList);
+      }
+
+      protected mount() {
         this._chipsetLayout = new eui.AnimTileLayout();
         this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         this._chipsetLayout.horizontalGap = this._normalGapSize;
         this._chipsetLayout.verticalGap = this._normalGapSize;
         this._chipsetLayout.paddingBottom = this._normalGapSize;
-        this._chipsetLayout.requestedColumnCount = this._numberOfChipsInRow;
+        this._chipsetLayout.requestedColumnCount = this.numChipsInRow;
 
         this._chipsetList = new ui.List();
         this._chipsetList.layout = this._chipsetLayout;
@@ -27,13 +34,7 @@ namespace we {
         this.addChild(this._chipsetList);
         this._chipsetList.left = 0;
         this._chipsetList.right = 0;
-      }
 
-      public init(format: any, denomList: number[]) {
-        this.resetDenominationList(denomList);
-      }
-
-      protected mount() {
         this._chipsetList.addEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }
