@@ -32,10 +32,10 @@ namespace we {
         let betCombination: we.data.BetCombination;
         betCombination = new we.data.BetCombination();
         betCombination.title = 'first one';
-        betCombination.gameType = we.core.GameType.RO;
+        betCombination.gametype = we.core.GameType.RO;
         betCombination.id = 'f1';
         betCombination.playerid = '12321';
-        betCombination.option = [{ amount: 1000, field: we.ro.BetField.BIG }, { amount: 1000, field: we.ro.BetField.BLACK }];
+        betCombination.optionsList = [{ amount: 1000, betcode: we.ro.BetField.BIG }, { amount: 1000, betcode: we.ro.BetField.BLACK }];
         this.betCombinations.push(betCombination);
 
         setInterval(() => {
@@ -739,10 +739,10 @@ namespace we {
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
         const betCombination = new we.data.BetCombination();
         betCombination.title = title;
-        betCombination.gameType = we.core.GameType.RO;
+        betCombination.gametype = we.core.GameType.RO;
         betCombination.playerid = 'f1';
         betCombination.id = Date.now().toString();
-        betCombination.option = betOptions;
+        betCombination.optionsList = betOptions;
         this.betCombinations.push(betCombination);
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }

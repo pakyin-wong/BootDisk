@@ -12,9 +12,35 @@ namespace we {
       protected _bgheight = 39;
       protected _bgwidth = 290;
       protected _textSize = 17;
+      protected _textFieldMaxLimit = 12;
+      protected _combinations: any;
 
       public set chipLayer(value: ui.ChipLayer) {
         this._chipLayer = value;
+      }
+
+      protected checkDuplicateName(title: string) {
+        let newTitle = title.toString();
+        let num = 1;
+
+        let matched = true;
+        if (this._combinations) {
+          while (matched) {
+            for (const value of this._combinations) {
+              // console.log('checkDuplicateName():', value.title, title)
+              if (value.title === newTitle) {
+                matched = true;
+                break;
+              }
+              matched = false;
+            }
+            if (matched) {
+              newTitle = title + '-' + num.toString();
+              num++;
+            }
+          }
+        }
+        return newTitle;
       }
 
       protected onUpdateTable(evt: egret.Event) {
@@ -23,8 +49,11 @@ namespace we {
         if (evt) {
           console.log('BetCombination::onUpdateTable() ', evt.data);
           if (evt.data) {
-            evt.data.map(value => {
+            this._combinations = evt.data;
+            this._combinations.map(value => {
+              // if (value instanceof we.data.BetCombination) {
               this._group.addChild(this.oldBetCombination(value));
+              // }
               num++;
             });
           }
@@ -50,12 +79,22 @@ namespace we {
         }
       }
 
-      protected onClickBetCombination(betCombination: we.data.BetCombination) {
-        return () => {
+      protected onClickBetCombination(betCombination: we.data.BetCombination, deleteBtn) {
+        return (evt: egret.Event) => {
+          if (evt.target === deleteBtn) {
+            return;
+          }
+
           if (this._chipLayer) {
             const hashKey = Date.now().toString();
+            console.log('onClickBetCombination(betCombination)', betCombination);
             if (betCombination) {
-              this._chipLayer.betFieldsUpdate(betCombination.toBetDetails(), hashKey);
+              this._chipLayer.betFieldsUpdate(
+                betCombination.optionsList.map(value => {
+                  return { field: value.betcode, amount: value.amount };
+                }),
+                hashKey
+              );
             }
           }
         };
@@ -78,7 +117,7 @@ namespace we {
 
         const front = new eui.Component();
         front.addChild(star);
-        front.addEventListener(egret.TouchEvent.TOUCH_TAP, this.deleteBetCombination(betCombination.id), this);
+        // front.addEventListener(egret.TouchEvent.TOUCH_TAP, this.deleteBetCombination(betCombination.id), this);
         front.width = this._frontWidth;
         front.height = this._bgheight;
 
@@ -87,12 +126,12 @@ namespace we {
         end.height = this._bgheight;
 
         const amount = new eui.Label();
-        amount.text = '$' + (this.getOldBetAmount(betCombination) / 100).toString()
+        amount.text = '$' + (this.getOldBetAmount(betCombination) / 100).toString();
         amount.size = this._textSize;
         amount.verticalCenter = 0;
-        amount.left = 20
+        amount.left = 20;
 
-        end.addChild(amount)
+        end.addChild(amount);
 
         const layout = new eui.HorizontalLayout();
         layout.verticalAlign = egret.VerticalAlign.MIDDLE;
@@ -103,9 +142,9 @@ namespace we {
         innerGroup.addChild(textField);
         innerGroup.addChild(end);
         innerGroup.horizontalCenter = 0;
-        innerGroup.addEventListener(mouse.MouseEvent.ROLL_OVER, this.oldBetCombinationRollOver(bg, star), this);
-        innerGroup.addEventListener(mouse.MouseEvent.ROLL_OUT, this.oldBetCombinationRollOut(bg, star), this);
-        innerGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetCombination(betCombination), this);
+        innerGroup.addEventListener(mouse.MouseEvent.ROLL_OVER, this.oldBetCombinationRollOver(bg, star, betCombination.id), this);
+        innerGroup.addEventListener(mouse.MouseEvent.ROLL_OUT, this.oldBetCombinationRollOut(bg, star, betCombination.id), this);
+        innerGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetCombination(betCombination, star), this);
 
         const outerGroup = new eui.Group();
         outerGroup.addChild(bg);
@@ -114,10 +153,17 @@ namespace we {
         return outerGroup;
       }
 
+      protected newBetCombinationTextFieldFocus(evt: egret.Event) {
+        if (this._newBetCombinationTextField.text === '加入新投注組合') {
+          this._newBetCombinationTextField.text = '';
+        }
+      }
+
       protected newBetCombinationTextFieldChange(evt: egret.Event) {
-        console.log('newBetCombinationTextFieldChange: ', evt.data)
-        if (this._newBetCombinationTextField.text.length > 12) {
-          this._newBetCombinationTextField.text = this._newBetCombinationTextField.text.substr(0, 12)
+        console.log('newBetCombinationTextFieldChange: ', evt.data);
+
+        if (this._newBetCombinationTextField.text.length > this._textFieldMaxLimit) {
+          this._newBetCombinationTextField.text = this._newBetCombinationTextField.text.substr(0, 12);
         }
       }
 
@@ -131,7 +177,8 @@ namespace we {
         this._newBetCombinationTextField.width = this._midWidth;
         this._newBetCombinationTextField.size = this._textSize;
         this._newBetCombinationTextField.verticalAlign = egret.VerticalAlign.MIDDLE;
-        this._newBetCombinationTextField.addEventListener(egret.Event.CHANGE, this.newBetCombinationTextFieldChange, this)
+        this._newBetCombinationTextField.addEventListener(egret.Event.CHANGE, this.newBetCombinationTextFieldChange, this);
+        this._newBetCombinationTextField.addEventListener(egret.Event.FOCUS_IN, this.newBetCombinationTextFieldFocus, this);
 
         const add = new eui.Image();
         add.source = 'd_ro_rm_add_btn_normal_png';
@@ -207,24 +254,26 @@ namespace we {
         return bg;
       }
 
-      protected oldBetCombinationRollOver(bg, star) {
+      protected oldBetCombinationRollOver(bg, star: eui.Image, id) {
         return () => {
           bg.source = 'd_ro_savelayout_rename_mode_bg_png';
           star.source = 'd_ro_savelayout_cancel_icon_png';
+          star.addEventListener(egret.TouchEvent.TOUCH_TAP, this.deleteBetCombination(id), this);
         };
       }
 
-      protected oldBetCombinationRollOut(bg, star) {
+      protected oldBetCombinationRollOut(bg, star: eui.Image, id) {
         return () => {
           bg.source = 'd_ro_savelayout_active_bg_png';
           star.source = 'd_ro_savelayout_star_icon_png';
+          star.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.deleteBetCombination(id), this);
         };
       }
 
       protected newBetCombinationRollOver(bg, tick) {
         return () => {
           bg.source = 'd_ro_savelayout_rename_mode_bg_png';
-          if ((this._chipLayer.getTotalCfmBetAmount() + this._chipLayer.getTotalUncfmBetAmount()) !== 0) {
+          if (this._chipLayer.getTotalCfmBetAmount() + this._chipLayer.getTotalUncfmBetAmount() !== 0) {
             tick.visible = true;
           }
         };
@@ -238,7 +287,8 @@ namespace we {
       }
 
       protected saveBetCombination() {
-        dir.socket.createCustomBetCombination(this._newBetCombinationTextField.text, this.getBetOptions());
+        const title = this.checkDuplicateName(this._newBetCombinationTextField.text);
+        dir.socket.createCustomBetCombination(title, this.getBetOptions());
       }
 
       protected deleteBetCombination(id: string) {
@@ -264,7 +314,7 @@ namespace we {
           }
           const betOp = new we.data.BetValueOption();
           betOp.amount = value.amount;
-          betOp.field = value.field;
+          betOp.betcode = value.field;
           uncfmBetOptions.push(betOp);
         });
 
@@ -275,17 +325,17 @@ namespace we {
           }
           const betOp = new we.data.BetValueOption();
           betOp.amount = value.amount;
-          betOp.field = value.field;
+          betOp.betcode = value.field;
           cfmBetOptions.push(betOp);
         });
 
         const betOptions = new Array<we.data.BetValueOption>();
         uncfmBetOptions.map(v1 => {
           const betOp = new we.data.BetValueOption();
-          betOp.field = v1.field;
+          betOp.betcode = v1.betcode;
           betOp.amount = v1.amount;
           cfmBetOptions.map(v2 => {
-            if (v1.field === v2.field) {
+            if (v1.betcode === v2.betcode) {
               betOp.amount += v2.amount;
             }
           });
@@ -293,12 +343,12 @@ namespace we {
         });
         cfmBetOptions.map(v1 => {
           uncfmBetOptions.map(v2 => {
-            if (v1.field === v2.field) {
+            if (v1.betcode === v2.betcode) {
               return;
             }
           });
           const betOp = new we.data.BetValueOption();
-          betOp.field = v1.field;
+          betOp.betcode = v1.betcode;
           betOp.amount = v1.amount;
           betOptions.push(betOp);
         });
@@ -324,11 +374,11 @@ namespace we {
       }
 
       protected getOldBetAmount(data: we.data.BetCombination) {
-        let amount: number = 0
-        if (data.option) {
-          amount = data.option.reduce((a, b) => a + b.amount, 0)
+        let amount: number = 0;
+        if (data.optionsList) {
+          amount = data.optionsList.reduce((a, b) => a + b.amount, 0);
         }
-        return amount
+        return amount;
       }
 
       protected onUpdateAmount(evt: egret.Event) {
