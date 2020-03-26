@@ -1,5 +1,5 @@
 {
-    "target": "development",
+    "target": "local",
     "mode": "comm",
     "playerID": "BNC9O6DH5S5JNQTG8PR1",
     "endpoint": "http://18.139.237.86:8080",

@@ -2824,7 +2824,8 @@
 		{
 			"url": "assets/d/ro/d_ro_savelayout_active_bg.png",
 			"type": "image",
-			"name": "d_ro_savelayout_active_bg_png"
+			"name": "d_ro_savelayout_active_bg_png",
+			"scale9grid": "15,15,12,8"
 		},
 		{
 			"url": "assets/d/ro/d_ro_savelayout_cancel_icon.png",
@@ -2839,12 +2840,14 @@
 		{
 			"url": "assets/d/ro/d_ro_savelayout_inactive_bg.png",
 			"type": "image",
-			"name": "d_ro_savelayout_inactive_bg_png"
+			"name": "d_ro_savelayout_inactive_bg_png",
+			"scale9grid": "15,15,12,8"
 		},
 		{
 			"url": "assets/d/ro/d_ro_savelayout_rename_mode_bg.png",
 			"type": "image",
-			"name": "d_ro_savelayout_rename_mode_bg_png"
+			"name": "d_ro_savelayout_rename_mode_bg_png",
+			"scale9grid": "15,15,12,8"
 		},
 		{
 			"url": "assets/d/ro/d_ro_savelayout_star_icon.png",
