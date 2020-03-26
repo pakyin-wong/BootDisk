@@ -143,10 +143,15 @@ namespace we {
         this.gameIdLabel.text = this.gameId + ' ' + i18n.t('baccarat.gameroundid');
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
 
+        this.historyBtn.label = i18n.t('mobile_game_panel_history');
         this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
+
+        this.colorRoadBtn.label = i18n.t('roulette.betGroup.color');
+        this.sizeRoadBtn.label = i18n.t('roulette.betGroup.size');
+        this.oddevenRoadBtn.label = i18n.t('roulette.betGroup.oddeven');
       }
 
       public manualClose() {

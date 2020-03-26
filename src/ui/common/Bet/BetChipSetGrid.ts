@@ -13,13 +13,6 @@ namespace we {
 
       public constructor() {
         super();
-      }
-
-      public init(format: any, denomList: number[]) {
-        this.resetDenominationList(denomList);
-      }
-
-      protected mount() {
         this._chipsetLayout = new eui.AnimTileLayout();
         this._chipsetLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         this._chipsetLayout.horizontalGap = this._normalGapSize;
@@ -34,7 +27,14 @@ namespace we {
         this.addChild(this._chipsetList);
         this._chipsetList.left = 0;
         this._chipsetList.right = 0;
+      }
 
+      public init(format: any, denomList: number[]) {
+        this._chipsetLayout.requestedColumnCount = this.numChipsInRow;
+        this.resetDenominationList(denomList);
+      }
+
+      protected mount() {
         this._chipsetList.addEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }
