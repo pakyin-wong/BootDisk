@@ -97,19 +97,19 @@ namespace we {
 
       public setValue(tableInfo: data.TableInfo) {
         if (tableInfo.gamestatistic.bankerCount) {
-          this.totalBankerCount.text = tableInfo.gamestatistic.bankerCount.toString();
+          this.totalBankerCount && (this.totalBankerCount.text = tableInfo.gamestatistic.bankerCount.toString());
         }
         if (tableInfo.gamestatistic.playerCount) {
-          this.totalPlayerCount.text = tableInfo.gamestatistic.playerCount.toString();
+          this.totalPlayerCount && (this.totalPlayerCount.text = tableInfo.gamestatistic.playerCount.toString());
         }
         if (tableInfo.gamestatistic.tieCount) {
-          this.totalTieCount.text = tableInfo.gamestatistic.tieCount.toString();
+          this.totalTieCount && (this.totalTieCount.text = tableInfo.gamestatistic.tieCount.toString());
         }
         if (tableInfo.gamestatistic.bankerPairCount) {
-          this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString();
+          this.bankerPairCount && (this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString());
         }
         if (tableInfo.gamestatistic.playerPairCount) {
-          this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString();
+          this.playerPairCountPer && (this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString());
         }
       }
     }

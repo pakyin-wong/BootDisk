@@ -1,6 +1,6 @@
 namespace we {
   export namespace ro {
-    export class RoLeftPanel extends core.BaseGamePanel {
+    export class RoLeftPanel extends core.BaseGamePanel implements IHotColdPanel {
       public beadRoad: ROBeadRoad;
       public colorBigRoad: ROColorBigRoad;
       public sizeBigRoad: ROSizeBigRoad;

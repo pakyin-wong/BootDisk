@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.RoRightPanel" width="698" height="304" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect id="mask" width="690" height="301" x="4" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
+<e:Skin class="skin_mobile_portrait.RoRightPanel" width="668" height="340" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <e:Rect id="mask" width="100%" height="100%" x="0" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
                 fillColor="0x7c7c7c" />
-        <e:Rect id="bottomBar" width="694" height="47" x="0" y="251" fillColor="0x1F242B" strokeWeight="0"
-                ellipseHeight="0" ellipseWidth="0" />
-        <e:RadioButton id="pageRadioBtn1" x="129" y="251" width="150" height="50" value="0" selected="true"
+        <e:Rect id="bottomBar" width="100%" height="50" x="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
+                ellipseWidth="0" bottom="0" />
+        <e:Rect width="100%" height="290" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x061323"
+                fillAlpha="0.8" />
+        <e:RadioButton id="pageRadioBtn1" x="0" y="290" width="334" height="50" value="0" selected="true"
                        groupName="pageRadioBtnGroup" label="abc">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
                                 <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
                                          horizontalCenter="0" alpha="0" />
                                 <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xcccccc" includeIn="up" />
+                                         textColor="0xcccccc" includeIn="up" size="25" />
                                 <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" />
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="25" />
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
-        <e:RadioButton id="pageRadioBtn2" x="428" y="251" width="150" height="50" value="1" selected="true"
+        <e:RadioButton id="pageRadioBtn2" x="334" y="290" width="334" height="50" value="1" selected="true"
                        groupName="pageRadioBtnGroup" label="def">
                 <e:skinName>
                         <e:Skin states="up,down,upAndSelected,downAndSelected">
                                 <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
                                          horizontalCenter="0" alpha="0" />
                                 <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xcccccc" includeIn="up" />
+                                         textColor="0xcccccc" includeIn="up" size="25" />
                                 <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
-                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" />
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="25" />
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
-        <e:ViewStack id="pageStack" width="688" height="250" x="4" y="0" anchorOffsetX="0" selectedIndex="0"
+        <e:ViewStack id="pageStack" width="100%" height="290" x="0" y="0" anchorOffsetX="0" selectedIndex="0"
                      anchorOffsetY="0">
-                <e:Group width="100%" height="100%" name="Group">
-                        <e:Label text="page1" x="0" y="0" scaleX="1" scaleY="1" />
-                </e:Group>
-                <e:Group width="100%" height="100%" name="View">
-                        <e:Label text="page2" x="0" y="0" scaleX="1" scaleY="1" />
-                </e:Group>
+                <e:Group width="100%" height="100%" name="Group"></e:Group>
+                <e:Group width="100%" height="100%" name="View"></e:Group>
         </e:ViewStack>
 </e:Skin>

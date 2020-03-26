@@ -1,11 +1,11 @@
 namespace we {
   export namespace ro {
     export class TableInfoPanel extends ui.TableInfoPanel {
-      // protected bankerLabel: eui.Label;
-      // protected playerLabel: eui.Label;
-      // protected tieLabel: eui.Label;
-      // protected bankerPairLabel: eui.Label;
-      // protected playerPairLabel: eui.Label;
+      protected colorLabel: eui.Label;
+      protected oddevenLabel: eui.Label;
+      protected sizeLabel: eui.Label;
+      protected columnbetLabel: eui.Label;
+      protected rowbetLabel: eui.Label;
 
       // protected pBanker: eui.Label;
       // protected pPlayer: eui.Label;
@@ -23,20 +23,15 @@ namespace we {
         super();
       }
 
-      // public changeLang() {
-      //   super.changeLang();
-      //   this.bankerLabel.text = i18n.t('baccarat.banker');
-      //   this.playerLabel.text = i18n.t('baccarat.player');
-      //   this.tieLabel.text = i18n.t('baccarat.tie');
-      //   this.bankerPairLabel.text = i18n.t('baccarat.bankerPair');
-      //   this.playerPairLabel.text = i18n.t('baccarat.playerPair');
-      //   if (this.gameIdLabel) {
-      //     this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
-      //   }
-      //   if (this.betLimitLabel) {
-      //     this.betLimitLabel.text = i18n.t('baccarat.betLimitshort');
-      //   }
-      // }
+      public changeLang() {
+        super.changeLang();
+
+        this.colorLabel.text = i18n.t('roulette.betGroup.color');
+        this.oddevenLabel.text = i18n.t('roulette.betGroup.oddeven');
+        this.sizeLabel.text = i18n.t('roulette.betGroup.size');
+        this.columnbetLabel.text = i18n.t('roulette.betGroup.column');
+        this.rowbetLabel.text = i18n.t('roulette.betGroup.row');
+      }
 
       // public setValue(tableInfo: data.TableInfo) {
       //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();

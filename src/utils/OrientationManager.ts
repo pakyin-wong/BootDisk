@@ -17,7 +17,7 @@ namespace we {
         if (angle === 0) {
           // portrait
           env.orientation = egret.OrientationMode.PORTRAIT;
-          this.stage.setContentSize(1242, 2292);
+          this.stage.setContentSize(1242, 2155);
         } else {
           // landscape
           env.orientation = egret.OrientationMode.LANDSCAPE;

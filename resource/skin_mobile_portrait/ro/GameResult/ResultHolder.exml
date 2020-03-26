@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ro.ResultHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
-        width="400" height="190">
-        <e:Label id="_lblResult" size="60" text="Result" />
+<e:Skin class="skin_mobile_portrait.ro.ResultHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="400"
+        height="190">
+       <e:Label id="_lblResult"  size="60" text="Result"/>
 </e:Skin>

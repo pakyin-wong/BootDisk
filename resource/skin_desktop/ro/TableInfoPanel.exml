@@ -11,16 +11,16 @@
 		<e:Label id="roundNoLabel" text="局號" y="140" left="50" x="50" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="dealerLabel" text="荷官" y="180" left="50" x="50" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="timeLabel" text="時間" y="220" left="50" x="50" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="pBanker" text="-" y="100" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="pPlayer" text="-" y="140" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="pTie" text="-" y="180" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="pBankerPair" text="-" y="220" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="pPlayerPair" text="-" y="260" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="bankerLabel" text="庄" y="100" textAlign="left" left="397" x="325" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="playerLabel" text="閒" y="140" left="397" x="325" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="tieLabel" text="和" y="180" left="397" x="325" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="bankerPairLabel" text="庄對" y="220" left="397" x="325" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="playerPairLabel" text="閒對" y="260" left="397" x="325" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="pColor" text="-" y="100" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="pOddeven" text="-" y="140" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="pSize" text="-" y="180" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="pColumnbet" text="-" y="220" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="pRowbet" text="-" y="260" right="50" textAlign="right" x="466" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="colorLabel" text="紅 / 黑" y="100" textAlign="left" left="397" x="325" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="oddevenLabel" text="單 / 雙" y="140" left="397" x="325" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="sizeLabel" text="大 / 小" y="180" left="397" x="325" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="columnbetLabel" text="下注一打" y="220" left="397" x="325" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="rowbetLabel" text="行注" y="260" left="397" x="325" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="pTableID" text="-" y="100" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" />
 		<e:Label id="pRoundID" text="-" y="140" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" />
 		<e:Label id="pDealer" text="-" y="180" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" />

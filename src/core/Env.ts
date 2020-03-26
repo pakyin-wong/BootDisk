@@ -123,11 +123,8 @@ namespace we {
           if (!tableInfo) {
             return false;
           }
+
           const gameType = tableInfo.gametype;
-          // if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
-          //   tableInfo.displayReady = false;
-          //   return false;
-          // }
           if (gameType === core.GameType.DI || gameType === core.GameType.LW) {
             tableInfo.displayReady = false;
             return false;
