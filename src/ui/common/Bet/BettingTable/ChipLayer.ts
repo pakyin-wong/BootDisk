@@ -275,7 +275,17 @@ namespace we {
       }
 
       public getTotalUncfmBetAmount() {
-        return this._uncfmBetDetails.reduce((a, b) => a + b.amount, 0);
+        if (this._uncfmBetDetails) {
+          return this._uncfmBetDetails.reduce((a, b) => a + b.amount, 0);
+        }
+        return 0;
+      }
+
+      public getTotalCfmBetAmount() {
+        if (this._cfmBetDetails) {
+          return this._cfmBetDetails.reduce((a, b) => a + b.amount, 0);
+        }
+        return 0;
       }
 
       public updateBetFields(betDetails: data.BetDetail[]) {

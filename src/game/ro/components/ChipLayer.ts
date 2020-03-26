@@ -672,6 +672,11 @@ namespace we {
       public onGridRollout(fieldName: string) {
         this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
       }
+
+      public onBetFieldUpdateEvent(evt: egret.Event) {
+        super.onBetFieldUpdateEvent(evt);
+        dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, { amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount() });
+      }
     }
   }
 }

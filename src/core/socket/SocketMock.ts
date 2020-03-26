@@ -11,6 +11,8 @@ namespace we {
 
       private _tempIdx: number = 0;
 
+      protected betCombinations: we.data.BetCombination[];
+
       protected totalTableCount = {
         [we.core.GameType.BAC]: 3,
         [we.core.GameType.DT]: 3,
@@ -25,6 +27,16 @@ namespace we {
         this.balance_index = 0;
 
         this.tables = Object.keys(this.totalTableCount).reduce((tables, key) => [...tables, ...this.createMockGameTable(key)], []);
+
+        this.betCombinations = new Array();
+        let betCombination: we.data.BetCombination;
+        betCombination = new we.data.BetCombination();
+        betCombination.title = 'first one';
+        betCombination.gameType = we.core.GameType.RO;
+        betCombination.id = 'f1';
+        betCombination.playerid = '12321';
+        betCombination.option = [{ amount: 1000, field: we.ro.BetField.BIG }, { amount: 1000, field: we.ro.BetField.BLACK }];
+        this.betCombinations.push(betCombination);
 
         setInterval(() => {
           // mock error
@@ -724,9 +736,31 @@ namespace we {
           ],
         });
       }
-      public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {}
-      public getBetCombination() {}
-      public removeBetCombination(id: string) {}
+      public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
+        const betCombination = new we.data.BetCombination();
+        betCombination.title = title;
+        betCombination.gameType = we.core.GameType.RO;
+        betCombination.playerid = 'f1';
+        betCombination.id = Date.now().toString();
+        betCombination.option = betOptions;
+        this.betCombinations.push(betCombination);
+        dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
+      }
+      public getBetCombination() {
+        dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
+      }
+      public removeBetCombination(id: string) {
+        let i: number = -1;
+        this.betCombinations.map((value, index) => {
+          if (value.id === id) {
+            i = index;
+          }
+        });
+        if (i !== -1) {
+          this.betCombinations.splice(i, 1);
+          dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
+        }
+      }
     }
   }
 }

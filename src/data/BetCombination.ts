@@ -5,7 +5,7 @@ namespace we {
       public playerid: string;
       public option: we.data.BetValueOption[];
       public id: string;
-      public gameType: string;
+      public gameType: number;
       public toBetDetails() {
         const betDetails: data.BetDetail[] = new Array();
         if (this.option) {
