@@ -18,19 +18,21 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const bigRoad = new ro.ROLobbyBeadRoad();
-        bigRoad.roadGridSize = 40;
-        bigRoad.roadCol = 12;
-        bigRoad.roadRow = 3;
-        bigRoad.roadIndentX = 4;
-        bigRoad.roadIndentY = 2.5;
-        bigRoad.roadOffsetX = 8;
-        bigRoad.roadOffsetY = 5;
-        bigRoad.roadEmptyColor = 0xc1c1c1;
-        bigRoad.roadEmptyAlpha = 0.2;
+        const road = new lw.LwLobbyBeadRoad();
+        road.roadRow = 3;
+        road.roadCol = 13;
+        road.roadCellWidth = 44;
+        road.roadCellHeight = 46;
+        road.roadImageWidth = 28;
+        road.roadImageHeight = 37;
+        road.roadScale = 1;
+        road.roadGridColor = 0xffffff;
+        road.roadGridAlpha = 1;
+        road.roadGridBorderColor = 0xafafaf;
+        road.roadScale = 578 / 572;
         const idx = node.parent.getChildIndex(node);
-        node.parent.addChildAt(bigRoad, idx);
-        return bigRoad;
+        node.parent.addChildAt(road, idx);
+        return road;
       }
     }
   }

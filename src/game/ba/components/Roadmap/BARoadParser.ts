@@ -625,26 +625,8 @@ namespace we {
           }
 
           // di
-          if (data.dice1 !== undefined) {
-            roadCell.dice1 = data.dice1;
-          }
-          if (data.dice2 !== undefined) {
-            roadCell.dice2 = data.dice2;
-          }
-          if (data.dice3 !== undefined) {
-            roadCell.dice3 = data.dice3;
-          }
-          if (data.total !== undefined) {
-            roadCell.total = data.total;
-          }
-          if (data.odd !== undefined) {
-            roadCell.odd = data.odd;
-          }
-          if (data.size !== undefined) {
-            roadCell.size = data.size;
-          }
-          if (data.tie !== undefined) {
-            roadCell.tie = data.tie;
+          if (data.dice !== undefined) {
+            roadCell.dice = data.dice;
           }
 
           if (data.gameRoundID !== undefined) {
@@ -696,26 +678,8 @@ namespace we {
         }
 
         // di
-        if (data.dice1 !== undefined) {
-          roadInfo.dice1 = data.dice1;
-        }
-        if (data.dice2 !== undefined) {
-          roadInfo.dice2 = data.dice2;
-        }
-        if (data.dice3 !== undefined) {
-          roadInfo.dice3 = data.dice3;
-        }
-        if (data.total !== undefined) {
-          roadInfo.total = data.total;
-        }
-        if (data.odd !== undefined) {
-          roadInfo.odd = data.odd;
-        }
-        if (data.size !== undefined) {
-          roadInfo.size = data.size;
-        }
-        if (data.tie !== undefined) {
-          roadInfo.tie = data.tie;
+        if (data.dice !== undefined) {
+          roadInfo.dice = data.dice;
         }
 
         return roadInfo;

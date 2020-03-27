@@ -9,10 +9,10 @@
 namespace we {
   export namespace lw {
     export class Scene extends core.DesktopBaseGameScene {
-      protected _roadmapControl: we.ro.RORoadmapControl;
-      protected _leftGamePanel: we.ro.RoLeftPanel;
+      protected _roadmapControl: we.lw.LwRoadmapControl;
+      protected _leftGamePanel: we.lw.LwLeftPanel;
       protected _rightGamePanel: we.lw.LwRightPanel;
-      protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
+      protected _bigRoadResultPanel: we.lw.LwBeadRoadResultPanel;
 
       constructor(data: any) {
         super(data);
@@ -48,8 +48,19 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        this.initRoadMap();
+        this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+      }
+
+      protected initRoadMap() {
+        this._roadmapControl = new we.lw.LwRoadmapControl(this._tableId);
+        this._roadmapControl.setRoads(this._leftGamePanel.beadRoad, this._leftGamePanel, this._rightGamePanel, this._bigRoadResultPanel);
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        this._roadmapControl.updateRoadData();
       }
 
       public checkResultMessage() {
