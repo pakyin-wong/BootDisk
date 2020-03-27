@@ -626,18 +626,15 @@ namespace we {
         odd: { odd: 1, even: 2, tie: 3 }, // odd stats
 
         inGame: {
-          bead: [
-            { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-            { gameRoundID: 'g34345', dice1: 3, dice2: 4, dice3: 5, total: 12, odd: 1, size: 1, tie: 0, video: 'null' },
-          ],
+          bead: [{ gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' }, { gameRoundID: 'g34345', dice: [1, 2, 3], video: 'null' }],
           size: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }], // 0 = tie, 1 = small, 2 = big
           odd: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }], // 0 = tie, 1 = odd, 2 = even
           sum: [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'g34345' }], // show the sum value directly
         },
 
         gameInfo: {
-          cde345: { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          g34345: { gameRoundID: 'g34345', dice1: 3, dice2: 4, dice3: 5, total: 12, odd: 1, size: 1, tie: 0, video: 'null' },
+          cde345: { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          g34345: { gameRoundID: 'g34345', dice: [1, 2, 3], video: 'null' },
         },
       };
 

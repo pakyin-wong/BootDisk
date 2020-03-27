@@ -147,8 +147,8 @@ namespace we {
         for (let i = 0; i < n; i++) {
           const icon = this.createIcon(this.gridSize);
           icon.setByObject({});
-          icon.x = ((this.cellWidth - this.imageWidth) / 2) + ((this.cellWidth) * (iconIndex % this.numCol));
-          icon.y = ((this.cellHeight - this.imageHeight) / 2) + ((this.cellHeight) * Math.floor(iconIndex / this.numCol));
+          icon.x = (this.cellWidth - this.imageWidth) / 2 + this.cellWidth * (iconIndex % this.numCol);
+          icon.y = (this.cellHeight - this.imageHeight) / 2 + this.cellHeight * Math.floor(iconIndex / this.numCol);
           this.addChild(icon);
           this.roadMapIconList.push(icon);
           iconIndex++;

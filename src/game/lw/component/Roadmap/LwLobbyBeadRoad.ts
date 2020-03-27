@@ -28,7 +28,19 @@ namespace we {
       }
 
       protected init() {
-        this.beadRoad = new LwBeadRoad(this.roadRow, this.roadCol, this.roadCellWidth, this.roadCellHeight, this.roadImageWidth, this.roadImageHeight, 1, this.roadGridColor, this.roadGridAlpha, this.roadGridBorderColor, false);
+        this.beadRoad = new LwBeadRoad(
+          this.roadRow,
+          this.roadCol,
+          this.roadCellWidth,
+          this.roadCellHeight,
+          this.roadImageWidth,
+          this.roadImageHeight,
+          1,
+          this.roadGridColor,
+          this.roadGridAlpha,
+          this.roadGridBorderColor,
+          false
+        );
         this.beadRoad.x = this.roadIndentX;
         this.beadRoad.y = this.roadIndentY;
         this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;
@@ -62,7 +74,7 @@ namespace we {
         }
       }
 
-      public dispose() { }
+      public dispose() {}
     }
   }
 }
