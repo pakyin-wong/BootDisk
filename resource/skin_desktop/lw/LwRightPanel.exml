@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LwRightPanel" width="657" height="304" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x061323"
+                fillAlpha="0.8"  locked="true"/>
+		<ui:RunTimeLabel id="_lblPool" x="24" y="13" size="28" height="40" verticalAlign="middle" text="即時彩池"/>
+		<e:Rect width="304" height="32" fillAlpha="0.8" fillColor="0x15337d" ellipseHeight="32" ellipseWidth="32" top="13" right="32" />
+		<e:Rect width="304" height="32" fillAlpha="0.8" fillColor="0xcb206e" ellipseHeight="32" ellipseWidth="32" top="54" right="32" />
+		<e:Rect width="304" height="32" fillAlpha="0.8" fillColor="0x217c53" ellipseHeight="32" ellipseWidth="32" top="95" right="32" />
+		<e:Rect width="304" height="32" fillAlpha="0.8" fillColor="0x00b8b6" ellipseHeight="32" ellipseWidth="32" top="136" right="32" />
+		<e:Rect width="304" height="32" fillAlpha="0.8" fillColor="0xf7931e" ellipseHeight="32" ellipseWidth="32" top="177" right="32" />
+		<e:Rect width="304" height="32" fillAlpha="0.8" fillColor="0xbebebe" ellipseHeight="32" ellipseWidth="32" top="218" right="32" />
+		<e:Rect width="304" height="32" fillAlpha="0.8" fillColor="0xb68001" ellipseHeight="32" ellipseWidth="32" top="259" right="32" />
+    <ui:RunTimeLabel id="_lbl_lwTitle0" x="333.7" y="16" size="16" height="26" verticalAlign="middle" text="一"/>
+	<ui:RunTimeLabel id="_lbl_lwTitle1" x="333.7" y="57" size="16" height="26" verticalAlign="middle" text="三"/>
+	<ui:RunTimeLabel id="_lbl_lwTitle2" x="333.7" y="98" size="16" height="26" verticalAlign="middle" text="五"/>
+	<ui:RunTimeLabel id="_lbl_lwTitle3" x="333.7" y="139" size="16" height="26" verticalAlign="middle" text="中"/>
+	<ui:RunTimeLabel id="_lbl_lwTitle4" x="333.7" y="180" size="16" height="26" verticalAlign="middle" text="發"/>
+	<ui:RunTimeLabel id="_lbl_lwTitle5" x="333.7" y="221" size="16" height="26" verticalAlign="middle" text="白"/>
+	<ui:RunTimeLabel id="_lbl_lwTitle6" x="333.7" y="262" size="16" height="26" verticalAlign="middle" text="WE"/>
+	<ui:RunTimeLabel id="_lbl_lwValue0" width="140" right="54" y="16" size="16" height="26" verticalAlign="middle" text="80,000" textAlign="right" fontFamily="Barlow" />
+	<ui:RunTimeLabel id="_lbl_lwValue1" width="140" right="54" y="57" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue2" width="140" right="54" y="98" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue3" width="140" right="54" y="139" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue4" width="140" right="54" y="180" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue5" width="140" right="54" y="221" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+	<ui:RunTimeLabel id="_lbl_lwValue6" width="140" right="54" y="262" size="16" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow"/>
+</e:Skin>

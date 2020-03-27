@@ -110,7 +110,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('LobbyTabListItemRenderer');
+        this.skinName = utils.getSkinByClassname('LobbyTabListItemRenderer');
         mouse.setButtonMode(this, true);
       }
 

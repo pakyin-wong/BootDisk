@@ -72,7 +72,7 @@ namespace we {
       protected _verGroup: eui.Group;
 
       public constructor(skin?: string) {
-        super(skin || !env.isMobile ? skin : 'dt/MobileBottomGamePanel');
+        super(skin || !env.isMobile ? skin : 'dt.MobileBottomGamePanel');
       }
 
       protected init() {

@@ -11,8 +11,59 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
 
+      protected _tableLayerNode: eui.Component;
+      protected _chipLayerNode: eui.Component;
+
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected initComponents() {
+        super.initComponents();
+        this.generateTableLayer();
+        this.generateChipLayer();
+      }
+
+      protected generateTableLayer() {
+        if (this.itemInitHelper) {
+          this._tableLayer = this.itemInitHelper.generateTableLayer(this._tableLayerNode);
+        }
+      }
+
+      protected generateChipLayer() {
+        if (this.itemInitHelper) {
+          this._chipLayer = this.itemInitHelper.generateChipLayer(this._chipLayerNode);
+        }
+      }
+
+      // set the position of the children components
+      protected arrangeComponents() {
+        const properties = [
+          'x',
+          'y',
+          'width',
+          'height',
+          'scaleX',
+          'scaleY',
+          'left',
+          'right',
+          'top',
+          'bottom',
+          'verticalCenter',
+          'horizontalCenter',
+          'anchorOffsetX',
+          'anchorOffsetY',
+          'percentWidth',
+          'percentHeight',
+        ];
+        for (const att of properties) {
+          if (this._tableLayer) {
+            this._tableLayer[att] = this._tableLayerNode[att];
+          }
+          if (this._chipLayer) {
+            this._chipLayer[att] = this._chipLayerNode[att];
+          }
+        }
       }
 
       protected initDenom() {

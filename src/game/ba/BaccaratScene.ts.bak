@@ -52,7 +52,7 @@ namespace we {
       constructor(data: any) {
         super(data);
         this._tableID = data.tableid;
-        this.skinName = utils.getSkin('BaccaratScene');
+        this.skinName = utils.getSkinByClassname('BaccaratScene');
         this._video = dir.videoPool.get();
         this._video.x = 0;
         this._video.y = 0;

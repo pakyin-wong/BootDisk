@@ -6,7 +6,7 @@ namespace we {
       private _btn_action: ui.BaseImageButton;
 
       constructor(title, buttonProps: ui.IMessageDialogOpt) {
-        super('overlay/MessageDialog');
+        super('MessageDialog');
         const buttonNames = Object.keys(buttonProps);
         this.currentState = buttonNames.length === 2 ? 'two' : 'one';
         for (const btn of buttonNames) {

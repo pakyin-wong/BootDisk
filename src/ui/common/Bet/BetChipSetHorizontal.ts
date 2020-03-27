@@ -7,7 +7,7 @@ namespace we {
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
-      private _chipList: (IBetChip & core.BaseEUI)[] = [];
+      private _chipList: Array<IBetChip & core.BaseEUI> = [];
       protected _chipContainer: eui.Component;
 
       public constructor() {
@@ -55,6 +55,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.syncChip, this);
       }
 

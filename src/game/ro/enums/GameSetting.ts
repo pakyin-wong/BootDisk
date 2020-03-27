@@ -6,34 +6,34 @@ namespace we {
       RED,
     }
 
-    export enum RACETRACK_INNERFIELD {
-      TIERS = 'TIERS',
-      VOISINS = 'VOISINS',
-      ZERO = 'ZERO',
-      ORPHELINS = 'ORPHELINS',
-    }
+    // export enum RACETRACK_INNERFIELD {
+    //   TIERS = 'TIERS',
+    //   VOISINS = 'VOISINS',
+    //   ZERO = 'ZERO',
+    //   ORPHELINS = 'ORPHELINS',
+    // }
 
-    export const RACETRACK_INNERFIELD_MAPPING = {
-      [ro.RACETRACK_INNERFIELD.TIERS]: [
-        ro.BetField.SEPARATE_5_8,
-        ro.BetField.SEPARATE_10_11,
-        ro.BetField.SEPARATE_13_16,
-        ro.BetField.SEPARATE_23_24,
-        ro.BetField.SEPARATE_27_30,
-        ro.BetField.SEPARATE_31_34,
-      ],
-      [ro.RACETRACK_INNERFIELD.ORPHELINS]: [ro.BetField.SEPARATE_6_9, ro.BetField.SEPARATE_14_17, ro.BetField.SEPARATE_17_20, ro.BetField.SEPARATE_31_34, ro.BetField.DIRECT_1],
-      [ro.RACETRACK_INNERFIELD.VOISINS]: [
-        ro.BetField.STREET_0_2_3,
-        ro.BetField.SEPARATE_4_7,
-        ro.BetField.SEPARATE_12_15,
-        ro.BetField.SEPARATE_18_21,
-        ro.BetField.SEPARATE_19_22,
-        ro.BetField.CORNER_25_26_28_29,
-        ro.BetField.SEPARATE_32_35,
-      ],
-      [ro.RACETRACK_INNERFIELD.ZERO]: [ro.BetField.SEPARATE_0_3, ro.BetField.SEPARATE_12_15, ro.BetField.SEPARATE_18_21, ro.BetField.DIRECT_26, ro.BetField.SEPARATE_32_35],
-    };
+    // export const RACETRACK_INNERFIELD_MAPPING = {
+    //   [ro.RACETRACK_INNERFIELD.TIERS]: [
+    //     ro.BetField.SEPARATE_5_8,
+    //     ro.BetField.SEPARATE_10_11,
+    //     ro.BetField.SEPARATE_13_16,
+    //     ro.BetField.SEPARATE_23_24,
+    //     ro.BetField.SEPARATE_27_30,
+    //     ro.BetField.SEPARATE_31_34,
+    //   ],
+    //   [ro.RACETRACK_INNERFIELD.ORPHELINS]: [ro.BetField.SEPARATE_6_9, ro.BetField.SEPARATE_14_17, ro.BetField.SEPARATE_17_20, ro.BetField.SEPARATE_31_34, ro.BetField.DIRECT_1],
+    //   [ro.RACETRACK_INNERFIELD.VOISINS]: [
+    //     ro.BetField.STREET_0_2_3,
+    //     ro.BetField.SEPARATE_4_7,
+    //     ro.BetField.SEPARATE_12_15,
+    //     ro.BetField.SEPARATE_18_21,
+    //     ro.BetField.SEPARATE_19_22,
+    //     ro.BetField.CORNER_25_26_28_29,
+    //     ro.BetField.SEPARATE_32_35,
+    //   ],
+    //   [ro.RACETRACK_INNERFIELD.ZERO]: [ro.BetField.SEPARATE_0_3, ro.BetField.SEPARATE_12_15, ro.BetField.SEPARATE_18_21, ro.BetField.DIRECT_26, ro.BetField.SEPARATE_32_35],
+    // };
 
     export const BETFIELD_MAPPING = {
       [ro.BetField.DIRECT_0]: [ro.BetField.DIRECT_0],
@@ -401,6 +401,20 @@ namespace we {
         ro.BetField.DIRECT_35,
         ro.BetField.DIRECT_36,
       ],
+      [ro.BetField.THE_THIRD]: [ro.BetField.SEPARATE_5_8, ro.BetField.SEPARATE_10_11, ro.BetField.SEPARATE_13_16, ro.BetField.SEPARATE_23_24, ro.BetField.SEPARATE_27_30, ro.BetField.SEPARATE_33_36],
+      [ro.BetField.ORPHANS]: [ro.BetField.SEPARATE_6_9, ro.BetField.SEPARATE_14_17, ro.BetField.SEPARATE_17_20, ro.BetField.SEPARATE_31_34, ro.BetField.DIRECT_1],
+      [ro.BetField.NEIGHBORS_OF_ZERO]: [
+        ro.BetField.STREET_0_2_3,
+        ro.BetField.STREET_0_2_3,
+        ro.BetField.SEPARATE_4_7,
+        ro.BetField.SEPARATE_12_15,
+        ro.BetField.SEPARATE_18_21,
+        ro.BetField.SEPARATE_19_22,
+        ro.BetField.CORNER_25_26_28_29,
+        ro.BetField.CORNER_25_26_28_29,
+        ro.BetField.SEPARATE_32_35,
+      ],
+      [ro.BetField.ZERO_GAME]: [ro.BetField.SEPARATE_0_3, ro.BetField.SEPARATE_12_15, ro.BetField.DIRECT_26, ro.BetField.SEPARATE_32_35],
     };
 
     export const BETFIELD_IMAGE_MAPPING = {
@@ -643,6 +657,20 @@ namespace we {
       }
 
       return RACETRACK.slice(index - interval, index + computedInterval + 1);
+    }
+
+    export function num2directfield(num) {
+      return `DIRECT_${num}`;
+    }
+    export function directfield2num(field: string) {
+      const split = field.split('_');
+      if (split.length !== 2) {
+        throw new Error('not an ro direct field');
+      }
+      if (split[0] !== 'DIRECT') {
+        throw new Error('not an ro direct field');
+      }
+      return parseInt(split[1], 10);
     }
   }
 }

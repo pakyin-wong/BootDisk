@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"
         states="lobby_mode_01,lobby_mode_02,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification,lobby_notify_btn_action,lobby_notify_btn_hide">
     <e:Image id="_background" left="0" right="0" top="0" bottom="0"

@@ -36,7 +36,7 @@ namespace we {
       /** Step 2: Init Loading Scene UI */
       private initSkin() {
         this.once(eui.UIEvent.COMPLETE, this.next, this);
-        this.skinName = utils.getSkin('LoadingScene');
+        this.skinName = utils.getSkinByClassname('LoadingScene');
       }
 
       private preload() {

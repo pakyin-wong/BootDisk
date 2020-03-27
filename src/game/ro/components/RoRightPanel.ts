@@ -6,24 +6,31 @@ namespace we {
       protected _raceTrackChipLayer: RaceTrackChipLayer;
       protected _raceTrackTableLayer: RaceTrackTableLayer;
       protected _raceTrackControl: RaceTrackControl;
+      protected _betCombination: we.ui.BetCombination;
 
       protected activeLine: egret.Shape;
 
       protected pageStack: eui.ViewStack;
 
       public constructor(skin?: string) {
-        super(skin ? skin : 'ro/RoRightPanel');
+        super(skin ? skin : env.isMobile ? '' : 'RoRightPanel');
       }
 
       public get raceTrackChipLayer() {
         return this._raceTrackChipLayer;
       }
 
+      public get betCombination() {
+        return this._betCombination;
+      }
+
       public initBetCombination(chipLayer: we.ui.ChipLayer) {
         const page2Group = this.pageStack.getChildAt(1) as eui.Group;
-        const betCombination = new we.ui.BetCombination();
-        betCombination.chipLayer = chipLayer;
-        page2Group.addChild(betCombination);
+        this._betCombination = new we.ui.BetCombination();
+        this._betCombination.chipLayer = chipLayer;
+        this._betCombination.verticalCenter = 0;
+        this._betCombination.horizontalCenter = 0;
+        page2Group.addChild(this._betCombination);
       }
 
       public initRaceTrack(chipLayer: we.ui.ChipLayer, tableLayer: we.ui.TableLayer) {

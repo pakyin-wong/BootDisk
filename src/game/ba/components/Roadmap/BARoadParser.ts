@@ -56,7 +56,7 @@ namespace we {
         this.dispatchEvent(new egret.Event('onUpdate'));
       }
 
-      private doParseRoads(rawResult: any) {
+      protected doParseRoads(rawResult: any) {
         this.doParseBeadRoad(rawResult);
         this.doParseBigRoad();
         this.doParseBigEyeRoad();
@@ -198,7 +198,11 @@ namespace we {
           roadCol = i;
           roadRow = 0;
           let turn = false;
-          for (const inElement of colArr) {
+          for (let c = 0; c < colArr.length; c++) {
+            if (c >= 6 + maxCol - 1) {
+              break;
+            }
+            const inElement = colArr[c];
             inElement.columnResultIndex = i;
             // get the corresponding elements from column result
             let found = false;
@@ -262,7 +266,11 @@ namespace we {
           roadCol = i - minIndex;
           roadRow = 0;
           let turn = false;
-          for (const inElement of colArr) {
+          for (let c = 0; c < colArr.length; c++) {
+            if (c >= 6 + maxCol - 1) {
+              break;
+            }
+            const inElement = colArr[c];
             inElement.columnResultIndex = i;
             // get the corresponding elements from column result
             let found = false;
@@ -361,6 +369,9 @@ namespace we {
         const predictResults = [];
         try {
           predictDataArr.forEach(predictData => {
+            if (!predictData) {
+              return;
+            }
             for (let i = 0; i < roadIndexArr.length; i++) {
               if (predictData[aniIndexArr[i]] > -1) {
                 const dataV = predictData[roadIndexArr[i]][predictData[aniIndexArr[i]]].v;
@@ -496,14 +507,14 @@ namespace we {
 
         if (data.gameInfo !== undefined) {
           road.gameInfo = [];
-          if (data.gametype === core.GameType.RO) {
-            for (const i in data.gameInfo) {
-              road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
-            }
-          } else {
+          if (Array.isArray(data.gameInfo)) {
             data.gameInfo.forEach(element => {
               road.gameInfo.push(BARoadParser.CreateRoadmapGameInfoFromObject(element));
             });
+          } else {
+            for (const i in data.gameInfo) {
+              road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
+            }
           }
         }
 
@@ -586,6 +597,14 @@ namespace we {
           });
         }
 
+        // di
+        if (data.sum !== undefined) {
+          roadSet.sum = [];
+          data.sum.forEach(element => {
+            roadSet.sum.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
         return roadSet;
       }
 
@@ -604,6 +623,12 @@ namespace we {
           if (data.w !== undefined) {
             roadCell.w = data.w;
           }
+
+          // di
+          if (data.dice !== undefined) {
+            roadCell.dice = data.dice;
+          }
+
           if (data.gameRoundID !== undefined) {
             roadCell.gameRoundID = data.gameRoundID;
           }
@@ -643,13 +668,18 @@ namespace we {
         if (data.result !== undefined) {
           roadInfo.result = data.result;
         }
+        if (data.video !== undefined) {
+          roadInfo.video = data.video;
+        }
 
         // ro
         if (data.v !== undefined) {
           roadInfo.v = data.v;
         }
-        if (data.video !== undefined) {
-          roadInfo.video = data.video;
+
+        // di
+        if (data.dice !== undefined) {
+          roadInfo.dice = data.dice;
         }
 
         return roadInfo;

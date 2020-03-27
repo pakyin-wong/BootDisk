@@ -9,7 +9,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkin('dt/DTBeadRoadResultPanel');
+        this.skinName = utils.getSkinByClassname('DTBeadRoadResultPanel');
       }
 
       public changeLang() {

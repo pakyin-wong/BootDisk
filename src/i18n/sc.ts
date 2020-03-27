@@ -12,6 +12,7 @@ namespace we {
       gametype_MJ: '麻将',
       gametype_RO: '轮盘',
       gametype_DT: '龙虎',
+      gametype_LW: '幸運轮',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
@@ -90,6 +91,7 @@ namespace we {
       mobile_ba_clear: '清除',
       mobile_ba_double: '双倍',
       mobile_ba_repeat: '再次下注',
+      mobile_game_panel_history: '历史记录',
       mobile_game_panel_road_sheet: '路纸',
       mobile_game_panel_statistic_chart: '统计图表',
       mobile_game_panel_table_info: '本台资讯',
@@ -157,6 +159,7 @@ namespace we {
       },
       live: {
         gametype: {
+          allGame: '全部游戏',
           bacarrat: '百家乐',
           dragontiger: '龙虎',
           luckywheel: '幸运轮',
@@ -183,6 +186,21 @@ namespace we {
         single: '单骰',
         double: '双骰',
         triple: '三骰',
+
+        roadBig: '大',
+        roadSmall: '小',
+        roadOdd: '单',
+        roadEven: '双',
+        bigShort: '大',
+        smallShort: '小',
+        oddShort: '单',
+        evenShort: '双',
+        tripleShort: '围',
+        history: '历史记录',
+        roadmap: '路纸',
+        total: '和值',
+        gameStats: '结果统计',
+        dicePercent: '骰子机率',
       },
       roulette: {
         row_1: '第一行',
@@ -217,24 +235,31 @@ namespace we {
         roadmap: '路纸',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
-        distribution: { text: '散布', x: 60 },
+        distribution: {
+          text: '散布',
+          x: 60,
+        },
         tiers: {
           text: '轮盘下角注',
           x: 23,
         },
-
         orphelins: {
           text: '轮上孤注',
           x: 62,
         },
-
         voisins: {
           text: '零旁注上角',
           x: 16,
         },
-
         zero: {
           text: '轮上零旁',
+        },
+        betGroup: {
+          color: '红 / 黑',
+          oddeven: '单 / 双',
+          size: '大 / 小',
+          column: '下注一打',
+          row: '行注',
         },
       },
       goodroad: {
@@ -248,6 +273,9 @@ namespace we {
         r8: '逢闲黐',
         r9: '拍拍黐',
         r10: '逢庄唔黐',
+      },
+      luckywheel: {
+        pool: '即时彩池',
       },
       game: {
         startBet: '开始下注',
@@ -268,7 +296,6 @@ namespace we {
         superSix: '超级六',
         banker: '庄',
         bankerShort: '庄',
-        noComm: '免佣',
         tableInfo: '本台资讯',
         tableNo: '台号',
         roundNo: '局号',

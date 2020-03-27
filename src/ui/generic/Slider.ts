@@ -14,7 +14,7 @@ namespace we {
 
       constructor() {
         super();
-        //  this.skinName = utils.getSkin(this.customSkin);
+        //  this.skinName = utils.getSkinByClassname(this.customSkin);
       }
 
       protected mount() {
@@ -33,6 +33,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this._toggle.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onToggleClick, this);
       }
 

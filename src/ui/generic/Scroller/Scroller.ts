@@ -96,7 +96,7 @@ namespace we {
           this.scrollPolicyV = eui.ScrollPolicy.OFF;
           this.scrollPolicyH = eui.ScrollPolicy.OFF;
         }
-        this.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
+        this.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
         this.verticalScrollBar.autoVisibility = false;
         if (this._isCollapsible && this.collapseOnStart) {
           this.verticalScrollBar.visible = false;
@@ -270,14 +270,24 @@ namespace we {
       protected updateDisplayList(unscaledWidth: number, unscaledHeight: number): void {
         super.updateDisplayList(unscaledWidth, unscaledHeight);
         this.validateNow();
-        let thumbSize = (this.viewport.height / this.viewport.contentHeight) * this.viewport.height;
-        thumbSize = Math.max(thumbSize, 100);
-        this.verticalScrollBar.thumb.height = thumbSize;
+        if (this.viewport) {
+          let thumbSize = (this.viewport.height / this.viewport.contentHeight) * this.viewport.height;
+          thumbSize = Math.max(thumbSize, 100);
+          this.verticalScrollBar.thumb.height = thumbSize;
 
-        if ((this._isCollapsible && this.collapseAddon.isAnimating) || this.height === 0 || (this.viewport.contentHeight <= this.maxHeight && this.viewport.contentHeight <= this.height)) {
-          this.verticalScrollBar.visible = false;
+          if ((this._isCollapsible && this.collapseAddon.isAnimating) || this.height === 0 || (this.viewport.contentHeight <= this.maxHeight && this.viewport.contentHeight <= this.height)) {
+            this.verticalScrollBar.visible = false;
+          } else {
+            this.verticalScrollBar.visible = true;
+          }
         } else {
-          this.verticalScrollBar.visible = true;
+          this.verticalScrollBar.thumb.height = 100;
+
+          if ((this._isCollapsible && this.collapseAddon.isAnimating) || this.height === 0) {
+            this.verticalScrollBar.visible = false;
+          } else {
+            this.verticalScrollBar.visible = true;
+          }
         }
       }
     }

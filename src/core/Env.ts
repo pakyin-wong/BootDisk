@@ -12,7 +12,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.2.7';
+      public version: string = '0.3.0';
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
@@ -123,19 +123,16 @@ namespace we {
           if (!tableInfo) {
             return false;
           }
+
           const gameType = tableInfo.gametype;
-          // if (gameType === core.GameType.DT || gameType === core.GameType.RO) {
-          //   tableInfo.displayReady = false;
-          //   return false;
-          // }
-          if (gameType === core.GameType.RO) {
+          if (gameType === core.GameType.DI || gameType === core.GameType.LW) {
             tableInfo.displayReady = false;
             return false;
           }
         }
 
         if (tableInfo && !tableInfo.displayReady) {
-          if (tableInfo.data != null && tableInfo.roadmap != null) {
+          if (tableInfo.data != null /* && tableInfo.roadmap != null*/) {
             tableInfo.displayReady = true;
             return true;
           }
@@ -166,8 +163,11 @@ namespace we {
           case core.GameType.DI:
             dir.sceneCtr.goto('di', { tableid: tableId });
             break;
+          case core.GameType.LW:
+            dir.sceneCtr.goto('lw', { tableid: tableId });
+            break;
           default:
-            console.error('error in TableListItemHolder');
+            logger.e(`Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             break;
         }
       }

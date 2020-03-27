@@ -19,7 +19,7 @@ namespace we {
       protected _targetTableInfo;
 
       public constructor(data: any = null) {
-        super('test/RoadmapControlTestPageSkin', data);
+        super('RoadmapControlTestPageSkin', data);
       }
 
       public onEnter() {
@@ -104,7 +104,7 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._targetTableId) {
             this._roadmapControl.updateRoadData();
             this._roadmapControl2.updateRoadData();

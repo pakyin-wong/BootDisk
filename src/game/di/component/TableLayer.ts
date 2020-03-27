@@ -58,6 +58,16 @@ namespace we {
       protected _groupMapping: {};
       protected _groupHoverImageMapping: {};
 
+      protected _bigrow_1: eui.Group;
+      protected _bigrow_2: eui.Group;
+      protected _bigrow_3: eui.Group;
+      protected _label_group_1: eui.Group;
+      protected _label_group_2: eui.Group;
+      protected _label_group_3: eui.Group;
+      protected _specific_odd_group: eui.Group;
+      protected _specific_row_bg: eui.Image;
+      protected _specific_row_bg_odd: eui.Image;
+
       constructor() {
         super();
         this._betField = ro.BetField;
@@ -148,6 +158,144 @@ namespace we {
         Object.keys(di.BetField).map(value => {
           this.onRollout(value);
         });
+      }
+
+      public async animateToState(collapsed: boolean) {
+        const time = 3000;
+        const tweenPromises = [];
+        for (let i = 1; i <= 3; i += 1) {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this[`_label_group_${i}`])
+              .to({ scaleY: collapsed ? 0 : 1 }, 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        }
+        const border = 2;
+        const sizeTransform = {};
+        // row 1
+        sizeTransform['_bigrow_1'] = [
+          { height: 143 }, // collapse
+          { height: 150 }, // expand
+        ];
+        // row 2
+        sizeTransform['_bigrow_2'] = [
+          { height: 64, y: 144 }, // collapse
+          { height: 67, y: 179 }, // expand
+        ];
+        // row 3
+        sizeTransform['_bigrow_3'] = [
+          { height: 64, y: 209 }, // collapse
+          { height: 109, y: 273 }, // expand
+        ];
+        // perform first 3 row transform
+        Object.keys(sizeTransform).forEach(group => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this[group])
+              .to(collapsed ? sizeTransform[group][0] : sizeTransform[group][1], 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        });
+        // transform dices in row 3
+        this._bigrow_3.$children.forEach(child => {
+          if (!(child instanceof eui.Group)) {
+            return;
+          }
+          const innerGroup = child.$children[0] as eui.Group;
+          innerGroup.layout = collapsed ? new eui.HorizontalLayout() : new eui.VerticalLayout();
+          innerGroup.scaleX = collapsed ? 0.75 : 1;
+          innerGroup.scaleY = collapsed ? 0.75 : 1;
+          logger.l(innerGroup);
+        });
+        // transform last row
+        (() => {
+          for (let i = 1; i <= 6; i += 1) {
+            const promise = new Promise(resolve => {
+              egret.Tween.get(this[`_specific_${i}_group`])
+                .to(
+                  {
+                    width: collapsed ? 228 : 197,
+                    height: collapsed ? 64 : 68,
+                    x: (collapsed ? 0 : 196) + (collapsed ? 228 : 197) * (i - 1) + border,
+                    y: collapsed ? 274 : 411,
+                  },
+                  125
+                )
+                .call(resolve);
+            });
+            tweenPromises.push(promise);
+          }
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this._specific_odd_group)
+              .to(
+                {
+                  width: collapsed ? 0 : 196,
+                  height: collapsed ? 65 : 68,
+                  y: collapsed ? 274 : 411,
+                  visible: collapsed ? false : true,
+                },
+                125
+              )
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+        // transform last row bg odd
+        (() => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this._specific_row_bg_odd)
+              .to(
+                {
+                  width: collapsed ? 0 : 199,
+                  height: collapsed ? 65 : 68,
+                  visible: collapsed ? false : true,
+                  y: collapsed ? 274 : 411,
+                },
+                125
+              )
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+        // transform last row bg
+        (() => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this._specific_row_bg)
+              .to(
+                {
+                  x: collapsed ? 2 : 199,
+                  y: collapsed ? 274 : 411,
+                  width: collapsed ? 1384 : 1187,
+                  height: collapsed ? 65 : 68,
+                },
+                125
+              )
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+        // transform this.height lastly
+        (() => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this)
+              .to({ height: collapsed ? 338 : 473, anchorOffsetY: collapsed ? -(473 - 338) : 0 }, 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+        // draw border corner radius
+        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
+        if (shape) {
+          this.removeChild(shape);
+        }
+        shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        shape.graphics.drawRoundRect(0, 0, 1386, collapsed ? 338 : 473, 48, 48);
+        shape.graphics.endFill();
+        this.addChild(shape);
+        this.mask = shape;
+        await Promise.all(tweenPromises);
       }
 
       /*

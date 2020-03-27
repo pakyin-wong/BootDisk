@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.di.LiveListItemSkin" width="578" height="388" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:di="we.di.*" xmlns:live="we.live.*"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*"  xmlns:ro="we.di.*" xmlns:live="we.live.*"
         xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_quickBetGroup" width="578" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0">
 		<e:Group width="100%" x="0" y="169" scaleX="1" scaleY="1">
@@ -8,7 +8,7 @@
 			<ui:BetChipSetHorizontal id="_betChipSet" width="310" height="65" anchorOffsetX="0" x="14" scaleX="1" scaleY="1"
 			                         anchorOffsetY="0" verticalCenter="2" navWidth="20" containerPadding="6" />
 			<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
-			                    skinName="ImageButtonSkinLobby" anchorOffsetX="0" />
+			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />
 		</e:Group>
 		<di:LobbyTableLayer id="_tableLayer" width="100%" skinName="skin_desktop.di.LiveListItemTableLayerSkin"
 		                    anchorOffsetY="0" left="0" top="0" />
@@ -16,7 +16,7 @@
 	<e:Group id="_contentContainer" width="100%" height="388" x="0" y="0">
 		<e:Image id="_dealerImage" width="100%" height="249" x="0" y="0" />
 		<e:Rect width="100%" height="139" x="0" bottom="0" fillColor="0xffffff" />
-		<di:DILobbyBeadRoad id="_bigRoad" width="100%" height="139" x="0" roadGridSize="40" roadCol="12" roadRow="3"
+		<ro:ROLobbyBeadRoad id="_bigRoad" width="100%" height="139" x="0" roadGridSize="40" roadCol="12" roadRow="3"
 		                    roadIndentX="4" roadIndentY="2.5" roadOffsetX="8" roadOffsetY="5" roadEmptyColor="0xc1c1c1"
 		                    roadEmptyAlpha="0.2" roadScale="1" bottom="0" />
 		<ui:LobbyQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"

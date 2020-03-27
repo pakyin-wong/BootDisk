@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class SideListItem extends LiveListSimpleItem {
-      protected _bigRoad: we.ba.BetInfoBigRoad;
+      protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetEnable: boolean = false;
@@ -164,7 +164,7 @@ namespace we {
 
       protected gotoScene(evt: egret.Event) {
         const target = this.getActionButton();
-        if (evt.target === target) {
+        if (evt.target === target || !this.holder.isFocus) {
           return;
         }
         dir.socket.enterTable(this.tableId);

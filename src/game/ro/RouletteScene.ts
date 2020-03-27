@@ -29,7 +29,7 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
       }
 
       public getTableLayer() {
@@ -66,6 +66,10 @@ namespace we {
         if (this._rightGamePanel.raceTrackChipLayer) {
           this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
           this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
+        }
+        if (this._rightGamePanel.betCombination) {
+          this._rightGamePanel.betCombination.touchEnabled = enable;
+          this._rightGamePanel.betCombination.touchChildren = enable;
         }
       }
 

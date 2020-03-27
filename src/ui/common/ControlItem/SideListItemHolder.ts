@@ -29,13 +29,20 @@ namespace we {
           case we.core.GameType.DI:
             generalGameType = 'di';
             break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
 
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
         }
+        const listItem = new we.ui.SideListItem('SideListItemSkin');
+        if (we[generalGameType].SideListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].SideListItemInitHelper();
+        }
 
-        this._displayItem = new we.ui.SideListItem(generalGameType + '.SideListItemSkin');
+        this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
       }
     }
