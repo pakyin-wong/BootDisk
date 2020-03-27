@@ -5,7 +5,7 @@ namespace we {
       private xOffset: number;
       private yOffset: number;
       private iconItemYOffset: number;
-      private iconItemColors: any;
+      private iconItemColors: any; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
       private isExpanded: boolean;
 
       protected layout: number; // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar

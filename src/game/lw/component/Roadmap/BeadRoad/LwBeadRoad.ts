@@ -21,7 +21,7 @@ namespace we {
         _gridColor: number = 0xff0000,
         _gridAlpha: number = 0.2,
         _gridBorderColor: number = 0x00ff00,
-        _showResult: boolean = false,
+        _showResult: boolean = false
       ) {
         super(_numCol, _cellWidth, _scale);
         this.cellWidth = _cellWidth;
@@ -147,8 +147,8 @@ namespace we {
         for (let i = 0; i < n; i++) {
           const icon = this.createIcon(this.gridSize);
           icon.setByObject({});
-          icon.x = ((this.cellWidth - this.imageWidth) / 2) + ((this.cellWidth) * (iconIndex % this.numCol));
-          icon.y = ((this.cellHeight - this.imageHeight) / 2) + ((this.cellHeight) * Math.floor(iconIndex / this.numCol));
+          icon.x = (this.cellWidth - this.imageWidth) / 2 + this.cellWidth * (iconIndex % this.numCol);
+          icon.y = (this.cellHeight - this.imageHeight) / 2 + this.cellHeight * Math.floor(iconIndex / this.numCol);
           this.addChild(icon);
           this.roadMapIconList.push(icon);
           iconIndex++;

@@ -22,14 +22,13 @@ namespace we {
         this.imageHighLight.y = -2;
         this.imageHighLight.width = this.iconWidth + 4;
         this.imageHighLight.height = this.iconHeight + 4;
-        this.imageHighLight.source = "d_mw_history_result_hl_png";
+        this.imageHighLight.source = 'd_lw_history_record_hl_png';
         this.addChild(this.imageHighLight);
-
 
         this.image = new eui.Image();
         this.image.width = this.iconWidth;
         this.image.height = this.iconHeight;
-        this.image.source = "d_ba_betarea_banker_normal_png";
+        this.image.source = 'd_lw_game_detail_record_bet_east_png';
         this.addChild(this.image);
       }
 
@@ -38,12 +37,20 @@ namespace we {
         this.value = value;
         if (value.v != null) {
           this.image.visible = true;
-          if (value.v === "01") {
-            this.image.source = "d_mw_history_result_red_png";
-          } else if (value.v === "02") {
-            this.image.source = "d_mw_history_result_green_png";
-          } else if (value.v === "03") {
-            this.image.source = "d_mw_history_result_five_png";
+          if (value.v === '01') {
+            this.image.source = 'd_lw_game_detail_record_bet_east_png';
+          } else if (value.v === '02') {
+            this.image.source = 'd_lw_game_detail_record_bet_south_png';
+          } else if (value.v === '03') {
+            this.image.source = 'd_lw_game_detail_record_bet_west_png';
+          } else if (value.v === '04') {
+            this.image.source = 'd_lw_game_detail_record_bet_north_png';
+          } else if (value.v === '05') {
+            this.image.source = 'd_lw_game_detail_record_bet_red_png';
+          } else if (value.v === '06') {
+            this.image.source = 'd_lw_game_detail_record_bet_green_png';
+          } else if (value.v === '07') {
+            this.image.source = 'd_lw_game_detail_record_bet_white_png';
           }
         }
       }
