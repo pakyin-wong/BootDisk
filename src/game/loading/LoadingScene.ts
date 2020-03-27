@@ -36,7 +36,7 @@ namespace we {
       /** Step 2: Init Loading Scene UI */
       private initSkin() {
         this.once(eui.UIEvent.COMPLETE, this.next, this);
-        this.skinName = utils.getSkinByClassname('LoadingScene');
+        this.skinName = utils.getSkinByClassname('LoadingScene', true);
       }
 
       private preload() {
@@ -201,6 +201,10 @@ namespace we {
           return;
         }
         this.flow[this.step++].call(this);
+      }
+
+      protected onOrientationChange() {
+        super.updateSkin('LoadingScene', true);
       }
     }
   }
