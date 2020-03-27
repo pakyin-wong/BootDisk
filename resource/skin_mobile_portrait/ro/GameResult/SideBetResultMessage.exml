@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ro.SideBetResultMessage" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="1140"
+        height="294">
+	<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.5"/>
+        <e:Image id="_resultImage" verticalCenter="0" horizontalCenter="0" width="294" height="294" />
+        <e:Label id="_resultLabel" size="120" text="0" verticalCenter="0" horizontalCenter="0" />
+        <e:Label id="_resultLeftLabel" size="120" text="0" verticalCenter="0" horizontalCenter="-350" />
+        <e:Label id="_resultRightLabel" size="120" text="0" verticalCenter="0" horizontalCenter="350" />
+</e:Skin>

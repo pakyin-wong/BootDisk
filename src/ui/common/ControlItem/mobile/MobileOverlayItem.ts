@@ -4,6 +4,9 @@ namespace we {
     export class MobileOverlayItem extends ControlItem {
       protected _contentContainer: eui.Group;
       protected _betChipSetPanel: eui.Group;
+
+      protected _roMobileRoadMap: ui.MobileROLiveListItem;
+
       protected _roadmapControl: ba.BARoadmapControl;
       protected _roadsContainer: eui.Group;
       protected _bigRoadMap: ba.BABigRoad;

@@ -923,6 +923,10 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }

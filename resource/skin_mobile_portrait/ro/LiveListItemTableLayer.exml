@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ro.LiveListItemBettingTableSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Group x="0" y="0">
-		<e:Rect width="570" height="147" x="0" y="0" fillColor="0xad3737"/>
-		<ui:RunTimeLabel id="_oddLabel" size="48" horizontalCenter="0" verticalCenter="0" text="單" bold="true"/>
+<e:Skin class="skin_mobile_portrait.ro.LiveListItemBettingTableSkin"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*"
+        states="Normal">
+	<e:Group id="_odd_group" x="0" y="0">
+		<e:Image id="_odd_image" width="570" height="147"
+		         name="m_ro_roadmap_red_box_png"  source="m_ro_roadmap_light_blue_box_png"/>
+		<ui:RunTimeLabel id="_odd_label" size="48" horizontalCenter="0" verticalCenter="0" text="單" bold="true"/>
 	</e:Group>
-
-	<e:Group x="570" y="0">
-		<e:Rect width="570" height="147" x="0" y="0" fillColor="0x305acc"/>
-		<ui:RunTimeLabel id="_evenLabel" size="48" text="雙" horizontalCenter="0" verticalCenter="0" bold="true"/>
+	<e:Group id="_even_group" x="570" y="0">
+		<e:Image id="_even_image"
+		         name="m_ro_roadmap_red_box_png" width="570" height="147"  source="m_ro_roadmap_light_red_box_png"/>
+		<ui:RunTimeLabel id="_even_label" size="48" text="雙" horizontalCenter="0" verticalCenter="0" bold="true"/>
 	</e:Group>
-	<e:Rect width="1140" height="147" x="0" y="147" fillColor="0x192f4b"/>
-	<e:Image width="80" height="80" source="m_lobby_ro_history_red_Rectangle_png" horizontalCenter="-283" verticalCenter="71.5"/>
-	<e:Image width="80" height="80" source="m_lobby_ro_history_black_Rectangle_png" horizontalCenter="284" verticalCenter="71.5"/>
+	<e:Group id="_red_group" x="0" y="147" width="570" height="147">
+		<e:Image id="_red_image"
+		         name="m_ro_roadmap_red_box_png" width="100%" height="100%"  source="m_ro_roadmap_light_red_box_png"/>
+	</e:Group>
+	<e:Group id="_black_group" x="570" y="147" width="570" height="147">
+		<e:Image id="_black_image"
+		         name="m_ro_roadmap_red_box_png" width="100%" height="100%"  source="m_ro_roadmap_black_box_png"/>
+	</e:Group>
 </e:Skin>
