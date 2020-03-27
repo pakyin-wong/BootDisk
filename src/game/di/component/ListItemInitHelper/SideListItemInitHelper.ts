@@ -27,7 +27,7 @@ namespace we {
         bigRoad.roadOffsetX = 12;
         bigRoad.roadOffsetY = 5;
         bigRoad.roadIconItemYOffset = 4;
-        bigRoad.roadIconItemColors = [0xe4493a, 0x6dd400, 0x2da1fe, 0xededed, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
+        bigRoad.roadIconItemColors = [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;
