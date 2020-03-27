@@ -582,24 +582,26 @@ namespace we {
       }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
-        console.log('SocketComm::createCustomBetCombination title/betOptions ', title, betOptions);
+        console.log('SocketComm::createCustomBetCombination title/betOptions ', title,           betOptions.map(value => {
+            return { field: value.betcode, amount: value.amount };
+          }));
         this.client.createBetTemplate(
           title,
           betOptions.map(value => {
             return { field: value.betcode, amount: value.amount };
           }),
           (data: any[]) => {
-            console.log('SocketComm::createCustomBetCombination data ', data);
             dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
           }
         );
       }
 
       public getBetCombination() {
-        this.client.getBetTemplate((data: any[]) => {
-          console.log('SocketComm::getBetCombination data ', data);
-          dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+          this.client.getBetTemplate((data: any[]) => {
+                    console.log('SocketComm::getBetCombination data ', data);
+                    dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
         });
+
       }
 
       public removeBetCombination(id: string) {

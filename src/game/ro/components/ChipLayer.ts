@@ -673,10 +673,37 @@ namespace we {
         this._groupHoverMapping[fieldName].map(value => this._tableLayer.onRollout(value));
       }
 
-      public onBetFieldUpdateEvent(evt: egret.Event) {
-        super.onBetFieldUpdateEvent(evt);
+      public onBetFieldUpdate(fieldNames: string[], hashkey: string = null) {
+        super.onBetFieldUpdate(fieldNames, hashkey);
         dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, { amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount() });
       }
+
+            protected undoBetFieldUpdate(data: { field: string; amount: number }) {
+              super.undoBetFieldUpdate(data);
+              dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, { amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount() });
+            }
+
+            public onDoublePressed() {
+              super.onDoublePressed();
+              dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, { amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount() });
+
+            }
+      public undoDoubleBetFields(betDetails: data.BetDetail[]) {
+        super.undoDoubleBetFields(betDetails);
+        dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, { amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount() });
+
+      }
+            public onRepeatPressed() {
+              super.onRepeatPressed();
+              dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, { amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount() });
+
+            }
+                  protected undoRepeatBetFields(betDetails: data.BetDetail[]) {
+super.undoRepeatBetFields(betDetails);
+dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, { amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount() });
+
+                  }
+
     }
   }
 }
