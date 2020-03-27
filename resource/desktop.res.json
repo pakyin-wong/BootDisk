@@ -45,7 +45,7 @@
 			"name": "scene_dice"
 		},
 		{
-			"keys": "d_mw_history_result_we_png,d_mw_betarea_five_png,d_mw_history_result_three_png,d_mw_history_result_white_png,d_mw_betarea_one_png,d_mw_betarea_red_png,d_mw_betarea_three_png,d_mw_betarea_green_png,d_mw_betarea_we_png,d_mw_betarea_white_png,d_mw_bg_b_png,d_mw_bg_a_png,d_mw_history_result_five_png,d_mw_history_result_green_png,d_mw_history_result_hl_png,d_mw_history_result_one_png,d_mw_history_result_red_png",
+			"keys": "d_mw_history_result_we_png,d_mw_betarea_five_png,d_mw_history_result_three_png,d_mw_history_result_white_png,d_mw_betarea_one_png,d_mw_betarea_red_png,d_mw_betarea_three_png,d_mw_betarea_green_png,d_mw_betarea_we_png,d_mw_betarea_white_png,d_mw_bg_b_png,d_mw_bg_a_png,d_mw_history_result_five_png,d_mw_history_result_green_png,d_mw_history_result_hl_png,d_mw_history_result_one_png,d_mw_history_result_red_png,d_lw_result_white_png,d_lw_betarea_bet_east_dim_png,d_lw_betarea_bet_east_png,d_lw_betarea_bet_east_hover_png,d_lw_betarea_bet_green_dim_png,d_lw_betarea_bet_green_hover_png,d_lw_betarea_bet_north_png,d_lw_betarea_bet_green_png,d_lw_betarea_bet_north_dim_png,d_lw_betarea_bet_north_hover_png,d_lw_betarea_bet_red_png,d_lw_betarea_bet_red_dim_png,d_lw_betarea_bet_red_hover_png,d_lw_betarea_bet_south_png,d_lw_betarea_bet_south_dim_png,d_lw_betarea_bet_south_hover_png,d_lw_betarea_bet_west_png,d_lw_betarea_bet_west_dim_png,d_lw_betarea_bet_west_hover_png,d_lw_betarea_bet_white_png,d_lw_betarea_bet_white_dim_png,d_lw_betarea_bet_white_hover_png,d_lw_betarea_penal_bg_png,d_lw_betpool_barchart_east_png,d_lw_betpool_barchart_gold_png,d_lw_betpool_barchart_north_png,d_lw_betpool_barchart_south_png,d_lw_betpool_barchart_west_png,d_lw_betpool_barchart_white_png,d_lw_betpool_penal_bg_png,d_lw_game_detail_record_bet_east_png,d_lw_bg_jpg,d_lw_game_detail_record_bet_green_png,d_lw_game_detail_record_bet_north_png,d_lw_game_detail_record_bet_red_png,d_lw_game_detail_record_bet_west_png,d_lw_game_detail_record_bet_south_png,d_lw_game_detail_record_bet_white_png,d_lw_game_detail_record_bg_png,d_lw_history_penal_bg_png,d_lw_history_penal_bgline_png,d_lw_history_penal_grid_left_png,d_lw_history_penal_grid_normal_png,d_lw_history_penal_grid_right_png,d_lw_history_record_east copy 2_png,d_lw_history_record_east copy 3_png,d_lw_history_record_east copy 17_png,d_lw_history_record_east copy 19_png,d_lw_history_record_east copy 22_png,d_lw_history_record_east copy_png,d_lw_history_record_east_png,d_lw_history_record_hl_png,d_lw_listpenal_bet_east_png,d_lw_listpenal_bet_east_dim_png,d_lw_listpenal_bet_green_png,d_lw_listpenal_bet_green_dim_png,d_lw_listpenal_bet_north_png,d_lw_listpenal_bet_north_dim_png,d_lw_listpenal_bet_red_png,d_lw_listpenal_bet_red_dim_png,d_lw_listpenal_bet_south_dim_png,d_lw_listpenal_bet_south_png,d_lw_listpenal_bet_west_png,d_lw_listpenal_bet_west_dim_png,d_lw_listpenal_bet_white_png,d_lw_listpenal_betarea_bet_east_png,d_lw_listpenal_bet_white_dim_png,d_lw_listpenal_betarea_bet_green_png,d_lw_listpenal_betarea_bet_north_png,d_lw_listpenal_betarea_bet_red_png,d_lw_listpenal_betarea_bet_south_png,d_lw_listpenal_betarea_bet_west_png,d_lw_listpenal_betarea_bet_white_png,d_lw_listpenal_history_grid_png,d_lw_listpenal_history_record_east_png,d_lw_listpenal_history_record_green_png,d_lw_listpenal_history_record_hl_png,d_lw_listpenal_history_record_north_png,d_lw_listpenal_history_record_red_png,d_lw_listpenal_history_record_south_png,d_lw_listpenal_history_record_west_png,d_lw_listpenal_history_record_white_png,d_lw_listpenal_result_east_png,d_lw_listpenal_result_green_png,d_lw_listpenal_result_north_png,d_lw_listpenal_result_red_png,d_lw_listpenal_result_west_png,d_lw_listpenal_result_south_png,d_lw_listpenal_result_white_png,d_lw_result_east_png,d_lw_result_green_png,d_lw_result_money_bg_east_png,d_lw_result_money_bg_gold_png,d_lw_result_money_bg_north_png,d_lw_result_money_bg_south_png,d_lw_result_money_bg_west_png,d_lw_result_money_bg_white_png,d_lw_result_north_png,d_lw_result_red_png,d_lw_result_south_png,d_lw_result_west_png",
 			"name": "scene_luckywheel"
 		}
 	],
@@ -3945,6 +3945,511 @@
 			"url": "assets/d/lw/d_mw_history_result_red.png",
 			"type": "image",
 			"name": "d_mw_history_result_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_white.png",
+			"type": "image",
+			"name": "d_lw_result_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_east_dim.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_east_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_east.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_east_hover.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_east_hover_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_green_dim.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_green_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_green_hover.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_green_hover_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_north.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_green.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_north_dim.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_north_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_north_hover.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_north_hover_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_red.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_red_dim.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_red_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_red_hover.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_red_hover_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_south.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_south_dim.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_south_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_south_hover.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_south_hover_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_west.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_west_dim.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_west_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_west_hover.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_west_hover_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_white.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_white_dim.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_white_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_bet_white_hover.png",
+			"type": "image",
+			"name": "d_lw_betarea_bet_white_hover_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betarea_penal_bg.png",
+			"type": "image",
+			"name": "d_lw_betarea_penal_bg_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betpool_barchart_east.png",
+			"type": "image",
+			"name": "d_lw_betpool_barchart_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betpool_barchart_gold.png",
+			"type": "image",
+			"name": "d_lw_betpool_barchart_gold_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betpool_barchart_north.png",
+			"type": "image",
+			"name": "d_lw_betpool_barchart_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betpool_barchart_south.png",
+			"type": "image",
+			"name": "d_lw_betpool_barchart_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betpool_barchart_west.png",
+			"type": "image",
+			"name": "d_lw_betpool_barchart_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betpool_barchart_white.png",
+			"type": "image",
+			"name": "d_lw_betpool_barchart_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_betpool_penal_bg.png",
+			"type": "image",
+			"name": "d_lw_betpool_penal_bg_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_game_detail_record_bet_east.png",
+			"type": "image",
+			"name": "d_lw_game_detail_record_bet_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_bg.jpg",
+			"type": "image",
+			"name": "d_lw_bg_jpg"
+		},
+		{
+			"url": "assets/d/lw/d_lw_game_detail_record_bet_green.png",
+			"type": "image",
+			"name": "d_lw_game_detail_record_bet_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_game_detail_record_bet_north.png",
+			"type": "image",
+			"name": "d_lw_game_detail_record_bet_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_game_detail_record_bet_red.png",
+			"type": "image",
+			"name": "d_lw_game_detail_record_bet_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_game_detail_record_bet_west.png",
+			"type": "image",
+			"name": "d_lw_game_detail_record_bet_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_game_detail_record_bet_south.png",
+			"type": "image",
+			"name": "d_lw_game_detail_record_bet_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_game_detail_record_bet_white.png",
+			"type": "image",
+			"name": "d_lw_game_detail_record_bet_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_game_detail_record_bg.png",
+			"type": "image",
+			"name": "d_lw_game_detail_record_bg_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_penal_bg.png",
+			"type": "image",
+			"name": "d_lw_history_penal_bg_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_penal_bgline.png",
+			"type": "image",
+			"name": "d_lw_history_penal_bgline_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_penal_grid_left.png",
+			"type": "image",
+			"name": "d_lw_history_penal_grid_left_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_penal_grid_normal.png",
+			"type": "image",
+			"name": "d_lw_history_penal_grid_normal_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_penal_grid_right.png",
+			"type": "image",
+			"name": "d_lw_history_penal_grid_right_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east copy 2.png",
+			"type": "image",
+			"name": "d_lw_history_record_east copy 2_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east copy 3.png",
+			"type": "image",
+			"name": "d_lw_history_record_east copy 3_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east copy 17.png",
+			"type": "image",
+			"name": "d_lw_history_record_east copy 17_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east copy 19.png",
+			"type": "image",
+			"name": "d_lw_history_record_east copy 19_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east copy 22.png",
+			"type": "image",
+			"name": "d_lw_history_record_east copy 22_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east copy.png",
+			"type": "image",
+			"name": "d_lw_history_record_east copy_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east.png",
+			"type": "image",
+			"name": "d_lw_history_record_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_hl.png",
+			"type": "image",
+			"name": "d_lw_history_record_hl_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_east.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_east_dim.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_east_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_green.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_green_dim.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_green_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_north.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_north_dim.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_north_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_red.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_red_dim.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_red_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_south_dim.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_south_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_south.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_west.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_west_dim.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_west_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_white.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_betarea_bet_east.png",
+			"type": "image",
+			"name": "d_lw_listpenal_betarea_bet_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_bet_white_dim.png",
+			"type": "image",
+			"name": "d_lw_listpenal_bet_white_dim_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_betarea_bet_green.png",
+			"type": "image",
+			"name": "d_lw_listpenal_betarea_bet_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_betarea_bet_north.png",
+			"type": "image",
+			"name": "d_lw_listpenal_betarea_bet_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_betarea_bet_red.png",
+			"type": "image",
+			"name": "d_lw_listpenal_betarea_bet_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_betarea_bet_south.png",
+			"type": "image",
+			"name": "d_lw_listpenal_betarea_bet_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_betarea_bet_west.png",
+			"type": "image",
+			"name": "d_lw_listpenal_betarea_bet_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_betarea_bet_white.png",
+			"type": "image",
+			"name": "d_lw_listpenal_betarea_bet_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_grid.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_grid_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_record_east.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_record_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_record_green.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_record_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_record_hl.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_record_hl_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_record_north.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_record_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_record_red.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_record_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_record_south.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_record_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_record_west.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_record_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_history_record_white.png",
+			"type": "image",
+			"name": "d_lw_listpenal_history_record_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_result_east.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_result_green.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_result_north.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_result_red.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_result_west.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_result_south.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_listpenal_result_white.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_east.png",
+			"type": "image",
+			"name": "d_lw_result_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_green.png",
+			"type": "image",
+			"name": "d_lw_result_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_money_bg_east.png",
+			"type": "image",
+			"name": "d_lw_result_money_bg_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_money_bg_gold.png",
+			"type": "image",
+			"name": "d_lw_result_money_bg_gold_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_money_bg_north.png",
+			"type": "image",
+			"name": "d_lw_result_money_bg_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_money_bg_south.png",
+			"type": "image",
+			"name": "d_lw_result_money_bg_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_money_bg_west.png",
+			"type": "image",
+			"name": "d_lw_result_money_bg_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_money_bg_white.png",
+			"type": "image",
+			"name": "d_lw_result_money_bg_white_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_north.png",
+			"type": "image",
+			"name": "d_lw_result_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_red.png",
+			"type": "image",
+			"name": "d_lw_result_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_south.png",
+			"type": "image",
+			"name": "d_lw_result_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_result_west.png",
+			"type": "image",
+			"name": "d_lw_result_west_png"
 		}
 	]
 }
