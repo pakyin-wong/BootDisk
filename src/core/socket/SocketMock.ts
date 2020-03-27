@@ -231,7 +231,7 @@ namespace we {
               data.tableid = (++this._tempIdx).toString();
               data.tablename = data.tableid;
               data.state = TableState.ONLINE;
-              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockLwRoadData);
               data.gametype = core.GameType.LW;
 
               data.gamestatistic = this.generateDummyStatistic(data);
@@ -639,6 +639,19 @@ namespace we {
           cde345: { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
           g34345: { gameRoundID: 'g34345', dice1: 3, dice2: 4, dice3: 5, total: 12, odd: 1, size: 1, tie: 0, video: 'null' },
         },
+      };
+
+      // mock lw road data
+      private mockLwRoadData: any = {
+        gametype: 16,
+        tableid: '2',
+        shoeid: '1',
+
+        inGame: {
+          bead: [{ v: '01', gameRoundID: 'cde345' }, { v: '02', gameRoundID: 'g34345' }, { v: '03', gameRoundID: 'g45454' }],
+        },
+
+        gameInfo: { cde345: { gameRoundID: 'cde345', v: '01', video: 'null' }, g34345: { gameRoundID: 'g34345', v: '02', video: 'null' }, g45454: { gameRoundID: 'g45454', v: '03', video: 'null' } },
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {

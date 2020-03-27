@@ -103,6 +103,7 @@ namespace we {
             icon.setByObject(roadDataCopy[i]);
           }
           (this.roadMapIconList[0] as DiBeadRoadIcon).showHighLight();
+          this.expandRoad(this.isExpanded);
         }
       }
     }

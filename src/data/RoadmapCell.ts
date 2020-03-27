@@ -14,13 +14,7 @@ namespace we {
       public gameRoundID?: string;
 
       // di
-      public dice1?: number;
-      public dice2?: number;
-      public dice3?: number;
-      public total?: number;
-      public odd?: number;
-      public size?: number;
-      public tie?: number;
+      public dice?: number[];
     }
   }
 }
