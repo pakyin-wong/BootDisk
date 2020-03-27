@@ -175,11 +175,23 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.di{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
 	class LiveListItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
