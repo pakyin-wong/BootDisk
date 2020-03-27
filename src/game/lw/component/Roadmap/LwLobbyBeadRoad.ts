@@ -3,7 +3,6 @@ namespace we {
     export class LwLobbyBeadRoad extends ui.Panel implements we.ui.ILobbyRoad {
       protected beadRoad: LwBeadRoad;
 
-
       public roadIndentX: number = 0;
       public roadIndentY: number = 0;
 

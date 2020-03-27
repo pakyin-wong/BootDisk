@@ -21,7 +21,7 @@ namespace we {
         _gridColor: number = 0xff0000,
         _gridAlpha: number = 0.2,
         _gridBorderColor: number = 0x00ff00,
-        _showResult: boolean = false,
+        _showResult: boolean = false
       ) {
         super(_numCol, _cellWidth, _scale);
         this.cellWidth = _cellWidth;

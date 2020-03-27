@@ -22,14 +22,13 @@ namespace we {
         this.imageHighLight.y = -2;
         this.imageHighLight.width = this.iconWidth + 4;
         this.imageHighLight.height = this.iconHeight + 4;
-        this.imageHighLight.source = "d_mw_history_result_hl_png";
+        this.imageHighLight.source = 'd_mw_history_result_hl_png';
         this.addChild(this.imageHighLight);
-
 
         this.image = new eui.Image();
         this.image.width = this.iconWidth;
         this.image.height = this.iconHeight;
-        this.image.source = "d_ba_betarea_banker_normal_png";
+        this.image.source = 'd_ba_betarea_banker_normal_png';
         this.addChild(this.image);
       }
 
@@ -38,12 +37,12 @@ namespace we {
         this.value = value;
         if (value.v != null) {
           this.image.visible = true;
-          if (value.v === "01") {
-            this.image.source = "d_mw_history_result_red_png";
-          } else if (value.v === "02") {
-            this.image.source = "d_mw_history_result_green_png";
-          } else if (value.v === "03") {
-            this.image.source = "d_mw_history_result_five_png";
+          if (value.v === '01') {
+            this.image.source = 'd_mw_history_result_red_png';
+          } else if (value.v === '02') {
+            this.image.source = 'd_mw_history_result_green_png';
+          } else if (value.v === '03') {
+            this.image.source = 'd_mw_history_result_five_png';
           }
         }
       }

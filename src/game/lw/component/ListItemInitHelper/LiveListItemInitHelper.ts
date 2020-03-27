@@ -2,16 +2,16 @@ namespace we {
   export namespace lw {
     export class LiveListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
-        const tableLayer = new ro.LobbyTableLayer();
-        tableLayer.skinName = `skin_desktop.ro.LiveListItemTableLayerSkin`;
+        const tableLayer = new lw.TableLayer();
+        tableLayer.skinName = `skin_desktop.lw.LiveListItemTableLayerSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
       }
 
       public generateChipLayer(node: eui.Component) {
-        const chipLayer = new ro.LobbyChipLayer();
-        chipLayer.skinName = `skin_desktop.ro.LiveListItemChipLayerSkin`;
+        const chipLayer = new lw.ChipLayer();
+        chipLayer.skinName = `skin_desktop.lw.LiveListItemChipLayerSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;
@@ -37,4 +37,3 @@ namespace we {
     }
   }
 }
-

@@ -348,6 +348,14 @@ declare module skin_desktop.lw{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.lw{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class LiveListItemTableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class LuckyWheelScene extends eui.Skin{
 	}
@@ -362,6 +370,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class LwRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.lw{
