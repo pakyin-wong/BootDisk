@@ -44,37 +44,6 @@ namespace we {
         this.drawChartArc(70, 500, 300, 1110, 340);
       }
 
-      protected drawRect(a: number, b: number, c: number, x: number, y: number) {
-        const totalAmount = a + b + c;
-        const startA = 0;
-        const startB = 0 + startA;
-        const startC = 232;
-
-        const rectRed: egret.Shape = new egret.Shape();
-        rectRed.graphics.lineStyle(15, 0xab2020);
-        rectRed.graphics.drawRect(startA, y, a, b);
-        rectRed.graphics.endFill();
-        this.addChild(rectRed);
-
-        const rectBlue: egret.Shape = new egret.Shape();
-        rectBlue.graphics.lineStyle(15, 0x607dff);
-        rectBlue.graphics.drawRect(startA, y, a, b);
-        rectBlue.graphics.endFill();
-        this.addChild(rectBlue);
-
-        const rectGreen: egret.Shape = new egret.Shape();
-        rectGreen.graphics.lineStyle(15, 0x2dc85c);
-        rectGreen.graphics.drawRect(startA, y, a, b);
-        rectGreen.graphics.endFill();
-        this.addChild(rectGreen);
-
-        const rectBlack: egret.Shape = new egret.Shape();
-        rectGreen.graphics.lineStyle(15, 0x000000);
-        rectGreen.graphics.drawRect(startA, y, a, b);
-        rectGreen.graphics.endFill();
-        this.addChild(rectGreen);
-      }
-
       protected drawChartArc(a: number, b: number, c: number, x: number, y: number) {
         const totalAmount = a + b + c;
         const angleA = 360 * (a / totalAmount);

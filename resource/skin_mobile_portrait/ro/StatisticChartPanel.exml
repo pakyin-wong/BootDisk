@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.dt.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+<e:Skin class="skin_mobile_portrait.ro.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 			<e:Group id="content" width="100%" height="100%">
 				<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
 				<e:Label id="_leftTitle" text="庄閒和比例" x="197" y="80" scaleX="1" scaleY="1" width="248" height="73" size="44" textAlign="center" verticalAlign="middle" bold="true"/>

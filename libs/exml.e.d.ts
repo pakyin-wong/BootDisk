@@ -1027,6 +1027,10 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class TableInfoPanel extends eui.Skin{
 	}
 }

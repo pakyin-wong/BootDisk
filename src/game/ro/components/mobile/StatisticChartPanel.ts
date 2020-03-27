@@ -40,51 +40,37 @@ namespace we {
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         // this.changeLang();
-        this.drawChartArc(10, 20, 30, 500, 340);
-        this.drawChartArc(70, 500, 300, 1110, 340);
+        this.drawRect(10, 20, 30, 250, 150, 14, true);
+        this.drawRect(70, 500, 300, 250, 350, 14);
       }
 
-      protected drawChartArc(a: number, b: number, c: number, x: number, y: number) {
+      protected drawRect(a: number, b: number, c: number, x: number, y: number, height: number, isBlack: boolean = false) {
         const totalAmount = a + b + c;
-        const angleA = 360 * (a / totalAmount);
-        const angleB = 360 * (b / totalAmount);
-        const angleC = 360 * (c / totalAmount);
+        const widthA = 500 * (a / totalAmount);
+        const widthB = 500 * (b / totalAmount);
+        const widthC = 500 * (c / totalAmount);
 
-        const shapeRed: egret.Shape = new egret.Shape();
-        shapeRed.graphics.lineStyle(15, 0xff6651);
-        shapeRed.graphics.drawArc(x, y, 100, 0, angleA * (Math.PI / 180), false);
-        shapeRed.graphics.endFill();
-        this.addChild(shapeRed);
+        const rectRed: egret.Shape = new egret.Shape();
+        rectRed.graphics.lineStyle(15, 0xab2020);
+        rectRed.graphics.drawRect(x, y, widthA, height);
+        rectRed.graphics.endFill();
+        this.addChild(rectRed);
 
-        const shapeBlue: egret.Shape = new egret.Shape();
-        shapeBlue.graphics.lineStyle(15, 0x3c38ff);
-        shapeBlue.graphics.drawArc(x, y, 100, angleA * (Math.PI / 180), (angleA + angleB) * (Math.PI / 180), false);
-        shapeBlue.graphics.endFill();
-        this.addChild(shapeBlue);
+        const rectBlue: egret.Shape = new egret.Shape();
+        rectBlue.graphics.lineStyle(15, 0x607dff);
+        rectBlue.graphics.drawRect(x + widthA, y, widthB, height);
+        rectBlue.graphics.endFill();
+        this.addChild(rectBlue);
 
-        const shapeGreen: egret.Shape = new egret.Shape();
-        shapeGreen.graphics.lineStyle(15, 0x1f86c);
-        shapeGreen.graphics.drawArc(x, y, 100, (angleA + angleB) * (Math.PI / 180), (angleA + angleB + angleC) * (Math.PI / 180), false);
-        shapeGreen.graphics.endFill();
-        this.addChild(shapeGreen);
-
-        // const shapeRedPair: egret.Shape = new egret.Shape();
-        // shapeRedPair.graphics.lineStyle(15, 0xff6651);
-        // shapeRedPair.graphics.drawArc(1110, 340, 100, 0, 120 * (Math.PI / 180), false);
-        // shapeRedPair.graphics.endFill();
-        // this.addChild(shapeRedPair);
-
-        // const shapeBluePair: egret.Shape = new egret.Shape();
-        // shapeBluePair.graphics.lineStyle(15, 0x3c38ff);
-        // shapeBluePair.graphics.drawArc(1110, 340, 100, 120 * (Math.PI / 180), 240 * (Math.PI / 180), false);
-        // shapeBluePair.graphics.endFill();
-        // this.addChild(shapeBluePair);
-
-        // const shapeGreenPair: egret.Shape = new egret.Shape();
-        // shapeGreenPair.graphics.lineStyle(15, 0x1f86c);
-        // shapeGreenPair.graphics.drawArc(1110, 340, 100, 240 * (Math.PI / 180), 360 * (Math.PI / 180), false);
-        // shapeGreenPair.graphics.endFill();
-        // this.addChild(shapeGreenPair);
+        const rectGreen: egret.Shape = new egret.Shape();
+        if (isBlack) {
+          rectGreen.graphics.lineStyle(15, 0x2dc85c);
+        } else {
+          rectGreen.graphics.lineStyle(15, 0x000000);
+        }
+        rectGreen.graphics.drawRect(x + 500 - widthC, y, widthC, height);
+        rectGreen.graphics.endFill();
+        this.addChild(rectGreen);
       }
 
       public changeLang() {
