@@ -1,12 +1,12 @@
 namespace we {
   export namespace ui {
     export class BetChipSetGrid extends BetChipSet {
-      private _numberOfChipsInRow = 4;
       private _chipsetList: ui.List;
       private _chipsetLayout: eui.AnimTileLayout;
       private _normalGapSize: number = 15;
       private _setSelectedChip: (value: number, index: number) => void;
 
+      public numChipsInRow: number = 4;
       public betChipHeight: number = 56;
       public betChipWidth: number = 70;
       public labelSize: number = 30;
@@ -18,7 +18,7 @@ namespace we {
         this._chipsetLayout.horizontalGap = this._normalGapSize;
         this._chipsetLayout.verticalGap = this._normalGapSize;
         this._chipsetLayout.paddingBottom = this._normalGapSize;
-        this._chipsetLayout.requestedColumnCount = this._numberOfChipsInRow;
+        this._chipsetLayout.requestedColumnCount = this.numChipsInRow;
 
         this._chipsetList = new ui.List();
         this._chipsetList.layout = this._chipsetLayout;
@@ -30,6 +30,7 @@ namespace we {
       }
 
       public init(format: any, denomList: number[]) {
+        this._chipsetLayout.requestedColumnCount = this.numChipsInRow;
         this.resetDenominationList(denomList);
       }
 
@@ -39,6 +40,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this._chipsetList.removeEventListener(eui.UIEvent.CHANGE, this.onChipChange, this);
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.updateSelectedChip, this);
       }

@@ -39,7 +39,7 @@ namespace we {
       protected pieSize: we.di.RankedPieChart;
 
       public constructor(skin?: string) {
-        super(skin ? skin : env.isMobile ? '' : 'di/DiRightPanel');
+        super(skin ? skin : env.isMobile ? '' : 'DiRightPanel');
       }
 
       public changeLang() {

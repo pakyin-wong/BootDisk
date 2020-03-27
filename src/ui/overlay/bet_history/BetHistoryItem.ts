@@ -17,7 +17,7 @@ namespace we {
 
         public constructor() {
           super();
-          this.skinName = utils.getSkin('overlay/BetHistoryItem');
+          this.skinName = utils.getSkinByClassname('BetHistoryItem');
         }
 
         protected childrenCreated(): void {

@@ -5,7 +5,7 @@ namespace we {
       private xOffset: number;
       private yOffset: number;
       private iconItemYOffset: number;
-      private iconItemColors: any;
+      private iconItemColors: any; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
       private isExpanded: boolean;
 
       protected layout: number; // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar
@@ -25,6 +25,7 @@ namespace we {
         this.roadMapIconList.forEach(element => {
           (element as DiBeadRoadIcon).setLayout(this.layout);
         });
+        this.parseRoadData(this.roadData);
       }
       protected createIcon(size: number): DiBeadRoadIcon {
         const icon = new DiBeadRoadIcon(size, this.iconItemYOffset, this.iconItemColors);
@@ -35,13 +36,14 @@ namespace we {
       protected renderGrid() {}
 
       public expandRoad(expand: boolean) {
-        if (this.roadMapIconList) {
+        if (this.roadMapIconList && this.roadData) {
+          const min = Math.min(this.roadData.length, this.roadMapIconList.length);
           if (expand) {
-            for (let i = this.numCol; i < this.roadMapIconList.length; i++) {
+            for (let i = this.numCol; i < min; i++) {
               this.roadMapIconList[i].visible = true;
             }
           } else {
-            for (let i = this.numCol; i < this.roadMapIconList.length; i++) {
+            for (let i = this.numCol; i < min; i++) {
               this.roadMapIconList[i].visible = false;
             }
           }
@@ -101,6 +103,7 @@ namespace we {
             icon.setByObject(roadDataCopy[i]);
           }
           (this.roadMapIconList[0] as DiBeadRoadIcon).showHighLight();
+          this.expandRoad(this.isExpanded);
         }
       }
     }

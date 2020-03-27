@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.dt.TableInfoPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+<e:Skin class="skin_mobile_portrait.ro.TableInfoPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" top="0" width="100%" height="100%">
 		<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1"
 		         fillColor="0x212425"/>
@@ -25,15 +25,16 @@
 			<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png"/>
 		</e:Group>
 		<ui:RunTimeLabel id="pBetLimit" text="Label" x="311" y="385" width="304" height="74" size="44" bold="true" verticalAlign="middle" textAlign="center"/>
-		<e:Label id="pDragon" text="-" y="86" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
-		<e:Label id="pTiger" text="-" y="160" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
-		<e:Label id="pTie" text="-" y="240" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
 
-
-		<e:Label id="dragonLabel" text="龍" y="80" textAlign="left" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
-		<e:Label id="tigerLabel" text="虎" y="158" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
-		<e:Label id="tieLabel" text="和" y="236" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
-
-
-	</e:Group>
+		<e:Label id="pColor" text="-" y="86" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pOddeven" text="-" y="160" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pSize" text="-" y="240" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pColumnbet" text="-" y="320" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pRowbet" text="-" y="400" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="colorLabel" text="紅 / 黑" y="80" textAlign="left" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
+		<e:Label id="oddevenLabel" text="單 / 雙" y="158" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
+		<e:Label id="sizeLabel" text="大 / 小" y="236" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
+		<e:Label id="columnbetLabel" text="下注一打" y="314" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
+		<e:Label id="rowbetLabel" text="行注" y="392" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
+		</e:Group>
 </e:Skin>

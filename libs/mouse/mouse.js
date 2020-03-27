@@ -63,6 +63,7 @@ var mouse;
             var $hitTest = egret.DisplayObjectContainer.prototype.$hitTest;
             var touchChildrenLock = 0;
             egret.DisplayObjectContainer.prototype.$hitTest = function (stageX, stageY) {
+                if (!this.$touchEnabled && !this.$touchChildren) return null;
                 !this.$touchChildren && touchChildrenLock++;
                 var rs = $hitTest.call(this, stageX, stageY);
                 !this.$touchChildren && touchChildrenLock--;

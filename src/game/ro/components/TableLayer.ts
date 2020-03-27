@@ -422,6 +422,10 @@ namespace we {
       }
 
       public onRollover(fieldName: string) {
+        if (env.isMobile) {
+          return;
+        }
+
         const group = this._groupMapping[fieldName];
 
         let image = group.getChildByName('image');
@@ -438,6 +442,10 @@ namespace we {
       }
 
       public onRollout(fieldName: string) {
+        if (env.isMobile) {
+          return;
+        }
+
         const group = this._groupMapping[fieldName];
         if (!group) {
           return;

@@ -9,7 +9,7 @@ namespace we {
       private txt_darkMode: ui.RunTimeLabel;
 
       public constructor() {
-        super('overlay/ModeSelect');
+        super('ModeSelect');
       }
 
       protected mount() {
@@ -20,6 +20,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this.removeListeners();
       }
 
@@ -41,7 +42,7 @@ namespace we {
         this.txt_selectMode.renderText = () => `${i18n.t('nav.menu.selectMode')}`;
         this.txt_lightMode.renderText = () => `${i18n.t('nav.menu.whiteMode')}`;
         this.txt_darkMode.renderText = () => `${i18n.t('nav.menu.darkMode')}`;
-        (<ui.BaseImageButton> this.close).label.renderText = () => `${i18n.t('nav.menu.confirm')}`;
+        (<ui.BaseImageButton>this.close).label.renderText = () => `${i18n.t('nav.menu.confirm')}`;
       }
 
       private addListeners() {

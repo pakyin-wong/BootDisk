@@ -55,6 +55,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.syncChip, this);
       }
 

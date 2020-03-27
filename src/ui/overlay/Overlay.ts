@@ -10,13 +10,28 @@ namespace we {
         this._overlayMask = new egret.Shape();
       }
 
-      protected mount() {
+      // protected mount() {
+      //   this.width = this.stage.stageWidth;
+      //   this.height = this.stage.stageHeight;
+      //   this._overlayMask.graphics.beginFill(0x000000, 0.7);
+      //   this._overlayMask.graphics.drawRect(0, 0, this.width, this.height);
+      //   this._overlayMask.graphics.endFill();
+      //   this.addListeners();
+      // }
+
+      protected initComponents() {
+        super.initComponents();
+        this.addListeners();
+      }
+
+      // set the position of the children components
+      protected arrangeComponents() {
+        super.arrangeComponents();
         this.width = this.stage.stageWidth;
         this.height = this.stage.stageHeight;
         this._overlayMask.graphics.beginFill(0x000000, 0.7);
         this._overlayMask.graphics.drawRect(0, 0, this.width, this.height);
         this._overlayMask.graphics.endFill();
-        this.addListeners();
       }
 
       protected addListeners() {

@@ -369,6 +369,9 @@ namespace we {
         const predictResults = [];
         try {
           predictDataArr.forEach(predictData => {
+            if (!predictData) {
+              return;
+            }
             for (let i = 0; i < roadIndexArr.length; i++) {
               if (predictData[aniIndexArr[i]] > -1) {
                 const dataV = predictData[roadIndexArr[i]][predictData[aniIndexArr[i]]].v;
@@ -504,14 +507,14 @@ namespace we {
 
         if (data.gameInfo !== undefined) {
           road.gameInfo = [];
-          if (data.gametype === core.GameType.RO) {
-            for (const i in data.gameInfo) {
-              road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
-            }
-          } else {
+          if (Array.isArray(data.gameInfo)) {
             data.gameInfo.forEach(element => {
               road.gameInfo.push(BARoadParser.CreateRoadmapGameInfoFromObject(element));
             });
+          } else {
+            for (const i in data.gameInfo) {
+              road.gameInfo[i] = BARoadParser.CreateRoadmapGameInfoFromObject(data.gameInfo[i]);
+            }
           }
         }
 
@@ -572,6 +575,36 @@ namespace we {
           roadSet.roachAni = data.roachAni;
         }
 
+        // ro
+        if (data.color !== undefined) {
+          roadSet.color = [];
+          data.color.forEach(element => {
+            roadSet.color.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.size !== undefined) {
+          roadSet.size = [];
+          data.size.forEach(element => {
+            roadSet.size.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        if (data.odd !== undefined) {
+          roadSet.odd = [];
+          data.odd.forEach(element => {
+            roadSet.odd.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
+        // di
+        if (data.sum !== undefined) {
+          roadSet.sum = [];
+          data.sum.forEach(element => {
+            roadSet.sum.push(BARoadParser.CreateRoadmapCellFromObject(element));
+          });
+        }
+
         return roadSet;
       }
 
@@ -590,6 +623,12 @@ namespace we {
           if (data.w !== undefined) {
             roadCell.w = data.w;
           }
+
+          // di
+          if (data.dice !== undefined) {
+            roadCell.dice = data.dice;
+          }
+
           if (data.gameRoundID !== undefined) {
             roadCell.gameRoundID = data.gameRoundID;
           }
@@ -631,6 +670,16 @@ namespace we {
         }
         if (data.video !== undefined) {
           roadInfo.video = data.video;
+        }
+
+        // ro
+        if (data.v !== undefined) {
+          roadInfo.v = data.v;
+        }
+
+        // di
+        if (data.dice !== undefined) {
+          roadInfo.dice = data.dice;
         }
 
         return roadInfo;

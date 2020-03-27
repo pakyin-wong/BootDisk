@@ -9,7 +9,7 @@ namespace we {
       protected switchModeButton: eui.Component;
 
       public constructor(skin?: string) {
-        super(skin ? skin : env.isMobile ? '' : 'ba/BARoadmapLeftPanel');
+        super(skin ? skin : env.isMobile ? '' : 'BARoadmapLeftPanel');
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;

@@ -9,7 +9,7 @@
     <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="54" text="" size="22" x="70" />
     <ui:RunTimeLabel id="_lblGoodRoad" text="" x="70" y="21" size="24" fontFamily="Barlow" />
     <ui:BaseImageButton id="_btnDismiss" width="122" height="39" x="250" y="8.7" anchorOffsetX="0" anchorOffsetY="0"
-                        skinName="ImageButtonSkinLobby" currentState="lobby_notify_btn_hide" useColorFilter="true" />
+                        skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="lobby_notify_btn_hide" useColorFilter="true" />
     <ui:BaseImageButton id="_btnQuickBet" width="122" height="39" x="250" y="48.01" anchorOffsetX="0" anchorOffsetY="0"
-                        skinName="ImageButtonSkinLobby" currentState="lobby_notify_btn_action" useColorFilter="true" />
+                        skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="lobby_notify_btn_action" useColorFilter="true" />
 </e:Skin>

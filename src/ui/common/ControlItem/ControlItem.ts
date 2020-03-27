@@ -29,17 +29,28 @@ namespace we {
       // this is the component that contain all other child components, use to control the grid size by setting the size of it.
       protected _contentContainer: eui.Group;
 
+      public itemInitHelper: IListItemHelper;
+
       public constructor(skinName: string = null) {
         super();
         if (skinName) {
           this.skinName = utils.getSkinByClassname(skinName);
         }
         this.touchEnabled = true;
+      }
 
+      protected mount() {
+        super.mount();
         this.initChildren();
-
         this.addEventListeners();
       }
+
+      // protected initComponents() {
+      //   super.initComponents();
+      // }
+
+      // protected arrangePosition() {
+      // }
 
       protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
@@ -123,6 +134,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this.removeEventListeners();
       }
 
@@ -137,7 +149,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -192,7 +204,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;

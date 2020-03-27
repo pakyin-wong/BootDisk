@@ -6,7 +6,7 @@ namespace we {
       protected colorRoad: ROColorBigRoad;
       protected sizeRoad: ROSizeBigRoad;
       protected oddRoad: ROOddBigRoad;
-      protected leftPanel: RoLeftPanel;
+      protected leftPanel: IHotColdPanel;
       protected rightPanel: RoRightPanel;
       protected resultPanel: ro.ROBigRoadResultPanel;
       public tableid: string;

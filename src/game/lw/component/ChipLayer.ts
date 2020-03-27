@@ -31,10 +31,10 @@ namespace we {
         this._mouseAreaMapping[lw.BetField.LW_0] = this._oneCircleGroup;
         this._mouseAreaMapping[lw.BetField.LW_1] = this._threeCircleGroup;
         this._mouseAreaMapping[lw.BetField.LW_2] = this._fiveCircleGroup;
-        this._mouseAreaMapping[lw.BetField.LW_3] = this._redDragonBetChipStack;
+        this._mouseAreaMapping[lw.BetField.LW_3] = this._redDragonGroup;
         this._mouseAreaMapping[lw.BetField.LW_4] = this._greenDragonGroup;
         this._mouseAreaMapping[lw.BetField.LW_5] = this._whiteDragonGroup;
-        this._mouseAreaMapping[lw.BetField.LW_6] = this._weBetChipStack;
+        this._mouseAreaMapping[lw.BetField.LW_6] = this._weGroup;
 
         Object.keys(this._mouseAreaMapping).map(value => {
           mouse.setButtonMode(this._mouseAreaMapping[value], true);

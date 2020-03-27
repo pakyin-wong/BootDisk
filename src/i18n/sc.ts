@@ -91,6 +91,7 @@ namespace we {
       mobile_ba_clear: '清除',
       mobile_ba_double: '双倍',
       mobile_ba_repeat: '再次下注',
+      mobile_game_panel_history: '历史记录',
       mobile_game_panel_road_sheet: '路纸',
       mobile_game_panel_statistic_chart: '统计图表',
       mobile_game_panel_table_info: '本台资讯',
@@ -253,6 +254,13 @@ namespace we {
         zero: {
           text: '轮上零旁',
         },
+        betGroup: {
+          color: '红 / 黑',
+          oddeven: '单 / 双',
+          size: '大 / 小',
+          column: '下注一打',
+          row: '行注',
+        },
       },
       goodroad: {
         r1: '长庄',
@@ -265,6 +273,9 @@ namespace we {
         r8: '逢闲黐',
         r9: '拍拍黐',
         r10: '逢庄唔黐',
+      },
+      luckywheel: {
+        pool: '即时彩池',
       },
       game: {
         startBet: '开始下注',

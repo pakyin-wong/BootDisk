@@ -40,7 +40,7 @@ namespace we {
       protected totalCount: number;
 
       public constructor(skin?: string) {
-        super(skin ? skin : env.isMobile ? '' : 'ba/BARoadmapRightPanel');
+        super(skin ? skin : env.isMobile ? '' : 'BARoadmapRightPanel');
       }
 
       protected init() {

@@ -21,7 +21,7 @@ namespace we {
       protected _filter: core.GameType;
 
       constructor() {
-        super('sidegamelist/GamePanelSkin');
+        super('GamePanelSkin');
         this.poppableAddon = new PoppableAddonBottomSilder(this);
       }
 

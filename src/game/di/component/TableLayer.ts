@@ -65,6 +65,8 @@ namespace we {
       protected _label_group_2: eui.Group;
       protected _label_group_3: eui.Group;
       protected _specific_odd_group: eui.Group;
+      protected _specific_row_bg: eui.Image;
+      protected _specific_row_bg_odd: eui.Image;
 
       constructor() {
         super();
@@ -171,25 +173,21 @@ namespace we {
         }
         const border = 2;
         const sizeTransform = {};
-        let incrementOffsetY = 0;
         // row 1
         sizeTransform['_bigrow_1'] = [
-          { height: 143, anchorOffsetY: incrementOffsetY }, // collapse
-          { height: 150, anchorOffsetY: 0 }, // expand
+          { height: 143 }, // collapse
+          { height: 150 }, // expand
         ];
-        incrementOffsetY += 27 + (sizeTransform['_bigrow_1'][1].height - sizeTransform['_bigrow_1'][0].height) - border;
         // row 2
         sizeTransform['_bigrow_2'] = [
-          { height: 62, anchorOffsetY: incrementOffsetY }, // collapse
-          { height: 67, anchorOffsetY: 0 }, // expand
+          { height: 64, y: 144 }, // collapse
+          { height: 67, y: 179 }, // expand
         ];
-        incrementOffsetY += 27 + (sizeTransform['_bigrow_2'][1].height - sizeTransform['_bigrow_2'][0].height) - border;
         // row 3
         sizeTransform['_bigrow_3'] = [
-          { height: 62, anchorOffsetY: incrementOffsetY }, // collapse
-          { height: 103, anchorOffsetY: 0 }, // expand
+          { height: 64, y: 209 }, // collapse
+          { height: 109, y: 273 }, // expand
         ];
-        incrementOffsetY += 27 + (sizeTransform['_bigrow_3'][1].height - sizeTransform['_bigrow_3'][0].height) - border;
         // perform first 3 row transform
         Object.keys(sizeTransform).forEach(group => {
           const promise = new Promise(resolve => {
@@ -218,9 +216,9 @@ namespace we {
                 .to(
                   {
                     width: collapsed ? 228 : 197,
-                    height: collapsed ? 62 : 67,
+                    height: collapsed ? 64 : 68,
                     x: (collapsed ? 0 : 196) + (collapsed ? 228 : 197) * (i - 1) + border,
-                    anchorOffsetY: collapsed ? incrementOffsetY : 0,
+                    y: collapsed ? 274 : 411,
                   },
                   125
                 )
@@ -233,8 +231,43 @@ namespace we {
               .to(
                 {
                   width: collapsed ? 0 : 196,
-                  height: collapsed ? 62 : 67,
-                  anchorOffsetY: collapsed ? incrementOffsetY : 0,
+                  height: collapsed ? 65 : 68,
+                  y: collapsed ? 274 : 411,
+                  visible: collapsed ? false : true,
+                },
+                125
+              )
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+        // transform last row bg odd
+        (() => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this._specific_row_bg_odd)
+              .to(
+                {
+                  width: collapsed ? 0 : 199,
+                  height: collapsed ? 65 : 68,
+                  visible: collapsed ? false : true,
+                  y: collapsed ? 274 : 411,
+                },
+                125
+              )
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+        // transform last row bg
+        (() => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this._specific_row_bg)
+              .to(
+                {
+                  x: collapsed ? 2 : 199,
+                  y: collapsed ? 274 : 411,
+                  width: collapsed ? 1384 : 1187,
+                  height: collapsed ? 65 : 68,
                 },
                 125
               )
@@ -252,7 +285,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }

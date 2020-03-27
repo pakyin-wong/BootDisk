@@ -29,7 +29,7 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
       }
 
       public getTableLayer() {
@@ -67,6 +67,10 @@ namespace we {
           this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
           this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
         }
+        if (this._rightGamePanel.betCombination) {
+          this._rightGamePanel.betCombination.touchEnabled = enable;
+          this._rightGamePanel.betCombination.touchChildren = enable;
+        }
       }
 
       public checkResultMessage() {
@@ -79,7 +83,7 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         if (this.hasBet() && !isNaN(totalWin)) {

@@ -11,11 +11,11 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('SegmentedControlTabItem');
+        this.skinName = utils.getSkinByClassname('SegmentedControl');
       }
 
       public clone() {
-        const clone: SegmentedControlTabItem = <SegmentedControlTabItem> super.clone();
+        const clone: SegmentedControlTabItem = <SegmentedControlTabItem>super.clone();
         clone.data = this.data;
         return clone;
       }

@@ -5,8 +5,6 @@ namespace we {
       protected _contentContainer: eui.Group;
       protected _betChipSetPanel: eui.Group;
 
-      protected _roMobileRoadMap: ui.MobileROLiveListItem;
-
       protected _roadmapControl: ba.BARoadmapControl;
       protected _roadsContainer: eui.Group;
       protected _bigRoadMap: ba.BABigRoad;
@@ -34,7 +32,7 @@ namespace we {
         this._goodRoadLabel.visible = false;
         this._alreadyBetSign.visible = false;
 
-        this.initRoadMap();
+        // this.initRoadMap();
         this._chipLayer.setTouchEnabled(false);
         this._roadmapControl.setTableInfo(this._tableInfo);
 

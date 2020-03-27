@@ -1,6 +1,6 @@
 namespace we {
   export namespace ro {
-    export class RoLeftPanel extends core.BaseGamePanel {
+    export class RoLeftPanel extends core.BaseGamePanel implements IHotColdPanel {
       public beadRoad: ROBeadRoad;
       public colorBigRoad: ROColorBigRoad;
       public sizeBigRoad: ROSizeBigRoad;
@@ -42,7 +42,7 @@ namespace we {
       protected roadStack: eui.ViewStack;
 
       public constructor(skin?: string) {
-        super(skin ? skin : 'ro/RoLeftPanel');
+        super(skin ? skin : env.isMobile ? '' : 'RoLeftPanel');
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;

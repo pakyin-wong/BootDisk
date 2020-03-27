@@ -89,6 +89,10 @@ namespace we {
       public updateLobbyRoadData(roadmapData: any) {
         this._roadmapControl.setTableInfo(this._tableInfo);
       }
+
+      public updateSideBarRoadData(roadmapData: any) {
+        this._roadmapControl.setTableInfo(this._tableInfo);
+      }
     }
   }
 }

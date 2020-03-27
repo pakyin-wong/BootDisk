@@ -34,7 +34,7 @@ namespace we {
         this._btn_date.active = true;
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
-        this._scroller.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
+        this._scroller.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
       }
 
       protected addListeners() {

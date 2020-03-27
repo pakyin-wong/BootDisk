@@ -38,11 +38,12 @@ namespace we {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
       protected destroy() {
+        super.destroy();
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
 
       protected get list(): TableList {
-        return <TableList> this.parent;
+        return <TableList>this.parent;
       }
 
       public changeState(state: number): boolean {

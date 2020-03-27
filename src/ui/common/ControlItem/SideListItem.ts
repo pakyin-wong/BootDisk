@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class SideListItem extends LiveListSimpleItem {
-      protected _bigRoad: we.ba.BetInfoBigRoad;
+      protected _bigRoad: we.ui.ILobbyRoad & eui.Component;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
       protected _quickbetEnable: boolean = false;
@@ -153,7 +153,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);

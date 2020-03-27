@@ -96,7 +96,7 @@ namespace we {
           this.scrollPolicyV = eui.ScrollPolicy.OFF;
           this.scrollPolicyH = eui.ScrollPolicy.OFF;
         }
-        this.verticalScrollBar.skinName = utils.getSkin('ScrollBarVertical');
+        this.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
         this.verticalScrollBar.autoVisibility = false;
         if (this._isCollapsible && this.collapseOnStart) {
           this.verticalScrollBar.visible = false;
@@ -167,8 +167,8 @@ namespace we {
           // only draggable if click on thumb
           return;
         }
-        (<any> window).addEventListener('mousemove', this.onMouseMove, { passive: false });
-        (<any> window).addEventListener('mouseup', this.onMouseUp, { passive: false });
+        (<any>window).addEventListener('mousemove', this.onMouseMove, { passive: false });
+        (<any>window).addEventListener('mouseup', this.onMouseUp, { passive: false });
         const viewHeight = this.viewport.contentHeight - this.height;
         this._initProgress = this.viewport.scrollV / viewHeight;
       }
@@ -186,8 +186,8 @@ namespace we {
       }
 
       private onMouseUp = (event: MouseEvent) => {
-        (<any> window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
-        (<any> window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
+        (<any>window).removeEventListener('mousemove', this.onMouseMove, { passive: false });
+        (<any>window).removeEventListener('mouseup', this.onMouseUp, { passive: false });
         this._firstYForMovement = 0;
       }
 
@@ -203,19 +203,19 @@ namespace we {
       }
 
       private onMouseOver(event: egret.TouchEvent) {
-        (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       private onMouseOut(event: egret.TouchEvent) {
-        (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public disableWheel() {
-        (<any> window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).removeEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public enableWheel() {
-        (<any> window).addEventListener('wheel', this.onMouseWheel, { passive: false });
+        (<any>window).addEventListener('wheel', this.onMouseWheel, { passive: false });
       }
 
       public enableVScroller() {
@@ -270,14 +270,24 @@ namespace we {
       protected updateDisplayList(unscaledWidth: number, unscaledHeight: number): void {
         super.updateDisplayList(unscaledWidth, unscaledHeight);
         this.validateNow();
-        let thumbSize = (this.viewport.height / this.viewport.contentHeight) * this.viewport.height;
-        thumbSize = Math.max(thumbSize, 100);
-        this.verticalScrollBar.thumb.height = thumbSize;
+        if (this.viewport) {
+          let thumbSize = (this.viewport.height / this.viewport.contentHeight) * this.viewport.height;
+          thumbSize = Math.max(thumbSize, 100);
+          this.verticalScrollBar.thumb.height = thumbSize;
 
-        if ((this._isCollapsible && this.collapseAddon.isAnimating) || this.height === 0 || (this.viewport.contentHeight <= this.maxHeight && this.viewport.contentHeight <= this.height)) {
-          this.verticalScrollBar.visible = false;
+          if ((this._isCollapsible && this.collapseAddon.isAnimating) || this.height === 0 || (this.viewport.contentHeight <= this.maxHeight && this.viewport.contentHeight <= this.height)) {
+            this.verticalScrollBar.visible = false;
+          } else {
+            this.verticalScrollBar.visible = true;
+          }
         } else {
-          this.verticalScrollBar.visible = true;
+          this.verticalScrollBar.thumb.height = 100;
+
+          if ((this._isCollapsible && this.collapseAddon.isAnimating) || this.height === 0) {
+            this.verticalScrollBar.visible = false;
+          } else {
+            this.verticalScrollBar.visible = true;
+          }
         }
       }
     }

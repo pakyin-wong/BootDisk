@@ -12,6 +12,9 @@ namespace we {
 
       // index for roadinfo
       public gameRoundID?: string;
+
+      // di
+      public dice?: number[];
     }
   }
 }
