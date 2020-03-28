@@ -26,9 +26,11 @@ namespace we {
         this.beadRoad.x = 19;
         this.beadRoad.y = 2;
 
-        const rdata: any = [];
-        this.beadRoad.parseRoadData(rdata);
         this._roadsContainer.addChild(this.beadRoad);
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        this.updateRoadData(this.tableInfo.roadmap);
       }
 
       public updateRoadData(roadmapData: data.RoadmapData) {
