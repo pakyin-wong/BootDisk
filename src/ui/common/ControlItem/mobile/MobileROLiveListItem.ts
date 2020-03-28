@@ -8,6 +8,7 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
+        this.cacheAsBitmap = true;
       }
 
       protected initCustomPos() {
@@ -25,11 +26,11 @@ namespace we {
         this.beadRoad.x = 19;
         this.beadRoad.y = 2;
 
-        const rdata: any = [];
-        this.beadRoad.parseRoadData(rdata);
         this._roadsContainer.addChild(this.beadRoad);
+      }
 
-        // this._roadmapControl.setRoads(null, this._bigRoadMap, this._bigEyeRoad, this._smallRoad, this._cockroachRoad, [16, 17, 20, 20, 20], null, null, false);
+      protected onRoadDataUpdate(evt: egret.Event) {
+        this.updateRoadData(this.tableInfo.roadmap);
       }
 
       public updateRoadData(roadmapData: data.RoadmapData) {
