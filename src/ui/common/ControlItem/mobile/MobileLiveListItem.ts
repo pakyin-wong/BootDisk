@@ -15,6 +15,36 @@ namespace we {
         super(skinName);
       }
 
+      protected initCustomPos() {
+        this._buttonGroupShowY = 194;
+        this._buttonGroupHideY = 230;
+      }
+
+      protected initChildren() {
+        super.initChildren();
+      }
+
+      public setData(tableInfo: data.TableInfo) {
+        super.setData(tableInfo);
+        if (tableInfo.roadmap) {
+          if (this._bigRoad) {
+            if (this._bigRoad.setTableInfo) {
+              this._bigRoad.setTableInfo(tableInfo);
+            }
+            this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+          }
+        }
+        if (this.tableInfo.goodRoad) {
+          this._goodRoadLabel.visible = true;
+          const goodRoadData = this.tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          // this._goodRoadLabel.text = goodRoadName;
+          this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+        } else {
+          // this._goodRoadLabel.visible = false;
+        }
+      }
+
       // protected initCustomPos() {
       //   this._buttonGroupShowY = 194;
       //   this._buttonGroupHideY = 230;

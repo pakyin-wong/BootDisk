@@ -62,7 +62,7 @@ namespace we {
             this.width = 1140;
             this.height = 388;
             if (generalGameType === 'ba' || generalGameType === 'dt') {
-              itemName = 'MobileBALiveListItem';
+              itemName = 'MobileLiveListItem';
             } else if (generalGameType === 'ro') {
               itemName = 'MobileROLiveListItem';
             } else {
