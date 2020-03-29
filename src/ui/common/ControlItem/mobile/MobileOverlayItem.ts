@@ -5,12 +5,16 @@ namespace we {
       protected _contentContainer: eui.Group;
       protected _betChipSetPanel: eui.Group;
 
-      protected _roadmapControl: ba.BARoadmapControl;
-      protected _roadsContainer: eui.Group;
-      protected _bigRoadMap: ba.BABigRoad;
-      protected _bigEyeRoad: ba.BABigEyeRoad;
-      protected _smallRoad: ba.BASmallRoad;
-      protected _cockroachRoad: ba.BACockroachRoad;
+      // protected _roadmapControl: ba.BARoadmapControl;
+      // protected _roadsContainer: eui.Group;
+      // protected _bigRoadMap: ba.BABigRoad;
+      // protected _bigEyeRoad: ba.BABigEyeRoad;
+      // protected _smallRoad: ba.BASmallRoad;
+      // protected _cockroachRoad: ba.BACockroachRoad;
+
+      protected _roadmap: ILobbyRoad;
+      protected _bigRoad: we.ui.ILobbyRoad;
+
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
@@ -32,9 +36,7 @@ namespace we {
         this._goodRoadLabel.visible = false;
         this._alreadyBetSign.visible = false;
 
-        // this.initRoadMap();
         this._chipLayer.setTouchEnabled(false);
-        this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
@@ -51,52 +53,6 @@ namespace we {
         if (this._toggler) {
           this.initBetLimitSelector();
         }
-      }
-
-      protected initRoadMap() {
-        this._roadmapControl = new ba.BARoadmapControl(this._tableId);
-
-        const gridSizeBR = 48;
-        const gridSize = 32;
-        const lineWidth = 2;
-        const lineColor = 0xaaaaaa;
-
-        this._bigRoadMap = new ba.BABigRoad(17, gridSizeBR);
-        this._bigRoadMap.x = 0;
-        this._bigRoadMap.y = 0;
-        this._roadsContainer.addChild(this._bigRoadMap);
-
-        this._bigEyeRoad = new ba.BABigEyeRoad(10 * 2, gridSize);
-        this._bigEyeRoad.x = gridSizeBR * 17;
-        this._bigEyeRoad.y = gridSize * 3;
-        this._roadsContainer.addChild(this._bigEyeRoad);
-
-        this._smallRoad = new ba.BASmallRoad(10 * 2, gridSize);
-        this._smallRoad.x = gridSizeBR * 17;
-        this._smallRoad.y = 0;
-        this._roadsContainer.addChild(this._smallRoad);
-
-        this._cockroachRoad = new ba.BACockroachRoad(10 * 2, gridSize);
-        this._cockroachRoad.x = gridSizeBR * 17;
-        this._cockroachRoad.y = gridSize * 6;
-        this._roadsContainer.addChild(this._cockroachRoad);
-
-        const rect: eui.Rect = new eui.Rect(lineWidth, gridSizeBR * 6, lineColor);
-        const rect2: eui.Rect = new eui.Rect(gridSize * 10, lineWidth, lineColor);
-        const rect3: eui.Rect = new eui.Rect(gridSize * 10, lineWidth, lineColor);
-        this._roadsContainer.addChild(rect);
-        this._roadsContainer.addChild(rect2);
-        this._roadsContainer.addChild(rect3);
-        rect.anchorOffsetX = lineWidth * 0.5;
-        rect2.anchorOffsetY = lineWidth * 0.5;
-        rect3.anchorOffsetY = lineWidth * 0.5;
-        rect.x = gridSizeBR * 17;
-        rect2.x = gridSizeBR * 17;
-        rect3.x = gridSizeBR * 17;
-        rect2.y = gridSize * 3;
-        rect3.y = gridSize * 6;
-
-        this._roadmapControl.setRoads(null, this._bigRoadMap, this._bigEyeRoad, this._smallRoad, this._cockroachRoad, [0, 17, 20, 20, 20], null, null, false);
       }
 
       protected initBetLimitSelector() {
@@ -142,10 +98,6 @@ namespace we {
         if (this._toggler) {
           this._toggler.renderText = () => `${i18n.t('baccarat.betLimitshort')} ${betLimitItems.length > 0 ? betLimitItems[selectedIndex] : ''}`;
         }
-      }
-
-      protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
       }
 
       public onClickUndoButton(evt: egret.Event) {
@@ -206,7 +158,12 @@ namespace we {
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
         if (tableInfo.roadmap) {
-          this._roadmapControl.updateRoadData();
+          if (this._bigRoad) {
+            if (this._bigRoad.setTableInfo) {
+              this._bigRoad.setTableInfo(tableInfo);
+            }
+            this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
+          }
         }
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
