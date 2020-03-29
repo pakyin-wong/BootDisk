@@ -4633,6 +4633,246 @@
 			"url": "assets/m/ro/m_v_ro_reatrack_dim.png",
 			"type": "image",
 			"name": "m_v_ro_reatrack_dim_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_betarea_result_green.png",
+			"type": "image",
+			"name": "game_list_betarea_result_green_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_betarea_result_black.png",
+			"type": "image",
+			"name": "game_list_betarea_result_black_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_betarea_result_black_2.png",
+			"type": "image",
+			"name": "game_list_betarea_result_black_2_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_betarea_dim_bg.png",
+			"type": "image",
+			"name": "game_list_betarea_dim_bg_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_betarea_result_red.png",
+			"type": "image",
+			"name": "game_list_betarea_result_red_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_betarea_result_red_2.png",
+			"type": "image",
+			"name": "game_list_betarea_result_red_2_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_black_betarea_hover.png",
+			"type": "image",
+			"name": "game_list_black_betarea_hover_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_black_betarea_inactive.png",
+			"type": "image",
+			"name": "game_list_black_betarea_inactive_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_even_betarea_hover.png",
+			"type": "image",
+			"name": "game_list_even_betarea_hover_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_red_betarea_hover.png",
+			"type": "image",
+			"name": "game_list_red_betarea_hover_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_odd_betarea_hover.png",
+			"type": "image",
+			"name": "game_list_odd_betarea_hover_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_red_betarea_inactive.png",
+			"type": "image",
+			"name": "game_list_red_betarea_inactive_png"
+		},
+		{
+			"url": "assets/m/ro/h_0.png",
+			"type": "image",
+			"name": "h_0_png"
+		},
+		{
+			"url": "assets/m/ro/h_5.png",
+			"type": "image",
+			"name": "h_5_png"
+		},
+		{
+			"url": "assets/m/ro/h_3.png",
+			"type": "image",
+			"name": "h_3_png"
+		},
+		{
+			"url": "assets/m/ro/h_8.png",
+			"type": "image",
+			"name": "h_8_png"
+		},
+		{
+			"url": "assets/m/ro/h_10.png",
+			"type": "image",
+			"name": "h_10_png"
+		},
+		{
+			"url": "assets/m/ro/h_23.png",
+			"type": "image",
+			"name": "h_23_png"
+		},
+		{
+			"url": "assets/m/ro/h_24.png",
+			"type": "image",
+			"name": "h_24_png"
+		},
+		{
+			"url": "assets/m/ro/h_30.png",
+			"type": "image",
+			"name": "h_30_png"
+		},
+		{
+			"url": "assets/m/ro/h_32.png",
+			"type": "image",
+			"name": "h_32_png"
+		},
+		{
+			"url": "assets/m/ro/h_26.png",
+			"type": "image",
+			"name": "h_26_png"
+		},
+		{
+			"url": "assets/m/ro/h_35.png",
+			"type": "image",
+			"name": "h_35_png"
+		},
+		{
+			"url": "assets/m/ro/h_Orphelins.png",
+			"type": "image",
+			"name": "h_Orphelins_png"
+		},
+		{
+			"url": "assets/m/ro/h_Rectangle.png",
+			"type": "image",
+			"name": "h_Rectangle_png"
+		},
+		{
+			"url": "assets/m/ro/h_Tires.png",
+			"type": "image",
+			"name": "h_Tires_png"
+		},
+		{
+			"url": "assets/m/ro/h_Zero.png",
+			"type": "image",
+			"name": "h_Zero_png"
+		},
+		{
+			"url": "assets/m/ro/h_Voisins.png",
+			"type": "image",
+			"name": "h_Voisins_png"
+		},
+		{
+			"url": "assets/m/ro/v_0.png",
+			"type": "image",
+			"name": "v_0_png"
+		},
+		{
+			"url": "assets/m/ro/v_3.png",
+			"type": "image",
+			"name": "v_3_png"
+		},
+		{
+			"url": "assets/m/ro/v_8.png",
+			"type": "image",
+			"name": "v_8_png"
+		},
+		{
+			"url": "assets/m/ro/v_5.png",
+			"type": "image",
+			"name": "v_5_png"
+		},
+		{
+			"url": "assets/m/ro/v_10.png",
+			"type": "image",
+			"name": "v_10_png"
+		},
+		{
+			"url": "assets/m/ro/v_12.png",
+			"type": "image",
+			"name": "v_12_png"
+		},
+		{
+			"url": "assets/m/ro/v_15.png",
+			"type": "image",
+			"name": "v_15_png"
+		},
+		{
+			"url": "assets/m/ro/v_23.png",
+			"type": "image",
+			"name": "v_23_png"
+		},
+		{
+			"url": "assets/m/ro/v_24.png",
+			"type": "image",
+			"name": "v_24_png"
+		},
+		{
+			"url": "assets/m/ro/v_26.png",
+			"type": "image",
+			"name": "v_26_png"
+		},
+		{
+			"url": "assets/m/ro/v_30.png",
+			"type": "image",
+			"name": "v_30_png"
+		},
+		{
+			"url": "assets/m/ro/v_32.png",
+			"type": "image",
+			"name": "v_32_png"
+		},
+		{
+			"url": "assets/m/ro/v_35.png",
+			"type": "image",
+			"name": "v_35_png"
+		},
+		{
+			"url": "assets/m/ro/v_Orphelins.png",
+			"type": "image",
+			"name": "v_Orphelins_png"
+		},
+		{
+			"url": "assets/m/ro/v_Rectangle.png",
+			"type": "image",
+			"name": "v_Rectangle_png"
+		},
+		{
+			"url": "assets/m/ro/v_Tires.png",
+			"type": "image",
+			"name": "v_Tires_png"
+		},
+		{
+			"url": "assets/m/ro/v_Voisins.png",
+			"type": "image",
+			"name": "v_Voisins_png"
+		},
+		{
+			"url": "assets/m/ro/v_Zero.png",
+			"type": "image",
+			"name": "v_Zero_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_even_betarea_inactive.png",
+			"type": "image",
+			"name": "game_list_even_betarea_inactive_png"
+		},
+		{
+			"url": "assets/m/ro/game_list_odd_betarea_inactive.png",
+			"type": "image",
+			"name": "game_list_odd_betarea_inactive_png"
 		}
 	]
 }
