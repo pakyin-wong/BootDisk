@@ -14,7 +14,7 @@
     <ui:BaseImageButton id="_prevButton" width="183" height="150" currentState="bet_overlay_previous" x="269" y="366.5"
                         anchorOffsetX="43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
                         useColorFilter="true" />
-    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="237" height="237" horizontalCenter="0"
+    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="220" height="220" horizontalCenter="0"
                                skinName="skin_mobile.BetChipSkin" bottom="0" labelSize="56" />
     <ui:BaseImageButton id="_confirmButton" width="360" height="150" currentState="bet_overlay_confirm" x="780"
                         y="366.5" anchorOffsetX="43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
