@@ -61,13 +61,7 @@ namespace we {
           case we.lobby.mode.NORMAL:
             this.width = 1140;
             this.height = 388;
-            if (generalGameType === 'ba' || generalGameType === 'dt') {
-              itemName = 'MobileLiveListItem';
-            } else if (generalGameType === 'ro') {
-              itemName = 'MobileROLiveListItem';
-            } else {
-              itemName = 'MobileBALiveListItem';
-            }
+            itemName = 'MobileLiveListItem';
             skinName = 'LiveListItemSkin';
             break;
           case we.lobby.mode.SIMPLE:

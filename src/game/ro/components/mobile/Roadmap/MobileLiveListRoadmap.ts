@@ -1,36 +1,36 @@
 /* tslint:disable triple-equals */
 namespace we {
-  export namespace ui {
-    export class MobileROLiveListItem extends MobileLiveListSimpleItem implements ILobbyRoad {
+  export namespace ro {
+    export class MobileLiveListRoadmap extends ui.Panel implements we.ui.ILobbyRoad {
       protected _roadmapControl: ro.RORoadmapControl;
       protected _roadsContainer: eui.Group;
       protected beadRoad: ro.ROBeadRoad;
 
-      public constructor(skinName: string = null) {
-        super(skinName);
+      public constructor() {
+        super();
         this.cacheAsBitmap = true;
       }
 
-      protected initCustomPos() {
-        this._buttonGroupShowY = 194;
-        this._buttonGroupHideY = 230;
+      public setTableInfo(tableInfo: data.TableInfo) {
+        // this._roadmapControl.setTableInfo(tableInfo);
       }
 
-      protected initChildren() {
-        super.initChildren();
-        this.initRoadMap();
+      protected childrenCreated() {
+        super.childrenCreated();
+        this.init();
       }
 
-      protected initRoadMap() {
+      protected init() {
+        this._roadmapControl = new ro.RORoadmapControl();
+
         this.beadRoad = new ro.ROBeadRoad(3, 11, 83, 1, 19, 10, 0xc1c1c1, 0.2);
         this.beadRoad.x = 19;
         this.beadRoad.y = 2;
 
-        this._roadsContainer.addChild(this.beadRoad);
-      }
+        const rdata: any = [];
+        this.beadRoad.parseRoadData(rdata);
 
-      protected onRoadDataUpdate(evt: egret.Event) {
-        this.updateRoadData(this.tableInfo.roadmap);
+        this.addChild(this.beadRoad);
       }
 
       public updateRoadData(roadmapData: data.RoadmapData) {
