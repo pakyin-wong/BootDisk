@@ -2,33 +2,40 @@
 <e:Skin class="skin_desktop.lw.TableLayerSkin" width="1170" height="304" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
 	<e:Group id="_oneCircleGroup" x="39" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Image id="_oneCircleImage" source="d_lw_betarea_bet_east_png" horizontalCenter="0" verticalCenter="0" />
-		<e:Label horizontalCenter="0" verticalCenter="90" text="1" size="30" textColor="0xffffff"/>
+		<e:Image id="_oneCircleImage" source="d_lw_betarea_bet_east_png" name="d_lw_betarea_bet_east_hover_png"
+		         horizontalCenter="0" verticalCenter="0" />
+		<e:Label horizontalCenter="0" verticalCenter="90" text="1" size="30" textColor="0xffffff" />
 	</e:Group>
 	<e:Group id="_threeCircleGroup" x="197" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Image id="_threeCircleImage" source="d_lw_betarea_bet_south_png" horizontalCenter="0" verticalCenter="0" />
+		<e:Image id="_threeCircleImage" source="d_lw_betarea_bet_south_png" name="d_lw_betarea_bet_south_hover_png"
+		         horizontalCenter="0" verticalCenter="0" />
 		<e:Label horizontalCenter="0" verticalCenter="90" text="1" size="30" textColor="0xffffff" />
 	</e:Group>
 	<e:Group id="_fiveCircleGroup" x="355" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Image id="_fiveCircleImage" source="d_lw_betarea_bet_west_png" horizontalCenter="0" verticalCenter="0" />
+		<e:Image id="_fiveCircleImage" source="d_lw_betarea_bet_west_png" name="d_lw_betarea_bet_west_hover_png"
+		         horizontalCenter="0" verticalCenter="0" />
 		<e:Label horizontalCenter="0" verticalCenter="90" text="5" size="30" textColor="0xffffff" />
 	</e:Group>
 	<e:Group id="_redDragonGroup" x="513" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Image id="_redDragonImage" source="d_lw_betarea_bet_north_png" horizontalCenter="0" verticalCenter="0"/>
+		<e:Image id="_redDragonImage" source="d_lw_betarea_bet_north_png" name="d_lw_betarea_bet_north_hover_png"
+		         horizontalCenter="0" verticalCenter="0" />
 		<e:Label horizontalCenter="0" verticalCenter="90" text="10" size="30" textColor="0xffffff" />
 	</e:Group>
 	<e:Group id="_greenDragonGroup" x="671" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Image id="_greenDragonImage" source="d_lw_betarea_bet_white_png" horizontalCenter="0" verticalCenter="0" />
-		<e:Label horizontalCenter="0" verticalCenter="90"  text="20" size="30" textColor="0xffffff" />
+		<e:Image id="_greenDragonImage" source="d_lw_betarea_bet_white_png" name="d_lw_betarea_bet_white_hover_png"
+		         horizontalCenter="0" verticalCenter="0" />
+		<e:Label horizontalCenter="0" verticalCenter="90" text="20" size="30" textColor="0xffffff" />
 	</e:Group>
 	<e:Group id="_whiteDragonGroup" x="829" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Image id="_whiteDragonImage" source="d_lw_betarea_bet_green_png" horizontalCenter="0" verticalCenter="0" />
-		<e:Label horizontalCenter="0" verticalCenter="90" text="45"  size="30" textColor="0xffffff" />
+		<e:Image id="_whiteDragonImage" source="d_lw_betarea_bet_red_png" name="d_lw_betarea_bet_red_hover_png"
+		         horizontalCenter="0" verticalCenter="0" />
+		<e:Label horizontalCenter="0" verticalCenter="90" text="45" size="30" textColor="0xffffff" />
 	</e:Group>
 	<e:Group id="_weGroup" x="987" y="41" width="136" height="222" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Image id="_weImage" source="d_lw_betarea_bet_red_png" horizontalCenter="0" verticalCenter="0" />
-		<e:Label horizontalCenter="0" verticalCenter="90"  text="45" size="30" textColor="0xffffff" />
+		<e:Image id="_weImage" source="d_lw_betarea_bet_green_png" name="d_lw_betarea_bet_green_hover_png"
+		         horizontalCenter="0" verticalCenter="0" />
+		<e:Label horizontalCenter="0" verticalCenter="90" text="45" size="30" textColor="0xffffff" />
 	</e:Group>
 	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
-	         locked="true" visible="false"/>
+	        locked="true" visible="false" />
 </e:Skin>
