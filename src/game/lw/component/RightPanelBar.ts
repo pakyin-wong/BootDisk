@@ -13,7 +13,16 @@ namespace we {
       }
 
       async mount() {
+        // add bar first to ensure setProgress works
         this._bar = new eui.Image();
+        this._bar.source = this._source;
+        this._bar.percentWidth = 100;
+        this._bar.percentHeight = 100;
+        if (this._source && this._source.indexOf('gold') < 0) {
+          const rect: egret.Rectangle = new egret.Rectangle(0, 0, 6, 16);
+          this._bar.scale9Grid = rect;
+        }
+        this.addChild(this._bar);
 
         // add mask
         const shape = new egret.Shape();
@@ -48,23 +57,10 @@ namespace we {
         const background = new eui.Image();
         background.source = 'd_lw_betpool_barchart__background_generated';
         background.alpha = 0.3;
-        this.addChild(background);
-
-        // add bar
-        this._bar.source = this._source;
-        this._bar.percentWidth = 100;
-        this._bar.percentHeight = 100;
-        if (this._source && this._source.indexOf('gold') < 0) {
-          const rect: egret.Rectangle = new egret.Rectangle(0, 0, 6, 16);
-          this._bar.scale9Grid = rect;
-        }
-        this.addChild(this._bar);
+        this.addChildAt(background, 0);
       }
 
       public setProgress(value: number) {
-        if (!this._bar) {
-          return;
-        }
         this._bar.x = -this.width * (1 - value);
       }
     }
