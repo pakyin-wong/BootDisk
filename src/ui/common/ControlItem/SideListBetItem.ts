@@ -13,6 +13,7 @@ namespace we {
 
       protected _tableLayerNode: eui.Component;
       protected _chipLayerNode: eui.Component;
+      protected _resultMessageNode: eui.Component;
 
       public constructor(skinName: string = null) {
         super(skinName);
@@ -22,6 +23,7 @@ namespace we {
         super.initComponents();
         this.generateTableLayer();
         this.generateChipLayer();
+        this.generateResultMessage();
       }
 
       protected generateTableLayer() {
@@ -33,6 +35,12 @@ namespace we {
       protected generateChipLayer() {
         if (this.itemInitHelper) {
           this._chipLayer = this.itemInitHelper.generateChipLayer(this._chipLayerNode);
+        }
+      }
+
+      protected generateResultMessage() {
+        if (this.itemInitHelper) {
+          this._resultMessage = this.itemInitHelper.generateResultMessage(this._resultMessageNode);
         }
       }
 
@@ -62,6 +70,9 @@ namespace we {
           }
           if (this._chipLayer) {
             this._chipLayer[att] = this._chipLayerNode[att];
+          }
+          if (this._resultMessage) {
+            this._resultMessage[att] = this._resultMessageNode[att];
           }
         }
       }

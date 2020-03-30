@@ -4,7 +4,7 @@
 	<e:Group id="_betChipSetPanel">
 		<ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
 	</e:Group>
-	<e:Group id="_quickBetGroup" width="100%" alpha="0" locked="true">
+	<e:Group id="_quickBetGroup" width="100%" alpha="0">
 		<e:Rect width="339" height="100" x="0" y="0" fillColor="0x202020" ellipseWidth="5" ellipseHeight="5" />
 		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="15"
 		                           skinName="skin_desktop.BetChipSkin" />
@@ -21,9 +21,8 @@
 		<e:Group id="_resultGroup" x="0" y="47" width="100%" height="158" touchEnabled="false">
 			<ba:SideListBetItemCardHolder id="_cardHolder" width="100%" anchorOffsetY="0" height="139" left="0"
 			                              skinName="skin_desktop.ba.SideListBetItemCardHolder" />
-			<ui:SidePanelGameResultMessage id="_resultMessage" horizontalCenter="0" verticalCenter="-60"
-			                               skinName="skin_desktop.SidePanelGameResultWinSkin" anchorOffsetX="159"
-			                               anchorOffsetY="44" />
+			<e:Component id="_resultMessageNode" horizontalCenter="0" verticalCenter="-25"
+			                              />
 		</e:Group>
 		<e:Group id="_bettingGroup" width="100%" height="158" x="0" y="0" touchEnabled="false" touchChildren="true">
 			<ui:CountdownTimer id="_timer" width="47" height="47" x="0" y="0"

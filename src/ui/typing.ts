@@ -15,6 +15,7 @@ namespace we {
       generateTableLayer(node: eui.Component): TableLayer;
       generateChipLayer(node: eui.Component): ChipLayer;
       generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
+      generateResultMessage?(node: eui.Component): IGameResultMessage;
     }
 
     export interface IRunTimeComponent extends egret.DisplayObject {
