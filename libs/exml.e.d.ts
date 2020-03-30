@@ -532,6 +532,22 @@ declare module skin_mobile_landscape{
 	class LoadingScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class Nav extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class NavDropdown extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class NavLeftHandModeBtn extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class NavSideMenu extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
 	}
