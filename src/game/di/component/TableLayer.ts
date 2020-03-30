@@ -197,6 +197,7 @@ namespace we {
           });
           tweenPromises.push(promise);
         });
+
         // transform dices in row 3
         this._bigrow_3.$children.forEach(child => {
           if (!(child instanceof eui.Group)) {
@@ -285,7 +286,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }
