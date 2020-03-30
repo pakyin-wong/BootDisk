@@ -11,6 +11,11 @@ namespace we {
       }
 
       public getVirtualUrl(url): any {
+        // Do not add on data: or blob: schemes or break the loading
+        if (url.indexOf('data:') === 0 || url.indexOf('blob:') === 0) {
+          return url;
+        }
+
         return url + this._version;
       }
     }
