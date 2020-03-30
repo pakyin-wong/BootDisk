@@ -23,6 +23,13 @@ namespace we {
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;
       }
+
+      public generateResultMessage(node: eui.Component) {
+        const gameResultMessage = new ui.SidePanelGameResultMessage();
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(gameResultMessage, idx);
+        return gameResultMessage;
+      }
     }
   }
 }
