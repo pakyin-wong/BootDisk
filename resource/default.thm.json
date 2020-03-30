@@ -282,6 +282,8 @@
 		"resource/skin_mobile_portrait/ro/LiveListItemChipLayer.exml",
 		"resource/skin_mobile_portrait/ro/LiveListItemTableLayer.exml",
 		"resource/skin_mobile_portrait/ro/LiveListSimpleItem.exml",
+		"resource/skin_mobile_portrait/ro/LiveOverlayItemSkin.exml",
+		"resource/skin_mobile_portrait/ro/StatisticChartPanel.exml",
 		"resource/skin_mobile_portrait/ro/TableInfoPanel.exml",
 		"resource/skin_mobile_portrait/ro/MobileBottomGamePanel.exml",
 		"resource/skin_mobile_portrait/ro/MobileSidePanel.exml",

@@ -4,8 +4,10 @@ namespace we {
     // Components
     export interface ILobbyRoad {
       // updateRoadData(roadmapData: any);
+
       updateLobbyRoadData(roadmapData: any);
       updateSideBarRoadData(roadmapData: any);
+      setTableInfo?(tableInfo: data.TableInfo);
     }
 
     export interface IListItemHelper {

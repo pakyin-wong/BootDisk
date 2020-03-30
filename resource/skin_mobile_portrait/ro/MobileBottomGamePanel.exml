@@ -99,7 +99,7 @@
 					</e:RadioButton>
 				</e:Group>
 			<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
-				<ba:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.ba.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+				<ro:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.ro.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 				<e:Group id="_infoGroup" width="100%" height="100%" name="Group" x="0" y="0" scaleX="1" scaleY="1">
 					<ro:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.ro.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
