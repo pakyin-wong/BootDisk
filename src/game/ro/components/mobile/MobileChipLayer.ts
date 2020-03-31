@@ -36,24 +36,6 @@ namespace we {
         betdetails && this.updateBetFields(betdetails);
       }
 
-      protected restructureChildren() {}
-
-      // public onBetFieldUpdateEvent(evt: egret.Event) {
-      //   const target = evt.target;
-      //   const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
-      //   switch (fieldName) {
-      //     case ro.BetField.ORPHANS:
-      //     case ro.BetField.THE_THIRD:
-      //     case ro.BetField.NEIGHBORS_OF_ZERO:
-      //     case ro.BetField.ZERO_GAME:
-      //       this.onBetFieldUpdate(fieldName);
-      //       break;
-      //     default:
-      //       super.onBetFieldUpdateEvent(evt);
-      //       break;
-      //   }
-      // }
-
       protected getMappedBetDetails() {
         const cfmBetDetails = this._cfmBetDetails;
         const mappedBetDetails = {};
@@ -103,32 +85,6 @@ namespace we {
           }
         });
       }
-
-      // public onBetFieldUpdate(fieldName) {
-      //   if (!this._isRace) {
-      //     super.onBetFieldUpdate(fieldName);
-      //     return;
-      //   }
-
-      //   const grid = this.getUncfmBetByField(fieldName);
-      //   const chipUnit = this.getOrderAmount();
-      //   const betAmount = chipUnit;
-      //   const betDetail = { field: fieldName, amount: betAmount };
-      //   // validate bet action
-      //   if (this.validateBetAction(betDetail)) {
-      //     // update the uncfmBetDetails
-      //     grid.amount += betDetail.amount;
-
-      //     // update the corresponding table grid
-      //     this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
-
-      //     // update display
-      //     if (this._betChipStackMapping[fieldName]) {
-      //       this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount * this.getRate(fieldName) : 0;
-      //       this._betChipStackMapping[fieldName].draw();
-      //     }
-      //   }
-      // }
 
       protected getRate(fieldName): number {
         let rate = 1;
