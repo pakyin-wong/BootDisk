@@ -12,7 +12,7 @@ namespace we {
         return this._source;
       }
 
-      async mount() {
+      public async mount() {
         // add bar first to ensure setProgress works
         this._bar = new eui.Image();
         this._bar.source = this._source;

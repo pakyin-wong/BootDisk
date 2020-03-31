@@ -404,7 +404,7 @@ namespace we {
           this._dozen_13_24_label.renderText = () => i18n.t('roulette.dozen_13_24');
         }
         if (this._dozen_25_36_label) {
-          this._dozen_25_36_label.renderText = () => i18n.t('roulette._dozen_25_36_label');
+          this._dozen_25_36_label.renderText = () => i18n.t('roulette.dozen_25_36');
         }
 
         if (this._odd_label) {
