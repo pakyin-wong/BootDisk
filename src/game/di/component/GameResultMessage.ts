@@ -47,8 +47,8 @@ namespace we {
 
         const array = [
           [isWin ? '15' : '16', 60, total.toString()],
-          [isWin ? 'red2' : 'red3', 40, size === 1 ? '小' : '大'],
-          [isWin ? 'blue2' : 'blue3', 40, odd === 1 ? '單' : '雙'],
+          [isWin ? 'red_txt2' : 'red_txt3', 40, size === 1 ? '小' : '大'],
+          [isWin ? 'blue_txt2' : 'blue_txt3', 40, odd === 1 ? '單' : '雙'],
         ];
 
         for (const [slotName, fontSize, text] of array) {
