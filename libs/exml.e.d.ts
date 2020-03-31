@@ -175,6 +175,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.di{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
@@ -342,6 +346,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop.lw{
 	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class SideBetResultMessage extends eui.Skin{
 	}
 }
 declare module skin_desktop.lw{
@@ -940,6 +948,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait.ro{
 	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class ChipLayerRaceSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
