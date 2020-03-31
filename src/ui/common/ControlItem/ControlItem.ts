@@ -7,7 +7,7 @@ namespace we {
       protected _tableLayer: TableLayer;
 
       protected _betChipSet: ui.BetChipSet;
-      protected _cardHolder: we.ba.CardHolder;
+      protected _cardHolder: IResultDisplay;
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;

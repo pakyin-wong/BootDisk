@@ -19,8 +19,8 @@ namespace we {
         } else {
           this.skinName = utils.getSkinByClassname('SidePanelGameResultNormalSkin');
         }
-        this.anchorOffsetX = this.width * 0.5;
-        this.anchorOffsetY = this.height * 0.5;
+        // this.anchorOffsetX = this.width * 0.5;
+        // this.anchorOffsetY = this.height * 0.5;
       }
 
       protected setBackgroundImage(type: string, isWin: boolean) {
