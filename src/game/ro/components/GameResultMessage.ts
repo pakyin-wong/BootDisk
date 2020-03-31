@@ -37,14 +37,18 @@ namespace we {
         anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
         logger.l(anim, numLeft, numCenter, numRight);
 
-        const array = [['L_txt', 60, numLeft, 90], ['middle_txt', 90, numCenter, 90], ['L_txt3', 60, numRight, 90]];
+        const array = [
+          ['L_txt', 60, numLeft, 90],
+          ['middle_txt', 90, numCenter, 90],
+          ['L_txt3', 60, numRight, 90],
+        ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const lbl = new eui.Label();
-          lbl.text = <string> text;
+          lbl.text = <string>text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
+          lbl.size = <number>fontSize;
           lbl.anchorOffsetX = lbl.width / 2;
           lbl.anchorOffsetY = lbl.height / 2;
           lbl.rotation = rotate as number;
@@ -55,7 +59,7 @@ namespace we {
 
         const slot = this._display.armature.getSlot('-800');
         const r = new eui.Label();
-        r.fontFamily = 'barlow';
+        r.fontFamily = 'Barlow';
         r.size = 60;
         r.text = utils.formatNumber(winAmount);
         const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);

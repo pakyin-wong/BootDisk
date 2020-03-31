@@ -6,13 +6,12 @@ namespace we {
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
-        this._dbClass = 'roulette';
+        this._dbClass = 'sicbo';
         super.showResult(gameType, resultData);
       }
 
       protected startAnim(gameType: core.GameType, resultData: any) {
         const { gameData, winAmount } = resultData;
-        console.log('GameResultMessage::startAnim() gameData ', gameData);
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
@@ -22,53 +21,52 @@ namespace we {
           this
         );
 
-        // const [numLeft, numCenter, numRight] = we.ro.getNeighbour(resultNo, 1);
-        const [numLeft, numCenter, numRight] = [(<di.GameData> gameData).dice1, (<di.GameData> gameData).dice2, (<di.GameData> gameData).dice3];
-        const colorMap = {
-          [we.ro.Color.BLACK]: 'b',
-          [we.ro.Color.GREEN]: 'g',
-          [we.ro.Color.RED]: 'r',
-        };
+        const { dice1, dice2, dice3, size, odd, total } = <di.GameData>gameData;
+        logger.l(dice1, dice2, dice3, size, odd, total);
 
         let anim = 'ani_result_';
+        let isWin = false;
         if (isNaN(winAmount)) {
-          anim += 'nobet_';
+          anim += 'no_bets';
+        } else if (winAmount <= 0) {
+          anim += 'loss';
         } else {
-          anim += 'win_loss_';
-        }
-        anim += `brb`;
-        logger.l(anim, numLeft, numCenter, numRight);
-
-        const array = [['L_txt', 60, numLeft, 90], ['middle_txt', 90, numCenter, 90], ['L_txt3', 60, numRight, 90]];
-
-        for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
-          const lbl = new eui.Label();
-          lbl.text = <string> text;
-          lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
-          lbl.anchorOffsetX = lbl.width / 2;
-          lbl.anchorOffsetY = lbl.height / 2;
-          lbl.rotation = rotate as number;
-          const layer = new eui.Group();
-          layer.addChild(lbl);
-          slot.display = layer;
+          anim += 'win';
+          isWin = true;
         }
 
-        const slot = this._display.armature.getSlot('-800');
-        const r = new eui.Label();
-        r.fontFamily = 'barlow';
-        r.size = 60;
-        r.text = utils.formatNumber(winAmount);
-        const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
-        r.filters = [shadowFilter];
-        r.bold = true;
-        r.textColor = 0xffffff;
-        const layer = new eui.Group();
-        layer.addChild(r);
-        layer.anchorOffsetX = r.width * 0.5;
-        layer.anchorOffsetY = r.height * 0.5;
-        slot.display = layer;
+        for (let i = 1; i <= 3; i += 1) {
+          const slot = this._display.armature.getSlot(`dice_${i + (isWin ? 6 : 9)}`);
+          const img = new eui.Image();
+          img.source = RES.getRes(`d_sic_history_lv3_dice-${i}_png`);
+          // cannot use image.width
+          img.anchorOffsetX = 27;
+          img.anchorOffsetY = 27;
+          slot.display = img;
+        }
+
+        const array = [
+          [isWin ? '15' : '16', 60, total.toString()],
+          [isWin ? 'red2' : 'red3', 40, size === 1 ? '小' : '大'],
+          [isWin ? 'blue2' : 'blue3', 40, odd === 1 ? '單' : '雙'],
+        ];
+
+        for (const [slotName, fontSize, text] of array) {
+          const slot = this._display.armature.getSlot(<string>slotName);
+          const r = new eui.Label();
+          r.fontFamily = 'Barlow';
+          r.size = <number>fontSize;
+          r.text = <string>text;
+          if (fontSize === 60) {
+            const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
+            r.filters = [shadowFilter];
+            r.bold = true;
+          }
+          r.textColor = 0xffffff;
+          r.anchorOffsetX = r.width / 2;
+          r.anchorOffsetY = r.height / 2;
+          slot.display = r;
+        }
 
         this.visible = true;
         this._display.animation.play(anim, 1);
