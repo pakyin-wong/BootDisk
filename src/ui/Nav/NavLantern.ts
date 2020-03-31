@@ -20,7 +20,10 @@ namespace we {
 
       protected mount() {
         this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
-
+        if (env.isMobile) {
+          this.fontsize = 40;
+          this.lineSpacing = 40;
+        }
         this._label = new eui.Label();
         this._next = new eui.Label();
         this._label.width = this._next.width = this.width;
@@ -84,6 +87,9 @@ namespace we {
 
         const lineHeight = (this._label.measuredHeight - this.lineSpacing * (this._label.numLines - 1)) / this._label.numLines;
         if (this._loopline === this._label.numLines) {
+          console.log('this._label.measuredHeight', this._label.measuredHeight);
+          console.log('this._label.numLines', this._label.numLines);
+          console.log('this._loopMsg.length', this._loopMsg.length);
           this._loopIndex = this._loopIndex + 1 >= this._loopMsg.length ? 0 : this._loopIndex + 1;
           this._next.text = this._loopMsg[this._loopIndex];
           this._next.y = this.lineSpacing + lineHeight;

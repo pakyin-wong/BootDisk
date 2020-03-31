@@ -42,6 +42,8 @@ namespace we {
       private addListeners() {
         if (env.isMobile) {
           utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this);
+
+          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         } else {
           dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
           this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
