@@ -12,6 +12,7 @@ namespace we {
       gametype_MJ: '麻将',
       gametype_RO: '轮盘',
       gametype_DT: '龙虎',
+      gametype_LW: '幸運轮',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
@@ -90,11 +91,15 @@ namespace we {
       mobile_ba_clear: '清除',
       mobile_ba_double: '双倍',
       mobile_ba_repeat: '再次下注',
+      mobile_game_panel_history: '历史记录',
       mobile_game_panel_road_sheet: '路纸',
       mobile_game_panel_statistic_chart: '统计图表',
       mobile_game_panel_table_info: '本台资讯',
       mobile_table_info_gameID: '编号',
       mobile_panel_game_Info: '游戏资讯',
+
+      mobile_notification_quick_bet_button_label: '即时投注',
+      mobile_notification_close_button_label: '关闭',
 
       mobile_quick_bet_button_label: '快速投注',
       mobile_enter_table_button_label: '进入游戏',
@@ -158,9 +163,8 @@ namespace we {
           bacarrat: '百家乐',
           dragontiger: '龙虎',
           luckywheel: '幸运轮',
-          wheel: '轮盘',
+          roulette: '轮盘',
           dice: '骰宝',
-          goodroad: '好路',
           other: '其他',
         },
       },
@@ -171,6 +175,32 @@ namespace we {
         dragonShort: '龙',
         tigerShort: '虎',
         tieShort: '和',
+        askDragon: '龙问路',
+        askTiger: '虎问路',
+      },
+      dice: {
+        big: '大',
+        small: '细',
+        even: '双',
+        odd: '单',
+        single: '单骰',
+        double: '双骰',
+        triple: '三骰',
+
+        roadBig: '大',
+        roadSmall: '小',
+        roadOdd: '单',
+        roadEven: '双',
+        bigShort: '大',
+        smallShort: '小',
+        oddShort: '单',
+        evenShort: '双',
+        tripleShort: '围',
+        history: '历史记录',
+        roadmap: '路纸',
+        total: '和值',
+        gameStats: '结果统计',
+        dicePercent: '骰子机率',
       },
       roulette: {
         row_1: '第一行',
@@ -205,24 +235,31 @@ namespace we {
         roadmap: '路纸',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
-        distribution: { text: '散布', x: 60 },
+        distribution: {
+          text: '散布',
+          x: 60,
+        },
         tiers: {
           text: '轮盘下角注',
           x: 23,
         },
-
         orphelins: {
           text: '轮上孤注',
           x: 62,
         },
-
         voisins: {
           text: '零旁注上角',
           x: 16,
         },
-
         zero: {
           text: '轮上零旁',
+        },
+        betGroup: {
+          color: '红 / 黑',
+          oddeven: '单 / 双',
+          size: '大 / 小',
+          column: '下注一打',
+          row: '行注',
         },
       },
       goodroad: {
@@ -236,6 +273,9 @@ namespace we {
         r8: '逢闲黐',
         r9: '拍拍黐',
         r10: '逢庄唔黐',
+      },
+      luckywheel: {
+        pool: '即时彩池',
       },
       game: {
         startBet: '开始下注',
@@ -256,7 +296,6 @@ namespace we {
         superSix: '超级六',
         banker: '庄',
         bankerShort: '庄',
-        noComm: '免佣',
         tableInfo: '本台资讯',
         tableNo: '台号',
         roundNo: '局号',
@@ -276,6 +315,8 @@ namespace we {
         cancelRemoveGoodRoad: '取消',
         noCommission: '免佣',
         clickToSeeVideo: '点击播放本局视频',
+        askBanker: '庄问路',
+        askPlayer: '闲问路',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

@@ -1,3 +1,4 @@
+/* tslint:disable no-eval */
 namespace we {
   export namespace live {
     export class MobileLiveListHolder extends ui.TableListItemHolder {
@@ -47,30 +48,37 @@ namespace we {
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
+            break;
+          case we.core.GameType.RO:
+            generalGameType = 'ro';
+            break;
         }
+
+        let itemName;
+        let skinName;
 
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
-            this._displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
-            this.setDisplayItem(this._displayItem);
             this.width = 1140;
             this.height = 388;
-            if (this.tableInfo) {
-              this.updateDisplayItem();
-            }
+            itemName = 'MobileLiveListItem';
+            skinName = 'LiveListItemSkin';
             break;
           case we.lobby.mode.SIMPLE:
           case we.lobby.mode.ADVANCED:
           default:
-            this._displayItem = new we.ui.MobileLiveListSimpleItem(generalGameType + '.LiveListSimpleItemSkin');
-            this.setDisplayItem(this._displayItem);
             this.width = 552;
             this.height = 219;
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
-            if (this.tableInfo) {
-              this.updateDisplayItem();
-            }
+            itemName = 'MobileLiveListSimpleItem';
+            skinName = 'LiveListSimpleItemSkin';
+        }
+
+        utils.assertSkinClassExists(`${generalGameType}.${skinName}`);
+
+        this._displayItem = new we.ui[itemName](`${generalGameType}.${skinName}`);
+        this.setDisplayItem(this._displayItem);
+        if (this.tableInfo) {
+          this.updateDisplayItem();
         }
       }
 

@@ -5,6 +5,7 @@ namespace we {
       protected grid: egret.Shape;
       protected numCol: number = 12;
       protected gridSize: number = 30;
+      protected gridLine: number = 1;
       protected gridUnit: number = 1; // how many unit for each grid. 1 or 2 unit for each grid
       // private bitmap: ScaleableBitmap;
       protected darkModeNumber: number = 0;
@@ -14,14 +15,29 @@ namespace we {
       protected roadData: any;
       protected abstract createIcon(size: number): BARoadIconBase;
 
-      public constructor(_numCol: number, _gridSize: number, _scale: number) {
+      protected _iconGroup: eui.Group;
+      protected _renderTexture: egret.RenderTexture;
+      protected _image: eui.Image;
+
+      public constructor(_numCol: number, _gridSize: number, _scale: number, _gridLine: number = 1) {
         super();
         this.scale = _scale;
         this.gridSize = _gridSize;
+        this.gridLine = _gridLine;
         this.numCol = _numCol;
 
+        this._iconGroup = new eui.Group();
+
         this.grid = new egret.Shape();
-        this.addChild(this.grid);
+        this._iconGroup.addChild(this.grid);
+        // this.addChild(this._iconGroup);
+
+        // this.cacheAsBitmap = true;
+
+        this._renderTexture = new egret.RenderTexture();
+        this._image = new eui.Image();
+        this._image.texture = this._renderTexture;
+        this.addChild(this._image);
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
@@ -38,7 +54,7 @@ namespace we {
           icon.setByObject({});
           icon.x = (this.gridSize / this.gridUnit) * Math.floor(iconIndex / 6);
           icon.y = (this.gridSize / this.gridUnit) * (iconIndex % 6);
-          this.addChild(icon);
+          this._iconGroup.addChild(icon);
           this.roadMapIconList.push(icon);
           iconIndex++;
         }
@@ -116,6 +132,7 @@ namespace we {
               icon.animate();
             }
           }
+          this.updateTexture();
         }
       }
 
@@ -136,7 +153,7 @@ namespace we {
         this.grid.graphics.endFill();
 
         // draw grid lines
-        this.grid.graphics.lineStyle(1 * this.scale, gridColors[this.darkModeNumber], 1, true);
+        this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[this.darkModeNumber], 1, true);
         let lineY: number = 0;
         for (let r = 0; r <= 6; r += this.gridUnit) {
           this.grid.graphics.moveTo(0, lineY);
@@ -150,8 +167,15 @@ namespace we {
           lineX += size * this.gridUnit;
         }
 
-        // this.bitmap = new ScaleableBitmap(this.grid, this.grid.width, this.grid.height, null);
-        // this.addChild(this.bitmap);
+        this.updateTexture();
+      }
+
+      protected updateTexture() {
+        this._iconGroup.validateNow();
+        const rect = this._iconGroup.getBounds();
+        this._renderTexture.drawToTexture(this._iconGroup, rect, 1);
+        this._image.width = rect.width;
+        this._image.height = rect.height;
       }
 
       public set DarkMode(n: number) {

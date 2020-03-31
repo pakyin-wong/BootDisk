@@ -24,7 +24,7 @@ namespace we {
       public constructor() {
         super();
         this.roadType = 0;
-        this.skinName = utils.getSkin('GoodRoadEditItem');
+        // this.skinName = utils.getSkinByClassname('GoodRoadEditItem');
       }
 
       protected mount() {
@@ -60,7 +60,7 @@ namespace we {
         // this.y += this.anchorOffsetY;
         this._bigRoad.addEventListener('update', this.onBigRoadUpdated, this);
 
-        this.addEventListener('close', this.onClose, this);
+        // this.addEventListener('close', this.onClose, this);
       }
 
       protected destroy() {
@@ -97,9 +97,9 @@ namespace we {
           this._bigRoad.removeEventListener('update', this.onBigRoadUpdated, this);
         }
 
-        if (this.hasEventListener('close')) {
-          this.removeEventListener('close', this.onClose, this);
-        }
+        // if (this.hasEventListener('close')) {
+        //   this.removeEventListener('close', this.onClose, this);
+        // }
       }
 
       private onBigRoadUpdated(e: egret.Event) {
@@ -180,12 +180,12 @@ namespace we {
           }
           // hide this panel after save
           this.hide();
-          (this.parent.parent as we.overlay.CustomRoad)._cover.visible = false;
+          // (this.parent.parent as we.overlay.CustomRoad)._cover.visible = false;
         }
       }
 
       private onClose() {
-        (this.parent.parent as we.overlay.CustomRoad)._cover.visible = false;
+        // (this.parent.parent as we.overlay.CustomRoad)._cover.visible = false;
       }
 
       private onClearTap(evt: egret.Event) {

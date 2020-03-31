@@ -13,6 +13,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
@@ -44,6 +45,10 @@ namespace we {
       public onRollover(fieldName: string) {}
 
       public onRollout(fieldName: string) {}
+
+      public clearAllHighlights() {}
+
+      public async flashFields(data: any, extra?: any) {}
     }
   }
 }

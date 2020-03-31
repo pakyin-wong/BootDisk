@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ro.RaceTrackChipLayerSkin" width="718" height="1698" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
+	<e:Image id="_section_35" width="209" height="199" y="1415" x="475" source="v_35_png" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_3" width="181" height="208" source="v_3_png" x="407" y="1477" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_26" width="153" height="181" source="v_26_png" x="297" y="1516" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_0" width="172" height="204" source="v_0_png" x="155" y="1487" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_32" width="209" height="206" source="v_32_png" x="46" y="1426" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_15" width="204" height="172" source="v_15_png" y="1340" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_19" width="184" height="83" source="v_Rectangle_png" y="1257" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_4" width="184" height="83" source="v_Rectangle_png" y="1176" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_21" width="184" height="83" source="v_Rectangle_png" y="1094" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_2" width="184" height="83" source="v_Rectangle_png" y="1012" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_25" width="184" height="83" source="v_Rectangle_png" y="930" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_17" width="184" height="83" source="v_Rectangle_png" y="848" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_34" width="184" height="83" source="v_Rectangle_png" y="766" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_6" width="184" height="83" source="v_Rectangle_png" y="684" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_27" width="184" height="83" source="v_Rectangle_png" y="603" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_13" width="184" height="83" source="v_Rectangle_png" y="521" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_36" width="184" height="83" source="v_Rectangle_png" y="439" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_11" width="184" height="83" source="v_Rectangle_png" y="357" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_30" width="205" height="178" source="v_30_png" y="181" x="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_8" width="219" height="221" source="v_8_png" x="49" y="49" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_23" width="177" height="201" source="v_23_png" x="180" y="1" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_10" width="178" height="201" source="v_10_png" x="359" y="1" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_5" width="219" height="220" source="v_5_png" x="450" y="49" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_24" width="205" height="178" source="v_24_png" x="512" y="180" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_16" width="184" height="83" source="v_Rectangle_png" y="357" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_33" width="184" height="83" source="v_Rectangle_png" y="439" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_1" width="184" height="83" source="v_Rectangle_png" y="521" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_20" width="184" height="83" source="v_Rectangle_png" y="603" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_14" width="184" height="83" source="v_Rectangle_png" y="684" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_31" width="184" height="83" source="v_Rectangle_png" y="766" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_9" width="184" height="83" source="v_Rectangle_png" y="848" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_22" width="184" height="83" source="v_Rectangle_png" y="930" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_18" width="184" height="83" source="v_Rectangle_png" y="1012" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_29" width="184" height="83" source="v_Rectangle_png" y="1094" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_7" width="184" height="83" source="v_Rectangle_png" y="1176" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_28" width="184" height="83" source="v_Rectangle_png" y="1257" x="534" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_12" width="199" height="150" source="v_12_png" x="519" y="1340" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_tiers" source="v_Tires_png" x="184" y="173" scale9Grid="0,198,380,159" scaleX="0.9210526315789473" scaleY="0.9210526315789473" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_orphelins" source="v_Orphelins_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="184" y="520" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_voisins" source="v_Voisins_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="179" y="931" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_zero" source="v_Zero_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="184" y="1132" alpha="0.01" pixelHitTest="true"/>
+</e:Skin>

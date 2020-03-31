@@ -142,7 +142,9 @@ namespace we {
         root.scroller.viewport = group;
       }
 
-      public initLandscapeContent(root: Page) {}
+      public initLandscapeContent(root: Page) {
+        this.initPortraitContent(root);
+      }
     }
   }
 }

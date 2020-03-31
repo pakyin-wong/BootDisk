@@ -25,6 +25,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
@@ -107,9 +108,46 @@ namespace we {
       // Must be called if you change skin
       public init() {
         this.createMapping();
+        this.restructureChildren();
         this.passDenomListToBetChipStack();
         this.resetUnconfirmedBet();
         this.addAllMouseListeners();
+      }
+
+      public addBetToBetField(fieldName, amount) {
+        const grid = this.getUncfmBetByField(fieldName);
+        grid.amount += amount;
+      }
+
+      public updateBetField(fieldName, amount) {
+        const grid = this.getUncfmBetByField(fieldName);
+        grid.amount = amount;
+      }
+
+      public updateBetChipUncfmBet(fieldName, amount) {
+        if (this._betChipStackMapping[fieldName]) {
+          this._betChipStackMapping[fieldName].uncfmBet = amount * this.getRate(fieldName);
+          this._betChipStackMapping[fieldName].draw();
+        }
+      }
+
+      protected restructureChildren() {
+        Object.keys(this._betChipStackMapping).forEach(value => {
+          const chipStack = this._betChipStackMapping[value];
+          if (this._betChipStackMapping[value]) {
+            const parent = chipStack.parent;
+            if (parent !== this) {
+              chipStack.verticalCenter = NaN;
+              chipStack.horizontalCenter = NaN;
+              chipStack.x = parent.x + parent.width * 0.5;
+              chipStack.y = parent.y + parent.height * 0.5;
+              chipStack.width = 0;
+              chipStack.height = 0;
+              chipStack.validateNow();
+              this.addChild(chipStack);
+            }
+          }
+        });
       }
 
       public isAlreadyBet() {
@@ -125,7 +163,7 @@ namespace we {
       public addRolloverListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRollover(value), this);
+            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRolloverEvent, this);
           }
         });
       }
@@ -133,7 +171,7 @@ namespace we {
       public removeRolloverListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRollover(value), this);
+            this._mouseAreaMapping[value].removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onGridRolloverEvent, this);
           }
         });
       }
@@ -141,7 +179,7 @@ namespace we {
       public addRolloutListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRollout(value), this);
+            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRolloutEvent, this);
           }
         });
       }
@@ -149,25 +187,29 @@ namespace we {
       public removeRolloutListeners() {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRollout(value), this);
+            this._mouseAreaMapping[value].removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onGridRolloutEvent, this);
           }
         });
       }
 
+      public onGridRolloverEvent(evt: egret.Event) {
+        const target = evt.target;
+        const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
+        this.onGridRollover(fieldName);
+      }
+
       public onGridRollover(fieldName: string) {
-        return (evt: egret.Event) => {
-          if (evt.target === this._mouseAreaMapping[fieldName]) {
-            this._tableLayer.onRollover(fieldName);
-          }
-        };
+        this._tableLayer.onRollover(fieldName);
+      }
+
+      public onGridRolloutEvent(evt: egret.Event) {
+        const target = evt.target;
+        const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
+        this.onGridRollout(fieldName);
       }
 
       public onGridRollout(fieldName: string) {
-        return (evt: egret.Event) => {
-          if (evt.target === this._mouseAreaMapping[fieldName]) {
-            this._tableLayer.onRollout(fieldName);
-          }
-        };
+        this._tableLayer.onRollout(fieldName);
       }
 
       public addTouchTapListeners() {
@@ -206,17 +248,26 @@ namespace we {
 
       public setTouchEnabled(enable: boolean) {
         this.touchEnabled = enable;
-        this.touchChildren = enable;
-        Object.keys(this._mouseAreaMapping).forEach(value => {
-          if (this._mouseAreaMapping[value]) {
-            this._mouseAreaMapping[value].touchEnabled = enable;
-            this._mouseAreaMapping[value].touchChildren = enable;
-          }
-        });
+        if (enable) {
+          this.addAllMouseListeners();
+        } else {
+          this.removeAllMouseListeners();
+        }
+        // this.touchChildren = false;
+        // Object.keys(this._mouseAreaMapping).forEach(value => {
+        //   if (this._mouseAreaMapping[value]) {
+        //     this._mouseAreaMapping[value].touchEnabled = enable;
+        //     this._mouseAreaMapping[value].touchChildren = false;
+        //   }
+        // });
 
         if (!enable) {
           this.cancelBet();
         }
+      }
+
+      public getConfirmedBetDetails() {
+        return this._cfmBetDetails;
       }
 
       public getUnconfirmedBetDetails() {
@@ -224,7 +275,17 @@ namespace we {
       }
 
       public getTotalUncfmBetAmount() {
-        return this._uncfmBetDetails.reduce((a, b) => a + b.amount, 0);
+        if (this._uncfmBetDetails) {
+          return this._uncfmBetDetails.reduce((a, b) => a + b.amount, 0);
+        }
+        return 0;
+      }
+
+      public getTotalCfmBetAmount() {
+        if (this._cfmBetDetails) {
+          return this._cfmBetDetails.reduce((a, b) => a + b.amount, 0);
+        }
+        return 0;
       }
 
       public updateBetFields(betDetails: data.BetDetail[]) {
@@ -233,7 +294,7 @@ namespace we {
         // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
           if (this._betChipStackMapping[value.field]) {
-            this._betChipStackMapping[value.field].cfmBet = value.amount;
+            this._betChipStackMapping[value.field].cfmBet = value.amount * this.getRate(value.field);
             this._betChipStackMapping[value.field].draw();
           }
         });
@@ -263,41 +324,56 @@ namespace we {
 
       public onBetFieldUpdateEvent(evt: egret.Event) {
         const target = evt.target;
-        console.log(evt);
         const fieldName = utils.EnumHelpers.getKeyByValue(this._mouseAreaMapping, target);
-        this.onBetFieldUpdate(fieldName)();
+        this.onBetFieldUpdate(fieldName);
       }
 
-      public onBetFieldUpdate(fieldName) {
-        return () => {
-          const grid = this.getUncfmBetByField(fieldName);
+      public onBetFieldsUpdate(fieldNames: string[], hashkey: string = null) {
+        fieldNames.map(fieldName => {
           const betDetail = { field: fieldName, amount: this.getOrderAmount() };
-          // validate bet action
-          if (this.validateBetAction(betDetail)) {
-            // update the uncfmBetDetails
-            for (const detail of this._uncfmBetDetails) {
-              if (detail.field === betDetail.field) {
-                detail.amount += betDetail.amount;
-                break;
-              }
-            }
-            // update the corresponding table grid
-            this.undoStack.push(new Date().getTime(), we.utils.clone({ field: fieldName, amount: grid ? grid.amount : 0 }), this.undoBetFieldUpdate.bind(this));
+          if (!this.validateBetAction(betDetail)) {
+            return;
           }
-          if (this._betChipStackMapping[fieldName]) {
-            this._betChipStackMapping[fieldName].uncfmBet = grid ? grid.amount : 0;
-            this._betChipStackMapping[fieldName].draw();
-          }
-        };
+        });
+
+        fieldNames.map(fieldName => {
+          this.addBetToBetField(fieldName, this.getOrderAmount());
+          this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: this.getOrderAmount() }), this.undoBetFieldUpdate.bind(this));
+          this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
+        });
       }
 
-      protected undoBetFieldUpdate(data: { fieldName: string; amount: number }) {
-        if (this._betChipStackMapping[data.fieldName]) {
-          this._betChipStackMapping[data.fieldName].uncfmBet -= data.amount;
-          this._betChipStackMapping[data.fieldName].draw();
+      public betFieldsUpdate(betDetails: data.BetDetail[], hashkey: string = null) {
+        betDetails.map(value => {
+          if (!this.validateBetAction(value)) {
+            return;
+          }
+        });
+
+        betDetails.map(value => {
+          this.addBetToBetField(value.field, value.amount);
+          this.undoStack.push(hashkey, we.utils.clone(betDetails), this.undoBetFieldUpdate.bind(this));
+          this.updateBetChipUncfmBet(value.field, this.getUncfmBetByField(value.field).amount);
+        });
+      }
+
+      public onBetFieldUpdate(fieldName, hashkey: string = null) {
+        const betDetail = { field: fieldName, amount: this.getOrderAmount() };
+        // validate bet action
+        if (this.validateBetAction(betDetail)) {
+          this.addBetToBetField(fieldName, this.getOrderAmount());
+          this.undoStack.push(hashkey, we.utils.clone({ field: fieldName, amount: betDetail.amount }), this.undoBetFieldUpdate.bind(this));
+          this.updateBetChipUncfmBet(fieldName, this.getUncfmBetByField(fieldName).amount);
+        }
+      }
+
+      protected undoBetFieldUpdate(data: { field: string; amount: number }) {
+        if (this._betChipStackMapping[data.field]) {
+          this._betChipStackMapping[data.field].uncfmBet -= data.amount * this.getRate(data.field);
+          this._betChipStackMapping[data.field].draw();
         }
         this._uncfmBetDetails.forEach(value => {
-          if (value.field === data.fieldName) {
+          if (value.field === data.field) {
             value.amount -= data.amount;
           }
         });
@@ -311,10 +387,11 @@ namespace we {
       public undoDoubleBetFields(betDetails: data.BetDetail[]) {
         betDetails.map(value => {
           if (this._betChipStackMapping[value.field]) {
-            this._betChipStackMapping[value.field].uncfmBet = value.amount;
+            this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
             this._betChipStackMapping[value.field].draw();
           }
         });
+
         this._uncfmBetDetails = betDetails;
       }
 
@@ -333,7 +410,7 @@ namespace we {
           const addedAmount = value.amount;
           if (addedAmount > 0) {
             if (this._betChipStackMapping[value.field]) {
-              this._betChipStackMapping[value.field].uncfmBet += addedAmount;
+              this._betChipStackMapping[value.field].uncfmBet += addedAmount * this.getRate(value.field);
               this._betChipStackMapping[value.field].draw();
             }
             for (const detail of this._uncfmBetDetails) {
@@ -365,28 +442,18 @@ namespace we {
         if (env.tableInfos[this._tableId].prevroundid !== env.tableInfos[this._tableId].prevbetsroundid) {
           return;
         }
-        const validRepeatBet = this._cfmBetDetails.map(value => {
-          if (value.amount === 0) {
-            return true;
+        const validRepeatBet = this._cfmBetDetails.reduce((acc, cur) => {
+          if (cur.amount === 0) {
+            return acc && true;
           }
-          let betDetail = { field: value.field, amount: 0 };
-          for (const bets of env.tableInfos[this._tableId].prevbets) {
-            if (bets.field === value.field) {
-              betDetail = { field: bets.field, amount: bets.amount };
-            }
-          }
-          if (this.validateBetAction(betDetail)) {
-            return true;
-          }
-          return false;
-        });
-        for (const valid of validRepeatBet) {
-          if (!valid) {
-            return;
-          }
+          const betDetail = { field: cur.field, amount: cur.amount };
+          return this.validateBetAction(betDetail) ? acc && true : false;
+        }, true);
+        if (!validRepeatBet) {
+          return;
         }
         env.tableInfos[this._tableId].prevbets.map(value => {
-          this._betChipStackMapping[value.field].uncfmBet = value.amount;
+          this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
           this._betChipStackMapping[value.field].draw();
           for (const detail of this._uncfmBetDetails) {
             if (detail.field === value.field) {
@@ -441,7 +508,7 @@ namespace we {
       }
 
       // check if the current bet action is valid
-      protected validateBetAction(betDetail: data.BetDetail): boolean {
+      public validateBetAction(betDetail: data.BetDetail): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
         fieldAmounts[betDetail.field] += betDetail.amount;
         return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount() + betDetail.amount);
@@ -494,12 +561,16 @@ namespace we {
 
       public undoCancelBet(betDetails: data.BetDetail[]) {
         if (betDetails) {
+          /*
+          betDetails.forEach(value => {
+            if (!this.validateBetAction(value)) {
+              return;
+            }
+          });
+          */
           betDetails.forEach(value => {
             if (value) {
-              if (this._betChipStackMapping[value.field]) {
-                this._betChipStackMapping[value.field].uncfmBet = value.amount;
-                this._betChipStackMapping[value.field].draw();
-              }
+              this.updateBetChipUncfmBet(value.field, value.amount);
             }
           });
           this._uncfmBetDetails = betDetails;
@@ -508,6 +579,10 @@ namespace we {
 
       public onChangeLang() {
         this.changeLang();
+      }
+
+      protected getRate(fieldName): number {
+        return 1;
       }
     }
   }

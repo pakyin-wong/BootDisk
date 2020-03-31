@@ -1,7 +1,7 @@
 {
     "target": "development",
     "mode": "comm",
-    "playerID": "BMJCQSLH5S5VDBFBP1A0",
+    "playerID": "BNC9O6DH5S5JNQTG8PR5",
     "endpoint": "https://dev-rest-gateway.weapi247.com",
     "rabbitmqhostname": "dev-rabbitmq-mqtt.weapi247.com",
     "rabbitmqport": "443",

@@ -1,48 +1,33 @@
 namespace we {
   export namespace overlay {
     export class CustomRoad extends ui.Panel {
-      private _txt_title: ui.RunTimeLabel;
-      private scroller: ui.Scroller;
-      private collection: eui.ArrayCollection;
-      private _editRoadPanel: ba.GoodRoadEditItem;
-      public _cover: eui.Rect;
-      private _defaultButton: ui.BaseImageButton;
+      protected _txt_title: ui.RunTimeLabel;
+      protected scroller: ui.Scroller;
+      protected roomList: ui.List;
+      protected collection: eui.ArrayCollection;
+      protected _editRoadPanel: ba.GoodRoadEditItem;
+      protected _cover: eui.Rect;
+      protected _defaultButton: ui.BaseImageButton;
 
       constructor() {
-        super('overlay/CustomRoad');
+        super('CustomRoad');
       }
 
       protected mount() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_customroad_title')}`;
 
         this.collection = new eui.ArrayCollection([]); // road ids
-
-        this.scroller = new ui.Scroller();
-        this.scroller.width = 1643;
-        this.scroller.height = 766;
-        this.scroller.x = 28;
-        this.scroller.y = 130;
-        this.content.addChildAt(this.scroller, 1);
-
-        const roomList = new ui.List();
-        const layout2 = new eui.AnimTileLayout();
-        layout2.horizontalGap = 32;
-        layout2.verticalGap = 36;
-        layout2.paddingTop = 16;
-        layout2.paddingBottom = 20;
-        layout2.paddingLeft = 20;
-        layout2.requestedColumnCount = 5;
-        roomList.layout = layout2;
-        roomList.dataProvider = this.collection;
-        roomList.itemRenderer = we.ba.GoodRoadListHolder;
-        roomList.useVirtualLayout = false;
-        this.scroller.viewport = roomList;
+        this.roomList.dataProvider = this.collection;
+        this.roomList.itemRenderer = we.ba.GoodRoadListHolder;
+        this.roomList.useVirtualLayout = false;
 
         // listen to the Good Road Edit events
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_ADD, this.onRoadAdd, this);
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_EDIT, this.onRoadEdit, this);
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_MODIFY, this.onRoadModify, this);
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_REMOVE, this.onRoadRemove, this);
+
+        this._editRoadPanel.addEventListener('close', this.onEditPanelClosed, this);
 
         // get the Good Road Data from server or env if it exist
         dir.evtHandler.addEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
@@ -58,7 +43,7 @@ namespace we {
         this._defaultButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDefaultClicked, this);
       }
 
-      private onDefaultClicked(e: egret.TouchEvent) {
+      protected onDefaultClicked(e: egret.TouchEvent) {
         dir.socket.resetGoodRoadmap();
       }
 
@@ -83,13 +68,16 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.GOOD_ROAD_DATA_UPDATE)) {
           dir.evtHandler.removeEventListener(core.Event.GOOD_ROAD_DATA_UPDATE, this.onRoadDataUpdated, this);
         }
+
+        this._editRoadPanel.removeEventListener('close', this.onEditPanelClosed, this);
       }
 
-      private onRoadDataUpdated(e: egret.Event) {
+      protected onRoadDataUpdated(e: egret.Event) {
+        this._cover.visible = false;
         this.renderFromGoodRoadData();
       }
 
-      private onRoadAdd(e: egret.Event) {
+      protected onRoadAdd(e: egret.Event) {
         if (!this._editRoadPanel.isActivated) {
           this._editRoadPanel.show();
           this._editRoadPanel.setByObject({ type: 0 });
@@ -98,7 +86,7 @@ namespace we {
           this._cover.visible = true;
         }
       }
-      private onRoadEdit(e: egret.Event) {
+      protected onRoadEdit(e: egret.Event) {
         if (!this._editRoadPanel.isActivated) {
           this._editRoadPanel.show();
           this._editRoadPanel.setByObject(e.data.itemData);
@@ -107,7 +95,7 @@ namespace we {
           this._cover.visible = true;
         }
       }
-      private onRoadModify(e: egret.Event) {
+      protected onRoadModify(e: egret.Event) {
         if (e.data.roadType === 1) {
           // default
           const roadsEnabled = [];
@@ -127,12 +115,12 @@ namespace we {
           dir.socket.updateCustomGoodRoad(e.data.id, e.data);
         }
       }
-      private onRoadRemove(e: egret.Event) {
+      protected onRoadRemove(e: egret.Event) {
         // remove custom road
         dir.socket.removeGoodRoadmap(e.data.id);
       }
 
-      private renderFromGoodRoadData() {
+      protected renderFromGoodRoadData() {
         const roadData: data.GoodRoadMapData = env.goodRoadData;
 
         // clean existing roads
@@ -150,6 +138,12 @@ namespace we {
           this.collection.addItem(element);
         });
 
+        this.insertNewRoadColumn();
+      }
+
+      protected insertNewRoadColumn() {
+        const roadData: data.GoodRoadMapData = env.goodRoadData;
+
         if (roadData.custom.length < 10) {
           // add road
           this.collection.addItem({
@@ -158,7 +152,11 @@ namespace we {
         }
       }
 
-      private compareItems(a: any, b: any): boolean {
+      protected onEditPanelClosed() {
+        this._cover.visible = false;
+      }
+
+      protected compareItems(a: any, b: any): boolean {
         return a.name === b.name && a.id === b.id && a.pattern === b.pattern && a.enabled === b.enabled;
       }
     }

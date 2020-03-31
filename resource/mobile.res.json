@@ -13,7 +13,11 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_normal_png,d_lobby_Icon_setting_normal_png,d_lobby_Icon_edit_normal_png,d_lobby_Icon_chart_normal_png,d_lobby_Icon_record_normal_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_normal_png,d_lobby_panel_button_page_prev_normal_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png,d_lobby_profile_reload_hover_png,d_lobby_profile_reload_normal_png,d_lobby_Icon_edit_hover_png,d_lobby_profile_edit_hover_png,d_lobby_profile_edit_normal_png,d_common_panel_systemsetting_pressedbg_png,d_common_panel_systemsetting_pressed_select_png,m_common_panel_setting_uicolour_active_png,m_common_panel_setting_uicolour_png,m_common_panel_setting_uicolour_light_png,m_common_panel_setting_uicolour_black_png,m_common_header_icon_menu_png,m_common_header_icon_logo_png,m_common_header_icon_refresh_png,m_common_icon_close_png,m_common_panel_setting_icon_account_png,m_common_panel_setting_icon_gdrdsetting_png,m_common_panel_setting_icon_logout_png,m_common_panel_setting_icon_record_png,m_common_panel_setting_icon_setting_png,m_common_panel_setting_icon_table_png,m_common_setting_playinfo_icon_refresh_png,m_common_setting_playinfo_icon_edit_png,m_common_setting_playinfo_profilepic_edit_bg_png,m_common_setting_playinfo_profilepic_edit_icon_png,m_common_setting_playinfo_profilepic_oval_png,m_common_btn_previous_png,m_common_panel_systemsetting_icon_language_png,m_common_slide_bar_base_png,m_common_slide_bar_btn_png,m_common_slide_bar_btn_disabled_png,m_common_slide_bar_active_png,m_common_panel_setting_btn_switch_disabled_png,m_common_panel_setting_btn_switch_active_png,m_common_setting_playerreportlist_detail_result_replay_box_png,m_common_setting_playerreportlist_detail_result_replay_icon_png",
+			"keys": "d_ro_betborad_outline_png,d_ro_betborad_result_hl_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_history_hotclod_under_line_png,d_ro_history_racetrack_bg_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_ro_history_status_bar_box_png,d_ro_history_status_bar_down_png,d_ro_history_status_bar_top_png,d_ro_panel_betcontrol_betarea_even_inactive_png,d_ro_panel_betcontrol_betarea_odd_hover_png,d_ro_panel_betcontrol_betarea_odd_inactive_png,d_ro_panel_gamelist_betarea_black_inactive_png,d_ro_panel_gamelist_betarea_disable_png,d_ro_panel_gamelist_betrarea_red_inactive_png,d_ro_panel_gamelist_history_ball_gray_png,d_ro_panel_gamelist_history_ball_hl_png,d_ro_racetrack_inactive_png,d_ro_racetrack_outline_png,d_ro_rm_add_btn_hover_png,d_ro_rm_less_btn_hover_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,d_ro_savelayout_star_icon_png,d_ro_betboard_disable_png,d_ro_betboard_hover_png,d_ro_betboard_inactive_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_black_square_png,roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,d_ro_betboard_hover_even_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_small_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_png,d_ro_racetrack_normal_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_32_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_normal_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_red_hover_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_less_btn_disabled_png,m_ro_v_betborad_hover_png,m_ro_v_betborad_inactive_png,m_ro_v_betborad_outline_png,m_ro_v_cold_bar_png,m_ro_v_hot_bar_png,m_ro_v_hot_icon_png,m_ro_v_cold_icon_png,m_ro_btn_savelayout_png,m_ro_btn_reactack_png,m_ba_btn_bg_hover_png,m_ba_btn_video_png,m_ba_btn_chatroom_png,m_ba_btn_bg_png,m_ro_v_reatrack_hover_png,m_ro_v_reatrack_outline_png,v_23_png,v_24_png,v_26_png,v_30_png,v_35_png,v_Orphelins_png,v_Rectangle_png,v_Tires_png,v_Voisins_png,v_Zero_png,v_32_png,v_0_png,v_3_png,v_8_png,v_5_png,v_10_png,v_12_png,v_15_png,m_ro_add_icon_hover_png,m_ro_add_icon_Inactive_png,m_ro_less_icon_hover_png,m_ro_less_icon_Inactive_png",
+			"name": "scene_roulette"
+		},
+		{
+			"keys": "nav_panel_bg,d-lobby-button-close-none_png,d_lobby_navbar_time_png,d_lobby_panel_button_slide_select_png,d-lobby-header-dim_png,d_lobby_profile_pic_03_png,d_lobby_Icon_logout_normal_png,d_lobby_Icon_setting_normal_png,d_lobby_Icon_edit_normal_png,d_lobby_Icon_chart_normal_png,d_lobby_Icon_record_normal_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_ba_navbar_icon_rss_png,d_lobby_panel_button_page_next_normal_png,d_lobby_panel_button_page_prev_normal_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png,d_lobby_profile_reload_hover_png,d_lobby_profile_reload_normal_png,d_lobby_Icon_edit_hover_png,d_lobby_profile_edit_hover_png,d_lobby_profile_edit_normal_png,d_common_panel_systemsetting_pressedbg_png,d_common_panel_systemsetting_pressed_select_png,m_common_panel_setting_uicolour_active_png,m_common_panel_setting_uicolour_png,m_common_panel_setting_uicolour_light_png,m_common_panel_setting_uicolour_black_png,m_common_header_icon_menu_png,m_common_header_icon_logo_png,m_common_header_icon_refresh_png,m_common_icon_close_png,m_common_panel_setting_icon_account_png,m_common_panel_setting_icon_gdrdsetting_png,m_common_panel_setting_icon_logout_png,m_common_panel_setting_icon_record_png,m_common_panel_setting_icon_setting_png,m_common_panel_setting_icon_table_png,m_common_setting_playinfo_icon_refresh_png,m_common_setting_playinfo_icon_edit_png,m_common_setting_playinfo_profilepic_edit_bg_png,m_common_setting_playinfo_profilepic_edit_icon_png,m_common_setting_playinfo_profilepic_oval_png,m_common_btn_previous_png,m_common_panel_systemsetting_icon_language_png,m_common_slide_bar_base_png,m_common_slide_bar_btn_png,m_common_slide_bar_btn_disabled_png,m_common_slide_bar_active_png,m_common_panel_setting_btn_switch_disabled_png,m_common_panel_setting_btn_switch_active_png,m_common_setting_playerreportlist_detail_result_replay_box_png,m_common_setting_playerreportlist_detail_result_replay_icon_png,m_common_setting_goodroad_btn_reset_png,m_common_setting_goodroad_roadmap_checkboxes_png,m_common_setting_goodroad_roadmap_checkboxes_active_png,m_common_setting_goodroad_btn_delete_png,m_common_setting_goodroad_btn_edit_png,m_common_setting_goodroad_btn_add_png,m_common_setting_goodroad_panel_addroad_btn_palyer_png,m_common_setting_goodroad_panel_addroad_png,m_common_setting_goodroad_panel_addroad_btn_clear_png,m_common_setting_goodroad_panel_addroad_btn_banker_png,m_common_setting_goodroad_panel_addroad_btn_confirm_bg_png,m_common_setting_goodroad_panel_addroad_btn_confirm_icon_png,m_common_setting_goodroad_panel_addroad_btn_deduct_png",
 			"name": "nav"
 		},
 		{
@@ -2402,12 +2406,14 @@
 		{
 			"url": "assets/d/lobby/d_lobby_notify_btn_action.png",
 			"type": "image",
-			"name": "d_lobby_notify_btn_action_png"
+			"name": "d_lobby_notify_btn_action_png",
+			"scale9grid": "10,0,102,31"
 		},
 		{
 			"url": "assets/d/lobby/d_lobby_notify_btn_hide.png",
 			"type": "image",
-			"name": "d_lobby_notify_btn_hide_png"
+			"name": "d_lobby_notify_btn_hide_png",
+			"scale9grid": "10,10,102,31"
 		},
 		{
 			"url": "assets/temp/Mask_test.png",
@@ -3093,7 +3099,8 @@
 		{
 			"url": "assets/m/common/m_common_setting_goodroad_btn_reset.png",
 			"type": "image",
-			"name": "m_common_setting_goodroad_btn_reset_png"
+			"name": "m_common_setting_goodroad_btn_reset_png",
+			"scale9grid": "45,45,1,1"
 		},
 		{
 			"url": "assets/m/common/m_common_setting_goodroad_footer_bg_dim.png",
@@ -4245,6 +4252,723 @@
 			"url": "assets/m/ba/m_ba_tag_redlimit_btn_dropdown.png",
 			"type": "image",
 			"name": "m_ba_tag_redlimit_btn_dropdown_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betborad_outline.png",
+			"type": "image",
+			"name": "d_ro_betborad_outline_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betborad_result_hl.png",
+			"type": "image",
+			"name": "d_ro_betborad_result_hl_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_game_record_black_ball_large.png",
+			"type": "image",
+			"name": "d_ro_game_record_black_ball_large_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_game_record_red_ball_large.png",
+			"type": "image",
+			"name": "d_ro_game_record_red_ball_large_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_game_record_green_ball_large.png",
+			"type": "image",
+			"name": "d_ro_game_record_green_ball_large_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_cold_bg.png",
+			"type": "image",
+			"name": "d_ro_history_cold_bg_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_cold_icon.png",
+			"type": "image",
+			"name": "d_ro_history_cold_icon_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hot_bg.png",
+			"type": "image",
+			"name": "d_ro_history_hot_bg_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hot_icon.png",
+			"type": "image",
+			"name": "d_ro_history_hot_icon_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hotclod_balck_ball_medium.png",
+			"type": "image",
+			"name": "d_ro_history_hotclod_balck_ball_medium_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hotclod_bg.png",
+			"type": "image",
+			"name": "d_ro_history_hotclod_bg_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hotclod_black_ball_extra_large.png",
+			"type": "image",
+			"name": "d_ro_history_hotclod_black_ball_extra_large_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hotclod_green_ball_extra_large.png",
+			"type": "image",
+			"name": "d_ro_history_hotclod_green_ball_extra_large_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hotclod_green_ball_medium.png",
+			"type": "image",
+			"name": "d_ro_history_hotclod_green_ball_medium_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hotclod_red_ball_extra_large.png",
+			"type": "image",
+			"name": "d_ro_history_hotclod_red_ball_extra_large_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hotclod_red_ball_medium.png",
+			"type": "image",
+			"name": "d_ro_history_hotclod_red_ball_medium_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_hotclod_under_line.png",
+			"type": "image",
+			"name": "d_ro_history_hotclod_under_line_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_racetrack_bg.png",
+			"type": "image",
+			"name": "d_ro_history_racetrack_bg_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_result_ball_hl.png",
+			"type": "image",
+			"name": "d_ro_history_result_ball_hl_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_result_black_ball_samll.png",
+			"type": "image",
+			"name": "d_ro_history_result_black_ball_samll_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_result_green_ball_samll.png",
+			"type": "image",
+			"name": "d_ro_history_result_green_ball_samll_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_result_red_ball_samll.png",
+			"type": "image",
+			"name": "d_ro_history_result_red_ball_samll_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_status_bar_box.png",
+			"type": "image",
+			"name": "d_ro_history_status_bar_box_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_status_bar_down.png",
+			"type": "image",
+			"name": "d_ro_history_status_bar_down_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_history_status_bar_top.png",
+			"type": "image",
+			"name": "d_ro_history_status_bar_top_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_betcontrol_betarea_odd_hover.png",
+			"type": "image",
+			"name": "d_ro_panel_betcontrol_betarea_odd_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_betcontrol_betarea_even_inactive.png",
+			"type": "image",
+			"name": "d_ro_panel_betcontrol_betarea_even_inactive_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_betcontrol_betarea_odd_inactive.png",
+			"type": "image",
+			"name": "d_ro_panel_betcontrol_betarea_odd_inactive_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_gamelist_betarea_black_inactive.png",
+			"type": "image",
+			"name": "d_ro_panel_gamelist_betarea_black_inactive_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_gamelist_betarea_disable.png",
+			"type": "image",
+			"name": "d_ro_panel_gamelist_betarea_disable_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_gamelist_betrarea_red_inactive.png",
+			"type": "image",
+			"name": "d_ro_panel_gamelist_betrarea_red_inactive_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_gamelist_history_ball_gray.png",
+			"type": "image",
+			"name": "d_ro_panel_gamelist_history_ball_gray_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_gamelist_history_ball_hl.png",
+			"type": "image",
+			"name": "d_ro_panel_gamelist_history_ball_hl_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_inactive.png",
+			"type": "image",
+			"name": "d_ro_racetrack_inactive_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_outline.png",
+			"type": "image",
+			"name": "d_ro_racetrack_outline_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_add_btn_hover.png",
+			"type": "image",
+			"name": "d_ro_rm_add_btn_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_less_btn_hover.png",
+			"type": "image",
+			"name": "d_ro_rm_less_btn_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_active.png",
+			"type": "image",
+			"name": "d_ro_rm_switch_tag_btn_active_png",
+			"scale9grid": "18,17,3,2"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_hover.png",
+			"type": "image",
+			"name": "d_ro_rm_switch_tag_btn_hover_png",
+			"scale9grid": "18,17,3,2"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_switch_tag_btn_inactive.png",
+			"type": "image",
+			"name": "d_ro_rm_switch_tag_btn_inactive_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_savelayout_active_bg.png",
+			"type": "image",
+			"name": "d_ro_savelayout_active_bg_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_savelayout_cancel_icon.png",
+			"type": "image",
+			"name": "d_ro_savelayout_cancel_icon_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_savelayout_confirm_icon.png",
+			"type": "image",
+			"name": "d_ro_savelayout_confirm_icon_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_savelayout_inactive_bg.png",
+			"type": "image",
+			"name": "d_ro_savelayout_inactive_bg_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_savelayout_rename_mode_bg.png",
+			"type": "image",
+			"name": "d_ro_savelayout_rename_mode_bg_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_savelayout_star_icon.png",
+			"type": "image",
+			"name": "d_ro_savelayout_star_icon_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_disable.png",
+			"type": "image",
+			"name": "d_ro_betboard_disable_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_inactive.png",
+			"type": "image",
+			"name": "d_ro_betboard_inactive_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_black_square.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_black_square_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_red_square.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_red_square_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_even.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_even_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_dozen.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_dozen_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_red.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_red_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_odd.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_odd_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_row_2.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_row_2_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_row_1.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_row_1_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_row_3.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_row_3_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_0.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_0_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_small.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_small_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_big.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_big_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_betboard_hover_black.png",
+			"type": "image",
+			"name": "d_ro_betboard_hover_black_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_normal.png",
+			"type": "image",
+			"name": "d_ro_racetrack_normal_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_23_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_23_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_26_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_26_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_24_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_24_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_30_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_30_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_35_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_35_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_orphelins_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_orphelins_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_tiers_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_tiers_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_voisins_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_voisins_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_zero_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_zero_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_0_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_0_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_3_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_3_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_5_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_5_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_8_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_8_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_10_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_10_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_32_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_32_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_add_btn_normal.png",
+			"type": "image",
+			"name": "d_ro_rm_add_btn_normal_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_less_btn_normal.png",
+			"type": "image",
+			"name": "d_ro_rm_less_btn_normal_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_black_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_black_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_racetrack_red_hover.png",
+			"type": "image",
+			"name": "d_ro_racetrack_red_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_add_btn_disabled.png",
+			"type": "image",
+			"name": "d_ro_rm_add_btn_disabled_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_rm_less_btn_disabled.png",
+			"type": "image",
+			"name": "d_ro_rm_less_btn_disabled_png"
+		},
+		{
+			"url": "assets/dragonbones/roulette_game_result/roulette_game_result_tex.json",
+			"type": "json",
+			"name": "roulette_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/roulette_game_result/roulette_game_result_ske.json",
+			"type": "json",
+			"name": "roulette_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/roulette_game_result/roulette_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_game_result_tex_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_betborad_hover.png",
+			"type": "image",
+			"name": "m_ro_v_betborad_hover_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_betborad_inactive.png",
+			"type": "image",
+			"name": "m_ro_v_betborad_inactive_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_betborad_outline.png",
+			"type": "image",
+			"name": "m_ro_v_betborad_outline_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_dragon.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_dragon_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_dragon_hover.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_dragon_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_hover.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tie.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_tie_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tie_hover.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_tie_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_betarea_tiger.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_betarea_tiger_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_result_dragon.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_result_dragon_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_result_dragon_win.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_result_dragon_win_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_result_tiger.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_result_tiger_png"
+		},
+		{
+			"url": "assets/m/dt/m_common_panel_gamelist_result_tiger_win.png",
+			"type": "image",
+			"name": "m_common_panel_gamelist_result_tiger_win_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_dragon_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_dragon_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tie_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tie_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_horizontal.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_horizontal_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_horizontal_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_horizontal_hover_png"
+		},
+		{
+			"url": "assets/m/dt/m_dt_betarea_tiger_hover.png",
+			"type": "image",
+			"name": "m_dt_betarea_tiger_hover_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_cold_bar.png",
+			"type": "image",
+			"name": "m_ro_v_cold_bar_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_hot_bar.png",
+			"type": "image",
+			"name": "m_ro_v_hot_bar_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_hot_icon.png",
+			"type": "image",
+			"name": "m_ro_v_hot_icon_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_cold_icon.png",
+			"type": "image",
+			"name": "m_ro_v_cold_icon_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_btn_savelayout.png",
+			"type": "image",
+			"name": "m_ro_btn_savelayout_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_btn_reactack.png",
+			"type": "image",
+			"name": "m_ro_btn_reactack_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_reatrack_hover.png",
+			"type": "image",
+			"name": "m_ro_v_reatrack_hover_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_v_reatrack_outline.png",
+			"type": "image",
+			"name": "m_ro_v_reatrack_outline_png"
+		},
+		{
+			"url": "assets/m/ro/v_23.png",
+			"type": "image",
+			"name": "v_23_png"
+		},
+		{
+			"url": "assets/m/ro/v_24.png",
+			"type": "image",
+			"name": "v_24_png"
+		},
+		{
+			"url": "assets/m/ro/v_26.png",
+			"type": "image",
+			"name": "v_26_png"
+		},
+		{
+			"url": "assets/m/ro/v_30.png",
+			"type": "image",
+			"name": "v_30_png"
+		},
+		{
+			"url": "assets/m/ro/v_35.png",
+			"type": "image",
+			"name": "v_35_png"
+		},
+		{
+			"url": "assets/m/ro/v_Orphelins.png",
+			"type": "image",
+			"name": "v_Orphelins_png"
+		},
+		{
+			"url": "assets/m/ro/v_Rectangle.png",
+			"type": "image",
+			"name": "v_Rectangle_png"
+		},
+		{
+			"url": "assets/m/ro/v_Tires.png",
+			"type": "image",
+			"name": "v_Tires_png"
+		},
+		{
+			"url": "assets/m/ro/v_Voisins.png",
+			"type": "image",
+			"name": "v_Voisins_png"
+		},
+		{
+			"url": "assets/m/ro/v_Zero.png",
+			"type": "image",
+			"name": "v_Zero_png"
+		},
+		{
+			"url": "assets/m/ro/v_32.png",
+			"type": "image",
+			"name": "v_32_png"
+		},
+		{
+			"url": "assets/m/ro/m_v_ro_reatrack_dim.png",
+			"type": "image",
+			"name": "m_v_ro_reatrack_dim_png"
+		},
+		{
+			"url": "assets/m/ro/v_0.png",
+			"type": "image",
+			"name": "v_0_png"
+		},
+		{
+			"url": "assets/m/ro/v_3.png",
+			"type": "image",
+			"name": "v_3_png"
+		},
+		{
+			"url": "assets/m/ro/v_8.png",
+			"type": "image",
+			"name": "v_8_png"
+		},
+		{
+			"url": "assets/m/ro/v_5.png",
+			"type": "image",
+			"name": "v_5_png"
+		},
+		{
+			"url": "assets/m/ro/v_10.png",
+			"type": "image",
+			"name": "v_10_png"
+		},
+		{
+			"url": "assets/m/ro/v_12.png",
+			"type": "image",
+			"name": "v_12_png"
+		},
+		{
+			"url": "assets/m/ro/v_15.png",
+			"type": "image",
+			"name": "v_15_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_add_icon_hover.png",
+			"type": "image",
+			"name": "m_ro_add_icon_hover_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_add_icon_Inactive.png",
+			"type": "image",
+			"name": "m_ro_add_icon_Inactive_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_less_icon_hover.png",
+			"type": "image",
+			"name": "m_ro_less_icon_hover_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_less_icon_Inactive.png",
+			"type": "image",
+			"name": "m_ro_less_icon_Inactive_png"
 		}
 	]
 }

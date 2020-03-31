@@ -8,7 +8,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkin('BaBeadRoadResultCardHolder');
+        this.skinName = utils.getSkinByClassname('BaBeadRoadResultCardHolderSkin');
 
         this.lblPlayerName.renderText = () => `${i18n.t('baccarat.player')}`;
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;

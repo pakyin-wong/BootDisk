@@ -20,29 +20,31 @@ namespace we {
       public constructor() {
         super();
         this.roadType = 0;
-        this.skinName = utils.getSkin('GoodRoadListItem');
+        this.skinName = utils.getSkinByClassname('GoodRoadListItem');
       }
 
       protected mount() {
         this.touchEnabled = true;
 
-        const hitarea = new egret.Shape();
-        hitarea.graphics.beginFill(0, 0);
-        hitarea.graphics.drawRect(-(this.width - this._addButton.width) / 2, -this.height / 2 + 50, this.width, this.height - 52);
-        this._addButton.addChild(hitarea);
-        this._addButton.touchEnabled = true;
-        this._addButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onAddTap, this);
+        if (!env.isMobile) {
+          const hitarea = new egret.Shape();
+          hitarea.graphics.beginFill(0, 0);
+          hitarea.graphics.drawRect(-(this.width - this._addButton.width) / 2, -this.height / 2 + 50, this.width, this.height - 52);
+          this._addButton.addChild(hitarea);
+          this._addButton.touchEnabled = true;
+          this._addButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onAddTap, this);
 
-        const hitarea2 = new egret.Shape();
-        hitarea2.graphics.beginFill(0, 0);
-        hitarea2.graphics.drawRect(-(this.width - this._editButton.width) / 2, -this.height / 2 + 50, this.width, this.height - 52);
-        this._editButton.addChild(hitarea2);
+          const hitarea2 = new egret.Shape();
+          hitarea2.graphics.beginFill(0, 0);
+          hitarea2.graphics.drawRect(-(this.width - this._editButton.width) / 2, -this.height / 2 + 50, this.width, this.height - 52);
+          this._editButton.addChild(hitarea2);
+          this._editButton.alpha = 0;
+          this._editButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onEditOver, this);
+          this._editButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onEditOut, this);
+        }
+
         this._editButton.touchEnabled = true;
-        this._editButton.alpha = 0;
         this._editButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onEditTap, this);
-        this._editButton.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onEditOver, this);
-        this._editButton.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onEditOut, this);
-
         this._binButton.touchEnabled = true;
         this._binButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBinTap, this);
 

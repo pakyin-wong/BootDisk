@@ -29,5 +29,5 @@
 		<e:Label id="_tigerTotalPerson" horizontalCenter="90" verticalCenter="85"  />
 	</e:Group>
 	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
-	        locked="true" />
+	         locked="true"/>
 </e:Skin>

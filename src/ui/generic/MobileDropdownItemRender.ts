@@ -6,7 +6,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('MobileDropdownItem');
+        this.skinName = utils.getSkinByClassname('MobileDropdownItem');
       }
 
       protected childrenCreated(): void {

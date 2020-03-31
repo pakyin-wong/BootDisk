@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.BetHistory" width="1689" height="941" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.CustomRoad" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48"
-		        strokeColor="0x333c4a" strokeWeight="2" locked="true" />
-		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" />
-		<ui:RunTimeLabel id="_txt_title" text="Good Road Settings" x="48" y="27" width="519.27" height="71"
-		                 verticalAlign="middle" textColor="0xc59466" size="48" fontFamily="NotoSansCJKtc-Medium"
-		                 anchorOffsetX="0" />
-		<ui:BaseImageButton id="_defaultButton" y="38" anchorOffsetX="0" width="300" anchorOffsetY="0" height="70"
-		                    currentState="b_cancel" x="469.81" skinName="ImageButtonSkinDialog" />
-		<e:Rect id="_cover" width="100%" height="811" x="0" y="130" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x000000"
-		        alpha="0" />
-		<ba:GoodRoadEditItem id="_editRoadPanel" width="321" height="319" x="48" y="130" anchorOffsetX="0" anchorOffsetY="0"
-		                     isDraggable="false" />
+		        strokeColor="0x333c4a" strokeWeight="2" />
+		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="1000" height="119" verticalAlign="middle"
+		                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" />
+		<ui:BaseImageButton id="_defaultButton" y="75" anchorOffsetX="0" width="320" anchorOffsetY="0" height="90"
+		                    currentState="b_reset" horizontalCenter="0"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
+		<ui:Scroller id="scroller" top="300" bottom="0" left="0" right="0">
+			<ui:List id="roomList" requireSelection="true">
+				<e:layout>
+					<e:AnimTileLayout horizontalGap="48" verticalGap="36" requestedColumnCount="2" horizontalAlign="center" />
+				</e:layout>
+			</ui:List>
+		</ui:Scroller>
+		<e:Image id="_btn_add" width="130" height="130" right="39" bottom="299" source="m_common_setting_goodroad_btn_add_png"
+		         alpha="0.9" />
+		<e:Rect id="_cover" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x000000" alpha="0.3" left="0" right="0" top="0"
+		        bottom="0" />
+		<ba:GoodRoadEditItem skinName="skin_mobile_portrait.GoodRoadEditItem" id="_editRoadPanel" width="1016" height="953"
+		                     anchorOffsetX="0" anchorOffsetY="0" isDraggable="false" horizontalCenter="0" y="563" />
 	</e:Group>
 </e:Skin>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.DtQuickBetContainerSkin" width="339" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:baccarat="baccarat.*" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
+        xmlns:dt="we.dt.*" xmlns:live="we.live.*" minHeight="174">
+    <e:Group id="_betChipSetPanel">
+			<e:Rect left="0" top="0" bottom="0" right="0" fillAlpha="0.7"/>
+        <ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
+    </e:Group>
+    <e:Group width="339" x="0" y="170" anchorOffsetX="0" anchorOffsetY="0">
+        <e:Rect width="100%" height="100" x="0" alpha="0.6" y="100" />
+        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="114"
+                                   skinName="skin_desktop.BetChipSkin" />
+        <dt:TableLayer id="_tableLayer" width="339" skinName="skin_desktop.dt.SideListTableLayerSkin" anchorOffsetY="0"
+                       height="110" left="0" top="0" name="sidebettingtable" />
+        <ui:BaseImageButton id="_closeButton" x="12" y="125" width="56" height="60"
+                            currentState="lobby_betcontrol_close" skinName="skin_desktop.ImageButtonSkinLobby" />
+        <ui:BaseImageButton id="_prevButton" x="68" y="125" width="56" height="60"
+                            currentState="lobby_betcontrol_previous" skinName="skin_desktop.ImageButtonSkinLobby" />
+        <ui:BaseImageButton id="_confirmButton" x="235" y="130" width="85" height="50"
+                            currentState="lobby_confirm_button" skinName="skin_desktop.ImageButtonSkinLobby" />
+    </e:Group>
+    <e:Group id="_contentContainer" width="339" height="174" x="0" y="0">
+        <e:Rect id="_contentMask" right="0" left="0" top="0" bottom="0" ellipseWidth="30" ellipseHeight="30"
+                fillColor="0xFFFFFF" x="0" y="0" scaleX="1" scaleY="1" />
+        <e:Rect width="100%" height="47" fillColor="0x303030" anchorOffsetY="0" y="0" />
+        <ui:CountdownTimer id="_timer" width="47" height="47" x="0" y="1" anchorOffsetX="0" anchorOffsetY="0"
+                           skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
+        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" y="12" text="" left="56"
+                         size="26" />
+        <ba:BetInfoBigRoad id="_bigRoad" width="339" height="127" bottom="0" />
+        <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />
+        <ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_desktop.InGameMessageSkin"
+                          width="303" height="32" horizontalCenter="0.5" y="105" infoBg="NaN" successBg="NaN"
+                          errorBg="NaN" />
+        <e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
+            <e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
+                     width="100" height="30" />
+            <e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
+        </e:Group>
+    </e:Group>
+        <dt:ChipLayer id="_chipLayer" width="339" skinName="skin_desktop.dt.SideListChipLayerSkin" anchorOffsetY="0"
+                  height="110" left="0" y="170" name="sidebettingtable"/>
+
+</e:Skin>

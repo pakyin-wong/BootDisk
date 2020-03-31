@@ -5,8 +5,6 @@ namespace we {
         super();
         // this.initDisplayItem();
       }
-      protected async mount() {}
-      protected destroy() {}
 
       protected initDisplayItem() {
         super.initDisplayItem();
@@ -22,20 +20,17 @@ namespace we {
           case we.core.GameType.BAI:
           case we.core.GameType.BAS:
             generalGameType = 'ba';
-            this._displayItem = new we.ui.MobileSideListBetItem(generalGameType + '.SideListBetItemSkin');
             break;
 
           case we.core.GameType.RO:
             generalGameType = 'ro';
-            this._displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
             break;
 
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
-            this._displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
         }
-
+        this._displayItem = new we.ui.MobileSideListBetItem(generalGameType + '.SideListBetItemSkin');
         this.setDisplayItem(this._displayItem);
       }
     }

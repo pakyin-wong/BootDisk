@@ -26,12 +26,27 @@ namespace we {
             generalGameType = 'ro';
             break;
 
+          case we.core.GameType.DI:
+            generalGameType = 'di';
+            break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
           case we.core.GameType.DT:
-          default:
             generalGameType = 'dt';
+            break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
+          default:
+            throw new Error('Invalid Game Type');
+        }
+        const listItem = new we.ui.SideListItem('SideListItemSkin');
+        if (we[generalGameType].SideListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].SideListItemInitHelper();
         }
 
-        this._displayItem = new we.ui.SideListItem(generalGameType + '.SideListItemSkin');
+        this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
       }
     }

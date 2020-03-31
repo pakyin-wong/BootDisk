@@ -35,12 +35,13 @@ namespace we {
       protected initDisplayItem() {
         let generalGameType: string;
 
+        logger.l(this.tableInfo);
+
         if (!this.tableInfo) {
           return;
         }
 
         switch (this.tableInfo.gametype) {
-          //  switch (0) {
           case we.core.GameType.BAC:
           case we.core.GameType.BAI:
           case we.core.GameType.BAS:
@@ -49,33 +50,52 @@ namespace we {
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
+          case we.core.GameType.DI:
+            generalGameType = 'di';
+            break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
         }
 
+        let itemName;
+
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
             this.width = 578;
             this.height = 388;
-            this._displayItem = new we.ui.LiveListItem(generalGameType + '.LiveListItemSkin');
-            this.setDisplayItem(this._displayItem);
-            if (this.tableInfo) {
-              this.updateDisplayItem();
-            }
+            itemName = 'LiveListItem';
             break;
           case we.lobby.mode.SIMPLE:
           case we.lobby.mode.ADVANCED:
           default:
             this.width = 578;
             this.height = 219;
-            this._displayItem = new we.ui.LiveListSimpleItem(generalGameType + '.LiveListSimpleItemSkin');
-            this.setDisplayItem(this._displayItem);
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OVER, this._displayItem.onRollover.bind(this._displayItem), this);
-            // this._displayItem.addEventListener(mouse.MouseEvent.ROLL_OUT, this._displayItem.onRollout.bind(this._displayItem), this);
-            if (this.tableInfo) {
-              this.updateDisplayItem();
-            }
+            itemName = 'LiveListSimpleItem';
+        }
+
+        this.assertSkinExists(generalGameType, `${itemName}Skin`);
+
+        const listItem = new we.ui[itemName](`${itemName}Skin`);
+        if (we[generalGameType].LiveListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].LiveListItemInitHelper();
+        }
+
+        this._displayItem = listItem;
+        this.setDisplayItem(this._displayItem);
+        if (this.tableInfo) {
+          this.updateDisplayItem();
+        }
+      }
+
+      private assertSkinExists(gameType, skinName) {
+        try {
+          const _ = skin_desktop[gameType][skinName];
+        } catch (err) {
+          throw new Error(`Skin ${gameType}.${skinName} does not exists!`);
         }
       }
 

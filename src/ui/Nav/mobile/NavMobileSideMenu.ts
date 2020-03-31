@@ -42,8 +42,16 @@ namespace we {
       protected onClickInfo() {
         dir.evtHandler.createOverlay({
           class: 'PlayerProfile',
+          args: ['PlayerProfile'],
         });
         logger.l(`NavSideMenu::onClickInfo`);
+      }
+
+      protected onClickRoad() {
+        dir.evtHandler.createOverlay({
+          class: 'CustomRoadMobile',
+        });
+        logger.l(`NavSideMenu::onClickRoad`);
       }
 
       protected onClickHistory() {

@@ -1,0 +1,111 @@
+namespace we {
+  export namespace lw {
+    export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
+      public constructor() {
+        super();
+      }
+
+      public showResult(gameType: core.GameType, resultData: any) {
+        this.visible = true;
+        this._dbClass = 'roulette';
+        this.removeChildren();
+        const image = new eui.Image();
+        switch (resultData) {
+          case 0:
+            image.source = 'd_lw_result_east_png';
+            break;
+          case 1:
+            image.source = 'd_lw_result_south_png';
+            break;
+          case 2:
+            image.source = 'd_lw_result_west_png';
+            break;
+          case 3:
+            image.source = 'd_lw_result_north_png';
+            break;
+          case 4:
+            image.source = 'd_lw_result_white_png';
+            break;
+          case 5:
+            image.source = 'd_lw_result_red_png';
+            break;
+          case 6:
+          default:
+            image.source = 'd_lw_result_green_png';
+            break;
+        }
+        this.addChild(image);
+      }
+
+      public clearMessage() {
+        this.visible = false;
+      }
+
+      protected startAnim(gameType: core.GameType, resultData: any) {
+        const { resultNo, winAmount } = resultData;
+
+        this._display.armature.eventDispatcher.addDBEventListener(
+          dragonBones.EventObject.COMPLETE,
+          () => {
+            this.visible = false;
+          },
+          this
+        );
+
+        const [numLeft, numCenter, numRight] = we.ro.getNeighbour(resultNo, 1);
+        const colorMap = {
+          [we.ro.Color.BLACK]: 'b',
+          [we.ro.Color.GREEN]: 'g',
+          [we.ro.Color.RED]: 'r',
+        };
+
+        let anim = 'ani_result_';
+        if (isNaN(winAmount)) {
+          anim += 'nobet_';
+        } else {
+          anim += 'win_loss_';
+        }
+        anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
+        logger.l(anim, numLeft, numCenter, numRight);
+
+        const array = [
+          ['L_txt', 60, numLeft, 90],
+          ['middle_txt', 90, numCenter, 90],
+          ['L_txt3', 60, numRight, 90],
+        ];
+
+        for (const [slotName, fontSize, text, rotate] of array) {
+          const slot = this._display.armature.getSlot(<string>slotName);
+          const lbl = new eui.Label();
+          lbl.text = <string>text;
+          lbl.fontFamily = 'Barlow';
+          lbl.size = <number>fontSize;
+          lbl.anchorOffsetX = lbl.width / 2;
+          lbl.anchorOffsetY = lbl.height / 2;
+          lbl.rotation = rotate as number;
+          const layer = new eui.Group();
+          layer.addChild(lbl);
+          slot.display = layer;
+        }
+
+        const slot = this._display.armature.getSlot('-800');
+        const r = new eui.Label();
+        r.fontFamily = 'Barlow';
+        r.size = 60;
+        r.text = utils.formatNumber(winAmount);
+        const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
+        r.filters = [shadowFilter];
+        r.bold = true;
+        r.textColor = 0xffffff;
+        const layer = new eui.Group();
+        layer.addChild(r);
+        layer.anchorOffsetX = r.width * 0.5;
+        layer.anchorOffsetY = r.height * 0.5;
+        slot.display = layer;
+
+        this.visible = true;
+        this._display.animation.play(anim, 1);
+      }
+    }
+  }
+}

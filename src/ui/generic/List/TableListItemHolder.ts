@@ -38,6 +38,7 @@ namespace we {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
       protected destroy() {
+        super.destroy();
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
 
@@ -108,23 +109,7 @@ namespace we {
       }
 
       protected gotoScene() {
-        const gameType = env.tableInfos[this.itemData].gametype;
-        switch (gameType) {
-          case core.GameType.BAC:
-          case core.GameType.BAS:
-          case core.GameType.BAI:
-            dir.sceneCtr.goto('ba', { tableid: this.itemData });
-            break;
-          case core.GameType.DT:
-            dir.sceneCtr.goto('dt', { tableid: this.itemData });
-            break;
-          case core.GameType.RO:
-            dir.sceneCtr.goto('ro', { tableid: this.itemData });
-            break;
-          default:
-            console.error('error in TableListItemHolder');
-            break;
-        }
+        env.gotoScene(this.itemData);
       }
     }
   }

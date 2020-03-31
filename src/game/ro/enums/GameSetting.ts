@@ -6,90 +6,34 @@ namespace we {
       RED,
     }
 
-    export enum RACETRACK_INNERFIELD {
-      TIERS = 'TIERS',
-      VOISINS = 'VOISINS',
-      ZERO = 'ZERO',
-      ORPHELINS = 'ORPHELINS',
-    }
+    // export enum RACETRACK_INNERFIELD {
+    //   TIERS = 'TIERS',
+    //   VOISINS = 'VOISINS',
+    //   ZERO = 'ZERO',
+    //   ORPHELINS = 'ORPHELINS',
+    // }
 
-    export const RACETRACK_INNERFIELD_MAPPING = {
-      [ro.RACETRACK_INNERFIELD.TIERS]: [
-        ro.BetField.SEPARATE_5_8,
-        ro.BetField.SEPARATE_10_11,
-        ro.BetField.SEPARATE_13_16,
-        ro.BetField.SEPARATE_23_24,
-        ro.BetField.SEPARATE_27_30,
-        ro.BetField.SEPARATE_31_34,
-        /*
-        ro.BetField.DIRECT_27,
-        ro.BetField.DIRECT_13,
-        ro.BetField.DIRECT_36,
-        ro.BetField.DIRECT_11,
-        ro.BetField.DIRECT_30,
-        ro.BetField.DIRECT_8,
-        ro.BetField.DIRECT_23,
-        ro.BetField.DIRECT_10,
-        ro.BetField.DIRECT_5,
-        ro.BetField.DIRECT_24,
-        ro.BetField.DIRECT_16,
-        ro.BetField.DIRECT_33,
-        */
-      ],
-      [ro.RACETRACK_INNERFIELD.ORPHELINS]: [
-        ro.BetField.SEPARATE_6_9,
-        ro.BetField.SEPARATE_14_17,
-        ro.BetField.SEPARATE_17_20,
-        ro.BetField.SEPARATE_31_34,
-        ro.BetField.DIRECT_1,
-        /*
-        ro.BetField.DIRECT_20,
-        ro.BetField.DIRECT_14,
-        ro.BetField.DIRECT_31,
-        ro.BetField.DIRECT_9,
-        ro.BetField.DIRECT_17,
-        ro.BetField.DIRECT_34,
-        ro.BetField.DIRECT_6,
-        */
-      ],
-      [ro.RACETRACK_INNERFIELD.VOISINS]: [
-        ro.BetField.STREET_0_2_3,
-        ro.BetField.SEPARATE_4_7,
-        ro.BetField.SEPARATE_12_15,
-        ro.BetField.SEPARATE_18_21,
-        ro.BetField.SEPARATE_19_22,
-        ro.BetField.CORNER_25_26_28_29,
-        ro.BetField.SEPARATE_32_35,
-        /*
-        ro.BetField.DIRECT_22,
-        ro.BetField.DIRECT_18,
-        ro.BetField.DIRECT_29,
-        ro.BetField.DIRECT_7,
-        ro.BetField.DIRECT_28,
-        ro.BetField.DIRECT_19,
-        ro.BetField.DIRECT_4,
-        ro.BetField.DIRECT_21,
-        ro.BetField.DIRECT_2,
-        ro.BetField.DIRECT_25,
-        */
-      ],
-      [ro.RACETRACK_INNERFIELD.ZERO]: [
-        ro.BetField.SEPARATE_0_3,
-        ro.BetField.SEPARATE_12_15,
-        ro.BetField.SEPARATE_18_21,
-        ro.BetField.DIRECT_26,
-        ro.BetField.SEPARATE_32_35,
-        /*
-        ro.BetField.DIRECT_12,
-        ro.BetField.DIRECT_35,
-        ro.BetField.DIRECT_3,
-        ro.BetField.DIRECT_26,
-        ro.BetField.DIRECT_0,
-        ro.BetField.DIRECT_32,
-        ro.BetField.DIRECT_15
-        */
-      ],
-    };
+    // export const RACETRACK_INNERFIELD_MAPPING = {
+    //   [ro.RACETRACK_INNERFIELD.TIERS]: [
+    //     ro.BetField.SEPARATE_5_8,
+    //     ro.BetField.SEPARATE_10_11,
+    //     ro.BetField.SEPARATE_13_16,
+    //     ro.BetField.SEPARATE_23_24,
+    //     ro.BetField.SEPARATE_27_30,
+    //     ro.BetField.SEPARATE_31_34,
+    //   ],
+    //   [ro.RACETRACK_INNERFIELD.ORPHELINS]: [ro.BetField.SEPARATE_6_9, ro.BetField.SEPARATE_14_17, ro.BetField.SEPARATE_17_20, ro.BetField.SEPARATE_31_34, ro.BetField.DIRECT_1],
+    //   [ro.RACETRACK_INNERFIELD.VOISINS]: [
+    //     ro.BetField.STREET_0_2_3,
+    //     ro.BetField.SEPARATE_4_7,
+    //     ro.BetField.SEPARATE_12_15,
+    //     ro.BetField.SEPARATE_18_21,
+    //     ro.BetField.SEPARATE_19_22,
+    //     ro.BetField.CORNER_25_26_28_29,
+    //     ro.BetField.SEPARATE_32_35,
+    //   ],
+    //   [ro.RACETRACK_INNERFIELD.ZERO]: [ro.BetField.SEPARATE_0_3, ro.BetField.SEPARATE_12_15, ro.BetField.SEPARATE_18_21, ro.BetField.DIRECT_26, ro.BetField.SEPARATE_32_35],
+    // };
 
     export const BETFIELD_MAPPING = {
       [ro.BetField.DIRECT_0]: [ro.BetField.DIRECT_0],
@@ -457,6 +401,20 @@ namespace we {
         ro.BetField.DIRECT_35,
         ro.BetField.DIRECT_36,
       ],
+      [ro.BetField.THE_THIRD]: [ro.BetField.SEPARATE_5_8, ro.BetField.SEPARATE_10_11, ro.BetField.SEPARATE_13_16, ro.BetField.SEPARATE_23_24, ro.BetField.SEPARATE_27_30, ro.BetField.SEPARATE_33_36],
+      [ro.BetField.ORPHANS]: [ro.BetField.SEPARATE_6_9, ro.BetField.SEPARATE_14_17, ro.BetField.SEPARATE_17_20, ro.BetField.SEPARATE_31_34, ro.BetField.DIRECT_1],
+      [ro.BetField.NEIGHBORS_OF_ZERO]: [
+        ro.BetField.STREET_0_2_3,
+        ro.BetField.STREET_0_2_3,
+        ro.BetField.SEPARATE_4_7,
+        ro.BetField.SEPARATE_12_15,
+        ro.BetField.SEPARATE_18_21,
+        ro.BetField.SEPARATE_19_22,
+        ro.BetField.CORNER_25_26_28_29,
+        ro.BetField.CORNER_25_26_28_29,
+        ro.BetField.SEPARATE_32_35,
+      ],
+      [ro.BetField.ZERO_GAME]: [ro.BetField.SEPARATE_0_3, ro.BetField.SEPARATE_12_15, ro.BetField.DIRECT_26, ro.BetField.SEPARATE_32_35],
     };
 
     export const BETFIELD_IMAGE_MAPPING = {
@@ -660,5 +618,62 @@ namespace we {
       3: Color.RED,
       26: Color.BLACK,
     };
+
+    export function getWinningFields(winningField: string) {
+      const lightingResult = new Array();
+      Object.keys(BETFIELD_MAPPING).map(key => {
+        BETFIELD_MAPPING[key].map(value => {
+          if (ro.BetField[winningField] === value) {
+            if (ro.BETFIELD_IMAGE_MAPPING[key]) {
+              lightingResult.push(key);
+            }
+          }
+        });
+      });
+      return lightingResult;
+    }
+
+    export function getNeighbour(num: number, interval: number) {
+      if (interval === 0) {
+        return [num];
+      }
+
+      const index = RACETRACK.indexOf(num);
+      const lastElementIndex = RACETRACK.length - 1;
+      let computedInterval = interval;
+
+      if (lastElementIndex - computedInterval * 2 <= 0) {
+        computedInterval = 18;
+      }
+
+      if (index < interval) {
+        const diff = computedInterval - index;
+        return RACETRACK.slice(RACETRACK.length - diff).concat(RACETRACK.slice(0, computedInterval + index + 1));
+      }
+
+      if (index + computedInterval > lastElementIndex) {
+        const diff = index + computedInterval - lastElementIndex;
+        return RACETRACK.slice(index - computedInterval).concat(RACETRACK.slice(0, diff));
+      }
+
+      return RACETRACK.slice(index - interval, index + computedInterval + 1);
+    }
+
+    export function num2directfield(num) {
+      return `DIRECT_${num}`;
+    }
+
+    export function directfield2num(field: string) {
+      const split = field.split('_');
+
+      if (split.length !== 2) {
+        throw new Error('not an ro direct field');
+      }
+      if (split[0] !== 'DIRECT') {
+        throw new Error('not an ro direct field');
+      }
+
+      return parseInt(split[1], 10);
+    }
   }
 }

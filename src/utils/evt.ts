@@ -9,5 +9,10 @@ namespace we {
       i.addEventListener(egret.TouchEvent.TOUCH_TAP, callback, thisArg);
       mouse.setButtonMode(i, true);
     }
+
+    export function removeButtonListener(i: egret.DisplayObject, callback, thisArg) {
+      i.removeEventListener(egret.TouchEvent.TOUCH_TAP, callback, thisArg);
+      mouse.setButtonMode(i, false);
+    }
   }
 }

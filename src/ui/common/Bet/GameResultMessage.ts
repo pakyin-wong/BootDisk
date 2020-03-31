@@ -6,34 +6,25 @@ namespace we {
     }
 
     export class GameResultMessage extends core.BaseEUI implements IGameResultMessage {
-      private _display: dragonBones.EgretArmatureDisplay = null;
-      private testing = true;
+      protected _display: dragonBones.EgretArmatureDisplay = null;
+      protected _dbClass;
 
       public constructor() {
         super();
-        this.visible = !this.testing;
-        // this.skinName = 'GameResultNormalSkin';
+        this.touchEnabled = false;
+        this.visible = false;
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
-        let dbClass;
-        let handler;
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS: {
-            dbClass = 'baccarat';
-            handler = 'startAnimBADT';
+            this._dbClass = 'baccarat';
             break;
           }
           case core.GameType.DT: {
-            dbClass = 'dragon_tiger';
-            handler = 'startAnimBADT';
-            break;
-          }
-          case core.GameType.RO: {
-            dbClass = 'roulette';
-            handler = 'startAnimRO';
+            this._dbClass = 'dragon_tiger';
             break;
           }
           default:
@@ -41,19 +32,23 @@ namespace we {
         }
 
         if (!this._display) {
-          const skeletonData = RES.getRes(`${dbClass}_game_result_ske_json`);
-          const textureData = RES.getRes(`${dbClass}_game_result_tex_json`);
-          const texture = RES.getRes(`${dbClass}_game_result_tex_png`);
-          const factory = new dragonBones.EgretFactory();
-          factory.parseDragonBonesData(skeletonData);
-          factory.parseTextureAtlasData(textureData, texture);
-          this._display = factory.buildArmatureDisplay('armatureName');
-          this._display.x = this.width / 2;
-          this._display.y = this.height / 2;
-          this.addChild(this._display);
+          this.createAniamtionObject();
         }
 
-        this[handler](gameType, resultData);
+        this.startAnim(gameType, resultData);
+      }
+
+      protected createAniamtionObject() {
+        const skeletonData = RES.getRes(`${this._dbClass}_game_result_ske_json`);
+        const textureData = RES.getRes(`${this._dbClass}_game_result_tex_json`);
+        const texture = RES.getRes(`${this._dbClass}_game_result_tex_png`);
+        const factory = new dragonBones.EgretFactory();
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        this._display = factory.buildArmatureDisplay('armatureName');
+        this._display.x = this.width / 2;
+        this._display.y = this.height / 2;
+        this.addChild(this._display);
       }
 
       protected getBackground(gameType: core.GameType, winType: number) {
@@ -88,19 +83,15 @@ namespace we {
       }
 
       public clearMessage() {
-        if (this.testing) {
-          return;
-        }
-
-        if (this._display && this._display.animation) {
-          this._display.animation.stop();
-        }
-        this.visible = true;
+        // if (this._display && this._display.animation) {
+        //   this._display.animation.stop();
+        // }
+        // this.visible = false;
       }
 
       // animation for Baccarat / Dragon Tiger
-      protected startAnimBADT(gameType: core.GameType, resultData: any) {
-        const { winType, winAmount } = resultData;
+      protected startAnim(gameType: core.GameType, resultData: any) {
+        const { winType, winAmount, gameData } = resultData;
         const background = this.getBackground(gameType, winType);
 
         logger.l(background, gameType, winType, winAmount);
@@ -148,82 +139,32 @@ namespace we {
             slotName = '+8001';
           }
           const slot = this._display.armature.getSlot(slotName);
-          const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
-          bmfont.font = RES.getRes('font_fnt');
-          bmfont.text = 'This';
-          bmfont.width = 320;
-          bmfont.height = 60;
-          bmfont.anchorOffsetX = 160;
-          bmfont.anchorOffsetY = 30;
-          bmfont.verticalAlign = egret.VerticalAlign.MIDDLE;
-          bmfont.textAlign = egret.HorizontalAlign.CENTER;
-          slot.display = bmfont;
-        }
 
-        // setTimeout(() => {
-        //   this._display.animation.timeScale = 0;
-        // }, 1500);
-      }
+          const r = new eui.Label();
+          r.fontFamily = 'barlow';
+          r.size = 60;
+          r.text = utils.formatNumber(winAmount);
+          const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
+          r.filters = [shadowFilter];
+          r.bold = true;
+          r.textColor = 0xffffff;
+          const layer = new eui.Group();
+          layer.addChild(r);
+          layer.anchorOffsetX = r.width * 0.5;
+          layer.anchorOffsetY = r.height * 0.5;
+          slot.display = layer;
 
-      protected startAnimRO(gameType: core.GameType, resultData: any) {
-        const { resultNo, winAmount } = resultData;
-
-        this._display.armature.eventDispatcher.addDBEventListener(
-          dragonBones.EventObject.FRAME_EVENT,
-          xxx => {
-            logger.l(xxx);
-          },
-          this
-        );
-
-        this._display.armature.eventDispatcher.addDBEventListener(
-          dragonBones.EventObject.COMPLETE,
-          () => {
-            this.visible = false;
-          },
-          this
-        );
-
-        const [numLeft, numCenter, numRight] = we.ro.getNeighbour(resultNo, 1);
-        const colorMap = {
-          [we.ro.Color.BLACK]: 'b',
-          [we.ro.Color.GREEN]: 'g',
-          [we.ro.Color.RED]: 'r',
-        };
-
-        let anim = 'ani_result_';
-        if (isNaN(winAmount)) {
-          anim += 'nobet_';
-        } else {
-          anim += 'win_loss_';
-        }
-        anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
-
-        const array = [['L_txt', 60, numLeft, -16], ['middle_txt', 90, numCenter, 0], ['L_txt3', 60, numRight, 16]];
-
-        for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
-          const lbl = new eui.Label();
-          lbl.text = <string> text;
-          lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
-          lbl.width = lbl.size * 2;
-          lbl.height = lbl.size;
-          lbl.anchorOffsetX = lbl.size;
-          lbl.anchorOffsetY = lbl.size / 2;
-          lbl.textAlign = egret.HorizontalAlign.CENTER;
-          lbl.verticalAlign = egret.VerticalAlign.MIDDLE;
-          slot.display = lbl;
-          slot.display.rotation = <number> rotate;
-        }
-
-        this.visible = true;
-        this._display.animation.play(anim, 1);
-
-        if (this.testing) {
-          setTimeout(() => {
-            this._display.animation.timeScale = 0;
-          }, 1500);
+          // const bmfont: eui.BitmapLabel = new eui.BitmapLabel();
+          // bmfont.font = RES.getRes('font_fnt');
+          // // bmfont.text = utils.formatNumber(winAmount);
+          // bmfont.text = 'This2.00';
+          // bmfont.width = 320;
+          // bmfont.height = 60;
+          // bmfont.anchorOffsetX = 160;
+          // bmfont.anchorOffsetY = 30;
+          // bmfont.verticalAlign = egret.VerticalAlign.MIDDLE;
+          // bmfont.textAlign = egret.HorizontalAlign.CENTER;
+          // slot.display = bmfont;
         }
       }
     }

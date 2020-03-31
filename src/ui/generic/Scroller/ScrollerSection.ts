@@ -118,6 +118,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         if (this.scroller) {
           this.scroller.removeEventListener(egret.Event.CHANGE, this.onScroll, this);
         }

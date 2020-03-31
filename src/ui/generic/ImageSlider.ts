@@ -14,7 +14,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('ImageSlider');
+        this.skinName = utils.getSkinByClassname('ImageSlider');
         // comment this line in case of performance issues
         // this.mask = new egret.Rectangle(0, 0, this.width, this.height);
       }
@@ -179,6 +179,7 @@ namespace we {
           return;
         }
         logger.l('carousel', this.slides[this.currentIndex].link);
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
       }
     }
   }

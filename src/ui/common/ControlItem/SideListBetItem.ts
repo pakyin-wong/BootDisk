@@ -11,14 +11,87 @@ namespace we {
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetGridEnabled: boolean = false;
 
+      protected _tableLayerNode: eui.Component;
+      protected _chipLayerNode: eui.Component;
+      protected _resultMessageNode: eui.Component;
+      protected _resultDisplayNode: eui.Component;
+
+      protected _dimmer: eui.Component;
+
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected initComponents() {
+        super.initComponents();
+        this._dimmer.visible = false;
+        this.generateTableLayer();
+        this.generateChipLayer();
+        this.generateResultMessage();
+        this.generateResultDisplay();
+      }
+
+      protected generateTableLayer() {
+        if (this.itemInitHelper) {
+          this._tableLayer = this.itemInitHelper.generateTableLayer(this._tableLayerNode);
+        }
+      }
+
+      protected generateChipLayer() {
+        if (this.itemInitHelper) {
+          this._chipLayer = this.itemInitHelper.generateChipLayer(this._chipLayerNode);
+        }
+      }
+
+      protected generateResultMessage() {
+        if (this.itemInitHelper && this.itemInitHelper.generateResultMessage) {
+          this._resultMessage = this.itemInitHelper.generateResultMessage(this._resultMessageNode);
+        }
+      }
+
+      protected generateResultDisplay() {
+        if (this.itemInitHelper && this.itemInitHelper.generateResultDisplay) {
+          this._cardHolder = this.itemInitHelper.generateResultDisplay(this._resultDisplayNode);
+        }
+      }
+
+      // set the position of the children components
+      protected arrangeComponents() {
+        const properties = [
+          'x',
+          'y',
+          'width',
+          'height',
+          'scaleX',
+          'scaleY',
+          'left',
+          'right',
+          'top',
+          'bottom',
+          'verticalCenter',
+          'horizontalCenter',
+          'anchorOffsetX',
+          'anchorOffsetY',
+          'percentWidth',
+          'percentHeight',
+        ];
+        for (const att of properties) {
+          if (this._tableLayer) {
+            this._tableLayer[att] = this._tableLayerNode[att];
+          }
+          if (this._chipLayer) {
+            this._chipLayer[att] = this._chipLayerNode[att];
+          }
+          if (this._resultMessage) {
+            this._resultMessage[att] = this._resultMessageNode[att];
+          }
+        }
       }
 
       protected initDenom() {
         const denomList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
         if (this._betChipSet) {
-          this._betChipSet.injectSetSelectedChip(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+          this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
           this._betChipSet.init(null, denomList);
         }
       }
@@ -46,30 +119,30 @@ namespace we {
         super.setBetRelatedComponentsEnabled(enable);
         this._chipLayer.visible = enable;
         this._chipLayer.setTouchEnabled(this._betEnabled);
+      }
+
+      protected setResultRelatedComponentsEnabled(enable: boolean) {
+        super.setResultRelatedComponentsEnabled(enable);
+        this._chipLayer.setTouchEnabled(this._betEnabled);
         if (this._tableInfo) {
           switch (this._tableInfo.gametype) {
             case we.core.GameType.BAC:
             case we.core.GameType.BAS:
             case we.core.GameType.BAI:
             case we.core.GameType.DT:
-              this._tableLayer.visible = enable;
+              this._bettingGroup.visible = !enable;
+              this._resultGroup.visible = enable;
               break;
             case we.core.GameType.RO:
             default:
               if (enable) {
-                this._tableLayer.alpha = 1;
+                this._dimmer.visible = true;
               } else {
-                this._tableLayer.alpha = 0.4;
+                this._dimmer.visible = false;
               }
               break;
           }
         }
-      }
-
-      protected setResultRelatedComponentsEnabled(enable: boolean) {
-        super.setResultRelatedComponentsEnabled(enable);
-        this._resultGroup.visible = enable;
-        this._chipLayer.setTouchEnabled(this._betEnabled);
       }
 
       public onClickButton(evt: egret.Event) {

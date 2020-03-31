@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ro.LiveListItemBettingTableSkin"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*"
+        states="Normal">
+	<e:Group id="_odd_group" x="0" y="0">
+		<e:Image id="_odd_image" width="570" height="147"
+		         name="game_list_odd_betarea_hover_png"  source="game_list_odd_betarea_inactive_png"/>
+		<ui:RunTimeLabel id="_odd_label" size="48" horizontalCenter="0" verticalCenter="0" text="單" bold="true"/>
+	</e:Group>
+	<e:Group id="_even_group" x="570" y="0">
+		<e:Image id="_even_image"
+		         name="game_list_even_betarea_hover_png" width="570" height="147"  source="game_list_even_betarea_inactive_png"/>
+		<ui:RunTimeLabel id="_even_label" size="48" text="雙" horizontalCenter="0" verticalCenter="0" bold="true"/>
+	</e:Group>
+	<e:Group id="_red_group" x="0" y="147" width="570" height="147">
+		<e:Image id="_red_image"
+		         name="game_list_red_betarea_hover_png" width="100%" height="100%"  source="game_list_red_betarea_inactive_png"/>
+	</e:Group>
+	<e:Group id="_black_group" x="570" y="147" width="570" height="147">
+		<e:Image id="_black_image"
+		         name="game_list_black_betarea_hover_png" width="100%" height="100%"  source="game_list_black_betarea_inactive_png"/>
+	</e:Group>
+</e:Skin>

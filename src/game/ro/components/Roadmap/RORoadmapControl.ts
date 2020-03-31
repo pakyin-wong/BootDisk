@@ -6,12 +6,12 @@ namespace we {
       protected colorRoad: ROColorBigRoad;
       protected sizeRoad: ROSizeBigRoad;
       protected oddRoad: ROOddBigRoad;
-      protected leftPanel: RoLeftPanel;
+      protected leftPanel: IHotColdPanel;
       protected rightPanel: RoRightPanel;
       protected resultPanel: ro.ROBigRoadResultPanel;
       public tableid: string;
 
-      protected parser: ba.BARoadParser;
+      protected parser: ro.RORoadParser;
       // protected predictTimeout: number;
       protected useParser: boolean = false;
 
@@ -132,9 +132,9 @@ namespace we {
               this.oddRoad.parseRoadData(roadmapData.inGame.odd, state);
 
               // update the gamestatistic
-
               if (this.tableInfo.gamestatistic) {
                 const stat = this.tableInfo.gamestatistic;
+                this.leftPanel.setHotCold(stat.hotNumbers, stat.coldNumbers);
               }
             }
           }

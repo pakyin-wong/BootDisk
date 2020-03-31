@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ro.RaceTrackTableLayerSkin" width="718" height="1698" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
+	<e:Image x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"  source="m_ro_v_reatrack_hover_png" width="718" height="1698" locked="true"/>
+	<e:Group id="_group_35" x="475" y="1415">
+		<e:Image id="_section_35" width="209" height="199" y="0" x="0" source="v_35_png" visible="false" locked="true"/>
+		<e:Label id="_label_35" text="35" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="61" y="58"/>
+	</e:Group>
+	<e:Group id="_group_3" x="407" y="1477">
+		<e:Image id="_section_3" width="181" height="208" source="v_3_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_3" text="3" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="40" y="75"/>
+	</e:Group>
+	<e:Group id="_group_26" x="297" y="1516">
+		<e:Image id="_section_26" width="153" height="181" source="v_26_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_26" text="26" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="29" y="61"/>
+	</e:Group>
+	<e:Group id="_group_0" x="155" y="1487">
+		<e:Image id="_section_0" width="172" height="204" source="v_0_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_0" text="0" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="52" y="65"/>
+	</e:Group>
+	<e:Group id="_group_32" x="46" y="1426">
+		<e:Image id="_section_32" width="209" height="206" source="v_32_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_32" text="32" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="63" y="62"/>
+	</e:Group>
+	<e:Group id="_group_15" x="0" y="1340">
+		<e:Image id="_section_15" width="204" height="172" source="v_15_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_15" text="15" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="49" y="21"/>
+	</e:Group>
+	<e:Group id="_group_19" x="0" y="1257">
+		<e:Image id="_section_19" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_19" text="19" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_4" x="0" y="1176">
+		<e:Image id="_section_4" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_4" text="4" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_21" x="0" y="1094">
+		<e:Image id="_section_21" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_21" text="21" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_2" x="0" y="1012">
+		<e:Image id="_section_2" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_2" text="2" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_25" y="930">
+		<e:Image id="_section_25" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_25" text="25" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_17" y="848">
+		<e:Image id="_section_17" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_17" text="17" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_34" y="766">
+		<e:Image id="_section_34" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_34" text="34" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_6" y="684">
+		<e:Image id="_section_6" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_6" text="6" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_27" y="603">
+		<e:Image id="_section_27" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_27" text="27" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_13" y="521">
+		<e:Image id="_section_13" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_13" text="13" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_36" y="439">
+		<e:Image id="_section_36" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_36" text="36" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_11" y="357">
+		<e:Image id="_section_11" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_11" text="11" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_30" x="0" y="181">
+		<e:Image id="_section_30" width="205" height="178" source="v_30_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_30" text="30" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="56" y="99"/>
+	</e:Group>
+	<e:Group id="_group_8" x="49" y="49">
+		<e:Image id="_section_8" width="219" height="221" source="v_8_png" x="0" y="0"/>
+		<e:Label id="_label_8" text="8" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="66" y="79"/>
+	</e:Group>
+	<e:Group id="_group_23" x="180" y="1">
+		<e:Image id="_section_23" width="177" height="201" source="v_23_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_23" text="23" size="52.4" textAlign="center" verticalAlign="middle" height="63.1" width="85.5" x="65" y="69"/>
+	</e:Group>
+	<e:Group id="_group_10" x="359" y="1">
+		<e:Image id="_section_10" width="178" height="201" source="v_10_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_10" text="10" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="28" y="69"/>
+	</e:Group>
+	<e:Group id="_group_5" x="450" y="49">
+		<e:Image id="_section_5" width="219" height="220" source="v_5_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_5" text="5" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" y="79" x="68.8"/>
+	</e:Group>
+	<e:Group id="_group_24" x="512" y="180">
+		<e:Image id="_section_24" width="205" height="178" source="v_24_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_24" text="24" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="67" y="100"/>
+	</e:Group>
+	<e:Group id="_group_16" y="357" x="534">
+		<e:Image id="_section_16" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_16" text="16" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_33" y="439" x="534">
+		<e:Image id="_section_33" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_33" text="33" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_1" y="521" x="534">
+		<e:Image id="_section_1" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_1" text="1" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_20" y="603" x="534">
+		<e:Image id="_section_20" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_20" text="20" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_14" y="684" x="534">
+		<e:Image id="_section_14" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_14" text="14" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_31" y="766" x="534">
+		<e:Image id="_section_31" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_31" text="31" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_9" y="848" x="534">
+		<e:Image id="_section_9" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_9" text="9" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_22" y="930" x="534">
+		<e:Image id="_section_22" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_22" text="22" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_18" y="1012" x="534">
+		<e:Image id="_section_18" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_18" text="18" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_29" y="1094" x="534">
+		<e:Image id="_section_29" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_29" text="29" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_7" y="1176" x="534">
+		<e:Image id="_section_7" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_7" text="7" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_28" y="1257" x="534">
+		<e:Image id="_section_28" width="184" height="83" source="v_Rectangle_png" y="0" x="0" visible="false"/>
+		<e:Label id="_label_28" text="28" size="52.4" width="184" height="83" textAlign="center" verticalAlign="middle" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_group_12" x="519" y="1340">
+		<e:Image id="_section_12" width="199" height="150" source="v_12_png" x="0" y="0" visible="false"/>
+		<e:Label id="_label_12" text="12" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="62" y="21"/>
+	</e:Group>
+	<e:Group id="_group_tiers" x="184" y="173">
+		<e:Image id="_section_tiers" source="v_Tires_png" x="0" y="0" scale9Grid="0,198,380,159" scaleX="0.9210526315789473" scaleY="0.9210526315789473" visible="false"/>
+		<ui:RunTimePropertyLabel id="_label_tiers" text="輪盤下角注" size="42" height="159" textAlign="center" verticalAlign="middle" y="183" left="0" right="0"/>
+	</e:Group>
+	<e:Group id="_group_orphelins" x="184" y="520">
+		<e:Image id="_section_orphelins" source="v_Orphelins_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="0" y="0" visible="false"/>
+		<ui:RunTimePropertyLabel id="_label_orphelins" text="輪上孤注" size="42" height="159" y="176" textAlign="center" verticalAlign="middle" left="0" right="0"/>
+	</e:Group>
+	<e:Group id="_group_voisins" x="179" y="931">
+		<e:Image id="_section_voisins" source="v_Voisins_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="0" y="0" visible="false"/>
+		<ui:RunTimePropertyLabel id="_label_voisins" text="零旁注上角" size="42" y="26" verticalAlign="middle" textAlign="center" height="159" left="0" right="0"/>
+	</e:Group>
+	<e:Group id="_group_zero" x="184" y="1132">
+		<e:Image id="_section_zero" source="v_Zero_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="0" y="0" visible="false"/>
+		<ui:RunTimePropertyLabel id="_label_zero" text="輪上零旁" size="42" height="159" verticalAlign="middle" textAlign="center" y="109" left="0" right="0"/>
+	</e:Group>
+	<e:Image x="0" y="0"  source="m_ro_v_reatrack_outline_png" width="718" height="1698" locked="true"/>
+</e:Skin>

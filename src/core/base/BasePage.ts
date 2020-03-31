@@ -18,10 +18,6 @@ namespace we {
 
       public async onFadeExit() {}
 
-      protected mount() {}
-
-      protected destroy() {}
-
       // switchSkin (mobile / tablet / desktop)
     }
   }

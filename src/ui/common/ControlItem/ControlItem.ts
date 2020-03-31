@@ -7,7 +7,7 @@ namespace we {
       protected _tableLayer: TableLayer;
 
       protected _betChipSet: ui.BetChipSet;
-      protected _cardHolder: we.ba.CardHolder;
+      protected _cardHolder: IResultDisplay;
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
@@ -29,17 +29,28 @@ namespace we {
       // this is the component that contain all other child components, use to control the grid size by setting the size of it.
       protected _contentContainer: eui.Group;
 
+      public itemInitHelper: IListItemHelper;
+
       public constructor(skinName: string = null) {
         super();
         if (skinName) {
           this.skinName = utils.getSkinByClassname(skinName);
         }
         this.touchEnabled = true;
+      }
 
+      protected mount() {
+        super.mount();
         this.initChildren();
-
         this.addEventListeners();
       }
+
+      // protected initComponents() {
+      //   super.initComponents();
+      // }
+
+      // protected arrangePosition() {
+      // }
 
       protected getSelectedBetLimitIndex() {
         return env.currentSelectedBetLimitIndex;
@@ -123,6 +134,7 @@ namespace we {
       }
 
       protected destroy() {
+        super.destroy();
         this.removeEventListeners();
       }
 
@@ -346,6 +358,9 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
+        if (this._tableLayer) {
+          this._tableLayer.clearAllHighlights();
+        }
         if (this._betChipSet) {
           this._betChipSet.setTouchEnabled(enable);
         }
@@ -372,23 +387,47 @@ namespace we {
         }
         return false;
       }
+
       public checkResultMessage() {
         let totalWin: number = NaN;
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
         }
+        let pass1: boolean = false;
+        let pass2: boolean = false;
+        switch (this._tableInfo.gametype) {
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+          case core.GameType.DT:
+            pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
+            pass2 = this._gameData && this._gameData.wintype != 0;
+            break;
+          case core.GameType.RO:
+          case core.GameType.DI:
+          case core.GameType.LW:
+            pass1 = this._gameData && !isNaN(totalWin);
+            pass2 = !!this._gameData;
+            break;
+          default:
+            logger.e('No gametype found in ControlItem::checkResultMessage');
+            break;
+        }
+
         if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
+          if (pass1) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
               winType: this._gameData.wintype,
               winAmount: totalWin,
+              gameData: this._gameData,
             });
           }
         } else {
-          if (this._gameData && this._gameData.wintype != 0) {
+          if (pass2) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
               winType: this._gameData.wintype,
               winAmount: NaN,
+              gameData: this._gameData,
             });
           }
         }
@@ -413,7 +452,7 @@ namespace we {
         }
       }
 
-      protected onCancelPressed(evt: egret.Event) {
+      protected onCancelPressed(evt: egret.Event = null) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
         }

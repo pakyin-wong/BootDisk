@@ -8,7 +8,7 @@ namespace we {
 
       public constructor() {
         super();
-        this.skinName = utils.getSkin('GameBar');
+        // this.skinName = utils.getSkinByClassname('GameBar');
         this.played = false;
       }
 

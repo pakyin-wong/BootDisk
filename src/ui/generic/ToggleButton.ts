@@ -12,7 +12,7 @@ namespace we {
       constructor() {
         super();
         this.buttonState = 0;
-        this.skinName = utils.getSkin('ToggleButton');
+        this.skinName = utils.getSkinByClassname('ToggleButtonSkin');
         this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.rollover, this);
         this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.rollout, this);
         mouse.setButtonMode(this, true);

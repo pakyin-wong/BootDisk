@@ -4,7 +4,19 @@ namespace we {
     // Components
     export interface ILobbyRoad {
       // updateRoadData(roadmapData: any);
+
       updateLobbyRoadData(roadmapData: any);
+      updateSideBarRoadData(roadmapData: any);
+      setTableInfo?(tableInfo: data.TableInfo);
+    }
+
+    export interface IListItemHelper {
+      // updateRoadData(roadmapData: any);
+      generateTableLayer(node: eui.Component): TableLayer;
+      generateChipLayer(node: eui.Component): ChipLayer;
+      generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
+      generateResultMessage?(node: eui.Component): IGameResultMessage;
+      generateResultDisplay?(node: eui.Component): IResultDisplay;
     }
 
     export interface IRunTimeComponent extends egret.DisplayObject {

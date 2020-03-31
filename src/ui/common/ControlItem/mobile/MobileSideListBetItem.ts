@@ -8,6 +8,11 @@ namespace we {
         super(skinName);
       }
 
+      protected initCustomPos() {
+        this._buttonGroupShowY = 194;
+        this._buttonGroupHideY = 230;
+      }
+
       protected initChildren() {
         super.initChildren();
         this._tableLayer.currentState = 'Normal';
@@ -17,13 +22,29 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        this._tableLayer.visible = enable;
-        this._chipLayer.visible = enable;
+        this._chipLayer.setTouchEnabled(false);
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
         super.setResultRelatedComponentsEnabled(enable);
-        this._resultGroup.visible = enable;
+        if (this._resultGroup) {
+          this._resultGroup.visible = enable;
+        }
+        if (this._tableInfo) {
+          switch (this._tableInfo.gametype) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAI:
+            case we.core.GameType.DT:
+              this._tableLayer.visible = !enable;
+              if (this._bettingGroup) {
+                this._bettingGroup.visible = !enable;
+              }
+              break;
+            default:
+              break;
+          }
+        }
       }
 
       // protected setStateDeal(isInit: boolean = false) {

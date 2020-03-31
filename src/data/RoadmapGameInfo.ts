@@ -15,6 +15,9 @@ namespace we {
       // ro
       public v?: number;
       public video?: string;
+
+      // di
+      public dice?: number[];
     }
   }
 }

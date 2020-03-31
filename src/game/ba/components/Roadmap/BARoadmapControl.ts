@@ -217,6 +217,9 @@ namespace we {
       }
 
       public setTableInfo(tableInfo: data.TableInfo) {
+        if (this.tableInfo === tableInfo) {
+          return;
+        }
         this.tableInfo = tableInfo;
         this.updateRoadData(0);
       }
@@ -250,20 +253,22 @@ namespace we {
             } else {
               // option 2. just display all road data as it is
               // stae 0 = update, 1 = predict, 2 = restore from predict
-              if (this.beadRoad) {
-                this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
-              }
-              if (this.bigRoad) {
-                this.bigRoad.parseRoadData(roadmapData.inGame.bigRoad, state);
-              }
-              if (this.bigEyeRoad) {
-                this.bigEyeRoad.parseRoadData(roadmapData.inGame.bigEye, state);
-              }
-              if (this.smallRoad) {
-                this.smallRoad.parseRoadData(roadmapData.inGame.small, state);
-              }
-              if (this.cockroachRoad) {
-                this.cockroachRoad.parseRoadData(roadmapData.inGame.roach, state);
+              if (roadmapData.inGame) {
+                if (this.beadRoad) {
+                  this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
+                }
+                if (this.bigRoad) {
+                  this.bigRoad.parseRoadData(roadmapData.inGame.bigRoad, state);
+                }
+                if (this.bigEyeRoad) {
+                  this.bigEyeRoad.parseRoadData(roadmapData.inGame.bigEye, state);
+                }
+                if (this.smallRoad) {
+                  this.smallRoad.parseRoadData(roadmapData.inGame.small, state);
+                }
+                if (this.cockroachRoad) {
+                  this.cockroachRoad.parseRoadData(roadmapData.inGame.roach, state);
+                }
               }
 
               // update the gamestatistic

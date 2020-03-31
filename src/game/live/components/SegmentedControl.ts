@@ -32,8 +32,6 @@ namespace we {
         // https://developer.egret.com/en/apidoc/index/name/eui.TabBar
         //   this.tabBar.touchChildren = false;
 
-        // ['live.gametype.bacarrat', 'live.gametype.dragontiger', 'live.gametype.luckywheel', 'live.gametype.wheel', 'live.gametype.dice', 'live.gametype.goodroad'];
-
         const tlayout = new eui.HorizontalLayout();
         tlayout.gap = 30;
         // tlayout.requestedColumnCount = items.length;

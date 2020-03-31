@@ -14,7 +14,10 @@ namespace we {
       private _label2text: string;
       private _originalWidth: number;
 
-      constructor(skin: string = 'QuickBetAnimButton') {
+      constructor(skin: string = 'QuickBetAnimButtonSkin') {
+        if (env.isMobile) {
+          skin = null;
+        }
         super(skin);
         this.touchChildren = false;
       }

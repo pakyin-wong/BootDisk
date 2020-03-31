@@ -321,6 +321,8 @@ namespace we {
       protected _groupMapping: {};
       protected _groupHoverImageMapping: {};
 
+      protected overCount: { [s: string]: number } = {};
+
       constructor() {
         super();
         this._betField = ro.BetField;
@@ -385,32 +387,156 @@ namespace we {
           this._groupHoverImageMapping[value] = we.ro.BETFIELD_IMAGE_MAPPING[value];
         });
 
-        this._row_1_label.renderText = () => i18n.t('roulette.row_1');
-        this._row_2_label.renderText = () => i18n.t('roulette.row_2');
-        this._row_3_label.renderText = () => i18n.t('roulette.row_3');
-        this._dozen_1_12_label.renderText = () => i18n.t('roulette.dozen_1_12');
-        this._dozen_13_24_label.renderText = () => i18n.t('roulette.dozen_13_24');
-        this._dozen_25_36_label.renderText = () => i18n.t('roulette.dozen_25_36');
-        this._odd_label.renderText = () => i18n.t('roulette.odd');
-        this._even_label.renderText = () => i18n.t('roulette.even');
-        this._small_label.renderText = () => i18n.t('roulette.small');
-        this._big_label.renderText = () => i18n.t('roulette.big');
+        if (this._row_1_label) {
+          this._row_1_label.renderText = () => i18n.t('roulette.row_1');
+        }
+        if (this._row_2_label) {
+          this._row_2_label.renderText = () => i18n.t('roulette.row_2');
+        }
+        if (this._row_3_label) {
+          this._row_3_label.renderText = () => i18n.t('roulette.row_3');
+        }
+
+        if (this._dozen_1_12_label) {
+          this._dozen_1_12_label.renderText = () => i18n.t('roulette.dozen_1_12');
+        }
+        if (this._dozen_13_24_label) {
+          this._dozen_13_24_label.renderText = () => i18n.t('roulette.dozen_13_24');
+        }
+        if (this._dozen_25_36_label) {
+          this._dozen_25_36_label.renderText = () => i18n.t('roulette.dozen_25_36');
+        }
+
+        if (this._odd_label) {
+          this._odd_label.renderText = () => i18n.t('roulette.odd');
+        }
+        if (this._even_label) {
+          this._even_label.renderText = () => i18n.t('roulette.even');
+        }
+        if (this._small_label) {
+          this._small_label.renderText = () => i18n.t('roulette.small');
+        }
+        if (this._big_label) {
+          this._big_label.renderText = () => i18n.t('roulette.big');
+        }
       }
 
       public onRollover(fieldName: string) {
+        if (env.isMobile) {
+          return;
+        }
+
         const group = this._groupMapping[fieldName];
-        const image = new eui.Image();
-        image.name = 'image';
-        image.source = this._groupHoverImageMapping[fieldName];
-        group.addChildAt(image, 0);
+
+        let image = group.getChildByName('image');
+        if (!this.overCount[fieldName]) {
+          this.overCount[fieldName] = 0;
+        }
+        this.overCount[fieldName]++;
+        if (this.overCount[fieldName] > 0 && !image) {
+          image = new eui.Image();
+          image.name = 'image';
+          image.source = this._groupHoverImageMapping[fieldName];
+          group.addChildAt(image, 0);
+        }
       }
 
       public onRollout(fieldName: string) {
-        const group = this._groupMapping[fieldName];
-        const image = group.getChildByName('image');
-        if (image) {
-          group.removeChild(image);
+        if (env.isMobile) {
+          return;
         }
+
+        const group = this._groupMapping[fieldName];
+        if (!group) {
+          return;
+        }
+        if (!this.overCount[fieldName]) {
+          this.overCount[fieldName] = 0;
+        }
+        this.overCount[fieldName]--;
+        if (this.overCount[fieldName] <= 0) {
+          this.overCount[fieldName] = 0;
+          const image = group.getChildByName('image');
+          if (image) {
+            group.removeChild(image);
+          }
+        }
+      }
+
+      public clearAllHighlights() {
+        Object.keys(ro.BetField).map(value => {
+          this.onRollout(value);
+        });
+      }
+
+      public async flashFields(fieldName: string) {
+        const winningFields = ro.getWinningFields(fieldName);
+        const initRectPromises = [];
+        // init dim rects
+        for (const field of Object.keys(this._groupMapping)) {
+          const group = this._groupMapping[field];
+          const isWin = winningFields.indexOf(field) >= 0;
+          // try remove existing
+          let rect = group.getChildByName('dim');
+          if (rect) {
+            group.removeChild(rect);
+          }
+          rect = new eui.Rect();
+          rect.name = 'dim';
+          rect.alpha = 0;
+          rect.fillColor = isWin ? 0xffffff : 0x000000;
+          rect.percentWidth = 100;
+          rect.percentHeight = 100;
+          group.addChildAt(rect, 1);
+          const promise = new Promise(resolve => {
+            egret.Tween.get(rect)
+              .to({ alpha: isWin ? 0 : 0.25 }, 125)
+              .call(resolve);
+          });
+          initRectPromises.push(promise);
+        }
+        await Promise.all(initRectPromises);
+        // start flashing
+        let run = 1;
+        const tick = async () => {
+          // end flashing
+          if (run >= 6) {
+            const fadeOutPromises = [];
+            for (const field of Object.keys(this._groupMapping)) {
+              const group = this._groupMapping[field];
+              const rect = group.getChildByName('dim');
+              const promise = new Promise(resolve => {
+                egret.Tween.get(rect)
+                  .to({ alpha: 0 }, 125)
+                  .call(() => {
+                    if (rect.parent) {
+                      rect.parent.removeChild(rect);
+                    }
+                    resolve();
+                  });
+              });
+              fadeOutPromises.push(promise);
+            }
+            await Promise.all(fadeOutPromises);
+            return;
+          }
+          const tickFlashPromises = [];
+          for (const field of winningFields) {
+            const group = this._groupMapping[field];
+            const rect = group.getChildByName('dim');
+            const prom = new Promise(resolve => {
+              const alpha = run % 2 === 1 ? 0.25 : 0;
+              egret.Tween.get(rect)
+                .to({ alpha }, 125)
+                .call(resolve);
+            });
+            tickFlashPromises.push(prom);
+          }
+          await Promise.all(tickFlashPromises);
+          run += 1;
+          setTimeout(tick, 300);
+        };
+        setTimeout(tick, 300);
       }
     }
   }
