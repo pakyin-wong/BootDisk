@@ -30,6 +30,14 @@ namespace we {
         node.parent.addChildAt(gameResultMessage, idx);
         return gameResultMessage;
       }
+
+      public generateResultDisplay(node: eui.Component) {
+        const cardHolder = new dt.SideListBetItemCardHolder();
+        cardHolder.skinName = `skin_desktop.dt.BetItemCardHolderSkin`;
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(cardHolder, idx);
+        return cardHolder;
+      }
     }
   }
 }
