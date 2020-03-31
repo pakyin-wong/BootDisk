@@ -396,15 +396,16 @@ namespace we {
         let pass1: boolean = false;
         let pass2: boolean = false;
         switch (this._tableInfo.gametype) {
-          case GameType.BAC:
-          case GameType.BAI:
-          case GameType.BAS:
-          case GameType.DT:
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+          case core.GameType.DT:
             pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
             pass2 = this._gameData && this._gameData.wintype != 0;
             break;
-          case GameType.RO:
-          case GameType.DI:
+          case core.GameType.RO:
+          case core.GameType.DI:
+          case core.GameType.LW:
             pass1 = this._gameData && !isNaN(totalWin);
             pass2 = !!this._gameData;
             break;

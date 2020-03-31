@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.di.SideBetResultMessage" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" width="240"
+        height="81">
+	<e:Group id="_diceGroup" left="0" right="0" bottom="0" top="0">
+		<e:Image id="_dice1" width="50" height="50" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-70" verticalCenter="0" source="" x="25" y="16" scaleX="1" scaleY="1"/>
+		<e:Image id="_dice2" width="50" height="50" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="0" x="95" y="16" scaleX="1" scaleY="1"/>
+		<e:Image id="_dice3" width="50" height="50" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="72" verticalCenter="0" x="167" y="16" scaleX="1" scaleY="1"/>
+	</e:Group>
+	<e:Group id="_winAmountGroup" left="0" top="0" bottom="0" right="0">
+		<e:Label id="_lblWinAmount" text="Label" horizontalCenter="0" verticalCenter="0" size="40"/>
+	</e:Group>
+</e:Skin>

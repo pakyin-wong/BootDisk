@@ -92,7 +92,6 @@ namespace we {
             // update the gamestatistic
             if (this.tableInfo.gamestatistic) {
               const stat = this.tableInfo.gamestatistic;
-
             }
           }
         }

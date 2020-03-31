@@ -35,8 +35,8 @@ namespace we {
         // const displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
         // const displayItem = new we.ui.ControlItem(generalGameType + '.LiveOverlayItemSkin');
         const displayItem = new we.ui.MobileOverlayItem(generalGameType + '.LiveOverlayItemSkin');
-        displayItem.setData(tableInfo);
         this._controlGroup.addChild(displayItem);
+        displayItem.setData(tableInfo);
 
         // this._txt_title.renderText = () => `${i18n.t('overlaypanel_memberreport_title')}`;
         this.addListeners();

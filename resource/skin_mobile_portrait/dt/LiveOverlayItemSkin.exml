@@ -14,7 +14,7 @@
     <ui:BaseImageButton id="_prevButton" width="183" height="150" currentState="bet_overlay_previous" x="269" y="366.5"
                         anchorOffsetX="43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
                         useColorFilter="true" />
-    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="237" height="237" horizontalCenter="0"
+    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="220" height="220" horizontalCenter="0"
                                skinName="skin_mobile.BetChipSkin" bottom="0" labelSize="56" />
     <ui:BaseImageButton id="_confirmButton" width="360" height="150" currentState="bet_overlay_confirm" x="780"
                         y="366.5" anchorOffsetX="43" skinName="skin_mobile_portrait.ImageButtonSkinMobileOverlay"
@@ -24,7 +24,7 @@
     <e:Rect height="105" y="0" fillColor="0x202020" right="0" left="0" />
     <ui:CountdownTimer id="_timer" width="90" height="90" x="7" y="7" skinName="skin_mobile.CountdownTimerRoundSkin" />
     <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="110" y="30" size="48" text="" />
-    <e:Group id="_roadsContainer" width="1136" height="288" y="105" anchorOffsetY="0" horizontalCenter="0" />
+    <ba:MobileLiveListRoadmap id="_bigRoad" width="1136" height="288" y="105" anchorOffsetY="0" horizontalCenter="0" />
     <ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
                       skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
                       y="237" infoBg="m_common_gamestate_message_black_png"

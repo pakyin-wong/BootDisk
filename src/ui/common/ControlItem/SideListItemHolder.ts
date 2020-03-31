@@ -32,10 +32,14 @@ namespace we {
           case we.core.GameType.LW:
             generalGameType = 'lw';
             break;
-
           case we.core.GameType.DT:
-          default:
             generalGameType = 'dt';
+            break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
+          default:
+            throw new Error('Invalid Game Type');
         }
         const listItem = new we.ui.SideListItem('SideListItemSkin');
         if (we[generalGameType].SideListItemInitHelper) {
