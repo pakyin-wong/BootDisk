@@ -35,20 +35,16 @@ namespace we {
         if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
-
+        this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
         this.addListeners();
       }
 
       private addListeners() {
         if (env.isMobile) {
           utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this);
-
-          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
-        } else {
-          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
-          this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
+          // dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
+          this._lantern.alignToLeft();
         }
-
         // listen to the event dispatched by some particular scroller and update the background alpha
         dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
       }
@@ -75,8 +71,6 @@ namespace we {
       }
 
       private onUpdateTimer() {
-        // console.log(env.currTime);
-        // console.log(moment.unix(env.currTime).format('YYYY/MM/DD HH:mm:ss'));
         this._time.text = utils.formatTime(env.currTime / Math.pow(10, 3));
       }
 

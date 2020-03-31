@@ -20,9 +20,9 @@
 	<ui:BaseImageButton id="_slider_toggle" y="2002.91" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="506" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu" />
 	<!--add new element in portrait-->
-	<ui:NavLantern id="_lantern" width="1000" height="40" x="0" y="2116"   rotation="0.04"/>
-	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="1000"  y="2116" size="28" textColor="0xffffff"
-	         fontFamily="Barlow" width="242" height="40" textAlign="right" anchorOffsetX="0" verticalAlign="middle" />
+	<ui:NavLantern id="_lantern" width="1000" height="40"   rotation="0.04" y="2116" left="0"/>
+	<e:Label id="_time" text="yyyy/mm/dd 00:00:00"  y="2116" size="25"
+	         fontFamily="Barlow" width="242" height="40" textAlign="right" anchorOffsetX="0" verticalAlign="middle"  textColor="0xa5a5a5" right="0"/>
 
 
 
