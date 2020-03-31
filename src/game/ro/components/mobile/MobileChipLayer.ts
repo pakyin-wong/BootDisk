@@ -36,6 +36,8 @@ namespace we {
         betdetails && this.updateBetFields(betdetails);
       }
 
+      protected restructureChildren() {}
+
       protected getMappedBetDetails() {
         const cfmBetDetails = this._cfmBetDetails;
         const mappedBetDetails = {};
