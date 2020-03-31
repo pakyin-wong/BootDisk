@@ -64,7 +64,7 @@ namespace we {
 
       public checkResultMessage() {
         let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
+        if (!isNaN(this._tableInfo.totalWin)) {
           totalWin = this._tableInfo.totalWin;
         }
 

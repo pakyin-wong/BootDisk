@@ -47,6 +47,13 @@ namespace we {
             egret.TouchEvent.TOUCH_TAP,
             () => {
               logger.l('psoter click', i, link);
+              if (i === 0) {
+                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+              } else if (i === 3) {
+                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+              } else {
+                dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+              }
             },
             this
           );
