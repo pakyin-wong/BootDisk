@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ro.TableInfoPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Group id="content" left="0" top="0" width="100%" height="100%">
+	<e:Group id="content" left="0" top="0" width="100%" height="100%" visible="false">
 		<e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1"
 		         fillColor="0x212425"/>
 		<e:Image id="moveArea" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"  visible="false"/>
@@ -37,4 +37,32 @@
 		<e:Label id="columnbetLabel" text="下注一打" y="314" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
 		<e:Label id="rowbetLabel" text="行注" y="392" x="745" scaleX="1" scaleY="1" size="44"  bold="true"/>
 		</e:Group>
+	<e:Group id="content2" left="0" top="0" width="100%" height="100%" x="10" y="10">
+		<e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
+		<e:Image id="moveArea0" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
+		<e:Label id="lblTableInfo0" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20" textColor="0xC59466" visible="false"/>
+		<e:Label id="timeLabel0" text="時間" y="220" left="50" x="50" scaleX="1" scaleY="1" size="20" visible="false"/>
+		<e:Label id="pTime0" text="-" y="220" textAlign="right" scaleX="1" scaleY="1" size="20" right="237" visible="false"/>
+		<e:Label id="close0" text="x" x="555" y="20" touchEnabled="true" scaleY="0.8" visible="false"/>
+		<e:Label id="directNoteLabel" text="直接注" y="80" x="47" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pTableID0" text="-" y="86" textAlign="right" scaleX="1" scaleY="1" size="40" x="258" width="202" height="44" bold="true"/>
+		<e:Label id="dispensingLabel" text="分注" y="158" x="47" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pRoundID0" text="-" y="160" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="258" width="202"/>
+		<e:Label id="streetLabel" text="街注/三數" y="236" x="47" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pGameID0" text="-" y="240" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="258" width="202"/>
+		<e:Label id="cornerLabel" text="角注/四個號" y="314" x="47" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pDealer0" text="-" y="320" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="258" width="202" verticalAlign="middle"/>
+		<e:Label id="lineBetLabel" text="線注" y="392" x="47" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pDealer1" text="-" y="398" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="258" width="202" verticalAlign="middle"/>
+		<e:Label id="colorLabel0" text="行注 " y="80" textAlign="left" x="745" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pColor0" text="-" y="86" textAlign="right" x="874" scaleX="1" scaleY="1" size="44" width="202" bold="true"/>
+		<e:Label id="oddevenLabel0" text="下注一打" y="158" x="745" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pOddeven0" text="-" y="160" textAlign="right" x="874" scaleX="1" scaleY="1" size="44" width="202" bold="true"/>
+		<e:Label id="sizeLabel0" text="紅色/黑色" y="236" x="745" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pSize0" text="-" y="240" textAlign="right" x="874" scaleX="1" scaleY="1" size="44" width="202" bold="true"/>
+		<e:Label id="columnbetLabel0" text="雙數/單數" y="314" x="745" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pColumnbet0" text="-" y="320" textAlign="right" x="874" scaleX="1" scaleY="1" size="44" width="202" bold="true"/>
+		<e:Label id="rowbetLabel0" text="大/小" y="392" x="745" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pRowbet0" text="-" y="400" textAlign="right" x="874" scaleX="1" scaleY="1" size="44" width="202" bold="true"/>
+	</e:Group>
 </e:Skin>
