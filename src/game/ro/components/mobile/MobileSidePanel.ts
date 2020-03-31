@@ -8,6 +8,8 @@ namespace we {
       protected _hotnum: eui.Group;
       protected _coldnum: eui.Group;
 
+      protected _btn_race: egret.DisplayObject;
+
       protected mount() {
         super.mount();
 
@@ -28,6 +30,20 @@ namespace we {
           this._coldnum.removeChildAt(i);
           this._coldnum.addChildAt(icon, i);
         }
+
+        this.addListeners();
+      }
+
+      protected addListeners() {
+        utils.addButtonListener(this._btn_race, this.onClickRace, this);
+      }
+
+      protected removeListeners() {
+        utils.removeButtonListener(this._btn_race, this.onClickRace, this);
+      }
+
+      protected onClickRace() {
+        this.dispatchEvent(new egret.Event('RACE_BTN_CLICKED'));
       }
 
       public setHotCold(hotNumbers: number[], coldNumbers: number[]) {

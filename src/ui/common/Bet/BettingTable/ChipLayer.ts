@@ -126,7 +126,7 @@ namespace we {
 
       public updateBetChipUncfmBet(fieldName, amount) {
         if (this._betChipStackMapping[fieldName]) {
-          this._betChipStackMapping[fieldName].uncfmBet = amount;
+          this._betChipStackMapping[fieldName].uncfmBet = amount * this.getRate(fieldName);
           this._betChipStackMapping[fieldName].draw();
         }
       }
@@ -294,7 +294,7 @@ namespace we {
         // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
           if (this._betChipStackMapping[value.field]) {
-            this._betChipStackMapping[value.field].cfmBet = value.amount;
+            this._betChipStackMapping[value.field].cfmBet = value.amount * this.getRate(value.field);
             this._betChipStackMapping[value.field].draw();
           }
         });
@@ -369,7 +369,7 @@ namespace we {
 
       protected undoBetFieldUpdate(data: { field: string; amount: number }) {
         if (this._betChipStackMapping[data.field]) {
-          this._betChipStackMapping[data.field].uncfmBet -= data.amount;
+          this._betChipStackMapping[data.field].uncfmBet -= data.amount * this.getRate(data.field);
           this._betChipStackMapping[data.field].draw();
         }
         this._uncfmBetDetails.forEach(value => {
@@ -387,7 +387,7 @@ namespace we {
       public undoDoubleBetFields(betDetails: data.BetDetail[]) {
         betDetails.map(value => {
           if (this._betChipStackMapping[value.field]) {
-            this._betChipStackMapping[value.field].uncfmBet = value.amount;
+            this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
             this._betChipStackMapping[value.field].draw();
           }
         });
@@ -410,7 +410,7 @@ namespace we {
           const addedAmount = value.amount;
           if (addedAmount > 0) {
             if (this._betChipStackMapping[value.field]) {
-              this._betChipStackMapping[value.field].uncfmBet += addedAmount;
+              this._betChipStackMapping[value.field].uncfmBet += addedAmount * this.getRate(value.field);
               this._betChipStackMapping[value.field].draw();
             }
             for (const detail of this._uncfmBetDetails) {
@@ -453,7 +453,7 @@ namespace we {
           return;
         }
         env.tableInfos[this._tableId].prevbets.map(value => {
-          this._betChipStackMapping[value.field].uncfmBet = value.amount;
+          this._betChipStackMapping[value.field].uncfmBet = value.amount * this.getRate(value.field);
           this._betChipStackMapping[value.field].draw();
           for (const detail of this._uncfmBetDetails) {
             if (detail.field === value.field) {
@@ -579,6 +579,10 @@ namespace we {
 
       public onChangeLang() {
         this.changeLang();
+      }
+
+      protected getRate(fieldName): number {
+        return 1;
       }
     }
   }

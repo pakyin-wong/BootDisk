@@ -15,14 +15,19 @@ namespace we {
 
       protected _betArea: eui.Scroller;
       protected _betAreaTween: ui.TweenConfig;
+      protected _bATransition: eui.Group;
+      protected _bANormal: eui.Group;
+      protected _bARace: eui.Group;
       protected _betAreaLock: boolean = false;
 
       protected _betSet: egret.DisplayObject;
       protected _betSetTween: ui.TweenConfig;
 
-      // protected _leftGamePanel: we.ro.RoLeftPanel;
-      // protected _rightGamePanel: we.ro.RoRightPanel;
-      // protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
+      protected _raceTrackChipLayer: RaceTrackChipLayer;
+      protected _raceTrackTableLayer: RaceTrackTableLayer;
+      protected _raceTrackControl: RaceTrackControl;
+
+      protected _mode: string = 'normal';
 
       constructor(data: any) {
         super(data);
@@ -30,15 +35,19 @@ namespace we {
 
       protected mount() {
         super.mount();
-        // this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
         this.initBottomBetLimitSelector();
         this.changeHandMode();
+
+        this._raceTrackChipLayer.raceTrackTableLayer = this._raceTrackTableLayer;
+        this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
+        this._raceTrackChipLayer.chipLayer = this._chipLayer;
       }
 
       protected addEventListeners() {
         super.addEventListeners();
 
         this._bottomGamePanel.addEventListener('TOGGLE', this.onBottomToggle, this);
+        this._sidePanel.addEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
@@ -46,6 +55,7 @@ namespace we {
         super.removeEventListeners();
 
         this._bottomGamePanel.removeEventListener('TOGGLE', this.onBottomToggle, this);
+        this._sidePanel.removeEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
@@ -91,7 +101,11 @@ namespace we {
       }
 
       protected onBottomToggle() {
-        this.betAreaState = this.betSetState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+      }
+
+      protected set roState(s) {
+        this.betAreaState = this.betSetState = this.raceState = s;
       }
 
       protected set betAreaState(s) {
@@ -131,15 +145,62 @@ namespace we {
         egret.Tween.get(this._betArea).to(this._betAreaTween.getTweenPackage(), 250);
       }
 
-      protected set betSetState(s) {
-        if (this._betSetTween.currentState === s) {
+      protected toggleBetMode() {
+        if (this._betAreaLock) {
           return;
         }
-        this._betSetTween.currentState = s;
+
+        egret.Tween.removeTweens(this._bATransition);
+        switch (this._mode) {
+          case 'normal':
+            egret.Tween.get(this._bATransition).to(
+              {
+                x: 0 - this._bARace.x,
+                y: 0 - this._bARace.y,
+              },
+              250
+            );
+            this._chipLayer.$x = this._bARace.x;
+            this._chipLayer.$y = this._bARace.y;
+            this._raceTrackChipLayer.visible = true;
+            this._mode = 'race';
+            break;
+
+          case 'race':
+            egret.Tween.get(this._bATransition).to(
+              {
+                x: 0 - this._bANormal.x,
+                y: 0 - this._bANormal.y,
+              },
+              250
+            );
+            this._chipLayer.$x = this._bANormal.x;
+            this._chipLayer.$y = this._bANormal.y;
+            this._raceTrackChipLayer.visible = false;
+            this._mode = 'normal';
+            break;
+        }
+
+        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
+        this._sidePanel.currentState = this._mode;
+        (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
+      }
+
+      protected set betSetState(s) {
+        const state = s === 'normal' && this._mode === 'race' ? 'zip' : s;
+
+        if (this._betSetTween.currentState === state) {
+          return;
+        }
+        this._betSetTween.currentState = state;
         this._betSetTween.validateNow();
 
         egret.Tween.removeTweens(this._betSet);
         egret.Tween.get(this._betSet).to(this._betSetTween.getTweenPackage(), 250);
+      }
+
+      protected set raceState(s) {
+        this._raceTrackControl.visible = s === 'normal' && this._mode === 'race';
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
@@ -148,10 +209,8 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        // if (this._rightGamePanel.raceTrackChipLayer) {
-        //   this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
-        //   this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
-        // }
+        this._raceTrackChipLayer.touchEnabled = enable;
+        this._raceTrackChipLayer.touchChildren = enable;
       }
 
       public checkResultMessage() {
@@ -222,14 +281,14 @@ namespace we {
         this._betAreaLock = true;
         this._bottomGamePanel.manualClose();
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
-        this.betAreaState = this.betSetState = 'small';
+        this.roState = 'small';
       }
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
-        this.betAreaState = this.betSetState = 'normal';
+        this.roState = 'normal';
       }
     }
   }

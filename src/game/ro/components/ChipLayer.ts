@@ -675,7 +675,9 @@ namespace we {
 
       public onBetFieldUpdate(fieldNames: string[], hashkey: string = null) {
         super.onBetFieldUpdate(fieldNames, hashkey);
-        dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, { amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount() });
+        dir.evtHandler.dispatch(we.core.Event.BET_COMBINATION_AMOUNT_UPDATE, {
+          amount: this.getTotalCfmBetAmount() + this.getTotalUncfmBetAmount(),
+        });
       }
 
       protected undoBetFieldUpdate(data: { field: string; amount: number }) {

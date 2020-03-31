@@ -142,8 +142,9 @@ namespace we {
       protected onTouchTap(fieldName: string) {
         return (evt: egret.Event) => {
           const hashkey = Date.now().toString();
-          we.ro.getNeighbour(ro.directfield2num[fieldName], this._raceTrackControl.value).map(value => {
-            this._chipLayer.onBetFieldUpdate(ro.num2directfield[value], hashkey);
+
+          we.ro.getNeighbour(ro.directfield2num(fieldName), this._raceTrackControl.value).map(value => {
+            this._chipLayer.onBetFieldUpdate(ro.num2directfield(value), hashkey);
           });
         };
       }
@@ -169,9 +170,13 @@ namespace we {
       protected onInnerFieldTouchTap(fieldName: string) {
         return (evt: egret.Event) => {
           const hashkey = Date.now().toString();
-          BETFIELD_MAPPING[fieldName].map(value => {
-            this._chipLayer.onBetFieldUpdate(value, hashkey);
-          });
+          if (env.isMobile) {
+            this._chipLayer.onBetFieldUpdate(fieldName, hashkey);
+          } else {
+            BETFIELD_MAPPING[fieldName].map(value => {
+              this._chipLayer.onBetFieldUpdate(value, hashkey);
+            });
+          }
         };
       }
 
