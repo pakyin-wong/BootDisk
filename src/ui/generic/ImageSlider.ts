@@ -179,6 +179,7 @@ namespace we {
           return;
         }
         logger.l('carousel', this.slides[this.currentIndex].link);
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
       }
     }
   }
