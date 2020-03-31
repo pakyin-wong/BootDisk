@@ -33,6 +33,13 @@ namespace we {
         node.parent.addChildAt(road, idx);
         return road;
       }
+
+      public generateResultMessage(node: eui.Component) {
+        const gameResultMessage = new lw.SideBetResultMessage();
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(gameResultMessage, idx);
+        return gameResultMessage;
+      }
     }
   }
 }

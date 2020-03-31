@@ -387,16 +387,38 @@ namespace we {
           this._groupHoverImageMapping[value] = we.ro.BETFIELD_IMAGE_MAPPING[value];
         });
 
-        this._row_1_label.renderText = () => i18n.t('roulette.row_1');
-        this._row_2_label.renderText = () => i18n.t('roulette.row_2');
-        this._row_3_label.renderText = () => i18n.t('roulette.row_3');
-        this._dozen_1_12_label.renderText = () => i18n.t('roulette.dozen_1_12');
-        this._dozen_13_24_label.renderText = () => i18n.t('roulette.dozen_13_24');
-        this._dozen_25_36_label.renderText = () => i18n.t('roulette.dozen_25_36');
-        this._odd_label.renderText = () => i18n.t('roulette.odd');
-        this._even_label.renderText = () => i18n.t('roulette.even');
-        this._small_label.renderText = () => i18n.t('roulette.small');
-        this._big_label.renderText = () => i18n.t('roulette.big');
+        if (this._row_1_label) {
+          this._row_1_label.renderText = () => i18n.t('roulette.row_1');
+        }
+        if (this._row_2_label) {
+          this._row_2_label.renderText = () => i18n.t('roulette.row_2');
+        }
+        if (this._row_3_label) {
+          this._row_3_label.renderText = () => i18n.t('roulette.row_3');
+        }
+
+        if (this._dozen_1_12_label) {
+          this._dozen_1_12_label.renderText = () => i18n.t('roulette.dozen_1_12');
+        }
+        if (this._dozen_13_24_label) {
+          this._dozen_13_24_label.renderText = () => i18n.t('roulette.dozen_13_24');
+        }
+        if (this._dozen_25_36_label) {
+          this._dozen_25_36_label.renderText = () => i18n.t('roulette.dozen_25_36');
+        }
+
+        if (this._odd_label) {
+          this._odd_label.renderText = () => i18n.t('roulette.odd');
+        }
+        if (this._even_label) {
+          this._even_label.renderText = () => i18n.t('roulette.even');
+        }
+        if (this._small_label) {
+          this._small_label.renderText = () => i18n.t('roulette.small');
+        }
+        if (this._big_label) {
+          this._big_label.renderText = () => i18n.t('roulette.big');
+        }
       }
 
       public onRollover(fieldName: string) {

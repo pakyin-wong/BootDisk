@@ -11,7 +11,7 @@ namespace we {
       protected resultPanel: ro.ROBigRoadResultPanel;
       public tableid: string;
 
-      protected parser: ba.BARoadParser;
+      protected parser: ro.RORoadParser;
       // protected predictTimeout: number;
       protected useParser: boolean = false;
 

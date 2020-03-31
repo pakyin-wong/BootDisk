@@ -23,6 +23,21 @@ namespace we {
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;
       }
+
+      public generateResultMessage(node: eui.Component) {
+        const gameResultMessage = new ui.SidePanelGameResultMessage();
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(gameResultMessage, idx);
+        return gameResultMessage;
+      }
+
+      public generateResultDisplay(node: eui.Component) {
+        const cardHolder = new ba.SideListBetItemCardHolder();
+        cardHolder.skinName = `skin_desktop.ba.BetItemCardHolderSkin`;
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(cardHolder, idx);
+        return cardHolder;
+      }
     }
   }
 }

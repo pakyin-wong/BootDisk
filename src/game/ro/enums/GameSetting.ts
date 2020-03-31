@@ -662,14 +662,17 @@ namespace we {
     export function num2directfield(num) {
       return `DIRECT_${num}`;
     }
+
     export function directfield2num(field: string) {
       const split = field.split('_');
+
       if (split.length !== 2) {
         throw new Error('not an ro direct field');
       }
       if (split[0] !== 'DIRECT') {
         throw new Error('not an ro direct field');
       }
+
       return parseInt(split[1], 10);
     }
   }

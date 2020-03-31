@@ -13,6 +13,8 @@ namespace we {
 
         this.lblDragonName.renderText = () => `${i18n.t('dragontiger.dragon')}`;
         this.lblTigerName.renderText = () => `${i18n.t('dragontiger.tiger')}`;
+        this.setDragonBgColor(false);
+        this.setTigerBgColor(false);
       }
 
       constructor() {
@@ -43,19 +45,23 @@ namespace we {
       }
 
       public setDragonBgColor(value: boolean) {
+        let source = '';
         if (value) {
-          this._dragonPanel.texture = RES.getRes('m_common_panel_gamelist_result_dragon_win_png');
+          source = env.isMobile ? 'm_common_panel_gamelist_result_dragon_win_png' : 'd_lobby_panel_gamelist_betresult_playwinbg_png';
         } else {
-          this._dragonPanel.texture = RES.getRes('m_common_panel_gamelist_result_dragon_png');
+          source = env.isMobile ? 'm_common_panel_gamelist_result_dragon_png' : 'd_lobby_panel_gamelist_betresult_playbg_png';
         }
+        this._dragonPanel.texture = RES.getRes(source);
       }
 
       public setTigerBgColor(value: boolean) {
+        let source = '';
         if (value) {
-          this._tigerPanel.texture = RES.getRes('m_common_panel_gamelist_result_tiger_win_png');
+          source = env.isMobile ? 'm_common_panel_gamelist_result_tiger_win_png' : 'd_lobby_panel_gamelist_betresult_bankwinbg_png';
         } else {
-          this._tigerPanel.texture = RES.getRes('m_common_panel_gamelist_result_tiger_png');
+          source = env.isMobile ? 'm_common_panel_gamelist_result_tiger_png' : 'd_lobby_panel_gamelist_betresult_bankerbg_png';
         }
+        this._tigerPanel.texture = RES.getRes(source);
       }
     }
   }

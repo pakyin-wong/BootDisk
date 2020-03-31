@@ -2,7 +2,7 @@
 namespace we {
   export namespace ui {
     export class MobileLiveListSimpleItem extends MobileListBaseItem {
-      protected _bigRoad: we.ba.BALobbyBigRoad;
+      protected _bigRoad: we.ui.ILobbyRoad;
       protected _alreadyBetSign: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
@@ -12,16 +12,20 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        this._goodRoadLabel.visible = false;
-        this._alreadyBetSign.visible = false;
+        if (this._goodRoadLabel) {
+          this._goodRoadLabel.visible = false;
+        }
+        if (this._alreadyBetSign) {
+          this._alreadyBetSign.visible = false;
+        }
       }
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         if (this.tableInfo.totalBet > 0) {
-          this._alreadyBetSign.visible = true;
+          // this._alreadyBetSign.visible = true;
         } else {
-          this._alreadyBetSign.visible = false;
+          // this._alreadyBetSign.visible = false;
         }
       }
 
@@ -48,7 +52,7 @@ namespace we {
           // this._goodRoadLabel.text = goodRoadName;
           this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } else {
-          this._goodRoadLabel.visible = false;
+          // this._goodRoadLabel.visible = false;
         }
       }
 
