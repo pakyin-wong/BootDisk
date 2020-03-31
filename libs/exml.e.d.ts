@@ -951,6 +951,10 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class ResultHolderSkin extends eui.Skin{
 	}
 }
