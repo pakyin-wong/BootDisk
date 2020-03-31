@@ -276,6 +276,7 @@
 		"resource/skin_mobile_portrait/Slider.exml",
 		"resource/skin_mobile_portrait/overlay/SystemSetting.exml",
 		"resource/skin_mobile_portrait/ro/ChipLayer.exml",
+		"resource/skin_mobile_portrait/ro/ChipLayerRace.exml",
 		"resource/skin_mobile_portrait/ro/GameResult/ResultHolder.exml",
 		"resource/skin_mobile_portrait/ro/GameResult/SideBetResultMessage.exml",
 		"resource/skin_mobile_portrait/ro/LiveListItem.exml",
