@@ -21,6 +21,7 @@
 		                    horizontalCenter="506" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu" />
 	<!--add new element in portrait-->
 	<ui:NavLantern id="_lantern" width="1000" height="40"   rotation="0.04" y="2116" left="0"/>
+	<e:Rect width="1000" height="40" x="0" y="2116" fillColor="0x5e5d5d" fillAlpha="0.3"/>
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00"  y="2116" size="25"
 	         fontFamily="Barlow" width="242" height="40" textAlign="right" anchorOffsetX="0" verticalAlign="middle"  textColor="0xa5a5a5" right="0"/>
 

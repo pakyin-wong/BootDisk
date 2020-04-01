@@ -92,10 +92,14 @@ namespace we {
         root.scroller.viewport = group;
 
         const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
-        gridSwitch.x = 1078;
-        gridSwitch.y = 1960;
-        gridSwitch.width = 144;
-        gridSwitch.height = 144;
+        // gridSwitch.x = 1078;
+        // gridSwitch.y = 1960;
+        gridSwitch.x = 1088;
+        gridSwitch.y = 298;
+        // gridSwitch.width = 144;
+        // gridSwitch.height = 144;
+        gridSwitch.width = 104;
+        gridSwitch.height = 104;
         this.root.addChild(gridSwitch);
       }
 

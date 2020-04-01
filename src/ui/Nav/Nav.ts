@@ -8,7 +8,7 @@ namespace we {
       private _profile: Panel;
       private _menu_toggle: eui.Image;
       private _menu: Panel;
-      private _slider_toggle: eui.Image;
+      private _slider_toggle: ui.BaseImageButton;
       private _balance: RunTimeLabel;
 
       // this is the background color which the alpha will change when scrolling
