@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ImageButtonSkinLobby" width="28" height="28" currentState="lobby_betcontrol_close" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"
         states="lobby_mode_01,lobby_mode_02,2col_btn,1col_btn,game_list_close_btn,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification,lobby_notify_btn_action,lobby_notify_btn_hide,lobby_panel_gamelist_tag_icon_allgame"
         height.lobby_mode_01="104" width.lobby_mode_01="104" width.lobby_mode_02="104" height.lobby_mode_02="104"
