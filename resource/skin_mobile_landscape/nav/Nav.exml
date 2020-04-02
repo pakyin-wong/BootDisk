@@ -7,7 +7,7 @@
 
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" y="7.81" size="34" fontFamily="Barlow" width="340" height="38" textAlign="right" anchorOffsetX="0" verticalAlign="middle" textColor="0xa5a5a5" x="1750.42"/>
-	<e:Group id="_profile_toggle" x="1581.42" y="99">
+	<e:Group id="_profile_toggle" x="1720.42" y="1093">
 		<e:Label id="_user" text="User" x="102" y="0" width="220" height="46" size="37.8" fontFamily="Barlow"
 		         textColor="0xffffff" scaleX="1" scaleY="1" textAlign="left" verticalAlign="bottom" />
 		<ui:RunTimeLabel id="_balance" text="123,456,789" x="102" y="48" width="220" height="46" fontFamily="Barlow"
