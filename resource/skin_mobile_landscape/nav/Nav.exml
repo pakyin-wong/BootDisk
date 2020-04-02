@@ -3,9 +3,11 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Rect id="_background" right="0" left="0" top="0" anchorOffsetY="0" height="238"
 	        fillAlpha="0.3"  fillColor="0x000000"/>
-	<e:Rect height="158" y="0" left="0" right="0" fillAlpha="0.3"/>
+	<ui:NavLantern id="_lantern" width="1158" height="45"   rotation="0.04" y="0" x="0"/>
+
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
-	<e:Group id="_profile_toggle" x="1581.42" y="41">
+	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" y="7.81" size="34" fontFamily="Barlow" width="340" height="38" textAlign="right" anchorOffsetX="0" verticalAlign="middle" textColor="0xa5a5a5" x="1750.42"/>
+	<e:Group id="_profile_toggle" x="1581.42" y="99">
 		<e:Label id="_user" text="User" x="102" y="0" width="220" height="46" size="37.8" fontFamily="Barlow"
 		         textColor="0xffffff" scaleX="1" scaleY="1" textAlign="left" verticalAlign="bottom" />
 		<ui:RunTimeLabel id="_balance" text="123,456,789" x="102" y="48" width="220" height="46" fontFamily="Barlow"
@@ -24,8 +26,12 @@
 	             fontFamily="Barlow" width="698" height="34" textAlign="right" anchorOffsetX="0" verticalAlign="middle"
 	             visible="false" />
 	-->
-	<e:Image id="_slider_toggle" width="66" height="48" right="30" top="56"  source="m_common_header_icon_menu_png"/>
-	<e:Label text="Landscape" x="822.32" y="150" anchorOffsetX="0" width="510.36" anchorOffsetY="0" height="136.06" size="50"/>
+	<!--<e:Image id="_slider_toggle" width="66" height="48" right="30" top="56"  source="m_common_header_icon_menu_png"/>-->
+
+	<!--BaseImageButton's picture is not exactly the same-->
+	<ui:BaseImageButton id="_slider_toggle" y="944" anchorOffsetX="0" width="117" anchorOffsetY="0" height="117"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2001"/>
+	<e:Label text="Landscape" x="1031.41" y="150" anchorOffsetX="0" width="510.36" anchorOffsetY="0" height="136.06" size="50"/>
 	<!--<ui:NavPlayerProfile id="_profile" width="516" height="789" x="1980" y="100" isPoppable="true"
 	                         dismissOnClickOutside="true" />
 	-->

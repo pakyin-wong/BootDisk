@@ -7,12 +7,6 @@ namespace we {
 
       constructor(stage: egret.Stage) {
         this.stage = stage;
-
-        // window.onorientationchange = () => {
-        //   this.onRotate((<any>screen).orientation.angle);
-        // };
-        // this.onRotate((<any>screen).orientation.angle, true);
-
         window.addEventListener('resize', e => this.onResize(e), false);
         this.checkOrientation(true);
         // window.onorientationchange = () => {
@@ -35,14 +29,14 @@ namespace we {
         const width = window.innerWidth;
         const height = window.innerHeight;
         const newOrientation = width / height >= 1 ? egret.OrientationMode.LANDSCAPE : egret.OrientationMode.PORTRAIT;
-        if (newOrientation !== env.orientation) {
+        if (isInit || newOrientation !== env.orientation) {
           env.orientation = newOrientation;
           switch (newOrientation) {
             case egret.OrientationMode.PORTRAIT:
               this.stage.setContentSize(1242, 2155);
               break;
             case egret.OrientationMode.LANDSCAPE:
-              this.stage.setContentSize(2292, 1242);
+              this.stage.setContentSize(2155, 1242);
               break;
           }
           if (!isInit) {
@@ -59,7 +53,7 @@ namespace we {
         } else {
           // landscape
           env.orientation = egret.OrientationMode.LANDSCAPE;
-          this.stage.setContentSize(2292, 1242);
+          this.stage.setContentSize(2155, 1242);
         }
         if (!isInit) {
           if (this._timeoutId) {

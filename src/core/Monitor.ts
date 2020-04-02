@@ -32,9 +32,12 @@ namespace we {
           const gameListButton = new ui.GameListButton();
           dir.layerCtr.top.addChild(gameListButton);
           gameListButton.right = 50;
-
+          if (env.orientation === egret.OrientationMode.PORTRAIT) {
+            gameListButton.y = 419;
+          } else {
+            gameListButton.y = 809;
+          }
           // gameListButton.y = 241;
-          gameListButton.y = 419;
 
           this._sideGameList = new ui.MobileSideGameList();
           this._sideGameList.bottom = 0;
