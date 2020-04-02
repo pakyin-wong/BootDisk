@@ -7,11 +7,11 @@ namespace we {
       protected columnbetLabel: eui.Label;
       protected rowbetLabel: eui.Label;
 
-      protected colorLabel: eui.Label;
-      protected oddevenLabel: eui.Label;
-      protected sizeLabel: eui.Label;
-      protected columnbetLabel: eui.Label;
-      protected rowbetLabel: eui.Label;
+      // protected colorLabel: eui.Label;
+      // protected oddevenLabel: eui.Label;
+      // protected sizeLabel: eui.Label;
+      // protected columnbetLabel: eui.Label;
+      // protected rowbetLabel: eui.Label;
 
       // protected pBanker: eui.Label;
       // protected pPlayer: eui.Label;

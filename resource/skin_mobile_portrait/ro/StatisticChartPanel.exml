@@ -42,6 +42,7 @@
 						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
 						</e:layout>
 					</e:Group>
+					<e:Image id="_colourMask" width="500" height="30" x="0" y="80" source="m_ro_h_hot_bar_png"/>
 				</e:Group>
 
 
