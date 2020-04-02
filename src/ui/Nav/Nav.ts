@@ -44,8 +44,9 @@ namespace we {
           utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this);
           // dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
           this._lantern.alignToLeft();
+        } else {
+          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         }
-        dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
         dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
       }
