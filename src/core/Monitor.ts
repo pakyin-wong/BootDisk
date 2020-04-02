@@ -32,7 +32,9 @@ namespace we {
           const gameListButton = new ui.GameListButton();
           dir.layerCtr.top.addChild(gameListButton);
           gameListButton.right = 50;
-          gameListButton.y = 241;
+
+          // gameListButton.y = 241;
+          gameListButton.y = 419;
 
           this._sideGameList = new ui.MobileSideGameList();
           this._sideGameList.bottom = 0;
