@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ro.LiveListSimpleItemSkin" width="578" height="219" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:live="we.live.*" xmlns:dt="we.dt.*"
+<e:Skin class="skin_mobile_portrait.ro.LiveListSimpleItemSkin" width="552" height="272"
+        xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:live="we.live.*"
         xmlns:w="http://ns.egret.com/wing">
-	<e:Group id="_quickBetGroup" width="578" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0">
-		<e:Group width="100%" x="0" y="169" scaleX="1" scaleY="1">
-			<e:Rect width="100%" height="103" x="0" alpha="0.6" y="0" scaleX="1" scaleY="1" />
-			<ui:BetChipSetHorizontal id="_betChipSet" width="310" height="65" anchorOffsetX="0" x="14" scaleX="1" scaleY="1"
-			                         anchorOffsetY="0" verticalCenter="2" navWidth="20" containerPadding="6" />
-			<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
-			                    skinName="ImageButtonSkinLobby" anchorOffsetX="0" />
-		</e:Group>
-		<ro:LobbyTableLayer id="_tableLayer" width="100%" skinName="skin_mobile_portrait.ro.LiveListItemTableLayerSkin"
-		                    anchorOffsetY="0" left="0" top="0" />
-	</e:Group>
-	<e:Group id="_contentContainer" width="100%" height="219" x="0" y="0">
+	<e:Group id="_contentContainer" width="100%" height="272" x="0" y="0" anchorOffsetY="0">
 		<e:Rect width="578" height="80" x="0" y="0" fillColor="0x202020" />
-		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0" skinName="skin_mobile_portrait.CountdownTimerRoundSkin" />
-		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="150" y="20" />
-		<ro:ROLobbyBeadRoad id="_beadRoad" width="100%" height="139" y="80" roadGridSize="40" roadCol="12" roadRow="3"
-		                    roadIndentX="4" roadIndentY="2.5" roadOffsetX="8" roadOffsetY="5" roadEmptyColor="0xc1c1c1"
-		                    roadEmptyAlpha="0.2" roadScale="1" />
-		<ui:InGameMessage id="_message" anchorOffsetX="152" anchorOffsetY="16" skinName="skin_mobile_portrait.InGameMessageSkin"
-		                  width="303" height="32" horizontalCenter="0.5" y="115" infoBg="d_ba_gamerecord_playerelement_png"
-		                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
-		<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
-			<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
-			         width="100" height="30" />
-			<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
+		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0"
+		                   skinName="skin_mobile.CountdownTimerRoundSmallSkin" />
+		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="84.68" y="23.99" />
+		<ro:ROMobileLobbyBeadRoad id="_bigRoad" width="100%" height="192" y="80" anchorOffsetY="0" />
+		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
+		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
+		                  y="167.5" infoBg="m_common_gamestate_message_black_png"
+		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
+		<live:BetLimitDropdown id="_dropdown" width="200" y="20" anchorOffsetX="0" anchorOffsetY="0"
+		                       skinName="BetLimitDropdownSkin" right="7" />
+		<e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20">
+			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13" bottom="10"  currentState="small"/>
+			<e:Group id="_alreadyBetSign" right="5" bottom="40" x="421" y="-5" scaleX="1"
+			         scaleY="1" height="50" visible="false">
+				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="50" ellipseHeight="50" fillAlpha="0.76"
+				        fillColor="0x42bc60" />
+				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="40" left="20" right="20" />
+			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="left" />
+			</e:layout>
 		</e:Group>
-		<live:BetLimitDropdown id="_dropdown" width="145" height="30" x="420" y="30" anchorOffsetX="0" anchorOffsetY="0"
-		                       skinName="BetLimitDropdownSkin" />
-		<ui:LobbyQuickBetAnimButton id="_quickbetButton" resName="d_lobby_quick_bet_notification_follow_normal_png"
-		                            hoverResName="d_lobby_quick_bet_notification_follow_hover_png" alpha="0"
-		                            horizontalCenter="0" y="180" width="148" height="42" label1text="快速投注" label2text="X" />
 	</e:Group>
-	<ro:LobbyChipLayer id="_chipLayer" width="100%" skinName="skin_mobile_portrait.ro.LiveListItemChipLayerSkin" anchorOffsetY="0"
-	                   left="0" y="0" alpha="0" />
+	<e:Rect id="_dimmer" left="0" top="79" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0" visible="false" />
+	<e:Group id="_buttonGroup" width="552" x="0" y="140" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
+	         touchChildren="true">
+		<ui:BaseImageButton id="_quickBetButton" width="219" height="70" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+		                    scaleY="1" verticalCenter="0" left="40" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+		                    currentState="2col_btn" />
+		<ui:BaseImageButton id="_enterTableButton" width="219" height="70" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+		                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby" verticalCenter="0" right="40"
+		                    currentState="2col_btn" />
+	</e:Group>
 </e:Skin>

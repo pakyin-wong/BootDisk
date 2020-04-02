@@ -14,7 +14,7 @@
 		</e:Group>
 		<e:Group id="_resultGroup" x="0" y="105" width="100%" height="294" touchEnabled="false">
 			<ba:SideListBetItemCardHolder id="_cardHolder" width="100%" anchorOffsetY="0" height="294" left="0"
-			                              skinName="skin_mobile_portrait.ba.SideListBetItemCardHolder" />
+			                               skinName="skin_mobile_portrait.ba.BetItemCardHolderSkin"/>
 			<ui:ImageGameResultMessage id="_resultMessage" horizontalCenter="0" verticalCenter="-1.5"
 			                           skinName="skin_mobile_portrait.GameResultWinSkin" anchorOffsetX="159" anchorOffsetY="44" />
 		</e:Group>

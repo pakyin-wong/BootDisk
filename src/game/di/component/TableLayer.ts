@@ -197,6 +197,7 @@ namespace we {
           });
           tweenPromises.push(promise);
         });
+
         // transform dices in row 3
         this._bigrow_3.$children.forEach(child => {
           if (!(child instanceof eui.Group)) {

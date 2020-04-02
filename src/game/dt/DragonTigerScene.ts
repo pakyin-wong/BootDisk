@@ -20,7 +20,7 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'dt' });
       }
 
       protected initRoadMap() {

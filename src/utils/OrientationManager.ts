@@ -7,10 +7,48 @@ namespace we {
 
       constructor(stage: egret.Stage) {
         this.stage = stage;
-        window.onorientationchange = () => {
-          this.onRotate((<any>screen).orientation.angle);
-        };
-        this.onRotate((<any>screen).orientation.angle, true);
+
+        // window.onorientationchange = () => {
+        //   this.onRotate((<any>screen).orientation.angle);
+        // };
+        // this.onRotate((<any>screen).orientation.angle, true);
+
+        window.addEventListener('resize', e => this.onResize(e), false);
+        this.checkOrientation(true);
+        // window.onorientationchange = () => {
+        //   this.onRotate((<any> screen).orientation.angle);
+        // };
+        // this.onRotate((<any> screen).orientation.angle, true);
+      }
+
+      public onResize(e: Event) {
+        if (this._timeoutId) {
+          clearTimeout(this._timeoutId);
+          this._timeoutId = null;
+        }
+        this._timeoutId = setTimeout(() => {
+          this.checkOrientation();
+        }, 500);
+      }
+
+      public checkOrientation(isInit: boolean = false) {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const newOrientation = width / height >= 1 ? egret.OrientationMode.LANDSCAPE : egret.OrientationMode.PORTRAIT;
+        if (newOrientation !== env.orientation) {
+          env.orientation = newOrientation;
+          switch (newOrientation) {
+            case egret.OrientationMode.PORTRAIT:
+              this.stage.setContentSize(1242, 2155);
+              break;
+            case egret.OrientationMode.LANDSCAPE:
+              this.stage.setContentSize(2292, 1242);
+              break;
+          }
+          if (!isInit) {
+            dir.evtHandler.dispatch(core.Event.ORIENTATION_UPDATE);
+          }
+        }
       }
 
       public onRotate(angle: number, isInit: boolean = false) {
@@ -28,7 +66,7 @@ namespace we {
             clearTimeout(this._timeoutId);
             this._timeoutId = null;
           }
-          setTimeout(function () {
+          this._timeoutId = setTimeout(function () {
             dir.evtHandler.dispatch(core.Event.ORIENTATION_UPDATE);
           }, 100);
         }

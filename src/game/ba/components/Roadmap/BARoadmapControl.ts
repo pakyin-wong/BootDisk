@@ -217,6 +217,9 @@ namespace we {
       }
 
       public setTableInfo(tableInfo: data.TableInfo) {
+        if (this.tableInfo === tableInfo) {
+          return;
+        }
         this.tableInfo = tableInfo;
         this.updateRoadData(0);
       }

@@ -19,7 +19,7 @@
 			                           skinName="skin_mobile_portrait.GameResultWinSkin" anchorOffsetX="159" anchorOffsetY="44" />
 		</e:Group>
 	</e:Group>
-	<e:Rect id="_dimmer" left="0" top="110" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0" />
+	<e:Rect id="_dimmer" left="0" top="110" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0"  visible="false"/>
 	<e:Group id="_buttonGroup" width="1140" x="0" y="196" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
 	         touchChildren="true">
 		<ui:BaseImageButton id="_quickBetButton" width="333" height="116" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"

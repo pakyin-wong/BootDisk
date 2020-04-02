@@ -49,15 +49,17 @@ namespace we {
       }
 
       public onRollover(fieldName: string) {
-        /*
         if (this._imageSourceMapping) {
-          this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][1];
+          const name = this._imageMapping[fieldName].source.toString();
+          this._imageMapping[fieldName].source = this._imageMapping[fieldName].name;
+          this._imageMapping[fieldName].name = name;
         }
-        */
       }
 
       public onRollout(fieldName: string) {
-        // this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][0];
+        const name = this._imageMapping[fieldName].source.toString();
+        this._imageMapping[fieldName].source = this._imageMapping[fieldName].name;
+        this._imageMapping[fieldName].name = name;
       }
 
       public clearAllHighlights() {
@@ -66,111 +68,123 @@ namespace we {
         });
       }
 
-      public async flashFields(gameData: we.data.GameData, superSixMode: boolean) {
-        /*
-        const winningFields = [];
-        const { wintype, issupersix, isbankerpair, isplayerpair } = gameData;
+      public async flashFields(fieldName: string) {
+        const promise = new Promise(resolve => {
+          egret.Tween.get(this._imageMapping[fieldName])
+            .to({ alpha: 0 }, 125)
+            .to({ alpha: 1 }, 125)
+            .to({ alpha: 0 }, 125)
+            .to({ alpha: 1 }, 125)
+            .to({ alpha: 0 }, 125)
+            .to({ alpha: 1 }, 125)
+            .to({ alpha: 0 }, 125)
+            .to({ alpha: 1 }, 125)
+            .call(resolve);
+        });
+      }
+      /*
+      const winningFields = [];
+      const { wintype, issupersix, isbankerpair, isplayerpair } = gameData;
 
-        if (isbankerpair) {
-          winningFields.push(ba.BetField.BANKER_PAIR);
-        }
-        if (isplayerpair) {
-          winningFields.push(ba.BetField.PLAYER_PAIR);
-        }
-        if (issupersix) {
-          winningFields.push(ba.BetField.SUPER_SIX);
-        }
+      if (isbankerpair) {
+        winningFields.push(ba.BetField.BANKER_PAIR);
+      }
+      if (isplayerpair) {
+        winningFields.push(ba.BetField.PLAYER_PAIR);
+      }
+      if (issupersix) {
+        winningFields.push(ba.BetField.SUPER_SIX);
+      }
 
-        switch (wintype) {
-          case ba.WinType.BANKER: {
-            if (superSixMode) {
-              winningFields.push(ba.BetField.SUPER_SIX_BANKER);
-            } else {
-              winningFields.push(ba.BetField.BANKER);
-            }
-            break;
+      switch (wintype) {
+        case ba.WinType.BANKER: {
+          if (superSixMode) {
+            winningFields.push(ba.BetField.SUPER_SIX_BANKER);
+          } else {
+            winningFields.push(ba.BetField.BANKER);
           }
-          case ba.WinType.PLAYER: {
-            winningFields.push(ba.BetField.PLAYER);
-            break;
-          }
-          case ba.WinType.TIE: {
-            winningFields.push(ba.BetField.TIE);
-            break;
-          }
-          default: {
-            break;
-          }
+          break;
         }
+        case ba.WinType.PLAYER: {
+          winningFields.push(ba.BetField.PLAYER);
+          break;
+        }
+        case ba.WinType.TIE: {
+          winningFields.push(ba.BetField.TIE);
+          break;
+        }
+        default: {
+          break;
+        }
+      }
 
-        const initRectPromises = [];
-        // init dim rects
-        for (const field of Object.keys(ba.BetField)) {
-          const group: any = this._imageMapping[field].parent;
-          const isWin = winningFields.indexOf(field) >= 0;
-          // try remove existing
-          let rect = group.getChildByName('dim');
-          if (rect) {
-            group.removeChild(rect);
-          }
-          rect = new eui.Rect();
-          rect.name = 'dim';
-          rect.alpha = 0;
-          rect.fillColor = isWin ? 0xffffff : 0x000000;
-          rect.percentWidth = 100;
-          rect.percentHeight = 100;
-          group.addChildAt(rect, 1);
-          const promise = new Promise(resolve => {
-            egret.Tween.get(rect)
-              .to({ alpha: isWin ? 0 : 0.25 }, 125)
-              .call(resolve);
-          });
-          initRectPromises.push(promise);
+      const initRectPromises = [];
+      // init dim rects
+      for (const field of Object.keys(ba.BetField)) {
+        const group: any = this._imageMapping[field].parent;
+        const isWin = winningFields.indexOf(field) >= 0;
+        // try remove existing
+        let rect = group.getChildByName('dim');
+        if (rect) {
+          group.removeChild(rect);
         }
-        await Promise.all(initRectPromises);
-        // start flashing
-        let run = 1;
-        const tick = async () => {
-          // end flashing
-          if (run >= 6) {
-            const fadeOutPromises = [];
-            for (const field of Object.keys(ba.BetField)) {
-              const group = this._imageMapping[field].parent;
-              const rect = group.getChildByName('dim');
-              const promise = new Promise(resolve => {
-                egret.Tween.get(rect)
-                  .to({ alpha: 0 }, 125)
-                  .call(() => {
-                    if (rect.parent) {
-                      rect.parent.removeChild(rect);
-                    }
-                    resolve();
-                  });
-              });
-              fadeOutPromises.push(promise);
-            }
-            await Promise.all(fadeOutPromises);
-            return;
-          }
-          const tickFlashPromises = [];
-          for (const field of winningFields) {
+        rect = new eui.Rect();
+        rect.name = 'dim';
+        rect.alpha = 0;
+        rect.fillColor = isWin ? 0xffffff : 0x000000;
+        rect.percentWidth = 100;
+        rect.percentHeight = 100;
+        group.addChildAt(rect, 1);
+        const promise = new Promise(resolve => {
+          egret.Tween.get(rect)
+            .to({ alpha: isWin ? 0 : 0.25 }, 125)
+            .call(resolve);
+        });
+        initRectPromises.push(promise);
+      }
+      await Promise.all(initRectPromises);
+      // start flashing
+      let run = 1;
+      const tick = async () => {
+        // end flashing
+        if (run >= 6) {
+          const fadeOutPromises = [];
+          for (const field of Object.keys(ba.BetField)) {
             const group = this._imageMapping[field].parent;
             const rect = group.getChildByName('dim');
-            const prom = new Promise(resolve => {
-              const alpha = run % 2 === 1 ? 0.25 : 0;
+            const promise = new Promise(resolve => {
               egret.Tween.get(rect)
-                .to({ alpha }, 125)
-                .call(resolve);
+                .to({ alpha: 0 }, 125)
+                .call(() => {
+                  if (rect.parent) {
+                    rect.parent.removeChild(rect);
+                  }
+                  resolve();
+                });
             });
-            tickFlashPromises.push(prom);
+            fadeOutPromises.push(promise);
           }
-          await Promise.all(tickFlashPromises);
-          run += 1;
-          setTimeout(tick, 300);
-        };
+          await Promise.all(fadeOutPromises);
+          return;
+        }
+        const tickFlashPromises = [];
+        for (const field of winningFields) {
+          const group = this._imageMapping[field].parent;
+          const rect = group.getChildByName('dim');
+          const prom = new Promise(resolve => {
+            const alpha = run % 2 === 1 ? 0.25 : 0;
+            egret.Tween.get(rect)
+              .to({ alpha }, 125)
+              .call(resolve);
+          });
+          tickFlashPromises.push(prom);
+        }
+        await Promise.all(tickFlashPromises);
+        run += 1;
         setTimeout(tick, 300);
-        */
-      }
+      };
+      setTimeout(tick, 300);
+      */
     }
   }
 }

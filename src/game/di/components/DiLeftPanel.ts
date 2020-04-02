@@ -69,49 +69,58 @@ namespace we {
         page2Group.addChild(this.beadRoad);
 
         const data = [
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 1, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 3, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 4, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 5, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 6, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 16, odd: 2, size: 7, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 8, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
         ];
         this.beadRoad.parseRoadData(data);
 
-        this.sizeBigRoad = new DiSizeBigRoad(19, 35, 1, true);
-        this.sizeBigRoad.scaleX = 668 / 666;
+        this.sizeBigRoad = new DiSizeBigRoad(17, 34, 1, true);
+        this.sizeBigRoad.scaleX = 580 / 578;
 
-        const data2 = [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'cde345' }, { v: 12, gameRoundID: 'cde345' }];
+        const data2 = [
+          { v: 0, gameRoundID: 'cde345' },
+          { v: 1, gameRoundID: 'cde345' },
+          { v: 2, gameRoundID: 'cde345' },
+          { v: 12, gameRoundID: 'cde345' },
+        ];
         this.sizeBigRoad.parseRoadData(data2);
 
         // add road to road stack 1
         const road1Group = this.roadStack.getChildAt(0) as eui.Group;
         road1Group.addChild(this.sizeBigRoad);
 
-        this.oddBigRoad = new DiOddBigRoad(19, 35, 1, true);
-        this.oddBigRoad.scaleX = 668 / 666;
+        this.oddBigRoad = new DiOddBigRoad(17, 34, 1, true);
+        this.oddBigRoad.scaleX = 580 / 578;
         this.oddBigRoad.parseRoadData(data2);
 
         // add road to road stack 2
         const road2Group = this.roadStack.getChildAt(1) as eui.Group;
         road2Group.addChild(this.oddBigRoad);
 
-        this.sumBigRoad = new DiSumBigRoad(19, 35, 1, true);
-        this.sumBigRoad.scaleX = 668 / 666;
+        this.sumBigRoad = new DiSumBigRoad(17, 34, 1, true);
+        this.sumBigRoad.scaleX = 580 / 578;
         this.sumBigRoad.parseRoadData(data2);
 
         // add road to road stack 3
