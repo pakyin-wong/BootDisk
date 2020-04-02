@@ -53,17 +53,20 @@ namespace we {
       }
 
       public setResult(result: any) {
+        const dice = result.dice;
+        const total = dice.reduce((a, b) => a + b, 0);
+        const tie = dice.every((val, i, arr) => val === arr[0]) ? 1 : 0;
+        this.diceSize = total > 10 ? 2 : 1;
+        this.diceOdd = total % 2 ? 1 : 2;
+
         // { gameRoundID: 'cde345', dice1:1, dice2:2, dice3:3, total:6, odd:2, size:2, tie:0, video: 'null' }
         this.gameRoundID = result.gameRoundID;
-        this.dice1.source = 'd_sic_history_lv3_dice-' + result.dice1 + '_png';
-        this.dice2.source = 'd_sic_history_lv3_dice-' + result.dice2 + '_png';
-        this.dice3.source = 'd_sic_history_lv3_dice-' + result.dice3 + '_png';
+        this.dice1.source = 'd_sic_history_lv3_dice-' + dice[0] + '_png';
+        this.dice2.source = 'd_sic_history_lv3_dice-' + dice[1] + '_png';
+        this.dice3.source = 'd_sic_history_lv3_dice-' + dice[2] + '_png';
 
-        this.diceSize = result.size;
-        this.diceOdd = result.odd;
-
-        this.sumLabel.text = result.total + '';
-        if (result.tie === 1) {
+        this.sumLabel.text = total + '';
+        if (tie === 1) {
           this.tripleLabel.visible = true;
           this.tripleBg.visible = true;
 
@@ -90,10 +93,10 @@ namespace we {
 
           if (this.diceOdd === 1) {
             // odd
-            this.sizeBg.source = 'd_ba_betarea_player_hover_png';
+            this.oddBg.source = 'd_ba_betarea_player_hover_png';
           } else {
             // even
-            this.sizeBg.source = 'd_ba_betarea_bankerpair_hover_png';
+            this.oddBg.source = 'd_ba_betarea_bankerpair_hover_png';
           }
         }
 

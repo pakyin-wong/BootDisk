@@ -9,10 +9,10 @@
 namespace we {
   export namespace lw {
     export class Scene extends core.DesktopBaseGameScene {
-      protected _roadmapControl: we.ro.RORoadmapControl;
-      protected _leftGamePanel: we.ro.RoLeftPanel;
+      protected _roadmapControl: we.lw.LwRoadmapControl;
+      protected _leftGamePanel: we.lw.LwLeftPanel;
       protected _rightGamePanel: we.lw.LwRightPanel;
-      protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
+      protected _bigRoadResultPanel: we.lw.LwBeadRoadResultPanel;
 
       constructor(data: any) {
         super(data);
@@ -27,7 +27,7 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'lw' });
       }
 
       public getTableLayer() {
@@ -48,8 +48,19 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        this.initRoadMap();
+        this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+      }
+
+      protected initRoadMap() {
+        this._roadmapControl = new we.lw.LwRoadmapControl(this._tableId);
+        this._roadmapControl.setRoads(this._leftGamePanel.beadRoad, this._leftGamePanel, this._rightGamePanel, this._bigRoadResultPanel);
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        this._roadmapControl.updateRoadData();
       }
 
       public checkResultMessage() {
@@ -62,22 +73,32 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData> this._gameData).value;
-        (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
+        console.log('checkResultMessage', this._gameData);
 
-        if (this.hasBet() && !isNaN(totalWin)) {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: this._tableInfo.totalWin,
-          });
-          dir.audioCtr.playSequence(['player', 'win']);
-        } else {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: NaN,
-          });
-          dir.audioCtr.playSequence(['player', 'win']);
-        }
+        const result = (<ro.GameData> this._gameData).value;
+        const resultNo: number = +result.toString().substr(1) - 1;
+
+        (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo.toString()}`);
+        this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
+
+        /*
+                const resultNo = (<ro.GameData> this._gameData).value;
+                (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
+
+                if (this.hasBet() && !isNaN(totalWin)) {
+                  this._resultMessage.showResult(this._tableInfo.gametype, {
+                    resultNo,
+                    winAmount: this._tableInfo.totalWin,
+                  });
+                  dir.audioCtr.playSequence(['player', 'win']);
+                } else {
+                  this._resultMessage.showResult(this._tableInfo.gametype, {
+                    resultNo,
+                    winAmount: NaN,
+                  });
+                  dir.audioCtr.playSequence(['player', 'win']);
+                }
+                */
       }
     }
   }

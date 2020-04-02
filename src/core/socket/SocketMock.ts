@@ -35,7 +35,10 @@ namespace we {
         betCombination.gametype = we.core.GameType.RO;
         betCombination.id = 'f1';
         betCombination.playerid = '12321';
-        betCombination.optionsList = [{ amount: 1000, betcode: we.ro.BetField.BIG }, { amount: 1000, betcode: we.ro.BetField.BLACK }];
+        betCombination.optionsList = [
+          { amount: 1000, betcode: we.ro.BetField.BIG },
+          { amount: 1000, betcode: we.ro.BetField.BLACK },
+        ];
         this.betCombinations.push(betCombination);
 
         setInterval(() => {
@@ -231,7 +234,7 @@ namespace we {
               data.tableid = (++this._tempIdx).toString();
               data.tablename = data.tableid;
               data.state = TableState.ONLINE;
-              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockLwRoadData);
               data.gametype = core.GameType.LW;
 
               data.gamestatistic = this.generateDummyStatistic(data);
@@ -514,16 +517,37 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 12 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
           roach: [{ v: 'p' }],
         },
 
         inGameB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: 'b', t: 5 },
+          ],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -535,8 +559,18 @@ namespace we {
         },
 
         inGameP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: 'p', t: 0 },
+          ],
           bigEye: [{ v: 'p' }, { v: 'p' }],
           small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
           roach: [{ v: 'p' }, { v: 'p' }],
@@ -548,16 +582,37 @@ namespace we {
         },
 
         lobbyPro: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
           roach: [{ v: 'p' }],
         },
 
         lobbyProB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: 'b', t: 5 },
+          ],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -569,8 +624,18 @@ namespace we {
         },
 
         lobbyProP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: 'p', t: 0 },
+          ],
           bigEye: [{ v: 'p' }, { v: 'p' }],
           small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
           roach: [{ v: 'p' }, { v: 'p' }],
@@ -582,11 +647,19 @@ namespace we {
         },
 
         sideBar: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
         },
 
         lobbyUnPro: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
         },
 
         inGameInfoStart: 0,
@@ -607,7 +680,11 @@ namespace we {
         cold: [1, 2, 3, 4, 5],
 
         inGame: {
-          bead: [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'g34345' }, { v: 20, gameRoundID: 'g45454' }],
+          bead: [
+            { v: 0, gameRoundID: 'cde345' },
+            { v: 1, gameRoundID: 'g34345' },
+            { v: 20, gameRoundID: 'g45454' },
+          ],
           color: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
           size: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
           odd: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
@@ -627,18 +704,38 @@ namespace we {
 
         inGame: {
           bead: [
-            { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-            { gameRoundID: 'g34345', dice1: 3, dice2: 4, dice3: 5, total: 12, odd: 1, size: 1, tie: 0, video: 'null' },
+            { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+            { gameRoundID: 'g34345', dice: [1, 2, 3], video: 'null' },
           ],
           size: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }], // 0 = tie, 1 = small, 2 = big
           odd: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }], // 0 = tie, 1 = odd, 2 = even
-          sum: [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'g34345' }], // show the sum value directly
+          sum: [
+            { v: 0, gameRoundID: 'cde345' },
+            { v: 1, gameRoundID: 'g34345' },
+          ], // show the sum value directly
         },
 
         gameInfo: {
-          cde345: { gameRoundID: 'cde345', dice1: 1, dice2: 2, dice3: 3, total: 6, odd: 2, size: 2, tie: 0, video: 'null' },
-          g34345: { gameRoundID: 'g34345', dice1: 3, dice2: 4, dice3: 5, total: 12, odd: 1, size: 1, tie: 0, video: 'null' },
+          cde345: { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+          g34345: { gameRoundID: 'g34345', dice: [1, 2, 3], video: 'null' },
         },
+      };
+
+      // mock lw road data
+      private mockLwRoadData: any = {
+        gametype: 16,
+        tableid: '2',
+        shoeid: '1',
+
+        inGame: {
+          bead: [
+            { v: '01', gameRoundID: 'cde345' },
+            { v: '02', gameRoundID: 'g34345' },
+            { v: '03', gameRoundID: 'g45454' },
+          ],
+        },
+
+        gameInfo: { cde345: { gameRoundID: 'cde345', v: '01', video: 'null' }, g34345: { gameRoundID: 'g34345', v: '02', video: 'null' }, g45454: { gameRoundID: 'g45454', v: '03', video: 'null' } },
       };
 
       public bet(tableID: string, betDetails: data.BetDetail[]) {

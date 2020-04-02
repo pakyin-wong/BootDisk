@@ -8,9 +8,7 @@ namespace we {
       private oddText: egret.TextField;
       private totalText: egret.TextField;
 
-      protected dice1: number;
-      protected dice2: number;
-      protected dice3: number;
+      protected dice: number[];
       protected total: number; // total=d1+d2+d3
       protected odd: number; // odd=1(odd) 2(even)
       protected diceSize: number; // size=1(small) 2(big)
@@ -169,18 +167,16 @@ namespace we {
       public setByObject(value: any) {
         this.reset();
         this.value = value;
-        if (this.value.total) {
-          this.diceSize = value.size;
-          this.odd = value.odd;
-          this.tie = value.tie;
-          this.total = value.total;
-          this.dice1 = value.dice1;
-          this.dice2 = value.dice2;
-          this.dice3 = value.dice3;
+        if (this.value.dice) {
+          this.dice = value.dice;
+          this.total = this.dice.reduce((a, b) => a + b, 0);
+          this.tie = this.dice.every((val, i, arr) => val === arr[0]) ? 1 : 0;
+          this.diceSize = this.total > 10 ? 2 : 1;
+          this.odd = this.total % 2 ? 1 : 2;
 
-          this.diceImage1.source = 'd_sic_history_lv2_dice-' + this.dice1 + '_png';
-          this.diceImage2.source = 'd_sic_history_lv2_dice-' + this.dice2 + '_png';
-          this.diceImage3.source = 'd_sic_history_lv2_dice-' + this.dice3 + '_png';
+          this.diceImage1.source = 'd_sic_history_lv2_dice-' + this.dice[0] + '_png';
+          this.diceImage2.source = 'd_sic_history_lv2_dice-' + this.dice[1] + '_png';
+          this.diceImage3.source = 'd_sic_history_lv2_dice-' + this.dice[2] + '_png';
 
           this.setLayout(this.layout);
         }

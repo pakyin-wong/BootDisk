@@ -27,7 +27,7 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'other' });
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
       }
 
       protected initChildren() {
@@ -59,11 +59,12 @@ namespace we {
         super.setBetRelatedComponentsEnabled(enable);
         // animate table
         (this._tableLayer as di.TableLayer).animateToState(!enable);
+        (this._chipLayer as di.ChipLayer).animateToState(!enable);
       }
 
       public checkResultMessage() {
         let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
+        if (!isNaN(this._tableInfo.totalWin)) {
           totalWin = this._tableInfo.totalWin;
         }
 

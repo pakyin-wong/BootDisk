@@ -22,10 +22,14 @@ namespace we {
       protected checkDuplicateName(title: string) {
         let newTitle = title.toString();
         let num = 1;
-
         let matched = true;
+
         if (this._combinations) {
           while (matched) {
+            if (this._combinations.length === 0) {
+              matched = false;
+              break;
+            }
             for (const value of this._combinations) {
               // console.log('checkDuplicateName():', value.title, title)
               if (value.title === newTitle) {
@@ -160,8 +164,6 @@ namespace we {
       }
 
       protected newBetCombinationTextFieldChange(evt: egret.Event) {
-        console.log('newBetCombinationTextFieldChange: ', evt.data);
-
         if (this._newBetCombinationTextField.text.length > this._textFieldMaxLimit) {
           this._newBetCombinationTextField.text = this._newBetCombinationTextField.text.substr(0, 12);
         }

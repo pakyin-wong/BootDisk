@@ -175,11 +175,27 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.di{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
 	class LiveListItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
@@ -333,15 +349,43 @@ declare module skin_desktop.lw{
 	}
 }
 declare module skin_desktop.lw{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
 	class LiveListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class LiveListItemTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
 	class LuckyWheelScene extends eui.Skin{
 	}
 }
+declare module skin_desktop.lw{
+	class LwBeadRoadResultPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LwLeftPanel extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class LwRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.lw{
@@ -927,6 +971,10 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class ResultHolderSkin extends eui.Skin{
 	}
 }
@@ -943,11 +991,15 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
-	class LiveListItemTableLayerSkin extends eui.Skin{
+	class LiveListItemBettingTableSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
 	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class LiveOverlayItemSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
@@ -1004,6 +1056,10 @@ declare module skin_mobile_portrait.ro{
 }
 declare module skin_mobile_portrait.ro{
 	class SideListTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class StatisticChartPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
