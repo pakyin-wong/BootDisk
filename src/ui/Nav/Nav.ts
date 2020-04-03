@@ -68,7 +68,6 @@ namespace we {
       }
 
       private onClickSliderToggle() {
-        console.log('HI');
         dir.evtHandler.dispatch(core.Event.TOGGLE_SILDER_MENU);
       }
 
@@ -83,10 +82,8 @@ namespace we {
         }
       }
 
-      // note: need add eventListener when orientation?
       protected onOrientationChange() {
         super.onOrientationChange();
-        console.log('I am in NavOnOrientationChange');
         this.addListeners();
       }
     }

@@ -13,6 +13,11 @@ namespace we {
       constructor() {
         super();
         this.poppableAddon = new PoppableAddonSilder(this);
+        // this.poppableAddon.removeToggler();
+        // this.poppableAddon.deactivate();
+
+        // this.poppableAddon = new PoppableAddonSilder(this);
+        // this.poppableAddon.active = true;
       }
 
       protected mount() {

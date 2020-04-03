@@ -29,6 +29,14 @@ namespace we {
 
       protected initComponents() {
         super.initComponents();
+        // this._header && this.sceneHeader.addChild(this._header);
+      }
+
+      protected clearOrientationDependentComponent() {
+        this.sceneHeader.removeChildren();
+      }
+
+      protected initOrientationDependentComponent() {
         this._header && this.sceneHeader.addChild(this._header);
       }
 

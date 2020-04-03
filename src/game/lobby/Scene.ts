@@ -7,21 +7,32 @@ namespace we {
       private _list: eui.TabBar;
       private _items: string[] = ['lobby', 'live', 'lottery', 'egame', 'favorite'];
 
+      private _selectedIdx: number = -1;
+
       private _data: any;
 
       constructor(data: any = null) {
         super(data);
         this._data = data;
         this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LEFT;
-        this.skinName = utils.getSkinByClassname('LobbyScene');
+        this._skinKey = 'LobbyScene';
+        // this.skinName = utils.getSkinByClassname('LobbyScene');
+        this.skinName = utils.getSkinByClassname(this._skinKey);
       }
 
-      protected mount() {
-        super.mount();
+      // protected mount() {
+      //   super.mount();
+      // }
+
+      protected initOrientationDependentComponent() {
         this._list.useVirtualLayout = false;
         this._list.itemRenderer = LobbyTabListItemRenderer;
         this._list.dataProvider = new eui.ArrayCollection(this._items);
         this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
+        if (this._selectedIdx >= 0) {
+          this._list.selectedIndex = this._selectedIdx;
+          this.loadPage(this._items[this._selectedIdx], this._data);
+        }
       }
 
       public onEnter() {
@@ -38,6 +49,7 @@ namespace we {
             this._list.selectedIndex = itemIdx;
           }
         }
+        this._selectedIdx = itemIdx;
 
         this.loadPage(this._items[itemIdx], this._data);
         // const scroller = new ui.Scroller();
@@ -94,6 +106,7 @@ namespace we {
       // }
 
       private handleTap(event: eui.ItemTapEvent) {
+        this._selectedIdx = this._list.selectedIndex;
         this.loadPage(this._list.selectedItem);
       }
 
@@ -103,6 +116,11 @@ namespace we {
         this._page.addChild(page);
         page.onEnter();
       }
+
+      // protected onOrientationChange() {
+      //   super.onOrientationChange();
+      //   this.mount();
+      // }
     }
 
     class LobbyTabListItemRenderer extends ui.SortableItemRenderer {
