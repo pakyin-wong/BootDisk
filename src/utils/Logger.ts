@@ -27,7 +27,10 @@ namespace we {
       }
 
       private log(type, ...args) {
-        let msg = new Error().stack.split('\n')[1 /* logger internal */ + 2].trim().replace('at ', '');
+        let msg = new Error().stack
+          .split('\n')
+          [1 /* logger internal */ + 2].trim()
+          .replace('at ', '');
         const link = msg.match(/http[^\)]+/)[0];
         msg = msg.replace(link, '').replace(' ()', '');
 
