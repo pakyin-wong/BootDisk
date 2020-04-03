@@ -13,6 +13,11 @@ namespace we {
       constructor() {
         super();
         this.poppableAddon = new PoppableAddonSilder(this);
+        // this.poppableAddon.removeToggler();
+        // this.poppableAddon.deactivate();
+
+        // this.poppableAddon = new PoppableAddonSilder(this);
+        // this.poppableAddon.active = true;
       }
 
       protected mount() {
@@ -64,6 +69,13 @@ namespace we {
       protected onSwitchLeftHandMode(e) {
         env.leftHandMode = this.switch_leftHandMode.active = !env.leftHandMode;
         dir.evtHandler.dispatch(core.Event.SWITCH_LEFT_HAND_MODE, env.leftHandMode);
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        logger.l('testing');
+        this.initTxt();
+        this.addListeners();
       }
     }
   }

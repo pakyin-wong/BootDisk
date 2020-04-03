@@ -24,8 +24,25 @@ namespace we {
       public async onFadeExit() {}
 
       protected mount() {
+        super.mount();
+      }
+
+      protected initComponents() {
+        super.initComponents();
+        // this._header && this.sceneHeader.addChild(this._header);
+      }
+
+      protected clearOrientationDependentComponent() {
+        this.sceneHeader.removeChildren();
+      }
+
+      protected initOrientationDependentComponent() {
         this._header && this.sceneHeader.addChild(this._header);
       }
+
+      // protected mount() {
+      //   this._header && this.sceneHeader.addChild(this._header);
+      // }
 
       protected destroy() {
         super.destroy();

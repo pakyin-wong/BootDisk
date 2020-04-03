@@ -1,0 +1,153 @@
+[1mdiff --git a/libs/exml.e.d.ts b/libs/exml.e.d.ts[m
+[1mindex bc90da5a..fc57d14b 100644[m
+[1m--- a/libs/exml.e.d.ts[m
+[1m+++ b/libs/exml.e.d.ts[m
+[36m@@ -532,6 +532,10 @@[m [mdeclare module skin_mobile_landscape{[m
+ 	class LoadingScene extends eui.Skin{[m
+ 	}[m
+ }[m
+[32m+[m[32mdeclare module skin_mobile_landscape{[m
+[32m+[m	[32mclass LobbyScene extends eui.Skin{[m
+[32m+[m	[32m}[m
+[32m+[m[32m}[m
+ declare module skin_mobile_landscape{[m
+ 	class Nav extends eui.Skin{[m
+ 	}[m
+[1mdiff --git a/resource/default.thm.json b/resource/default.thm.json[m
+[1mindex e5f3664b..d6f4dbd7 100644[m
+[1m--- a/resource/default.thm.json[m
+[1m+++ b/resource/default.thm.json[m
+[36m@@ -165,6 +165,7 @@[m
+ 		"resource/skin_desktop/UserInfoWindow.exml",[m
+ 		"resource/skin_mobile_portrait/LoadingProgressBar.exml",[m
+ 		"resource/skin_mobile_landscape/LoadingScene.exml",[m
+[32m+[m		[32m"resource/skin_mobile_landscape/LobbyScene.exml",[m
+ 		"resource/skin_mobile_landscape/nav/Nav.exml",[m
+ 		"resource/skin_mobile_landscape/nav/NavDropdown.exml",[m
+ 		"resource/skin_mobile_landscape/nav/NavLeftHandModeBtn.exml",[m
+[1mdiff --git a/resource/skin_mobile_landscape/LoadingScene.exml b/resource/skin_mobile_landscape/LoadingScene.exml[m
+[1mindex 8717c88a..ea878e3b 100644[m
+[1m--- a/resource/skin_mobile_landscape/LoadingScene.exml[m
+[1m+++ b/resource/skin_mobile_landscape/LoadingScene.exml[m
+[36m@@ -3,12 +3,12 @@[m
+         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">[m
+ 	<ui:ImageSlider id="_bannerSlider" left="0" top="0" right="0" bottom="0" touchEnabled="false" />[m
+ 	<e:Image id="logo" width="378" height="108" x="822" y="26.8" source="d_lobby_navbar_logo_png"  visible="false"/>[m
+[31m-	<e:ProgressBar id="_progressbar" width="1012" height="30" horizontalCenter="45" y="914.09" anchorOffsetY="0"[m
+[32m+[m	[32m<e:ProgressBar id="_progressbar" width="1012" height="30" horizontalCenter="45.5" y="1165.25" anchorOffsetY="0"[m
+ 	               skinName="skin_mobile_portrait.LoadingProgressBar" touchEnabled="false" />[m
+[31m-	<ui:RunTimeLabel id="_progressMsg" text="" y="980.52" textAlign="center" left="45" right="-45"[m
+[32m+[m	[32m<ui:RunTimeLabel id="_progressMsg" text="" y="980.52" textAlign="center" left="0" right="0"[m
+ 	                 size="40" height="56" />[m
+ 	<e:Rect width="750" height="52" y="1840" ellipseHeight="50" ellipseWidth="50" fillColor="0x000000" fillAlpha="0.4"[m
+ 	        horizontalCenter="0"  visible="false"/>[m
+[31m-	<ui:NavLantern id="_tip" width="1020" height="156" y="1036.52" alpha="0.8" horizontalCenter="49"  fontsize="56" lineSpacing="56"/>[m
+[32m+[m	[32m<ui:NavLantern id="_tip" width="1020" height="128.73" y="1036.52" alpha="0.8" horizontalCenter="49.5"  fontsize="56" lineSpacing="56" anchorOffsetY="0"/>[m
+ 	<e:Label text="landscape" x="644" y="584" anchorOffsetX="0" width="790" anchorOffsetY="0" height="178"/>[m
+ </e:Skin>[m
+\ No newline at end of file[m
+[1mdiff --git a/resource/skin_mobile_landscape/LobbyScene.exml b/resource/skin_mobile_landscape/LobbyScene.exml[m
+[1mnew file mode 100644[m
+[1mindex 00000000..507d9db8[m
+[1m--- /dev/null[m
+[1m+++ b/resource/skin_mobile_landscape/LobbyScene.exml[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<e:Skin class="skin_mobile_landscape.LobbyScene" width="2155" height="1242" xmlns:e="http://ns.egret.com/eui"[m
+[32m+[m[32m        xmlns:ui="we.ui.*" xmlns:lobby="we.lobby.*" xmlns:w="http://ns.egret.com/wing">[m
+[32m+[m	[32m<e:Rect id="background" width="100%" height="100%" fillColor="0x121212" />[m
+[32m+[m	[32m<e:Component id="_page" width="100%" height="100%" />[m
+[32m+[m	[32m<e:Group id="_header" x="0" y="0" touchThrough="true" width="2155">[m
+[32m+[m		[32m<e:Image id="_logo" width="124" height="124" x="46" y="18"  source="m_common_header_icon_logo_png" fillMode="scale"/>[m
+[32m+[m		[32m<e:Rect height="80" y="40" fillAlpha="0.3" width="1242" x="190" />[m
+[32m+[m		[32m<e:Rect width="1042" height="1" x="290" y="40" fillAlpha="0.4" fillColor="0x979797"/>[m
+[32m+[m		[32m<e:TabBar id="_list" height="80" y="40" width="1002" x="310">[m
+[32m+[m			[32m<e:layout>[m
+[32m+[m				[32m<e:HorizontalLayout horizontalAlign="justify" verticalAlign="middle" />[m
+[32m+[m			[32m</e:layout>[m
+[32m+[m		[32m</e:TabBar>[m
+[32m+[m		[32m<e:Label text="landscape" x="191" y="45"/>[m
+[32m+[m	[32m</e:Group>[m
+[32m+[m[32m</e:Skin>[m
+\ No newline at end of file[m
+[1mdiff --git a/src/core/base/BaseScene.ts b/src/core/base/BaseScene.ts[m
+[1mindex a54cda12..9a76a158 100644[m
+[1m--- a/src/core/base/BaseScene.ts[m
+[1m+++ b/src/core/base/BaseScene.ts[m
+[36m@@ -9,8 +9,8 @@[m [mnamespace we {[m
+ [m
+       protected _header: egret.DisplayObjectContainer;[m
+ [m
+[31m-      public constructor(data: any = null) {[m
+[31m-        super();[m
+[32m+[m[32m      public constructor(skin: string = null, data: any = null) {[m[41m[m
+[32m+[m[32m        super(skin);[m[41m[m
+       }[m
+ [m
+       public onEnter() {[m
+[36m@@ -27,6 +27,15 @@[m [mnamespace we {[m
+         this._header && this.sceneHeader.addChild(this._header);[m
+       }[m
+ [m
+[32m+[m[32m      // protected mount() {[m[41m[m
+[32m+[m[32m      //   super.mount();[m[41m[m
+[32m+[m[32m      // }[m[41m[m
+[32m+[m[41m[m
+[32m+[m[32m      // protected initComponents() {[m[41m[m
+[32m+[m[32m      //   super.initComponents();[m[41m[m
+[32m+[m[32m      //   this._header && this.sceneHeader.addChild(this._header);[m[41m[m
+[32m+[m[32m      // }[m[41m[m
+[32m+[m[41m[m
+       protected destroy() {[m
+         super.destroy();[m
+         this.sceneHeader.removeChildren();[m
+[1mdiff --git a/src/game/loading/LoadingScene.ts b/src/game/loading/LoadingScene.ts[m
+[1mindex 0e2dc4b1..7500e474 100644[m
+[1m--- a/src/game/loading/LoadingScene.ts[m
+[1m+++ b/src/game/loading/LoadingScene.ts[m
+[36m@@ -10,6 +10,10 @@[m [mnamespace we {[m
+       private step: number = 0;[m
+       private flow = [this.preloadRes, this.initSkin, this.preload, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];[m
+ [m
+[32m+[m[32m      constructor() {[m[41m[m
+[32m+[m[32m        super('LoadingScene');[m[41m[m
+[32m+[m[32m        console.log('this._skinKey', this._skinKey);[m[41m[m
+[32m+[m[32m      }[m[41m[m
+       public onEnter() {[m
+         this.init();[m
+       }[m
+[36m@@ -36,8 +40,9 @@[m [mnamespace we {[m
+       /** Step 2: Init Loading Scene UI */[m
+       private initSkin() {[m
+         this.once(eui.UIEvent.COMPLETE, this.next, this);[m
+[31m-        this._skinKey = 'LoadingScene';[m
+[31m-        this.skinName = utils.getSkinByClassname(this._skinKey);[m
+[32m+[m[32m        // this._skinKey = 'LoadingScene';[m[41m[m
+[32m+[m[32m        console.log('adasdadasasdasdas', this._skinKey, utils.getSkinByClassname(this._skinKey));[m[41m[m
+[32m+[m[32m        // this.skinName = utils.getSkinByClassname(this._skinKey);[m[41m[m
+       }[m
+ [m
+       private preload() {[m
+[1mdiff --git a/src/ui/Nav/Nav.ts b/src/ui/Nav/Nav.ts[m
+[1mindex 6e0b5dee..23531f26 100644[m
+[1m--- a/src/ui/Nav/Nav.ts[m
+[1m+++ b/src/ui/Nav/Nav.ts[m
+[36m@@ -85,12 +85,12 @@[m [mnamespace we {[m
+         }[m
+       }[m
+ [m
+[31m-      // note: need add eventListener when orientation?[m
+[31m-      protected onOrientationChange() {[m
+[31m-        super.onOrientationChange();[m
+[31m-        console.log('I am in NavOnOrientationChange');[m
+[31m-        this.addListeners();[m
+[31m-      }[m
+[32m+[m[32m      // // note: need add eventListener when orientation?[m[41m[m
+[32m+[m[32m      // protected onOrientationChange() {[m[41m[m
+[32m+[m[32m      //   super.onOrientationChange();[m[41m[m
+[32m+[m[32m      //   // May need to add utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this); when Orientated[m[41m[m
+[32m+[m[32m      //   // this.addListeners();[m[41m[m
+[32m+[m[32m      // }[m[41m[m
+     }[m
+   }[m
+ }[m
