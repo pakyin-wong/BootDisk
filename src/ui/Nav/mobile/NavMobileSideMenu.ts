@@ -65,6 +65,13 @@ namespace we {
         env.leftHandMode = this.switch_leftHandMode.active = !env.leftHandMode;
         dir.evtHandler.dispatch(core.Event.SWITCH_LEFT_HAND_MODE, env.leftHandMode);
       }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        logger.l('testing');
+        this.initTxt();
+        this.addListeners();
+      }
     }
   }
 }
