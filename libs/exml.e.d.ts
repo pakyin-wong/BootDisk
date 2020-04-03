@@ -577,6 +577,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class LobbyScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class Nav extends eui.Skin{
 	}
 }

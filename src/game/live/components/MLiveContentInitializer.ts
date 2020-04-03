@@ -94,8 +94,15 @@ namespace we {
         const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
         // gridSwitch.x = 1078;
         // gridSwitch.y = 1960;
-        gridSwitch.x = 1088;
-        gridSwitch.y = 298;
+        if (env.orientation === egret.OrientationMode.PORTRAIT) {
+          gridSwitch.x = 1088;
+          gridSwitch.y = 298;
+        } else {
+          gridSwitch.x = 2002;
+          gridSwitch.y = 688;
+        }
+        // gridSwitch.x = 1088;
+        // gridSwitch.y = 298;
         // gridSwitch.width = 144;
         // gridSwitch.height = 144;
         gridSwitch.width = 104;

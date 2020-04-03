@@ -203,10 +203,6 @@ namespace we {
         }
         this.flow[this.step++].call(this);
       }
-
-      // protected onOrientationChange() {
-      //   super.updateSkin('LoadingScene', true);
-      // }
     }
   }
 }
