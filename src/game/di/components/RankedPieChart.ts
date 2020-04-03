@@ -32,7 +32,7 @@ namespace we {
 
       public setRanksAndAnimate(ranks: number[], duration: number = 1000) {
         if (this.colorSettings.length - 1 !== ranks.length) {
-          console.log('Error in RankedPieChart: the length of colorSettings doesnt match the length of the ranks');
+          logger.e('Error in RankedPieChart: the length of colorSettings doesnt match the length of the ranks');
           return;
         }
         if (!this.firstStarted) {
