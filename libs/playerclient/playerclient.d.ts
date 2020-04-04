@@ -86,6 +86,7 @@ interface GameTypeMap {
     DI: 12;
     MJ: 13;
     RO: 14;
+    LW: 16;
 }
 declare const GameType: GameTypeMap;
 

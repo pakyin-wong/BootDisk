@@ -7,7 +7,7 @@ namespace we {
       protected _tableLayer: TableLayer;
 
       protected _betChipSet: ui.BetChipSet;
-      protected _cardHolder: we.ba.CardHolder;
+      protected _cardHolder: IResultDisplay;
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
@@ -149,7 +149,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -204,7 +204,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -396,15 +396,16 @@ namespace we {
         let pass1: boolean = false;
         let pass2: boolean = false;
         switch (this._tableInfo.gametype) {
-          case GameType.BAC:
-          case GameType.BAI:
-          case GameType.BAS:
-          case GameType.DT:
+          case core.GameType.BAC:
+          case core.GameType.BAI:
+          case core.GameType.BAS:
+          case core.GameType.DT:
             pass1 = this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin);
             pass2 = this._gameData && this._gameData.wintype != 0;
             break;
-          case GameType.RO:
-          case GameType.DI:
+          case core.GameType.RO:
+          case core.GameType.DI:
+          case core.GameType.LW:
             pass1 = this._gameData && !isNaN(totalWin);
             pass2 = !!this._gameData;
             break;

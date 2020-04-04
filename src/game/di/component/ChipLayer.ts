@@ -2,6 +2,9 @@ namespace we {
   export namespace di {
     export class ChipLayer extends we.ui.ChipLayer {
       // group
+      protected _bigrow_1: eui.Group;
+      protected _bigrow_2: eui.Group;
+      protected _bigrow_3: eui.Group;
       protected _odd_group: eui.Group;
       protected _even_group: eui.Group;
       protected _big_group: eui.Group;
@@ -251,6 +254,123 @@ namespace we {
       public onGridRollout(fieldName: string) {
         this._tableLayer.onRollout(fieldName);
       }
+
+      public async animateToState(collapsed: boolean) {
+        const time = 3000;
+        const tweenPromises = [];
+        /*
+        for (let i = 1; i <= 3; i += 1) {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this[`_label_group_${i}`])
+              .to({ scaleY: collapsed ? 0 : 1 }, 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        }
+        */
+        const border = 2;
+        const sizeTransform = {};
+        // row 1
+        sizeTransform['_bigrow_1'] = [
+          { height: 143 }, // collapse
+          { height: 150 }, // expand
+        ];
+        // row 2
+        sizeTransform['_bigrow_2'] = [
+          { height: 64, y: 144 }, // collapse
+          { height: 67, y: 179 }, // expand
+        ];
+        // row 3
+        sizeTransform['_bigrow_3'] = [
+          { height: 64, y: 209 }, // collapse
+          { height: 109, y: 273 }, // expand
+        ];
+        // perform first 3 row transform
+        Object.keys(sizeTransform).forEach(group => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this[group])
+              .to(collapsed ? sizeTransform[group][0] : sizeTransform[group][1], 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        });
+        // transform dices in row 3
+/*
+        this._bigrow_3.$children.forEach(child => {
+          if (!(child instanceof eui.Group)) {
+            return;
+          }
+          const innerGroup = child.$children[0] as eui.Group;
+          innerGroup.layout = collapsed ? new eui.HorizontalLayout() : new eui.VerticalLayout();
+          innerGroup.scaleX = collapsed ? 0.75 : 1;
+          innerGroup.scaleY = collapsed ? 0.75 : 1;
+          logger.l(innerGroup);
+        });
+*/
+        // transform last row
+        (() => {
+          for (let i = 1; i <= 6; i += 1) {
+            const promise = new Promise(resolve => {
+              egret.Tween.get(this[`_specific_${i}_group`])
+                .to(
+                  {
+                    width: collapsed ? 228 : 197,
+                    height: collapsed ? 64 : 68,
+                    x: (collapsed ? 0 : 196) + (collapsed ? 228 : 197) * (i - 1) + border,
+                    y: collapsed ? 274 : 411,
+                  },
+                  125
+                )
+                .call(resolve);
+            });
+            tweenPromises.push(promise);
+          }
+        })();
+        // transform last row bg odd
+        // transform last row bg
+        // transform this.height lastly
+        (() => {
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this)
+              .to({ height: collapsed ? 338 : 473, anchorOffsetY: collapsed ? -(473 - 338) : 0 }, 125)
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
+        })();
+
+        await Promise.all(tweenPromises);
+      }
+
+      protected restructureChildren() {
+        /*
+        Object.keys(this._betChipStackMapping).forEach(value => {
+          const chipStack = this._betChipStackMapping[value];
+          if (this._betChipStackMapping[value]) {
+            let parent = chipStack.parent;
+            if (parent !== this) {
+                  chipStack.verticalCenter = NaN;
+                  chipStack.horizontalCenter = NaN;
+
+                  let x = parent.width * 0.5;
+                  let y = parent.height * 0.5;
+
+                  while (parent !== this) {
+                    x += parent.x;
+                    y += parent.y;
+                    parent = parent.parent;
+                  }
+                  chipStack.x = x;
+                  chipStack.y = y;
+                  chipStack.width = 0;
+                  chipStack.height = 0;
+                  chipStack.validateNow();
+                  this.addChild(chipStack);
+              }
+          }
+        });
+              */
+      }
     }
+
   }
 }

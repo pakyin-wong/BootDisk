@@ -41,13 +41,7 @@ namespace we {
                 this._bettingGroup.visible = !enable;
               }
               break;
-            case we.core.GameType.RO:
             default:
-              if (enable) {
-                this._tableLayer.alpha = 1;
-              } else {
-                this._tableLayer.alpha = 0.4;
-              }
               break;
           }
         }

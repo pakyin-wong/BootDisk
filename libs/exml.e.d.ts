@@ -175,6 +175,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.di{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
@@ -342,6 +346,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop.lw{
 	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class SideBetResultMessage extends eui.Skin{
 	}
 }
 declare module skin_desktop.lw{
@@ -562,6 +570,30 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class UserInfoWindow extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LoadingScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LobbyScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class Nav extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class NavDropdown extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class NavLeftHandModeBtn extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class NavSideMenu extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -940,6 +972,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait.ro{
 	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class ChipLayerRaceSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{

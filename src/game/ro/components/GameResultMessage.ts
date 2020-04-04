@@ -55,7 +55,7 @@ namespace we {
 
         const slot = this._display.armature.getSlot('-800');
         const r = new eui.Label();
-        r.fontFamily = 'barlow';
+        r.fontFamily = 'Barlow';
         r.size = 60;
         r.text = utils.formatNumber(winAmount);
         const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
