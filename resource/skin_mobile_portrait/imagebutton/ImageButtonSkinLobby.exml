@@ -14,7 +14,7 @@
              source.lobby_notify_btn_action="d_lobby_notify_btn_action_png"
              source.lobby_notify_btn_hide="d_lobby_notify_btn_hide_png" 
              source.lobby_mode_01="m_lobby_panel_gamelist_goodroad_remark_bg_png" 
-             source.lobby_mode_02="m_lobby_panel_gamelist_goodroad_remark_bg_png" 
+             source.lobby_mode_02="m_lobby_panel_gamelist_goodroad_remark_bg_png"
              source.2col_btn="m_lobby_roadmap_2column_btn_png"
              source.1col_btn="m_lobby_roadmap_1column_btn_png" 
              source.game_list_close_btn="m_common_icon_close_png"
