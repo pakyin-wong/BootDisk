@@ -140,7 +140,10 @@ npm install -g tslint prettier typescript
 
 - [Roulette Requirement](https://docs.google.com/document/d/1TX5oRcXP26Gc0VONbwtURiGI6CSmx9SbHPlYZA193Qo/edit)
 - [Roulette Mobile Requirement (Portrait)](https://docs.google.com/document/d/1M2dQRJNXlRBz8fpIf4_2F6G1s13faK19ZmLYUKXhqsU/edit?ts=5e6f5260)
+- [Roulette Mobile Requirement (Landscape)](https://docs.google.com/document/d/1P3GuOiBVDrO-KviYVH3tMJivMLMo52Xdj3BUI792z4E/edit?ts=5e86e5f5)
 
 - [Sicbo Requirement](https://docs.google.com/document/d/1bKzi9Yk6RC4YHFefULNfg_dc4LlgjIbx8j9pjoLZnGY/edit?ts=5e5e3ece)
+- [Sicbo Mobile Requirement (Portrait)](https://docs.google.com/document/d/1uHWZ1xHHzM7gdkcebyKdHz8eypqqJwXcCgZLciaWXwA/edit?ts=5e86ea24)
+- [Sicbo Mobile Requirement (Landscape)](https://docs.google.com/document/d/1yTR43SZdrvQRVmwCiov2dwCwXliknLtlQ1hojd7zZE8/edit?ts=5e86ff61)
 
 - [Lucky Wheel Requirement](https://docs.google.com/document/d/1RBmOSW3z0oH6SOvVeJtZJejpfCL8HhrUurVZkmF1WxY/edit?ts=5e6a0824)
