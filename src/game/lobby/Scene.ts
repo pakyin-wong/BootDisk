@@ -25,6 +25,7 @@ namespace we {
       // }
 
       protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
         this._list.useVirtualLayout = false;
         this._list.itemRenderer = LobbyTabListItemRenderer;
         this._list.dataProvider = new eui.ArrayCollection(this._items);

@@ -1,8 +1,6 @@
 namespace we {
   export namespace ui {
-    export class LiveListItem extends LiveListSimpleItem {
-      protected _dealerImage;
-
+    export class LiveListAdvancedItem extends LiveListItem {
       public constructor(skinName: string = null) {
         super(skinName);
       }
@@ -18,9 +16,15 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        const randNo = Math.round(Math.random() * 4) + 1;
-        this._dealerImage.texture = RES.getRes('temp_baccarat_dealer_' + randNo);
+        const randNo = Math.round(Math.random()) + 1;
+        if (tableInfo.gametype === we.core.GameType.DI) {
+          this._dealerImage.texture = RES.getRes('advanced_dealer_sicbo_png');
+        } else {
+          this._dealerImage.texture = RES.getRes('advanced_dealer_' + randNo + '_png');
+        }
       }
+
+      protected addRoundCornerMask() {}
 
       get dealerImage() {
         return this._dealerImage;

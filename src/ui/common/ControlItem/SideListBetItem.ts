@@ -89,7 +89,7 @@ namespace we {
       }
 
       protected initDenom() {
-        const denomList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denomList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
           this._betChipSet.init(null, denomList);

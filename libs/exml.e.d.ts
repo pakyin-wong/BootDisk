@@ -127,6 +127,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LiveListAdvancedItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }

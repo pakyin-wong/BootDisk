@@ -174,10 +174,6 @@ namespace we {
           }
         }
       }
-
-      protected initChildren() {
-        super.initChildren();
-      }
     }
   }
 }
