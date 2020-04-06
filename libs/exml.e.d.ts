@@ -600,6 +600,10 @@ declare module skin_mobile_landscape{
 	class NavSideMenu extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class SystemSetting extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
 	}
