@@ -89,7 +89,7 @@ namespace we {
         // setInterval(() => ui.EdgeDismissableAddon.toggle(), 2000);
 
         // work around currentSelectedBetLimitIndex = 0 choose by the
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(4, denominationList);
 
         this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -202,7 +202,7 @@ namespace we {
       }
 
       protected onBetLimitChanged(evt: egret.Event) {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.resetDenominationList(denominationList);
       }
 

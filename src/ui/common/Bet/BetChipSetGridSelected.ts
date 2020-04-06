@@ -19,7 +19,7 @@ namespace we {
       }
 
       protected updateSelectedChip() {
-        const value = env.betLimits[env.currentSelectedBetLimitIndex].chipList[env.currentChipSelectedIndex];
+        const value = env.betLimits[env.currentSelectedBetLimitIndex].chips[env.currentChipSelectedIndex];
         this.highlight = true;
         this.setValue(value, env.currentChipSelectedIndex, we.core.ChipType.FLAT);
       }
