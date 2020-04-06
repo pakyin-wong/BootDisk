@@ -14,6 +14,10 @@ namespace we {
       }
 
       protected mount() {
+        this.initCustomRoad();
+      }
+
+      protected initCustomRoad() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_customroad_title')}`;
 
         this.collection = new eui.ArrayCollection([]); // road ids
@@ -158,6 +162,11 @@ namespace we {
 
       protected compareItems(a: any, b: any): boolean {
         return a.name === b.name && a.id === b.id && a.pattern === b.pattern && a.enabled === b.enabled;
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.initCustomRoad();
       }
     }
   }

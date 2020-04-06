@@ -31,7 +31,7 @@
 	<!--BaseImageButton's picture is not exactly the same-->
 	<ui:BaseImageButton id="_slider_toggle" y="944" anchorOffsetX="0" width="117" anchorOffsetY="0" height="117"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2001"/>
-	<e:Label text="Landscape" x="1031.41" y="150" anchorOffsetX="0" width="510.36" anchorOffsetY="0" height="136.06" size="50"/>
+
 	<!--<ui:NavPlayerProfile id="_profile" width="516" height="789" x="1980" y="100" isPoppable="true"
 	                         dismissOnClickOutside="true" />
 	-->

@@ -573,6 +573,14 @@ declare module skin_desktop{
 	}
 }
 declare module skin_mobile_landscape{
+	class GoodRoadEditItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class GoodRoadListItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class LoadingScene extends eui.Skin{
 	}
 }
@@ -594,6 +602,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class NavSideMenu extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class CustomRoad extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

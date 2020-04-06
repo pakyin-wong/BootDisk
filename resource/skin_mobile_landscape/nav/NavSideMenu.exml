@@ -55,6 +55,6 @@
 			<e:Image source="m_common_panel_setting_icon_logout_png" width="82" height="82" x="7" y="7"/>
 			</e:Group>
 		</e:Group>
-		<e:Label text="landscape" x="497.5" y="24.5" anchorOffsetX="0" width="366" anchorOffsetY="0" height="70" size="60"/>
+
 	</e:Group>
 </e:Skin>
