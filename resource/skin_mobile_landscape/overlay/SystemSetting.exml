@@ -49,11 +49,11 @@
 					                 textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
 				</e:Group>
 				<ui:Panel id="_ddm_currBgm" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
-				          scaleX="1" scaleY="1" height="756"  locked="true"/>
+				          scaleX="1" scaleY="1" height="756"  locked="true" visible="false"/>
 				<ui:Panel id="_ddm_currFx" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
-				          scaleX="1" scaleY="1" height="756"  locked="true"/>
+				          scaleX="1" scaleY="1" height="756"  locked="true" visible="false"/>
 				<ui:Panel id="_ddm_currLang" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
-				          scaleX="1" scaleY="1" anchorOffsetY="0" height="756" anchorOffsetX="0"  locked="true"/>
+				          scaleX="1" scaleY="1" anchorOffsetY="0" height="756" anchorOffsetX="0"  locked="true" visible="false"/>
 			</e:Group>
 		</ui:Scroller>
 	</e:Group>
