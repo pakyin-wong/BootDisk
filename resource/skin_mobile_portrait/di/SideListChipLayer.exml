@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.di.SideListChipLayerSkin" xmlns:e="http://ns.egret.com/eui" 
+    xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal" width="1140" height="288">
+    <e:Group id="_small_group" x="0" y="0" width="570" height="144">
+		<ui:BetChipStack id="_small_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2" />
+	</e:Group>
+	<e:Group id="_big_group" x="570" y="0" width="570" height="144">
+		<ui:BetChipStack id="_big_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2" />
+	</e:Group>
+	<e:Group id="_odd_group" x="0" y="144" width="570" height="144">
+		<ui:BetChipStack id="_odd_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2" />
+	</e:Group>
+	<e:Group id="_even_group" x="570" y="144" width="570" height="144">
+		<ui:BetChipStack id="_even_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"
+		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0"
+		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" chipLabelOffset="-3" chipLabelSize="20"
+		                 chipType="2" />
+	</e:Group>
+</e:Skin>
