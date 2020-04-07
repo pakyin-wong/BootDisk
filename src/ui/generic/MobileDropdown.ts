@@ -17,6 +17,8 @@ namespace we {
       private _opt: IDropdownOptM;
       private _dataCollection: eui.ArrayCollection;
 
+      private _selectedIdx: number = -1;
+
       constructor() {
         super('MobileDropdown');
         this.isPoppable = true;
@@ -28,6 +30,21 @@ namespace we {
       protected mount() {
         super.mount();
 
+        dir.evtHandler.addEventListener(core.Event.TOGGLE_MOBILE_DROPDOWN, this.toggleDropdown, this);
+        this.addEventListener('close', this.syncResult, this);
+      }
+
+      // protected initComponents() {
+      //   this.initOrientationDependentComponent();
+      // }
+
+      protected clearOrientationDependentComponent() {
+        if (this._opt) {
+          this._selectedIdx = this._list.selectedIndex;
+        }
+      }
+
+      protected initOrientationDependentComponent() {
         (<RunTimeLabel> this.close).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
 
         this._scroller.bounces = false;
@@ -36,15 +53,26 @@ namespace we {
         this._list.requireSelection = true;
         this._scroller.viewport = this._list;
 
+        this.poppableAddon.onOrientationChange();
         this.addListeners();
+
+        if (this._selectedIdx >= 0 && this._opt) {
+          this._title.renderText = this._opt.title;
+          this._dataCollection.replaceAll([].concat(this._opt.arrCol.source));
+          this._list.dataProviderRefreshed();
+          this._list.selectedIndex = this._selectedIdx;
+        }
       }
+
+      // set the position of the children components
+      protected arrangeComponents() {}
 
       protected destroy() {
         super.destroy();
       }
 
       protected addListeners() {
-        dir.evtHandler.addEventListener(core.Event.TOGGLE_MOBILE_DROPDOWN, this.toggleDropdown, this);
+        // dir.evtHandler.addEventListener(core.Event.TOGGLE_MOBILE_DROPDOWN, this.toggleDropdown, this);
 
         this._scroller.addEventListener(eui.UIEvent.CHANGE_START, this.onScrollStart, this);
         this._scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
@@ -53,8 +81,6 @@ namespace we {
         this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
         this._list.addEventListener(egret.Event.CHANGE, this.onChange, this);
         this._list.addEventListener(egret.Event.RENDER, this.onRender, this);
-
-        this.addEventListener('close', this.syncResult, this);
       }
 
       protected removeListeners() {}

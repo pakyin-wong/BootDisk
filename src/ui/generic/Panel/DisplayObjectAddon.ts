@@ -37,6 +37,8 @@ namespace we {
       public deactivate() {
         this.isInit = false;
       }
+
+      public onOrientationChange() {}
     }
   }
 }
