@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace dt {
     export class SmallListItemInitHelper implements ui.IListItemHelper {
       public generateRoadmap(node: eui.Component) {
         const bigRoad = new ba.BAMobileLobbyBigRoad();

@@ -1,24 +1,24 @@
 namespace we {
-  export namespace ba {
+  export namespace ro {
     export class LargeListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
-        const tableLayer = new ba.TableLayer();
-        tableLayer.skinName = `skin_mobile_portrait.ba.SideListTableLayerSkin`;
+        const tableLayer = new ro.LobbyTableLayer();
+        tableLayer.skinName = `skin_mobile_portrait.ro.LiveListItemBettingTableSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
       }
 
       public generateChipLayer(node: eui.Component) {
-        const chipLayer = new ba.ChipLayer();
-        chipLayer.skinName = `skin_mobile_portrait.ba.SideListChipLayerSkin`;
+        const chipLayer = new ro.LobbyChipLayer();
+        chipLayer.skinName = `skin_mobile_portrait.ro.LiveListItemChipLayerSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;
       }
 
       public generateRoadmap(node: eui.Component) {
-        const roadmap = new ba.MobileLiveListRoadmap();
+        const roadmap = new ro.MobileLiveListRoadmap();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(roadmap, idx);
         return roadmap;
@@ -33,8 +33,8 @@ namespace we {
       }
 
       public generateResultDisplay(node: eui.Component) {
-        const cardHolder = new ba.SideListBetItemCardHolder();
-        cardHolder.skinName = `skin_mobile_portrait.ba.BetItemCardHolderSkin`;
+        const cardHolder = new ro.SideListBetItemCardHolder();
+        cardHolder.skinName = `skin_mobile_portrait.ro.BetItemCardHolderSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(cardHolder, idx);
         return cardHolder;

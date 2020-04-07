@@ -12,8 +12,8 @@ namespace we {
 
     export interface IListItemHelper {
       // updateRoadData(roadmapData: any);
-      generateTableLayer(node: eui.Component): TableLayer;
-      generateChipLayer(node: eui.Component): ChipLayer;
+      generateTableLayer?(node: eui.Component): TableLayer;
+      generateChipLayer?(node: eui.Component): ChipLayer;
       generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
       generateResultMessage?(node: eui.Component): IGameResultMessage;
       generateResultDisplay?(node: eui.Component): IResultDisplay;

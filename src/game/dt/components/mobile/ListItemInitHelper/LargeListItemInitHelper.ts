@@ -1,17 +1,17 @@
 namespace we {
-  export namespace ba {
+  export namespace dt {
     export class LargeListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
-        const tableLayer = new ba.TableLayer();
-        tableLayer.skinName = `skin_mobile_portrait.ba.SideListTableLayerSkin`;
+        const tableLayer = new dt.TableLayer();
+        tableLayer.skinName = `skin_mobile_portrait.dt.LiveListItemBettingTableSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
       }
 
       public generateChipLayer(node: eui.Component) {
-        const chipLayer = new ba.ChipLayer();
-        chipLayer.skinName = `skin_mobile_portrait.ba.SideListChipLayerSkin`;
+        const chipLayer = new dt.ChipLayer();
+        chipLayer.skinName = `skin_mobile_portrait.dt.LiveListItemChipLayerSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;
@@ -33,8 +33,8 @@ namespace we {
       }
 
       public generateResultDisplay(node: eui.Component) {
-        const cardHolder = new ba.SideListBetItemCardHolder();
-        cardHolder.skinName = `skin_mobile_portrait.ba.BetItemCardHolderSkin`;
+        const cardHolder = new dt.SideListBetItemCardHolder();
+        cardHolder.skinName = `skin_mobile_portrait.dt.BetItemCardHolderSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(cardHolder, idx);
         return cardHolder;
