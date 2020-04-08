@@ -25,21 +25,11 @@ namespace we {
       }
 
       public generateResultMessage(node: eui.Component) {
-        const gameResultMessage = new ui.SidePanelGameResultMessage();
-        gameResultMessage.skinName = `skin_mobile_portrait.GameResultWinSkin`;
+        const gameResultMessage = new ro.GameResultMessage();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(gameResultMessage, idx);
         return gameResultMessage;
       }
-
-      public generateResultDisplay(node: eui.Component) {
-        const cardHolder = new ro.SideListBetItemCardHolder();
-        cardHolder.skinName = `skin_mobile_portrait.ro.BetItemCardHolderSkin`;
-        const idx = node.parent.getChildIndex(node);
-        node.parent.addChildAt(cardHolder, idx);
-        return cardHolder;
-      }
-
     }
   }
 }

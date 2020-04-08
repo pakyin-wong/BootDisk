@@ -25,7 +25,7 @@ namespace we {
       }
 
       public generateResultMessage(node: eui.Component) {
-        const gameResultMessage = new ui.SidePanelGameResultMessage();
+        const gameResultMessage = new ui.ImageGameResultMessage();
         gameResultMessage.skinName = `skin_mobile_portrait.GameResultWinSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(gameResultMessage, idx);
@@ -39,7 +39,6 @@ namespace we {
         node.parent.addChildAt(cardHolder, idx);
         return cardHolder;
       }
-
     }
   }
 }
