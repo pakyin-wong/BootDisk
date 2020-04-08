@@ -1,6 +1,13 @@
 namespace we {
   export namespace ui {
     export class PoppableAddonBottomSilder extends PoppableAddon {
+      public onOrientationChange() {
+        this.updateContentPos();
+        if (this.isShow || this.target.content.visible) {
+          this.hide(true);
+        }
+      }
+
       protected async onShowAnimation() {
         const content = this.target.content;
 

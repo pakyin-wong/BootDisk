@@ -59,6 +59,13 @@ namespace we {
         }
       }
 
+      public onOrientationChange() {
+        this.updateContentPos();
+        if (!this.isShow && this.target.content.visible) {
+          this.hide(true);
+        }
+      }
+
       public updateContentPos() {
         this._contentPos = new egret.Point(this.target.content.x, this.target.content.y);
       }
