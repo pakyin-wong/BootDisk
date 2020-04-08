@@ -69,12 +69,18 @@ namespace we {
             this.height = 388;
             itemName = 'LiveListItem';
             break;
-          case we.lobby.mode.SIMPLE:
           case we.lobby.mode.ADVANCED:
-          default:
+            this.width = 1204;
+            this.height = 450;
+            itemName = 'LiveListAdvancedItem';
+            break;
+          case we.lobby.mode.SIMPLE:
             this.width = 578;
             this.height = 219;
             itemName = 'LiveListSimpleItem';
+            break;
+          default:
+            logger.e('LiveListHolder::initDisplayItem() - no "mode" can be read');
         }
 
         this.assertSkinExists(generalGameType, `${itemName}Skin`);
@@ -124,7 +130,10 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
+        this.updateDisplayItem();
+        egret.Tween.removeTweens(this);
         // console.log('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
+        /*
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
           case we.lobby.mode.SIMPLE:
@@ -133,6 +142,7 @@ namespace we {
             this.updateDisplayItem();
             egret.Tween.removeTweens(this);
         }
+        */
       }
 
       protected updateDisplayItem() {

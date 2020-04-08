@@ -127,6 +127,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LiveListAdvancedItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
@@ -581,11 +585,23 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class ImageButtonSkinNav extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class LoadingScene extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
 	class LobbyScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class MobileDropdown extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class MobileDropdownItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -622,6 +638,14 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class PlayerProfile extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class SystemSetting extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

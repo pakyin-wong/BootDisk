@@ -4,7 +4,6 @@
 	<e:Rect id="_background" right="0" left="0" top="0" anchorOffsetY="0" height="238"
 	        fillAlpha="0.3"  fillColor="0x000000"/>
 	<ui:NavLantern id="_lantern" width="1158" height="45"   rotation="0.04" y="0" x="0"/>
-
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" y="7.81" size="34" fontFamily="Barlow" width="340" height="38" textAlign="right" anchorOffsetX="0" verticalAlign="middle" textColor="0xa5a5a5" x="2072.42"/>
 	<e:Group id="_profile_toggle" x="2000" y="1093">
@@ -27,11 +26,9 @@
 	             visible="false" />
 	-->
 	<!--<e:Image id="_slider_toggle" width="66" height="48" right="30" top="56"  source="m_common_header_icon_menu_png"/>-->
-
 	<!--BaseImageButton's picture is not exactly the same-->
 	<ui:BaseImageButton id="_slider_toggle" y="944" anchorOffsetX="0" width="117" anchorOffsetY="0" height="117"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2270"/>
-
 	<!--<ui:NavPlayerProfile id="_profile" width="516" height="789" x="1980" y="100" isPoppable="true"
 	                         dismissOnClickOutside="true" />
 	-->

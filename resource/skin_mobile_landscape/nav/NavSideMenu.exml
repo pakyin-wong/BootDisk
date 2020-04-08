@@ -29,7 +29,6 @@
 			<e:layout>
 				<e:BasicLayout/>
 			</e:layout>
-
 			<e:Group id="btn_info" x="16" y="0" height="96">
 			<ui:RunTimeLabel id="txt_info" text="Label" x="184" y="3" anchorOffsetX="0" width="650" anchorOffsetY="0" height="110" size="60" textColor="0xffffff" verticalAlign="middle"/>
 			<e:Image width="86" height="86" x="5" y="5" source="m_common_panel_setting_icon_account_png"/>
@@ -55,6 +54,7 @@
 			<e:Image source="m_common_panel_setting_icon_logout_png" width="82" height="82" x="7" y="7"/>
 			</e:Group>
 		</e:Group>
-
 	</e:Group>
 </e:Skin>
+
+

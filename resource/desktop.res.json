@@ -17,7 +17,7 @@
 			"name": "nav"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,start_png,start_json,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5,sn_banker_english_mp3,sn_banker_mandarin_mp3,sn_banker_cantonese_mp3",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,d_lobby_profile_pic_08_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_01_png,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,start_png,start_json,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5,sn_banker_english_mp3,sn_banker_mandarin_mp3,sn_banker_cantonese_mp3,advanced_dealer_sicbo_png,advanced_dealer_1_png,advanced_dealer_2_png",
 			"name": "temp"
 		},
 		{
@@ -4465,6 +4465,21 @@
 			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_tex.json",
 			"type": "json",
 			"name": "sicbo_game_result_tex_json"
+		},
+		{
+			"url": "assets/temp/advanced_dealer_sicbo.png",
+			"type": "image",
+			"name": "advanced_dealer_sicbo_png"
+		},
+		{
+			"url": "assets/temp/advanced_dealer_1.png",
+			"type": "image",
+			"name": "advanced_dealer_1_png"
+		},
+		{
+			"url": "assets/temp/advanced_dealer_2.png",
+			"type": "image",
+			"name": "advanced_dealer_2_png"
 		}
 	]
 }
