@@ -3,7 +3,7 @@ namespace we {
     export class PoppableAddonBottomSilder extends PoppableAddon {
       public onOrientationChange() {
         this.updateContentPos();
-        if (this.isShow) {
+        if (this.isShow || this.target.content.visible) {
           this.hide(true);
         }
       }
