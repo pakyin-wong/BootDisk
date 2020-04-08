@@ -163,11 +163,6 @@ namespace we {
       protected compareItems(a: any, b: any): boolean {
         return a.name === b.name && a.id === b.id && a.pattern === b.pattern && a.enabled === b.enabled;
       }
-
-      protected initOrientationDependentComponent() {
-        super.initOrientationDependentComponent();
-        this.initCustomRoad();
-      }
     }
   }
 }

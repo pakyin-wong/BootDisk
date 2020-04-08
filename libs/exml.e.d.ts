@@ -605,7 +605,23 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class BetHistorySkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class BetHistoryDetail extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class CustomRoad extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class DoubleCalendarPicker extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

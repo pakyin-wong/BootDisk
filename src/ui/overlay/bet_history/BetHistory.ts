@@ -56,6 +56,10 @@ namespace we {
       }
 
       protected mount() {
+        this.initBetHistory();
+      }
+
+      protected initBetHistory() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_bethistory_title')}`;
         this._txt_date.renderText = () => `${i18n.t('overlaypanel_bethistory_date')}`;
         this._txt_search.renderText = () => `${i18n.t('overlaypanel_bethistory_searchrecord')}`;
@@ -142,14 +146,8 @@ namespace we {
 
       protected searchToday() {
         this._page = 1;
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('day').unix();
+        this._endtime = moment().utcOffset(8).endOf('day').unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
         this._btn_today.active = true;
         this.search();
@@ -157,16 +155,8 @@ namespace we {
 
       protected searchYesterday() {
         this._page = 1;
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .subtract(1, 'day')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .subtract(1, 'day')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('day').subtract(1, 'day').unix();
+        this._endtime = moment().utcOffset(8).endOf('day').subtract(1, 'day').unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
         // this._btn_today.active = true;
         this.search();
@@ -174,14 +164,8 @@ namespace we {
 
       protected searchWeek() {
         this._page = 1;
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('week')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('week')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('week').unix();
+        this._endtime = moment().utcOffset(8).endOf('week').unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
         this._btn_week.active = true;
         this.search();
@@ -244,12 +228,19 @@ namespace we {
           this.search();
         }
       }
-
+      // doing
       protected update(res: any) {
         logger.l('getBetHistory', res);
         this.total = Math.ceil(res.total / this._limit);
         this._page = Math.floor(res.offset / this._limit) + 1;
         this._ddm_page && this._ddm_page.dropdown.select(this._page);
+        res.history.forEach((element, i) => {
+          if (i % 2 === 1) {
+            element.colorIndex = 1;
+          } else {
+            element.colorIndex = 0;
+          }
+        });
         this._dataColl.replaceAll(res.history);
       }
 
