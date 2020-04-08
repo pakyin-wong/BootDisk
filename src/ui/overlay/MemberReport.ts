@@ -27,6 +27,10 @@ namespace we {
       private changeLang() {}
 
       protected mount() {
+        this.initMemberReport();
+      }
+
+      private initMemberReport() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_memberreport_title')}`;
         this._txt_date.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
 
@@ -59,6 +63,11 @@ namespace we {
           this[`_btn_${btn}`].active = false;
         });
         this[`_btn_${type}`].active = true;
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.initMemberReport();
       }
     }
   }
