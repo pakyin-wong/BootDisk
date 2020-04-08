@@ -147,6 +147,9 @@ npm install -g tslint prettier typescript
 - [Sicbo Mobile Requirement (Landscape)](https://docs.google.com/document/d/1yTR43SZdrvQRVmwCiov2dwCwXliknLtlQ1hojd7zZE8/edit?ts=5e86ff61)
 
 - [Lucky Wheel Requirement](https://docs.google.com/document/d/1RBmOSW3z0oH6SOvVeJtZJejpfCL8HhrUurVZkmF1WxY/edit?ts=5e6a0824)
+- [Lucky Wheel Mobile Requirement (Portrait)](https://docs.google.com/document/d/16Y6IPiBSUJMz4Rgrhz8nZxOYwK9MqjC5RVaJj9Gv7dc/edit?ts=5e8adbea)
+- [Lucky Wheel Mobile Requirement (Landscape)](https://docs.google.com/document/d/1nOc4ylqNotcDpgPg9GbhYR0167Fc2SygG4SXEXywZlk/edit?ts=5e8ae793)
+
 
 ## Asset Link from Design Team (Copied from whatsapp group)
 
