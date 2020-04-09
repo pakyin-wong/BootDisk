@@ -38,6 +38,10 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.ba{
+	class Analysis extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
 	}
@@ -159,6 +163,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.di{
+	class Analysis extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
@@ -226,6 +234,10 @@ declare class SidePanelAllGameDropdownSkin extends eui.Skin{
 }
 declare module skin_desktop{
 	class DropdownItem extends eui.Skin{
+	}
+}
+declare module skin_desktop.dt{
+	class Analysis extends eui.Skin{
 	}
 }
 declare module skin_desktop.dt{
@@ -346,6 +358,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class LobbyTabListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class Analysis extends eui.Skin{
 	}
 }
 declare module skin_desktop.lw{
@@ -478,6 +494,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class QuickBetAnimButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class Analysis extends eui.Skin{
 	}
 }
 declare module skin_desktop.ro{

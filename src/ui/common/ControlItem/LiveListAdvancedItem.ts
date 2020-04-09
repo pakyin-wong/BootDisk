@@ -1,8 +1,22 @@
 namespace we {
   export namespace ui {
     export class LiveListAdvancedItem extends LiveListItem {
+      protected _analysisNode: eui.Component;
+      protected _analysis: IAnalysis;
+
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected initComponents() {
+        super.initComponents();
+        this.generateAnalysis();
+      }
+
+      protected generateAnalysis() {
+        if (this.itemInitHelper) {
+          this._analysis = this.itemInitHelper.generateAnalysis(this._analysisNode);
+        }
       }
 
       protected initCustomPos() {
@@ -16,10 +30,10 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        const randNo = Math.round(Math.random()) + 1;
         if (tableInfo.gametype === we.core.GameType.DI) {
           this._dealerImage.texture = RES.getRes('advanced_dealer_sicbo_png');
         } else {
+          const randNo = Math.round(Math.random()) + 1;
           this._dealerImage.texture = RES.getRes('advanced_dealer_' + randNo + '_png');
         }
       }
