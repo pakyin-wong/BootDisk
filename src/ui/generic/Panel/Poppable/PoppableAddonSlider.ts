@@ -8,9 +8,7 @@ namespace we {
       //   content.$x = -1 * content.width;
 
       //   await new Promise((resolve, reject) => {
-      //     egret.Tween.get(content)
-      //       .to({ $x: this._contentPos.x }, 200)
-      //       .call(resolve);
+      //     egret.Tween.get(content).to({ $x: this._contentPos.x }, 200).call(resolve);
       //   });
       // }
 
@@ -58,7 +56,9 @@ namespace we {
           });
         } else {
           await new Promise((resolve, reject) => {
-            egret.Tween.get(content).to({ $y: content.height }, 500).call(resolve);
+            egret.Tween.get(content)
+              .to({ $y: 2 * content.height }, 500)
+              .call(resolve);
           });
         }
       }

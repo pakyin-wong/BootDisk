@@ -87,9 +87,6 @@ namespace we {
 
         const lineHeight = (this._label.measuredHeight - this.lineSpacing * (this._label.numLines - 1)) / this._label.numLines;
         if (this._loopline === this._label.numLines) {
-          console.log('this._label.measuredHeight', this._label.measuredHeight);
-          console.log('this._label.numLines', this._label.numLines);
-          console.log('this._loopMsg.length', this._loopMsg.length);
           this._loopIndex = this._loopIndex + 1 >= this._loopMsg.length ? 0 : this._loopIndex + 1;
           this._next.text = this._loopMsg[this._loopIndex];
           this._next.y = this.lineSpacing + lineHeight;

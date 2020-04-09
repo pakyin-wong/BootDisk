@@ -33,6 +33,13 @@ namespace we {
       protected insertNewRoadColumn() {
         return;
       }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.initCustomRoad();
+        this._editRoadPanel.isFocusItem = true;
+        this._btn_add.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRoadAdd, this);
+      }
     }
   }
 }

@@ -31,7 +31,7 @@
             <e:Group id="_section_iconSelect" x="1242" width="1242" height="2155" y="0">
                 <e:Image id="_sectionBackIcon" width="30" height="54" x="51" y="87"
                           source="m_common_btn_previous_png"/>
-                <e:Label text="設定頭像" y="53" size="80" height="119"  textAlign="center" textColor="0xce925e" verticalAlign="middle" x="121"/>
+                <e:Label id="_txt_iconsetting" text="設定頭像" y="53" size="80" height="119"  textAlign="center" textColor="0xce925e" verticalAlign="middle" x="121"/>
                 <ui:Scroller id="_iconScroller" height="1445" width="1050"  x="96" y="316">
 									<e:List id="_iconList">
                                     <e:layout><e:TileLayout requestedColumnCount="3" horizontalGap="68" verticalGap="91"/></e:layout>
