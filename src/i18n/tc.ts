@@ -131,7 +131,9 @@ namespace we {
           system: '系統設定',
           logout: '登出',
           leftHandMode: '左手模式',
+          logoutMsg: '確定登出?',
           confirm: '確定',
+          cancel: '取消',
         },
         system: {
           title: '系統設定',

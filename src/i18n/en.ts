@@ -131,7 +131,9 @@ namespace we {
           system: 'System',
           logout: 'Logout',
           leftHandMode: 'Left Mode',
+          logoutMsg: 'Are you sure to logout?',
           confirm: 'Confirm',
+          cancel: 'Cancel',
         },
         system: {
           title: 'System',

@@ -187,6 +187,7 @@
 		"resource/skin_mobile_landscape/nav/NavLeftHandModeBtn.exml",
 		"resource/skin_mobile_portrait/nav/NavLeftHandModeBtn.exml",
 		"resource/skin_mobile_landscape/nav/NavSideMenu.exml",
+		"resource/skin_mobile_landscape/overlay/MessageDialog.exml",
 		"resource/skin_mobile_landscape/overlay/PlayerProfile.exml",
 		"resource/skin_mobile_landscape/overlay/PlayerProfileIconItem.exml",
 		"resource/skin_mobile_portrait/Slider.exml",
