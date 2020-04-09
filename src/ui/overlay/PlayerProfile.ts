@@ -42,11 +42,11 @@ namespace we {
         ]);
       }
 
-      protected mount() {
-        super.mount();
-        this.initPlayerProfile();
-        // dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChangePlayerProfile, this);
-      }
+      // protected mount() {
+      //   super.mount();
+      //   this.initPlayerProfile();
+      //   // dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChangePlayerProfile, this);
+      // }
 
       protected initPlayerProfile() {
         this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
@@ -108,15 +108,15 @@ namespace we {
         egret.Tween.get(this._section_iconSelect).to({ $x: this._section_iconSelect.width }, 200);
       }
 
-      // protected initOrientationDependentComponent() {
-      //   super.initOrientationDependentComponent();
-      //   this.initPlayerProfile();
-      // }
-
-      protected onOrientationChangePlayerProfile() {
-        this.destroy();
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
         this.initPlayerProfile();
       }
+
+      // protected onOrientationChangePlayerProfile() {
+      //   this.destroy();
+      //   this.initPlayerProfile();
+      // }
     }
   }
 }
