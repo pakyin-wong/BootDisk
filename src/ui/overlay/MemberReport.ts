@@ -4,10 +4,12 @@ namespace we {
       private _txt_title: ui.RunTimeLabel;
       private _txt_date: ui.RunTimeLabel;
 
+      private _btn_date: ui.BaseButton;
       private _btn_today: ui.BaseButton;
       private _btn_yesterday: ui.BaseButton;
       private _btn_week: ui.BaseButton;
       private _btn_custom: ui.BaseButton;
+      // private _btn_searchType: ui.BaseButton;
 
       private _txt_betAmount: ui.RunTimeLabel;
       private _txt_washAmount: ui.RunTimeLabel;
@@ -19,6 +21,13 @@ namespace we {
       private _txt_winAmount_value: ui.RunTimeLabel;
       private _txt_totalAmount_value: ui.RunTimeLabel;
 
+      private _ddm_date: ui.Panel;
+
+      // overlaypanel_memberreport_title: '會員報表',
+      // overlaypanel_memberreport_date: '日期',
+      // overlaypanel_memberreport_today: '今日',
+      // overlaypanel_memberreport_yesterday: '昨天',
+      // overlaypanel_memberreport_week: '本週',
       constructor() {
         super('MemberReport');
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
@@ -33,7 +42,11 @@ namespace we {
       private initMemberReport() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_memberreport_title')}`;
         this._txt_date.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
-
+        // mobileonly
+        if (env.isMobile) {
+          this._btn_date.label.renderText = () => `${i18n.t('overlaypanel_memberreport_date')}`;
+        }
+        // ^mobileonly
         this._btn_today.label.renderText = () => `${i18n.t('overlaypanel_memberreport_today')}`;
         this._btn_yesterday.label.renderText = () => `${i18n.t('overlaypanel_memberreport_yesterday')}`;
         this._btn_week.label.renderText = () => `${i18n.t('overlaypanel_memberreport_week')}`;
@@ -48,6 +61,31 @@ namespace we {
         this._txt_washAmount_value.renderText = () => `1234`;
         this._txt_winAmount_value.renderText = () => `1234`;
         this._txt_totalAmount_value.renderText = () => `1234`;
+
+        const _arrCol_date = new eui.ArrayCollection([
+          ui.NewDropdownItem('today', () => `${i18n.t('overlaypanel_memberreport_today')}`),
+          ui.NewDropdownItem('yesterday', () => `${i18n.t('overlaypanel_memberreport_yesterday')}`),
+          ui.NewDropdownItem('week', () => `${i18n.t('overlaypanel_memberreport_week')}`),
+        ]);
+
+        if (this._ddm_date) {
+          this._ddm_date.isDropdown = true;
+          this._ddm_date.isPoppable = true;
+          this._ddm_date.dismissOnClickOutside = true;
+          this._ddm_date.setToggler(this._btn_date);
+          this._ddm_date.dropdown.review = this._txt_date;
+          this._ddm_date.dropdown.data.replaceAll(_arrCol_date.source);
+          this._ddm_date.dropdown.select('today');
+        }
+
+        utils.DropdownCreator.new({
+          toggler: this._btn_date,
+          review: this._txt_date,
+          arrCol: _arrCol_date,
+          title: () => ``,
+          selected: 'today',
+        });
+
         this.addListeners();
         this.search('today');
       }

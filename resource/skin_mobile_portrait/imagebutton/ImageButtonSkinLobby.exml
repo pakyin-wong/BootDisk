@@ -5,7 +5,7 @@
         height.lobby_mode_01="104" width.lobby_mode_01="104" width.lobby_mode_02="104" height.lobby_mode_02="104"
         width.2col_btn="219" height.2col_btn="70" width.1col_btn="350" height.1col_btn="100"
         width.game_list_close_btn="40" height.game_list_close_btn="40">
-        <!--new source : m_lobby_panel_gamelist_tag_icon_allgame_png -->
+        <!--new source : m_common_btn_panel_quickbet_png -->
     <e:Image id="_background" left="0" right="0" top="0" bottom="0" 
              source.lobby_confirm_button="d_lobby_confirm_btn_normal_png"
              source.lobby_betcontrol_close="d_lobby_panel_betcontrol_btn_close_normal_png"
@@ -18,7 +18,7 @@
              source.2col_btn="m_lobby_roadmap_2column_btn_png"
              source.1col_btn="m_lobby_roadmap_1column_btn_png" 
              source.game_list_close_btn="m_common_icon_close_png"
-             source.lobby_panel_gamelist_tag_icon_allgame="m_lobby_panel_gamelist_tag_icon_allgame_png"
+             source.lobby_panel_gamelist_tag_icon_allgame="m_common_btn_panel_quickbet_png"
               />
     <e:Group id="_group" left="0" right="0" top="0" bottom="0">
         <ui:RunTimeLabel id="_label" text="" fontFamily="NotoSansCJKtc-Regular" size="24" verticalCenter="0"

@@ -89,7 +89,7 @@ namespace we {
         root.tabs.percentWidth = 100;
         // tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
-        root.scroller.viewport = group;
+        root.scroller.viewport = group;   
 
         const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
         // gridSwitch.x = 1078;
@@ -98,7 +98,7 @@ namespace we {
           gridSwitch.x = 1088;
           gridSwitch.y = 298;
         } else {
-          gridSwitch.x = 2002;
+          gridSwitch.x = 2374;
           gridSwitch.y = 688;
         }
         // gridSwitch.x = 1088;
