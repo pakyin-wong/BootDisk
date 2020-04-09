@@ -319,7 +319,7 @@ namespace we {
       }
 
       protected getOrderAmount() {
-        return env.betLimits[this._getSelectedBetLimitIndex()].chipList[this._getSelectedChipIndex()];
+        return env.betLimits[this._getSelectedBetLimitIndex()].chips[this._getSelectedChipIndex()];
       }
 
       public onBetFieldUpdateEvent(evt: egret.Event) {
@@ -487,7 +487,7 @@ namespace we {
 
       // check if the current unconfirmed betDetails are valid
       protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number): boolean {
-        const betLimit: data.BetLimit = env.betLimits[this._getSelectedBetLimitIndex()];
+        const betLimit: data.BetLimitSet = env.betLimits[this._getSelectedBetLimitIndex()];
         // TODO: check balance
         const balance = env.balance;
         if (balance < totalBetAmount) {
@@ -503,7 +503,7 @@ namespace we {
         return true;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         return false;
       }
 

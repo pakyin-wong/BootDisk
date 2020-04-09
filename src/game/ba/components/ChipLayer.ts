@@ -44,7 +44,7 @@ namespace we {
         this._betChipStackMapping[ba.BetField.SUPER_SIX] = this._superSixBetChipStack;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         return (
           Math.abs(fieldAmounts[ba.BetField.BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
           Math.abs(fieldAmounts[ba.BetField.SUPER_SIX_BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
