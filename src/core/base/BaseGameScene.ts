@@ -119,14 +119,14 @@ namespace we {
       }
 
       protected initDenom() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
         }
       }
 
       protected initBettingTable() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._tableLayer) {
           this._tableLayer.init();
         }
@@ -241,7 +241,7 @@ namespace we {
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.resetDenominationList(denominationList);
         }
@@ -251,7 +251,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -291,7 +291,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;

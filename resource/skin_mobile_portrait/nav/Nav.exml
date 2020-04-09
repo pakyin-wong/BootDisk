@@ -17,8 +17,8 @@
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload"  x="477"/>
 	</e:Group>
 	<!--BaseImageButton's picture is not exactly the same-->
-	<ui:BaseImageButton id="_slider_toggle" y="2002.91" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="506" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu" />
+	<ui:BaseImageButton id="_slider_toggle" y="1980" anchorOffsetX="0" width="104" anchorOffsetY="0" height="104"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="1064"/>
 	<!--add new element in portrait-->
 	<ui:NavLantern id="_lantern" width="1000" height="40"   rotation="0.04" y="2116" left="0"/>
 	<e:Rect width="1000" height="40" x="0" y="2116" fillColor="0x5e5d5d" fillAlpha="0.3"/>

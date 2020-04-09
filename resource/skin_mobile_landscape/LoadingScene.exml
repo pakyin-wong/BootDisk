@@ -10,5 +10,5 @@
 	<e:Rect width="750" height="52" y="1840" ellipseHeight="50" ellipseWidth="50" fillColor="0x000000" fillAlpha="0.4"
 	        horizontalCenter="0"  visible="false"/>
 	<ui:NavLantern id="_tip" width="1020" height="156" y="1036.52" alpha="0.8" horizontalCenter="49"  fontsize="56" lineSpacing="56"/>
-	<e:Label text="landscape" x="644" y="584" anchorOffsetX="0" width="790" anchorOffsetY="0" height="178"/>
+
 </e:Skin>

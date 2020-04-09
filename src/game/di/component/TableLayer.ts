@@ -163,6 +163,14 @@ namespace we {
       public async animateToState(collapsed: boolean) {
         const time = 3000;
         const tweenPromises = [];
+
+        egret.Tween.removeTweens(this);
+        Object.keys(this).map(value => {
+          if (this[value] instanceof egret.DisplayObject) {
+            egret.Tween.removeTweens(this[value]);
+          }
+        });
+
         for (let i = 1; i <= 3; i += 1) {
           const promise = new Promise(resolve => {
             egret.Tween.get(this[`_label_group_${i}`])
@@ -286,7 +294,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }

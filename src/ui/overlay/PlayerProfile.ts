@@ -20,7 +20,7 @@ namespace we {
       private _txt_favouriteDealer: ui.RunTimeLabel;
       // new add
       private _txt_title: ui.RunTimeLabel;
-
+      private _txt_iconsetting: ui.RunTimeLabel;
       private _section_iconSelect: eui.Group;
 
       private _sectionBackIcon: eui.Image;
@@ -31,7 +31,8 @@ namespace we {
       private _iconGaySize = 10;
 
       public constructor(skin = null) {
-        super('PlayerProfile');
+        // super('PlayerProfile');
+        super(skin);
 
         this._iconListData = new eui.ArrayCollection([
           {
@@ -41,10 +42,11 @@ namespace we {
         ]);
       }
 
-      protected mount() {
-        super.mount();
-        this.initPlayerProfile();
-      }
+      // protected mount() {
+      //   super.mount();
+      //   this.initPlayerProfile();
+      //   // dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChangePlayerProfile, this);
+      // }
 
       protected initPlayerProfile() {
         this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
@@ -52,7 +54,10 @@ namespace we {
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
-        this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
+        if (env.isMobile) {
+          this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
+          this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
+        }
 
         // create mask
         const shape = new egret.Shape();
@@ -108,6 +113,11 @@ namespace we {
         super.initOrientationDependentComponent();
         this.initPlayerProfile();
       }
+
+      // protected onOrientationChangePlayerProfile() {
+      //   this.destroy();
+      //   this.initPlayerProfile();
+      // }
     }
   }
 }

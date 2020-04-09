@@ -130,7 +130,7 @@ namespace we {
                 currency: Currency.RMB,
                 maxlimit: 1000,
                 minlimit: 10,
-                chipList: [1, 5, 20, 100, 500],
+                chips: [1, 5, 20, 100, 500],
                 // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
               },
             ];
@@ -474,7 +474,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 

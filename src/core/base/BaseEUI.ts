@@ -11,6 +11,11 @@ namespace we {
           this.updateSkin(skin, orientationDependent);
           // this.skinName = utils.getSkin(skin, orientationDependent);
         }
+        this.once(eui.UIEvent.ADDED_TO_STAGE, this.onAddToStage, this);
+      }
+
+      protected onAddToStage() {
+        this.orientationDependent = this.orientationDependent;
       }
 
       protected updateSkin(skin: string = null, orientationDependent: boolean = true) {
@@ -21,7 +26,7 @@ namespace we {
 
       public set orientationDependent(value: boolean) {
         this._orientationDependent = value;
-        if (env.isMobile) {
+        if (env.isMobile && this.$hasAddToStage) {
           if (value) {
             dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
           } else {

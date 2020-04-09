@@ -293,7 +293,7 @@ namespace we {
             currency: Currency.RMB,
             maxlimit: 100000,
             minlimit: 100,
-            chipList: [100, 500, 2000, 10000, 50000],
+            chips: [100, 500, 2000, 10000, 50000],
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
