@@ -25,6 +25,7 @@ namespace we {
       betfield_dragonTiger_tiger: 'tiger',
       betfield_dragonTiger_tie: 'tie',
 
+      playerprofile_title: 'User Information',
       playerprofile_maxWinAmount: 'Max Win Amt',
       playerprofile_maxWinCount: 'Nax Win Cunt',
       playerprofile_follower: 'Follower',
