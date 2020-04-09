@@ -54,9 +54,9 @@ namespace we {
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
-        this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
         if (env.isMobile) {
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
+          this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
         }
 
         // create mask
