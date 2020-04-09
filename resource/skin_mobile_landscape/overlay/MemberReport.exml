@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.MemberReport" width="2424" height="1252" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
-	<e:Group id="content" left="0" right="0" y="399" height="843">
-		<e:Rect left="0" right="0" top="0" fillColor="0x14181e" strokeColor="0x333c4a" strokeWeight="2" height="100%" anchorOffsetY="0"/>
+<e:Skin class="skin_mobile_landscape.MemberReport" width="2424" height="992" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+	<e:Group id="content" left="0" right="0" y="256" height="843">
+		<e:Rect left="0" right="0" fillColor="0x14181e" strokeColor="0x333c4a" strokeWeight="2" height="100%" anchorOffsetY="0" y="11"/>
 		<e:Rect width="497" height="142" x="1188" y="43" fillColor="0x0c2848" fillAlpha="0.4" ellipseHeight="142" ellipseWidth="142"/>
 		<!--<e:Rect width="120" height="120" x="1074" y="318" fillColor="0x1a3f6c" ellipseHeight="120" ellipseWidth="120"/>-->
 		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png"/>
