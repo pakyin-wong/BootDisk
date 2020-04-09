@@ -4873,6 +4873,16 @@
 			"url": "assets/m/ro/game_list_odd_betarea_inactive.png",
 			"type": "image",
 			"name": "game_list_odd_betarea_inactive_png"
+		},
+		{
+			"url": "assets/m/common/m_common_btn_menu.png",
+			"type": "image",
+			"name": "m_common_btn_menu_png"
+		},
+		{
+			"url": "assets/m/common/m_common_btn_panel_quickbet.png",
+			"type": "image",
+			"name": "m_common_btn_panel_quickbet_png"
 		}
 	]
 }

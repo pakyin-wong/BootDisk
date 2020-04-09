@@ -198,6 +198,7 @@
 		"resource/skin_mobile_landscape/overlay/BetHistoryItem.exml",
 		"resource/skin_mobile_portrait/GoodRoadEditItem.exml",
 		"resource/skin_mobile_landscape/overlay/CustomRoad.exml",
+		"resource/skin_mobile_landscape/overlay/MemberReport.exml",
 		"resource/skin_mobile_landscape/overlay/PlayerProfile.exml",
 		"resource/skin_mobile_portrait/Slider.exml",
 		"resource/skin_mobile_landscape/overlay/SystemSetting.exml",
