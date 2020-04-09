@@ -641,7 +641,15 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class MemberReport extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class PlayerProfile extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class PlayerProfileIconItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{

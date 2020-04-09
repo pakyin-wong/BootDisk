@@ -200,6 +200,7 @@
 		"resource/skin_mobile_landscape/overlay/CustomRoad.exml",
 		"resource/skin_mobile_landscape/overlay/MemberReport.exml",
 		"resource/skin_mobile_landscape/overlay/PlayerProfile.exml",
+		"resource/skin_mobile_landscape/overlay/PlayerProfileIconItem.exml",
 		"resource/skin_mobile_portrait/Slider.exml",
 		"resource/skin_mobile_landscape/overlay/SystemSetting.exml",
 		"resource/skin_mobile_portrait/ba/BaBeadRoadResultCardHolder.exml",

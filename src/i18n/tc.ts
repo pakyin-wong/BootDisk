@@ -25,6 +25,7 @@ namespace we {
       betfield_dragonTiger_tiger: '虎',
       betfield_dragonTiger_tie: '和',
 
+      playerprofile_title: '賬戶資訊',
       playerprofile_maxWinAmount: '最大嬴錢數目',
       playerprofile_maxWinCount: '最大連嬴次數',
       playerprofile_follower: '追隨者',

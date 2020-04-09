@@ -7,6 +7,7 @@ namespace we {
           this.hide(true);
         }
       }
+
       protected async onShowAnimation() {
         const content = this.target.content;
         // Set attributes for animating

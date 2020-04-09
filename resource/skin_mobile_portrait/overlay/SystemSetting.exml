@@ -42,8 +42,8 @@
 			<ui:RunTimeLabel id="_txt_currBgm" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
 			                 textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
 		</e:Group>
-		<ui:Panel id="_ddm_currBgm" width="251" x="916.5" y="1635.38" skinName="skin_mobile_portrait.NavDropdown" maxHeight="200" />
-		<ui:Panel id="_ddm_currFx" width="251" x="922.5" y="1202" skinName="skin_mobile_portrait.NavDropdown" maxHeight="200" />
-		<ui:Panel id="_ddm_currLang" width="251" x="897" y="461.5" skinName="skin_mobile_portrait.NavDropdown"  maxHeight="200"/>
+		<ui:Panel id="_ddm_currBgm" width="251" x="916.5" y="1635.38" skinName="skin_mobile_portrait.NavDropdown" maxHeight="200"  visible="false"/>
+		<ui:Panel id="_ddm_currFx" width="251" x="922.5" y="1202" skinName="skin_mobile_portrait.NavDropdown" maxHeight="200"  visible="false"/>
+		<ui:Panel id="_ddm_currLang" width="251" x="897" y="461.5" skinName="skin_mobile_portrait.NavDropdown"  maxHeight="200" visible="false"/>
 	</e:Group>
 </e:Skin>
