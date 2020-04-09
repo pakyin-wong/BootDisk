@@ -45,9 +45,9 @@
 		<e:Label id="directNoteLabel" text="直接注" y="0" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
 		<e:Label id="pDirectNote" text="-" y="6" textAlign="right" scaleX="1" scaleY="1" size="40" x="211" width="202" height="44" bold="true" alpha="0.7"/>
 		<e:Label id="pDirectNoteRatio" text="-" y="10" textAlign="right" scaleX="1" scaleY="1" size="34" x="447" width="88" bold="true" alpha="0.7"/>
-		<e:Label id="dispensingLabel" text="分注" y="78" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
-		<e:Label id="pDispensing" text="-" y="80" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="211" width="202" alpha="0.7"/>
-		<e:Label id="pDispensingRatio" text="-" y="84" textAlign="right" scaleX="1" scaleY="1" size="34" bold="true" x="447" width="88" alpha="0.7"/>
+		<e:Label id="separateLabel" text="分注" y="78" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pSeparate" text="-" y="80" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="211" width="202" alpha="0.7"/>
+		<e:Label id="pSeparateRatio" text="-" y="84" textAlign="right" scaleX="1" scaleY="1" size="34" bold="true" x="447" width="88" alpha="0.7"/>
 		<e:Label id="streetLabel" text="街注/三數" y="156" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
 		<e:Label id="pStreet" text="-" y="160" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="211" width="202" alpha="0.7"/>
 		<e:Label id="pStreetRatio" text="-" y="164" textAlign="right" scaleX="1" scaleY="1" size="34" bold="true" x="447" width="88" alpha="0.7"/>
@@ -59,9 +59,9 @@
 		<e:Label id="pLineBetRatio" text="-" y="322" textAlign="right" scaleX="1" scaleY="1" size="34" bold="true" x="447" width="88" verticalAlign="middle" alpha="0.7"/>
 		</e:Group>
 		<e:Group id="_rightPart" x="664" y="80">
-		<e:Label id="roadLabel" text="行注 " y="0" textAlign="left" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
-		<e:Label id="pRoad" text="-" y="6" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
-		<e:Label id="pRoadRatio" text="-" y="6" textAlign="right" x="446" scaleX="1" scaleY="1" size="44" width="88" bold="true" alpha="0.7"/>
+		<e:Label id="rowLabel" text="行注 " y="0" textAlign="left" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pRow" text="-" y="6" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
+		<e:Label id="pRowRatio" text="-" y="6" textAlign="right" x="446" scaleX="1" scaleY="1" size="44" width="88" bold="true" alpha="0.7"/>
 		<e:Label id="dozenLabel" text="下注一打" y="78" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
 		<e:Label id="pDozen" text="-" y="80" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
 		<e:Label id="pDozenRatio" text="-" y="80" textAlign="right" x="446" scaleX="1" scaleY="1" size="44" width="88" bold="true" alpha="0.7"/>

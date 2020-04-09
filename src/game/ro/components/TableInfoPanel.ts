@@ -22,9 +22,9 @@ namespace we {
       protected pDirectNote: eui.Label;
       protected pDirectNoteRatio: eui.Label;
 
-      protected dispensingLabel: eui.Label;
-      protected pDispensing: eui.Label;
-      protected pDispensingRatio: eui.Label;
+      protected separateLabel: eui.Label;
+      protected pSeparate: eui.Label;
+      protected pSeparateRatio: eui.Label;
 
       protected streetLabel: eui.Label;
       protected pStreet: eui.Label;
@@ -38,9 +38,9 @@ namespace we {
       protected pLineBet: eui.Label;
       protected pLineBetRatio: eui.Label;
 
-      protected roadLabel: eui.Label;
-      protected pRoad: eui.Label;
-      protected pRoadRatio: eui.Label;
+      protected rowLabel: eui.Label;
+      protected pRow: eui.Label;
+      protected pRowRatio: eui.Label;
 
       protected dozenLabel: eui.Label;
       protected pDozen: eui.Label;
@@ -180,6 +180,41 @@ namespace we {
         this.columnbetLabel.text = i18n.t('roulette.betGroup.column');
         this.rowbetLabel.text = i18n.t('roulette.betGroup.row');
       }
+
+      public setValue(tableInfo: data.TableInfo) {
+        super.setValue(tableInfo);
+
+        // const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
+        // if (betLimitSet.limits && betLimitSet.limits.ro) {
+        //   const limits = betLimitSet.limits.ro;
+        //   const list = [
+        //     {target: this.pDirectNote, value: limits.DIRECT.maxlimit},
+        //     {target: this.pDirectNoteRatio, value: limits.DIRECT.odd},
+        //     {target: this.pSeparate, value: limits.SEPARATE.maxlimit},
+        //     {target: this.pSeparateRatio, value: limits.SEPARATE.odd},
+        //     {target: this.pStreet, value: limits.STREET.maxlimit},
+        //     {target: this.pStreetRatio, value: limits.STREET.odd},
+        //     {target: this.pCorner, value: limits.CORNER.maxlimit},
+        //     {target: this.pCornerRatio, value: limits.CORNER.odd},
+        //     {target: this.pLineBet, value: limits.LINE.maxlimit},
+        //     {target: this.pLineBetRatio, value: limits.LINE.odd},
+        //     {target: this.pRow, value: limits.ROW.maxlimit},
+        //     {target: this.pRowRatio, value: limits.ROW.odd},
+        //     {target: this.pDozen, value: limits.DOZEN.maxlimit},
+        //     {target: this.pDozenRatio, value: limits.DOZEN.odd},
+        //     {target: this.pColorTwo, value: limits.RED_BLACK.maxlimit},
+        //     {target: this.pColorTwoRatio, value: limits.RED_BLACK.odd},
+        //     {target: this.pOddevenTwo, value: limits.ODD_EVEN.maxlimit},
+        //     {target: this.pOddevenTwoRatio, value: limits.ODD_EVEN.odd},
+        //     {target: this.pSizeTwo, value: limits.BIG_SMALL.maxlimit},
+        //     {target: this.pSizeTwoRatio, value: limits.BIG_SMALL.odd},
+        //   ];
+        //   for (const {target,value} of list) {
+        //     target.text = value.toString();
+        //   }
+        }
+      }
+
 
       // public setValue(tableInfo: data.TableInfo) {
       //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
