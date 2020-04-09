@@ -613,6 +613,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class LobbyPage extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class LobbyScene extends eui.Skin{
 	}
 }
@@ -939,11 +943,11 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class LobbyScene extends eui.Skin{
+	class LobbyPage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
-	class LobbyTabListItemRenderer extends eui.Skin{
+	class LobbyScene extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -1202,5 +1206,9 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class LobbyTabListItemRenderer extends eui.Skin{
 	}
 }

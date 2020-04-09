@@ -146,7 +146,9 @@ namespace we {
         content.$x = this._contentPos.x;
         content.$y = this._contentPos.y - 20;
         await new Promise((resolve, reject) => {
-          egret.Tween.get(content).to({ alpha: 1, $y: this._contentPos.y }, 200).call(resolve);
+          egret.Tween.get(content)
+            .to({ alpha: 1, $y: this._contentPos.y }, 200)
+            .call(resolve);
         });
       }
       protected async onHide(skipAnimation: boolean = false) {

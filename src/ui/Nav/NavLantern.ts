@@ -16,14 +16,14 @@ namespace we {
 
       constructor() {
         super();
-      }
-
-      protected mount() {
-        this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
         if (env.isMobile) {
           this.fontsize = 40;
           this.lineSpacing = 40;
         }
+      }
+
+      protected mount() {
+        this._loopMsg = ['客服熱線號碼更新為 +63 9250898888，接聽時間為 8:00-00:00。'];
         this._label = new eui.Label();
         this._next = new eui.Label();
         this._label.width = this._next.width = this.width;
