@@ -88,6 +88,7 @@ namespace we {
         bmfont.anchorOffsetY = bmfont.height * 0.5;
         */
 
+
         // // Dragonbone animation 2 (self gen sprite)
         // const skeletonData2 = RES.getRes('Icon_ske_json');
         // const factory2 = new dragonBones.EgretFactory();
