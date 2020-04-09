@@ -7,7 +7,7 @@
 	<e:Group id="_maskContainer" width="2424" x="0" y="-266" scaleX="1" scaleY="1" >
 		<e:Group id="_section_iconSelect" x="2424" width="2424" height="1242" y="262" scaleX="1" scaleY="1">
 			<e:Image id="_sectionBackIcon" width="81" height="81" x="10" y="70" source="m_common_btn_previous_png"/>
-			<e:Label text="設定頭像" y="51" size="80" height="119" textAlign="center" textColor="0xce925e" verticalAlign="middle" x="126"/>
+			<e:Label id="_txt_iconsetting" text="設定頭像" y="51" size="80" height="119" textAlign="center" textColor="0xce925e" verticalAlign="middle" x="126"/>
 			<ui:Scroller id="_iconScroller" height="772" width="2224" x="100" y="220" scaleX="1" scaleY="1">
 			<e:List id="_iconList" width="100%">
 				<e:layout>

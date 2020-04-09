@@ -26,6 +26,7 @@ namespace we {
       betfield_dragonTiger_tie: '和',
 
       playerprofile_title: '账户资讯',
+      playerprofile_iconsetting: '设定头像',
       playerprofile_maxWinAmount: '最大嬴钱数目',
       playerprofile_maxWinCount: '最大连嬴次数',
       playerprofile_follower: '追随者',

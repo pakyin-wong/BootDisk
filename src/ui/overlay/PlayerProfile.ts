@@ -20,7 +20,7 @@ namespace we {
       private _txt_favouriteDealer: ui.RunTimeLabel;
       // new add
       private _txt_title: ui.RunTimeLabel;
-
+      private _txt_iconsetting: ui.RunTimeLabel;
       private _section_iconSelect: eui.Group;
 
       private _sectionBackIcon: eui.Image;
@@ -54,6 +54,7 @@ namespace we {
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
+        this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
         if (env.isMobile) {
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
         }
