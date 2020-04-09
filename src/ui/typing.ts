@@ -10,11 +10,16 @@ namespace we {
       setTableInfo?(tableInfo: data.TableInfo);
     }
 
+    export interface IAnalysis {
+      updateAnalysis(data: any);
+    }
+
     export interface IListItemHelper {
       // updateRoadData(roadmapData: any);
       generateTableLayer(node: eui.Component): TableLayer;
       generateChipLayer(node: eui.Component): ChipLayer;
       generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
+      generateAnalysis?(node: eui.Component): IAnalysis;
       generateResultMessage?(node: eui.Component): IGameResultMessage;
       generateResultDisplay?(node: eui.Component): IResultDisplay;
     }

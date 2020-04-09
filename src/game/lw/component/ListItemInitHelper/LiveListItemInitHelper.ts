@@ -34,6 +34,13 @@ namespace we {
         node.parent.addChildAt(road, idx);
         return road;
       }
+
+      public generateAnalysis(node: eui.Component) {
+        const analysis = new di.Analysis();
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(analysis, idx);
+        return analysis;
+      }
     }
   }
 }
