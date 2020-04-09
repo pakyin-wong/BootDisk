@@ -27,7 +27,7 @@ namespace we {
         this._betChipStackMapping[dt.BetField.TIGER] = this._tigerBetChipStack;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         return Math.abs(fieldAmounts[dt.BetField.DRAGON] - fieldAmounts[dt.BetField.TIGER]) > betLimit.maxlimit || fieldAmounts[dt.BetField.TIE] > betLimit.maxlimit;
       }
     }

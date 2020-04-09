@@ -20,8 +20,13 @@ declare class PlayerClient {
         port?: string;
         protocol?: string;
         path?: string;
+        device?: string;
         connectTimeout?: number;
         reconnectPeriod?: number;
+        rabbitmqhostname?: any;
+        rabbitmqport?: any;
+        rabbitmqprotocol?: any;
+        logEnabled?: boolean;
     });
     init(lang: string, callback: Function): void;
     connect(callback?: Function): void;
@@ -39,6 +44,7 @@ declare class PlayerClient {
         [key: string]: string;
     }): void;
     getLobbyMaterial(callback: (data: LobbyMaterial) => any): void;
+    _handleCustomRoadmapUpdate(result: any, callback: any, f: any): void;
     resetRoadmap(callback: Function): void;
     getRoadmap(callback: Function): void;
     updateDefaultRoadmap(ids: string[], callback: Function): void;
@@ -86,7 +92,6 @@ interface GameTypeMap {
     DI: 12;
     MJ: 13;
     RO: 14;
-    LW: 16;
 }
 declare const GameType: GameTypeMap;
 
