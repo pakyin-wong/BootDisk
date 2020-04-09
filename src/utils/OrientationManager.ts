@@ -36,7 +36,7 @@ namespace we {
               this.stage.setContentSize(1242, 2155);
               break;
             case egret.OrientationMode.LANDSCAPE:
-              this.stage.setContentSize(2155, 1242);
+              this.stage.setContentSize(2424, 1242);
               break;
           }
           if (!isInit) {
@@ -53,7 +53,7 @@ namespace we {
         } else {
           // landscape
           env.orientation = egret.OrientationMode.LANDSCAPE;
-          this.stage.setContentSize(2155, 1242);
+          this.stage.setContentSize(2424, 1242);
         }
         if (!isInit) {
           if (this._timeoutId) {

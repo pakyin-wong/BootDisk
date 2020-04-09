@@ -581,6 +581,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class LobbyPage extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class LobbyScene extends eui.Skin{
 	}
 }
@@ -860,6 +864,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LoadingScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LobbyPage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
