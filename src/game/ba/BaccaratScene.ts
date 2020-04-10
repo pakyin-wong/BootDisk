@@ -14,6 +14,7 @@ namespace we {
 
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
+      protected _flipCard: FlipCard;
 
       constructor(data: any) {
         super(data);
@@ -51,6 +52,12 @@ namespace we {
         if (this._lblBaMode) {
           this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
         }
+
+        this._flipCard = new FlipCard(44 * 8, 64 * 8);
+        this._flipCard.x = 200;
+        this._flipCard.y = 200;
+        this.addChild(this._flipCard);
+        this._flipCard.initCard();
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
