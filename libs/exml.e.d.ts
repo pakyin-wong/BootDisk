@@ -166,6 +166,14 @@ declare module skin_desktop.di{
 	class Analysis extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class AnalysisChance extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class AnalysisPie extends eui.Skin{
+	}
+}
 declare module skin_desktop.di{
 	class ChipLayerSkin extends eui.Skin{
 	}
@@ -184,6 +192,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class DiRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiRightPanelChance extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiRightPanelPie extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
