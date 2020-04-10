@@ -167,7 +167,7 @@ namespace we {
 
       protected onMatchGoodRoadUpdate() {}
 
-      protected onTableBetInfoUpdate() {
+      protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 

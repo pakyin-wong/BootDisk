@@ -9,6 +9,25 @@ namespace we {
       protected _chipLayerNode: eui.Component;
       protected _roadmapNode: eui.Component;
 
+      protected _arrangeProperties = [
+        'x',
+        'y',
+        'width',
+        'height',
+        'scaleX',
+        'scaleY',
+        'left',
+        'right',
+        'top',
+        'bottom',
+        'verticalCenter',
+        'horizontalCenter',
+        'anchorOffsetX',
+        'anchorOffsetY',
+        'percentWidth',
+        'percentHeight',
+      ];
+
       public constructor(skinName: string = null) {
         super(skinName);
       }
@@ -40,25 +59,7 @@ namespace we {
 
       // set the position of the children components
       protected arrangeComponents() {
-        const properties = [
-          'x',
-          'y',
-          'width',
-          'height',
-          'scaleX',
-          'scaleY',
-          'left',
-          'right',
-          'top',
-          'bottom',
-          'verticalCenter',
-          'horizontalCenter',
-          'anchorOffsetX',
-          'anchorOffsetY',
-          'percentWidth',
-          'percentHeight',
-        ];
-        for (const att of properties) {
+        for (const att of this._arrangeProperties) {
           if (this._tableLayer) {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
@@ -80,8 +81,8 @@ namespace we {
         }
       }
 
-      protected onTableBetInfoUpdate() {
-        super.onTableBetInfoUpdate();
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {

@@ -36,11 +36,13 @@ namespace we {
       public generateAnalysis(node: eui.Component) {
         const analysis = new di.Analysis();
         const idx = node.parent.getChildIndex(node);
+        /*
         analysis.width = node.width;
         analysis.height = node.height;
         analysis.x = node.x;
         analysis.y = node.y;
         analysis.right = node.right;
+        */
         node.parent.addChildAt(analysis, idx);
         return analysis;
       }

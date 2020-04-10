@@ -13,6 +13,15 @@ namespace we {
         this.generateAnalysis();
       }
 
+      protected arrangeComponents() {
+        super.arrangeComponents();
+        for (const att of this._arrangeProperties) {
+          if (this._analysisNode) {
+            this._analysis[att] = this._analysisNode[att];
+          }
+        }
+      }
+
       protected generateAnalysis() {
         if (this.itemInitHelper) {
           this._analysis = this.itemInitHelper.generateAnalysis(this._analysisNode);
@@ -46,6 +55,22 @@ namespace we {
 
       set dealerImage(value: eui.Image) {
         this._dealerImage = value;
+      }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (!evt.data) {
+          return;
+        }
+        switch (this._tableInfo.gametype) {
+          case we.core.GameType.LW:
+            for (let i = 0; i < 7; i += 1) {
+              this._analysis[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
+            }
+            break;
+          default:
+            break;
+        }
       }
     }
   }
