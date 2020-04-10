@@ -212,23 +212,21 @@ namespace we {
         //   for (const {target,value} of list) {
         //     target.text = value.toString();
         //   }
-        }
       }
-
-
-      // public setValue(tableInfo: data.TableInfo) {
-      //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
-      //   this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
-      //   this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
-      //   this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-      //   this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
-      //   if (this.pGameID) {
-      //     this.pGameID.text = tableInfo.betInfo.gameroundid.toString();
-      //   }
-      //   if (this.pGameID) {
-      //     this.pGameID.text = data.BetLimit.toString();
-      //   }
-      // }
     }
+
+    // public setValue(tableInfo: data.TableInfo) {
+    //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
+    //   this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
+    //   this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
+    //   this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
+    //   this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
+    //   if (this.pGameID) {
+    //     this.pGameID.text = tableInfo.betInfo.gameroundid.toString();
+    //   }
+    //   if (this.pGameID) {
+    //     this.pGameID.text = data.BetLimit.toString();
+    //   }
+    // }
   }
 }

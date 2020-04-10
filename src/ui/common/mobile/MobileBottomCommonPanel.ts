@@ -1,7 +1,6 @@
 namespace we {
   export namespace ui {
     export class MobileBottomCommonPanel extends core.BaseGamePanel {
-
       protected gameIdLabel: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
       protected gameId: string;
@@ -11,21 +10,6 @@ namespace we {
       protected _arrowUp: egret.DisplayObject;
       public isPanelOpen: boolean = true;
 
-      // table info panel
-      public _tableInfoPanel: ba.TableInfoPanel;
-      public _betLimitDropDownBtn: ui.RunTimeLabel;
-
-      // statisticChartPanel
-      public _statisticChartPanel: ba.StatisticChartPanel;
-
-      // viewStack and radioBtn
-      protected _roadmapGroup: eui.Group;
-      protected _infoGroup: eui.Group;
-
-      protected roadSheetBtn: eui.RadioButton;
-      protected chartBtn: eui.RadioButton;
-      protected tableInfoBtn: eui.RadioButton;
-
       protected _gameInfoLabel: ui.RunTimeLabel;
 
       protected viewStack: eui.ViewStack;
@@ -34,17 +18,12 @@ namespace we {
       protected _verGroup: eui.Group;
 
       public constructor(skin?: string) {
-        super(skin || !env.isMobile ? skin : 'ba.MobileBottomGamePanel');
+        super();
       }
 
       protected init() {
         this.gameId = '';
         this.totalBet = 0;
-        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
-
-        this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
@@ -64,16 +43,10 @@ namespace we {
         this.gameIdLabel.text = this.gameId + ' ' + i18n.t('baccarat.gameroundid');
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
 
-        this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
-        this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
-        this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
 
       protected onPanelOpen() {
-        this.roadSheetBtn.visible = !this.isPanelOpen;
-        this.chartBtn.visible = !this.isPanelOpen;
-        this.tableInfoBtn.visible = !this.isPanelOpen;
         this._gameInfoLabel.visible = this.isPanelOpen;
         this._arrow.visible = !this.isPanelOpen;
         this._arrowUp.visible = this.isPanelOpen;
@@ -100,7 +73,6 @@ namespace we {
         vLayout.gap = 0;
         this._verGroup.layout = vLayout;
       }
-
 
       public update() {
         if (this.tableInfo) {

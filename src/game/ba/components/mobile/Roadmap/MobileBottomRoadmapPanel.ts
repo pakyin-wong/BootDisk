@@ -1,7 +1,7 @@
 /* tslint:disable triple-equals */
 namespace we {
   export namespace ba {
-    export class MobileBottomRoadmapPanel extends core.BaseGamePanel implements IBARoadmapDisplayObject{
+    export class MobileBottomRoadmapPanel extends core.BaseGamePanel implements IBARoadmapDisplayObject {
       public beadRoad: BABeadRoad;
 
       public bigRoad: BABigRoad;
@@ -144,7 +144,7 @@ namespace we {
 
       public changeLang() {
         this.totalCountLabel.text = '' + this.totalCount;
-        
+
         this.playerButtonLabel.text = i18n.t('baccarat.askPlayer');
         this.bankerButtonLabel.text = i18n.t('baccarat.askBanker');
       }
@@ -192,7 +192,6 @@ namespace we {
           this.switchModeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
         }
       }
-
     }
   }
 }

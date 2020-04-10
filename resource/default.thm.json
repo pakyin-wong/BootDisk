@@ -191,6 +191,7 @@
 		"resource/skin_mobile_portrait/BetConfirmButton.exml",
 		"resource/skin_mobile_portrait/CountdownTimer.exml",
 		"resource/skin_mobile_portrait/imagebutton/ImageButtonSkinBettingPanel.exml",
+		"resource/skin_mobile_portrait/ba/MobileBottomRoadmapPanel.exml",
 		"resource/skin_mobile_portrait/ba/StatisticChartPanel.exml",
 		"resource/skin_mobile_portrait/ba/TableInfoPanel.exml",
 		"resource/skin_mobile_portrait/ba/MobileBottomGamePanel.exml",
