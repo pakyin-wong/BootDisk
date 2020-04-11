@@ -11,7 +11,9 @@ namespace we {
     }
 
     export interface IAnalysis {
-      updateAnalysis(data: any);
+      tableId: string;
+      updateTableBetInfo();
+      updateRoad();
     }
 
     export interface IListItemHelper {

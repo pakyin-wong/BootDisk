@@ -37,6 +37,17 @@ namespace we {
         this._offsetMovement = 800;
       }
 
+      protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
+        if (evt && evt.data) {
+          const tableInfo = <data.TableInfo> evt.data;
+          if (tableInfo.tableid === this._tableId) {
+            this._analysis.tableId = this._tableId;
+            this._analysis.updateRoad();
+          }
+        }
+      }
+
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
         if (tableInfo.gametype === we.core.GameType.DI) {
@@ -45,31 +56,22 @@ namespace we {
           const randNo = Math.round(Math.random()) + 1;
           this._dealerImage.texture = RES.getRes('advanced_dealer_' + randNo + '_png');
         }
+        if (this._analysis && this._tableId) {
+          this._analysis.tableId = this._tableId;
+          this._analysis.updateRoad();
+        }
       }
 
       protected addRoundCornerMask() {}
 
-      get dealerImage() {
-        return this._dealerImage;
-      }
-
-      set dealerImage(value: eui.Image) {
-        this._dealerImage = value;
-      }
-
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
-        if (!evt.data) {
-          return;
-        }
-        switch (this._tableInfo.gametype) {
-          case we.core.GameType.LW:
-            for (let i = 0; i < 7; i += 1) {
-              this._analysis[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
-            }
-            break;
-          default:
-            break;
+        if (evt && evt.data) {
+          const tableInfo = <data.TableInfo> evt.data;
+          if (tableInfo.tableid === this._tableId) {
+            this._analysis.tableId = this._tableId;
+            this._analysis.updateTableBetInfo();
+          }
         }
       }
     }

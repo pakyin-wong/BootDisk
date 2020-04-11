@@ -1,6 +1,8 @@
 namespace we {
   export namespace lw {
     export class Analysis extends core.BaseEUI implements we.ui.IAnalysis {
+      protected _tableId;
+
       protected _lblPool: ui.RunTimeLabel;
       public _progress0: lw.RightPanelBar;
       public _progress1: lw.RightPanelBar;
@@ -16,6 +18,14 @@ namespace we {
       public _lbl_lwValue4: ui.RunTimeLabel;
       public _lbl_lwValue5: ui.RunTimeLabel;
       public _lbl_lwValue6: ui.RunTimeLabel;
+
+      public set tableId(value: string) {
+        this._tableId = value;
+      }
+
+      public get tableId() {
+        return this._tableId;
+      }
 
       constructor() {
         super('lw.Analysis');
@@ -33,7 +43,14 @@ namespace we {
         this._progress6.setProgress(1);
       }
 
-      public updateAnalysis(data: any) {}
+      public updateTableBetInfo() {
+        const data = env.tableInfos[this._tableId].betInfo;
+        for (let i = 0; i < 7; i += 1) {
+          this[`_lbl_lwValue${i}`].text = data.amount[`LW_${i}`] || 0;
+        }
+      }
+
+      public updateRoad() {}
     }
   }
 }

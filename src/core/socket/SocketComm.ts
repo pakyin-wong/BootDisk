@@ -583,6 +583,7 @@ namespace we {
       }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
+        /*
         console.log(
           'SocketComm::createCustomBetCombination title/betOptions ',
           title,
@@ -590,6 +591,7 @@ namespace we {
             return { field: value.betcode, amount: value.amount };
           })
         );
+        */
         this.client.createBetTemplate(
           title,
           betOptions.map(value => {
@@ -603,7 +605,7 @@ namespace we {
 
       public getBetCombination() {
         this.client.getBetTemplate((data: any[]) => {
-          console.log('SocketComm::getBetCombination data ', data);
+          // console.log('SocketComm::getBetCombination data ', data);
           dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
         });
       }

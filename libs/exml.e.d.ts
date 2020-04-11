@@ -115,6 +115,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.ba{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
 	class TableInfoPanel extends eui.Skin{
 	}
 }
