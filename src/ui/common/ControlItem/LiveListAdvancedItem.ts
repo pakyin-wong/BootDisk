@@ -39,6 +39,8 @@ namespace we {
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
+        // console.log('LiveListAdvancedItem', this._tableId);
+        // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
@@ -66,6 +68,8 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
+        // console.log('LiveListAdvancedItem', this._tableId);
+        // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
