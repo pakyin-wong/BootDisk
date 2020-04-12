@@ -26,8 +26,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
           }
         }
       }
@@ -146,13 +146,13 @@ namespace we {
       protected initRoadMap() {
         this._roadmapControl = new DTRoadmapControl(this._tableId);
         this._roadmapControl.setRoads(
-          this._bottomGamePanel.beadRoad,
-          this._bottomGamePanel.bigRoad,
-          this._bottomGamePanel.bigEyeRoad,
-          this._bottomGamePanel.smallRoad,
-          this._bottomGamePanel.cockroachRoad,
+          this._bottomGamePanel._roadmapPanel.beadRoad,
+          this._bottomGamePanel._roadmapPanel.bigRoad,
+          this._bottomGamePanel._roadmapPanel.bigEyeRoad,
+          this._bottomGamePanel._roadmapPanel.smallRoad,
+          this._bottomGamePanel._roadmapPanel.cockroachRoad,
           [16, 33, 66, 34, 32],
-          this._bottomGamePanel,
+          this._bottomGamePanel._roadmapPanel,
           this._beadRoadResultPanel
         );
       }
@@ -163,11 +163,11 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

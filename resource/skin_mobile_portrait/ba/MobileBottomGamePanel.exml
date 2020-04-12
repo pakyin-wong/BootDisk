@@ -50,9 +50,9 @@
 			</e:ViewStack>
 		</e:Group>
 		<e:Group id="_bottomPart" width="1242" x="0" y="632" scaleX="1" scaleY="1">
-			<e:Image id="bottom_bg" x="0" y="0" source="m_ba_tab_bottom_png" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="700" y="13.5" textAlign="right" anchorOffsetX="0" width="514" size="25" scaleX="1" scaleY="1"/>
-			<ui:RunTimeLabel id="totalBetLabel" text="0" x="16" y="13.5" textAlign="left" anchorOffsetX="0" width="260" size="25" scaleX="1" scaleY="1"/>
+			<e:Image id="bottom_bg" x="0" y="0" source="m_ba_tab_bottom_png" scaleX="1" scaleY="1" visible="false"/>
+			<ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="700" y="13.5" textAlign="right" anchorOffsetX="0" width="514" size="25" scaleX="1" scaleY="1" visible="false"/>
+			<ui:RunTimeLabel id="totalBetLabel" text="0" x="16" y="13.5" textAlign="left" anchorOffsetX="0" width="260" size="25" scaleX="1" scaleY="1" visible="false"/>
 		</e:Group>
 
 		</e:Group>

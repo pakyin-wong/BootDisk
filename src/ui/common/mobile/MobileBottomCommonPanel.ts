@@ -1,10 +1,10 @@
 namespace we {
   export namespace ui {
     export class MobileBottomCommonPanel extends core.BaseGamePanel {
-      protected gameIdLabel: ui.RunTimeLabel;
-      protected totalBetLabel: ui.RunTimeLabel;
-      protected gameId: string;
-      protected totalBet: number;
+      // protected gameIdLabel: ui.RunTimeLabel;
+      // protected totalBetLabel: ui.RunTimeLabel;
+      // protected gameId: string;
+      // protected totalBet: number;
 
       protected _arrow: egret.DisplayObject;
       protected _arrowUp: egret.DisplayObject;
@@ -22,8 +22,8 @@ namespace we {
       }
 
       protected init() {
-        this.gameId = '';
-        this.totalBet = 0;
+        // this.gameId = '';
+        // this.totalBet = 0;
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
@@ -40,8 +40,8 @@ namespace we {
       }
 
       public changeLang() {
-        this.gameIdLabel.text = this.gameId + ' ' + i18n.t('baccarat.gameroundid');
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        // this.gameIdLabel.text = this.gameId + ' ' + i18n.t('baccarat.gameroundid');
+        // this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
 
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
@@ -76,14 +76,14 @@ namespace we {
 
       public update() {
         if (this.tableInfo) {
-          if (this.tableInfo.betInfo) {
-            if (this.tableInfo.betInfo.gameroundid) {
-              this.gameId = this.tableInfo.betInfo.gameroundid;
-            }
-            if (this.tableInfo.betInfo.total) {
-              this.totalBet = this.tableInfo.betInfo.total;
-            }
-          }
+          // if (this.tableInfo.betInfo) {
+          //   if (this.tableInfo.betInfo.gameroundid) {
+          //     this.gameId = this.tableInfo.betInfo.gameroundid;
+          //   }
+          //   if (this.tableInfo.betInfo.total) {
+          //     this.totalBet = this.tableInfo.betInfo.total;
+          //   }
+          // }
           this.changeLang();
         }
       }
