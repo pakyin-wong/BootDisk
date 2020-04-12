@@ -10,7 +10,7 @@ namespace we {
       protected columnbetLabel: eui.Label;
       protected rowbetLabel: eui.Label;
 
-      protected pBetLimit: ui.RunTimeLabel;
+      public pBetLimit: ui.RunTimeLabel;
       protected pGameID: eui.Label;
       protected pColor: eui.Label;
       protected pOddeven: eui.Label;
@@ -184,49 +184,50 @@ namespace we {
       public setValue(tableInfo: data.TableInfo) {
         super.setValue(tableInfo);
 
-        // const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
-        // if (betLimitSet.limits && betLimitSet.limits.ro) {
-        //   const limits = betLimitSet.limits.ro;
-        //   const list = [
-        //     {target: this.pDirectNote, value: limits.DIRECT.maxlimit},
-        //     {target: this.pDirectNoteRatio, value: limits.DIRECT.odd},
-        //     {target: this.pSeparate, value: limits.SEPARATE.maxlimit},
-        //     {target: this.pSeparateRatio, value: limits.SEPARATE.odd},
-        //     {target: this.pStreet, value: limits.STREET.maxlimit},
-        //     {target: this.pStreetRatio, value: limits.STREET.odd},
-        //     {target: this.pCorner, value: limits.CORNER.maxlimit},
-        //     {target: this.pCornerRatio, value: limits.CORNER.odd},
-        //     {target: this.pLineBet, value: limits.LINE.maxlimit},
-        //     {target: this.pLineBetRatio, value: limits.LINE.odd},
-        //     {target: this.pRow, value: limits.ROW.maxlimit},
-        //     {target: this.pRowRatio, value: limits.ROW.odd},
-        //     {target: this.pDozen, value: limits.DOZEN.maxlimit},
-        //     {target: this.pDozenRatio, value: limits.DOZEN.odd},
-        //     {target: this.pColorTwo, value: limits.RED_BLACK.maxlimit},
-        //     {target: this.pColorTwoRatio, value: limits.RED_BLACK.odd},
-        //     {target: this.pOddevenTwo, value: limits.ODD_EVEN.maxlimit},
-        //     {target: this.pOddevenTwoRatio, value: limits.ODD_EVEN.odd},
-        //     {target: this.pSizeTwo, value: limits.BIG_SMALL.maxlimit},
-        //     {target: this.pSizeTwoRatio, value: limits.BIG_SMALL.odd},
-        //   ];
-        //   for (const {target,value} of list) {
-        //     target.text = value.toString();
-        //   }
+        const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
+        if (betLimitSet.limits && betLimitSet.limits.ro) {
+          const limits = betLimitSet.limits.ro;
+          const list = [
+            { target: this.pDirectNote, value: limits.DIRECT.maxlimit },
+            { target: this.pDirectNoteRatio, value: limits.DIRECT.odd },
+            { target: this.pSeparate, value: limits.SEPARATE.maxlimit },
+            { target: this.pSeparateRatio, value: limits.SEPARATE.odd },
+            { target: this.pStreet, value: limits.STREET.maxlimit },
+            { target: this.pStreetRatio, value: limits.STREET.odd },
+            { target: this.pCorner, value: limits.CORNER.maxlimit },
+            { target: this.pCornerRatio, value: limits.CORNER.odd },
+            { target: this.pLineBet, value: limits.LINE.maxlimit },
+            { target: this.pLineBetRatio, value: limits.LINE.odd },
+            { target: this.pRow, value: limits.ROW.maxlimit },
+            { target: this.pRowRatio, value: limits.ROW.odd },
+            { target: this.pDozen, value: limits.DOZEN.maxlimit },
+            { target: this.pDozenRatio, value: limits.DOZEN.odd },
+            { target: this.pColorTwo, value: limits.RED_BLACK.maxlimit },
+            { target: this.pColorTwoRatio, value: limits.RED_BLACK.odd },
+            { target: this.pOddevenTwo, value: limits.ODD_EVEN.maxlimit },
+            { target: this.pOddevenTwoRatio, value: limits.ODD_EVEN.odd },
+            { target: this.pSizeTwo, value: limits.BIG_SMALL.maxlimit },
+            { target: this.pSizeTwoRatio, value: limits.BIG_SMALL.odd },
+          ];
+          for (const { target, value } of list) {
+            target.text = value.toString();
+          }
+        }
       }
-    }
 
-    // public setValue(tableInfo: data.TableInfo) {
-    //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
-    //   this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
-    //   this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
-    //   this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-    //   this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
-    //   if (this.pGameID) {
-    //     this.pGameID.text = tableInfo.betInfo.gameroundid.toString();
-    //   }
-    //   if (this.pGameID) {
-    //     this.pGameID.text = data.BetLimit.toString();
-    //   }
-    // }
+      // public setValue(tableInfo: data.TableInfo) {
+      //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
+      //   this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
+      //   this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
+      //   this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
+      //   this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
+      //   if (this.pGameID) {
+      //     this.pGameID.text = tableInfo.betInfo.gameroundid.toString();
+      //   }
+      //   if (this.pGameID) {
+      //     this.pGameID.text = data.BetLimit.toString();
+      //   }
+      // }
+    }
   }
 }

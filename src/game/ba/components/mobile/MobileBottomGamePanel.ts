@@ -20,30 +20,32 @@ namespace we {
         super(skin || !env.isMobile ? skin : 'ba.MobileBottomGamePanel');
       }
 
-      protected init() {
-        super.init();
+      protected mount() {
+        super.mount();
 
         this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+      }
 
+      protected addListeners() {
+        super.addListeners();
         this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
       }
 
-      public changeLang() {
-        super.changeLang();
+      protected removeListeners() {
+        super.removeListeners();
+        this.roadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+      }
+
+      public updateText() {
+        super.updateText();
 
         this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
-      }
-
-      protected onPanelOpen() {
-        this.roadSheetBtn.visible = !this.isPanelOpen;
-        this.chartBtn.visible = !this.isPanelOpen;
-        this.tableInfoBtn.visible = !this.isPanelOpen;
-
-        super.onPanelOpen();
       }
     }
   }

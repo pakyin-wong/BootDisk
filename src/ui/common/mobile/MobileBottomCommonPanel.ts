@@ -5,51 +5,71 @@ namespace we {
       // protected totalBetLabel: ui.RunTimeLabel;
       // protected gameId: string;
       // protected totalBet: number;
+      public isPanelOpen: boolean = true;
 
       protected _arrow: egret.DisplayObject;
       protected _arrowUp: egret.DisplayObject;
-      public isPanelOpen: boolean = true;
 
       protected _gameInfoLabel: ui.RunTimeLabel;
 
       protected viewStack: eui.ViewStack;
       protected viewStackMask: eui.Rect;
 
-      protected _verGroup: eui.Group;
-
       public constructor(skin?: string) {
         super();
       }
 
-      protected init() {
-        // this.gameId = '';
-        // this.totalBet = 0;
+      protected mount() {
+        super.mount();
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this.changeLang();
+        this.addListeners();
 
-        this._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelOpen, this);
-        this._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelOpen, this);
-
+        this.updateText();
         this.viewStack.mask = this.viewStackMask;
-        this.createVerLayout();
-
         this.viewStack.selectedIndex = 0;
-
-        this.onPanelOpen();
+        this.onPanelToggle();
       }
 
-      public changeLang() {
-        // this.gameIdLabel.text = this.gameId + ' ' + i18n.t('baccarat.gameroundid');
-        // this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+      public destroy() {
+        super.destroy();
 
+        this.removeListeners();
+      }
+
+      protected addListeners() {
+        this._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+        this._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
+      protected removeListeners() {
+        this._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+        this._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+      }
+
+      public updateText() {
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
 
-      protected onPanelOpen() {
-        this._gameInfoLabel.visible = this.isPanelOpen;
-        this._arrow.visible = !this.isPanelOpen;
-        this._arrowUp.visible = this.isPanelOpen;
+      public manualClose() {
+        if (this.isPanelOpen) {
+          this.currentState = 'off';
+          egret.Tween.removeTweens(this.viewStack);
+          egret.Tween.removeTweens(this.viewStackMask);
+          this.isPanelOpen = false;
+          egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+        }
+      }
+
+      protected onPanelToggle() {
+        this.currentState = this.isPanelOpen ? 'off' : 'on';
+
+        egret.Tween.removeTweens(this.viewStack);
+        egret.Tween.removeTweens(this.viewStackMask);
 
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
@@ -60,18 +80,13 @@ namespace we {
           egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
           egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
         }
+
+        this.dispatchEvent(new egret.Event('TOGGLE'));
       }
 
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
         this.viewStack.selectedIndex = radio.value;
-      }
-
-      protected createVerLayout() {
-        const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
-        vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        vLayout.gap = 0;
-        this._verGroup.layout = vLayout;
       }
 
       public update() {
@@ -84,19 +99,8 @@ namespace we {
           //     this.totalBet = this.tableInfo.betInfo.total;
           //   }
           // }
-          this.changeLang();
+          this.updateText();
         }
-      }
-
-      public destroy() {
-        super.destroy();
-
-        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
-          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        }
-
-        this._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelOpen, this);
-        this._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelOpen, this);
       }
     }
   }

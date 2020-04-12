@@ -1119,6 +1119,10 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class MobileSidePanel extends eui.Skin{
 	}
 }
