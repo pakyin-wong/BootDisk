@@ -23,7 +23,6 @@ namespace we {
 
       public mount() {
         this._lblPool.renderText = () => i18n.t('luckywheel.pool');
-        console.log('syest');
 
         this._progress0.setProgress(0.05);
         this._progress1.setProgress(0.2);

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.SystemSetting" width="2424" height="992" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<w:Config id="17152535af4" />
+	<e:Group id="content" left="0" top="0" bottom="0" width="100%" height="1500">
+		<e:Rect left="0" top="0" bottom="-188" fillColor="0x14181e" width="100%" height="220" anchorOffsetY="0" />
+		<e:Image id="close" width="120" height="120" source="d-lobby-button-close-none_png" y="40"  x="1984"/>
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="114" y="34" width="320" height="119" verticalAlign="middle"
+		                 textColor="0xc59466" size="80"  locked="true"/>
+		<ui:Scroller height="756" left="0" right="0" y="266" width="100%">
+			<e:Group height="1042" width="2424">
+				<e:Image width="55" height="55" x="660" y="15" source="m_common_panel_systemsetting_icon_language_png" alpha="0.7"
+				         scaleX="1" scaleY="1" />
+				<ui:RunTimeLabel id="_txt_lang" text="Label" x="817" y="24" size="56" height="83" anchorOffsetX="0"
+				                 verticalAlign="middle" alpha="0.7" scaleX="1" scaleY="1" width="400" />
+				<e:Group id="_btn_currLang" width="609" height="120" x="1128" y="5" scaleX="1" scaleY="1">
+					<e:Rect fillColor="0xffffff" fillAlpha="0" strokeWeight="3" strokeColor="0x4b535b" ellipseWidth="130"
+					        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" width="609"  height="120"/>
+					<ui:RunTimeLabel id="_txt_currLang" text="Label" x="108" y="20.5" width="394" height="89" verticalAlign="middle"
+					                 textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" />
+				</e:Group>
+				<e:Rect width="1048" height="4" x="687" y="241" fillColor="0x979797" scaleX="1" scaleY="1" />
+				<ui:RunTimeLabel id="_txt_liveRecord" text="Label" x="687" y="366" size="56" width="400" height="83"
+				                 textColor="0xb2b2b2" verticalAlign="middle" scaleX="1" scaleY="1" />
+				<ui:Slider id="_slider_liveRecord" width="1042" height="70" x="687" y="535" skinName="skin_mobile_portrait.Slider"
+				           scaleX="1" scaleY="1" />
+				<ui:RunTimeLabel id="_txt_soundfx" text="Label" x="687" y="677" size="56" width="400" height="83"
+				                 verticalAlign="middle" textColor="0xb2b2b2" scaleX="1" scaleY="1" />
+				<e:Group id="_btn_currFx" width="609" height="120" x="1128" y="658" scaleX="1" scaleY="1">
+					<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="3" strokeColor="0x4B535B" ellipseWidth="130"
+					        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+					<ui:RunTimeLabel id="_txt_currFx" text="Label" x="107" y="15.5" width="394" height="89" verticalAlign="middle"
+					                 textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" textColor="0xb2b2b2" />
+				</e:Group>
+				<ui:Slider id="_slider_soundfx" width="1042" height="70" x="687" skinName="skin_mobile_portrait.Slider"
+				           scaleX="1" scaleY="1"  y="820"/>
+
+				<ui:RunTimeLabel id="_txt_bgm" text="Label" x="687" y="973" size="56" width="400" height="83" textColor="0xb2b2b2"
+				                 verticalAlign="middle" scaleX="1" scaleY="1" />
+				<ui:Slider id="_slider_bgm" width="1042" height="70" x="687" y="1142" skinName="skin_mobile_portrait.Slider" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_txt_term" text="Label" x="564.58" y="1261.53" size="20" fontFamily="NotoSansCJKtc" width="80"
+				                 height="29" textColor="0xb2b2b2" scaleX="1" scaleY="1" visible="false" />
+				<e:Label id="_txt_version" text="Label" x="870.58" y="1262.53" textColor="0xb2b2b2" width="90" height="26" size="22"
+				         fontFamily="Barlow" scaleX="1" scaleY="1" visible="false" />
+				<e:Group id="_btn_currBgm" width="251" height="50" x="205" y="298.5" scaleX="1" scaleY="1" visible="false">
+					<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
+					        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+					<ui:RunTimeLabel id="_txt_currBgm" text="Label" x="600" y="7" width="155" height="83" verticalAlign="middle"
+					                 textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+				</e:Group>
+				<ui:Panel id="_ddm_currBgm" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
+				          scaleX="1" scaleY="1" height="756"  locked="true" visible="false"/>
+				<ui:Panel id="_ddm_currFx" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
+				          scaleX="1" scaleY="1" height="756"  locked="true" visible="false"/>
+				<ui:Panel id="_ddm_currLang" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
+				          scaleX="1" scaleY="1" anchorOffsetY="0" height="756" anchorOffsetX="0"  locked="true" visible="false"/>
+			</e:Group>
+		</ui:Scroller>
+	</e:Group>
+</e:Skin>

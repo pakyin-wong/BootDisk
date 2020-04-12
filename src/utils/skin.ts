@@ -32,15 +32,29 @@ namespace we {
         try {
           clazz = eval(skin);
         } catch (err) {
-          return this.getFallbackSkin(name, fallbackOrientation);
+          return this.getCommonSkin(name, fallbackOrientation);
         }
         if (!clazz) {
-          return this.getFallbackSkin(name, fallbackOrientation);
+          return this.getCommonSkin(name, fallbackOrientation);
         }
       }
 
       // check current device
       return `skin_${device}.${name}`;
+    }
+
+    export function getCommonSkin(name: string, fallbackOrientation: string = 'portrait') {
+      let clazz;
+      try {
+        clazz = eval(`skin_mobile.${name}`);
+      } catch (err) {
+        return this.getFallbackSkin(name, fallbackOrientation);
+      }
+      if (!clazz) {
+        return this.getFallbackSkin(name, fallbackOrientation);
+      }
+
+      return `skin_mobile.${name}`;
     }
 
     export function getFallbackSkin(name: string, fallbackOrientation: string = 'portrait') {

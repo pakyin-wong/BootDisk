@@ -48,6 +48,15 @@ namespace we {
           this._toggler = this._dropdown.toggler;
         }
 
+        this.addRoundCornerMask();
+
+        this._chipLayer.visible = false;
+        this._chipLayer.touchEnabled = false;
+        this._chipLayer.touchChildren = false;
+        this._quickBetGroup.y = this._originalQuickBetPanelY;
+      }
+
+      protected addRoundCornerMask() {
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
         shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
@@ -55,11 +64,6 @@ namespace we {
 
         this._contentContainer.addChild(shape);
         this._contentContainer.mask = shape;
-
-        this._chipLayer.visible = false;
-        this._chipLayer.touchEnabled = false;
-        this._chipLayer.touchChildren = false;
-        this._quickBetGroup.y = this._originalQuickBetPanelY;
       }
 
       protected onBetDetailUpdateInBetState() {

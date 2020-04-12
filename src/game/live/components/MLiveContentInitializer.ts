@@ -98,7 +98,7 @@ namespace we {
           gridSwitch.x = 1088;
           gridSwitch.y = 298;
         } else {
-          gridSwitch.x = 2002;
+          gridSwitch.x = 2270;
           gridSwitch.y = 688;
         }
         // gridSwitch.x = 1088;

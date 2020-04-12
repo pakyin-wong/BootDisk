@@ -16,8 +16,8 @@ namespace we {
         this._offsetMovement = 800;
       }
 
-      protected initChildren() {
-        super.initChildren();
+      public setData(tableInfo: data.TableInfo) {
+        super.setData(tableInfo);
         const randNo = Math.round(Math.random() * 4) + 1;
         this._dealerImage.texture = RES.getRes('temp_baccarat_dealer_' + randNo);
       }

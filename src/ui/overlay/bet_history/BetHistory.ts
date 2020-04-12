@@ -56,6 +56,10 @@ namespace we {
       }
 
       protected mount() {
+        this.initBetHistory();
+      }
+
+      protected initBetHistory() {
         this._txt_title.renderText = () => `${i18n.t('overlaypanel_bethistory_title')}`;
         this._txt_date.renderText = () => `${i18n.t('overlaypanel_bethistory_date')}`;
         this._txt_search.renderText = () => `${i18n.t('overlaypanel_bethistory_searchrecord')}`;
@@ -244,12 +248,19 @@ namespace we {
           this.search();
         }
       }
-
+      // doing
       protected update(res: any) {
         logger.l('getBetHistory', res);
         this.total = Math.ceil(res.total / this._limit);
         this._page = Math.floor(res.offset / this._limit) + 1;
         this._ddm_page && this._ddm_page.dropdown.select(this._page);
+        res.history.forEach((element, i) => {
+          if (i % 2 === 1) {
+            element.colorIndex = 1;
+          } else {
+            element.colorIndex = 0;
+          }
+        });
         this._dataColl.replaceAll(res.history);
       }
 
