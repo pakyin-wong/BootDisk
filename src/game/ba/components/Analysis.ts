@@ -79,8 +79,8 @@ namespace we {
           const playerPairPercentage = playerPairCount / totalCount;
           const remainingPercentage = remainingCount / totalCount;
 
-          this._bankerPercentage.text = Math.round(bankerPercentage * 100);
-          this._playerPercentage.text = Math.round(playerPercentage * 100);
+          this._bankerPairPercentage.text = Math.round(bankerPercentage * 100);
+          this._playerPairPercentage.text = Math.round(playerPercentage * 100);
           this._remainingPercentage.text = Math.round(remainingPercentage * 100);
 
           this._pairChart.redAngle = (bankerPairCount / totalCount) * 360;

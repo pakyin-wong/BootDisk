@@ -126,14 +126,14 @@ namespace we {
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
-              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-            },
-          ];
+              {
+                currency: Currency.RMB,
+                maxlimit: 1000,
+                minlimit: 10,
+                chips: [1, 5, 20, 100, 500],
+                // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+              },
+            ];
 
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
@@ -336,6 +336,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(tableid);
 
+        /*
         if (gameStatistic) {
           if (gameStatistic.statistic) {
             console.log('SocketComm::onGameStatisticUpdate');
@@ -343,6 +344,7 @@ namespace we {
             console.log(gameStatistic.statistic);
           }
         }
+        */
 
         function getStatistic(field: string) {
           return gameStatistic.statistic[field] ? gameStatistic.statistic[field] : 0;
@@ -367,7 +369,6 @@ namespace we {
             const shoeTieCount: number = getStatistic('shoetiewincount');
             const shoeTotalCount: number = shoeBankerCount + shoePlayerCount + shoeTieCount;
 
-
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
             const stats = new we.data.GameStatistic();
@@ -378,7 +379,7 @@ namespace we {
             stats.bankerPairCount = bankerPairCount;
             stats.totalCount = totalCount;
             stats.shoeTieCount = shoeTieCount;
-            stats.shoePlayerPairCount = shoePlayerPairCount
+            stats.shoePlayerPairCount = shoePlayerPairCount;
             stats.shoePlayerCount = shoePlayerCount;
             stats.shoeBankerPairCount = shoeBankerPairCount;
             stats.shoeBankerCount = shoeBankerCount;
@@ -387,23 +388,42 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
-          case core.GameType.RO:
-          case core.GameType.DI:
-            {
-              gameStatistic.tableID = tableid;
-              gameStatistic.shoeID = gameStatistic.shoeid;
-              tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+          case core.GameType.RO: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
-              const stats = new we.data.GameStatistic();
-              stats.coldNumbers = gameStatistic.statistic.cold;
-              stats.hotNumbers = gameStatistic.statistic.hot;
-              tableInfo.gamestatistic = stats;
-              break;
-            }
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.roOdd = getStatistic('odd');
+            stats.roRed = getStatistic('red');
+            stats.roSmall = getStatistic('small');
+            stats.roShoeOdd = getStatistic('shoeodd');
+            stats.roShoeRed = getStatistic('shoered');
+            stats.roShoeSmall = getStatistic('shoesmall');
+            tableInfo.gamestatistic = stats;
+
+            break;
+          }
+          case core.GameType.DI: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.diOdd = getStatistic('odd');
+            stats.diSize = getStatistic('size');
+            stats.points = getStatistic('points');
+            tableInfo.gamestatistic = stats;
+            break;
+          }
           case core.GameType.LW:
           default: {
             const stats = new we.data.GameStatistic();
-            stats.totalCount = gameStatistic.statistic.totalCount;
+            stats.totalCount = getStatistic('totalCount');
             tableInfo.gamestatistic = stats;
             break;
           }
@@ -505,7 +525,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
 
@@ -647,7 +667,7 @@ namespace we {
         });
       }
 
-      public getTableHistory() { }
+      public getTableHistory() {}
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);

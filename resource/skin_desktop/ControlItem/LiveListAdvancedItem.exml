@@ -16,7 +16,7 @@
 		<e:Image id="_dealerImage" width="350" height="450" x="0" y="0" />
 		<ui:CountdownTimer id="_timer" width="80" height="80" x="15" y="15" skinName="skin_desktop.CountdownTimerRoundSkin" />
 		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="22" y="362" />
-		<e:Component id="_roadmapNode" width="584" height="450" x="350" y="0" visible="false" />
+		<e:Component id="_advancedRoadNode" width="584" height="450" x="350" y="0" visible="false" />
 		<ui:InGameMessage id="_message" skinName="skin_desktop.InGameMessageSkin" width="303" height="32" x="23" y="115"
 		                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 		                  errorBg="d_ba_gamerecord_bankerelement_png" />

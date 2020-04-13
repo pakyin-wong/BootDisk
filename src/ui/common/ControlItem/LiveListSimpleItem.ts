@@ -52,7 +52,7 @@ namespace we {
       }
 
       protected generateRoadmap() {
-        if (this.itemInitHelper) {
+        if (this.itemInitHelper && this._roadmapNode) {
           this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
         }
       }

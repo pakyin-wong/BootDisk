@@ -2,9 +2,9 @@
 <e:Skin class="skin_desktop.di.Analysis" width="278" height="450" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*">
     <e:Group width="255" height="199" horizontalCenter="0" y="11">
-        <di:DiPie skinName="skin_desktop.AnalysisPie" />
+        <di:DiPie id="_diPie" skinName="skin_desktop.AnalysisPie" />
     </e:Group>
     <e:Group width="255" height="221" horizontalCenter="0" bottom="13">
-        <di:DiChance skinName="skin_desktop.AnalysisChance" />
+        <di:DiChance id="_diChance" skinName="skin_desktop.AnalysisChance" />
     </e:Group>
 </e:Skin>

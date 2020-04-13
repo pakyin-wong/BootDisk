@@ -1,6 +1,8 @@
 namespace we {
   export namespace ui {
     export class LiveListAdvancedItem extends LiveListItem {
+      protected _advancedRoadNode: eui.Component;
+      protected _advancedRoad: IAdvancedRoad;
       protected _analysisNode: eui.Component;
       protected _analysis: IAnalysis;
 
@@ -11,6 +13,7 @@ namespace we {
       protected initComponents() {
         super.initComponents();
         this.generateAnalysis();
+        this.generateAdvancedRoad();
       }
 
       protected arrangeComponents() {
@@ -19,6 +22,15 @@ namespace we {
           if (this._analysisNode) {
             this._analysis[att] = this._analysisNode[att];
           }
+          if (this._advancedRoadNode) {
+            this._advancedRoad[att] = this._advancedRoadNode[att];
+          }
+        }
+      }
+
+      protected generateAdvancedRoad() {
+        if (this.itemInitHelper) {
+          this._advancedRoad = this.itemInitHelper.generateAdvancedRoad(this._advancedRoadNode);
         }
       }
 
@@ -46,6 +58,13 @@ namespace we {
           if (tableInfo.tableid === this._tableId) {
             this._analysis.tableId = this._tableId;
             this._analysis.updateRoad();
+            console.log('LiveListAdvancedItem::onRoadDataUpdate');
+            if (this._tableInfo) {
+              console.log('LiveListAdvancedItem::onRoadDataUpdate _advancedRoad');
+
+              this._advancedRoad.tableInfo = this._tableInfo;
+              this._advancedRoad.update(this._tableInfo.roadmap);
+            }
           }
         }
       }

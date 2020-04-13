@@ -25,15 +25,21 @@ namespace we {
         // this.pieSize.y = 87;
         // this.pieSize.maxChartSize = this._maxChartSize
         // this.addChild(this.pieSize);
-
         // this.pieOdd = new we.di.RankedPieChart();
         // this.pieOdd.x = 104;
         // this.pieOdd.y = 212;
         // this.pieSize.maxChartSize = this._maxChartSize
         // this.addChild(this.pieOdd);
-
         this._pieSize.setRanksAndAnimate([30, 15, 55]);
         this._pieOdd.setRanksAndAnimate([45, 10, 45]);
+      }
+
+      public setPieSize(value: number[]) {
+        this._pieSize.setRanksAndAnimate(value);
+      }
+
+      public setPieOdd(value: number[]) {
+        this._pieOdd.setRanksAndAnimate(value);
       }
 
       public set maxChartSize(value: number) {
