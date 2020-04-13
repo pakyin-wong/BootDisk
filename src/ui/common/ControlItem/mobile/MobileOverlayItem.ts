@@ -31,7 +31,8 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-        this._betChipSetPanel.alpha = 0;
+        this._betChipSetPanel.visible = false;
+
         this._betChipSet.alpha = 1;
       }
 
@@ -176,12 +177,17 @@ namespace we {
 
       protected showBetChipPanel() {
         this._betChipSetPanel.anchorOffsetY = 30;
+        this._betChipSetPanel.visible = true;
         egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
         this._betChipSetGridEnabled = true;
       }
 
       protected hideBetChipPanel() {
-        egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
+        egret.Tween.get(this._betChipSetPanel)
+          .to({ alpha: 0, anchorOffsetY: 30 }, 250)
+          .call(() => {
+            this._betChipSetPanel.visible = false;
+          });
         this._betChipSetGridEnabled = false;
       }
 
