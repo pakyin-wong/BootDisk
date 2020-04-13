@@ -2,16 +2,16 @@ namespace we {
   export namespace di {
     export class LiveListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
-        const tableLayer = new ro.LobbyTableLayer();
-        tableLayer.skinName = `skin_desktop.ro.LiveListItemTableLayerSkin`;
+        const tableLayer = new di.LobbyTableLayer();
+        tableLayer.skinName = `skin_desktop.di.LiveListItemTableLayerSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
       }
 
       public generateChipLayer(node: eui.Component) {
-        const chipLayer = new ro.LobbyChipLayer();
-        chipLayer.skinName = `skin_desktop.ro.LiveListItemChipLayerSkin`;
+        const chipLayer = new di.LobbyChipLayer();
+        chipLayer.skinName = `skin_desktop.di.LiveListItemChipLayerSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;
@@ -31,6 +31,20 @@ namespace we {
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;
+      }
+
+      public generateAnalysis(node: eui.Component) {
+        const analysis = new di.Analysis();
+        const idx = node.parent.getChildIndex(node);
+        /*
+        analysis.width = node.width;
+        analysis.height = node.height;
+        analysis.x = node.x;
+        analysis.y = node.y;
+        analysis.right = node.right;
+        */
+        node.parent.addChildAt(analysis, idx);
+        return analysis;
       }
     }
   }

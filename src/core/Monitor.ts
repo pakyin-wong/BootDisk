@@ -94,7 +94,6 @@ namespace we {
       private onOrientationChange() {
         // this.initOrientationDependentStage(this.initStage);
         this.arrangeStage(this._initStage);
-        logger.l('HI!');
       }
 
       private initStage(stage: egret.Stage) {

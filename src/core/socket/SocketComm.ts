@@ -126,14 +126,14 @@ namespace we {
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
-              {
-                currency: Currency.RMB,
-                maxlimit: 1000,
-                minlimit: 10,
-                chips: [1, 5, 20, 100, 500],
-                // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-              },
-            ];
+            {
+              currency: Currency.RMB,
+              maxlimit: 1000,
+              minlimit: 10,
+              chips: [1, 5, 20, 100, 500],
+              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+            },
+          ];
 
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
@@ -336,18 +336,37 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(tableid);
 
+        if (gameStatistic) {
+          if (gameStatistic.statistic) {
+            console.log('SocketComm::onGameStatisticUpdate');
+            console.log(tableid);
+            console.log(gameStatistic.statistic);
+          }
+        }
+
+        function getStatistic(field: string) {
+          return gameStatistic.statistic[field] ? gameStatistic.statistic[field] : 0;
+        }
+
         switch (gameStatistic.gametype) {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.DT: {
             const roadmapData = parseAscString(gameStatistic.roadmapdata);
-            const bankerCount: number = gameStatistic.statistic.bankerwincount ? gameStatistic.statistic.bankerwincount : 0;
-            const playerCount: number = gameStatistic.statistic.playerwincount ? gameStatistic.statistic.playerwincount : 0;
-            const tieCount: number = gameStatistic.statistic.tiewincount ? gameStatistic.statistic.tiewincount : 0;
-            const playerPairCount: number = gameStatistic.statistic.playerpairwincount ? gameStatistic.statistic.playerpairwincount : 0;
-            const bankerPairCount: number = gameStatistic.statistic.bankerpairwincount ? gameStatistic.statistic.bankerpairwincount : 0;
+            const bankerCount: number = getStatistic('bankerwincount');
+            const playerCount: number = getStatistic('playerwincount');
+            const tieCount: number = getStatistic('tiewincount');
+            const playerPairCount: number = getStatistic('playerpairwincount');
+            const bankerPairCount: number = getStatistic('bankerpairwincount');
             const totalCount: number = bankerCount + playerCount + tieCount;
+            const shoeBankerPairCount: number = getStatistic('shoebankerpairwincount');
+            const shoeBankerCount: number = getStatistic('shoebankerwincount');
+            const shoePlayerPairCount: number = getStatistic('shoeplayerpairwincount');
+            const shoePlayerCount: number = getStatistic('shoeplayerwincount');
+            const shoeTieCount: number = getStatistic('shoetiewincount');
+            const shoeTotalCount: number = shoeBankerCount + shoePlayerCount + shoeTieCount;
+
 
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
@@ -358,21 +377,33 @@ namespace we {
             stats.playerPairCount = playerPairCount;
             stats.bankerPairCount = bankerPairCount;
             stats.totalCount = totalCount;
+            stats.shoeTieCount = shoeTieCount;
+            stats.shoePlayerPairCount = shoePlayerPairCount
+            stats.shoePlayerCount = shoePlayerCount;
+            stats.shoeBankerPairCount = shoeBankerPairCount;
+            stats.shoeBankerCount = shoeBankerCount;
+            stats.shoeTotalCount = shoeTotalCount;
 
             tableInfo.gamestatistic = stats;
             break;
           }
           case core.GameType.RO:
           case core.GameType.DI:
+            {
+              gameStatistic.tableID = tableid;
+              gameStatistic.shoeID = gameStatistic.shoeid;
+              tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+
+              const stats = new we.data.GameStatistic();
+              stats.coldNumbers = gameStatistic.statistic.cold;
+              stats.hotNumbers = gameStatistic.statistic.hot;
+              tableInfo.gamestatistic = stats;
+              break;
+            }
           case core.GameType.LW:
           default: {
-            gameStatistic.tableID = tableid;
-            gameStatistic.shoeID = gameStatistic.shoeid;
-            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
-
             const stats = new we.data.GameStatistic();
-            stats.coldNumbers = gameStatistic.statistic.cold;
-            stats.hotNumbers = gameStatistic.statistic.hot;
+            stats.totalCount = gameStatistic.statistic.totalCount;
             tableInfo.gamestatistic = stats;
             break;
           }
@@ -474,7 +505,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 
@@ -583,6 +614,7 @@ namespace we {
       }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
+        /*
         console.log(
           'SocketComm::createCustomBetCombination title/betOptions ',
           title,
@@ -590,6 +622,7 @@ namespace we {
             return { field: value.betcode, amount: value.amount };
           })
         );
+        */
         this.client.createBetTemplate(
           title,
           betOptions.map(value => {
@@ -603,7 +636,7 @@ namespace we {
 
       public getBetCombination() {
         this.client.getBetTemplate((data: any[]) => {
-          console.log('SocketComm::getBetCombination data ', data);
+          // console.log('SocketComm::getBetCombination data ', data);
           dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
         });
       }
@@ -614,7 +647,7 @@ namespace we {
         });
       }
 
-      public getTableHistory() {}
+      public getTableHistory() { }
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);

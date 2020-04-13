@@ -30,8 +30,8 @@ namespace we {
         }
       }
 
-      protected onTableBetInfoUpdate() {
-        super.onTableBetInfoUpdate();
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {

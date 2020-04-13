@@ -208,8 +208,8 @@ namespace we {
         }
       }
 
-      protected onTableBetInfoUpdate() {
-        super.onTableBetInfoUpdate();
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
         } else {

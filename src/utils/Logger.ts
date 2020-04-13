@@ -31,8 +31,15 @@ namespace we {
           .split('\n')
           [1 /* logger internal */ + 2].trim()
           .replace('at ', '');
-        const link = msg.match(/http[^\)]+/)[0];
-        msg = msg.replace(link, '').replace(' ()', '');
+        const match = msg.match(/http[^\)]+/);
+        let link = '';
+        if (match && match.length > 0) {
+          link = match[0];
+          if (link) {
+            msg = msg.replace(link, '');
+          }
+        }
+        msg = msg.replace(' ()', '');
 
         // if whitelist is enabled
         if (this._whitelist.length > 0) {

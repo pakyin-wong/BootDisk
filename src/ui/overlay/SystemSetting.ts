@@ -30,8 +30,11 @@ namespace we {
 
       protected mount() {
         super.mount();
+      }
+
+      protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.system.title')}`;
-        this._txt_lang.renderText = () => `${i18n.t('nav.system.lang')}`;
+        this._txt_lang.renderText = () => i18n.t('nav.system.lang');
         this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
         this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
@@ -175,6 +178,11 @@ namespace we {
         env.bgm = e.data;
         dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
         this._ddm_currBgm && this._ddm_currBgm.dropdown.select(env.bgm);
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.init_menu();
       }
     }
   }

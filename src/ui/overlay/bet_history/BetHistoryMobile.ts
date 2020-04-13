@@ -10,6 +10,10 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this.initBetHistoryMobile();
+      }
+
+      protected initBetHistoryMobile() {
         utils.DropdownCreator.new({
           toggler: this._btn_searchType,
           review: this._btn_searchType.label,
@@ -35,6 +39,7 @@ namespace we {
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
         this._scroller.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
+        this.addListeners();
       }
 
       protected addListeners() {
@@ -117,6 +122,13 @@ namespace we {
       protected onClickResult(e) {
         this._detail.dataChanged(this._dataColl.source[e.itemIndex]);
         this._detail.show();
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.initBetHistory();
+        this.initBetHistoryMobile();
+        this.addListeners();
       }
     }
   }
