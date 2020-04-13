@@ -66,7 +66,7 @@ namespace we {
         // this.roadsContainer.alpha = 0.5;
         this.addChild(this.roadsContainer);
 
-        this.beadRoad = new BABeadRoad(16, gridSize, 2, true);
+        this.beadRoad = new BABeadRoad(16, gridSize, 2, false);
         this.beadRoad.x = 0;
         this.beadRoad.y = 0;
         this.beadRoad.scaleX = 690 / 689;
