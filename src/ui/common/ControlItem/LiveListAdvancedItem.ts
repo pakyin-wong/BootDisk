@@ -10,10 +10,25 @@ namespace we {
         super(skinName);
       }
 
+      public get advancedRoad() {
+        return this._advancedRoad;
+      }
+
       protected initComponents() {
         super.initComponents();
         this.generateAnalysis();
         this.generateAdvancedRoad();
+      }
+
+      protected onTouchTap(evt: egret.Event) {
+        const target = evt.target;
+
+        if (target instanceof eui.Image && target.name === 'askRoad') {
+          evt.stopPropagation();
+          return;
+        }
+
+        super.onTouchTap(evt);
       }
 
       protected arrangeComponents() {

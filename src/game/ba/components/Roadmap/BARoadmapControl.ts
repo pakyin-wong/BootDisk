@@ -111,12 +111,12 @@ namespace we {
       }
 
       // predict banker win
-      protected onBankerClick(e: egret.TouchEvent) {
+      public onBankerClick(e: egret.TouchEvent) {
         this.doPredict(0);
       }
 
       // predict banker win
-      protected onPlayerClick(e: egret.TouchEvent) {
+      public onPlayerClick(e: egret.TouchEvent) {
         this.doPredict(1);
       }
 
