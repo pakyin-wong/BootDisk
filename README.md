@@ -153,7 +153,11 @@ npm install -g tslint prettier typescript
 
 ## Asset Link from Design Team (Copied from whatsapp group)
 
+- [4/3/2020 God Of Wealth Roulette](https://drive.google.com/drive/folders/1Q-ipvuxyQpjNhumkXEdY77-iiZAJXKSn)
+
 - [4/3/2020 Squeeze Baccarat](https://drive.google.com/drive/u/1/folders/1PFeDwG-NGW2phdCwZRUyUGWbgrJW-dqC)
+
+- [1/4/2020 Mobile Sicbo](https://drive.google.com/drive/folders/1trOwAd7mR35J8dIKwbRJGcgBiP1sYzRg)
 
 - [25/3/2020 Mobile Lucky Wheel](https://drive.google.com/drive/u/1/folders/11U1zAF16Bs0mJCciEM6orU6i6Et5mOzU)
 
