@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.SideListBetItemSkin" width="1140" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" minHeight="158"
-        height="399">
+<e:Skin class="skin_mobile.SideListBetItemSkin" width="1140" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" minHeight="158" height="399">
 	<e:Group id="_contentContainer" x="0" height="399" width="100%">
 		<e:Rect height="105" y="0" fillColor="0x202020" right="0" left="0" />
 		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="110" y="24" size="48" />
