@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.lw.MobileBottomRoadmapPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group id="content" width="100%" height="100%">
+		<e:Rect id="bg" width="100%" height="100%" x="0" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0" ellipseWidth="0" strokeColor="0x1f242b"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</e:Group>
+</e:Skin>
