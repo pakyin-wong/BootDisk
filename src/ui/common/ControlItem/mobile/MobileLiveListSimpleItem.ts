@@ -6,8 +6,48 @@ namespace we {
       protected _alreadyBetSign: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
+      protected _roadmapNode: eui.Component;
+
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected initComponents() {
+        super.initComponents();
+        this.generateRoadmap();
+      }
+
+      protected generateRoadmap() {
+        if (this.itemInitHelper) {
+          this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
+        }
+      }
+
+      // set the position of the children components
+      protected arrangeComponents() {
+        const properties = [
+          'x',
+          'y',
+          'width',
+          'height',
+          'scaleX',
+          'scaleY',
+          'left',
+          'right',
+          'top',
+          'bottom',
+          'verticalCenter',
+          'horizontalCenter',
+          'anchorOffsetX',
+          'anchorOffsetY',
+          'percentWidth',
+          'percentHeight',
+        ];
+        for (const att of properties) {
+          if (this._roadmapNode && this._bigRoad) {
+            this._bigRoad[att] = this._roadmapNode[att];
+          }
+        }
       }
 
       protected initChildren() {

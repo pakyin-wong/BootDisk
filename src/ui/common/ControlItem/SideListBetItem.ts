@@ -85,6 +85,9 @@ namespace we {
           if (this._resultMessage) {
             this._resultMessage[att] = this._resultMessageNode[att];
           }
+          if (this._cardHolder) {
+            this._cardHolder[att] = this._resultDisplayNode[att];
+          }
         }
       }
 
