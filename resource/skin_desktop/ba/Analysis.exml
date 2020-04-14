@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ba.Analysis" width="278" height="450" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:ViewStack width="240" height="334" y="14" horizontalCenter="0" selectedIndex="0">
+		<e:Group name="Group" width="240" height="334">
+			<e:Group width="240" height="160" y="0">
+				<e:Rect width="240" height="160" x="0" y="0" fillColor="0x212425" />
+				<ui:RunTimeLabel id="_normalTitle" text="庄閒和比例(100局)" x="14" y="10" height="27" size="20" textAlign="left"
+				                 verticalAlign="middle" bold="true" />
+				<e:Group x="19" y="66">
+					<e:Image width="21" height="21" source="d_ba_roadmap_bar_bankerstate_png" />
+					<ui:RunTimeLabel id="_bankerLabel" text="B" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
+					                 horizontalCenter="0" i18n="baccarat.bankerShort" />
+				</e:Group>
+				<e:Group x="8" y="86" width="43">
+					<e:Label id="_bankerCount" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+					<e:Group horizontalCenter="0" y="30">
+						<e:Label id="_bankerPercentage" text="50" textAlign="center" size="12" />
+						<e:Label text="%" textAlign="center" size="12" />
+						<e:layout>
+							<e:HorizontalLayout gap="2" />
+						</e:layout>
+					</e:Group>
+				</e:Group>
+				<e:Group x="64" y="66">
+					<e:Image width="21" height="21" source="d_ba_roadmap_bar_playerstate_png" />
+					<ui:RunTimeLabel id="_playerLabel" text="P" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
+					                 horizontalCenter="0" i18n="baccarat.playerShort" />
+				</e:Group>
+				<e:Group x="53" y="86" width="43">
+					<e:Label id="_playerCount" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+					<e:Group horizontalCenter="0" y="30">
+						<e:Label id="_playerPercentage" text="50" textAlign="center" size="12" />
+						<e:Label text="%" textAlign="center" size="12" />
+						<e:layout>
+							<e:HorizontalLayout gap="2" />
+						</e:layout>
+					</e:Group>
+				</e:Group>
+				<e:Group x="110" y="66">
+					<e:Image width="21" height="21" source="d_ba_roadmap_bar_tierstate_png" />
+					<ui:RunTimeLabel id="_tieLabel" text="T" size="10" verticalAlign="middle" bold="true" verticalCenter="0"
+					                 horizontalCenter="0" i18n="baccarat.tieShort" />
+				</e:Group>
+				<e:Group x="100" y="86" width="43">
+					<e:Label id="_tieCount" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+					<e:Group horizontalCenter="0" y="30">
+						<e:Label id="_tiePercentage" text="50" textAlign="center" size="12" />
+						<e:Label text="%" textAlign="center" size="12" />
+						<e:layout>
+							<e:HorizontalLayout gap="2" />
+						</e:layout>
+					</e:Group>
+				</e:Group>
+				<e:Rect x="51" y="89" width="2" height="15" fillColor="0xCCCCCC" />
+				<e:Rect x="98" y="89" width="2" height="15" fillColor="0xCCCCCC" />
+				<e:Group x="150" y="70">
+					<ui:SimpleChart id="_normalChart" width="70" height="70" radius="35" lineWidth="8" />
+					<e:Group verticalCenter="0" horizontalCenter="0">
+						<e:Label id="_normalTotal" text="40" size="12" />
+						<e:Label text="局" size="12" />
+						<e:layout>
+							<e:HorizontalLayout gap="2" />
+						</e:layout>
+					</e:Group>
+				</e:Group>
+			</e:Group>
+			<e:Group width="240" height="160" y="174">
+				<e:Rect width="240" height="160" x="0" y="0" fillColor="0x212425" />
+				<e:Label id="_pairTitle" text="庄對閒對比例(100局)" x="14" y="10" size="20" textAlign="center" verticalAlign="middle"
+				         bold="true" />
+				<e:Group x="19" y="66">
+					<e:Image width="21" height="21" source="d_ba_roadmap_bar_bankerpairstate_png" />
+				</e:Group>
+				<e:Group x="8" y="86" width="43">
+					<e:Label id="_bankerPairCount" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+					<e:Group horizontalCenter="0" y="30">
+						<e:Label id="_bankerPairPercentage" text="50" textAlign="center" size="12" />
+						<e:Label text="%" textAlign="center" size="12" />
+						<e:layout>
+							<e:HorizontalLayout gap="2" />
+						</e:layout>
+					</e:Group>
+				</e:Group>
+				<e:Group x="64" y="66">
+					<e:Image width="21" height="21" source="d_ba_roadmap_bar_playerpairstate_png" />
+				</e:Group>
+				<e:Group x="53" y="86" width="43">
+					<e:Label id="_playerPairCount" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+					<e:Group horizontalCenter="0" y="30">
+						<e:Label id="_playerPairPercentage" text="50" textAlign="center" size="12" />
+						<e:Label text="%" textAlign="center" size="12" />
+						<e:layout>
+							<e:HorizontalLayout gap="2" />
+						</e:layout>
+					</e:Group>
+				</e:Group>
+				<e:Group x="110" y="66">
+					<e:Image width="21" height="21" source="d_ba_roadmap_bar_remainingstate_png" />
+				</e:Group>
+				<e:Group x="100" y="86" width="43">
+					<e:Label id="_remainingCount" text="50" textAlign="center" horizontalCenter="0" y="0" size="20" />
+					<e:Group horizontalCenter="0" y="30">
+						<e:Label id="_remainingPercentage" text="50" textAlign="center" size="12" />
+						<e:Label text="%" textAlign="center" size="12" />
+						<e:layout>
+							<e:HorizontalLayout gap="2" />
+						</e:layout>
+					</e:Group>
+				</e:Group>
+				<e:Rect x="51" y="89" width="2" height="15" fillColor="0xCCCCCC" />
+				<e:Rect x="98" y="89" width="2" height="15" fillColor="0xCCCCCC" />
+				<e:Group x="150" y="70">
+					<ui:SimpleChart id="_pairChart" width="70" height="70" radius="35" lineWidth="8" />
+					<e:Group verticalCenter="0" horizontalCenter="0">
+						<e:Label id="_pairTotal" text="40" size="12" />
+						<e:Label text="局" size="12" />
+						<e:layout>
+							<e:HorizontalLayout gap="2" />
+						</e:layout>
+					</e:Group>
+				</e:Group>
+			</e:Group>
+		</e:Group>
+		<e:Group name="View">
+			<e:Label text="1" />
+		</e:Group>
+	</e:ViewStack>
+	<e:Group x="19" y="368" width="110" height="55">
+		<e:Image id="iconBankerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0"
+		         scale9Grid="15,13,37,5" />
+		<ui:RunTimeLabel id="_playerAskLabel" text="Ask P" textAlign="center" anchorOffsetX="0" width="110" size="16"
+		                 height="28" verticalAlign="middle" touchEnabled="false" />
+		<e:Image width="14" height="14" x="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+		<e:Image width="14" height="14" y="34" horizontalCenter="0" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+		<e:Image width="14" height="14" right="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+	</e:Group>
+	<e:Group right="19" y="368" width="110" height="55">
+		<e:Image id="iconPlayerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_player_png"
+		         scale9Grid="15,13,37,5" />
+		<ui:RunTimeLabel id="_bankerAskLabel" text="Ask B" textAlign="center" anchorOffsetX="0" width="110" size="16"
+		                 verticalAlign="middle" height="28" touchEnabled="false" />
+		<e:Image width="14" height="14" x="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+		<e:Image width="14" height="14" y="34" horizontalCenter="0" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+		<e:Image width="14" height="14" right="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+	</e:Group>
+</e:Skin>

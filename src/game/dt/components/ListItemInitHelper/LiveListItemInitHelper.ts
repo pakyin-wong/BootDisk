@@ -23,6 +23,20 @@ namespace we {
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;
       }
+
+      public generateAnalysis(node: eui.Component) {
+        const analysis = new dt.Analysis();
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(analysis, idx);
+        return analysis;
+      }
+
+      public generateAdvancedRoad(node: eui.Component) {
+        const advancedRoad = new ba.BALobbyAdvancedRoad();
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(advancedRoad, idx);
+        return advancedRoad;
+      }
     }
   }
 }

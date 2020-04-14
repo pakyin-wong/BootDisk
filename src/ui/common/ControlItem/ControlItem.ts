@@ -167,7 +167,7 @@ namespace we {
 
       protected onMatchGoodRoadUpdate() {}
 
-      protected onTableBetInfoUpdate() {
+      protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
@@ -217,9 +217,7 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {
-        logger.l('BaccaratScene::onRoadDataUpdate');
-      }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {

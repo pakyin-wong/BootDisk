@@ -9,6 +9,25 @@ namespace we {
       protected _chipLayerNode: eui.Component;
       protected _roadmapNode: eui.Component;
 
+      protected _arrangeProperties = [
+        'x',
+        'y',
+        'width',
+        'height',
+        'scaleX',
+        'scaleY',
+        'left',
+        'right',
+        'top',
+        'bottom',
+        'verticalCenter',
+        'horizontalCenter',
+        'anchorOffsetX',
+        'anchorOffsetY',
+        'percentWidth',
+        'percentHeight',
+      ];
+
       public constructor(skinName: string = null) {
         super(skinName);
       }
@@ -33,32 +52,14 @@ namespace we {
       }
 
       protected generateRoadmap() {
-        if (this.itemInitHelper) {
+        if (this.itemInitHelper && this._roadmapNode) {
           this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
         }
       }
 
       // set the position of the children components
       protected arrangeComponents() {
-        const properties = [
-          'x',
-          'y',
-          'width',
-          'height',
-          'scaleX',
-          'scaleY',
-          'left',
-          'right',
-          'top',
-          'bottom',
-          'verticalCenter',
-          'horizontalCenter',
-          'anchorOffsetX',
-          'anchorOffsetY',
-          'percentWidth',
-          'percentHeight',
-        ];
-        for (const att of properties) {
+        for (const att of this._arrangeProperties) {
           if (this._tableLayer) {
             this._tableLayer[att] = this._tableLayerNode[att];
           }
@@ -80,8 +81,8 @@ namespace we {
         }
       }
 
-      protected onTableBetInfoUpdate() {
-        super.onTableBetInfoUpdate();
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
@@ -116,14 +117,21 @@ namespace we {
         this._quickbetButton.tween(!this.list.isLocked);
         super.showQuickBetGroup();
         egret.Tween.removeTweens(this._chipLayer);
-        const p3 = new Promise(resolve => egret.Tween.get(this._chipLayer).set({ visible: true }).to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1).call(resolve));
+        const p3 = new Promise(resolve =>
+          egret.Tween.get(this._chipLayer)
+            .set({ visible: true })
+            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
+            .call(resolve)
+        );
       }
 
       protected hideQuickBetGroup() {
         this._quickbetButton.tween(!this.list.isLocked);
         super.hideQuickBetGroup();
         egret.Tween.removeTweens(this._chipLayer);
-        egret.Tween.get(this._chipLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1).set({ visible: false });
+        egret.Tween.get(this._chipLayer)
+          .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
+          .set({ visible: false });
       }
 
       protected setBetRelatedComponentsEnabled(enable) {
@@ -146,16 +154,20 @@ namespace we {
         super.animateQuickBetButton(show);
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
-          egret.Tween.get(this._quickbetButton).set({ visible: true }).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._quickbetButton)
+            .set({ visible: true })
+            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
+          egret.Tween.get(this._quickbetButton)
+            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+            .set({ visible: false });
         }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);

@@ -57,6 +57,7 @@ namespace we {
         if (env.isMobile) {
           this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
+          this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
         }
 
         // create mask
