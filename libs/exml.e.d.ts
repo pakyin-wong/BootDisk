@@ -115,6 +115,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.ba{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
 	class TableInfoPanel extends eui.Skin{
 	}
 }
@@ -166,6 +170,14 @@ declare module skin_desktop.di{
 	class Analysis extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class AnalysisChance extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class AnalysisPie extends eui.Skin{
+	}
+}
 declare module skin_desktop.di{
 	class ChipLayerSkin extends eui.Skin{
 	}
@@ -184,6 +196,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class DiRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiRightPanelChance extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiRightPanelPie extends eui.Skin{
 	}
 }
 declare module skin_desktop.di{
@@ -685,6 +705,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class MessageDialog extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class PlayerProfile extends eui.Skin{
 	}
 }
@@ -748,6 +772,10 @@ declare module skin_mobile_portrait.ba{
 }
 declare module skin_mobile_portrait.ba{
 	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
+	class MobileBottomRoadmapPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
@@ -1112,6 +1140,10 @@ declare module skin_mobile_portrait.ro{
 }
 declare module skin_mobile_portrait.ro{
 	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class MobileBottomRoadmapPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{

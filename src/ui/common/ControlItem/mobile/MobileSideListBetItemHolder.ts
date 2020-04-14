@@ -30,7 +30,13 @@ namespace we {
           default:
             generalGameType = 'dt';
         }
-        this._displayItem = new we.ui.MobileSideListBetItem(generalGameType + '.SideListBetItemSkin');
+        const listItem = new we.ui.MobileSideListBetItem('SideListBetItemSkin');
+        if (we[generalGameType].LargeListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].LargeListItemInitHelper();
+        }
+
+        this._displayItem = listItem;
+
         this.setDisplayItem(this._displayItem);
       }
     }

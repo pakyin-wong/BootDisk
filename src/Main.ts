@@ -52,19 +52,19 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
     if (type === 'mobile') {
-      // if (true) {
-      env.isMobile = true;
-      this.updateMobileHitTest();
-      // use these when there is portrait mode only
-      // this.stage.setContentSize(1242, 2155);
-      // this.stage.orientation = egret.OrientationMode.PORTRAIT;
-      // env.orientation = egret.OrientationMode.PORTRAIT;
-      // this.stage.setContentSize(2155, 1242);
-      // this.stage.orientation = egret.OrientationMode.LANDSCAPE;
-      // env.orientation = egret.OrientationMode.LANDSCAPE;
+    // if (true) {
+    env.isMobile = true;
+    this.updateMobileHitTest();
+    // use these when there is portrait mode only
+    // this.stage.setContentSize(1242, 2155);
+    // this.stage.orientation = egret.OrientationMode.PORTRAIT;
+    // env.orientation = egret.OrientationMode.PORTRAIT;
+    // this.stage.setContentSize(2155, 1242);
+    // this.stage.orientation = egret.OrientationMode.LANDSCAPE;
+    // env.orientation = egret.OrientationMode.LANDSCAPE;
 
-      // uncomment below when there are both portrait and landscape layout
-      this.orientationManager = new we.utils.OrientationManager(this.stage);
+    // uncomment below when there are both portrait and landscape layout
+    this.orientationManager = new we.utils.OrientationManager(this.stage);
     }
 
     dir.evtHandler = new we.core.EventHandler();
@@ -115,7 +115,10 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/default.res.json`, 'resource/');
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}.res.json`, 'resource/');
       await this.loadTheme();
-      fontMgr.loadFonts([{ res: 'Barlow-Regular', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' }]);
+      fontMgr.loadFonts([
+        { res: 'Barlow-Regular', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' },
+      ]);
       await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
       logger.e(err);

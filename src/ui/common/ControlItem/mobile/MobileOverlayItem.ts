@@ -25,10 +25,73 @@ namespace we {
 
       protected _toggler: ui.RunTimeLabel;
 
+      protected _tableLayerNode: eui.Component;
+      protected _chipLayerNode: eui.Component;
+      protected _roadmapNode: eui.Component;
+
       public constructor(skinName: string = null) {
         super(skinName);
-        this._betChipSetPanel.alpha = 0;
+        this._betChipSetPanel.visible = false;
+
         this._betChipSet.alpha = 1;
+      }
+
+      protected initComponents() {
+        super.initComponents();
+        this.generateRoadmap();
+        this.generateTableLayer();
+        this.generateChipLayer();
+      }
+
+      protected generateTableLayer() {
+        if (this.itemInitHelper) {
+          this._tableLayer = this.itemInitHelper.generateTableLayer(this._tableLayerNode);
+        }
+      }
+
+      protected generateChipLayer() {
+        if (this.itemInitHelper) {
+          this._chipLayer = this.itemInitHelper.generateChipLayer(this._chipLayerNode);
+        }
+      }
+
+      protected generateRoadmap() {
+        if (this.itemInitHelper) {
+          this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
+        }
+      }
+
+      // set the position of the children components
+      protected arrangeComponents() {
+        const properties = [
+          'x',
+          'y',
+          'width',
+          'height',
+          'scaleX',
+          'scaleY',
+          'left',
+          'right',
+          'top',
+          'bottom',
+          'verticalCenter',
+          'horizontalCenter',
+          'anchorOffsetX',
+          'anchorOffsetY',
+          'percentWidth',
+          'percentHeight',
+        ];
+        for (const att of properties) {
+          if (this._tableLayer) {
+            this._tableLayer[att] = this._tableLayerNode[att];
+          }
+          if (this._chipLayer) {
+            this._chipLayer[att] = this._chipLayerNode[att];
+          }
+          if (this._roadmapNode && this._bigRoad) {
+            this._bigRoad[att] = this._roadmapNode[att];
+          }
+        }
       }
 
       protected initChildren() {
@@ -114,12 +177,17 @@ namespace we {
 
       protected showBetChipPanel() {
         this._betChipSetPanel.anchorOffsetY = 30;
+        this._betChipSetPanel.visible = true;
         egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
         this._betChipSetGridEnabled = true;
       }
 
       protected hideBetChipPanel() {
-        egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
+        egret.Tween.get(this._betChipSetPanel)
+          .to({ alpha: 0, anchorOffsetY: 30 }, 250)
+          .call(() => {
+            this._betChipSetPanel.visible = false;
+          });
         this._betChipSetGridEnabled = false;
       }
 
@@ -146,8 +214,8 @@ namespace we {
         }
       }
 
-      protected onTableBetInfoUpdate() {
-        super.onTableBetInfoUpdate();
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
         } else {

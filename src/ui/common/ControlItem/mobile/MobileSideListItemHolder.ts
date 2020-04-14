@@ -31,7 +31,12 @@ namespace we {
             generalGameType = 'dt';
         }
 
-        this._displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
+        const listItem = new we.ui.MobileLiveListItem('LiveListItemSkin');
+        if (we[generalGameType].LargeListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].LargeListItemInitHelper();
+        }
+
+        this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
       }
     }

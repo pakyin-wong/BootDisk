@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.SideListBetItemSkin" width="1140" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" minHeight="158"
-        height="399">
+<e:Skin class="skin_mobile.SideListBetItemSkin" width="1140" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*"
+        xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" minHeight="158" height="399">
 	<e:Group id="_contentContainer" x="0" height="399" width="100%">
 		<e:Rect height="105" y="0" fillColor="0x202020" right="0" left="0" />
 		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="110" y="24" size="48" />
 		<e:Group id="_bettingGroup" width="100%" height="399" x="0" y="0" touchEnabled="false" touchChildren="true">
 			<ui:CountdownTimer id="_timer" width="105" height="105" x="0" y="0" skinName="skin_mobile.CountdownTimerRoundSkin" />
-			<ba:TableLayer id="_tableLayer" width="100%" skinName="skin_mobile_portrait.ba.SideListTableLayerSkin"
-			               anchorOffsetY="0" height="294" left="0" y="105" />
-			<ba:ChipLayer id="_chipLayer" width="100%" skinName="skin_mobile_portrait.ba.SideListChipLayerSkin" anchorOffsetY="0"
-			              height="294" left="0" y="105" />
+			<e:Component id="_tableLayerNode" width="100%" skinName="skin_mobile_portrait.ba.SideListTableLayerSkin"
+			             anchorOffsetY="0" height="294" left="0" y="105" visible="false" />
+			<e:Component id="_chipLayerNode" width="100%" skinName="skin_mobile_portrait.ba.SideListChipLayerSkin"
+			             anchorOffsetY="0" height="294" left="0" y="105" visible="false" />
 		</e:Group>
 		<e:Group id="_resultGroup" x="0" y="105" width="100%" height="294" touchEnabled="false">
-			<ba:SideListBetItemCardHolder id="_cardHolder" width="100%" anchorOffsetY="0" height="294" left="0"
-			                               skinName="skin_mobile_portrait.ba.BetItemCardHolderSkin"/>
-			<ui:ImageGameResultMessage id="_resultMessage" horizontalCenter="0" verticalCenter="-1.5"
-			                           skinName="skin_mobile_portrait.GameResultWinSkin" anchorOffsetX="159" anchorOffsetY="44" />
+			<e:Component id="_resultDisplayNode" width="100%" anchorOffsetY="0" height="294" left="0"
+			             skinName="skin_mobile_portrait.ba.BetItemCardHolderSkin" visible="false" />
+			<e:Component id="_resultMessageNode" horizontalCenter="0" verticalCenter="-1.5"
+			             skinName="skin_mobile_portrait.GameResultWinSkin" anchorOffsetX="159" anchorOffsetY="44" visible="false" />
 		</e:Group>
 	</e:Group>
 	<e:Rect id="_dimmer" left="0" top="104" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0" visible="false" />

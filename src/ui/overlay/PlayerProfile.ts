@@ -55,6 +55,7 @@ namespace we {
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
         if (env.isMobile) {
+          this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
           this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
         }

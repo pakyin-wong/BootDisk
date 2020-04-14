@@ -10,15 +10,23 @@ namespace we {
       setTableInfo?(tableInfo: data.TableInfo);
     }
 
+    export interface IAdvancedRoad {
+      tableInfo;
+      update(roadmapData: any);
+    }
+
     export interface IAnalysis {
-      updateAnalysis(data: any);
+      tableId: string;
+      updateTableBetInfo();
+      updateRoad();
     }
 
     export interface IListItemHelper {
       // updateRoadData(roadmapData: any);
-      generateTableLayer(node: eui.Component): TableLayer;
-      generateChipLayer(node: eui.Component): ChipLayer;
+      generateTableLayer?(node: eui.Component): TableLayer;
+      generateChipLayer?(node: eui.Component): ChipLayer;
       generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
+      generateAdvancedRoad?(node: eui.Component): IAdvancedRoad;
       generateAnalysis?(node: eui.Component): IAnalysis;
       generateResultMessage?(node: eui.Component): IGameResultMessage;
       generateResultDisplay?(node: eui.Component): IResultDisplay;

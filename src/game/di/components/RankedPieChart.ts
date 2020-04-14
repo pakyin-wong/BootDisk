@@ -1,6 +1,6 @@
 namespace we {
   export namespace di {
-    export class RankedPieChart extends egret.DisplayObjectContainer {
+    export class RankedPieChart extends eui.Component {
       protected shape: egret.Shape;
       protected graphic: egret.Graphics;
       protected maxRadius: number;
@@ -12,6 +12,7 @@ namespace we {
       public percentTransit: number = 0; // percent that transit to new ranks
       protected targetRanks: number[]; // target ranks to transition to
       protected previousTargetRanks: number[]; // the previous target ranks
+      protected _maxChartSize = 130;
 
       public constructor() {
         super();
@@ -20,6 +21,14 @@ namespace we {
         this.graphic = this.shape.graphics;
         this.addChild(this.shape);
         this.setChartStyles([[[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0], [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0], [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0]]);
+      }
+
+      public set maxChartSize(value: number) {
+        this._maxChartSize = value;
+      }
+
+      public get maxChartSize() {
+        return this._maxChartSize;
       }
 
       public setChartStyles(colorSettings: any, emptyRadius: number = 20, maxRadius: number = 65, reduceRadius: number = 5) {
@@ -120,7 +129,7 @@ namespace we {
           }
           const bound = this.shape.getBounds();
           if (Math.max(bound.width, bound.height) > 0) {
-            this.shape.scaleX = this.shape.scaleY = 130 / Math.max(bound.width, bound.height);
+            this.shape.scaleX = this.shape.scaleY = this._maxChartSize / Math.max(bound.width, bound.height);
           } // limit the max chart size to 130
         }
       }
