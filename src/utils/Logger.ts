@@ -27,14 +27,7 @@ namespace we {
       }
 
       private log(type, ...args) {
-        let msg = new Error().stack
-          .split('\n')
-          [1 /* logger internal */ + 2].trim()
-          .replace('at ', '');
-<<<<<<< HEAD
-        const link = msg.match(/http[^\)]+/)[0];
-        msg = msg.replace(link, '').replace(' ()', '');
-=======
+        let msg = new Error().stack.split('\n')[1 /* logger internal */ + 2].trim().replace('at ', '');
         const match = msg.match(/http[^\)]+/);
         let link = '';
         if (match && match.length > 0) {
@@ -44,7 +37,6 @@ namespace we {
           }
         }
         msg = msg.replace(' ()', '');
->>>>>>> 444879a0bbab436cb6ce3fe63cdad63c6b9da817
 
         // if whitelist is enabled
         if (this._whitelist.length > 0) {
