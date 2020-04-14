@@ -52,6 +52,9 @@ namespace we {
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
+          case we.core.GameType.DI:
+            generalGameType = 'di';
+            break;
         }
 
         let itemName;

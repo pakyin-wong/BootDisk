@@ -24,7 +24,7 @@
         <e:Rect height="105" y="0" fillColor="0x202020" right="0" left="0" />
         <ui:CountdownTimer id="_timer" width="90" height="90" x="7" y="7" skinName="skin_mobile.CountdownTimerRoundSkin" />
         <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="110" y="30" size="48" text="" />
-        <di:DiLobbyBeadRoad id="_bigRoad" width="1136" height="288" y="105" anchorOffsetY="0" horizontalCenter="0" />
+        <di:MobileLiveListRoadmap id="_bigRoad" width="1140" height="288" y="105" anchorOffsetY="0" horizontalCenter="0" />
         <ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
             skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
             y="237" infoBg="m_common_gamestate_message_black_png"
@@ -37,7 +37,7 @@
             </e:layout>
         </e:Group>
 
-        <e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20">
+        <e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20" visible="false">
             <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13" bottom="10" />
             <e:Group id="_alreadyBetSign" right="5" bottom="40" height="80">
                 <e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="80" ellipseHeight="80" fillAlpha="0.76"
