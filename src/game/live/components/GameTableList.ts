@@ -10,15 +10,16 @@ namespace we {
       public roomList: ui.TableList;
 
       private contentInitializer: IContentInitializer;
-      // public roomLayout: eui.AnimTileLayout;
-      // private normalGapSize: number = 48;
-      // private simpleGapSize: number = 20;
 
       constructor() {
         super();
 
         if (env.isMobile) {
-          this.contentInitializer = new MLiveContentInitializer();
+          if (env.orientation === egret.OrientationMode.PORTRAIT) {
+            this.contentInitializer = new MPLiveContentInitializer();
+          } else {
+            this.contentInitializer = new MLLiveContentInitializer();
+          }
         } else {
           this.contentInitializer = new DLiveContentInitializer();
         }

@@ -94,6 +94,7 @@ namespace we {
         super.dataChanged();
         this.isNew = this.data.isNew;
         this.itemData = this.data.item;
+
         if (this.isNew) {
           if (this.parent instanceof List) {
             const list = <List> this.parent;

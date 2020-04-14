@@ -331,6 +331,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LiveGameTabbar extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LivePage extends eui.Skin{
 	}
 }
@@ -606,6 +610,18 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class ImageButtonSkinNav extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LiveGameTabbar extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LiveGameTableList extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LivePage extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -924,6 +940,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class ImageSlider extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LiveGameTabbar extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
