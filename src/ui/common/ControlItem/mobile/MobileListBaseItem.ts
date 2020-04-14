@@ -18,7 +18,7 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
-
+        this.orientationDependent = false;
         this.initCustomPos();
         this.initPos();
       }

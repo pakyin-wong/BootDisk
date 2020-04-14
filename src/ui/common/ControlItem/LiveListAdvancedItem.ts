@@ -1,8 +1,43 @@
 namespace we {
   export namespace ui {
     export class LiveListAdvancedItem extends LiveListItem {
+      protected _advancedRoadNode: eui.Component;
+      protected _advancedRoad: IAdvancedRoad;
+      protected _analysisNode: eui.Component;
+      protected _analysis: IAnalysis;
+
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected initComponents() {
+        super.initComponents();
+        this.generateAnalysis();
+        this.generateAdvancedRoad();
+      }
+
+      protected arrangeComponents() {
+        super.arrangeComponents();
+        for (const att of this._arrangeProperties) {
+          if (this._analysisNode) {
+            this._analysis[att] = this._analysisNode[att];
+          }
+          if (this._advancedRoadNode) {
+            this._advancedRoad[att] = this._advancedRoadNode[att];
+          }
+        }
+      }
+
+      protected generateAdvancedRoad() {
+        if (this.itemInitHelper) {
+          this._advancedRoad = this.itemInitHelper.generateAdvancedRoad(this._advancedRoadNode);
+        }
+      }
+
+      protected generateAnalysis() {
+        if (this.itemInitHelper) {
+          this._analysis = this.itemInitHelper.generateAnalysis(this._analysisNode);
+        }
       }
 
       protected initCustomPos() {
@@ -14,24 +49,53 @@ namespace we {
         this._offsetMovement = 800;
       }
 
+      protected onRoadDataUpdate(evt: egret.Event) {
+        super.onRoadDataUpdate(evt);
+        // console.log('LiveListAdvancedItem', this._tableId);
+        // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
+        if (evt && evt.data) {
+          const tableInfo = <data.TableInfo> evt.data;
+          if (tableInfo.tableid === this._tableId) {
+            this._analysis.tableId = this._tableId;
+            this._analysis.updateRoad();
+            console.log('LiveListAdvancedItem::onRoadDataUpdate');
+            if (this._tableInfo) {
+              console.log('LiveListAdvancedItem::onRoadDataUpdate _advancedRoad');
+
+              this._advancedRoad.tableInfo = this._tableInfo;
+              this._advancedRoad.update(this._tableInfo.roadmap);
+            }
+          }
+        }
+      }
+
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
-        const randNo = Math.round(Math.random()) + 1;
         if (tableInfo.gametype === we.core.GameType.DI) {
           this._dealerImage.texture = RES.getRes('advanced_dealer_sicbo_png');
         } else {
+          const randNo = Math.round(Math.random()) + 1;
           this._dealerImage.texture = RES.getRes('advanced_dealer_' + randNo + '_png');
+        }
+        if (this._analysis && this._tableId) {
+          this._analysis.tableId = this._tableId;
+          this._analysis.updateRoad();
         }
       }
 
       protected addRoundCornerMask() {}
 
-      get dealerImage() {
-        return this._dealerImage;
-      }
-
-      set dealerImage(value: eui.Image) {
-        this._dealerImage = value;
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        // console.log('LiveListAdvancedItem', this._tableId);
+        // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
+        if (evt && evt.data) {
+          const tableInfo = <data.TableInfo> evt.data;
+          if (tableInfo.tableid === this._tableId) {
+            this._analysis.tableId = this._tableId;
+            this._analysis.updateTableBetInfo();
+          }
+        }
       }
     }
   }

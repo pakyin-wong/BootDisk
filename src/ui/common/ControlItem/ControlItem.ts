@@ -149,7 +149,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -167,7 +167,7 @@ namespace we {
 
       protected onMatchGoodRoadUpdate() {}
 
-      protected onTableBetInfoUpdate() {
+      protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
@@ -204,7 +204,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -217,9 +217,7 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {
-        logger.l('BaccaratScene::onRoadDataUpdate');
-      }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {

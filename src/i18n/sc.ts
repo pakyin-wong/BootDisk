@@ -25,6 +25,8 @@ namespace we {
       betfield_dragonTiger_tiger: '虎',
       betfield_dragonTiger_tie: '和',
 
+      playerprofile_title: '账户资讯',
+      playerprofile_iconsetting: '设定头像',
       playerprofile_maxWinAmount: '最大嬴钱数目',
       playerprofile_maxWinCount: '最大连嬴次数',
       playerprofile_follower: '追随者',
@@ -130,7 +132,9 @@ namespace we {
           system: '系统设定',
           logout: '登出',
           leftHandMode: '左手模式',
+          logoutMsg: '确定登出?',
           confirm: '确定',
+          cancel: '取消',
         },
         system: {
           title: '系统设定',

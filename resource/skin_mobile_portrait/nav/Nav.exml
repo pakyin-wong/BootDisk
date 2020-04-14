@@ -1,56 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.Nav" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Rect id="_background" right="0" left="0" top="0" anchorOffsetY="0" height="238"
-	        fillAlpha="0"  fillColor="0x000000" touchEnabled="false"/>
-	<e:Rect height="158" y="0" left="0" right="0" fillAlpha="0"/>
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
-	<e:Group id="_profile_toggle" x="639" y="32">
-		<e:Label id="_user" text="User" x="102" y="0" width="220" height="46" size="37.8" fontFamily="Barlow"
-		         textColor="0xffffff" scaleX="1" scaleY="1" textAlign="left" verticalAlign="bottom" />
-		<ui:RunTimeLabel id="_balance" text="123,456,789" x="102" y="48" width="220" height="46" fontFamily="Barlow"
-		                 size="37.8" textColor="0xffffff" scaleX="1" scaleY="1" anchorOffsetX="0" verticalAlign="bottom" />
-		<e:Image id="_profilePrc" width="78" height="78" x="0" y="9" anchorOffsetX="0" anchorOffsetY="0" fillMode="scale"
-		         scaleX="1" scaleY="1" source="d_lobby_profile_pic_03_png" />
-	<!--BaseImageButton's picture is not exactly the same-->
-		<ui:BaseImageButton id="_refreshButton" y="24" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload"  x="477"/>
+	<e:Group id="_profile_toggle" x="788" y="34">
+		<e:Label id="_user" text="User" x="108" y="0" height="47" size="38.8" fontFamily="Barlow" textColor="0xffffff" textAlign="left" verticalAlign="middle" maxWidth="202"/>
+		<ui:RunTimeLabel id="_balance" text="123,456,789" x="108" y="49" height="47" fontFamily="Barlow" size="39" textColor="0xffffff" verticalAlign="middle" maxWidth="202"/>
+		<e:Image id="_profilePrc" width="78" height="78" x="0" y="9" fillMode="scale" source="d_lobby_profile_pic_03_png"/>
 	</e:Group>
-	<!--BaseImageButton's picture is not exactly the same-->
-	<ui:BaseImageButton id="_slider_toggle" y="2002.91" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
-		                    horizontalCenter="506" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu" />
-	<!--add new element in portrait-->
-	<ui:NavLantern id="_lantern" width="1000" height="40"   rotation="0.04" y="2116" left="0"/>
-	<e:Rect width="1000" height="40" x="0" y="2116" fillColor="0x5e5d5d" fillAlpha="0.3"/>
-	<e:Label id="_time" text="yyyy/mm/dd 00:00:00"  y="2116" size="25"
-	         fontFamily="Barlow" width="242" height="40" textAlign="right" anchorOffsetX="0" verticalAlign="middle"  textColor="0xa5a5a5" right="0"/>
-
-
-
-
-	
-	<!--<e:Rect width="1" height="60" x="2152" y="16.4" fillColor="0x4c4c4c" />
-	-->
-	<!--<e:Image id="_logo" width="246" height="71" x="7" y="12" fillMode="clip" source="" />
-	-->
-
-	
-	<!--<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="1382" x.left="369" y="46" size="28" textColor="0xffffff"
-	             fontFamily="Barlow" width="698" height="34" textAlign="right" anchorOffsetX="0" verticalAlign="middle"
-	             visible="false" />
-	-->
-	
-
-
-
-	<!--<e:Image id="_slider_toggle" width="66" height="48" right="30" top="56"  source="m_common_header_icon_menu_png"/>-->
-
-
-
-	<!--<ui:NavPlayerProfile id="_profile" width="516" height="789" x="1980" y="100" isPoppable="true"
-	                         dismissOnClickOutside="true" />
-	-->
-	<!--<e:Image width="22" height="23" source="d_ba_navbar_icon_rss_png" x.left="335" y.left="21" x.right="2092"
-	             y.right="19" />
-	-->
+	<ui:BaseImageButton id="_refreshButton" y="55" width="57" height="56" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload" x="1138"/>
+	<ui:BaseImageButton id="_slider_toggle" y="1961" anchorOffsetX="0" width="117" anchorOffsetY="0" height="117"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="1088"/>
+	<e:Rect height="55" fillColor="0x121312" left="0" right="0" bottom="0"/>
+	<ui:NavLantern id="_lantern" width="862" height="36"   left="11" bottom="6" fontsize="36" lineSpacing="36"/>
+	<e:Label id="_time" text="yyyy/mm/dd 00:00:00"  size="36"
+	         fontFamily="Barlow" height="36" textAlign="right" anchorOffsetX="0" verticalAlign="top"  bottom="8" textColor="0xf3f3f3" alpha="0.7" x="914"/>
 </e:Skin>

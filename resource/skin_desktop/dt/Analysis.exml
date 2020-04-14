@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.dt.Analysis" width="278" height="450" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+    <e:ViewStack width="240" height="334" y="14" horizontalCenter="0" selectedIndex="1">
+        <e:Group name="Group"></e:Group>
+        <e:Group name="View">
+            <e:Label text="1" />
+        </e:Group>
+    </e:ViewStack>
+    <e:Group x="19" y="368" width="110" height="55">
+        <e:Image id="iconBankerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_banker_png"
+                 anchorOffsetX="0" scale9Grid="15,13,37,5" />
+        <ui:RunTimeLabel id="_playerButtonLabel" text="Ask P" textAlign="center" anchorOffsetX="0" width="110" size="16"
+                         height="28" verticalAlign="middle" touchEnabled="false" />
+        <e:Image width="14" height="14" x="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+        <e:Image width="14" height="14" y="34" horizontalCenter="0" source="d_ba_roodmap_bar_reddot_png"
+                 anchorOffsetX="0" />
+        <e:Image width="14" height="14" right="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+    </e:Group>
+    <e:Group right="19" y="368" width="110" height="55">
+        <e:Image id="iconPlayerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_player_png"
+                 scale9Grid="15,13,37,5" />
+        <ui:RunTimeLabel id="_bankerButtonLabel" text="Ask B" textAlign="center" anchorOffsetX="0" width="110" size="16"
+                         verticalAlign="middle" height="28" touchEnabled="false" />
+        <e:Image width="14" height="14" x="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+        <e:Image width="14" height="14" y="34" horizontalCenter="0" source="d_ba_roodmap_bar_reddot_png"
+                 anchorOffsetX="0" />
+        <e:Image width="14" height="14" right="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+    </e:Group>
+</e:Skin>

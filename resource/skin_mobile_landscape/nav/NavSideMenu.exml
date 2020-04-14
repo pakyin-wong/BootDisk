@@ -1,38 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.NavSideMenu" states="light,dark" width="2155" height="1242" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.NavSideMenu" states="light,dark" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:core="we.core.*" currentState="light">
 	<w:Config id="16df87cf43a"></w:Config>
-	<e:Group id="content" left="0" right="0" top="0" bottom="0" height="1242">
+	<e:Group id="content" left="0" right="0" height="1247" y="253">
 		<e:Rect top="0" bottom="0" left="0" right="0" fillAlpha="0.9" fillColor="0x14181e" height="1242"/>
-		<ui:RunTimeLabel id="txt_title" text="Label" x="101.5" y="46" size="55" height="73" verticalAlign="middle" width="145" textColor="0xc59466"/>
-		<e:Rect width="1755" height="3" x="195" y="416" fillAlpha="0.4" fillColor="0x616161" />
-		<e:Rect width="800" height="3" x="0" y="44" fillAlpha="0.4" fillColor="0x616161"/>
-		<e:Image id="close" width="54" height="54" x="2047.48" y="59.5" source="m_common_icon_close_png"/>
-		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="92" anchorOffsetX="0" anchorOffsetY="0" height="100"
+		<ui:RunTimeLabel id="txt_title" text="Label" x="114" y="50" size="80" height="73" verticalAlign="middle" width="287" textColor="0xc59466"/>
+
+		<!--<e:Rect width="800" height="3" x="0" y="44" fillAlpha="0.4" fillColor="0x616161"/>-->
+		<e:Image id="close" width="54" height="54" x="2344" y="40" source="m_common_icon_close_png"/>
+		<!--<e:Rect width="2000" height="3" x="212" y="525" fillAlpha="0.4" fillColor="0x616161"/>
+		
+		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="168" anchorOffsetX="0" anchorOffsetY="0" height="100"
 		                 textAlign="center" size="60" textColor="0xffffff"
-		                 verticalAlign="middle"  alpha="0.7" left="48" right="1400"/>
-		<e:Group id="btn_lightMode" x="100" y="250" width="220" height="110">
-			<e:Image width="120" height="80" x="95" y="15" source="m_lobby_setting_panel_setting_uicolour_light_png" source.light="m_common_panel_setting_uicolour_light_png"/>
-			<e:Image width="47" height="47" x="0" y="36" source.dark="d_lobby_select_round_no_png" source.light="d_lobby_select_round_yes_png"/>
-			<e:Image width="150" height="110" x="81" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_png" source.light="m_common_panel_setting_uicolour_active_png"/>
+		                 verticalAlign="middle"  alpha="0.7" x="560"/>
+		<e:Group id="btn_lightMode" x="195" y="315" width="242" height="130">
+			<e:Image width="136" height="97" source="m_lobby_setting_panel_setting_uicolour_light_png" source.light="m_common_panel_setting_uicolour_light_png" verticalCenter="0" x="90"/>
+			<e:Image width="47" height="47" x="0" source.dark="d_lobby_select_round_no_png" source.light="d_lobby_select_round_yes_png" verticalCenter="0"/>
+			<e:Image width="70%" height="100%" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_png" source.light="m_common_panel_setting_uicolour_active_png" right="0"/>
 		</e:Group>
-		<e:Group id="btn_darkMode" x="450" y="250" width="220" height="110" >
-			<e:Image width="120" height="80" x="105" y="16" source="m_lobby_setting_panel_setting_uicolour_black_png" source.light="m_common_panel_setting_uicolour_black_png"/>
-			<e:Image width="47" height="47" x="0" y="36" source.light="d_lobby_select_round_no_png" source.dark="d_lobby_select_round_yes_png"/>
-			<e:Image width="144" height="110" x="91" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_active_png" source.light="m_common_panel_setting_uicolour_png"/>
+		<e:Group id="btn_darkMode" x="790" y="315" width="242" height="130" >
+			<e:Image width="136" height="97" x="90" y="17" source="m_lobby_setting_panel_setting_uicolour_black_png" source.light="m_common_panel_setting_uicolour_black_png"/>
+			<e:Image width="47" height="47" source.light="d_lobby_select_round_no_png" source.dark="d_lobby_select_round_yes_png" left="0" verticalCenter="0"/>
+			<e:Image width="70%" height="100%" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_active_png" source.light="m_common_panel_setting_uicolour_png" right="0"/>
 		</e:Group>
-		<e:Group id="btn_leftHandMode" x="1165" y="264" height="96" touchChildren="false">
+		<e:Group id="btn_leftHandMode" x="1515" y="331" height="96" touchChildren="false">
 			<ui:RunTimeLabel id="txt_leftHandMode" text="Label" x="184" y="3" anchorOffsetX="0" width="650" height="89" size="60" textColor="0xFFFFFF" fontFamily="NotoSansCJKtc" verticalAlign="middle"/>
 			<ui:BaseButton id="switch_leftHandMode" width="155" height="95" x="0" y="0.5" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
-		</e:Group>
-		<e:Group x="104" y="521" width="1939.97" height="539" anchorOffsetX="0">
-			<e:layout>
-				<e:BasicLayout/>
-			</e:layout>
+		</e:Group>-->
 
+
+		<!--<e:Group x="212" y="590" width="2000" height="539" anchorOffsetX="0">
+			<e:layout>
+			<e:TileLayout horizontalGap="276" verticalGap="123"/>
+			</e:layout>
 			<e:Group id="btn_info" x="16" y="0" height="96">
 			<ui:RunTimeLabel id="txt_info" text="Label" x="184" y="3" anchorOffsetX="0" width="650" anchorOffsetY="0" height="110" size="60" textColor="0xffffff" verticalAlign="middle"/>
 			<e:Image width="86" height="86" x="5" y="5" source="m_common_panel_setting_icon_account_png"/>
+			<e:layout>
+				<e:BasicLayout/>
+			</e:layout>
+			</e:Group>
+			<e:Group id="btn_history" x="27" y="183" height="96">
+			<ui:RunTimeLabel id="txt_history" text="Label" x="184" y="3" anchorOffsetX="0" width="650" anchorOffsetY="0" height="89" size="60" textColor="0xffffff" verticalAlign="middle"/>
+			<e:Image source="m_common_panel_setting_icon_record_png" width="80" height="67" x="8" y="14.5"/>
+			</e:Group>
+			<e:Group id="btn_member" x="24" y="383" height="96">
+			<ui:RunTimeLabel id="txt_member" text="Label" x="184" y="3" anchorOffsetX="0" width="650" anchorOffsetY="0" height="89" size="60" textColor="0xffffff" verticalAlign="middle"/>
+			<e:Image source="m_common_panel_setting_icon_table_png" width="74" height="93" y="1.5" x="11"/>
+			</e:Group>
+			<e:Group id="btn_road" x="1101" y="0" height="96">
+			<ui:RunTimeLabel id="txt_road" text="Label" x="184" y="3" anchorOffsetX="0" width="650" size="60" textColor="0xffffff" height="89" verticalAlign="middle"/>
+			<e:Image source="m_common_panel_setting_icon_gdrdsetting_png" width="70" height="71" x="13" y="12.5"/>
+			</e:Group>
+			<e:Group id="btn_system" x="1079" y="222" height="96" width="859" anchorOffsetX="0">
+			<ui:RunTimeLabel id="txt_system" text="Label" x="184" y="3" anchorOffsetX="0" width="650" height="89" size="60" textColor="0xffffff" verticalAlign="middle"/>
+			<e:Image source="m_common_panel_setting_icon_setting_png" width="86" height="85" x="5" y="5.5"/>
+			</e:Group>
+			<e:Group id="btn_logout" x="1080" y="437" height="96">
+			<ui:RunTimeLabel id="txt_logout" text="Label" x="184" y="3" anchorOffsetX="0" width="650" height="89" size="60" textColor="0xffffff" fontFamily="NotoSansCJKtc" verticalAlign="middle"/>
+			<e:Image source="m_common_panel_setting_icon_logout_png" width="82" height="82" x="7" y="7"/>
+			</e:Group>
+		</e:Group>-->
+		<e:Scroller height="824.75" y="163.64" anchorOffsetX="0" anchorOffsetY="0" left="0" right="0">
+			<e:Group width="2492" anchorOffsetY="0" height="972.72" x="0" y="-142.42">
+			<e:Rect width="2000" height="3" x="212" y="306" fillAlpha="0.4" fillColor="0x616161"/>
+		
+			<ui:RunTimeLabel id="txt_selectMode" text="Label" y="29" anchorOffsetX="0" anchorOffsetY="0" height="100"
+		                 textAlign="center" size="60" textColor="0xffffff"
+		                 verticalAlign="middle"  alpha="0.7" x="460"/>
+			<e:Group id="btn_lightMode" x="195" y="135" width="242" height="130">
+				<e:Image width="136" height="97" source="m_lobby_setting_panel_setting_uicolour_light_png" source.light="m_common_panel_setting_uicolour_light_png" verticalCenter="0" x="90"/>
+				<e:Image width="47" height="47" x="0" source.dark="d_lobby_select_round_no_png" source.light="d_lobby_select_round_yes_png" verticalCenter="0"/>
+				<e:Image width="70%" height="100%" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_png" source.light="m_common_panel_setting_uicolour_active_png" right="0"/>
+			</e:Group>
+			<e:Group id="btn_darkMode" x="714" y="135" width="242" height="130" >
+				<e:Image width="136" height="97" x="90" y="17" source="m_lobby_setting_panel_setting_uicolour_black_png" source.light="m_common_panel_setting_uicolour_black_png"/>
+				<e:Image width="47" height="47" source.light="d_lobby_select_round_no_png" source.dark="d_lobby_select_round_yes_png" left="0" verticalCenter="0"/>
+				<e:Image width="70%" height="100%" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_active_png" source.light="m_common_panel_setting_uicolour_png" right="0"/>
+			</e:Group>
+			<e:Group id="btn_leftHandMode" x="1355" y="176" height="96" touchChildren="false">
+				<ui:RunTimeLabel id="txt_leftHandMode" text="Label" x="184" y="3" anchorOffsetX="0" width="650" height="89" size="60" textColor="0xFFFFFF" fontFamily="NotoSansCJKtc" verticalAlign="middle"/>
+				<ui:BaseButton id="switch_leftHandMode" width="155" height="95" x="0" y="0.5" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
+			</e:Group>
+			<e:Group x="212" y="382" width="2000" height="539" anchorOffsetX="0">
+			<e:layout>
+			<e:TileLayout horizontalGap="276" verticalGap="123"/>
+			</e:layout>
+			<e:Group id="btn_info" x="16" y="0" height="96">
+			<ui:RunTimeLabel id="txt_info" text="Label" x="184" y="3" anchorOffsetX="0" width="650" anchorOffsetY="0" height="110" size="60" textColor="0xffffff" verticalAlign="middle"/>
+			<e:Image width="86" height="86" x="5" y="5" source="m_common_panel_setting_icon_account_png"/>
+			<e:layout>
+				<e:BasicLayout/>
+			</e:layout>
 			</e:Group>
 			<e:Group id="btn_history" x="27" y="183" height="96">
 			<ui:RunTimeLabel id="txt_history" text="Label" x="184" y="3" anchorOffsetX="0" width="650" anchorOffsetY="0" height="89" size="60" textColor="0xffffff" verticalAlign="middle"/>
@@ -55,6 +114,9 @@
 			<e:Image source="m_common_panel_setting_icon_logout_png" width="82" height="82" x="7" y="7"/>
 			</e:Group>
 		</e:Group>
-		<e:Label text="landscape" x="497.5" y="24.5" anchorOffsetX="0" width="366" anchorOffsetY="0" height="70" size="60"/>
+			</e:Group>
+		</e:Scroller>
 	</e:Group>
 </e:Skin>
+
+

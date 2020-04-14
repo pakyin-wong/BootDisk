@@ -164,13 +164,13 @@ namespace we {
       protected initRoadMap() {
         this._roadmapControl = new BARoadmapControl(this._tableId);
         this._roadmapControl.setRoads(
-          this._bottomGamePanel.beadRoad,
-          this._bottomGamePanel.bigRoad,
-          this._bottomGamePanel.bigEyeRoad,
-          this._bottomGamePanel.smallRoad,
-          this._bottomGamePanel.cockroachRoad,
+          this._bottomGamePanel._roadmapPanel.beadRoad,
+          this._bottomGamePanel._roadmapPanel.bigRoad,
+          this._bottomGamePanel._roadmapPanel.bigEyeRoad,
+          this._bottomGamePanel._roadmapPanel.smallRoad,
+          this._bottomGamePanel._roadmapPanel.cockroachRoad,
           [16, 33, 66, 34, 32],
-          this._bottomGamePanel,
+          this._bottomGamePanel._roadmapPanel,
           this._beadRoadResultPanel
         );
       }
