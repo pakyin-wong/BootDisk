@@ -124,6 +124,16 @@ namespace we {
       }
 
       protected onClickLogout() {
+        dir.evtHandler.showMessage({
+          class: 'MessageDialog',
+          args: [
+            i18n.t('nav.menu.logoutMsg'),
+            {
+              dismiss: { text: i18n.t('nav.menu.cancel') },
+              action: { text: i18n.t('nav.menu.confirm') },
+            },
+          ],
+        });
         logger.l(`NavSideMenu::onClickLogout`);
       }
     }
