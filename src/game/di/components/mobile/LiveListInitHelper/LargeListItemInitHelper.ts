@@ -20,6 +20,7 @@ namespace we {
 
       public generateRoadmap(node: eui.Component) {
         const roadmap = new di.DiLobbyBeadRoad();
+        // --Mobile_Portrait Setting
         roadmap.roadGridSize = 80;
         roadmap.roadCol = 13;
         roadmap.roadRow = 1;
@@ -28,26 +29,26 @@ namespace we {
         roadmap.roadOffsetX = 8;
         roadmap.roadOffsetY = 2;
         roadmap.roadIconItemYOffset = 2;
-
+        // --Mobile_Portrait Setting
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(roadmap, idx);
         return roadmap;
       }
 
       public generateResultMessage(node: eui.Component) {
-        const gameResultMessage = new di.SideBetResultMessage();
+        const gameResultMessage = new di.MobileSideBetResultMessage();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(gameResultMessage, idx);
         return gameResultMessage;
       }
 
-    //   public generateResultDisplay(node: eui.Component) {
-    //      const cardHolder = new dt.SideListBetItemCardHolder();
-    //      cardHolder.skinName = `skin_mobile_portrait.dt.BetItemCardHolderSkin`;
-    //      const idx = node.parent.getChildIndex(node);
-    //      node.parent.addChildAt(cardHolder, idx);
-    //      return cardHolder;
-    //   }
+      //   public generateResultDisplay(node: eui.Component) {
+      //      const cardHolder = new dt.SideListBetItemCardHolder();
+      //      cardHolder.skinName = `skin_mobile_portrait.dt.BetItemCardHolderSkin`;
+      //      const idx = node.parent.getChildIndex(node);
+      //      node.parent.addChildAt(cardHolder, idx);
+      //      return cardHolder;
+      //   }
     }
   }
 }
