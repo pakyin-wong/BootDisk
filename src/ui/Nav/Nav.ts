@@ -11,6 +11,8 @@ namespace we {
       private _slider_toggle: ui.BaseImageButton;
       private _balance: RunTimeLabel;
 
+      private _profilePrc: eui.Image;
+      private _refreshButton: ui.BaseImageButton;
       // from Monitor.ts
       private _liveSidePanel: ui.LiveSidePanel;
       private _sideGameList: ui.MobileSideGameList;
@@ -105,11 +107,15 @@ namespace we {
           switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
             case 'Lobby':
               this._lantern.visible = true;
+
+              this._profilePrc.visible = true;
               this.currentState = 'Lobby';
               break;
 
             case 'Game':
               this._lantern.visible = false;
+
+              this._profilePrc.visible = false;
               this.currentState = 'Game';
               break;
           }

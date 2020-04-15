@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.Nav" width="1242" height="2155" states="Game,Lobby" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.Nav" width="1242" height="2155" states="Game,Lobby" currentState="Lobby" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
-	<e:Group id="_profile_toggle" x="788" y="34">
-		<e:Label id="_user" text="User" x="108" y="0" height="47" size="38.8" fontFamily="Barlow" textColor="0xffffff" textAlign="left" verticalAlign="middle" maxWidth="202"/>
-		<ui:RunTimeLabel id="_balance" text="123,456,789" x="108" y="49" height="47" fontFamily="Barlow" size="39" textColor="0xffffff" verticalAlign="middle" maxWidth="202"/>
-		<e:Image id="_profilePrc" width="78" height="78" x="0" y="9" fillMode="scale" source="d_lobby_profile_pic_03_png"/>
+	<e:Group id="_profile_toggle" x="788" y="34" x.Game="742" y.Game="9" width.Game="486">
+		<e:Label id="_user" text="User" x="108" y="0" height="47" size="38.8" fontFamily="Barlow" textColor="0xffffff" textAlign="left" verticalAlign="middle" maxWidth="202" visible.Game="false"/>
+		<ui:RunTimeLabel id="_balance" text="123,456,789" x="108" y="49" height="47" fontFamily="Barlow" size="39" textColor="0xffffff" verticalAlign="middle" maxWidth="202" x.Game="288" y.Game="2"/>
+		<e:Image id="_profilePrc" width="78" height="78" x="0" y="9" fillMode="scale" source="d_lobby_profile_pic_03_png" visible.Game="false"/>
+		<e:Label id="_balanceText" text="NEED TO ADD I18N" includeIn="Game" x="1" y="11.97" anchorOffsetY="0" height="33.03"/>
 	</e:Group>
-	<ui:BaseImageButton id="_refreshButton" y="55" width="57" height="56" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload" x="1138"/>
+	<ui:BaseImageButton id="_refreshButton" y="55" width="57" height="56" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload" x="1138" y.Game="61" visible.Game="false"/>
 	<ui:BaseImageButton id="_slider_toggle" y="1961" anchorOffsetX="0" width="117" anchorOffsetY="0" height="117"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="1088" y.Game="201"/>
 	<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="1095" y="418"/>
+		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="1088" y="418" x.Game="1088"/>
 	<e:Rect height="55" fillColor="0x121312" left="0" right="0" bottom="0"/>
-	<ui:NavLantern id="_lantern" width="862" height="36"   left="11" bottom="6" fontsize="36" lineSpacing="36"/>
+	<ui:NavLantern id="_lantern" width="862" height="36"   left="11" bottom="6" fontsize="36" lineSpacing="36" visible.Game="false"/>
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00"  size="36"
 	         fontFamily="Barlow" height="36" textAlign="right" anchorOffsetX="0" verticalAlign="top"  bottom="8" textColor="0xf3f3f3" alpha="0.7" x="914"/>
 	<e:Label text="lobby" includeIn="Lobby" x="358" y="824"/>
