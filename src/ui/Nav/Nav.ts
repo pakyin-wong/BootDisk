@@ -11,6 +11,14 @@ namespace we {
       private _slider_toggle: ui.BaseImageButton;
       private _balance: RunTimeLabel;
 
+      // from Monitor.ts
+      private _liveSidePanel: ui.LiveSidePanel;
+      private _sideGameList: ui.MobileSideGameList;
+      private _common_listpanel: ui.BaseImageButton;
+      private _navMobileSilder: ui.NavMobileSilder;
+      private _mDropdown: ui.MobileDropdown;
+      private _overlay: ui.Overlay;
+
       // this is the background color which the alpha will change when scrolling
       private _background: eui.Rect;
 
@@ -21,6 +29,10 @@ namespace we {
       }
 
       protected mount() {
+        this.initNav();
+      }
+
+      protected initNav() {
         if (this._profile) {
           this._profile.setToggler(this._profile_toggle);
           this._profile.dismissOnClickOutside = true;
@@ -36,14 +48,37 @@ namespace we {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
         this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
+
+        // GameListButton
+        if (env.isMobile) {
+          if (!this._overlay) {
+            this._overlay = new ui.Overlay();
+
+            this._navMobileSilder = new ui.NavMobileSilder();
+            this._mDropdown = new ui.MobileDropdown();
+
+            dir.layerCtr.overlay.addChild(this._navMobileSilder);
+            dir.layerCtr.overlay.addChild(this._overlay);
+            dir.layerCtr.overlay.addChild(this._mDropdown);
+          }
+
+          this._sideGameList = new ui.MobileSideGameList();
+          this._sideGameList.bottom = 0;
+          this._sideGameList.setToggler(this._common_listpanel);
+          this._sideGameList.isPoppable = true;
+          this._sideGameList.dismissOnClickOutside = true;
+
+          dir.layerCtr.overlay.addChild(this._sideGameList);
+        }
+
         this.addListeners();
       }
 
       private addListeners() {
         if (env.isMobile) {
           utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this);
-          // dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
-          this._lantern.alignToLeft();
+          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
+          // this._lantern.alignToLeft();
         } else {
           dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         }
@@ -51,19 +86,33 @@ namespace we {
         // dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
       }
 
-      private onSceneChange(e) {
-        switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
-          case 'right':
-            this._lantern.alignToLeft();
-            this._time.textAlign = 'left';
-            this.currentState = 'left';
-            break;
+      private onSceneChange(e = null) {
+        if (!env.isMobile) {
+          switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
+            case 'Lobby':
+              this._lantern.alignToRight();
+              this._time.textAlign = 'right';
+              this.currentState = 'Lobby';
+              break;
 
-          case 'left':
-            this._lantern.alignToRight();
-            this._time.textAlign = 'right';
-            this.currentState = 'right';
-            break;
+            case 'Game':
+              this._lantern.alignToLeft();
+              this._time.textAlign = 'left';
+              this.currentState = 'Game';
+              break;
+          }
+        } else {
+          switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
+            case 'Lobby':
+              this._lantern.visible = true;
+              this.currentState = 'Lobby';
+              break;
+
+            case 'Game':
+              this._lantern.visible = false;
+              this.currentState = 'Game';
+              break;
+          }
         }
       }
 
@@ -83,8 +132,14 @@ namespace we {
       }
 
       protected onOrientationChange() {
+        dir.layerCtr.overlay.removeChild(this._sideGameList);
+        // dir.layerCtr.overlay.removeChild(this._navMobileSilder);
+        // dir.layerCtr.overlay.removeChild(this._overlay);
+        // dir.layerCtr.overlay.removeChild(this._mDropdown);
         super.onOrientationChange();
-        this.addListeners();
+        this.onSceneChange();
+        this.initNav();
+        this.invalidateState();
       }
     }
   }

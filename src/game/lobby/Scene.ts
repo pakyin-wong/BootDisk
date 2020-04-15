@@ -14,7 +14,7 @@ namespace we {
       constructor(data: any = null) {
         super(data);
         this._data = data;
-        this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LEFT;
+        this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LOBBY;
         this._skinKey = 'LobbyScene';
         // this.skinName = utils.getSkinByClassname('LobbyScene');
         this.skinName = utils.getSkinByClassname(this._skinKey);

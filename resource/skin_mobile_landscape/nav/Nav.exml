@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.Nav" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.Nav" width="2424" height="1242" states="Game,Lobby" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Rect id="_background" right="0" left="0" top="0" anchorOffsetY="0" height="238"
-	        fillAlpha="0.3"  fillColor="0x000000"/>
+	        fillAlpha="0.3"  fillColor="0x000000" height.Game="139" fillAlpha.Game="0.1"/>
 	<ui:NavLantern id="_lantern" width="2000" height="38"   y="17" x="20" lineSpacing="38" fontsize="36"/>
 
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
@@ -14,5 +14,11 @@
 	<e:Image id="_profilePrc" width="80" height="80" x="1979" y="1094" fillMode="scale" source="d_lobby_profile_pic_03_png"/>
 	<e:Image width="55" height="55" y="1106" scaleX="1" scaleY="1" source="m_common_header_icon_refresh_png" right="38"/>
 	<ui:BaseImageButton id="_slider_toggle" y="944" width="117" height="117"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2270"/>
+		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2270" y.Game="148"/>
+	<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="2282" y="577"/>
+	<e:Label text="LOBBY" includeIn="Lobby" x="448" y="879"/>
+	<e:Label text="GAME" includeIn="Game" x="412" y="585" rotation="7.24" anchorOffsetX="0" width="761.61" anchorOffsetY="0" height="296.99"/>
+
+
 </e:Skin>
