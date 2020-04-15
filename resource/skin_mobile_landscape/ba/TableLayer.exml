@@ -2,14 +2,14 @@
 <e:Skin class="skin_mobile_landscape.ba.TableLayerSkin" height="200" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal,SuperSix">
 	<e:Group id="_playerGroup" x="264" y="0" width="384" height="200">
-		<e:Image id="_playerImage" source="m_ba_betarea_player_png" name="m_ba_betarea_player_png" width="384" height="200"  x="0" y="0" ellipseWidth="10" ellipseHeight="10"/>
+		<e:Image id="_playerImage" source="m_ba_betarea_player_png" name="m_ba_betarea_player_png" width="384" height="200"  x="0" y="0"/>
 		<ui:RunTimeLabel id="_playerLabel" horizontalCenter="0" size="98" bottom="96"
 		                 fontFamily="Microsoft JhengHei,Helvetica" text="" />
 		<e:Label text="1:1" horizontalCenter="0" size="48" verticalAlign="top" top="135" alpha="0.7" />
 	</e:Group>
 	<e:Group id="_playerPairGroup" x="0" y="0" width="256" height="200">
 		<e:Image id="_playerPairImage" source="m_ba_betarea_playerpair_png" name="m_ba_betarea_playerpair_png" width="256"
-		         height="200" ellipseWidth="10" ellipseHeight="10"/>
+		         height="200"/>
 		<ui:RunTimeLabel id="_playerPairLabel" horizontalCenter="0" size="80" bottom="108" textColor="0x438dff"
 		                 fontFamily="Microsoft JhengHei,Helvetica" />
 		<e:Label text="11:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" />

@@ -16,7 +16,7 @@
 			</e:Group>
 			</e:ViewStack>
 		</e:Group>
-		<e:Group id="_topPart" HorizontalAlign="right" width="260" x="1721" y="110.3" scaleX="1" scaleY="1" height="260">
+		<e:Group id="_topPart" width="260" x="1721" y="110.3" scaleX="1" scaleY="1" height="260">
 			<e:Rect id="top_bg" width="100%" height="100" x="0" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425"/>
 			<e:RadioButton id="roadSheetBtn" label="路紙" x="8" y="10" width="252" height="80" value="0" selected="true" scaleX="1" scaleY="1" visible.off="false">
 			<e:skinName>
