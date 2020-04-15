@@ -31,7 +31,7 @@ namespace we {
       }
 
       public setTableList(tableList: string[], isOverride: boolean = false) {
-        if (this._isFocus) {
+        if (this._isFocus && !isOverride) {
           this.nextTableList = tableList;
           return;
         }
