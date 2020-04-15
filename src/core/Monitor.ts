@@ -101,7 +101,6 @@ namespace we {
         this._overlay = new ui.Overlay();
 
         dir.layerCtr.nav.addChild(this._nav);
-        dir.layerCtr.overlay.addChild(this._overlay);
 
         if (env.isMobile) {
           const gameListButton = new ui.GameListButton();
@@ -126,6 +125,7 @@ namespace we {
 
           dir.layerCtr.overlay.addChild(this._sideGameList);
           dir.layerCtr.overlay.addChild(this._navMobileSilder);
+          dir.layerCtr.overlay.addChild(this._overlay);
           dir.layerCtr.overlay.addChild(this._mDropdown);
 
           this._notificationController = new ui.MobileNotificationController();
@@ -137,6 +137,7 @@ namespace we {
           this._liveSidePanel.right = 20;
           this._liveSidePanel.y = 80;
           dir.layerCtr.top.addChild(this._liveSidePanel);
+          dir.layerCtr.overlay.addChild(this._overlay);
 
           this._notificationController = new ui.NotificationController();
           this._notificationController.x = stage.stageWidth - 410;
