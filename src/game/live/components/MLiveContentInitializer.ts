@@ -37,8 +37,8 @@ namespace we {
 
         // init room grids
         root.roomList = new ui.TableList();
-        root.roomList.isFreezeScrolling = true;
-        root.roomList.isGlobalLock = true;
+        // root.roomList.isFreezeScrolling = true;
+        // root.roomList.isGlobalLock = true;
         root.roomList.width = root.stage.stageWidth;
         this.roomLayout = new eui.AnimTileLayout();
         this.roomLayout.horizontalGap = this.normalGapSize;
