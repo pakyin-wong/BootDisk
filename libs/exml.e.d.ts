@@ -617,7 +617,47 @@ declare module skin_desktop{
 	}
 }
 declare module skin_mobile_landscape{
+	class BaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ba{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class InGameMessageSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ba{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ba{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ba{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ba{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ba{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class BetConfirmButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class LiveOverlayItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class GameBar extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -626,6 +666,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class GoodRoadListItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class ImageButtonSkinBettingPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{

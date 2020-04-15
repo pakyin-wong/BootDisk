@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ba.TableLayerSkin" height="200" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal,SuperSix">
+	<e:Group id="_playerGroup" x="264" y="0" width="384" height="200">
+		<e:Image id="_playerImage" source="m_ba_betarea_player_png" name="m_ba_betarea_player_png" width="384" height="200"  x="0" y="0" ellipseWidth="10" ellipseHeight="10"/>
+		<ui:RunTimeLabel id="_playerLabel" horizontalCenter="0" size="98" bottom="96"
+		                 fontFamily="Microsoft JhengHei,Helvetica" text="" />
+		<e:Label text="1:1" horizontalCenter="0" size="48" verticalAlign="top" top="135" alpha="0.7" />
+	</e:Group>
+	<e:Group id="_playerPairGroup" x="0" y="0" width="256" height="200">
+		<e:Image id="_playerPairImage" source="m_ba_betarea_playerpair_png" name="m_ba_betarea_playerpair_png" width="256"
+		         height="200" ellipseWidth="10" ellipseHeight="10"/>
+		<ui:RunTimeLabel id="_playerPairLabel" horizontalCenter="0" size="80" bottom="108" textColor="0x438dff"
+		                 fontFamily="Microsoft JhengHei,Helvetica" />
+		<e:Label text="11:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" />
+	</e:Group>
+	<e:Group id="_tieGroup" x="656" y="0" width="160" height="200" width.SuperSix="296">
+		<e:Image id="_tieImage" source="m_ba_betarea_tie_png" name="m_ba_betarea_tie_png" width="160" height="200"
+		         width.SuperSix="100%"  x="0.5" y="0"/>
+		<ui:RunTimeLabel id="_tieLabel" horizontalCenter="0" size="80" bottom="108" textColor="0x44c870"
+		                 fontFamily="Microsoft JhengHei,Helvetica" />
+		<e:Label text="8:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" />
+	</e:Group>
+	<e:Group id="_bankerPair" x="1380" y="0" width="256" height="200">
+		<e:Image id="_bankerPairImage" source="m_ba_betarea_bankerpair_png" name="m_ba_betarea_bankerpair_png" width="256"
+		         height="200" />
+		<ui:RunTimeLabel id="_bankerPairLabel" horizontalCenter="0" size="80" bottom="108" textColor="0xff6767"
+		                 fontFamily="Microsoft JhengHei,Helvetica" />
+		<e:Label text="11:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" />
+	</e:Group>
+	<e:Group id="_superSixBanker" includeIn="SuperSix" x="991" y="0" width="384" height="200">
+		<e:Image id="_superSixBankerImage" source="m_ba_betarea_banker_png" name="m_ba_betarea_banker_png" width="384"
+		         height="200"  x="0"/>
+		<ui:RunTimeLabel id="_superSixBankerLabel" horizontalCenter="0" size="98" bottom="96"
+		                 fontFamily="Microsoft JhengHei,Helvetica" />
+		<e:Label text="1:1" horizontalCenter="116.5" size="48" verticalAlign="top" top="135" alpha="0.7" />
+	</e:Group>
+	<e:Group id="_superSix" includeIn="SuperSix" x="824" y="0" width="160" height="200">
+		<e:Image id="_superSixImage" source="m_ba_betarea_tie_png" name="m_ba_betarea_tie_png" width="100%" height="100%"  x="0" y="0"/>
+		<ui:RunTimeLabel id="_superSixLabel" horizontalCenter="0" size="80" bottom="108" textColor="0x44c870"
+		                 fontFamily="Microsoft JhengHei,Helvetica" />
+		<e:Label text="12:1" horizontalCenter="0" size="48" verticalAlign="top" top="132" alpha="0.7" />
+	</e:Group>
+	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
+	        locked="true" visible="false" />
+</e:Skin>
