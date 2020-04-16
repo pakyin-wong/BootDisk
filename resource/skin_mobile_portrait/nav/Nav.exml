@@ -21,7 +21,7 @@
 	<ui:NavLantern id="_lantern" width="862" height="36"   left="11" bottom="6" fontsize="36" lineSpacing="36" visible.Game="false" visible.Lobby="true" x.Lobby="10"/>
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00"  size="36"
 	         fontFamily="Barlow" height="36" textAlign="right" anchorOffsetX="0" verticalAlign="top"  bottom="8" textColor="0xf3f3f3" alpha="0.7" x="914"/>
-	<e:Label text="lobby" includeIn="Lobby" x="358" y="824"/>
+	<e:Label text="lobby" includeIn="Lobby" x="358" y="824" visible="false"/>
 	<e:Label text="game" includeIn="Game" x="376" y="794"/>
 
 </e:Skin>

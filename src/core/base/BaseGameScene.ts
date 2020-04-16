@@ -33,6 +33,7 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
+      // protected _btnBack: eui.Image;
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
 
