@@ -35,24 +35,12 @@ namespace we {
         return roadmap;
       }
 
-      // public generateResultMessage(node: eui.Component) {
-      //   const gameResultMessage = new lw.GameResultMessage();
-      //   const idx = node.parent.getChildIndex(node);
-      //   node.parent.addChildAt(gameResultMessage, idx);
-      //   return gameResultMessage;
-      // }
-      public generateAnalysis(node: eui.Component) {
-        const analysis = new lw.Analysis();
+      public generateResultMessage(node: eui.Component) {
+        const gameResultMessage = new lw.GameResultMessage();
+        // gameResultMessage.updateSource('sideBet');
         const idx = node.parent.getChildIndex(node);
-        node.parent.addChildAt(analysis, idx);
-        return analysis;
-      }
-
-      public generateAdvancedRoad(node: eui.Component) {
-        const advancedRoad = new ba.BALobbyAdvancedRoad();
-        const idx = node.parent.getChildIndex(node);
-        node.parent.addChildAt(advancedRoad, idx);
-        return advancedRoad;
+        node.parent.addChildAt(gameResultMessage, idx);
+        return gameResultMessage;
       }
     }
   }
