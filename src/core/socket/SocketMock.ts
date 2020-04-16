@@ -18,7 +18,7 @@ namespace we {
         [we.core.GameType.DT]: 3,
         [we.core.GameType.RO]: 3,
         [we.core.GameType.DI]: 3,
-        [we.core.GameType.LW]: 0,
+        [we.core.GameType.LW]: 1,
       };
 
       constructor() {

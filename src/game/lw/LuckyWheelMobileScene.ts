@@ -165,7 +165,7 @@ namespace we {
         const result = (<ro.GameData>this._gameData).value;
         const resultNo: number = +result.toString().substr(1) - 1;
 
-        (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo.toString()}`);
+        // (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo.toString()}`);
         this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
       }
     }

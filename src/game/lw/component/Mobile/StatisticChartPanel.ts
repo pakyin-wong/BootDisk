@@ -96,21 +96,21 @@ namespace we {
       }
 
       public setValue(tableInfo: data.TableInfo) {
-        if (tableInfo.gamestatistic.bankerCount) {
-          this.totalBankerCount && (this.totalBankerCount.text = tableInfo.gamestatistic.bankerCount.toString());
-        }
-        if (tableInfo.gamestatistic.playerCount) {
-          this.totalPlayerCount && (this.totalPlayerCount.text = tableInfo.gamestatistic.playerCount.toString());
-        }
-        if (tableInfo.gamestatistic.tieCount) {
-          this.totalTieCount && (this.totalTieCount.text = tableInfo.gamestatistic.tieCount.toString());
-        }
-        if (tableInfo.gamestatistic.bankerPairCount) {
-          this.bankerPairCount && (this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString());
-        }
-        if (tableInfo.gamestatistic.playerPairCount) {
-          this.playerPairCountPer && (this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString());
-        }
+        // if (tableInfo.gamestatistic.bankerCount) {
+        //   this.totalBankerCount && (this.totalBankerCount.text = tableInfo.gamestatistic.bankerCount.toString());
+        // }
+        // if (tableInfo.gamestatistic.playerCount) {
+        //   this.totalPlayerCount && (this.totalPlayerCount.text = tableInfo.gamestatistic.playerCount.toString());
+        // }
+        // if (tableInfo.gamestatistic.tieCount) {
+        //   this.totalTieCount && (this.totalTieCount.text = tableInfo.gamestatistic.tieCount.toString());
+        // }
+        // if (tableInfo.gamestatistic.bankerPairCount) {
+        //   this.bankerPairCount && (this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString());
+        // }
+        // if (tableInfo.gamestatistic.playerPairCount) {
+        //   this.playerPairCountPer && (this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString());
+        // }
       }
     }
   }

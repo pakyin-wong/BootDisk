@@ -19,9 +19,11 @@ namespace we {
         this.rightPanel = rightPanel;
         this.resultPanel = resultPanel;
 
-        this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
-        this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
-        this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        if (!env.isMobile) {
+          this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+          this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+          this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        }
       }
 
       protected onBeadRoadOver(e: egret.Event) {
@@ -63,7 +65,7 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.roadmap) {
             const data = this.tableInfo.roadmap;
-            this.resultPanel.visible = false;
+            if (this.resultPanel) this.resultPanel.visible = false;
           }
         }
       }

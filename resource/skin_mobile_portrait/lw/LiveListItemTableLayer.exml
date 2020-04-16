@@ -1,39 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lw.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
-	<e:Group id="_oneCircleGroup" x="20" y="30" width="60" height="100">
-		<e:Image id="_oneCircleImage" width="60" height="100" name="d_sic_lobby_betarea_02_hover_png" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_east_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="1" size="15" textColor="0xffffff" />
+<e:Skin class="skin_mobile_portrait.lw.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal" width="1142" height="309">
+	<e:Group id="_oneCircleGroup" x="28" y="44" width="136" height="235">
+		<e:Image id="_oneCircleImage" width="100%" height="100%" name="m_lw_listpenal_bet_east_dim_png" fillMode="scale"
+		          source="m_lw_listpenal_bet_east_png"/>
 	</e:Group>
-	<e:Group id="_threeCircleGroup" x="100" y="30" width="60" height="100">
-		<e:Image id="_threeCircleImage" name="d_sic_lobby_betarea_01_hover_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_south_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="1" size="15" textColor="0xffffff" />
+	<e:Group id="_threeCircleGroup" x="186" y="44" width="136" height="235">
+		<e:Image id="_threeCircleImage" name="m_lw_listpenal_bet_south_dim_png" width="100%" height="100%" fillMode="scale"
+		          source="m_lw_listpenal_bet_south_png"/>
 	</e:Group>
-	<e:Group id="_fiveCircleGroup" x="180" y="30" width="60" height="100">
-		<e:Image id="_fiveCircleImage" name="d_sic_lobby_betarea_03_hover_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_west_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="5" size="15" textColor="0xffffff" />
+	<e:Group id="_fiveCircleGroup" x="344" y="44" width="136" height="235">
+		<e:Image id="_fiveCircleImage" name="m_lw_listpenal_bet_west_dim_png" width="100%" height="100%" fillMode="scale"
+		          source="m_lw_listpenal_bet_west_png"/>
 	</e:Group>
-	<e:Group id="_redDragonGroup" x="260" y="30" width="60" height="100">
-		<e:Image id="_redDragonImage" name="d_sic_lobby_betarea_04_hover_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_north_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="10" size="15" textColor="0xffffff" />
+	<e:Group id="_redDragonGroup" x="502" y="44" width="136" height="235">
+		<e:Image id="_redDragonImage" name="m_lw_listpenal_bet_north_dim_png" width="100%" height="100%" fillMode="scale"
+		         source="m_lw_listpenal_bet_north_png" />
 	</e:Group>
-	<e:Group id="_greenDragonGroup" x="340" y="30" width="60" height="100">
-		<e:Image id="_greenDragonImage" name="d_sic_lobby_betarea_04_hover_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_white_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="20" size="15" textColor="0xffffff" />
+	<e:Group id="_greenDragonGroup" x="660" y="44" width="136" height="235">
+		<e:Image id="_greenDragonImage" name="m_lw_listpenal_bet_white_dim_png" width="100%" height="100%" fillMode="scale"
+		         source="m_lw_listpenal_bet_white_png" />
 	</e:Group>
-	<e:Group id="_whiteDragonGroup" x="420" y="30" width="60" height="100">
-		<e:Image id="_whiteDragonImage" name="d_sic_lobby_betarea_04_hover_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_red_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="45" size="15" textColor="0xffffff" />
+	<e:Group id="_whiteDragonGroup" x="818" y="44" width="136" height="235">
+		<e:Image id="_whiteDragonImage" name="m_lw_listpenal_bet_red_dim_png" width="100%" height="100%" fillMode="scale"
+		         source="m_lw_listpenal_bet_red_png" />
 	</e:Group>
-	<e:Group id="_weGroup" x="500" y="30" width="60" height="100">
-		<e:Image id="_weImage" name="d_sic_lobby_betarea_04_hover_png" width="60" height="100" fillMode="scale"
-		         source="d_lw_listpenal_betarea_bet_green_png" />
-		<e:Label horizontalCenter="0" verticalCenter="30" text="45" size="15" textColor="0xffffff" />
+	<e:Group id="_weGroup" x="976" y="44" width="136" height="235">
+		<e:Image id="_weImage" name="m_lw_listpenal_bet_green_dim_png" width="100%" height="100%" fillMode="scale"
+		         source="m_lw_listpenal_bet_green_png" />>
 	</e:Group>
 </e:Skin>

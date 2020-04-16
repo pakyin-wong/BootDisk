@@ -22,11 +22,8 @@ namespace we {
         this.beadRoad.x = 0;
         this.beadRoad.y = 0;
 
-        this.beadRoad.parseRoadData([
-          { v: '01', gameRoundID: 'cde345' },
-          { v: '02', gameRoundID: 'g34345' },
-          { v: '03', gameRoundID: 'g45454' },
-        ]);
+        const rdata: any = [];
+        this.beadRoad.parseRoadData(rdata);
         this.addChild(this.beadRoad);
       }
 
