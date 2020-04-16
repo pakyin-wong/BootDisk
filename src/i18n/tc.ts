@@ -120,6 +120,7 @@ namespace we {
         },
       },
       nav: {
+        bet_balance: '餘額',
         menu: {
           title: '設定',
           selectMode: '介面色調',

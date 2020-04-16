@@ -9,7 +9,10 @@ namespace we {
       private _menu_toggle: eui.Image;
       private _menu: Panel;
       private _slider_toggle: ui.BaseImageButton;
-      private _balance: RunTimeLabel;
+
+      private _balance: ui.RunTimeLabel;
+
+      private _balanceText: ui.RunTimeLabel;
 
       private _profilePrc: eui.Image;
       private _refreshButton: ui.BaseImageButton;
@@ -30,6 +33,8 @@ namespace we {
         super('Nav');
       }
 
+      // nav: {
+      //       bet_balance: '餘額',
       protected mount() {
         this.initNav();
       }
@@ -53,6 +58,7 @@ namespace we {
 
         // GameListButton
         if (env.isMobile) {
+          this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
           if (!this._overlay) {
             this._overlay = new ui.Overlay();
 

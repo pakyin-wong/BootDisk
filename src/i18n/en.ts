@@ -120,6 +120,7 @@ namespace we {
         },
       },
       nav: {
+        bet_balance: 'Balance',
         menu: {
           title: 'Settings',
           selectMode: 'Color Mode',
