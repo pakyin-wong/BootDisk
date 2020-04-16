@@ -224,7 +224,9 @@ namespace we {
 
       protected onOrientationChange() {
         super.onOrientationChange();
+        this.onExit();
         this.updateSkin('BaccaratScene', true);
+        this.onEnter();
       }
     }
   }
