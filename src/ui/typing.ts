@@ -106,5 +106,10 @@ namespace we {
       setToggler(toggler: egret.DisplayObject, onToggleCallback?: (value: boolean) => void);
       removeToggler(toggler: egret.DisplayObject);
     }
+
+    // Notification
+    export interface INotificationController {
+      notificationList: data.Notification[];
+    }
   }
 }

@@ -60,16 +60,14 @@ namespace we {
         this.roadsContainer = new egret.DisplayObjectContainer();
         this.roadsContainer.x = 0;
         this.roadsContainer.y = 0;
-        // this.roadsContainer.scaleX = 584 / 672;
         this.roadsContainer.scaleX = 584 / 672;
-        this.roadsContainer.scaleY = 0.9;
-        // this.roadsContainer.alpha = 0.5;
+        this.roadsContainer.scaleY = 450 / 504;
         this.addChild(this.roadsContainer);
 
-        this.beadRoad = new BABeadRoad(16, gridSize, 2, false);
+        this.beadRoad = new BABeadRoad(16, gridSize * 2, 1, false);
         this.beadRoad.x = 0;
         this.beadRoad.y = 0;
-        this.beadRoad.scaleX = 690 / 689;
+        // this.beadRoad.scaleX = 690 / 689;
         // this.beadRoad.scaleY = 690 / 689;
         this.roadsContainer.addChild(this.beadRoad);
 
@@ -102,6 +100,18 @@ namespace we {
         // this.totalCountLabel.text = this.totalCount + '';
         // this.playerButtonLabel.text = i18n.t('baccarat.askPlayer');
         // this.bankerButtonLabel.text = i18n.t('baccarat.askBanker');
+      }
+
+      public askBankerRoad() {
+        if (this._roadmapControl) {
+          this._roadmapControl.onBankerClick(null);
+        }
+      }
+
+      public askPlayerRoad() {
+        if (this._roadmapControl) {
+          this._roadmapControl.onPlayerClick(null);
+        }
       }
 
       // render text by tableInfo

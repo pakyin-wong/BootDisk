@@ -17,7 +17,7 @@ namespace we {
       protected _startPosY: number;
 
       public get controller(): NotificationController {
-        return <any> this.parent.parent;
+        return <any>this.parent.parent;
       }
 
       constructor() {
@@ -66,7 +66,7 @@ namespace we {
         this._displayItem.onQuickBet();
       }
 
-      protected createItemRenderer(type: number) {
+      public createItemRenderer(type: number) {
         switch (type) {
           case core.NotificationType.GoodRoad:
             this._displayItem = new GoodRoadNotificationItem(this._holderState);
@@ -122,14 +122,25 @@ namespace we {
             if (this._holderState === NotificationItemHolder.STATE_FOCUS) {
               controller.dismissFocus(true);
             }
-            controller.listDisplay.removeItem(self.itemData);
+            if (env.isMobile) {
+              switch (this.itemData.type) {
+                case core.NotificationType.GoodRoad:
+                  (controller as any).goodRoadListDisplay.removeItem(self.itemData);
+                  break;
+                case core.NotificationType.Result:
+                  (controller as any).resultListDisplay.removeItem(self.itemData);
+                  break;
+              }
+            } else {
+              controller.listDisplay.removeItem(self.itemData);
+            }
             controller.dismissNotification(this.itemData.type);
             controller.showNextNotification();
           });
       }
 
       public setLayoutBoundsPosition(x: number, y: number) {
-        const list = <List> this.parent;
+        const list = <List>this.parent;
         const matrix = this.$getMatrix();
         if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
           const bounds = egret.$TempRectangle;

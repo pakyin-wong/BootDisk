@@ -5,7 +5,7 @@ namespace we {
       private _nav: ui.Nav;
       private _navMobileSilder: ui.NavMobileSilder;
       private _mDropdown: ui.MobileDropdown;
-      private _notificationController: ui.NotificationController;
+      private _notificationController: egret.DisplayObject & ui.INotificationController;
       private _liveSidePanel: ui.LiveSidePanel;
       private _overlay: ui.Overlay;
       private _msg: ui.MsgOverlay;
@@ -98,11 +98,9 @@ namespace we {
 
       private initStage(stage: egret.Stage) {
         this._nav = new ui.Nav();
-        this._notificationController = new ui.NotificationController();
         this._overlay = new ui.Overlay();
 
         dir.layerCtr.nav.addChild(this._nav);
-        dir.layerCtr.top.addChild(this._notificationController);
 
         if (env.isMobile) {
           const gameListButton = new ui.GameListButton();
@@ -129,19 +127,25 @@ namespace we {
           dir.layerCtr.overlay.addChild(this._navMobileSilder);
           dir.layerCtr.overlay.addChild(this._overlay);
           dir.layerCtr.overlay.addChild(this._mDropdown);
+
+          this._notificationController = new ui.MobileNotificationController();
+          this._notificationController.x = 0;
+          this._notificationController.y = 0;
+          dir.layerCtr.top.addChild(this._notificationController);
         } else {
           this._liveSidePanel = new ui.LiveSidePanel();
           this._liveSidePanel.right = 20;
           this._liveSidePanel.y = 80;
-
           dir.layerCtr.top.addChild(this._liveSidePanel);
           dir.layerCtr.overlay.addChild(this._overlay);
+
+          this._notificationController = new ui.NotificationController();
+          this._notificationController.x = stage.stageWidth - 410;
+          this._notificationController.y = 180;
+          dir.layerCtr.top.addChild(this._notificationController);
         }
 
         this._nav.touchEnabled = false;
-
-        this._notificationController.x = stage.stageWidth - 410;
-        this._notificationController.y = 180;
 
         if (env.mode < 0) {
           dir.evtHandler.createOverlay({
