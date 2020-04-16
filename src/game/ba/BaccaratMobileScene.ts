@@ -230,23 +230,11 @@ namespace we {
 
       protected onMatchGoodRoadUpdate() {
         if (this._tableInfo.goodRoad) {
-          this._BAgoodRoadLabel.renderText=() => "string";
-          // const goodRoadData = this.tableInfo.goodRoad;
-          // const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
-          // this._goodRoadLabel.text = goodRoadName;
+          const goodRoadData = this._tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          this._BAgoodRoadLabel.renderText = () => goodRoadName;
           // this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         } 
-
-      //   this._tableInfo
-      //     if (evt && evt.data) {
-      //     const goodRoadInfo = <data.TableInfo> evt.data;
-      //     if (goodRoadInfo.tableid === this._tableId) {
-      //       // update the scene
-      //       (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-      //       // (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
-      //     }
-      //   }
-
       }
 
 
