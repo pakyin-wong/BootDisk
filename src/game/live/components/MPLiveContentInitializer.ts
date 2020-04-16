@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace live {
-    export class MLiveContentInitializer implements IContentInitializer {
+    export class MPLiveContentInitializer implements IContentInitializer {
       protected root: GameTableList;
       private normalGapSize: number = 48;
       private simpleGapSize: number = 20;
@@ -10,14 +10,6 @@ namespace we {
       constructor() {}
 
       public initContent(root: GameTableList) {
-        if (env.orientation === egret.OrientationMode.PORTRAIT) {
-          this.initPortraitContent(root);
-        } else {
-          this.initLandscapeContent(root);
-        }
-      }
-
-      public initPortraitContent(root: GameTableList) {
         this.root = root;
         root.scroller = new ui.Scroller();
         root.scroller.width = root.stage.stageWidth;
@@ -86,32 +78,16 @@ namespace we {
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         root.tabs = new LiveGameTabbar(root.tabItems);
         tabBarGroup.addChild(root.tabs);
-        root.tabs.percentWidth = 100;
         // tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
         root.scroller.viewport = group;
 
         const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
-        // gridSwitch.x = 1078;
-        // gridSwitch.y = 1960;
-        if (env.orientation === egret.OrientationMode.PORTRAIT) {
-          gridSwitch.x = 1088;
-          gridSwitch.y = 298;
-        } else {
-          gridSwitch.x = 2270;
-          gridSwitch.y = 688;
-        }
-        // gridSwitch.x = 1088;
-        // gridSwitch.y = 298;
-        // gridSwitch.width = 144;
-        // gridSwitch.height = 144;
+        gridSwitch.x = 1088;
+        gridSwitch.y = 298;
         gridSwitch.width = 104;
         gridSwitch.height = 104;
         this.root.addChild(gridSwitch);
-      }
-
-      public initLandscapeContent(root: GameTableList) {
-        this.initPortraitContent(root);
       }
 
       public onDisplayMode(evt: egret.Event) {
@@ -129,7 +105,6 @@ namespace we {
             this.roomLayout.requestedColumnCount = 1;
             this.roomLayout.rowHeight = 399;
             this.roomLayout.columnWidth = 1140;
-            // this.roomList.layout = this.roomLayout;
 
             break;
           case we.lobby.mode.SIMPLE:
@@ -140,7 +115,6 @@ namespace we {
             this.roomLayout.requestedColumnCount = 2;
             this.roomLayout.rowHeight = 270;
             this.roomLayout.columnWidth = 552;
-            // this.roomList.layout = this.roomLayout;
             break;
         }
       }

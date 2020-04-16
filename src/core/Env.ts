@@ -13,6 +13,7 @@ namespace we {
 
       /* Global Environment Variable */
       public version: string = '0.3.2';
+      public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;

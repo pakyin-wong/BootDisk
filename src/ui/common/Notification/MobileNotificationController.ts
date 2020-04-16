@@ -92,7 +92,7 @@ namespace we {
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification>evt.data;
+        const notification: data.Notification = <data.Notification> evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }

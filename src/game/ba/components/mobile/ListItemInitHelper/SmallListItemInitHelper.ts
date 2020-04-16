@@ -1,3 +1,4 @@
+
 namespace we {
   export namespace ba {
     export class SmallListItemInitHelper implements ui.IListItemHelper {

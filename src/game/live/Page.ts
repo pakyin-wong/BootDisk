@@ -9,7 +9,7 @@ namespace we {
         super('LivePage', data);
       }
 
-      i = 0;
+      public i = 0;
 
       public onEnter() {
         super.onEnter();
