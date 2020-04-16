@@ -795,6 +795,10 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait{
+	class BAGoodRoadLabelSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class BARoadmapLeftPanel extends eui.Skin{
 	}
 }

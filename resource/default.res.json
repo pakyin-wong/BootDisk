@@ -5,8 +5,8 @@
 			"name": "egret_basic"
 		},
 		{
-			"name": "preload",
-			"keys": "m_common_btn_menu2_png,m_common_btn_panel_quickbet2_png,m_lobby_header_submenu_bg_png,m_lobby_header_submenu_hl_png,m_lobby_horizontal_banner_1_png,m_lobby_horizontal_banner_2_png,m_lobby_horizontal_banner_3_png,m_lobby_horizontal_banner_4_png,m_lobby_login_banner_jpg,m_common_btn_panel_quickbet3_png,m_common_btn_menu3_png,m_lobby_header_submenu_bg2_png,m_lobby_header_submenu_hl2_png,m_lobby_horizontal_banner_12_png,m_lobby_horizontal_banner_22_png,m_lobby_horizontal_banner_32_png,m_lobby_horizontal_banner_42_png,m_lobby_login_banner2_jpg,m_common_btn_menu4_png,m_common_btn_panel_quickbet4_png,m_lobby_header_submenu_bg3_png,m_lobby_header_submenu_hl3_png,m_lobby_horizontal_banner_13_png,m_lobby_horizontal_banner_23_png,m_lobby_horizontal_banner_33_png,m_lobby_horizontal_banner_43_png,m_lobby_login_banner3_jpg,d_ba_roadmap_bar_remainingstate_png"
+			"keys": "m_common_btn_menu2_png,m_common_btn_panel_quickbet2_png,m_lobby_header_submenu_bg_png,m_lobby_header_submenu_hl_png,m_lobby_horizontal_banner_1_png,m_lobby_horizontal_banner_2_png,m_lobby_horizontal_banner_3_png,m_lobby_horizontal_banner_4_png,m_lobby_login_banner_jpg,m_common_btn_panel_quickbet3_png,m_common_btn_menu3_png,m_lobby_header_submenu_bg2_png,m_lobby_header_submenu_hl2_png,m_lobby_horizontal_banner_12_png,m_lobby_horizontal_banner_22_png,m_lobby_horizontal_banner_32_png,m_lobby_horizontal_banner_42_png,m_lobby_login_banner2_jpg,m_common_btn_menu4_png,m_common_btn_panel_quickbet4_png,m_lobby_header_submenu_bg3_png,m_lobby_header_submenu_hl3_png,m_lobby_horizontal_banner_13_png,m_lobby_horizontal_banner_23_png,m_lobby_horizontal_banner_33_png,m_lobby_horizontal_banner_43_png,m_lobby_login_banner3_jpg,d_ba_roadmap_bar_remainingstate_png",
+			"name": "preload"
 		}
 	],
 	"resources": [
@@ -4889,144 +4889,149 @@
 			"name": "m_common_btn_panel_quickbet_png"
 		},
 		{
-			"name": "m_common_btn_menu2_png",
+			"url": "assets/m/common/m_common_btn_menu.png",
 			"type": "image",
-			"url": "assets/m/common/m_common_btn_menu.png"
+			"name": "m_common_btn_menu2_png"
 		},
 		{
-			"name": "m_common_btn_panel_quickbet2_png",
+			"url": "assets/m/common/m_common_btn_panel_quickbet.png",
 			"type": "image",
-			"url": "assets/m/common/m_common_btn_panel_quickbet.png"
+			"name": "m_common_btn_panel_quickbet2_png"
 		},
 		{
-			"name": "m_lobby_header_submenu_bg_png",
+			"url": "assets/m/lobby/m_lobby_header_submenu_bg.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_header_submenu_bg.png"
+			"name": "m_lobby_header_submenu_bg_png"
 		},
 		{
-			"name": "m_lobby_header_submenu_hl_png",
+			"url": "assets/m/lobby/m_lobby_header_submenu_hl.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_header_submenu_hl.png"
+			"name": "m_lobby_header_submenu_hl_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_1_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_1.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_1.png"
+			"name": "m_lobby_horizontal_banner_1_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_2_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_2.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_2.png"
+			"name": "m_lobby_horizontal_banner_2_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_3_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_3.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_3.png"
+			"name": "m_lobby_horizontal_banner_3_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_4_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_4.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_4.png"
+			"name": "m_lobby_horizontal_banner_4_png"
 		},
 		{
-			"name": "m_lobby_login_banner_jpg",
+			"url": "assets/m/lobby/m_lobby_login_banner.jpg",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_login_banner.jpg"
+			"name": "m_lobby_login_banner_jpg"
 		},
 		{
-			"name": "m_common_btn_panel_quickbet3_png",
+			"url": "assets/m/common/m_common_btn_panel_quickbet.png",
 			"type": "image",
-			"url": "assets/m/common/m_common_btn_panel_quickbet.png"
+			"name": "m_common_btn_panel_quickbet3_png"
 		},
 		{
-			"name": "m_common_btn_menu3_png",
+			"url": "assets/m/common/m_common_btn_menu.png",
 			"type": "image",
-			"url": "assets/m/common/m_common_btn_menu.png"
+			"name": "m_common_btn_menu3_png"
 		},
 		{
-			"name": "m_lobby_header_submenu_bg2_png",
+			"url": "assets/m/lobby/m_lobby_header_submenu_bg.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_header_submenu_bg.png"
+			"name": "m_lobby_header_submenu_bg2_png"
 		},
 		{
-			"name": "m_lobby_header_submenu_hl2_png",
+			"url": "assets/m/lobby/m_lobby_header_submenu_hl.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_header_submenu_hl.png"
+			"name": "m_lobby_header_submenu_hl2_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_12_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_1.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_1.png"
+			"name": "m_lobby_horizontal_banner_12_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_22_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_2.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_2.png"
+			"name": "m_lobby_horizontal_banner_22_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_32_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_3.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_3.png"
+			"name": "m_lobby_horizontal_banner_32_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_42_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_4.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_4.png"
+			"name": "m_lobby_horizontal_banner_42_png"
 		},
 		{
-			"name": "m_lobby_login_banner2_jpg",
+			"url": "assets/m/lobby/m_lobby_login_banner.jpg",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_login_banner.jpg"
+			"name": "m_lobby_login_banner2_jpg"
 		},
 		{
-			"name": "m_common_btn_menu4_png",
+			"url": "assets/m/common/m_common_btn_menu.png",
 			"type": "image",
-			"url": "assets/m/common/m_common_btn_menu.png"
+			"name": "m_common_btn_menu4_png"
 		},
 		{
-			"name": "m_common_btn_panel_quickbet4_png",
+			"url": "assets/m/common/m_common_btn_panel_quickbet.png",
 			"type": "image",
-			"url": "assets/m/common/m_common_btn_panel_quickbet.png"
+			"name": "m_common_btn_panel_quickbet4_png"
 		},
 		{
-			"name": "m_lobby_header_submenu_bg3_png",
+			"url": "assets/m/lobby/m_lobby_header_submenu_bg.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_header_submenu_bg.png"
+			"name": "m_lobby_header_submenu_bg3_png"
 		},
 		{
-			"name": "m_lobby_header_submenu_hl3_png",
+			"url": "assets/m/lobby/m_lobby_header_submenu_hl.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_header_submenu_hl.png"
+			"name": "m_lobby_header_submenu_hl3_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_13_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_1.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_1.png"
+			"name": "m_lobby_horizontal_banner_13_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_23_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_2.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_2.png"
+			"name": "m_lobby_horizontal_banner_23_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_33_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_3.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_3.png"
+			"name": "m_lobby_horizontal_banner_33_png"
 		},
 		{
-			"name": "m_lobby_horizontal_banner_43_png",
+			"url": "assets/m/lobby/m_lobby_horizontal_banner_4.png",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_horizontal_banner_4.png"
+			"name": "m_lobby_horizontal_banner_43_png"
 		},
 		{
-			"name": "m_lobby_login_banner3_jpg",
+			"url": "assets/m/lobby/m_lobby_login_banner.jpg",
 			"type": "image",
-			"url": "assets/m/lobby/m_lobby_login_banner.jpg"
+			"name": "m_lobby_login_banner3_jpg"
 		},
 		{
-			"name": "d_ba_roadmap_bar_remainingstate_png",
+			"url": "assets/d/ba/d_ba_roadmap_bar_remainingstate.png",
 			"type": "image",
-			"url": "assets/d/ba/d_ba_roadmap_bar_remainingstate.png"
+			"name": "d_ba_roadmap_bar_remainingstate_png"
+		},
+		{
+			"url": "assets/m/common/m_common_header_goodroad_icon_star.png",
+			"type": "image",
+			"name": "m_common_header_goodroad_icon_star_png"
 		}
 	]
 }

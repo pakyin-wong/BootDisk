@@ -51,7 +51,9 @@
 	</e:Group>
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
-		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
+			 <ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin"  x="215" y="23"/>
+			 <!--<ui:BAGoodRoadLabel id="_BAGoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" right="13" bottom="10" />-->
+
 		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
 		                 textAlign="left" anchorOffsetX="0" text="Label" />
 		<e:Group x="25" y="65">
@@ -85,7 +87,7 @@
 			
 	</e:Group>
 	<ui:ImageGameResultMessage id="_resultMessage" x="620" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-	                           scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin" />
+	                           scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin"  visible="false"/>
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />

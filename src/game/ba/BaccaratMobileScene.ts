@@ -15,9 +15,11 @@ namespace we {
       protected _lblBaMode: ui.RunTimeLabel;
 
       protected _verticalGroup: eui.Group;
+      protected _BAgoodRoadLabel: ui.GoodRoadLabel;
 
       constructor(data: any) {
         super(data);
+        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
 
       protected setSkinName() {
@@ -225,6 +227,29 @@ namespace we {
           }
         }
       }
+
+      protected onMatchGoodRoadUpdate() {
+        if (this._tableInfo.goodRoad) {
+          this._BAgoodRoadLabel.renderText=() => "string";
+          // const goodRoadData = this.tableInfo.goodRoad;
+          // const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          // this._goodRoadLabel.text = goodRoadName;
+          // this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
+        } 
+
+      //   this._tableInfo
+      //     if (evt && evt.data) {
+      //     const goodRoadInfo = <data.TableInfo> evt.data;
+      //     if (goodRoadInfo.tableid === this._tableId) {
+      //       // update the scene
+      //       (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+      //       // (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+      //     }
+      //   }
+
+      }
+
+
     }
   }
 }
