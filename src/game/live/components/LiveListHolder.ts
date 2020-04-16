@@ -59,6 +59,7 @@ namespace we {
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
+            break;
         }
 
         let itemName;
