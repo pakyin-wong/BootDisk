@@ -294,7 +294,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }
