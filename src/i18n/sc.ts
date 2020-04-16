@@ -8,9 +8,11 @@ namespace we {
       gametype_BAC: '百家乐',
       gametype_BAS: '竞速百家乐',
       gametype_BAI: '保险百家乐',
+      gametype_BAQ: '咪牌百家乐',
       gametype_DI: '骰宝',
       gametype_MJ: '麻将',
       gametype_RO: '轮盘',
+      gametype_ROW: '财神轮盘',
       gametype_DT: '龙虎',
       gametype_LW: '幸運轮',
 

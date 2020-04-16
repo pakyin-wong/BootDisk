@@ -8,9 +8,11 @@ namespace we {
       gametype_BAC: 'BAC',
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
+      gametype_BAQ: 'BAQ',
       gametype_DI: 'DI',
       gametype_MJ: 'MJ',
       gametype_RO: 'RO',
+      gametype_ROW: 'ROW',
       gametype_DT: 'DT',
       gametype_LW: 'LW',
 
