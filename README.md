@@ -153,6 +153,8 @@ npm install -g tslint prettier typescript
 
 ## Asset Link from Design Team (Copied from whatsapp group)
 
+- [16/4/2020 mobile baccarat](https://drive.google.com/open?id=18wlsZ8eX94sWvidL_2WK7hDofC-2baO5)
+
 - [4/3/2020 God Of Wealth Roulette](https://drive.google.com/drive/folders/1Q-ipvuxyQpjNhumkXEdY77-iiZAJXKSn)
 
 - [4/3/2020 Squeeze Baccarat](https://drive.google.com/drive/u/1/folders/1PFeDwG-NGW2phdCwZRUyUGWbgrJW-dqC)
