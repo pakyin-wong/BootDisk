@@ -5,9 +5,11 @@ namespace we {
       // private collection: eui.ArrayCollection;
       public roomIds: string[] = [];
 
+      public slider: ui.ImageSlider;
       public tabs: LiveGameTabbar;
       public tabItems: string[];
       public roomList: ui.TableList;
+      public roomListRefer: eui.List;
 
       private contentInitializer: IContentInitializer;
 

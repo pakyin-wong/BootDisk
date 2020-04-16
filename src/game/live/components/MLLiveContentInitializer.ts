@@ -8,15 +8,20 @@ namespace we {
 
       public initContent(root: GameTableList) {
         this.root = root;
-        root.roomList.isFreezeScrolling = true;
-        root.roomList.isGlobalLock = true;
-        this.setDisplayMode(env.lobbyGridType);
+
+        root.slider.configSlides(dir.liveResources.liveHeroBanners);
+
+        // root.roomList.isFreezeScrolling = true;
+        // root.roomList.isGlobalLock = true;
+        root.roomList.layout = root.roomListRefer.layout;
         root.roomList.itemRenderer = MobileLiveListHolder;
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
 
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         root.tabs.collection.replaceAll(root.tabItems);
+
+        this.setDisplayMode(env.lobbyGridType);
       }
 
       public onDisplayMode(evt: egret.Event) {
