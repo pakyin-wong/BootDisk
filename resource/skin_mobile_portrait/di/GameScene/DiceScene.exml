@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.DiceScene" width="2155" height="1242" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.DiceScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:di="we.di.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*" states="left_hand_mode,right_hand_mode" >
-		
+	<!--<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0">
+	<e:skinName>
+		<e:Skin states="normal,zip,small">
+			<e:Component id="checker" width="878" height="1769" x="172" y="167" scaleX="1" scaleY="1" height.zip="1304" scaleX.small="0.673120728929385" scaleY.small="0.6721311475409836" x.small="326" y.small="748"/>
+		</e:Skin>
+	</e:skinName>
+	</ui:TweenConfig>
+	<ui:TweenConfig id="_betSetTween" left="0" right="0" top="-3" bottom="3">
+		<ui:skinName>
+		<e:Skin states="normal,zip,small">
+			<e:Component id="checker" width="1242" height="1112" x="0" y="489" scaleX="1" scaleY="1" y.small="489" y.normal="489" y.zip="270"/>
+		</e:Skin>
+		</ui:skinName>
+	</ui:TweenConfig>-->
+        <e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" left="0" right="0" locked="true"/>
+        <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false" touchChildren="true" touchThrough="true" height="121">
+                <e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3"/>
+                <ui:RunTimeLabel id="_lblRoomNo" x="90" y="33" size="40" height="56" verticalAlign="middle" width="200" textAlign="left" anchorOffsetX="0" text=""/>
+                <e:Group x="90" y="87">
+                        <ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40"/>
+                        <e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19"/>
+                        <e:layout>
+                                <e:HorizontalLayout verticalAlign="middle"/>
+                        </e:layout>
+                </e:Group>
+                <live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0" visible="false"/>
+                <e:Image id="_btnBack" width="38" height="35" x="32" y="64" source="d_ba_navbar_chevron_png"/>
+                <e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png"/>
+                <ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.GameBar" visible="false"/>
+        </e:Group>
+        <e:Scroller id="_betArea" x="172" y="167" width="879" height="1769" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off">
+                <e:Group id="_bAViewport">
+                        <e:Group id="_bATransition" x="0">
+                                <e:Group id="_bANormal" x="0" height="1769" width="879">
+                                        <!--<di:MobileTableLayer id="_tableLayer" width="879" height="1769" skinName="skin_mobile_portrait.ro.TableLayerSkin" isEdgeDismissable="true"/>-->
+                                </e:Group>
+                                <!--<di:MobileChipLayer id="_chipLayer" width="879" height="1769" isEdgeDismissable="true" skinName="skin_mobile_portrait.ro.ChipLayerRaceSkin" x="0" y="0" scaleX="1" scaleY="1"/>-->
+                        </e:Group>
+                </e:Group>
+        </e:Scroller>
+  <!--<ro:MobileSidePanel id="_sidePanel" x="27" skinName="skin_mobile_portrait.ro.MobileSidePanel" verticalCenter="0" x.left="1114"/>-->
+  <e:Group id="_betSet" y="489" left="0" right="0" touchThrough="true">
+    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="1052" x.left="5"/>
+    <e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
+      <e:Group x="0" y="0" scaleX.left="-1" x.left="888">
+        <e:Image id="_panel" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1" width="855" height="871" x="0" y="0"/>
+        <e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" scaleX="1" rotation="90" x="888" y="40"/>
+      </e:Group>
+      <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left="0"/>
+    </e:Group>
+    <e:Group id="_betRelatedGroup" x="1074" y="181.0000000000001" scaleX="1" scaleY="1" width="128" x.left="21">
+      <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
+      <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120" horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90"/>
+      <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675" horizontalCenter="0" rotation="90" currentState="vertical"/>
+      <ui:BaseImageButton id="_repeatButton" y="81" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"/>
+      <ui:BaseImageButton id="_cancelButton" y="362" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" horizontalCenter="0"/>
+      <ui:BaseImageButton id="_doubleButton" y="233" anchorOffsetX="0" anchorOffsetY="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" horizontalCenter="0"/>
+      <ui:BaseImageButton id="_undoButton" y="514" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" horizontalCenter="0"/>
+    </e:Group>
+  </e:Group>
+        <di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242" x="0" scaleY="1" scaleX="1" bottom="36" locked="true"/>
 </e:Skin>

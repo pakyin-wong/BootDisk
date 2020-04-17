@@ -47,6 +47,11 @@ namespace we {
         //    this._bigRoadResultPanel
         // );
       }
+
+      // Roadmap & Statistic update
+      protected onRoadDataUpdate(evt: egret.Event) {
+        // this._roadmapControl.updateRoadData();
+      }
     }
   }
 }

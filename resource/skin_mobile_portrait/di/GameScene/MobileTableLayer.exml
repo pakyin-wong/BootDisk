@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.di.MobileTableLayerSkin" width="924" height="1530" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+    <e:Image id="_bg" source="m_sb_betarea_png" width="100%" height="100%" locked="true"/>
+    <e:Group id="_row1" width="100%" height="190">
+        <e:Group id="_small_group" width="153" height="100%" y="0" x="0">
+            <e:Image id="_small_hover" width="100%" height="100%"/>
+            <ui:RunTimeLabel id="_small_label" text="小" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0x2da1fe" fontFamily="Barlow"/>
+            <e:Label id="_small_percent" text="41%" size="24" horizontalCenter="34.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Barlow"/>
+        </e:Group>
+        <e:Group id="_odd_group" x="154" width="154" height="100%">
+            <e:Image id="_odd_hover" width="100%" height="100%"/>
+            <e:Label id="_odd_label" text="單" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0x2da1fe" fontFamily="Barlow"/>
+            <e:Label id="_odd_percent" text="54%" size="24" horizontalCenter="0.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Barlow"/>
+        </e:Group>
+        <e:Group id="_triple_all_group" x="308.5" width="307" height="100%" anchorOffsetX="0">
+            <e:Image id="_all_triple_hover" width="100%" height="100%"/>
+        </e:Group>
+        <e:Group id="_even_group" x="616.5" width="153.5" height="100%" anchorOffsetX="0" y="0">
+            <e:Image id="_even_hover" width="100%" height="100%"/>
+            <e:Label id="_even_label" text="雙" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0xe4493a" fontFamily="Barlow"/>
+            <e:Label id="_even_percent" text="54%" size="24" horizontalCenter="0.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Barlow"/>
+        </e:Group>
+        <e:Group id="_big_group" x="771" width="153" height="100%" y="0">
+            <e:Image id="_big_hover" width="100%" height="100%"/>
+            <e:Label id="_big_label" text="大" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0xe4493a" fontFamily="Barlow"/>
+            <e:Label id="_big_percent" text="41%" size="24" horizontalCenter="34.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Barlow"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row2" y="234" width="100%" height="104" anchorOffsetY="0" x="0">
+        <e:Group id="_triple_1_group" width="308" height="100%" anchorOffsetX="0">
+            <e:Image id="_triple_1_hover"/>
+        </e:Group>
+        <e:Group id="_triple_3_group" width="307" height="100%" x="309" y="0" anchorOffsetX="0">
+            <e:Image id="_triple_3_hover"/>
+        </e:Group>
+        <e:Group id="_triple_5_group" width="307" height="100%" anchorOffsetX="0" x="616.5" y="0">
+            <e:Image id="_triple_5_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row3" y="338" width="100%" height="104" anchorOffsetY="0">
+        <e:Group id="_triple_2_group" width="308" height="100%" anchorOffsetX="0">
+            <e:Image id="_triple_2_hover"/>
+        </e:Group>
+        <e:Group id="_triple_4_group" width="307" height="100%" x="309" y="0" anchorOffsetX="0">
+            <e:Image id="_triple_4_hover"/>
+        </e:Group>
+        <e:Group id="_triple_6_group" width="307" height="100%" anchorOffsetX="0" x="616.5" y="0">
+            <e:Image id="_triple_6_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row4" y="487" width="100%" height="97" anchorOffsetY="0">
+        <e:Group id="_double_1_group" width="308" height="100%" anchorOffsetX="0">
+            <e:Image id="_double_1_hover"/>
+        </e:Group>
+        <e:Group id="_double_3_group" width="307" height="100%" x="309" y="0" anchorOffsetX="0">
+            <e:Image id="_double_3_hover"/>
+        </e:Group>
+        <e:Group id="_double_5_group" width="307" height="100%" anchorOffsetX="0" x="616.5" y="0">
+            <e:Image id="_double_5_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row5" y="584" width="100%" height="98" anchorOffsetY="0">
+        <e:Group id="_double_2_group" width="308" height="100%" anchorOffsetX="0">
+            <e:Image id="_double_2_hover"/>
+        </e:Group>
+        <e:Group id="_double_4_group" width="307" height="100%" x="309" y="0" anchorOffsetX="0">
+            <e:Image id="_double_4_hover"/>
+        </e:Group>
+        <e:Group id="_double_6_group" width="307" height="100%" anchorOffsetX="0" x="616.5" y="0">
+            <e:Image id="_double_6_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row6" y="724" width="100%" height="105" anchorOffsetY="0">
+		<e:Group id="_sum_4_group" width="128" height="100%" x="2" anchorOffsetX="0" y="0">
+            <e:Image id="_sum_4_hover"/>
+        </e:Group>
+		<e:Group id="_sum_5_group" width="132" height="100%" x="130" anchorOffsetX="0">
+            <e:Image id="_sum_5_hover"/>
+        </e:Group>
+		<e:Group id="_sum_6_group" width="132" height="100%" x="263" anchorOffsetX="0">
+            <e:Image id="_sum_6_hover"/>
+        </e:Group>
+		<e:Group id="_sum_7_group" width="132" height="100%" x="395.5" anchorOffsetX="0">
+            <e:Image id="_sum_7_hover"/>
+        </e:Group>
+        <e:Group id="_sum_8_group" width="132" height="100%" x="528" anchorOffsetX="0">
+            <e:Image id="_sum_8_hover"/>
+        </e:Group>
+		<e:Group id="_sum_9_group" width="132" height="100%" x="661" anchorOffsetX="0">
+            <e:Image id="_sum_9_hover"/>
+        </e:Group>
+		<e:Group id="_sum_10_group" width="132" height="100%" x="792.5" anchorOffsetX="0">
+            <e:Image id="_sum_10_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row7" y="874" width="100%" height="105" anchorOffsetY="0">
+		<e:Group id="_sum_11_group" width="128" height="100%" x="2" anchorOffsetX="0" y="0">
+            <e:Image id="_sum_11_hover"/>
+        </e:Group>
+		<e:Group id="_sum_12_group" width="132" height="100%" x="130" anchorOffsetX="0">
+            <e:Image id="_sum_12_hover"/>
+        </e:Group>
+		<e:Group id="_sum_13_group" width="132" height="100%" x="263" anchorOffsetX="0">
+            <e:Image id="_sum_13_hover"/>
+        </e:Group>
+		<e:Group id="_sum_14_group" width="132" height="100%" x="395.5" anchorOffsetX="0">
+            <e:Image id="_sum_14_hover"/>
+        </e:Group>
+        <e:Group id="_sum_15_group" width="132" height="100%" x="528" anchorOffsetX="0">
+            <e:Image id="_sum_15_hover"/>
+        </e:Group>
+		<e:Group id="_sum_16_group" width="132" height="100%" x="661" anchorOffsetX="0">
+            <e:Image id="_sum_16_hover"/>
+        </e:Group>
+		<e:Group id="_sum_17_group" width="132" height="100%" x="792.5" anchorOffsetX="0">
+            <e:Image id="_sum_17_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row8" y="1024" width="100%" height="105" anchorOffsetY="0">
+		<e:Group id="_combine_1_2_group" width="180" height="100%" x="2" anchorOffsetX="0" y="0">
+            <e:Image id="_combine_1_2_hover"/>
+        </e:Group>
+		<e:Group id="_combine_1_5_group" width="186" height="100%" x="182" anchorOffsetX="0">
+            <e:Image id="_combine_1_5_hover"/>
+        </e:Group>
+		<e:Group id="_combine_2_4_group" width="185.33" height="100%" x="369.33" anchorOffsetX="0">
+            <e:Image id="_combine_2_4_hover"/>
+        </e:Group>
+		<e:Group id="_combine_3_4_group" width="185.33" height="100%" x="555.35" anchorOffsetX="0">
+            <e:Image id="_combine_3_4_hover"/>
+        </e:Group>
+        <e:Group id="_combine_4_5_group" width="180" height="100%" x="741.99" anchorOffsetX="0">
+            <e:Image id="_combine_4_5_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row9" y="1129" width="100%" height="105" anchorOffsetY="0">
+		<e:Group id="_combine_1_3_group" width="180" height="100%" x="2" anchorOffsetX="0" y="0">
+            <e:Image id="_combine_1_3_hover"/>
+        </e:Group>
+		<e:Group id="_combine_1_6_group" width="186" height="100%" x="182" anchorOffsetX="0">
+            <e:Image id="_combine_1_6_hover"/>
+        </e:Group>
+		<e:Group id="_combine_2_5_group" width="185.33" height="100%" x="369.33" anchorOffsetX="0">
+            <e:Image id="_combine_2_5_hover"/>
+        </e:Group>
+		<e:Group id="_combine_3_5_group" width="185.33" height="100%" x="555.35" anchorOffsetX="0">
+            <e:Image id="_combine_3_5_hover"/>
+        </e:Group>
+        <e:Group id="_combine_4_6_group" width="180" height="100%" x="741.99" anchorOffsetX="0">
+            <e:Image id="_combine_4_6_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row10" y="1234" width="100%" height="105" anchorOffsetY="0">
+		<e:Group id="_combine_1_4_group" width="180" height="100%" x="2" anchorOffsetX="0" y="0">
+            <e:Image id="_combine_1_4_hover"/>
+        </e:Group>
+		<e:Group id="_combine_2_3_group" width="186" height="100%" x="182" anchorOffsetX="0">
+            <e:Image id="_combine_2_3_hover"/>
+        </e:Group>
+		<e:Group id="_combine_2_6_group" width="185.33" height="100%" x="369.33" anchorOffsetX="0">
+            <e:Image id="_combine_2_6_hover"/>
+        </e:Group>
+		<e:Group id="_combine_3_6_group" width="185.33" height="100%" x="555.35" anchorOffsetX="0">
+            <e:Image id="_combine_3_6_hover"/>
+        </e:Group>
+        <e:Group id="_combine_5_6_group" width="180" height="100%" x="741.99" anchorOffsetX="0">
+            <e:Image id="_combine_5_6_hover"/>
+        </e:Group>
+    </e:Group>
+    <e:Group id="_row11" y="1234" width="100%" height="105" anchorOffsetY="0">
+		<e:Group id="_combine_1_4_group" width="180" height="100%" x="2" anchorOffsetX="0" y="0">
+            <e:Image id="_combine_1_4_hover"/>
+        </e:Group>
+		<e:Group id="_combine_2_3_group" width="186" height="100%" x="182" anchorOffsetX="0">
+            <e:Image id="_combine_2_3_hover"/>
+        </e:Group>
+		<e:Group id="_combine_2_6_group" width="185.33" height="100%" x="369.33" anchorOffsetX="0">
+            <e:Image id="_combine_2_6_hover"/>
+        </e:Group>
+		<e:Group id="_combine_3_6_group" width="185.33" height="100%" x="555.35" anchorOffsetX="0">
+            <e:Image id="_combine_3_6_hover"/>
+        </e:Group>
+        <e:Group id="_combine_5_6_group" width="180" height="100%" x="741.99" anchorOffsetX="0">
+            <e:Image id="_combine_5_6_hover"/>
+        </e:Group>
+    </e:Group>
+</e:Skin>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.di.MobileBottomGamePanel" width="1242" 
-        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" states="on,off" >
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:di="we.di.*" states="on,off" >
 		<e:Group id="_topPart" width="100%" x="0" y="0" scaleX="1" scaleY="1">
 			<e:Rect width="100%" height="100" x="0" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" locked="true"/>
 			<e:RadioButton id="historyBtn" label="歷史記錄" x="16" y="20" width="270" height="80" value="0" selected="true" scaleX="1" scaleY="1" visible.off="false" groupName="top">

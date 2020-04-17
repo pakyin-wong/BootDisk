@@ -12,7 +12,7 @@
     <e:Group id="contentTwo" left="0" top="0" width="100%" height="100%" x="10" y="10">
         <e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
 	    <e:Image id="moveArea0" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
-        <e:ViewStack id="pageOneStack" width="100%" height="80%" x="0" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
+        <e:ViewStack id="pageTwoStack" width="100%" height="80%" x="0" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
             <e:Group width="100%" height="100%" name="View">
                 <di:DiChance id="_diChance" width="100%" height="100%" skinName="skin_desktop.DiRightPanelChance"  y="0" x="0"/>
             </e:Group>    
