@@ -21,11 +21,17 @@ namespace we {
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
+          case we.core.GameType.BAQ:
+            generalGameType = 'baq';
+            break;
 
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
 
+          case we.core.GameType.ROW:
+            generalGameType = 'row';
+            break;
           case we.core.GameType.DI:
             generalGameType = 'di';
             break;

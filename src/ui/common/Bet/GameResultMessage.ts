@@ -19,7 +19,8 @@ namespace we {
         switch (gameType) {
           case core.GameType.BAC:
           case core.GameType.BAI:
-          case core.GameType.BAS: {
+          case core.GameType.BAS:
+          case core.GameType.BAQ: {
             this._dbClass = 'baccarat';
             break;
           }
@@ -56,6 +57,7 @@ namespace we {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
+          case core.GameType.BAQ:
             switch (winType) {
               case ba.WinType.BANKER:
                 return 'r';

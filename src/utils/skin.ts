@@ -32,10 +32,10 @@ namespace we {
         try {
           clazz = eval(skin);
         } catch (err) {
-          return this.getFallbackSkin(name, fallbackOrientation);
+          return this.getCommonSkin(name, fallbackOrientation);
         }
         if (!clazz) {
-          return this.getFallbackSkin(name, fallbackOrientation);
+          return this.getCommonSkin(name, fallbackOrientation);
         }
       }
 
@@ -43,16 +43,30 @@ namespace we {
       return `skin_${device}.${name}`;
     }
 
-    export function getFallbackSkin(name: string, fallbackOrientation: string = 'portrait') {
+    export function getCommonSkin(name: string, fallbackOrientation: string = 'portrait') {
+      let clazz;
       try {
-        const device = `mobile_${fallbackOrientation}`;
+        clazz = eval(`skin_mobile.${name}`);
+      } catch (err) {
+        return this.getFallbackSkin(name, fallbackOrientation);
+      }
+      if (!clazz) {
+        return this.getFallbackSkin(name, fallbackOrientation);
+      }
+
+      return `skin_mobile.${name}`;
+    }
+
+    export function getFallbackSkin(name: string, fallbackOrientation: string = 'portrait') {
+      const device = `mobile_${fallbackOrientation}`;
+      try {
         const clazz = eval(`skin_${device}.${name}`);
         if (!clazz) {
-          throw new Error(`Skin ${name} does not exists!`);
+          throw new Error(`Skin skin_${device}.${name} does not exists!`);
         }
         return `skin_${device}.${name}`;
       } catch (err) {
-        throw new Error(`Skin ${name} does not exists!`);
+        throw new Error(`Skin skin_${device}.${name} does not exists!`);
       }
     }
 

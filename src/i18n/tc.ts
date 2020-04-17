@@ -8,9 +8,12 @@ namespace we {
       gametype_BAC: '百家樂',
       gametype_BAS: '競速百家樂',
       gametype_BAI: '保險百家樂',
+      gametype_BAQ: '咪牌百家樂',
       gametype_DI: '骰寶',
       gametype_MJ: '麻將',
       gametype_RO: '輪盤',
+      gametype_ROW: '財神輪盤',
+
       gametype_DT: '龍虎',
       gametype_LW: '幸運輪',
 
@@ -25,6 +28,8 @@ namespace we {
       betfield_dragonTiger_tiger: '虎',
       betfield_dragonTiger_tie: '和',
 
+      playerprofile_title: '賬戶資訊',
+      playerprofile_iconsetting: '設定頭像',
       playerprofile_maxWinAmount: '最大嬴錢數目',
       playerprofile_maxWinCount: '最大連嬴次數',
       playerprofile_follower: '追隨者',
@@ -130,7 +135,9 @@ namespace we {
           system: '系統設定',
           logout: '登出',
           leftHandMode: '左手模式',
+          logoutMsg: '確定登出?',
           confirm: '確定',
+          cancel: '取消',
         },
         system: {
           title: '系統設定',

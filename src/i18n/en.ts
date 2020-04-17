@@ -8,9 +8,11 @@ namespace we {
       gametype_BAC: 'BAC',
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
+      gametype_BAQ: 'BAQ',
       gametype_DI: 'DI',
       gametype_MJ: 'MJ',
       gametype_RO: 'RO',
+      gametype_ROW: 'ROW',
       gametype_DT: 'DT',
       gametype_LW: 'LW',
 
@@ -25,6 +27,8 @@ namespace we {
       betfield_dragonTiger_tiger: 'tiger',
       betfield_dragonTiger_tie: 'tie',
 
+      playerprofile_title: 'User Information',
+      playerprofile_iconsetting: 'Icon Setting',
       playerprofile_maxWinAmount: 'Max Win Amt',
       playerprofile_maxWinCount: 'Nax Win Cunt',
       playerprofile_follower: 'Follower',
@@ -130,7 +134,9 @@ namespace we {
           system: 'System',
           logout: 'Logout',
           leftHandMode: 'Left Mode',
+          logoutMsg: 'Are you sure to logout?',
           confirm: 'Confirm',
+          cancel: 'Cancel',
         },
         system: {
           title: 'System',

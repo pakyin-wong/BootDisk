@@ -32,6 +32,7 @@ namespace we {
         this._overlayMask.graphics.beginFill(0x000000, 0.7);
         this._overlayMask.graphics.drawRect(0, 0, this.width, this.height);
         this._overlayMask.graphics.endFill();
+        this._overlayMask.alpha = 0.4;
       }
 
       protected addListeners() {

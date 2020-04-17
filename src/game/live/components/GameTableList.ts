@@ -5,20 +5,23 @@ namespace we {
       // private collection: eui.ArrayCollection;
       public roomIds: string[] = [];
 
+      public slider: ui.ImageSlider;
       public tabs: LiveGameTabbar;
       public tabItems: string[];
       public roomList: ui.TableList;
+      public roomListRefer: eui.List;
 
       private contentInitializer: IContentInitializer;
-      // public roomLayout: eui.AnimTileLayout;
-      // private normalGapSize: number = 48;
-      // private simpleGapSize: number = 20;
 
       constructor() {
         super();
 
         if (env.isMobile) {
-          this.contentInitializer = new MLiveContentInitializer();
+          if (env.orientation === egret.OrientationMode.PORTRAIT) {
+            this.contentInitializer = new MPLiveContentInitializer();
+          } else {
+            this.contentInitializer = new MLLiveContentInitializer();
+          }
         } else {
           this.contentInitializer = new DLiveContentInitializer();
         }

@@ -46,16 +46,16 @@ namespace we {
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
-        this.drawRect(this._colourGroup, 10, 20, 30, 0, 95, 14, true);
-        this.drawRect(this._numberGroup, 70, 500, 300, 0, 95, 14);
-        this.drawRect(this._bigGroup, 70, 60, 200, 0, 95, 14);
+        this.drawRect(this._colourGroup, 500, 10, 20, 30, 0, 80, 38, true);
+        this.drawRect(this._numberGroup, 500, 70, 500, 300, 0, 80, 38);
+        this.drawRect(this._bigGroup, 500, 70, 60, 200, 0, 80, 38);
       }
 
-      protected drawRect(theGroup: eui.Group, a: number, b: number, c: number, x: number, y: number, height: number, isBlack: boolean = false) {
+      protected drawRect(theGroup: eui.Group, totalWidth: number, a: number, b: number, c: number, x: number, y: number, height: number, isBlack: boolean = false) {
         const totalAmount = a + b + c;
-        const widthA = 500 * (a / totalAmount);
-        const widthB = 500 * (b / totalAmount);
-        const widthC = 500 * (c / totalAmount);
+        const widthA = totalWidth * (a / totalAmount);
+        const widthB = totalWidth * (b / totalAmount);
+        const widthC = totalWidth * (c / totalAmount);
 
         switch (theGroup) {
           case this._colourGroup:
@@ -71,27 +71,43 @@ namespace we {
 
         this.moveGroup.x = (x + widthA + widthB) / 2 + 27.5;
 
+        const matrixGreen = new egret.Matrix();
+        matrixGreen.createGradientBox(widthB, height, 0, 0, 0);
+
         const rectGreen: egret.Shape = new egret.Shape();
-        rectGreen.graphics.lineStyle(15, 0x2dc85c);
+        rectGreen.graphics.beginGradientFill(egret.GradientType.RADIAL, [0x188d43, 0x2dc85c], [1, 1], [0, 255], matrixGreen);
         rectGreen.graphics.drawRect(x + widthA, y, widthB, height);
         rectGreen.graphics.endFill();
         theGroup.addChild(rectGreen);
 
+        const matrixRed = new egret.Matrix();
+        matrixRed.createGradientBox(widthA, height, 0, 0, 0);
+
         const rectRed: egret.Shape = new egret.Shape();
-        rectRed.graphics.lineStyle(15, 0xab2020);
+        rectRed.graphics.beginGradientFill(egret.GradientType.RADIAL, [0xff3c3c, 0xab2020], [1, 1], [0, 255], matrixRed);
         rectRed.graphics.drawRect(x, y, widthA, height);
         rectRed.graphics.endFill();
         theGroup.addChild(rectRed);
 
+        const matrixBlue = new egret.Matrix();
+        matrixBlue.createGradientBox(widthC, height, 0, 0, 0);
+
         const rectBlue: egret.Shape = new egret.Shape();
         if (!isBlack) {
-          rectBlue.graphics.lineStyle(15, 0x607dff);
+          rectBlue.graphics.beginGradientFill(egret.GradientType.RADIAL, [0x3050e0, 0x607dff], [1, 1], [0, 255], matrixBlue);
         } else {
-          rectBlue.graphics.lineStyle(15, 0x000000);
+          rectBlue.graphics.beginGradientFill(egret.GradientType.RADIAL, [0x474747, 0x000000], [1, 1], [0, 255], matrixBlue);
         }
-        rectBlue.graphics.drawRect(x + 500 - widthC, y, widthC, height);
+        rectBlue.graphics.drawRect(x + totalWidth - widthC, y, widthC, height);
         rectBlue.graphics.endFill();
         theGroup.addChild(rectBlue);
+
+        const groupMask: egret.Shape = new egret.Shape();
+        groupMask.graphics.beginFill(0x00000);
+        groupMask.graphics.drawRoundRect(x, y, totalWidth, height, 33, 33);
+        groupMask.graphics.endFill();
+        theGroup.addChild(groupMask);
+        theGroup.mask = groupMask;
       }
 
       public changeLang() {

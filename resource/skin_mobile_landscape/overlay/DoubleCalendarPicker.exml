@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.DoubleCalendarPicker" width="1402" height="1050" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
+
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="0" top="0" bottom="0" right="0"/>
+		<overlay:DatepickerCalendar id="_calender_prev" width="490" height="490" x="39" y="262" visible="false"/>
+		<overlay:DatepickerCalendar id="_calender_next" width="1006" height="821" y="163" x="228"/>
+		<ui:BaseImageButton id="_btn_prev" width="70" height="70" x="96" y="156" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon"/>
+		<ui:BaseImageButton id="_btn_next" width="70" height="70" y="156" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_next_icon" x="1288"/>
+		<e:Label id="_txt_prev" text="Label" x="132" y="202" height="45" textAlign="left" verticalAlign="middle" width="200" visible="false"/>
+		<e:Label id="_txt_next" text="Label" y="45" height="96" textAlign="center" verticalAlign="middle" width="700" horizontalCenter="-1" size="80"/>
+		<ui:BaseButton id="_btn_confirm" width="433" height="130" x="547" y="1172" skinName="skin_mobile_portrait.OverlayPanelButton"/>
+		<ui:BaseButton id="_btn_clean" width="433" height="130" x="70" y="1172" skinName="skin_mobile_portrait.OverlayPanelButton"/>
+
+
+		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle" fontFamily="Barlow" size="28" visible="false"/>
+	</e:Group>
+
+</e:Skin>

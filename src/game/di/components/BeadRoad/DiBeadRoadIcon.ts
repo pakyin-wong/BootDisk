@@ -9,6 +9,7 @@ namespace we {
       private totalText: egret.TextField;
 
       protected dice: number[];
+
       protected total: number; // total=d1+d2+d3
       protected odd: number; // odd=1(odd) 2(even)
       protected diceSize: number; // size=1(small) 2(big)
@@ -207,6 +208,11 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
+      }
+
+      public addToLayer(staticLayer: egret.DisplayObjectContainer) {
+        this.isAtAnimateLayer = false;
+        staticLayer.addChild(this);
       }
     }
   }

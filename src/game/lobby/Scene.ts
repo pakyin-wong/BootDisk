@@ -29,11 +29,18 @@ namespace we {
         this._list.useVirtualLayout = false;
         this._list.itemRenderer = LobbyTabListItemRenderer;
         this._list.dataProvider = new eui.ArrayCollection(this._items);
-        this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
         if (this._selectedIdx >= 0) {
           this._list.selectedIndex = this._selectedIdx;
           this.loadPage(this._items[this._selectedIdx], this._data);
         }
+
+        this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+
+        this._list.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
       }
 
       public onEnter() {
@@ -51,43 +58,7 @@ namespace we {
           }
         }
         this._selectedIdx = itemIdx;
-
         this.loadPage(this._items[itemIdx], this._data);
-        // const scroller = new ui.Scroller();
-        // // scroller.percentWidth = 100;
-        // scroller.width = 640;
-        // scroller.percentHeight = 100;
-        // scroller.right = 0;
-
-        // this.addChild(scroller);
-
-        // const collection = new eui.ArrayCollection([]);
-        // const roomList = new ui.List();
-        // const layout2 = new eui.VerticalLayout();
-        // layout2.paddingBottom = 1;
-        // roomList.layout = layout2;
-        // roomList.enterFrom = 'right';
-        // roomList.leaveTo = 'right';
-        // roomList.isSwipeable = true;
-        // roomList.swipeDirection = ui.SwipeDirection.right;
-        // roomList.isAnimateItemTransition = true;
-        // roomList.dataProvider = collection;
-        // roomList.itemRenderer = ui.TestItem;
-        // roomList.right = 0;
-        // roomList.y = 240;
-        // roomList.width = 410;
-        // roomList.useVirtualLayout = false;
-        // roomList.maxDisplayCount = 4;
-        // setInterval(() => {
-        //   roomList.addItem(Math.floor(Math.random() * 1000));
-        // }, 500);
-        // // scroller.viewport = roomList;
-        // this.addChild(roomList);
-
-        // setTimeout(function () {
-        //   utils.linkTo('weweb://lobby/live/goodroad');
-        //   // utils.linkTo('https://www.google.com', 'Google');
-        // }, 8000);
       }
 
       public async onFadeEnter() {}
@@ -98,13 +69,6 @@ namespace we {
       }
 
       public async onFadeExit() {}
-
-      // protected mount() {
-      //   super.mount();
-      //   // swap header parent
-      //   this._header.parent && this._header.parent.removeChild(this._header);
-      //   this.sceneHeader.addChild(this._header);
-      // }
 
       private handleTap(event: eui.ItemTapEvent) {
         this._selectedIdx = this._list.selectedIndex;
@@ -117,11 +81,6 @@ namespace we {
         this._page.addChild(page);
         page.onEnter();
       }
-
-      // protected onOrientationChange() {
-      //   super.onOrientationChange();
-      //   this.mount();
-      // }
     }
 
     class LobbyTabListItemRenderer extends ui.SortableItemRenderer {

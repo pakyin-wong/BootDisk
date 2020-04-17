@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile.LiveListSimpleItemSkin" width="552" height="272" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="_contentContainer" width="100%" height="272" x="0" y="0" anchorOffsetY="0">
+		<e:Rect height="80" y="0" fillColor="0x202020" left="0" right="0" />
+		<ui:CountdownTimer id="_timer" width="80" height="80" x="0" y="0" skinName="skin_mobile.CountdownTimerRoundSmallSkin" />
+		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="85" y="24" text="" />
+		<e:Component id="_roadmapNode" width="100%" height="192" y="80" anchorOffsetY="0" visible="false" />
+		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
+		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
+		                  y="167.5" infoBg="m_common_gamestate_message_black_png"
+		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
+		<e:Group right="20" y="24">
+			<ui:RunTimeLabel id="_toggler" textAlign="left" fontFamily="Barlow" />
+			<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="34" height="19" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="middle" />
+			</e:layout>
+		</e:Group>
+		<e:Group anchorOffsetX="0" anchorOffsetY="0" bottom="20" left="20">
+			<ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_mobile_portrait.GoodRoadLabelSkin" right="13" bottom="10"
+			                  currentState="small" />
+			<e:Group id="_alreadyBetSign" right="5" bottom="40" x="421.00000000000006" y="-5.3300000000000125" scaleX="1"
+			         scaleY="1" height="50" visible="false">
+				<e:Rect right="0" left="0" top="0" bottom="0" ellipseWidth="50" ellipseHeight="50" fillAlpha="0.76"
+				        fillColor="0x42bc60" />
+				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="40" left="20" right="20" />
+			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="left" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Rect id="_dimmer" left="0" top="79" bottom="0" right="0" fillAlpha="0.5" anchorOffsetY="0" visible="false" />
+	<e:Group id="_buttonGroup" width="552" x="0" y="140" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"
+	         touchChildren="true">
+		<ui:BaseImageButton id="_quickBetButton" width="219" height="70" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+		                    scaleY="1" verticalCenter="0" left="40" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+		                    currentState="2col_btn" />
+		<ui:BaseImageButton id="_enterTableButton" width="219" height="70" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+		                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby" verticalCenter="0" right="40"
+		                    currentState="2col_btn" />
+	</e:Group>
+</e:Skin>

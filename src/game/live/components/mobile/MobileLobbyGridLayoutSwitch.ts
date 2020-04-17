@@ -4,8 +4,8 @@ namespace we {
       private buttons = ['lobby_mode_02', 'lobby_mode_01'];
       private image: we.ui.BaseImageButton;
 
-      constructor() {
-        super();
+      protected mount() {
+        super.mount();
         this.image = new we.ui.BaseImageButton();
         this.image.currentState = this.buttons[env.lobbyGridType];
         this.image.skinName = utils.getSkinByClassname('ImageButtonSkinLobby');
