@@ -15,6 +15,8 @@ namespace we {
       protected viewStack: eui.ViewStack;
       protected viewStackMask: eui.Rect;
 
+      protected _middlePart: eui.Group;
+
       public constructor(skin?: string) {
         super();
       }
@@ -25,7 +27,7 @@ namespace we {
         this.addListeners();
 
         this.updateText();
-        this.viewStack.mask = this.viewStackMask;
+        this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
         this.onPanelToggle();
       }
@@ -60,8 +62,9 @@ namespace we {
           egret.Tween.removeTweens(this.viewStack);
           egret.Tween.removeTweens(this.viewStackMask);
           this.isPanelOpen = false;
-          egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-          egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+          egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         }
       }
 
@@ -73,12 +76,14 @@ namespace we {
 
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
-          egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-          egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+          egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         } else {
           this.isPanelOpen = true;
-          egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
-          egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
+          egret.Tween.get(this._middlePart).to({ height: this._middlePart.measuredHeight }, 250);
+          // egret.Tween.get(this.viewStack).to({ height: this.measuredHeight }, 250);
+          // egret.Tween.get(this.viewStackMask).to({ height: this.measuredHeight }, 250);
         }
 
         this.dispatchEvent(new egret.Event('TOGGLE'));
