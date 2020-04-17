@@ -32,6 +32,7 @@ namespace we {
 
         const rdata: any = [];
         this.beadRoad.parseRoadData(rdata);
+        this.beadRoad.setLayout(3);
         this.addChild(this.beadRoad);
       }
 
@@ -59,7 +60,7 @@ namespace we {
         }
       }
 
-      public dispose() {}
+      public dispose() { }
     }
   }
 }

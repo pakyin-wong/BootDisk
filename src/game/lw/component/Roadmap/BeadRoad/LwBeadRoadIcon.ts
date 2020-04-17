@@ -68,6 +68,11 @@ namespace we {
         this.value = null;
         this.image.visible = false;
       }
+
+      public addToLayer(staticLayer: egret.DisplayObjectContainer) {
+        this.isAtAnimateLayer = false;
+        staticLayer.addChild(this);
+      }
     }
   }
 }
