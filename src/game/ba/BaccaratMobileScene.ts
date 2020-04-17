@@ -14,8 +14,14 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
+      protected _baGameIDText: ui.RunTimeLabel;
+      protected _baGameID: ui.RunTimeLabel;
+      protected _totalBet: ui.RunTimeLabel;
+      protected _totalBetText: ui.RunTimeLabel;
+
       protected _verticalGroup: eui.Group;
       protected _BAgoodRoadLabel: ui.GoodRoadLabel;
+      protected _tableInfoPanel: TableInfoPanel;
 
       constructor(data: any) {
         super(data);
@@ -28,11 +34,12 @@ namespace we {
 
       protected setStateBet() {
         super.setStateBet();
-
+        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -71,6 +78,10 @@ namespace we {
         }
 
         this.setChipPanelPos();
+        this._BAgoodRoadLabel.visible = false;
+
+        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
       }
 
       protected initBottomBetLimitSelector() {
@@ -183,11 +194,10 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
-            // update the scene
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -230,14 +240,14 @@ namespace we {
 
       protected onMatchGoodRoadUpdate() {
         if (this._tableInfo.goodRoad) {
+          this._BAgoodRoadLabel.visible = true;
           const goodRoadData = this._tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           this._BAgoodRoadLabel.renderText = () => goodRoadName;
-          // this._goodRoadLabel.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
-        } 
+        } else {
+          this._BAgoodRoadLabel.visible = false;
+        }
       }
-
-
     }
   }
 }

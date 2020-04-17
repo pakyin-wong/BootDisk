@@ -11,6 +11,7 @@ namespace we {
       private _slider_toggle: ui.BaseImageButton;
 
       private _balance: ui.RunTimeLabel;
+      private _balanceGame: ui.RunTimeLabel;
 
       private _balanceText: ui.RunTimeLabel;
 
@@ -48,7 +49,7 @@ namespace we {
           this._menu.setToggler(this._menu_toggle);
           this._menu.dismissOnClickOutside = true;
         }
-
+        this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
         if (!isNaN(env.balance)) {
