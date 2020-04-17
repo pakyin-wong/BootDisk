@@ -5812,6 +5812,81 @@
 			"url": "assets/m/lw/m_lw_ver_history_record_white.png",
 			"type": "image",
 			"name": "m_lw_ver_history_record_white_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_ver_history_record_hl.png",
+			"type": "image",
+			"name": "m_lw_ver_history_record_hl_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_d_bg.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_d_bg_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_d_center.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_d_center_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_d_left.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_d_left_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_d_right.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_d_right_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_d_undercenter.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_d_undercenter_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_d_underleft.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_d_underleft_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_d_underright.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_d_underright_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_w_bg.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_w_bg_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_w_center.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_w_center_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_w_right.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_w_right_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_w_left.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_w_left_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_w_undercenter.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_w_undercenter_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_w_underleft.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_w_underleft_png"
+		},
+		{
+			"url": "assets/m/lw/m_lw_listpenal_history_grid_w_underright.png",
+			"type": "image",
+			"name": "m_lw_listpenal_history_grid_w_underright_png"
 		}
 	]
 }

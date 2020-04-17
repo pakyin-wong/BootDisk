@@ -34,7 +34,7 @@ namespace we {
 
         // draw black bg
         await new Promise(async resolve => {
-          const gold = await RES.getResAsync('d_lw_betpool_barchart_gold_png');
+          const gold = await RES.getResAsync('m_lw_betpool_barchart_gold_png');
           if (RES.hasRes('d_lw_betpool_barchart__background_generated')) {
             resolve();
             return;

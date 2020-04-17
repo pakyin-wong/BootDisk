@@ -13,19 +13,10 @@ namespace we {
 
       public constructor() {
         super();
-        this.updateSource();
       }
 
-      public updateSource(type: string = null) {
-        if (type == 'sideBet') {
-          this.eastSource = 'm_lw_result_east_png';
-          this.southSource = 'm_lw_result_south_png';
-          this.westSource = 'm_lw_result_west_png';
-          this.northSource = 'm_lw_result_north_png';
-          this.redSource = 'm_lw_result_red_png';
-          this.greenSource = 'm_lw_result_green_png';
-          this.whiteSource = 'm_lw_result_white_png';
-        } else if (env.isMobile) {
+      protected updateSource(type: string = null) {
+        if (env.isMobile) {
           this.eastSource = 'm_lw_result_east_png';
           this.southSource = 'm_lw_result_south_png';
           this.westSource = 'm_lw_result_west_png';
@@ -46,6 +37,7 @@ namespace we {
 
       public showResult(gameType: core.GameType, resultData: any) {
         this.visible = true;
+        this.updateSource();
         this._dbClass = 'roulette';
         this.removeChildren();
         const image = new eui.Image();
@@ -63,37 +55,15 @@ namespace we {
             image.source = this.northSource;
             break;
           case 4:
-            image.source = this.redSource;
+            image.source = this.whiteSource;
             break;
           case 5:
-            image.source = this.greenSource;
+            image.source = this.redSource;
             break;
           case 6:
           default:
-            image.source = this.whiteSource;
+            image.source = this.greenSource;
             break;
-          // case 0:
-          //   image.source = 'd_lw_result_east_png';
-          //   break;
-          // case 1:
-          //   image.source = 'd_lw_result_south_png';
-          //   break;
-          // case 2:
-          //   image.source = 'd_lw_result_west_png';
-          //   break;
-          // case 3:
-          //   image.source = 'd_lw_result_north_png';
-          //   break;
-          // case 4:
-          //   image.source = 'd_lw_result_white_png';
-          //   break;
-          // case 5:
-          //   image.source = 'd_lw_result_red_png';
-          //   break;
-          // case 6:
-          // default:
-          //   image.source = 'd_lw_result_green_png';
-          //   break;
         }
         this.addChild(image);
       }

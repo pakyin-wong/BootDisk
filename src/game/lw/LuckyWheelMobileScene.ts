@@ -107,11 +107,11 @@ namespace we {
         if (this._bottomGamePanel.isPanelOpen) {
           this._betPanelGroup.scaleY = 1;
           this._betPanelGroup.y = 0;
-          this._betChipSetPanel.y = 986;
+          this._betChipSetPanel.y = 1210;
         } else {
           this._betPanelGroup.scaleY = -1;
           this._betPanelGroup.y = 762;
-          this._betChipSetPanel.y = 500;
+          this._betChipSetPanel.y = 762;
         }
       }
 

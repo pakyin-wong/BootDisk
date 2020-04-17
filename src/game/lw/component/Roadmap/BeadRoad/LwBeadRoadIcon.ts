@@ -23,32 +23,33 @@ namespace we {
         this.iconHeight = _height;
         this.initGraphics();
         this.setByObject({});
-        this.updateSource();
       }
 
       protected updateSource() {
         if (env.isMobile) {
-          this.highLightSource = 'm_lw_hor_history_record_hl_png';
-          this.eastSource = 'm_lw_hor_history_record_east_png';
-          this.southSource = 'm_lw_hor_history_record_south_png';
-          this.westSource = 'm_lw_hor_history_record_west_png';
-          this.northSource = 'm_lw_hor_history_record_north_png';
-          this.redSource = 'm_lw_hor_history_record_red_png';
-          this.greenSource = 'm_lw_hor_history_record_green_png';
-          this.whiteSource = 'm_lw_hor_history_record_white_png';
+          this.highLightSource = 'm_lw_listpenal_history_record_hl_png';
+          this.eastSource = 'm_lw_listpenal_history_record_east_png';
+          this.southSource = 'm_lw_listpenal_history_record_south_png';
+          this.westSource = 'm_lw_listpenal_history_record_west_png';
+          this.northSource = 'm_lw_listpenal_history_record_north_png';
+          this.redSource = 'm_lw_listpenal_history_record_red_png';
+          this.greenSource = 'm_lw_listpenal_history_record_green_png';
+          this.whiteSource = 'm_lw_listpenal_history_record_white_png';
         } else {
           this.highLightSource = 'd_lw_history_record_hl_png';
-          this.eastSource = 'd_lw_game_detail_record_bet_east_png';
-          this.southSource = 'd_lw_game_detail_record_bet_south_png';
-          this.westSource = 'd_lw_game_detail_record_bet_west_png';
-          this.northSource = 'd_lw_game_detail_record_bet_north_png';
-          this.redSource = 'd_lw_game_detail_record_bet_red_png';
-          this.greenSource = 'd_lw_game_detail_record_bet_green_png';
-          this.whiteSource = 'd_lw_game_detail_record_bet_white_png';
+          this.eastSource = 'd_lw_history_record_east_png';
+          this.southSource = 'd_lw_history_record_south_png';
+          this.westSource = 'd_lw_history_record_west_png';
+          this.northSource = 'd_lw_history_record_north_png';
+          this.redSource = 'd_lw_history_record_red_png';
+          this.greenSource = 'd_lw_history_record_green_png';
+          this.whiteSource = 'd_lw_history_record_white_png';
         }
       }
 
       protected initGraphics() {
+        this.updateSource();
+
         this.imageHighLight = new eui.Image();
         this.imageHighLight.x = -2;
         this.imageHighLight.y = -2;
@@ -78,11 +79,11 @@ namespace we {
           } else if (value.v === '04') {
             this.image.source = this.northSource;
           } else if (value.v === '05') {
-            this.image.source = this.redSource;
-          } else if (value.v === '06') {
-            this.image.source = this.greenSource;
-          } else if (value.v === '07') {
             this.image.source = this.whiteSource;
+          } else if (value.v === '06') {
+            this.image.source = this.redSource;
+          } else if (value.v === '07') {
+            this.image.source = this.greenSource;
           }
         }
       }
