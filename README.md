@@ -153,6 +153,9 @@ npm install -g tslint prettier typescript
 
 ## Asset Link from Design Team (Copied from whatsapp group)
 
+- [9/4/2020 missing_assets](https://home.mycloud.com/action/share/03e6bcfd-309c-4351-b92c-5a2ad17df8db)
+- [missing asset issue](https://home.mycloud.com/action/share/541f7d33-be2a-47ef-b2ec-0a3bae9ac799)
+
 - [17/4/2020 LuckyWheel Desktop](https://drive.google.com/open?id=1KHScZPnogUgYnVDRQAw-AaiG3CeTbZ3_)
 
 - [17/4/2020 LuckyWheel Mobile](https://drive.google.com/open?id=1KhzJeZ6pxDlNTDkj_wuMz_1IPhQ_Rxa2)
