@@ -45,39 +45,48 @@ namespace we {
 
       protected drawChartArc() {
         const shapeRed: egret.Shape = new egret.Shape();
-        var y: number = (env.orientation === 'portrait' ? 340 : 130);
+        let x: number;
+        let y: number;
+
+        if (env.orientation === 'portrait') {
+          x = 0;
+          y = 340;
+        } else {
+          x = 15;
+          y = 130;
+        }
         shapeRed.graphics.lineStyle(15, 0xff6651);
-        shapeRed.graphics.drawArc(500, y, 100, 0, 120 * (Math.PI / 180), false);
+        shapeRed.graphics.drawArc(x + 500, y, 100, 0, 120 * (Math.PI / 180), false);
         shapeRed.graphics.endFill();
         this.addChild(shapeRed);
 
         const shapeBlue: egret.Shape = new egret.Shape();
         shapeBlue.graphics.lineStyle(15, 0x3c38ff);
-        shapeBlue.graphics.drawArc(500, y, 100, 120 * (Math.PI / 180), 240 * (Math.PI / 180), false);
+        shapeBlue.graphics.drawArc(x + 500, y, 100, 120 * (Math.PI / 180), 240 * (Math.PI / 180), false);
         shapeBlue.graphics.endFill();
         this.addChild(shapeBlue);
 
         const shapeGreen: egret.Shape = new egret.Shape();
         shapeGreen.graphics.lineStyle(15, 0x1f86c);
-        shapeGreen.graphics.drawArc(500, y, 100, 240 * (Math.PI / 180), 360 * (Math.PI / 180), false);
+        shapeGreen.graphics.drawArc(x + 500, y, 100, 240 * (Math.PI / 180), 360 * (Math.PI / 180), false);
         shapeGreen.graphics.endFill();
         this.addChild(shapeGreen);
 
         const shapeRedPair: egret.Shape = new egret.Shape();
         shapeRedPair.graphics.lineStyle(15, 0xff6651);
-        shapeRedPair.graphics.drawArc(1110, y, 100, 0, 120 * (Math.PI / 180), false);
+        shapeRedPair.graphics.drawArc(x + 1110, y, 100, 0, 120 * (Math.PI / 180), false);
         shapeRedPair.graphics.endFill();
         this.addChild(shapeRedPair);
 
         const shapeBluePair: egret.Shape = new egret.Shape();
         shapeBluePair.graphics.lineStyle(15, 0x3c38ff);
-        shapeBluePair.graphics.drawArc(1110, y, 100, 120 * (Math.PI / 180), 240 * (Math.PI / 180), false);
+        shapeBluePair.graphics.drawArc(x + 1110, y, 100, 120 * (Math.PI / 180), 240 * (Math.PI / 180), false);
         shapeBluePair.graphics.endFill();
         this.addChild(shapeBluePair);
 
         const shapeGreenPair: egret.Shape = new egret.Shape();
         shapeGreenPair.graphics.lineStyle(15, 0x1f86c);
-        shapeGreenPair.graphics.drawArc(1110, y, 100, 240 * (Math.PI / 180), 360 * (Math.PI / 180), false);
+        shapeGreenPair.graphics.drawArc(x + 1110, y, 100, 240 * (Math.PI / 180), 360 * (Math.PI / 180), false);
         shapeGreenPair.graphics.endFill();
         this.addChild(shapeGreenPair);
       }

@@ -135,42 +135,6 @@ namespace we {
             this.beadRoad.y = 0;
             this.addChild(this.beadRoad);
 
-            this.iconBankerBigEye = new BABigEyeRoadIcon(27);
-            this.iconBankerBigEye.x = 146;
-            this.iconBankerBigEye.y = 36;
-            this.iconBankerBigEye.setByObject({ v: 'b' });
-            this.addChild(this.iconBankerBigEye);
-
-            this.iconBankerSmall = new BASmallRoadIcon(27);
-            this.iconBankerSmall.x = 177;
-            this.iconBankerSmall.y = 36;
-            this.iconBankerSmall.setByObject({ v: 'b' });
-            this.addChild(this.iconBankerSmall);
-
-            this.iconBankerCockroach = new BACockroachRoadIcon(27);
-            this.iconBankerCockroach.x = 208;
-            this.iconBankerCockroach.y = 36;
-            this.iconBankerCockroach.setByObject({ v: 'b' });
-            this.addChild(this.iconBankerCockroach);
-
-            this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
-            this.iconPlayerBigEye.x = 379;
-            this.iconPlayerBigEye.y = 36;
-            this.iconPlayerBigEye.setByObject({ v: 'p' });
-            this.addChild(this.iconPlayerBigEye);
-
-            this.iconPlayerSmall = new BASmallRoadIcon(27);
-            this.iconPlayerSmall.x = 410;
-            this.iconPlayerSmall.y = 36;
-            this.iconPlayerSmall.setByObject({ v: 'p' });
-            this.addChild(this.iconPlayerSmall);
-
-            this.iconPlayerCockroach = new BACockroachRoadIcon(27);
-            this.iconPlayerCockroach.x = 441;
-            this.iconPlayerCockroach.y = 36;
-            this.iconPlayerCockroach.setByObject({ v: 'p' });
-            this.addChild(this.iconPlayerCockroach);
-
             this.roadsContainer = new egret.DisplayObjectContainer();
             this.roadsContainer.x = 0;
             this.roadsContainer.y = 0;
@@ -210,15 +174,17 @@ namespace we {
       }
 
       public setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {
-        this.iconBankerBigEye.setByObject(b1);
-        this.iconBankerSmall.setByObject(b2);
-        this.iconBankerCockroach.setByObject(b3);
+        if (env.orientation === 'portrait') {
+          this.iconBankerBigEye.setByObject(b1);
+          this.iconBankerSmall.setByObject(b2);
+          this.iconBankerCockroach.setByObject(b3);
 
-        this.iconPlayerBigEye.setByObject(p1);
-        this.iconPlayerSmall.setByObject(p2);
-        this.iconPlayerCockroach.setByObject(p3);
+          this.iconPlayerBigEye.setByObject(p1);
+          this.iconPlayerSmall.setByObject(p2);
+          this.iconPlayerCockroach.setByObject(p3);
 
-        this.update();
+          this.update();
+        }
       }
 
       public changeLang() {

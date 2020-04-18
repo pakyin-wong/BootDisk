@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.ba.MobileBottomRoadmapPanel" width="2140" height="260" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+<e:Skin class="skin_mobile_landscape.ba.MobileBottomRoadmapPanel" width="2140" height="260"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" width="100%" height="260">
-		<e:Rect id="topBar" width="244" height="260" x="1896" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0" ellipseWidth="0" strokeColor="0x1f242b"/>
-		<ui:RunTimeLabel id="totalCountLabel" text="00" x="1952" y="165" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<ui:RunTimeLabel id="bankerCountLabel" text="00" x="1952" y="32" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<ui:RunTimeLabel id="playerCountLabel" text="00" x="1952" y="75.5" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<ui:RunTimeLabel id="tieCountLabel" text="00" x="1952" y="122" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<ui:RunTimeLabel id="bankerPairCountLabel" text="00" x="2076" y="89" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<ui:RunTimeLabel id="playerPairCountLabel" text="00" x="2076" y="203" textAlign="left" anchorOffsetX="0" width="80" size="34" height="34" verticalAlign="middle"/>
-		<e:Image width="34" height="34" x="1918" y="32" source="m_ba_goodroad_info_state_banker_png"/>
-		<e:Image width="34" height="34" x="1918" y="75.5" source="m_ba_goodroad_info_round_player_png"/>
-		<e:Image width="34" height="34" x="1918" y="122" source="m_ba_goodroad_info_state_player_png"/>
-		<e:Image width="33" height="33" x="2032" y="89" source="d_ba_roadmap_bar_bankerpairstate_png"/>
-		<e:Image width="33" height="33" x="2032" y="203" source="d_ba_roadmap_bar_playerpairstate_png"/>
-		<e:Image width="34" height="34" x="1918" y="169" source="d_ba_goodroad_info_state_total_png"/>
-		<e:Image id="switchModeButton" width="72" height="72" x="504" y="457" source="d_ba_swaproadmap_button_element_png" scaleX="1" scaleY="1"/>
-		<e:Image id="iconBankerBead" width="116" height="52" x="2018" y="23.5" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0" />
-		<e:Image id="iconPlayerBead" width="116" height="52" x="2024" y="130" source="d_ba_roadmap_topbar_textbg_player_png" />
-		<ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="2024" y="130" textAlign="center" anchorOffsetX="0" width="116" size="28" height="52" verticalAlign="middle" touchEnabled="false" />
-		<ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="2024" y="23.5" textAlign="center" anchorOffsetX="0" width="116" size="28" verticalAlign="middle" height="52" touchEnabled="false" />
+		<e:Rect id="topBar" width="244" height="260" x="1896" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
+		        ellipseWidth="0" strokeColor="0x1f242b" />
+		<e:Group verticalCenter="0" x="1950">
+			<ui:RunTimeLabel id="totalCountLabel" text="00" x="1952" y="165" textAlign="left" anchorOffsetX="0" width="36"
+			                 size="30" height="34" verticalAlign="middle" />
+			<ui:RunTimeLabel id="bankerCountLabel" text="00" x="1952" y="32" textAlign="left" anchorOffsetX="0" width="36"
+			                 size="30" height="34" verticalAlign="middle" />
+			<ui:RunTimeLabel id="playerCountLabel" text="00" x="1952" y="75.5" textAlign="left" anchorOffsetX="0" width="36"
+			                 size="30" height="34" verticalAlign="middle" />
+			<ui:RunTimeLabel id="tieCountLabel" text="00" x="1952" y="122" textAlign="left" anchorOffsetX="0" width="36"
+			                 size="30" height="34" verticalAlign="middle" />
+			<ui:RunTimeLabel id="bankerPairCountLabel" text="00" x="2076" y="89" textAlign="left" anchorOffsetX="0" width="36"
+			                 size="30" height="34" verticalAlign="middle" />
+			<ui:RunTimeLabel id="playerPairCountLabel" text="00" x="2076" y="203" textAlign="left" anchorOffsetX="0" width="36"
+			                 size="30" height="34" verticalAlign="middle" />
+			<e:layout>
+				<e:VerticalLayout gap="6" />
+			</e:layout>
+		</e:Group>
+		<e:Group x="1896" verticalCenter="0" locked="true">
+			<e:Image width="24" height="24" x="1918" y="32" source="m_ba_goodroad_info_state_banker_png" />
+			<e:Image width="24" height="24" x="1918" y="75.5" source="m_ba_goodroad_info_round_player_png" />
+			<e:Image width="24" height="24" x="1918" y="122" source="m_ba_goodroad_info_state_player_png" />
+			<e:Image width="24" height="24" x="2032" y="89" source="d_ba_roadmap_bar_bankerpairstate_png" />
+			<e:Image width="24" height="24" x="2032" y="203" source="d_ba_roadmap_bar_playerpairstate_png" />
+			<e:Image width="24" height="24" x="1918" y="169" source="d_ba_goodroad_info_state_total_png" />
+			<e:layout>
+				<e:VerticalLayout gap="16" />
+			</e:layout>
+		</e:Group>
+		<e:Group width="116" right="0">
+			<e:Image id="iconPlayerBead" width="116" height="52" x="0" y="152" source="d_ba_roadmap_topbar_textbg_player_png"/>
+			<e:Image id="iconBankerBead" width="116" height="52" x="0" y="20" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0"/>
+			<ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="0" y="152" textAlign="center" anchorOffsetX="0"
+			                 width="116" size="28" height="52" verticalAlign="middle" touchEnabled="false" />
+			<ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="0" y="20" textAlign="center" anchorOffsetX="0"
+			                 width="116" size="28" verticalAlign="middle" height="52" touchEnabled="false" />
+		</e:Group>
+		<e:Image id="switchModeButton" width="72" height="72" x="512" y="182" source="d_ba_swaproadmap_button_element_png" scaleX="1" scaleY="1" visible="false" locked="true"/>
 	</e:Group>
 </e:Skin>
