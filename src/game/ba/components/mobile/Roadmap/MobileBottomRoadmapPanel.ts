@@ -49,76 +49,155 @@ namespace we {
 
       protected init() {
         this.totalCount = 0;
-
-        const gridSizeL = 73;
-        const gridSizeR = 38;
         const numColumn = 8;
 
-        this.beadRoad = new BABeadRoad(numColumn, gridSizeL, 1, true);
-        this.beadRoad.x = 0;
-        this.beadRoad.y = 98;
-        this.addChild(this.beadRoad);
+        switch (env.orientation) {
 
-        this.iconBankerBigEye = new BABigEyeRoadIcon(27);
-        this.iconBankerBigEye.x = 146;
-        this.iconBankerBigEye.y = 36;
-        this.iconBankerBigEye.setByObject({ v: 'b' });
-        this.addChild(this.iconBankerBigEye);
+          case "portrait":
 
-        this.iconBankerSmall = new BASmallRoadIcon(27);
-        this.iconBankerSmall.x = 177;
-        this.iconBankerSmall.y = 36;
-        this.iconBankerSmall.setByObject({ v: 'b' });
-        this.addChild(this.iconBankerSmall);
+            const gridSizeL = 73;
+            const gridSizeR = 38;
 
-        this.iconBankerCockroach = new BACockroachRoadIcon(27);
-        this.iconBankerCockroach.x = 208;
-        this.iconBankerCockroach.y = 36;
-        this.iconBankerCockroach.setByObject({ v: 'b' });
-        this.addChild(this.iconBankerCockroach);
+            this.beadRoad = new BABeadRoad(numColumn, gridSizeL, 1, true);
+            this.beadRoad.x = 0;
+            this.beadRoad.y = 98;
+            this.addChild(this.beadRoad);
 
-        this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
-        this.iconPlayerBigEye.x = 379;
-        this.iconPlayerBigEye.y = 36;
-        this.iconPlayerBigEye.setByObject({ v: 'p' });
-        this.addChild(this.iconPlayerBigEye);
+            this.iconBankerBigEye = new BABigEyeRoadIcon(27);
+            this.iconBankerBigEye.x = 146;
+            this.iconBankerBigEye.y = 36;
+            this.iconBankerBigEye.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerBigEye);
 
-        this.iconPlayerSmall = new BASmallRoadIcon(27);
-        this.iconPlayerSmall.x = 410;
-        this.iconPlayerSmall.y = 36;
-        this.iconPlayerSmall.setByObject({ v: 'p' });
-        this.addChild(this.iconPlayerSmall);
+            this.iconBankerSmall = new BASmallRoadIcon(27);
+            this.iconBankerSmall.x = 177;
+            this.iconBankerSmall.y = 36;
+            this.iconBankerSmall.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerSmall);
 
-        this.iconPlayerCockroach = new BACockroachRoadIcon(27);
-        this.iconPlayerCockroach.x = 441;
-        this.iconPlayerCockroach.y = 36;
-        this.iconPlayerCockroach.setByObject({ v: 'p' });
-        this.addChild(this.iconPlayerCockroach);
+            this.iconBankerCockroach = new BACockroachRoadIcon(27);
+            this.iconBankerCockroach.x = 208;
+            this.iconBankerCockroach.y = 36;
+            this.iconBankerCockroach.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerCockroach);
 
-        this.roadsContainer = new egret.DisplayObjectContainer();
-        this.roadsContainer.x = 0;
-        this.roadsContainer.y = 0;
-        this.addChild(this.roadsContainer);
+            this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
+            this.iconPlayerBigEye.x = 379;
+            this.iconPlayerBigEye.y = 36;
+            this.iconPlayerBigEye.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerBigEye);
 
-        this.bigRoad = new BABigRoad(18, gridSizeR);
-        this.bigRoad.x = 584;
-        this.bigRoad.y = 98;
-        this.roadsContainer.addChild(this.bigRoad);
+            this.iconPlayerSmall = new BASmallRoadIcon(27);
+            this.iconPlayerSmall.x = 410;
+            this.iconPlayerSmall.y = 36;
+            this.iconPlayerSmall.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerSmall);
 
-        this.bigEyeRoad = new BABigEyeRoad(18 * 2, gridSizeR);
-        this.bigEyeRoad.x = 584;
-        this.bigEyeRoad.y = 98 + 6 * gridSizeR;
-        this.roadsContainer.addChild(this.bigEyeRoad);
+            this.iconPlayerCockroach = new BACockroachRoadIcon(27);
+            this.iconPlayerCockroach.x = 441;
+            this.iconPlayerCockroach.y = 36;
+            this.iconPlayerCockroach.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerCockroach);
 
-        this.smallRoad = new BASmallRoad(9 * 2, gridSizeR);
-        this.smallRoad.x = 584;
-        this.smallRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
-        this.roadsContainer.addChild(this.smallRoad);
+            this.roadsContainer = new egret.DisplayObjectContainer();
+            this.roadsContainer.x = 0;
+            this.roadsContainer.y = 0;
+            this.addChild(this.roadsContainer);
 
-        this.cockroachRoad = new BACockroachRoad(9 * 2, gridSizeR);
-        this.cockroachRoad.x = 584 + gridSizeR * 9;
-        this.cockroachRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
-        this.roadsContainer.addChild(this.cockroachRoad);
+            this.bigRoad = new BABigRoad(18, gridSizeR);
+            this.bigRoad.x = 584;
+            this.bigRoad.y = 98;
+            this.roadsContainer.addChild(this.bigRoad);
+
+            this.bigEyeRoad = new BABigEyeRoad(18 * 2, gridSizeR);
+            this.bigEyeRoad.x = 584;
+            this.bigEyeRoad.y = 98 + 6 * gridSizeR;
+            this.roadsContainer.addChild(this.bigEyeRoad);
+
+            this.smallRoad = new BASmallRoad(9 * 2, gridSizeR);
+            this.smallRoad.x = 584;
+            this.smallRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
+            this.roadsContainer.addChild(this.smallRoad);
+
+            this.cockroachRoad = new BACockroachRoad(9 * 2, gridSizeR);
+            this.cockroachRoad.x = 584 + gridSizeR * 9;
+            this.cockroachRoad.y = 98 + 6 * gridSizeR + 6 * (gridSizeR / 2);
+            this.roadsContainer.addChild(this.cockroachRoad);
+
+            break;
+
+          case "landscape":
+
+            const gridSizeF = 43;
+
+            this.beadRoad = new BABeadRoad(numColumn, gridSizeF, 1, true);
+            this.beadRoad.x = 0;
+            this.beadRoad.y = 0;
+            this.addChild(this.beadRoad);
+
+            this.iconBankerBigEye = new BABigEyeRoadIcon(27);
+            this.iconBankerBigEye.x = 146;
+            this.iconBankerBigEye.y = 36;
+            this.iconBankerBigEye.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerBigEye);
+
+            this.iconBankerSmall = new BASmallRoadIcon(27);
+            this.iconBankerSmall.x = 177;
+            this.iconBankerSmall.y = 36;
+            this.iconBankerSmall.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerSmall);
+
+            this.iconBankerCockroach = new BACockroachRoadIcon(27);
+            this.iconBankerCockroach.x = 208;
+            this.iconBankerCockroach.y = 36;
+            this.iconBankerCockroach.setByObject({ v: 'b' });
+            this.addChild(this.iconBankerCockroach);
+
+            this.iconPlayerBigEye = new BABigEyeRoadIcon(27);
+            this.iconPlayerBigEye.x = 379;
+            this.iconPlayerBigEye.y = 36;
+            this.iconPlayerBigEye.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerBigEye);
+
+            this.iconPlayerSmall = new BASmallRoadIcon(27);
+            this.iconPlayerSmall.x = 410;
+            this.iconPlayerSmall.y = 36;
+            this.iconPlayerSmall.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerSmall);
+
+            this.iconPlayerCockroach = new BACockroachRoadIcon(27);
+            this.iconPlayerCockroach.x = 441;
+            this.iconPlayerCockroach.y = 36;
+            this.iconPlayerCockroach.setByObject({ v: 'p' });
+            this.addChild(this.iconPlayerCockroach);
+
+            this.roadsContainer = new egret.DisplayObjectContainer();
+            this.roadsContainer.x = 0;
+            this.roadsContainer.y = 0;
+            this.addChild(this.roadsContainer);
+
+            this.bigRoad = new BABigRoad(18, gridSizeF);
+            this.bigRoad.x = 8 * gridSizeF;
+            this.bigRoad.y = 0;
+            this.roadsContainer.addChild(this.bigRoad);
+
+            this.bigEyeRoad = new BABigEyeRoad(18 * 2, gridSizeF);
+            this.bigEyeRoad.x = 26 * gridSizeF;
+            this.bigEyeRoad.y = 0;
+            this.roadsContainer.addChild(this.bigEyeRoad);
+
+            this.smallRoad = new BASmallRoad(9 * 2, gridSizeF);
+            this.smallRoad.x = 26 * gridSizeF;
+            this.smallRoad.y = 3 * gridSizeF;
+            this.roadsContainer.addChild(this.smallRoad);
+
+            this.cockroachRoad = new BACockroachRoad(9 * 2, gridSizeF);
+            this.cockroachRoad.x = 35 * gridSizeF;
+            this.cockroachRoad.y = 3 * gridSizeF;
+            this.roadsContainer.addChild(this.cockroachRoad);
+
+            break;
+        }
 
         this.switchModeButton.touchEnabled = true;
         this.switchModeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);

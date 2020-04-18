@@ -39,7 +39,7 @@
 		<ba:MobileBottomGamePanel skinName="skin_mobile_landscape.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
 		                          x="0" scaleY="1" y="1169" scaleX="1" />
 		<e:layout>
-			<e:VerticalLayout/>
+			<e:VerticalLayout gap="-100"/>
 		</e:layout>
 	</e:Group>
 	<e:Group id="_betChipSetPanel" width="2424" height="260" scaleY="1" horizontalCenter="4" y="341" x="12">
