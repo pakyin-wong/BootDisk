@@ -605,6 +605,10 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop{
+	class WealthRouletteScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ScrollBarVertical extends eui.Skin{
 	}
 }
