@@ -545,6 +545,18 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop.ro{
+	class LobbyBigBarChart extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class LobbyColorBarChart extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
+	class LobbyOddBarChart extends eui.Skin{
+	}
+}
+declare module skin_desktop.ro{
 	class RaceTrackChipLayerSkin extends eui.Skin{
 	}
 }
