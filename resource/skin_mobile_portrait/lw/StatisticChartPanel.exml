@@ -2,13 +2,13 @@
 <e:Skin class="skin_mobile_portrait.lw.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:lw="we.lw.*">
 			<e:Group id="content" width="100%" height="100%">
 				<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
-					<lw:RightPanelBar id="_progress0" width="547" height="26" y="111" x="43" source="m_lw_hor_betpool_barchart_east_png" />
-					<lw:RightPanelBar id="_progress1" width="547" height="26" y="226" x="43" source="m_lw_hor_betpool_barchart_south_png" />
-					<lw:RightPanelBar id="_progress2" width="547" height="26" y="342" x="43" source="m_lw_hor_betpool_barchart_west_png" />
-					<lw:RightPanelBar id="_progress3" width="547" height="26" y="458" x="43" source="m_lw_hor_betpool_barchart_north_png" />
-					<lw:RightPanelBar id="_progress4" width="547" height="26" y="111" x="648" source="m_lw_hor_betpool_barchart_white_png" />
-					<lw:RightPanelBar id="_progress5" width="547" height="26" y="226" x="648" source="m_lw_hor_betpool_barchart_gold_png" />
-					<lw:RightPanelBar id="_progress6" width="547" height="26" y="342" x="648" source="m_lw_hor_betpool_barchart_gold_png" />
+					<lw:StatisticChartPanelBar id="_progress0" width="547" height="26" y="111" x="43" source="m_lw_hor_betpool_barchart_east_png" />
+					<lw:StatisticChartPanelBar id="_progress1" width="547" height="26" y="226" x="43" source="m_lw_hor_betpool_barchart_south_png" />
+					<lw:StatisticChartPanelBar id="_progress2" width="547" height="26" y="342" x="43" source="m_lw_hor_betpool_barchart_west_png" />
+					<lw:StatisticChartPanelBar id="_progress3" width="547" height="26" y="458" x="43" source="m_lw_hor_betpool_barchart_north_png" />
+					<lw:StatisticChartPanelBar id="_progress4" width="547" height="26" y="111" x="648" source="m_lw_hor_betpool_barchart_white_png" />
+					<lw:StatisticChartPanelBar id="_progress5" width="547" height="26" y="226" x="648" source="m_lw_hor_betpool_barchart_gold_png" />
+					<lw:StatisticChartPanelBar id="_progress6" width="547" height="26" y="342" x="648" source="m_lw_hor_betpool_barchart_gold_png" />
 					<ui:RunTimeLabel id="_lbl_lwTitle0" x="43" y="45" size="44" verticalAlign="middle" text="東"/>
 					<ui:RunTimeLabel id="_lbl_lwTitle1" x="43" y="160" size="44" verticalAlign="middle" text="南"/>
 					<ui:RunTimeLabel id="_lbl_lwTitle2" x="43" y="276" size="44" verticalAlign="middle" text="西"/>

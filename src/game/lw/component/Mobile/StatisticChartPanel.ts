@@ -1,13 +1,13 @@
 namespace we {
   export namespace lw {
     export class StatisticChartPanel extends ui.Panel {
-      public _progress0: lw.RightPanelBar;
-      public _progress1: lw.RightPanelBar;
-      public _progress2: lw.RightPanelBar;
-      public _progress3: lw.RightPanelBar;
-      public _progress4: lw.RightPanelBar;
-      public _progress5: lw.RightPanelBar;
-      public _progress6: lw.RightPanelBar;
+      public _progress0: lw.StatisticChartPanelBar;
+      public _progress1: lw.StatisticChartPanelBar;
+      public _progress2: lw.StatisticChartPanelBar;
+      public _progress3: lw.StatisticChartPanelBar;
+      public _progress4: lw.StatisticChartPanelBar;
+      public _progress5: lw.StatisticChartPanelBar;
+      public _progress6: lw.StatisticChartPanelBar;
       public _lbl_lwValue0: ui.RunTimeLabel;
       public _lbl_lwValue1: ui.RunTimeLabel;
       public _lbl_lwValue2: ui.RunTimeLabel;
@@ -29,6 +29,8 @@ namespace we {
         this._progress5.setProgress(0.95);
         this._progress6.setProgress(1);
       }
+
+      public setValue(tableInfo: data.TableInfo) {}
     }
   }
 }

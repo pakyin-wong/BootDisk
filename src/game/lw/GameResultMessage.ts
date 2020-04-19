@@ -15,15 +15,25 @@ namespace we {
         super();
       }
 
-      protected updateSource(type: string = null) {
+      protected updateSource() {
         if (env.isMobile) {
-          this.eastSource = 'm_lw_result_east_png';
-          this.southSource = 'm_lw_result_south_png';
-          this.westSource = 'm_lw_result_west_png';
-          this.northSource = 'm_lw_result_north_png';
-          this.redSource = 'm_lw_result_red_png';
-          this.greenSource = 'm_lw_result_green_png';
-          this.whiteSource = 'm_lw_result_white_png';
+          if (this.type === 'side') {
+            this.eastSource = 'm_lw_listpenal_result_east_png';
+            this.southSource = 'm_lw_listpenal_result_south_png';
+            this.westSource = 'm_lw_listpenal_result_west_png';
+            this.northSource = 'm_lw_listpenal_result_north_png';
+            this.redSource = 'm_lw_listpenal_result_red_png';
+            this.greenSource = 'm_lw_listpenal_result_green_png';
+            this.whiteSource = 'm_lw_listpenal_result_white_png';
+          } else {
+            this.eastSource = 'm_lw_result_east_png';
+            this.southSource = 'm_lw_result_south_png';
+            this.westSource = 'm_lw_result_west_png';
+            this.northSource = 'm_lw_result_north_png';
+            this.redSource = 'm_lw_result_red_png';
+            this.greenSource = 'm_lw_result_green_png';
+            this.whiteSource = 'm_lw_result_white_png';
+          }
         } else {
           this.eastSource = 'd_lw_result_east_png';
           this.southSource = 'd_lw_result_south_png';

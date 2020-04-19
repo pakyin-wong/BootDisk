@@ -166,6 +166,8 @@ namespace we {
         const resultNo: number = +result.toString().substr(1) - 1;
 
         // (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo.toString()}`);
+        const lwGameResultMessage = new lw.GameResultMessage();
+        lwGameResultMessage.type = null;
         this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
       }
     }

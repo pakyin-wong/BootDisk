@@ -4,11 +4,11 @@ namespace we {
       public generateRoadmap(node: eui.Component) {
         const roadmap = new lw.LwLobbyBeadRoad();
         roadmap.roadRow = 3;
-        roadmap.roadCol = 12;
-        roadmap.roadCellWidth = 95;
-        roadmap.roadCellHeight = 97;
-        roadmap.roadImageWidth = 84;
-        roadmap.roadImageHeight = 84;
+        roadmap.roadCol = 8;
+        roadmap.roadCellWidth = 69;
+        roadmap.roadCellHeight = 65;
+        roadmap.roadImageWidth = 43;
+        roadmap.roadImageHeight = 43;
         roadmap.roadScale = 1;
         roadmap.roadGridColor = 0xffffff;
         roadmap.roadGridAlpha = 1;
