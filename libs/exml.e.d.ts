@@ -1103,11 +1103,23 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class MobileBigBarChart extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
 	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class MobileColorBarChart extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class MobileOddBarChart extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
