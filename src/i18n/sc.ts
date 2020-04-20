@@ -240,6 +240,7 @@ namespace we {
         hotColdNumber: '热冷号码',
         history: '历史记录',
         roadmap: '路纸',
+        luckyNumber: '幸运数字',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
         distribution: {

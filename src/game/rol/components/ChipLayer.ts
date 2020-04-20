@@ -18,17 +18,25 @@ namespace we {
               this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].removeChildren();
 
               const img = new eui.Image();
-              img.source = 'd_gow_rou_betborad_hl_png';
+
               img.verticalCenter = 0;
               img.horizontalCenter = 0;
-              img.width = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].width * 0.9;
-              img.height = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].height * 0.9;
+
+              if (+key === 0) {
+                img.source = 'd_gow_rou_betborad_hl_big_png';
+                img.width = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].width;
+                img.height = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].height;
+              } else {
+                img.source = 'd_gow_rou_betborad_hl_png';
+                img.width = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].width * 0.9;
+                img.height = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].height * 0.9;
+              }
 
               const label = new eui.Label();
               label.verticalCenter = 15;
               label.horizontalCenter = 0;
               label.size = 12;
-              label.text = env.tableInfos[this._tableId].data.luckynumber[key];
+              label.text = env.tableInfos[this._tableId].data.luckynumber[key] + 'x';
 
               this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(img);
               this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(label);

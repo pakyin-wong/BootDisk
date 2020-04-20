@@ -239,6 +239,7 @@ namespace we {
         hotColdNumber: 'Hot/Cold',
         history: 'History',
         roadmap: 'Roadmap',
+        luckyNumber: 'Lucky Number',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
         distribution: {

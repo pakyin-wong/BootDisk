@@ -609,6 +609,10 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop{
+	class RolLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ScrollBarVertical extends eui.Skin{
 	}
 }

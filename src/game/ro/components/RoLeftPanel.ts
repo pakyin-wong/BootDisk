@@ -41,6 +41,8 @@ namespace we {
       protected pageStack: eui.ViewStack;
       protected roadStack: eui.ViewStack;
 
+      protected _radioButtons: eui.RadioButton[];
+
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RoLeftPanel');
       }
@@ -62,7 +64,13 @@ namespace we {
         this.updateActiveLine(false);
       }
 
+      protected setRadioButtons() {
+        this._radioButtons = [this.pageRadioBtn1, this.pageRadioBtn2, this.pageRadioBtn3];
+      }
+
       protected init() {
+        this.setRadioButtons();
+
         this.gameId = '';
         this.totalBet = 0;
 
@@ -199,10 +207,10 @@ namespace we {
       }
 
       protected updateActiveLine(useEasing: boolean) {
-        const radioButtons = [this.pageRadioBtn1, this.pageRadioBtn2, this.pageRadioBtn3];
-        const btn = radioButtons[this.pageStack.selectedIndex];
 
-        radioButtons.forEach(element => {
+        const btn = this._radioButtons[this.pageStack.selectedIndex];
+
+        this._radioButtons.forEach(element => {
           if (element === btn) {
             element.currentState = 'upAndSelected';
           } else {

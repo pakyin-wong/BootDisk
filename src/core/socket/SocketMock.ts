@@ -84,7 +84,7 @@ namespace we {
           stats.totalCount = totalCount;
 
           return stats;
-        } else if (data.gametype === core.GameType.RO || data.gametype === core.GameType.RO) {
+        } else if (data.gametype === core.GameType.RO || data.gametype === core.GameType.ROL) {
           const stats = new we.data.GameStatistic();
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
@@ -217,7 +217,7 @@ namespace we {
               data.betInfo.ranking = [];
 
               data.bets = [];
-              const mockProcess = new MockProcessRoulette(this, core.GameType.ROL);
+              const mockProcess = new MockProcessRouletteWealth(this, core.GameType.ROL);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;

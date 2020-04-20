@@ -1,26 +1,21 @@
 namespace we {
   export namespace core {
-    export class MockProcessRouletteWealth extends MockProcess {
-      constructor(socket: SocketMock, gameType = core.GameType.RO) {
+    export class MockProcessRouletteWealth extends we.core.MockProcessRoulette {
+      constructor(socket: SocketMock, gameType = core.GameType.ROL) {
         super(socket, gameType);
       }
 
-      protected async setResults(data: data.TableInfo, results: string[], points: number[]) {
+            protected async setResults(data: data.TableInfo, results: string[], points: number[]) {
         const idx = 0;
         const gameData = data.data;
+        console.log(data);
+
+        if (gameData) {
+
         gameData.value = points[0];
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
-
         this.dispatchEvent(data);
-      }
-
-      public async randomWin(data: data.TableInfo) {
-        const rand = Math.floor(Math.random() * (this.endRand - this.startRand)) + this.startRand;
-        if (rand < 5) {
-          await this.game(data);
-        } else {
-          await this.shuffle(data);
         }
       }
 
@@ -34,11 +29,7 @@ namespace we {
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
-        gameData.luckynumber = {
-          0: 100,
-          2: 100,
-          10: 30,
-        };
+
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
         const gameResult = Math.floor(Math.random() * 37);
@@ -57,20 +48,6 @@ namespace we {
 
         // done
         logger.l('Round Completed');
-      }
-
-      public async shuffle(data: data.TableInfo) {
-        const gameData = new ba.GameData();
-        data.data = gameData;
-        data.bets = [];
-        // set to bet state and wait
-        gameData.previousstate = gameData.state;
-        gameData.state = core.GameState.SHUFFLE;
-        this.dispatchEvent(data);
-        await this.sleep(this.shuffleStateInterval);
-
-        // done
-        logger.l('Shuffle Completed');
       }
 
       protected async initGameData(data: data.TableInfo, gameData: data.GameData) {

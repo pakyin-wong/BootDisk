@@ -25,36 +25,31 @@ namespace we {
       }
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        this._dealRelatedGroup.visible = false;
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        this._dealRelatedGroup.visible = false;
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (this._previousState !== we.core.GameState.FINISH || isInit) {
-          this.updateLuckyNumber();
+          this.updateLeftPanelLuckyNumber();
         }
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        this._dealRelatedGroup.visible = false;
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
 
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        this._dealRelatedGroup.visible = false;
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        this._dealRelatedGroup.visible = false;
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
       }
 
@@ -62,30 +57,28 @@ namespace we {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           (<we.rol.ChipLayer> this._chipLayer).showLuckyNumber();
-          this.updateLuckyNumber();
+          this.updateLeftPanelLuckyNumber();
         }
       }
 
-      protected updateLuckyNumber() {
+      protected updateLeftPanelLuckyNumber() {
         if (this._tableId && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].data && env.tableInfos[this._tableId].data.luckynumber) {
+          /*
           const luckyImgs = [this._lucky1, this._lucky2, this._lucky3];
           const luckyNo = [this._lucky1No, this._lucky2No, this._lucky3No];
           const luckyOdd = [this._lucky1Odd, this._lucky2Odd, this._lucky3Odd];
           Object.keys(env.tableInfos[this._tableId].data.luckynumber).map((key, index) => {
             console.log(key, index, env.tableInfos[this._tableId].data.luckynumber[key]);
             if (luckyImgs[index] && luckyNo[index] && luckyOdd[index]) {
-              luckyImgs[index].source = this.getNumberSource(+key);
-              luckyNo[index].text = key;
-              luckyOdd[index].text = env.tableInfos[this._tableId].data.luckynumber[key] + 'x';
+
             }
           });
-          (<we.rol.ChipLayer> this._chipLayer).showLuckyNumber();
-          this._dealRelatedGroup.visible = true;
+          */
         }
       }
 
       protected getNumberSource(value: number) {
-        if (value) {
+        if (value === 0 || value) {
           switch (ro.RACETRACK_COLOR[value]) {
             case ro.Color.GREEN:
               return 'd_gow_rou_lucky_number_gn_png';
@@ -93,6 +86,8 @@ namespace we {
               return 'd_gow_rou_lucky_number_red_png';
             case ro.Color.BLACK:
               return 'd_gow_rou_lucky_number_bk_png';
+            default:
+              break;
           }
         }
         return null;
