@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile_landscape.Nav" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Rect id="_background" right="0" left="0" top="0" anchorOffsetY="0" height="238"
-	        fillAlpha="0.3"  fillColor="0x000000"/>
+	        fillAlpha="0.3"  fillColor="0x000000" touchEnabled="false" visible="false"/>
 	<ui:NavLantern id="_lantern" width="2000" height="38"   y="17" x="20" lineSpacing="38" fontsize="36"/>
 
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>

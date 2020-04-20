@@ -14,7 +14,7 @@ namespace we {
       protected betCombinations: we.data.BetCombination[];
 
       protected totalTableCount = {
-        [we.core.GameType.BAC]: 3,
+        [we.core.GameType.BAC]: 10,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
         [we.core.GameType.DT]: 3,
