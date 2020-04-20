@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.ba.TableInfoPanel" width="2172" height="260" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.ba.TableInfoPanel" width="2138" height="260" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Group id="content" left="0" top="0" width="2172" height="100%">
-		<e:Rect id="_bg" width="2172" height="536" x="0" y="0" scaleX="1" scaleY="1"
-		         fillColor="0x212425" anchorOffsetY="0" locked="true"/>
+	<e:Group id="content" left="0" top="0" height="100%" width="100%">
+		<e:Rect id="_bg" height="100%" x="0" y="0" scaleX="1" scaleY="1"
+		         fillColor="0x212425" anchorOffsetY="0" width="100%"/>
 		<e:Image id="moveArea" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7"  visible="false"/>
 		<e:Label id="lblTableInfo" text="本檯資訊" left="50" top="50" x="50" y="50" scaleX="1" scaleY="1" size="20"
 		         textColor="0xc59466"  visible="false"/>
@@ -21,16 +21,16 @@
 		<e:Label id="pGameID" text="-" y="158" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="165.48" width="440"/>
 		<e:Label id="pDealer" text="-" y="26" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" x="748.5" width="440" verticalAlign="middle"/>
 
-		<e:Label id="pBanker" text="-" y="26" textAlign="right" x="1347.5" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
-		<e:Label id="pPlayer" text="-" y="100" textAlign="right" x="1347.5" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
-		<e:Label id="pTie" text="-" y="158" textAlign="right" x="1347.5" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
-		<e:Label id="pBankerPair" text="-" y="21" textAlign="right" x="1836" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
-		<e:Label id="pPlayerPair" text="-" y="91" textAlign="right" x="1836" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pBanker" text="-" y="26" textAlign="right" x="1326.29" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pPlayer" text="-" y="100" textAlign="right" x="1326.29" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pTie" text="-" y="158" textAlign="right" x="1326.29" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pBankerPair" text="-" y="19" textAlign="right" x="1772.37" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
+		<e:Label id="pPlayerPair" text="-" y="89" textAlign="right" x="1772.37" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
 		<e:Label id="bankerLabel" text="庄" y="20" textAlign="left" x="1196.5" scaleX="1" scaleY="1" size="44"  bold="true"/>
 		<e:Label id="playerLabel" text="閒" y="91" x="1196.5" scaleX="1" scaleY="1" size="44"  bold="true"/>
 		<e:Label id="tieLabel" text="和" y="158" x="1196.5" scaleX="1" scaleY="1" size="44"  bold="true"/>
-		<e:Label id="bankerPairLabel" text="庄對" y="21" x="1685" scaleX="1" scaleY="1" size="44"  bold="true"/>
-		<e:Label id="playerPairLabel" text="閒對" y="91" x="1685" scaleX="1" scaleY="1" size="44"  bold="true"/>
+		<e:Label id="bankerPairLabel" text="庄對" y="21" x="1645.61" scaleX="1" scaleY="1" size="44"  bold="true"/>
+		<e:Label id="playerPairLabel" text="閒對" y="91" x="1645.61" scaleX="1" scaleY="1" size="44"  bold="true"/>
 		<e:Image id="limitBg" width="304" height="74" x="871" y="89" source="m_ba_tag_redlimit_bg_png" scaleX="1" scaleY="1"/>
 		<e:Group id="betLimitBtnGroup" width="304" height="74" x="871" y="89">
 			<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png"/>
