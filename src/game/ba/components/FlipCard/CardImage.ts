@@ -1,7 +1,7 @@
 namespace we {
   export namespace ba {
-    export class FrontCard extends egret.DisplayObjectContainer {
-      //a card bottom-left aligned with the anchor point
+    export class CardImage extends egret.DisplayObjectContainer {
+      // Card image in container
       protected cardWidth: number;
       protected cardHeight: number;
 
@@ -11,20 +11,15 @@ namespace we {
         super();
         this.cardWidth = w;
         this.cardHeight = h;
-
         this.cardImage = new eui.Image();
+        this.addChild(this.cardImage);
       }
 
-      public initCard() {
-        this.cardImage.source = 'd_common_poker_vertical_hearts_q_png';
+      public setCardImage(imgSource: string) {
+        this.cardImage.source = imgSource;
         this.cardImage.width = this.cardWidth;
         this.cardImage.height = this.cardHeight;
-        this.addChild(this.cardImage);
-
-        this.cardImage.y = -this.cardHeight;
-        this.cardImage.x = 0;
       }
-
     }
   }
 }

@@ -53,11 +53,12 @@ namespace we {
           this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
         }
 
-        this._flipCard = new FlipCard(44 * 8, 64 * 8);
-        this._flipCard.x = 200;
-        this._flipCard.y = 200;
+        this._flipCard = new ba.FlipCard(44 * 8, 64 * 8);
+        this._flipCard.x = this.stage.stageWidth * 0.5;
+        this._flipCard.y = this.stage.stageHeight * 0.5;
+        this._flipCard.rotation = 90;
+        this._flipCard.setCardImage('d_common_poker_vertical_back_png', 'd_common_poker_vertical_hearts_q_png', 'd_common_poker_vertical_hearts_q_png');
         this.addChild(this._flipCard);
-        this._flipCard.initCard();
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
