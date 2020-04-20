@@ -588,6 +588,10 @@ declare module skin_desktop{
 	class RouletteScene extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class RouletteWealthScene extends eui.Skin{
+	}
+}
 declare module skin_desktop.ro{
 	class SideListChipLayerSkin extends eui.Skin{
 	}
@@ -602,10 +606,6 @@ declare module skin_desktop.ro{
 }
 declare module skin_desktop.ro{
 	class TableLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class WealthRouletteScene extends eui.Skin{
 	}
 }
 declare module skin_desktop{

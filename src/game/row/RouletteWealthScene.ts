@@ -7,7 +7,7 @@
  *
  */
 namespace we {
-  export namespace row {
+  export namespace rol {
     export class Scene extends ro.Scene {
       protected _dealRelatedGroup: eui.Group;
       protected _lucky1: eui.Image;
@@ -21,15 +21,17 @@ namespace we {
       protected _lucky3Odd: eui.Label;
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'row' });
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'rol' });
       }
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
         this._dealRelatedGroup.visible = false;
+        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
         this._dealRelatedGroup.visible = false;
+        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
@@ -41,20 +43,25 @@ namespace we {
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
         this._dealRelatedGroup.visible = false;
+        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
         this._dealRelatedGroup.visible = false;
+        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
         this._dealRelatedGroup.visible = false;
+        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
       }
 
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
+          (<we.rol.ChipLayer> this._chipLayer).showLuckyNumber();
           this.updateLuckyNumber();
         }
       }
@@ -72,6 +79,7 @@ namespace we {
               luckyOdd[index].text = env.tableInfos[this._tableId].data.luckynumber[key] + 'x';
             }
           });
+          (<we.rol.ChipLayer> this._chipLayer).showLuckyNumber();
           this._dealRelatedGroup.visible = true;
         }
       }
@@ -91,7 +99,7 @@ namespace we {
       }
 
       protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('WealthRouletteScene');
+        this.skinName = utils.getSkinByClassname('RouletteWealthScene');
       }
     }
   }

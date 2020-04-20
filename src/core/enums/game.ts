@@ -16,10 +16,10 @@ namespace we {
       BAC = 0, // classic baccarat
       BAS = 1, // speed baccarat
       BAI = 2, // insurance baccarat
-      BAQ = 18, // squeeze baccarat
+      BAM = 18, // squeeze baccarat
       DT = 5, // Dragon Tiger
       RO = 14, // Roulette
-      ROW = 17, // Roulette (God of Wealth)
+      ROL = 17, // Roulette (God of Wealth) // L stands for luck
       DI = 12, // Dice
       LW = 16, // Lucky Wheel
       // MJ = 13, // MaJong

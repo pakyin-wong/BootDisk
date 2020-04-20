@@ -1,7 +1,8 @@
 namespace we {
-  export namespace row {
+  export namespace rol {
     export class GameData extends ro.GameData {
-      public specialFields: [{ field: string; odd: number }];
+      public luckynumber: { [field: number]: number };
+
     }
   }
 }
