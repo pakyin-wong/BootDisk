@@ -47,8 +47,8 @@ namespace we {
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
-          case we.core.GameType.BAQ:
-            generalGameType = 'baq';
+          case we.core.GameType.BAM:
+            generalGameType = 'bam';
             break;
           case we.core.GameType.RO:
             generalGameType = 'ro';
@@ -65,8 +65,8 @@ namespace we {
           case we.core.GameType.LW:
             generalGameType = 'lw';
             break;
-          case we.core.GameType.ROW:
-            generalGameType = 'row';
+          case we.core.GameType.ROL:
+            generalGameType = 'rol';
             break;
           default:
             throw new Error('Invalid Game Type');

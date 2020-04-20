@@ -1,5 +1,5 @@
 namespace we {
-  export namespace baq {
+  export namespace bam {
     export class SideListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ba.TableLayer();

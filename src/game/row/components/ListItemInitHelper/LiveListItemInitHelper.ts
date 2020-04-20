@@ -1,5 +1,5 @@
 namespace we {
-  export namespace row {
+  export namespace rol {
     export class LiveListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ro.LobbyTableLayer();
