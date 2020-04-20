@@ -174,6 +174,7 @@ namespace we {
         layout.paddingTop = 20;
         layout.paddingBottom = 20;
         layout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        layout.useVirtualLayout = true;
         return layout;
       }
 
