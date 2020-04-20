@@ -5,9 +5,10 @@
 	<e:Rect width="2424" height="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="-247" bottom="-1221" source="m_ba_bg_offvideo_png"  x="0" width="2424" locked="true"/>
 	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetY="0" bottom="0">
+
 		<e:Group id="_verticalTop" width="2424" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" height="472">
-			<ba:TableLayer id="_tableLayer" width="1632" height="200" x="400" y="221.5" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.TableLayerSkin" scaleX="1" scaleY="1"/>
-			<ba:ChipLayer id="_chipLayer" width="1632" height="200" x="400" y="221.5" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.ChipLayerSkin" scaleX="1" scaleY="1"/>
+			<ba:TableLayer id="_tableLayer" height="200" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.TableLayerSkin" scaleX="1" scaleY="1" y="222" horizontalCenter="0"/>
+			<ba:ChipLayer id="_chipLayer" height="200" y="221.5" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.ChipLayerSkin" scaleX="1" scaleY="1" horizontalCenter="0"/>
 			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
 		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="2262" y="0" x.right_hand_mode="2262" y.right_hand_mode="0"/>
 			<e:Group width="104" height="104" x="31" y="238" y.right_hand_mode="238" x.right_hand_mode="31">
@@ -24,7 +25,7 @@
 			</e:Group>
 			<e:Group height="104" anchorOffsetX="0" anchorOffsetY="0" y="238" width="104" y.right_hand_mode="238" x.right_hand_mode="2262" x="2262" x.left_hand_mode="2262">
 				<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
-				<e:ToggleSwitch id="_switchBaMode" label="免佣" x="0" y="0" scaleX="1" scaleY="1"  width="104" height="104"/>
+				<e:ToggleSwitch id="_switchBaMode" label="免佣" x="4" y="0" scaleX="1" scaleY="1"  width="104" height="104"/>
 				<e:layout>
 					<e:BasicLayout/>
 				</e:layout>
@@ -32,6 +33,7 @@
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x.right_hand_mode="578" y.right_hand_mode="36" x="578" y="36" x.left_hand_mode="1614"/>
 			<e:Group id="_betRelatedGroup" x="762" y="71" x.right_hand_mode="762" scaleX="1" scaleY="1" y.right_hand_mode="71" x.left_hand_mode="600">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+
 				        fillColor="0x444444" />
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
 				          verticalCenter="0" x.right_hand_mode="684"  skinName="skin_mobile_portrait.BetConfirmButtonSkin" x.left_hand_mode="5"/>
@@ -96,8 +98,8 @@
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar" visible="false" />
 	</e:Group>
-	<ui:ImageGameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-	                           scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin"  height="229" horizontalCenter="0"/>
+	<ui:ImageGameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin" height="229" horizontalCenter="0"/>
+
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0"/>

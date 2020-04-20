@@ -59,8 +59,9 @@ namespace we {
       public manualClose() {
         if (this.isPanelOpen) {
           this.currentState = 'off';
-          egret.Tween.removeTweens(this.viewStack);
-          egret.Tween.removeTweens(this.viewStackMask);
+          egret.Tween.removeTweens(this._middlePart);
+          // egret.Tween.removeTweens(this.viewStack);
+          // egret.Tween.removeTweens(this.viewStackMask);
           this.isPanelOpen = false;
           egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
           // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
@@ -71,8 +72,9 @@ namespace we {
       protected onPanelToggle() {
         this.currentState = this.isPanelOpen ? 'off' : 'on';
 
-        egret.Tween.removeTweens(this.viewStack);
-        egret.Tween.removeTweens(this.viewStackMask);
+        egret.Tween.removeTweens(this._middlePart);
+        // egret.Tween.removeTweens(this.viewStack);
+        // egret.Tween.removeTweens(this.viewStackMask);
 
         if (this.isPanelOpen) {
           this.isPanelOpen = false;

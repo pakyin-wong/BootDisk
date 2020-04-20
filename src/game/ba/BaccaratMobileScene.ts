@@ -50,9 +50,11 @@ namespace we {
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
 
+        this._tableLayer.type = we.core.BettingTableType.NORMAL;
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
 
         if (this._switchBaMode) {
+          this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
@@ -70,7 +72,7 @@ namespace we {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
 
-        this.createVerticalLayout();
+        // this.createVerticalLayout();
 
         this.changeHandMode();
 
@@ -257,7 +259,10 @@ namespace we {
 
       protected onOrientationChange() {
         this.onExit();
+        const temp = this._switchBaMode.selected;
         super.onOrientationChange();
+
+        this._switchBaMode.selected = temp;
         // this.updateSkin('BaccaratScene', true);
         this.onEnter();
         this.changeHandMode();
