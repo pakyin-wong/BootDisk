@@ -25,7 +25,7 @@ namespace we {
       }
 
       public async game(data: data.TableInfo) {
-        const gameData = new ro.GameData();
+        const gameData = new rol.GameData();
         // set to bet state and wait
         await this.initGameData(data, gameData);
         this.dispatchEvent(data);
@@ -34,6 +34,11 @@ namespace we {
         // set to deal state and start showing the result
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
+        gameData.luckynumber = {
+          0: 100,
+          2: 100,
+          10: 30,
+        };
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
         const gameResult = Math.floor(Math.random() * 37);
@@ -70,7 +75,11 @@ namespace we {
 
       protected async initGameData(data: data.TableInfo, gameData: data.GameData) {
         super.initGameData(data, gameData);
-        (<we.row.GameData> gameData).specialFields = [{ field: we.ro.BetField.BLACK, odd: 40 }];
+        (<we.rol.GameData> gameData).luckynumber = {
+          0: 100,
+          2: 100,
+          10: 30,
+        };
       }
     }
   }

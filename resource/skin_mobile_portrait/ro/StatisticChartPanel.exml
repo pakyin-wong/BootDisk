@@ -1,130 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ro.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-			<e:Group id="content" width="100%" height="100%">
-				<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
-				<e:Group x="75" y="65">
-					<e:Image id="_redImg" width="69" height="49" x="0" y="0" source="m_lobby_ro_history_red_Rectangle_png"/>
-					<e:Group x="0" y="150">
-						<ui:RunTimeLabel id="_totalRedCount" text="10" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" bold="true" verticalAlign="middle" alpha="1"/>
-						<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-						<e:layout>
-						<e:HorizontalLayout verticalAlign="bottom" horizontalAlign="center" gap="2"/>
-						</e:layout>
-					</e:Group>
-					<e:Group id="_greenGroup" x="245" y="0">
-						<e:Image id="_greenImg" width="69" height="49" x="0" y="0" source="m_lobby_ro_history_green_Rectangle_png"/>
-						<e:Group x="0" y="150">
-							<ui:RunTimeLabel id="_totalGreenCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" verticalAlign="middle" bold="true" alpha="1"/>
-							<e:Label text="%" x="39" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-							<e:layout>
-							<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-							</e:layout>
-						</e:Group>
-					</e:Group>
-					<e:Image id="_blackImg" width="69" height="49" x="431" y="0" source="m_lobby_ro_history_black_Rectangle_png"/>
-					<e:Group x="438" y="150">
-						<ui:RunTimeLabel id="_totalBlackCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" verticalAlign="middle" bold="true" alpha="1"/>
-						<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-						<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-						</e:layout>
-					</e:Group>
-					<e:Group id="_colourGroup" width="100%" height="100%" x="0" y="0"/>
-
-				</e:Group>
-
-
-
-
-
-				<e:Group x="667" y="65">
-					<e:Group x="0" y="0">
-						<e:Image id="_oddImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_red_box_png"/>
-						<ui:RunTimeLabel id="_oddLabel" text="單" textAlign="center" anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true" horizontalCenter="0" verticalCenter="0"/>
-					</e:Group>
-					<e:Group x="0" y="150">
-						<ui:RunTimeLabel id="_totalOddCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" verticalAlign="middle" bold="true" alpha="1"/>
-						<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-						<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-						</e:layout>
-					</e:Group>
-					<e:Group id="_zeroGroup" x="125" y="0">
-						<e:Group x="0" y="0">
-							<e:Image id="_zeroImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_green_box_png"/>
-							<ui:RunTimeLabel id="_zeroLabel" text="零" x="0" y="0" textAlign="center" anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true"/>
-						</e:Group>
-						<e:Group x="0" y="150">
-							<ui:RunTimeLabel id="_totalZeroCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" verticalAlign="middle" bold="true" alpha="1"/>
-							<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-							<e:layout>
-							<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-							</e:layout>
-						</e:Group>
-					</e:Group>
-					<e:Group x="445" y="0">
-						<e:Image id="_evenImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_blue_box_png"/>
-						<ui:RunTimeLabel id="_evenLabel" text="雙" x="0" y="0" textAlign="center" anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true"/>
-					</e:Group>
-					<e:Group x="445" y="150">
-						<ui:RunTimeLabel id="_totalEvenCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" verticalAlign="middle" bold="true" alpha="1"/>
-						<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-						<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-						</e:layout>
-					</e:Group>
-					<e:Group id="_numberGroup" width="100%" height="100%" x="0" y="0"/>
-				</e:Group>
-				<e:Group x="75" y="300" scaleX="1" scaleY="1">
-					<e:Group x="0" y="0">
-					<e:Image id="_bigImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_red_box_png"/>
-					<ui:RunTimeLabel id="_bigLabel" text="大" textAlign="center" anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true" horizontalCenter="0" verticalCenter="0"/>
-					</e:Group>
-					<e:Group x="0" y="150">
-					<ui:RunTimeLabel id="_totalbigCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" verticalAlign="middle" bold="true" alpha="1"/>
-					<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-					<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-					</e:layout>
-					</e:Group>
-					<e:Group id="_bigZeroGroup" x="125" y="0">
-					<e:Group x="0" y="0">
-						<e:Image id="_bigZeroImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_green_box_png"/>
-						<ui:RunTimeLabel id="_bigZeroLabel" text="零" x="0" y="0" textAlign="center" anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true"/>
-					</e:Group>
-					<e:Group x="0" y="150">
-						<ui:RunTimeLabel id="_totalBigZeroCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" verticalAlign="middle" bold="true" alpha="1"/>
-						<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-						<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-						</e:layout>
-					</e:Group>
-					</e:Group>
-					<e:Group x="445" y="0">
-					<e:Image id="_smallImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_blue_box_png"/>
-					<ui:RunTimeLabel id="_smallLabel" text="小" x="0" y="0" textAlign="center" anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true"/>
-					</e:Group>
-					<e:Group x="445" y="150">
-					<ui:RunTimeLabel id="_totalSmallCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34" verticalAlign="middle" bold="true" alpha="1"/>
-					<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true" alpha="1"/>
-					<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-					</e:layout>
-					</e:Group>
-					<e:Group id="_bigGroup" width="100%" height="100%" x="0" y="0"/>
-				</e:Group>
-
-
-
-
-
-
-
-
-
-
-
-
-
-			</e:Group>
+<e:Skin class="skin_mobile_portrait.ro.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ro="we.ro.*">
+	<e:Group id="content" width="100%" height="100%">
+		<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
+		<e:Group x="75" y="65">
+			<ro:BarChart id="_colorChart" skinName="skin_mobile_portrait.ro.MobileColorBarChart" />
+		</e:Group>
+		<e:Group x="667" y="65">
+			<ro:BarChart id="_oddChart" skinName="skin_mobile_portrait.ro.MobileOddBarChart" />
+		</e:Group>
+		<e:Group x="75" y="300" scaleX="1" scaleY="1">
+			<ro:BarChart id="_bigChart" skinName="skin_mobile_portrait.ro.MobileBigBarChart" />
+		</e:Group>
+	</e:Group>
 </e:Skin>

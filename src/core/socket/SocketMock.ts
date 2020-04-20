@@ -21,8 +21,8 @@ namespace we {
         [we.core.GameType.RO]: 3,
         [we.core.GameType.DI]: 3,
         [we.core.GameType.LW]: 1,
-        [we.core.GameType.BAQ]: 1,
-        [we.core.GameType.ROW]: 1,
+        [we.core.GameType.BAM]: 1,
+        [we.core.GameType.ROL]: 1,
       };
 
       constructor() {
@@ -51,7 +51,7 @@ namespace we {
       }
 
       protected generateDummyStatistic(data) {
-        if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC || data.gametype === core.GameType.BAQ) {
+        if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC || data.gametype === core.GameType.BAM) {
           let bankerCount: number = 0;
           let playerCount: number = 0;
           let tieCount: number = 0;
@@ -134,14 +134,14 @@ namespace we {
             });
             break;
           }
-          case we.core.GameType.BAQ: {
+          case we.core.GameType.BAM: {
             tables = Array.apply(null, { length: count }).map((value, idx) => {
               const data = new we.data.TableInfo();
               data.tableid = (++this._tempIdx).toString();
               data.tablename = data.tableid;
               data.state = TableState.ONLINE;
               data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
-              data.gametype = core.GameType.BAQ;
+              data.gametype = core.GameType.BAM;
 
               data.gamestatistic = this.generateDummyStatistic(data);
 
@@ -153,7 +153,7 @@ namespace we {
               data.betInfo.ranking = [];
 
               data.bets = [];
-              const mockProcess = new MockProcessBaccarat(this, core.GameType.BAQ);
+              const mockProcess = new MockProcessBaccarat(this, core.GameType.BAM);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;
@@ -198,14 +198,14 @@ namespace we {
             });
             break;
           }
-          case we.core.GameType.ROW: {
+          case we.core.GameType.ROL: {
             tables = Array.apply(null, { length: count }).map((value, idx) => {
               const data = new we.data.TableInfo();
               data.tableid = (++this._tempIdx).toString();
               data.tablename = data.tableid;
               data.state = TableState.ONLINE;
               data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
-              data.gametype = core.GameType.ROW;
+              data.gametype = core.GameType.ROL;
 
               data.gamestatistic = this.generateDummyStatistic(data);
 
@@ -217,7 +217,7 @@ namespace we {
               data.betInfo.ranking = [];
 
               data.bets = [];
-              const mockProcess = new MockProcessRoulette(this, core.GameType.ROW);
+              const mockProcess = new MockProcessRoulette(this, core.GameType.ROL);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;

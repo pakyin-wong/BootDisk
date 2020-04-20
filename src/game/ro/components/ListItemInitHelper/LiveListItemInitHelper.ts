@@ -34,7 +34,7 @@ namespace we {
       }
 
       public generateAnalysis(node: eui.Component) {
-        const analysis = new di.Analysis();
+        const analysis = new ro.Analysis();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(analysis, idx);
         return analysis;
