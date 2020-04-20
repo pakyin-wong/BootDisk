@@ -51,6 +51,10 @@ namespace we {
         if (this._lblBaMode) {
           this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
         }
+
+        // if (env.isMobile) {
+        //   dir.moniter._sideGameList.setToggler(this._common_listpanel);
+        // }
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -157,6 +161,11 @@ namespace we {
           });
           dir.audioCtr.playSequence([subject, 'win']);
         }
+      }
+
+      protected onOrientationChange() {
+        super.onOrientationChange();
+        this.updateSkin('BaccaratScene', true);
       }
     }
   }

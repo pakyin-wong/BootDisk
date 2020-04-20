@@ -18,12 +18,12 @@ namespace we {
       private _profilePrc: eui.Image;
       private _refreshButton: ui.BaseImageButton;
       // from Monitor.ts
-      private _liveSidePanel: ui.LiveSidePanel;
-      private _sideGameList: ui.MobileSideGameList;
-      private _common_listpanel: ui.BaseImageButton;
-      private _navMobileSilder: ui.NavMobileSilder;
-      private _mDropdown: ui.MobileDropdown;
-      private _overlay: ui.Overlay;
+      // private _liveSidePanel: ui.LiveSidePanel;
+      // private _sideGameList: ui.MobileSideGameList;
+      // private _common_listpanel: ui.BaseImageButton;
+      // private _navMobileSilder: ui.NavMobileSilder;
+      // private _mDropdown: ui.MobileDropdown;
+      // private _overlay: ui.Overlay;
 
       // this is the background color which the alpha will change when scrolling
       private _background: eui.Rect;
@@ -34,8 +34,6 @@ namespace we {
         super('Nav');
       }
 
-      // nav: {
-      //       bet_balance: '餘額',
       protected mount() {
         this.initNav();
       }
@@ -49,7 +47,6 @@ namespace we {
           this._menu.setToggler(this._menu_toggle);
           this._menu.dismissOnClickOutside = true;
         }
-        this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
         if (!isNaN(env.balance)) {
@@ -57,27 +54,9 @@ namespace we {
         }
         this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
 
-        // GameListButton
         if (env.isMobile) {
+          this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
           this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
-          if (!this._overlay) {
-            this._overlay = new ui.Overlay();
-
-            this._navMobileSilder = new ui.NavMobileSilder();
-            this._mDropdown = new ui.MobileDropdown();
-
-            dir.layerCtr.overlay.addChild(this._navMobileSilder);
-            dir.layerCtr.overlay.addChild(this._overlay);
-            dir.layerCtr.overlay.addChild(this._mDropdown);
-          }
-
-          this._sideGameList = new ui.MobileSideGameList();
-          this._sideGameList.bottom = 0;
-          this._sideGameList.setToggler(this._common_listpanel);
-          this._sideGameList.isPoppable = true;
-          this._sideGameList.dismissOnClickOutside = true;
-
-          dir.layerCtr.overlay.addChild(this._sideGameList);
         }
 
         this.addListeners();
@@ -87,6 +66,8 @@ namespace we {
         if (env.isMobile) {
           utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this);
           dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
+          // dir.evtHandler.addEventListener(core.Event.BA_POPUP, this.gameListPopUp, this);
+          // dir.evtHandler.addEventListener(core.Event.BA_POPDOWN, this.gameListPopDown, this);
           // this._lantern.alignToLeft();
         } else {
           dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
@@ -145,7 +126,7 @@ namespace we {
       }
 
       protected onOrientationChange() {
-        dir.layerCtr.overlay.removeChild(this._sideGameList);
+        // dir.layerCtr.overlay.removeChild(this._sideGameList);
         // dir.layerCtr.overlay.removeChild(this._navMobileSilder);
         // dir.layerCtr.overlay.removeChild(this._overlay);
         // dir.layerCtr.overlay.removeChild(this._mDropdown);

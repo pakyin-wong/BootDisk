@@ -7,6 +7,8 @@ namespace we {
       private _list: eui.TabBar;
       private _items: string[] = ['lobby', 'live', 'lottery', 'egame', 'favorite'];
 
+      private _common_listpanel: ui.BaseImageButton;
+
       private _selectedIdx: number = -1;
 
       private _data: any;
@@ -35,6 +37,9 @@ namespace we {
         }
 
         this._list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
+        if (env.isMobile) {
+          dir.monitor._sideGameList.setToggler(this._common_listpanel);
+        }
       }
 
       protected clearOrientationDependentComponent() {

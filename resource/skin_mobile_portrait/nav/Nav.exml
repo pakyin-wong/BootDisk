@@ -16,8 +16,6 @@
 	<ui:BaseImageButton id="_refreshButton" y="55" width="57" height="56" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload" x="1138" y.Game="61" visible.Game="false" visible.Lobby="true"/>
 	<ui:BaseImageButton id="_slider_toggle" y="1961" anchorOffsetX="0" width="117" anchorOffsetY="0" height="117"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="1088" y.Game="201"/>
-	<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="1088" y="418" x.Game="1088"/>
 	<e:Rect height="55" fillColor="0x121312" left="0" right="0" bottom="0" width.Game="377" x.Game="894" visible.Game="false"/>
 	<ui:NavLantern id="_lantern" width="862" height="36"   left="11" bottom="6" fontsize="36" lineSpacing="36" visible.Game="false" visible.Lobby="true" x.Lobby="10"/>
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00"  size="36"

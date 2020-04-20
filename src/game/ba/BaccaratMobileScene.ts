@@ -23,13 +23,13 @@ namespace we {
       protected _BAgoodRoadLabel: ui.GoodRoadLabel;
       protected _tableInfoPanel: TableInfoPanel;
 
+      private _common_listpanel: ui.BaseImageButton;
+
       constructor(data: any) {
         super(data);
-        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
-      }
-
-      protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('BaccaratScene');
+        // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
+        this._skinKey = 'BaccaratScene';
+        // this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
       protected setStateBet() {
@@ -46,6 +46,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        console.log('aaa', this.currentState);
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
 
@@ -82,6 +83,10 @@ namespace we {
 
         this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
+        if (env.isMobile) {
+          dir.monitor._sideGameList.setToggler(this._common_listpanel);
+        }
+        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
 
       protected initBottomBetLimitSelector() {
@@ -137,6 +142,7 @@ namespace we {
         } else {
           this.currentState = 'right_hand_mode';
         }
+        this.invalidateState();
       }
 
       protected createVerticalLayout() {
@@ -247,6 +253,14 @@ namespace we {
         } else {
           this._BAgoodRoadLabel.visible = false;
         }
+      }
+
+      protected onOrientationChange() {
+        this.onExit();
+        super.onOrientationChange();
+        // this.updateSkin('BaccaratScene', true);
+        this.onEnter();
+        this.changeHandMode();
       }
     }
   }

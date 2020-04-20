@@ -30,8 +30,6 @@
 	<e:Image width="55" height="55" y="1106" scaleX="1" scaleY="1" source="m_common_header_icon_refresh_png" right="38" visible.Game="false"/>
 	<ui:BaseImageButton id="_slider_toggle" y="944" width="117" height="117"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2270" y.Game="148"/>
-	<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="2282" y="577"/>
 
 
 

@@ -177,7 +177,7 @@ namespace we {
 
       public onClickEnterRoomButton(evt: egret.Event) {
         // enter game room
-        dir.moniter.dismissMobileGameList();
+        dir.monitor.dismissMobileGameList();
         env.gotoScene(this.tableId);
       }
 
