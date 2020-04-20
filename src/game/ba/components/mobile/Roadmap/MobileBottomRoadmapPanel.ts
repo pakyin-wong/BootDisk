@@ -52,9 +52,7 @@ namespace we {
         const numColumn = 8;
 
         switch (env.orientation) {
-
-          case "portrait":
-
+          case 'portrait':
             const gridSizeL = 73;
             const gridSizeR = 38;
 
@@ -126,8 +124,7 @@ namespace we {
 
             break;
 
-          case "landscape":
-
+          case 'landscape':
             const gridSizeF = 43;
 
             this.beadRoad = new BABeadRoad(numColumn, gridSizeF, 1, true);

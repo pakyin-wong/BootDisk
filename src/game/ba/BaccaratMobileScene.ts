@@ -56,7 +56,7 @@ namespace we {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
 
-        this.createVerticalLayout();
+        // this.createVerticalLayout();
 
         this.changeHandMode();
 

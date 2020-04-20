@@ -9,9 +9,9 @@
 		<e:Group id="_verticalTop" width="2424" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
 		         height="472">
 			<ba:TableLayer id="_tableLayer" width="1632" height="200" x="400" y="221.5" isEdgeDismissable="true"
-			               skinName="skin_mobile_landscape.ba.TableLayerSkin" scaleX="1" scaleY="1" />
+			               skinName="skin_mobile_landscape.ba.TableLayerSkin" scaleX="1" scaleY="1"  horizontalCenter="0" height.left_hand_mode="201" anchorOffsetX.left_hand_mode="0" width.left_hand_mode="1541.09"/>
 			<ba:ChipLayer id="_chipLayer" width="1632" height="200" x="400" y="221.5" isEdgeDismissable="true"
-			              skinName="skin_mobile_landscape.ba.ChipLayerSkin" scaleX="1" scaleY="1" />
+			              skinName="skin_mobile_landscape.ba.ChipLayerSkin" scaleX="1" scaleY="1"  locked="true"/>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="515"
 			                           skinName="skin_mobile.BetChipSkin" bottom="408" labelSize="48" />
 			<e:Group id="_betRelatedGroup" x="779" y="74.5" scaleX="1" scaleY="1">

@@ -39,6 +39,9 @@
 		</e:Group>
 		<ba:MobileBottomGamePanel skinName="skin_mobile_portrait.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 		                          x="0" scaleY="1" y="783" scaleX="1" />
+		<e:layout>
+			<e:VerticalLayout horizontalAlign="center" gap="24"/>
+		</e:layout>
 	</e:Group>
 	<e:Group id="_betChipSetPanel" y.right_hand_mode="986" width="1182" height="762" x.right_hand_mode="34" scaleY="1"            horizontalCenter.left_hand_mode="4" y.left_hand_mode="986" scaleY.left_hand_mode="1" y="986" horizontalCenter="4">
 		<e:Group id="_betPanelGroup" y.right_hand_mode="0" scaleY.left_hand_mode="1"             horizontalCenter="0" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0"             left.left_hand_mode="0" top.left_hand_mode="0" bottom.left_hand_mode="0" right.left_hand_mode="0" left="0" right="0" top="0" bottom="0" visible="false">
