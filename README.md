@@ -125,6 +125,9 @@ npm install -g tslint prettier typescript
 - [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
 - [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
 
+- [發送現場驗證](https://docs.google.com/document/d/1t95ChIAEF8qaDjjNGctLC8_rrXgayfzQqnIPao6MXSg/edit?ts=5e995758)
+- [bet area button rules (rebet & double)](https://docs.google.com/document/d/138UwHLBXfloAOWvXo-21BHkUjwdByYcl8ZtbCtN48BI/edit?ts=5e995d51)
+
 - [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
 - [Game Lobby Mobile Requirement (Portrait)](https://docs.google.com/document/d/1y1-1ZDufqcHlgb5ayZkbllFM0xEiLDPV480o_8aIi_Q/edit?ts=5e660e13)
 - [Game Lobby Mobile Requirement (Landscape)](https://docs.google.com/document/d/1z-3qwtuepfipKaak-e8pvy5loohNHoC0tW8cFs3tnts/edit?ts=5e660d51)
