@@ -8,6 +8,10 @@ namespace we {
 
       constructor() {
         super();
+      }
+
+      protected mount() {
+        super.mount();
         this.right = 0;
         this.verticalCenter = 0;
         this.container = new eui.Group();

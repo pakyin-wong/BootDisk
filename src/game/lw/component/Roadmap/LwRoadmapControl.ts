@@ -12,14 +12,14 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, leftPanel, rightPanel, resultPanel) {
+      public setRoads(r1, leftPanel, rightPanel, resultPanel, isInteractable = true) {
         this.beadRoad = r1;
 
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;
         this.resultPanel = resultPanel;
 
-        if (!env.isMobile) {
+        if (this.beadRoad && isInteractable) {
           this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
           this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
           this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
@@ -65,7 +65,7 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.roadmap) {
             const data = this.tableInfo.roadmap;
-            if (this.resultPanel) this.resultPanel.visible = false;
+            this.resultPanel.visible = false;
           }
         }
       }

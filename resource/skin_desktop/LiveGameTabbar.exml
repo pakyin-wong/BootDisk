@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LiveGameTabbar" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" height="160">
+	<e:Rect id="background" fillColor="0x121212" left="0" right="0" top="0" bottom="0" alpha="0"/>
+	<ui:List id="tabBar" left="0" right="0" top="0" bottom="0">
+		<e:layout>
+			<e:HorizontalLayout gap="0" horizontalAlign="justify"/>
+		</e:layout>
+	</ui:List>
+</e:Skin>

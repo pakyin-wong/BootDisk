@@ -4,6 +4,9 @@ namespace we {
       public constructor(_numCol: number = 12, _gridSize: number = 30, _scale: number = 1, _gridLine: number = 1) {
         super(_numCol, _gridSize, _scale, _gridLine);
         this.gridUnit = 1;
+
+        const colorFilter = new egret.ColorMatrixFilter([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]);
+        this._textLayer.filters = [colorFilter]; // colors[2];
       }
 
       protected createIcon(size: number): BABigRoadIcon {

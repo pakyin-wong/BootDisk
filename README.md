@@ -125,6 +125,9 @@ npm install -g tslint prettier typescript
 - [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
 - [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
 
+- [發送現場驗證](https://docs.google.com/document/d/1t95ChIAEF8qaDjjNGctLC8_rrXgayfzQqnIPao6MXSg/edit?ts=5e995758)
+- [bet area button rules (rebet & double)](https://docs.google.com/document/d/138UwHLBXfloAOWvXo-21BHkUjwdByYcl8ZtbCtN48BI/edit?ts=5e995d51)
+
 - [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
 - [Game Lobby Mobile Requirement (Portrait)](https://docs.google.com/document/d/1y1-1ZDufqcHlgb5ayZkbllFM0xEiLDPV480o_8aIi_Q/edit?ts=5e660e13)
 - [Game Lobby Mobile Requirement (Landscape)](https://docs.google.com/document/d/1z-3qwtuepfipKaak-e8pvy5loohNHoC0tW8cFs3tnts/edit?ts=5e660d51)
@@ -152,6 +155,15 @@ npm install -g tslint prettier typescript
 
 
 ## Asset Link from Design Team (Copied from whatsapp group)
+
+- [9/4/2020 missing_assets](https://home.mycloud.com/action/share/03e6bcfd-309c-4351-b92c-5a2ad17df8db)
+- [missing asset issue](https://home.mycloud.com/action/share/541f7d33-be2a-47ef-b2ec-0a3bae9ac799)
+
+- [17/4/2020 LuckyWheel Desktop](https://drive.google.com/open?id=1KHScZPnogUgYnVDRQAw-AaiG3CeTbZ3_)
+
+- [17/4/2020 LuckyWheel Mobile](https://drive.google.com/open?id=1KhzJeZ6pxDlNTDkj_wuMz_1IPhQ_Rxa2)
+
+- [16/4/2020 mobile baccarat](https://drive.google.com/open?id=18wlsZ8eX94sWvidL_2WK7hDofC-2baO5)
 
 - [4/3/2020 God Of Wealth Roulette](https://drive.google.com/drive/folders/1Q-ipvuxyQpjNhumkXEdY77-iiZAJXKSn)
 

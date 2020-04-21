@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
-    export class NotificationController extends core.BaseEUI {
-      protected notificationList: data.Notification[];
+    export class NotificationController extends core.BaseEUI implements INotificationController {
+      public notificationList: data.Notification[];
       // protected notificationHolders: NotificationHolder[];
 
       public listDisplay: ui.List;
@@ -73,7 +73,7 @@ namespace we {
       }
 
       public updatePosition(evt: egret.Event) {
-        const sidePanel = <LiveSidePanel> evt.data;
+        const sidePanel = <LiveSidePanel>evt.data;
         let right = 30;
         if (!sidePanel.isCollapsed) {
           right += sidePanel.width + 20;
@@ -82,7 +82,7 @@ namespace we {
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification> evt.data;
+        const notification: data.Notification = <data.Notification>evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -107,6 +107,7 @@ namespace we {
         this._activeNotificationCount[typeStr] -= 1;
         this._activeNotificationCount.total -= 1;
       }
+
       protected showNotification(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
         this._activeNotificationCount[typeStr] += 1;
@@ -115,7 +116,7 @@ namespace we {
 
       public showNextNotification() {
         // check if there is empty holder
-        if (!this.hasAvailableHolder) {
+        if (!this.hasAvailableHolder()) {
           return;
         }
         const notification = this.nextNotification;
@@ -159,7 +160,7 @@ namespace we {
         // remove the focus item if exist
         if (this._currentFocus) {
           if (!isRemoved) {
-            const holder = <NotificationItemHolder> this.listDisplay.getChildAt(0);
+            const holder = <NotificationItemHolder>this.listDisplay.getChildAt(0);
             holder.removeItem();
           }
           this._currentFocus = null;

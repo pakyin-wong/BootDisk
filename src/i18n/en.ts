@@ -8,9 +8,11 @@ namespace we {
       gametype_BAC: 'BAC',
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
+      gametype_BAM: 'BAM',
       gametype_DI: 'DI',
       gametype_MJ: 'MJ',
       gametype_RO: 'RO',
+      gametype_ROL: 'ROL',
       gametype_DT: 'DT',
       gametype_LW: 'LW',
 
@@ -237,6 +239,7 @@ namespace we {
         hotColdNumber: 'Hot/Cold',
         history: 'History',
         roadmap: 'Roadmap',
+        luckyNumber: 'Lucky Number',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
         distribution: {

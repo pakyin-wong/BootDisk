@@ -216,7 +216,6 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         }
-
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
@@ -343,6 +342,15 @@ namespace we {
           case core.GameState.DEAL:
             this.setStateDeal(isInit);
             break;
+          case core.GameState.PEEK:
+            this.setStatePeek(isInit);
+            break;
+          case core.GameState.PEEK_BANKER:
+            this.setStatePeekBanker(isInit);
+            break;
+          case core.GameState.PEEK_PLAYER:
+            this.setStatePeekPlayer(isInit);
+            break;
           case core.GameState.FINISH:
             this.setStateFinish(isInit);
             break;
@@ -369,6 +377,13 @@ namespace we {
           this.setResultRelatedComponentsEnabled(false);
         }
       }
+
+      protected setStatePeek(isInit: boolean = false) {}
+
+      protected setStatePeekPlayer(isInit: boolean = false) {}
+
+      protected setStatePeekBanker(isInit: boolean = false) {}
+
       protected setStateBet(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);

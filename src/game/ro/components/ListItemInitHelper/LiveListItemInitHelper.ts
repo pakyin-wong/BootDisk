@@ -34,14 +34,14 @@ namespace we {
       }
 
       public generateAnalysis(node: eui.Component) {
-        const analysis = new di.Analysis();
+        const analysis = new ro.Analysis();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(analysis, idx);
         return analysis;
       }
 
       public generateAdvancedRoad(node: eui.Component) {
-        const advancedRoad = new ba.BALobbyAdvancedRoad();
+        const advancedRoad = new ro.AdvancedRoad();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(advancedRoad, idx);
         return advancedRoad;

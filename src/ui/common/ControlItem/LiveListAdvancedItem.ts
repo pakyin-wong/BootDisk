@@ -10,10 +10,25 @@ namespace we {
         super(skinName);
       }
 
+      public get advancedRoad() {
+        return this._advancedRoad;
+      }
+
       protected initComponents() {
         super.initComponents();
         this.generateAnalysis();
         this.generateAdvancedRoad();
+      }
+
+      protected onTouchTap(evt: egret.Event) {
+        const target = evt.target;
+
+        if (target instanceof eui.Image && target.name === 'askRoad') {
+          evt.stopPropagation();
+          return;
+        }
+
+        super.onTouchTap(evt);
       }
 
       protected arrangeComponents() {
@@ -54,14 +69,11 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             this._analysis.tableId = this._tableId;
             this._analysis.updateRoad();
-            console.log('LiveListAdvancedItem::onRoadDataUpdate');
             if (this._tableInfo) {
-              console.log('LiveListAdvancedItem::onRoadDataUpdate _advancedRoad');
-
               this._advancedRoad.tableInfo = this._tableInfo;
               this._advancedRoad.update(this._tableInfo.roadmap);
             }
@@ -77,9 +89,13 @@ namespace we {
           const randNo = Math.round(Math.random()) + 1;
           this._dealerImage.texture = RES.getRes('advanced_dealer_' + randNo + '_png');
         }
-        if (this._analysis && this._tableId) {
+        if (tableInfo.tableid === this._tableId) {
           this._analysis.tableId = this._tableId;
           this._analysis.updateRoad();
+          if (this._tableInfo) {
+            this._advancedRoad.tableInfo = this._tableInfo;
+            this._advancedRoad.update(this._tableInfo.roadmap);
+          }
         }
       }
 
@@ -90,7 +106,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             this._analysis.tableId = this._tableId;
             this._analysis.updateTableBetInfo();

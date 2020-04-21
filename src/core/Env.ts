@@ -13,6 +13,7 @@ namespace we {
 
       /* Global Environment Variable */
       public version: string = '0.3.2';
+      public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
@@ -154,6 +155,9 @@ namespace we {
           case core.GameType.BAI:
             dir.sceneCtr.goto('ba', { tableid: tableId });
             break;
+          case core.GameType.BAM:
+            dir.sceneCtr.goto('bam', { tableid: tableId });
+            break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
             break;
@@ -165,6 +169,9 @@ namespace we {
             break;
           case core.GameType.LW:
             dir.sceneCtr.goto('lw', { tableid: tableId });
+            break;
+          case core.GameType.ROL:
+            dir.sceneCtr.goto('rol', { tableid: tableId });
             break;
           default:
             logger.e(`Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);

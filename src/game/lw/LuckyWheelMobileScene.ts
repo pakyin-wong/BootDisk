@@ -127,7 +127,7 @@ namespace we {
 
       protected initRoadMap() {
         this._roadmapControl = new LwRoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(this._bottomGamePanel._roadmapPanel.beadRoad, null, null, null);
+        this._roadmapControl.setRoads(this._bottomGamePanel._roadmapPanel.beadRoad, null, null, null, false);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
