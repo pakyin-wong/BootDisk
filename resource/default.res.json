@@ -5,7 +5,7 @@
 			"name": "egret_basic"
 		},
 		{
-			"keys": "m_lobby_horizontal_banner_1_png,m_lobby_horizontal_banner_2_png,m_lobby_horizontal_banner_3_png,m_lobby_horizontal_banner_4_png,m_ba_betarea_supersix_tie_horizontal_hover_png,m_ba_betarea_supersix_tie_horizontal_png,m_ba_betarea_tie_horizontal_hover_png,m_ba_betarea_tie_horizontal_png,m_ba_betarea_banker_horizontal_hover_png,m_ba_betarea_banker_horizontal_png,m_ba_betarea_bankerpair_horizontal_hover_png,m_ba_betarea_bankerpair_horizontal_png,m_ba_betarea_player_horizontal_hover_png,m_ba_betarea_player_horizontal_png,m_ba_betarea_playerpair_horizontal_hover_png,m_ba_betarea_playerpair_horizontal_png",
+			"keys": "m_lobby_horizontal_banner_1_png,m_lobby_horizontal_banner_2_png,m_lobby_horizontal_banner_3_png,m_lobby_horizontal_banner_4_png,m_ba_betarea_supersix_tie_horizontal_hover_png,m_ba_betarea_supersix_tie_horizontal_png,m_ba_betarea_tie_horizontal_hover_png,m_ba_betarea_tie_horizontal_png,m_ba_betarea_banker_horizontal_hover_png,m_ba_betarea_banker_horizontal_png,m_ba_betarea_bankerpair_horizontal_hover_png,m_ba_betarea_bankerpair_horizontal_png,m_ba_betarea_player_horizontal_hover_png,m_ba_betarea_player_horizontal_png,m_ba_betarea_playerpair_horizontal_hover_png,m_ba_betarea_playerpair_horizontal_png,m_common_chartroom_emoji_icon_1_png,m_common_chartroom_emoji_icon_10_png,m_common_chartroom_emoji_icon_11_png,m_common_chartroom_emoji_icon_12_png,m_common_chartroom_emoji_icon_13_png,m_common_chartroom_emoji_icon_14_png,m_common_chartroom_emoji_icon_15_png,m_common_chartroom_emoji_icon_16_png,m_common_chartroom_emoji_icon_17_png,m_common_chartroom_emoji_icon_18_png,m_common_chartroom_emoji_icon_19_png,m_common_chartroom_emoji_icon_2_png,m_common_chartroom_emoji_icon_20_png,m_common_chartroom_emoji_icon_21_png,m_common_chartroom_emoji_icon_3_png,m_common_chartroom_emoji_icon_4_png,m_common_chartroom_emoji_icon_5_png,m_common_chartroom_emoji_icon_6_png,m_common_chartroom_emoji_icon_7_png,m_common_chartroom_emoji_icon_8_png,m_common_chartroom_emoji_icon_9_png,m_common_chatroom_btnbg_png,m_common_chatroom_chatbg_png,m_common_chatroom_chatbg_line_png,m_common_chatroom_chatbg_other_png,m_common_chatroom_chatbg_scrollbar_png,m_common_chatroom_chatbg_self_png,m_common_header_goodroad_bg_png,m_common_header_goodroad_icon_doublestar_png,m_common_header_goodroad_icon_star2_png,m_common_panel_btn_disable_png,m_common_panel_setting_bg_png,m_common_panel_setting_btn_bg_png,m_common_panel_setting_btn_switch_disable_png,m_common_panel_setting_menubg_png,m_common_verification_btn_disable_svg,m_common_verification_btn_active_svg,m_common_verification_btn_select_svg",
 			"name": "preload"
 		}
 	],
@@ -5002,6 +5002,196 @@
 			"url": "assets/m/ba/m_ba_betarea_chipsbg_triangle.png",
 			"type": "image",
 			"name": "m_ba_betarea_chipsbg_triangle_png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_1_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_1.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_10_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_10.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_11_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_11.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_12_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_12.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_13_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_13.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_14_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_14.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_15_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_15.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_16_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_16.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_17_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_17.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_18_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_18.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_19_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_19.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_2_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_2.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_20_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_20.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_21_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_21.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_3_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_3.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_4_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_4.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_5_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_5.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_6_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_6.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_7_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_7.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_8_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_8.png"
+		},
+		{
+			"name": "m_common_chartroom_emoji_icon_9_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chartroom_emoji_icon_9.png"
+		},
+		{
+			"name": "m_common_chatroom_btnbg_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chatroom_btnbg.png"
+		},
+		{
+			"name": "m_common_chatroom_chatbg_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chatroom_chatbg.png"
+		},
+		{
+			"name": "m_common_chatroom_chatbg_line_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chatroom_chatbg_line.png"
+		},
+		{
+			"name": "m_common_chatroom_chatbg_other_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chatroom_chatbg_other.png"
+		},
+		{
+			"name": "m_common_chatroom_chatbg_scrollbar_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chatroom_chatbg_scrollbar.png"
+		},
+		{
+			"name": "m_common_chatroom_chatbg_self_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_chatroom_chatbg_self.png"
+		},
+		{
+			"name": "m_common_header_goodroad_bg_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_header_goodroad_bg.png"
+		},
+		{
+			"name": "m_common_header_goodroad_icon_doublestar_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_header_goodroad_icon_doublestar.png"
+		},
+		{
+			"name": "m_common_header_goodroad_icon_star2_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_header_goodroad_icon_star.png"
+		},
+		{
+			"name": "m_common_panel_btn_disable_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_panel_btn_disable.png"
+		},
+		{
+			"name": "m_common_panel_setting_bg_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_panel_setting_bg.png"
+		},
+		{
+			"name": "m_common_panel_setting_btn_bg_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_panel_setting_btn_bg.png"
+		},
+		{
+			"name": "m_common_panel_setting_btn_switch_disable_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_panel_setting_btn_switch_disable.png"
+		},
+		{
+			"name": "m_common_panel_setting_menubg_png",
+			"type": "image",
+			"url": "assets/m/common/m_common_panel_setting_menubg.png"
+		},
+		{
+			"name": "m_common_verification_btn_disable_svg",
+			"type": "image",
+			"url": "assets/m/common/m_common_verification_btn_disable.svg"
+		},
+		{
+			"name": "m_common_verification_btn_active_svg",
+			"type": "image",
+			"url": "assets/m/common/m_common_verification_btn_active.svg"
+		},
+		{
+			"name": "m_common_verification_btn_select_svg",
+			"type": "image",
+			"url": "assets/m/common/m_common_verification_btn_select.svg"
 		}
 	]
 }

@@ -155,14 +155,18 @@ namespace we {
       }
 
       protected setChipPanelPos() {
-        if (this._bottomGamePanel.isPanelOpen) {
-          this._betPanelGroup.scaleY = 1;
-          this._betPanelGroup.y = 0;
-          this._betChipSetPanel.y = 986;
+        if (env.orientation === 'portrait') {
+          if (this._bottomGamePanel.isPanelOpen) {
+            this._betPanelGroup.scaleY = 1;
+            this._betPanelGroup.y = 0;
+            this._betChipSetPanel.y = 986;
+          } else {
+            this._betPanelGroup.scaleY = -1;
+            this._betPanelGroup.y = 762;
+            this._betChipSetPanel.y = 500;
+          }
         } else {
-          this._betPanelGroup.scaleY = -1;
-          this._betPanelGroup.y = 762;
-          this._betChipSetPanel.y = 500;
+          this._betChipSetPanel.y = -480;
         }
       }
 
