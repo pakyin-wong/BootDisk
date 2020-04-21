@@ -7,26 +7,43 @@
 namespace we {
   export namespace bam {
     export class Scene extends ba.Scene {
+      // protected _flipCard;
+
+      protected initChildren() {
+        super.initChildren();
+      }
+
       protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('BaccaratScene');
+        this.skinName = utils.getSkinByClassname('SqueezeBaccaratScene');
       }
 
       protected setStatePeek(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
-          console.log('PEEK' , env.tableInfos[this._tableId].data);
+          console.log('PEEK', env.tableInfos[this._tableId].data);
+          this._resultDisplay.visible = true;
+          this._resultDisplay.updateResult(this._gameData);
         }
       }
 
       protected setStatePeekPlayer(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
-          console.log('PEEK_PLAYER' , env.tableInfos[this._tableId].data);
+          console.log('PEEK_PLAYER', env.tableInfos[this._tableId].data);
+          this._resultDisplay.visible = true;
+          this._resultDisplay.updateResult(this._gameData);
         }
       }
 
       protected setStatePeekBanker(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
-          console.log('PEEK_BANKER' , env.tableInfos[this._tableId].data);
+          console.log('PEEK_BANKER', env.tableInfos[this._tableId].data);
+          this._resultDisplay.visible = true;
+          this._resultDisplay.updateResult(this._gameData);
         }
+      }
+
+      protected setStateFinish(isInit: boolean = false) {
+        super.setStateFinish(isInit);
+        this._resultDisplay.updateResult(this._gameData);
       }
     }
   }

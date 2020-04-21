@@ -153,7 +153,7 @@ namespace we {
               data.betInfo.ranking = [];
 
               data.bets = [];
-              const mockProcess = new MockProcessBaccarat(this, core.GameType.BAM);
+              const mockProcess = new MockProcessBaccaratSqueeze(this, core.GameType.BAM);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;

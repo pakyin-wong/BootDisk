@@ -1,47 +1,50 @@
 namespace we {
   export namespace core {
     export class MockProcessBaccaratSqueeze extends MockProcess {
+      public squeezingInterval: number = 11000;
+      public squeezing3rdCardIntervalA: number = 5000;
+      public squeezing3rdCardIntervalB: number = 4000;
+
       constructor(socket: SocketMock, gameType = core.GameType.BAC) {
         super(socket, gameType);
       }
 
       protected async setResults(data: data.TableInfo, results: string[], points: number[]) {
-        let idx = 0;
+        const idx = 0;
         const gameData = data.data;
-        for (const card of results) {
-          switch (idx) {
-            case 2:
-              gameData.a1 = card;
-              gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
-              break;
-            case 3:
-              gameData.a2 = card;
-              gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
-              break;
-            case 0:
-              gameData.b1 = card;
-              gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
-              break;
-            case 1:
-              gameData.b2 = card;
-              gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
-              break;
-            case 5:
-              gameData.a3 = card;
-              gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
-              break;
-            case 4:
-              gameData.b3 = card;
-              gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
-              break;
-          }
-          idx++;
-          gameData.previousstate = gameData.state;
-          gameData.state = core.GameState.DEAL;
 
-          this.dispatchEvent(data);
-          await this.sleep(this.cardInterval);
-        }
+        // PEEK
+        gameData.a1 = results[2];
+        gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
+        gameData.a2 = results[3];
+        gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
+        gameData.b1 = results[0];
+        gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
+        gameData.b2 = results[1];
+        gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
+        gameData.state = core.GameState.PEEK;
+        gameData.peekstarttime = Date.now();
+        gameData.countdown = this.squeezingInterval;
+        this.dispatchEvent(data);
+        await this.sleep(this.squeezingInterval + 1000);
+
+        // PEEK_BANKER
+        gameData.a3 = results[5];
+        gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
+        gameData.state = core.GameState.PEEK_BANKER;
+        gameData.peekstarttime = Date.now();
+        gameData.countdownA = this.squeezing3rdCardIntervalA;
+        this.dispatchEvent(data);
+        await this.sleep(this.squeezing3rdCardIntervalA + 1000);
+
+        // PEEK_PLAYER
+        gameData.b3 = results[4];
+        gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
+        gameData.state = core.GameState.PEEK_PLAYER;
+        gameData.peekstarttime = Date.now();
+        gameData.countdownB = this.squeezing3rdCardIntervalB;
+        this.dispatchEvent(data);
+        await this.sleep(this.squeezing3rdCardIntervalB + 1000);
       }
 
       public async randomWin(data: data.TableInfo) {

@@ -126,6 +126,14 @@ declare module skin_desktop.ba{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.bam{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SqueezeBaccaratScene extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class BetChipSkin extends eui.Skin{
 	}
