@@ -3,13 +3,13 @@
 namespace we {
   export namespace di {
     export class MobileBottomBeadRoadPanel extends core.BaseGamePanel {
-      protected beadRoad: DiBeadRoad;
+      public beadRoad: DiBeadRoad;
 
       //   protected sumRoad: DiSumBigRoad;
       //   protected sizeRoad: DiSizeBigRoad;
       //   protected oddRoad: DiOddBigRoad;
 
-      //   protected sumBigRoadConfig: RoadMapConfig;
+      protected beadRoadConfig: RoadMapConfig;
       //   protected sizeBigRoadConfig: RoadMapConfig;
       //   protected oddBigRoadConfig: RoadMapConfig;
 
@@ -46,6 +46,7 @@ namespace we {
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
         this.beadRoad.expandRoad(false);
+        this.beadRoadConfig.parent.addChild(this.beadRoad);
 
         // this.sizeRoad = new DiSizeBigRoad(this.sizeBigRoadConfig.roadmap_col, this.sizeBigRoadConfig.roadmap_gridSize, 1, false);
         // this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);

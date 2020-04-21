@@ -4,9 +4,9 @@ namespace we {
   export namespace di {
     export class MobileBottomRoadmapPanel extends core.BaseGamePanel {
       // protected beadRoad: DiBeadRoad;
-      protected sumRoad: DiSumBigRoad;
-      protected sizeRoad: DiSizeBigRoad;
-      protected oddRoad: DiOddBigRoad;
+      public sumRoad: DiSumBigRoad;
+      public sizeRoad: DiSizeBigRoad;
+      public oddRoad: DiOddBigRoad;
 
       protected sumBigRoadConfig: RoadMapConfig;
       protected sizeBigRoadConfig: RoadMapConfig;

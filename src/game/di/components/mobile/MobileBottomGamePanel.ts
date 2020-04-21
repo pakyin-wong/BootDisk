@@ -2,8 +2,8 @@
 namespace we {
   export namespace di {
     export class MobileBottomGamePanel extends ui.MobileBottomCommonPanel {
-      protected _roadmapPanel: MobileBottomRoadmapPanel;
-      protected _beadroadPanel: MobileBottomBeadRoadPanel;
+      public _roadmapPanel: MobileBottomRoadmapPanel;
+      public _beadroadPanel: MobileBottomBeadRoadPanel;
 
       // public _tableInfoPanel: di.TableInfoPanel;
       public _betLimitDropDownBtn: ui.RunTimeLabel;
