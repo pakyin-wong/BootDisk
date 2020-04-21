@@ -86,6 +86,27 @@ namespace we {
 
         root.roomList.layout = this.roomLayout;
         root.roomList.itemRenderer = LiveListHolder;
+        root.roomList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.LiveListHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.LiveListHolder;
+            case we.core.GameType.DI:
+              return di.LiveListHolder;
+            case we.core.GameType.LW:
+              return lw.LiveListHolder;
+            case we.core.GameType.DT:
+              return dt.LiveListHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
 
