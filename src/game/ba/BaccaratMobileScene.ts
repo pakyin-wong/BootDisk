@@ -33,10 +33,11 @@ namespace we {
       }
 
       protected setStateBet() {
-        console.log('////////////stateBet');
         super.setStateBet();
-        egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
-        egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+        }
         this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
@@ -49,8 +50,10 @@ namespace we {
 
       protected setStateDeal() {
         super.setStateDeal();
-        egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
-        egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+        }
       }
 
       protected initChildren() {
