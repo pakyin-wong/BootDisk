@@ -48,12 +48,16 @@ namespace we {
           this._toggler = this._dropdown.toggler;
         }
 
-        this.addRoundCornerMask();
+        // this.addRoundCornerMask();
 
-        this._chipLayer.visible = false;
-        this._chipLayer.touchEnabled = false;
-        this._chipLayer.touchChildren = false;
-        this._quickBetGroup.y = this._originalQuickBetPanelY;
+        if (this._chipLayer) {
+          this._chipLayer.visible = false;
+          this._chipLayer.touchEnabled = false;
+          this._chipLayer.touchChildren = false;
+        }
+        if (this._quickBetGroup) {
+          this._quickBetGroup.y = this._originalQuickBetPanelY;
+        }
       }
 
       protected addRoundCornerMask() {
@@ -68,7 +72,7 @@ namespace we {
 
       protected onBetDetailUpdateInBetState() {
         super.onBetDetailUpdateInBetState();
-        if (this.holder.isFocus) {
+        if (this.holder.isFocus && this._quickBetGroup) {
           this.hideQuickBetGroup();
         }
       }
@@ -162,14 +166,16 @@ namespace we {
           this.showQuickBetButton(true);
         }
         if (!enable) {
-          this.hideQuickBetGroup();
+          if (this._quickBetGroup) {
+            this.hideQuickBetGroup();
+          }
           this.showQuickBetButton(false);
         }
       }
 
       public onRollover(evt: egret.Event) {
         super.onRollover(evt);
-        if (!this.list.isLocked) {
+        if (this.list && !this.list.isLocked) {
           // this.setChildIndex(this._timer, 25000);
           egret.Tween.removeTweens(this);
           egret.Tween.get(this).to({ scaleX: this._hoverScale, scaleY: this._hoverScale, y: this._originaly }, this._tweenInterval1);
@@ -181,7 +187,7 @@ namespace we {
 
       public onRollout(evt: egret.Event) {
         super.onRollout(evt);
-        if (!this.list.isLocked) {
+        if (this.list && !this.list.isLocked) {
           // this.setChildIndex(this._timer, 2500);
 
           egret.Tween.removeTweens(this);

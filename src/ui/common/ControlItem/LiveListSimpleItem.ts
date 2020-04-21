@@ -74,6 +74,9 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
+        if (!this._chipLayer) {
+          return;
+        }
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
@@ -83,6 +86,9 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
+        if (!this._chipLayer) {
+          return;
+        }
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
         } else {
@@ -92,11 +98,17 @@ namespace we {
 
       protected addEventListeners() {
         super.addEventListeners();
+        if (!this._quickbetButton) {
+          return;
+        }
         this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
+        if (!this._quickbetButton) {
+          return;
+        }
         this._quickbetButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
       }
 
@@ -143,7 +155,7 @@ namespace we {
 
       public onRollover(evt: egret.Event) {
         super.onRollover(evt);
-        if (!this.list.isLocked) {
+        if (this.list && !this.list.isLocked) {
           if (this._quickbetEnable) {
             this._quickbetButton.tween(false);
           }
@@ -151,6 +163,9 @@ namespace we {
       }
 
       protected animateQuickBetButton(show: boolean) {
+        if (!this._quickbetButton) {
+          return;
+        }
         super.animateQuickBetButton(show);
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
