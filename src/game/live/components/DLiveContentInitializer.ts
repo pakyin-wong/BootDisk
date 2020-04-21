@@ -4,7 +4,7 @@ namespace we {
     export class DLiveContentInitializer implements IContentInitializer {
       protected root: GameTableList;
       private gapSize: number = 48;
-      private roomLayout: eui.AnimTileLayout;
+      private roomLayout: eui.TileLayout;
 
       constructor() {}
 
@@ -20,56 +20,98 @@ namespace we {
         const offsetForTableList = -paddingHorizontal * 3;
 
         // init image slider
-        const slider = new we.ui.ImageSlider();
-        slider.height = 790;
-        slider.width = 2600;
-        slider.configSlides(dir.liveResources.liveHeroBanners);
+        // const slider = new we.ui.ImageSlider();
+        // slider.height = 790;
+        // slider.width = 2600;
+        // slider.configSlides(dir.liveResources.liveHeroBanners);
 
-        // init room grids
+        // // init room grids
+        // root.roomList = new ui.TableList();
+        // root.roomList.isFreezeScrolling = true;
+        // root.roomList.isGlobalLock = true;
+        // this.roomLayout = new eui.AnimTileLayout();
+        // this.roomLayout.horizontalGap = this.gapSize;
+        // this.roomLayout.verticalGap = this.gapSize;
+        // this.roomLayout.paddingBottom = this.gapSize * 3;
+        // this.roomLayout.requestedColumnCount = 4;
+        // // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
+        // root.roomList.layout = this.roomLayout;
+        // // this.roomList.dataProvider = this.collection;
+        // root.roomList.itemRenderer = LiveListHolder;
+        // // roomList.left = paddingHorizontal;
+        // // roomList.right = paddingHorizontal;
+        // // roomList.y = slider.height + offsetForTableList + gapSize;
+        // root.roomList.setGameFilters(core.LiveGameTab.ba);
+        // root.roomList.setTableList(root.roomIds);
+
+        // const tabBarGroup = new eui.Group();
+        // tabBarGroup.percentWidth = 100;
+        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        // root.tabs = new we.live.SegmentedControl(root.tabItems);
+        // tabBarGroup.addChild(root.tabs);
+        // tabBarGroup.addChild(new LiveDisplayModeSwitch());
+
+        // // tabs.left = paddingHorizontal;
+        // // tabs.bottom = gapSize + -offsetForTableList;
+        // const section = new ui.ScrollerSection();
+        // section.header = tabBarGroup;
+        // section.content = root.roomList;
+        // // section.header = new eui.Rect(640, 100, 0xff11ff);
+        // // section.content = new eui.Rect(640, 2000, 0x22ffff);
+        // section.scroller = root.scroller;
+        // section.isHeaderSticky = true;
+        // section.contentPaddingTop = this.gapSize;
+        // section.left = paddingHorizontal;
+        // section.right = paddingHorizontal;
+        // section.y = slider.height + offsetForTableList + this.gapSize;
+
+        // const group = new eui.Group();
+        // group.addChild(slider);
+        // group.addChild(section);
+
+        // root.scroller.viewport = group;
+
         root.roomList = new ui.TableList();
         root.roomList.isFreezeScrolling = true;
         root.roomList.isGlobalLock = true;
-        this.roomLayout = new eui.AnimTileLayout();
+        this.roomLayout = new eui.TileLayout();
         this.roomLayout.horizontalGap = this.gapSize;
         this.roomLayout.verticalGap = this.gapSize;
         this.roomLayout.paddingBottom = this.gapSize * 3;
         this.roomLayout.requestedColumnCount = 4;
-        // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
+        this.roomLayout.paddingTop = 790 + offsetForTableList + this.gapSize + 100;
+        this.roomLayout.useVirtualLayout = true;
+        this.roomLayout.paddingLeft = paddingHorizontal;
+        this.roomLayout.paddingRight = paddingHorizontal;
+
         root.roomList.layout = this.roomLayout;
-        // this.roomList.dataProvider = this.collection;
         root.roomList.itemRenderer = LiveListHolder;
-        // roomList.left = paddingHorizontal;
-        // roomList.right = paddingHorizontal;
-        // roomList.y = slider.height + offsetForTableList + gapSize;
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
 
+        const slider = new we.ui.ImageSlider();
+        slider.height = 790;
+        slider.width = 2600;
+        slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.roomList.addChild(slider);
+
         const tabBarGroup = new eui.Group();
-        tabBarGroup.percentWidth = 100;
+        tabBarGroup.left = paddingHorizontal;
+        tabBarGroup.right = paddingHorizontal;
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         root.tabs = new we.live.SegmentedControl(root.tabItems);
         tabBarGroup.addChild(root.tabs);
         tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
-        // tabs.left = paddingHorizontal;
-        // tabs.bottom = gapSize + -offsetForTableList;
-        const section = new ui.ScrollerSection();
-        section.header = tabBarGroup;
-        section.content = root.roomList;
-        // section.header = new eui.Rect(640, 100, 0xff11ff);
-        // section.content = new eui.Rect(640, 2000, 0x22ffff);
-        section.scroller = root.scroller;
-        section.isHeaderSticky = true;
-        section.contentPaddingTop = this.gapSize;
-        section.left = paddingHorizontal;
-        section.right = paddingHorizontal;
-        section.y = slider.height + offsetForTableList + this.gapSize;
+        const stickyHeader = new ui.StickyContent();
+        stickyHeader.width = 2600;
+        stickyHeader.content = tabBarGroup;
+        stickyHeader.scroller = root.scroller;
+        stickyHeader.contentPaddingTop = this.gapSize;
+        stickyHeader.y = slider.height + offsetForTableList + this.gapSize;
+        root.roomList.addChild(stickyHeader);
 
-        const group = new eui.Group();
-        group.addChild(slider);
-        group.addChild(section);
-
-        root.scroller.viewport = group;
+        root.scroller.viewport = root.roomList;
       }
 
       public onDisplayMode(evt: egret.Event) {
