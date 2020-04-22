@@ -81,9 +81,9 @@ namespace we {
 
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
-          if (this.isFirstTime) {
+          if (this.isFirstTime === true) {
             this.isFirstTime = false;
-            this._middlePart.height = 0;
+            egret.Tween.get(this._middlePart).to({ height: 0 }, 1);
           } else {
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
           }
