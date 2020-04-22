@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.LwRightPanel" width="657" height="304" xmlns:e="http://ns.egret.com/eui" xmlns:lw="we.lw.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
         <e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x061323"
-                fillAlpha="0.8"  locked="true"/>
+                fillAlpha="0.8"  visible="false" locked="true"/>
 	<ui:RunTimeLabel id="_lblPool" x="24" y="13" size="20" height="24" verticalAlign="middle" text="即時彩池" alpha=".7"/>
 	<lw:RightPanelBar id="_progress0" width="432" height="16" y="74" x="57" source="d_lw_betpool_barchart_east_png" />
 	<lw:RightPanelBar id="_progress1" width="432" height="16" y="105" x="57" source="d_lw_betpool_barchart_south_png" />

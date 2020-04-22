@@ -11,7 +11,11 @@ declare class PlayerClient {
     private _serviceProcessEvent;
     private _conn;
     private _tableInfoCallbackMap;
-    constructor({ service, playerID, secret, endpoint, hostname, port, protocol, path, connectTimeout, reconnectPeriod, }: {
+    private _tableListFilter;
+    private _endpoint;
+    private _pingTimer;
+    private _pingTimeout;
+    constructor({ service, playerID, secret, endpoint, hostname, port, protocol, path, device, connectTimeout, pingTimeout, reconnectPeriod, rabbitmqhostname, rabbitmqport, rabbitmqprotocol, logEnabled, }: {
         service?: string;
         playerID?: string;
         secret?: string;
@@ -22,6 +26,7 @@ declare class PlayerClient {
         path?: string;
         device?: string;
         connectTimeout?: number;
+        pingTimeout?: number;
         reconnectPeriod?: number;
         rabbitmqhostname?: any;
         rabbitmqport?: any;
@@ -30,34 +35,36 @@ declare class PlayerClient {
     });
     init(lang: string, callback: Function): void;
     connect(callback?: Function): void;
+    ping(callback?: Function): void;
     close(): void;
     subscribe(eventName: string, f: Function, context?: object, options?: any): void;
     unsubscribe(eventName: string, f: Function, options?: any): void;
     getTableList(filter?: string): void;
     getBalance(): void;
-    getBetHistory(filter: object, callback: (data: BetHistory) => void): void;
+    getBetHistory(filter: object, callback?: (data: object) => void): void;
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
-    bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;    
+    bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
     updateSetting(key: string, value: string): void;
     updateSettings(settings: {
         [key: string]: string;
     }): void;
-    getLobbyMaterial(callback: (data: LobbyMaterial) => any): void;
-    _handleCustomRoadmapUpdate(result: any, callback: any, f: any): void;
-    resetRoadmap(callback: Function): void;
-    getRoadmap(callback: Function): void;
-    updateDefaultRoadmap(ids: string[], callback: Function): void;
-    createCustomRoadmap(name: string, pattern: string, callback: Function): void;
-    updateCustomRoadmap(id: string, data: object, callback: Function): void;
-    removeCustomRoadmap(id: string, callback: Function): void;
-    _handleBetTemplateUpdate(result: any, callback: any, f: any): void;
-    createBetTemplate(title: string, betOptions: BetValueCommand[], callback: Function): void;
-    getBetTemplate(callback: Function): void;
-    removeBetTemplate(id: string, callback: Function): void;
+    getLobbyMaterial(callback?: (data: LobbyMaterial) => any): void;
+    _handleCustomRoadmapUpdate(result: any, callback: any, event: string, f: Function, status: string, method: string, args: Array<Object>): void;
+    resetRoadmap(callback?: Function): void;
+    getRoadmap(callback?: Function): void;
+    updateDefaultRoadmap(ids: string[], callback?: Function): void;
+    createCustomRoadmap(name: string, pattern: string, callback?: Function): void;
+    updateCustomRoadmap(id: string, data: object, callback?: Function): void;
+    removeCustomRoadmap(id: string, callback?: Function): void;
+    _handleBetTemplateUpdate(result: any, callback: Function, f: Function, status: string, method: string, args: Array<Object>): void;
+    createBetTemplate(title: string, betOptions: BetValueCommand[], callback?: Function): void;
+    getBetTemplate(callback?: Function): void;
+    removeBetTemplate(id: string, callback?: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
     private _isTableInfoCallbackEmpty;
+    private _startPing;
     private _processEvent;
     private _onConnect;
 }
@@ -118,7 +125,10 @@ declare enum BAGameStateType {
     DEAL = 2,
     FINISH = 3,
     REFUND = 4,
-    SHUFFLE = 5
+    SHUFFLE = 5,
+    PEEK = 6,
+    PEEK_PLAYER = 7,
+    PEEK_BANKER = 8
 }
 declare enum DTGameStateType {
     IDLE = 0,

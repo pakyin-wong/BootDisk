@@ -39,13 +39,8 @@ namespace we {
       public mount() {
         super.mount();
 
-        const re = new eui.Rect();
-        re.fillColor = 0xff0000;
-        re.x = 0;
-        re.bottom = 0;
-        re.width = 10;
-        re.height = 10;
-        this.addChild(re);
+        this.percentWidth = 100;
+        this.percentHeight = 100;
 
         this._notificationGroup = new eui.Group();
         if (env.orientation === egret.OrientationMode.PORTRAIT) {
@@ -58,7 +53,6 @@ namespace we {
         this._goodRoadCollection = new eui.ArrayCollection([]);
 
         const layout2 = new eui.VerticalLayout();
-        layout2.paddingBottom = 1;
         layout2.horizontalAlign = egret.HorizontalAlign.CENTER;
         this.goodRoadListDisplay.layout = layout2;
         this.goodRoadListDisplay.isFade = false;
@@ -67,7 +61,7 @@ namespace we {
         this.goodRoadListDisplay.dataProvider = this._goodRoadCollection;
         this.goodRoadListDisplay.itemRenderer = NotificationItemHolder;
         this.goodRoadListDisplay.width = this.stage.width;
-        this.goodRoadListDisplay.y = 0;
+        this.goodRoadListDisplay.top = 28;
         this.goodRoadListDisplay.isAnimateItemTransition = true;
         this.goodRoadListDisplay.useVirtualLayout = false;
         this.addChild(this.goodRoadListDisplay);
@@ -76,7 +70,6 @@ namespace we {
         this._resultCollection = new eui.ArrayCollection([]);
 
         const layout3 = new eui.VerticalLayout();
-        layout3.paddingBottom = 1;
         layout3.horizontalAlign = egret.HorizontalAlign.CENTER;
         this.resultListDisplay.layout = layout3;
         this.resultListDisplay.isFade = false;
@@ -85,14 +78,14 @@ namespace we {
         this.resultListDisplay.dataProvider = this._resultCollection;
         this.resultListDisplay.itemRenderer = NotificationItemHolder;
         this.resultListDisplay.width = this.stage.width;
-        this.resultListDisplay.y = 500;
+        this.resultListDisplay.bottom = 55 + 20;
         this.resultListDisplay.isAnimateItemTransition = true;
         this.resultListDisplay.useVirtualLayout = false;
         this.addChild(this.resultListDisplay);
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification>evt.data;
+        const notification: data.Notification = <data.Notification> evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }

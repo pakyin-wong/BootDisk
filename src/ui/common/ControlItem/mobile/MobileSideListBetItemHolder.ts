@@ -29,6 +29,8 @@ namespace we {
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
         }
         const listItem = new we.ui.MobileSideListBetItem('SideListBetItemSkin');
         if (we[generalGameType].LargeListItemInitHelper) {

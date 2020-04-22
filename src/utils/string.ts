@@ -33,7 +33,10 @@ namespace we {
     }
 
     export function formatTime(timestamp) {
-      return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
+      return moment
+        .unix(timestamp)
+        .utcOffset(8)
+        .format('YYYY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {
@@ -49,10 +52,13 @@ namespace we {
         case we.core.GameType.BAC:
         case we.core.GameType.BAS:
         case we.core.GameType.BAI:
+        case we.core.GameType.BAM:
           return `winType.ba${shortStr}.${ba.WinType[winType]}`;
         case we.core.GameType.DT:
           return `winType.dt${shortStr}.${dt.WinType[winType]}`;
         case we.core.GameType.RO:
+        case we.core.GameType.ROL:
+
         default:
           return `winType.ro${shortStr}.${ro.WinType[winType]}`;
       }

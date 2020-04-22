@@ -43,7 +43,7 @@ namespace we {
       }
 
       public generateAdvancedRoad(node: eui.Component) {
-        const advancedRoad = new ba.BALobbyAdvancedRoad();
+        const advancedRoad = new lw.AdvancedRoad();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(advancedRoad, idx);
         return advancedRoad;

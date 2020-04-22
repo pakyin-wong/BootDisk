@@ -19,7 +19,7 @@ namespace we {
       }
 
       protected updateSkin(skin: string = null, orientationDependent: boolean = true) {
-        if (skin) {
+        if (skin && env.initialized) {
           this.skinName = utils.getSkinByClassname(skin, orientationDependent);
         }
       }
