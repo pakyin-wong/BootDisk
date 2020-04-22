@@ -8,7 +8,7 @@
                 <e:Rect width="100%" height="100%" fillColor.light="0xffffff" fillColor.dark="0x262a2b"/>
             </e:Skin>
             </e:skinName>
-            </e:Component>
+        </e:Component>
             <e:ViewStack id="_roadmapView" scaleX="1" scaleY="1" left="8" right="8" height="413" y="20">
             <e:Group name="_beadRoad" left="0" right="0" top="0" bottom="0">
                 <di:RoadMapConfig id="beadRoadConfig" scaleX="1" scaleY="1" roadmap_col="18" roadmap_gridSize="68"/>

@@ -5,7 +5,7 @@ namespace we {
       public _roadmapPanel: MobileBottomRoadmapPanel;
       public _beadroadPanel: MobileBottomBeadRoadPanel;
 
-      // public _tableInfoPanel: di.TableInfoPanel;
+      public _tableInfoPanel: di.TableInfoPanel;
       public _betLimitDropDownBtn: ui.RunTimeLabel;
 
       // public _statisticChartPanel: di.StatisticChartPanel;
@@ -22,15 +22,12 @@ namespace we {
 
       protected mount() {
         super.mount();
-        // this.initHistoryRoad();
 
-        // this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
       }
 
       public destroy() {
         super.destroy();
-
-        // this.beadRoad.dispose();
 
         this.removeListeners();
       }
@@ -58,6 +55,23 @@ namespace we {
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
       }
+
+      public manualClose() {
+        super.manualClose();
+        this._roadmapPanel.visible = false;
+        this._beadroadPanel.visible = false;
+      }
+
+      // protected onPanelToggle() {
+      //   super.onPanelToggle();
+      //   if (this.isPanelOpen) {
+      //     this._roadmapPanel.visible = true;
+      //     this._beadroadPanel.visible = true;
+      //   } else {
+      //     this._roadmapPanel.visible = false;
+      //     this._beadroadPanel.visible = false;
+      //   }
+      // }
     }
   }
 }
