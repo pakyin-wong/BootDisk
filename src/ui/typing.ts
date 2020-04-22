@@ -27,7 +27,7 @@ namespace we {
       generateChipLayer?(node: eui.Component): ChipLayer;
       generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
       generateAdvancedRoad?(node: eui.Component): IAdvancedRoad;
-      generateAnalysis?(node: eui.Component): IAnalysis;
+      generateAnalysis?(node: eui.Component): IAnalysis & eui.Component;
       generateResultMessage?(node: eui.Component): IGameResultMessage;
       generateResultDisplay?(node: eui.Component): IResultDisplay;
     }

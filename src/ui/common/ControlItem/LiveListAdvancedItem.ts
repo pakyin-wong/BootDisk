@@ -4,21 +4,21 @@ namespace we {
       protected _advancedRoadNode: eui.Component;
       protected _advancedRoad: IAdvancedRoad;
       protected _analysisNode: eui.Component;
-      protected _analysis: IAnalysis;
+      protected _analysis: IAnalysis & eui.Component;
 
       public constructor(skinName: string = null) {
         super(skinName);
       }
 
       protected checkSkin() {
-        // if (this.skinName !== utils.getSkinByClassname('LiveListItemCompleteSkin')) {
-        //   this.clearComponents();
-        //   this.updateSkin('LiveListItemCompleteSkin', false);
-        //   this.validateNow();
-        //   this.initComponents();
-        //   this.arrangeComponents();
-        //   this.setData(this.tableInfo);
-        // }
+        if (this.skinName !== utils.getSkinByClassname('LiveListAdvancedItemCompleteSkin')) {
+          this.clearComponents();
+          this.updateSkin('LiveListAdvancedItemCompleteSkin', false);
+          this.validateNow();
+          this.initComponents();
+          this.arrangeComponents();
+          this.setData(this.tableInfo);
+        }
       }
 
       public get advancedRoad() {
@@ -63,6 +63,7 @@ namespace we {
       protected generateAnalysis() {
         if (this.itemInitHelper) {
           this._analysis = this.itemInitHelper.generateAnalysis(this._analysisNode);
+          this._analysis.cacheAsBitmap = true;
         }
       }
 

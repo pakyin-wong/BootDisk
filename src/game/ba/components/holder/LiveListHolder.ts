@@ -7,6 +7,8 @@ namespace we {
       private _mode: we.lobby.mode;
       protected _displayItem: we.ui.TableListItem;
 
+      private _modeChanged: boolean = false;
+
       public constructor() {
         super();
       }
@@ -43,7 +45,11 @@ namespace we {
         }
 
         this._mode = value;
-        this.updateDisplayItemMode();
+        if (this.visible) {
+          this.updateDisplayItemMode();
+        } else {
+          this._modeChanged = true;
+        }
       }
 
       get mode() {
@@ -93,23 +99,42 @@ namespace we {
         }
       }
 
-
       public itemDataChanged() {
-        super.itemDataChanged();
-        this.updateDisplayItem();
-        egret.Tween.removeTweens(this);
-        // console.log('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
-        /*
-        switch (this._mode) {
-          case we.lobby.mode.NORMAL:
-          case we.lobby.mode.SIMPLE:
-          case we.lobby.mode.ADVANCED:
-          default:
-            this.updateDisplayItem();
+        logger.l('LiveListHolder::itemDataChanged::this.itemData ', this.itemData);
+        const prevTableid = '';
+        if (this.itemData) {
+          if (env && env.tableInfos && env.tableInfos[this.itemData]) {
+            this.tableInfo = env.tableInfos[this.itemData];
+
+            if (this._modeChanged || !this._displayItem) {
+              this._modeChanged = false;
+              this.updateDisplayItemMode();
+            }
+
+            if (this._displayItem) {
+              this.updateDisplayItem();
+            }
             egret.Tween.removeTweens(this);
+          }
         }
-        */
       }
+
+      // public itemDataChanged() {
+      //   super.itemDataChanged();
+      //   this.updateDisplayItem();
+      //   egret.Tween.removeTweens(this);
+      //   // console.log('LiveListHolder::itemDataChanged::this.itemData - ', this.itemData);
+      //   /*
+      //   switch (this._mode) {
+      //     case we.lobby.mode.NORMAL:
+      //     case we.lobby.mode.SIMPLE:
+      //     case we.lobby.mode.ADVANCED:
+      //     default:
+      //       this.updateDisplayItem();
+      //       egret.Tween.removeTweens(this);
+      //   }
+      //   */
+      // }
 
       protected updateDisplayItem() {
         if (!this._displayItem) {

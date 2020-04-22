@@ -21,8 +21,8 @@ namespace we {
         // draw the icon faces
         const timestamp = Date.now();
 
-        for (let i = 0; i < 20; i++) {
-          const listItem = new ui.LiveListItem('LiveListItemSkin');
+        for (let i = 0; i < 1; i++) {
+          const listItem = new ui.LiveListAdvancedItem('LiveListAdvancedItemSkin');
           listItem.itemInitHelper = new we.ba.LiveListItemInitHelper();
           this.addChild(listItem);
         }
