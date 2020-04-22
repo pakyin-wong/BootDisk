@@ -24,13 +24,9 @@ namespace we {
       public updateLuckyNumbers() {
         const page4Group = this.pageStack.getChildAt(3) as eui.Group;
         page4Group.removeChildren();
-
       }
 
-      public clearLuckyNumbers() {
-
-      }
-
+      public clearLuckyNumbers() {}
     }
   }
 }

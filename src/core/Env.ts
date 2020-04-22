@@ -126,7 +126,7 @@ namespace we {
           }
 
           const gameType = tableInfo.gametype;
-          if (gameType === core.GameType.DI || gameType === core.GameType.LW) {
+          if (gameType === core.GameType.DI) {
             tableInfo.displayReady = false;
             return false;
           }

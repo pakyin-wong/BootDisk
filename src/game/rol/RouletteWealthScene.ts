@@ -25,11 +25,11 @@ namespace we {
       }
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
@@ -40,23 +40,22 @@ namespace we {
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
-
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
       }
 
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.rol.ChipLayer> this._chipLayer).showLuckyNumber();
+          (<we.rol.ChipLayer>this._chipLayer).showLuckyNumber();
           this.updateLeftPanelLuckyNumber();
         }
       }

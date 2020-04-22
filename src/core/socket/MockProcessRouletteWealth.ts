@@ -5,17 +5,16 @@ namespace we {
         super(socket, gameType);
       }
 
-            protected async setResults(data: data.TableInfo, results: string[], points: number[]) {
+      protected async setResults(data: data.TableInfo, results: string[], points: number[]) {
         const idx = 0;
         const gameData = data.data;
         console.log(data);
 
         if (gameData) {
-
-        gameData.value = points[0];
-        gameData.previousstate = gameData.state;
-        gameData.state = core.GameState.DEAL;
-        this.dispatchEvent(data);
+          gameData.value = points[0];
+          gameData.previousstate = gameData.state;
+          gameData.state = core.GameState.DEAL;
+          this.dispatchEvent(data);
         }
       }
 
@@ -52,7 +51,7 @@ namespace we {
 
       protected async initGameData(data: data.TableInfo, gameData: data.GameData) {
         super.initGameData(data, gameData);
-        (<we.rol.GameData> gameData).luckynumber = {
+        (<we.rol.GameData>gameData).luckynumber = {
           0: 100,
           2: 100,
           10: 30,

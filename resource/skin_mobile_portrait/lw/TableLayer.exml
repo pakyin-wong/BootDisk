@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.lw.TableLayerSkin" width="1242" height="263" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
+	<e:Group id="_oneCircleGroup" x="29" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image id="_oneCircleImage" name="m_lw_ver_betarea_bet_betclosed_east_dim_png"
+		         horizontalCenter="0" verticalCenter="0"  source="m_lw_ver_betarea_bet_east_png"/>
+		<e:Label horizontalCenter="0" verticalCenter="100" text="1" size="50" textColor="0xffffff" />
+	</e:Group>
+	<e:Group id="_threeCircleGroup" x="201" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image id="_threeCircleImage" name="m_lw_ver_betarea_bet_betclosed_south_dim_png"
+		         horizontalCenter="0" verticalCenter="0"  source="m_lw_ver_betarea_bet_south_png"/>
+		<e:Label horizontalCenter="0" verticalCenter="100" text="3" size="50" textColor="0xffffff" />
+	</e:Group>
+	<e:Group id="_fiveCircleGroup" x="373" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image id="_fiveCircleImage" name="m_lw_ver_betarea_bet_betclosed_west_dim_png"
+		         horizontalCenter="0" verticalCenter="0"  source="m_lw_ver_betarea_bet_west_png"/>
+		<e:Label horizontalCenter="0" verticalCenter="100" text="5" size="50" textColor="0xffffff" />
+	</e:Group>
+	<e:Group id="_redDragonGroup" x="545" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image id="_redDragonImage" name="m_lw_ver_betarea_bet_betclosed_north_dim_png"
+		         horizontalCenter="0" verticalCenter="0"  source="m_lw_ver_betarea_bet_north_png"/>
+		<e:Label horizontalCenter="0" verticalCenter="100" text="10" size="50" textColor="0xffffff" />
+	</e:Group>
+	<e:Group id="_greenDragonGroup" x="717" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image id="_greenDragonImage" name="m_lw_ver_betarea_bet_betclosed_white_dim_png"
+		         horizontalCenter="0" verticalCenter="0"  source="m_lw_ver_betarea_bet_white_png"/>
+		<e:Label horizontalCenter="0" verticalCenter="100" text="20" size="50" textColor="0xffffff" />
+	</e:Group>
+	<e:Group id="_whiteDragonGroup" x="889" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image id="_whiteDragonImage" name="m_lw_ver_betarea_bet_betclosed_red_dim_png"
+		         horizontalCenter="0" verticalCenter="0"  source="m_lw_ver_betarea_bet_red_png"/>
+		<e:Label horizontalCenter="0" verticalCenter="100" text="45" size="50" textColor="0xffffff" />
+	</e:Group>
+	<e:Group id="_weGroup" x="1061" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image id="_weImage" name="m_lw_ver_betarea_bet_betclosed_green_dim_png"
+		         horizontalCenter="0" verticalCenter="0"  source="m_lw_ver_betarea_bet_green_png"/>
+		<e:Label horizontalCenter="0" verticalCenter="100" text="45" size="50" textColor="0xffffff" />
+	</e:Group>
+	<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
+	        locked="true" visible="false" />
+</e:Skin>

@@ -1,37 +1,78 @@
 namespace we {
   export namespace lw {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
+      private eastSource: string;
+      private southSource: string;
+      private westSource: string;
+      private northSource: string;
+      private redSource: string;
+      private greenSource: string;
+      private whiteSource: string;
+
+      public type: string = null;
+
       public constructor() {
         super();
       }
 
+      protected updateSource() {
+        if (env.isMobile) {
+          if (this.type === 'side') {
+            this.eastSource = 'm_lw_listpenal_result_east_png';
+            this.southSource = 'm_lw_listpenal_result_south_png';
+            this.westSource = 'm_lw_listpenal_result_west_png';
+            this.northSource = 'm_lw_listpenal_result_north_png';
+            this.redSource = 'm_lw_listpenal_result_red_png';
+            this.greenSource = 'm_lw_listpenal_result_green_png';
+            this.whiteSource = 'm_lw_listpenal_result_white_png';
+          } else {
+            this.eastSource = 'm_lw_result_east_png';
+            this.southSource = 'm_lw_result_south_png';
+            this.westSource = 'm_lw_result_west_png';
+            this.northSource = 'm_lw_result_north_png';
+            this.redSource = 'm_lw_result_red_png';
+            this.greenSource = 'm_lw_result_green_png';
+            this.whiteSource = 'm_lw_result_white_png';
+          }
+        } else {
+          this.eastSource = 'd_lw_result_east_png';
+          this.southSource = 'd_lw_result_south_png';
+          this.westSource = 'd_lw_result_west_png';
+          this.northSource = 'd_lw_result_north_png';
+          this.redSource = 'd_lw_result_red_png';
+          this.greenSource = 'd_lw_result_green_png';
+          this.whiteSource = 'd_lw_result_white_png';
+        }
+      }
+
       public showResult(gameType: core.GameType, resultData: any) {
         this.visible = true;
+        this.updateSource();
         this._dbClass = 'roulette';
         this.removeChildren();
         const image = new eui.Image();
         switch (resultData) {
           case 0:
-            image.source = 'd_lw_result_east_png';
+            image.source = this.eastSource;
             break;
           case 1:
-            image.source = 'd_lw_result_south_png';
+            image.source = this.southSource;
             break;
           case 2:
-            image.source = 'd_lw_result_west_png';
+            image.source = this.westSource;
             break;
           case 3:
-            image.source = 'd_lw_result_north_png';
+            image.source = this.northSource;
             break;
           case 4:
-            image.source = 'd_lw_result_white_png';
+            image.source = this.whiteSource;
             break;
           case 5:
-            image.source = 'd_lw_result_red_png';
+            image.source = this.redSource;
             break;
           case 6:
           default:
-            image.source = 'd_lw_result_green_png';
+            image.source = this.greenSource;
             break;
         }
         this.addChild(image);
@@ -68,14 +109,18 @@ namespace we {
         anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
         logger.l(anim, numLeft, numCenter, numRight);
 
-        const array = [['L_txt', 60, numLeft, 90], ['middle_txt', 90, numCenter, 90], ['L_txt3', 60, numRight, 90]];
+        const array = [
+          ['L_txt', 60, numLeft, 90],
+          ['middle_txt', 90, numCenter, 90],
+          ['L_txt3', 60, numRight, 90],
+        ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const lbl = new eui.Label();
-          lbl.text = <string> text;
+          lbl.text = <string>text;
           lbl.fontFamily = 'Barlow';
-          lbl.size = <number> fontSize;
+          lbl.size = <number>fontSize;
           lbl.anchorOffsetX = lbl.width / 2;
           lbl.anchorOffsetY = lbl.height / 2;
           lbl.rotation = rotate as number;

@@ -207,7 +207,6 @@ namespace we {
       }
 
       protected updateActiveLine(useEasing: boolean) {
-
         const btn = this._radioButtons[this.pageStack.selectedIndex];
 
         this._radioButtons.forEach(element => {
