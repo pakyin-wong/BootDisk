@@ -20,76 +20,54 @@ namespace we {
       protected _lucky3No: eui.Label;
       protected _lucky3Odd: eui.Label;
 
+      protected mount() {
+        super.mount();
+        this._leftGamePanel.chipLayer = this._chipLayer;
+      }
+
       public backToLobby() {
         dir.sceneCtr.goto('lobby', { page: 'live', tab: 'rol' });
       }
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (this._previousState !== we.core.GameState.FINISH || isInit) {
-          this.updateLeftPanelLuckyNumber();
+          (<we.rol.RolLeftPanel>this._leftGamePanel).updateLuckyNumbers();
         }
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.rol.ChipLayer> this._chipLayer).showLuckyNumber();
-          this.updateLeftPanelLuckyNumber();
+          (<we.rol.ChipLayer>this._chipLayer).showLuckyNumber();
+          (<we.rol.RolLeftPanel>this._leftGamePanel).updateLuckyNumbers();
         }
-      }
-
-      protected updateLeftPanelLuckyNumber() {
-        if (this._tableId && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].data && env.tableInfos[this._tableId].data.luckynumber) {
-          /*
-          const luckyImgs = [this._lucky1, this._lucky2, this._lucky3];
-          const luckyNo = [this._lucky1No, this._lucky2No, this._lucky3No];
-          const luckyOdd = [this._lucky1Odd, this._lucky2Odd, this._lucky3Odd];
-          Object.keys(env.tableInfos[this._tableId].data.luckynumber).map((key, index) => {
-            console.log(key, index, env.tableInfos[this._tableId].data.luckynumber[key]);
-            if (luckyImgs[index] && luckyNo[index] && luckyOdd[index]) {
-
-            }
-          });
-          */
-        }
-      }
-
-      protected getNumberSource(value: number) {
-        if (value === 0 || value) {
-          switch (ro.RACETRACK_COLOR[value]) {
-            case ro.Color.GREEN:
-              return 'd_gow_rou_lucky_number_gn_png';
-            case ro.Color.RED:
-              return 'd_gow_rou_lucky_number_red_png';
-            case ro.Color.BLACK:
-              return 'd_gow_rou_lucky_number_bk_png';
-            default:
-              break;
-          }
-        }
-        return null;
       }
 
       protected setSkinName() {

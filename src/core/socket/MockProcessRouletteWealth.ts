@@ -31,11 +31,13 @@ namespace we {
 
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
+
         const gameResult = Math.floor(Math.random() * 37);
         logger.l('GameResult: ', gameResult);
         logger.l('GameResult.toString(): ', gameResult.toString());
 
         await this.setResults(data, [gameResult.toString()], [gameResult]);
+        await this.sleep(this.finishStateInterval);
 
         // set to finish state and calculate the bet result
         gameData.previousstate = gameData.state;

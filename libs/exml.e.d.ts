@@ -617,6 +617,10 @@ declare module skin_desktop.ro{
 	}
 }
 declare module skin_desktop{
+	class LuckyCoin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RolLeftPanel extends eui.Skin{
 	}
 }
