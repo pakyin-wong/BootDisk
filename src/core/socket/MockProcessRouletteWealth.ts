@@ -51,7 +51,7 @@ namespace we {
 
       protected async initGameData(data: data.TableInfo, gameData: data.GameData) {
         super.initGameData(data, gameData);
-        (<we.rol.GameData>gameData).luckynumber = {
+        (<we.rol.GameData> gameData).luckynumber = {
           0: 100,
           2: 100,
           10: 30,

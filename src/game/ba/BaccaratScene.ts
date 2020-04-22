@@ -31,8 +31,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -52,6 +52,10 @@ namespace we {
         if (this._lblBaMode) {
           this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
         }
+
+        // if (env.isMobile) {
+        //   dir.moniter._sideGameList.setToggler(this._common_listpanel);
+        // }
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -80,11 +84,11 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -159,6 +163,11 @@ namespace we {
           });
           dir.audioCtr.playSequence([subject, 'win']);
         }
+      }
+
+      protected onOrientationChange() {
+        super.onOrientationChange();
+        this.updateSkin('BaccaratScene', true);
       }
     }
   }

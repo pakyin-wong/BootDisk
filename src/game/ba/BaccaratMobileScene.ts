@@ -14,19 +14,51 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
+      protected _baGameIDText: ui.RunTimeLabel;
+      protected _baGameID: ui.RunTimeLabel;
+      protected _totalBet: ui.RunTimeLabel;
+      protected _totalBetText: ui.RunTimeLabel;
+
       protected _verticalGroup: eui.Group;
+      protected _BAgoodRoadLabel: ui.GoodRoadLabel;
+      protected _tableInfoPanel: TableInfoPanel;
+
+      private _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
         super(data);
+        // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
+        this._skinKey = 'BaccaratScene';
+        // this.skinName = utils.getSkinByClassname('BaccaratScene');
+      }
+      protected mount() {
+        super.mount();
+        this.addListeners();
       }
 
-      protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('BaccaratScene');
+      public destroy() {
+        super.destroy();
+        this.removeListeners();
       }
 
-      protected setStateBet() {
-        super.setStateBet();
+      protected addListeners() {
+        this._bottomGamePanel._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+      }
 
+      protected removeListeners() {
+        this._bottomGamePanel._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+      }
+
+      protected setStateBet(isInit: boolean) {
+        super.setStateBet(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+        }
+        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
             (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
@@ -35,14 +67,24 @@ namespace we {
         }
       }
 
+      protected setStateDeal(isInit: boolean) {
+        super.setStateDeal(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+        }
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
 
+        this._tableLayer.type = we.core.BettingTableType.NORMAL;
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
 
         if (this._switchBaMode) {
+          this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
@@ -60,7 +102,7 @@ namespace we {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
 
-        this.createVerticalLayout();
+        // this.createVerticalLayout();
 
         this.changeHandMode();
 
@@ -69,6 +111,14 @@ namespace we {
         }
 
         this.setChipPanelPos();
+        this._BAgoodRoadLabel.visible = false;
+
+        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
+        if (env.isMobile) {
+          dir.monitor._sideGameList.setToggler(this._common_listpanel);
+        }
+        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
 
       protected initBottomBetLimitSelector() {
@@ -124,6 +174,7 @@ namespace we {
         } else {
           this.currentState = 'right_hand_mode';
         }
+        this.invalidateState();
       }
 
       protected createVerticalLayout() {
@@ -134,14 +185,18 @@ namespace we {
       }
 
       protected setChipPanelPos() {
-        if (this._bottomGamePanel.isPanelOpen) {
-          this._betPanelGroup.scaleY = 1;
-          this._betPanelGroup.y = 0;
-          this._betChipSetPanel.y = 986;
+        if (env.orientation === 'portrait') {
+          if (this._bottomGamePanel.isPanelOpen) {
+            this._betPanelGroup.scaleY = 1;
+            this._betPanelGroup.y = 0;
+            this._betChipSetPanel.y = 986;
+          } else {
+            this._betPanelGroup.scaleY = -1;
+            this._betPanelGroup.y = 762;
+            this._betChipSetPanel.y = 500;
+          }
         } else {
-          this._betPanelGroup.scaleY = -1;
-          this._betPanelGroup.y = 762;
-          this._betChipSetPanel.y = 500;
+          this._betChipSetPanel.y = -480;
         }
       }
 
@@ -183,7 +238,6 @@ namespace we {
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
-            // update the scene
             (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
             (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
@@ -223,6 +277,34 @@ namespace we {
             });
             dir.audioCtr.playSequence(['player', 'win']);
           }
+        }
+      }
+
+      protected onMatchGoodRoadUpdate() {
+        if (this._tableInfo.goodRoad) {
+          this._BAgoodRoadLabel.visible = true;
+          const goodRoadData = this._tableInfo.goodRoad;
+          const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+          this._BAgoodRoadLabel.renderText = () => goodRoadName;
+        } else {
+          this._BAgoodRoadLabel.visible = false;
+        }
+      }
+
+      protected onOrientationChange() {
+        this.onExit();
+        const temp = this._switchBaMode.selected;
+        super.onOrientationChange();
+
+        this._switchBaMode.selected = temp;
+        // this.updateSkin('BaccaratScene', true);
+        this.onEnter();
+        this.changeHandMode();
+      }
+
+      protected checkBetChipPanel() {
+        if (this._betChipSetPanel.visible === true) {
+          this.setChipPanelPos();
         }
       }
     }

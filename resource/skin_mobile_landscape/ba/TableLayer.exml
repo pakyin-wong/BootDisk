@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ba.TableLayerSkin" height="200" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal,SuperSix">
+	<e:Group anchorOffsetX.SuperSix="0" width.SuperSix="1874.97" anchorOffsetX.Normal="0" width.Normal="1640.91"
+	         anchorOffsetX="0" width="2262">
+		<e:Group id="_playerPairGroup" x="0" y="0" width="260" height="200" anchorOffsetX.Normal="0" width.Normal="258">
+			<e:Image id="_playerPairImage" source="m_ba_betarea_playerpair_horizontal_png"
+			         name="m_ba_betarea_playerpair_horizontal_png" width="100%" height="100%" anchorOffsetX="0" />
+			<ui:RunTimeLabel id="_playerPairLabel" size="72" textColor="0x438dff" fontFamily="Microsoft JhengHei,Helvetica"
+			                 horizontalCenter="0" y="35" />
+			<e:Label text="11:1" horizontalCenter="0" size="35" verticalAlign="top" top="132" alpha="0.7" />
+		</e:Group>
+		<e:Group id="_playerGroup" x="271" y="0" width="384" height="200" x.Normal="271">
+			<e:Image id="_playerImage" source="m_ba_betarea_player_horizontal_png" name="m_ba_betarea_player_horizontal_png"
+			         width="100%" height="100%" x="0" y="0" anchorOffsetX="0" width.Normal="100%" x.Normal="0" y.Normal="0"  height.SuperSix="100%"/>
+			<ui:RunTimeLabel id="_playerLabel" horizontalCenter="0" size="72" fontFamily="Microsoft JhengHei,Helvetica" text=""
+			                 y="35" />
+			<e:Label text="1:1" horizontalCenter="0" size="35" verticalAlign="top" top="135" alpha="0.7" />
+		</e:Group>
+		<e:Group width.SuperSix="560" width.Normal="320" x="666">
+			<e:Image id="_superSixImage" source="m_ba_betarea_supersix_tie_horizontal_png"
+			         name="m_ba_betarea_supersix_tie_horizontall_png" width="100%" height="100%" x="0" width.Normal="100%"
+			         width.SuperSix="100%" />
+			<e:Group id="_tieGroup" x="26" y="0" width="160" height="200" width.SuperSix="248" anchorOffsetX.Normal="0"
+			         width.Normal="100%" x.Normal="0" anchorOffsetX.SuperSix="0">
+				<e:Image id="_tieImage" source="m_ba_betarea_tie_horizontal_png" name="m_ba_betarea_tie_horizontal_png" width="100%"
+				         height="100%" width.SuperSix="100%" x="0" y="0" anchorOffsetX="0" includeIn="Normal" />
+				<ui:RunTimeLabel id="_tieLabel" horizontalCenter="0" size="72" textColor="0x44c870"
+				                 fontFamily="Microsoft JhengHei,Helvetica" horizontalCenter.SuperSix="0" y="35"  textColor.SuperSix="0xffffff" textColor.Normal="0xffffff"/>
+				<e:Label text="8:1" horizontalCenter="0" size="35" verticalAlign="top" top="132" alpha="0.7"
+				         horizontalCenter.SuperSix="0" />
+			</e:Group>
+			<e:Group id="_superSix" includeIn="SuperSix" x="277" y="0" width="252" height="200" anchorOffsetX="0">
+				<ui:RunTimeLabel id="_superSixLabel" horizontalCenter="0"
+				                 fontFamily="Microsoft JhengHei,Helvetica" size="72" y="35"  textColor="0xffffff"/>
+				<e:Label text="12:1" size="35" verticalAlign="top" top="132" alpha="0.7" horizontalCenter="0" />
+			</e:Group>
+		</e:Group>
+		<e:Group id="_superSixBanker" includeIn="SuperSix" x="1229" y="0" width="384" height="200">
+			<e:Image id="_superSixBankerImage" source="m_ba_betarea_banker_horizontal_png"
+			         name="m_ba_betarea_banker_horizontal_png" width="100%" height="100%" x="0" />
+			<ui:RunTimeLabel id="_superSixBankerLabel" horizontalCenter="0" size="72" fontFamily="Microsoft JhengHei,Helvetica"
+			                 y="35" />
+			<e:Label text="1:1" size="35" verticalAlign="top" top="135" alpha="0.7" horizontalCenter="0" />
+		</e:Group>
+		<e:Group id="_bankerGroup" includeIn="Normal" x="995" y="0" width="384" height="200">
+			<e:Image id="_bankerImage" source="m_ba_betarea_banker_horizontal_png" name="m_ba_betarea_banker_horizontal_png"
+			         width="100%" height="100%" />
+			<ui:RunTimeLabel id="_bankerLabel" horizontalCenter="0" size="72" fontFamily="Microsoft JhengHei,Helvetica" y="35" />
+			<e:Label text="0.95:1" horizontalCenter="0" size="35" verticalAlign="top" top="135" alpha="0.7" />
+		</e:Group>
+		<e:Group id="_bankerPair" x="1630" y="0" width="256" height="200" x.Normal="1385" x.SuperSix="1620">
+			<e:Image id="_bankerPairImage" source="m_ba_betarea_bankerpair_horizontal_png"
+			         name="m_ba_betarea_bankerpair_horizontal_png" width="100%" height="100%" />
+			<ui:RunTimeLabel id="_bankerPairLabel" horizontalCenter="0" size="72" textColor="0xff6767"
+			                 fontFamily="Microsoft JhengHei,Helvetica" y="35" />
+			<e:Label text="11:1" horizontalCenter="0" size="35" verticalAlign="top" top="132" alpha="0.7" />
+		</e:Group>
+		<e:Rect id="mask" left="0" right="0" top="0" bottom="0" width="1146" height="204" ellipseHeight="50" ellipseWidth="50"
+		        visible="false" />
+	</e:Group>
+</e:Skin>

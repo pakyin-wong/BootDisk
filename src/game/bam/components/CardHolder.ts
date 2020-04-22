@@ -31,7 +31,7 @@ namespace we {
       public updateResult(gameData: data.GameData) {
         // TODO: update card using the gameData
 
-        this.gameData = <ba.GameData>gameData;
+        this.gameData = <ba.GameData> gameData;
         const cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
         const cardHolderArr = [this._bankerCard1, this._bankerCard2, this._bankerCard3, this._playerCard1, this._playerCard2, this._playerCard3];
 
