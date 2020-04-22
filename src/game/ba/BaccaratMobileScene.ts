@@ -58,7 +58,6 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        console.log('aaa', this.currentState);
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
 

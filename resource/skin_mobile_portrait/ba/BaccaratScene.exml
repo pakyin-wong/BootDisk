@@ -34,7 +34,7 @@
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="494"
 			                           skinName="skin_mobile.BetChipSkin"
-			                           horizontalCenter.right_hand_mode="-495" bottom.right_hand_mode="483"
+			                           horizontalCenter.right_hand_mode="-492" bottom.right_hand_mode="486"
 			                           horizontalCenter.left_hand_mode="511" labelSize="48"  y.left_hand_mode="64"/>
 			<e:Group id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224" scaleX="1" scaleY="1" width.left_hand_mode="984">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
@@ -65,7 +65,8 @@
 			<e:VerticalLayout horizontalAlign="center" gap="24"/>
 		</e:layout>
 	</e:Group>
-	<e:Group id="_betChipSetPanel" y.right_hand_mode="986" width="1182" height="762" x.right_hand_mode="34" scaleY="1"            horizontalCenter.left_hand_mode="4" y.left_hand_mode="986" scaleY.left_hand_mode="1" y="986" horizontalCenter="4">
+	<e:Group id="_betChipSetPanel" y.right_hand_mode="986" width="1182" height="762" x.right_hand_mode="34" scaleY="1"            horizontalCenter.left_hand_mode="4" y.left_hand_mode="986" scaleY.left_hand_mode="1" y="986" horizontalCenter="4" visible.right_hand_mode="false">
+		<e:Rect width="100%" height="100%" includeIn="right_hand_mode" x="0" y="0" fillColor="0xf40202"/>
 		<e:Group id="_betPanelGroup" y.right_hand_mode="0" scaleY.left_hand_mode="1"             horizontalCenter="0" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0"             left.left_hand_mode="0" top.left_hand_mode="0" bottom.left_hand_mode="0" right.left_hand_mode="0" left="0" right="0" top="0" bottom="0" visible="false">
 			<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
 			         height="729" y="33" x="0" scaleX="1" />
@@ -114,11 +115,9 @@
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
 
-	<e:Group bottom="0" left="0" width="700">
-		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0"/>
+	<e:Group bottom="0" left="0" width="700" left.left_hand_mode="18" bottom.left_hand_mode="118">
+		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15" bottom.left_hand_mode="94"/>
 		<ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0"/>
-
-
 		<e:layout>
 		<e:HorizontalLayout/>
 		</e:layout>
