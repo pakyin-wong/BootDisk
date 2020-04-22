@@ -9,8 +9,8 @@ namespace we {
       private isFirstTime: boolean = true;
       // public isPanelOpen: boolean = false;
 
-      protected _arrow: egret.DisplayObject;
-      protected _arrowUp: egret.DisplayObject;
+      public _arrow: egret.DisplayObject;
+      public _arrowUp: egret.DisplayObject;
 
       protected _gameInfoLabel: ui.RunTimeLabel;
 
