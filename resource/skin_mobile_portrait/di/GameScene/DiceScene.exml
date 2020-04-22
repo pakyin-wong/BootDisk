@@ -17,7 +17,7 @@
 		</ui:skinName>
 	</ui:TweenConfig>
         <e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" left="0" right="0" locked="true"/>
-        <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false" touchChildren="true" touchThrough="true" height="121">
+        <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false" touchChildren="true" touchThrough="true" height="121" locked="true">
                 <e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3"/>
                 <ui:RunTimeLabel id="_lblRoomNo" x="90" y="33" size="40" height="56" verticalAlign="middle" width="200" textAlign="left" anchorOffsetX="0" text=""/>
                 <e:Group x="90" y="87">
@@ -52,7 +52,7 @@
     infoBg="d_ba_gamerecord_playerelement_png"
     successBg="d_ba_gamerecord_tieelement_png"
     errorBg="d_ba_gamerecord_bankerelement_png"/>
-  <!--<ro:MobileSidePanel id="_sidePanel" x="27" skinName="skin_mobile_portrait.ro.MobileSidePanel" verticalCenter="0" x.left_hand_mode="1114"/>-->
+  <di:MobileSidePanel id="_sidePanel" x="27" skinName="skin_mobile_portrait.di.MobileSidePanel" verticalCenter="0" x.left_hand_mode="1114"/>
   <e:Group id="_betSet" y="122" left="0" right="0" touchThrough="true" left.left_hand_mode="-15" right.left_hand_mode="15" left.right_hand_mode="9" right.right_hand_mode="-9">
     <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="1052" x.left_hand_mode="5"/>
     <e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">

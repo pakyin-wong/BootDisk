@@ -58,12 +58,12 @@
 		<e:Label id="pNineTen" text="-" y="6" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
 		<e:Label id="paiGowLabel" text="牌九式" y="78" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
 		<e:Label id="pPaiGow" text="-" y="80" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
-		<e:Label id="customSingleLabel" text="指定單骰" y="156" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
-		<e:Label id="pCustomSingle" text="-" y="160" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
-		<e:Label id="customDoubleLabel" text="指定雙骰" y="234" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
-		<e:Label id="pCustomDouble" text="-" y="240" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
-		<e:Label id="customTripleLabel" text="指定三骰" y="312" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
-		<e:Label id="pCustomTriple" text="-" y="320" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
+		<e:Label id="specificSingleLabel" text="指定單骰" y="156" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pSpecificSingle" text="-" y="160" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
+		<e:Label id="specificDoubleLabel" text="指定雙骰" y="234" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pSpecificDouble" text="-" y="240" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
+		<e:Label id="specificTripleLabel" text="指定三骰" y="312" x="0" scaleX="1" scaleY="1" size="44" bold="true"/>
+		<e:Label id="pSpecificTriple" text="-" y="320" textAlign="right" x="210" scaleX="1" scaleY="1" size="44" width="202" bold="true" alpha="0.7"/>
 		</e:Group>
 	</e:Group>
 

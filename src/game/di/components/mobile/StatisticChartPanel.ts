@@ -31,6 +31,11 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
+        this._diPie.maxChartSize = 180;
+        this._diChance.width = 1242;
+        this._diChance.height = 425;
+        this._diPie.scaleX = 1.5;
+        this._diPie.scaleY = 1.5;
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
         this.contentTwo.alpha = 0;
         this.configSlides();
@@ -121,6 +126,20 @@ namespace we {
         setTimeout(() => {
           this.isAnimating = false;
         }, this.duration * 1000 + 50);
+      }
+
+      public setValue(tableInfo: data.TableInfo) {
+        if (tableInfo.gamestatistic.diOdd) {
+          this._diPie.setPieOdd([tableInfo.gamestatistic.diOdd.even, tableInfo.gamestatistic.diOdd.odd, tableInfo.gamestatistic.diOdd.tie]);
+        }
+        if (tableInfo.gamestatistic.diSize) {
+          this._diPie.setPieSize([tableInfo.gamestatistic.diSize.big, tableInfo.gamestatistic.diSize.small, tableInfo.gamestatistic.diSize.tie]);
+        }
+        if (tableInfo.gamestatistic.points) {
+          this._diChance.setDiceValues(tableInfo.gamestatistic.points);
+        }
+        // this._diPie._pieSize.setRanksAndAnimate([30, 15, 55]);
+        // this._pieOdd.setRanksAndAnimate([45, 10, 45]);
       }
     }
   }
