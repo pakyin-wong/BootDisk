@@ -9,21 +9,28 @@ namespace we {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: DTRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
+
       protected _beadRoadResultPanel: DTBeadRoadResultPanel;
+
       protected _dtGameIDText: ui.RunTimeLabel;
       protected _dtGameID: ui.RunTimeLabel;
+
       protected _totalBet: ui.RunTimeLabel;
       protected _totalBetText: ui.RunTimeLabel;
-      protected test: ui.RunTimeLabel;
+
       protected _verticalGroup: eui.Group;
+
       private _common_listpanel: ui.BaseImageButton;
+
       constructor(data: any) {
         super(data);
         // this._skinKey = 'DragonTigerScene';
       }
+
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('DragonTigerScene');
       }
+
       protected setStateBet() {
         super.setStateBet();
         this._dtGameID.renderText = () => `${this._tableInfo.tableid}`;
@@ -35,30 +42,38 @@ namespace we {
           }
         }
       }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
+
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
+
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
+
         if (this._bottomGamePanel._statisticChartPanel) {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
+
         this.createVerticalLayout();
         this.changeHandMode();
+
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
         }
+
         this._dtGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
-        if (env.isMobile) {
-          dir.monitor._sideGameList.setToggler(this._common_listpanel);
-        }
+
+        dir.monitor._sideGameList.setToggler(this._common_listpanel);
+
         this.setChipPanelPos();
       }
+
       protected initBottomBetLimitSelector() {
         const betLimitList = env.betLimits;
         const betLimitItems = betLimitList.map(data => {
@@ -78,6 +93,7 @@ namespace we {
         this.updateBetLimit(selectedIndex);
         this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
       }
+
       protected updateBetLimit(selectedIndex) {
         super.updateBetLimit(selectedIndex);
         const bottomBetLimitList = env.betLimits;
@@ -88,14 +104,17 @@ namespace we {
           this._bottomGamePanel._betLimitDropDownBtn.renderText = () => ` ${bottomBetLimitItems.length > 0 ? bottomBetLimitItems[selectedIndex] : ''}`;
         }
       }
+
       protected addEventListeners() {
         super.addEventListeners();
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
+
       protected removeEventListeners() {
         super.removeEventListeners();
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
+
       protected changeHandMode() {
         if (env.leftHandMode) {
           this.currentState = 'left_hand_mode';
@@ -103,12 +122,14 @@ namespace we {
           this.currentState = 'right_hand_mode';
         }
       }
+
       protected createVerticalLayout() {
         const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
         vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         vLayout.gap = 24;
         this._verticalGroup.layout = vLayout;
       }
+
       protected setChipPanelPos() {
         if (this._bottomGamePanel.isPanelOpen) {
           this._betPanelGroup.scaleY = 1;
@@ -120,14 +141,17 @@ namespace we {
           this._betChipSetPanel.y = 600;
         }
       }
+
       protected showBetChipPanel() {
         this.setChipPanelPos();
         super.showBetChipPanel();
       }
+
       protected hideBetChipPanel() {
         this.setChipPanelPos();
         super.hideBetChipPanel();
       }
+
       protected initRoadMap() {
         this._roadmapControl = new DTRoadmapControl(this._tableId);
         this._roadmapControl.setRoads(
@@ -141,9 +165,11 @@ namespace we {
           this._beadRoadResultPanel
         );
       }
+
       protected onRoadDataUpdate(evt: egret.Event) {
         this._roadmapControl.updateRoadData();
       }
+
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
           const betInfo = <data.GameTableBetInfo>evt.data;
@@ -154,6 +180,7 @@ namespace we {
           }
         }
       }
+
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
         if (this._bottomGamePanel._tableInfoPanel) {
@@ -163,6 +190,7 @@ namespace we {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
       }
+
       public checkResultMessage() {
         let totalWin: number = NaN;
         if (this._tableInfo.totalWin) {

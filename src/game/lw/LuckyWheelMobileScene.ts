@@ -4,10 +4,18 @@ namespace we {
       protected _roadmapControl: LwRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
 
+      protected _lwGameIDText: ui.RunTimeLabel;
+      protected _lwGameID: ui.RunTimeLabel;
+
+      protected _totalBet: ui.RunTimeLabel;
+      protected _totalBetText: ui.RunTimeLabel;
+
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
 
       protected _verticalGroup: eui.Group;
+
+      private _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
         super(data);
@@ -17,10 +25,18 @@ namespace we {
         this.skinName = utils.getSkinByClassname('LuckyWheelScene');
       }
 
+      protected setStateBet() {
+        super.setStateBet();
+        this._lwGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
+      }
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
+
         this._roadmapControl.setTableInfo(this._tableInfo);
+
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
 
@@ -36,8 +52,15 @@ namespace we {
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
         }
+
         this.createVerticalLayout();
         this.changeHandMode();
+
+        this._lwGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
+
+        dir.monitor._sideGameList.setToggler(this._common_listpanel);
+
         this.setChipPanelPos();
       }
 

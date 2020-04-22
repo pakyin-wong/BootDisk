@@ -440,6 +440,7 @@ namespace we {
           this._resultDisplay.updateResult(this._gameData);
         }
       }
+
       protected setStateFinish(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.FINISH || isInit) {
           this.setBetRelatedComponentsEnabled(false);
