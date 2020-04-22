@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.MobileBottomGamePanel" width="1242" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.ba.MobileBottomGamePanel" width="1242" currentState="off" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" states="on,off">
 	<e:Group>
 		<e:Group id="_topPart" width="100%" x="0" y="0" scaleX="1" scaleY="1">

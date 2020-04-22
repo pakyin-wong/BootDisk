@@ -6,6 +6,8 @@ namespace we {
       // protected gameId: string;
       // protected totalBet: number;
       public isPanelOpen: boolean = true;
+      private isFirstTime: boolean = true;
+      // public isPanelOpen: boolean = false;
 
       protected _arrow: egret.DisplayObject;
       protected _arrowUp: egret.DisplayObject;
@@ -29,7 +31,8 @@ namespace we {
         this.updateText();
         this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
-        this.onPanelToggle();
+
+        this.onPanelToggle(this.isFirstTime);
       }
 
       public destroy() {
@@ -57,19 +60,19 @@ namespace we {
       }
 
       public manualClose() {
-        if (this.isPanelOpen) {
-          this.currentState = 'off';
-          egret.Tween.removeTweens(this._middlePart);
-          // egret.Tween.removeTweens(this.viewStack);
-          // egret.Tween.removeTweens(this.viewStackMask);
-          this.isPanelOpen = false;
-          egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-          // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-          // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
-        }
+        // if (this.isPanelOpen) {
+        //   this.currentState = 'off';
+        //   egret.Tween.removeTweens(this._middlePart);
+        //   // egret.Tween.removeTweens(this.viewStack);
+        //   // egret.Tween.removeTweens(this.viewStackMask);
+        //   this.isPanelOpen = false;
+        //   egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+        //   // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+        //   // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+        // }
       }
 
-      protected onPanelToggle() {
+      protected onPanelToggle(firstTime?: boolean) {
         this.currentState = this.isPanelOpen ? 'off' : 'on';
 
         egret.Tween.removeTweens(this._middlePart);
@@ -78,7 +81,12 @@ namespace we {
 
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
-          egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+          if (this.isFirstTime) {
+            this.isFirstTime = false;
+            this._middlePart.height = 0;
+          } else {
+            egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+          }
           // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
           // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         } else {

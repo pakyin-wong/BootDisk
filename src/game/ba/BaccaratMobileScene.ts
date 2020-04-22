@@ -25,6 +25,8 @@ namespace we {
 
       private _common_listpanel: ui.BaseImageButton;
 
+      // protected _arrowPanel: eui.Image;
+
       constructor(data: any) {
         super(data);
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
@@ -171,10 +173,14 @@ namespace we {
             this._betPanelGroup.scaleY = 1;
             this._betPanelGroup.y = 0;
             this._betChipSetPanel.y = 986;
+            // this._arrowPanel.y = 0;
+            // this._arrowPanel.rotation = 180;
           } else {
             this._betPanelGroup.scaleY = -1;
             this._betPanelGroup.y = 762;
             this._betChipSetPanel.y = 500;
+            // this._arrowPanel.y = 729;
+            // this._arrowPanel.rotation = 0;
           }
         } else {
           this._betChipSetPanel.y = -480;
