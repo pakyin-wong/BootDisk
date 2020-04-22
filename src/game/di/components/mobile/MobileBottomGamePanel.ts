@@ -8,7 +8,7 @@ namespace we {
       public _tableInfoPanel: di.TableInfoPanel;
       public _betLimitDropDownBtn: ui.RunTimeLabel;
 
-      // public _statisticChartPanel: di.StatisticChartPanel;
+      public _statisticChartPanel: di.StatisticChartPanel;
 
       // viewStack and radioBtn
       protected historyBtn: eui.RadioButton;
@@ -62,16 +62,16 @@ namespace we {
         this._beadroadPanel.visible = false;
       }
 
-      // protected onPanelToggle() {
-      //   super.onPanelToggle();
-      //   if (this.isPanelOpen) {
-      //     this._roadmapPanel.visible = true;
-      //     this._beadroadPanel.visible = true;
-      //   } else {
-      //     this._roadmapPanel.visible = false;
-      //     this._beadroadPanel.visible = false;
-      //   }
-      // }
+      protected onPanelToggle() {
+        super.onPanelToggle();
+        if (this.isPanelOpen) {
+          this._roadmapPanel.visible = true;
+          this._beadroadPanel.visible = true;
+        } else {
+          this._roadmapPanel.visible = false;
+          this._beadroadPanel.visible = false;
+        }
+      }
     }
   }
 }

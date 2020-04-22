@@ -40,16 +40,13 @@ namespace we {
       }
 
       protected initRoadMap() {
-        this.beadRoad = new DiBeadRoad(2, 8, 48, 1, 19, 24, 6, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
+        this.beadRoad = new DiBeadRoad(1, 9, 120, 1, 5, 24, 6, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
         this.beadRoad.x = 29;
         this.beadRoad.y = 16;
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
         this.beadRoad.expandRoad(false);
         this.beadRoadConfig.parent.addChild(this.beadRoad);
-
-        // this.sizeRoad = new DiSizeBigRoad(this.sizeBigRoadConfig.roadmap_col, this.sizeBigRoadConfig.roadmap_gridSize, 1, false);
-        // this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);
       }
 
       public destroy() {
@@ -90,7 +87,7 @@ namespace we {
       }
 
       protected updateMode() {
-        this._roadmapBg.currentState = env.mode === 1 ? 'dark' : 'light';
+        this._roadmapBg.currentState = 'dark';
       }
     }
   }

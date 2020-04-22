@@ -46,14 +46,16 @@ namespace we {
         this.oddBigRoadConfig.setPortrait();
         // Mobile Portrait
 
-        this.sumRoad = new DiSumBigRoad(this.sumBigRoadConfig.roadmap_col, this.sumBigRoadConfig.roadmap_gridSize, 1, false);
+        this.sumRoad = new DiSumBigRoad(18, 68, 1, false);
         this.sumBigRoadConfig.parent.addChild(this.sumRoad);
 
-        this.sizeRoad = new DiSizeBigRoad(this.sizeBigRoadConfig.roadmap_col, this.sizeBigRoadConfig.roadmap_gridSize, 1, false);
+        this.sizeRoad = new DiSizeBigRoad(18, 68, 1, false);
         this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);
 
-        this.oddRoad = new DiOddBigRoad(this.oddBigRoadConfig.roadmap_col, this.oddBigRoadConfig.roadmap_gridSize, 1, false);
+        this.oddRoad = new DiOddBigRoad(18, 68, 1, false);
         this.oddBigRoadConfig.parent.addChild(this.oddRoad);
+
+        this._roadmapView.selectedIndex = 0;
       }
 
       public destroy() {
@@ -105,7 +107,7 @@ namespace we {
       }
 
       protected updateMode() {
-        this._roadmapBg.currentState = env.mode === 1 ? 'dark' : 'light';
+        this._roadmapBg.currentState = 'dark';
       }
     }
   }
