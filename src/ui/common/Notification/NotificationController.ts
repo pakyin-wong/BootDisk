@@ -107,6 +107,7 @@ namespace we {
         this._activeNotificationCount[typeStr] -= 1;
         this._activeNotificationCount.total -= 1;
       }
+
       protected showNotification(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
         this._activeNotificationCount[typeStr] += 1;

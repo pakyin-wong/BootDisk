@@ -14,6 +14,7 @@ namespace we {
 
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
+      protected _flipCard: FlipCard;
 
       constructor(data: any) {
         super(data);
@@ -25,8 +26,8 @@ namespace we {
         this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
-      protected setStateBet() {
-        super.setStateBet();
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet(isInit);
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
@@ -104,7 +105,8 @@ namespace we {
         switch (this._tableInfo.gametype) {
           case core.GameType.BAC:
           case core.GameType.BAI:
-          case core.GameType.BAS: {
+          case core.GameType.BAS:
+          case core.GameType.BAM: {
             (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
             switch (this._gameData.wintype) {
               case ba.WinType.BANKER: {

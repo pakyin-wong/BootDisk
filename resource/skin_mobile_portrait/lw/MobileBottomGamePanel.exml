@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.lw.MobileBottomGamePanel" width="1242" 
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:lw="we.lw.*" states="on,off" >
+	<e:Group>
+		<e:Group id="_topPart" width="100%" x="0" y="0" scaleX="1" scaleY="1">
+			<e:Rect id="top_bg" width="100%" height="100" x="0" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425"/>
+			<e:RadioButton id="roadSheetBtn" label="路紙" x="16" y="20" width="360" height="80" value="0" selected="true" scaleX="1" scaleY="1" visible.off="false">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="chartBtn" label="即時彩池" x="376" y="20" width="360" height="80" value="1" scaleX="1" scaleY="1" visible.off="false">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="tableInfoBtn" label="本檯資訊" x="736" y="20" width="360" height="80" value="2" scaleX="1" scaleY="1" visible.off="false">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+			<e:Image id="_arrow" x="1150" y="10" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.off="false"/>
+			<e:Image id="_arrowUp" x="1230" y="90" width="80" height="80" scaleX="1" scaleY="1" source="d_lobby_button_down_normal_png" anchorOffsetX="0" anchorOffsetY="0" rotation="180" visible.on="false"/>
+			<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="47" y="29" size="42" bold="true" visible.on="false"/>
+		</e:Group>
+		<e:Group id="_middlePart" width="1242" x="0" y="100" scaleX="1" scaleY="1">
+			<e:Rect id="viewStackMask" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1"/>
+			<e:ViewStack id="viewStack" width="1242" height="532" x="0" y="0" selectedIndex="1" scaleX="1" scaleY="1">
+			<e:Group id="_roadmapGroup" width="100%" height="100%" name="Group">
+				<lw:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_portrait.lw.MobileBottomRoadmapPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+			</e:Group>
+			<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
+				<lw:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.lw.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+			</e:Group>
+			<e:Group id="_infoGroup" width="100%" height="100%" name="Group">
+				<lw:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.lw.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
+			</e:Group>
+			</e:ViewStack>
+		</e:Group>
+		<e:Group id="_bottomPart" width="1242" x="0" y="632" scaleX="1" scaleY="1">
+			<e:Image id="bottom_bg" x="0" y="0" source="m_ba_tab_bottom_png" scaleX="1" scaleY="1" visible="false"/>
+			<ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="700" y="13.5" textAlign="right" anchorOffsetX="0" width="514" size="25" scaleX="1" scaleY="1" visible="false"/>
+			<ui:RunTimeLabel id="totalBetLabel" text="0" x="16" y="13.5" textAlign="left" anchorOffsetX="0" width="260" size="25" scaleX="1" scaleY="1" visible="false"/>
+		</e:Group>
+		<e:layout>
+			<e:VerticalLayout gap="0" horizontalAlign="center"/>
+		</e:layout>
+		</e:Group>
+</e:Skin>

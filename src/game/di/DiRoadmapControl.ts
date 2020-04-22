@@ -28,9 +28,11 @@ namespace we {
         this.rightPanel = rightPanel;
         this.resultPanel = resultPanel;
 
-        this.sumRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
-        this.sumRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
-        this.sumRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        if (this.sumRoad) {
+          this.sumRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+          this.sumRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+          this.sumRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        }
 
         this.sizeRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
         this.sizeRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
@@ -128,7 +130,9 @@ namespace we {
               // stae 0 = update, 1 = predict, 2 = restore from predict
               if (roadmapData.inGame) {
                 this.beadRoad.parseRoadData(roadmapData.inGame.bead, state);
-                this.sumRoad.parseRoadData(roadmapData.inGame.sum, state);
+                if (this.sumRoad) {
+                  this.sumRoad.parseRoadData(roadmapData.inGame.sum, state);
+                }
                 this.sizeRoad.parseRoadData(roadmapData.inGame.size, state);
                 this.oddRoad.parseRoadData(roadmapData.inGame.odd, state);
               }

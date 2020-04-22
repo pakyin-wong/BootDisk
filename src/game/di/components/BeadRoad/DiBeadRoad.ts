@@ -65,7 +65,7 @@ namespace we {
           icon.setByObject({});
           icon.x = (this.gridSize + this.xOffset) * (iconIndex % this.numCol);
           icon.y = (spacing * 4 + displaySize + this.yOffset) * Math.floor(iconIndex / this.numCol);
-          this.addChild(icon);
+          icon.addToLayer(this._staticLayer);
           this.roadMapIconList.push(icon);
           iconIndex++;
         }

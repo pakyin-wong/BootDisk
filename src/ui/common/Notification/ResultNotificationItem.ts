@@ -7,7 +7,9 @@ namespace we {
 
       protected createNormalContent() {
         this._content = new ResultNotificationContent();
-        this._content.setData(this.tableInfo);
+        if (this.tableInfo) {
+          this._content.setData(this.tableInfo);
+        }
       }
 
       protected createQuickBetContent() {

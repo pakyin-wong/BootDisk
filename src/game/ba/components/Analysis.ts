@@ -2,7 +2,7 @@ namespace we {
   export namespace ba {
     export class Analysis extends core.BaseEUI implements we.ui.IAnalysis {
       protected _tableId;
-      protected _advancedRoad: BALobbyAdvancedRoad;
+      protected _advancedRoad: AdvancedRoad;
       protected _playerAskLabel;
       protected _bankerAskLabel;
       protected _playerCount;
@@ -40,17 +40,17 @@ namespace we {
         // console.log(this);
         // console.log(this.parent);
         if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
-          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.BALobbyAdvancedRoad) {
+          if ((<we.ui.LiveListAdvancedItem>this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem>this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
             // console.log('askBanker2');
-            (<BALobbyAdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askBankerRoad();
+            (<AdvancedRoad>(<we.ui.LiveListAdvancedItem>this.parent).advancedRoad).askBankerRoad();
           }
         }
       }
 
       public askPlayerRoad(evt: egret.Event) {
         if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
-          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.BALobbyAdvancedRoad) {
-            (<BALobbyAdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askPlayerRoad();
+          if ((<we.ui.LiveListAdvancedItem>this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem>this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
+            (<AdvancedRoad>(<we.ui.LiveListAdvancedItem>this.parent).advancedRoad).askPlayerRoad();
           }
         }
       }

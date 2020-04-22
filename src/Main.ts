@@ -51,6 +51,7 @@ class Main extends eui.UILayer {
     document.documentElement.className = cn.join(' ');
 
     const { type } = env.UAInfo.device;
+
     if (true || type === 'mobile') {
       // if (true) {
       env.isMobile = true;
@@ -83,6 +84,7 @@ class Main extends eui.UILayer {
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
+    env.initialized = true;
 
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');

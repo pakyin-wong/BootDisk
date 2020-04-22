@@ -23,5 +23,30 @@ namespace we {
 
       return (rr << 16) + (rg << 8) + (rb | 0);
     }
+
+    export function dot(p1: egret.Point, p2: egret.Point) {
+      return p1.x * p2.x + p1.y * p2.y;
+    }
+
+    export function cross(p1: egret.Point, p2: egret.Point) {
+      return p1.x * p2.y - p1.y * p2.x;
+    }
+
+    export function magnitude(p: egret.Point) {
+      return Math.sqrt(p.x * p.x + p.y * p.y);
+    }
+
+    export function clampPoint(p: egret.Point, minX, minY, maxX, maxY) {
+      p.x = Math.max(Math.min(p.x, maxX), minX);
+      p.y = Math.max(Math.min(p.y, maxY), minY);
+    }
+
+    export function rad2deg(rad: number) {
+      return (rad * 180) / Math.PI;
+    }
+
+    export function sign(x) {
+      return (x > 0 ? 1 : 0) - (x < 0 ? -1 : 0) || +x;
+    }
   }
 }

@@ -47,6 +47,9 @@ namespace we {
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
+          case we.core.GameType.BAM:
+            generalGameType = 'bam';
+            break;
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
@@ -57,8 +60,16 @@ namespace we {
             generalGameType = 'lw';
             break;
           case we.core.GameType.DT:
-          default:
             generalGameType = 'dt';
+            break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
+          case we.core.GameType.ROL:
+            generalGameType = 'rol';
+            break;
+          default:
+            throw new Error('Invalid Game Type');
         }
 
         let itemName;

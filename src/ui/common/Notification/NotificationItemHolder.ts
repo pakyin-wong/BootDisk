@@ -97,9 +97,13 @@ namespace we {
       protected moveIn() {
         this.content.alpha = 0;
         setTimeout(() => {
-          this.content.x = this.content.width;
           egret.Tween.removeTweens(this.content);
-          egret.Tween.get(this.content).to({ x: 0, alpha: 1 }, 400);
+          if (env.isMobile) {
+            egret.Tween.get(this.content).to({ alpha: 1 }, 400);
+          } else {
+            this.content.x = this.content.width;
+            egret.Tween.get(this.content).to({ x: 0, alpha: 1 }, 400);
+          }
         }, 100);
       }
 
@@ -112,7 +116,7 @@ namespace we {
         this._displayItem.alpha = 1;
         egret.Tween.removeTweens(this.content);
         egret.Tween.get(this.content)
-          .to({ x: this.content.contentWidth, alpha: 0 }, 200)
+          .to(env.isMobile ? { alpha: 0 } : { x: this.content.contentWidth, alpha: 0 }, 200)
           .call(() => {
             if (self._displayItem) {
               self._displayItem.parent.removeChild(this._displayItem);
