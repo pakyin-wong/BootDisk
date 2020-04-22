@@ -32,21 +32,21 @@ namespace we {
         super(skinName);
       }
 
-      protected initComponents() {
-        super.initComponents();
+      protected initChildren() {
         this.generateRoadmap();
         this.generateTableLayer();
         this.generateChipLayer();
+        super.initChildren();
       }
 
       protected generateTableLayer() {
-        if (this.itemInitHelper) {
+        if (this.itemInitHelper && this._tableLayerNode) {
           this._tableLayer = this.itemInitHelper.generateTableLayer(this._tableLayerNode);
         }
       }
 
       protected generateChipLayer() {
-        if (this.itemInitHelper) {
+        if (this.itemInitHelper && this._chipLayerNode) {
           this._chipLayer = this.itemInitHelper.generateChipLayer(this._chipLayerNode);
         }
       }
@@ -154,11 +154,23 @@ namespace we {
       }
 
       public onRollover(evt: egret.Event) {
+        this.checkSkin();
         super.onRollover(evt);
         if (this.list && !this.list.isLocked) {
           if (this._quickbetEnable) {
             this._quickbetButton.tween(false);
           }
+        }
+      }
+
+      protected checkSkin() {
+        if (this.skinName !== utils.getSkinByClassname('LiveListSimpleItemCompleteSkin')) {
+          this.clearComponents();
+          this.updateSkin('LiveListSimpleItemCompleteSkin', false);
+          this.validateNow();
+          this.initComponents();
+          this.arrangeComponents();
+          this.setData(this.tableInfo);
         }
       }
 

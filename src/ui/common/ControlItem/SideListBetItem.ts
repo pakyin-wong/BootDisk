@@ -23,12 +23,13 @@ namespace we {
       }
 
       protected initComponents() {
-        super.initComponents();
         this._dimmer.visible = false;
         this.generateTableLayer();
         this.generateChipLayer();
         this.generateResultMessage();
         this.generateResultDisplay();
+
+        super.initComponents();
       }
 
       protected generateTableLayer() {

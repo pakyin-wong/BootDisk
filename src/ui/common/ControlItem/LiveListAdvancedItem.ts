@@ -10,14 +10,25 @@ namespace we {
         super(skinName);
       }
 
+      protected checkSkin() {
+        // if (this.skinName !== utils.getSkinByClassname('LiveListItemCompleteSkin')) {
+        //   this.clearComponents();
+        //   this.updateSkin('LiveListItemCompleteSkin', false);
+        //   this.validateNow();
+        //   this.initComponents();
+        //   this.arrangeComponents();
+        //   this.setData(this.tableInfo);
+        // }
+      }
+
       public get advancedRoad() {
         return this._advancedRoad;
       }
 
-      protected initComponents() {
-        super.initComponents();
+      protected initChildren() {
         this.generateAnalysis();
         this.generateAdvancedRoad();
+        super.initChildren();
       }
 
       protected onTouchTap(evt: egret.Event) {

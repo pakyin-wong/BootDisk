@@ -28,6 +28,8 @@ namespace we {
         this._betChipSet.init(null, denominationList);
       }
 
+      protected checkSkin() {}
+
       protected addEventListeners() {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);

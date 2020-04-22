@@ -18,15 +18,15 @@ namespace we {
         }
       }
 
-      public onRollover(evt: egret.Event) {
+      protected checkSkin() {
         if (this.skinName !== utils.getSkinByClassname('LiveListItemCompleteSkin')) {
+          this.clearComponents();
           this.updateSkin('LiveListItemCompleteSkin', false);
-          this.initChildren();
+          this.validateNow();
           this.initComponents();
-          this.removeEventListeners();
-          this.addEventListeners();
+          this.arrangeComponents();
+          this.setData(this.tableInfo);
         }
-        super.onRollover(evt);
       }
 
       protected addRoundCornerMask() {

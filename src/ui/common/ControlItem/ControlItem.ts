@@ -39,8 +39,17 @@ namespace we {
         this.touchEnabled = true;
       }
 
-      protected mount() {
-        super.mount();
+      // protected mount() {
+      //   super.mount();
+      // }
+
+      protected clearComponents() {
+        this.removeEventListeners();
+        this.removeChildren();
+      }
+
+      protected initComponents() {
+        super.initComponents();
         this.initChildren();
         this.addEventListeners();
       }
