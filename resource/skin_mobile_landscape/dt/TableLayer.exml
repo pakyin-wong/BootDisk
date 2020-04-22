@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.dt.TableLayerSkin" width="1182" height="348" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
+	<e:Group id="_dragonGroup" x="0" y="0" width="415" height="348">
+		<e:Image id="_dragonImage" name="m_dt_betarea_dragon_hover_png"
+		         width="100%" height="100%"  source="m_dt_betarea_dragon_png"/>
+		<ui:RunTimeLabel id="_dragonLabel" verticalCenter="-40" horizontalCenter="0"  size="98" bold="true"/>
+		<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="48" />
+		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-120" verticalCenter="120"  width="32" height="32"/>
+		<e:Label id="_dragonTotalAmount" horizontalCenter="-80" verticalCenter="120"   size="30" verticalCenter.Normal="120" horizontalCenter.Normal="-75"/>
+		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="40" verticalCenter="120"  width="32" height="32"/>
+		<e:Label id="_dragonTotalPerson" horizontalCenter="80" verticalCenter="120"   size="30"/>
+	</e:Group>
+	<e:Group id="_tieGroup" includeIn="Normal" x="415" y="0" width="352" height="348">
+		<e:Image id="_tieImage" name="d_dt_betarea_general_tie_hover_png" width="100%"
+		         height="100%"  source="m_dt_betarea_tie_png"/>
+		<ui:RunTimeLabel id="_tieLabel" verticalCenter="-40" horizontalCenter="0"  size="98" bold="true"/>
+		<e:Label text="8:1" verticalCenter="40" horizontalCenter="0" size="48" />
+
+	</e:Group>
+	<e:Group id="_tigerGroup" x="767" y="0" width="415" height="348">
+		<e:Image id="_tigerImage" name="m_dt_betarea_tiger_hover_png"
+		         width="100%" height="100%"  source="m_dt_betarea_tiger_png"/>
+		<ui:RunTimeLabel id="_tigerLabel" verticalCenter="-40" horizontalCenter="0"  size="98" bold="true"/>
+		<e:Label text="1:1" verticalCenter="40" horizontalCenter="0" size="48" />
+		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-120" verticalCenter="120"  width="32" height="32"/>
+		<e:Label id="_tigerTotalAmount" horizontalCenter="-80" verticalCenter="120"   size="30" horizontalCenter.Normal="-75"/>
+		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="40" verticalCenter="120"  width="32" height="32"/>
+		<e:Label id="_tigerTotalPerson" horizontalCenter="80" verticalCenter="120"   size="30"/>
+	</e:Group>
+	<e:Rect id="mask" left="0" top="0" width="100%" height="100%" ellipseHeight="50" ellipseWidth="50"
+	         visible="false"/>
+</e:Skin>
