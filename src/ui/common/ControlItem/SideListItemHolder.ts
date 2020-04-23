@@ -21,11 +21,17 @@ namespace we {
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
+          case we.core.GameType.BAM:
+            generalGameType = 'bam';
+            break;
 
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
 
+          case we.core.GameType.ROL:
+            generalGameType = 'rol';
+            break;
           case we.core.GameType.DI:
             generalGameType = 'di';
             break;
@@ -34,9 +40,6 @@ namespace we {
             break;
           case we.core.GameType.DT:
             generalGameType = 'dt';
-            break;
-          case we.core.GameType.LW:
-            generalGameType = 'lw';
             break;
           default:
             throw new Error('Invalid Game Type');

@@ -154,23 +154,25 @@ namespace we {
         if (!this._gameData) {
           return;
         }
-        // if (this.hasBet()) {
-        //   if (this._gameData && !isNaN(totalWin)) {
-        //     this._resultMessage.showResult(this._tableInfo.gametype, {
-        //       gameData: this._gameData,
-        //       winAmount: this._tableInfo.totalWin,
-        //     });
-        //     dir.audioCtr.playSequence(['player', 'win']);
-        //   }
-        // } else {
-        //   if (this._gameData) {
-        //     this._resultMessage.showResult(this._tableInfo.gametype, {
-        //       gameData: this._gameData,
-        //       winAmount: NaN,
-        //     });
-        //     dir.audioCtr.playSequence(['player', 'win']);
-        //   }
-        // }
+        // (this._tableLayer as di.TableLayer).flashFields(`DIRECT_${resultNo}`);
+
+        if (this.hasBet()) {
+          if (this._gameData && !isNaN(totalWin)) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              gameData: this._gameData,
+              winAmount: this._tableInfo.totalWin,
+            });
+            dir.audioCtr.playSequence(['player', 'win']);
+          }
+        } else {
+          if (this._gameData) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              gameData: this._gameData,
+              winAmount: NaN,
+            });
+            dir.audioCtr.playSequence(['player', 'win']);
+          }
+        }
       }
 
       protected initBottomBetLimitSelector() {

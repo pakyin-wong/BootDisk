@@ -58,15 +58,15 @@ namespace we {
     }
 
     export function getFallbackSkin(name: string, fallbackOrientation: string = 'portrait') {
+      const device = `mobile_${fallbackOrientation}`;
       try {
-        const device = `mobile_${fallbackOrientation}`;
         const clazz = eval(`skin_${device}.${name}`);
         if (!clazz) {
-          throw new Error(`Skin ${name} does not exists!`);
+          throw new Error(`Skin skin_${device}.${name} does not exists!`);
         }
         return `skin_${device}.${name}`;
       } catch (err) {
-        throw new Error(`Skin ${name} does not exists!`);
+        throw new Error(`Skin skin_${device}.${name} does not exists!`);
       }
     }
 

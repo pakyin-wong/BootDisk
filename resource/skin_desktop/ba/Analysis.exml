@@ -127,17 +127,17 @@
 		</e:Group>
 	</e:ViewStack>
 	<e:Group x="19" y="368" width="110" height="55">
-		<e:Image id="iconBankerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0"
-		         scale9Grid="15,13,37,5" />
+		<e:Image id="_iconBankerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0"
+		         scale9Grid="15,13,37,5"  name="askRoad" />
 		<ui:RunTimeLabel id="_playerAskLabel" text="Ask P" textAlign="center" anchorOffsetX="0" width="110" size="16"
-		                 height="28" verticalAlign="middle" touchEnabled="false" />
+		                 height="28" verticalAlign="middle" touchEnabled="false"/>
 		<e:Image width="14" height="14" x="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
 		<e:Image width="14" height="14" y="34" horizontalCenter="0" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
 		<e:Image width="14" height="14" right="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
 	</e:Group>
 	<e:Group right="19" y="368" width="110" height="55">
-		<e:Image id="iconPlayerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_player_png"
-		         scale9Grid="15,13,37,5" />
+		<e:Image id="_iconPlayerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_player_png"
+		         scale9Grid="15,13,37,5"  name="askRoad"/>
 		<ui:RunTimeLabel id="_bankerAskLabel" text="Ask B" textAlign="center" anchorOffsetX="0" width="110" size="16"
 		                 verticalAlign="middle" height="28" touchEnabled="false" />
 		<e:Image width="14" height="14" x="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />

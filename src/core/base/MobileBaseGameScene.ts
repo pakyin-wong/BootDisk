@@ -121,8 +121,15 @@ namespace we {
       }
 
       protected removeEventListeners() {
-        super.addEventListeners();
+        super.removeEventListeners();
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this._betChipSetPanel.alpha = 0;
+        this._betChipSetPanel.visible = false;
+        this._betChipSet.alpha = 1;
       }
     }
   }

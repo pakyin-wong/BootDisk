@@ -34,6 +34,10 @@ namespace we {
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
+
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
         }
 
         // const displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');

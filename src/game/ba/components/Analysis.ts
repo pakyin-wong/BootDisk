@@ -2,6 +2,7 @@ namespace we {
   export namespace ba {
     export class Analysis extends core.BaseEUI implements we.ui.IAnalysis {
       protected _tableId;
+      protected _advancedRoad: AdvancedRoad;
       protected _playerAskLabel;
       protected _bankerAskLabel;
       protected _playerCount;
@@ -20,6 +21,8 @@ namespace we {
       protected _remainingPercentage;
       protected _normalChart: ui.SimpleChart;
       protected _pairChart: ui.SimpleChart;
+      protected _iconBankerBead: eui.Image;
+      protected _iconPlayerBead: eui.Image;
 
       constructor() {
         super('ba.Analysis');
@@ -28,6 +31,28 @@ namespace we {
       protected mount() {
         this._playerAskLabel.text = i18n.t('baccarat.askPlayer');
         this._bankerAskLabel.text = i18n.t('baccarat.askBanker');
+        this._iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askBankerRoad, this);
+        this._iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askPlayerRoad, this);
+      }
+
+      public askBankerRoad(evt: egret.Event) {
+        // console.log('askBanker', this.parent instanceof we.ui.LiveListAdvancedItem);
+        // console.log(this);
+        // console.log(this.parent);
+        if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
+          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
+            // console.log('askBanker2');
+            (<AdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askBankerRoad();
+          }
+        }
+      }
+
+      public askPlayerRoad(evt: egret.Event) {
+        if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
+          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
+            (<AdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askPlayerRoad();
+          }
+        }
       }
 
       public set tableId(value: string) {

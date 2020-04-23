@@ -15,6 +15,7 @@ namespace we {
       protected btnHotCold: ui.BaseImageButton;
       protected btnHistory: ui.BaseImageButton;
       protected btnRoads: ui.BaseImageButton;
+      protected _chipLayer: ui.ChipLayer;
 
       protected pageRadioBtn1: eui.RadioButton;
       protected pageRadioBtn2: eui.RadioButton;
@@ -41,9 +42,12 @@ namespace we {
       protected pageStack: eui.ViewStack;
       protected roadStack: eui.ViewStack;
 
+      protected _radioButtons: eui.RadioButton[];
+
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RoLeftPanel');
       }
+
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
@@ -62,7 +66,17 @@ namespace we {
         this.updateActiveLine(false);
       }
 
+      public set chipLayer(value: ui.ChipLayer) {
+        this._chipLayer = value;
+      }
+
+      protected setRadioButtons() {
+        this._radioButtons = [this.pageRadioBtn1, this.pageRadioBtn2, this.pageRadioBtn3];
+      }
+
       protected init() {
+        this.setRadioButtons();
+
         this.gameId = '';
         this.totalBet = 0;
 
@@ -199,10 +213,9 @@ namespace we {
       }
 
       protected updateActiveLine(useEasing: boolean) {
-        const radioButtons = [this.pageRadioBtn1, this.pageRadioBtn2, this.pageRadioBtn3];
-        const btn = radioButtons[this.pageStack.selectedIndex];
+        const btn = this._radioButtons[this.pageStack.selectedIndex];
 
-        radioButtons.forEach(element => {
+        this._radioButtons.forEach(element => {
           if (element === btn) {
             element.currentState = 'upAndSelected';
           } else {

@@ -136,7 +136,7 @@ namespace we {
           lineX += sizeW * this.gridUnit;
         }
 
-        this.updateTexture();
+        // this.updateTexture();
       }
 
       // override for base class
@@ -149,7 +149,7 @@ namespace we {
           icon.setByObject({});
           icon.x = (this.cellWidth - this.imageWidth) / 2 + this.cellWidth * (iconIndex % this.numCol);
           icon.y = (this.cellHeight - this.imageHeight) / 2 + this.cellHeight * Math.floor(iconIndex / this.numCol);
-          this.addChild(icon);
+          icon.addToLayer(this._staticLayer);
           this.roadMapIconList.push(icon);
           iconIndex++;
         }

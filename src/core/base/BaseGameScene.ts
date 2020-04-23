@@ -33,6 +33,7 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
+      // protected _btnBack: eui.Image;
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
 
@@ -216,7 +217,6 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         }
-
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
@@ -251,7 +251,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -291,7 +291,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -343,6 +343,15 @@ namespace we {
           case core.GameState.DEAL:
             this.setStateDeal(isInit);
             break;
+          case core.GameState.PEEK:
+            this.setStatePeek(isInit);
+            break;
+          case core.GameState.PEEK_BANKER:
+            this.setStatePeekBanker(isInit);
+            break;
+          case core.GameState.PEEK_PLAYER:
+            this.setStatePeekPlayer(isInit);
+            break;
           case core.GameState.FINISH:
             this.setStateFinish(isInit);
             break;
@@ -369,6 +378,13 @@ namespace we {
           this.setResultRelatedComponentsEnabled(false);
         }
       }
+
+      protected setStatePeek(isInit: boolean = false) {}
+
+      protected setStatePeekPlayer(isInit: boolean = false) {}
+
+      protected setStatePeekBanker(isInit: boolean = false) {}
+
       protected setStateBet(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);

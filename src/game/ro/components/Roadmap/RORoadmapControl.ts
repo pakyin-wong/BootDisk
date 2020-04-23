@@ -87,7 +87,9 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.roadmap) {
             const data = this.tableInfo.roadmap;
-            this.resultPanel.visible = false;
+            if (this.resultPanel) {
+              this.resultPanel.visible = false;
+            }
           }
         }
       }
@@ -134,7 +136,9 @@ namespace we {
               // update the gamestatistic
               if (this.tableInfo.gamestatistic) {
                 const stat = this.tableInfo.gamestatistic;
-                this.leftPanel.setHotCold(stat.hotNumbers, stat.coldNumbers);
+                if (this.leftPanel) {
+                  this.leftPanel.setHotCold(stat.hotNumbers, stat.coldNumbers);
+                }
               }
             }
           }

@@ -8,9 +8,12 @@ namespace we {
       gametype_BAC: '百家樂',
       gametype_BAS: '競速百家樂',
       gametype_BAI: '保險百家樂',
+      gametype_BAM: '咪牌百家樂',
       gametype_DI: '骰寶',
       gametype_MJ: '麻將',
       gametype_RO: '輪盤',
+      gametype_ROL: '財神輪盤',
+
       gametype_DT: '龍虎',
       gametype_LW: '幸運輪',
 
@@ -120,6 +123,7 @@ namespace we {
         },
       },
       nav: {
+        bet_balance: '餘額',
         menu: {
           title: '設定',
           selectMode: '介面色調',
@@ -238,6 +242,7 @@ namespace we {
         hotColdNumber: '熱冷號碼',
         history: '歷史記錄',
         roadmap: '路紙',
+        luckyNumber: '幸運數字',
         jockeyBet: '馬場下注區',
         customBet: '自選投注組合',
         distribution: { text: '散佈', x: 60 },
