@@ -147,7 +147,12 @@
                         </e:RadioButton>
                 </e:Group>
                 <e:Group id="page4" width="100%" height="100%" name="View">
-                        <e:Rect width="100%" x="0" y="0"  fillColor="0x000000" height="100%"/>
+                        <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" />
+                        <e:Group id="_coinGroup" width="100%" height="100%">
+                                <e:layout>
+                                        <e:HorizontalLayout verticalAlign="middle" horizontalAlign="center" />
+                                </e:layout>
+                        </e:Group>
                 </e:Group>
         </e:ViewStack>
 </e:Skin>

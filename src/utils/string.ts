@@ -46,6 +46,15 @@ namespace we {
         .replace('heart', 'hearts');
     }
 
+    export function cardToNumber(source) {
+      return source
+        .replace(/^(.+?)([0-9ajqk][0]?)$/, '$2')
+        .replace('a', '1')
+        .replace('j', '0')
+        .replace('q', '0')
+        .replace('k', '0');
+    }
+
     export function getWinMessageKey(gameType, winType, isShort = false) {
       const shortStr = isShort ? '.short' : '';
       switch (gameType) {
