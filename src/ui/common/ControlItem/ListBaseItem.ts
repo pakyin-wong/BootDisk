@@ -90,8 +90,10 @@ namespace we {
       }
 
       protected showQuickBetGroup() {
-        this._chipLayer.touchEnabled = true;
-        this._chipLayer.touchChildren = true;
+        if (this._chipLayer) {
+          this._chipLayer.touchEnabled = true;
+          this._chipLayer.touchChildren = true;
+        }
         this.holder.changeState(ui.TableListItemHolder.STATE_FOCUS);
         if (this.parent.localToGlobal(this.x, this._originaly).y > this._offsetLimit) {
           this._offsetY = this.parent.localToGlobal(this.x, this._originaly).y - this._offsetMovement;
@@ -115,8 +117,10 @@ namespace we {
       }
 
       protected hideQuickBetGroup() {
-        this._chipLayer.touchEnabled = false;
-        this._chipLayer.touchChildren = false;
+        if (this._chipLayer) {
+          this._chipLayer.touchEnabled = false;
+          this._chipLayer.touchChildren = false;
+        }
 
         this.onCancelPressed();
 

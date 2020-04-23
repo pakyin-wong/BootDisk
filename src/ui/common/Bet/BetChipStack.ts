@@ -12,8 +12,8 @@ namespace we {
       protected _betSum: number;
       protected _denomList: number[];
       protected _cfmDenomList: number[];
-      protected _cfmBet: number;
-      protected _uncfmBet: number;
+      protected _cfmBet: number = 0;
+      protected _uncfmBet: number = 0;
       protected _stackLimit: number = 3;
       protected _chipWidth: number;
       protected _chipHeight: number;

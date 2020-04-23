@@ -89,7 +89,7 @@ namespace we {
             logger.e('LiveListHolder::initDisplayItem() - no "mode" can be read');
         }
 
-        const listItem = new we.ui[itemName](`${itemName}Skin`);
+        const listItem = new we.ui[itemName](`${itemName}CompleteSkin`);
         listItem.itemInitHelper = new we.ba.LiveListItemInitHelper();
 
         this._displayItem = listItem;

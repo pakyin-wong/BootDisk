@@ -6,6 +6,9 @@ namespace we {
       private gapSize: number = 48;
       private roomLayout: eui.TileLayout;
 
+      private _slider: ui.ImageSlider;
+      private _stickyHeader: ui.StickyContent;
+
       constructor() {}
 
       public initContent(root: GameTableList) {
@@ -110,11 +113,11 @@ namespace we {
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
 
-        const slider = new we.ui.ImageSlider();
-        slider.height = 790;
-        slider.width = 2600;
-        slider.configSlides(dir.liveResources.liveHeroBanners);
-        root.roomList.addChild(slider);
+        this._slider = new we.ui.ImageSlider();
+        this._slider.height = 790;
+        this._slider.width = 2600;
+        this._slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.roomList.addChild(this._slider);
 
         const tabBarGroup = new eui.Group();
         tabBarGroup.left = paddingHorizontal;
@@ -124,18 +127,32 @@ namespace we {
         tabBarGroup.addChild(root.tabs);
         tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
-        const stickyHeader = new ui.StickyContent();
-        stickyHeader.width = 2600;
-        stickyHeader.content = tabBarGroup;
-        stickyHeader.scroller = root.scroller;
-        stickyHeader.contentPaddingTop = this.gapSize;
-        stickyHeader.y = slider.height + offsetForTableList + this.gapSize;
-        root.roomList.addChild(stickyHeader);
+        this._stickyHeader = new ui.StickyContent();
+        this._stickyHeader.width = 2600;
+        this._stickyHeader.content = tabBarGroup;
+        this._stickyHeader.scroller = root.scroller;
+        this._stickyHeader.contentPaddingTop = this.gapSize;
+        this._stickyHeader.y = this._slider.height + offsetForTableList + this.gapSize;
+        root.roomList.addChild(this._stickyHeader);
 
         root.scroller.viewport = root.roomList;
       }
 
       public onDisplayMode(evt: egret.Event) {
+        const paddingHorizontal = 71;
+        const offsetForTableList = -paddingHorizontal * 3;
+
+        const scrollV = this.root.scroller.viewport.scrollV;
+
+        this.root.roomList = new ui.TableList();
+        this.root.roomList.isFreezeScrolling = true;
+        this.root.roomList.isGlobalLock = true;
+
+        this.roomLayout.paddingTop = 790 + offsetForTableList + this.gapSize + 100;
+        this.roomLayout.useVirtualLayout = true;
+        this.roomLayout.paddingLeft = paddingHorizontal;
+        this.roomLayout.paddingRight = paddingHorizontal;
+
         switch (evt.data) {
           case we.lobby.mode.NORMAL:
             this.roomLayout.horizontalGap = this.gapSize;
@@ -167,6 +184,38 @@ namespace we {
             logger.e('DLiveContentInitializer::onDisplayMode() no "mode" can be read');
             break;
         }
+
+        this.root.roomList.layout = this.roomLayout;
+        this.root.roomList.itemRenderer = LiveListHolder;
+        this.root.roomList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.LiveListHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.LiveListHolder;
+            case we.core.GameType.DI:
+              return di.LiveListHolder;
+            case we.core.GameType.LW:
+              return lw.LiveListHolder;
+            case we.core.GameType.DT:
+              return dt.LiveListHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
+        this.root.roomList.setGameFiltersByTabIndex(this.root.tabs.tabBar.selectedIndex);
+        this.root.roomList.setTableList(this.root.roomIds);
+        this.root.roomList.addChild(this._slider);
+        this.root.roomList.addChild(this._stickyHeader);
+
+        this.root.scroller.viewport = this.root.roomList;
+        this.root.scroller.validateNow();
+        this.root.scroller.viewport.scrollV = scrollV;
       }
     }
   }

@@ -111,7 +111,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (this._chipLayer.isAlreadyBet()) {
+        if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -120,7 +120,7 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
-        if (this._chipLayer.isAlreadyBet()) {
+        if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;

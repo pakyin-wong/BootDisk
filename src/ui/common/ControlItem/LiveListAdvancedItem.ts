@@ -45,10 +45,10 @@ namespace we {
       protected arrangeComponents() {
         super.arrangeComponents();
         for (const att of this._arrangeProperties) {
-          if (this._analysisNode) {
+          if (this._analysisNode && this._analysis) {
             this._analysis[att] = this._analysisNode[att];
           }
-          if (this._advancedRoadNode) {
+          if (this._advancedRoadNode && this._advancedRoad) {
             this._advancedRoad[att] = this._advancedRoadNode[att];
           }
         }
@@ -63,7 +63,7 @@ namespace we {
       protected generateAnalysis() {
         if (this.itemInitHelper) {
           this._analysis = this.itemInitHelper.generateAnalysis(this._analysisNode);
-          this._analysis.cacheAsBitmap = true;
+          // this._analysis.cacheAsBitmap = true;
         }
       }
 
@@ -83,9 +83,11 @@ namespace we {
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
-            this._analysis.tableId = this._tableId;
-            this._analysis.updateRoad();
-            if (this._tableInfo) {
+            if (this._analysis) {
+              this._analysis.tableId = this._tableId;
+              this._analysis.updateRoad();
+            }
+            if (this._tableInfo && this._advancedRoad) {
               this._advancedRoad.tableInfo = this._tableInfo;
               this._advancedRoad.update(this._tableInfo.roadmap);
             }
@@ -102,9 +104,11 @@ namespace we {
           this._dealerImage.texture = RES.getRes('advanced_dealer_' + randNo + '_png');
         }
         if (tableInfo.tableid === this._tableId) {
-          this._analysis.tableId = this._tableId;
-          this._analysis.updateRoad();
-          if (this._tableInfo) {
+          if (this._analysis) {
+            this._analysis.tableId = this._tableId;
+            this._analysis.updateRoad();
+          }
+          if (this._tableInfo && this._advancedRoad) {
             this._advancedRoad.tableInfo = this._tableInfo;
             this._advancedRoad.update(this._tableInfo.roadmap);
           }
@@ -120,8 +124,10 @@ namespace we {
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
-            this._analysis.tableId = this._tableId;
-            this._analysis.updateTableBetInfo();
+            if (this._analysis) {
+              this._analysis.tableId = this._tableId;
+              this._analysis.updateTableBetInfo();
+            }
           }
         }
       }

@@ -93,7 +93,6 @@ namespace we {
         }
       }
 
-
       public itemDataChanged() {
         super.itemDataChanged();
         this.updateDisplayItem();

@@ -2,6 +2,7 @@ namespace we {
   export namespace ba {
     export class LiveListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
+        // return null;
         const tableLayer = new ba.TableLayer();
         tableLayer.skinName = `skin_desktop.ba.LiveListItemTableLayerSkin`;
         const idx = node.parent.getChildIndex(node);
@@ -10,6 +11,7 @@ namespace we {
       }
 
       public generateChipLayer(node: eui.Component) {
+        // return null;
         const chipLayer = new ba.ChipLayer();
         chipLayer.skinName = `skin_desktop.ba.LiveListItemChipLayerSkin`;
         const idx = node.parent.getChildIndex(node);
@@ -25,6 +27,7 @@ namespace we {
       }
 
       public generateAnalysis(node: eui.Component) {
+        // return null;
         const analysis = new ba.Analysis();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(analysis, idx);
@@ -32,6 +35,7 @@ namespace we {
       }
 
       public generateAdvancedRoad(node: eui.Component) {
+        // return null;
         const advancedRoad = new ba.AdvancedRoad();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(advancedRoad, idx);

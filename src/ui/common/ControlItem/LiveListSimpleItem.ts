@@ -8,6 +8,8 @@ namespace we {
       protected _tableLayerNode: eui.Component;
       protected _chipLayerNode: eui.Component;
       protected _roadmapNode: eui.Component;
+      protected _quickbetButtonNode: eui.Component;
+      protected _betChipSetNode: eui.Component;
 
       protected _arrangeProperties = [
         'x',
@@ -34,8 +36,8 @@ namespace we {
 
       protected initChildren() {
         this.generateRoadmap();
-        this.generateTableLayer();
-        this.generateChipLayer();
+        // this.generateTableLayer();
+        // this.generateChipLayer();
         super.initChildren();
       }
 
@@ -54,6 +56,27 @@ namespace we {
       protected generateRoadmap() {
         if (this.itemInitHelper && this._roadmapNode) {
           this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
+        }
+      }
+
+      protected runtimeGenerateBetChipSet() {
+        const betChipSet = new BetChipSetHorizontal();
+        betChipSet.navWidth = 20;
+        betChipSet.containerPadding = 6;
+
+        const idx = this._betChipSetNode.parent.getChildIndex(this._betChipSetNode);
+        this._betChipSetNode.parent.addChildAt(betChipSet, idx);
+        this._betChipSet = betChipSet;
+
+        for (const att of this._arrangeProperties) {
+          if (betChipSet) {
+            betChipSet[att] = this._betChipSetNode[att];
+          }
+        }
+
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        if (this._betChipSet) {
+          this._betChipSet.init(3, denominationList);
         }
       }
 
@@ -125,8 +148,46 @@ namespace we {
         }
       }
 
+      protected runtimeGenerateChipLayer() {
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        this.generateChipLayer();
+        for (const att of this._arrangeProperties) {
+          if (this._chipLayer) {
+            this._chipLayer[att] = this._chipLayerNode[att];
+          }
+        }
+        this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._chipLayer.denomList = denominationList;
+        this._chipLayer.undoStack = this._undoStack;
+        if (this._tableLayer) {
+          this._chipLayer.tableLayer = this._tableLayer;
+        }
+        this._chipLayer.init();
+        this._chipLayer.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
+        this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
+      }
+
+      protected runtimeGenerateTableLayer() {
+        this.generateTableLayer();
+        for (const att of this._arrangeProperties) {
+          if (this._tableLayer) {
+            this._tableLayer[att] = this._tableLayerNode[att];
+          }
+        }
+        this._tableLayer.init();
+      }
+
       protected showQuickBetGroup() {
         this._quickbetButton.tween(!this.list.isLocked);
+        if (!this._betChipSet) {
+          this.runtimeGenerateBetChipSet();
+        }
+        if (!this._tableLayer) {
+          this.runtimeGenerateTableLayer();
+        }
+        if (!this._chipLayer) {
+          this.runtimeGenerateChipLayer();
+        }
         super.showQuickBetGroup();
         egret.Tween.removeTweens(this._chipLayer);
         const p3 = new Promise(resolve =>
@@ -138,12 +199,16 @@ namespace we {
       }
 
       protected hideQuickBetGroup() {
-        this._quickbetButton.tween(!this.list.isLocked);
+        if (this._quickbetButton) {
+          this._quickbetButton.tween(!this.list.isLocked);
+        }
         super.hideQuickBetGroup();
-        egret.Tween.removeTweens(this._chipLayer);
-        egret.Tween.get(this._chipLayer)
-          .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
-          .set({ visible: false });
+        if (this._chipLayer) {
+          egret.Tween.removeTweens(this._chipLayer);
+          egret.Tween.get(this._chipLayer)
+            .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
+            .set({ visible: false });
+        }
       }
 
       protected setBetRelatedComponentsEnabled(enable) {
@@ -155,9 +220,13 @@ namespace we {
 
       public onRollover(evt: egret.Event) {
         this.checkSkin();
+        if (this._quickbetEnable && !this._quickbetButton) {
+          this.generateQuickBetButton();
+        }
+
         super.onRollover(evt);
         if (this.list && !this.list.isLocked) {
-          if (this._quickbetEnable) {
+          if (this._quickbetEnable && this._quickbetButton) {
             this._quickbetButton.tween(false);
           }
         }
@@ -174,11 +243,33 @@ namespace we {
         }
       }
 
+      protected generateQuickBetButton() {
+        if (this._quickbetButtonNode) {
+          const button = new ui.LobbyQuickBetAnimButton();
+          button.label1text = '快速投注';
+          button.label2text = 'X';
+          button.resName = 'd_lobby_quick_bet_notification_follow_normal_png';
+          button.hoverResName = 'd_lobby_quick_bet_notification_follow_hover_png';
+
+          const idx = this._quickbetButtonNode.parent.getChildIndex(this._quickbetButtonNode);
+          this._quickbetButtonNode.parent.addChildAt(button, idx);
+          this._quickbetButton = button;
+
+          this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+
+          for (const att of this._arrangeProperties) {
+            if (button) {
+              button[att] = this._quickbetButtonNode[att];
+            }
+          }
+        }
+      }
+
       protected animateQuickBetButton(show: boolean) {
+        super.animateQuickBetButton(show);
         if (!this._quickbetButton) {
           return;
         }
-        super.animateQuickBetButton(show);
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
           egret.Tween.get(this._quickbetButton)
