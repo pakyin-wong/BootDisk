@@ -139,11 +139,23 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LiveListAdvancedItemCompleteSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
+	class LiveListItemCompleteSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LiveListSimpleItemCompleteSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -625,7 +637,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class ListTestPageSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RoadmapControlTestPageSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ScrollerTestPageSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
