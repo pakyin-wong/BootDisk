@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.lw.ChipLayerSkin" width="1242" height="263" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.lw.ChipLayerSkin" width="1710" height="320" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-	<e:Group id="_oneCircleGroup" x="29" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_oneCircleGroup" x="30" y="0" width="210" height="320" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_oneCircleBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
-		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30"  scaleX="1.5" scaleY="1.5"/>
 	</e:Group>
-	<e:Group id="_threeCircleGroup" x="201" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_threeCircleGroup" x="270" y="0" width="210" height="320" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_threeCircleBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
-		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" scaleY="1.5"/>
 	</e:Group>
-	<e:Group id="_fiveCircleGroup" x="373" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_fiveCircleGroup" x="510" y="0" width="210" height="320" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_fiveCircleBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
-		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" scaleY="1.5"/>
 	</e:Group>
-	<e:Group id="_redDragonGroup" x="545" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_redDragonGroup" x="750" y="0" width="210" height="320" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_redDragonBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
-		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" scaleY="1.5"/>
 	</e:Group>
-	<e:Group id="_greenDragonGroup" x="717" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_greenDragonGroup" x="990" y="0" width="210" height="320" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_greenDragonBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
-		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" scaleY="1.5"/>
 	</e:Group>
-	<e:Group id="_whiteDragonGroup" x="889" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_whiteDragonGroup" x="1230" y="0" width="210" height="320" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_whiteDragonBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
-		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" scaleY="1.5"/>
 	</e:Group>
-	<e:Group id="_weGroup" x="1061" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_weGroup" x="1470" y="0" width="210" height="320" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_weBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
 		                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 		                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
-		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" />
+		                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" scaleY="1.5"/>
 	</e:Group>
 </e:Skin>
