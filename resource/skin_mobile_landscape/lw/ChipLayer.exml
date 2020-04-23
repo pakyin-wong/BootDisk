@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.lw.ChipLayerSkin" width="1242" height="263" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.lw.ChipLayerSkin" width="1242" height="263" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="_oneCircleGroup" x="29" y="0" width="150" height="263" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:BetChipStack id="_oneCircleBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"

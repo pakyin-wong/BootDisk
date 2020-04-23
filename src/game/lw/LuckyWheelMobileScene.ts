@@ -26,6 +26,26 @@ namespace we {
         this._skinKey = 'LuckyWheelScene';
       }
 
+      protected mount() {
+        super.mount();
+        this.addListeners();
+      }
+
+      public destroy() {
+        super.destroy();
+        this.removeListeners();
+      }
+
+      protected addListeners() {
+        this._bottomGamePanel._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+      }
+
+      protected removeListeners() {
+        this._bottomGamePanel._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+      }
+
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         this._lwGameID.renderText = () => `${this._tableInfo.tableid}`;
@@ -132,14 +152,16 @@ namespace we {
       }
 
       protected setChipPanelPos() {
-        if (this._bottomGamePanel.isPanelOpen) {
-          this._betPanelGroup.scaleY = 1;
-          this._betPanelGroup.y = 0;
-          this._betChipSetPanel.y = 1210;
-        } else {
-          this._betPanelGroup.scaleY = -1;
-          this._betPanelGroup.y = 762;
-          this._betChipSetPanel.y = 762;
+        if (env.orientation === 'portrait') {
+          if (this._bottomGamePanel.isPanelOpen) {
+            this._betPanelGroup.scaleY = 1;
+            this._betPanelGroup.y = 0;
+            this._betChipSetPanel.y = 1210;
+          } else {
+            this._betPanelGroup.scaleY = -1;
+            this._betPanelGroup.y = 762;
+            this._betChipSetPanel.y = 762;
+          }
         }
       }
 
@@ -208,6 +230,12 @@ namespace we {
         // this.initChildren();
         // this.invalidateState();
         this.changeHandMode();
+      }
+
+      protected checkBetChipPanel() {
+        if (this._betChipSetPanel.visible === true) {
+          this.setChipPanelPos();
+        }
       }
     }
   }

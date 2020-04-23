@@ -796,7 +796,7 @@ declare module skin_mobile_landscape{
 	class LobbyScene extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.lw{
+declare module skin_mobile_landscape.lw{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
@@ -836,7 +836,7 @@ declare module skin_mobile_landscape.lw{
 	class TableInfoPanel extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.lw{
+declare module skin_mobile_landscape.lw{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
@@ -1154,6 +1154,10 @@ declare module skin_mobile_portrait{
 	class LobbyScene extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.lw{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class LuckyWheelScene extends eui.Skin{
 	}
@@ -1172,6 +1176,10 @@ declare module skin_mobile_portrait.lw{
 }
 declare module skin_mobile_portrait.lw{
 	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.lw{
+	class TableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
