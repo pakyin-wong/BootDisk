@@ -165,12 +165,13 @@ namespace we {
       public changeLang() {
         super.changeLang();
 
-        this.oddevenLabel.text = i18n.t('roulette.betGroup.color');
-        this.sizeLabel.text = i18n.t('roulette.betGroup.oddeven');
-        this.tripleLabel.text = i18n.t('roulette.betGroup.size');
-        this.allTripleLabel.text = i18n.t('roulette.betGroup.column');
-        this.doubleLabel.text = i18n.t('roulette.betGroup.row');
+        this.oddevenLabel.text = i18n.t('dice.odd') + '/' + i18n.t('dice.even');
+        this.sizeLabel.text = i18n.t('dice.big') + '/' + i18n.t('dice.small');
+        this.tripleLabel.text = i18n.t('dice.triple');
+        this.allTripleLabel.text = i18n.t('dice.allTriple');
+        this.doubleLabel.text = i18n.t('dice.double');
       }
+
       public setValue(tableInfo: data.TableInfo) {
         super.setValue(tableInfo);
 

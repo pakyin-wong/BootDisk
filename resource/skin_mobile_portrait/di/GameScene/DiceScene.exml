@@ -36,14 +36,14 @@
                 <e:Group id="_bAViewport">
                         <e:Group id="_bATransition" x="0">
                                 <e:Group id="_bANormal" x="0" height="1530" width="924">
-                                        <di:MobileTableLayer id="_tableLayer" x="0" y="0" width="100%" height="100%" skinName="skin_mobile_portrait.di.MobileTableLayerSkin" isEdgeDismissable="true"/>
-                                        <di:MobileChipLayer id="_chipLayer" x="0" y="0" width="100%" height="100%" isEdgeDismissable="true" skinName="skin_mobile_portrait.di.MobileChipLayerSkin"/>
+                                        <di:MobileTableLayer id="_tableLayer" x="0" y="0" width="100%" height="100%" skinName="skin_mobile_portrait.di.MobileTableLayerSkin" isEdgeDismissable="true" x.left_hand_mode="9.09"/>
+                                        <di:MobileChipLayer id="_chipLayer" x="0" y="0" width="100%" height="100%" isEdgeDismissable="true" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" x.left_hand_mode="9.09"/>
                                 </e:Group>
                         </e:Group>
                 </e:Group>
         </e:Scroller>
 
-  <di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" />
+  <di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"  horizontalCenter.left_hand_mode="0" top.left_hand_mode="350"/>
   <ui:InGameMessage
     id="_message"
     x="311"
@@ -53,7 +53,7 @@
     successBg="d_ba_gamerecord_tieelement_png"
     errorBg="d_ba_gamerecord_bankerelement_png"/>
   <di:MobileSidePanel id="_sidePanel" x="27" skinName="skin_mobile_portrait.di.MobileSidePanel" verticalCenter="0" x.left_hand_mode="1114"/>
-  <e:Group id="_betSet" y="122" left="0" right="0" touchThrough="true" left.left_hand_mode="-15" right.left_hand_mode="15" left.right_hand_mode="9" right.right_hand_mode="-9">
+  <e:Group id="_betSet" y="122" left="0" right="0" touchThrough="true" left.left_hand_mode="-3" right.left_hand_mode="3" left.right_hand_mode="9" right.right_hand_mode="-9">
     <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="1052" x.left_hand_mode="5"/>
     <e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
       <e:Group x="0" y="0" scaleX.left_hand_mode="-1" x.left_hand_mode="888">

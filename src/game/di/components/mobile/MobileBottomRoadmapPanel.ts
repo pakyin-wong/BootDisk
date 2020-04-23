@@ -54,8 +54,6 @@ namespace we {
 
         this.oddRoad = new DiOddBigRoad(18, 68, 1, false);
         this.oddBigRoadConfig.parent.addChild(this.oddRoad);
-
-        this._roadmapView.selectedIndex = 0;
       }
 
       public destroy() {

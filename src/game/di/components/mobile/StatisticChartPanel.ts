@@ -31,13 +31,8 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        this._diPie.maxChartSize = 180;
-        this._diChance.width = 1242;
-        this._diChance.height = 425;
-        this._diPie.scaleX = 1.5;
-        this._diPie.scaleY = 1.5;
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this.contentTwo.alpha = 0;
+        this.contentTwo.x = this.stage.width;
         this.configSlides();
       }
 
@@ -73,18 +68,45 @@ namespace we {
           return;
         }
 
-        this.content.x = event.$stageX - this.initX;
-        if (this.content.x > 0) {
-          // invisible one to left (prev)
-          this.contentTwo.x = this.content.x - 2484;
-          this.direction = 'prev';
-        } else {
-          // invisble one to right (next)
-          this.contentTwo.x = this.content.x + 2484;
-          this.direction = 'next';
+        switch (this.currentIndex) {
+          case 0:
+            // this.content.x = event.$stageX;
+            // this.contentTwo.x = this.content.x + this.content.width;
+            this.direction = 'next';
+            break;
+          case 1:
+            // this.contentTwo.x = event.$stageX;
+            // this.content.x = this.contentTwo.x - this.contentTwo.width;
+            this.direction = 'prev';
+            break;
         }
-        const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
-        this.contentTwo.alpha = 1;
+
+        // let temp;
+        // let temp2;
+
+        // switch (this.currentIndex) {
+        //   case 0:
+        //     temp = this.content;
+        //     temp2 = this.contentTwo;
+        //     break;
+        //   case 1:
+        //     temp = this.contentTwo;
+        //     temp2 = this.content;
+        //     break;
+        // }
+
+        // temp.x = event.$stageX - this.initX;
+        // if (temp.x > 0) {
+        //   // invisible one to left (prev)
+        //   temp2.x = temp.x - temp.width;
+        //   this.direction = 'prev';
+        // } else {
+        //   // invisble one to right (next)
+        //   temp2 = temp.x + temp.width;
+        //   this.direction = 'next';
+        // }
+        // const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
+        // this.contentTwo.alpha = 1;
       }
 
       private onTouchEnd(event: egret.TouchEvent): void {
@@ -97,35 +119,100 @@ namespace we {
 
         const diff = event.$stageX - this.initX;
 
-        if (Math.abs(diff) / 2484 <= 0.25) {
-          // not reach threshold, don't slide
-          TweenLite.to(this.content, this.duration, {
-            x: 0,
-          });
-          TweenLite.to(this.contentTwo, this.duration, {
-            x: this.direction === 'next' ? 2484 : -2484,
-          });
-
-          setTimeout(() => {
-            this.contentTwo.alpha = 0;
-            this.isAnimating = false;
-          }, this.duration * 1000 + 50);
-          return;
+        switch (this.currentIndex) {
+          case 0:
+            if (Math.abs(diff) / this.content.width <= 0.25) {
+              TweenLite.to(this.content, this.duration, {
+                x: 0,
+              });
+              TweenLite.to(this.contentTwo, this.duration, {
+                x: this.content.width,
+              });
+            }
+            break;
+          case 1:
+            if (Math.abs(diff) / this.contentTwo.width <= 0.25) {
+              TweenLite.to(this.contentTwo, this.duration, {
+                x: 0,
+              });
+              TweenLite.to(this.content, this.duration, {
+                x: -this.content.width,
+              });
+            }
+            break;
         }
 
-        // Before Animate
-        this.currentIndex = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
+        this.currentIndex++;
+        if (this.currentIndex >= this.slides.length) {
+          this.currentIndex = 0;
+        }
 
-        TweenLite.to(this.contentTwo, this.duration, {
-          x: 0,
-        });
-        TweenLite.to(this.content, this.duration, {
-          x: this.direction === 'next' ? -2484 : 2484,
-        });
+        switch (this.direction) {
+          case 'next':
+            TweenLite.to(this.contentTwo, this.duration, {
+              x: 0,
+            });
+            TweenLite.to(this.content, this.duration, {
+              x: -this.content.width,
+            });
+            break;
+          case 'prev':
+            TweenLite.to(this.content, this.duration, {
+              x: 0,
+            });
+            TweenLite.to(this.contentTwo, this.duration, {
+              x: this.content.width,
+            });
+            break;
+        }
 
         setTimeout(() => {
           this.isAnimating = false;
         }, this.duration * 1000 + 50);
+
+        // let temp;
+        // let temp2;
+
+        // switch (this.currentIndex) {
+        //   case 0:
+        //     temp = this.content;
+        //     temp2 = this.contentTwo;
+        //     break;
+        //   case 1:
+        //     temp = this.contentTwo;
+        //     temp2 = this.content;
+        //     break;
+        // }
+
+        // if (Math.abs(diff) / temp.width <= 0.25) {
+        //   // not reach threshold, don't slide
+        //   TweenLite.to(temp, this.duration, {
+        //     x: 0,
+        //   });
+        //   TweenLite.to(temp2, this.duration, {
+        //     x: this.direction === 'next' ? temp.width : -temp.width,
+        //   });
+
+        //   setTimeout(() => {
+        //     this.contentTwo.alpha = 0;
+        //     this.isAnimating = false;
+        //   }, this.duration * 1000 + 50);
+        //   return;
+        // }
+
+        // // Before Animate
+        // this.currentIndex = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
+
+        // TweenLite.to(temp2, this.duration, {
+        //   x: 0,
+        // });
+        // TweenLite.to(temp, this.duration, {
+        //   x: this.direction === 'next' ? -temp.width / 2 : temp.width,
+        // });
+
+        // setTimeout(() => {
+        //   this.isAnimating = false;
+        // }, this.duration * 1000 + 50);
       }
 
       public setValue(tableInfo: data.TableInfo) {

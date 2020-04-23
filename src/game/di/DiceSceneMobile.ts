@@ -102,6 +102,13 @@ namespace we {
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
+
+        if (this._gameData.state === core.GameState.DEAL || this._gameData.state === core.GameState.FINISH) {
+          this._betAreaLock = true;
+          this._bottomGamePanel.manualClose();
+          this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
+          this.diState = 'small';
+        }
       }
 
       protected addEventListeners() {
@@ -154,25 +161,25 @@ namespace we {
         if (!this._gameData) {
           return;
         }
-        // (this._tableLayer as di.TableLayer).flashFields(`DIRECT_${resultNo}`);
+        (this._tableLayer as di.TableLayer).flashFields(this._gameData);
 
-        // if (this.hasBet()) {
-        //   if (this._gameData && !isNaN(totalWin)) {
-        //     this._resultMessage.showResult(this._tableInfo.gametype, {
-        //       gameData: this._gameData,
-        //       winAmount: this._tableInfo.totalWin,
-        //     });
-        //     dir.audioCtr.playSequence(['player', 'win']);
-        //   }
-        // } else {
-        //   if (this._gameData) {
-        //     this._resultMessage.showResult(this._tableInfo.gametype, {
-        //       gameData: this._gameData,
-        //       winAmount: NaN,
-        //     });
-        //     dir.audioCtr.playSequence(['player', 'win']);
-        //   }
-        // }
+        if (this.hasBet()) {
+          if (this._gameData && !isNaN(totalWin)) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              gameData: this._gameData,
+              winAmount: this._tableInfo.totalWin,
+            });
+            dir.audioCtr.playSequence(['player', 'win']);
+          }
+        } else {
+          if (this._gameData) {
+            this._resultMessage.showResult(this._tableInfo.gametype, {
+              gameData: this._gameData,
+              winAmount: NaN,
+            });
+            dir.audioCtr.playSequence(['player', 'win']);
+          }
+        }
       }
 
       protected initBottomBetLimitSelector() {

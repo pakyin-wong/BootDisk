@@ -10,36 +10,90 @@ namespace we {
         Object.keys(we.di.BETFIELD_IMAGE_MAPPING).map(value => {
           this._groupHoverImageMapping[value] = we.di.MOBILE_BETFIELD_IMAGE_MAPPING[value];
         });
-      }
-
+      }      
+      
       public onRollover(fieldName: string) {
-        const group = this._groupMapping[fieldName];
-        const image = new eui.Image();
-        image.name = 'image';
-        image.alpha = 0.5;
-        image.percentWidth = image.percentHeight = 100;
-        image.source = this._groupHoverImageMapping[fieldName];
-        group.addChildAt(image, 0);
+
       }
 
       public onRollout(fieldName: string) {
-        const group = this._groupMapping[fieldName];
-        if (!group) {
-          return;
-        }
-        const image = group.getChildByName('image');
-        if (image) {
-          group.removeChild(image);
-        }
+
       }
 
       public clearAllHighlights() {
-        Object.keys(di.BetField).map(value => {
-          this.onRollout(value);
-        });
+
       }
 
-      public async flashFields(fieldName: string) {}
+      public async flashFields(data) {
+        if (!data) return;
+
+        const winningFields = di.getWinningFields(data);
+        const initRectPromises = [];
+
+        for (const field of Object.keys(this._groupMapping)) {
+          const group = this._groupMapping[field];
+          const isWin = winningFields.indexOf(field) >= 0;
+          // try remove existing
+          let image = group.getChildByName('image');
+          if (image) {
+            group.removeChild(image);
+          }
+
+          image = new eui.Image();
+          image.name = 'image';
+          image.alpha = 0;
+          image.percentWidth = image.percentHeight = 100;
+          image.source = this._groupHoverImageMapping[field];
+          group.addChildAt(image, 0);
+
+          const promise = new Promise(resolve => {
+            egret.Tween.get(image)
+              .to({ alpha: isWin ? 1 : 0 }, 125)
+              .call(resolve);
+          });
+          initRectPromises.push(promise);
+        }
+        await Promise.all(initRectPromises);
+        // start flashing
+        let run = 1;
+        const tick = async () => {
+          // end flashing
+          if (run >= 6) {
+            const fadeOutPromises = [];
+            for (const field of Object.keys(this._groupMapping)) {
+              const group = this._groupMapping[field];
+              const image = group.getChildByName('image');
+              const promise = new Promise(resolve => {
+                egret.Tween.get(image)
+                  .to({ alpha: 0 }, 125)
+                  .call(() => {
+                    if (image.parent) {
+                      image.parent.removeChild(image);
+                    }
+                    resolve();
+                  });
+              });
+              fadeOutPromises.push(promise);
+            }
+            await Promise.all(fadeOutPromises);
+            return;
+          }
+          const tickFlashPromises = [];
+          for (const field of winningFields) {
+            const group = this._groupMapping[field];
+            const image = group.getChildByName('image');
+            const prom = new Promise(resolve => {
+              const alpha = run % 2 === 1 ? 0.25 : 0;
+              egret.Tween.get(image).to({ alpha }, 125).call(resolve);
+            });
+            tickFlashPromises.push(prom);
+          }
+          await Promise.all(tickFlashPromises);
+          run += 1;
+          setTimeout(tick, 300);
+        };
+        setTimeout(tick, 300);
+      }
     }
   }
 }
