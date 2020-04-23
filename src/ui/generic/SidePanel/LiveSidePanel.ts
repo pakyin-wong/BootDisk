@@ -56,10 +56,10 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
-            case we.core.GameType.BAQ:
+            case we.core.GameType.BAM:
               return ba.SideListBetItemHolder;
             case we.core.GameType.RO:
-            case we.core.GameType.ROW:
+            case we.core.GameType.ROL:
               return ro.SideListBetItemHolder;
             case we.core.GameType.DI:
               return di.SideListBetItemHolder;
@@ -96,10 +96,10 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
-            case we.core.GameType.BAQ:
+            case we.core.GameType.BAM:
               return ba.SideListItemHolder;
             case we.core.GameType.RO:
-            case we.core.GameType.ROW:
+            case we.core.GameType.ROL:
               return ro.SideListItemHolder;
             case we.core.GameType.DI:
               return di.SideListItemHolder;
@@ -138,10 +138,10 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAI:
             case we.core.GameType.BAS:
-            case we.core.GameType.BAQ:
+            case we.core.GameType.BAM:
               return ba.SideListItemHolder;
             case we.core.GameType.RO:
-            case we.core.GameType.ROW:
+            case we.core.GameType.ROL:
               return ro.SideListItemHolder;
             case we.core.GameType.DI:
               return di.SideListItemHolder;
