@@ -19,7 +19,7 @@ namespace we {
       }
 
       public l(...args) {
-        this.log('log', ...args);
+        // this.log('log', ...args);
       }
 
       public e(...args) {
