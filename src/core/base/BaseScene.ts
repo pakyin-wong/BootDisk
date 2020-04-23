@@ -1,11 +1,11 @@
 namespace we {
   export namespace core {
     export class BaseScene extends BaseEUI {
-      public static HEADER_PLACEMENT_RIGHT: string = 'right';
-      public static HEADER_PLACEMENT_LEFT: string = 'left';
+      public static HEADER_PLACEMENT_LOBBY: string = 'Lobby';
+      public static HEADER_PLACEMENT_GAME: string = 'Game';
 
       public sceneHeader: egret.Sprite = new egret.Sprite();
-      public sceneHeaderPlacement: string = BaseScene.HEADER_PLACEMENT_RIGHT;
+      public sceneHeaderPlacement: string = BaseScene.HEADER_PLACEMENT_GAME;
 
       protected _header: egret.DisplayObjectContainer;
 

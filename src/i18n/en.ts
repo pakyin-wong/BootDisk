@@ -126,6 +126,7 @@ namespace we {
         },
       },
       nav: {
+        bet_balance: 'Balance',
         menu: {
           title: 'Settings',
           selectMode: 'Color Mode',
@@ -243,6 +244,7 @@ namespace we {
         hotColdNumber: 'Hot/Cold',
         history: 'History',
         roadmap: 'Roadmap',
+        luckyNumber: 'Lucky Number',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
         distribution: {

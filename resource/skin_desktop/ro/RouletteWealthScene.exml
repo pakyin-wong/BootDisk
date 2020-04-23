@@ -8,24 +8,6 @@
 	               isEdgeDismissable="true" />
 	<rol:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.ChipLayerSkin"
 	              isEdgeDismissable="true" />
-	<e:Group id="_dealRelatedGroup" x="933" y="232">
-		<e:Rect width="735" height="195" ellipseHeight="150" ellipseWidth="150" />
-		<e:Group x="71" y="20">
-			<e:Image id="_lucky1" width="154" height="154" />
-			<e:Label id="_lucky1No" y="40" horizontalCenter="0" text="1" size="50" />
-			<e:Label id="_lucky1Odd" y="91" horizontalCenter="0" text="50x" size="15" />
-		</e:Group>
-		<e:Group x="289" y="20">
-			<e:Image id="_lucky2" width="154" height="154" />
-			<e:Label id="_lucky2No" y="40" horizontalCenter="0" text="2" size="50" />
-			<e:Label id="_lucky2Odd" y="91" horizontalCenter="0" text="50x" size="15" />
-		</e:Group>
-		<e:Group x="507" y="20">
-			<e:Image id="_lucky3" width="154" height="154" />
-			<e:Label id="_lucky3No" y="40" horizontalCenter="0" text="3" size="50" />
-			<e:Label id="_lucky3Odd" y="91" horizontalCenter="0" text="100x" size="15" />
-		</e:Group>
-	</e:Group>
 	<e:Group id="_betRelatedGroup" x="768.64" y="895.13">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
@@ -42,7 +24,7 @@
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_undo" />
 	</e:Group>
-	<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />
+	<rol:RolLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />
 	<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
