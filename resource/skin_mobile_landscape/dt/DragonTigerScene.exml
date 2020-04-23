@@ -4,15 +4,15 @@
         xmlns:live="we.live.*" states="left_hand_mode,right_hand_mode" >
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" x="0"  source="m_ba_bg_offvideo_png" width="2424" height="2710"/>
-	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetX="0">
+	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetX="0" bottom="0">
 		<e:Group id="_verticalTop" width="2424" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<dt:TableLayer id="_tableLayer" y="222" isEdgeDismissable="true"
-			               skinName="skin_mobile_landscape.dt.TableLayerSkin" scaleX="1" scaleY="1" />
+			               skinName="skin_mobile_landscape.dt.TableLayerSkin" scaleX="1" scaleY="1"  horizontalCenter="0" width="1639" height="222"/>
 			<dt:ChipLayer id="_chipLayer" y="222" isEdgeDismissable="true"
-			              skinName="skin_mobile_landscape.dt.ChipLayerSkin" scaleX="1" scaleY="1" />
+			              skinName="skin_mobile_landscape.dt.ChipLayerSkin" scaleX="1" scaleY="1"  horizontalCenter="0" width="1639" height="222"/>
 			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
 		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="2262" y="0" x.right_hand_mode="1109" y.right_hand_mode="-276" y.left_hand_mode="-276" x.left_hand_mode="1109"/>
-			<e:Group id="_betChipSetPanel" y.right_hand_mode="1080" width="1566" height="260" x.right_hand_mode="34" scaleY="1" horizontalCenter.left_hand_mode="4" y.left_hand_mode="1080" scaleY.left_hand_mode="1" visible.right_hand_mode="false" x="366" scaleX="1">
+			<e:Group id="_betChipSetPanel" y.right_hand_mode="1080" width="1566" height="260" x.right_hand_mode="34" scaleY="1" horizontalCenter.left_hand_mode="4" y.left_hand_mode="1080" scaleY.left_hand_mode="1" visible.right_hand_mode="false" x="366" scaleX="1" visible="false">
 				<e:Group id="_betPanelGroup" y.right_hand_mode="0" scaleY.left_hand_mode="1" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0" left.left_hand_mode="0" top.left_hand_mode="0" bottom.left_hand_mode="0" right.left_hand_mode="0" visible.left_hand_mode="false" width="100%" height="260" x="0" y="0">
 				<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" height="443" y="0" x="0" scaleX="1"/>
 				<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" height.right_hand_mode="40" left.left_hand_mode="1043" scaleY="1" width.left_hand_mode="68" y="474" scaleX="1" x.left_hand_mode="1040" width.right_hand_mode="70" right.right_hand_mode="1057" x="327" width="68"/>
@@ -83,10 +83,10 @@
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0" visible="false"/>
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.GameBar" visible="false"/>
 	</e:Group>
-	<ui:ImageGameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin" visible.right_hand_mode="false" height="229"/>
+	<ui:ImageGameResultMessage id="_resultMessage" y="239" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin" visible.right_hand_mode="false" height="229" horizontalCenter="0"/>
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
-	                  errorBg="d_ba_gamerecord_bankerelement_png" y="288" />
+	                  errorBg="d_ba_gamerecord_bankerelement_png" y="288"  horizontalCenter="0"/>
 	<e:Group width="700" x="161" y="22">
 		<ui:RunTimeLabel id="_dtGameIDText" text="Game ID :" bottom="0" left="0"/>
 		<ui:RunTimeLabel id="_dtGameID" text="ID" bottom="0" left="0"/>

@@ -29,6 +29,7 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('DragonTigerScene');
+        this._skinKey = 'DragonTigerScene';
       }
 
       protected setStateBet() {
@@ -131,15 +132,15 @@ namespace we {
       }
 
       protected setChipPanelPos() {
-        if (this._bottomGamePanel.isPanelOpen) {
-          this._betPanelGroup.scaleY = 1;
-          this._betPanelGroup.y = 0;
-          this._betChipSetPanel.y = 1080;
-        } else {
-          this._betPanelGroup.scaleY = -1;
-          this._betPanelGroup.y = 762;
-          this._betChipSetPanel.y = 600;
-        }
+        // if (this._bottomGamePanel.isPanelOpen) {
+        //   this._betPanelGroup.scaleY = 1;
+        //   this._betPanelGroup.y = 0;
+        //   this._betChipSetPanel.y = 1080;
+        // } else {
+        //   this._betPanelGroup.scaleY = -1;
+        //   this._betPanelGroup.y = 762;
+        //   this._betChipSetPanel.y = 600;
+        // }
       }
 
       protected showBetChipPanel() {
@@ -214,10 +215,14 @@ namespace we {
           }
         }
       }
+
       protected onOrientationChange() {
+        this.onExit();
         super.onOrientationChange();
-        this.setSkinName();
-        this.initChildren();
+        this.onEnter();
+        // this.setSkinName();
+        // this.initChildren();
+        this.changeHandMode();
       }
     }
   }
