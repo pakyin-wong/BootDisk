@@ -6997,6 +6997,21 @@
 			"url": "assets/m/di/m_sb_panel_gamelist_result_win.png",
 			"type": "image",
 			"name": "m_sb_panel_gamelist_result_win_png"
+		},
+		{
+			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_tex.png",
+			"type": "image",
+			"name": "sicbo_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_ske.json",
+			"type": "json",
+			"name": "sicbo_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_tex.json",
+			"type": "json",
+			"name": "sicbo_game_result_tex_json"
 		}
 	]
 }
