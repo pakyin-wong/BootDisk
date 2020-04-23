@@ -724,6 +724,10 @@ declare module skin_mobile_landscape.dt{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.dt{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.dt{
 	class CardHolderSkin extends eui.Skin{
 	}

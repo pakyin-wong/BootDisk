@@ -214,6 +214,11 @@ namespace we {
           }
         }
       }
+      protected onOrientationChange() {
+        super.onOrientationChange();
+        this.setSkinName();
+        this.initChildren();
+      }
     }
   }
 }

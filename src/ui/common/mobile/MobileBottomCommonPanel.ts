@@ -11,9 +11,6 @@ namespace we {
       public _arrow: egret.DisplayObject;
       public _arrowUp: egret.DisplayObject;
 
-      // protected _arrow: egret.DisplayObject;
-      // protected _arrowUp: egret.DisplayObject;
-
       protected _gameInfoLabel: ui.RunTimeLabel;
 
       protected viewStack: eui.ViewStack;
@@ -32,22 +29,10 @@ namespace we {
         this.addListeners();
 
         this.updateText();
-        // <<<<<<< HEAD
-        //         // <<<<<<< HEAD
-        //         //         this._middlePart.mask = this.viewStackMask;
-        //         //         this.viewStack.selectedIndex = 0;
-
-        //         //         this.onPanelToggle(this.isFirstTime);
-        //         // =======
-        //         this.viewStack.mask = this.viewStackMask;
-        //         this.viewStack.selectedIndex = 0;
-        //         this.onPanelToggle();
-        // =======
         this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
 
         this.onPanelToggle(this.isFirstTime);
-        // >>>>>>> develop
       }
 
       public destroy() {
@@ -75,18 +60,6 @@ namespace we {
       }
 
       public manualClose() {
-        // <<<<<<< HEAD
-        //         // if (this.isPanelOpen) {
-        //         //   this.currentState = 'off';
-        //         //   egret.Tween.removeTweens(this._middlePart);
-        //         //   // egret.Tween.removeTweens(this.viewStack);
-        //         //   // egret.Tween.removeTweens(this.viewStackMask);
-        //         //   this.isPanelOpen = false;
-        //         //   egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-        //         //   // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-        //         //   // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
-        //         // }
-        // =======
         if (this.isPanelOpen) {
           this.currentState = 'off';
           egret.Tween.removeTweens(this._middlePart);
@@ -97,7 +70,6 @@ namespace we {
           // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
           // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         }
-        // >>>>>>> develop
       }
 
       protected onPanelToggle(firstTime?: boolean) {
