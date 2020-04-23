@@ -1023,6 +1023,10 @@ declare module skin_mobile_portrait.dt{
 	}
 }
 declare module skin_mobile_portrait.dt{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
 	class SideListChipLayerSkin extends eui.Skin{
 	}
 }

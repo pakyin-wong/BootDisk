@@ -27,6 +27,26 @@ namespace we {
         // this._skinKey = 'DragonTigerScene';
       }
 
+      protected mount() {
+        super.mount();
+        this.addListeners();
+      }
+
+      public destroy() {
+        super.destroy();
+        this.removeListeners();
+      }
+
+      protected addListeners() {
+        this._bottomGamePanel._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+      }
+
+      protected removeListeners() {
+        this._bottomGamePanel._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+      }
+
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('DragonTigerScene');
         this._skinKey = 'DragonTigerScene';
@@ -60,7 +80,6 @@ namespace we {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
 
-        this.createVerticalLayout();
         this.changeHandMode();
 
         if (this._bottomGamePanel._betLimitDropDownBtn) {
@@ -124,23 +143,23 @@ namespace we {
         }
       }
 
-      protected createVerticalLayout() {
-        const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
-        vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        vLayout.gap = 24;
-        this._verticalGroup.layout = vLayout;
-      }
+      // protected createVerticalLayout() {
+      //   const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
+      //   vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+      //   vLayout.gap = 24;
+      //   this._verticalGroup.layout = vLayout;
+      // }
 
       protected setChipPanelPos() {
-        // if (this._bottomGamePanel.isPanelOpen) {
-        //   this._betPanelGroup.scaleY = 1;
-        //   this._betPanelGroup.y = 0;
-        //   this._betChipSetPanel.y = 1080;
-        // } else {
-        //   this._betPanelGroup.scaleY = -1;
-        //   this._betPanelGroup.y = 762;
-        //   this._betChipSetPanel.y = 600;
-        // }
+        if (this._bottomGamePanel.isPanelOpen) {
+          this._betPanelGroup.scaleY = 1;
+          this._betPanelGroup.y = 0;
+          this._betChipSetPanel.y = 1080;
+        } else {
+          this._betPanelGroup.scaleY = -1;
+          this._betPanelGroup.y = 762;
+          this._betChipSetPanel.y = 600;
+        }
       }
 
       protected showBetChipPanel() {
@@ -223,6 +242,11 @@ namespace we {
         // this.setSkinName();
         // this.initChildren();
         this.changeHandMode();
+      }
+      protected checkBetChipPanel() {
+        if (this._betChipSetPanel.visible === true) {
+          this.setChipPanelPos();
+        }
       }
     }
   }

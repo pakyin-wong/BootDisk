@@ -302,6 +302,7 @@
 		"resource/skin_mobile_portrait/DropdownItem.exml",
 		"resource/skin_mobile_portrait/dt/ChipLayer.exml",
 		"resource/skin_mobile_portrait/dt/TableLayer.exml",
+		"resource/skin_mobile_portrait/dt/MobileBottomRoadmapPanel.exml",
 		"resource/skin_mobile_portrait/dt/StatisticChartPanel.exml",
 		"resource/skin_mobile_portrait/dt/TableInfoPanel.exml",
 		"resource/skin_mobile_portrait/dt/MobileBottomGamePanel.exml",

@@ -102,8 +102,6 @@ namespace we {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
 
-        // this.createVerticalLayout();
-
         this.changeHandMode();
 
         if (this._bottomGamePanel._betLimitDropDownBtn) {
@@ -177,12 +175,12 @@ namespace we {
         this.invalidateState();
       }
 
-      protected createVerticalLayout() {
-        const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
-        vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        vLayout.gap = 24;
-        this._verticalGroup.layout = vLayout;
-      }
+      // protected createVerticalLayout() {
+      //   const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
+      //   vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+      //   vLayout.gap = 24;
+      //   this._verticalGroup.layout = vLayout;
+      // }
 
       protected setChipPanelPos() {
         if (env.orientation === 'portrait') {
