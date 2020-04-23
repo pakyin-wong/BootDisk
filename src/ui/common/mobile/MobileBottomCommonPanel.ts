@@ -7,7 +7,6 @@ namespace we {
       // protected totalBet: number;
       public isPanelOpen: boolean = true;
       private isFirstTime: boolean = true;
-      // public isPanelOpen: boolean = false;
 
       public _arrow: egret.DisplayObject;
       public _arrowUp: egret.DisplayObject;
@@ -21,6 +20,7 @@ namespace we {
       protected viewStackMask: eui.Rect;
 
       protected _middlePart: eui.Group;
+      protected _middlePartHeight: number;
 
       public constructor(skin?: string) {
         super();
@@ -33,14 +33,21 @@ namespace we {
 
         this.updateText();
         // <<<<<<< HEAD
-        //         this._middlePart.mask = this.viewStackMask;
-        //         this.viewStack.selectedIndex = 0;
+        //         // <<<<<<< HEAD
+        //         //         this._middlePart.mask = this.viewStackMask;
+        //         //         this.viewStack.selectedIndex = 0;
 
-        //         this.onPanelToggle(this.isFirstTime);
+        //         //         this.onPanelToggle(this.isFirstTime);
+        //         // =======
+        //         this.viewStack.mask = this.viewStackMask;
+        //         this.viewStack.selectedIndex = 0;
+        //         this.onPanelToggle();
         // =======
-        this.viewStack.mask = this.viewStackMask;
+        this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
-        this.onPanelToggle();
+
+        this.onPanelToggle(this.isFirstTime);
+        // >>>>>>> develop
       }
 
       public destroy() {
@@ -68,16 +75,29 @@ namespace we {
       }
 
       public manualClose() {
-        // if (this.isPanelOpen) {
-        //   this.currentState = 'off';
-        //   egret.Tween.removeTweens(this._middlePart);
-        //   // egret.Tween.removeTweens(this.viewStack);
-        //   // egret.Tween.removeTweens(this.viewStackMask);
-        //   this.isPanelOpen = false;
-        //   egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-        //   // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-        //   // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
-        // }
+        // <<<<<<< HEAD
+        //         // if (this.isPanelOpen) {
+        //         //   this.currentState = 'off';
+        //         //   egret.Tween.removeTweens(this._middlePart);
+        //         //   // egret.Tween.removeTweens(this.viewStack);
+        //         //   // egret.Tween.removeTweens(this.viewStackMask);
+        //         //   this.isPanelOpen = false;
+        //         //   egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+        //         //   // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+        //         //   // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+        //         // }
+        // =======
+        if (this.isPanelOpen) {
+          this.currentState = 'off';
+          egret.Tween.removeTweens(this._middlePart);
+          // egret.Tween.removeTweens(this.viewStack);
+          // egret.Tween.removeTweens(this.viewStackMask);
+          this.isPanelOpen = false;
+          egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+        }
+        // >>>>>>> develop
       }
 
       protected onPanelToggle(firstTime?: boolean) {
@@ -90,7 +110,9 @@ namespace we {
           this.isPanelOpen = false;
           if (this.isFirstTime === true) {
             this.isFirstTime = false;
-            egret.Tween.get(this._middlePart).to({ height: 0 }, 1);
+            this._middlePartHeight = this._middlePart.height;
+            this._middlePart.height = 0;
+            // egret.Tween.get(this._middlePart).to({ height: 0 }, 1);
           } else {
             egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
           }
@@ -98,7 +120,7 @@ namespace we {
           // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         } else {
           this.isPanelOpen = true;
-          egret.Tween.get(this._middlePart).to({ height: this._middlePart.measuredHeight }, 250);
+          egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
           // egret.Tween.get(this.viewStack).to({ height: this.measuredHeight }, 250);
           // egret.Tween.get(this.viewStackMask).to({ height: this.measuredHeight }, 250);
 

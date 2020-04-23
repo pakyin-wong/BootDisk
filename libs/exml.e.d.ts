@@ -15,6 +15,10 @@ declare module skins{
 	}
 }
 declare module skins{
+	class MobileToggleSwitchSkin extends eui.Skin{
+	}
+}
+declare module skins{
 	class PanelSkin extends eui.Skin{
 	}
 }
@@ -614,6 +618,10 @@ declare module skin_desktop.ro{
 }
 declare module skin_desktop.ro{
 	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LuckyCoin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

@@ -22,11 +22,55 @@ namespace we {
       }
 
       public updateLuckyNumbers() {
+        const layout = new eui.HorizontalLayout();
+        layout.verticalAlign = egret.VerticalAlign.MIDDLE;
+        layout.horizontalAlign = egret.HorizontalAlign.CENTER;
+
+        const page4Group = this.pageStack.getChildAt(3) as eui.Group;
+        page4Group.removeChildren();
+        page4Group.layout = layout;
+
+        if (this.tableInfo.data.luckynumber) {
+          Object.keys(this.tableInfo.data.luckynumber).map((key, index) => {
+            const imgCoin = new LuckyCoin();
+            imgCoin.odd = this.tableInfo.data.luckynumber[key];
+            imgCoin.value = +key;
+            page4Group.addChild(imgCoin);
+            if (this._chipLayer) {
+              const betDetails = this._chipLayer.getConfirmedBetDetails();
+              if (betDetails) {
+                betDetails.map((detail, index) => {
+                  if (detail && detail.field) {
+                    const f = this.fieldToValue(detail.field);
+                    if (key === f) {
+                      imgCoin.amount = detail.amount / 100;
+                    }
+                  }
+                });
+              }
+            }
+          });
+        }
+      }
+
+      public clearLuckyNumbers() {
         const page4Group = this.pageStack.getChildAt(3) as eui.Group;
         page4Group.removeChildren();
       }
 
-      public clearLuckyNumbers() {}
+      protected fieldToValue(fieldName: string) {
+        if (!fieldName) {
+          return null;
+        }
+        if (fieldName.indexOf('DIRECT_') === -1) {
+          return null;
+        }
+        const result = fieldName.split('DIRECT_');
+        if (result && result[1]) {
+          return result[1];
+        }
+        return null;
+      }
     }
   }
 }
