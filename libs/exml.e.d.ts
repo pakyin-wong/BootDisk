@@ -15,6 +15,10 @@ declare module skins{
 	}
 }
 declare module skins{
+	class MobileToggleSwitchSkin extends eui.Skin{
+	}
+}
+declare module skins{
 	class PanelSkin extends eui.Skin{
 	}
 }

@@ -19,7 +19,6 @@ namespace we {
 
       protected setStatePeek(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
-          console.log('PEEK', env.tableInfos[this._tableId].data);
           this._resultDisplay.visible = true;
           this._resultDisplay.updateResult(this._gameData);
         }
@@ -27,7 +26,6 @@ namespace we {
 
       protected setStatePeekPlayer(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
-          console.log('PEEK_PLAYER', env.tableInfos[this._tableId].data);
           this._resultDisplay.visible = true;
           this._resultDisplay.updateResult(this._gameData);
         }
@@ -35,7 +33,6 @@ namespace we {
 
       protected setStatePeekBanker(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
-          console.log('PEEK_BANKER', env.tableInfos[this._tableId].data);
           this._resultDisplay.visible = true;
           this._resultDisplay.updateResult(this._gameData);
         }

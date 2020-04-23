@@ -29,6 +29,9 @@ namespace we {
       }
 
       public updateResult(gameData: data.GameData) {
+        this._bankerCard3.visible = false;
+        this._playerCard3.visible = false;
+
         // TODO: update card using the gameData
 
         this.gameData = <ba.GameData> gameData;
@@ -44,17 +47,19 @@ namespace we {
           }
         });
 
-        if (gameData.state === core.GameState.PEEK) {
-          this._bankerCard3.visible = false;
-          this._playerCard3.visible = false;
-        }
-
-        if (gameData.state === core.GameState.PEEK_PLAYER) {
+        switch (gameData.state) {
+          case core.GameState.PEEK:
+            this._bankerCard3.visible = false;
+            this._playerCard3.visible = false;
+            break;
+          case core.GameState.PEEK_PLAYER:
           this._playerCard3.visible = true;
-        }
-
-        if (gameData.state === core.GameState.PEEK_BANKER) {
+          break;
+          case core.GameState.PEEK_BANKER:
           this._bankerCard3.visible = true;
+          break;
+          default:
+          break;
         }
       }
 

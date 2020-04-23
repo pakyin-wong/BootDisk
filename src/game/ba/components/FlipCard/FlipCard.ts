@@ -35,10 +35,10 @@ namespace we {
       constructor(w?: number, h?: number) {
         super();
         if (w) {
-          this._cardWidth = w;
+          this._cardWidth = +w;
         }
         if (h) {
-          this._cardHeight = h;
+          this._cardHeight = +h;
         }
         this._t = egret.Point.create(0, 0);
         this._finalT = egret.Point.create(0, 0);
@@ -46,11 +46,11 @@ namespace we {
       }
 
       public set cardWidth(value: number) {
-        this._cardWidth = value;
+        this._cardWidth = +value;
       }
 
       public set cardHeight(value: number) {
-        this._cardHeight = value;
+        this._cardHeight = +value;
       }
 
       protected mount() {
