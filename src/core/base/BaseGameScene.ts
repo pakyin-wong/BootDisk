@@ -54,7 +54,7 @@ namespace we {
       }
 
       protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('BaccaratScene');
+        // this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
       protected mount() {

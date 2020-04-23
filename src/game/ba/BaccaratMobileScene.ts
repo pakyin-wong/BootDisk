@@ -28,9 +28,14 @@ namespace we {
       constructor(data: any) {
         super(data);
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
-        this._skinKey = 'BaccaratScene';
         // this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
+
+      protected setSkinName() {
+        this.skinName = utils.getSkinByClassname('BaccaratScene');
+        this._skinKey = 'BaccaratScene';
+      }
+
       protected mount() {
         super.mount();
         this.addListeners();

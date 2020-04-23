@@ -11,14 +11,10 @@ namespace we {
       public _arrow: egret.DisplayObject;
       public _arrowUp: egret.DisplayObject;
 
-      // protected _arrow: egret.DisplayObject;
-      // protected _arrowUp: egret.DisplayObject;
-
       protected _gameInfoLabel: ui.RunTimeLabel;
 
       protected viewStack: eui.ViewStack;
       protected viewStackMask: eui.Rect;
-
       protected _middlePart: eui.Group;
       protected _middlePartHeight: number;
 
@@ -28,45 +24,27 @@ namespace we {
 
       protected mount() {
         super.mount();
-
         this.addListeners();
-
         this.updateText();
-        // <<<<<<< HEAD
-        //         // <<<<<<< HEAD
-        //         //         this._middlePart.mask = this.viewStackMask;
-        //         //         this.viewStack.selectedIndex = 0;
-
-        //         //         this.onPanelToggle(this.isFirstTime);
-        //         // =======
-        //         this.viewStack.mask = this.viewStackMask;
-        //         this.viewStack.selectedIndex = 0;
-        //         this.onPanelToggle();
-        // =======
         this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
-
         this.onPanelToggle(this.isFirstTime);
-        // >>>>>>> develop
       }
 
       public destroy() {
         super.destroy();
-
         this.removeListeners();
       }
 
       protected addListeners() {
         this._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         this._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
-
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
       }
 
       protected removeListeners() {
         this._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         this._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
-
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
       }
 
@@ -75,18 +53,6 @@ namespace we {
       }
 
       public manualClose() {
-        // <<<<<<< HEAD
-        //         // if (this.isPanelOpen) {
-        //         //   this.currentState = 'off';
-        //         //   egret.Tween.removeTweens(this._middlePart);
-        //         //   // egret.Tween.removeTweens(this.viewStack);
-        //         //   // egret.Tween.removeTweens(this.viewStackMask);
-        //         //   this.isPanelOpen = false;
-        //         //   egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
-        //         //   // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-        //         //   // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
-        //         // }
-        // =======
         if (this.isPanelOpen) {
           this.currentState = 'off';
           egret.Tween.removeTweens(this._middlePart);
@@ -97,12 +63,10 @@ namespace we {
           // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
           // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         }
-        // >>>>>>> develop
       }
 
       protected onPanelToggle(firstTime?: boolean) {
         this.currentState = this.isPanelOpen ? 'off' : 'on';
-
         egret.Tween.removeTweens(this._middlePart);
         // egret.Tween.removeTweens(this.viewStack);
         // egret.Tween.removeTweens(this.viewStackMask);
@@ -123,7 +87,6 @@ namespace we {
           egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
           // egret.Tween.get(this.viewStack).to({ height: this.measuredHeight }, 250);
           // egret.Tween.get(this.viewStackMask).to({ height: this.measuredHeight }, 250);
-
           // if (this.isPanelOpen) {
           //   this.currentState = 'off';
           //   egret.Tween.removeTweens(this.viewStack);
@@ -137,10 +100,8 @@ namespace we {
 
       // protected onPanelToggle() {
       //   this.currentState = this.isPanelOpen ? 'off' : 'on';
-
       //   egret.Tween.removeTweens(this.viewStack);
       //   egret.Tween.removeTweens(this.viewStackMask);
-
       //   if (this.isPanelOpen) {
       //     this.isPanelOpen = false;
       //     egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
@@ -150,7 +111,6 @@ namespace we {
       //     egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
       //     egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
       //   }
-
       //   this.dispatchEvent(new egret.Event('TOGGLE'));
       // }
 
