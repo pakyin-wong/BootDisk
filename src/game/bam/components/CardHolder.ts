@@ -53,13 +53,13 @@ namespace we {
             this._playerCard3.visible = false;
             break;
           case core.GameState.PEEK_PLAYER:
-          this._playerCard3.visible = true;
-          break;
+            this._playerCard3.visible = true;
+            break;
           case core.GameState.PEEK_BANKER:
-          this._bankerCard3.visible = true;
-          break;
+            this._bankerCard3.visible = true;
+            break;
           default:
-          break;
+            break;
         }
       }
 

@@ -255,6 +255,7 @@
 		"resource/skin_mobile_landscape/overlay/PlayerProfileIconItem.exml",
 		"resource/skin_mobile_portrait/Slider.exml",
 		"resource/skin_mobile_landscape/overlay/SystemSetting.exml",
+		"resource/skin_mobile_landscape/sidegamelist/GamePanelSkin.exml",
 		"resource/skin_mobile_portrait/ba/BaBeadRoadResultCardHolder.exml",
 		"resource/skin_mobile_portrait/ba/BABeadRoadResultPanel.exml",
 		"resource/skin_mobile_portrait/ba/TableLayer.exml",
@@ -374,8 +375,8 @@
 		"resource/skin_mobile_portrait/ScrollBarVertical.exml",
 		"resource/skin_mobile_portrait/sidegamelist/AllGameSubTabItemSkin.exml",
 		"resource/skin_mobile_portrait/sidegamelist/GameListButtonSkin.exml",
-		"resource/skin_mobile_portrait/sidegamelist/GamePanelTabButtonSkin.exml",
 		"resource/skin_mobile_portrait/sidegamelist/GamePanelSkin.exml",
+		"resource/skin_mobile_portrait/sidegamelist/GamePanelTabButtonSkin.exml",
 		"resource/skin_mobile_portrait/sidegamelist/panelcontent/AllGameGamePanelSkin.exml",
 		"resource/skin_mobile_portrait/sidegamelist/panelcontent/AlreadyBetGamePanelSkin.exml",
 		"resource/skin_mobile_portrait/sidegamelist/panelcontent/GoodRoadGamePanelSkin.exml",
@@ -385,7 +386,8 @@
 		"resource/skin_mobile/CountdownTimerRoundSmall.exml",
 		"resource/skin_mobile/ControlItem/LiveListSimpleItem.exml",
 		"resource/skin_mobile/ControlItem/SideListBetItem.exml",
-		"resource/skin_mobile/LobbyTabListItemRenderer.exml"
+		"resource/skin_mobile/LobbyTabListItemRenderer.exml",
+		"resource/skin_mobile/MobileSideGameListItemRenderer.exml"
 	],
 	"path": "resource/default.thm.json"
 }

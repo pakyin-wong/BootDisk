@@ -808,6 +808,10 @@ declare module skin_mobile_landscape{
 	class SystemSetting extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class GamePanelSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
 	}
@@ -1370,5 +1374,9 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class LobbyTabListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class MobileSideGameListItemRenderer extends eui.Skin{
 	}
 }

@@ -16,6 +16,10 @@ namespace we {
       gametype_DT: 'DT',
       gametype_LW: 'LW',
 
+      sidegamelist_title: 'Game List',
+      sidegamelist_tab_bet: 'Bet',
+      sidegamelist_tab_goodroad: 'GoodRoad',
+
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
       betfield_baccarat_tie: 'tie',
