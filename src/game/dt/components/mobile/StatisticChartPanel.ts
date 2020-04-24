@@ -118,12 +118,12 @@ namespace we {
         if (tableInfo.gamestatistic.tieCount) {
           this.totalTieCount.text = tableInfo.gamestatistic.tieCount.toString();
         }
-        if (tableInfo.gamestatistic.bankerPairCount) {
-          this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString();
-        }
-        if (tableInfo.gamestatistic.playerPairCount) {
-          this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString();
-        }
+        // if (tableInfo.gamestatistic.bankerPairCount) {
+        //   this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString();
+        // }
+        // if (tableInfo.gamestatistic.playerPairCount) {
+        //   this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString();
+        // }
       }
     }
   }

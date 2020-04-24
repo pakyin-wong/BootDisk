@@ -295,6 +295,7 @@ namespace we {
               idx++;
               return data;
             });
+            break;
           }
           case we.core.GameType.LW: {
             tables = Array.apply(null, { length: count }).map((value, idx) => {
