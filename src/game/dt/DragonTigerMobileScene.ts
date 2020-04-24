@@ -24,7 +24,6 @@ namespace we {
 
       constructor(data: any) {
         super(data);
-        // this._skinKey = 'DragonTigerScene';
       }
 
       protected mount() {
@@ -54,13 +53,25 @@ namespace we {
 
       protected setStateBet() {
         super.setStateBet();
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+        }
         this._dtGameID.renderText = () => `${this._tableInfo.tableid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer>this._tableLayer).totalAmount = { DRAGON: 0, TIGER: 0 };
-            (<we.dt.TableLayer>this._tableLayer).totalPerson = { DRAGON: 0, TIGER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
+        }
+      }
+
+      protected setStateDeal() {
+        super.setStateDeal();
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
         }
       }
 
@@ -151,14 +162,18 @@ namespace we {
       // }
 
       protected setChipPanelPos() {
-        if (this._bottomGamePanel.isPanelOpen) {
-          this._betPanelGroup.scaleY = 1;
-          this._betPanelGroup.y = 0;
-          this._betChipSetPanel.y = 1080;
+        if (env.orientation === 'portrait') {
+          if (this._bottomGamePanel.isPanelOpen) {
+            this._betPanelGroup.scaleY = 1;
+            this._betPanelGroup.y = 0;
+            this._betChipSetPanel.y = 1080;
+          } else {
+            this._betPanelGroup.scaleY = -1;
+            this._betPanelGroup.y = 762;
+            this._betChipSetPanel.y = 600;
+          }
         } else {
-          this._betPanelGroup.scaleY = -1;
-          this._betPanelGroup.y = 762;
-          this._betChipSetPanel.y = 600;
+          this._betChipSetPanel.y = -480;
         }
       }
 
