@@ -3,7 +3,7 @@ namespace we {
     export class LiveListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ba.TableLayer();
-        if (node.parent instanceof ui.LiveListAdvancedItem) {
+        if (node.name === 'AdvancedTableLayerNode') {
           tableLayer.skinName = `skin_desktop.ba.LiveListItemAdvancedTableLayerSkin`;
         } else {
           tableLayer.skinName = `skin_desktop.ba.LiveListItemTableLayerSkin`;
@@ -15,7 +15,7 @@ namespace we {
 
       public generateChipLayer(node: eui.Component) {
         const chipLayer = new ba.ChipLayer();
-        if (node.parent instanceof ui.LiveListAdvancedItem) {
+        if (node.name === 'AdvancedChipLayerNode') {
           chipLayer.skinName = `skin_desktop.ba.LiveListItemAdvancedChipLayerSkin`;
         } else {
           chipLayer.skinName = `skin_desktop.ba.LiveListItemChipLayerSkin`;
