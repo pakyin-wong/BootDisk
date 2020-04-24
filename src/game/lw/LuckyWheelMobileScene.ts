@@ -221,16 +221,16 @@ namespace we {
         this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
       }
 
-      protected onOrientationChange() {
-        this.onExit();
+      // protected onOrientationChange() {
+      //   this.onExit();
 
-        super.onOrientationChange();
-        this.onEnter();
-        // this.setSkinName();
-        // this.initChildren();
-        // this.invalidateState();
-        this.changeHandMode();
-      }
+      //   super.onOrientationChange();
+      //   this.onEnter();
+      //   // this.setSkinName();
+      //   // this.initChildren();
+      //   // this.invalidateState();
+      //   this.changeHandMode();
+      // }
 
       protected checkBetChipPanel() {
         if (this._betChipSetPanel.visible === true) {

@@ -9,6 +9,7 @@ namespace we {
       private gridColor: number;
       private gridAlpha: number;
       private gridBorderColor: number;
+      private theStage: egret.Stage;
 
       public constructor(
         _numRow: number = 3,
@@ -65,6 +66,7 @@ namespace we {
 
       private onOver(event: mouse.MouseEvent) {
         mouse.setMouseMoveEnabled(true);
+        this.theStage = this.stage;
         this.stage.addEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
       }
 
@@ -184,6 +186,17 @@ namespace we {
           }
           (this.roadMapIconList[0] as LwBeadRoadIcon).showHighLight();
         }
+      }
+
+      public dispose() {
+        super.dispose();
+        if (this.hasEventListener(egret.TouchEvent.TOUCH_TAP)) this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+
+        if (this.hasEventListener(mouse.MouseEvent.ROLL_OVER)) this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
+
+        if (this.hasEventListener(mouse.MouseEvent.ROLL_OUT)) this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
+
+        if (this.theStage) if (this.theStage.hasEventListener(mouse.MouseEvent.MOUSE_MOVE)) this.theStage.removeEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
       }
     }
   }

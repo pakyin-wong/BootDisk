@@ -11,6 +11,8 @@ namespace we {
       protected _betPanelGroup: eui.Group;
       protected _betChipSetGridEnabled: boolean = false;
 
+      protected _veritcalTop: eui.Group;
+
       constructor(data: any) {
         super(data);
         this._betChipSetPanel.alpha = 0;
@@ -79,6 +81,8 @@ namespace we {
       }
 
       protected onClickBetChipSelected() {
+        const testpoint: egret.Point = this._betChipSetGridSelected.localToGlobal(0, 0); // _betChipSetGridSelected(0,0)=> global x and y
+        console.log(' this._veritcalTop.localToGlobal(49,61)', testpoint);
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
       }
 
@@ -93,6 +97,33 @@ namespace we {
       }
 
       protected showBetChipPanel() {
+        const betChipSetGridPosition = this._betChipSetGridSelected.localToGlobal(0, 0);
+        if (env.orientation === 'portrait') {
+          // portrait position
+          if (betChipSetGridPosition.y < 900) {
+            // bottomGamePanel is on
+            this._betPanelGroup.scaleY = 1;
+            this._betPanelGroup.y = 0;
+            this._betChipSetPanel.y = 986;
+          } else if (betChipSetGridPosition.y >= 900) {
+            // bottomGamePanel is off
+            this._betPanelGroup.scaleY = -1;
+            this._betPanelGroup.y = 762;
+            this._betChipSetPanel.y = 500;
+          }
+        } else {
+          if (betChipSetGridPosition.y < 600) {
+            this._betPanelGroup.scaleY = 1;
+            this._betPanelGroup.y = 0;
+            this._betChipSetPanel.y = 700;
+          } else if (betChipSetGridPosition.y >= 600) {
+            this._betPanelGroup.scaleY = 1;
+            this._betPanelGroup.y = 0;
+            this._betChipSetPanel.y = 700;
+          }
+          // landscape position
+        }
+
         this._betChipSetPanel.visible = true;
         this._betChipSetPanel.anchorOffsetY = 30;
         egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
@@ -125,12 +156,24 @@ namespace we {
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
       }
 
+      protected onOrientationChange(gameModeExist?: boolean) {
+        this.onExit();
+        super.onOrientationChange();
+        if (gameModeExist != null) {
+          this.checkGameMode(gameModeExist);
+        }
+        this.onEnter();
+      }
+
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this._betChipSetPanel.alpha = 0;
         this._betChipSetPanel.visible = false;
         this._betChipSet.alpha = 1;
       }
+
+      // check if game mode btn (e.g. BA) is selected when orientation
+      protected checkGameMode(value: boolean) {}
     }
   }
 }
