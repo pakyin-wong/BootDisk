@@ -18,6 +18,7 @@ namespace we {
         super.initComponents();
         this.generateAnalysis();
         this.generateAdvancedRoad();
+        console.log(this._quickBetGroup);
       }
 
       protected onTouchTap(evt: egret.Event) {

@@ -149,7 +149,7 @@ namespace we {
           }
           this.showQuickBetGroup();
         } else if (this.holder.isFocus) {
-          this.hideQuickBetGroup();
+          // this.hideQuickBetGroup();
         }
       }
 

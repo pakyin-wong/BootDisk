@@ -11,8 +11,6 @@ namespace we {
 
         root.slider.configSlides(dir.liveResources.liveHeroBanners);
 
-        // root.roomList.isFreezeScrolling = true;
-        // root.roomList.isGlobalLock = true;
         root.roomList.layout = root.roomListRefer.layout;
         root.roomList.itemRenderer = MobileLiveListHolder;
         root.roomList.setGameFilters(core.LiveGameTab.ba);
