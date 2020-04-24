@@ -39,6 +39,12 @@ namespace we {
         egret.Tween.get(this._betSet).to(this._betSetTween.getTweenPackage(), 250);
       }
 
+      protected mount() {
+        super.mount();
+
+        this.initBottomBetLimitSelector();
+      }
+
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('DiceScene');
       }
@@ -54,13 +60,28 @@ namespace we {
         egret.Tween.removeTweens(this._betArea.viewport);
         egret.Tween.removeTweens(this._betArea);
 
-        this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
-        egret.Tween.get(this._betArea.viewport).to(
-          {
-            scrollV: 0,
-          },
-          250
-        );
+        switch (s) {
+          case 'zip':
+            this._betArea.scrollPolicyV = eui.ScrollPolicy.ON;
+            egret.Tween.get(this._betArea.viewport).to(
+              {
+                scrollV: (this._betArea.viewport.contentHeight - this._betAreaTween.getTweenPackage().height) * 0.5,
+              },
+              250
+            );
+            break;
+          case 'small':
+          case 'normal':
+          default:
+            this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
+            egret.Tween.get(this._betArea.viewport).to(
+              {
+                scrollV: 0,
+              },
+              250
+            );
+            break;
+        }
 
         egret.Tween.get(this._betArea).to(this._betAreaTween.getTweenPackage(), 250);
       }
