@@ -12,7 +12,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.3.2';
+      public version: string = '0.4.0';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
