@@ -20,8 +20,8 @@ namespace we {
       protected setStateDeal(isInit: boolean = false) {}
 
       protected setStatePeek(isInit: boolean = false) {
-        console.log('PEEK');
-        this._resultDisplay.updateResult(this._gameData);
+        console.log('PEEK ' + new Date(Date.now()).toString());
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -29,8 +29,9 @@ namespace we {
       }
 
       protected setStatePeekPlayer(isInit: boolean = false) {
-        this._resultDisplay.updateResult(this._gameData);
-        console.log('PEEK_PLAYER');
+        console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
+
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
@@ -38,18 +39,18 @@ namespace we {
       }
 
       protected setStatePeekBanker(isInit: boolean = false) {
-        this._resultDisplay.updateResult(this._gameData);
+        console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
-          console.log('PEEK_BANKER');
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
         }
       }
 
       protected setStateFinish(isInit: boolean = false) {
-        console.log('FINISH');
+        console.log('FINISH ' + new Date(Date.now()).toString());
         super.setStateFinish(isInit);
-        this._resultDisplay.updateResult(this._gameData);
+        this._resultDisplay.updateResult(this._gameData, this._chipLayer);
         this.setResultRelatedComponentsEnabled(true);
       }
     }
