@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ba.LiveListItemChipLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.ba.LiveListItemAdvancedChipLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*" states="Normal,SuperSix">
 	<e:Group id="_playerGroup" x="0" y="0" width="175" height="96">
 		<ui:BetChipStack id="_playerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="70" chipHeight="70"

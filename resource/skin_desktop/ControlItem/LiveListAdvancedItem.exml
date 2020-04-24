@@ -9,8 +9,7 @@
 			<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
 			                    skinName="skin_desktop.ImageButtonSkinLobby"/>
 		</e:Group>
-		<e:Component id="_tableLayerNode" width="350" skinName="skin_desktop.ba.LiveListItemTableLayerSkin"
-		             left="0" top="0" visible="false" />
+		<e:Component id="_tableLayerNode" width="350" left="0" top="0" visible="false" />
 	</e:Group>
 	<e:Group id="_contentContainer" width="1204" height="450" x="0" y="0">
 		<e:Image id="_dealerImage" width="350" height="450" x="0" y="0" />
@@ -31,6 +30,5 @@
 		                            width="148" height="42" label1text="快速投注" label2text="X" />
 	</e:Group>
 	<e:Component id="_analysisNode" right="0" y="0" width="278" height="450" />
-	<e:Component id="_chipLayerNode" width="350" skinName="skin_desktop.ba.LiveListItemChipLayerSkin"
-	             y="0" left="0" alpha="0" visible="false" />
+	<e:Component id="_chipLayerNode" width="350" y="0" left="0" alpha="0" visible="false" />
 </e:Skin>

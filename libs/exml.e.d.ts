@@ -87,6 +87,14 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.ba{
+	class LiveListItemAdvancedChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class LiveListItemAdvancedTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
