@@ -2,12 +2,18 @@ namespace we {
   export namespace ui {
     export class LiveListAdvancedItem extends LiveListItem {
       protected _advancedRoadNode: eui.Component;
-      protected _advancedRoad: IAdvancedRoad;
+      protected _advancedRoad: IAdvancedRoad & eui.Component;
       protected _analysisNode: eui.Component;
       protected _analysis: IAnalysis & eui.Component;
 
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      public destroy() {
+        super.destroy();
+        dir.advancedRoadPool.release(this._advancedRoad, this.tableInfo.gametype);
+        dir.analysisPool.release(this._analysis, this.tableInfo.gametype);
       }
 
       protected checkSkin() {
@@ -63,7 +69,9 @@ namespace we {
       protected generateAnalysis() {
         if (this.itemInitHelper) {
           this._analysis = this.itemInitHelper.generateAnalysis(this._analysisNode);
-          // this._analysis.cacheAsBitmap = true;
+          if (this._analysis) {
+            this._analysis.cacheAsBitmap = true;
+          }
         }
       }
 

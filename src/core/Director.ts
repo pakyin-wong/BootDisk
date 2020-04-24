@@ -21,6 +21,9 @@ namespace we {
       public lobbyResources: lobby.ILobbyResources;
       public liveResources: live.ILiveResources;
       public uaParser: UAParser;
+      public advancedRoadPool: ui.GameComponentPool;
+      public analysisPool: ui.GameComponentPool;
+      public lobbyRoadPool: ui.LobbyRoadPool;
     }
   }
 }

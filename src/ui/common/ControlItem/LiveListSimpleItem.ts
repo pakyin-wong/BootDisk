@@ -34,6 +34,13 @@ namespace we {
         super(skinName);
       }
 
+      public destroy() {
+        super.destroy();
+        if (this._bigRoad) {
+          dir.lobbyRoadPool.release(this._bigRoad, this.tableInfo.gametype);
+        }
+      }
+
       protected initChildren() {
         this.generateRoadmap();
         // this.generateTableLayer();
@@ -214,7 +221,9 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable) {
         super.setBetRelatedComponentsEnabled(enable);
         if (!this._mouseOutside && enable) {
-          this._quickbetButton.tween(false, false);
+          if (this._quickbetButton) {
+            this._quickbetButton.tween(false, false);
+          }
         }
       }
 

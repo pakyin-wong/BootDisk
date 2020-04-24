@@ -63,5 +63,24 @@ namespace we {
           return `winType.ro${shortStr}.${ro.WinType[winType]}`;
       }
     }
+
+    export function getGameTypeNamespace(gametype: core.GameType) {
+      switch (gametype) {
+        case core.GameType.BAC:
+        case core.GameType.BAI:
+        case core.GameType.BAS:
+        case core.GameType.BAM:
+          return 'ba';
+        case core.GameType.DT:
+          return 'dt';
+        case core.GameType.RO:
+        case core.GameType.ROL:
+          return 'ro';
+        case core.GameType.DI:
+          return 'di';
+        case core.GameType.LW:
+          return 'lw';
+      }
+    }
   }
 }
