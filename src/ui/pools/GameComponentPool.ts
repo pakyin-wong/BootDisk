@@ -12,7 +12,7 @@ namespace we {
         this.initPool(opt);
       }
 
-      async initPool(opt) {
+      public async initPool(opt) {
         const gameTypes = ['ba', 'dt', 'ro', 'di', 'lw'];
         for (const gameType of gameTypes) {
           if (opt[gameType]) {
@@ -32,24 +32,22 @@ namespace we {
         }
       }
 
-      abstract generateComponent(gameType: string);
+      public abstract generateComponent(gameType: string);
 
-      get(gameType: core.GameType) {
+      public get(gameType: core.GameType) {
         const namespace = utils.getGameTypeNamespace(gameType);
         try {
           return this._pools[namespace].get();
-        }
-        catch (err) {
+        } catch (err) {
           throw new Error(`no pool for specific game type ${gameType}`);
         }
       }
 
-      release(obj: any, gameType: core.GameType) {
+      public release(obj: any, gameType: core.GameType) {
         const namespace = utils.getGameTypeNamespace(gameType);
         try {
           this._pools[namespace].release(obj);
-        }
-        catch (err) {
+        } catch (err) {
           throw new Error(`no pool for specific game type ${gameType}`);
         }
       }

@@ -139,20 +139,21 @@ namespace we {
       }
 
       public onDisplayMode(evt: egret.Event) {
-        const paddingHorizontal = 71;
-        const offsetForTableList = -paddingHorizontal * 3;
+        // const paddingHorizontal = 71;
+        // const offsetForTableList = -paddingHorizontal * 3;
 
-        const scrollV = this.root.scroller.viewport.scrollV;
+        // const scrollV = this.root.scroller.viewport.scrollV;
 
-        this.root.roomList = new ui.TableList();
-        this.root.roomList.isFreezeScrolling = true;
-        this.root.roomList.isGlobalLock = true;
+        // this.root.roomList = new ui.TableList();
+        // this.root.roomList.isFreezeScrolling = true;
+        // this.root.roomList.isGlobalLock = true;
 
-        this.roomLayout.paddingTop = 790 + offsetForTableList + this.gapSize + 100;
-        this.roomLayout.useVirtualLayout = true;
-        this.roomLayout.paddingLeft = paddingHorizontal;
-        this.roomLayout.paddingRight = paddingHorizontal;
+        // this.roomLayout.paddingTop = 790 + offsetForTableList + this.gapSize + 100;
+        // this.roomLayout.useVirtualLayout = true;
+        // this.roomLayout.paddingLeft = paddingHorizontal;
+        // this.roomLayout.paddingRight = paddingHorizontal;
 
+        this.roomLayout.clearVirtualLayoutCache();
         switch (evt.data) {
           case we.lobby.mode.NORMAL:
             this.roomLayout.horizontalGap = this.gapSize;
@@ -208,14 +209,14 @@ namespace we {
               throw new Error('Invalid Game Type');
           }
         };
-        this.root.roomList.setGameFiltersByTabIndex(this.root.tabs.tabBar.selectedIndex);
-        this.root.roomList.setTableList(this.root.roomIds);
-        this.root.roomList.addChild(this._slider);
-        this.root.roomList.addChild(this._stickyHeader);
+        // this.root.roomList.setGameFiltersByTabIndex(this.root.tabs.tabBar.selectedIndex);
+        // this.root.roomList.setTableList(this.root.roomIds);
+        // this.root.roomList.addChild(this._slider);
+        // this.root.roomList.addChild(this._stickyHeader);
 
-        this.root.scroller.viewport = this.root.roomList;
-        this.root.scroller.validateNow();
-        this.root.scroller.viewport.scrollV = scrollV;
+        // this.root.scroller.viewport = this.root.roomList;
+        // this.root.scroller.validateNow();
+        // this.root.scroller.viewport.scrollV = scrollV;
       }
     }
   }

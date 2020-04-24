@@ -6,7 +6,7 @@ namespace we {
         super(opt);
       }
 
-      generateComponent(gameType: string) {
+      public generateComponent(gameType: string) {
         return we[gameType].AdvancedRoad;
       }
     }
