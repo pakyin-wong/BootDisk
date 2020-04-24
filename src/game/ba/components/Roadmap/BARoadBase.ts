@@ -80,7 +80,7 @@ namespace we {
 
       public clearRoadData() {
         for (const elem of this.roadMapIconList) {
-          elem.setByObject({});
+          // elem.setByObject({});
           elem.stopAnimate();
         }
       }
