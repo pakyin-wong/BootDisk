@@ -68,6 +68,13 @@
 
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2424" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
+	<e:Group width="700"  x="329" height="30" y="22">
+		<ui:RunTimeLabel id="_lwGameIDText" text="Game ID :" bottom="0" left="0" />
+		<ui:RunTimeLabel id="_lwGameID" text="ID" bottom="0" left="0"/>
+		<e:layout>
+		<e:HorizontalLayout/>
+		</e:layout>
+	</e:Group>
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
 		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
 		                 textAlign="left" anchorOffsetX="0" text="Label" />
@@ -103,6 +110,7 @@
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="394"  horizontalCenter="0"/>
+	<e:Rect width="2424" height="30" x="0" bottom="0" fillColor="0x212425" visible="false"/>
 	<!--<e:Group height="50" x="1108" anchorOffsetX="0" anchorOffsetY="0" y="655">
 		<ui:RunTimeLabel id="_lblBaMode" x="13" y="26" scaleX="1" scaleY="1" />
 		<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88" y="28" scaleX="1" scaleY="1" />
@@ -110,11 +118,5 @@
 			<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
 		</e:layout>
 	</e:Group>-->
-	<e:Group bottom="0" left="0" width="700" >
-		<ui:RunTimeLabel id="_lwGameIDText" text="Game ID :" bottom="0" left="0" />
-		<ui:RunTimeLabel id="_lwGameID" text="ID" bottom="0" left="0"/>
-		<e:layout>
-		<e:HorizontalLayout/>
-		</e:layout>
-	</e:Group>
+
 </e:Skin>

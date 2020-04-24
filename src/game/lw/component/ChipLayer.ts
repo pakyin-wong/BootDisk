@@ -25,9 +25,7 @@ namespace we {
         this._betField = lw.BetField;
       }
 
-      protected restructureChildren() {
-        
-      }
+      protected restructureChildren() {}
 
       protected createMapping() {
         super.createMapping();
@@ -75,7 +73,6 @@ namespace we {
       public onGridRollout(fieldName: string) {
         this._tableLayer.onRollout(fieldName);
       }
-
     }
   }
 }
