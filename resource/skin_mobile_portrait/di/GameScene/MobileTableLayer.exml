@@ -4,26 +4,26 @@
     <e:Group id="_row1" width="100%" height="190">
         <e:Group id="_small_group" width="153" height="100%" y="0" x="0">
             <e:Image id="_small_hover" width="100%" height="100%"/>
-            <ui:RunTimeLabel id="_small_label" text="小" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0x2da1fe" fontFamily="Barlow"/>
-            <e:Label id="_small_percent" text="41%" size="24" horizontalCenter="34.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Barlow"/>
+            <ui:RunTimeLabel id="_small_label" text="小" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0x2da1fe" fontFamily="Microsoft YaHei,Helvetica"/>
+            <e:Label id="_small_percent" text="41%" size="24" horizontalCenter="34.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Microsoft YaHei,Helvetica"/>
         </e:Group>
         <e:Group id="_odd_group" x="154" width="154" height="100%">
             <e:Image id="_odd_hover" width="100%" height="100%"/>
-            <e:Label id="_odd_label" text="單" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0x2da1fe" fontFamily="Barlow"/>
-            <e:Label id="_odd_percent" text="54%" size="24" horizontalCenter="0.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Barlow"/>
+            <e:Label id="_odd_label" text="單" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0x2da1fe" fontFamily="Microsoft YaHei,Helvetica"/>
+            <e:Label id="_odd_percent" text="54%" size="24" horizontalCenter="0.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Microsoft YaHei,Helvetica"/>
         </e:Group>
         <e:Group id="_triple_all_group" x="308.5" width="307" height="100%" anchorOffsetX="0">
             <e:Image id="_all_triple_hover" width="100%" height="100%"/>
         </e:Group>
         <e:Group id="_even_group" x="616.5" width="153.5" height="100%" anchorOffsetX="0" y="0">
             <e:Image id="_even_hover" width="100%" height="100%"/>
-            <e:Label id="_even_label" text="雙" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0xe4493a" fontFamily="Barlow"/>
-            <e:Label id="_even_percent" text="54%" size="24" horizontalCenter="0.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Barlow"/>
+            <e:Label id="_even_label" text="雙" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0xe4493a" fontFamily="Microsoft YaHei,Helvetica"/>
+            <e:Label id="_even_percent" text="54%" size="24" horizontalCenter="0.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Microsoft YaHei,Helvetica"/>
         </e:Group>
         <e:Group id="_big_group" x="771" width="153" height="100%" y="0">
             <e:Image id="_big_hover" width="100%" height="100%"/>
-            <e:Label id="_big_label" text="大" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0xe4493a" fontFamily="Barlow"/>
-            <e:Label id="_big_percent" text="41%" size="24" horizontalCenter="34.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Barlow"/>
+            <e:Label id="_big_label" text="大" size="90" horizontalCenter="0.5" verticalCenter="13" textColor="0xe4493a" fontFamily="Microsoft YaHei,Helvetica"/>
+            <e:Label id="_big_percent" text="41%" size="24" horizontalCenter="34.5" verticalCenter="-61" textColor="0xffffff" fontFamily="Microsoft YaHei,Helvetica"/>
         </e:Group>
     </e:Group>
     <e:Group id="_row2" y="234" width="100%" height="104" anchorOffsetY="0" x="0">
