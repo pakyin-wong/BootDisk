@@ -29,8 +29,16 @@ namespace we {
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
         }
-        this._displayItem = new we.ui.MobileSideListBetItem(generalGameType + '.SideListBetItemSkin');
+        const listItem = new we.ui.MobileSideListBetItem('SideListBetItemSkin');
+        if (we[generalGameType].LargeListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].LargeListItemInitHelper();
+        }
+
+        this._displayItem = listItem;
+
         this.setDisplayItem(this._displayItem);
       }
     }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.InGameMessageSkin" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+    <e:Group id="_content" left="0" top="0" bottom="0" right="0">
+        <e:Image id="_bg" scaleX="1" scaleY="1" left="0" top="0" bottom="0" right="0"
+                  source="m_common_gamestate_message_black_png" width="621" height="103"/>
+        <e:Label id="_label" text="Label" horizontalCenter="0" verticalCenter="0" size="48" y="6" scaleX="1" scaleY="1" />
+    </e:Group>
+</e:Skin>

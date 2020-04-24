@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ImageButtonSkinLobby" width="28" height="28" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*"
-        states="lobby_mode_01,lobby_mode_02,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification,lobby_notify_btn_action,lobby_notify_btn_hide">
+        states="lobby_mode_01,lobby_mode_02,lobby_mode_03,lobby_confirm_button,lobby_betcontrol_close,lobby_betcontrol_previous,lobby_quick_bet_notification,lobby_notify_btn_action,lobby_notify_btn_hide">
     <e:Image id="_background" left="0" right="0" top="0" bottom="0"
              source.lobby_mode_01="d_lobby_icon_view_01_normal_png"
              source.lobby_mode_02="d_lobby_icon_view_02_normal_png"
+             source.lobby_mode_03="d_lobby_icon_view_03_normal_png"
              source.lobby_confirm_button="d_lobby_confirm_btn_normal_png"
              source.lobby_betcontrol_close="d_lobby_panel_betcontrol_btn_close_normal_png"
              source.lobby_betcontrol_previous="d_lobby_panel_betcontrol_btn_previous_normal_png"

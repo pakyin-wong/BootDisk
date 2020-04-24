@@ -91,9 +91,9 @@ namespace we {
         this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
         this._roadmapControl.setRoads(
           this._bottomGamePanel.beadRoad,
-          this._bottomGamePanel.colorBigRoad,
-          this._bottomGamePanel.sizeBigRoad,
-          this._bottomGamePanel.oddBigRoad,
+          this._bottomGamePanel._roadmapPanel.colorBigRoad,
+          this._bottomGamePanel._roadmapPanel.sizeBigRoad,
+          this._bottomGamePanel._roadmapPanel.oddBigRoad,
           this._sidePanel,
           null,
           null

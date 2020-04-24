@@ -22,6 +22,8 @@ namespace we {
         this._betField = ba.BetField;
       }
 
+      protected restructureChildren() {}
+
       protected createMapping() {
         super.createMapping();
         this._mouseAreaMapping = {};
@@ -44,7 +46,7 @@ namespace we {
         this._betChipStackMapping[ba.BetField.SUPER_SIX] = this._superSixBetChipStack;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         return (
           Math.abs(fieldAmounts[ba.BetField.BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
           Math.abs(fieldAmounts[ba.BetField.SUPER_SIX_BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
@@ -53,6 +55,11 @@ namespace we {
           fieldAmounts[ba.BetField.PLAYER_PAIR] > betLimit.maxlimit ||
           fieldAmounts[ba.BetField.SUPER_SIX] > betLimit.maxlimit
         );
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.createMapping();
       }
     }
   }

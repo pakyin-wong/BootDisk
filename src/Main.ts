@@ -51,7 +51,9 @@ class Main extends eui.UILayer {
     document.documentElement.className = cn.join(' ');
 
     const { type } = env.UAInfo.device;
+
     if (type === 'mobile') {
+      // if (true) {
       env.isMobile = true;
       this.updateMobileHitTest();
       // use these when there is portrait mode only
@@ -72,7 +74,7 @@ class Main extends eui.UILayer {
     dir.layerCtr = new we.core.LayerCtr(this.stage);
     dir.sceneCtr = new we.core.SceneCtr();
     dir.meterCtr = new we.core.MeterCtr();
-    dir.moniter = new we.core.Monitor();
+    dir.monitor = new we.core.Monitor();
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
@@ -82,6 +84,7 @@ class Main extends eui.UILayer {
     // step 2: init Egrets Asset / onResume
     we.i18n.setLang('sc');
     await this.initRes();
+    env.initialized = true;
 
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');

@@ -14,6 +14,7 @@ namespace we {
 
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
+      protected _flipCard: FlipCard;
 
       constructor(data: any) {
         super(data);
@@ -25,13 +26,13 @@ namespace we {
         this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
-      protected setStateBet() {
-        super.setStateBet();
+      protected setStateBet(isInit: boolean = false) {
+        super.setStateBet(isInit);
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -51,6 +52,10 @@ namespace we {
         if (this._lblBaMode) {
           this._lblBaMode.renderText = () => `${i18n.t('baccarat.noCommission')}`;
         }
+
+        // if (env.isMobile) {
+        //   dir.moniter._sideGameList.setToggler(this._common_listpanel);
+        // }
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -79,11 +84,11 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -100,7 +105,8 @@ namespace we {
         switch (this._tableInfo.gametype) {
           case core.GameType.BAC:
           case core.GameType.BAI:
-          case core.GameType.BAS: {
+          case core.GameType.BAS:
+          case core.GameType.BAM: {
             (this._tableLayer as ba.TableLayer).flashFields(this._gameData, this._switchBaMode.selected);
             switch (this._gameData.wintype) {
               case ba.WinType.BANKER: {
@@ -157,6 +163,11 @@ namespace we {
           });
           dir.audioCtr.playSequence([subject, 'win']);
         }
+      }
+
+      protected onOrientationChange() {
+        super.onOrientationChange();
+        this.updateSkin('BaccaratScene', true);
       }
     }
   }

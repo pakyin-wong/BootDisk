@@ -2,12 +2,16 @@ namespace we {
   export namespace live {
     export class LiveDisplayModeSwitch extends ALobbyGridLayoutSwitch {
       private container: eui.Group;
-      private buttons = ['lobby_mode_01', 'lobby_mode_02'];
+      private buttons = ['lobby_mode_01', 'lobby_mode_02', 'lobby_mode_03'];
       private images: we.ui.BaseImageButton[] = [];
       private selectedIndex: number;
 
       constructor() {
         super();
+      }
+
+      protected mount() {
+        super.mount();
         this.right = 0;
         this.verticalCenter = 0;
         this.container = new eui.Group();

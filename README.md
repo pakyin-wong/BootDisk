@@ -125,6 +125,9 @@ npm install -g tslint prettier typescript
 - [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
 - [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
 
+- [發送現場驗證](https://docs.google.com/document/d/1t95ChIAEF8qaDjjNGctLC8_rrXgayfzQqnIPao6MXSg/edit?ts=5e995758)
+- [bet area button rules (rebet & double)](https://docs.google.com/document/d/138UwHLBXfloAOWvXo-21BHkUjwdByYcl8ZtbCtN48BI/edit?ts=5e995d51)
+
 - [Game Lobby Requirement](https://docs.google.com/document/d/1NHxG_0LELvbGfJeBq_qTr9uNwYEAq-1oimygOxr6HJc/edit)
 - [Game Lobby Mobile Requirement (Portrait)](https://docs.google.com/document/d/1y1-1ZDufqcHlgb5ayZkbllFM0xEiLDPV480o_8aIi_Q/edit?ts=5e660e13)
 - [Game Lobby Mobile Requirement (Landscape)](https://docs.google.com/document/d/1z-3qwtuepfipKaak-e8pvy5loohNHoC0tW8cFs3tnts/edit?ts=5e660d51)
@@ -140,7 +143,72 @@ npm install -g tslint prettier typescript
 
 - [Roulette Requirement](https://docs.google.com/document/d/1TX5oRcXP26Gc0VONbwtURiGI6CSmx9SbHPlYZA193Qo/edit)
 - [Roulette Mobile Requirement (Portrait)](https://docs.google.com/document/d/1M2dQRJNXlRBz8fpIf4_2F6G1s13faK19ZmLYUKXhqsU/edit?ts=5e6f5260)
+- [Roulette Mobile Requirement (Landscape)](https://docs.google.com/document/d/1P3GuOiBVDrO-KviYVH3tMJivMLMo52Xdj3BUI792z4E/edit?ts=5e86e5f5)
 
 - [Sicbo Requirement](https://docs.google.com/document/d/1bKzi9Yk6RC4YHFefULNfg_dc4LlgjIbx8j9pjoLZnGY/edit?ts=5e5e3ece)
+- [Sicbo Mobile Requirement (Portrait)](https://docs.google.com/document/d/1uHWZ1xHHzM7gdkcebyKdHz8eypqqJwXcCgZLciaWXwA/edit?ts=5e86ea24)
+- [Sicbo Mobile Requirement (Landscape)](https://docs.google.com/document/d/1yTR43SZdrvQRVmwCiov2dwCwXliknLtlQ1hojd7zZE8/edit?ts=5e86ff61)
 
 - [Lucky Wheel Requirement](https://docs.google.com/document/d/1RBmOSW3z0oH6SOvVeJtZJejpfCL8HhrUurVZkmF1WxY/edit?ts=5e6a0824)
+- [Lucky Wheel Mobile Requirement (Portrait)](https://docs.google.com/document/d/16Y6IPiBSUJMz4Rgrhz8nZxOYwK9MqjC5RVaJj9Gv7dc/edit?ts=5e8adbea)
+- [Lucky Wheel Mobile Requirement (Landscape)](https://docs.google.com/document/d/1nOc4ylqNotcDpgPg9GbhYR0167Fc2SygG4SXEXywZlk/edit?ts=5e8ae793)
+
+
+## Asset Link from Design Team (Copied from whatsapp group)
+
+- [9/4/2020 missing_assets](https://home.mycloud.com/action/share/03e6bcfd-309c-4351-b92c-5a2ad17df8db)
+- [missing asset issue](https://home.mycloud.com/action/share/541f7d33-be2a-47ef-b2ec-0a3bae9ac799)
+
+- [17/4/2020 LuckyWheel Desktop](https://drive.google.com/open?id=1KHScZPnogUgYnVDRQAw-AaiG3CeTbZ3_)
+
+- [17/4/2020 LuckyWheel Mobile](https://drive.google.com/open?id=1KhzJeZ6pxDlNTDkj_wuMz_1IPhQ_Rxa2)
+
+- [16/4/2020 mobile baccarat](https://drive.google.com/open?id=18wlsZ8eX94sWvidL_2WK7hDofC-2baO5)
+
+- [4/3/2020 God Of Wealth Roulette](https://drive.google.com/drive/folders/1Q-ipvuxyQpjNhumkXEdY77-iiZAJXKSn)
+
+- [4/3/2020 Squeeze Baccarat](https://drive.google.com/drive/u/1/folders/1PFeDwG-NGW2phdCwZRUyUGWbgrJW-dqC)
+
+- [1/4/2020 Mobile Sicbo](https://drive.google.com/drive/folders/1trOwAd7mR35J8dIKwbRJGcgBiP1sYzRg)
+
+- [25/3/2020 Mobile Lucky Wheel](https://drive.google.com/drive/u/1/folders/11U1zAF16Bs0mJCciEM6orU6i6Et5mOzU)
+
+- [25/3/2020 Lucky Wheel](https://drive.google.com/file/d/1a0aEdRZXrA1akvadKyGofCqSDj42oLnF/view)
+
+- [23/3/2020 Desktop Roulette Racetrack](https://drive.google.com/file/d/1nZqYLUD2EgFIEGAJir3jht_CxQirDDFq/view)
+
+- [20/3/2020 Sicbo Dragonbone Animation](https://drive.google.com/drive/folders/1yn7rk2GnwHFmyD9zjHxYFraTpRlBgRSY)
+
+- [18/3/2020 Mobile Lobby Asset (Vertical + Horizontal)](https://drive.google.com/open?id=104Px5YoEAU9Q-Ma0zZpYmDw09Nj3uB2L)
+
+- [18/3/2020 Sicbo](https://drive.google.com/open?id=1TK1oXLQkV--YE3aoMlYWOpcM3y1QDzTs)
+
+- [16/3/2020 Money Wheel](https://drive.google.com/drive/folders/1yBY90E6lDK9C-Vqif7oroYvLG5WRpDei)
+
+- [12/3/2020 Mobile Roulette](https://drive.google.com/drive/folders/13Jq9zz-m_tCrfTziHQtVnn6wD1oUQNVr)
+
+- [11/3/2020 Mobile DT](https://drive.google.com/drive/folders/18lRcU1JAxPBokKuGMFs3Y6pCCfO67-bU)
+
+- [11/3/2020 Sicbo](https://drive.google.com/drive/folders/1Lfcc8ig6oY-wend-rYIr0YqTmuiViibV)
+
+- [25/2/2020 Dragonbone animation 1](https://drive.google.com/drive/folders/1RhFJWSlPV7If1MLCx1D__Ymj9bfXosEg)
+
+- [25/2/2020 Dragonbone animation 2](https://drive.google.com/drive/folders/1eUfsdQQHsXPZgscRIRHkXXUbHHb3LSpO)
+
+- [24/2/2020 Dragonbone animation](https://drive.google.com/drive/folders/1GLsk1sXqikKc6i_5s_cRQQkoCB1dOkDb)
+
+- [18/2/2020 Mobile Update](https://drive.google.com/open?id=1fq3XMtNnomZUqc660cuoO1UEP4o89JSo)
+
+- [13/2/2020 Desktop Roulette Update](https://drive.google.com/open?id=18pw8neTmi4Ih3vvRNmJBxeNnFukYNhEv)
+
+- [11/2/2020 Desktop Roulette](https://drive.google.com/open?id=1-vGPTIf7-BWpUinXSUMHIt-BBiDxr-Ek)
+
+- [11/2/2020 Mobile Baccarat](https://drive.google.com/drive/folders/19amRaWJXauhO2ApziD21p6st82lru85t?usp=sharing)
+
+- [11/2/2020 Game Result Dragonbone animation](https://drive.google.com/drive/folders/1GLsk1sXqikKc6i_5s_cRQQkoCB1dOkDb?usp=sharing)
+
+- [9/12/2019 Chipset & Exception Popup](https://drive.google.com/open?id=1qzpLhpQJngfh5GSAahVBXWtJA-2BXu3A)
+
+- [28/11/2019 Lobby](https://drive.google.com/drive/folders/1lF1IKI3giYKNOTiGjZ7fp2r1WvNSoK-q?usp=sharing)
+
+- [28/11/2019 Baccarat](https://drive.google.com/drive/folders/1u_gLYYdSB8OUm6g95WgEZ7zhtNs3GXB3?usp=sharing)

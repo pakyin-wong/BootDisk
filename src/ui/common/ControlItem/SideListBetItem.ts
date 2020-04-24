@@ -85,11 +85,14 @@ namespace we {
           if (this._resultMessage) {
             this._resultMessage[att] = this._resultMessageNode[att];
           }
+          if (this._cardHolder) {
+            this._cardHolder[att] = this._resultDisplayNode[att];
+          }
         }
       }
 
       protected initDenom() {
-        const denomList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denomList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
           this._betChipSet.init(null, denomList);

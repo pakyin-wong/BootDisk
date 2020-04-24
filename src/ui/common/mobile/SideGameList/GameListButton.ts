@@ -3,70 +3,74 @@ namespace we {
     export class GameListButton extends core.BaseEUI {
       private _lblBetted: eui.Label;
       private _lblGoodRoad: eui.Label;
-      private _bettedGroup: eui.Group;
-      private _goodRoadGroup: eui.Group;
-      private _badgeGroup: eui.Group;
+      // private _bettedGroup: eui.Group;
+      // private _goodRoadGroup: eui.Group;
+      // private _badgeGroup: eui.Group;
+      private _common_listpanel: ui.BaseImageButton;
 
       constructor() {
         super('GameListButtonSkin');
+        this._common_listpanel.useColorFilter = true;
       }
 
-      protected mount() {
-        super.mount();
-        this._badgeGroup.removeChild(this._bettedGroup);
-        this._badgeGroup.removeChild(this._goodRoadGroup);
+      // no need to override mount and destory since _bettedGroup and _goodRoadGroup are not exist anymore
 
-        this.addEventListeners();
-      }
+      // protected mount() {
+      //   super.mount();
+      //   this._badgeGroup.removeChild(this._bettedGroup);
+      //   this._badgeGroup.removeChild(this._goodRoadGroup);
 
-      protected destroy() {
-        super.destroy();
-        this.removeEventListeners();
-      }
+      //   this.addEventListeners();
+      // }
 
-      protected addEventListeners() {
-        // listen to good road list update
-        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
-        // listen to bet list update
-        dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
-      }
+      // protected destroy() {
+      //   super.destroy();
+      //   this.removeEventListeners();
+      // }
 
-      protected removeEventListeners() {
-        // listen to good road list update
-        dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
-        // listen to bet list update
-        dir.evtHandler.removeEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
-      }
+      // protected addEventListeners() {
+      //   // listen to good road list update
+      //   dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
+      //   // listen to bet list update
+      //   dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+      // }
 
-      protected onGoodRoadTableListUpdate(evt: egret.Event) {
-        const tableList = evt.data;
-        const count = tableList.length;
-        if (count > 0) {
-          this._badgeGroup.addChildAt(this._goodRoadGroup, 1);
-          this._lblGoodRoad.text = count;
-        } else {
-          if (this._goodRoadGroup.parent) {
-            this._badgeGroup.removeChild(this._goodRoadGroup);
-          }
+      // protected removeEventListeners() {
+      //   // listen to good road list update
+      //   dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
+      //   // listen to bet list update
+      //   dir.evtHandler.removeEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+      // }
 
-          // this._goodRoadGroup.visible = true;
-          // this._lblGoodRoad.text = '30';
-        }
-      }
+      // protected onGoodRoadTableListUpdate(evt: egret.Event) {
+      //   const tableList = evt.data;
+      //   const count = tableList.length;
+      //   if (count > 0) {
+      //     this._badgeGroup.addChildAt(this._goodRoadGroup, 1);
+      //     this._lblGoodRoad.text = count;
+      //   } else {
+      //     if (this._goodRoadGroup.parent) {
+      //       this._badgeGroup.removeChild(this._goodRoadGroup);
+      //     }
 
-      protected onBetTableListUpdate(evt: egret.Event) {
-        const tableList = evt.data;
-        const count = tableList.length;
-        if (count > 0) {
-          this._badgeGroup.addChildAt(this._bettedGroup, 0);
+      //     // this._goodRoadGroup.visible = true;
+      //     // this._lblGoodRoad.text = '30';
+      //   }
+      // }
 
-          this._lblBetted.text = count;
-        } else {
-          if (this._bettedGroup.parent) {
-            this._badgeGroup.removeChild(this._bettedGroup);
-          }
-        }
-      }
+      // protected onBetTableListUpdate(evt: egret.Event) {
+      //   const tableList = evt.data;
+      //   const count = tableList.length;
+      //   if (count > 0) {
+      //     this._badgeGroup.addChildAt(this._bettedGroup, 0);
+
+      //     this._lblBetted.text = count;
+      //   } else {
+      //     if (this._bettedGroup.parent) {
+      //       this._badgeGroup.removeChild(this._bettedGroup);
+      //     }
+      //   }
+      // }
     }
   }
 }

@@ -8,11 +8,17 @@ namespace we {
       gametype_BAC: '百家樂',
       gametype_BAS: '競速百家樂',
       gametype_BAI: '保險百家樂',
+      gametype_BAM: '咪牌百家樂',
       gametype_DI: '骰寶',
       gametype_MJ: '麻將',
       gametype_RO: '輪盤',
+      gametype_ROL: '財神輪盤',
       gametype_DT: '龍虎',
       gametype_LW: '幸運輪',
+
+      sidegamelist_title: '遊戲列表',
+      sidegamelist_tab_bet: '已下注',
+      sidegamelist_tab_goodroad: '好路',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
@@ -25,6 +31,8 @@ namespace we {
       betfield_dragonTiger_tiger: '虎',
       betfield_dragonTiger_tie: '和',
 
+      playerprofile_title: '賬戶資訊',
+      playerprofile_iconsetting: '設定頭像',
       playerprofile_maxWinAmount: '最大嬴錢數目',
       playerprofile_maxWinCount: '最大連嬴次數',
       playerprofile_follower: '追隨者',
@@ -118,6 +126,7 @@ namespace we {
         },
       },
       nav: {
+        bet_balance: '餘額',
         menu: {
           title: '設定',
           selectMode: '介面色調',
@@ -130,7 +139,9 @@ namespace we {
           system: '系統設定',
           logout: '登出',
           leftHandMode: '左手模式',
+          logoutMsg: '確定登出?',
           confirm: '確定',
+          cancel: '取消',
         },
         system: {
           title: '系統設定',
@@ -233,6 +244,7 @@ namespace we {
         hotColdNumber: '熱冷號碼',
         history: '歷史記錄',
         roadmap: '路紙',
+        luckyNumber: '幸運數字',
         jockeyBet: '馬場下注區',
         customBet: '自選投注組合',
         distribution: { text: '散佈', x: 60 },

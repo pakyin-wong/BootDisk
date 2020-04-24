@@ -8,31 +8,58 @@ namespace we {
       public overlay: eui.Group;
       public msg: eui.Group;
 
-      constructor(stage: egret.Stage) {
-        this.bottom = this.newLayer(stage);
-        this.scene = this.newLayer(stage);
-        this.top = this.newLayer(stage);
-        this.nav = this.newLayer(stage);
-        this.overlay = this.newLayer(stage);
-        this.msg = this.newLayer(stage);
+      private _stage: egret.Stage;
 
-        stage.addChild(this.bottom);
-        stage.addChild(this.scene);
-        stage.addChild(this.top);
-        stage.addChild(this.nav);
-        stage.addChild(this.overlay);
-        stage.addChild(this.msg);
+      constructor(stage: egret.Stage) {
+        this._stage = stage;
+        this.initComponents();
+        this.arrangeComponents();
+
+        this._stage.addChild(this.bottom);
+        this._stage.addChild(this.scene);
+        this._stage.addChild(this.top);
+        this._stage.addChild(this.nav);
+        this._stage.addChild(this.overlay);
+        this._stage.addChild(this.msg);
 
         logger.l('LayerCtr is created');
+
+        dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this, false, 0);
       }
 
-      private newLayer(stage: egret.Stage): eui.Group {
+      private newLayer(): eui.Group {
         const layer: eui.Group = new eui.Group();
         layer.touchEnabled = false;
         layer.touchChildren = true;
-        layer.width = stage.stageWidth;
-        layer.height = stage.stageHeight;
         return layer;
+      }
+
+      private arrangeLayer(layer: eui.Group) {
+        layer.width = this._stage.stageWidth;
+        layer.height = this._stage.stageHeight;
+      }
+
+      protected onOrientationChange() {
+        this.arrangeComponents();
+      }
+
+      protected initComponents() {
+        this.bottom = this.newLayer();
+        this.scene = this.newLayer();
+        this.top = this.newLayer();
+        this.nav = this.newLayer();
+        this.overlay = this.newLayer();
+        this.msg = this.newLayer();
+      }
+
+      // set the position of the children components
+      protected arrangeComponents() {
+        this.arrangeLayer(this.bottom);
+        this.arrangeLayer(this.scene);
+        this.arrangeLayer(this.top);
+        this.arrangeLayer(this.nav);
+        this.arrangeLayer(this.overlay);
+        this.arrangeLayer(this.msg);
       }
     }
   }

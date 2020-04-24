@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.LiveGameTableList" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" states="normal,simple" >
+
+
+	<live:LiveGameTabbar id="tabs" width="224" verticalCenter="-40" height="850"/>
+	<e:Scroller id="scroller" height="850" y="156" left="224" right="0">
+		<e:Group>
+			<ui:ImageSlider id="slider" width="850" height="850"/>
+			<e:Group x="930">
+				<ui:TableList id="roomList"/>
+				<e:List id="roomListRefer">
+					<e:layout>
+					<e:TileLayout orientation="rows" horizontalGap="52" verticalGap="52" requestedRowCount="2" columnWidth="1139" rowHeight="399" columnWidth.simple="550" horizontalGap.simple="20" verticalGap.simple="20" requestedRowCount.simple="3" rowHeight.simple="270" paddingRight="80"/>
+					</e:layout>
+				</e:List>
+			</e:Group>
+		</e:Group>
+	</e:Scroller>
+	<live:MobileLobbyGridLayoutSwitch width="104" height="104" x="2277" y="688"/>
+</e:Skin>

@@ -9,6 +9,8 @@ namespace we {
         super('LivePage', data);
       }
 
+      public i = 0;
+
       public onEnter() {
         super.onEnter();
         // After pressing the Filter

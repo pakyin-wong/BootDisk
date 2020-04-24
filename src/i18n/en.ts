@@ -8,11 +8,17 @@ namespace we {
       gametype_BAC: 'BAC',
       gametype_BAS: 'BAS',
       gametype_BAI: 'BAI',
+      gametype_BAM: 'BAM',
       gametype_DI: 'DI',
       gametype_MJ: 'MJ',
       gametype_RO: 'RO',
+      gametype_ROL: 'ROL',
       gametype_DT: 'DT',
       gametype_LW: 'LW',
+
+      sidegamelist_title: 'Game List',
+      sidegamelist_tab_bet: 'Bet',
+      sidegamelist_tab_goodroad: 'GoodRoad',
 
       betfield_baccarat_banker: 'banker',
       betfield_baccarat_player: 'player',
@@ -25,6 +31,8 @@ namespace we {
       betfield_dragonTiger_tiger: 'tiger',
       betfield_dragonTiger_tie: 'tie',
 
+      playerprofile_title: 'User Information',
+      playerprofile_iconsetting: 'Icon Setting',
       playerprofile_maxWinAmount: 'Max Win Amt',
       playerprofile_maxWinCount: 'Nax Win Cunt',
       playerprofile_follower: 'Follower',
@@ -118,6 +126,7 @@ namespace we {
         },
       },
       nav: {
+        bet_balance: 'Balance',
         menu: {
           title: 'Settings',
           selectMode: 'Color Mode',
@@ -130,7 +139,9 @@ namespace we {
           system: 'System',
           logout: 'Logout',
           leftHandMode: 'Left Mode',
+          logoutMsg: 'Are you sure to logout?',
           confirm: 'Confirm',
+          cancel: 'Cancel',
         },
         system: {
           title: 'System',
@@ -233,6 +244,7 @@ namespace we {
         hotColdNumber: 'Hot/Cold',
         history: 'History',
         roadmap: 'Roadmap',
+        luckyNumber: 'Lucky Number',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
         distribution: {

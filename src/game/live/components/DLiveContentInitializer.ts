@@ -3,8 +3,7 @@ namespace we {
   export namespace live {
     export class DLiveContentInitializer implements IContentInitializer {
       protected root: GameTableList;
-      private normalGapSize: number = 48;
-      private simpleGapSize: number = 20;
+      private gapSize: number = 48;
       private roomLayout: eui.AnimTileLayout;
 
       constructor() {}
@@ -31,9 +30,9 @@ namespace we {
         root.roomList.isFreezeScrolling = true;
         root.roomList.isGlobalLock = true;
         this.roomLayout = new eui.AnimTileLayout();
-        this.roomLayout.horizontalGap = this.normalGapSize;
-        this.roomLayout.verticalGap = this.normalGapSize;
-        this.roomLayout.paddingBottom = this.normalGapSize * 3;
+        this.roomLayout.horizontalGap = this.gapSize;
+        this.roomLayout.verticalGap = this.gapSize;
+        this.roomLayout.paddingBottom = this.gapSize * 3;
         this.roomLayout.requestedColumnCount = 4;
         // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         root.roomList.layout = this.roomLayout;
@@ -61,10 +60,10 @@ namespace we {
         // section.content = new eui.Rect(640, 2000, 0x22ffff);
         section.scroller = root.scroller;
         section.isHeaderSticky = true;
-        section.contentPaddingTop = this.normalGapSize;
+        section.contentPaddingTop = this.gapSize;
         section.left = paddingHorizontal;
         section.right = paddingHorizontal;
-        section.y = slider.height + offsetForTableList + this.normalGapSize;
+        section.y = slider.height + offsetForTableList + this.gapSize;
 
         const group = new eui.Group();
         group.addChild(slider);
@@ -76,21 +75,33 @@ namespace we {
       public onDisplayMode(evt: egret.Event) {
         switch (evt.data) {
           case we.lobby.mode.NORMAL:
-            this.roomLayout.horizontalGap = this.normalGapSize;
-            this.roomLayout.verticalGap = this.normalGapSize;
-            this.roomLayout.paddingBottom = this.normalGapSize * 3;
+            this.roomLayout.horizontalGap = this.gapSize;
+            this.roomLayout.verticalGap = this.gapSize;
+            this.roomLayout.paddingBottom = this.gapSize * 3;
+            this.roomLayout.requestedColumnCount = 4;
+            this.roomLayout.columnWidth = 578;
             this.roomLayout.rowHeight = 388;
             // this.roomList.layout = this.roomLayout;
-
+            break;
+          case we.lobby.mode.ADVANCED:
+            this.roomLayout.horizontalGap = this.gapSize;
+            this.roomLayout.verticalGap = this.gapSize;
+            this.roomLayout.paddingBottom = this.gapSize * 3;
+            this.roomLayout.requestedColumnCount = 2;
+            this.roomLayout.columnWidth = 1204;
+            this.roomLayout.rowHeight = 450;
             break;
           case we.lobby.mode.SIMPLE:
-          case we.lobby.mode.ADVANCED:
-          default:
-            this.roomLayout.horizontalGap = this.normalGapSize;
-            this.roomLayout.verticalGap = this.normalGapSize;
-            this.roomLayout.paddingBottom = this.normalGapSize * 3;
+            this.roomLayout.horizontalGap = this.gapSize;
+            this.roomLayout.verticalGap = this.gapSize;
+            this.roomLayout.paddingBottom = this.gapSize * 3;
+            this.roomLayout.requestedColumnCount = 4;
+            this.roomLayout.columnWidth = 578;
             this.roomLayout.rowHeight = 219;
             // this.roomList.layout = this.roomLayout;
+            break;
+          default:
+            logger.e('DLiveContentInitializer::onDisplayMode() no "mode" can be read');
             break;
         }
       }

@@ -12,8 +12,12 @@ namespace we {
       constructor() {
         super();
         this.skinName = utils.getSkinByClassname('GoodRoadNotificationContainerSkin');
-        this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
-        this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label');
+        if (env.isMobile) {
+          this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label_real_mobile');
+        } else {
+          this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
+          this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label');
+        }
         this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
         this._btnQuickBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.quickBet, this);
         this._touchArea.addEventListener(egret.TouchEvent.TOUCH_TAP, this.enterRoom, this);

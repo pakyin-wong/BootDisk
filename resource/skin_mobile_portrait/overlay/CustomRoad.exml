@@ -8,8 +8,8 @@
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55" width="1000" height="119" verticalAlign="middle"
 		                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" />
 		<ui:BaseImageButton id="_defaultButton" y="75" anchorOffsetX="0" width="320" anchorOffsetY="0" height="90"
-		                    currentState="b_reset" horizontalCenter="0"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad" />
+		                    currentState="b_reset"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinGoodRoad"  x="745"/>
 		<ui:Scroller id="scroller" top="300" bottom="0" left="0" right="0">
 			<ui:List id="roomList" requireSelection="true">
 				<e:layout>

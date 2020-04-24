@@ -30,11 +30,19 @@ namespace we {
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
+
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
         }
 
         // const displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
         // const displayItem = new we.ui.ControlItem(generalGameType + '.LiveOverlayItemSkin');
-        const displayItem = new we.ui.MobileOverlayItem(generalGameType + '.LiveOverlayItemSkin');
+        const displayItem = new we.ui.MobileOverlayItem('LiveOverlayItemSkin');
+        if (we[generalGameType].LargeListItemInitHelper) {
+          displayItem.itemInitHelper = new we[generalGameType].LargeListItemInitHelper();
+        }
+
         this._controlGroup.addChild(displayItem);
         displayItem.setData(tableInfo);
 

@@ -10,17 +10,13 @@ namespace we {
       protected toggler: egret.DisplayObject;
       protected isAnimating: boolean = false;
       protected _contentPos: egret.Point;
-
       private onToggleCallback: (value: boolean) => void;
-
       constructor(displayObject: egret.DisplayObject & IPoppable) {
         super(displayObject);
       }
-
       // public set active(value: boolean) {
       //   super.$setActive(value);
       // }
-
       public setToggler(toggler: egret.DisplayObject, onToggleCallback: (value: boolean) => void = null) {
         this.removeToggler();
         this.toggler = toggler;
@@ -30,7 +26,6 @@ namespace we {
           mouse.setButtonMode(this.toggler, true);
         }
       }
-
       public init() {
         super.init();
         if (this.target.stage && this.target.content) {
@@ -51,7 +46,6 @@ namespace we {
           this.isInit = false;
         }
       }
-
       public deactivate() {
         super.deactivate();
         if (this.target.stage) {
@@ -59,10 +53,16 @@ namespace we {
         }
       }
 
+      public onOrientationChange() {
+        this.updateContentPos();
+        if (!this.isShow && this.target.content.visible) {
+          this.hide(true);
+        }
+      }
+
       public updateContentPos() {
         this._contentPos = new egret.Point(this.target.content.x, this.target.content.y);
       }
-
       private onToggle() {
         if (this.isShow) {
           this.hide();
@@ -73,7 +73,6 @@ namespace we {
           this.onToggleCallback(this.isShow);
         }
       }
-
       public removeToggler() {
         if (this.toggler) {
           this.toggler.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
@@ -81,7 +80,6 @@ namespace we {
         }
         this.onToggleCallback = null;
       }
-
       private onDetectClick(e: egret.TouchEvent) {
         if (!this.isShow) {
           return;
@@ -91,7 +89,6 @@ namespace we {
         if (c.length > this.inFocusIdx && c[c.length - 1] !== this.target) {
           return;
         }
-
         if (this.target.close && this.target.close.hitTestPoint(e.stageX, e.stageY)) {
           this.target.dispatchEvent(new egret.Event('close'));
           this.hide();
@@ -102,7 +99,6 @@ namespace we {
           this.hide();
         }
       }
-
       public async show(skipAnimation: boolean = false) {
         if (!skipAnimation && this.isAnimating) {
           return;
@@ -113,25 +109,21 @@ namespace we {
         await this.onShow(skipAnimation);
         this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
       }
-
       public async hide(skipAnimation: boolean = false) {
         if (!skipAnimation && this.isAnimating) {
           return;
         }
-
         this.target.stage['inFocusItems'] = this.target.stage['inFocusItems'].filter(
           function (i) {
             return i !== this.target;
           }.bind(this)
         );
-
         if (this.target && this.target.stage) {
           this.target.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
         }
         this.isShow = false;
         await this.onHide(skipAnimation);
       }
-
       protected async onShow(skipAnimation: boolean = false) {
         // Remove running animations
         const content = this.target.content;
@@ -140,32 +132,26 @@ namespace we {
         }
         egret.Tween.removeTweens(content);
         content.visible = true;
-
         // Run animation
         if (skipAnimation) {
           return Promise.resolve();
         }
-
         this.isAnimating = true;
         await this.onShowAnimation();
         this.isAnimating = false;
       }
-
       protected async onShowAnimation() {
         const content = this.target.content;
-
         // Set attributes for animating
         content.alpha = 0;
         content.$x = this._contentPos.x;
         content.$y = this._contentPos.y - 20;
-
         await new Promise((resolve, reject) => {
           egret.Tween.get(content)
             .to({ alpha: 1, $y: this._contentPos.y }, 200)
             .call(resolve);
         });
       }
-
       protected async onHide(skipAnimation: boolean = false) {
         // Remove running animations
         const content = this.target.content;
@@ -173,25 +159,21 @@ namespace we {
           return;
         }
         egret.Tween.removeTweens(content);
-
         // Run animation
         if (skipAnimation) {
           content.visible = false;
           return Promise.resolve();
         }
-
         this.isAnimating = true;
         await this.onHideAnimation();
         this.isAnimating = false;
         content.visible = false;
       }
-
       protected async onHideAnimation() {
         const content = this.target.content;
         // Set attributes for animating
         content.visible = true;
         content.alpha = 1;
-
         await new Promise((resolve, reject) => {
           egret.Tween.get(content)
             .to({ alpha: 0, $y: this._contentPos.y - 20 }, 200)

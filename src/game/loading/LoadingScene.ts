@@ -36,11 +36,12 @@ namespace we {
       /** Step 2: Init Loading Scene UI */
       private initSkin() {
         this.once(eui.UIEvent.COMPLETE, this.next, this);
-        this.skinName = utils.getSkinByClassname('LoadingScene');
+        this._skinKey = 'LoadingScene';
+        this.skinName = utils.getSkinByClassname(this._skinKey);
       }
 
       private preload() {
-        dir.moniter.preload();
+        dir.monitor.preload();
         this.next();
       }
 
@@ -190,7 +191,7 @@ namespace we {
         if (DEBUG && dir.config.target && dir.config.target === 'test') {
           dir.sceneCtr.goto('test');
         } else {
-          dir.moniter.start(this.stage);
+          dir.monitor.start(this.stage);
           dir.sceneCtr.goto('lobby');
           dir.audioCtr.init();
         }

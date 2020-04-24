@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.LobbyPage" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lobby="we.lobby.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Scroller left="0" right="0" scrollPolicyH="auto" height="850" y="156" scrollPolicyV="off">
+		<e:Group id="_viewport">
+			<e:Group id="_hotgameContainer" x="864" y="1491">
+				<e:layout>
+				<e:TileLayout horizontalGap="50" verticalGap="50" orientation="columns" columnWidth="490" paddingLeft="0" rowHeight="400" requestedRowCount="2"/>
+				</e:layout>
+			</e:Group>
+			<e:Group id="_posterContainer" y="1186" horizontalCenter="0" x="640">
+				<e:layout>
+				<e:TileLayout columnWidth="620" rowHeight="850" horizontalGap="50" requestedRowCount="1" verticalGap="0" orientation="columns" paddingTop="0" paddingBottom="0"/>
+				</e:layout>
+			</e:Group>
+
+
+
+
+			<e:layout>
+				<e:HorizontalLayout gap="80" paddingLeft="79" verticalAlign="middle" paddingRight="79"/>
+			</e:layout>
+
+		</e:Group>
+	</e:Scroller>
+	<ui:ImageSlider id="_bannerSlider" horizontalCenter="0" x="591" y="0" visible="false"/>
+	<e:Group id="_title_hotgame" visible="false">
+		<e:Rect height="1" x="263" y="54" fillColor="0xffffff" width="100%"/>
+		<ui:RunTimeLabel id="_txt_hotgame" text="熱門遊戲" horizontalCenter="0" size="60" height="89" verticalAlign="middle"/>
+		<e:Rect width="100%" height="1" x="1075" y="69" fillColor="0xffffff"/>
+		<e:layout>
+		<e:HorizontalLayout horizontalAlign="center" gap="34" verticalAlign="middle" paddingLeft="44" paddingRight="44"/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="_footer" visible="false">
+		<ui:RunTimeLabel id="_txt_copyright" text="© 2020 World Entainment 保留一切權利。" scaleX="1" scaleY="1" size="40"/>
+	</e:Group>
+</e:Skin>

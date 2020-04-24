@@ -656,7 +656,7 @@ namespace we {
         });
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         for (const key of Object.keys(fieldAmounts)) {
           if (fieldAmounts[key] > betLimit.maxlimit) {
             return true;
