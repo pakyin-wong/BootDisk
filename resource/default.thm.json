@@ -49,6 +49,8 @@
 		"resource/skin_desktop/ba/BARoadmapRightPanel.exml",
 		"resource/skin_desktop/ba/GameResult/GameResultNormalSkin.exml",
 		"resource/skin_desktop/ba/GameResult/GameResultWinSkin.exml",
+		"resource/skin_desktop/ba/LiveListItemAdvancedChipLayerSkin.exml",
+		"resource/skin_desktop/ba/LiveListItemAdvancedTableLayerSkin.exml",
 		"resource/skin_desktop/ba/LiveListItemChipLayer.exml",
 		"resource/skin_desktop/ba/LiveListItemTableLayer.exml",
 		"resource/skin_desktop/ba/resultDisplay/CardHolder.exml",
