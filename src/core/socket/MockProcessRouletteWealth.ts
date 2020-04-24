@@ -13,7 +13,7 @@ namespace we {
           0: 100,
           2: 100,
           11: 30,
-        }
+        };
         this.dispatchEvent(data);
         await this.sleep(gameData.countdown * 1000);
 
