@@ -766,6 +766,12 @@ namespace we {
         return data => {
           if (data.error) {
             // if data is an error
+            if (!data.args) {
+              console.error('Missing Arguments on retry.');
+              callback(data);
+              return;
+              // data.args = [];
+            }
             data.args.push(callback);
             dir.errHandler.handleError(data);
           } else {

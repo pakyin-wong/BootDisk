@@ -11,8 +11,6 @@ namespace we {
         super('MessageDialog');
         this._title = title;
         this._buttonProps = buttonProps;
-        this._skinKey = 'MessageDialog';
-        this.initOrientationDependentComponent();
       }
 
       protected initOrientationDependentComponent() {
