@@ -30,12 +30,12 @@ namespace we {
         });
         this.addChild(this.container);
         // set initial active btn
-        this._setSelectedIndex(env.currentLobbyMode);
+        this._setSelectedIndex(env.lobbyGridType);
       }
 
       private _setSelectedIndex(selectedIndex: number) {
         this.selectedIndex = selectedIndex;
-        env.currentLobbyMode = selectedIndex;
+        env.lobbyGridType = selectedIndex;
         this.images.forEach((img, idx) => {
           img.active = idx === selectedIndex;
         });

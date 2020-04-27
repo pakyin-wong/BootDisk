@@ -78,14 +78,11 @@ namespace we {
         root.roomList.isFreezeScrolling = true;
         root.roomList.isGlobalLock = true;
         this.roomLayout = new eui.TileLayout();
-        this.roomLayout.horizontalGap = this.gapSize;
-        this.roomLayout.verticalGap = this.gapSize;
-        this.roomLayout.paddingBottom = this.gapSize * 3;
-        this.roomLayout.requestedColumnCount = 4;
         this.roomLayout.paddingTop = 790 + offsetForTableList + this.gapSize + 100;
         this.roomLayout.useVirtualLayout = true;
         this.roomLayout.paddingLeft = paddingHorizontal;
         this.roomLayout.paddingRight = paddingHorizontal;
+        this.updateDisplayMode(env.lobbyGridType);
 
         root.roomList.layout = this.roomLayout;
         root.roomList.itemRenderer = LiveListHolder;
@@ -152,9 +149,11 @@ namespace we {
         // this.roomLayout.useVirtualLayout = true;
         // this.roomLayout.paddingLeft = paddingHorizontal;
         // this.roomLayout.paddingRight = paddingHorizontal;
-
+        this.updateDisplayMode(evt.data);
+      }
+      protected updateDisplayMode(mode) {
         this.roomLayout.clearVirtualLayoutCache();
-        switch (evt.data) {
+        switch (mode) {
           case we.lobby.mode.NORMAL:
             this.roomLayout.horizontalGap = this.gapSize;
             this.roomLayout.verticalGap = this.gapSize;
@@ -186,29 +185,29 @@ namespace we {
             break;
         }
 
-        this.root.roomList.layout = this.roomLayout;
-        this.root.roomList.itemRenderer = LiveListHolder;
-        this.root.roomList.itemRendererFunction = item => {
-          const tableInfo = env.tableInfos[item];
-          switch (tableInfo.gametype) {
-            case we.core.GameType.BAC:
-            case we.core.GameType.BAI:
-            case we.core.GameType.BAS:
-            case we.core.GameType.BAM:
-              return ba.LiveListHolder;
-            case we.core.GameType.RO:
-            case we.core.GameType.ROL:
-              return ro.LiveListHolder;
-            case we.core.GameType.DI:
-              return di.LiveListHolder;
-            case we.core.GameType.LW:
-              return lw.LiveListHolder;
-            case we.core.GameType.DT:
-              return dt.LiveListHolder;
-            default:
-              throw new Error('Invalid Game Type');
-          }
-        };
+        // this.root.roomList.layout = this.roomLayout;
+        // this.root.roomList.itemRenderer = LiveListHolder;
+        // this.root.roomList.itemRendererFunction = item => {
+        //   const tableInfo = env.tableInfos[item];
+        //   switch (tableInfo.gametype) {
+        //     case we.core.GameType.BAC:
+        //     case we.core.GameType.BAI:
+        //     case we.core.GameType.BAS:
+        //     case we.core.GameType.BAM:
+        //       return ba.LiveListHolder;
+        //     case we.core.GameType.RO:
+        //     case we.core.GameType.ROL:
+        //       return ro.LiveListHolder;
+        //     case we.core.GameType.DI:
+        //       return di.LiveListHolder;
+        //     case we.core.GameType.LW:
+        //       return lw.LiveListHolder;
+        //     case we.core.GameType.DT:
+        //       return dt.LiveListHolder;
+        //     default:
+        //       throw new Error('Invalid Game Type');
+        //   }
+        // };
         // this.root.roomList.setGameFiltersByTabIndex(this.root.tabs.tabBar.selectedIndex);
         // this.root.roomList.setTableList(this.root.roomIds);
         // this.root.roomList.addChild(this._slider);
