@@ -49,6 +49,7 @@ namespace we {
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
+      public currentLobbyMode: we.lobby.mode = we.lobby.mode.NORMAL;
 
       public init() {
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);

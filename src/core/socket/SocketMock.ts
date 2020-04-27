@@ -17,10 +17,10 @@ namespace we {
         [we.core.GameType.BAC]: 30,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
-        [we.core.GameType.DT]: 3,
-        [we.core.GameType.RO]: 3,
-        [we.core.GameType.DI]: 3,
-        [we.core.GameType.LW]: 1,
+        [we.core.GameType.DT]: 30,
+        [we.core.GameType.RO]: 30,
+        [we.core.GameType.DI]: 30,
+        [we.core.GameType.LW]: 30,
         [we.core.GameType.BAM]: 1,
         [we.core.GameType.ROL]: 1,
       };
@@ -292,6 +292,7 @@ namespace we {
               idx++;
               return data;
             });
+            break;
           }
           case we.core.GameType.LW: {
             tables = Array.apply(null, { length: count }).map((value, idx) => {
