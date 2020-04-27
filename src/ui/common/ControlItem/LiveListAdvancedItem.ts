@@ -12,8 +12,12 @@ namespace we {
 
       public destroy() {
         super.destroy();
-        dir.advancedRoadPool.release(this._advancedRoad, this.tableInfo.gametype);
-        dir.analysisPool.release(this._analysis, this.tableInfo.gametype);
+        if (this._advancedRoad && this.tableInfo) {
+          dir.advancedRoadPool.release(this._advancedRoad, this.tableInfo.gametype);
+        }
+        if (this._analysis && this.tableInfo) {
+          dir.analysisPool.release(this._analysis, this.tableInfo.gametype);
+        }
       }
 
       protected checkSkin() {

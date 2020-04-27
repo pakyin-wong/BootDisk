@@ -36,7 +36,7 @@ namespace we {
 
       public destroy() {
         super.destroy();
-        if (this._bigRoad) {
+        if (this._bigRoad && this.tableInfo) {
           dir.lobbyRoadPool.release(this._bigRoad, this.tableInfo.gametype);
         }
       }
