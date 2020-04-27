@@ -25,6 +25,14 @@ namespace we {
         this.initPos();
       }
 
+      public setData(tableinfo: data.TableInfo) {
+        if (this.tableInfo !== tableinfo) {
+          this.scaleX = 1;
+          this.scaleY = 1;
+        }
+        super.setData(tableinfo);
+      }
+
       protected initCustomPos() {
         this._targetQuickBetButtonY = 180;
         this._originalQuickBetButtonY = 150;
