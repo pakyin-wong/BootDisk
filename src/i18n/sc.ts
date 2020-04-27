@@ -213,6 +213,7 @@ namespace we {
         total: '和值',
         gameStats: '结果统计',
         dicePercent: '骰子机率',
+        allTriple: '全圍',
       },
       roulette: {
         row_1: '第一行',
