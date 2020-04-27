@@ -26,8 +26,11 @@ namespace we {
 
         if (!isNaN(winAmount)) {
           this._lblWinAmount.text = utils.formatNumber(winAmount, true);
-          if (winAmount > 0) this._bg.source = 'm_sb_panel_gamelist_result_data_win_png';
-          else this._bg.source = 'm_sb_panel_gamelist_result_data_lose_png';
+          if (winAmount > 0) {
+            this._bg.source = 'm_sb_panel_gamelist_result_data_win_png';
+          } else {
+            this._bg.source = 'm_sb_panel_gamelist_result_data_lose_png';
+          }
         }
 
         this.start(gameType, gameData, winAmount);

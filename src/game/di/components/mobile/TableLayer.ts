@@ -34,7 +34,9 @@ namespace we {
       public clearAllHighlights() {}
 
       public async flashFields(data) {
-        if (!data) return;
+        if (!data) {
+          return;
+        }
 
         const winningFields = di.getWinningFields(data);
 
@@ -73,7 +75,9 @@ namespace we {
             for (const field of Object.keys(this._groupMapping)) {
               const group = this._groupMapping[field];
               const image = group.getChildByName('image');
-              if (!image) continue;
+              if (!image) {
+                continue;
+              }
               const promise = new Promise(resolve => {
                 egret.Tween.get(image)
                   .to({ alpha: 0 }, 125)
@@ -93,10 +97,14 @@ namespace we {
           for (const field of winningFields) {
             const group = this._groupMapping[field];
             const image = group.getChildByName('image');
-            if (!image) continue;
+            if (!image) {
+              continue;
+            }
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 1 : 0;
-              egret.Tween.get(image).to({ alpha }, 125).call(resolve);
+              egret.Tween.get(image)
+                .to({ alpha }, 125)
+                .call(resolve);
             });
             tickFlashPromises.push(prom);
           }
