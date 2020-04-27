@@ -7,7 +7,7 @@ namespace we {
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
-      private _chipList: (IBetChip & core.BaseEUI)[] = [];
+      private _chipList: Array<IBetChip & core.BaseEUI> = [];
       protected _chipContainer: eui.Component;
 
       public constructor() {
