@@ -20,17 +20,6 @@ namespace we {
         }
       }
 
-      protected checkSkin() {
-        if (this.skinName !== utils.getSkinByClassname('LiveListAdvancedItemCompleteSkin')) {
-          this.clearComponents();
-          this.updateSkin('LiveListAdvancedItemCompleteSkin', false);
-          this.validateNow();
-          this.initComponents();
-          this.arrangeComponents();
-          this.setData(this.tableInfo);
-        }
-      }
-
       public get advancedRoad() {
         return this._advancedRoad;
       }

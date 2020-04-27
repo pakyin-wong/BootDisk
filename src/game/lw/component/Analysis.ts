@@ -28,7 +28,7 @@ namespace we {
       }
 
       constructor() {
-        super('lw.Analysis');
+        super(env.isMobile ? null : 'lw.Analysis');
       }
 
       public mount() {

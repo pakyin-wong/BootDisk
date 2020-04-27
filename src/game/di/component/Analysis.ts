@@ -14,7 +14,7 @@ namespace we {
       }
 
       constructor() {
-        super('di.Analysis');
+        super(env.isMobile ? null : 'di.Analysis');
       }
 
       public updateTableBetInfo() {}

@@ -18,17 +18,6 @@ namespace we {
         }
       }
 
-      protected checkSkin() {
-        if (this.skinName !== utils.getSkinByClassname('LiveListItemCompleteSkin')) {
-          this.clearComponents();
-          this.updateSkin('LiveListItemCompleteSkin', false);
-          this.validateNow();
-          this.initComponents();
-          this.arrangeComponents();
-          this.setData(this.tableInfo);
-        }
-      }
-
       protected addRoundCornerMask() {
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);

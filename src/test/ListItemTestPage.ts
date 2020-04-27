@@ -22,7 +22,7 @@ namespace we {
         const timestamp = Date.now();
 
         for (let i = 0; i < 20; i++) {
-          const listItem = new ui.LiveListSimpleItem('LiveListSimpleItemCompleteSkin');
+          const listItem = new ui.LiveListSimpleItem('LiveListSimpleItemSkin');
           listItem.itemInitHelper = new we.ba.LiveListItemInitHelper();
           this.addChild(listItem);
         }

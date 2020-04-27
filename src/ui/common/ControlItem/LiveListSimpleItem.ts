@@ -228,7 +228,6 @@ namespace we {
       }
 
       public onRollover(evt: egret.Event) {
-        this.checkSkin();
         if (this._quickbetEnable && !this._quickbetButton) {
           this.generateQuickBetButton();
         }
@@ -238,17 +237,6 @@ namespace we {
           if (this._quickbetEnable && this._quickbetButton) {
             this._quickbetButton.tween(false);
           }
-        }
-      }
-
-      protected checkSkin() {
-        if (this.skinName !== utils.getSkinByClassname('LiveListSimpleItemCompleteSkin')) {
-          this.clearComponents();
-          this.updateSkin('LiveListSimpleItemCompleteSkin', false);
-          this.validateNow();
-          this.initComponents();
-          this.arrangeComponents();
-          this.setData(this.tableInfo);
         }
       }
 
