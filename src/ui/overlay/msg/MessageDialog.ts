@@ -14,10 +14,10 @@ namespace we {
           this[`_btn_${btn}`].addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             async () => {
+              this._hide();
               if (buttonProps[btn].onClick) {
                 await buttonProps[btn].onClick();
               }
-              this._hide();
             },
             this
           );

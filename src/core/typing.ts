@@ -10,7 +10,7 @@ namespace we {
       bet(tableID: string, betDetails: data.BetDetail[]);
       getTableHistory();
       getBetHistory(filter: any, callback: (res: any) => void, thisArg: any);
-      getLobbyMaterial(callback: (res: LobbyMaterial) => void);
+      getLobbyMaterial(callback: (res: any) => void); // res: LobbyMaterial to any, since it could be error
       updateSetting(key: string, value: string);
       getGoodRoad();
       updateCustomGoodRoad(id: string, data: any);
@@ -21,6 +21,7 @@ namespace we {
       createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]);
       getBetCombination();
       removeBetCombination(id: string);
+      retryPlayerClient(functionName: string, args: any[]);
     }
 
     export interface ILobbyRoad {
@@ -29,10 +30,17 @@ namespace we {
 
     export interface IErrorKind {
       code: number;
+      error?: string;
       detail?: string;
-      id?: string;
-      status?: string;
+      priority?: number;
+      action?: string;
+      method?: string;
       timestamp?: number;
+      args?: any[];
+
+      debug?: string; //
+      id?: string; //
+      status?: string; //
     }
 
     export interface IRemoteResourceItem {
