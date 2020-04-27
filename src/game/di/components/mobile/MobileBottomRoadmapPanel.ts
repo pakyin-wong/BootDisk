@@ -12,12 +12,6 @@ namespace we {
       protected sizeBigRoadConfig: RoadMapConfig;
       protected oddBigRoadConfig: RoadMapConfig;
 
-      // protected beadRoadGroup : eui.Group;
-      // protected bigRoadGroup: eui.Group;
-
-      // protected beadRoadSizeBtn: eui.RadioButton;
-      // protected beadRoadOddEvenBtn: eui.RadioButton;
-
       protected roadmapSizeBtn: eui.RadioButton;
       protected roadmapOddevenBtn: eui.RadioButton;
       protected roadmapSumBtn: eui.RadioButton;
@@ -40,12 +34,6 @@ namespace we {
       }
 
       protected initRoadMap() {
-        // Mobile Portrait
-        this.sumBigRoadConfig.setPortrait();
-        this.sizeBigRoadConfig.setPortrait();
-        this.oddBigRoadConfig.setPortrait();
-        // Mobile Portrait
-
         this.sumRoad = new DiSumBigRoad(18, 68, 1, false);
         this.sumBigRoadConfig.parent.addChild(this.sumRoad);
 
@@ -59,7 +47,6 @@ namespace we {
       public destroy() {
         super.destroy();
 
-        // this.beadRoad.dispose();
         this.sumRoad.dispose();
         this.sizeRoad.dispose();
         this.oddRoad.dispose();
@@ -68,9 +55,6 @@ namespace we {
       }
 
       protected addListeners() {
-        // this.beadRoadSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        // this.beadRoadOddEvenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-
         this.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
@@ -80,9 +64,6 @@ namespace we {
       }
 
       protected removeListeners() {
-        // this.beadRoadSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        // this.beadRoadOddEvenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-
         this.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
@@ -92,9 +73,6 @@ namespace we {
       }
 
       public updateText() {
-        // this.beadRoadSizeBtn.label = i18n.t('dice.roadBig') +'/' + i18n.t('dice.roadSmall') ;
-        // this.beadRoadOddEvenBtn.label = i18n.t('dice.roadOdd') +'/' + i18n.t('dice.roadEven') ;
-
         this.roadmapSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
         this.roadmapOddevenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
         this.roadmapSumBtn.label = i18n.t('dice.total');
@@ -105,7 +83,7 @@ namespace we {
       }
 
       protected updateMode() {
-        this._roadmapBg.currentState = 'dark';
+        this._roadmapBg.currentState = env.mode === 1 ? 'dark' : 'light';
       }
     }
   }

@@ -3,6 +3,10 @@ namespace we {
   export namespace di {
     export class MobileTableLayer extends we.di.TableLayer {
       // group
+      protected _small_percent: eui.Label;
+      protected _odd_percent: eui.Label;
+      protected _even_percent: eui.Label;
+      protected _big_percent: eui.Label;
 
       protected createMapping() {
         super.createMapping();
@@ -10,6 +14,17 @@ namespace we {
         Object.keys(we.di.BETFIELD_IMAGE_MAPPING).map(value => {
           this._groupHoverImageMapping[value] = we.di.MOBILE_BETFIELD_IMAGE_MAPPING[value];
         });
+      }
+
+      public updateText(tableInfo: data.TableInfo) {
+        if (tableInfo.gamestatistic.diSize) {
+          this._small_percent.text = tableInfo.gamestatistic.diSize.small + '%';
+          this._big_percent.text = tableInfo.gamestatistic.diSize.big + '%';
+        }
+        if (tableInfo.gamestatistic.diOdd) {
+          this._odd_percent.text = tableInfo.gamestatistic.diOdd.odd + '%';
+          this._even_percent.text = tableInfo.gamestatistic.diOdd.even + '%';
+        }
       }
 
       public onRollover(fieldName: string) {}

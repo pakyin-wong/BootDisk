@@ -15,8 +15,13 @@ namespace we {
 
       protected _roadmapControl: DiRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
+
+      protected _baGameIDText: ui.RunTimeLabel;
+      protected _baGameID: ui.RunTimeLabel;
+      protected _totalBet: ui.RunTimeLabel;
+      protected _totalBetText: ui.RunTimeLabel;
       // protected _sidePanel: MobileSidePanel;
-      protected _sidePanel;
+      // protected _sidePanel;
 
       protected parser: ba.BARoadParser;
 
@@ -130,6 +135,9 @@ namespace we {
           this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
           this.diState = 'small';
         }
+
+        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
       }
 
       protected addEventListeners() {
@@ -163,6 +171,8 @@ namespace we {
       // Roadmap & Statistic update
       protected onRoadDataUpdate(evt: egret.Event) {
         this._roadmapControl.updateRoadData();
+        this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
+        (this._tableLayer as di.MobileTableLayer).updateText(this._tableInfo);
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
@@ -251,6 +261,8 @@ namespace we {
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.diState = 'normal';
+        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
     }
   }

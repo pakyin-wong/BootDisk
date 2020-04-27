@@ -217,16 +217,16 @@ namespace we {
 
       public setValue(tableInfo: data.TableInfo) {
         if (tableInfo.gamestatistic.diOdd) {
-          this._diPie.setPieOdd([tableInfo.gamestatistic.diOdd.even, tableInfo.gamestatistic.diOdd.odd, tableInfo.gamestatistic.diOdd.tie]);
+          this._diPie.setPieOdd([tableInfo.gamestatistic.diOdd.odd, tableInfo.gamestatistic.diOdd.even, tableInfo.gamestatistic.diOdd.tie]);
+          this._diPie.setOddValues(tableInfo.gamestatistic.diOdd);
         }
         if (tableInfo.gamestatistic.diSize) {
-          this._diPie.setPieSize([tableInfo.gamestatistic.diSize.big, tableInfo.gamestatistic.diSize.small, tableInfo.gamestatistic.diSize.tie]);
+          this._diPie.setPieSize([tableInfo.gamestatistic.diSize.small, tableInfo.gamestatistic.diSize.big, tableInfo.gamestatistic.diSize.tie]);
+          this._diPie.setSizeValues(tableInfo.gamestatistic.diSize);
         }
         if (tableInfo.gamestatistic.points) {
           this._diChance.setDiceValues(tableInfo.gamestatistic.points);
         }
-        // this._diPie._pieSize.setRanksAndAnimate([30, 15, 55]);
-        // this._pieOdd.setRanksAndAnimate([45, 10, 45]);
       }
     }
   }

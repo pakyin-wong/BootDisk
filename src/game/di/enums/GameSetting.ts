@@ -168,342 +168,51 @@ namespace we {
       // COMBINE_1_2
 
       // check dice1 - dice2, dice1 - dice3
-      switch (diceResults[0]) {
-        case 1:
-          switch (diceResults[1]) {
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_2).length > 0)) resultsField.push(di.BetField.COMBINE_1_2);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_3).length > 0)) resultsField.push(di.BetField.COMBINE_1_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_4).length > 0)) resultsField.push(di.BetField.COMBINE_1_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_5).length > 0)) resultsField.push(di.BetField.COMBINE_1_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_6).length > 0)) resultsField.push(di.BetField.COMBINE_1_6);
-              break;
-          }
-          switch (diceResults[2]) {
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_2).length > 0)) resultsField.push(di.BetField.COMBINE_1_2);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_3).length > 0)) resultsField.push(di.BetField.COMBINE_1_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_4).length > 0)) resultsField.push(di.BetField.COMBINE_1_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_5).length > 0)) resultsField.push(di.BetField.COMBINE_1_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_6).length > 0)) resultsField.push(di.BetField.COMBINE_1_6);
-              break;
-          }
-          break;
-        case 2:
-          switch (diceResults[1]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_2).length > 0)) resultsField.push(di.BetField.COMBINE_1_2);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_3).length > 0)) resultsField.push(di.BetField.COMBINE_2_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_4).length > 0)) resultsField.push(di.BetField.COMBINE_2_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_5).length > 0)) resultsField.push(di.BetField.COMBINE_2_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_6).length > 0)) resultsField.push(di.BetField.COMBINE_2_6);
-              break;
-          }
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_2).length > 0)) resultsField.push(di.BetField.COMBINE_1_2);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_3).length > 0)) resultsField.push(di.BetField.COMBINE_2_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_4).length > 0)) resultsField.push(di.BetField.COMBINE_2_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_5).length > 0)) resultsField.push(di.BetField.COMBINE_2_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_6).length > 0)) resultsField.push(di.BetField.COMBINE_2_6);
-              break;
-          }
-          break;
-        case 3:
-          switch (diceResults[1]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_3).length > 0)) resultsField.push(di.BetField.COMBINE_1_3);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_3).length > 0)) resultsField.push(di.BetField.COMBINE_2_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_4).length > 0)) resultsField.push(di.BetField.COMBINE_3_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_5).length > 0)) resultsField.push(di.BetField.COMBINE_3_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_6).length > 0)) resultsField.push(di.BetField.COMBINE_3_6);
-              break;
-          }
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_3).length > 0)) resultsField.push(di.BetField.COMBINE_1_3);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_3).length > 0)) resultsField.push(di.BetField.COMBINE_2_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_4).length > 0)) resultsField.push(di.BetField.COMBINE_3_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_5).length > 0)) resultsField.push(di.BetField.COMBINE_3_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_6).length > 0)) resultsField.push(di.BetField.COMBINE_3_6);
-              break;
-          }
-          break;
-        case 4:
-          switch (diceResults[1]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_4).length > 0)) resultsField.push(di.BetField.COMBINE_1_4);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_4).length > 0)) resultsField.push(di.BetField.COMBINE_2_4);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_4).length > 0)) resultsField.push(di.BetField.COMBINE_3_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_5).length > 0)) resultsField.push(di.BetField.COMBINE_4_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_6).length > 0)) resultsField.push(di.BetField.COMBINE_4_6);
-              break;
-          }
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_4).length > 0)) resultsField.push(di.BetField.COMBINE_1_4);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_4).length > 0)) resultsField.push(di.BetField.COMBINE_2_4);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_4).length > 0)) resultsField.push(di.BetField.COMBINE_3_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_5).length > 0)) resultsField.push(di.BetField.COMBINE_4_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_6).length > 0)) resultsField.push(di.BetField.COMBINE_4_6);
-              break;
-          }
-          break;
-        case 5:
-          switch (diceResults[1]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_5).length > 0)) resultsField.push(di.BetField.COMBINE_1_5);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_5).length > 0)) resultsField.push(di.BetField.COMBINE_2_5);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_5).length > 0)) resultsField.push(di.BetField.COMBINE_3_5);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_5).length > 0)) resultsField.push(di.BetField.COMBINE_4_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_5_6).length > 0)) resultsField.push(di.BetField.COMBINE_5_6);
-              break;
-          }
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_5).length > 0)) resultsField.push(di.BetField.COMBINE_1_5);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_5).length > 0)) resultsField.push(di.BetField.COMBINE_2_5);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_5).length > 0)) resultsField.push(di.BetField.COMBINE_3_5);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_5).length > 0)) resultsField.push(di.BetField.COMBINE_4_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_5_6).length > 0)) resultsField.push(di.BetField.COMBINE_5_6);
-              break;
-          }
-          break;
-        case 6:
-          switch (diceResults[1]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_6).length > 0)) resultsField.push(di.BetField.COMBINE_1_6);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_6).length > 0)) resultsField.push(di.BetField.COMBINE_2_6);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_6).length > 0)) resultsField.push(di.BetField.COMBINE_3_6);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_6).length > 0)) resultsField.push(di.BetField.COMBINE_4_6);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_5_6).length > 0)) resultsField.push(di.BetField.COMBINE_5_6);
-              break;
-          }
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_6).length > 0)) resultsField.push(di.BetField.COMBINE_1_6);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_6).length > 0)) resultsField.push(di.BetField.COMBINE_2_6);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_6).length > 0)) resultsField.push(di.BetField.COMBINE_3_6);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_6).length > 0)) resultsField.push(di.BetField.COMBINE_4_6);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_5_6).length > 0)) resultsField.push(di.BetField.COMBINE_5_6);
-              break;
-          }
-          break;
-      }
-      // check dice2 - dice3
-      switch (diceResults[1]) {
-        case 1:
-          switch (diceResults[2]) {
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_2).length > 0)) resultsField.push(di.BetField.COMBINE_1_2);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_3).length > 0)) resultsField.push(di.BetField.COMBINE_1_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_4).length > 0)) resultsField.push(di.BetField.COMBINE_1_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_5).length > 0)) resultsField.push(di.BetField.COMBINE_1_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_6).length > 0)) resultsField.push(di.BetField.COMBINE_1_6);
-              break;
-          }
-          break;
-        case 2:
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_2).length > 0)) resultsField.push(di.BetField.COMBINE_1_2);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_3).length > 0)) resultsField.push(di.BetField.COMBINE_2_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_4).length > 0)) resultsField.push(di.BetField.COMBINE_2_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_5).length > 0)) resultsField.push(di.BetField.COMBINE_2_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_6).length > 0)) resultsField.push(di.BetField.COMBINE_2_6);
-              break;
-          }
-          break;
-        case 3:
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_3).length > 0)) resultsField.push(di.BetField.COMBINE_1_3);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_3).length > 0)) resultsField.push(di.BetField.COMBINE_2_3);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_4).length > 0)) resultsField.push(di.BetField.COMBINE_3_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_5).length > 0)) resultsField.push(di.BetField.COMBINE_3_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_6).length > 0)) resultsField.push(di.BetField.COMBINE_3_6);
-              break;
-          }
-          break;
-        case 4:
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_4).length > 0)) resultsField.push(di.BetField.COMBINE_1_4);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_4).length > 0)) resultsField.push(di.BetField.COMBINE_2_4);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_4).length > 0)) resultsField.push(di.BetField.COMBINE_3_4);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_5).length > 0)) resultsField.push(di.BetField.COMBINE_4_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_6).length > 0)) resultsField.push(di.BetField.COMBINE_4_6);
-              break;
-          }
-          break;
-        case 5:
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_5).length > 0)) resultsField.push(di.BetField.COMBINE_1_5);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_5).length > 0)) resultsField.push(di.BetField.COMBINE_2_5);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_5).length > 0)) resultsField.push(di.BetField.COMBINE_3_5);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_5).length > 0)) resultsField.push(di.BetField.COMBINE_4_5);
-              break;
-            case 6:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_5_6).length > 0)) resultsField.push(di.BetField.COMBINE_5_6);
-              break;
-          }
-          break;
-        case 6:
-          switch (diceResults[2]) {
-            case 1:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_1_6).length > 0)) resultsField.push(di.BetField.COMBINE_1_6);
-              break;
-            case 2:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_2_6).length > 0)) resultsField.push(di.BetField.COMBINE_2_6);
-              break;
-            case 3:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_3_6).length > 0)) resultsField.push(di.BetField.COMBINE_3_6);
-              break;
-            case 4:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_4_6).length > 0)) resultsField.push(di.BetField.COMBINE_4_6);
-              break;
-            case 5:
-              if (!(resultsField.filter(item => item === di.BetField.COMBINE_5_6).length > 0)) resultsField.push(di.BetField.COMBINE_5_6);
-              break;
-          }
-          break;
-      }
+      let diceBits = 0b000000;
 
+      const dice12 = 0b000011;
+      const dice13 = 0b000101;
+      const dice14 = 0b001001;
+      const dice15 = 0b010001;
+      const dice16 = 0b100001;
+
+      const dice23 = 0b000110;
+      const dice24 = 0b001010;
+      const dice25 = 0b010010;
+      const dice26 = 0b100010;
+
+      const dice34 = 0b001100;
+      const dice35 = 0b010100;
+      const dice36 = 0b100100;
+
+      const dice45 = 0b011000;
+      const dice46 = 0b101000;
+
+      const dice56 = 0b110000;
+
+      diceBits |= Math.pow(2, diceResults[0] - 1);
+      diceBits |= Math.pow(2, diceResults[1] - 1);
+      diceBits |= Math.pow(2, diceResults[2] - 1);
+
+      if ((diceBits & dice12) === dice12) resultsField.push(di.BetField.COMBINE_1_2);
+      if ((diceBits & dice13) === dice13) resultsField.push(di.BetField.COMBINE_1_3);
+      if ((diceBits & dice14) === dice14) resultsField.push(di.BetField.COMBINE_1_4);
+      if ((diceBits & dice15) === dice15) resultsField.push(di.BetField.COMBINE_1_5);
+      if ((diceBits & dice16) === dice16) resultsField.push(di.BetField.COMBINE_1_6);
+
+      if ((diceBits & dice23) === dice23) resultsField.push(di.BetField.COMBINE_2_3);
+      if ((diceBits & dice24) === dice24) resultsField.push(di.BetField.COMBINE_2_4);
+      if ((diceBits & dice25) === dice25) resultsField.push(di.BetField.COMBINE_2_5);
+      if ((diceBits & dice26) === dice26) resultsField.push(di.BetField.COMBINE_2_6);
+
+      if ((diceBits & dice34) === dice34) resultsField.push(di.BetField.COMBINE_3_4);
+      if ((diceBits & dice35) === dice35) resultsField.push(di.BetField.COMBINE_3_5);
+      if ((diceBits & dice36) === dice36) resultsField.push(di.BetField.COMBINE_3_6);
+
+      if ((diceBits & dice45) === dice45) resultsField.push(di.BetField.COMBINE_4_5);
+      if ((diceBits & dice46) === dice46) resultsField.push(di.BetField.COMBINE_4_6);
+
+      if ((diceBits & dice56) === dice56) resultsField.push(di.BetField.COMBINE_5_6);
       // specific
       if (diceResults[0] === 1 || diceResults[1] === 1 || diceResults[2] === 1) resultsField.push(di.BetField.SPECIFIC_1);
 

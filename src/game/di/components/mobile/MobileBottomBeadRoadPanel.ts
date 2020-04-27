@@ -5,19 +5,7 @@ namespace we {
     export class MobileBottomBeadRoadPanel extends core.BaseGamePanel {
       public beadRoad: DiBeadRoad;
 
-      //   protected sumRoad: DiSumBigRoad;
-      //   protected sizeRoad: DiSizeBigRoad;
-      //   protected oddRoad: DiOddBigRoad;
-
       protected beadRoadConfig: RoadMapConfig;
-      //   protected sizeBigRoadConfig: RoadMapConfig;
-      //   protected oddBigRoadConfig: RoadMapConfig;
-
-      // protected beadRoadGroup : eui.Group;
-      // protected bigRoadGroup: eui.Group;
-
-      // protected beadRoadSizeBtn: eui.RadioButton;
-      // protected beadRoadOddEvenBtn: eui.RadioButton;
 
       protected beadRoadSizeBtn: eui.RadioButton;
       protected beadRoadOddEvenBtn: eui.RadioButton;
@@ -87,7 +75,7 @@ namespace we {
       }
 
       protected updateMode() {
-        this._roadmapBg.currentState = 'dark';
+        this._roadmapBg.currentState = env.mode === 1 ? 'dark' : 'light';
       }
     }
   }
