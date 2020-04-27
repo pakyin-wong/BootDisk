@@ -21,7 +21,7 @@ namespace we {
         const bigRoad = new di.DiLobbyBeadRoad();
         bigRoad.roadGridSize = 40;
         bigRoad.roadCol = 12;
-        bigRoad.roadRow = 3;
+        bigRoad.roadRow = 1;
         bigRoad.roadIndentX = 4;
         bigRoad.roadIndentY = 2;
         bigRoad.roadOffsetX = 8;

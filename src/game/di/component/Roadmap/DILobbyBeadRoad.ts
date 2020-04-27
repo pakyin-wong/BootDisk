@@ -29,10 +29,12 @@ namespace we {
         this.beadRoad.x = this.roadIndentX;
         this.beadRoad.y = this.roadIndentY;
         this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;
-
-        const rdata: any = [];
-        this.beadRoad.parseRoadData(rdata);
+        this.beadRoad.initRoadData();
         this.beadRoad.setLayout(3);
+        this.beadRoad.expandRoad(false);
+
+        // const rdata: any = [];
+        // this.beadRoad.parseRoadData(rdata);
         this.addChild(this.beadRoad);
       }
 
@@ -60,7 +62,7 @@ namespace we {
         }
       }
 
-      public dispose() { }
+      public dispose() {}
     }
   }
 }
