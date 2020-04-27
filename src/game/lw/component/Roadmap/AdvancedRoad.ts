@@ -39,6 +39,7 @@ namespace we {
         this.beadRoad = new we.lw.LwBeadRoad(10, 14, 43, 43);
         this.beadRoad.x = 0;
         this.beadRoad.y = 0;
+        this.beadRoad.initRoadData();
         this.roadsContainer.addChild(this.beadRoad);
 
         // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);

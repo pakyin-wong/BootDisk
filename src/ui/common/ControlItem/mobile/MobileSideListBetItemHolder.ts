@@ -1,3 +1,4 @@
+// deprecated
 namespace we {
   export namespace ui {
     export class MobileSideListBetItemHolder extends ui.TableListItemHolder {

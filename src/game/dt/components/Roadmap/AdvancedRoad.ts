@@ -52,6 +52,7 @@ namespace we {
         this.beadRoad = new we.dt.DTBeadRoad(16, gridSize * 2, 1, false);
         this.beadRoad.x = 0;
         this.beadRoad.y = 0;
+        this.beadRoad.initRoadData();
         // this.beadRoad.scaleX = 690 / 689;
         // this.beadRoad.scaleY = 690 / 689;
         this.roadsContainer.addChild(this.beadRoad);
@@ -59,21 +60,25 @@ namespace we {
         this.bigRoad = new we.ba.BABigRoad(32, gridSize);
         this.bigRoad.x = 0;
         this.bigRoad.y = 12 * gridSize;
+        this.bigRoad.initRoadData();
         this.roadsContainer.addChild(this.bigRoad);
 
         this.bigEyeRoad = new we.ba.BABigEyeRoad(32 * 2, gridSize);
         this.bigEyeRoad.x = 0;
         this.bigEyeRoad.y = 12 * gridSize + 6 * gridSize;
+        this.bigEyeRoad.initRoadData();
         this.roadsContainer.addChild(this.bigEyeRoad);
 
         this.smallRoad = new we.ba.BASmallRoad(16 * 2, gridSize);
         this.smallRoad.x = 0;
         this.smallRoad.y = 12 * gridSize + 6 * gridSize + 6 * (gridSize / 2);
+        this.smallRoad.initRoadData();
         this.roadsContainer.addChild(this.smallRoad);
 
         this.cockroachRoad = new we.ba.BACockroachRoad(16 * 2, gridSize);
         this.cockroachRoad.x = gridSize * 16;
         this.cockroachRoad.y = 12 * gridSize + 6 * gridSize + 6 * (gridSize / 2);
+        this.cockroachRoad.initRoadData();
         this.roadsContainer.addChild(this.cockroachRoad);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);

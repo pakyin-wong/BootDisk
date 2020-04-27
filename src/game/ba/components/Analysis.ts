@@ -25,7 +25,7 @@ namespace we {
       protected _iconPlayerBead: eui.Image;
 
       constructor() {
-        super('ba.Analysis');
+        super(env.isMobile ? null : 'ba.Analysis');
       }
 
       protected mount() {

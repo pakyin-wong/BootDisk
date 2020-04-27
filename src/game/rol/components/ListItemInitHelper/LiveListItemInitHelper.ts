@@ -18,7 +18,8 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const bigRoad = new ro.ROLobbyBeadRoad();
+        // const bigRoad = new ro.ROLobbyBeadRoad();
+        const bigRoad = dir.lobbyRoadPool.get(core.GameType.RO);
         bigRoad.roadGridSize = 40;
         bigRoad.roadCol = 12;
         bigRoad.roadRow = 3;
@@ -34,14 +35,16 @@ namespace we {
       }
 
       public generateAnalysis(node: eui.Component) {
-        const analysis = new di.Analysis();
+        // const analysis = new di.Analysis();
+        const analysis = dir.analysisPool.get(core.GameType.RO);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(analysis, idx);
         return analysis;
       }
 
       public generateAdvancedRoad(node: eui.Component) {
-        const advancedRoad = new ro.AdvancedRoad();
+        // const advancedRoad = new ro.AdvancedRoad();
+        const advancedRoad = dir.advancedRoadPool.get(core.GameType.RO);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(advancedRoad, idx);
         return advancedRoad;

@@ -23,7 +23,7 @@ namespace we {
       protected _coldNumber4Text: eui.Label;
 
       constructor() {
-        super('ro.Analysis');
+        super(env.isMobile ? null : 'ro.Analysis');
       }
 
       protected mount() {

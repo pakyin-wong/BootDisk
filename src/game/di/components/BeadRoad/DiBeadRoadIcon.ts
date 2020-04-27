@@ -180,6 +180,7 @@ namespace we {
           this.diceImage3.source = 'd_sic_history_lv2_dice-' + this.dice[2] + '_png';
 
           this.setLayout(this.layout);
+        } else {
         }
       }
 
