@@ -251,17 +251,21 @@ namespace we {
       // doing
       protected update(res: any) {
         logger.l('getBetHistory', res);
-        this.total = Math.ceil(res.total / this._limit);
-        this._page = Math.floor(res.offset / this._limit) + 1;
-        this._ddm_page && this._ddm_page.dropdown.select(this._page);
-        res.history.forEach((element, i) => {
-          if (i % 2 === 1) {
-            element.colorIndex = 1;
-          } else {
-            element.colorIndex = 0;
-          }
-        });
-        this._dataColl.replaceAll(res.history);
+        if (res.error) {
+          // TODO: handle error if bet history is not available
+        } else {
+          this.total = Math.ceil(res.total / this._limit);
+          this._page = Math.floor(res.offset / this._limit) + 1;
+          this._ddm_page && this._ddm_page.dropdown.select(this._page);
+          res.history.forEach((element, i) => {
+            if (i % 2 === 1) {
+              element.colorIndex = 1;
+            } else {
+              element.colorIndex = 0;
+            }
+          });
+          this._dataColl.replaceAll(res.history);
+        }
       }
 
       protected onPageChange(e) {

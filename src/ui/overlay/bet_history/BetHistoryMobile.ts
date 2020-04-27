@@ -113,10 +113,14 @@ namespace we {
       }
 
       protected scrollUpdate(res: any) {
-        this.total = Math.ceil(res.total / this._limit);
-        this._page = Math.floor(res.offset / this._limit) + 1;
-        this._dataColl.replaceAll(this._dataColl.source.concat(res.history));
-        this._getLock = false;
+        if (res.error) {
+          // TODO: handle error if bet history is not available
+        } else {
+          this.total = Math.ceil(res.total / this._limit);
+          this._page = Math.floor(res.offset / this._limit) + 1;
+          this._dataColl.replaceAll(this._dataColl.source.concat(res.history));
+          this._getLock = false;
+        }
       }
 
       protected onClickResult(e) {

@@ -28,22 +28,22 @@ namespace we {
         this.dispatchEvent(data);
         await this.sleep(this.countdownA * 1000 + 1000);
 
-// PEEK_PLAYER
-        if (results[4]) {
-          gameData.b3 = results[4];
-          gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
-          gameData.state = core.GameState.PEEK_BANKER;
+        // PEEK_PLAYER
+        if (results[5]) {
+          gameData.b3 = results[5];
+          gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
+          gameData.state = core.GameState.PEEK_PLAYER;
           gameData.peekstarttime = Date.now();
           gameData.countdownB = this.countdownB;
           this.dispatchEvent(data);
           await this.sleep(this.countdownB * 1000 + 1000);
         }
 
-// PEEK_BANKER
-        if (results[5]) {
-          gameData.a3 = results[5];
-          gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
-          gameData.state = core.GameState.PEEK_PLAYER;
+        // PEEK_BANKER
+        if (results[4]) {
+          gameData.a3 = results[4];
+          gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
+          gameData.state = core.GameState.PEEK_BANKER;
           gameData.peekstarttime = Date.now();
           gameData.countdownB = this.countdownB;
           this.dispatchEvent(data);
