@@ -11,6 +11,11 @@ namespace we {
       protected _betPanelGroup: eui.Group;
       protected _betChipSetGridEnabled: boolean = false;
 
+      protected _repeatLabel: ui.RunTimeLabel;
+      protected _cancelLabel: ui.RunTimeLabel;
+      protected _doubleLabel: ui.RunTimeLabel;
+      protected _undoLabel: ui.RunTimeLabel;
+
       protected _veritcalTop: eui.Group;
 
       constructor(data: any) {
@@ -42,6 +47,9 @@ namespace we {
         this._bottomGamePanel.gameScene = this;
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
+
+          dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+          this.changeLang();
         }
       }
 
@@ -193,6 +201,13 @@ namespace we {
 
       // check if game mode btn (e.g. BA) is selected when orientation
       protected checkGameMode(value: boolean) {}
+
+      protected changeLang() {
+        this._repeatLabel.text = i18n.t('mobile_ba_repeat');
+        this._cancelLabel.text = i18n.t('mobile_ba_clear');
+        this._doubleLabel.text = i18n.t('mobile_ba_double');
+        this._undoLabel.text = i18n.t('mobile_ba_undo');
+      }
     }
   }
 }

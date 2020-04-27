@@ -13,8 +13,8 @@
 				</e:Group>
 				<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter.left_hand_mode="0" betChipWidth="250" betChipHeight="208" scaleY="0.5" labelSize="48" right.left_hand_mode="0" left.left_hand_mode="0" top.left_hand_mode="50" bottom.left_hand_mode="12" height.right_hand_mode="996" y.right_hand_mode="0" left.right_hand_mode="0" right.right_hand_mode="0" horizontalCenter.right_hand_mode="0"/>
 			</e:Group>-->
-
-			<e:Group id="_betRelatedGroup" y="260"  scaleX="1" scaleY="1" x="842" x.right_hand_mode="808">
+<!--===-->
+			<!--<e:Group id="_betRelatedGroup" y="260"  scaleX="1" scaleY="1" x="842" x.right_hand_mode="808">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="0" verticalCenter="0"  skinName="skin_mobile_portrait.BetConfirmButtonSkin"/>
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0" verticalCenter="0" />
@@ -22,7 +22,36 @@
 				<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="40" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" />
 				<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="190" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" />
 				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="-111" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"/>
+			</e:Group>-->
+			<e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x.left_hand_mode="600" x.right_hand_mode="762" y="20" y.right_hand_mode="250" y.left_hand_mode="250">
+				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+						 fillColor="0x444444" />
+				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="0"
+						 verticalCenter="0" skinName="skin_mobile_portrait.BetConfirmButtonSkin"  x.right_hand_mode="709"/>
+				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
+								 verticalCenter="0"  x.right_hand_mode="709"/>
+				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0" visible.left_hand_mode="false">
+					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788"  x.right_hand_mode="82"/>
+					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500"  x.right_hand_mode="432"/>
+					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650"  x.right_hand_mode="266"/>
+					<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" x="349"  x.right_hand_mode="588"/>
+				</e:Group>
+				<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
+									 skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
+									 currentState="b_repeat"  x.right_hand_mode="82" x.left_hand_mode="787"/>
+				<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+									 skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
+									 currentState="b_cancel"  x.right_hand_mode="432" x.left_hand_mode="497"/>
+				<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+									 skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
+									 currentState="b_double"  x.right_hand_mode="264" x.left_hand_mode="650"/>
+				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+									 skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
+									 currentState="b_undo"  x.right_hand_mode="588" x.left_hand_mode="350"/>
 			</e:Group>
+
+
+<!--===-->
 			<lw:TableLayer id="_tableLayer"  y="435" isEdgeDismissable="true"
 			               skinName="skin_mobile_landscape.lw.TableLayerSkin" scaleX="1" scaleY="1" horizontalCenter="0" y.right_hand_mode="400"/>
 			<lw:ChipLayer id="_chipLayer" y="435" isEdgeDismissable="true"
