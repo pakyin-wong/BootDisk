@@ -5,7 +5,7 @@
 			"name": "egret_basic"
 		},
 		{
-			"keys": "m_lobby_horizontal_banner_1_png,m_lobby_horizontal_banner_2_png,m_lobby_horizontal_banner_3_png,m_lobby_horizontal_banner_4_png,m_ba_betarea_supersix_tie_horizontal_hover_png,m_ba_betarea_supersix_tie_horizontal_png,m_ba_betarea_tie_horizontal_hover_png,m_ba_betarea_tie_horizontal_png,m_ba_betarea_banker_horizontal_hover_png,m_ba_betarea_banker_horizontal_png,m_ba_betarea_bankerpair_horizontal_hover_png,m_ba_betarea_bankerpair_horizontal_png,m_ba_betarea_player_horizontal_hover_png,m_ba_betarea_player_horizontal_png,m_ba_betarea_playerpair_horizontal_hover_png,m_ba_betarea_playerpair_horizontal_png,m_common_chartroom_emoji_icon_1_png,m_common_chartroom_emoji_icon_10_png,m_common_chartroom_emoji_icon_11_png,m_common_chartroom_emoji_icon_12_png,m_common_chartroom_emoji_icon_13_png,m_common_chartroom_emoji_icon_14_png,m_common_chartroom_emoji_icon_15_png,m_common_chartroom_emoji_icon_16_png,m_common_chartroom_emoji_icon_17_png,m_common_chartroom_emoji_icon_18_png,m_common_chartroom_emoji_icon_19_png,m_common_chartroom_emoji_icon_2_png,m_common_chartroom_emoji_icon_20_png,m_common_chartroom_emoji_icon_21_png,m_common_chartroom_emoji_icon_3_png,m_common_chartroom_emoji_icon_4_png,m_common_chartroom_emoji_icon_5_png,m_common_chartroom_emoji_icon_6_png,m_common_chartroom_emoji_icon_7_png,m_common_chartroom_emoji_icon_8_png,m_common_chartroom_emoji_icon_9_png,m_common_chatroom_btnbg_png,m_common_chatroom_chatbg_png,m_common_chatroom_chatbg_line_png,m_common_chatroom_chatbg_other_png,m_common_chatroom_chatbg_scrollbar_png,m_common_chatroom_chatbg_self_png,m_common_header_goodroad_bg_png,m_common_header_goodroad_icon_doublestar_png,m_common_panel_btn_disable_png,m_common_panel_setting_bg_png,m_common_panel_setting_btn_bg_png,m_common_panel_setting_btn_switch_disable_png,m_common_panel_setting_menubg_png,m_common_verification_btn_disable_svg,m_common_verification_btn_active_svg,m_common_verification_btn_select_svg,m_lobby_header_submenu_bg_png,m_lobby_header_submenu_hl_png,d_ba_roadmap_bar_remainingstate_png,m_lobby_login_banner_jpg",
+			"keys": "m_lobby_horizontal_banner_1_png,m_lobby_horizontal_banner_2_png,m_lobby_horizontal_banner_3_png,m_lobby_horizontal_banner_4_png,m_ba_betarea_supersix_tie_horizontal_hover_png,m_ba_betarea_supersix_tie_horizontal_png,m_ba_betarea_tie_horizontal_hover_png,m_ba_betarea_tie_horizontal_png,m_ba_betarea_banker_horizontal_hover_png,m_ba_betarea_banker_horizontal_png,m_ba_betarea_bankerpair_horizontal_hover_png,m_ba_betarea_bankerpair_horizontal_png,m_ba_betarea_player_horizontal_hover_png,m_ba_betarea_player_horizontal_png,m_ba_betarea_playerpair_horizontal_hover_png,m_ba_betarea_playerpair_horizontal_png,m_common_chartroom_emoji_icon_1_png,m_common_chartroom_emoji_icon_10_png,m_common_chartroom_emoji_icon_11_png,m_common_chartroom_emoji_icon_12_png,m_common_chartroom_emoji_icon_13_png,m_common_chartroom_emoji_icon_14_png,m_common_chartroom_emoji_icon_15_png,m_common_chartroom_emoji_icon_16_png,m_common_chartroom_emoji_icon_17_png,m_common_chartroom_emoji_icon_18_png,m_common_chartroom_emoji_icon_19_png,m_common_chartroom_emoji_icon_2_png,m_common_chartroom_emoji_icon_20_png,m_common_chartroom_emoji_icon_21_png,m_common_chartroom_emoji_icon_3_png,m_common_chartroom_emoji_icon_4_png,m_common_chartroom_emoji_icon_5_png,m_common_chartroom_emoji_icon_6_png,m_common_chartroom_emoji_icon_7_png,m_common_chartroom_emoji_icon_8_png,m_common_chartroom_emoji_icon_9_png,m_common_chatroom_btnbg_png,m_common_chatroom_chatbg_png,m_common_chatroom_chatbg_line_png,m_common_chatroom_chatbg_other_png,m_common_chatroom_chatbg_scrollbar_png,m_common_chatroom_chatbg_self_png,m_common_header_goodroad_bg_png,m_common_header_goodroad_icon_doublestar_png,m_common_panel_btn_disable_png,m_common_panel_setting_bg_png,m_common_panel_setting_btn_bg_png,m_common_panel_setting_btn_switch_disable_png,m_common_panel_setting_menubg_png,m_common_verification_btn_disable_svg,m_common_verification_btn_active_svg,m_common_verification_btn_select_svg,m_lobby_header_submenu_bg_png,m_lobby_header_submenu_hl_png,d_ba_roadmap_bar_remainingstate_png,m_lobby_login_banner_jpg,d_ro_chips_small_png,d_ro_panel_betcontrol_betarea_even_hover_png,d_ro_panel_gamelist_betarea_black_hover_png,d_ro_panel_gamelist_betarea_red_hover_png,d_ro_savelayout_add_icon_png,d_ro_savelayout_confrim_bg_png",
 			"name": "preload"
 		}
 	],
@@ -6059,6 +6059,316 @@
 			"name": "m_lw_listpenal_history_grid_w_underright_png"
 		},
 		{
+			"url": "assets/d/ro/d_ro_chips_small.png",
+			"type": "image",
+			"name": "d_ro_chips_small_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_betcontrol_betarea_even_hover.png",
+			"type": "image",
+			"name": "d_ro_panel_betcontrol_betarea_even_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_gamelist_betarea_black_hover.png",
+			"type": "image",
+			"name": "d_ro_panel_gamelist_betarea_black_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_panel_gamelist_betarea_red_hover.png",
+			"type": "image",
+			"name": "d_ro_panel_gamelist_betarea_red_hover_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_savelayout_add_icon.png",
+			"type": "image",
+			"name": "d_ro_savelayout_add_icon_png"
+		},
+		{
+			"url": "assets/d/ro/d_ro_savelayout_confrim_bg.png",
+			"type": "image",
+			"name": "d_ro_savelayout_confrim_bg_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea.png",
+			"type": "image",
+			"name": "m_sb_betarea_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_1.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_1_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_10.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_10_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_10_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_10_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_11.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_11_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_11_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_11_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_12.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_12_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_13.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_13_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_14.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_14_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_1_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_1_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_2.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_2_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_2_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_2_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_3.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_3_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_3_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_3_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_4.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_4_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_4_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_4_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_5.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_5_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_5_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_5_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_6.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_6_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_6_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_6_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_7.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_7_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_7_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_7_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_8.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_8_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_8_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_8_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_9.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_9_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_9_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_9_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_fire.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_fire_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_four.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_four_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_one.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_one_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_six.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_six_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_three.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_three_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_two.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_two_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bar.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bar_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bar_bg.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bar_bg_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bg_left.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bg_left_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bg_right.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bg_right_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bluecircle.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bluecircle_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_greencircle.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_greencircle_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_redcircle.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_redcircle_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_big.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_big_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_big_hover.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_big_hover_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_double.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_double_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_double_hover.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_double_hover_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_single.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_single_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_single_hover.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_single_hover_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_small.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_small_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_small_hover.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_small_hover_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_blue.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_blue_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_green.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_green_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_lose.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_lose_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_red.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_red_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_win.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_win_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_lose.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_lose_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_win.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_win_png"
+		},
+		{
 			"url": "assets/d/di/d_di_betboard_hover_combine.png",
 			"type": "image",
 			"name": "d_di_betboard_hover_combine_png"
@@ -6717,301 +7027,6 @@
 			"url": "assets/d/di/d_sic_roadmap_red.png",
 			"type": "image",
 			"name": "d_sic_roadmap_red_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea.png",
-			"type": "image",
-			"name": "m_sb_betarea_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_1.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_1_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_10.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_10_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_10_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_10_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_11.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_11_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_11_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_11_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_12.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_12_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_13.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_13_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_14.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_14_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_1_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_1_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_2.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_2_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_2_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_2_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_3.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_3_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_3_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_3_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_4.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_4_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_4_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_4_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_5.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_5_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_5_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_5_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_6.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_6_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_6_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_6_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_7.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_7_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_7_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_7_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_8.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_8_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_8_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_8_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_9.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_9_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_bg_hover_9_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_bg_hover_9_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_dice_fire.png",
-			"type": "image",
-			"name": "m_sb_betarea_dice_fire_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_dice_four.png",
-			"type": "image",
-			"name": "m_sb_betarea_dice_four_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_dice_one.png",
-			"type": "image",
-			"name": "m_sb_betarea_dice_one_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_dice_six.png",
-			"type": "image",
-			"name": "m_sb_betarea_dice_six_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_dice_three.png",
-			"type": "image",
-			"name": "m_sb_betarea_dice_three_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_dice_two.png",
-			"type": "image",
-			"name": "m_sb_betarea_dice_two_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_betarea_horizontal.png",
-			"type": "image",
-			"name": "m_sb_betarea_horizontal_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_chart_bar.png",
-			"type": "image",
-			"name": "m_sb_panel_chart_bar_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_chart_bar_bg.png",
-			"type": "image",
-			"name": "m_sb_panel_chart_bar_bg_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_chart_bg_left.png",
-			"type": "image",
-			"name": "m_sb_panel_chart_bg_left_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_chart_bg_right.png",
-			"type": "image",
-			"name": "m_sb_panel_chart_bg_right_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_chart_bluecircle.png",
-			"type": "image",
-			"name": "m_sb_panel_chart_bluecircle_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_chart_greencircle.png",
-			"type": "image",
-			"name": "m_sb_panel_chart_greencircle_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_chart_redcircle.png",
-			"type": "image",
-			"name": "m_sb_panel_chart_redcircle_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_betarea_big.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_betarea_big_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_betarea_big_hover.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_betarea_big_hover_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_betarea_double.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_betarea_double_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_betarea_double_hover.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_betarea_double_hover_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_betarea_single.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_betarea_single_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_betarea_single_hover.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_betarea_single_hover_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_betarea_small.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_betarea_small_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_betarea_small_hover.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_betarea_small_hover_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_result_data.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_result_data_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_result_data_blue.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_result_data_blue_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_result_data_green.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_result_data_green_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_result_data_lose.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_result_data_lose_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_result_data_red.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_result_data_red_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_result_data_win.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_result_data_win_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_result_lose.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_result_lose_png"
-		},
-		{
-			"url": "assets/m/di/m_sb_panel_gamelist_result_win.png",
-			"type": "image",
-			"name": "m_sb_panel_gamelist_result_win_png"
-		},
-		{
-			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_tex.png",
-			"type": "image",
-			"name": "sicbo_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_ske.json",
-			"type": "json",
-			"name": "sicbo_game_result_ske_json"
-		},
-		{
-			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_tex.json",
-			"type": "json",
-			"name": "sicbo_game_result_tex_json"
 		}
 	]
 }

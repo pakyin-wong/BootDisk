@@ -61,8 +61,8 @@ namespace we {
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -101,8 +101,6 @@ namespace we {
         if (this._bottomGamePanel._statisticChartPanel) {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
-
-        // this.createVerticalLayout();
 
         this.changeHandMode();
 
@@ -177,12 +175,12 @@ namespace we {
         this.invalidateState();
       }
 
-      protected createVerticalLayout() {
-        const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
-        vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        vLayout.gap = 24;
-        this._verticalGroup.layout = vLayout;
-      }
+      // protected createVerticalLayout() {
+      //   const vLayout: eui.VerticalLayout = new eui.VerticalLayout();
+      //   vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+      //   vLayout.gap = 24;
+      //   this._verticalGroup.layout = vLayout;
+      // }
 
       protected setChipPanelPos() {
         if (env.orientation === 'portrait') {
@@ -236,10 +234,10 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

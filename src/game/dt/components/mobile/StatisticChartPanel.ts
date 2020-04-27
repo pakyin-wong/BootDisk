@@ -37,11 +37,18 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
-
+        let _x: number;
+        let _y: number;
+        if (env.orientation === 'portrait') {
+          _x = 500;
+          _y = 340;
+        } else {
+          _x = 515;
+          _y = 130;
+        }
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         // this.changeLang();
-        this.drawChartArc(10, 20, 30, 500, 340);
-        this.drawChartArc(70, 500, 300, 1110, 340);
+        this.drawChartArc(10, 20, 30, _x, _y);
       }
 
       protected drawChartArc(a: number, b: number, c: number, x: number, y: number) {
@@ -111,12 +118,12 @@ namespace we {
         if (tableInfo.gamestatistic.tieCount) {
           this.totalTieCount.text = tableInfo.gamestatistic.tieCount.toString();
         }
-        if (tableInfo.gamestatistic.bankerPairCount) {
-          this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString();
-        }
-        if (tableInfo.gamestatistic.playerPairCount) {
-          this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString();
-        }
+        // if (tableInfo.gamestatistic.bankerPairCount) {
+        //   this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString();
+        // }
+        // if (tableInfo.gamestatistic.playerPairCount) {
+        //   this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString();
+        // }
       }
     }
   }

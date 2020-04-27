@@ -8,6 +8,7 @@ namespace we {
       protected cardBack: CardImage;
       protected cardFinal: CardImage;
       protected cardBackMask: eui.Rect;
+      protected _flipped: boolean;
 
       protected cardFaceShadowMask: CardShape;
       protected cardFaceShadow: egret.Shape; // a shape that has gradient shadow
@@ -35,22 +36,23 @@ namespace we {
       constructor(w?: number, h?: number) {
         super();
         if (w) {
-          this._cardWidth = w;
+          this._cardWidth = +w;
         }
         if (h) {
-          this._cardHeight = h;
+          this._cardHeight = +h;
         }
         this._t = egret.Point.create(0, 0);
         this._finalT = egret.Point.create(0, 0);
+        this._flipped = false;
         // this._mps = /[];
       }
 
       public set cardWidth(value: number) {
-        this._cardWidth = value;
+        this._cardWidth = +value;
       }
 
       public set cardHeight(value: number) {
-        this._cardHeight = value;
+        this._cardHeight = +value;
       }
 
       protected mount() {
@@ -150,12 +152,15 @@ namespace we {
         this.cardBack.visible = false;
         this.cardFinal.visible = true;
 
-        this.dispatchEvent(new egret.Event('CardFlipped'));
+        this._flipped = true;
+        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED));
 
-        // auto reset for this moment
-        setTimeout(() => {
-          this.reset();
-        }, 4000);
+        /*
+                // auto reset for this moment
+                setTimeout(() => {
+                  // this.reset();
+                }, 4000);
+                */
       }
 
       public clearUserEvents() {
@@ -182,6 +187,15 @@ namespace we {
         this.cardFace.visible = false;
         this.cardFinal.visible = false;
         this.cardBack.visible = true;
+        this._flipped = false;
+      }
+
+      public set flipped(value: boolean) {
+        this._flipped = value;
+      }
+
+      public get flipped() {
+        return this._flipped;
       }
 
       private onOver(event: mouse.MouseEvent) {
@@ -318,8 +332,6 @@ namespace we {
         const p2 = new egret.Point(0, 0);
         const p3 = new egret.Point(0, 0);
         const p4 = new egret.Point(0, 0);
-        console.log(this.name, 'updateCard()');
-        console.log(s.x, s.y, t.x, t.y, p1.x, p1.y, p2.x, p2.y);
         this.computeP1P2(s, t, p1, p2);
 
         if (!p1.equals(p2)) {

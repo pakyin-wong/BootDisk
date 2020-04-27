@@ -15,6 +15,10 @@ declare module skins{
 	}
 }
 declare module skins{
+	class MobileToggleSwitchSkin extends eui.Skin{
+	}
+}
+declare module skins{
 	class PanelSkin extends eui.Skin{
 	}
 }
@@ -80,6 +84,14 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class InGameMessageSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class LiveListItemAdvancedChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class LiveListItemAdvancedTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.ba{
@@ -692,6 +704,66 @@ declare module skin_mobile_landscape{
 	class LiveOverlayItemSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.dt{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class DragonTigerScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class DTBeadRoadResultPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class DTRoadmapLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class LiveListItemBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class BetItemCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class SideListTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape{
 	class GameBar extends eui.Skin{
 	}
@@ -802,6 +874,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class SystemSetting extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class GamePanelSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -959,11 +1035,7 @@ declare module skin_mobile_portrait.dt{
 	}
 }
 declare module skin_mobile_portrait.dt{
-	class CardHolderSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.dt{
-	class BetItemCardHolderSkin extends eui.Skin{
+	class MobileBottomRoadmapPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dt{
@@ -1366,5 +1438,9 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class LobbyTabListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class MobileSideGameListItemRenderer extends eui.Skin{
 	}
 }

@@ -78,7 +78,6 @@ namespace we {
         egret.Tween.removeTweens(this._middlePart);
         // egret.Tween.removeTweens(this.viewStack);
         // egret.Tween.removeTweens(this.viewStackMask);
-
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
           if (this.isFirstTime === true) {
@@ -96,10 +95,36 @@ namespace we {
           egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
           // egret.Tween.get(this.viewStack).to({ height: this.measuredHeight }, 250);
           // egret.Tween.get(this.viewStackMask).to({ height: this.measuredHeight }, 250);
-        }
 
-        this.dispatchEvent(new egret.Event('TOGGLE'));
+          // if (this.isPanelOpen) {
+          //   this.currentState = 'off';
+          //   egret.Tween.removeTweens(this.viewStack);
+          //   egret.Tween.removeTweens(this.viewStackMask);
+          //   this.isPanelOpen = false;
+          //   egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          //   egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+          // }
+        }
       }
+
+      // protected onPanelToggle() {
+      //   this.currentState = this.isPanelOpen ? 'off' : 'on';
+
+      //   egret.Tween.removeTweens(this.viewStack);
+      //   egret.Tween.removeTweens(this.viewStackMask);
+
+      //   if (this.isPanelOpen) {
+      //     this.isPanelOpen = false;
+      //     egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+      //     egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+      //   } else {
+      //     this.isPanelOpen = true;
+      //     egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
+      //     egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
+      //   }
+
+      //   this.dispatchEvent(new egret.Event('TOGGLE'));
+      // }
 
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
