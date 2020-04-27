@@ -7,16 +7,16 @@
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+				<e:Label id="labelDisplay" fontFamily="Microsoft YaHei,Helvetica" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
-			<e:RadioButton id="roadSheetBtn" label="路紙" x="286" y="20" width="270" height="80" value="1" scaleX="1" scaleY="1" visible.off="false" groupName="top">
+			<e:RadioButton id="roadSheetBtn"  label="路紙" x="286" y="20" width="270" height="80" value="1" scaleX="1" scaleY="1" visible.off="false" groupName="top">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+				<e:Label id="labelDisplay" fontFamily="Microsoft YaHei,Helvetica" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
 				</e:Skin>
 			</e:skinName>
@@ -25,7 +25,7 @@
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+				<e:Label id="labelDisplay" fontFamily="Microsoft YaHei,Helvetica" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
 				</e:Skin>
 			</e:skinName>
@@ -34,7 +34,7 @@
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+				<e:Label id="labelDisplay" fontFamily="Microsoft YaHei,Helvetica" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
 				<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
 				</e:Skin>
 			</e:skinName>
