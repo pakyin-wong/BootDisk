@@ -45,12 +45,13 @@ namespace we {
         ];
         this.betCombinations.push(betCombination);
 
+        /*
         setInterval(() => {
           // mock error
           if (Math.random() > 0.9) {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
-        }, 5000);
+        }, 5000);*/
       }
 
       protected generateDummyStatistic(data) {
@@ -337,7 +338,7 @@ namespace we {
         return tables;
       }
 
-      public updateSetting(key: string, value: string) {}
+      public updateSetting(key: string, value: string) { }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
@@ -401,7 +402,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) {}
+      public leaveTable(tableID: string) { }
 
       public getTableList(filter: string) {
         setInterval(() => {
@@ -425,6 +426,10 @@ namespace we {
 
       public getGoodRoad() {
         this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
+      }
+
+      public retryPlayerClient(functionName: string, args: any[]) {
+        logger.l('retryPlayerClient', functionName, args);
       }
 
       public updateCustomGoodRoad(id: string, data: any) {
