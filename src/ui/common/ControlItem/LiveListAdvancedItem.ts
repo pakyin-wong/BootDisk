@@ -21,6 +21,12 @@ namespace we {
         console.log(this._quickBetGroup);
       }
 
+      protected showQuickBetGroup() {
+        super.showQuickBetGroup();
+        this.setChildIndex(this._quickBetGroup, 1500);
+        this.setChildIndex(this._chipLayerNode, 2500);
+      }
+
       protected onTouchTap(evt: egret.Event) {
         const target = evt.target;
 
@@ -70,7 +76,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             this._analysis.tableId = this._tableId;
             this._analysis.updateRoad();
@@ -107,7 +113,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             this._analysis.tableId = this._tableId;
             this._analysis.updateTableBetInfo();
