@@ -152,17 +152,17 @@ namespace we {
       }
 
       protected setChipPanelPos() {
-        if (env.orientation === 'portrait') {
-          if (this._bottomGamePanel.isPanelOpen) {
-            this._betPanelGroup.scaleY = 1;
-            this._betPanelGroup.y = 0;
-            this._betChipSetPanel.y = 1210;
-          } else {
-            this._betPanelGroup.scaleY = -1;
-            this._betPanelGroup.y = 762;
-            this._betChipSetPanel.y = 762;
-          }
-        }
+        // if (env.orientation === 'portrait') {
+        //   if (this._bottomGamePanel.isPanelOpen) {
+        //     this._betPanelGroup.scaleY = 1;
+        //     this._betPanelGroup.y = 0;
+        //     this._betChipSetPanel.y = 1210;
+        //   } else {
+        //     this._betPanelGroup.scaleY = -1;
+        //     this._betPanelGroup.y = 762;
+        //     this._betChipSetPanel.y = 762;
+        //   }
+        // }
       }
 
       protected showBetChipPanel() {

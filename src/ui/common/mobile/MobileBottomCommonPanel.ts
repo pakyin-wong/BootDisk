@@ -18,8 +18,14 @@ namespace we {
       protected _middlePart: eui.Group;
       protected _middlePartHeight: number;
 
+      protected _gameScene: core.MobileBaseGameScene;
+
       public constructor(skin?: string) {
         super();
+      }
+
+      public set gameScene(value: core.MobileBaseGameScene) {
+        this._gameScene = value;
       }
 
       protected mount() {
@@ -70,6 +76,9 @@ namespace we {
         egret.Tween.removeTweens(this._middlePart);
         // egret.Tween.removeTweens(this.viewStack);
         // egret.Tween.removeTweens(this.viewStackMask);
+        if (this._gameScene) {
+          this._gameScene.betChipSetPanelVisible = false;
+        }
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
           if (this.isFirstTime === true) {

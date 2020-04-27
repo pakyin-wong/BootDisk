@@ -3,7 +3,7 @@ namespace we {
   export namespace core {
     // base control class that hold and manage the basic item in Ba Item
     export class MobileBaseGameScene extends BaseGameScene {
-      protected _bottomGamePanel: BaseGamePanel;
+      protected _bottomGamePanel: ui.MobileBottomCommonPanel;
       protected _lblBetLimit: ui.RunTimeLabel;
 
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
@@ -20,10 +20,26 @@ namespace we {
         this._betChipSet.alpha = 1;
       }
 
+      public get betChipSetPanelVisible(): boolean {
+        return this._betChipSetPanel.visible;
+      }
+
+      public set betChipSetPanelVisible(value: boolean) {
+        if (value) {
+          if (!this._betChipSetPanel.visible) {
+            this.showBetChipPanel();
+          }
+        } else {
+          if (this._betChipSetPanel.visible) {
+            this.hideBetChipPanel();
+          }
+        }
+      }
+
       protected initChildren() {
         super.initChildren();
         this._bottomGamePanel.setTableInfo(this._tableInfo);
-
+        this._bottomGamePanel.gameScene = this;
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
         }
@@ -102,26 +118,31 @@ namespace we {
           // portrait position
           if (betChipSetGridPosition.y < 900) {
             // bottomGamePanel is on
-            this._betPanelGroup.scaleY = 1;
-            this._betPanelGroup.y = 0;
-            this._betChipSetPanel.y = 986;
+            this._betPanelGroup.scaleY = 1; // just testing value , y position should depends on betChipSetGridPosition.y
+            // this._betPanelGroup.y = 0;
+            // this._betChipSetPanel.y = 986; //
+            this._betPanelGroup.y = betChipSetGridPosition.y;
+            this._betChipSetPanel.y = betChipSetGridPosition.y + 185; // 801
           } else if (betChipSetGridPosition.y >= 900) {
             // bottomGamePanel is off
+            // this._betPanelGroup.y = 762;
+            this._betPanelGroup.y = betChipSetGridPosition.y;
+            this._betChipSetPanel.y = betChipSetGridPosition.y - 780;
             this._betPanelGroup.scaleY = -1;
-            this._betPanelGroup.y = 762;
-            this._betChipSetPanel.y = 500;
           }
         } else {
-          if (betChipSetGridPosition.y < 600) {
-            this._betPanelGroup.scaleY = 1;
-            this._betPanelGroup.y = 0;
-            this._betChipSetPanel.y = 700;
-          } else if (betChipSetGridPosition.y >= 600) {
-            this._betPanelGroup.scaleY = 1;
-            this._betPanelGroup.y = 0;
-            this._betChipSetPanel.y = 700;
-          }
           // landscape position
+          if (betChipSetGridPosition.y < 450) {
+            this._betPanelGroup.scaleY = -1;
+            this._betChipSetPanel.x = betChipSetGridPosition.x - 200;
+            this._betChipSetPanel.y = betChipSetGridPosition.y + 230;
+            this._betPanelGroup.y = 430;
+          } else if (betChipSetGridPosition.y >= 450) {
+            this._betPanelGroup.scaleY = 1;
+            this._betChipSetPanel.x = betChipSetGridPosition.x - 200;
+            this._betChipSetPanel.y = betChipSetGridPosition.y - 500;
+            this._betPanelGroup.y = 0;
+          }
         }
 
         this._betChipSetPanel.visible = true;
@@ -135,6 +156,12 @@ namespace we {
         this._betChipSetGridEnabled = false;
         this._betChipSetPanel.visible = false;
       }
+
+      // public hideBetChipPanel() {
+      //   egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
+      //   this._betChipSetGridEnabled = false;
+      //   this._betChipSetPanel.visible = false;
+      // }
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
