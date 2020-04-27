@@ -40,17 +40,17 @@ namespace we {
         // console.log(this);
         // console.log(this.parent);
         if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
-          if ((<we.ui.LiveListAdvancedItem>this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem>this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
+          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
             // console.log('askBanker2');
-            (<AdvancedRoad>(<we.ui.LiveListAdvancedItem>this.parent).advancedRoad).askBankerRoad();
+            (<AdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askBankerRoad();
           }
         }
       }
 
       public askPlayerRoad(evt: egret.Event) {
         if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
-          if ((<we.ui.LiveListAdvancedItem>this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem>this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<AdvancedRoad>(<we.ui.LiveListAdvancedItem>this.parent).advancedRoad).askPlayerRoad();
+          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
+            (<AdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askPlayerRoad();
           }
         }
       }

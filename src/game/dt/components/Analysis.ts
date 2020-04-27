@@ -37,16 +37,16 @@ namespace we {
 
       public askBankerRoad(evt: egret.Event) {
         if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
-          if ((<we.ui.LiveListAdvancedItem>this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem>this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<AdvancedRoad>(<we.ui.LiveListAdvancedItem>this.parent).advancedRoad).askBankerRoad();
+          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
+            (<AdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askBankerRoad();
           }
         }
       }
 
       public askPlayerRoad(evt: egret.Event) {
         if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
-          if ((<we.ui.LiveListAdvancedItem>this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem>this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<AdvancedRoad>(<we.ui.LiveListAdvancedItem>this.parent).advancedRoad).askPlayerRoad();
+          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
+            (<AdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askPlayerRoad();
           }
         }
       }

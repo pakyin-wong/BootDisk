@@ -58,13 +58,14 @@ namespace we {
     // Opt
     export interface IOverlayOpt {
       class: string;
+      replace?: boolean;
       args?: any[];
     }
 
     export interface IMessageDialogOpt {
       [button: string]: {
         text: string;
-        onClick?: () => Promise<void>;
+        onClick?: () => Promise<any>;
       };
     }
 
