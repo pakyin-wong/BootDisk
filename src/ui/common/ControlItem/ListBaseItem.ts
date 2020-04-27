@@ -110,6 +110,8 @@ namespace we {
         }
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
+        console.log(this._quickBetGroup.contentHeight);
+
         this._quickBetGroup.height = this._quickBetGroup.contentHeight;
 
         const p1 = new Promise(resolve =>
@@ -165,7 +167,7 @@ namespace we {
           }
           this.showQuickBetGroup();
         } else if (this.holder.isFocus) {
-          // this.hideQuickBetGroup();
+          this.hideQuickBetGroup();
         }
       }
 

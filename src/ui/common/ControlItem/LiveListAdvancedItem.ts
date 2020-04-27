@@ -29,6 +29,12 @@ namespace we {
         this.generateAdvancedRoad();
         super.initChildren();
       }
+      
+      protected showQuickBetGroup() {
+        super.showQuickBetGroup();
+        this.setChildIndex(this._quickBetGroup, 1500);
+        this.setChildIndex(this._chipLayerNode, 2500);
+      }
 
       protected onTouchTap(evt: egret.Event) {
         const target = evt.target;
