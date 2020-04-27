@@ -118,14 +118,12 @@ namespace we {
           // portrait position
           if (betChipSetGridPosition.y < 900) {
             // bottomGamePanel is on
-            this._betPanelGroup.scaleY = 1; // just testing value , y position should depends on betChipSetGridPosition.y
-            // this._betPanelGroup.y = 0;
-            // this._betChipSetPanel.y = 986; //
+            this._betPanelGroup.scaleY = 1;
+
             this._betPanelGroup.y = betChipSetGridPosition.y;
-            this._betChipSetPanel.y = betChipSetGridPosition.y + 185; // 801
+            this._betChipSetPanel.y = betChipSetGridPosition.y + 185;
           } else if (betChipSetGridPosition.y >= 900) {
             // bottomGamePanel is off
-            // this._betPanelGroup.y = 762;
             this._betPanelGroup.y = betChipSetGridPosition.y;
             this._betChipSetPanel.y = betChipSetGridPosition.y - 780;
             this._betPanelGroup.scaleY = -1;
@@ -156,12 +154,6 @@ namespace we {
         this._betChipSetGridEnabled = false;
         this._betChipSetPanel.visible = false;
       }
-
-      // public hideBetChipPanel() {
-      //   egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
-      //   this._betChipSetGridEnabled = false;
-      //   this._betChipSetPanel.visible = false;
-      // }
 
       protected updateTableInfoRelatedComponents() {
         super.updateTableInfoRelatedComponents();
