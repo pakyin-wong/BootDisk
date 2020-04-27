@@ -84,6 +84,7 @@ namespace we {
         if (!this.isShow) {
           return;
         }
+
         const c = this.target.stage['inFocusItems'];
         if (c.length > this.inFocusIdx && c[c.length - 1] !== this.target) {
           return;

@@ -74,7 +74,10 @@ namespace we {
       FINISH = 3,
       REFUND = 4,
       SHUFFLE = 5,
-      UNKNOWN = 6,
+      PEEK = 6,
+      PEEK_PLAYER = 7,
+      PEEK_BANKER = 8,
+      UNKNOWN = 99,
     }
   }
 }

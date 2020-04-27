@@ -125,7 +125,10 @@ declare enum BAGameStateType {
     DEAL = 2,
     FINISH = 3,
     REFUND = 4,
-    SHUFFLE = 5
+    SHUFFLE = 5,
+    PEEK = 6,
+    PEEK_PLAYER = 7,
+    PEEK_BANKER = 8
 }
 declare enum DTGameStateType {
     IDLE = 0,

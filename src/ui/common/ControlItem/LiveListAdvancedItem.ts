@@ -18,6 +18,7 @@ namespace we {
         super.initComponents();
         this.generateAnalysis();
         this.generateAdvancedRoad();
+        console.log(this._quickBetGroup);
       }
 
       protected onTouchTap(evt: egret.Event) {
@@ -69,7 +70,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             this._analysis.tableId = this._tableId;
             this._analysis.updateRoad();
@@ -106,7 +107,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             this._analysis.tableId = this._tableId;
             this._analysis.updateTableBetInfo();

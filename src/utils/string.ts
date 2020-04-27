@@ -33,10 +33,7 @@ namespace we {
     }
 
     export function formatTime(timestamp) {
-      return moment
-        .unix(timestamp)
-        .utcOffset(8)
-        .format('YYYY/MM/DD HH:mm:ss');
+      return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {
@@ -44,6 +41,15 @@ namespace we {
         .replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2')
         .replace('diamond', 'diamonds')
         .replace('heart', 'hearts');
+    }
+
+    export function cardToNumber(source) {
+      return source
+        .replace(/^(.+?)([0-9ajqk][0]?)$/, '$2')
+        .replace('a', '1')
+        .replace('j', '0')
+        .replace('q', '0')
+        .replace('k', '0');
     }
 
     export function getWinMessageKey(gameType, winType, isShort = false) {

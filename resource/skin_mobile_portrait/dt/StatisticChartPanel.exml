@@ -2,8 +2,7 @@
 <e:Skin class="skin_mobile_portrait.dt.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 			<e:Group id="content" width="100%" height="100%">
 				<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
-				<e:Label id="_leftTitle" text="庄閒和比例" x="197" y="80" scaleX="1" scaleY="1" width="248" height="73" size="44" textAlign="center" verticalAlign="middle" bold="true"/>
-				<e:Label id="_rightTitle" text="庄對閒對比例" x="773" y="80" scaleX="1" scaleY="1" width="297" height="73" size="44" textAlign="center" verticalAlign="middle" bold="true"/>
+				<e:Label id="_leftTitle" text="龍虎和比例" x="197" y="80" scaleX="1" scaleY="1" width="248" height="73" size="44" textAlign="center" verticalAlign="middle" bold="true"/>
 				<e:Image width="57" height="57" x="42" y="247" source="m_ba_goodroad_info_state_banker_png"/>
 				<ui:RunTimeLabel id="totalBankerCount" text="99" x="37" y="300" textAlign="center" anchorOffsetX="0" width="64" size="55" height="73" verticalAlign="middle" bold="true"/>
 
@@ -34,39 +33,10 @@
 						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
 					</e:layout>
 				</e:Group>
-				<e:Image width="54" height="54" x="655" y="247" source="d_ba_roadmap_bar_bankerpairstate_png"/>
-				<ui:RunTimeLabel id="bankerPairCount" text="99" x="650" y="300" textAlign="center" anchorOffsetX="0" width="64" size="55" height="73" verticalAlign="middle" bold="true"/>
 
-				<e:Group x="645" y="380">
-					<ui:RunTimeLabel id="bankerPairCountPer" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44" verticalAlign="middle" bold="true" alpha="0.7"/>
-					<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true" alpha="0.7"/>
-					<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-					</e:layout>
-				</e:Group>
-				<e:Image width="54" height="54" x="773" y="247" source="d_ba_roadmap_bar_playerpairstate_png"/>
-				<ui:RunTimeLabel id="playerPairCount" text="99" x="770" y="300" textAlign="center" anchorOffsetX="0" width="64" size="55" height="73" verticalAlign="middle" bold="true"/>
 
-				<e:Group x="765" y="380">
-					<ui:RunTimeLabel id="playerPairCountPer" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44" verticalAlign="middle" bold="true" alpha="0.7"/>
-					<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true" alpha="0.7"/>
-					<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-					</e:layout>
-				</e:Group>
-				<e:Image width="54" height="54" x="893" y="247" source="d_ba_roadmap_bar_playerpairstate_png"/>
-				<ui:RunTimeLabel id="tiePairCount" text="99" x="890" y="300" textAlign="center" anchorOffsetX="0" width="64" size="55" height="73" verticalAlign="middle" bold="true"/>
 
-				<e:Group x="885" y="380">
-					<ui:RunTimeLabel id="tiePairCountPer" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44" verticalAlign="middle" bold="true" alpha="0.7"/>
-					<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true" alpha="0.7"/>
-					<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-					</e:layout>
-				</e:Group>
 				<ui:RunTimeLabel id="roundCount" text="99" x="449" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88" height="118" verticalAlign="middle"/>
-				<ui:RunTimeLabel id="roundPairCount" text="9" x="1065" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88" height="118" verticalAlign="middle"/>
 				<e:Label id="roundLabelLeft" text="局" x="449" y="360" scaleX="1" scaleY="1" width="100" height="46" size="35" textAlign="center" verticalAlign="middle" bold="true"/>
-				<e:Label id="roundLabelRight" text="局" x="1065" y="360" scaleX="1" scaleY="1" width="100" height="46" size="33" textAlign="center" verticalAlign="middle" bold="true"/>
 			</e:Group>
 </e:Skin>

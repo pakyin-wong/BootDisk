@@ -6,14 +6,18 @@ namespace we {
       // protected gameId: string;
       // protected totalBet: number;
       public isPanelOpen: boolean = true;
+      private isFirstTime: boolean = true;
 
-      protected _arrow: egret.DisplayObject;
-      protected _arrowUp: egret.DisplayObject;
+      public _arrow: egret.DisplayObject;
+      public _arrowUp: egret.DisplayObject;
 
       protected _gameInfoLabel: ui.RunTimeLabel;
 
       protected viewStack: eui.ViewStack;
       protected viewStackMask: eui.Rect;
+
+      protected _middlePart: eui.Group;
+      protected _middlePartHeight: number;
 
       public constructor(skin?: string) {
         super();
@@ -25,9 +29,10 @@ namespace we {
         this.addListeners();
 
         this.updateText();
-        this.viewStack.mask = this.viewStackMask;
+        this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
-        this.onPanelToggle();
+
+        this.onPanelToggle(this.isFirstTime);
       }
 
       public destroy() {
@@ -57,32 +62,69 @@ namespace we {
       public manualClose() {
         if (this.isPanelOpen) {
           this.currentState = 'off';
-          egret.Tween.removeTweens(this.viewStack);
-          egret.Tween.removeTweens(this.viewStackMask);
+          egret.Tween.removeTweens(this._middlePart);
+          // egret.Tween.removeTweens(this.viewStack);
+          // egret.Tween.removeTweens(this.viewStackMask);
           this.isPanelOpen = false;
-          egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-          egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+          egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         }
       }
 
-      protected onPanelToggle() {
+      protected onPanelToggle(firstTime?: boolean) {
         this.currentState = this.isPanelOpen ? 'off' : 'on';
 
-        egret.Tween.removeTweens(this.viewStack);
-        egret.Tween.removeTweens(this.viewStackMask);
-
+        egret.Tween.removeTweens(this._middlePart);
+        // egret.Tween.removeTweens(this.viewStack);
+        // egret.Tween.removeTweens(this.viewStackMask);
         if (this.isPanelOpen) {
           this.isPanelOpen = false;
-          egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
-          egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+          if (this.isFirstTime === true) {
+            this.isFirstTime = false;
+            this._middlePartHeight = this._middlePart.height;
+            this._middlePart.height = 0;
+            // egret.Tween.get(this._middlePart).to({ height: 0 }, 1);
+          } else {
+            egret.Tween.get(this._middlePart).to({ height: 0 }, 250);
+          }
+          // egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          // egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
         } else {
           this.isPanelOpen = true;
-          egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
-          egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
-        }
+          egret.Tween.get(this._middlePart).to({ height: this._middlePartHeight }, 250);
+          // egret.Tween.get(this.viewStack).to({ height: this.measuredHeight }, 250);
+          // egret.Tween.get(this.viewStackMask).to({ height: this.measuredHeight }, 250);
 
-        this.dispatchEvent(new egret.Event('TOGGLE'));
+          // if (this.isPanelOpen) {
+          //   this.currentState = 'off';
+          //   egret.Tween.removeTweens(this.viewStack);
+          //   egret.Tween.removeTweens(this.viewStackMask);
+          //   this.isPanelOpen = false;
+          //   egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+          //   egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+          // }
+        }
       }
+
+      // protected onPanelToggle() {
+      //   this.currentState = this.isPanelOpen ? 'off' : 'on';
+
+      //   egret.Tween.removeTweens(this.viewStack);
+      //   egret.Tween.removeTweens(this.viewStackMask);
+
+      //   if (this.isPanelOpen) {
+      //     this.isPanelOpen = false;
+      //     egret.Tween.get(this.viewStack).to({ height: 0 }, 250);
+      //     egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
+      //   } else {
+      //     this.isPanelOpen = true;
+      //     egret.Tween.get(this.viewStack).to({ height: 532 }, 250);
+      //     egret.Tween.get(this.viewStackMask).to({ height: 532 }, 250);
+      //   }
+
+      //   this.dispatchEvent(new egret.Event('TOGGLE'));
+      // }
 
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
