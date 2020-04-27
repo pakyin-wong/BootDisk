@@ -20,8 +20,8 @@ namespace we {
       protected _baGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
       protected _totalBetText: ui.RunTimeLabel;
-      // protected _sidePanel: MobileSidePanel;
-      // protected _sidePanel;
+
+      private _common_listpanel: ui.BaseImageButton;
 
       protected parser: ba.BARoadParser;
 
@@ -138,12 +138,18 @@ namespace we {
 
         this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
+
+        if (env.isMobile) {
+          dir.monitor._sideGameList.setToggler(this._common_listpanel);
+        }
+
+        this.changeHandMode();
       }
 
       protected addEventListeners() {
         super.addEventListeners();
 
-        this._bottomGamePanel.addEventListener('TOGGLE', this.onBottomToggle, this);
+        this._bottomGamePanel.addEventListener('ON_BOTTOM_PANEL_TOGGLE', this.onBottomToggle, this);
         // this._sidePanel.addEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
@@ -151,7 +157,7 @@ namespace we {
       protected removeEventListeners() {
         super.removeEventListeners();
 
-        this._bottomGamePanel.removeEventListener('TOGGLE', this.onBottomToggle, this);
+        this._bottomGamePanel.removeEventListener('ON_BOTTOM_PANEL_TOGGLE', this.onBottomToggle, this);
         // this._sidePanel.removeEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
@@ -166,6 +172,7 @@ namespace we {
         } else {
           this.currentState = 'right_hand_mode';
         }
+        this.invalidateState();
       }
 
       // Roadmap & Statistic update

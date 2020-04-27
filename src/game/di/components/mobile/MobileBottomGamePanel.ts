@@ -71,6 +71,7 @@ namespace we {
           this._roadmapPanel.visible = false;
           this._beadroadPanel.visible = false;
         }
+        this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
       }
     }
   }

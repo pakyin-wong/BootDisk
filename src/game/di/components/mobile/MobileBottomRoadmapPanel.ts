@@ -83,7 +83,8 @@ namespace we {
       }
 
       protected updateMode() {
-        this._roadmapBg.currentState = env.mode === 1 ? 'dark' : 'light';
+        this._roadmapBg.currentState = 'dark'; // change when light state done
+        // this._roadmapBg.currentState = env.mode === 1 ? 'dark' : 'light';
       }
     }
   }
