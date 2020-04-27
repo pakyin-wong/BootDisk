@@ -11,10 +11,9 @@
 			                             anchorOffsetY="0" verticalCenter="2" navWidth="20" containerPadding="6" />
 			-->
 			<ui:BaseImageButton id="_confirmButton" x="430" y="28" width="132" height="50" currentState="lobby_confirm_button"
-			                    skinName="skin_desktop.ImageButtonSkinLobby" anchorOffsetX="0" />
+			                    skinName="skin_desktop.ImageButtonSkinLobby" />
 		</e:Group>
-		<e:Component id="_tableLayerNode" width="350" skinName="skin_desktop.ba.LiveListItemTableLayerSkin" anchorOffsetY="0"
-		             left="0" top="0" visible="false" />
+		<e:Component id="_tableLayerNode" width="350" left="0" top="0" visible="false" name="AdvancedTableLayerNode" />
 	</e:Group>
 	<e:Group id="_contentContainer" width="1204" height="450" x="0" y="0">
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
@@ -42,5 +41,5 @@
 		</e:Group>
 	</e:Group>
 	<e:Component id="_chipLayerNode" width="350" skinName="skin_desktop.ba.LiveListItemChipLayerSkin" anchorOffsetY="0"
-	             y="0" left="0" alpha="0" visible="false" />
+	             y="0" left="0" alpha="0" visible="false" name="AdvancedChipLayerNode" />
 </e:Skin>

@@ -41,7 +41,7 @@ namespace we {
       }
 
       private preload() {
-        dir.moniter.preload();
+        dir.monitor.preload();
         this.next();
       }
 
@@ -191,7 +191,7 @@ namespace we {
         if (DEBUG && dir.config.target && dir.config.target === 'test') {
           dir.sceneCtr.goto('test');
         } else {
-          dir.moniter.start(this.stage);
+          dir.monitor.start(this.stage);
           dir.sceneCtr.goto('lobby');
           dir.audioCtr.init();
         }

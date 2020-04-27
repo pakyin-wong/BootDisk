@@ -10,6 +10,20 @@
 			               skinName="skin_mobile_portrait.dt.TableLayerSkin" scaleX="1" scaleY="1" />
 			<dt:ChipLayer id="_chipLayer" width="1182" height="348" x="30" y="243" isEdgeDismissable="true"
 			              skinName="skin_mobile_portrait.dt.ChipLayerSkin" scaleX="1" scaleY="1" />
+			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="1088" y="551" x.right_hand_mode="1109" y.right_hand_mode="-276" y.left_hand_mode="-276" x.left_hand_mode="1109" alpha="1"/>
+			<e:Group width="104" height="104" x="1088" y="700" x.right_hand_mode="1109" y.right_hand_mode="-157" y.left_hand_mode="-157" x.left_hand_mode="1109">
+				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4"/>
+				<e:Image id="_dtvideo" width="104" height="104" source="m_ba_btn_video_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+			</e:Group>
+			<e:Group width="104" height="104" x="31" y="551" y.right_hand_mode="-276" y.left_hand_mode="-276">
+				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4"/>
+				<e:Image id="_dtchat" width="104" height="104" source="m_ba_btn_chatroom_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+			</e:Group>
+			<e:Group width="104" height="104" x="31" y="700" y.right_hand_mode="-157" y.left_hand_mode="-157">
+				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4"/>
+				<e:Image id="_lblRoomInfo" width="48" height="48" source="d_ba_navbar_icon_info_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" horizontalCenter="494" skinName="skin_mobile.BetChipSkin" bottom="373" horizontalCenter.right_hand_mode="-507" bottom.right_hand_mode="373"                                horizontalCenter.left_hand_mode="511" bottom.left_hand_mode="373" labelSize="48"  />
 			<e:Group id="_betRelatedGroup" x="34" y="84" x.right_hand_mode="224" scaleX="1" scaleY="1">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
@@ -36,8 +50,14 @@
 		</e:Group>
 		<dt:MobileBottomGamePanel skinName="skin_mobile_portrait.dt.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 		                          x="0" scaleY="1" y="731" scaleX="1" />
+		<e:layout.left_hand_mode>
+			<e:VerticalLayout gap="24"/>
+		</e:layout.left_hand_mode>
+		<e:layout.right_hand_mode>
+			<e:VerticalLayout gap="24" horizontalAlign="center"/>
+		</e:layout.right_hand_mode>
 	</e:Group>
-	<e:Group id="_betChipSetPanel" y.right_hand_mode="1080" width="1182" height="762" x.right_hand_mode="34" scaleY="1"            horizontalCenter.left_hand_mode="4" y.left_hand_mode="1080" scaleY.left_hand_mode="1" y="986" horizontalCenter="4">
+	<e:Group id="_betChipSetPanel" y.right_hand_mode="1080" width="1182" height="762" x.right_hand_mode="34" scaleY="1"            horizontalCenter.left_hand_mode="4" y.left_hand_mode="1080" scaleY.left_hand_mode="1" y="986" horizontalCenter="4" visible.right_hand_mode="false">
 		<e:Group id="_betPanelGroup" y.right_hand_mode="0" scaleY.left_hand_mode="1"             horizontalCenter="0" horizontalCenter.left_hand_mode="0" horizontalCenter.right_hand_mode="0"             left.left_hand_mode="0" top.left_hand_mode="0" bottom.left_hand_mode="0" right.left_hand_mode="0" left="0" right="0" top="0" bottom="0">
 			<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
 			         height="729" y="33" x="0" scaleX="1" />
@@ -45,29 +65,46 @@
 		</e:Group>
 		<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250" betChipHeight="208" scaleY="1" y.right_hand_mode="50"                       anchorOffsetY.left_hand_mode="0" right.left_hand_mode="0" left.left_hand_mode="0"                       bottom.left_hand_mode="12" top.left_hand_mode="50" labelSize="48"  right="0" left="0" top="50" bottom="12"/>
 	</e:Group>
-	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
+	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="-4" width="1242" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
+		<e:Group id="_btnBack" width="104" height="104" x="31" y="149">
+			<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4"/>
+			<e:Image width="41" height="33" source="d_ba_navbar_chevron_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
-		<ui:RunTimeLabel id="_lblRoomNo" x="90" y="33" size="40" height="56" verticalAlign="middle" width="200"
-		                 textAlign="left" anchorOffsetX="0" text="" />
-		<e:Group x="90" y="87">
-			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" />
-			<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" />
+		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
+		                 textAlign="left" anchorOffsetX="0" text="Label" />
+		<e:Group x="25" y="65">
+			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40"  text="label"/>
+			<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19"  visible="false"/>
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="middle" />
 			</e:layout>
 		</e:Group>
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
 		                       visible="false" />
-		<e:Image id="_btnBack" width="38" height="35" x="32" y="64" source="d_ba_navbar_chevron_png" />
-		<e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png" />
+		<!--<e:Image id="_btnBack" width="38" height="35" x="32" y="64" source="d_ba_navbar_chevron_png" />-->
+		<!--<e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png" />-->
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar"  visible="false"/>
+		<e:Group height="48" y="73" right="0">
+				<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right"/>
+				<ui:RunTimeLabel id="_totalBetText" text="bet AMOUNT vfghj" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right"/>
+			<e:layout>
+				<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20"/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 	<ui:ImageGameResultMessage id="_resultMessage" x="620" y="468" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
-	                           scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin" />
+	                           scaleY="1" skinName="skin_mobile_portrait.GameResultNormalSkin"  visible.right_hand_mode="false"/>
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="623" x="312" />
-
+	<e:Group bottom="0" left="0" width="700">
+		<ui:RunTimeLabel id="_dtGameIDText" text="Game ID :" bottom="0" left="0"/>
+		<ui:RunTimeLabel id="_dtGameID" text="ID" bottom="0" left="0"/>
+		<e:layout>
+		<e:HorizontalLayout/>
+		</e:layout>
+	</e:Group>
 </e:Skin>

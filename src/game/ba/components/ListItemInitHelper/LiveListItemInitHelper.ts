@@ -4,7 +4,11 @@ namespace we {
       public generateTableLayer(node: eui.Component) {
         // return null;
         const tableLayer = new ba.TableLayer();
-        tableLayer.skinName = `skin_desktop.ba.LiveListItemTableLayerSkin`;
+        if (node.name === 'AdvancedTableLayerNode') {
+          tableLayer.skinName = `skin_desktop.ba.LiveListItemAdvancedTableLayerSkin`;
+        } else {
+          tableLayer.skinName = `skin_desktop.ba.LiveListItemTableLayerSkin`;
+        }
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
@@ -13,7 +17,11 @@ namespace we {
       public generateChipLayer(node: eui.Component) {
         // return null;
         const chipLayer = new ba.ChipLayer();
-        chipLayer.skinName = `skin_desktop.ba.LiveListItemChipLayerSkin`;
+        if (node.name === 'AdvancedChipLayerNode') {
+          chipLayer.skinName = `skin_desktop.ba.LiveListItemAdvancedChipLayerSkin`;
+        } else {
+          chipLayer.skinName = `skin_desktop.ba.LiveListItemChipLayerSkin`;
+        }
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;

@@ -125,19 +125,19 @@ namespace we {
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.gamestatistic) {
-            if (this.tableInfo.gamestatistic.bankerCount !== null && this.tableInfo.gamestatistic.bankerCount !== undefined ) {
+            if (this.tableInfo.gamestatistic.bankerCount !== null && this.tableInfo.gamestatistic.bankerCount !== undefined) {
               this.bankerCountLabel.text = this.tableInfo.gamestatistic.bankerCount.toString();
             }
-            if (this.tableInfo.gamestatistic.playerCount !== null && this.tableInfo.gamestatistic.playerCount !== undefined ) {
+            if (this.tableInfo.gamestatistic.playerCount !== null && this.tableInfo.gamestatistic.playerCount !== undefined) {
               this.playerCountLabel.text = this.tableInfo.gamestatistic.playerCount.toString();
             }
-            if (this.tableInfo.gamestatistic.tieCount !== null && this.tableInfo.gamestatistic.tieCount !== undefined ) {
+            if (this.tableInfo.gamestatistic.tieCount !== null && this.tableInfo.gamestatistic.tieCount !== undefined) {
               this.tieCountLabel.text = this.tableInfo.gamestatistic.tieCount.toString();
             }
-            if (this.tableInfo.gamestatistic.bankerPairCount !== null && this.tableInfo.gamestatistic.bankerPairCount !== undefined ) {
+            if (this.tableInfo.gamestatistic.bankerPairCount !== null && this.tableInfo.gamestatistic.bankerPairCount !== undefined) {
               this.bankerPairCountLabel.text = this.tableInfo.gamestatistic.bankerPairCount.toString();
             }
-            if (this.tableInfo.gamestatistic.playerPairCount !== null && this.tableInfo.gamestatistic.playerPairCount !== undefined ) {
+            if (this.tableInfo.gamestatistic.playerPairCount !== null && this.tableInfo.gamestatistic.playerPairCount !== undefined) {
               this.playerPairCountLabel.text = this.tableInfo.gamestatistic.playerPairCount.toString();
             }
 

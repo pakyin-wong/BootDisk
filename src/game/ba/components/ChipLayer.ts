@@ -22,6 +22,8 @@ namespace we {
         this._betField = ba.BetField;
       }
 
+      protected restructureChildren() {}
+
       protected createMapping() {
         super.createMapping();
         this._mouseAreaMapping = {};
@@ -53,6 +55,11 @@ namespace we {
           fieldAmounts[ba.BetField.PLAYER_PAIR] > betLimit.maxlimit ||
           fieldAmounts[ba.BetField.SUPER_SIX] > betLimit.maxlimit
         );
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.createMapping();
       }
     }
   }

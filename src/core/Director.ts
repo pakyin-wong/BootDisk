@@ -16,7 +16,7 @@ namespace we {
       public layerCtr: LayerCtr;
       public sceneCtr: SceneCtr;
       public meterCtr: MeterCtr;
-      public moniter: Monitor;
+      public monitor: Monitor;
       public videoPool: utils.Pool<egret.FlvVideo>;
       public lobbyResources: lobby.ILobbyResources;
       public liveResources: live.ILiveResources;

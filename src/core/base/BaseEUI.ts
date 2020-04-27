@@ -60,6 +60,7 @@ namespace we {
       protected onOrientationChange() {
         this.clearOrientationDependentComponent();
         this.updateSkin(this._skinKey, true);
+        // need await ui complete?? by simon 4/23
         this.initOrientationDependentComponent();
         this.arrangeComponents();
       }

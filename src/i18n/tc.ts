@@ -13,9 +13,12 @@ namespace we {
       gametype_MJ: '麻將',
       gametype_RO: '輪盤',
       gametype_ROL: '財神輪盤',
-
       gametype_DT: '龍虎',
       gametype_LW: '幸運輪',
+
+      sidegamelist_title: '遊戲列表',
+      sidegamelist_tab_bet: '已下注',
+      sidegamelist_tab_goodroad: '好路',
 
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '閒',
@@ -123,6 +126,7 @@ namespace we {
         },
       },
       nav: {
+        bet_balance: '餘額',
         menu: {
           title: '設定',
           selectMode: '介面色調',

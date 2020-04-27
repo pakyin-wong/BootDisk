@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.lw.SideListTableLayerSkin" currentState="Normal" width="1134" height="288"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
+        states="Normal">
+	<e:Group id="_oneCircleGroup" x="25" y="27" width="136" height="235">
+		<e:Image id="_oneCircleImage" width="100%" height="100%" name="m_lw_listpenal_bet_east_dim_png" fillMode="scale"
+		          source="m_lw_listpenal_bet_east_png"/>
+	</e:Group>
+	<e:Group id="_threeCircleGroup" x="183" y="27" width="136" height="235">
+		<e:Image id="_threeCircleImage" name="m_lw_listpenal_bet_south_dim_png" width="100%" height="100%" fillMode="scale"
+		          source="m_lw_listpenal_bet_south_png"/>
+	</e:Group>
+	<e:Group id="_fiveCircleGroup" x="341" y="27" width="136" height="235">
+		<e:Image id="_fiveCircleImage" name="m_lw_listpenal_bet_west_dim_png" width="100%" height="100%" fillMode="scale"
+		          source="m_lw_listpenal_bet_west_png"/>
+	</e:Group>
+	<e:Group id="_redDragonGroup" x="499" y="27" width="136" height="235">
+		<e:Image id="_redDragonImage" name="m_lw_listpenal_bet_north_dim_png" width="100%" height="100%" fillMode="scale"
+		         source="m_lw_listpenal_bet_north_png" />
+	</e:Group>
+	<e:Group id="_greenDragonGroup" x="657" y="27" width="136" height="235">
+		<e:Image id="_greenDragonImage" name="m_lw_listpenal_bet_white_dim_png" width="100%" height="100%" fillMode="scale"
+		         source="m_lw_listpenal_bet_white_png" />
+	</e:Group>
+	<e:Group id="_whiteDragonGroup" x="815" y="27" width="136" height="235">
+		<e:Image id="_whiteDragonImage" name="m_lw_listpenal_bet_red_dim_png" width="100%" height="100%" fillMode="scale"
+		         source="m_lw_listpenal_bet_red_png" />
+	</e:Group>
+	<e:Group id="_weGroup" x="973" y="27" width="136" height="235">
+		<e:Image id="_weImage" name="m_lw_listpenal_bet_green_dim_png" width="100%" height="100%" fillMode="scale"
+		         source="m_lw_listpenal_bet_green_png" />>
+	</e:Group>
+</e:Skin>

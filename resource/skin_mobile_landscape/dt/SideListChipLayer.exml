@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.dt.SideListChipLayerSkin" currentState="Normal" width="1135" height="334"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
+        states="Normal">
+	<e:Group id="_dragonGroup" x="0" y="0" width="399" height="334">
+		<e:Image id="_dragonImage" width="100%" height="100%"  source=""/>
+		<ui:BetChipStack id="_dragonBetChipStack" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>
+	<e:Group id="_tieGroup" x="399" y="0" width="338" height="334">
+		<e:Image id="_tieImage" width="100%" height="100%"  source=""/>
+		<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>	
+	<e:Group id="_tigerGroup" x="737" y="0" width="399" height="334">
+		<e:Image id="_tigerImage" width="100%" height="100%"  source=""/>
+		<ui:BetChipStack id="_tigerBetChipStack" verticalCenter="0" horizontalCenter="0" />
+	</e:Group>	
+</e:Skin>

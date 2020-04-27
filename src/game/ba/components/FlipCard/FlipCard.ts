@@ -1,13 +1,14 @@
 namespace we {
   export namespace ba {
-    export class FlipCard extends eui.Component {
+    export class FlipCard extends core.BaseEUI {
       protected debugShape: egret.Shape;
-      protected cardWidth: number;
-      protected cardHeight: number;
+      protected _cardWidth: number;
+      protected _cardHeight: number;
       protected cardFace: CardImage;
       protected cardBack: CardImage;
       protected cardFinal: CardImage;
       protected cardBackMask: eui.Rect;
+      protected _flipped: boolean;
 
       protected cardFaceShadowMask: CardShape;
       protected cardFaceShadow: egret.Shape; // a shape that has gradient shadow
@@ -32,61 +33,64 @@ namespace we {
       protected finalImgSrc: string;
       protected initedComponents: boolean; // flag that the children are created
 
-      constructor(w: number, h: number) {
+      constructor(w?: number, h?: number) {
         super();
-        this.cardWidth = w;
-        this.cardHeight = h;
+        if (w) {
+          this._cardWidth = +w;
+        }
+        if (h) {
+          this._cardHeight = +h;
+        }
         this._t = egret.Point.create(0, 0);
         this._finalT = egret.Point.create(0, 0);
+        this._flipped = false;
         // this._mps = /[];
       }
 
-      protected createChildren() {
-        super.createChildren();
-        // this.skinName = utils.getSkinByClassname('ba.CardHolderSkin');
+      public set cardWidth(value: number) {
+        this._cardWidth = +value;
       }
 
-      protected childrenCreated() {
-        super.childrenCreated();
+      public set cardHeight(value: number) {
+        this._cardHeight = +value;
+      }
 
-        // const bg = new eui.Rect(this.cardWidth, this.cardHeight, 0x0000ff);
-        // this.addChild(bg);
-
-        this.cardBack = new CardImage(this.cardWidth, this.cardHeight);
+      protected mount() {
+        this.cardBack = new CardImage(this._cardWidth, this._cardHeight);
         this.addChild(this.cardBack);
 
         this.cardBackShadow = new egret.Shape();
         this.cardBackShadow.visible = false;
         const gr2 = this.cardBackShadow.graphics;
         const matrix2 = new egret.Matrix();
-        matrix2.createGradientBox(this.cardWidth * 0.05, this.cardHeight * 1.5, 0, 0, 0);
+        matrix2.createGradientBox(this._cardWidth * 0.05, this._cardHeight * 1.5, 0, 0, 0);
         gr2.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000], [0.7, 0.7, 0], [0, 200, 255], matrix2);
-        gr2.drawRect(0, -this.cardHeight * 1.5, this.cardWidth * 0.05, this.cardHeight * 3);
+        gr2.drawRect(0, -this._cardHeight * 1.5, this._cardWidth * 0.05, this._cardHeight * 3);
         gr2.endFill();
         this.addChild(this.cardBackShadow);
 
-        this.cardBackShadowMask = new CardShape(this.cardWidth, this.cardHeight);
+        this.cardBackShadowMask = new CardShape(this._cardWidth, this._cardHeight);
         this.cardBackShadowMask.visible = false;
         this.addChild(this.cardBackShadowMask);
 
-        this.cardFace = new CardImage(this.cardWidth, this.cardHeight);
+        this.cardFace = new CardImage(this._cardWidth, this._cardHeight);
         this.addChild(this.cardFace);
 
         this.cardFaceShadow = new egret.Shape();
         this.cardFaceShadow.visible = false;
         const gr = this.cardFaceShadow.graphics;
         const matrix = new egret.Matrix();
-        matrix.createGradientBox(this.cardWidth * 0.05, this.cardHeight * 1.5, 0, 0, 0);
+        matrix.createGradientBox(this._cardWidth * 0.05, this._cardHeight * 1.5, 0, 0, 0);
         gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0.8, 0], [0, 255], matrix);
-        gr.drawRect(0, -this.cardHeight * 1.5, this.cardWidth * 0.05, this.cardHeight * 3);
+        gr.drawRect(0, -this._cardHeight * 1.5, this._cardWidth * 0.05, this._cardHeight * 3);
         gr.endFill();
         this.addChild(this.cardFaceShadow);
 
-        this.cardFaceShadowMask = new CardShape(this.cardWidth, this.cardHeight);
+        this.cardFaceShadowMask = new CardShape(this._cardWidth, this._cardHeight);
         this.cardFaceShadowMask.visible = false;
         this.addChild(this.cardFaceShadowMask);
 
-        this.cardFinal = new CardImage(this.cardWidth, this.cardHeight);
+        this.cardFinal = new CardImage(this._cardWidth, this._cardHeight);
         this.cardFinal.visible = false;
         this.addChild(this.cardFinal);
 
@@ -106,8 +110,8 @@ namespace we {
           return;
         }
         this.isUpdating = true;
-        const finalThresholdX = this.cardWidth * 1.15;
-        const finalThresholdY = this.cardHeight * 1.15;
+        const finalThresholdX = this._cardWidth * 1.15;
+        const finalThresholdY = this._cardHeight * 1.15;
         if (Math.abs(this._s.x - this._finalT.x) > finalThresholdX || Math.abs(this._s.y - this._finalT.y) > finalThresholdY) {
           this.showFinal();
           this._finalT.setTo(this._s.x, this._s.y);
@@ -148,12 +152,15 @@ namespace we {
         this.cardBack.visible = false;
         this.cardFinal.visible = true;
 
-        this.dispatchEvent(new egret.Event('CardFlipped'));
+        this._flipped = true;
+        this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED));
 
-        // auto reset for this moment
-        setTimeout(() => {
-          this.reset();
-        }, 4000);
+        /*
+                // auto reset for this moment
+                setTimeout(() => {
+                  // this.reset();
+                }, 4000);
+                */
       }
 
       public clearUserEvents() {
@@ -180,6 +187,15 @@ namespace we {
         this.cardFace.visible = false;
         this.cardFinal.visible = false;
         this.cardBack.visible = true;
+        this._flipped = false;
+      }
+
+      public set flipped(value: boolean) {
+        this._flipped = value;
+      }
+
+      public get flipped() {
+        return this._flipped;
       }
 
       private onOver(event: mouse.MouseEvent) {
@@ -195,13 +211,13 @@ namespace we {
         this.globalToLocal(event.stageX, event.stageY, pt);
         const posX: number = pt.x;
         const posY: number = pt.y;
-        const threshold: number = this.cardWidth * 0.2;
-        if (posX >= 0 && posY >= 0 && posX <= this.cardWidth && posY <= this.cardHeight) {
+        const threshold: number = this._cardWidth * 0.2;
+        if (posX >= 0 && posY >= 0 && posX <= this._cardWidth && posY <= this._cardHeight) {
           if (
             (posX < threshold && posY < threshold) ||
-            (posX < threshold && posY > this.cardHeight - threshold) ||
-            (posX > this.cardWidth - threshold && posY < threshold) ||
-            (posX > this.cardWidth - threshold && posY > this.cardHeight - threshold)
+            (posX < threshold && posY > this._cardHeight - threshold) ||
+            (posX > this._cardWidth - threshold && posY < threshold) ||
+            (posX > this._cardWidth - threshold && posY > this._cardHeight - threshold)
           ) {
             console.log('on touch corner');
           }
@@ -234,11 +250,14 @@ namespace we {
             const m = new egret.Matrix();
             m.identity();
             m.rotate((-this.rotation * Math.PI) / 180);
-            const x = e.stageX - this.x;
-            const y = e.stageY - this.y;
+
+            const x = e.stageX - this.parent.localToGlobal(this.x, this.y).x;
+            const y = e.stageY - this.parent.localToGlobal(this.x, this.y).y;
             // this._finalT.setTo(y, -x);
             // console.log(x, y);
+
             m.transformPoint(x, y, this._finalT);
+
             if (this._s) {
               egret.Point.release(this._s);
             }
@@ -260,22 +279,25 @@ namespace we {
       }
       protected onTouchMove(e: egret.TouchEvent) {
         // this._finalT.setTo(e.stageX - this.x, e.stageY - this.y);
+
         const m = new egret.Matrix();
         m.identity();
         m.rotate((-this.rotation * Math.PI) / 180);
-        const x = e.stageX - this.x;
-        const y = e.stageY - this.y;
-        // this._finalT.setTo(y, -x);
+
+        const x = e.stageX - this.parent.localToGlobal(this.x, this.y).x;
+        const y = e.stageY - this.parent.localToGlobal(this.x, this.y).y;
 
         m.transformPoint(x, y, this._finalT);
         // console.log(x, y, this._finalT.x, this._finalT.y);
 
         // console.log(this._finalT.x, this._finalT.y);
         // this._finalT.setTo(e.localX, e.localY);
-        const minX = this._s.x === 0 ? this.cardWidth * 0.1 : -this.cardWidth * 0.8;
-        const maxX = this._s.x === this.cardWidth ? this.cardWidth * 0.9 : 1.8 * this.cardWidth;
-        const minY = this._s.y === 0 ? this.cardHeight * 0.1 : -this.cardHeight * 0.5;
-        const maxY = this._s.y === this.cardHeight ? this.cardHeight * 0.9 : 1.5 * this.cardHeight;
+        // console.log(this.name, 'FlipCard--onTouchMove ', this._s);
+
+        const minX = this._s.x === 0 ? this._cardWidth * 0.1 : -this._cardWidth * 0.8;
+        const maxX = this._s.x === this._cardWidth ? this._cardWidth * 0.9 : 1.8 * this._cardWidth;
+        const minY = this._s.y === 0 ? this._cardHeight * 0.1 : -this._cardHeight * 0.5;
+        const maxY = this._s.y === this._cardHeight ? this._cardHeight * 0.9 : 1.5 * this._cardHeight;
         utils.clampPoint(this._finalT, minX, minY, maxX, maxY);
         if (this.freezeX) {
           this._finalT.x = this._s.x;
@@ -314,7 +336,6 @@ namespace we {
 
         if (!p1.equals(p2)) {
           this.computeCardBackMask(p1, p2);
-
           const pdy = p2.y - p1.y;
           const pdx = p2.x - p1.x;
           const angle = pdx === 0 ? 90 : utils.rad2deg(Math.atan(pdy / pdx));
@@ -324,6 +345,7 @@ namespace we {
           this.cardFace.anchorOffsetY = p3.y;
           this.cardFace.x = p1.x;
           this.cardFace.y = p1.y;
+
           this.cardFace.rotation = 180 + 2 * angle;
 
           this.cardFaceShadowMask.anchorOffsetX = p3.x;
@@ -374,36 +396,36 @@ namespace we {
       protected computeS(t: egret.Point): egret.Point {
         this.freezeX = false;
         this.freezeY = false;
-        const threshold = this.cardWidth * 0.2;
-        if (t.x < threshold && t.y > this.cardHeight - threshold) {
+        const threshold = this._cardWidth * 0.2;
+        if (t.x < threshold && t.y > this._cardHeight - threshold) {
           // return left corner
-          return egret.Point.create(0, this.cardHeight);
-        } else if (t.x > this.cardWidth - threshold && t.y > this.cardHeight - threshold) {
+          return egret.Point.create(0, this._cardHeight);
+        } else if (t.x > this._cardWidth - threshold && t.y > this._cardHeight - threshold) {
           // return right corner
-          return egret.Point.create(this.cardWidth, this.cardHeight);
+          return egret.Point.create(this._cardWidth, this._cardHeight);
         }
         if (t.x < threshold && t.y < threshold) {
           // return left upper corner
           return egret.Point.create(0, 0);
-        } else if (t.x > this.cardWidth - threshold && t.y < threshold) {
+        } else if (t.x > this._cardWidth - threshold && t.y < threshold) {
           // return right upper corner
-          return egret.Point.create(this.cardWidth, 0);
+          return egret.Point.create(this._cardWidth, 0);
         } else if (t.x < threshold) {
           // return point by projecting t to left edge
           this.freezeY = true;
           return egret.Point.create(0, t.y);
-        } else if (t.x > this.cardWidth - threshold) {
+        } else if (t.x > this._cardWidth - threshold) {
           // return point by projecting t to right edge
           this.freezeY = true;
-          return egret.Point.create(this.cardWidth, t.y);
+          return egret.Point.create(this._cardWidth, t.y);
         } else if (t.y < threshold) {
           // return point by project t to bottom edge
           this.freezeX = true;
           return egret.Point.create(t.x, 0);
-        } else if (t.y > this.cardHeight - threshold) {
+        } else if (t.y > this._cardHeight - threshold) {
           // return point by project t to bottom edge
           this.freezeX = true;
-          return egret.Point.create(t.x, this.cardHeight);
+          return egret.Point.create(t.x, this._cardHeight);
         }
         return null;
       }
@@ -422,26 +444,26 @@ namespace we {
         let idx = 0;
 
         const y1 = m.y - pSlope * m.x;
-        if (y1 >= 0 && y1 <= this.cardHeight) {
+        if (y1 >= 0 && y1 <= this._cardHeight) {
           ps[idx].setTo(0, y1);
           idx++;
         }
-        const y2 = m.y + pSlope * (this.cardWidth - m.x);
-        if (y2 >= 0 && y2 <= this.cardHeight) {
-          ps[idx].setTo(this.cardWidth, y2);
+        const y2 = m.y + pSlope * (this._cardWidth - m.x);
+        if (y2 >= 0 && y2 <= this._cardHeight) {
+          ps[idx].setTo(this._cardWidth, y2);
           idx++;
         }
         if (idx < 2) {
           const x1 = m.x + slope * m.y;
-          if (x1 >= 0 && x1 <= this.cardWidth) {
+          if (x1 >= 0 && x1 <= this._cardWidth) {
             ps[idx].setTo(x1, 0);
             idx++;
           }
         }
         if (idx < 2) {
-          const x2 = m.x - slope * (this.cardHeight - m.y);
-          if (x2 >= 0 && x2 <= this.cardWidth) {
-            ps[idx].setTo(x2, this.cardHeight);
+          const x2 = m.x - slope * (this._cardHeight - m.y);
+          if (x2 >= 0 && x2 <= this._cardWidth) {
+            ps[idx].setTo(x2, this._cardHeight);
             idx++;
           }
         }
@@ -462,8 +484,8 @@ namespace we {
       }
 
       protected computeP3P4(p1: egret.Point, p2: egret.Point, p3: egret.Point, p4: egret.Point) {
-        p3.setTo(this.cardWidth - p1.x, p1.y);
-        p4.setTo(this.cardWidth - p2.x, p2.y);
+        p3.setTo(this._cardWidth - p1.x, p1.y);
+        p4.setTo(this._cardWidth - p2.x, p2.y);
       }
 
       protected computeCardBackMask(p1: egret.Point, p2: egret.Point) {
@@ -482,9 +504,9 @@ namespace we {
 
       protected computeMask(p1: egret.Point, p2: egret.Point) {
         const tl = egret.Point.create(0, 0);
-        const bl = egret.Point.create(0, this.cardHeight);
-        const tr = egret.Point.create(this.cardWidth, 0);
-        const br = egret.Point.create(this.cardWidth, this.cardHeight);
+        const bl = egret.Point.create(0, this._cardHeight);
+        const tr = egret.Point.create(this._cardWidth, 0);
+        const br = egret.Point.create(this._cardWidth, this._cardHeight);
 
         const p1p2 = p2.subtract(p1);
         p1p2.normalize(1);
@@ -530,7 +552,7 @@ namespace we {
           minValue = Math.min(minValue, value);
         }
         const maskWidth = maxValue - minValue;
-        const maskHeight = this.cardHeight * 1.5;
+        const maskHeight = this._cardHeight * 1.5;
         let maskPoint = p1p2.clone();
         maskPoint.normalize(minValue);
         maskPoint = maskPoint.add(p1);

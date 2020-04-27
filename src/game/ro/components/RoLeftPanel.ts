@@ -15,6 +15,7 @@ namespace we {
       protected btnHotCold: ui.BaseImageButton;
       protected btnHistory: ui.BaseImageButton;
       protected btnRoads: ui.BaseImageButton;
+      protected _chipLayer: ui.ChipLayer;
 
       protected pageRadioBtn1: eui.RadioButton;
       protected pageRadioBtn2: eui.RadioButton;
@@ -46,6 +47,7 @@ namespace we {
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RoLeftPanel');
       }
+
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
         this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
@@ -62,6 +64,10 @@ namespace we {
         this.roadRadioBtn3['labelDisplayDown']['text'] = this.roadRadioBtn3['labelDisplayUp']['text'] = i18n.t('roulette.roadOdd') + '/' + i18n.t('roulette.roadEven');
 
         this.updateActiveLine(false);
+      }
+
+      public set chipLayer(value: ui.ChipLayer) {
+        this._chipLayer = value;
       }
 
       protected setRadioButtons() {
@@ -207,7 +213,6 @@ namespace we {
       }
 
       protected updateActiveLine(useEasing: boolean) {
-
         const btn = this._radioButtons[this.pageStack.selectedIndex];
 
         this._radioButtons.forEach(element => {

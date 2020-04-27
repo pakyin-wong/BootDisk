@@ -16,6 +16,10 @@ namespace we {
       gametype_DT: '龙虎',
       gametype_LW: '幸運轮',
 
+      sidegamelist_title: '游戏列表',
+      sidegamelist_tab_bet: '已下注',
+      sidegamelist_tab_goodroad: '好路',
+
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
       betfield_baccarat_tie: '和',
@@ -123,6 +127,7 @@ namespace we {
         },
       },
       nav: {
+        bet_balance: '余额',
         menu: {
           title: '设定',
           selectMode: '介面色调',
