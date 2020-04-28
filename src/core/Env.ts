@@ -12,7 +12,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.3.2';
+      public version: string = '0.4.0';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
@@ -126,10 +126,10 @@ namespace we {
           }
 
           const gameType = tableInfo.gametype;
-          if (gameType === core.GameType.DI) {
-            tableInfo.displayReady = false;
-            return false;
-          }
+          // if (gameType === core.GameType.DI) {
+          //   tableInfo.displayReady = false;
+          //   return false;
+          // }
         }
 
         if (tableInfo && !tableInfo.displayReady) {

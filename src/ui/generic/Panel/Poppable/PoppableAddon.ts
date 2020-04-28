@@ -84,6 +84,7 @@ namespace we {
         if (!this.isShow) {
           return;
         }
+
         const c = this.target.stage['inFocusItems'];
         if (c.length > this.inFocusIdx && c[c.length - 1] !== this.target) {
           return;
@@ -106,7 +107,9 @@ namespace we {
         this.isFocusItem && this.target.stage['inFocusItems'].push(this.target);
         this.inFocusIdx = this.target.stage['inFocusItems'].length;
         await this.onShow(skipAnimation);
-        this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
+        if (this.target.stage) {
+          this.target.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onDetectClick, this);
+        }
       }
       public async hide(skipAnimation: boolean = false) {
         if (!skipAnimation && this.isAnimating) {

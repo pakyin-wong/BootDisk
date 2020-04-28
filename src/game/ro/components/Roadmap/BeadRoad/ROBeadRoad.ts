@@ -35,7 +35,7 @@ namespace we {
       protected renderGrid() {}
 
       // override for base class
-      protected initRoadData() {
+      public initRoadData() {
         const n = this.numCol * this.numRow;
         let iconIndex = 0;
         this.roadMapIconList = new Array<ROBeadRoadIcon>();

@@ -26,8 +26,8 @@ namespace we {
       generateTableLayer?(node: eui.Component): TableLayer;
       generateChipLayer?(node: eui.Component): ChipLayer;
       generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
-      generateAdvancedRoad?(node: eui.Component): IAdvancedRoad;
-      generateAnalysis?(node: eui.Component): IAnalysis;
+      generateAdvancedRoad?(node: eui.Component): IAdvancedRoad & eui.Component;
+      generateAnalysis?(node: eui.Component): IAnalysis & eui.Component;
       generateResultMessage?(node: eui.Component): IGameResultMessage;
       generateResultDisplay?(node: eui.Component): IResultDisplay;
     }
@@ -37,7 +37,7 @@ namespace we {
     }
 
     export interface IResultDisplay {
-      updateResult(gameData: data.GameData);
+      updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer);
       reset();
 
       visible: boolean;
@@ -58,13 +58,14 @@ namespace we {
     // Opt
     export interface IOverlayOpt {
       class: string;
+      replace?: boolean;
       args?: any[];
     }
 
     export interface IMessageDialogOpt {
       [button: string]: {
         text: string;
-        onClick?: () => Promise<void>;
+        onClick?: () => Promise<any>;
       };
     }
 

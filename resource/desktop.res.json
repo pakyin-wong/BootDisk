@@ -9,7 +9,7 @@
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_normal_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_normal_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_normal_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_normal_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_normal_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_normal_png,d_ba_betarea_tie_normal_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_normal_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_swaproadmap_button_element_png,d_ba_betcontrol_icon_cancel_png,d_ba_betcontrol_icon_double_png,d_ba_betcontrol_icon_repeat_png,frame-3_png,d_ba_navbar_icon_info_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_hoverelement_png,d_ba_navbar_icon_setting_png,d_ba_navbar_icon_sound_png,d_ba_navbar_icon_video_png,d_ba_navbar_icon_stat_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_tieelement_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_bankerelement_png,d_ba_betarea_icon_bet_png,d_ba_betarea_icon_person_png,baccarat_game_result_tex_png,baccarat_game_result_tex_json,baccarat_game_result_ske_json,d_ba_roadmap_bar_remainingstate_png",
+			"keys": "d_ba_gameresult_bankerelement_png,d_ba_gameresult_bankerwin_png,d_ba_gameresult_playerelement_png,d_ba_gameresult_playerwin_png,d_ba_gameresult_tie_png,d_ba_gameresult_tieelement_png,d_ba_betarea_banker_normal_png,d_ba_betarea_banker_hover_png,d_ba_betarea_bankerpair_normal_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_normal_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_normal_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_normal_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_normal_png,d_ba_betarea_tie_normal_png,d_ba_betarea_tie_hover_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_normal_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_swaproadmap_button_element_png,d_ba_betcontrol_icon_cancel_png,d_ba_betcontrol_icon_double_png,d_ba_betcontrol_icon_repeat_png,frame-3_png,d_ba_navbar_icon_info_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_hoverelement_png,d_ba_navbar_icon_setting_png,d_ba_navbar_icon_sound_png,d_ba_navbar_icon_video_png,d_ba_navbar_icon_stat_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_tieelement_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_bankerelement_png,d_ba_betarea_icon_bet_png,d_ba_betarea_icon_person_png,baccarat_game_result_tex_png,baccarat_game_result_tex_json,baccarat_game_result_ske_json,d_ba_roadmap_bar_remainingstate_png,d-sq-ba-p-win-hl-copy_png,d-sq-ba-b-win-hl-copy_png",
 			"name": "scene_baccarat"
 		},
 		{
@@ -4550,6 +4550,16 @@
 			"url": "assets/d/ro/d_ro_savelayout_confrim_bg.png",
 			"type": "image",
 			"name": "d_ro_savelayout_confrim_bg_png"
+		},
+		{
+			"url": "assets/d/ba/d-sq-ba-p-win-hl-copy.png",
+			"type": "image",
+			"name": "d-sq-ba-p-win-hl-copy_png"
+		},
+		{
+			"url": "assets/d/ba/d-sq-ba-b-win-hl-copy.png",
+			"type": "image",
+			"name": "d-sq-ba-b-win-hl-copy_png"
 		}
 	]
 }

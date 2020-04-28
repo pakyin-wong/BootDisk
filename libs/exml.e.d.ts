@@ -87,6 +87,14 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop.ba{
+	class LiveListItemAdvancedChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
+	class LiveListItemAdvancedTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.ba{
 	class LiveListItemChipLayerSkin extends eui.Skin{
 	}
 }
@@ -151,11 +159,23 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LiveListAdvancedItemCompleteSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
+	class LiveListItemCompleteSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LiveListSimpleItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LiveListSimpleItemCompleteSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -641,7 +661,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class ListTestPageSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class RoadmapControlTestPageSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class ScrollerTestPageSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -722,6 +750,10 @@ declare module skin_mobile_landscape.dt{
 }
 declare module skin_mobile_landscape.dt{
 	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.dt{
+	class MobileBottomRoadmapPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dt{
@@ -908,6 +940,10 @@ declare module skin_mobile_landscape{
 	class SystemSetting extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class GamePanelSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class BaBeadRoadResultCardHolderSkin extends eui.Skin{
 	}
@@ -1060,6 +1096,10 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class MobileBottomRoadmapPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dt{
@@ -1446,5 +1486,9 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class LobbyTabListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class MobileSideGameListItemRenderer extends eui.Skin{
 	}
 }

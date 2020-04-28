@@ -16,6 +16,10 @@ namespace we {
       gametype_DT: '龙虎',
       gametype_LW: '幸運轮',
 
+      sidegamelist_title: '游戏列表',
+      sidegamelist_tab_bet: '已下注',
+      sidegamelist_tab_goodroad: '好路',
+
       betfield_baccarat_banker: '庄',
       betfield_baccarat_player: '闲',
       betfield_baccarat_tie: '和',
@@ -209,6 +213,7 @@ namespace we {
         total: '和值',
         gameStats: '结果统计',
         dicePercent: '骰子机率',
+        allTriple: '全圍',
       },
       roulette: {
         row_1: '第一行',

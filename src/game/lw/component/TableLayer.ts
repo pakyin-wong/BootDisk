@@ -70,16 +70,18 @@ namespace we {
 
       public async flashFields(fieldName: string) {
         const promise = new Promise(resolve => {
-          egret.Tween.get(this._imageMapping[fieldName])
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 1 }, 125)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 1 }, 125)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 1 }, 125)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 1 }, 125)
-            .call(resolve);
+          if (this._imageMapping[fieldName]) {
+            egret.Tween.get(this._imageMapping[fieldName])
+              .to({ alpha: 0 }, 125)
+              .to({ alpha: 1 }, 125)
+              .to({ alpha: 0 }, 125)
+              .to({ alpha: 1 }, 125)
+              .to({ alpha: 0 }, 125)
+              .to({ alpha: 1 }, 125)
+              .to({ alpha: 0 }, 125)
+              .to({ alpha: 1 }, 125)
+              .call(resolve);
+          }
         });
       }
       /*

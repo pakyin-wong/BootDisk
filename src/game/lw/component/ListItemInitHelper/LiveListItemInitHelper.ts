@@ -18,7 +18,8 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const road = new lw.LwLobbyBeadRoad();
+        // const road = new lw.LwLobbyBeadRoad();
+        const road = dir.lobbyRoadPool.get(core.GameType.LW);
         road.roadRow = 3;
         road.roadCol = 13;
         road.roadCellWidth = 44;
@@ -36,14 +37,16 @@ namespace we {
       }
 
       public generateAnalysis(node: eui.Component) {
-        const analysis = new lw.Analysis();
+        // const analysis = new lw.Analysis();
+        const analysis = dir.analysisPool.get(core.GameType.LW);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(analysis, idx);
         return analysis;
       }
 
       public generateAdvancedRoad(node: eui.Component) {
-        const advancedRoad = new lw.AdvancedRoad();
+        // const advancedRoad = new lw.AdvancedRoad();
+        const advancedRoad = dir.advancedRoadPool.get(core.GameType.LW);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(advancedRoad, idx);
         return advancedRoad;

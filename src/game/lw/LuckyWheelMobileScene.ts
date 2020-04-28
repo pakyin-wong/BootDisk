@@ -3,18 +3,13 @@ namespace we {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: LwRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
-
       protected _lwGameIDText: ui.RunTimeLabel;
       protected _lwGameID: ui.RunTimeLabel;
-
       protected _totalBet: ui.RunTimeLabel;
       protected _totalBetText: ui.RunTimeLabel;
-
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
-
       protected _verticalGroup: eui.Group;
-
       private _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
@@ -59,33 +54,24 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-
         this._roadmapControl.setTableInfo(this._tableInfo);
-
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
-
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-
         if (this._bottomGamePanel._statisticChartPanel) {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
-
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
         }
-
         this.createVerticalLayout();
         this.changeHandMode();
-
         this._lwGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
         this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
-
         dir.monitor._sideGameList.setToggler(this._common_listpanel);
-
         this.setChipPanelPos();
       }
 
@@ -126,13 +112,11 @@ namespace we {
 
       protected addEventListeners() {
         super.addEventListeners();
-
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
-
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
@@ -151,19 +135,7 @@ namespace we {
         this._verticalGroup.layout = vLayout;
       }
 
-      protected setChipPanelPos() {
-        // if (env.orientation === 'portrait') {
-        //   if (this._bottomGamePanel.isPanelOpen) {
-        //     this._betPanelGroup.scaleY = 1;
-        //     this._betPanelGroup.y = 0;
-        //     this._betChipSetPanel.y = 1210;
-        //   } else {
-        //     this._betPanelGroup.scaleY = -1;
-        //     this._betPanelGroup.y = 762;
-        //     this._betChipSetPanel.y = 762;
-        //   }
-        // }
-      }
+      protected setChipPanelPos() {};
 
       protected showBetChipPanel() {
         this.setChipPanelPos();
@@ -185,8 +157,7 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        if (evt && evt.data) {
-        }
+        if (evt && evt.data) {}
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -221,17 +192,6 @@ namespace we {
         this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
       }
 
-      // protected onOrientationChange() {
-      //   this.onExit();
-
-      //   super.onOrientationChange();
-      //   this.onEnter();
-      //   // this.setSkinName();
-      //   // this.initChildren();
-      //   // this.invalidateState();
-      //   this.changeHandMode();
-      // }
-
       protected checkBetChipPanel() {
         if (this._betChipSetPanel.visible === true) {
           this.setChipPanelPos();
@@ -240,3 +200,4 @@ namespace we {
     }
   }
 }
+
