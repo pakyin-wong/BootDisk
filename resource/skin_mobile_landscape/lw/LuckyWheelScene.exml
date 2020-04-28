@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.LuckyWheelScene" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:lw="we.lw.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:ns1="*"
-        states="left_hand_mode,right_hand_mode" width.right_hand_mode="2424" >
+        states="left_hand_mode,right_hand_mode" >
 	<e:Rect width="2424" height="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" />
-	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242"  source="m_lw_ver_bg_jpg" source.left_hand_mode="m_lw_ver_bg_jpg" visible.right_hand_mode="false" visible.left_hand_mode="false" locked="true" visible="false"/>
-	<e:Group id="_verticalGroup" width="2424" x="0"  anchorOffsetY.right_hand_mode="0"  bottom="0">
-		<e:Group id="_verticalTop" width="2424" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"   >
+	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242"  source="m_lw_ver_bg_jpg" locked="true" visible="false"/>
+	<e:Group id="_verticalGroup" width="2424" x="0" bottom="0">
+		<e:Group id="_verticalTop" width="2424" x="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"   >
 			<!--<e:Group id="_betChipSetPanel" width="1182" height="560" scaleY="1" x="681" y="0" y.right_hand_mode="0">
 				<e:Group id="_betPanelGroup" horizontalCenter="0" left="0" right="0" top="0" bottom="0" x.right_hand_mode="0" y.right_hand_mode="0" width.right_hand_mode="100%" height.right_hand_mode="560">
 				<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" height="560" y="33" x="0" scaleX="1"/>
@@ -23,14 +23,14 @@
 				<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="190" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" />
 				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120" horizontalCenter="-111" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"/>
 			</e:Group>-->
-			<e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x.left_hand_mode="600" x.right_hand_mode="762" y="20" y.right_hand_mode="250" y.left_hand_mode="250">
+			<e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x.left_hand_mode="600" x.right_hand_mode="762" y="250">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 						 fillColor="0x444444" />
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="0"
 						 verticalCenter="0" skinName="skin_mobile_portrait.BetConfirmButtonSkin"  x.right_hand_mode="709"/>
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
 								 verticalCenter="0"  x.right_hand_mode="709"/>
-				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0" visible.left_hand_mode="false">
+				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0">
 					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788"  x.right_hand_mode="82"/>
 					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500"  x.right_hand_mode="432"/>
 					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650"  x.right_hand_mode="266"/>
@@ -53,9 +53,9 @@
 
 <!--===-->
 			<lw:TableLayer id="_tableLayer"  y="435" isEdgeDismissable="true"
-			               skinName="skin_mobile_landscape.lw.TableLayerSkin" scaleX="1" scaleY="1" horizontalCenter="0" y.right_hand_mode="400"/>
+			               skinName="skin_mobile_landscape.lw.TableLayerSkin" scaleX="1" scaleY="1" horizontalCenter="0"/>
 			<lw:ChipLayer id="_chipLayer" y="435" isEdgeDismissable="true"
-			              skinName="skin_mobile_landscape.lw.ChipLayerSkin" scaleX="1" scaleY="1"   horizontalCenter="0" y.right_hand_mode="400"/>
+			              skinName="skin_mobile_landscape.lw.ChipLayerSkin" scaleX="1" scaleY="1"   horizontalCenter="0"/>
 			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
 		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="2262" y="271"/>
 			<e:Group width="104" height="104" x="2262" y="405" >
@@ -72,16 +72,13 @@
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160"
 			                           skinName="skin_mobile.BetChipSkin"
-			                           labelSize="48"  x="635" y="228" x.right_hand_mode="635"/>
+			                           labelSize="48" y="228" x.right_hand_mode="635" x.left_hand_mode="1615"/>
 		</e:Group>
 		<lw:MobileBottomGamePanel skinName="skin_mobile_landscape.lw.MobileBottomGamePanel" id="_bottomGamePanel" width="2424"
 		                          x="0" scaleY="1" y="731" scaleX="1"/>
 		<e:layout>
-			<e:VerticalLayout gap="-66"/>
-		</e:layout>
-		<e:layout.right_hand_mode>
 			<e:VerticalLayout gap="-65"/>
-		</e:layout.right_hand_mode>
+		</e:layout>
 	</e:Group>
 	<e:Group id="_betChipSetPanel" width="1485" height="260" scaleY="1" x="435" y="-68">
 		<e:Group id="_betPanelGroup" scaleY="1" x="0" height="260" y="-43" width="100%">
@@ -126,7 +123,7 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-		<lw:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"  horizontalCenter="0" y.right_hand_mode="332" y="105"/>
+		<lw:GameResultMessage id="_resultMessage" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"  horizontalCenter="0" y="100"/>
 	<ui:InGameMessage id="_message" skinName="skin_mobile_portrait.InGameMessageSkin" anchorOffsetX="0" anchorOffsetY="0"
 	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="282"  horizontalCenter="0"/>
