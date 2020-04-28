@@ -11,7 +11,9 @@ namespace we {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: we.ro.RORoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
-      protected _sidePanel: MobileSidePanel;
+      protected _settingPanel: MobileSettingPanel;
+      protected _settingTween: ui.TweenConfig;
+      protected _hotcoldPanel: MobileHotColdPanel;
 
       protected _betArea: eui.Scroller;
       protected _betAreaTween: ui.TweenConfig;
@@ -47,7 +49,7 @@ namespace we {
         super.addEventListeners();
 
         this._bottomGamePanel.addEventListener('TOGGLE', this.onBottomToggle, this);
-        this._sidePanel.addEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
+        this._settingPanel.addEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
@@ -55,7 +57,7 @@ namespace we {
         super.removeEventListeners();
 
         this._bottomGamePanel.removeEventListener('TOGGLE', this.onBottomToggle, this);
-        this._sidePanel.removeEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
+        this._settingPanel.removeEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
@@ -94,7 +96,7 @@ namespace we {
           this._bottomGamePanel._roadmapPanel.colorBigRoad,
           this._bottomGamePanel._roadmapPanel.sizeBigRoad,
           this._bottomGamePanel._roadmapPanel.oddBigRoad,
-          this._sidePanel,
+          this._hotcoldPanel,
           null,
           null
         );
@@ -105,7 +107,7 @@ namespace we {
       }
 
       protected set roState(s) {
-        this.betAreaState = this.betSetState = this.raceState = s;
+        this.betAreaState = this.betSetState = this.raceState = this.settingState = s;
       }
 
       protected set betAreaState(s) {
@@ -121,7 +123,7 @@ namespace we {
 
         switch (s) {
           case 'zip':
-            this._betArea.scrollPolicyV = eui.ScrollPolicy.ON;
+            this._betArea.scrollPolicyV = eui.ScrollPolicy.AUTO;
             egret.Tween.get(this._betArea.viewport).to(
               {
                 scrollV: (this._betArea.viewport.contentHeight - this._betAreaTween.getTweenPackage().height) * 0.5,
@@ -182,7 +184,7 @@ namespace we {
         }
 
         this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
-        this._sidePanel.currentState = this._mode;
+        this._settingPanel.currentState = this._mode;
         (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
       }
 
@@ -197,6 +199,19 @@ namespace we {
 
         egret.Tween.removeTweens(this._betSet);
         egret.Tween.get(this._betSet).to(this._betSetTween.getTweenPackage(), 250);
+      }
+
+      protected set settingState(s) {
+        const state = s === 'normal' && this._mode === 'race' ? 'zip' : s;
+
+        if (this._settingTween.currentState === state) {
+          return;
+        }
+        this._settingTween.currentState = state;
+        this._settingTween.validateNow();
+
+        egret.Tween.removeTweens(this._settingPanel);
+        egret.Tween.get(this._settingPanel).to(this._settingTween.getTweenPackage(), 250);
       }
 
       protected set raceState(s) {

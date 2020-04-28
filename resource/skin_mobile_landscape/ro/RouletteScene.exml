@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.RouletteScene" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" states="left,right">
+	<ui:TweenConfig id="_betAreaTween" left="-3" right="3" top="0" bottom="0" locked="true">
+	<e:skinName>
+		<e:Skin states="normal,zip,small">
+			<e:Component id="checker" width="2061" height="664" x="181" y="501" scaleX="1" scaleY="1" height.zip="664" scaleX.small="0.5798156234837457" scaleY.small="0.5798192771084337" x.small="614" y.small="826" x.zip="233" y.zip="296" scaleY.zip="0.9503012048192772" scaleX.zip="0.9500242600679282"/>
+		</e:Skin>
+	</e:skinName>
+	</ui:TweenConfig>
+	<ui:TweenConfig id="_betSetTween" left="0" right="0" top="0" bottom="0" locked="true">
+		<ui:skinName>
+		<e:Skin states="normal,zip,small">
+			<e:Component id="checker" width="2424" height="611" y.small="355" y.normal="355" y.zip="119"/>
+		</e:Skin>
+		</ui:skinName>
+	</ui:TweenConfig>
+	<ui:TweenConfig id="_settingTween" left="0" right="0" top="0" bottom="0" locked="true">
+		<ui:skinName>
+		<e:Skin states="normal,zip,small">
+			<e:Component id="checker" width="2335" height="494" y.small="596" y.normal="596" y.zip="314" x="36" y="596"/>
+		</e:Skin>
+		</ui:skinName>
+	</ui:TweenConfig>
+
+  <e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" left="0" right="0" locked="true"/>
+  <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" touchEnabled="false" touchChildren="true" touchThrough="true" height="121" right="0">
+    <e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3"/>
+    <ui:RunTimeLabel id="_lblRoomNo" x="90" y="33" size="40" height="56" verticalAlign="middle" width="200" textAlign="left" anchorOffsetX="0" text=""/>
+    <e:Group x="90" y="87">
+      <ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40"/>
+      <e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19"/>
+      <e:layout>
+        <e:HorizontalLayout verticalAlign="middle"/>
+      </e:layout>
+    </e:Group>
+    <live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0" visible="false"/>
+    <e:Image id="_btnBack" width="38" height="35" x="32" y="64" source="d_ba_navbar_chevron_png"/>
+    <e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png"/>
+    <ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.GameBar" visible="false"/>
+  </e:Group>
+	<ro:MobileSettingPanel id="_settingPanel" skinName="skin_mobile_landscape.ro.MobileSettingPanel" x="36" y="596"/>
+  <e:Scroller id="_betArea" x="181" y="501" width="2061" height="664" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off">
+    <e:Group id="_bAViewport">
+			<e:Group id="_bATransition" x="0">
+				<e:Group id="_bANormal" x="0" height="664" width="2061">
+					<ro:TableLayer id="_tableLayer" width="2061" height="664" isEdgeDismissable="true" skinName="skin_mobile_landscape.ro.TableLayerSkin"/>
+				</e:Group>
+				<e:Group id="_bARace" width="2061" x="2061" height="664">
+					<ro:RaceTrackTableLayer id="_raceTrackTableLayer" horizontalCenter="0" verticalCenter="0"/>
+				</e:Group>
+				<ro:MobileChipLayer id="_chipLayer" width="2061" height="664" isEdgeDismissable="true" x="0" y="0" scaleX="1" scaleY="1" skinName="skin_mobile_landscape.ro.ChipLayerRaceSkin"/>
+			</e:Group>
+			<ro:RaceTrackChipLayer id="_raceTrackChipLayer" horizontalCenter="0" visible="false"/>
+    </e:Group>
+  </e:Scroller>
+	<ro:MobileHotColdPanel id="_hotcoldPanel" x="696" y="14" skinName="skin_mobile_landscape.ro.MobileHotColdPanel"/>
+  <e:Group id="_betSet" y="355" left="0" right="0" touchThrough="true">
+    <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="632" x.left="5"/>
+    <e:Group id="_betChipSetPanel" horizontalCenter="0" y="168">
+			<e:Image id="_panel" scale9Grid="33,33,0,0" source="m_ba_betarea_chipsbg_round_png" left="0" right="0" y="32" height="411" width="1566"/>
+			<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" x="249"/>
+      <ui:BetChipSetGrid id="_betChipSet" alpha="0" betChipWidth="201" betChipHeight="201" labelSize="48" width="1566" height="411" numChipsInRow="2" right.left="0" y="32"/>
+    </e:Group>
+    <e:Group id="_betRelatedGroup" x="819" y="18">
+				<e:Rect id="_roundPanel" width="765" height="130" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"  x="0" x.left="219"/>
+				<e:Button id="_confirmButton" width="324" height="130" skinName="skin_mobile_portrait.BetConfirmButtonSkin" x="649" x.left="0"/>
+				<ui:CountdownTimer id="_timer" width="324" height="130" skinName="skin_mobile_portrait.CountdownTimerSkin" x="649" x.left="0"/>
+				<ui:BaseImageButton id="_undoButton" width="64" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"  y="5" x="507" x.left="368"/>
+				<ui:BaseImageButton id="_repeatButton" x="41" width="128" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" y="5" x.left="792"/>
+				<ui:BaseImageButton id="_cancelButton" x="368" width="64" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" y="5" x.left="520"/>
+				<ui:BaseImageButton id="_doubleButton" x="225" width="64" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" y="5" x.left="672"/>    
+    </e:Group>
+  </e:Group>
+	<ro:RaceTrackControl id="_raceTrackControl" width="82" height="410" skinName="skin_mobile_portrait.ro.RaceTrackControlSkin" y="1504" x.right="1097" x.left="45" x="1097"/>
+  <!--<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />-->
+  <!--<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />-->
+  <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right_hand_mode"/>-->
+  <ro:GameResultMessage id="_resultMessage" y="333" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0"/>
+  <ui:InGameMessage
+    id="_message"
+    x="901"
+    y="185"
+   
+   
+   
+    infoBg="d_ba_gamerecord_playerelement_png"
+    successBg="d_ba_gamerecord_tieelement_png"
+    errorBg="d_ba_gamerecord_bankerelement_png" skinName="skin_mobile_landscape.InGameMessageSkin"/>
+  <ro:MobileBottomGamePanel skinName="skin_mobile_portrait.ro.MobileBottomGamePanel" id="_bottomGamePanel" width="1242" x="0" scaleY="1" scaleX="1" bottom="0" visible="false"/>
+  <!--<ro:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0"
+  skinName="skin_mobile_portrait.ro.TableInfoPanel" />-->
+  <!--<ro:ROBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0" anchorOffsetY="0" visible="false"/>-->
+</e:Skin>

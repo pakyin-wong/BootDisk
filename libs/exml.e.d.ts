@@ -664,6 +664,10 @@ declare module skin_mobile_landscape.ba{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait{
+	class InGameMessageSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape{
 	class InGameMessageSkin extends eui.Skin{
 	}
@@ -808,6 +812,34 @@ declare module skin_mobile_landscape{
 	class SystemSetting extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.ro{
+	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ro{
+	class MobileHotColdPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ro{
+	class MobileSettingPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ro{
+	class RaceTrackChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class RaceTrackTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class RouletteScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ro{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape{
 	class GamePanelSkin extends eui.Skin{
 	}
@@ -836,10 +868,6 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class GameResultWinSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait{
-	class InGameMessageSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ba{
@@ -1251,11 +1279,15 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class MobileHotColdPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class MobileOddBarChart extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
-	class MobileSidePanel extends eui.Skin{
+	class MobileSettingPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
@@ -1264,10 +1296,6 @@ declare module skin_mobile_portrait.ro{
 }
 declare module skin_mobile_portrait.ro{
 	class RaceTrackControlSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.ro{
-	class RaceTrackTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
