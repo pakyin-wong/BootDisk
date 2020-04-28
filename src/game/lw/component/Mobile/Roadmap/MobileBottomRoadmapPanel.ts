@@ -18,9 +18,15 @@ namespace we {
       }
 
       protected init() {
-        this.beadRoad = new LwBeadRoad(4, 11, 112, 122, 72, 72, 1, 0x000000, 0.85, 0x3a3f48, true); // in game
-        this.beadRoad.x = 0;
-        this.beadRoad.y = 0;
+        if (env.orientation === 'portrait') {
+          this.beadRoad = new LwBeadRoad(4, 11, 112, 122, 72, 72, 1, 0x000000, 0.85, 0x3a3f48, true); // in game
+          this.beadRoad.x = 0;
+          this.beadRoad.y = 0;
+        } else {
+          this.beadRoad = new LwBeadRoad(3, 11, 96, 105, 58, 58, 1, 0x000000, 0.85, 0x3a3f48, true); // in game
+          this.beadRoad.x = 0;
+          this.beadRoad.y = 0;
+        }
 
         const rdata: any = [];
         this.beadRoad.parseRoadData(rdata);

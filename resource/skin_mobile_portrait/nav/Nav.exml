@@ -14,9 +14,9 @@
 
 	</e:Group>
 	<ui:BaseImageButton id="_refreshButton" y="55" width="57" height="56" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload" x="1138" y.Game="61" visible.Game="false" visible.Lobby="true"/>
-	<ui:BaseImageButton id="_slider_toggle" y.Lobby="1961" anchorOffsetX="0" width="117" anchorOffsetY="0" height="117"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="1088" right.Game="25" top.Game="149"/>
-	<e:Rect height="55" fillColor="0x121312" width.Game="376" x.Game="883" y.Game="2100" width.Lobby="1242" x.Lobby="0" y.Lobby="2100" height.Game="54"/>
+	<ui:BaseImageButton id="_slider_toggle" y="1961" anchorOffsetX="0" width="117" anchorOffsetY="0" height="117"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="1088" y.Game="201"/>
+	<e:Rect height="55" fillColor="0x121312" width.Game="376" x.Game="883" y.Game="2102" width.Lobby="1242" x.Lobby="0" y.Lobby="2102" height.Game="53"/>
 	<ui:NavLantern id="_lantern" width="862" height="36"   left="11" bottom="6" fontsize="36" lineSpacing="36" visible.Game="false" visible.Lobby="true" x.Lobby="10"/>
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00"  size="36"
 	         fontFamily="Barlow" height="36" textAlign="right" anchorOffsetX="0" verticalAlign="top"  bottom="8" textColor="0xf3f3f3" alpha="0.7" x="914"/>

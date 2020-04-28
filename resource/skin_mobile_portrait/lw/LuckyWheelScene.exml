@@ -35,18 +35,20 @@
 				          verticalCenter="0" x.right_hand_mode="684"  skinName="skin_mobile_portrait.BetConfirmButtonSkin"/>
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
 				                   verticalCenter="0" x.right_hand_mode="684" />
+				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0">
+					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788" x.right_hand_mode="82" />
+					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500" x.right_hand_mode="432" />
+					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650" x.right_hand_mode="266" />
+					<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" x="349" x.right_hand_mode="588" />
+				</e:Group>
 				<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
-				                    horizontalCenter="360" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-				                    currentState="b_repeat" x.right_hand_mode="64" horizontalCenter.right_hand_mode="-370" />
+				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"  x="787" x.right_hand_mode="77"/>
 				<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    horizontalCenter="40" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-				                    currentState="b_cancel" x.right_hand_mode="500" horizontalCenter.right_hand_mode="-60" />
+				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel"  x="500" x.right_hand_mode="432"/>
 				<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    horizontalCenter="190" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-				                    currentState="b_double" x.right_hand_mode="248" horizontalCenter.right_hand_mode="-200" />
+				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double"  x="651" x.right_hand_mode="264"/>
 				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    horizontalCenter="-111" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-				                    currentState="b_undo" horizontalCenter.right_hand_mode="90" />
+				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"  x="351" x.right_hand_mode="588"/>
 			</e:Group>
 		</e:Group>
 		<lw:MobileBottomGamePanel skinName="skin_mobile_portrait.lw.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
@@ -105,8 +107,8 @@
 			<e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" />
 		</e:layout>
 	</e:Group>-->
-	<e:Group bottom="0" left="0" width="700" left.left_hand_mode="18" bottom.left_hand_mode="118">
-		<ui:RunTimeLabel id="_lwGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15" bottom.left_hand_mode="94"/>
+	<e:Group bottom="0" left="0" width="700" >
+		<ui:RunTimeLabel id="_lwGameIDText" text="Game ID :" bottom="0" left="0"/>
 		<ui:RunTimeLabel id="_lwGameID" text="ID" bottom="0" left="0"/>
 		<e:layout>
 		<e:HorizontalLayout/>

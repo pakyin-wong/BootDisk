@@ -165,10 +165,10 @@ namespace we {
         }
       }
 
-      protected onOrientationChange() {
-        super.onOrientationChange();
-        this.updateSkin('BaccaratScene', true);
-      }
+      // protected onOrientationChange() {
+      //   super.onOrientationChange();
+      //   this.updateSkin('BaccaratScene', true);
+      // }
     }
   }
 }

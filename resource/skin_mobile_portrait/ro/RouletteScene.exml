@@ -55,7 +55,7 @@
       </e:Group>
       <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left="0"/>
     </e:Group>
-    <e:Group id="_betRelatedGroup" x="1074" y="181.0000000000001" scaleX="1" scaleY="1" width="128" x.left="21">
+    <!--<e:Group id="_betRelatedGroup" x="1074" y="181.0000000000001" scaleX="1" scaleY="1" width="128" x.left="21">
       <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
       <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120" horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90"/>
       <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675" horizontalCenter="0" rotation="90" currentState="vertical"/>
@@ -63,12 +63,37 @@
       <ui:BaseImageButton id="_cancelButton" y="362" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" horizontalCenter="0"/>
       <ui:BaseImageButton id="_doubleButton" y="233" anchorOffsetX="0" anchorOffsetY="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" horizontalCenter="0"/>
       <ui:BaseImageButton id="_undoButton" y="514" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" horizontalCenter="0"/>
-    </e:Group>
+    </e:Group>-->
+    <e:Group id="_betRelatedGroup" x.right="1074" y="200" scaleX="1" scaleY="1" width="128" right.right="10" left.left="10">
+	  <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
+	  <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
+	     x.right="118" skinName="skin_mobile_portrait.BetConfirmButtonMobile"
+	    x.left="130" rotation="90" y="740"/>
+	  <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="740" horizontalCenter="0" rotation="90" currentState="vertical" width.right="300" anchorOffsetX.right="0" horizontalCenter.right="0" />
+	     <e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right="0">
+	       <ui:RunTimeLabel id="_repeatLabel" text="再次下注"  x.left="5" y="95" horizontalCenter="0"/>
+	       <ui:RunTimeLabel id="_cancelLabel" text="清除" x.right="35"  x.left="40" y="475" horizontalCenter="0"/>
+	       <ui:RunTimeLabel id="_doubleLabel" text="雙倍" x.right="35"  x.left="35" y="279" horizontalCenter="0"/>
+	       <ui:RunTimeLabel id="_undoLabel" text="復原" x.right="36"  x.left="37" y="651" horizontalCenter="0"/>
+	     </e:Group>
+	     <ui:BaseImageButton id="_repeatButton" y="33" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
+	       skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
+	       currentState="b_repeat"  x.right="2" x.left="787" horizontalCenter="0"/>
+	     <ui:BaseImageButton id="_cancelButton" y="415" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
+	       skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
+	       currentState="b_cancel"  x.right="28" x.left="497" horizontalCenter="0"/>
+	     <ui:BaseImageButton id="_doubleButton" y="216" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
+	       skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
+	       currentState="b_double"  x.right="28" x.left="650" horizontalCenter="0"/>
+	     <ui:BaseImageButton id="_undoButton" y="596" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
+	       skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
+	       currentState="b_undo"  x.right="28" x.left="350" horizontalCenter="0"/>
+   </e:Group>
   </e:Group>
 	<ro:RaceTrackControl id="_raceTrackControl" width="82" height="410" skinName="skin_mobile_portrait.ro.RaceTrackControlSkin" y="1504" x.right="1097" x.left="45" x="1097"/>
   <!--<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />-->
-  <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right_hand_mode"/>-->
+  <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right"/>-->
   <ro:GameResultMessage id="_resultMessage" y="264" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0"/>
   <ui:InGameMessage
     id="_message"

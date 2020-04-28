@@ -69,6 +69,7 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('RouletteScene');
+        this._skinKey = 'RouletteScene';
       }
 
       public backToLobby() {
@@ -98,6 +99,19 @@ namespace we {
           null,
           null
         );
+      }
+
+      protected showBetChipPanel() {
+        this._betChipSetPanel.visible = true;
+        this._betChipSetPanel.anchorOffsetY = 30;
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
+        this._betChipSetGridEnabled = false;
+        this._betChipSetPanel.visible = false;
       }
 
       protected onBottomToggle() {
@@ -223,7 +237,7 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         if (this.hasBet() && !isNaN(totalWin)) {
