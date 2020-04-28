@@ -14,7 +14,7 @@ namespace we {
         }
 
         const listItem = new we.ui.MobileSideListBetItem('SideListBetItemSkin');
-        // listItem.itemInitHelper = new we.lw.LargeListItemInitHelper();
+        listItem.itemInitHelper = new we.lw.LargeListItemInitHelper();
 
         this._displayItem = listItem;
 

@@ -14,7 +14,7 @@ namespace we {
         }
 
         const listItem = new we.ui.MobileLiveListItem('LiveListItemSkin');
-        // listItem.itemInitHelper = new we.lw.LargeListItemInitHelper();
+        listItem.itemInitHelper = new we.lw.LargeListItemInitHelper();
 
         this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
