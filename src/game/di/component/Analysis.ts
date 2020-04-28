@@ -47,6 +47,7 @@ namespace we {
           if (stat.points) {
             const result = we.utils.stat.di.toPercentages(stat.points);
             this._diChance.setDiceValues(result);
+            this._diChance.setMaxWidth(80);
           }
         }
       }
