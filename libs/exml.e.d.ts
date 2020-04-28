@@ -159,23 +159,11 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
-	class LiveListAdvancedItemCompleteSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class LiveListItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
-	class LiveListItemCompleteSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
 	class LiveListSimpleItemSkin extends eui.Skin{
-	}
-}
-declare module skin_desktop{
-	class LiveListSimpleItemCompleteSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1008,6 +996,66 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class CountdownTimerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class DiceScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class MobileBottomBeadRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class MobileChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class MobileSidePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class MobileTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class LiveListItemBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class LiveOverlayItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

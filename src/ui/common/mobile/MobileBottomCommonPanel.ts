@@ -105,6 +105,7 @@ namespace we {
           //   egret.Tween.get(this.viewStackMask).to({ height: 0 }, 250);
           // }
         }
+        this.dispatchEvent(new egret.Event('TOGGLE'));
       }
 
       // protected onPanelToggle() {
