@@ -69,6 +69,7 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('RouletteScene');
+        this._skinKey = 'RouletteScene';
       }
 
       public backToLobby() {
@@ -223,7 +224,7 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         if (this.hasBet() && !isNaN(totalWin)) {

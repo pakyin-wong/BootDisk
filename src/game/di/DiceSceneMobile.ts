@@ -52,6 +52,7 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('DiceScene');
+        this._skinKey = 'DiceScene';
       }
 
       protected set betAreaState(s) {

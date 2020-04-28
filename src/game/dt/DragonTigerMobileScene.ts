@@ -61,8 +61,8 @@ namespace we {
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -162,19 +162,19 @@ namespace we {
       // }
 
       protected setChipPanelPos() {
-        if (env.orientation === 'portrait') {
-          if (this._bottomGamePanel.isPanelOpen) {
-            this._betPanelGroup.scaleY = 1;
-            this._betPanelGroup.y = 0;
-            this._betChipSetPanel.y = 1080;
-          } else {
-            this._betPanelGroup.scaleY = -1;
-            this._betPanelGroup.y = 762;
-            this._betChipSetPanel.y = 600;
-          }
-        } else {
-          this._betChipSetPanel.y = -480;
-        }
+        // if (env.orientation === 'portrait') {
+        //   if (this._bottomGamePanel.isPanelOpen) {
+        //     this._betPanelGroup.scaleY = 1;
+        //     this._betPanelGroup.y = 0;
+        //     this._betChipSetPanel.y = 1080;
+        //   } else {
+        //     this._betPanelGroup.scaleY = -1;
+        //     this._betPanelGroup.y = 762;
+        //     this._betChipSetPanel.y = 600;
+        //   }
+        // } else {
+        //   this._betChipSetPanel.y = -480;
+        // }
       }
 
       protected showBetChipPanel() {
@@ -207,11 +207,11 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.dt.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.dt.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.dt.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.dt.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -250,14 +250,14 @@ namespace we {
         }
       }
 
-      protected onOrientationChange() {
-        this.onExit();
-        super.onOrientationChange();
-        this.onEnter();
-        // this.setSkinName();
-        // this.initChildren();
-        this.changeHandMode();
-      }
+      // protected onOrientationChange() {
+      //   this.onExit();
+      //   super.onOrientationChange();
+      //   this.onEnter();
+      //   // this.setSkinName();
+      //   // this.initChildren();
+      //   this.changeHandMode();
+      // }
       protected checkBetChipPanel() {
         if (this._betChipSetPanel.visible === true) {
           this.setChipPanelPos();
