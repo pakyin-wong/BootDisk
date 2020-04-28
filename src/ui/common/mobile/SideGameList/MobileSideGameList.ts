@@ -74,19 +74,85 @@ namespace we {
         this._betTableList.isFreezeScrolling = true;
         this._betTableList.extendHeight = 250;
         this._betTableList.isAnimateItemTransition = true;
-        this._betTableList.itemRenderer = MobileSideListBetItemHolder;
+        // this._betTableList.itemRenderer = MobileSideListBetItemHolder;
+        this._betTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.MobileSideListBetItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.MobileSideListBetItemHolder;
+            case we.core.GameType.DI:
+              return di.MobileSideListBetItemHolder;
+            case we.core.GameType.LW:
+              return lw.MobileSideListBetItemHolder;
+            case we.core.GameType.DT:
+              return dt.MobileSideListBetItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
 
         // create good road list
         this._goodRoadTableList.isFreezeScrolling = true;
         this._goodRoadTableList.extendHeight = 250;
         this._goodRoadTableList.isAnimateItemTransition = true;
-        this._goodRoadTableList.itemRenderer = MobileSideListItemHolder;
+        // this._goodRoadTableList.itemRenderer = MobileSideListItemHolder;
+        this._goodRoadTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.MobileSideListItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.MobileSideListItemHolder;
+            case we.core.GameType.DI:
+              return di.MobileSideListItemHolder;
+            case we.core.GameType.LW:
+              return lw.MobileSideListItemHolder;
+            case we.core.GameType.DT:
+              return dt.MobileSideListItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
 
         // create all game list
         this._allTableList.isFreezeScrolling = true;
         this._allTableList.extendHeight = 250;
         this._allTableList.isAnimateItemTransition = true;
-        this._allTableList.itemRenderer = MobileSideListItemHolder;
+        // this._allTableList.itemRenderer = MobileSideListItemHolder;
+        this._allTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.MobileSideListItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.MobileSideListItemHolder;
+            case we.core.GameType.DI:
+              return di.MobileSideListItemHolder;
+            case we.core.GameType.LW:
+              return lw.MobileSideListItemHolder;
+            case we.core.GameType.DT:
+              return dt.MobileSideListItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
       }
 
       protected initTabs() {
@@ -117,7 +183,9 @@ namespace we {
       }
 
       protected getLayout() {
-        return this._layoutRefer.layout;
+        const layout = this._layoutRefer.layout;
+        layout.useVirtualLayout = true;
+        return layout;
       }
 
       protected updateView() {
