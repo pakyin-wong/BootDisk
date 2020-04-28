@@ -64,7 +64,7 @@
                         <e:Group id="_bATransition" x="0">
                                 <e:Group id="_bANormal" x="0" height="1530" width="924">
                                         <di:MobileTableLayer id="_tableLayer" width="100%" height="100%" skinName="skin_mobile_portrait.di.MobileTableLayerSkin" isEdgeDismissable="true" />
-                                        <di:MobileChipLayer id="_chipLayer" width="100%" height="100%" isEdgeDismissable="true" skinName="skin_mobile_portrait.di.MobileChipLayerSkin"/>
+                                        <di:MobileChipLayer id="_chipLayer" width="100%" height="100%" isEdgeDismissable="true" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" x.right_hand_mode="8" y.right_hand_mode="3" x.left_hand_mode="-15" y.left_hand_mode="3"/>
                                 </e:Group>
                         </e:Group>
                 </e:Group>
@@ -102,9 +102,9 @@
     <e:Group id="_betRelatedGroup" x.right_hand_mode="1074" y="181" scaleX="1" scaleY="1" width="128" right.right_hand_mode="10" left.left_hand_mode="10" top.left_hand_mode="190" top.right_hand_mode="190">
 	  <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
 	  <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
-	     x.right_hand_mode="118" skinName="skin_mobile_portrait.BetConfirmButtonMobile"
+	     x.right_hand_mode="124" skinName="skin_mobile_portrait.BetConfirmButtonMobile"
 	    x.left_hand_mode="130" rotation="90" y="740"/>
-	  <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="740" horizontalCenter="0" rotation="90" currentState="vertical" width.right_hand_mode="300" anchorOffsetX.right_hand_mode="0" horizontalCenter.right_hand_mode="0" />
+	  <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="740" horizontalCenter="0" rotation="90" currentState="vertical" width.right_hand_mode="300" anchorOffsetX.right_hand_mode="0" horizontalCenter.right_hand_mode="0"  x.left_hand_mode="130" width.left_hand_mode="300"/>
 	     <e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0">
 	       <ui:RunTimeLabel id="_repeatLabel" text="再次下注"  x.left_hand_mode="5" y="95" horizontalCenter="0"/>
 	       <ui:RunTimeLabel id="_cancelLabel" text="清除" x.right_hand_mode="35"  x.left_hand_mode="40" y="475" horizontalCenter="0"/>

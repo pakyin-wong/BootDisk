@@ -45,8 +45,8 @@
 				                    horizontalCenter="-111" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
 				                    currentState="b_undo" horizontalCenter.right_hand_mode="90" />
 			</e:Group>-->
-			<e:Group id="_betRelatedGroup" x="762" y="71" x.right_hand_mode="46" scaleX="1" scaleY="1" y.right_hand_mode="71"
-			         x.left_hand_mode="220">
+			<e:Group id="_betRelatedGroup" x="762" y="71" x.right_hand_mode="214" scaleX="1" scaleY="1" y.right_hand_mode="71"
+			         x.left_hand_mode="43">
 				<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 				        fillColor="0x444444" />
 				<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
