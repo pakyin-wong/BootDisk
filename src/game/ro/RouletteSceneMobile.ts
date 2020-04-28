@@ -101,6 +101,19 @@ namespace we {
         );
       }
 
+      protected showBetChipPanel() {
+        this._betChipSetPanel.visible = true;
+        this._betChipSetPanel.anchorOffsetY = 30;
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
+        this._betChipSetGridEnabled = false;
+        this._betChipSetPanel.visible = false;
+      }
+
       protected onBottomToggle() {
         this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
       }
