@@ -11,6 +11,8 @@ namespace we {
       protected _goodRoadTableList: TableList;
       protected _allTableList: TableList;
       protected _allGameList: string[] = [];
+      protected _betList: string[] = [];
+      protected _goodRoadList: string[] = [];
 
       protected fixedTab: string[] = ['allGame', 'bet', 'goodroad'];
 
@@ -35,6 +37,11 @@ namespace we {
         if (!this.poppableAddon.isShow) {
           this.poppableAddon.hide(true);
         }
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+        this.removeEventListeners();
       }
 
       protected arrangeComponents() {
@@ -153,6 +160,9 @@ namespace we {
               throw new Error('Invalid Game Type');
           }
         };
+
+        this.setBetList();
+        this.setGoodRoadList();
       }
 
       protected initTabs() {
@@ -184,8 +194,12 @@ namespace we {
 
       protected getLayout() {
         const layout = this._layoutRefer.layout;
-        layout.useVirtualLayout = true;
-        return layout;
+        const clone: eui.LayoutBase = new eui.TileLayout();
+        for (const key in layout) {
+          clone[key] = layout[key];
+        }
+        clone.useVirtualLayout = true;
+        return clone;
       }
 
       protected updateView() {
@@ -232,29 +246,33 @@ namespace we {
         this._allTableList.setGameFiltersByTabIndex(filterIdx);
         this._allTableList.setTableList(this._allGameList, true);
       }
-
-      protected onGoodRoadTableListUpdate(evt: egret.Event) {
-        const tableList = evt.data;
-        this._goodRoadTableList.setTableList(tableList);
-        const count = tableList.length;
-        // this._tabSource.find(i => i.tab === 'goodroad').count = count;
-        // this._tabArrayCollection.refresh();
+      protected setBetList() {
+        this._betTableList.setTableList(this._betList);
+        const count = this._betList.length;
+        const item = this._tabSource.find(i => i.tab === 'bet');
+        const idx = this._tabSource.indexOf(item);
+        item.count = count;
+        this._tabArrayCollection.replaceItemAt(item, idx);
+      }
+      protected setGoodRoadList() {
+        this._goodRoadTableList.setTableList(this._goodRoadList);
+        const count = this._goodRoadList.length;
         const item = this._tabSource.find(i => i.tab === 'goodroad');
         const idx = this._tabSource.indexOf(item);
         item.count = count;
         this._tabArrayCollection.replaceItemAt(item, idx);
       }
 
+      protected onGoodRoadTableListUpdate(evt: egret.Event) {
+        const tableList = evt.data;
+        this._goodRoadList = tableList;
+        this.setGoodRoadList();
+      }
+
       protected onBetTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
-        this._betTableList.setTableList(tableList);
-        const count = tableList.length;
-        this._tabSource.find(i => i.tab === 'bet').count = count;
-        // this._tabArrayCollection.refresh();
-        const item = this._tabSource.find(i => i.tab === 'bet');
-        const idx = this._tabSource.indexOf(item);
-        item.count = count;
-        this._tabArrayCollection.replaceItemAt(item, idx);
+        this._betList = tableList;
+        this.setBetList();
       }
     }
   }
