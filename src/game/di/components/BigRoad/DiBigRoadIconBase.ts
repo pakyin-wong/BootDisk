@@ -18,6 +18,16 @@ namespace we {
         this.iconHightLight.visible = false;
         this.setByObject({});
 
+        if (this.size < 30) {
+          const scale = 15 / 25;
+          this._iconText.width = this.size / scale;
+          this._iconText.height = this.size / scale;
+          this._iconText.anchorOffsetX = this._iconText.width * 0.5;
+          this._iconText.anchorOffsetY = this._iconText.height * 0.5;
+          this._iconText.scaleX = scale;
+          this._iconText.scaleY = scale;
+        }
+
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
       }
