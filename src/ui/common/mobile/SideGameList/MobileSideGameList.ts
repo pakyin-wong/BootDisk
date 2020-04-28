@@ -113,6 +113,7 @@ namespace we {
         this._tabs.itemRenderer = MobileSideGameListItemRenderer;
         this._tabArrayCollection = new eui.ArrayCollection(this._tabSource);
         this._tabs.dataProvider = this._tabArrayCollection;
+        this._tabs.requireSelection = true;
       }
 
       protected getLayout() {
@@ -168,8 +169,12 @@ namespace we {
         const tableList = evt.data;
         this._goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        this._tabSource.find(i => i.tab === 'goodroad').count = count;
-        this._tabArrayCollection.refresh();
+        // this._tabSource.find(i => i.tab === 'goodroad').count = count;
+        // this._tabArrayCollection.refresh();
+        const item = this._tabSource.find(i => i.tab === 'goodroad');
+        const idx = this._tabSource.indexOf(item);
+        item.count = count;
+        this._tabArrayCollection.replaceItemAt(item, idx);
       }
 
       protected onBetTableListUpdate(evt: egret.Event) {
@@ -177,7 +182,11 @@ namespace we {
         this._betTableList.setTableList(tableList);
         const count = tableList.length;
         this._tabSource.find(i => i.tab === 'bet').count = count;
-        this._tabArrayCollection.refresh();
+        // this._tabArrayCollection.refresh();
+        const item = this._tabSource.find(i => i.tab === 'bet');
+        const idx = this._tabSource.indexOf(item);
+        item.count = count;
+        this._tabArrayCollection.replaceItemAt(item, idx);
       }
     }
   }

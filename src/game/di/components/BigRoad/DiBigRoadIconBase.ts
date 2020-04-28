@@ -22,6 +22,10 @@ namespace we {
         this.changeLang();
       }
 
+      public reset() {
+        this._iconText.text = '';
+      }
+
       public changeLang() {
         // if (this.value) {
         //   if (this.value.v !== undefined) {

@@ -40,7 +40,7 @@ namespace we {
       }
 
       // check current device
-      console.log(`skin_${device}.${name}`);
+      // console.log(`skin_${device}.${name}`);
       return `skin_${device}.${name}`;
     }
 
