@@ -41,6 +41,7 @@ namespace we {
 
       set denomList(value: number[]) {
         this._denomList = value;
+        this.passDenomListToBetChipStack();
       }
 
       get denomList() {

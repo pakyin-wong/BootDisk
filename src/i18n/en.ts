@@ -212,6 +212,7 @@ namespace we {
         total: 'Total',
         gameStats: 'Game Stats.',
         dicePercent: 'Dice %',
+        allTriple: 'All Triple',
       },
       roulette: {
         row_1: 'ROW 1',

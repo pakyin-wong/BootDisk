@@ -20,10 +20,24 @@ namespace we {
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
 
+        if (this.size < 30) {
+          const scale = 15 / 25;
+          this._iconText.width = this.size / scale;
+          this._iconText.height = this.size / scale;
+          this._iconText.anchorOffsetX = this._iconText.width * 0.5;
+          this._iconText.anchorOffsetY = this._iconText.height * 0.5;
+          this._iconText.scaleX = scale;
+          this._iconText.scaleY = scale;
+        }
+
         this.setByObject({});
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         // this.changeLang();
+      }
+
+      public reset() {
+        this._iconText.text = '';
       }
 
       public changeLang() {

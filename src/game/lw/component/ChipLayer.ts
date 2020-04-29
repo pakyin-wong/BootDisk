@@ -25,6 +25,8 @@ namespace we {
         this._betField = lw.BetField;
       }
 
+      protected restructureChildren() {}
+
       protected createMapping() {
         super.createMapping();
         this._mouseAreaMapping = {};

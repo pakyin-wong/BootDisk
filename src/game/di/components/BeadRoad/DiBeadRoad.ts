@@ -52,7 +52,7 @@ namespace we {
       }
 
       // override for base class
-      protected initRoadData() {
+      public initRoadData() {
         const n = this.numCol * this.numRow;
         let iconIndex = 0;
 

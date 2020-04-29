@@ -28,9 +28,14 @@ namespace we {
       constructor(data: any) {
         super(data);
         // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
-        this._skinKey = 'BaccaratScene';
         // this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
+
+      protected setSkinName() {
+        this.skinName = utils.getSkinByClassname('BaccaratScene');
+        this._skinKey = 'BaccaratScene';
+      }
+
       protected mount() {
         super.mount();
         this.addListeners();
@@ -61,8 +66,8 @@ namespace we {
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -183,19 +188,19 @@ namespace we {
       // }
 
       protected setChipPanelPos() {
-        if (env.orientation === 'portrait') {
-          if (this._bottomGamePanel.isPanelOpen) {
-            this._betPanelGroup.scaleY = 1;
-            this._betPanelGroup.y = 0;
-            this._betChipSetPanel.y = 986;
-          } else {
-            this._betPanelGroup.scaleY = -1;
-            this._betPanelGroup.y = 762;
-            this._betChipSetPanel.y = 500;
-          }
-        } else {
-          this._betChipSetPanel.y = -480;
-        }
+        // if (env.orientation === 'portrait') {
+        //   if (this._bottomGamePanel.isPanelOpen) {
+        //     this._betPanelGroup.scaleY = 1;
+        //     this._betPanelGroup.y = 0;
+        //     this._betChipSetPanel.y = 986;
+        //   } else {
+        //     this._betPanelGroup.scaleY = -1;
+        //     this._betPanelGroup.y = 762;
+        //     this._betChipSetPanel.y = 500;
+        //   }
+        // } else {
+        //   this._betChipSetPanel.y = -480;
+        // }
       }
 
       protected showBetChipPanel() {
@@ -234,10 +239,10 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
@@ -290,14 +295,19 @@ namespace we {
       }
 
       protected onOrientationChange() {
-        this.onExit();
+        // this.onExit();
         const temp = this._switchBaMode.selected;
-        super.onOrientationChange();
-
-        this._switchBaMode.selected = temp;
+        super.onOrientationChange(temp);
+        // this._switchBaMode.selected = temp;
+        // this.onEnter();
         // this.updateSkin('BaccaratScene', true);
-        this.onEnter();
-        this.changeHandMode();
+        // this.changeHandMode();
+      }
+
+      // check if game mode btn (e.g. BA) is selected
+      protected checkGameMode(value: boolean) {
+        super.checkGameMode(value);
+        this._switchBaMode.selected = value;
       }
 
       protected checkBetChipPanel() {

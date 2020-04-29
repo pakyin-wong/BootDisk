@@ -11,6 +11,8 @@ namespace we {
       protected _goodRoadTableList: TableList;
       protected _allTableList: TableList;
       protected _allGameList: string[] = [];
+      protected _betList: string[] = [];
+      protected _goodRoadList: string[] = [];
 
       protected fixedTab: string[] = ['allGame', 'bet', 'goodroad'];
 
@@ -35,6 +37,11 @@ namespace we {
         if (!this.poppableAddon.isShow) {
           this.poppableAddon.hide(true);
         }
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+        this.removeEventListeners();
       }
 
       protected arrangeComponents() {
@@ -74,19 +81,88 @@ namespace we {
         this._betTableList.isFreezeScrolling = true;
         this._betTableList.extendHeight = 250;
         this._betTableList.isAnimateItemTransition = true;
-        this._betTableList.itemRenderer = MobileSideListBetItemHolder;
+        // this._betTableList.itemRenderer = MobileSideListBetItemHolder;
+        this._betTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.MobileSideListBetItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.MobileSideListBetItemHolder;
+            case we.core.GameType.DI:
+              return di.MobileSideListBetItemHolder;
+            case we.core.GameType.LW:
+              return lw.MobileSideListBetItemHolder;
+            case we.core.GameType.DT:
+              return dt.MobileSideListBetItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
 
         // create good road list
         this._goodRoadTableList.isFreezeScrolling = true;
         this._goodRoadTableList.extendHeight = 250;
         this._goodRoadTableList.isAnimateItemTransition = true;
-        this._goodRoadTableList.itemRenderer = MobileSideListItemHolder;
+        // this._goodRoadTableList.itemRenderer = MobileSideListItemHolder;
+        this._goodRoadTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.MobileSideListItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.MobileSideListItemHolder;
+            case we.core.GameType.DI:
+              return di.MobileSideListItemHolder;
+            case we.core.GameType.LW:
+              return lw.MobileSideListItemHolder;
+            case we.core.GameType.DT:
+              return dt.MobileSideListItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
 
         // create all game list
         this._allTableList.isFreezeScrolling = true;
         this._allTableList.extendHeight = 250;
         this._allTableList.isAnimateItemTransition = true;
-        this._allTableList.itemRenderer = MobileSideListItemHolder;
+        // this._allTableList.itemRenderer = MobileSideListItemHolder;
+        this._allTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.MobileSideListItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.MobileSideListItemHolder;
+            case we.core.GameType.DI:
+              return di.MobileSideListItemHolder;
+            case we.core.GameType.LW:
+              return lw.MobileSideListItemHolder;
+            case we.core.GameType.DT:
+              return dt.MobileSideListItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
+
+        this.setBetList();
+        this.setGoodRoadList();
       }
 
       protected initTabs() {
@@ -113,10 +189,17 @@ namespace we {
         this._tabs.itemRenderer = MobileSideGameListItemRenderer;
         this._tabArrayCollection = new eui.ArrayCollection(this._tabSource);
         this._tabs.dataProvider = this._tabArrayCollection;
+        this._tabs.requireSelection = true;
       }
 
       protected getLayout() {
-        return this._layoutRefer.layout;
+        const layout = this._layoutRefer.layout;
+        const clone: eui.LayoutBase = new eui.TileLayout();
+        for (const key in layout) {
+          clone[key] = layout[key];
+        }
+        clone.useVirtualLayout = true;
+        return clone;
       }
 
       protected updateView() {
@@ -163,21 +246,33 @@ namespace we {
         this._allTableList.setGameFiltersByTabIndex(filterIdx);
         this._allTableList.setTableList(this._allGameList, true);
       }
+      protected setBetList() {
+        this._betTableList.setTableList(this._betList);
+        const count = this._betList.length;
+        const item = this._tabSource.find(i => i.tab === 'bet');
+        const idx = this._tabSource.indexOf(item);
+        item.count = count;
+        this._tabArrayCollection.replaceItemAt(item, idx);
+      }
+      protected setGoodRoadList() {
+        this._goodRoadTableList.setTableList(this._goodRoadList);
+        const count = this._goodRoadList.length;
+        const item = this._tabSource.find(i => i.tab === 'goodroad');
+        const idx = this._tabSource.indexOf(item);
+        item.count = count;
+        this._tabArrayCollection.replaceItemAt(item, idx);
+      }
 
       protected onGoodRoadTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
-        this._goodRoadTableList.setTableList(tableList);
-        const count = tableList.length;
-        this._tabSource.find(i => i.tab === 'goodroad').count = count;
-        this._tabArrayCollection.refresh();
+        this._goodRoadList = tableList;
+        this.setGoodRoadList();
       }
 
       protected onBetTableListUpdate(evt: egret.Event) {
         const tableList = evt.data;
-        this._betTableList.setTableList(tableList);
-        const count = tableList.length;
-        this._tabSource.find(i => i.tab === 'bet').count = count;
-        this._tabArrayCollection.refresh();
+        this._betList = tableList;
+        this.setBetList();
       }
     }
   }

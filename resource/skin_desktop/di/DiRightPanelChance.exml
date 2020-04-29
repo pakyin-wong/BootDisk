@@ -3,10 +3,10 @@
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group x="28" y="29">
 		<e:Image width="168" height="115" x="0" y="0" scaleX="1" scaleY="1" source="d_sic_history_grid_png" />
-		<e:Image id="line1" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
+		<e:Image id="_line1" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
 		<e:Image width="36" height="36" x="19" y="59" source="d_sic_history_lv2_dice-1_png" />
 		<e:Group x="82" y="58">
-			<e:Label id="dice1Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label id="_dice1Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
 			<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
@@ -15,10 +15,10 @@
 	</e:Group>
 	<e:Group x="206" y="29">
 		<e:Image width="168" height="115" x="0" y="0" scaleX="1" scaleY="1" source="d_sic_history_grid_png" />
-		<e:Image id="line2" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
+		<e:Image id="_line2" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
 		<e:Image width="36" height="36" x="19" y="59" source="d_sic_history_lv2_dice-2_png" />
 		<e:Group x="82" y="58">
-			<e:Label id="dice2Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label id="_dice2Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
 			<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
@@ -27,10 +27,10 @@
 	</e:Group>
 	<e:Group x="384" y="29">
 		<e:Image width="168" height="115" x="0" y="0" scaleX="1" scaleY="1" source="d_sic_history_grid_png" />
-		<e:Image id="line3" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
+		<e:Image id="_line3" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
 		<e:Image width="36" height="36" x="19" y="59" source="d_sic_history_lv2_dice-3_png" />
 		<e:Group x="82" y="58">
-			<e:Label id="dice3Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label id="_dice3Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
 			<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
@@ -39,10 +39,10 @@
 	</e:Group>
 	<e:Group x="28" y="153">
 		<e:Image width="168" height="115" x="0" y="0" scaleX="1" scaleY="1" source="d_sic_history_grid_png" />
-		<e:Image id="line4" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
+		<e:Image id="_line4" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
 		<e:Image width="36" height="36" x="19" y="59" source="d_sic_history_lv2_dice-4_png" />
 		<e:Group x="82" y="58">
-			<e:Label id="dice4Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label id="_dice4Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
 			<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
@@ -51,10 +51,10 @@
 	</e:Group>
 	<e:Group x="206" y="153">
 		<e:Image width="168" height="115" x="0" y="0" scaleX="1" scaleY="1" source="d_sic_history_grid_png" />
-		<e:Image id="line5" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
+		<e:Image id="_line5" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
 		<e:Image width="36" height="36" x="19" y="59" source="d_sic_history_lv2_dice-5_png" />
 		<e:Group x="82" y="58">
-			<e:Label id="dice5Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label id="_dice5Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
 			<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />
@@ -63,10 +63,10 @@
 	</e:Group>
 	<e:Group x="384" y="153">
 		<e:Image width="168" height="115" x="0" y="0" scaleX="1" scaleY="1" source="d_sic_history_grid_png" />
-		<e:Image id="line6" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
+		<e:Image id="_line6" width="130" height="10" x="19" y="22" source="d_sic_history_chart_line-2_png" />
 		<e:Image width="36" height="36" x="19" y="59" source="d_sic_history_lv2_dice-6_png" />
 		<e:Group x="82" y="58">
-			<e:Label id="dice6Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+			<e:Label id="_dice6Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
 			<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="bottom" gap="2" horizontalAlign="right" />

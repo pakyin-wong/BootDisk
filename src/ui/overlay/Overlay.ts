@@ -49,12 +49,24 @@ namespace we {
           return;
         }
 
-        this.show(panel, e.data);
+        this.toggle(panel, e.data);
       }
 
-      public async show(item: Panel, opt: IOverlayOpt) {
-        if (this._onShowItem != null && this._onShowItemClass === opt.class && this._onShowItemClass !== '') {
+      private async toggle(item: Panel, opt: IOverlayOpt) {
+        if (opt.replace) {
+          this.removeChildren();
+          this.addChild(this._overlayMask);
+          this._overlayMask.alpha = 0;
+          egret.Tween.removeTweens(this._overlayMask);
+          egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
+          this.addItem(item, opt);
           return;
+        }
+        // check is same class and already show
+        if (this._onShowItem != null && this._onShowItemClass === opt.class && this._onShowItemClass !== '') {
+          if (!opt.replace) {
+            return;
+          }
         }
 
         if (this._onShowItem) {
@@ -84,7 +96,7 @@ namespace we {
           }, this);
       }
 
-      private addItem(item: Panel, opt: IOverlayOpt) {
+      private async addItem(item: Panel, opt: IOverlayOpt) {
         this._onShowItem = item;
         this._onShowItemClass = opt.class;
         this._onShowItem.isPoppable = true;

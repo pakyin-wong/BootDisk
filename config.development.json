@@ -6,5 +6,6 @@
     "rabbitmqhostname": "dev-rabbitmq-mqtt.weapi247.com",
     "rabbitmqport": "443",
     "rabbitmqprotocol": "wss",
-    "connectTimeout": 1000000
+    "connectTimeout": 1000000,
+    "resource": "local"
 }

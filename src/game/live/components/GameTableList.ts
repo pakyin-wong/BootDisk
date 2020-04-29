@@ -55,7 +55,7 @@ namespace we {
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
-        dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
+        dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this, false, -1);
       }
 
       private onDisplayMode(evt: egret.Event) {
@@ -80,9 +80,14 @@ namespace we {
       private onSelectedIndexChanged(evt: any) {
         const item = this.tabItems[this.tabs.tabBar.selectedIndex];
 
+        const scrollV = this.scroller.viewport.scrollV;
+
         this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
         this.roomList.invalidateDisplayList();
+
+        this.scroller.validateNow();
+        this.scroller.viewport.scrollV = scrollV;
       }
 
       public selectGameType(game: string = null) {

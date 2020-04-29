@@ -55,11 +55,17 @@ namespace we {
         this._tip.alignToCenter();
         this._tip.messages = [];
         dir.socket.getStaticInitData(async res => {
-          this._tip.messages = res.Tips;
-          // preload loading scene banner images
-          let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
-          images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
-          this._bannerImages = images;
+          if (res.error) {
+            // TODO: show default hero banner image
+            // const placeholderImg = new Image();
+            // this._bannerImages = [placeholderImg];
+          } else {
+            this._tip.messages = res.Tips;
+            // preload loading scene banner images
+            let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
+            images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
+            this._bannerImages = images;
+          }
           this.next();
         }, this);
       }
@@ -129,47 +135,52 @@ namespace we {
         await new Promise(resolve => {
           dir.socket.getLobbyMaterial(async res => {
             logger.l(res);
-            let offset = 0;
-            const allResources = await Promise.all([
-              ...res.homeherobanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
-              ...res.homelargebanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
-              ...res.homebanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
-            ]);
-            const homeHeroBanners = res.homeherobanners.map((item, index) => ({
-              image: allResources[offset + index],
-              imageUrl: (item as any).imageurl,
-              link: (item as any).link,
-              loaded: true,
-            }));
-            offset += res.homeherobanners.length;
-            const homeLargeBanners = res.homelargebanners.map((item, index) => ({
-              image: allResources[offset + index],
-              imageUrl: (item as any).imageurl,
-              link: (item as any).link,
-              loaded: true,
-            }));
-            offset += res.homelargebanners.length;
-            const homeBanners = res.homebanners.map((item, index) => ({
-              image: allResources[offset + index],
-              imageUrl: (item as any).imageurl,
-              link: (item as any).link,
-              loaded: true,
-            }));
-            offset += res.homebanners.length;
-            dir.lobbyResources = { homeHeroBanners, homeLargeBanners, homeBanners };
-            const liveHeroBanners = res.liveherobanners.map(item => ({
-              image: null,
-              imageUrl: (item as any).imageurl,
-              link: (item as any).link,
-              loaded: false,
-            }));
-            if (liveHeroBanners.length > 0) {
-              liveHeroBanners.push({ ...liveHeroBanners[0] }); // mock unloaded second image
-              // init first banner
-              liveHeroBanners[0].image = await this._loadRemoteImage(liveHeroBanners[0].imageUrl);
-              liveHeroBanners[0].loaded = true;
+            if (res.error) {
+              // TODO: show default lobby banners
+            } else {
+              let offset = 0;
+              const allResources = await Promise.all([
+                ...res.homeherobanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
+                ...res.homelargebanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
+                ...res.homebanners.map(({ imageurl }) => this._loadRemoteImage(imageurl)),
+              ]);
+              const homeHeroBanners = res.homeherobanners.map((item, index) => ({
+                image: allResources[offset + index],
+                imageUrl: (item as any).imageurl,
+                link: (item as any).link,
+                loaded: true,
+              }));
+              offset += res.homeherobanners.length;
+              const homeLargeBanners = res.homelargebanners.map((item, index) => ({
+                image: allResources[offset + index],
+                imageUrl: (item as any).imageurl,
+                link: (item as any).link,
+                loaded: true,
+              }));
+              offset += res.homelargebanners.length;
+              const homeBanners = res.homebanners.map((item, index) => ({
+                image: allResources[offset + index],
+                imageUrl: (item as any).imageurl,
+                link: (item as any).link,
+                loaded: true,
+              }));
+              offset += res.homebanners.length;
+              dir.lobbyResources = { homeHeroBanners, homeLargeBanners, homeBanners };
+              const liveHeroBanners = res.liveherobanners.map(item => ({
+                image: null,
+                imageUrl: (item as any).imageurl,
+                link: (item as any).link,
+                loaded: false,
+              }));
+              if (liveHeroBanners.length > 0) {
+                liveHeroBanners.push({ ...liveHeroBanners[0] }); // mock unloaded second image
+                // init first banner
+                liveHeroBanners[0].image = await this._loadRemoteImage(liveHeroBanners[0].imageUrl);
+                liveHeroBanners[0].loaded = true;
+              }
+              dir.liveResources = { liveHeroBanners };
             }
-            dir.liveResources = { liveHeroBanners };
+
             resolve();
           });
         });
