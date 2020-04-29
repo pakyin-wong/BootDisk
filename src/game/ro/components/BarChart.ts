@@ -41,6 +41,12 @@ namespace we {
         this._barRightColor = barRightColor;
       }
 
+      public updateValue(a: number, b: number, c: number) {
+        this._a = a;
+        this._b = b;
+        this._c = c;
+      }
+
       public draw() {
         const totalAmount = this._a + this._b + this._c;
         const widthA = this._totalWidth * (this._a / totalAmount);
