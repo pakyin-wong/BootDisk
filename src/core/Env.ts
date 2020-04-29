@@ -126,10 +126,11 @@ namespace we {
           }
 
           const gameType = tableInfo.gametype;
-          // if (gameType === core.GameType.DI) {
-          //   tableInfo.displayReady = false;
-          //   return false;
-          // }
+          const validGameTypes = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
+          if (validGameTypes.indexOf(gameType) < 0) {
+            tableInfo.displayReady = false;
+            return false;
+          }
         }
 
         if (tableInfo && !tableInfo.displayReady) {
