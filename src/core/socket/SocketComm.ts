@@ -100,7 +100,21 @@ namespace we {
       }
 
       public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
-        this.client.getLobbyMaterial(this.warpServerCallback(callback));
+        if (dir.config.resource && dir.config.resource === 'local') {
+          callback({
+            logourl: '', // logo image url
+            homeherobanners: [],
+            homelargebanners: [],
+            homebanners: [],
+            liveherobanners: [],
+            lotteryherobanners: [],
+            egameherobanners: [],
+            favouriteherobanners: [],
+            messages: [],
+          });
+        } else {
+          this.client.getLobbyMaterial(this.warpServerCallback(callback));
+        }
       }
 
       public updateSetting(key: string, value: string) {
