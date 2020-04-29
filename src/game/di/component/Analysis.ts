@@ -28,20 +28,26 @@ namespace we {
 
           if (stat.diOdd) {
             const odd = stat.diOdd.odd;
-            const oddTie = stat.diOdd.tie;
             const even = stat.diOdd.even;
-            this._diPie.setPieOdd([odd, even, oddTie]);
+            const oddTie = stat.diOdd.tie;
+            const result = we.utils.stat.toPercentages([odd, even, oddTie]);
+            this._diPie.setPieOdd(result);
+            this._diPie.setOddValues(stat.diOdd);
           }
 
           if (stat.diSize) {
             const small = stat.diSize.small;
             const big = stat.diSize.big;
             const sizeTie = stat.diSize.tie;
-            this._diPie.setPieSize([small, big, sizeTie]);
+            const result = we.utils.stat.toPercentages([small, big, sizeTie]);
+            this._diPie.setPieSize(result);
+            this._diPie.setSizeValues(stat.diSize);
           }
 
           if (stat.points) {
-            this._diChance.setDiceValues(stat.points);
+            const result = we.utils.stat.toPercentages(stat.points);
+            this._diChance.setDiceValues(result);
+            this._diChance.setMaxWidth(80);
           }
         }
       }

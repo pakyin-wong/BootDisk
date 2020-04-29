@@ -30,8 +30,8 @@ namespace we {
         // this.pieOdd.y = 212;
         // this.pieSize.maxChartSize = this._maxChartSize
         // this.addChild(this.pieOdd);
-        this._pieSize.setRanksAndAnimate([30, 15, 55]);
-        this._pieOdd.setRanksAndAnimate([45, 10, 45]);
+        // this._pieSize.setRanksAndAnimate([30, 15, 55]);
+        // this._pieOdd.setRanksAndAnimate([45, 10, 45]);
       }
 
       public setPieSize(value: number[]) {

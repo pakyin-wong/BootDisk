@@ -5216,6 +5216,11 @@
 			"name": "d_di_betboard_hover_triple_png"
 		},
 		{
+			"url": "assets/m/lw/m_lw_ver_bg.jpg",
+			"type": "image",
+			"name": "m_lw_ver_bg_jpg"
+		},
+		{
 			"url": "assets/d/di/d_di_betboard_hover_triple_all.png",
 			"type": "image",
 			"name": "d_di_betboard_hover_triple_all_png"

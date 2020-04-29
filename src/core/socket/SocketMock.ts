@@ -94,6 +94,10 @@ namespace we {
           const stats = new we.data.GameStatistic();
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
+
+          stats.diOdd = { odd: 19, even: 40, tie: 8 };
+          stats.diSize = { big: 27, small: 32, tie: 8 };
+          stats.points = [4, 2, 7, 11, 5, 2];
           return stats;
         }
       }
@@ -367,6 +371,17 @@ namespace we {
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
+        let denominationList = [];
+        for (const betLimit of env.betLimits) {
+          denominationList.push(...betLimit.chips);
+        }
+        denominationList = denominationList
+          .filter((v, i) => denominationList.indexOf(v) === i)
+          .sort((a, b) => {
+            return a < b ? -1 : 1;
+          });
+        env.wholeDenomList = denominationList;
+
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');

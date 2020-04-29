@@ -3,59 +3,13 @@ This is the game client for World Entertainment.
 
 ## Roadmap
 
-### next demo (TBC)
-
-**General**
-- Platform Checking and platform specific setting
-- Mobile Fullscreen Handling
----
-**Mobile Components**
-- Setting Drawer
-- Data Picker
-- Notification Controller
-- Side Panel
-- Top menu bar
-- Live game tab bar
-- Table List View
-- QuickBet overlay
-- MessageBox overlay
-- General Fullpage overlay navigator
-- Setting overlay
-- Player Profile overlay
-- BetLog overlays
-- Custom Goodroad overlay
-- BetRelatedGroup (lefthand/ righthand mode)
-- Betting Table
-- Info Section (Tab mode)
----
-**Desktop Components**
-- Tooltips
-- Roulette Roadmap
-- Roulette, Baccarat, DragonTiger Result animations
-- Roulette menu table item (simple, normal, detail)
-- Roulette side panel item (normal, already bet)
-- Roulette Scene
-- Roulette Betting Table
-- Roulette Scene Left Panel
-    - Hot/ cold number
-    - History
-    - Roadmap
-- Roulette Scene Right Panel
-    - Custom Betting patterns
-    - Roulette French Bets
-- Roulette result notification
-- Notification Controller
-- Baccarat menu table item (detail)
-- DragonTiger menu table item (detail)
-
-### pending tasks
-- Ba Result Message Modification (using animation)
+### Tasks
 - Disconnect handling
 - Video
 - Tooltips
 - UI Tutorial
-- consequence of bet limit / table limit change in different places (e.g scene, side item, lobby item)
-- **Mobile Layout**
+- Performance Optimization
+- Layout update
 
 ### testing tasks
 - import [spine](https://github.com/fightingcat/egret-spine) animation 
@@ -153,8 +107,17 @@ npm install -g tslint prettier typescript
 - [Lucky Wheel Mobile Requirement (Portrait)](https://docs.google.com/document/d/16Y6IPiBSUJMz4Rgrhz8nZxOYwK9MqjC5RVaJj9Gv7dc/edit?ts=5e8adbea)
 - [Lucky Wheel Mobile Requirement (Landscape)](https://docs.google.com/document/d/1nOc4ylqNotcDpgPg9GbhYR0167Fc2SygG4SXEXywZlk/edit?ts=5e8ae793)
 
+- [Baccarat Requirement](https://docs.google.com/document/d/1LnNBQPlFsOTKK8xodzg-xC5P_9_uzOzWBsiqt_5ThLw/edit)
+- [Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1VmyNAUTKaQCB-r9Mlw2Sz8FiQ09LSyCJm1BxpepZsaM/edit)
+- [Baccarat Mobile Requirement (Landscape)](https://docs.google.com/document/d/1ClByP765L4drUzyGhPCQmsBJt10CyP4VKCiCfTeemlM/edit?ts=5e635d25)
+
+
 
 ## Asset Link from Design Team (Copied from whatsapp group)
+
+- [Asset root directory](https://drive.google.com/drive/folders/1_sZjq7i8acgw9bF33yMfOV3lCJrG6LqT)
+
+- [dragonbone icon animation](https://drive.google.com/drive/folders/10d3Jv2eo5CnRjLkJ_J5qJ711EQOA_qhY)
 
 - [9/4/2020 missing_assets](https://home.mycloud.com/action/share/03e6bcfd-309c-4351-b92c-5a2ad17df8db)
 - [missing asset issue](https://home.mycloud.com/action/share/541f7d33-be2a-47ef-b2ec-0a3bae9ac799)
