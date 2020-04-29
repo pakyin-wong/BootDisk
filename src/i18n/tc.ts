@@ -99,6 +99,7 @@ namespace we {
       mobile_ba_clear: '清除',
       mobile_ba_double: '雙倍',
       mobile_ba_repeat: '再次下注',
+      mobile_game_panel_historyRoad: '歷史記錄/路紙',
       mobile_game_panel_history: '歷史記錄',
       mobile_game_panel_road_sheet: '路紙',
       mobile_game_panel_statistic_chart: '統計圖表',
@@ -212,6 +213,7 @@ namespace we {
         total: '和值',
         gameStats: '結果統計',
         dicePercent: '骰子機率',
+        allTriple: '全圍',
       },
       roulette: {
         row_1: '第一行',

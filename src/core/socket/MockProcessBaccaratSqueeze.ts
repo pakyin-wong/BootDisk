@@ -1,9 +1,8 @@
 namespace we {
   export namespace core {
     export class MockProcessBaccaratSqueeze extends MockProcess {
-      public squeezingInterval: number = 11000;
-      public squeezing3rdCardIntervalA: number = 5000;
-      public squeezing3rdCardIntervalB: number = 4000;
+      public countdownA: number = 15;
+      public countdownB: number = 8;
 
       constructor(socket: SocketMock, gameType = core.GameType.BAC) {
         super(socket, gameType);
@@ -14,37 +13,42 @@ namespace we {
         const gameData = data.data;
 
         // PEEK
-        gameData.a1 = results[2];
+        gameData.countdownA = this.countdownA;
+        gameData.a1 = results[0];
         gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
-        gameData.a2 = results[3];
+        gameData.a2 = results[1];
         gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
-        gameData.b1 = results[0];
+        gameData.b1 = results[2];
         gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
-        gameData.b2 = results[1];
+        gameData.b2 = results[3];
         gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
         gameData.state = core.GameState.PEEK;
         gameData.peekstarttime = Date.now();
-        gameData.countdown = this.squeezingInterval;
+        gameData.countdown = this.countdownA;
         this.dispatchEvent(data);
-        await this.sleep(this.squeezingInterval + 1000);
-
-        // PEEK_BANKER
-        gameData.a3 = results[5];
-        gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
-        gameData.state = core.GameState.PEEK_BANKER;
-        gameData.peekstarttime = Date.now();
-        gameData.countdownA = this.squeezing3rdCardIntervalA;
-        this.dispatchEvent(data);
-        await this.sleep(this.squeezing3rdCardIntervalA + 1000);
+        await this.sleep(this.countdownA * 1000 + 1000);
 
         // PEEK_PLAYER
-        gameData.b3 = results[4];
-        gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
-        gameData.state = core.GameState.PEEK_PLAYER;
-        gameData.peekstarttime = Date.now();
-        gameData.countdownB = this.squeezing3rdCardIntervalB;
-        this.dispatchEvent(data);
-        await this.sleep(this.squeezing3rdCardIntervalB + 1000);
+        if (results[5]) {
+          gameData.b3 = results[5];
+          gameData.playerpoint = (gameData.playerpoint + points[idx]) % 10;
+          gameData.state = core.GameState.PEEK_PLAYER;
+          gameData.peekstarttime = Date.now();
+          gameData.countdownB = this.countdownB;
+          this.dispatchEvent(data);
+          await this.sleep(this.countdownB * 1000 + 1000);
+        }
+
+        // PEEK_BANKER
+        if (results[4]) {
+          gameData.a3 = results[4];
+          gameData.bankerpoint = (gameData.bankerpoint + points[idx]) % 10;
+          gameData.state = core.GameState.PEEK_BANKER;
+          gameData.peekstarttime = Date.now();
+          gameData.countdownB = this.countdownB;
+          this.dispatchEvent(data);
+          await this.sleep(this.countdownB * 1000 + 1000);
+        }
       }
 
       public async randomWin(data: data.TableInfo) {

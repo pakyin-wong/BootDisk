@@ -3,11 +3,14 @@ namespace we {
     export class MobileScene extends core.MobileBaseGameScene {
       protected _roadmapControl: LwRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
-
+      protected _lwGameIDText: ui.RunTimeLabel;
+      protected _lwGameID: ui.RunTimeLabel;
+      protected _totalBet: ui.RunTimeLabel;
+      protected _totalBetText: ui.RunTimeLabel;
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
-
       protected _verticalGroup: eui.Group;
+      private _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
         super(data);
@@ -15,6 +18,37 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('LuckyWheelScene');
+        this._skinKey = 'LuckyWheelScene';
+      }
+
+      protected mount() {
+        super.mount();
+        this.addListeners();
+      }
+
+      public destroy() {
+        super.destroy();
+        this.removeListeners();
+      }
+
+      protected addListeners() {
+        this._bottomGamePanel._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+      }
+
+      protected removeListeners() {
+        this._bottomGamePanel._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+      }
+
+      protected setStateBet(isInit: boolean) {
+        super.setStateBet(isInit);
+        this._lwGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
+      }
+
+      protected setStateDeal(isInit: boolean) {
+        super.setStateDeal(isInit);
       }
 
       protected initChildren() {
@@ -23,21 +57,21 @@ namespace we {
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
-
         if (this._bottomGamePanel._tableInfoPanel) {
           this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
           this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
         }
-
         if (this._bottomGamePanel._statisticChartPanel) {
           this._bottomGamePanel._statisticChartPanel.setValue(this._tableInfo);
         }
-
         if (this._bottomGamePanel._betLimitDropDownBtn) {
           this.initBottomBetLimitSelector();
         }
         this.createVerticalLayout();
         this.changeHandMode();
+        this._lwGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
+        dir.monitor._sideGameList.setToggler(this._common_listpanel);
         this.setChipPanelPos();
       }
 
@@ -78,13 +112,11 @@ namespace we {
 
       protected addEventListeners() {
         super.addEventListeners();
-
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
-
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
       }
 
@@ -103,17 +135,7 @@ namespace we {
         this._verticalGroup.layout = vLayout;
       }
 
-      protected setChipPanelPos() {
-        if (this._bottomGamePanel.isPanelOpen) {
-          this._betPanelGroup.scaleY = 1;
-          this._betPanelGroup.y = 0;
-          this._betChipSetPanel.y = 1210;
-        } else {
-          this._betPanelGroup.scaleY = -1;
-          this._betPanelGroup.y = 762;
-          this._betChipSetPanel.y = 762;
-        }
-      }
+      protected setChipPanelPos() {}
 
       protected showBetChipPanel() {
         this.setChipPanelPos();
@@ -169,6 +191,12 @@ namespace we {
         const lwGameResultMessage = new lw.GameResultMessage();
         lwGameResultMessage.type = null;
         this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
+      }
+
+      protected checkBetChipPanel() {
+        if (this._betChipSetPanel.visible === true) {
+          this.setChipPanelPos();
+        }
       }
     }
   }

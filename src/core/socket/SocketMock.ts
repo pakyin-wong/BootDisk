@@ -14,13 +14,13 @@ namespace we {
       protected betCombinations: we.data.BetCombination[];
 
       protected totalTableCount = {
-        [we.core.GameType.BAC]: 10,
+        [we.core.GameType.BAC]: 30,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
-        [we.core.GameType.DT]: 3,
-        [we.core.GameType.RO]: 3,
-        [we.core.GameType.DI]: 3,
-        [we.core.GameType.LW]: 1,
+        [we.core.GameType.DT]: 30,
+        [we.core.GameType.RO]: 30,
+        [we.core.GameType.DI]: 30,
+        [we.core.GameType.LW]: 30,
         [we.core.GameType.BAM]: 1,
         [we.core.GameType.ROL]: 1,
       };
@@ -42,12 +42,13 @@ namespace we {
         betCombination.optionsList = [{ amount: 1000, betcode: we.ro.BetField.BIG }, { amount: 1000, betcode: we.ro.BetField.BLACK }];
         this.betCombinations.push(betCombination);
 
+        /*
         setInterval(() => {
           // mock error
           if (Math.random() > 0.9) {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
-        }, 5000);
+        }, 5000);*/
       }
 
       protected generateDummyStatistic(data) {
@@ -292,6 +293,7 @@ namespace we {
               idx++;
               return data;
             });
+            break;
           }
           case we.core.GameType.LW: {
             tables = Array.apply(null, { length: count }).map((value, idx) => {
@@ -421,6 +423,10 @@ namespace we {
 
       public getGoodRoad() {
         this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
+      }
+
+      public retryPlayerClient(functionName: string, args: any[]) {
+        logger.l('retryPlayerClient', functionName, args);
       }
 
       public updateCustomGoodRoad(id: string, data: any) {

@@ -46,6 +46,15 @@ namespace we {
         .replace('heart', 'hearts');
     }
 
+    export function cardToNumber(source) {
+      return source
+        .replace(/^(.+?)([0-9ajqk][0]?)$/, '$2')
+        .replace('a', '1')
+        .replace('j', '0')
+        .replace('q', '0')
+        .replace('k', '0');
+    }
+
     export function getWinMessageKey(gameType, winType, isShort = false) {
       const shortStr = isShort ? '.short' : '';
       switch (gameType) {
@@ -61,6 +70,25 @@ namespace we {
 
         default:
           return `winType.ro${shortStr}.${ro.WinType[winType]}`;
+      }
+    }
+
+    export function getGameTypeNamespace(gametype: core.GameType) {
+      switch (gametype) {
+        case core.GameType.BAC:
+        case core.GameType.BAI:
+        case core.GameType.BAS:
+        case core.GameType.BAM:
+          return 'ba';
+        case core.GameType.DT:
+          return 'dt';
+        case core.GameType.RO:
+        case core.GameType.ROL:
+          return 'ro';
+        case core.GameType.DI:
+          return 'di';
+        case core.GameType.LW:
+          return 'lw';
       }
     }
   }

@@ -62,7 +62,7 @@ namespace we {
         this.onModeUpdate(null);
       }
 
-      protected initRoadData() {
+      public initRoadData() {
         const n = this.numCol * 6;
         let iconIndex = 0;
         this.roadMapIconList = new Array<BARoadIconBase>();

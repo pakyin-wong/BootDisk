@@ -2,9 +2,30 @@ namespace we {
   export namespace ui {
     export class LiveListItem extends LiveListSimpleItem {
       protected _dealerImage;
+      protected _contentContainerStatic: eui.Group;
 
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected initChildren() {
+        super.initChildren();
+        if (this._quickBetGroup) {
+          this._quickBetGroup.cacheAsBitmap = true;
+        }
+        if (this._contentContainerStatic) {
+          this._contentContainerStatic.cacheAsBitmap = true;
+        }
+      }
+
+      protected addRoundCornerMask() {
+        const shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff, 1);
+        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        shape.graphics.endFill();
+
+        this._contentContainer.addChild(shape);
+        this._contentContainer.mask = shape;
       }
 
       protected initCustomPos() {

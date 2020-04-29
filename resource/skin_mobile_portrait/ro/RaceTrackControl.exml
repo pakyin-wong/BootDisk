@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ro.RaceTrackControlSkin" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
+	<e:Image source="m_ro_spread_bg_png" y="140"/>
 	<ui:RunTimePropertyLabel id="_distributionLabel" width="82" height="124" horizontalCenter="0" size="42" textColor="0x2da1fe" textAlign="center" verticalAlign="middle"/>
 	<e:Label id="_distNumLabel" text="0" height="74"
 	          y="242" size="62" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>

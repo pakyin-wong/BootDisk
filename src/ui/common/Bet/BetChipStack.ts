@@ -12,8 +12,8 @@ namespace we {
       protected _betSum: number;
       protected _denomList: number[];
       protected _cfmDenomList: number[];
-      protected _cfmBet: number;
-      protected _uncfmBet: number;
+      protected _cfmBet: number = 0;
+      protected _uncfmBet: number = 0;
       protected _stackLimit: number = 3;
       protected _chipWidth: number;
       protected _chipHeight: number;
@@ -110,6 +110,10 @@ namespace we {
         this._betSumLabel.visible = false;
       }
 
+      protected getNewChip(total = null, index = null, type = null, highlight = null) {
+        return new BetChip(total, index, type, highlight);
+      }
+
       public draw() {
         // No cfmBet and no uncfmBet - draw nothing
         this.removeChips();
@@ -120,7 +124,7 @@ namespace we {
         const total = this._uncfmBet + this._cfmBet;
         if (this._uncfmBet) {
           // Contains uncfmBet, show one coin and total
-          const chip = new BetChip(total);
+          const chip = this.getNewChip(total);
           chip.touchEnabled = false;
           this._chips.push(chip);
         } else {
@@ -130,7 +134,7 @@ namespace we {
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
+              const chip = this.getNewChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
               chip.touchEnabled = false;
               // chip.labelSize = this._chipLabelSize;
               // chip.labelOffset = this._chipLabelOffset;
@@ -255,7 +259,7 @@ namespace we {
         return this._betSumBackground;
       }
 
-      private getBettingTableGridDenom(denomlist: number[], amount) {
+      protected getBettingTableGridDenom(denomlist: number[], amount) {
         let total = amount;
         let index = denomlist.length - 1;
         const b = new Array();

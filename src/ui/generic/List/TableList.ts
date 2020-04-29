@@ -66,13 +66,13 @@ namespace we {
       public setGameFilters(tab: core.LiveGameTab) {
         switch (tab) {
           case core.LiveGameTab.ba:
-            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS];
+            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM];
             break;
           case core.LiveGameTab.dt:
             this.gameFilters = [core.GameType.DT];
             break;
           case core.LiveGameTab.ro:
-            this.gameFilters = [core.GameType.RO];
+            this.gameFilters = [core.GameType.RO, core.GameType.ROL];
             break;
           case core.LiveGameTab.di:
             this.gameFilters = [core.GameType.DI];

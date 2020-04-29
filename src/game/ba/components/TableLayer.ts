@@ -31,6 +31,11 @@ namespace we {
       constructor() {
         super();
         this._betField = ba.BetField;
+        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
+      }
+
+      public onSkinChanged() {
+        console.log(this.skinName);
       }
 
       protected createMapping() {

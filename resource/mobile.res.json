@@ -13,7 +13,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "d_ro_betborad_outline_png,d_ro_betborad_result_hl_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_history_hotclod_under_line_png,d_ro_history_racetrack_bg_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_ro_history_status_bar_box_png,d_ro_history_status_bar_down_png,d_ro_history_status_bar_top_png,d_ro_panel_betcontrol_betarea_even_inactive_png,d_ro_panel_betcontrol_betarea_odd_hover_png,d_ro_panel_betcontrol_betarea_odd_inactive_png,d_ro_panel_gamelist_betarea_black_inactive_png,d_ro_panel_gamelist_betarea_disable_png,d_ro_panel_gamelist_betrarea_red_inactive_png,d_ro_panel_gamelist_history_ball_gray_png,d_ro_panel_gamelist_history_ball_hl_png,d_ro_racetrack_inactive_png,d_ro_racetrack_outline_png,d_ro_rm_add_btn_hover_png,d_ro_rm_less_btn_hover_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,d_ro_savelayout_star_icon_png,d_ro_betboard_disable_png,d_ro_betboard_hover_png,d_ro_betboard_inactive_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_black_square_png,roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,d_ro_betboard_hover_even_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_small_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_png,d_ro_racetrack_normal_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_32_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_normal_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_red_hover_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_less_btn_disabled_png,m_ro_v_betborad_hover_png,m_ro_v_betborad_inactive_png,m_ro_v_betborad_outline_png,m_ro_v_cold_bar_png,m_ro_v_hot_bar_png,m_ro_v_hot_icon_png,m_ro_v_cold_icon_png,m_ro_btn_savelayout_png,m_ro_btn_reactack_png,m_ba_btn_bg_hover_png,m_ba_btn_video_png,m_ba_btn_chatroom_png,m_ba_btn_bg_png,m_ro_v_reatrack_hover_png,m_ro_v_reatrack_outline_png,v_23_png,v_24_png,v_26_png,v_30_png,v_35_png,v_Orphelins_png,v_Rectangle_png,v_Tires_png,v_Voisins_png,v_Zero_png,v_32_png,v_0_png,v_3_png,v_8_png,v_5_png,v_10_png,v_12_png,v_15_png,m_ro_add_icon_hover_png,m_ro_add_icon_Inactive_png,m_ro_less_icon_hover_png,m_ro_less_icon_Inactive_png,m_ro_h_betborad_hover_png,m_ro_h_betborad_outline_png,m_ro_h_cold_bar_png,m_ro_h_hot_bar_png,m_ro_h_reatrack_hover_png,m_ro_h_reatrack_outline_png,h_Orphelins_png,h_Rectangle_png,h_Tires_png,h_Voisins_png,h_Zero_png,h_0_png,h_3_png,h_5_png,h_8_png,h_10_png,h_23_png,h_24_png,h_26_png,h_30_png,h_32_png,h_35_png",
+			"keys": "d_ro_betborad_outline_png,d_ro_betborad_result_hl_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_history_hotclod_under_line_png,d_ro_history_racetrack_bg_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_ro_history_status_bar_box_png,d_ro_history_status_bar_down_png,d_ro_history_status_bar_top_png,d_ro_panel_betcontrol_betarea_even_inactive_png,d_ro_panel_betcontrol_betarea_odd_hover_png,d_ro_panel_betcontrol_betarea_odd_inactive_png,d_ro_panel_gamelist_betarea_black_inactive_png,d_ro_panel_gamelist_betarea_disable_png,d_ro_panel_gamelist_betrarea_red_inactive_png,d_ro_panel_gamelist_history_ball_gray_png,d_ro_panel_gamelist_history_ball_hl_png,d_ro_racetrack_inactive_png,d_ro_racetrack_outline_png,d_ro_rm_add_btn_hover_png,d_ro_rm_less_btn_hover_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,d_ro_savelayout_star_icon_png,d_ro_betboard_disable_png,d_ro_betboard_hover_png,d_ro_betboard_inactive_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_black_square_png,roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,d_ro_betboard_hover_even_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_small_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_png,d_ro_racetrack_normal_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_32_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_normal_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_red_hover_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_less_btn_disabled_png,m_ro_v_betborad_hover_png,m_ro_v_betborad_inactive_png,m_ro_v_betborad_outline_png,m_ro_v_cold_bar_png,m_ro_v_hot_bar_png,m_ro_v_hot_icon_png,m_ro_v_cold_icon_png,m_ro_btn_savelayout_png,m_ro_btn_reactack_png,m_ba_btn_bg_hover_png,m_ba_btn_video_png,m_ba_btn_chatroom_png,m_ba_btn_bg_png,m_ro_v_reatrack_hover_png,m_ro_v_reatrack_outline_png,v_23_png,v_24_png,v_26_png,v_30_png,v_35_png,v_Orphelins_png,v_Rectangle_png,v_Tires_png,v_Voisins_png,v_Zero_png,v_32_png,v_0_png,v_3_png,v_8_png,v_5_png,v_10_png,v_12_png,v_15_png,m_ro_add_icon_hover_png,m_ro_add_icon_Inactive_png,m_ro_less_icon_hover_png,m_ro_less_icon_Inactive_png,m_ro_h_betborad_hover_png,m_ro_h_betborad_outline_png,m_ro_h_cold_bar_png,m_ro_h_hot_bar_png,m_ro_h_reatrack_hover_png,m_ro_h_reatrack_outline_png,h_Orphelins_png,h_Rectangle_png,h_Tires_png,h_Voisins_png,h_Zero_png,h_0_png,h_3_png,h_5_png,h_8_png,h_10_png,h_23_png,h_24_png,h_26_png,h_30_png,h_32_png,h_35_png,m_ro_spread_bg_png",
 			"name": "scene_roulette"
 		},
 		{
@@ -39,6 +39,10 @@
 		{
 			"keys": "d_common_panel_gamelist_betresult_alldim_td_png,d_common_panel_gamelist_bg_png,d_common_panel_gamelist_notifydot_green_png,d_common_panel_gamelist_record_dragonbg_png,d_common_panel_gamelist_record_tiebg_png,d_common_panel_gamelist_record_tigerbg_png,d_common_panel_systemsetting_pressed_select_png,d_common_panel_systemsetting_pressedbg_png,d_common_quickbet_betarea_general_dragon_hover_png,d_common_quickbet_betarea_general_dragon_png,d_common_quickbet_betarea_general_tie_hover_png,d_common_quickbet_betarea_general_tie_png,d_common_quickbet_betarea_general_tiger_hover_png,d_common_quickbet_betarea_general_tiger_png,d_common_poker_vertical_back_png,d_dt_betarea_general_tiger_png,d_dt_betarea_general_tiger_hover_png,d_dt_betarea_general_tie_hover_png,d_dt_betarea_general_dragon_png,d_dt_betarea_general_dragon_hover_png,d_dt_panel_btn_clearscreen_png,d_lobby_quickbet_betarea_general_tiger_png,d_lobby_quickbet_betarea_general_tie_png,d_lobby_quickbet_betarea_general_dragon_png,d_common_panel_gamelist_notifydot_png",
 			"name": "NewlyAdded"
+		},
+		{
+			"keys": "sicbo_game_result_ske_json,sicbo_game_result_tex_json,sicbo_game_result_tex_png,d_di_betboard_hover_combine_png,d_di_betboard_hover_double_png,d_di_betboard_hover_large_group_png,d_di_betboard_hover_specific_png,d_di_betboard_hover_sum_png,d_di_betboard_hover_triple_png,d_di_betboard_hover_triple_all_png,d_di_betboard_inactive_png,d_sic_history_bg_png,d_sic_history_btn_hide_png,d_sic_history_btn_hide_hover_png,d_sic_history_btn_showall_png,d_sic_history_btn_showall_hover_png,d_sic_history_chart_blue_png,d_sic_history_chart_green_svg,d_sic_history_chart_line-1_png,d_sic_history_chart_line-2_png,d_sic_history_chart_red_png,d_sic_history_disabled_png,d_sic_history_grid_png,d_sic_history_hover_png,d_sic_history_lv1_dice-1_png,d_sic_history_lv1_dice-2_png,d_sic_history_lv1_dice-3_png,d_sic_history_lv1_dice-4_png,d_sic_history_lv1_dice-5_png,d_sic_history_lv1_dice-6_png,d_sic_history_lv2_dice-1_png,d_sic_history_lv2_dice-2_png,d_sic_history_lv2_dice-3_png,d_sic_history_lv2_dice-4_png,d_sic_history_lv2_dice-5_png,d_sic_history_lv2_dice-6_png,d_sic_history_lv3_dice-1_png,d_sic_history_lv3_dice-2_png,d_sic_history_lv3_dice-3_png,d_sic_history_lv3_dice-4_png,d_sic_history_lv3_dice-5_png,d_sic_history_lv3_dice-6_png,d_sic_history_pressed_png,d_sic_history_selected_png,d_sic_history_status-bar_box_png,d_sic_history_status-bar_down_png,d_sic_history_status-bar_top_png,d_sic_lobby_betarea_01_hover_png,d_sic_lobby_betarea_01_normal_png,d_sic_lobby_betarea_02_hover_png,d_sic_lobby_betarea_02_normal_png,d_sic_lobby_betarea_03_hover_png,d_sic_lobby_betarea_03_normal_png,d_sic_lobby_betarea_04_hover_png,d_sic_lobby_betarea_04_normal_png,d_sic_lobby_bg_png,d_sic_lobby_bg_2_png,d_sic_lobby_chart_bg_left_png,d_sic_lobby_chart_bg_right_png,d_sic_lobby_profile_shadow_png,d_sic_lobby_roadmap_blue_png,d_sic_lobby_roadmap_green_png,d_sic_lobby_roadmap_red_png,d_sic_lobby_roundclose_hover_png,d_sic_lobby_roundclose_normal_png,d_sic_lobby_selected_png,d_sic_panel_normal_png,d_sic_panel_open-a_1_hover_png,d_sic_panel_open-a_1_pressed_png,d_sic_panel_open-a_2_hover_png,d_sic_panel_open-a_2_pressed_png,d_sic_panel_open-a_3_hover copy 2_png,d_sic_panel_open-a_3_hover copy_png,d_sic_panel_open-a_3_pressed copy 2_png,d_sic_panel_open-a_3_pressed copy_png,d_sic_panel_open-a_3_pressed_png,d_sic_panel_open-a_4_hover copy 2_png,d_sic_panel_open-a_4_hover copy_png,d_sic_panel_open-a_4_pressed copy 2_png,d_sic_panel_open-a_4_pressed copy_png,d_sic_panel_open-a_4_pressed_png,d_sic_panel_open-a_5_hover_png,d_sic_panel_open-a_5_pressed_png,d_sic_panel_open-a_9_hover_png,d_sic_panel_open-a_9_pressed_png,d_sic_panel_open-b_14_hover_png,d_sic_panel_open-b_14_pressed_png,d_sic_panel_open-b_1_hover_png,d_sic_panel_open-b_1_pressed_png,d_sic_panel_open-b_2_hover_png,d_sic_panel_open-b_2_pressed_png,d_sic_panel_open-c_10_hover_png,d_sic_panel_open-c_10_pressed_png,d_sic_panel_open-c_11_hover_png,d_sic_panel_open-c_11_pressed_png,d_sic_panel_open-c_12_hover_png,d_sic_panel_open-c_12_pressed_png,d_sic_panel_open-c_13_hover_png,d_sic_panel_open-c_13_pressed_png,d_sic_panel_open-c_14_hover_png,d_sic_panel_open-c_14_pressed_png,d_sic_panel_open-c_15_hover_png,d_sic_panel_open-c_15_pressed_png,d_sic_panel_open-c_1_hover_png,d_sic_panel_open-c_1_pressed_png,d_sic_panel_open-c_2_hover_png,d_sic_panel_open-c_2_pressed_png,d_sic_panel_open-c_3_hover_png,d_sic_panel_open-c_3_pressed_png,d_sic_panel_open-c_4_hover_png,d_sic_panel_open-c_4_pressed_png,d_sic_panel_open-c_5_hover_png,d_sic_panel_open-c_5_pressed_png,d_sic_panel_open-c_6_hover_png,d_sic_panel_open-c_6_pressed_png,d_sic_panel_open-c_7_hover_png,d_sic_panel_open-c_7_pressed_png,d_sic_panel_open-c_8_hover_png,d_sic_panel_open-c_8_pressed_png,d_sic_panel_open-c_9_hover_png,d_sic_panel_open-c_9_pressed_png,d_sic_panel_open-d_6_hover_png,d_sic_panel_open-d_6_pressed_png,d_sic_panel_open-d_7_hover_png,d_sic_panel_open-d_7_pressed_png,d_sic_panel_open_png,d_sic_roadmap_blue_png,d_sic_roadmap_disabled_png,d_sic_roadmap_green_png,d_sic_roadmap_grid_png,d_sic_roadmap_hover_png,d_sic_roadmap_line-1_png,d_sic_roadmap_line-2_png,d_sic_roadmap_pressed_png,d_sic_roadmap_red_png,m_sb_betarea_bg_hover_1_horizontal_png,m_sb_betarea_bg_hover_1_png,m_sb_betarea_bg_hover_10_horizontal_png,m_sb_betarea_bg_hover_10_png,m_sb_betarea_bg_hover_11_horizontal_png,m_sb_betarea_bg_hover_11_png,m_sb_betarea_bg_hover_12_png,m_sb_betarea_bg_hover_13_png,m_sb_betarea_bg_hover_14_png,m_sb_betarea_bg_hover_2_horizontal_png,m_sb_betarea_bg_hover_2_png,m_sb_betarea_bg_hover_3_horizontal_png,m_sb_betarea_bg_hover_3_png,m_sb_betarea_bg_hover_4_horizontal_png,m_sb_betarea_bg_hover_4_png,m_sb_betarea_bg_hover_5_horizontal_png,m_sb_betarea_bg_hover_5_png,m_sb_betarea_bg_hover_6_horizontal_png,m_sb_betarea_bg_hover_6_png,m_sb_betarea_bg_hover_7_horizontal_png,m_sb_betarea_bg_hover_7_png,m_sb_betarea_bg_hover_8_horizontal_png,m_sb_betarea_bg_hover_8_png,m_sb_betarea_bg_hover_9_horizontal_png,m_sb_betarea_bg_hover_9_png,m_sb_betarea_dice_fire_png,m_sb_betarea_dice_four_png,m_sb_betarea_dice_one_png,m_sb_betarea_dice_six_png,m_sb_betarea_dice_three_png,m_sb_betarea_dice_two_png,m_sb_betarea_horizontal_png,m_sb_betarea_png,m_sb_panel_chart_bar_bg_png,m_sb_panel_chart_bar_png,m_sb_panel_chart_bg_left_png,m_sb_panel_chart_bg_right_png,m_sb_panel_chart_bluecircle_png,m_sb_panel_chart_greencircle_png,m_sb_panel_chart_redcircle_png,m_sb_panel_gamelist_betarea_big_hover_png,m_sb_panel_gamelist_betarea_big_png,m_sb_panel_gamelist_betarea_double_hover_png,m_sb_panel_gamelist_betarea_double_png,m_sb_panel_gamelist_betarea_single_hover_png,m_sb_panel_gamelist_betarea_single_png,m_sb_panel_gamelist_betarea_small_hover_png,m_sb_panel_gamelist_betarea_small_png,m_sb_panel_gamelist_result_data_blue_png,m_sb_panel_gamelist_result_data_green_png,m_sb_panel_gamelist_result_data_lose_png,m_sb_panel_gamelist_result_data_red_png,m_sb_panel_gamelist_result_data_win_png,m_sb_panel_gamelist_result_data_png,m_sb_panel_gamelist_result_lose_png,m_sb_panel_gamelist_result_win_png",
+			"name": "scene_dice"
 		}
 	],
 	"resources": [
@@ -5165,6 +5169,966 @@
 			"url": "assets/m/ro/h_35.png",
 			"type": "image",
 			"name": "h_35_png"
+		},
+		{
+			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_tex.png",
+			"type": "image",
+			"name": "sicbo_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_ske.json",
+			"type": "json",
+			"name": "sicbo_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/sicbo_game_result/sicbo_game_result_tex.json",
+			"type": "json",
+			"name": "sicbo_game_result_tex_json"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_combine.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_combine_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_double.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_double_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_large_group.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_large_group_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_specific.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_specific_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_sum.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_sum_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_triple.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_triple_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_hover_triple_all.png",
+			"type": "image",
+			"name": "d_di_betboard_hover_triple_all_png"
+		},
+		{
+			"url": "assets/d/di/d_di_betboard_inactive.png",
+			"type": "image",
+			"name": "d_di_betboard_inactive_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_bg.png",
+			"type": "image",
+			"name": "d_sic_history_bg_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_btn_hide.png",
+			"type": "image",
+			"name": "d_sic_history_btn_hide_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_btn_hide_hover.png",
+			"type": "image",
+			"name": "d_sic_history_btn_hide_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_btn_showall.png",
+			"type": "image",
+			"name": "d_sic_history_btn_showall_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_btn_showall_hover.png",
+			"type": "image",
+			"name": "d_sic_history_btn_showall_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_chart_blue.png",
+			"type": "image",
+			"name": "d_sic_history_chart_blue_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_chart_green.svg",
+			"type": "image",
+			"name": "d_sic_history_chart_green_svg"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_chart_line-1.png",
+			"type": "image",
+			"name": "d_sic_history_chart_line-1_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_chart_line-2.png",
+			"type": "image",
+			"name": "d_sic_history_chart_line-2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_chart_red.png",
+			"type": "image",
+			"name": "d_sic_history_chart_red_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_disabled.png",
+			"type": "image",
+			"name": "d_sic_history_disabled_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_grid.png",
+			"type": "image",
+			"name": "d_sic_history_grid_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_hover.png",
+			"type": "image",
+			"name": "d_sic_history_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv1_dice-1.png",
+			"type": "image",
+			"name": "d_sic_history_lv1_dice-1_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv1_dice-2.png",
+			"type": "image",
+			"name": "d_sic_history_lv1_dice-2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv1_dice-3.png",
+			"type": "image",
+			"name": "d_sic_history_lv1_dice-3_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv1_dice-4.png",
+			"type": "image",
+			"name": "d_sic_history_lv1_dice-4_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv1_dice-5.png",
+			"type": "image",
+			"name": "d_sic_history_lv1_dice-5_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv1_dice-6.png",
+			"type": "image",
+			"name": "d_sic_history_lv1_dice-6_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv2_dice-1.png",
+			"type": "image",
+			"name": "d_sic_history_lv2_dice-1_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv2_dice-2.png",
+			"type": "image",
+			"name": "d_sic_history_lv2_dice-2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv2_dice-3.png",
+			"type": "image",
+			"name": "d_sic_history_lv2_dice-3_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv2_dice-4.png",
+			"type": "image",
+			"name": "d_sic_history_lv2_dice-4_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv2_dice-5.png",
+			"type": "image",
+			"name": "d_sic_history_lv2_dice-5_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv2_dice-6.png",
+			"type": "image",
+			"name": "d_sic_history_lv2_dice-6_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv3_dice-1.png",
+			"type": "image",
+			"name": "d_sic_history_lv3_dice-1_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv3_dice-2.png",
+			"type": "image",
+			"name": "d_sic_history_lv3_dice-2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv3_dice-3.png",
+			"type": "image",
+			"name": "d_sic_history_lv3_dice-3_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv3_dice-4.png",
+			"type": "image",
+			"name": "d_sic_history_lv3_dice-4_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv3_dice-5.png",
+			"type": "image",
+			"name": "d_sic_history_lv3_dice-5_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_lv3_dice-6.png",
+			"type": "image",
+			"name": "d_sic_history_lv3_dice-6_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_pressed.png",
+			"type": "image",
+			"name": "d_sic_history_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_selected.png",
+			"type": "image",
+			"name": "d_sic_history_selected_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_status-bar_box.png",
+			"type": "image",
+			"name": "d_sic_history_status-bar_box_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_status-bar_down.png",
+			"type": "image",
+			"name": "d_sic_history_status-bar_down_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_history_status-bar_top.png",
+			"type": "image",
+			"name": "d_sic_history_status-bar_top_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_betarea_01_hover.png",
+			"type": "image",
+			"name": "d_sic_lobby_betarea_01_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_betarea_01_normal.png",
+			"type": "image",
+			"name": "d_sic_lobby_betarea_01_normal_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_betarea_02_hover.png",
+			"type": "image",
+			"name": "d_sic_lobby_betarea_02_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_betarea_02_normal.png",
+			"type": "image",
+			"name": "d_sic_lobby_betarea_02_normal_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_betarea_03_hover.png",
+			"type": "image",
+			"name": "d_sic_lobby_betarea_03_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_betarea_03_normal.png",
+			"type": "image",
+			"name": "d_sic_lobby_betarea_03_normal_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_betarea_04_hover.png",
+			"type": "image",
+			"name": "d_sic_lobby_betarea_04_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_betarea_04_normal.png",
+			"type": "image",
+			"name": "d_sic_lobby_betarea_04_normal_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_bg.png",
+			"type": "image",
+			"name": "d_sic_lobby_bg_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_bg_2.png",
+			"type": "image",
+			"name": "d_sic_lobby_bg_2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_chart_bg_left.png",
+			"type": "image",
+			"name": "d_sic_lobby_chart_bg_left_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_chart_bg_right.png",
+			"type": "image",
+			"name": "d_sic_lobby_chart_bg_right_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_profile_shadow.png",
+			"type": "image",
+			"name": "d_sic_lobby_profile_shadow_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_roadmap_blue.png",
+			"type": "image",
+			"name": "d_sic_lobby_roadmap_blue_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_roadmap_green.png",
+			"type": "image",
+			"name": "d_sic_lobby_roadmap_green_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_roadmap_red.png",
+			"type": "image",
+			"name": "d_sic_lobby_roadmap_red_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_roundclose_hover.png",
+			"type": "image",
+			"name": "d_sic_lobby_roundclose_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_roundclose_normal.png",
+			"type": "image",
+			"name": "d_sic_lobby_roundclose_normal_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_lobby_selected.png",
+			"type": "image",
+			"name": "d_sic_lobby_selected_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_normal.png",
+			"type": "image",
+			"name": "d_sic_panel_normal_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_1_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_1_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_1_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_1_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_2_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_2_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_2_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_2_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_3_hover copy 2.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_3_hover copy 2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_3_hover copy.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_3_hover copy_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_3_pressed copy 2.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_3_pressed copy 2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_3_pressed copy.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_3_pressed copy_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_3_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_3_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_4_hover copy 2.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_4_hover copy 2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_4_hover copy.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_4_hover copy_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_4_pressed copy 2.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_4_pressed copy 2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_4_pressed copy.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_4_pressed copy_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_4_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_4_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_5_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_5_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_5_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_5_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_9_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_9_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-a_9_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-a_9_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-b_14_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-b_14_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-b_14_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-b_14_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-b_1_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-b_1_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-b_1_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-b_1_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-b_2_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-b_2_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-b_2_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-b_2_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_10_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_10_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_10_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_10_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_11_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_11_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_11_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_11_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_12_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_12_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_12_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_12_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_13_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_13_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_13_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_13_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_14_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_14_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_14_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_14_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_15_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_15_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_15_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_15_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_1_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_1_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_1_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_1_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_2_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_2_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_2_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_2_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_3_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_3_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_3_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_3_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_4_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_4_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_4_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_4_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_5_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_5_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_5_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_5_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_6_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_6_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_6_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_6_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_7_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_7_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_7_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_7_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_8_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_8_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_8_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_8_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_9_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_9_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-c_9_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-c_9_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-d_6_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-d_6_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-d_6_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-d_6_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-d_7_hover.png",
+			"type": "image",
+			"name": "d_sic_panel_open-d_7_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open-d_7_pressed.png",
+			"type": "image",
+			"name": "d_sic_panel_open-d_7_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_panel_open.png",
+			"type": "image",
+			"name": "d_sic_panel_open_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_blue.png",
+			"type": "image",
+			"name": "d_sic_roadmap_blue_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_disabled.png",
+			"type": "image",
+			"name": "d_sic_roadmap_disabled_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_green.png",
+			"type": "image",
+			"name": "d_sic_roadmap_green_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_grid.png",
+			"type": "image",
+			"name": "d_sic_roadmap_grid_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_hover.png",
+			"type": "image",
+			"name": "d_sic_roadmap_hover_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_line-1.png",
+			"type": "image",
+			"name": "d_sic_roadmap_line-1_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_line-2.png",
+			"type": "image",
+			"name": "d_sic_roadmap_line-2_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_pressed.png",
+			"type": "image",
+			"name": "d_sic_roadmap_pressed_png"
+		},
+		{
+			"url": "assets/d/di/d_sic_roadmap_red.png",
+			"type": "image",
+			"name": "d_sic_roadmap_red_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea.png",
+			"type": "image",
+			"name": "m_sb_betarea_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_1.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_1_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_10.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_10_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_10_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_10_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_11.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_11_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_11_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_11_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_12.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_12_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_13.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_13_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_14.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_14_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_1_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_1_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_2.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_2_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_2_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_2_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_3.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_3_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_3_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_3_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_4.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_4_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_4_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_4_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_5.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_5_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_5_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_5_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_6.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_6_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_6_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_6_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_7.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_7_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_7_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_7_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_8.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_8_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_8_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_8_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_9.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_9_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_9_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_9_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_fire.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_fire_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_four.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_four_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_one.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_one_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_six.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_six_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_three.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_three_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_dice_two.png",
+			"type": "image",
+			"name": "m_sb_betarea_dice_two_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_horizontal_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bar.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bar_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bar_bg.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bar_bg_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bg_left.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bg_left_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bg_right.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bg_right_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_bluecircle.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_bluecircle_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_greencircle.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_greencircle_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_chart_redcircle.png",
+			"type": "image",
+			"name": "m_sb_panel_chart_redcircle_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_big.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_big_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_big_hover.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_big_hover_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_double.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_double_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_double_hover.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_double_hover_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_single.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_single_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_single_hover.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_single_hover_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_small.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_small_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_betarea_small_hover.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_betarea_small_hover_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_blue.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_blue_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_green.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_green_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_lose.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_lose_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_red.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_red_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_data_win.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_data_win_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_lose.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_lose_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_panel_gamelist_result_win.png",
+			"type": "image",
+			"name": "m_sb_panel_gamelist_result_win_png"
+		},
+		{
+			"url": "assets/m/ro/m_ro_spread_bg.png",
+			"type": "image",
+			"name": "m_ro_spread_bg_png"
 		}
 	]
 }

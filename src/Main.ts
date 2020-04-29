@@ -51,6 +51,7 @@ class Main extends eui.UILayer {
     document.documentElement.className = cn.join(' ');
 
     const { type } = env.UAInfo.device;
+
     if (type === 'mobile') {
       // if (true) {
       env.isMobile = true;
@@ -84,6 +85,24 @@ class Main extends eui.UILayer {
     we.i18n.setLang('sc');
     await this.initRes();
     env.initialized = true;
+
+    const opt = {
+      ba: 8,
+      dt: 8,
+      ro: 8,
+      di: 8,
+      lw: 8,
+    };
+    dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
+    dir.analysisPool = new we.ui.AnalysisPool(opt);
+    const opt2 = {
+      ba: 16,
+      dt: 16,
+      ro: 16,
+      di: 16,
+      lw: 16,
+    };
+    dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
 
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');

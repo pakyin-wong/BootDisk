@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ro.RaceTrackTableLayerSkin" width="1932" height="580" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.ro.RaceTrackTableLayerSkin" width="1932" height="580" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
 	<e:Image x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"  source="m_ro_h_reatrack_hover_png"/>
 	<e:Group id="_group_35" x="1642" y="0">

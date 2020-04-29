@@ -2,6 +2,7 @@ namespace we {
   export namespace rol {
     export class RolLeftPanel extends ro.RoLeftPanel {
       protected pageRadioBtn4: eui.RadioButton;
+      protected _coinGroup: eui.Group;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RolLeftPanel');
@@ -22,20 +23,14 @@ namespace we {
       }
 
       public updateLuckyNumbers() {
-        const layout = new eui.HorizontalLayout();
-        layout.verticalAlign = egret.VerticalAlign.MIDDLE;
-        layout.horizontalAlign = egret.HorizontalAlign.CENTER;
-
-        const page4Group = this.pageStack.getChildAt(3) as eui.Group;
-        page4Group.removeChildren();
-        page4Group.layout = layout;
+        this._coinGroup.removeChildren();
 
         if (this.tableInfo.data.luckynumber) {
           Object.keys(this.tableInfo.data.luckynumber).map((key, index) => {
             const imgCoin = new LuckyCoin();
             imgCoin.odd = this.tableInfo.data.luckynumber[key];
             imgCoin.value = +key;
-            page4Group.addChild(imgCoin);
+            this._coinGroup.addChild(imgCoin);
             if (this._chipLayer) {
               const betDetails = this._chipLayer.getConfirmedBetDetails();
               if (betDetails) {
@@ -54,8 +49,7 @@ namespace we {
       }
 
       public clearLuckyNumbers() {
-        const page4Group = this.pageStack.getChildAt(3) as eui.Group;
-        page4Group.removeChildren();
+        this._coinGroup.removeChildren();
       }
 
       protected fieldToValue(fieldName: string) {

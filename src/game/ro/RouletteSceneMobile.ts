@@ -12,6 +12,7 @@ namespace we {
       protected _roadmapControl: we.ro.RORoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
       protected _settingPanel: MobileSettingPanel;
+      protected _settingTransition: eui.Group;
       protected _settingTween: ui.TweenConfig;
       protected _hotcoldPanel: MobileHotColdPanel;
 
@@ -35,14 +36,21 @@ namespace we {
         super(data);
       }
 
-      protected mount() {
-        super.mount();
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+
+        this.initRoadMap();
+        this._roadmapControl.setTableInfo(this._tableInfo);
+        this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._tableLayer.type = we.core.BettingTableType.NORMAL;
+
         this.initBottomBetLimitSelector();
         this.changeHandMode();
 
         this._raceTrackChipLayer.raceTrackTableLayer = this._raceTrackTableLayer;
         this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
         this._raceTrackChipLayer.chipLayer = this._chipLayer;
+        this.refreshBetMode();
       }
 
       protected addEventListeners() {
@@ -71,6 +79,7 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('RouletteScene');
+        this._skinKey = 'RouletteScene';
       }
 
       public backToLobby() {
@@ -79,14 +88,6 @@ namespace we {
 
       public getTableLayer() {
         return this._tableLayer;
-      }
-
-      protected initChildren() {
-        super.initChildren();
-        this.initRoadMap();
-        this._roadmapControl.setTableInfo(this._tableInfo);
-        this._chipLayer.type = we.core.BettingTableType.NORMAL;
-        this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
       protected initRoadMap() {
@@ -100,6 +101,19 @@ namespace we {
           null,
           null
         );
+      }
+
+      protected showBetChipPanel() {
+        this._betChipSetPanel.visible = true;
+        this._betChipSetPanel.anchorOffsetY = 30;
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        egret.Tween.get(this._betChipSetPanel).to({ alpha: 0, anchorOffsetY: 30 }, 250);
+        this._betChipSetGridEnabled = false;
+        this._betChipSetPanel.visible = false;
       }
 
       protected onBottomToggle() {
@@ -147,6 +161,29 @@ namespace we {
         egret.Tween.get(this._betArea).to(this._betAreaTween.getTweenPackage(), 250);
       }
 
+      protected refreshBetMode() {
+        switch (this._mode) {
+          case 'normal':
+            this._bATransition.$x = 0 - this._bANormal.x;
+            this._bATransition.$y = 0 - this._bANormal.y;
+            this._chipLayer.$x = this._bANormal.x;
+            this._chipLayer.$y = this._bANormal.y;
+            this._raceTrackChipLayer.visible = false;
+            break;
+
+          case 'race':
+            this._bATransition.$x = 0 - this._bARace.x;
+            this._bATransition.$y = 0 - this._bARace.y;
+            this._chipLayer.$x = this._bARace.x;
+            this._chipLayer.$y = this._bARace.y;
+            this._raceTrackChipLayer.visible = true;
+            break;
+        }
+
+        this._settingPanel.currentState = this._mode;
+        (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
+      }
+
       protected toggleBetMode() {
         if (this._betAreaLock) {
           return;
@@ -189,7 +226,7 @@ namespace we {
       }
 
       protected set betSetState(s) {
-        const state = s === 'normal' && this._mode === 'race' ? 'zip' : s;
+        const state = s === 'normal' && this._mode === 'race' && env.orientation === egret.OrientationMode.PORTRAIT ? 'zip' : s;
 
         if (this._betSetTween.currentState === state) {
           return;
@@ -202,7 +239,7 @@ namespace we {
       }
 
       protected set settingState(s) {
-        const state = s === 'normal' && this._mode === 'race' ? 'zip' : s;
+        const state = s;
 
         if (this._settingTween.currentState === state) {
           return;
@@ -210,12 +247,13 @@ namespace we {
         this._settingTween.currentState = state;
         this._settingTween.validateNow();
 
-        egret.Tween.removeTweens(this._settingPanel);
-        egret.Tween.get(this._settingPanel).to(this._settingTween.getTweenPackage(), 250);
+        egret.Tween.removeTweens(this._settingTransition);
+        egret.Tween.get(this._settingTransition).to(this._settingTween.getTweenPackage(), 250);
       }
 
       protected set raceState(s) {
-        this._raceTrackControl.visible = s === 'normal' && this._mode === 'race';
+        this._raceTrackControl.visible = s !== 'small' && this._mode === 'race';
+        this._raceTrackControl.currentState = s;
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

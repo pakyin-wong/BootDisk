@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.dt.ChipLayerSkin" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
+	<e:Group>
+		<e:Group id="_dragonGroup" x="0" y="0" width="472" height="200">
+			<ui:BetChipStack id="_dragonBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+			                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
+			                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" scaleY="1.5" />
+		</e:Group>
+		<e:Group id="_tieGroup" includeIn="Normal" x="415" y="0" width="408" height="200">
+			<ui:BetChipStack id="_tieBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+			                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
+			                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" scaleY="1.5"/>
+		</e:Group>
+		<e:Group id="_tigerGroup" x="767" y="0" width="472" height="200">
+			<ui:BetChipStack id="_tigerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
+			                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
+			                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" />
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="8"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

@@ -8,9 +8,7 @@ namespace we {
       protected _hotnum: eui.Group;
       protected _coldnum: eui.Group;
 
-      protected mount() {
-        super.mount();
-
+      protected init() {
         for (let i = 0; i < this.hotNumLimit; i++) {
           const icon = new ROBeadRoadIcon(this.numSize, 0x262a2b, 1);
           const checker = this._hotnum.getChildAt(i);
@@ -33,12 +31,12 @@ namespace we {
       public setHotCold(hotNumbers: number[], coldNumbers: number[]) {
         for (let i = 0; i < this.hotNumLimit; i++) {
           const h: ROBeadRoadIcon = this._hotnum.getChildAt(i) as ROBeadRoadIcon;
-          h.setByObject({ v: hotNumbers[i] });
+          h && h.setByObject({ v: hotNumbers[i] });
         }
 
         for (let i = 0; i < this.coldNumLimit; i++) {
           const c: ROBeadRoadIcon = this._coldnum.getChildAt(i) as ROBeadRoadIcon;
-          c.setByObject({ v: coldNumbers[i] });
+          c && c.setByObject({ v: coldNumbers[i] });
         }
       }
     }

@@ -18,21 +18,24 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const bigRoad = new ba.BALobbyBigRoad();
+        // const bigRoad = new ba.BALobbyBigRoad();
+        const bigRoad = dir.lobbyRoadPool.get(core.GameType.DT);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;
       }
 
       public generateAnalysis(node: eui.Component) {
-        const analysis = new dt.Analysis();
+        // const analysis = new dt.Analysis();
+        const analysis = dir.analysisPool.get(core.GameType.DT);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(analysis, idx);
         return analysis;
       }
 
       public generateAdvancedRoad(node: eui.Component) {
-        const advancedRoad = new dt.AdvancedRoad();
+        // const advancedRoad = new dt.AdvancedRoad();
+        const advancedRoad = dir.advancedRoadPool.get(core.GameType.DT);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(advancedRoad, idx);
         return advancedRoad;

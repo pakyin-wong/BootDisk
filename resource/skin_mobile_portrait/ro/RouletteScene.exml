@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.RouletteScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" states="left,right">
-	<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0">
+	<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0" locked="true">
 	<e:skinName>
 		<e:Skin states="normal,zip,small">
 			<e:Component id="checker" width="878" height="1769" x="172" y="167" scaleX="1" scaleY="1" height.zip="1304" scaleX.small="0.673120728929385" scaleY.small="0.6721311475409836" x.small="326" y.small="748"/>
 		</e:Skin>
 	</e:skinName>
 	</ui:TweenConfig>
-	<ui:TweenConfig id="_betSetTween" left="0" right="0" top="0" bottom="0">
+	<ui:TweenConfig id="_betSetTween" left="0" right="0" top="0" bottom="0" locked="true">
 		<ui:skinName>
 		<e:Skin states="normal,zip,small">
 			<e:Component id="checker" width="1242" height="1112" x="0" y="489" scaleX="1" scaleY="1" y.small="489" y.normal="489" y.zip="270"/>
@@ -17,7 +17,7 @@
 	<ui:TweenConfig id="_settingTween" left="0" right="0" top="0" bottom="0">
 		<ui:skinName>
 		<e:Skin>
-			<e:Component id="checker" width="104" height="1685" x="31" y="278" scaleX="1" scaleY="1"/>
+			<e:Component id="checker" height="1685" y="278" scaleX="1" scaleY="1" left="0" right="0" width="1242"/>
 		</e:Skin>
 		</ui:skinName>
 	</ui:TweenConfig>
@@ -37,6 +37,10 @@
     <e:Image id="_lblRoomInfo" width="48" height="48" x="310" y="33" source="d_ba_navbar_icon_info_png"/>
     <ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.GameBar" visible="false"/>
   </e:Group>
+	<ro:MobileHotColdPanel id="_hotcoldPanel" x="40.5" skinName="skin_mobile_portrait.ro.MobileHotColdPanel" verticalCenter="0" x.left="1114" coldNumLimit.right="3" hotNumLimit.right="3"/>
+	<e:Group id="_settingTransition" height="1685" y="278" left="0" right="0">
+		<ro:MobileSettingPanel id="_settingPanel" skinName="skin_mobile_portrait.ro.MobileSettingPanel" scaleX="1" scaleY="1" x="31" x.left="1105.5"/>
+	</e:Group>
   <e:Scroller id="_betArea" x="172" y="167" width="879" height="1769" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off">
     <e:Group id="_bAViewport">
 			<e:Group id="_bATransition" x="0">
@@ -51,8 +55,8 @@
 			<ro:RaceTrackChipLayer id="_raceTrackChipLayer" horizontalCenter="0" visible="false"/>
     </e:Group>
   </e:Scroller>
-	<ro:MobileSettingPanel id="_settingPanel" x="31" skinName="skin_mobile_portrait.ro.MobileSettingPanel" y="278"/>
-  <ro:MobileHotColdPanel id="_hotcoldPanel" x="40.5" skinName="skin_mobile_portrait.ro.MobileHotColdPanel" verticalCenter="0" x.left="1114"/>
+
+
   <e:Group id="_betSet" y="489" left="0" right="0" touchThrough="true">
     <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="1052" x.left="5"/>
     <e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
@@ -62,20 +66,24 @@
       </e:Group>
       <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left="0"/>
     </e:Group>
-    <e:Group id="_betRelatedGroup" x="1074" y="181.0000000000001" scaleX="1" scaleY="1" width="128" x.left="21">
+    <e:Group id="_betRelatedGroup" x="1074" y="181" scaleX="1" scaleY="1" width="128" x.left="21">
       <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
       <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120" horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90"/>
       <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675" horizontalCenter="0" rotation="90" currentState="vertical"/>
+			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" y="154" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
+			<ui:RunTimeLabel id="_cancelLabel" text="清除" y="445" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
+			<ui:RunTimeLabel id="_doubleLabel" text="雙倍" y="306" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
+			<ui:RunTimeLabel id="_undoLabel" text="復原" y="587" left="0" right="0" textAlign="center" verticalAlign="middle" size="32" height="47"/>
       <ui:BaseImageButton id="_repeatButton" y="81" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"/>
       <ui:BaseImageButton id="_cancelButton" y="362" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" horizontalCenter="0"/>
       <ui:BaseImageButton id="_doubleButton" y="233" anchorOffsetX="0" anchorOffsetY="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" horizontalCenter="0"/>
       <ui:BaseImageButton id="_undoButton" y="514" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" horizontalCenter="0"/>
     </e:Group>
   </e:Group>
-	<ro:RaceTrackControl id="_raceTrackControl" width="82" height="410" skinName="skin_mobile_portrait.ro.RaceTrackControlSkin" y="1504" x.right="1097" x.left="45" x="1097"/>
+	<ro:RaceTrackControl id="_raceTrackControl" width="91" height="417" skinName="skin_mobile_portrait.ro.RaceTrackControlSkin" y="1504" x.right="1097" x.left="45" x="1090"/>
   <!--<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />-->
-  <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right_hand_mode"/>-->
+  <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right"/>-->
   <ro:GameResultMessage id="_resultMessage" y="264" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0"/>
   <ui:InGameMessage
     id="_message"

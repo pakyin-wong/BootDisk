@@ -150,19 +150,19 @@
 		<e:Image id="_section_12" width="199" height="150" source="v_12_png" x="0" y="0" visible="false"/>
 		<e:Label id="_label_12" text="12" size="52.4" width="84.2" height="63.1" textAlign="center" verticalAlign="middle" x="62" y="21"/>
 	</e:Group>
-	<e:Group id="_group_tiers" x="184" y="173">
+	<e:Group id="_group_tiers" x="184" y="173" width="350" height="514">
 		<e:Image id="_section_tiers" source="v_Tires_png" x="0" y="0" scale9Grid="0,198,380,159" scaleX="0.9210526315789473" scaleY="0.9210526315789473" visible="false"/>
 		<ui:RunTimePropertyLabel id="_label_tiers" text="輪盤下角注" size="42" height="159" textAlign="center" verticalAlign="middle" y="183" width="350"/>
 	</e:Group>
-	<e:Group id="_group_orphelins" x="184" y="520">
+	<e:Group id="_group_orphelins" x="184" y="520" width="350" height="409">
 		<e:Image id="_section_orphelins" source="v_Orphelins_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="0" y="0" visible="false"/>
 		<ui:RunTimePropertyLabel id="_label_orphelins" text="輪上孤注" size="42" height="159" y="176" textAlign="center" verticalAlign="middle" width="350"/>
 	</e:Group>
-	<e:Group id="_group_voisins" x="179" y="931">
+	<e:Group id="_group_voisins" x="179" y="931" width="350" height="387">
 		<e:Image id="_section_voisins" source="v_Voisins_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="0" y="0" visible="false"/>
 		<ui:RunTimePropertyLabel id="_label_voisins" text="零旁注上角" size="42" y="26" verticalAlign="middle" textAlign="center" height="159" width="350"/>
 	</e:Group>
-	<e:Group id="_group_zero" x="184" y="1132">
+	<e:Group id="_group_zero" x="184" y="1132" width="350" height="392">
 		<e:Image id="_section_zero" source="v_Zero_png" scaleX="0.9210526315789473" scaleY="0.9210526315789473" x="0" y="0" visible="false"/>
 		<ui:RunTimePropertyLabel id="_label_zero" text="輪上零旁" size="42" height="159" verticalAlign="middle" textAlign="center" y="109" width="350"/>
 	</e:Group>
