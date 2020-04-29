@@ -77,9 +77,11 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this.contentTwo.alpha = 0;
-        this.configSlides();
+        if (this.contentTwo) {
+          this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+          this.contentTwo.alpha = 0;
+          this.configSlides();
+        }
       }
 
       public configSlides() {
