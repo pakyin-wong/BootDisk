@@ -14,6 +14,32 @@ namespace we {
       protected _barMidColor: number[];
       protected _barLeftColor: number[];
 
+      protected _zeroLabel: ui.RunTimeLabel;
+      protected _evenLabel: ui.RunTimeLabel;
+      protected _oddLabel: ui.RunTimeLabel;
+      protected _bigLabel: ui.RunTimeLabel;
+      protected _smallLabel: ui.RunTimeLabel;
+      protected _bigZeroLabel: ui.RunTimeLabel;
+
+      public get zeroLabel() {
+        return this._zeroLabel;
+      }
+      public get evenLabel() {
+        return this._evenLabel;
+      }
+      public get oddLabel() {
+        return this._oddLabel;
+      }
+      public get bigLabel() {
+        return this._bigLabel;
+      }
+      public get smallLabel() {
+        return this._smallLabel;
+      }
+      public get bigZeroLabel() {
+        return this._bigZeroLabel;
+      }
+
       public setParam(
         totalWidth: number,
         a: number,

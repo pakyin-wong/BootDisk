@@ -189,6 +189,9 @@ namespace we {
         tieShort: '和',
         askDragon: '龙问路',
         askTiger: '虎问路',
+        DragonTigerTieRatio: '龙虎和比例',
+        round: '局',
+        rounds: '局',
       },
       dice: {
         big: '大',
@@ -290,6 +293,13 @@ namespace we {
       },
       luckywheel: {
         pool: '即时彩池',
+        east: '东',
+        south: '南',
+        west: '西',
+        north: '北',
+        red: '中',
+        green: '發',
+        white: '白',
       },
       game: {
         startBet: '开始下注',
@@ -331,6 +341,10 @@ namespace we {
         clickToSeeVideo: '点击播放本局视频',
         askBanker: '庄问路',
         askPlayer: '闲问路',
+        BankerPlayerRatio: '庄闲和比例',
+        PairRatio: '庄对闲对比例',
+        round: '局',
+        rounds: '局',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

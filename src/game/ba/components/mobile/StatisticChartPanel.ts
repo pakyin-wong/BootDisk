@@ -1,11 +1,11 @@
 namespace we {
   export namespace ba {
     export class StatisticChartPanel extends ui.Panel {
-      protected _leftTitle: eui.Label;
-      protected _rightTitle: eui.Label;
+      protected _leftTitle: ui.RunTimeLabel;
+      protected _rightTitle: ui.RunTimeLabel;
 
-      protected roundLabelLeft: eui.Label;
-      protected roundLabelRight: eui.Label;
+      protected roundLabelLeft: ui.RunTimeLabel;
+      protected roundLabelRight: ui.RunTimeLabel;
 
       protected totalBankerCount: ui.RunTimeLabel;
       protected totalBankerCountPer: ui.RunTimeLabel;
@@ -24,15 +24,21 @@ namespace we {
       protected tiePairCountPer: ui.RunTimeLabel;
 
       protected roundCount: ui.RunTimeLabel;
-      protected roundPairCountPer: ui.RunTimeLabel;
+      protected roundPairCount: ui.RunTimeLabel;
+
+      protected roundCounter: number = 99;
+      protected roundPairCounter: number = 1;
+
       public constructor() {
         super();
       }
+
       protected partAdded(partName: string, instance: any): void {
         super.partAdded(partName, instance);
       }
       protected childrenCreated(): void {
         super.childrenCreated();
+
         let _x: number;
         let _y: number;
         if (env.orientation === 'portrait') {
@@ -43,10 +49,14 @@ namespace we {
           _y = 130;
         }
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        // this.changeLang();
+        this.changeLang();
         this.drawChartArc(400, 600, 100, _x + 500, _y, 100, 15);
         this.drawChartArc(50, 20, 70, _x + 1110, _y, 100, 15);
+
+        this.roundCount.text = this.roundCounter.toString();
+        this.roundPairCount.text = this.roundPairCounter.toString();
       }
+
       protected drawChartArc(a: number, b: number, c: number, x: number, y: number, radius: number, thickness: number) {
         const totalAmount = a + b + c;
         const radiusA = 360 * (a / totalAmount);
@@ -69,6 +79,21 @@ namespace we {
         this.addChild(shapeGreen);
       }
       public changeLang() {
+        this._leftTitle.text = i18n.t('baccarat.BankerPlayerRatio');
+        this._rightTitle.text = i18n.t('baccarat.PairRatio');
+
+        if (this.roundCounter > 1) {
+          this.roundLabelLeft.text = i18n.t('baccarat.rounds');
+        } else {
+          this.roundLabelLeft.text = i18n.t('baccarat.round');
+        }
+
+        if (this.roundPairCounter > 1) {
+          this.roundLabelRight.text = i18n.t('baccarat.rounds');
+        } else {
+          this.roundLabelRight.text = i18n.t('baccarat.round');
+        }
+
         // this.bankerLabel.text = i18n.t('baccarat.banker');
         // this.playerLabel.text = i18n.t('baccarat.player');
         // this.tieLabel.text = i18n.t('baccarat.tie');

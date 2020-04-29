@@ -5,38 +5,38 @@
 				<e:Rect width="1081" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
 				<e:Group width="360" height="96" x="0" y="0">
 					<lw:StatisticChartPanelBar id="_progress0" width="300" height="26" y="63" x="31" source="m_lw_hor_betpool_barchart_east_png"/>
-					<ui:RunTimeLabel id="_lbl_lwTitle0" x="30" y="17" size="32" verticalAlign="middle" text="東" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_lbl_lwValue0" size="32" verticalAlign="middle" text="80,000000" fontFamily="Barlow" y="17" x="181"/>
+					<ui:RunTimeLabel id="_lbl_East" x="30" y="17" size="32" verticalAlign="middle" text="東" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_lbl_val_East" size="32" verticalAlign="middle" text="80,000000" fontFamily="Barlow" y="17" x="181"/>
 				</e:Group>
 				<e:Group width="360" height="96" x="0" y="96">
 					<lw:StatisticChartPanelBar id="_progress1" width="300" height="26" y="63" x="31" source="m_lw_hor_betpool_barchart_south_png"/>
-					<ui:RunTimeLabel id="_lbl_lwTitle1" x="30" y="17" size="32" verticalAlign="middle" text="南" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_lbl_lwValue1" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
+					<ui:RunTimeLabel id="_lbl_South" x="30" y="17" size="32" verticalAlign="middle" text="南" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_lbl_val_South" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
 				</e:Group>
 				<e:Group width="360" height="96" x="0" y="195">
 					<lw:StatisticChartPanelBar id="_progress2" width="300" height="26" y="63" x="31" source="m_lw_hor_betpool_barchart_west_png"/>
-					<ui:RunTimeLabel id="_lbl_lwTitle2" x="30" y="17" size="32" verticalAlign="middle" text="西" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_lbl_lwValue2" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
+					<ui:RunTimeLabel id="_lbl_West" x="30" y="17" size="32" verticalAlign="middle" text="西" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_lbl_val_West" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
 				</e:Group>
 				<e:Group width="360" height="96" x="360" y="0">
 					<lw:StatisticChartPanelBar id="_progress3" width="300" height="26" y="63" x="31" source="m_lw_hor_betpool_barchart_north_png"/>
-					<ui:RunTimeLabel id="_lbl_lwTitle3" x="30" y="17" size="32" verticalAlign="middle" text="北" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_lbl_lwValue3" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
+					<ui:RunTimeLabel id="_lbl_North" x="30" y="17" size="32" verticalAlign="middle" text="北" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_lbl_val_North" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
 				</e:Group>
 				<e:Group width="360" height="96" x="360" y="96">
 					<lw:StatisticChartPanelBar id="_progress4" width="300" height="26" y="63" x="31" source="m_lw_hor_betpool_barchart_white_png"/>
-					<ui:RunTimeLabel id="_lbl_lwTitle4" x="30" y="17" size="32" verticalAlign="middle" text="白" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_lbl_lwValue4" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
+					<ui:RunTimeLabel id="_lbl_White" x="30" y="17" size="32" verticalAlign="middle" text="白" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_lbl_val_White" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
 				</e:Group>
 				<e:Group width="360" height="96" x="720" y="0">
 					<lw:StatisticChartPanelBar id="_progress5" width="300" height="26" y="63" x="31" source="m_lw_hor_betpool_barchart_gold_png"/>
-					<ui:RunTimeLabel id="_lbl_lwTitle5" x="30" y="17" size="32" verticalAlign="middle" text="中" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_lbl_lwValue5" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
+					<ui:RunTimeLabel id="_lbl_Red" x="30" y="17" size="32" verticalAlign="middle" text="中" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_lbl_val_Red" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
 				</e:Group>
 				<e:Group width="360" height="96" x="720" y="96">
 					<lw:StatisticChartPanelBar id="_progress6" width="300" height="26" y="63" x="31" source="m_lw_hor_betpool_barchart_gold_png"/>
-					<ui:RunTimeLabel id="_lbl_lwTitle6" x="30" y="17" size="32" verticalAlign="middle" text="發" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_lbl_lwValue6" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
+					<ui:RunTimeLabel id="_lbl_Green" x="30" y="17" size="32" verticalAlign="middle" text="發" scaleX="1" scaleY="1"/>
+					<ui:RunTimeLabel id="_lbl_val_Green" size="32" verticalAlign="middle" text="25,080,000" fontFamily="Barlow" y="17" x="181"/>
 				</e:Group>
 				<e:layout>
 					<e:BasicLayout/>

@@ -2,9 +2,9 @@ namespace we {
   export namespace dt {
     export class StatisticChartPanel extends ui.Panel {
       protected _leftTitle: eui.Label;
-      protected _rightTitle: eui.Label;
-      protected roundLabelLeft: eui.Label;
-      protected roundLabelRight: eui.Label;
+      // protected _rightTitle: eui.Label;
+      protected roundLabelLeft: ui.RunTimeLabel;
+      // protected roundLabelRight: eui.Label;
 
       protected totalBankerCount: ui.RunTimeLabel;
       protected totalBankerCountPer: ui.RunTimeLabel;
@@ -24,8 +24,14 @@ namespace we {
       protected tiePairCount: ui.RunTimeLabel;
       protected tiePairCountPer: ui.RunTimeLabel;
 
+      protected _leftTitleDragon: ui.RunTimeLabel;
+      protected _leftTitleTiger: ui.RunTimeLabel;
+      protected _leftTitleTie: ui.RunTimeLabel;
+
       protected roundCount: ui.RunTimeLabel;
-      protected roundPairCountPer: ui.RunTimeLabel;
+      // protected roundPairCountPer: ui.RunTimeLabel;
+
+      protected roundCounter: number = 99;
 
       public constructor() {
         super();
@@ -47,8 +53,10 @@ namespace we {
           _y = 130;
         }
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        // this.changeLang();
+        this.changeLang();
         this.drawChartArc(10, 20, 30, _x, _y);
+
+        this.roundCount.text = this.roundCounter.toString();
       }
 
       protected drawChartArc(a: number, b: number, c: number, x: number, y: number) {
@@ -95,6 +103,18 @@ namespace we {
       }
 
       public changeLang() {
+        this._leftTitle.text = i18n.t('baccarat.BankerPlayerRatio');
+
+        if (this.roundCounter > 1) {
+          this.roundLabelLeft.text = i18n.t('dragontiger.rounds');
+        } else {
+          this.roundLabelLeft.text = i18n.t('dragontiger.round');
+        }
+
+        this._leftTitleDragon.text = i18n.t('dragontiger.dragonShort');
+        this._leftTitleTiger.text = i18n.t('dragontiger.tigerShort');
+        this._leftTitleTie.text = i18n.t('dragontiger.tieShort');
+
         // this.bankerLabel.text = i18n.t('baccarat.banker');
         // this.playerLabel.text = i18n.t('baccarat.player');
         // this.tieLabel.text = i18n.t('baccarat.tie');
