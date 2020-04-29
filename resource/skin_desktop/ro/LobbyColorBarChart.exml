@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ro.LobbyColorBarChart" width="250" height="90" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.ro.LobbyColorBarChart" width="230" height="90" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Image id="_redImg" width="30" height="18" x="0" y="0" source="m_lobby_ro_history_red_Rectangle_png" />
 	<e:Group bottom="0">
-		<ui:RunTimeLabel id="_totalRedCount" text="10" x="0" y="2" textAlign="center" anchorOffsetX="0" size="24" bold="true"
+		<ui:RunTimeLabel id="_totalLeftCount" text="10" x="0" y="2" textAlign="center" anchorOffsetX="0" size="24" bold="true"
 		                 verticalAlign="middle" alpha="1" />
 		<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="15" textAlign="center" verticalAlign="bottom" bold="true"
 		         alpha="1" />
@@ -14,7 +14,7 @@
 	<e:Group id="_moveGroup" x="120" y="0" height="90">
 		<e:Image id="_greenImg" width="30" height="18" x="0" y="0" source="m_lobby_ro_history_green_Rectangle_png" />
 		<e:Group x="0" bottom="0">
-			<ui:RunTimeLabel id="_totalGreenCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="24"
+			<e:Label id="_totalMidCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="24"
 			                 verticalAlign="middle" bold="true" alpha="1" />
 			<e:Label text="%" x="39" y="0" scaleX="1" scaleY="1" size="15" textAlign="center" verticalAlign="bottom" bold="true"
 			         alpha="1" />
@@ -25,7 +25,7 @@
 	</e:Group>
 	<e:Image id="_blackImg" width="30" height="18" x="200" y="0" source="m_lobby_ro_history_black_Rectangle_png" />
 	<e:Group bottom="0" right="0">
-		<ui:RunTimeLabel id="_totalBlackCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="24"
+		<e:Label id="_totalRightCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="24"
 		                 verticalAlign="middle" bold="true" alpha="1" />
 		<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="15" textAlign="center" verticalAlign="bottom" bold="true"
 		         alpha="1" />

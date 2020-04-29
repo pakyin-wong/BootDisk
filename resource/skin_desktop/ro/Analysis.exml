@@ -40,13 +40,13 @@
                         <e:Label id="_coldNumber4Text" horizontalCenter="0" verticalCenter="0" size="20" />
                 </e:Group>
         </e:Group>
-        <e:Group x="16" y="141" width="250" height="90">
+        <e:Group x="26" y="141" width="230" height="90">
                 <ro:BarChart id="_colorChart" skinName="skin_desktop.ro.LobbyColorBarChart" />
         </e:Group>
-        <e:Group x="16" y="239" width="250" height="90">
+        <e:Group x="26" y="239" width="230" height="90">
                 <ro:BarChart id="_oddChart" skinName="skin_desktop.ro.LobbyOddBarChart" />
         </e:Group>
-        <e:Group x="16" y="337" width="250" height="90">
+        <e:Group x="26" y="337" width="230" height="90">
                 <ro:BarChart id="_bigChart" skinName="skin_desktop.ro.LobbyBigBarChart" />
         </e:Group>
 </e:Skin>

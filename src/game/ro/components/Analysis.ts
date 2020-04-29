@@ -28,11 +28,11 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._colorChart.setParam(250, 10, 20, 30, 0, 30, 10, [0x474747, 0x000000]);
+        this._colorChart.setParam(230, 10, 20, 30, 0, 30, 10, [0x474747, 0x000000]);
         this._colorChart.draw();
-        this._oddChart.setParam(250, 70, 500, 300, 0, 30, 10);
+        this._oddChart.setParam(230, 70, 500, 300, 0, 30, 10);
         this._oddChart.draw();
-        this._bigChart.setParam(250, 70, 60, 200, 0, 30, 10);
+        this._bigChart.setParam(230, 70, 60, 200, 0, 30, 10);
         this._bigChart.draw();
       }
 
