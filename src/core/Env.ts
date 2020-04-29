@@ -27,6 +27,7 @@ namespace we {
       public voice: string = 'mandarin';
       public bgm = 1;
       public betLimits: data.BetLimitSet[];
+      public wholeDenomList: number[];
       public goodRoadData: data.GoodRoadMapData;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
