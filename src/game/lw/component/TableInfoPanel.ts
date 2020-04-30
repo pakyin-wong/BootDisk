@@ -1,90 +1,73 @@
 namespace we {
   export namespace lw {
     export class TableInfoPanel extends ui.TableInfoPanel {
-      protected bankerLabel: eui.Label;
-      protected playerLabel: eui.Label;
-      protected tieLabel: eui.Label;
-      protected bankerPairLabel: eui.Label;
-      protected playerPairLabel: eui.Label;
+      protected eastLabel: eui.Label;
+      protected southLabel: eui.Label;
+      protected westLabel: eui.Label;
+      protected northLabel: eui.Label;
+      protected whiteLabel: eui.Label;
+      protected centerLabel: eui.Label;
+      protected fatLabel: eui.Label;
 
-      protected pBanker: eui.Label;
-      protected pPlayer: eui.Label;
-      protected pTie: eui.Label;
-      protected pBankerPair: eui.Label;
-      protected pPlayerPair: eui.Label;
+      protected pEastMax: eui.Label;
+      protected pEastOdd: eui.Label;
 
-      protected gameIdLabel: eui.Label;
-      protected betLimitLabel: eui.Label;
+      protected pSouthMax: eui.Label;
+      protected pSouthOdd: eui.Label;
 
-      protected pGameID: eui.Label;
+      protected pWestMax: eui.Label;
+      protected pWestOdd: eui.Label;
 
-      public pBetLimit: ui.RunTimeLabel;
+      protected pNorthMax: eui.Label;
+      protected pNorthOdd: eui.Label;
 
-      public constructor() {
-        super();
-      }
+      protected pWhiteMax: eui.Label;
+      protected pWhiteOdd: eui.Label;
 
-      protected partAdded(partName: string, instance: any): void {
-        super.partAdded(partName, instance);
-      }
+      protected pCenterMax: eui.Label;
+      protected pCenterOdd: eui.Label;
 
-      protected childrenCreated(): void {
-        super.childrenCreated();
-        this._initY = this.y;
-        // this.alpha = 0;
-        // this.visible = true;
-        // this.close.addEventListener(
-        //   egret.TouchEvent.TOUCH_TAP,
-        //   () => {
-        //     this.visible = !this.visible;
-        //   },
-        //   this
-        // );
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
-        mouse.setButtonMode(this.close, true);
-        this.changeLang();
-      }
-
-      public onExit() {
-        this.destroy();
-      }
+      protected pFatMax: eui.Label;
+      protected pFatOdd: eui.Label;
 
       public changeLang() {
         super.changeLang();
-        // this.bankerLabel.text = i18n.t('baccarat.banker');
-        // this.playerLabel.text = i18n.t('baccarat.player');
-        // this.tieLabel.text = i18n.t('baccarat.tie');
-        // this.bankerPairLabel.text = i18n.t('baccarat.bankerPair');
-        // this.playerPairLabel.text = i18n.t('baccarat.playerPair');
-        // if (this.gameIdLabel) {
-        //   this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
-        // }
-        // if (this.betLimitLabel) {
-        //   this.betLimitLabel.text = i18n.t('baccarat.betLimitshort');
-        // }
+
+        this.eastLabel.text = i18n.t('luckywheel.east');
+        this.southLabel.text = i18n.t('luckywheel.south');
+        this.westLabel.text = i18n.t('luckywheel.west');
+        this.northLabel.text = i18n.t('luckywheel.north');
+        this.whiteLabel.text = i18n.t('luckywheel.white');
+        this.centerLabel.text = i18n.t('luckywheel.center');
+        this.fatLabel.text = i18n.t('luckywheel.fai');
       }
 
       public setValue(tableInfo: data.TableInfo) {
-        // super.setValue(tableInfo);
-        // if (tableInfo.gamestatistic.bankerCount) {
-        //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.playerCount) {
-        //   this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.tieCount) {
-        //   this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.bankerPairCount) {
-        //   this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.playerPairCount) {
-        //   this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
-        // }
-        // if (this.pGameID) {
-        //   this.pGameID.text = tableInfo.betInfo.gameroundid;
-        // }
+        super.setValue(tableInfo);
+
+        const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
+        if (betLimitSet.limits && betLimitSet.limits.lw) {
+          const limits = betLimitSet.limits.lw;
+          const list = [
+            { target: this.pEastMax, value: limits.LW_0.maxlimit },
+            { target: this.pEastOdd, value: limits.LW_0.odd },
+            { target: this.pSouthMax, value: limits.LW_1.maxlimit },
+            { target: this.pSouthOdd, value: limits.LW_1.odd },
+            { target: this.pWestMax, value: limits.LW_2.maxlimit },
+            { target: this.pWestOdd, value: limits.LW_2.odd },
+            { target: this.pNorthMax, value: limits.LW_3.maxlimit },
+            { target: this.pNorthOdd, value: limits.LW_3.odd },
+            { target: this.pWhiteMax, value: limits.LW_4.maxlimit },
+            { target: this.pWhiteOdd, value: limits.LW_4.odd },
+            { target: this.pCenterMax, value: limits.LW_5.maxlimit },
+            { target: this.pCenterOdd, value: limits.LW_5.odd },
+            { target: this.pFatMax, value: limits.LW_6.maxlimit },
+            { target: this.pFatOdd, value: limits.LW_6.odd },
+          ];
+          for (const { target, value } of list) {
+            target.text = value.toString();
+          }
+        }
       }
     }
   }

@@ -107,6 +107,7 @@ namespace we {
       mobile_panel_game_Info: '遊戲資訊',
 
       mobile_notification_quick_bet_button_label: '即時投注',
+      mobile_notification_quick_bet_button_label_real_mobile: '下注',
       mobile_notification_close_button_label: '關閉',
 
       mobile_quick_bet_button_label: '快速投注',
@@ -197,7 +198,6 @@ namespace we {
         single: '單骰',
         double: '雙骰',
         triple: '三骰',
-
         roadBig: '大',
         roadSmall: '小',
         roadOdd: '單',
@@ -213,6 +213,12 @@ namespace we {
         gameStats: '結果統計',
         dicePercent: '骰子機率',
         allTriple: '全圍',
+        tripleLong: '圍骰',
+        doubleLong: '對子 (雙骰、長牌)',
+        combine: '牌九式 (骨牌)',
+        specificSingle: '指定骰子: 單骰',
+        specificDouble: '指定骰子: 雙骰',
+        specificTriple: '指定骰子: 三骰',
       },
       roulette: {
         row_1: '第一行',
@@ -248,7 +254,10 @@ namespace we {
         luckyNumber: '幸運數字',
         jockeyBet: '馬場下注區',
         customBet: '自選投注組合',
-        distribution: { text: '散佈', x: 60 },
+        distribution: {
+          text: '散佈',
+          x: 60,
+        },
         tiers: {
           text: '輪盤下角注',
           x: 23,
@@ -261,16 +270,20 @@ namespace we {
           text: '零旁注上角',
           x: 16,
         },
-
         zero: {
           text: '輪上零旁',
         },
         betGroup: {
-          color: '紅 / 黑',
-          oddeven: '單 / 雙',
-          size: '大 / 小',
-          column: '下注一打',
+          direct: '直接注',
+          separate: '分注',
+          street: '街注 / 三數',
+          corner: '角注 / 四個號碼',
+          line: '線注',
           row: '行注',
+          column: '下注一打',
+          color: '紅 / 黑',
+          oddeven: '雙數 / 單數',
+          size: '大 / 小',
         },
       },
       goodroad: {
@@ -285,6 +298,16 @@ namespace we {
         r9: '拍拍黐',
         r10: '逢庄唔黐',
       },
+      luckywheel: {
+        pool: '即時彩池',
+        east: '東',
+        south: '南',
+        west: '西',
+        north: '北',
+        white: '白',
+        center: '中',
+        fai: '發',
+      },
       game: {
         startBet: '開始下注',
         stopBet: '停止下注',
@@ -293,6 +316,17 @@ namespace we {
         bet: '已下注',
         goodroad: '好路',
         allgame: '全部遊戲',
+      },
+      tableInfo: {
+        tableInfo: '本檯資訊',
+        tableNo: '檯號',
+        roundNo: '局號',
+        dealer: '荷官',
+        tableBetLimit: '本檯限紅',
+        betLimit: '投注限紅',
+        bet: '投注',
+        max: '最大',
+        odds: '賠率',
       },
       baccarat: {
         playerPair: '閒對',
@@ -304,10 +338,6 @@ namespace we {
         superSix: '超級六',
         banker: '庄',
         bankerShort: '庄',
-        tableInfo: '本檯資訊',
-        tableNo: '檯號',
-        roundNo: '局號',
-        dealer: '荷官',
         time: '時間',
         betLimit: '下注限紅',
         betLimitshort: '限紅',

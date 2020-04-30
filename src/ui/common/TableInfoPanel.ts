@@ -1,23 +1,30 @@
 namespace we {
   export namespace ui {
     export class TableInfoPanel extends Panel {
-      protected _visible;
       protected _initY;
-      public close: eui.Label;
+      public close: eui.Image;
       public content: eui.Group;
-      public moveArea: eui.Component;
+      public moveArea: eui.Image;
 
       protected lblTableInfo: eui.Label;
 
       protected tableNoLabel: eui.Label;
       protected roundNoLabel: eui.Label;
+      protected gameIdLabel: eui.Label;
       protected dealerLabel: eui.Label;
-      protected timeLabel: eui.Label;
+      protected tableBetLimitLabel: eui.Label;
+      protected betLimitLabel: eui.Label;
+
+      protected lblBet: eui.Label;
+      protected lblMax: eui.Label;
+      protected lblOdds: eui.Label;
 
       protected pTableID: eui.Label;
       protected pRoundID: eui.Label;
+      protected pGameID: eui.Label;
       protected pDealer: eui.Label;
-      protected pTime: eui.Label;
+      protected pTableBetLimit: eui.Label;
+      public pBetLimit: ui.RunTimeLabel;
 
       public constructor() {
         super();
@@ -30,15 +37,7 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
         this._initY = this.y;
-        // this.alpha = 0;
-        // this.visible = true;
-        // this.close.addEventListener(
-        //   egret.TouchEvent.TOUCH_TAP,
-        //   () => {
-        //     this.visible = !this.visible;
-        //   },
-        //   this
-        // );
+
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
         mouse.setButtonMode(this.close, true);
@@ -50,18 +49,29 @@ namespace we {
       }
 
       public changeLang() {
-        this.tableNoLabel.text = i18n.t('baccarat.tableNo');
-        this.roundNoLabel.text = i18n.t('baccarat.roundNo');
-        this.dealerLabel.text = i18n.t('baccarat.dealer');
-        this.timeLabel.text = i18n.t('baccarat.time');
-        this.lblTableInfo.text = i18n.t('baccarat.tableInfo');
+        this.lblTableInfo.text = i18n.t('tableInfo.tableInfo');
+
+        this.tableNoLabel.text = i18n.t('tableInfo.tableNo');
+        this.roundNoLabel.text = i18n.t('tableInfo.roundNo');
+        this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
+        this.dealerLabel.text = i18n.t('tableInfo.dealer');
+        this.tableBetLimitLabel.text = i18n.t('tableInfo.tableBetLimit');
+        this.betLimitLabel.text = i18n.t('tableInfo.betLimit');
+
+        this.lblBet.text = i18n.t('tableInfo.bet');
+        this.lblMax.text = i18n.t('tableInfo.max');
+        this.lblOdds.text = i18n.t('tableInfo.odds');
       }
 
       public setValue(tableInfo: data.TableInfo) {
         this.pTableID.text = tableInfo.tableid;
         this.pRoundID.text = tableInfo.data.gameroundid;
+        this.pGameID.text = tableInfo.betInfo.gameroundid;
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
-        this.pTime.text = moment(env.currTime).format('YYYY/MM/DD');
+
+        const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
+        this.pTableBetLimit.text = betLimitSet.maxlimit.toString();
+        this.pBetLimit.text = `${betLimitSet.chips[0]} -  ${betLimitSet.chips[betLimitSet.chips.length - 1]}`;
       }
     }
   }

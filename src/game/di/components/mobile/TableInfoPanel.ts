@@ -1,175 +1,85 @@
-// TypeScript file
 namespace we {
   export namespace di {
     export class TableInfoPanel extends ui.TableInfoPanel {
-      protected contentTwo: eui.Group;
-
-      protected gameIdLabel: eui.Label;
-
-      protected oddevenLabel: eui.Label;
       protected sizeLabel: eui.Label;
+      protected oddevenLabel: eui.Label;
       protected tripleLabel: eui.Label;
       protected allTripleLabel: eui.Label;
       protected doubleLabel: eui.Label;
-
-      public pBetLimit: ui.RunTimeLabel;
-      protected pGameID: eui.Label;
-      protected pOddEven: eui.Label;
-      protected pSize: eui.Label;
-      protected pTriple: eui.Label;
-      protected pAllTriple: eui.Label;
-      protected pDouble: eui.Label;
-
       protected fourSeventeenLabel: eui.Label;
-      protected pFourSeventeen: eui.Label;
-
       protected fiveSixteenLabel: eui.Label;
-      protected pFiveSixteen: eui.Label;
-
       protected sixFifthteenLabel: eui.Label;
-      protected pSixFifthTeen: eui.Label;
-
       protected sevenFourteenLabel: eui.Label;
-      protected pSevenFourTeen: eui.Label;
-
       protected eightThirdteenLabel: eui.Label;
-      protected pEightThirdteen: eui.Label;
-
-      protected nineTenLabel: eui.Label;
-      protected pNineTen: eui.Label;
-
-      protected paiGowLabel: eui.Label;
-      protected pPaiGow: eui.Label;
-
+      protected nineTenElevenTwelveLabel: eui.Label;
+      protected combineLabel: eui.Label;
       protected specificSingleLabel: eui.Label;
-      protected pSpecificSingle: eui.Label;
-
       protected specificDoubleLabel: eui.Label;
-      protected pSpecificDouble: eui.Label;
-
       protected specificTripleLabel: eui.Label;
-      protected pSpecificTriple: eui.Label;
 
-      private slides = [];
-      private duration = 1.0;
-      private currentIndex = 0;
-      private direction: string;
-      private isDown = false;
-      private isMoved = false;
-      private isAnimating = false;
-      private autoPlayTimer: number;
+      protected pBigSmallMax: eui.Label;
+      protected pBigSmallOdd: eui.Label;
 
-      private _bulletOne: eui.Image;
-      private _bulletTwo: eui.Image;
-      private initX;
+      protected pOddEvenMax: eui.Label;
+      protected pOddEvenOdd: eui.Label;
 
-      public constructor() {
-        super();
-      }
+      protected pTripleMax: eui.Label;
+      protected pTripleOdd: eui.Label;
 
-      protected childrenCreated(): void {
-        super.childrenCreated();
+      protected pTripleAllMax: eui.Label;
+      protected pTripleAllOdd: eui.Label;
 
-        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this.contentTwo.alpha = 0;
-        this.configSlides();
-      }
+      protected pDoubleMax: eui.Label;
+      protected pDoubleOdd: eui.Label;
 
-      public configSlides() {
-        this.slides = [this.content, this.contentTwo];
-        logger.l(this.width, this.height, this.slides);
+      protected pFourSeventeenMax: eui.Label;
+      protected pFourSeventeenOdd: eui.Label;
 
-        if (!this.slides.length) {
-          return;
-        }
+      protected pFiveSixteenMax: eui.Label;
+      protected pFiveSixteenOdd: eui.Label;
 
-        const slide = this.slides[this.currentIndex];
-      }
+      protected pSixFifthTeenMax: eui.Label;
+      protected pSixFifthTeenOdd: eui.Label;
 
-      private onTouchBegin(event: egret.TouchEvent): void {
-        if (!this.touchEnabled) {
-          return;
-        }
-        if (this.isAnimating) {
-          clearTimeout(this.autoPlayTimer);
-          return;
-        }
-        this.isDown = true;
-        this.initX = event.$stageX;
-        this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-      }
+      protected pSevenFourTeenMax: eui.Label;
+      protected pSevenFourTeenOdd: eui.Label;
 
-      private onTouchMove(event: egret.TouchEvent): void {
-        this.isMoved = true;
+      protected pEightThirdteenMax: eui.Label;
+      protected pEightThirdteenOdd: eui.Label;
 
-        if (!this.slides.length) {
-          return;
-        }
+      protected pNineTenElevenTwelveMax: eui.Label;
+      protected pNineTenElevenTwelveOdd: eui.Label;
 
-        this.content.x = event.$stageX - this.initX;
-        if (this.content.x > 0) {
-          // invisible one to left (prev)
-          this.contentTwo.x = this.content.x - 2484;
-          this.direction = 'prev';
-        } else {
-          // invisble one to right (next)
-          this.contentTwo.x = this.content.x + 2484;
-          this.direction = 'next';
-        }
-        const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
-        this.contentTwo.alpha = 1;
-      }
+      protected pCombineMax: eui.Label;
+      protected pCombineOdd: eui.Label;
 
-      private onTouchEnd(event: egret.TouchEvent): void {
-        clearTimeout(this.autoPlayTimer);
-        this.isDown = false;
-        this.isMoved = false;
-        this.isAnimating = true;
-        this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+      protected pSpecificSingleMax: eui.Label;
+      protected pSpecificSingleOdd: eui.Label;
 
-        const diff = event.$stageX - this.initX;
+      protected pSpecificDoubleMax: eui.Label;
+      protected pSpecificDoubleOdd: eui.Label;
 
-        if (Math.abs(diff) / 2484 <= 0.25) {
-          // not reach threshold, don't slide
-          TweenLite.to(this.content, this.duration, {
-            x: 0,
-          });
-          TweenLite.to(this.contentTwo, this.duration, {
-            x: this.direction === 'next' ? 2484 : -2484,
-          });
-
-          setTimeout(() => {
-            this.contentTwo.alpha = 0;
-            this.isAnimating = false;
-          }, this.duration * 1000 + 50);
-          return;
-        }
-
-        // Before Animate
-        this.currentIndex = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
-
-        TweenLite.to(this.contentTwo, this.duration, {
-          x: 0,
-        });
-        TweenLite.to(this.content, this.duration, {
-          x: this.direction === 'next' ? -2484 : 2484,
-        });
-
-        setTimeout(() => {
-          this.isAnimating = false;
-        }, this.duration * 1000 + 50);
-      }
+      protected pSpecificTripleMax: eui.Label;
+      protected pSpecificTripleOdd: eui.Label;
 
       public changeLang() {
         super.changeLang();
 
-        this.oddevenLabel.text = i18n.t('dice.odd') + '/' + i18n.t('dice.even');
-        this.sizeLabel.text = i18n.t('dice.big') + '/' + i18n.t('dice.small');
-        this.tripleLabel.text = i18n.t('dice.triple');
+        this.sizeLabel.text = i18n.t('dice.big') + ' / ' + i18n.t('dice.small');
+        this.oddevenLabel.text = i18n.t('dice.odd') + ' / ' + i18n.t('dice.even');
+        this.tripleLabel.text = i18n.t('dice.tripleLong');
         this.allTripleLabel.text = i18n.t('dice.allTriple');
-        this.doubleLabel.text = i18n.t('dice.double');
+        this.doubleLabel.text = i18n.t('dice.doubleLong');
+        this.fourSeventeenLabel.text = i18n.t('dice.total') + '4 / 17';
+        this.fiveSixteenLabel.text = i18n.t('dice.total') + '5 / 16';
+        this.sixFifthteenLabel.text = i18n.t('dice.total') + '6 / 15';
+        this.sevenFourteenLabel.text = i18n.t('dice.total') + '7 / 14';
+        this.eightThirdteenLabel.text = i18n.t('dice.total') + '8 / 13';
+        this.nineTenElevenTwelveLabel.text = i18n.t('dice.total') + '9 / 10 / 11 / 12';
+        this.combineLabel.text = i18n.t('dice.paiGow');
+        this.specificSingleLabel.text = i18n.t('dice.specificSingle');
+        this.specificDoubleLabel.text = i18n.t('dice.specificDouble');
+        this.specificTripleLabel.text = i18n.t('dice.specificTriple');
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -179,20 +89,34 @@ namespace we {
         if (betLimitSet.limits && betLimitSet.limits.di) {
           const limits = betLimitSet.limits.di;
           const list = [
-            { target: this.pOddEven, value: limits.ODD_EVEN.maxlimit },
-            { target: this.pSize, value: limits.BIG_SMALL.maxlimit },
-            { target: this.pTriple, value: limits.TRIPLE.maxlimit },
-            { target: this.pAllTriple, value: limits.TRIPLE_ALL.maxlimit },
-            { target: this.pDouble, value: limits.DOUBLE.maxlimit },
-            { target: this.pFourSeventeen, value: limits.SUM_4_17.maxlimit },
-            { target: this.pFiveSixteen, value: limits.SUM_5_16.maxlimit },
-            { target: this.pSixFifthTeen, value: limits.SUM_6_15.maxlimit },
-            { target: this.pSevenFourTeen, value: limits.SUM_7_14.maxlimit },
-            { target: this.pNineTen, value: limits.SUM_9_10_11_12.maxlimit },
-            { target: this.pPaiGow, value: limits.COMBINE.maxlimit },
-            { target: this.pSpecificSingle, value: limits.SPECIFIC_1.maxlimit },
-            { target: this.pSpecificDouble, value: limits.SPECIFIC_2.maxlimit },
-            { target: this.pSpecificTriple, value: limits.SPECIFIC_3.maxlimit },
+            { target: this.pOddEvenMax, value: limits.ODD_EVEN.maxlimit },
+            { target: this.pOddEvenOdd, value: limits.ODD_EVEN.odd },
+            { target: this.pBigSmallMax, value: limits.BIG_SMALL.maxlimit },
+            { target: this.pBigSmallOdd, value: limits.BIG_SMALL.odd },
+            { target: this.pTripleMax, value: limits.TRIPLE.maxlimit },
+            { target: this.pTripleOdd, value: limits.TRIPLE.odd },
+            { target: this.pTripleAllMax, value: limits.TRIPLE_ALL.maxlimit },
+            { target: this.pTripleAllOdd, value: limits.TRIPLE_ALL.odd },
+            { target: this.pDoubleMax, value: limits.DOUBLE.maxlimit },
+            { target: this.pDoubleOdd, value: limits.DOUBLE.odd },
+            { target: this.pFourSeventeenMax, value: limits.SUM_4_17.maxlimit },
+            { target: this.pFourSeventeenOdd, value: limits.SUM_4_17.odd },
+            { target: this.pFiveSixteenMax, value: limits.SUM_5_16.maxlimit },
+            { target: this.pFiveSixteenOdd, value: limits.SUM_5_16.odd },
+            { target: this.pSixFifthTeenMax, value: limits.SUM_6_15.maxlimit },
+            { target: this.pSixFifthTeenOdd, value: limits.SUM_6_15.odd },
+            { target: this.pSevenFourTeenMax, value: limits.SUM_7_14.maxlimit },
+            { target: this.pSevenFourTeenOdd, value: limits.SUM_7_14.odd },
+            { target: this.pNineTenElevenTwelveMax, value: limits.SUM_9_10_11_12.maxlimit },
+            { target: this.pNineTenElevenTwelveOdd, value: limits.SUM_9_10_11_12.odd },
+            { target: this.pCombineMax, value: limits.COMBINE.maxlimit },
+            { target: this.pCombineOdd, value: limits.COMBINE.odd },
+            { target: this.pSpecificSingleMax, value: limits.SPECIFIC_1.maxlimit },
+            { target: this.pSpecificSingleOdd, value: limits.SPECIFIC_1.odd },
+            { target: this.pSpecificDoubleMax, value: limits.SPECIFIC_2.maxlimit },
+            { target: this.pSpecificDoubleOdd, value: limits.SPECIFIC_2.odd },
+            { target: this.pSpecificTripleMax, value: limits.SPECIFIC_3.maxlimit },
+            { target: this.pSpecificTripleOdd, value: limits.SPECIFIC_3.odd },
           ];
           for (const { target, value } of list) {
             target.text = value.toString();
