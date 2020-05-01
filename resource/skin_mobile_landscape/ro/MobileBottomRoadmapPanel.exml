@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ro.MobileBottomRoadmapPanel" width="1258" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ro="we.ro.*">
+	<e:Group id="content">
+		<e:Rect width="358" fillColor="0x212425" top="0" bottom="0"/>
+		<e:Component id="_roadmapBg" x="358" width="900" top="0" bottom="0" visible="false">
+					<e:skinName>
+					<e:Skin states="dark,light">
+						<e:Rect width="100%" height="100%" fillColor.light="0xffffff" fillColor.dark="0x262a2b"/>
+					</e:Skin>
+					</e:skinName>
+					</e:Component>
+					<e:ViewStack id="_roadmapView" height="305" width="900" x="358" y="3">
+						<e:Group name="color" left="0" right="0" top="0" bottom="0">
+							<ro:RoadMapConfig id="colorBigRoadConfig" roadmap_col="18" roadmap_gridSize="52"/>
+						</e:Group>
+						<e:Group name="size" left="0" right="0" top="0" bottom="0">
+							<ro:RoadMapConfig id="sizeBigRoadConfig" roadmap_col="18" roadmap_gridSize="52"/>
+						</e:Group>
+						<e:Group name="oddeven" left="0" right="0" top="0" bottom="0">
+							<ro:RoadMapConfig id="oddBigRoadConfig" roadmap_col="18" roadmap_gridSize="52"/>
+						</e:Group>
+					</e:ViewStack>
+					<e:RadioButton id="colorRoadBtn" label="紅 / 黑" x="10" y="16" width="320" height="80" value="0" selected="true" groupName="roadmap">
+					<e:skinName>
+						<e:Skin states="up,down,disabled">
+						<e:Rect width="100%" height="100%" fillColor="0x375b7f" ellipseHeight="72" ellipseWidth="72" visible.up="false"/>
+						<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="38" textColor="0xffffff"/>
+						</e:Skin>
+					</e:skinName>
+					</e:RadioButton>
+					<e:RadioButton id="sizeRoadBtn" label="大 / 小" x="10" y="114" width="320" height="80" value="1" groupName="roadmap">
+					<e:skinName>
+						<e:Skin states="up,down,disabled">
+						<e:Rect width="100%" height="100%" fillColor="0x375b7f" ellipseHeight="72" ellipseWidth="72" visible.up="false"/>
+						<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="38" textColor="0xffffff"/>
+						</e:Skin>
+					</e:skinName>
+					</e:RadioButton>
+					<e:RadioButton id="oddevenRoadBtn" label="單 / 雙" x="10" y="212" width="320" height="80" value="2" groupName="roadmap">
+					<e:skinName>
+						<e:Skin states="up,down,disabled">
+						<e:Rect width="100%" height="100%" fillColor="0x375b7f" ellipseHeight="72" ellipseWidth="72" visible.up="false"/>
+						<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="38" textColor="0xffffff"/>
+						</e:Skin>
+					</e:skinName>
+					</e:RadioButton>
+	</e:Group>
+</e:Skin>

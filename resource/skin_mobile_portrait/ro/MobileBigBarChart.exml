@@ -7,7 +7,7 @@
 		                 size="36" height="55" verticalAlign="middle" bold="true" horizontalCenter="0" verticalCenter="0" />
 	</e:Group>
 	<e:Group x="0" y="150">
-		<ui:RunTimeLabel id="_totalbigCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+		<e:Label id="_totalLeftCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
 		                 verticalAlign="middle" bold="true" alpha="1" />
 		<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"
 		         alpha="1" />
@@ -22,7 +22,7 @@
 			                 anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true" />
 		</e:Group>
 		<e:Group x="0" y="150">
-			<ui:RunTimeLabel id="_totalBigZeroCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+			<e:Label id="_totalMidCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
 			                 verticalAlign="middle" bold="true" alpha="1" />
 			<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"
 			         alpha="1" />
@@ -37,7 +37,7 @@
 		                 width="55" size="36" height="55" verticalAlign="middle" bold="true" />
 	</e:Group>
 	<e:Group x="445" y="150">
-		<ui:RunTimeLabel id="_totalSmallCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+		<e:Label id="_totalRightCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
 		                 verticalAlign="middle" bold="true" alpha="1" />
 		<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"
 		         alpha="1" />

@@ -374,6 +374,17 @@ namespace we {
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
+        let denominationList = [];
+        for (const betLimit of env.betLimits) {
+          denominationList.push(...betLimit.chips);
+        }
+        denominationList = denominationList
+          .filter((v, i) => denominationList.indexOf(v) === i)
+          .sort((a, b) => {
+            return a < b ? -1 : 1;
+          });
+        env.wholeDenomList = denominationList;
+
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');

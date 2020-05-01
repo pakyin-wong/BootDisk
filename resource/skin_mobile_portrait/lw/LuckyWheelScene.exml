@@ -3,7 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:lw="we.lw.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:ns1="*"
         states="left_hand_mode,right_hand_mode">
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
-	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242"  source="m_lw_ver_bg_jpg_png" source.left_hand_mode="m_lw_ver_bg_jpg"/>
+	<e:Image id="_bgImg" top="0" bottom="0" x="0" width="1242"  source="m_lw_ver_bg_jpg"/>
 	<e:Group id="_verticalGroup" width="1242" x="0" bottom="0">
 		<e:Group id="_verticalTop" width="1242" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
 			<lw:TableLayer id="_tableLayer" width="100%" height="263" x="0" y="400" isEdgeDismissable="true"
@@ -35,7 +35,7 @@
 				          verticalCenter="0" x.right_hand_mode="684"  skinName="skin_mobile_portrait.BetConfirmButtonSkin"/>
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="0"
 				                   verticalCenter="0" x.right_hand_mode="684" />
-				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0">
+				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0" touchEnabled="false" touchChildren="false">
 					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788" x.right_hand_mode="82" />
 					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500" x.right_hand_mode="432" />
 					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650" x.right_hand_mode="266" />

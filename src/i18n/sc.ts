@@ -99,6 +99,7 @@ namespace we {
       mobile_ba_clear: '清除',
       mobile_ba_double: '双倍',
       mobile_ba_repeat: '再次下注',
+      mobile_game_panel_historyRoad: '历史记录/路纸',
       mobile_game_panel_history: '历史记录',
       mobile_game_panel_road_sheet: '路纸',
       mobile_game_panel_statistic_chart: '统计图表',

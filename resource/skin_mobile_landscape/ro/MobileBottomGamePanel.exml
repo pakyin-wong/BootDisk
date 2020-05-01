@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ro.MobileBottomGamePanel" width="2424" 
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" states="on,off" >
+	<e:Group>
+	<e:layout>
+	<e:VerticalLayout gap="0" horizontalAlign="center"/>
+	</e:layout>
+		<e:Group id="_topPart" x="0" y="0" scaleX="1" scaleY="1" height="66">
+			<e:Rect width="116" height="66" x="2259" y="0" strokeWeight="0" strokeColor="0x212425" fillColor="0x212425"/>
+			<e:Image id="_arrow" x="2277" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.off="false" y="-7"/>
+			<e:Image id="_arrowUp" x="2357" width="80" height="80" scaleX="1" scaleY="1" source="d_lobby_button_down_normal_png" rotation="180" visible.on="false" y="73"/>
+			<ui:RunTimeLabel id="_gameInfoLabel" text="" size="42" bold="true" visible="false"/>
+		</e:Group>
+		<e:Group id="_middlePart" width="2424" x="0" y="100">
+			<e:Rect id="viewStackMask" top="0" bottom="0" left="0" right="0"/>
+			<e:Rect strokeWeight="0" fillColor="0x212425" strokeColor="0x212425" left="0" right="0" top="0" bottom="0"/>
+			<e:RadioButton id="roadSheetBtn" label="路紙" x="2108" y="16" width="301" height="80" visible="false">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+				</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="historyBtn" label="歷史記錄" x="2108" y="16" width="301" height="80" visible="false">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="38" bold="true"/>
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+				</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="historyRoadBtn" label="歷史記錄 / 路紙" x="2108" y="16" width="301" height="80" value="0" selected="true" groupName="top" visible.off="false">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="38" bold="true"/>
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+				</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="chartBtn" label="統計圖表" x="2108" y="114" width="301" height="80" value="1" visible.off="false" groupName="top">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="38" bold="true"/>
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+				</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="tableInfoBtn" label="本檯資訊" x="2108" y="212" width="301" height="80" value="2" visible.off="false" groupName="top">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="38" bold="true"/>
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+				</e:skinName>
+			</e:RadioButton>
+			<e:ViewStack id="viewStack" width="2093" selectedIndex="1">
+				<e:Group id="_historyRoadGroup" name="Group" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0">
+					<ro:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_landscape.ro.MobileBottomRoadmapPanel"/>
+					<ro:RoadMapConfig id="beadRoadConfig" roadmap_col="11" roadmap_gridLine="2.6" roadmap_gridSize="60" roadmap_offsetX="13" roadmap_offsetY="15" x="1294" y="10" roadmap_row="4"/>
+				</e:Group>
+				<e:Group id="_chartGroup" name="Group" left="0" right="0" top="0" bottom="0">
+					<ro:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_landscape.ro.StatisticChartPanel"/>
+				</e:Group>
+				<e:Group id="_infoGroup" name="Group" left="0" right="0" top="0" bottom="0">
+					<ro:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.ro.TableInfoPanel"/>
+				</e:Group>
+			</e:ViewStack>
+		</e:Group>
+		<e:Group id="_bottomPart" x="0" y="632" scaleX="1" scaleY="1" height="0" visible="false">
+			<e:Image id="bottom_bg" height="0" source="" visible="false"/>
+			<ui:RunTimeLabel id="gameIdLabel" text="" textAlign="right" size="25" height="0" visible="false"/>
+			<ui:RunTimeLabel id="totalBetLabel" text="" textAlign="left" size="25" height="0" visible="false"/>
+		</e:Group>
+
+		</e:Group>
+</e:Skin>

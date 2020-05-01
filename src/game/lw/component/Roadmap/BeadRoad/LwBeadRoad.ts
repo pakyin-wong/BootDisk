@@ -190,13 +190,23 @@ namespace we {
 
       public dispose() {
         super.dispose();
-        if (this.hasEventListener(egret.TouchEvent.TOUCH_TAP)) this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        if (this.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
+        }
 
-        if (this.hasEventListener(mouse.MouseEvent.ROLL_OVER)) this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
+        if (this.hasEventListener(mouse.MouseEvent.ROLL_OVER)) {
+          this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onOver, this);
+        }
 
-        if (this.hasEventListener(mouse.MouseEvent.ROLL_OUT)) this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
+        if (this.hasEventListener(mouse.MouseEvent.ROLL_OUT)) {
+          this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onOut, this);
+        }
 
-        if (this.theStage) if (this.theStage.hasEventListener(mouse.MouseEvent.MOUSE_MOVE)) this.theStage.removeEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
+        if (this.theStage) {
+          if (this.theStage.hasEventListener(mouse.MouseEvent.MOUSE_MOVE)) {
+            this.theStage.removeEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
+          }
+        }
       }
     }
   }
