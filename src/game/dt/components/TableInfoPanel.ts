@@ -22,14 +22,13 @@ namespace we {
         this.tieLabel.text = i18n.t('dragontiger.tie');
       }
 
-      public setValue(tableInfo: data.TableInfo) {
-        super.setValue(tableInfo);
-
-        if (tableInfo.gamestatistic) {
-          this.pTigerMax.text = tableInfo.gamestatistic.bankerCount.toString();
-          this.pDragonMax.text = tableInfo.gamestatistic.playerCount.toString();
-          this.pTieMax.text = tableInfo.gamestatistic.tieCount.toString();
-        }
+      public getConfig() {
+        const betlimits = env.betLimits[env.currentSelectedBetLimitIndex].limits.dt;
+        return [
+          { data: betlimits.DRAGON, lblMax: this.pDragonMax, lblOdd: this.pDragonOdd },
+          { data: betlimits.TIGER, lblMax: this.pTigerMax, lblOdd: this.pTigerOdd },
+          { data: betlimits.TIE, lblMax: this.pTieMax, lblOdd: this.pTieOdd },
+        ];
       }
     }
   }

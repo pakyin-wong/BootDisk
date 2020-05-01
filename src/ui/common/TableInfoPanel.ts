@@ -70,8 +70,24 @@ namespace we {
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
 
         const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
-        this.pTableBetLimit.text = betLimitSet.maxlimit.toString();
-        this.pBetLimit.text = `${betLimitSet.chips[0]} -  ${betLimitSet.chips[betLimitSet.chips.length - 1]}`;
+        this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
+        this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.chips[0])} -  ${utils.numberToFaceValue(betLimitSet.chips[betLimitSet.chips.length - 1])}`;
+
+        const config = this.getConfig();
+
+        config.forEach(item => {
+          if (item.data) {
+            item.lblMax.text = item.data.maxlimit ? utils.numberToFaceValue(item.data.maxlimit) : '-';
+            item.lblOdd.text = item.data.odd ? item.data.odd : '-';
+          } else {
+            item.lblMax.text = '-';
+            item.lblOdd.text = '-';
+          }
+        });
+      }
+
+      public getConfig(): any[] {
+        return [];
       }
     }
   }

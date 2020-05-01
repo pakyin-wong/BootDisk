@@ -42,23 +42,17 @@ namespace we {
         this.superSixLabel.text = i18n.t('baccarat.superSix') + ' (' + i18n.t('baccarat.noCommission') + ')';
       }
 
-      public setValue(tableInfo: data.TableInfo) {
-        super.setValue(tableInfo);
-        if (tableInfo.gamestatistic && tableInfo.gamestatistic.bankerCount) {
-          this.pBankerMax.text = tableInfo.gamestatistic.bankerCount.toString();
-        }
-        if (tableInfo.gamestatistic && tableInfo.gamestatistic.playerCount) {
-          this.pPlayerMax.text = tableInfo.gamestatistic.playerCount.toString();
-        }
-        if (tableInfo.gamestatistic && tableInfo.gamestatistic.tieCount) {
-          this.pTieMax.text = tableInfo.gamestatistic.tieCount.toString();
-        }
-        if (tableInfo.gamestatistic && tableInfo.gamestatistic.bankerPairCount) {
-          this.pBankerPairMax.text = tableInfo.gamestatistic.bankerPairCount.toString();
-        }
-        if (tableInfo.gamestatistic && tableInfo.gamestatistic.playerPairCount) {
-          this.pPlayerPairMax.text = tableInfo.gamestatistic.playerPairCount.toString();
-        }
+      public getConfig() {
+        const betlimits = env.betLimits[env.currentSelectedBetLimitIndex].limits.ba;
+        return [
+          { data: betlimits.BANKER, lblMax: this.pBankerMax, lblOdd: this.pBankerOdd },
+          { data: betlimits.PLAYER, lblMax: this.pPlayerMax, lblOdd: this.pPlayerOdd },
+          { data: betlimits.BANKER_PAIR, lblMax: this.pBankerPairMax, lblOdd: this.pBankerPairOdd },
+          { data: betlimits.PLAYER_PAIR, lblMax: this.pPlayerPairMax, lblOdd: this.pPlayerPairOdd },
+          { data: betlimits.TIE, lblMax: this.pTieMax, lblOdd: this.pTieOdd },
+          { data: betlimits.SUPER_SIX, lblMax: this.pSuperSixMax, lblOdd: this.pSuperSixOdd },
+          { data: betlimits.SUPER_SIX_BANKER, lblMax: this.pSuperSixBankerMax, lblOdd: this.pSuperSixBankerOdd },
+        ];
       }
     }
   }

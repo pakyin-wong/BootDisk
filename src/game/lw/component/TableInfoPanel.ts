@@ -49,19 +49,19 @@ namespace we {
         if (betLimitSet.limits && betLimitSet.limits.lw) {
           const limits = betLimitSet.limits.lw;
           const list = [
-            { target: this.pEastMax, value: limits.LW_0.maxlimit },
+            { target: this.pEastMax, value: utils.numberToFaceValue(limits.LW_0.maxlimit) },
             { target: this.pEastOdd, value: limits.LW_0.odd },
-            { target: this.pSouthMax, value: limits.LW_1.maxlimit },
+            { target: this.pSouthMax, value: utils.numberToFaceValue(limits.LW_1.maxlimit) },
             { target: this.pSouthOdd, value: limits.LW_1.odd },
-            { target: this.pWestMax, value: limits.LW_2.maxlimit },
+            { target: this.pWestMax, value: utils.numberToFaceValue(limits.LW_2.maxlimit) },
             { target: this.pWestOdd, value: limits.LW_2.odd },
-            { target: this.pNorthMax, value: limits.LW_3.maxlimit },
+            { target: this.pNorthMax, value: utils.numberToFaceValue(limits.LW_3.maxlimit) },
             { target: this.pNorthOdd, value: limits.LW_3.odd },
-            { target: this.pWhiteMax, value: limits.LW_4.maxlimit },
+            { target: this.pWhiteMax, value: utils.numberToFaceValue(limits.LW_4.maxlimit) },
             { target: this.pWhiteOdd, value: limits.LW_4.odd },
-            { target: this.pCenterMax, value: limits.LW_5.maxlimit },
+            { target: this.pCenterMax, value: utils.numberToFaceValue(limits.LW_5.maxlimit) },
             { target: this.pCenterOdd, value: limits.LW_5.odd },
-            { target: this.pFatMax, value: limits.LW_6.maxlimit },
+            { target: this.pFatMax, value: utils.numberToFaceValue(limits.LW_6.maxlimit) },
             { target: this.pFatOdd, value: limits.LW_6.odd },
           ];
           for (const { target, value } of list) {

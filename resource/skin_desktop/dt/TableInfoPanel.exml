@@ -31,11 +31,11 @@
 		<e:Label id="tigerLabel" text="虎" y="354" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="tieLabel" text="和" y="388" x="30" scaleX="1" scaleY="1" size="20" />
 
-		<e:Label id="pDragon" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pDragon2" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTiger" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTiger2" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTie" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTie2" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pDragonMax" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pDragonOdd" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pTigerMax" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pTigerOdd" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pTieMax" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pTieOdd" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 	</e:Group>
 </e:Skin>

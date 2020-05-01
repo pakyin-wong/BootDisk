@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.di.TableInfoPanel" width="324" height="842" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+<e:Skin class="skin_desktop.di.TableInfoPanel" width="324" height="842" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" width="100%" x="0" height="100%" y="0">
-		<e:Image id="moveArea" source="nav_panel_bg" height="100%" width="100%" x="0" y="0"/>
-		<e:Image id="btnDetail" width="20" height="20" x="276" y="60" source="m_ba_tag_btn_detail_png"/>
+		<e:Image id="moveArea" source="nav_panel_bg" height="100%" width="100%" x="0" y="0" />
+		<e:Image id="btnDetail" width="20" height="20" x="276" y="60" source="m_ba_tag_btn_detail_png" />
 		<e:Image id="close" source="m_common_icon_close_png" x="276" y="20" touchEnabled="true" width="20" height="20" />
-		<e:Label id="lblTableInfo" text="本檯資訊" x="30" y="20" scaleX="1" scaleY="1" size="20" textColor="0xC59466" anchorOffsetY="0" height="20"/>
-		<e:Image id="_toggleArrow" source="d_ba_navbar_icon_dropdown_png" x="276" y="230"  width="20" height="20"/>
-
+		<e:Label id="lblTableInfo" text="本檯資訊" x="30" y="20" scaleX="1" scaleY="1" size="20" textColor="0xC59466"
+		         anchorOffsetY="0" height="20" />
+		<e:Image id="_toggleArrow" source="d_ba_navbar_icon_dropdown_png" x="276" y="230" width="20" height="20" />
 		<e:Label id="tableNoLabel" text="檯號" y="60" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="roundNoLabel" text="局號" y="94" x="30" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="gameIdLabel" text="編號" y="128" scaleX="1" scaleY="1" size="20" anchorOffsetY="0" height="20"  x="30"/>
+		<e:Label id="gameIdLabel" text="編號" y="128" scaleX="1" scaleY="1" size="20" anchorOffsetY="0" height="20" x="30" />
 		<e:Label id="dealerLabel" text="荷官" y="162" x="30" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="tableBetLimitLabel" text="本檯限紅" y="196" scaleX="1" scaleY="1" size="20"  x="30"/>
-		<e:Label id="betLimitLabel" text="投注限紅" y="230" x="30" scaleX="1" scaleY="1" size="20"/>
-
-		<e:Rect id="line" width="264" height="1" x="30" y="266"  fillColor="0x444444"/>
-
-		<e:Label id="lblBet" text="投注" x="30" y="280" scaleX="1" scaleY="1" size="20" textColor="0xc59466"  anchorOffsetY="0" height="20"/>
-		<e:Label id="lblMax" text="最大" x="180" y="280" scaleX="1" scaleY="1" size="20" textColor="0xc59466"  anchorOffsetY="0" height="20"/>
-		<e:Label id="lblOdds" text="賠率" x="250" y="280" scaleX="1" scaleY="1" size="20" textColor="0xc59466"  anchorOffsetY="0" height="20"/>
-
-		<e:Label id="pTableID" text="-" y="60" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pRoundID" text="-" y="94" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pGameID" text="-" y="128" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pDealer" text="-" y="162" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTableBetLimit" text="-" y="196" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<ui:RunTimeLabel id="pBetLimit" text="-" y="230" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		
+		<e:Label id="tableBetLimitLabel" text="本檯限紅" y="196" scaleX="1" scaleY="1" size="20" x="30" />
+		<e:Label id="betLimitLabel" text="投注限紅" y="230" x="30" scaleX="1" scaleY="1" size="20" />
+		<e:Rect id="line" width="264" height="1" x="30" y="266" fillColor="0x444444" />
+		<e:Label id="lblBet" text="投注" x="30" y="280" scaleX="1" scaleY="1" size="20" textColor="0xc59466" anchorOffsetY="0"
+		         height="20" />
+		<e:Label id="lblMax" text="最大" x="180" y="280" scaleX="1" scaleY="1" size="20" textColor="0xc59466" anchorOffsetY="0"
+		         height="20" />
+		<e:Label id="lblOdds" text="賠率" x="250" y="280" scaleX="1" scaleY="1" size="20" textColor="0xc59466" anchorOffsetY="0"
+		         height="20" />
+		<e:Label id="pTableID" text="-" y="60" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120"
+		         width="146" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pRoundID" text="-" y="94" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120"
+		         width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pGameID" text="-" y="128" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120"
+		         width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pDealer" text="-" y="162" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="120"
+		         width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pTableBetLimit" text="-" y="196" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="120" width="170" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<ui:RunTimeLabel id="pBetLimit" text="-" y="230" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		                 size="20" x="120" width="146" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 		<e:Label id="sizeLabel" text="大 / 小" y="320" textAlign="left" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="oddevenLabel" text="單 / 雙" y="354" x="29" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="tripleLabel" text="圍骰" y="388" x="30" scaleX="1" scaleY="1" size="20" />
@@ -37,42 +43,70 @@
 		<e:Label id="sixFifthteenLabel" text="和值 6 / 15" y="556" textAlign="left" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="sevenFourteenLabel" text="和值 7 / 14" y="590" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="eightThirdteenLabel" text="和值 8 / 13" y="624" x="30" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="nineTenLabel" text="和值 9 / 10 / 11 / 2" y="658" x="30" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="paiGowLabel" text="牌九式 (骨牌)" y="692" x="30" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="nineTenElevenTwelveLabel" text="和值 9 / 10 / 11 / 12" y="658" x="30" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="combineLabel" text="牌九式 (骨牌)" y="692" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="specificSingleLabel" text="指定骰子: 單骰" y="726" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="specificDoubleLabel" text="指定骰子: 雙骰" y="760" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="specificTripleLabel" text="指定骰子: 三骰" y="792" x="30" scaleX="1" scaleY="1" size="20" />
-
-		<e:Label id="pBigSmallMax" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pBigSmallOdd" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pOddEvenMax" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pOddEvenOdd" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTripleMax" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTripleOdd" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTripleAllMax" text="-" y="422" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pTripleAllOdd" text="-" y="422" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pDoubleMax" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pDoubleOdd" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pFourSeventeenMax" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pFourSeventeenOdd" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pFiveSixteenMax" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pFiveSixteenOdd" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSixFifthTeenMax" text="-" y="556" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSixFifthTeenOdd" text="-" y="556" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSevenFourTeenMax" text="-" y="590" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSevenFourTeenOdd" text="-" y="590" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pEightThirdteenMax" text="-" y="624" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pEightThirdteenOdd" text="-" y="624" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pNineTenElevenTwelveMax" text="-" y="658" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pNineTenElevenTwelveOdd" text="-" y="658" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pCombineMax" text="-" y="692" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pCombineOdd" text="-" y="692" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSpecificSingleMax" text="-" y="726" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSpecificSingleOdd" text="-" y="726" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSpecificDoubleMax" text="-" y="760" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSpecificDoubleOdd" text="-" y="760" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSpecificTripleMax" text="-" y="792" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pSpecificTripleOdd" text="-" y="792" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-
+		<e:Label id="pBigSmallMax" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pBigSmallOdd" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pOddEvenMax" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pOddEvenOdd" text="-" y="354" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pTripleMax" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pTripleOdd" text="-" y="388" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pTripleAllMax" text="-" y="422" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pTripleAllOdd" text="-" y="422" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pDoubleMax" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pDoubleOdd" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pFourSeventeenMax" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pFourSeventeenOdd" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pFiveSixteenMax" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pFiveSixteenOdd" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSixFifthTeenMax" text="-" y="556" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSixFifthTeenOdd" text="-" y="556" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSevenFourTeenMax" text="-" y="590" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSevenFourTeenOdd" text="-" y="590" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pEightThirdteenMax" text="-" y="624" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pEightThirdteenOdd" text="-" y="624" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pNineTenElevenTwelveMax" text="-" y="658" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pNineTenElevenTwelveOdd" text="-" y="658" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pCombineMax" text="-" y="692" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pCombineOdd" text="-" y="692" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
+		         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSpecificSingleMax" text="-" y="726" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSpecificSingleOdd" text="-" y="726" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSpecificDoubleMax" text="-" y="760" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSpecificDoubleOdd" text="-" y="760" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSpecificTripleMax" text="-" y="792" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+		<e:Label id="pSpecificTripleOdd" text="-" y="792" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
+		         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 	</e:Group>
 </e:Skin>
