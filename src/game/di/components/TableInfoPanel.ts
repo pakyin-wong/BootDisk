@@ -76,7 +76,7 @@ namespace we {
         this.sevenFourteenLabel.text = i18n.t('dice.total') + '7 / 14';
         this.eightThirdteenLabel.text = i18n.t('dice.total') + '8 / 13';
         this.nineTenElevenTwelveLabel.text = i18n.t('dice.total') + '9 / 10 / 11 / 12';
-        this.combineLabel.text = i18n.t('dice.paiGow');
+        this.combineLabel.text = i18n.t('dice.combine');
         this.specificSingleLabel.text = i18n.t('dice.specificSingle');
         this.specificDoubleLabel.text = i18n.t('dice.specificDouble');
         this.specificTripleLabel.text = i18n.t('dice.specificTriple');
