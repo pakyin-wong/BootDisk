@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export interface IButton extends core.BaseEUI {
-      readonly label: RunTimeLabel;
+      readonly label?: RunTimeLabel;
     }
 
     export class BaseButton extends core.BaseEUI implements IButton {
