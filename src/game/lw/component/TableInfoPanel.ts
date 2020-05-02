@@ -13,6 +13,14 @@ namespace we {
       protected pBankerPair: eui.Label;
       protected pPlayerPair: eui.Label;
 
+      protected eastLabel: eui.Label;
+      protected southLabel: eui.Label;
+      protected westLabel: eui.Label;
+      protected northLabel: eui.Label;
+      protected redLabel: eui.Label;
+      protected greenLabel: eui.Label;
+      protected whiteLabel: eui.Label;
+
       protected gameIdLabel: eui.Label;
       protected betLimitLabel: eui.Label;
 
@@ -52,17 +60,20 @@ namespace we {
 
       public changeLang() {
         super.changeLang();
-        // this.bankerLabel.text = i18n.t('baccarat.banker');
-        // this.playerLabel.text = i18n.t('baccarat.player');
-        // this.tieLabel.text = i18n.t('baccarat.tie');
-        // this.bankerPairLabel.text = i18n.t('baccarat.bankerPair');
-        // this.playerPairLabel.text = i18n.t('baccarat.playerPair');
-        // if (this.gameIdLabel) {
-        //   this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
-        // }
-        // if (this.betLimitLabel) {
-        //   this.betLimitLabel.text = i18n.t('baccarat.betLimitshort');
-        // }
+        this.bankerLabel.text = i18n.t('luckywheel.banker');
+        this.playerLabel.text = i18n.t('luckywheel.player');
+        this.tieLabel.text = i18n.t('luckywheel.tie');
+        this.bankerPairLabel.text = i18n.t('luckywheel.bankerPair');
+        this.playerPairLabel.text = i18n.t('luckywheel.playerPair');
+        this.gameIdLabel.text = i18n.t('luckywheel.gameId');
+        this.betLimitLabel.text = i18n.t('luckywheel.betLimitShort');
+        this.eastLabel.text = i18n.t('luckywheel.east');
+        this.southLabel.text = i18n.t('luckywheel.south');
+        this.westLabel.text = i18n.t('luckywheel.west');
+        this.northLabel.text = i18n.t('luckywheel.north');
+        this.redLabel.text = i18n.t('luckywheel.red');
+        this.greenLabel.text = i18n.t('luckywheel.green');
+        this.whiteLabel.text = i18n.t('luckywheel.white');
       }
 
       public setValue(tableInfo: data.TableInfo) {

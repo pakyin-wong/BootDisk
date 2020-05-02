@@ -6,6 +6,8 @@ namespace we {
 
       protected gameIdLabel: eui.Label;
 
+      protected betLimitLabel: eui.Label;
+
       protected oddevenLabel: eui.Label;
       protected sizeLabel: eui.Label;
       protected tripleLabel: eui.Label;
@@ -170,6 +172,20 @@ namespace we {
         this.tripleLabel.text = i18n.t('dice.triple');
         this.allTripleLabel.text = i18n.t('dice.allTriple');
         this.doubleLabel.text = i18n.t('dice.double');
+        this.gameIdLabel.text = i18n.t('dice.gameId');
+        this.betLimitLabel.text = i18n.t('dice.betLimitShort');
+
+        // this.fourSeventeenLabel.text = i18n.t('dice.xxx');
+        // this.fiveSixteenLabel.text = i18n.t('dice.xxx');
+        // this.sixFifthteenLabel.text = i18n.t('dice.xxx');
+        // this.sevenFourteenLabel.text = i18n.t('dice.xxx');
+        // this.eightThirdteenLabel.text = i18n.t('dice.xxx');
+        // this.nineTenLabel.text = i18n.t('dice.xxx');
+        // this.paiGowLabel.text = i18n.t('dice.xxx');
+        // this.specificSingleLabel.text = i18n.t('dice.xxx');
+        // this.specificDoubleLabel.text = i18n.t('dice.xxx');
+        // this.specificTripleLabel.text = i18n.t('dice.xxx');
+
       }
 
       public setValue(tableInfo: data.TableInfo) {

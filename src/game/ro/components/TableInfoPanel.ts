@@ -9,6 +9,7 @@ namespace we {
       protected sizeLabel: eui.Label;
       protected columnbetLabel: eui.Label;
       protected rowbetLabel: eui.Label;
+      protected betLimitLabel: eui.Label;
 
       public pBetLimit: ui.RunTimeLabel;
       protected pGameID: eui.Label;
@@ -180,7 +181,20 @@ namespace we {
         this.oddevenLabel.text = i18n.t('roulette.betGroup.oddeven');
         this.sizeLabel.text = i18n.t('roulette.betGroup.size');
         this.columnbetLabel.text = i18n.t('roulette.betGroup.column');
+        this.rowLabel.text = i18n.t('roulette.betGroup.row');
+        this.dozenLabel.text = i18n.t('roulette.betGroup.column');
+        this.colorTwoLabel.text = i18n.t('roulette.betGroup.color');
+        this.oddevenTwoLabel.text = i18n.t('roulette.betGroup.oddeven');
+        this.sizeTwoLabel.text = i18n.t('roulette.betGroup.size');
         this.rowbetLabel.text = i18n.t('roulette.betGroup.row');
+        this.gameIdLabel.text = i18n.t('roulette.gameId');
+        this.betLimitLabel.text = i18n.t('roulette.betLimitShort');
+        // this.directNoteLabel.text = i18n.t('roulette.XXX');
+        // this.separateLabel.text = i18n.t('roulette.XXX');
+        // this.streetLabel.text = i18n.t('roulette.XXX');
+        // this.cornerLabel.text = i18n.t('roulette.XXX');
+        // this.lineBetLabel.text = i18n.t('roulette.XXX');
+        // this.betLimitLabel.text = i18n.t('rouletteXXX');
       }
 
       public setValue(tableInfo: data.TableInfo) {

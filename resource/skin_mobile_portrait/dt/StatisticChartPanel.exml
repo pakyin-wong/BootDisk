@@ -1,42 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.dt.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-			<e:Group id="content" width="100%" height="100%">
-				<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
-				<ui:RunTimeLabel id="_leftTitle" text="龍虎和比例" x="7" y="80" scaleX="1" scaleY="1" width="600" height="73" size="44" textAlign="center" verticalAlign="middle" bold="true"/>
-				<e:Image width="57" height="57" x="42" y="247" source="m_ba_goodroad_info_state_banker_png"/>
-				<ui:RunTimeLabel id="totalBankerCount" text="99" x="37" y="300" textAlign="center" anchorOffsetX="0" width="64" size="55" height="73" verticalAlign="middle" bold="true"/>
-
-				<e:Group x="32" y="380">
-					<ui:RunTimeLabel id="totalBankerCountPer" text="10" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44"  bold="true" verticalAlign="middle" alpha="0.7"/>
-					<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true" alpha="0.7"/>
-					<e:layout>
-						<e:HorizontalLayout verticalAlign="bottom" horizontalAlign="center" gap="2"/>
-					</e:layout>
-				</e:Group>
-				<e:Image width="57" height="57" x="166" y="247" source="m_ba_goodroad_info_round_player_png"/>
-				<ui:RunTimeLabel id="totalPlayerCount" text="99" x="161" y="300" textAlign="center" anchorOffsetX="0" width="64" size="55" height="73" verticalAlign="middle" bold="true"/>
-
-				<e:Group x="156" y="380">
-					<ui:RunTimeLabel id="totalPlayerCountPer" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44" verticalAlign="middle" bold="true" alpha="0.7"/>
-					<e:Label text="%" x="39" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true" alpha="0.7"/>
-					<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-					</e:layout>
-				</e:Group>
-				<e:Image width="57" height="57" x="293" y="247" source="m_ba_goodroad_info_state_player_png"/>
-				<ui:RunTimeLabel id="totalTieCount" text="99" x="290" y="300" textAlign="center" anchorOffsetX="0" width="64" size="55" height="73" verticalAlign="middle" bold="true"/>
-
-				<e:Group x="285" y="380">
-					<ui:RunTimeLabel id="totalTieCountPer" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44" verticalAlign="middle" bold="true" alpha="0.7"/>
-					<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true" alpha="0.7"/>
-					<e:layout>
-						<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom"/>
-					</e:layout>
-				</e:Group>
-
-
-
-				<ui:RunTimeLabel id="roundCount" text="99" x="449" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88" height="118" verticalAlign="middle"/>
-				<ui:RunTimeLabel id="roundLabelLeft" text="局" x="346" y="360" scaleX="1" scaleY="1" width="300" height="46" size="35" textAlign="center" verticalAlign="middle" bold="true"/>
-			</e:Group>
+<e:Skin class="skin_mobile_portrait.dt.StatisticChartPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group id="content" width="100%" height="100%">
+		<e:Rect width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425" />
+		<ui:RunTimeLabel id="_leftTitle" text="龍虎和比例" x="7" y="80" scaleX="1" scaleY="1" width="600" height="73" size="44"
+		                 textAlign="center" verticalAlign="middle" bold="true" />
+		<e:Image width="57" height="57" x="42" y="247" source="m_ba_goodroad_info_state_banker_png" />
+		<ui:RunTimeLabel id="_leftTitleDragon" text="龍" x="49" y="255" scaleX="1" scaleY="1" width="40" height="40" size="30"
+		                 textAlign="center" verticalAlign="middle" bold="true" />
+		<ui:RunTimeLabel id="totalBankerCount" text="99" x="37" y="300" textAlign="center" anchorOffsetX="0" width="64"
+		                 size="55" height="73" verticalAlign="middle" bold="true" />
+		<e:Group x="32" y="380">
+			<ui:RunTimeLabel id="totalBankerCountPer" text="10" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44"
+			                 bold="true" verticalAlign="middle" alpha="0.7" />
+			<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true"
+			         alpha="0.7" />
+			<e:layout>
+				<e:HorizontalLayout verticalAlign="bottom" horizontalAlign="center" gap="2" />
+			</e:layout>
+		</e:Group>
+		<e:Image width="57" height="57" x="166" y="247" source="m_ba_goodroad_info_round_player_png" />
+		<ui:RunTimeLabel id="_leftTitleTiger" text="虎" x="174" y="255" scaleX="1" scaleY="1" width="40" height="40" size="30"
+		                 textAlign="center" verticalAlign="middle" bold="true" />
+		<ui:RunTimeLabel id="totalPlayerCount" text="99" x="161" y="300" textAlign="center" anchorOffsetX="0" width="64"
+		                 size="55" height="73" verticalAlign="middle" bold="true" />
+		<e:Group x="156" y="380">
+			<ui:RunTimeLabel id="totalPlayerCountPer" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44"
+			                 verticalAlign="middle" bold="true" alpha="0.7" />
+			<e:Label text="%" x="39" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true"
+			         alpha="0.7" />
+			<e:layout>
+				<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
+			</e:layout>
+		</e:Group>
+		<e:Image width="57" height="57" x="293" y="247" source="m_ba_goodroad_info_state_player_png" />
+		<ui:RunTimeLabel id="_leftTitleTie" text="和" x="300" y="255" scaleX="1" scaleY="1" width="40" height="40" size="30"
+		                 textAlign="center" verticalAlign="middle" bold="true" />
+		<ui:RunTimeLabel id="totalTieCount" text="99" x="290" y="300" textAlign="center" anchorOffsetX="0" width="64"
+		                 size="55" height="73" verticalAlign="middle" bold="true" />
+		<e:Group x="285" y="380">
+			<ui:RunTimeLabel id="totalTieCountPer" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="44"
+			                 verticalAlign="middle" bold="true" alpha="0.7" />
+			<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="33" textAlign="center" verticalAlign="bottom" bold="true"
+			         alpha="0.7" />
+			<e:layout>
+				<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
+			</e:layout>
+		</e:Group>
+		<ui:RunTimeLabel id="roundCount" text="99" x="449" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88"
+		                 height="118" verticalAlign="middle" />
+		<ui:RunTimeLabel id="roundLabelLeft" text="局" x="346" y="360" scaleX="1" scaleY="1" width="300" height="46" size="35"
+		                 textAlign="center" verticalAlign="middle" bold="true" />
+	</e:Group>
 </e:Skin>

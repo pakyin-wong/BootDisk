@@ -199,9 +199,14 @@ namespace we {
         small: '细',
         even: '双',
         odd: '单',
+        bigFull: '大',
+        smallFull: '細',
+        evenFull: '双',
+        oddFull: '单',
         single: '单骰',
         double: '双骰',
         triple: '三骰',
+        TableLayerMsg: '单骰1:1 双骰2:1 三骰3:1',
 
         roadBig: '大',
         roadSmall: '小',
@@ -218,6 +223,9 @@ namespace we {
         gameStats: '结果统计',
         dicePercent: '骰子机率',
         allTriple: '全圍',
+
+        betLimitShort: '限红',
+        gameId: '编号',
       },
       roulette: {
         row_1: '第一行',
@@ -253,6 +261,8 @@ namespace we {
         luckyNumber: '幸运数字',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
+        betLimitShort: '限红',
+        gameId: '编号',
         distribution: {
           text: '散布',
           x: 60,
@@ -301,6 +311,13 @@ namespace we {
         red: '中',
         green: '發',
         white: '白',
+        betLimitShort: '限红',
+        gameId: '编号',
+        banker: '庄',
+        player: '闲',
+        tie: '和',
+        playerPair: '闲对',
+        bankerPair: '庄对',
       },
       game: {
         startBet: '开始下注',
