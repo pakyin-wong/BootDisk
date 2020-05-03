@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.DiceScene" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
+    xmlns:ui="we.ui.*" xmlns:di="we.di.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:ns1="*"
+    states="left_hand_mode,right_hand_mode">
+    
+</e:Skin>
