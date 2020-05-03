@@ -43,12 +43,20 @@ namespace we {
 
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 1, scaleY: 1 }, 250);
+        }
         this._lwGameID.renderText = () => `${this._tableInfo.tableid}`;
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
 
       protected setStateDeal(isInit: boolean) {
         super.setStateDeal(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
+        }
       }
 
       protected initChildren() {
