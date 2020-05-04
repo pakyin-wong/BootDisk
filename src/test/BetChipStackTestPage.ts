@@ -22,7 +22,7 @@ namespace we {
         const betChipStack = new ui.BetChipStack();
         betChipStack.denomList = [100, 500, 1000, 2000, 10000, 50000];
         betChipStack.chipWidth = 200;
-        betChipStack.chipHeight = 200;
+        // betChipStack.chipHeight = 200;
         betChipStack.chipInterval = 7;
         betChipStack.totalCfmOffset = 50;
         betChipStack.totalUncfmOffset = 0;
@@ -31,7 +31,7 @@ namespace we {
         betChipStack.betSumBackgroundHeight = 30;
         betChipStack.chipLabelOffset = -3;
         betChipStack.chipLabelSize = 30;
-        betChipStack.uncfmBet = 151;
+        betChipStack.cfmBet = 15100;
         this.addChild(betChipStack);
         betChipStack.draw();
         // step 3: connect socket

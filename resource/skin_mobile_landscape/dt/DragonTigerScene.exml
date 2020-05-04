@@ -52,7 +52,7 @@
 				          x.left_hand_mode="5" />
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="684"
 				                   verticalCenter="0" x.right_hand_mode="684" x.left_hand_mode="0" />
-								<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0">
+								<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0" touchChildren="false" touchEnabled="false">
 					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788"  x.right_hand_mode="82"/>
 					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500"  x.right_hand_mode="432"/>
 					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650"  x.right_hand_mode="266"/>

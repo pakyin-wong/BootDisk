@@ -43,7 +43,7 @@
 				          x.left_hand_mode="5" />
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="684"
 				                   verticalCenter="0" x.right_hand_mode="684" x.left_hand_mode="0" />
-								<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0">
+								<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0" touchChildren="false" touchEnabled="false">
 					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788"  x.right_hand_mode="82"/>
 					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500"  x.right_hand_mode="432"/>
 					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650"  x.right_hand_mode="266"/>
@@ -74,7 +74,7 @@
 	<e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="366" y="264">
 		<e:Group id="_betPanelGroup" scaleY="1" x="0" height="260" y="0" width="100%" y.right_hand_mode="-404">
 		<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1" y="0" height="443" x="0"/>
-		<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="474" scaleX="1" x="327" rotation="178.8"/>
+		<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="474" scaleX="1" x="327" rotation="178.8" x.left_hand_mode="1331"/>
 		</e:Group>
 		<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250" betChipHeight="208" scaleY="1" anchorOffsetY="0" right="0" left="0" labelSize="48" y="20"/>
 	</e:Group>
@@ -118,7 +118,7 @@
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0" />
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<e:Group width="700" x.right_hand_mode="175" y.right_hand_mode="24" y="22" x="161" x.left_hand_mode="183">
+	<e:Group width="700" x.right_hand_mode="175" y.right_hand_mode="24" y="22" x="210" x.left_hand_mode="183">
 		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" />
 		<ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0" />
 		<e:layout>
