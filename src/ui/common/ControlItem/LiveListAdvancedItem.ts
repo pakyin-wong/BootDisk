@@ -29,7 +29,7 @@ namespace we {
         this.generateAdvancedRoad();
         super.initChildren();
       }
-      
+
       protected showQuickBetGroup() {
         super.showQuickBetGroup();
         this.setChildIndex(this._quickBetGroup, 1500);

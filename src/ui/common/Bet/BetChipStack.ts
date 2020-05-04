@@ -123,8 +123,7 @@ namespace we {
           return;
         }
         const total = this._uncfmBet + this._cfmBet;
-        console.log('total', total); // selected 1 5 20 =>total 100=>total 600=>total 2600
-        console.log('this._denomList', this._denomList); // this._denomList [100, 500, 2000, 10000, 50000]
+
         if (this._uncfmBet) {
           // Contains uncfmBet, show one coin and total
           const chip = this.getNewChip(total);

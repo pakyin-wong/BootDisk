@@ -135,7 +135,7 @@ namespace we {
         this._verticalGroup.layout = vLayout;
       }
 
-      protected setChipPanelPos() {};
+      protected setChipPanelPos() {}
 
       protected showBetChipPanel() {
         this.setChipPanelPos();
@@ -157,7 +157,8 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        if (evt && evt.data) {}
+        if (evt && evt.data) {
+        }
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -200,4 +201,3 @@ namespace we {
     }
   }
 }
-
