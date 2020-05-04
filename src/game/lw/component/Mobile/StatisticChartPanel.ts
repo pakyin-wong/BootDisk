@@ -28,7 +28,7 @@ namespace we {
         this._progress_White.setProgress(0.8);
         this._progress_Red.setProgress(0.95);
         this._progress_Green.setProgress(1);
-
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
       }
 
