@@ -78,7 +78,7 @@ namespace we {
         this.roadmapSumBtn.label = i18n.t('dice.total');
       }
 
-      protected onRoadMapChanged(e) {
+      public onRoadMapChanged(e) {
         this._roadmapView.selectedIndex = e.target.value;
       }
 

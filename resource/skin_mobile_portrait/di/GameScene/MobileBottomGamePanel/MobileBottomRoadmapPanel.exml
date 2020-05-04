@@ -4,12 +4,12 @@
 	<e:Group id="content" width="100%" height="100%">
 		<e:Component id="_roadmapBg" height="509" left="8" right="8" bottom="0">
 			<e:skinName>
-			<e:Skin states="dark,light">
-				<e:Rect width="100%" height="100%" fillColor.light="0xffffff" fillColor.dark="0x262a2b"/>
-			</e:Skin>
+				<e:Skin states="dark,light">
+					<e:Rect width="100%" height="100%" fillColor.light="0xffffff" fillColor.dark="0x262a2b"/>
+				</e:Skin>
 			</e:skinName>
-			</e:Component>
-			<e:ViewStack id="_roadmapView" scaleX="1" scaleY="1" left="8" right="8" height="413" y="20">
+		</e:Component>
+		<e:ViewStack id="_roadmapView" scaleX="1" scaleY="1" left="8" right="8" height="413" y="20">
 			<e:Group name="size" left="0" right="0" top="0" bottom="0">
 				<di:RoadMapConfig id="sizeBigRoadConfig" scaleX="1" scaleY="1" roadmap_col="18" roadmap_gridSize="68"/>
 			</e:Group>
@@ -19,30 +19,30 @@
 			<e:Group name="sum" left="0" right="0" top="0" bottom="0">
 				<di:RoadMapConfig id="sumBigRoadConfig" scaleX="1" scaleY="1" roadmap_col="18" roadmap_gridSize="68"/>
 			</e:Group>
-			</e:ViewStack>
-			<e:RadioButton id="roadmapSizeBtn" label="大 / 小" x="22" y="442" width="380" height="70" value="0" scaleX="1" scaleY="1" selected="true" groupName="roadmap">
+		</e:ViewStack>
+		<e:RadioButton id="roadmapSizeBtn" label="大 / 小" x="22" y="442" width="380" height="70" value="0" scaleX="1" scaleY="1" selected="true" groupName="roadmap">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+					<e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
 				</e:Skin>
 			</e:skinName>
-			</e:RadioButton>
-			<e:RadioButton id="roadmapOddevenBtn" label="單 / 雙" x="423" y="442" width="380" height="70" value="1" scaleX="1" scaleY="1" groupName="roadmap">
+		</e:RadioButton>
+		<e:RadioButton id="roadmapOddevenBtn" label="單 / 雙" x="423" y="442" width="380" height="70" value="1" scaleX="1" scaleY="1" groupName="roadmap">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+					<e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
 				</e:Skin>
 			</e:skinName>
-			</e:RadioButton>
-			<e:RadioButton id="roadmapSumBtn" label="和值" x="824" y="442" width="380" height="70" value="2" scaleX="1" scaleY="1" groupName="roadmap">
+		</e:RadioButton>
+		<e:RadioButton id="roadmapSumBtn" label="和值" x="824" y="442" width="380" height="70" value="2" scaleX="1" scaleY="1" groupName="roadmap">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+					<e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
 				</e:Skin>
 			</e:skinName>
-			</e:RadioButton>
+		</e:RadioButton>
 	</e:Group>
     </e:Skin>

@@ -15,20 +15,20 @@
             </e:Group>
             </e:ViewStack>
             <e:RadioButton id="beadRoadSizeBtn" label="大 / 小" x="223" y="442" width="380" height="70" value="0" scaleX="1" scaleY="1" selected="true" groupName="roadmap">
-            <e:skinName>
-                <e:Skin states="up,down,disabled">
-                <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
-                <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
-                </e:Skin>
-            </e:skinName>
+                <e:skinName>
+                    <e:Skin states="up,down,disabled">
+                    <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+                    </e:Skin>
+                </e:skinName>
             </e:RadioButton>
             <e:RadioButton id="beadRoadOddEvenBtn" label="單 / 雙" x="623" y="442" width="380" height="70" value="1" scaleX="1" scaleY="1" groupName="roadmap">
-            <e:skinName>
-                <e:Skin states="up,down,disabled">
-                <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
-                <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
-                </e:Skin>
-            </e:skinName>
+                <e:skinName>
+                    <e:Skin states="up,down,disabled">
+                    <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+                    </e:Skin>
+                </e:skinName>
             </e:RadioButton>
 	</e:Group>
     </e:Skin>

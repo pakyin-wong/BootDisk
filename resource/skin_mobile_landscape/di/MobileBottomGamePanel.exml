@@ -15,29 +15,29 @@
 			<e:Rect id="top_bg" width="100%" height="260" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" x="0" height.on="100%"/>
 			<e:RadioButton id="roadSheetBtn" label="路紙" x="8" y="10" width="252" height="80" value="0" selected="true" scaleX="1" scaleY="1" width.on="321">
 				<e:skinName>
-				<e:Skin states="up,down,disabled">
-					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
-					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
-					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
-				</e:Skin>
+					<e:Skin states="up,down,disabled">
+						<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+						<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+						<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+					</e:Skin>
 				</e:skinName>
 			</e:RadioButton>
 			<e:RadioButton id="chartBtn" label="統計圖表" x="4" y="100" width="252" height="80" value="1" scaleX="1" scaleY="1" width.on="321" x.on="8" y.on="98">
 				<e:skinName>
-				<e:Skin states="up,down,disabled">
-					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
-					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
-					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
-				</e:Skin>
+					<e:Skin states="up,down,disabled">
+						<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+						<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+						<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+					</e:Skin>
 				</e:skinName>
 			</e:RadioButton>
 			<e:RadioButton id="tableInfoBtn" label="本檯資訊" x="8" y="180" width="252" height="80" value="2" scaleX="1" scaleY="1" width.on="321" y.on="198">
 				<e:skinName>
-				<e:Skin states="up,down,disabled">
-					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
-					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
-					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
-				</e:Skin>
+					<e:Skin states="up,down,disabled">
+						<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+						<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+						<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+					</e:Skin>
 				</e:skinName>
 			</e:RadioButton>
 			<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="-401.72" y="26" size="42" bold="true" visible="false"/>
