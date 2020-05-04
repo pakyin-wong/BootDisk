@@ -406,6 +406,7 @@
 		"resource/skin_mobile_portrait/overlay/BetHistoryItem.exml",
 		"resource/skin_mobile_portrait/overlay/CustomRoad.exml",
 		"resource/skin_mobile_portrait/overlay/DatePickerItem.exml",
+		"resource/skin_mobile_portrait/overlay/GameSetting.exml",
 		"resource/skin_mobile_portrait/overlay/MemberReport.exml",
 		"resource/skin_mobile_portrait/overlay/MessageDialog.exml",
 		"resource/skin_mobile_portrait/overlay/MobileQuickBet.exml",

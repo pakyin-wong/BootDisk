@@ -3,6 +3,7 @@ namespace we {
     export class NavSideMenu extends Panel {
       protected btn_lightMode: eui.Component;
       protected btn_darkMode: eui.Component;
+      protected btn_gameSet: eui.Component;
       protected btn_history: eui.Component;
       protected btn_member: eui.Component;
       protected btn_road: eui.Component;
@@ -12,6 +13,7 @@ namespace we {
       protected txt_selectMode: RunTimeLabel;
       protected txt_lightMode: RunTimeLabel;
       protected txt_darkMode: RunTimeLabel;
+      protected txt_gameSet: RunTimeLabel;
       protected txt_history: RunTimeLabel;
       protected txt_member: RunTimeLabel;
       protected txt_road: RunTimeLabel;
@@ -57,6 +59,7 @@ namespace we {
         this.txt_road.renderText = () => `${i18n.t('nav.menu.road')}`;
         this.txt_system.renderText = () => `${i18n.t('nav.menu.system')}`;
         this.txt_logout.renderText = () => `${i18n.t('nav.menu.logout')}`;
+        this.txt_gameSet.renderText = () => `${i18n.t('nav.menu.gameSet')}`;
       }
 
       protected addListeners() {
@@ -67,6 +70,7 @@ namespace we {
         utils.addButtonListener(this.btn_road, this.onClickRoad, this);
         utils.addButtonListener(this.btn_system, this.onClickSystem, this);
         utils.addButtonListener(this.btn_logout, this.onClickLogout, this);
+        utils.addButtonListener(this.btn_gameSet, this.onClickGameSet, this);
         dir.evtHandler.$addListener(core.Event.MODE_UPDATE, this.update, this);
       }
 
@@ -78,6 +82,7 @@ namespace we {
         this.btn_road.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickRoad, this);
         this.btn_system.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSystem, this);
         this.btn_logout.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickLogout, this);
+        this.btn_gameSet.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGameSet, this);
         dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.update, this);
       }
 
@@ -121,6 +126,13 @@ namespace we {
           class: 'SystemSetting',
         });
         logger.l(`NavSideMenu::onClickSystem`);
+      }
+
+      private onClickGameSet() {
+        dir.evtHandler.createOverlay({
+          class: 'GameSetting',
+        });
+        logger.l(`NavSideMenu::onClickGameSet`);
       }
 
       protected onClickLogout() {

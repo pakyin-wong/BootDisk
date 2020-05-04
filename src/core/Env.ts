@@ -32,6 +32,7 @@ namespace we {
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
       public leftHandMode: boolean = false;
+      public showGoodRoadHint: boolean = false;
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};

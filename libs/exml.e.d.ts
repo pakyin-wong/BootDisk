@@ -1387,6 +1387,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class GameSetting extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class MemberReport extends eui.Skin{
 	}
 }

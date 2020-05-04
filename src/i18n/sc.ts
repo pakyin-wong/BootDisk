@@ -84,6 +84,9 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: '全部游戏',
 
+      overlaypanel_gameSet_showGoodRoadHint: '显示好路提示',
+      overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
+
       datePicker_clean: '清除',
       datePicker_confirm: '确定',
       datePicker_weekday_0: '日',
@@ -140,6 +143,7 @@ namespace we {
           road: '好路提示',
           system: '系统设定',
           logout: '登出',
+          gameSet: '游戏设定',
           leftHandMode: '左手模式',
           logoutMsg: '确定登出?',
           confirm: '确定',
