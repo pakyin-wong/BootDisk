@@ -32,6 +32,7 @@ namespace we {
         super('BetChipStackSkin', false);
         this.touchEnabled = false;
         this.touchChildren = false;
+        this.totalCfmOffset = 600;
       }
 
       public mount() {
@@ -122,6 +123,8 @@ namespace we {
           return;
         }
         const total = this._uncfmBet + this._cfmBet;
+        console.log('total', total); // selected 1 5 20 =>total 100=>total 600=>total 2600
+        console.log('this._denomList', this._denomList); // this._denomList [100, 500, 2000, 10000, 50000]
         if (this._uncfmBet) {
           // Contains uncfmBet, show one coin and total
           const chip = this.getNewChip(total);
@@ -130,16 +133,27 @@ namespace we {
         } else {
           // No uncfmBet, show stack and total
           this._cfmDenomList = this.getBettingTableGridDenom(this._denomList, total);
+          console.log('this._cfmDenomList = this.getBettingTableGridDenom(this._denomList, total);', this._cfmDenomList);
+          // this._cfmDenomList = this.getBettingTableGridDenom(this._denomList, total); [2, 1, 0]
           this._cfmDenomList.reverse();
+          console.log('this._cfmDenomList.reverse();', this._cfmDenomList);
+          // this._cfmDenomList.reverse(); [0, 1, 2]
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
+
+          // ken: need to add a new chip(X) set an offset(O) for each value?
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
               const chip = this.getNewChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
               chip.touchEnabled = false;
               // chip.labelSize = this._chipLabelSize;
               // chip.labelOffset = this._chipLabelOffset;
+              chip.labelOffset = 100 + index * 100;
               this._chips.push(chip);
             }
+            console.log('this._cfmDenomList.map', this._cfmDenomList);
+            // this._cfmDenomList.map [0, 1, 2]
+            // this._cfmDenomList.map [0, 1, 2]
+            // this._cfmDenomList.map [0, 1, 2]
           });
         }
         this.drawChips();
@@ -158,6 +172,8 @@ namespace we {
 
       protected drawChips() {
         this._chips.map((value, index) => {
+          // this._chip value= BetChip , index = 0
+          console.log('this._chip', [value, index]);
           value.horizontalCenter = 0;
           value.y = index * -this._chipInterval;
           value.width = this._chipWidth;
