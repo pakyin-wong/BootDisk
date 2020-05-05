@@ -18,7 +18,7 @@
 			<ui:BetChipStack id="_tigerBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="100" chipHeight="100"
 			                 chipInterval="7" totalCfmOffset="50" totalUncfmOffset="0"
 			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="100"
-			                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5" />
+			                 betSumBackgroundHeight="30" chipLabelOffset="-3" chipLabelSize="30" scaleX="1.5"  scaleY="1.5"/>
 		</e:Group>
 		<e:layout>
 			<e:HorizontalLayout gap="8"/>

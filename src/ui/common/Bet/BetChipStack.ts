@@ -54,6 +54,9 @@ namespace we {
       }
 
       set betSumBackgroundHeight(value: number) {
+        if (this._betSumBackground) {
+          this._betSumBackground.height = value;
+        }
         this._betSumBackgroundHeight = value;
       }
 
