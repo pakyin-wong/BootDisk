@@ -226,6 +226,12 @@ namespace we {
 
         betLimitShort: '限红',
         gameId: '编号',
+
+        betGroup: {
+          color: '红 / 黑',
+          oddeven: '单 / 双',
+          size: '大 / 小',
+        },
       },
       roulette: {
         row_1: '第一行',

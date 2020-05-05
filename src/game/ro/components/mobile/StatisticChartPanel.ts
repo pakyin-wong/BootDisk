@@ -15,13 +15,6 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._oddChart.zeroLabel.renderText = () => i18n.t('roulette.zeroShort');
-        console.log(i18n.t('roulette.zeroShort'));
-        this._oddChart.evenLabel.renderText = () => i18n.t('roulette.evenShort');
-        this._oddChart.oddLabel.renderText = () => i18n.t('roulette.oddShort');
-        this._bigChart.bigLabel.renderText = () => i18n.t('roulette.bigShort');
-        this._bigChart.smallLabel.renderText = () => i18n.t('roulette.smallShort');
-        this._bigChart.bigZeroLabel.renderText = () => i18n.t('roulette.zeroShort');
 
         this._colorChart.setParam(500, 10, 20, 30, 0, 80, 38, [0x474747, 0x000000]);
         this._colorChart.draw();

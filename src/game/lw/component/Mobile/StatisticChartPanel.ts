@@ -28,18 +28,6 @@ namespace we {
         this._progress_White.setProgress(0.8);
         this._progress_Red.setProgress(0.95);
         this._progress_Green.setProgress(1);
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this.changeLang();
-      }
-
-      protected changeLang() {
-        this._lbl_East.text = i18n.t('luckywheel.east');
-        this._lbl_South.text = i18n.t('luckywheel.south');
-        this._lbl_West.text = i18n.t('luckywheel.west');
-        this._lbl_North.text = i18n.t('luckywheel.north');
-        this._lbl_White.text = i18n.t('luckywheel.white');
-        this._lbl_Red.text = i18n.t('luckywheel.red');
-        this._lbl_Green.text = i18n.t('luckywheel.green');
       }
 
       public setValue(tableInfo: data.TableInfo) {}

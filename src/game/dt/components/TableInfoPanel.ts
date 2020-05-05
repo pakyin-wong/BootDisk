@@ -36,27 +36,12 @@ namespace we {
         //   },
         //   this
         // );
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
         mouse.setButtonMode(this.close, true);
-        this.changeLang();
       }
 
       public onExit() {
         this.destroy();
-      }
-
-      public changeLang() {
-        super.changeLang();
-        this.tigerLabel.text = i18n.t('dragontiger.tiger');
-        this.dragonLabel.text = i18n.t('dragontiger.dragon');
-        this.tieLabel.text = i18n.t('dragontiger.tie');
-        if (this.gameIdLabel) {
-          this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
-        }
-        if (this.betLimitLabel) {
-          this.betLimitLabel.text = i18n.t('baccarat.betLimitshort');
-        }
       }
 
       public setValue(tableInfo: data.TableInfo) {

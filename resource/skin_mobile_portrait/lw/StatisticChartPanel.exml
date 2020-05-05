@@ -9,13 +9,13 @@
 					<lw:StatisticChartPanelBar id="_progress_White" width="547" height="26" y="111" x="648" source="m_lw_hor_betpool_barchart_white_png" />
 					<lw:StatisticChartPanelBar id="_progress_Red" width="547" height="26" y="226" x="648" source="m_lw_hor_betpool_barchart_gold_png" />
 					<lw:StatisticChartPanelBar id="_progress_Green" width="547" height="26" y="342" x="648" source="m_lw_hor_betpool_barchart_gold_png" />
-					<ui:RunTimeLabel id="_lbl_East" x="43" y="45" size="44" verticalAlign="middle" text="東"/>
-					<ui:RunTimeLabel id="_lbl_South" x="43" y="160" size="44" verticalAlign="middle" text="南"/>
-					<ui:RunTimeLabel id="_lbl_West" x="43" y="276" size="44" verticalAlign="middle" text="西"/>
-					<ui:RunTimeLabel id="_lbl_North" x="43" y="392" size="44" verticalAlign="middle" text="北"/>
-					<ui:RunTimeLabel id="_lbl_White" x="648" y="45" size="44" verticalAlign="middle" text="白"/>
-					<ui:RunTimeLabel id="_lbl_Red" x="648" y="160" size="44" verticalAlign="middle" text="中"/>
-					<ui:RunTimeLabel id="_lbl_Green" x="648" y="270" size="44" verticalAlign="middle" text="發"/>
+					<ui:RunTimeLabel id="_lbl_East" x="43" y="45" size="44" verticalAlign="middle" text="東" textKey="luckywheel.east" />
+					<ui:RunTimeLabel id="_lbl_South" x="43" y="160" size="44" verticalAlign="middle" text="南" textKey="luckywheel.south" />
+					<ui:RunTimeLabel id="_lbl_West" x="43" y="276" size="44" verticalAlign="middle" text="西" textKey="luckywheel.west" />
+					<ui:RunTimeLabel id="_lbl_North" x="43" y="392" size="44" verticalAlign="middle" text="北" textKey="luckywheel.north" />
+					<ui:RunTimeLabel id="_lbl_White" x="648" y="45" size="44" verticalAlign="middle" text="白" textKey="luckywheel.white" />
+					<ui:RunTimeLabel id="_lbl_Red" x="648" y="160" size="44" verticalAlign="middle" text="中" textKey="luckywheel.red" />
+					<ui:RunTimeLabel id="_lbl_Green" x="648" y="270" size="44" verticalAlign="middle" text="發" textKey="luckywheel.green" />
 					<ui:RunTimeLabel id="_lbl_val_East" size="44" verticalAlign="middle" text="80,000000" textAlign="right" fontFamily="Barlow" y="45" right="660"/>
 					<ui:RunTimeLabel id="_lbl_val_South" size="44" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow" y="160" right="660"/>
 					<ui:RunTimeLabel id="_lbl_val_West" size="44" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow" y="276" right="660"/>

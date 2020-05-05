@@ -241,6 +241,12 @@ namespace we {
 
         betLimitShort: 'Bet Limit',
         gameId: 'ID',
+
+        betGroup: {
+          color: 'Red / Black',
+          oddeven: 'Odd / Even',
+          size: 'Big / Small',
+        },
       },
       roulette: {
         row_1: 'ROW 1',
