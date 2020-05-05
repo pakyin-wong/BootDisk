@@ -62,6 +62,10 @@ namespace we {
       protected generateAdvancedRoad() {
         if (this.itemInitHelper) {
           this._advancedRoad = this.itemInitHelper.generateAdvancedRoad(this._advancedRoadNode);
+          if (this._advancedRoad) {
+            this._advancedRoad.touchEnabled = false;
+            this._advancedRoad.touchChildren = false;
+          }
         }
       }
 
@@ -70,6 +74,7 @@ namespace we {
           this._analysis = this.itemInitHelper.generateAnalysis(this._analysisNode);
           if (this._analysis) {
             this._analysis.cacheAsBitmap = true;
+            this._analysis.touchEnabled = false;
           }
         }
       }
