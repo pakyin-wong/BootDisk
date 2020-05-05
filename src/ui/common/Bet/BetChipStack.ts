@@ -169,8 +169,8 @@ namespace we {
           // value.y = index * -this._chipInterval;
           value.width = this._chipWidth;
           value.height = this._chipHeight;
-          // value.verticalCenter = index * -this._chipInterval;
-          value.verticalCenter = index * -this._chipHeight * 0.1;
+          value.verticalCenter = index * -this._chipInterval;
+          // value.verticalCenter = index * -this._chipHeight * 0.1;
           this.addChild(value);
           this.setChildIndex(value, index);
         });
