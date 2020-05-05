@@ -99,7 +99,7 @@ namespace we {
       }
 
       protected addEventListeners() {
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this, false);
         if (this._contentContainer) {
           this._contentContainer.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._contentContainer.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);

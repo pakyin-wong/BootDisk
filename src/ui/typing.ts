@@ -12,11 +12,13 @@ namespace we {
 
     export interface IAdvancedRoad {
       tableInfo;
+      analysis: IAnalysis;
       update(roadmapData: any);
     }
 
     export interface IAnalysis {
       tableId: string;
+      advancedRoad: IAdvancedRoad;
       updateTableBetInfo();
       updateRoad();
     }

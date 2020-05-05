@@ -22,6 +22,8 @@ namespace we {
       protected _coldNumber4Img: eui.Image;
       protected _coldNumber4Text: eui.Label;
 
+      public advancedRoad: we.ui.IAdvancedRoad;
+
       constructor() {
         super(env.isMobile ? null : 'ro.Analysis');
       }
@@ -40,7 +42,9 @@ namespace we {
       }
 
       protected updateBarChart() {
-        if (!this._tableId) { return; }
+        if (!this._tableId) {
+          return;
+        }
         if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
           const statColor = env.tableInfos[this._tableId].gamestatistic.roRed;
           if (statColor) {

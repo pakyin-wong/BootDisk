@@ -22,6 +22,8 @@ namespace we {
 
       protected totalCount: number;
 
+      public analysis: we.ui.IAnalysis;
+
       public constructor(skin?: string) {
         super(skin);
       }
@@ -84,6 +86,9 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
         this.changeLang();
+
+        this._roadmapControl = new we.dt.DTRoadmapControl();
+        this._roadmapControl.setRoads(this.beadRoad, this.bigRoad, this.bigEyeRoad, this.smallRoad, this.cockroachRoad, [16, 33, 66, 34, 32], null, null, false);
       }
 
       public changeLang() {
@@ -109,9 +114,9 @@ namespace we {
         if (this.tableInfo) {
           if (!this._roadmapControl) {
             this._roadmapControl = new DTRoadmapControl(this._tableInfo.tableid);
-            this._roadmapControl.setRoads(this.beadRoad, this.bigRoad, this.bigEyeRoad, this.smallRoad, this.cockroachRoad, [16, 33, 66, 34, 32], null, null, false);
           }
           if (this._roadmapControl) {
+            this._roadmapControl.setRoads(this.beadRoad, this.bigRoad, this.bigEyeRoad, this.smallRoad, this.cockroachRoad, [16, 33, 66, 34, 32], this.analysis, null, false);
             this._roadmapControl.setTableInfo(this._tableInfo);
             this._roadmapControl.updateRoadData();
           }

@@ -25,8 +25,11 @@ namespace we {
       }
 
       protected initChildren() {
-        this.generateAnalysis();
-        this.generateAdvancedRoad();
+        const analysis = this.generateAnalysis();
+        const advancedRoad = this.generateAdvancedRoad();
+        analysis.advancedRoad = advancedRoad;
+        advancedRoad.analysis = analysis;
+
         super.initChildren();
       }
 
@@ -39,7 +42,7 @@ namespace we {
       protected onTouchTap(evt: egret.Event) {
         const target = evt.target;
 
-        if (target instanceof eui.Image && target.name === 'askRoad') {
+        if (target instanceof eui.Group && target.name === 'askRoad') {
           evt.stopPropagation();
           return;
         }
@@ -63,6 +66,7 @@ namespace we {
         if (this.itemInitHelper) {
           this._advancedRoad = this.itemInitHelper.generateAdvancedRoad(this._advancedRoadNode);
         }
+        return this._advancedRoad;
       }
 
       protected generateAnalysis() {
@@ -72,6 +76,7 @@ namespace we {
             this._analysis.cacheAsBitmap = true;
           }
         }
+        return this._analysis;
       }
 
       protected initCustomPos() {
