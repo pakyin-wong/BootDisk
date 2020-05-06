@@ -1,6 +1,7 @@
 namespace we {
   export namespace core {
     export const Event = {
+      TOGGLE_SIDE_GAMELIST: 'TOGGLE_SIDE_GAMELIST',
       TOGGLE_MOBILE_DROPDOWN: 'TOGGLE_MOBILE_DROPDOWN',
       TOGGLE_SILDER_MENU: 'TOGGLE_SILDER_MENU',
       TOGGLE_OVERLAY_PANEL: 'TOGGLE_OVERLAY_PANEL',
