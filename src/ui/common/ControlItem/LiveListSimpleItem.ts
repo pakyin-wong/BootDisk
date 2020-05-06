@@ -51,6 +51,8 @@ namespace we {
       protected generateTableLayer() {
         if (this.itemInitHelper && this._tableLayerNode) {
           this._tableLayer = this.itemInitHelper.generateTableLayer(this._tableLayerNode);
+          this._tableLayer.touchEnabled = false;
+          this._tableLayer.touchChildren = false;
         }
       }
 
@@ -63,6 +65,10 @@ namespace we {
       protected generateRoadmap() {
         if (this.itemInitHelper && this._roadmapNode) {
           this._bigRoad = this.itemInitHelper.generateRoadmap(this._roadmapNode);
+          if (this._bigRoad) {
+            this._bigRoad.touchEnabled = false;
+            this._bigRoad.touchChildren = false;
+          }
         }
       }
 

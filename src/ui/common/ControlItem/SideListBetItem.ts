@@ -109,8 +109,8 @@ namespace we {
         this._originalQuickBetButtonY = 85;
         this._targetQuickbetPanelY = 154;
         this._originalQuickBetPanelY = 0;
-        this._offsetLimit = 650;
-        this._offsetMovement = 550;
+        this._offsetLimit = 10000;
+        this._offsetMovement = 0;
         this._hoverScale = 1;
       }
 
