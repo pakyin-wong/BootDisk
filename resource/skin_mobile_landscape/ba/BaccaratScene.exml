@@ -133,7 +133,7 @@
 	                  errorBg="d_ba_gamerecord_bankerelement_png" y="288" horizontalCenter="0" />
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<e:Group width="700" x.right_hand_mode="175" y.right_hand_mode="24" y="22" x="210" x.left_hand_mode="183">
+	<e:Group width="700" x.right_hand_mode="175" y.right_hand_mode="24" y="25" x="253" x.left_hand_mode="183">
 		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" />
 		<ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0" />
 		<e:layout>

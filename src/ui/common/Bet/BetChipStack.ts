@@ -8,6 +8,7 @@ namespace we {
       protected _betSumBackgroundY: number;
       protected _betSumBackgroundWidth: number;
       protected _betSumBackgroundHeight: number;
+      protected _betSumLabelFontSize: number;
 
       protected _betSum: number;
       protected _denomList: number[];
@@ -45,7 +46,6 @@ namespace we {
         if (this._betSumBackground) {
           this._betSumBackground.width = value;
         }
-
         this._betSumBackgroundWidth = value;
       }
 
@@ -62,6 +62,18 @@ namespace we {
 
       get betSumBackgroundHeight() {
         return this._betSumBackgroundHeight;
+      }
+
+      // change fontsize
+      set betSumLabelFontSize(value: number) {
+        if (this._betSumLabel) {
+          this._betSumLabel.size = value;
+        }
+        this._betSumLabelFontSize = value;
+      }
+
+      get betSumLabelFontSize() {
+        return this._betSumLabelFontSize;
       }
 
       set chipInterval(value: number) {
@@ -173,6 +185,7 @@ namespace we {
           value.width = this._chipWidth;
           value.height = this._chipHeight;
           value.verticalCenter = index * -this._chipInterval;
+          value.labelSize = this._chipLabelSize;
           // value.verticalCenter = index * -this._chipHeight * 0.1;
           this.addChild(value);
           this.setChildIndex(value, index);
