@@ -4,7 +4,7 @@ namespace we {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ba.TableLayer();
         if (node.name === 'AdvancedTableLayerNode') {
-          tableLayer.skinName = `skin_desktop.ba.LiveListItemAdvancedTableLayerSkin`;
+          tableLayer.skinName = `skin_desktop.ba.LiveListAdvancedItemTableLayerSkin`;
         } else {
           tableLayer.skinName = `skin_desktop.ba.LiveListItemTableLayerSkin`;
         }
@@ -16,7 +16,7 @@ namespace we {
       public generateChipLayer(node: eui.Component) {
         const chipLayer = new ba.ChipLayer();
         if (node.name === 'AdvancedChipLayerNode') {
-          chipLayer.skinName = `skin_desktop.ba.LiveListItemAdvancedChipLayerSkin`;
+          chipLayer.skinName = `skin_desktop.ba.LiveListAdvancedItemChipLayerSkin`;
         } else {
           chipLayer.skinName = `skin_desktop.ba.LiveListItemChipLayerSkin`;
         }
