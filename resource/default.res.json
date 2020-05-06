@@ -7027,6 +7027,46 @@
 			"url": "assets/d/di/d_sic_roadmap_red.png",
 			"type": "image",
 			"name": "d_sic_roadmap_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_green.png",
+			"type": "image",
+			"name": "d_lw_history_record_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_north.png",
+			"type": "image",
+			"name": "d_lw_history_record_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east.png",
+			"type": "image",
+			"name": "d_lw_history_record_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_red.png",
+			"type": "image",
+			"name": "d_lw_history_record_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_hl.png",
+			"type": "image",
+			"name": "d_lw_history_record_hl_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_south.png",
+			"type": "image",
+			"name": "d_lw_history_record_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_west.png",
+			"type": "image",
+			"name": "d_lw_history_record_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_white.png",
+			"type": "image",
+			"name": "d_lw_history_record_white_png"
 		}
 	]
 }

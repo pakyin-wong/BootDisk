@@ -3,4 +3,5 @@
         xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect id="background" width="100%" height="100%" x="0" y="0"  fillColor="0x121212" strokeColor="0x121212"/>
 	<live:GameTableList id="_gameTableList" width="100%" height="100%" x="0" y="0" anchorOffsetY="0" />
+	<ui:BaseAnimationButton width="50" height="50" x="0" y="1000" dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" />
 </e:Skin>

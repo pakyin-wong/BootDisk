@@ -9,6 +9,8 @@ namespace we {
       private _slider: ui.ImageSlider;
       private _stickyHeader: ui.StickyContent;
 
+      protected _tabbarBg: eui.Rect;
+
       constructor() {}
 
       public initContent(root: GameTableList) {
@@ -18,6 +20,7 @@ namespace we {
         root.scroller.height = 1340;
         root.scroller.headerOffset = 100;
         root.addChild(root.scroller);
+        root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
 
         const paddingHorizontal = 71;
         const offsetForTableList = -paddingHorizontal * 3;
@@ -117,6 +120,14 @@ namespace we {
         root.roomList.addChild(this._slider);
 
         const tabBarGroup = new eui.Group();
+        this._tabbarBg = new eui.Rect();
+        this._tabbarBg.fillColor = 0x121312;
+        this._tabbarBg.left = 0;
+        this._tabbarBg.right = 0;
+        this._tabbarBg.top = 0;
+        this._tabbarBg.bottom = 0;
+        this._tabbarBg.alpha = 0;
+        tabBarGroup.addChild(this._tabbarBg);
         tabBarGroup.left = paddingHorizontal;
         tabBarGroup.right = paddingHorizontal;
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
@@ -216,6 +227,19 @@ namespace we {
         // this.root.scroller.viewport = this.root.roomList;
         // this.root.scroller.validateNow();
         // this.root.scroller.viewport.scrollV = scrollV;
+      }
+
+      protected onScroll() {
+        const currentScrollV = this.root.scroller.viewport.scrollV;
+        this.updateNavbarOpacity(currentScrollV);
+      }
+
+      protected updateNavbarOpacity(scrollV: number) {
+        const scrollTarget = 700;
+        const ratio = Math.min(1, scrollV / scrollTarget);
+        const opacity = egret.Ease.quintIn(ratio);
+        this._tabbarBg.alpha = opacity;
+        dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
     }
   }

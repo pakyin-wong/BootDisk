@@ -61,6 +61,7 @@ declare class PlayerClient {
     createBetTemplate(title: string, betOptions: BetValueCommand[], callback?: Function): void;
     getBetTemplate(callback?: Function): void;
     removeBetTemplate(id: string, callback?: Function): void;
+    sendVerifyInfo(tableID: string, pattern: string[], callback?: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;
     private _isTableInfoCallbackEmpty;

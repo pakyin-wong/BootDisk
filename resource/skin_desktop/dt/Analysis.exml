@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dt.Analysis" width="278" height="450" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Rect fillColor="0x23282f" width="100%" height="100%" alpha="0.4" />
 	<e:ViewStack width="240" height="334" y="14" horizontalCenter="0" selectedIndex="0">
 		<e:Group name="Group" width="240" height="334">
 			<e:Group width="240" height="104" y="0">
@@ -67,8 +68,7 @@
 			</e:Group>
 			<e:Group width="240" height="104" y="133">
 				<e:Rect width="240" height="104" x="0" y="0" fillColor="0x212425" />
-				<e:Label id="_pairTitle" text="和比例" x="14" y="10" size="18" textAlign="center" verticalAlign="middle"
-				         bold="true" />
+				<e:Label id="_pairTitle" text="和比例" x="14" y="10" size="18" textAlign="center" verticalAlign="middle" bold="true" />
 				<e:Group x="22" y="36">
 					<e:Image width="21" height="21" source="d_ba_roadmap_bar_bankerpairstate_png" />
 				</e:Group>
@@ -126,22 +126,16 @@
 			<e:Label text="1" />
 		</e:Group>
 	</e:ViewStack>
-	<e:Group x="19" y="368" width="110" height="55">
+	<e:Group id="_dragonBeadGroup" x="19" y="368" width="110" height="55" name="askRoad">
 		<e:Image id="_iconBankerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0"
-		         scale9Grid="15,13,37,5"  name="askRoad" />
-		<ui:RunTimeLabel id="_playerAskLabel" text="Ask P" textAlign="center" anchorOffsetX="0" width="110" size="16"
-		                 height="28" verticalAlign="middle" touchEnabled="false"/>
-		<e:Image width="14" height="14" x="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
-		<e:Image width="14" height="14" y="34" horizontalCenter="0" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
-		<e:Image width="14" height="14" right="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
+		         scale9Grid="15,13,37,5" />
+		<ui:RunTimeLabel id="_playerAskLabel" textAlign="center" anchorOffsetX="0" width="110" size="16" height="28"
+		                 verticalAlign="middle" touchEnabled="false" />
 	</e:Group>
-	<e:Group right="19" y="368" width="110" height="55">
+	<e:Group id="_tigerBeadGroup" right="19" y="368" width="110" height="55" name="askRoad">
 		<e:Image id="_iconPlayerBead" width="110" height="28" source="d_ba_roadmap_topbar_textbg_player_png"
-		         scale9Grid="15,13,37,5"  name="askRoad"/>
-		<ui:RunTimeLabel id="_bankerAskLabel" text="Ask B" textAlign="center" anchorOffsetX="0" width="110" size="16"
+		         scale9Grid="15,13,37,5" />
+		<ui:RunTimeLabel id="_bankerAskLabel" textAlign="center" anchorOffsetX="0" width="110" size="16"
 		                 verticalAlign="middle" height="28" touchEnabled="false" />
-		<e:Image width="14" height="14" x="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
-		<e:Image width="14" height="14" y="34" horizontalCenter="0" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
-		<e:Image width="14" height="14" right="29" y="34" source="d_ba_roodmap_bar_reddot_png" anchorOffsetX="0" />
 	</e:Group>
 </e:Skin>

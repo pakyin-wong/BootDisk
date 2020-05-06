@@ -184,7 +184,7 @@ namespace we {
 
         console.log('checkResultMessage', this._gameData);
 
-        const result = (<ro.GameData>this._gameData).value;
+        const result = (<ro.GameData> this._gameData).value;
         const resultNo: number = +result.toString().substr(1) - 1;
 
         // (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo.toString()}`);

@@ -41,6 +41,7 @@ namespace we {
 
       set denomList(value: number[]) {
         this._denomList = value;
+        this.passDenomListToBetChipStack();
       }
 
       get denomList() {
@@ -98,6 +99,9 @@ namespace we {
       protected createMapping() {}
 
       protected passDenomListToBetChipStack() {
+        if (!this._betChipStackMapping) {
+          return;
+        }
         Object.keys(this._betChipStackMapping).forEach(value => {
           if (this._betChipStackMapping[value]) {
             this._betChipStackMapping[value].denomList = this._denomList;

@@ -80,9 +80,14 @@ namespace we {
       private onSelectedIndexChanged(evt: any) {
         const item = this.tabItems[this.tabs.tabBar.selectedIndex];
 
+        const scrollV = this.scroller.viewport.scrollV;
+
         this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
         this.roomList.invalidateDisplayList();
+
+        this.scroller.validateNow();
+        this.scroller.viewport.scrollV = scrollV;
       }
 
       public selectGameType(game: string = null) {

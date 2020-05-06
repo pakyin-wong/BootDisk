@@ -154,7 +154,7 @@ namespace we {
 
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = this.getNewChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
+              const chip = this.getNewChip(env.wholeDenomList[value], value, we.core.ChipType.PERSPECTIVE);
               chip.touchEnabled = false;
               // chip.labelSize = this._chipLabelSize;
               // chip.labelOffset = this._chipLabelOffset;
@@ -285,11 +285,12 @@ namespace we {
 
       protected getBettingTableGridDenom(denomlist: number[], amount) {
         let total = amount;
-        let index = denomlist.length - 1;
+        let index = env.wholeDenomList.length - 1;
         const b = new Array();
         while (total > 0) {
-          if (total >= denomlist[index]) {
-            total -= denomlist[index];
+          const denomValue = env.wholeDenomList[index];
+          if (total >= denomValue) {
+            total -= denomValue;
             b.push(index);
           } else {
             index--;

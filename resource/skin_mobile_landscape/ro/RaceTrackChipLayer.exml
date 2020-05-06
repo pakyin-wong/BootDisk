@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ro.RaceTrackChipLayerSkin" width="1932" height="580" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
+	<e:Image id="_section_35" y="0" x="1642" source="h_35_png" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_3" source="h_3_png" x="1731" y="56" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_26" source="h_26_png" x="1785" y="201" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_0" source="h_0_png" x="1731" y="337" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_32" source="h_32_png" x="1642" y="411" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_15" y="439" x="1538" source="h_Rectangle_png" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_19" source="h_Rectangle_png" y="439" x="1434" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_4" source="h_Rectangle_png" y="439" x="1330" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_21" source="h_Rectangle_png" y="439" x="1226" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_2" source="h_Rectangle_png" y="439" x="1122" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_25" source="h_Rectangle_png" y="439" x="1018" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_17" source="h_Rectangle_png" y="439" x="914" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_34" source="h_Rectangle_png" y="439" x="810" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_6" source="h_Rectangle_png" y="439" x="706" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_27" source="h_Rectangle_png" y="439" x="602" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_13" source="h_Rectangle_png" y="439" x="498" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_36" source="h_Rectangle_png" y="439" x="394" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_11" source="h_Rectangle_png" y="439" x="290" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_30" source="h_30_png" y="420" x="145" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_8" source="h_8_png" x="39" y="365" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_23" source="h_23_png" x="0" y="290" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_10" source="h_10_png" x="0" y="146" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_5" source="h_5_png" x="39" y="39" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_24" source="h_24_png" x="145" y="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_16" source="h_Rectangle_png" y="0" x="290" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_33" source="h_Rectangle_png" y="0" x="394" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_1" source="h_Rectangle_png" y="0" x="498" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_20" source="h_Rectangle_png" y="0" x="602" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_14" source="h_Rectangle_png" y="0" x="706" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_31" source="h_Rectangle_png" y="0" x="810" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_9" source="h_Rectangle_png" y="0" x="914" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_22" source="h_Rectangle_png" y="0" x="1018" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_18" source="h_Rectangle_png" y="0" x="1122" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_29" source="h_Rectangle_png" y="0" x="1226" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_7" source="h_Rectangle_png" y="0" x="1330" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_28" source="h_Rectangle_png" y="0" x="1434" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_12" source="h_Rectangle_png" x="1538" y="0" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_tiers" source="h_Tires_png" x="140" y="140" scale9Grid="0,198,380,159" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_orphelins" source="h_Orphelins_png" x="496" y="140" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_voisins" source="h_Voisins_png" x="1017" y="140" alpha="0.01" pixelHitTest="true"/>
+	<e:Image id="_section_zero" source="h_Zero_png" x="1385" y="140" alpha="0.01" pixelHitTest="true"/>
+</e:Skin>
