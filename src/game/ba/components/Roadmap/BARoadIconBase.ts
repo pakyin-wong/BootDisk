@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export abstract class BARoadIconBase extends egret.DisplayObjectContainer {
+    export abstract class BARoadIconBase extends eui.Component {
       protected size: number;
       protected tween: egret.Tween;
       public value: any;

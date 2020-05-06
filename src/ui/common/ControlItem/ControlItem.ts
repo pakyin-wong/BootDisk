@@ -7,11 +7,11 @@ namespace we {
       protected _tableLayer: TableLayer;
 
       protected _betChipSet: ui.BetChipSet;
-      protected _cardHolder: IResultDisplay;
+      protected _cardHolder: IResultDisplay & eui.Component;
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
-      protected _resultMessage: ui.IGameResultMessage;
+      protected _resultMessage: ui.IGameResultMessage & eui.Component;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
       protected _toggler: egret.DisplayObject;
@@ -99,7 +99,7 @@ namespace we {
       }
 
       protected addEventListeners() {
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this, false);
         if (this._contentContainer) {
           this._contentContainer.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._contentContainer.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
