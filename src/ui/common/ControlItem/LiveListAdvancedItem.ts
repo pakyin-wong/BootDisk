@@ -1,6 +1,11 @@
 namespace we {
   export namespace ui {
     export class LiveListAdvancedItem extends LiveListItem {
+      protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
+      protected _betChipSetGridEnabled: boolean = false;
+      protected _closeButton: ui.BaseImageButton;
+      protected _prevButton: ui.BaseImageButton;
+
       protected _advancedRoadNode: eui.Component;
       protected _advancedRoad: IAdvancedRoad & eui.Component;
       protected _analysisNode: eui.Component;
@@ -8,6 +13,12 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected getBetChipSet() {
+        const betChipSet = new BetChipSetGrid();
+        betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        return betChipSet;
       }
 
       public destroy() {
@@ -29,14 +40,20 @@ namespace we {
         const advancedRoad = this.generateAdvancedRoad();
         analysis.advancedRoad = advancedRoad;
         advancedRoad.analysis = analysis;
-
         super.initChildren();
       }
 
       protected showQuickBetGroup() {
         super.showQuickBetGroup();
-        this.setChildIndex(this._quickBetGroup, 1500);
-        this.setChildIndex(this._chipLayerNode, 2500);
+        this._quickBetGroup.touchEnabled = true;
+        this._quickBetGroup.touchChildren = true;
+      }
+
+      protected hideQuickBetGroup() {
+        super.hideQuickBetGroup();
+        this._quickBetGroup.touchEnabled = false;
+        this._quickBetGroup.touchChildren = false;
+        this.hideBetChipPanel();
       }
 
       protected onTouchTap(evt: egret.Event) {
@@ -91,6 +108,31 @@ namespace we {
         this._originalQuickBetPanelY = 100;
         this._offsetLimit = 900;
         this._offsetMovement = 800;
+      }
+
+      protected addEventListeners() {
+        super.addEventListeners();
+        this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+      }
+
+      public onClickUndoButton(evt: egret.Event) {
+        this._undoStack.popAndUndo();
+      }
+
+      protected onClickBetChipSelected() {
+        this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
+      }
+
+      protected showBetChipPanel() {
+        egret.Tween.get(this._betChipSet).to({ y: 590, alpha: 1 }, 250);
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        this._betChipSetGridEnabled = false;
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

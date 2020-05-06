@@ -43,8 +43,6 @@ namespace we {
 
       protected initChildren() {
         this.generateRoadmap();
-        // this.generateTableLayer();
-        // this.generateChipLayer();
         super.initChildren();
       }
 
@@ -72,10 +70,15 @@ namespace we {
         }
       }
 
-      protected runtimeGenerateBetChipSet() {
+      protected getBetChipSet(): BetChipSet & eui.Component {
         const betChipSet = new BetChipSetHorizontal();
         betChipSet.navWidth = 20;
         betChipSet.containerPadding = 6;
+        return betChipSet;
+      }
+
+      protected runtimeGenerateBetChipSet() {
+        const betChipSet = this.getBetChipSet();
 
         const idx = this._betChipSetNode.parent.getChildIndex(this._betChipSetNode);
         this._betChipSetNode.parent.addChildAt(betChipSet, idx);
