@@ -23,11 +23,11 @@
         <e:Group id="_triple_4_group" width="207" height="87" anchorOffsetX="0" x="1452" y="0"/>
         <e:Group id="_triple_5_group" width="207" height="86" anchorOffsetX="0" x="1452" y="88"/>
         <e:Group id="_triple_6_group" width="207" height="85" anchorOffsetX="0" x="1452" y="176"/> 
-        <e:Group id="_even_group" width="205" height="100%" y="1660" x="0">
+        <e:Group id="_even_group" width="205" height="100%" y="0" x="1660">
             <ui:RunTimeLabel id="_even_label" text="雙" size="90" textColor="0xe4493a" fontFamily="Microsoft YaHei,Helvetica" horizontalCenter="0" verticalCenter="15"/>
-            <e:Label id="_even_percent" text="41%" size="32" horizontalCenter="51.5" verticalCenter="-68" textColor="0xffffff" fontFamily="Microsoft YaHei,Helvetica"/>
+            <e:Label id="_even_percent" text="41%" size="32" horizontalCenter="1" verticalCenter="-68" textColor="0xffffff" fontFamily="Microsoft YaHei,Helvetica"/>
         </e:Group>
-        <e:Group id="_big_group" width="205" height="100%" y="1866" x="0">
+        <e:Group id="_big_group" width="205" height="100%" x="1866">
             <ui:RunTimeLabel id="_big_label" text="大" size="90" textColor="0xe4493a" fontFamily="Microsoft YaHei,Helvetica" horizontalCenter="0" verticalCenter="15"/>
             <e:Label id="_big_percent" text="41%" size="32" horizontalCenter="51.5" verticalCenter="-68" textColor="0xffffff" fontFamily="Microsoft YaHei,Helvetica"/>
         </e:Group>
@@ -73,4 +73,5 @@
         <e:Group id="_specific_5_group" width="295" height="100%" x="1480" anchorOffsetX="0"/>
         <e:Group id="_specific_6_group" width="295" height="100%" x="1776" anchorOffsetX="0"/>
     </e:Group>
+    <ui:RunTimeLabel id="_specific_label" text="單骰 1:1 \n雙骰 2:1 三骰 12:1" size="32" bottom="30" textColor="0xffffff" fontFamily="Microsoft JhengHei" left="20" textAlign="center"/>
 </e:Skin>

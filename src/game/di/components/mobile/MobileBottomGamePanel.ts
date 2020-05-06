@@ -28,6 +28,7 @@ namespace we {
         super.mount();
 
         this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
+        this._roadButtonPanel.changeState();
       }
 
       public destroy() {
@@ -39,44 +40,30 @@ namespace we {
       protected addListeners() {
         super.addListeners();
 
-        this._roadButtonPanel.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE,this.onRoadMapChanged);
-        this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged);
-        this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged);
+        this._roadButtonPanel.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
 
-        this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE,this.onRoadMapChanged);
-        this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE,this.onRoadMapChanged);        
-
-        if(this.historyBtn)
-          this.historyBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        if(this.roadSheetBtn)
-          this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this.historyBtn) this.historyBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this.roadSheetBtn) this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-
-        if(this.historyAndRoadSheetBtn)
-          this.historyAndRoadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this.historyAndRoadSheetBtn) this.historyAndRoadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
       }
 
       protected removeListeners() {
         super.removeListeners();
-        if(this.historyBtn)
-          this.historyBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        if(this.roadSheetBtn)
-          this.roadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this.historyBtn) this.historyBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this.roadSheetBtn) this.roadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-
-        if(this.historyAndRoadSheetBtn)
-          this.historyAndRoadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        if (this.historyAndRoadSheetBtn) this.historyAndRoadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
       }
 
       public updateText() {
-        if(this.historyBtn)
-          this.historyBtn.label = i18n.t('mobile_game_panel_history');
-        if(this.roadSheetBtn)
-          this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
-        if(this.historyAndRoadSheetBtn)
-          this.historyAndRoadSheetBtn.label = i18n.t('mobile_game_panel_history')+'/'+i18n.t('mobile_game_panel_road_sheet');
+        if (this.historyBtn) this.historyBtn.label = i18n.t('mobile_game_panel_history');
+        if (this.roadSheetBtn) this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
+        if (this.historyAndRoadSheetBtn) this.historyAndRoadSheetBtn.label = i18n.t('mobile_game_panel_history') + '/' + i18n.t('mobile_game_panel_road_sheet');
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
         this._gameInfoLabel.text = i18n.t('mobile_panel_game_Info');
@@ -84,21 +71,29 @@ namespace we {
 
       public manualClose() {
         super.manualClose();
+
         this._roadmapPanel.visible = false;
         this._beadroadPanel.visible = false;
       }
 
       protected onViewChange(e: eui.UIEvent) {
-        super.onViewChange(e);
-        switch(env.orientation)
-        {
+        switch (env.orientation) {
           case 'landscape':
+            if (e.target.value === '3') {
+              e.target.value = 0;
+            }
 
             break;
           case 'portrait':
+            if (e.target.value === '0') this._roadButtonPanel.roadmapType = 0;
+            if (e.target.value === '1') this._roadButtonPanel.roadmapType = 1;
 
+            this._roadButtonPanel.changeState();
+            if(this.viewStack.selectedIndex > 1)
+              this._roadmapPanel.visible = false;
             break;
         }
+        this.viewStack.selectedIndex = e.target.value;
       }
 
       protected onPanelToggle() {
@@ -113,13 +108,20 @@ namespace we {
         this.dispatchEvent(new egret.Event('ON_BOTTOM_PANEL_TOGGLE'));
       }
 
-      protected onRoadMapChanged(e)
-      {
-        switch(env.orientation)
-        {
+      protected onRoadMapChanged(e: eui.UIEvent) {
+        switch (env.orientation) {
           case 'landscape':
+            this._roadmapPanel.onRoadMapChanged(e);
+            this._beadroadPanel.onBeadRoadChanged(e);
             break;
           case 'portrait':
+            if (this.viewStack.selectedIndex === 0) {
+              this._beadroadPanel.onBeadRoadChanged(e);
+            }
+
+            if (this.viewStack.selectedIndex === 1) {
+              this._roadmapPanel.onRoadMapChanged(e);
+            }              
             break;
         }
       }

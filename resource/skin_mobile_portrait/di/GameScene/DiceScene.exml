@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.DiceScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:di="we.di.*" xmlns:w="http://ns.egret.com/wing"
-        xmlns:live="we.live.*" states="left_hand_mode,right_hand_mode" >
-	<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0">
-	<e:skinName>
-		<e:Skin states="normal,zip,small">
-			<e:Component id="checker" width="924" height="1530" x="159" y.zip="167" y.normal="313" scaleX.normal="1" scaleY.zip="1" scaleX.zip="1" scaleY.normal="1" height.zip="1330" scaleX.small="0.673120728929385" scaleY.small="0.6721311475409836" x.small="326" y.small="748"/>
+<e:Skin class="skin_mobile_portrait.DiceScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" 
+ xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:di="we.di.*" xmlns:w="http://ns.egret.com/wing"
+ xmlns:live="we.live.*" states="left_hand_mode,right_hand_mode" >
+<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0">
+<e:skinName>
+<e:Skin states="normal,zip,small">
+  <e:Component id="checker" width="924" height="1530" x="159" y.zip="167" y.normal="313" scaleX.normal="1" scaleY.zip="1" scaleX.zip="1" scaleY.normal="1" height.zip="1330" scaleX.small="0.673120728929385" scaleY.small="0.6721311475409836" x.small="326" y.small="748"/>
 		</e:Skin>
 	</e:skinName>
 	</ui:TweenConfig>
@@ -16,7 +16,7 @@
 		</e:Skin>
 		</ui:skinName>
 	</ui:TweenConfig>
-        <e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" left="0" right="0" locked="true"/>
+        <e:Image id="_bgImg" width="1242" height="2155" top="0" bottom="0" source="frame-3_png" left="0" right="0" locked="true"/>
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
 			 <!--<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin"  x="215" y="23"/>-->
@@ -69,7 +69,6 @@
                         </e:Group>
                 </e:Group>
         </e:Scroller>
-
   <di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"  horizontalCenter.left_hand_mode="0" top.left_hand_mode="350" horizontalCenter.right_hand_mode="0" top.right_hand_mode="350"/>
   <ui:InGameMessage
     id="_message"

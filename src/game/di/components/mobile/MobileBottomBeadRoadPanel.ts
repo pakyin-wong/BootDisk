@@ -45,27 +45,27 @@ namespace we {
       }
 
       protected addListeners() {
-        this.beadRoadSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
-        this.beadRoadOddEvenBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        // this.beadRoadSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        // this.beadRoadOddEvenBtn.addEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.addEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       protected removeListeners() {
-        this.beadRoadSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
-        this.beadRoadOddEvenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        // this.beadRoadSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
+        // this.beadRoadOddEvenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onBeadRoadChanged, this);
 
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       public updateText() {
-        this.beadRoadSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
-        this.beadRoadOddEvenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
+        // this.beadRoadSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
+        // this.beadRoadOddEvenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
       }
 
-      protected onBeadRoadChanged(e) {
+      public onBeadRoadChanged(e) {
         const radio: eui.RadioButton = e.target;
         if (radio.value === '1') {
           this.beadRoad.setLayout(1);

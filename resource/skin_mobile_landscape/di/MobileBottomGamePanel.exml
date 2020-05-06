@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_landscape.di.MobileBottomGamePanel" width="2424" xmlns:e="http://ns.egret.com/eui" height="374"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:di="we.di.*" states="on,off">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*" states="on,off">
 		<e:Group id="_bottomPart" y="23" scaleX="1" scaleY="1" touchEnabled="false" touchChildren="true" anchorOffsetX="0" width="104" height="58" x="2260" y.on="0" height.on="66">
 			<e:Image id="bottom_bg" x="0" y="0" source="m_ba_tab_bottom_png" scaleX="1" scaleY="1" visible="false"/>
 			<ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="700" y="13.5" textAlign="right" anchorOffsetX="0" width="514" size="25" scaleX="1" scaleY="1" visible="false"/>
@@ -9,7 +9,7 @@
 			<e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.off="false" horizontalCenter.on="0" horizontalCenter="0" y="0"/>
 			<e:Image id="_arrowUp" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.on="false" rotation="180" horizontalCenter.on="0" horizontalCenter="0" y="78"/>
 		</e:Group>
-		<e:Group id="_middlePart" width="2424" x="0" y="80" scaleX="1" scaleY="1" left="0" right="0" height.on="308" y.on="66" left.on="0" right.on="0">
+		<e:Group id="_middlePart" width="2424" x="0" scaleX="1" scaleY="1" left="0" right="0" height.on="308" y.on="66" left.on="0" right.on="0" bottom="0">
 			<e:Rect id="viewStackMask" y="0" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0" right.on="338"/>
 			<e:Group id="_topPart" width="284" y="80" scaleX="1" scaleY="1" anchorOffsetX="0" top="0" bottom="0" x="2140" right.on="0" width.on="338">
 			<e:Rect id="top_bg" width="100%" height="260" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" x="0" height.on="100%"/>
@@ -42,16 +42,17 @@
 			</e:RadioButton>
 			<ui:RunTimeLabel id="_gameInfoLabel" text="Label" x="-401.72" y="26" size="42" bold="true" visible="false"/>
 			</e:Group>
-			<e:ViewStack id="viewStack" width="2140" height="308" x="0" y="0" selectedIndex="1" scaleX="1" scaleY="1" top="0" anchorOffsetX.on="0">
+			<e:ViewStack id="viewStack" width="2086" height="308" x="0" y="0" selectedIndex="1" scaleX="1" scaleY="1" top="0" anchorOffsetX.on="0">
 			<e:Group id="_roadmapGroup" width="100%" name="Group" left="0" right="0" height="100%">
-				<!--<ba:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_landscape.ba.MobileBottomRoadmapPanel" scaleX="1" scaleY="1" top="0" height="100%" width="100%" left="0"/>-->
+				<di:MobileBottomRoadmapPanel id="_roadmapPanel" skinName="skin_mobile_landscape.di.MobileBottomRoadmapPanel" scaleX="1" scaleY="1" top="0" height="100%" width="2086" left="0"/>
 			</e:Group>
 			<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
-				<!--<ba:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_landscape.ba.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>-->
+				<di:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_landscape.di.StatisticChartPanel" width="2086" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			<e:Group id="_infoGroup" width="100%" height="100%" name="Group">
-				<!--<ba:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.ba.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>-->
+				<di:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_landscape.di.TableInfoPanel" width="2086" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
 			</e:ViewStack>
+			<di:MobileBottomRoadButtonPanel id="_roadButtonPanel" skinName="skin_mobile_landscape.di.MobileButtonRoadPanel" scaleX="1" scaleY="1" left="0" bottom="0"/>
 		</e:Group>
 </e:Skin>
