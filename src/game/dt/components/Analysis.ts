@@ -123,7 +123,7 @@ namespace we {
         if (evt.target === this._iconBankerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.dt.AdvancedRoad) {
-            (<we.dt.AdvancedRoad>this.advancedRoad).askBankerRoad();
+            (<we.dt.AdvancedRoad> this.advancedRoad).askBankerRoad();
           }
         }
       }
@@ -132,7 +132,7 @@ namespace we {
         if (evt.target === this._iconPlayerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.dt.AdvancedRoad) {
-            (<we.dt.AdvancedRoad>this.advancedRoad).askPlayerRoad();
+            (<we.dt.AdvancedRoad> this.advancedRoad).askPlayerRoad();
           }
         }
       }
@@ -144,7 +144,7 @@ namespace we {
         return this._tableId;
       }
 
-      public updateTableBetInfo() { }
+      public updateTableBetInfo() {}
 
       public updateRoad() {
         if (!this._tableId) {
