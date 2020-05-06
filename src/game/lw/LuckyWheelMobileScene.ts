@@ -192,10 +192,8 @@ namespace we {
 
         console.log('checkResultMessage', this._gameData);
 
-        const result = (<ro.GameData>this._gameData).value;
-        const resultNo: number = +result.toString().substr(1) - 1;
-
-        (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo.toString()}`);
+        const resultNo = (<lw.GameData>this._gameData).value; // a string type
+        (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo}`);
         const lwGameResultMessage = new lw.GameResultMessage();
         lwGameResultMessage.type = null;
         this._resultMessage.showResult(this._tableInfo.gametype, resultNo);

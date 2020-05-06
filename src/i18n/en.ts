@@ -221,6 +221,7 @@ namespace we {
         single: 'single',
         double: 'double',
         triple: 'triple',
+        triple_: 'triple',
         TableLayerMsg: 'One Die 1:1 Two Die 2:1 Three Die3:1',
 
         roadBig: 'Big',

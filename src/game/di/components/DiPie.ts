@@ -8,12 +8,12 @@ namespace we {
       protected evenLabel: eui.Label;
       protected triple2Label: eui.Label;
 
-      protected bigNameLabel: eui.Label;
-      protected smallNameLabel: eui.Label;
-      protected tripleNameLabel: eui.Label;
-      protected oddNameLabel: eui.Label;
-      protected evenNameLabel: eui.Label;
-      protected triple2NameLabel: eui.Label;
+      protected bigNameLabel: ui.RunTimeLabel;
+      protected smallNameLabel: ui.RunTimeLabel;
+      protected tripleNameLabel: ui.RunTimeLabel;
+      protected oddNameLabel: ui.RunTimeLabel;
+      protected evenNameLabel: ui.RunTimeLabel;
+      protected triple2NameLabel: ui.RunTimeLabel;
 
       protected _pieOdd: we.di.RankedPieChart;
       protected _pieSize: we.di.RankedPieChart;
