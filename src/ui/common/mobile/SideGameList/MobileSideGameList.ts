@@ -55,6 +55,7 @@ namespace we {
         this.removeEventListeners();
       }
       protected addEventListeners() {
+        dir.evtHandler.addEventListener(core.Event.TOGGLE_SIDE_GAMELIST, this.show, this);
         // listen to table list update
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update
@@ -66,6 +67,7 @@ namespace we {
       }
 
       protected removeEventListeners() {
+        dir.evtHandler.removeEventListener(core.Event.TOGGLE_SIDE_GAMELIST, this.show, this);
         // listen to table list update
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update

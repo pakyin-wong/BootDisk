@@ -12,13 +12,13 @@
 					</e:Component>
 					<e:ViewStack id="_roadmapView" height="305" width="900" x="358" y="3">
 						<e:Group name="color" left="0" right="0" top="0" bottom="0">
-							<ro:RoadMapConfig id="colorBigRoadConfig" roadmap_col="18" roadmap_gridSize="52"/>
+							<ro:RoadMapConfig id="colorBigRoadConfig" roadmap_col="18" roadmap_gridSize="50"/>
 						</e:Group>
 						<e:Group name="size" left="0" right="0" top="0" bottom="0">
-							<ro:RoadMapConfig id="sizeBigRoadConfig" roadmap_col="18" roadmap_gridSize="52"/>
+							<ro:RoadMapConfig id="sizeBigRoadConfig" roadmap_col="18" roadmap_gridSize="50"/>
 						</e:Group>
 						<e:Group name="oddeven" left="0" right="0" top="0" bottom="0">
-							<ro:RoadMapConfig id="oddBigRoadConfig" roadmap_col="18" roadmap_gridSize="52"/>
+							<ro:RoadMapConfig id="oddBigRoadConfig" roadmap_col="18" roadmap_gridSize="50"/>
 						</e:Group>
 					</e:ViewStack>
 					<e:RadioButton id="colorRoadBtn" label="紅 / 黑" x="10" y="16" width="320" height="80" value="0" selected="true" groupName="roadmap">
