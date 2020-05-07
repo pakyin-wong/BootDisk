@@ -54,6 +54,7 @@ namespace we {
           dir.meterCtr.register('balance', this._balanceGame);
         }
         dir.meterCtr.register('balance', this._balance);
+        console.log('this._balance', this._balance);
         if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
