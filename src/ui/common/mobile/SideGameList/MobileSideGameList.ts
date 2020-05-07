@@ -24,6 +24,10 @@ namespace we {
         this.poppableAddon = new PoppableAddonBottomSilder(this);
       }
 
+      protected onOrientationChange() {
+        this.arrangeComponents();
+      }
+
       protected initOrientationDependentComponent() {
         this._txt_title.renderText = () => `${i18n.t('sidegamelist_title')}`;
 
@@ -45,6 +49,8 @@ namespace we {
       }
 
       protected arrangeComponents() {
+        this.currentState = env.orientation.toLowerCase();
+        this.validateNow();
         this._betTableList.layout = this.getLayout();
         this._goodRoadTableList.layout = this.getLayout();
         this._allTableList.layout = this.getLayout();
