@@ -48,10 +48,10 @@ namespace we {
           this._menu.dismissOnClickOutside = true;
         }
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
-        // if (env.isMobile) {
-        this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
-        this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
-        // }
+        if (env.isMobile) {
+          this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+          this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
+        }
         dir.meterCtr.register('balance', this._balance);
         dir.meterCtr.register('balance', this._balanceGame);
         if (!isNaN(env.balance)) {
