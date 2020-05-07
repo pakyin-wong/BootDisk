@@ -146,7 +146,7 @@ namespace we {
         this.dispatchEvent(new egret.Event('CLICKED'));
       }
 
-      private playPromise(anim, count) {
+      private playPromise(anim, count, progress = 0) {
         console.log('BaseAnimationButton', anim);
 
         return new Promise(resolve => {
@@ -155,34 +155,41 @@ namespace we {
             resolve();
           };
           this._display.armature.eventDispatcher.addDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
-          this._display.animation.play(anim, count);
+          this._display.animation.gotoAndPlayByProgress(anim, progress, count);
         });
       }
 
+      private prevProm: Promise<any> = Promise.resolve();
       private async update([oldDown, oldHover]: boolean[]) {
         if (!this._display) {
           return;
         }
+
+        this._display.animation.timeScale = 5;
+        await this.prevProm;
+        this._display.animation.timeScale = 1;
+        // this._display.animation.stop();
+        // await this.playPromise('idle', 1, 0.99);
         // console.log('BaseAnimationButto oldDown', oldDown);
         // console.log('BaseAnimationButto _down', this._down);
         // console.log('BaseAnimationButto oldHover', oldHover);
         // console.log('BaseAnimationButto _hover', this._hover);
 
         if (!this._enabled) {
-          this.playPromise('disable', 0);
+          this.prevProm = this.playPromise('disable', 0);
         } else if (this._hover && !oldDown && this._down) {
-          this.playPromise('press', 1);
+          this.prevProm = this.playPromise('press', 1);
         } else if (this._hover && oldDown && !this._down) {
-          this.playPromise('release', 1);
+          this.prevProm = this.playPromise('release', 1);
         } else if (!oldHover && this._hover) {
-          this.playPromise('mouse_in', 1);
+          this.prevProm = this.playPromise('mouse_in', 1);
         } else if (oldHover && !this._hover) {
           if (oldDown) {
             await this.playPromise('release', 1);
           }
-          this.playPromise('mouse_out', 1);
+          this.prevProm = this.playPromise('mouse_out', 1);
         } else if (!this._active) {
-          this.playPromise('idle', 0);
+          this.prevProm = this.playPromise('idle', 0);
         }
       }
     }
