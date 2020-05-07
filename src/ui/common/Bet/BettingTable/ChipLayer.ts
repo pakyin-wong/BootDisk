@@ -220,6 +220,7 @@ namespace we {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdateEvent, this);
+            mouse.setButtonMode(this._mouseAreaMapping[value], true);
           }
         });
       }
