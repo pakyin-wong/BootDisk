@@ -37,10 +37,10 @@ namespace we {
       }
 
       protected initComponents() {
-        super.initComponents();
         this.generateRoadmap();
         this.generateTableLayer();
         this.generateChipLayer();
+        super.initComponents();
       }
 
       protected generateTableLayer() {

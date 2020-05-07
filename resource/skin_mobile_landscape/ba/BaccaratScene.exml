@@ -6,37 +6,41 @@
 	<e:Image id="_bgImg" top="-247" bottom="-1221" source="m_ba_bg_offvideo_png" x="0" width="2424" />
 	<e:Group id="_verticalGroup" width="2424" x="0" anchorOffsetY="0" bottom="0">
 		<e:Group id="_verticalTop" width="2424" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
-			<ba:TableLayer id="_tableLayer" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.TableLayerSkin" scaleX="1" scaleY="1" y="222" horizontalCenter="0"/>
-			<ba:ChipLayer id="_chipLayer" y="221.5" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.ChipLayerSkin" scaleX="1" scaleY="1" horizontalCenter="0"/>
-			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="lobby_panel_gamelist_tag_icon_allgame" x="2262" y="0" x.right_hand_mode="2262" y.right_hand_mode="0"/>
-			<e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="366">
-				<e:Group id="_betPanelGroup" scaleY="1" x="0" height="260" y="0" width="100%">
-					<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
-					         scaleX="1" y="0" height="443" x="0" />
-					<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="474"
-					         scaleX="1" x="327" rotation="180" />
-				</e:Group>
-				<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
-				                   betChipHeight="208" scaleY="1" anchorOffsetY="0" right="0" left="0" labelSize="48" y="20" />
-			</e:Group>
-			<e:Group height="104" anchorOffsetX="0" anchorOffsetY="0" y="238" width="104" y.right_hand_mode="238">
-				<ui:RunTimeLabel id="_lblBaMode" x="13" y="26" scaleX="1" scaleY="1" />
-				<e:ToggleSwitch id="_switchBaMode" label="免佣" x="4" y="0" scaleX="1" scaleY="1" width="104" height="104"  skinName="skins.MobileToggleSwitchSkin"/>
+			<ba:TableLayer id="_tableLayer" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.TableLayerSkin"
+			               scaleX="1" scaleY="1" y="222" horizontalCenter="0" />
+			<ba:ChipLayer id="_chipLayer" y="221.5" isEdgeDismissable="true" skinName="skin_mobile_landscape.ba.ChipLayerSkin"
+			              scaleX="1" scaleY="1" horizontalCenter="0" />
+			<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+			                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+			                    currentState="lobby_panel_gamelist_tag_icon_allgame" x="2262" y="0" x.right_hand_mode="2262"
+			                    y.right_hand_mode="0" />
+			<e:Group height="104" anchorOffsetX="0" anchorOffsetY="0" y="238" width="104" y.right_hand_mode="238"
+			         x.right_hand_mode="2262" x="2262" x.left_hand_mode="2262">
+				<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
+				<e:ToggleSwitch id="_switchBaMode" label="免佣" x="4" y="0" scaleX="1" scaleY="1" width="104" height="104"
+				                skinName="skins.MobileToggleSwitchSkin" />
 				<e:layout>
 					<e:BasicLayout/>
 				</e:layout>
 			</e:Group>
-			<e:Group width="104" height="104" y="119" y.right_hand_mode="119" x.right_hand_mode="2262" x="2262" x.left_hand_mode="2262">
-				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4"/>
-				<e:Image id="_bavideo" width="104" height="104" source="m_ba_btn_video_png" scaleX="1" scaleY="1" verticalCenter="0" x="0"/>
+			<e:Group width="104" height="104" y="119" y.right_hand_mode="119" x.right_hand_mode="2262" x="2262"
+			         x.left_hand_mode="2262">
+				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+				        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
+				<e:Image id="_bavideo" width="104" height="104" source="m_ba_btn_video_png" scaleX="1" scaleY="1" verticalCenter="0"
+				         x="0" />
 			</e:Group>
 			<e:Group width="104" height="104" x="31" y="119">
-				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4"/>
-				<e:Image id="_bachat" width="104" height="104" source="m_ba_btn_chatroom_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+				        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
+				<e:Image id="_bachat" width="104" height="104" source="m_ba_btn_chatroom_png" scaleX="1" scaleY="1"
+				         horizontalCenter="0" verticalCenter="0" />
 			</e:Group>
 			<e:Group width="104" height="104" x="31" y="238" y.right_hand_mode="238" x.right_hand_mode="31">
-				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.4"/>
-				<e:Image id="_lblRoomInfo" width="48" height="48" source="d_ba_navbar_icon_info_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+				<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+				        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
+				<e:Image id="_lblRoomInfo" width="48" height="48" source="d_ba_navbar_icon_info_png" scaleX="1" scaleY="1"
+				         horizontalCenter="0" verticalCenter="0" />
 			</e:Group>
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin"
 			                           labelSize="48" x.right_hand_mode="578" y.right_hand_mode="36" x="578" y="36"
@@ -50,21 +54,25 @@
 				          x.left_hand_mode="5" />
 				<ui:CountdownTimer id="_timer" width="300" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" x="684"
 				                   verticalCenter="0" x.right_hand_mode="684" x.left_hand_mode="0" />
+				<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0"
+				         touchEnabled="false" touchChildren="false">
+					<ui:RunTimeLabel id="_repeatLabel" text="再次下注" verticalCenter="0" x="788" x.right_hand_mode="82" />
+					<ui:RunTimeLabel id="_cancelLabel" text="清除" verticalCenter="0" x="500" x.right_hand_mode="432" />
+					<ui:RunTimeLabel id="_doubleLabel" text="雙倍" verticalCenter="0" x="650" x.right_hand_mode="266" />
+					<ui:RunTimeLabel id="_undoLabel" text="復原" verticalCenter="0" x="349" x.right_hand_mode="588" />
+				</e:Group>
+				<ui:BaseImageButton id="_repeatButton" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
+				                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_repeat"
+				                    x.right_hand_mode="82" x.left_hand_mode="787" />
+				<ui:BaseImageButton id="_cancelButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+				                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_cancel"
+				                    x.right_hand_mode="432" x.left_hand_mode="497" />
+				<ui:BaseImageButton id="_doubleButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
+				                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_double"
+				                    x.right_hand_mode="264" x.left_hand_mode="650" />
 				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    horizontalCenter="90" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-				                    currentState="b_undo" horizontalCenter.right_hand_mode="90" x.left_hand_mode="348" />
-				<ui:BaseImageButton id="_repeatButton" x="64" y="0" anchorOffsetX="0" width="128" anchorOffsetY="0" height="120"
-				                    horizontalCenter="-370" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-				                    currentState="b_repeat" x.right_hand_mode="64" horizontalCenter.right_hand_mode="-370"
-				                    x.left_hand_mode="818" />
-				<ui:BaseImageButton id="_cancelButton" x="500" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    horizontalCenter="-60" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-				                    currentState="b_cancel" x.right_hand_mode="500" horizontalCenter.right_hand_mode="-60"
-				                    x.left_hand_mode="668" />
-				<ui:BaseImageButton id="_doubleButton" x="248" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
-				                    horizontalCenter="-200" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel"
-				                    currentState="b_double" x.right_hand_mode="248" horizontalCenter.right_hand_mode="-200"
-				                    x.left_hand_mode="498" />
+				                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_undo"
+				                    x.right_hand_mode="588" x.left_hand_mode="350" />
 			</e:Group>
 			<ba:CardHolder id="_resultDisplay" width="1384" height="152" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
 			               scaleY="1" y="1.5" horizontalCenter="0" />
@@ -74,6 +82,16 @@
 		<e:layout>
 			<e:VerticalLayout gap="-65" />
 		</e:layout>
+	</e:Group>
+	<e:Group id="_betChipSetPanel" width="1566" height="260" scaleY="1" x="366" y="264">
+		<e:Group id="_betPanelGroup" scaleY="1" x="0" height="260" y="0" width="100%" y.right_hand_mode="-404">
+			<e:Image id="_panel" width="1566" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1"
+			         scaleX="1" y="0" height="443" x="0" />
+			<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="474"
+			         scaleX="1" x="327" rotation="178.8" />
+		</e:Group>
+		<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" horizontalCenter="0" betChipWidth="250"
+		                   betChipHeight="208" scaleY="1" anchorOffsetY="0" right="0" left="0" labelSize="48" y="20" />
 	</e:Group>
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2424" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
@@ -123,3 +141,8 @@
 		</e:layout>
 	</e:Group>
 </e:Skin>
+
+
+
+
+

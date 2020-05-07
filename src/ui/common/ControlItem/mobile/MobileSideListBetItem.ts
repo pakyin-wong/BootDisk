@@ -19,11 +19,11 @@ namespace we {
       }
 
       protected initComponents() {
-        super.initComponents();
         this.generateTableLayer();
         this.generateChipLayer();
         this.generateResultMessage();
         this.generateResultDisplay();
+        super.initComponents();
       }
 
       protected generateTableLayer() {

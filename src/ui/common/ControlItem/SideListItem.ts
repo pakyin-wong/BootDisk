@@ -28,6 +28,8 @@ namespace we {
         this._betChipSet.init(null, denominationList);
       }
 
+      protected checkSkin() {}
+
       protected addEventListeners() {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
@@ -109,7 +111,7 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (this._chipLayer.isAlreadyBet()) {
+        if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -118,7 +120,7 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         super.onTableBetInfoUpdate(evt);
-        if (this._chipLayer.isAlreadyBet()) {
+        if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
@@ -140,9 +142,13 @@ namespace we {
       protected animateQuickBetButton(show: boolean) {
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
-          egret.Tween.get(this._quickbetButton).set({ visible: true }).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._quickbetButton)
+            .set({ visible: true })
+            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
+          egret.Tween.get(this._quickbetButton)
+            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+            .set({ visible: false });
         }
       }
 

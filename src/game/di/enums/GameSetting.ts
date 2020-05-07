@@ -111,17 +111,25 @@ namespace we {
     };
 
     export function getWinningFields(gameData): string[] {
-      if (!gameData) return;
+      if (!gameData) {
+        return;
+      }
 
       const diceResults = [gameData.dice1, gameData.dice2, gameData.dice3];
       const resultsField = [];
 
       // Size & OddEven
-      if (gameData.odd === 1) resultsField.push(di.BetField.ODD);
-      else resultsField.push(di.BetField.EVEN);
+      if (gameData.odd === 1) {
+        resultsField.push(di.BetField.ODD);
+      } else {
+        resultsField.push(di.BetField.EVEN);
+      }
 
-      if (gameData.size === 1) resultsField.push(di.BetField.SMALL);
-      else resultsField.push(di.BetField.BIG);
+      if (gameData.size === 1) {
+        resultsField.push(di.BetField.SMALL);
+      } else {
+        resultsField.push(di.BetField.BIG);
+      }
 
       // Triple
       const triple = [di.BetField.TRIPLE_1, di.BetField.TRIPLE_2, di.BetField.TRIPLE_3, di.BetField.TRIPLE_4, di.BetField.TRIPLE_5, di.BetField.TRIPLE_6];
@@ -163,7 +171,9 @@ namespace we {
         di.BetField.SUM_17,
       ];
 
-      if (gameData.total > 3 && gameData.total < 18) resultsField.push(sum[gameData.total - 4]);
+      if (gameData.total > 3 && gameData.total < 18) {
+        resultsField.push(sum[gameData.total - 4]);
+      }
 
       // COMBINE_1_2
 
@@ -194,37 +204,79 @@ namespace we {
       diceBits |= Math.pow(2, diceResults[1] - 1);
       diceBits |= Math.pow(2, diceResults[2] - 1);
 
-      if ((diceBits & dice12) === dice12) resultsField.push(di.BetField.COMBINE_1_2);
-      if ((diceBits & dice13) === dice13) resultsField.push(di.BetField.COMBINE_1_3);
-      if ((diceBits & dice14) === dice14) resultsField.push(di.BetField.COMBINE_1_4);
-      if ((diceBits & dice15) === dice15) resultsField.push(di.BetField.COMBINE_1_5);
-      if ((diceBits & dice16) === dice16) resultsField.push(di.BetField.COMBINE_1_6);
+      if ((diceBits & dice12) === dice12) {
+        resultsField.push(di.BetField.COMBINE_1_2);
+      }
+      if ((diceBits & dice13) === dice13) {
+        resultsField.push(di.BetField.COMBINE_1_3);
+      }
+      if ((diceBits & dice14) === dice14) {
+        resultsField.push(di.BetField.COMBINE_1_4);
+      }
+      if ((diceBits & dice15) === dice15) {
+        resultsField.push(di.BetField.COMBINE_1_5);
+      }
+      if ((diceBits & dice16) === dice16) {
+        resultsField.push(di.BetField.COMBINE_1_6);
+      }
 
-      if ((diceBits & dice23) === dice23) resultsField.push(di.BetField.COMBINE_2_3);
-      if ((diceBits & dice24) === dice24) resultsField.push(di.BetField.COMBINE_2_4);
-      if ((diceBits & dice25) === dice25) resultsField.push(di.BetField.COMBINE_2_5);
-      if ((diceBits & dice26) === dice26) resultsField.push(di.BetField.COMBINE_2_6);
+      if ((diceBits & dice23) === dice23) {
+        resultsField.push(di.BetField.COMBINE_2_3);
+      }
+      if ((diceBits & dice24) === dice24) {
+        resultsField.push(di.BetField.COMBINE_2_4);
+      }
+      if ((diceBits & dice25) === dice25) {
+        resultsField.push(di.BetField.COMBINE_2_5);
+      }
+      if ((diceBits & dice26) === dice26) {
+        resultsField.push(di.BetField.COMBINE_2_6);
+      }
 
-      if ((diceBits & dice34) === dice34) resultsField.push(di.BetField.COMBINE_3_4);
-      if ((diceBits & dice35) === dice35) resultsField.push(di.BetField.COMBINE_3_5);
-      if ((diceBits & dice36) === dice36) resultsField.push(di.BetField.COMBINE_3_6);
+      if ((diceBits & dice34) === dice34) {
+        resultsField.push(di.BetField.COMBINE_3_4);
+      }
+      if ((diceBits & dice35) === dice35) {
+        resultsField.push(di.BetField.COMBINE_3_5);
+      }
+      if ((diceBits & dice36) === dice36) {
+        resultsField.push(di.BetField.COMBINE_3_6);
+      }
 
-      if ((diceBits & dice45) === dice45) resultsField.push(di.BetField.COMBINE_4_5);
-      if ((diceBits & dice46) === dice46) resultsField.push(di.BetField.COMBINE_4_6);
+      if ((diceBits & dice45) === dice45) {
+        resultsField.push(di.BetField.COMBINE_4_5);
+      }
+      if ((diceBits & dice46) === dice46) {
+        resultsField.push(di.BetField.COMBINE_4_6);
+      }
 
-      if ((diceBits & dice56) === dice56) resultsField.push(di.BetField.COMBINE_5_6);
+      if ((diceBits & dice56) === dice56) {
+        resultsField.push(di.BetField.COMBINE_5_6);
+      }
       // specific
-      if (diceResults[0] === 1 || diceResults[1] === 1 || diceResults[2] === 1) resultsField.push(di.BetField.SPECIFIC_1);
+      if (diceResults[0] === 1 || diceResults[1] === 1 || diceResults[2] === 1) {
+        resultsField.push(di.BetField.SPECIFIC_1);
+      }
 
-      if (diceResults[0] === 2 || diceResults[1] === 2 || diceResults[2] === 2) resultsField.push(di.BetField.SPECIFIC_2);
+      if (diceResults[0] === 2 || diceResults[1] === 2 || diceResults[2] === 2) {
+        resultsField.push(di.BetField.SPECIFIC_2);
+      }
 
-      if (diceResults[0] === 3 || diceResults[1] === 3 || diceResults[2] === 3) resultsField.push(di.BetField.SPECIFIC_3);
+      if (diceResults[0] === 3 || diceResults[1] === 3 || diceResults[2] === 3) {
+        resultsField.push(di.BetField.SPECIFIC_3);
+      }
 
-      if (diceResults[0] === 4 || diceResults[1] === 4 || diceResults[2] === 4) resultsField.push(di.BetField.SPECIFIC_4);
+      if (diceResults[0] === 4 || diceResults[1] === 4 || diceResults[2] === 4) {
+        resultsField.push(di.BetField.SPECIFIC_4);
+      }
 
-      if (diceResults[0] === 5 || diceResults[1] === 5 || diceResults[2] === 5) resultsField.push(di.BetField.SPECIFIC_5);
+      if (diceResults[0] === 5 || diceResults[1] === 5 || diceResults[2] === 5) {
+        resultsField.push(di.BetField.SPECIFIC_5);
+      }
 
-      if (diceResults[0] === 6 || diceResults[1] === 6 || diceResults[2] === 6) resultsField.push(di.BetField.SPECIFIC_6);
+      if (diceResults[0] === 6 || diceResults[1] === 6 || diceResults[2] === 6) {
+        resultsField.push(di.BetField.SPECIFIC_6);
+      }
 
       return resultsField;
     }

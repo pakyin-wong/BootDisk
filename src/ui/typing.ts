@@ -12,11 +12,13 @@ namespace we {
 
     export interface IAdvancedRoad {
       tableInfo;
+      analysis: IAnalysis;
       update(roadmapData: any);
     }
 
     export interface IAnalysis {
       tableId: string;
+      advancedRoad: IAdvancedRoad;
       updateTableBetInfo();
       updateRoad();
     }
@@ -26,10 +28,10 @@ namespace we {
       generateTableLayer?(node: eui.Component): TableLayer;
       generateChipLayer?(node: eui.Component): ChipLayer;
       generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
-      generateAdvancedRoad?(node: eui.Component): IAdvancedRoad;
-      generateAnalysis?(node: eui.Component): IAnalysis;
-      generateResultMessage?(node: eui.Component): IGameResultMessage;
-      generateResultDisplay?(node: eui.Component): IResultDisplay;
+      generateAdvancedRoad?(node: eui.Component): IAdvancedRoad & eui.Component;
+      generateAnalysis?(node: eui.Component): IAnalysis & eui.Component;
+      generateResultMessage?(node: eui.Component): IGameResultMessage & eui.Component;
+      generateResultDisplay?(node: eui.Component): IResultDisplay & eui.Component;
     }
 
     export interface IRunTimeComponent extends egret.DisplayObject {

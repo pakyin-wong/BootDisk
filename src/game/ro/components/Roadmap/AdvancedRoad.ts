@@ -21,6 +21,8 @@ namespace we {
 
       protected totalCount: number;
 
+      public analysis: we.ui.IAnalysis;
+
       public constructor(skin?: string) {
         super(skin);
       }
@@ -53,21 +55,25 @@ namespace we {
         this.beadRoad.y = 0;
         // this.beadRoad.scaleX = 690 / 689;
         // this.beadRoad.scaleY = 690 / 689;
+        this.beadRoad.initRoadData();
         this.roadsContainer.addChild(this.beadRoad);
 
         this.colorBigRoad = new ROColorBigRoad(26, 20, 1, false);
         this.colorBigRoad.x = 0;
         this.colorBigRoad.y = 1 + 3 * 52;
+        this.colorBigRoad.initRoadData();
         this.roadsContainer.addChild(this.colorBigRoad);
 
         this.oddBigRoad = new ROOddBigRoad(13, 20, 1, false);
         this.oddBigRoad.x = 0;
         this.oddBigRoad.y = 3 * 52 + 20 * 6;
+        this.oddBigRoad.initRoadData();
         this.roadsContainer.addChild(this.oddBigRoad);
 
         this.sizeBigRoad = new ROSizeBigRoad(13, 20, 1, false);
         this.sizeBigRoad.x = 13 * 20;
         this.sizeBigRoad.y = 3 * 52 + 20 * 6;
+        this.sizeBigRoad.initRoadData();
         this.roadsContainer.addChild(this.sizeBigRoad);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);

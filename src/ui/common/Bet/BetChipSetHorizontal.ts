@@ -156,6 +156,7 @@ namespace we {
           betChip.index = index;
           betChip.type = we.core.ChipType.PERSPECTIVE;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
+          mouse.setButtonMode(betChip, true);
           this._chipList.push(betChip);
         });
       }

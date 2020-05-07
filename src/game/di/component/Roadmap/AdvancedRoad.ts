@@ -8,6 +8,8 @@ namespace we {
       public oddBigRoad: DiOddBigRoad;
       protected _roadmapControl: we.di.DiRoadmapControl;
 
+      public analysis: we.ui.IAnalysis;
+
       protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;
@@ -38,14 +40,17 @@ namespace we {
         this.beadRoad.y = 0;
         this.beadRoad.scaleX = 1;
         this.beadRoad.expandRoad(false);
+        this.beadRoad.initRoadData();
 
         this.sizeBigRoad = new DiSizeBigRoad(25, 24, 1, false);
         this.sizeBigRoad.x = 0;
         this.sizeBigRoad.y = 190;
+        this.sizeBigRoad.initRoadData();
 
         this.oddBigRoad = new DiOddBigRoad(25, 24, 1, false);
         this.oddBigRoad.x = 0;
         this.oddBigRoad.y = 190 + 6 * 24;
+        this.oddBigRoad.initRoadData();
 
         this.roadsContainer = new egret.DisplayObjectContainer();
         this.roadsContainer.x = 0;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.ListTestPageSkin" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing">
+    <e:Rect left="0" top="0" bottom="0" right="0" fillColor="0x600000" />
+    <e:Scroller id="scroller" width="2000" height="1000" x="300" y="170" sortableChildren="true" touchEnabled="true">
+        <e:List id="list" height="200" x="260" y="82">
+            <e:Rect x="300" width="500" height="200" />
+            <e:itemRendererSkinName>
+                <e:Skin states="up,down,disabled" height="50">
+                    <e:Label text="{data.label}" textColor="0xFFFFFF" horizontalCenter="0" verticalCenter="0" />
+                </e:Skin>
+            </e:itemRendererSkinName>
+        </e:List>
+    </e:Scroller>
+</e:Skin>

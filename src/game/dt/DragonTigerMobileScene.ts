@@ -162,19 +162,19 @@ namespace we {
       // }
 
       protected setChipPanelPos() {
-        if (env.orientation === 'portrait') {
-          if (this._bottomGamePanel.isPanelOpen) {
-            this._betPanelGroup.scaleY = 1;
-            this._betPanelGroup.y = 0;
-            this._betChipSetPanel.y = 1080;
-          } else {
-            this._betPanelGroup.scaleY = -1;
-            this._betPanelGroup.y = 762;
-            this._betChipSetPanel.y = 600;
-          }
-        } else {
-          this._betChipSetPanel.y = -480;
-        }
+        // if (env.orientation === 'portrait') {
+        //   if (this._bottomGamePanel.isPanelOpen) {
+        //     this._betPanelGroup.scaleY = 1;
+        //     this._betPanelGroup.y = 0;
+        //     this._betChipSetPanel.y = 1080;
+        //   } else {
+        //     this._betPanelGroup.scaleY = -1;
+        //     this._betPanelGroup.y = 762;
+        //     this._betChipSetPanel.y = 600;
+        //   }
+        // } else {
+        //   this._betChipSetPanel.y = -480;
+        // }
       }
 
       protected showBetChipPanel() {
@@ -250,14 +250,14 @@ namespace we {
         }
       }
 
-      protected onOrientationChange() {
-        this.onExit();
-        super.onOrientationChange();
-        this.onEnter();
-        // this.setSkinName();
-        // this.initChildren();
-        this.changeHandMode();
-      }
+      // protected onOrientationChange() {
+      //   this.onExit();
+      //   super.onOrientationChange();
+      //   this.onEnter();
+      //   // this.setSkinName();
+      //   // this.initChildren();
+      //   this.changeHandMode();
+      // }
       protected checkBetChipPanel() {
         if (this._betChipSetPanel.visible === true) {
           this.setChipPanelPos();

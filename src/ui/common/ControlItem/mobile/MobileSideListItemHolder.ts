@@ -1,3 +1,4 @@
+// deprecated
 namespace we {
   export namespace ui {
     export class MobileSideListItemHolder extends ui.TableListItemHolder {
@@ -21,19 +22,16 @@ namespace we {
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
-
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
-
           case we.core.GameType.DI:
             generalGameType = 'di';
             break;
-
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
-
+            break;
           case we.core.GameType.LW:
             generalGameType = 'lw';
             break;

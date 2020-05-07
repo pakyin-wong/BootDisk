@@ -22,18 +22,46 @@ namespace we {
       protected _coldNumber4Img: eui.Image;
       protected _coldNumber4Text: eui.Label;
 
+      public advancedRoad: we.ui.IAdvancedRoad;
+
       constructor() {
-        super('ro.Analysis');
+        super(env.isMobile ? null : 'ro.Analysis');
       }
 
       protected mount() {
         super.mount();
-        this._colorChart.setParam(250, 10, 20, 30, 0, 30, 10, [0x474747, 0x000000]);
-        this._colorChart.draw();
-        this._oddChart.setParam(250, 70, 500, 300, 0, 30, 10);
+        this.updateBarChart();
+
+        /*
+
+        this._oddChart.setParam(230, 70, 500, 300, 0, 30, 10);
         this._oddChart.draw();
-        this._bigChart.setParam(250, 70, 60, 200, 0, 30, 10);
+        this._bigChart.setParam(230, 70, 60, 200, 0, 30, 10);
         this._bigChart.draw();
+        */
+      }
+
+      protected updateBarChart() {
+        if (!this._tableId) {
+          return;
+        }
+        if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
+          const statColor = env.tableInfos[this._tableId].gamestatistic.roRed;
+          if (statColor) {
+            this._colorChart.setParam(230, statColor.red, statColor.zero, statColor.black, 0, 30, 10, [0x474747, 0x000000]);
+            this._colorChart.draw();
+          }
+          const statOdd = env.tableInfos[this._tableId].gamestatistic.roOdd;
+          if (statOdd) {
+            this._oddChart.setParam(230, statOdd.odd, statOdd.zero, statOdd.even, 0, 30, 10);
+            this._oddChart.draw();
+          }
+          const statSmall = env.tableInfos[this._tableId].gamestatistic.roSmall;
+          if (statSmall) {
+            this._bigChart.setParam(230, statSmall.small, statSmall.zero, statSmall.big, 0, 30, 10);
+            this._bigChart.draw();
+          }
+        }
       }
 
       public set tableId(value: string) {
@@ -57,6 +85,7 @@ namespace we {
         const coldNumbersText = [this._coldNumber1Text, this._coldNumber2Text, this._coldNumber3Text, this._coldNumber4Text];
 
         if (env && env.tableInfos && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].gamestatistic) {
+          // console.log('RO/ROL Analysis ', env.tableInfos[this._tableId].gametype, env.tableInfos[this._tableId].gamestatistic);
           if (env.tableInfos[this._tableId].gamestatistic.hotNumbers) {
             env.tableInfos[this._tableId].gamestatistic.hotNumbers.map((value, index) => {
               if (hotNumbersImg[index]) {
@@ -74,6 +103,7 @@ namespace we {
             });
           }
         }
+        this.updateBarChart();
       }
 
       public getNumberSource(value: number) {
