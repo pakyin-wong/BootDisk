@@ -16,6 +16,9 @@ namespace we {
       protected _roadmapControl: DiRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
 
+      protected _panelGroup: eui.Group;
+      protected _panelTween: ui.TweenConfig;
+
       protected _baGameIDText: ui.RunTimeLabel;
       protected _baGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
@@ -29,6 +32,19 @@ namespace we {
 
       constructor(data: any) {
         super(data);
+      }
+
+      protected panelState(s) {
+        const state = s;
+
+        if (this._betSetTween.currentState === state) {
+          return;
+        }
+        this._betSetTween.currentState = state;
+        this._betSetTween.validateNow();
+
+        egret.Tween.removeTweens(this._betSet);
+        egret.Tween.get(this._betSet).to(this._betSetTween.getTweenPackage(), 250);
       }
 
       protected set betSetState(s) {
@@ -47,7 +63,7 @@ namespace we {
       protected mount() {
         super.mount();
 
-        this.initBottomBetLimitSelector();
+        // this.initBottomBetLimitSelector();
       }
 
       protected setSkinName() {
@@ -200,7 +216,7 @@ namespace we {
         if (!this._gameData) {
           return;
         }
-        (this._tableLayer as di.TableLayer).flashFields(this._gameData);
+        // (this._tableLayer as di.TableLayer).flashFields(this._gameData);
 
         if (this.hasBet()) {
           if (this._gameData && !isNaN(totalWin)) {

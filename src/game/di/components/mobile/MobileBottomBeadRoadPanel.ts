@@ -28,13 +28,26 @@ namespace we {
       }
 
       protected initRoadMap() {
-        this.beadRoad = new DiBeadRoad(1, 9, 120, 1, 5, 24, 6, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
-        this.beadRoad.x = 29;
-        this.beadRoad.y = 16;
-        this.beadRoad.scaleX = 689 / 689;
-        this.beadRoad.scaleY = 689 / 689;
-        this.beadRoad.expandRoad(false);
-        this.beadRoadConfig.parent.addChild(this.beadRoad);
+        switch (env.orientation) {
+          case 'portrait':
+            this.beadRoad = new DiBeadRoad(1, 9, 120, 1, 5, 24, 6, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
+            this.beadRoad.x = 29;
+            this.beadRoad.y = 16;
+            this.beadRoad.scaleX = 689 / 689;
+            this.beadRoad.scaleY = 689 / 689;
+            this.beadRoad.expandRoad(false);
+            this.beadRoadConfig.parent.addChild(this.beadRoad);
+            break;
+          case 'landscape':
+            this.beadRoad = new DiBeadRoad(1, 8, 70, 1, 15, 24, 12, [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]); // in game
+            this.beadRoad.x = 29;
+            this.beadRoad.y = 16;
+            this.beadRoad.scaleX = 689 / 689;
+            this.beadRoad.scaleY = 689 / 689;
+            this.beadRoad.expandRoad(false);
+            this.beadRoadConfig.parent.addChild(this.beadRoad);
+            break;
+        }
       }
 
       public destroy() {

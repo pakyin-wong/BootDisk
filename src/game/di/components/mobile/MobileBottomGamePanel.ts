@@ -39,11 +39,9 @@ namespace we {
 
       protected addListeners() {
         super.addListeners();
-
         this._roadButtonPanel.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-
         if (this.historyBtn) this.historyBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.roadSheetBtn) this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -83,14 +81,15 @@ namespace we {
               e.target.value = 0;
             }
 
+            if (e.target.value === '1' || e.target.value === '2') this._roadButtonPanel.visible = false;
+            else this._roadButtonPanel.visible = true;
             break;
           case 'portrait':
             if (e.target.value === '0') this._roadButtonPanel.roadmapType = 0;
             if (e.target.value === '1') this._roadButtonPanel.roadmapType = 1;
 
             this._roadButtonPanel.changeState();
-            if(this.viewStack.selectedIndex > 1)
-              this._roadmapPanel.visible = false;
+            if (this.viewStack.selectedIndex > 1) this._roadmapPanel.visible = false;
             break;
         }
         this.viewStack.selectedIndex = e.target.value;
@@ -121,7 +120,7 @@ namespace we {
 
             if (this.viewStack.selectedIndex === 1) {
               this._roadmapPanel.onRoadMapChanged(e);
-            }              
+            }
             break;
         }
       }
