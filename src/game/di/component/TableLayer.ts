@@ -294,7 +294,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }
@@ -307,8 +307,7 @@ namespace we {
         await Promise.all(tweenPromises);
       }
 
-      /*
-      public async flashFields(fieldName: string) {
+      public async flashFields(fieldName: we.data.GameData) {
         const winningFields = di.getWinningFields(fieldName);
         const initRectPromises = [];
         // init dim rects
@@ -364,9 +363,7 @@ namespace we {
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
-              egret.Tween.get(rect)
-                .to({ alpha }, 125)
-                .call(resolve);
+              egret.Tween.get(rect).to({ alpha }, 125).call(resolve);
             });
             tickFlashPromises.push(prom);
           }
@@ -376,7 +373,6 @@ namespace we {
         };
         setTimeout(tick, 300);
       }
-      */
     }
   }
 }

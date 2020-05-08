@@ -165,9 +165,6 @@ namespace we {
         this.switchModeButton.x = 510;
         this.switchModeButton.y = 462;
         this.addChild(this.switchModeButton);
-
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this.changeLang();
       }
 
       public setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {
@@ -182,13 +179,6 @@ namespace we {
 
           this.update();
         }
-      }
-
-      public changeLang() {
-        this.totalCountLabel.text = '' + this.totalCount;
-
-        this.playerButtonLabel.text = i18n.t('baccarat.askPlayer');
-        this.bankerButtonLabel.text = i18n.t('baccarat.askBanker');
       }
 
       public update() {
@@ -213,7 +203,6 @@ namespace we {
               this.totalCount = this.tableInfo.gamestatistic.totalCount;
             }
           }
-          this.changeLang();
         }
       }
 

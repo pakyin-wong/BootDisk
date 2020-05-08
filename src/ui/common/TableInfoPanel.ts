@@ -7,12 +7,12 @@ namespace we {
       public content: eui.Group;
       public moveArea: eui.Component;
 
-      protected lblTableInfo: eui.Label;
+      protected lblTableInfo: ui.RunTimeLabel;
 
-      protected tableNoLabel: eui.Label;
-      protected roundNoLabel: eui.Label;
-      protected dealerLabel: eui.Label;
-      protected timeLabel: eui.Label;
+      protected tableNoLabel: ui.RunTimeLabel;
+      protected roundNoLabel: ui.RunTimeLabel;
+      protected dealerLabel: ui.RunTimeLabel;
+      protected timeLabel: ui.RunTimeLabel;
 
       protected pTableID: eui.Label;
       protected pRoundID: eui.Label;
@@ -39,22 +39,12 @@ namespace we {
         //   },
         //   this
         // );
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
         mouse.setButtonMode(this.close, true);
-        this.changeLang();
       }
 
       public onExit() {
         this.destroy();
-      }
-
-      public changeLang() {
-        this.tableNoLabel.text = i18n.t('baccarat.tableNo');
-        this.roundNoLabel.text = i18n.t('baccarat.roundNo');
-        this.dealerLabel.text = i18n.t('baccarat.dealer');
-        this.timeLabel.text = i18n.t('baccarat.time');
-        this.lblTableInfo.text = i18n.t('baccarat.tableInfo');
       }
 
       public setValue(tableInfo: data.TableInfo) {

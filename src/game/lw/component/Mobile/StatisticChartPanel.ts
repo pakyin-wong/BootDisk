@@ -1,33 +1,33 @@
 namespace we {
   export namespace lw {
     export class StatisticChartPanel extends ui.Panel {
-      public _progress0: lw.StatisticChartPanelBar;
-      public _progress1: lw.StatisticChartPanelBar;
-      public _progress2: lw.StatisticChartPanelBar;
-      public _progress3: lw.StatisticChartPanelBar;
-      public _progress4: lw.StatisticChartPanelBar;
-      public _progress5: lw.StatisticChartPanelBar;
-      public _progress6: lw.StatisticChartPanelBar;
-      public _lbl_lwValue0: ui.RunTimeLabel;
-      public _lbl_lwValue1: ui.RunTimeLabel;
-      public _lbl_lwValue2: ui.RunTimeLabel;
-      public _lbl_lwValue3: ui.RunTimeLabel;
-      public _lbl_lwValue4: ui.RunTimeLabel;
-      public _lbl_lwValue5: ui.RunTimeLabel;
-      public _lbl_lwValue6: ui.RunTimeLabel;
+      public _progress_East: lw.StatisticChartPanelBar;
+      public _progress_South: lw.StatisticChartPanelBar;
+      public _progress_West: lw.StatisticChartPanelBar;
+      public _progress_North: lw.StatisticChartPanelBar;
+      public _progress_White: lw.StatisticChartPanelBar;
+      public _progress_Red: lw.StatisticChartPanelBar;
+      public _progress_Green: lw.StatisticChartPanelBar;
+      public _lbl_East: ui.RunTimeLabel;
+      public _lbl_South: ui.RunTimeLabel;
+      public _lbl_West: ui.RunTimeLabel;
+      public _lbl_North: ui.RunTimeLabel;
+      public _lbl_White: ui.RunTimeLabel;
+      public _lbl_Red: ui.RunTimeLabel;
+      public _lbl_Green: ui.RunTimeLabel;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'lw.StatisticChartPanel');
       }
 
       public mount() {
-        this._progress0.setProgress(0.05);
-        this._progress1.setProgress(0.2);
-        this._progress2.setProgress(0.5);
-        this._progress3.setProgress(0.6);
-        this._progress4.setProgress(0.8);
-        this._progress5.setProgress(0.95);
-        this._progress6.setProgress(1);
+        this._progress_East.setProgress(0.05);
+        this._progress_South.setProgress(0.2);
+        this._progress_West.setProgress(0.5);
+        this._progress_North.setProgress(0.6);
+        this._progress_White.setProgress(0.8);
+        this._progress_Red.setProgress(0.95);
+        this._progress_Green.setProgress(1);
       }
 
       public setValue(tableInfo: data.TableInfo) {}

@@ -36,7 +36,7 @@ namespace we {
         gameData.state = core.GameState.DEAL;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
-        const gameResult = Math.floor(Math.random() * 37);
+        const gameResult = Math.floor(Math.random() * 7);
         logger.l('GameResult: ', gameResult);
         logger.l('GameResult.toString(): ', gameResult.toString());
 
