@@ -159,6 +159,8 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
+
+        /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
           denominationList.push(...betLimit.chips);
@@ -169,6 +171,7 @@ namespace we {
             return a < b ? -1 : 1;
           });
         env.wholeDenomList = denominationList;
+        */
 
         env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
         if (player.profile.categoryorders) {
