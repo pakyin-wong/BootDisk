@@ -109,8 +109,8 @@
 <e:Group id="_betPanelGroup" scaleY="1" x="0" height="260" y="-43" width="100%">
 	<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1"
 	         y="0" height="460" x="0" />
-	<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="486"
-	         scaleX="1" x="312" rotation="178.8" x.left_hand_mode="1250" />
+	<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="491"
+	         scaleX="1" x="312" rotation="180" x.left_hand_mode="1280" rotation.left_hand_mode="180" />
 </e:Group>
 <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1"
                    anchorOffsetY="0" right="0" left="0" labelSize="48" y="7" horizontalCenter="0" />
