@@ -5,7 +5,7 @@
 			<e:Image id="bottom_bg" x="0" y="0" source="m_ba_tab_bottom_png" scaleX="1" scaleY="1" visible="false"/>
 			<ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="700" y="13.5" textAlign="right" anchorOffsetX="0" width="514" size="25" scaleX="1" scaleY="1" visible="false"/>
 			<ui:RunTimeLabel id="totalBetLabel" text="0" x="16" y="13.5" textAlign="left" anchorOffsetX="0" width="260" size="25" scaleX="1" scaleY="1" visible="false"/>
-			<e:Rect fillColor="0x212425" ellipseHeight="40" ellipseWidth="40" strokeColor="0x212425" right="0" left="0" height="58" y="0" left.on="0" right.on="0" y.on="12" left.off="0" right.off="0" y.off="3"/>
+			<e:Rect fillColor="0x212425" ellipseHeight="40" ellipseWidth="40" strokeColor="0x212425" right="0" left="0" height="58" y="0" left.on="0" right.on="0" y.on="20" left.off="0" right.off="0" y.off="8"/>
 			<e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.off="false" horizontalCenter.on="0" horizontalCenter="0" y="0"/>
 			<e:Image id="_arrowUp" source="d_lobby_button_down_normal_png" width="80" height="80" scaleX="1" scaleY="1" visible.on="false" rotation="180" horizontalCenter.on="0" horizontalCenter="0" y="78"/>
 		</e:Group>

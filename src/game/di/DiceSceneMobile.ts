@@ -34,17 +34,18 @@ namespace we {
         super(data);
       }
 
-      protected panelState(s) {
+      protected set panelState(s) {
+        if (env.orientation === 'portrait') return;
         const state = s;
 
-        if (this._betSetTween.currentState === state) {
+        if (this._panelTween.currentState === state) {
           return;
         }
-        this._betSetTween.currentState = state;
-        this._betSetTween.validateNow();
+        this._panelTween.currentState = state;
+        this._panelTween.validateNow();
 
-        egret.Tween.removeTweens(this._betSet);
-        egret.Tween.get(this._betSet).to(this._betSetTween.getTweenPackage(), 250);
+        egret.Tween.removeTweens(this._panelGroup);
+        egret.Tween.get(this._panelGroup).to(this._panelTween.getTweenPackage(), 250);
       }
 
       protected set betSetState(s) {
@@ -63,7 +64,7 @@ namespace we {
       protected mount() {
         super.mount();
 
-        // this.initBottomBetLimitSelector();
+        this.initBottomBetLimitSelector();
       }
 
       protected setSkinName() {
@@ -109,6 +110,8 @@ namespace we {
       }
 
       protected set diState(s) {
+        if (env.orientation === 'landscape') this.panelState = s;
+
         this.betAreaState = this.betSetState = s;
       }
 
@@ -216,7 +219,7 @@ namespace we {
         if (!this._gameData) {
           return;
         }
-        // (this._tableLayer as di.TableLayer).flashFields(this._gameData);
+        (this._tableLayer as di.TableLayer).flashFields(this._gameData);
 
         if (this.hasBet()) {
           if (this._gameData && !isNaN(totalWin)) {

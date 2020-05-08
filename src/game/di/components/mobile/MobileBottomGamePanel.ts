@@ -89,7 +89,8 @@ namespace we {
             if (e.target.value === '1') this._roadButtonPanel.roadmapType = 1;
 
             this._roadButtonPanel.changeState();
-            if (this.viewStack.selectedIndex > 1) this._roadmapPanel.visible = false;
+            if (e.target.value === '2' || e.target.value === '3') this._roadButtonPanel.visible = false;
+            else this._roadButtonPanel.visible = true;
             break;
         }
         this.viewStack.selectedIndex = e.target.value;
@@ -108,21 +109,8 @@ namespace we {
       }
 
       protected onRoadMapChanged(e: eui.UIEvent) {
-        switch (env.orientation) {
-          case 'landscape':
-            this._roadmapPanel.onRoadMapChanged(e);
-            this._beadroadPanel.onBeadRoadChanged(e);
-            break;
-          case 'portrait':
-            if (this.viewStack.selectedIndex === 0) {
-              this._beadroadPanel.onBeadRoadChanged(e);
-            }
-
-            if (this.viewStack.selectedIndex === 1) {
-              this._roadmapPanel.onRoadMapChanged(e);
-            }
-            break;
-        }
+        this._roadmapPanel.onRoadMapChanged(e);
+        this._beadroadPanel.onBeadRoadChanged(e);
       }
     }
   }
