@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.dt.LiveListItemChipLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_portrait.dt.QuickBetChipLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="_dragonGroup" x="0" y="0" width="399" height="334">
 		<ui:BetChipStack id="_dragonBetChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="180" chipHeight="180"

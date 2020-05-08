@@ -42,7 +42,8 @@
 		                    currentState="b_undo" />
 	</e:Group>
 	-->
-	<e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x.left_hand_mode="600" x.right_hand_mode="762" y="250">
+	<e:Group id="_betRelatedGroup" scaleX="1" scaleY="1" x.left_hand_mode="600" x.right_hand_mode="762" y="250"
+	         y.right_hand_mode="257">
 		<e:Rect id="_roundPanel" width="984" height="127" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
 		        fillColor="0x444444" />
 		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="0"
@@ -109,7 +110,7 @@
 	<e:Image id="_panel" width="100%" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1"
 	         y="0" height="460" x="0" />
 	<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" width="68" y="486"
-	         scaleX="1" x="312" rotation="178.8" />
+	         scaleX="1" x="312" rotation="178.8" x.left_hand_mode="1250" />
 </e:Group>
 <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="250" betChipHeight="208" scaleY="1"
                    anchorOffsetY="0" right="0" left="0" labelSize="48" y="7" horizontalCenter="0" />

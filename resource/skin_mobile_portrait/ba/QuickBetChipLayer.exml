@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.SideListChipLayerSkin" currentState="Normal" width="1140" height="307"
+<e:Skin class="skin_mobile_portrait.ba.QuickBetChipLayerSkin" currentState="Normal" width="1140" height="307"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
 	<e:Group id="_playerGroup" x="0" y="0" width="570" height="163">

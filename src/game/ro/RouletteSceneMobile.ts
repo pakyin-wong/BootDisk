@@ -30,6 +30,12 @@ namespace we {
       protected _raceTrackTableLayer: RaceTrackTableLayer;
       protected _raceTrackControl: RaceTrackControl;
 
+      protected _baGameIDText: ui.RunTimeLabel;
+      protected _baGameID: ui.RunTimeLabel;
+
+      protected _totalBetText: ui.RunTimeLabel;
+      protected _totalBet: ui.RunTimeLabel;
+
       protected _mode: string = 'normal';
 
       constructor(data: any) {
@@ -39,10 +45,8 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
 
-        this.initRoadMap();
-        this._roadmapControl.setTableInfo(this._tableInfo);
-        this._chipLayer.type = we.core.BettingTableType.NORMAL;
-        this._tableLayer.type = we.core.BettingTableType.NORMAL;
+        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
 
         this.initBottomBetLimitSelector();
         this.changeHandMode();
@@ -51,6 +55,14 @@ namespace we {
         this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
         this._raceTrackChipLayer.chipLayer = this._chipLayer;
         this.refreshBetMode();
+      }
+
+      protected initChildren() {
+        super.initChildren();
+        this.initRoadMap();
+        this._roadmapControl.setTableInfo(this._tableInfo);
+        this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
       protected addEventListeners() {
@@ -342,6 +354,12 @@ namespace we {
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.roState = 'normal';
+      }
+
+      protected updateTableInfoRelatedComponents() {
+        super.updateTableInfoRelatedComponents();
+        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
     }
   }
