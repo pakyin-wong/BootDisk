@@ -176,7 +176,7 @@ namespace we {
           this._playerPercentage.text = Math.round(playerPercentage * 100);
           this._tiePercentage.text = Math.round(tiePercentage * 100);
 
-          console.log('normalChart', bankerPercentage, playerPercentage);
+          // console.log('normalChart', bankerPercentage, playerPercentage);
           this._normalChart.redAngle = bankerPercentage * 360;
           this._normalChart.blueAngle = playerPercentage * 360;
           this._normalChart.drawChart();
