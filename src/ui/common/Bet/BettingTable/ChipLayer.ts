@@ -490,7 +490,7 @@ namespace we {
       protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number): boolean {
         const betLimit: data.BetLimitSet = env.betLimits[this._getSelectedBetLimitIndex()];
         // TODO: check balance
-        const balance = env.balance;
+ …
         if (balance < totalBetAmount) {
           this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
           return false;
@@ -512,7 +512,7 @@ namespace we {
       public validateBetAction(betDetail: data.BetDetail): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
         fieldAmounts[betDetail.field] += betDetail.amount;
-        return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount() + betDetail.amount);
+        return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount() + this.getTotalCfmBetAmount() + betDetail.amount);
       }
 
       public resetUnconfirmedBet() {
