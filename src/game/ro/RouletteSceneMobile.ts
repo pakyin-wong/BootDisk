@@ -36,11 +36,9 @@ namespace we {
       protected _totalBetText: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
 
-      protected _upperMask: eui.Rect;
-      protected _lowerMask: eui.Rect;
-      protected lowerGp: eui.Group;
-
       protected _mode: string = 'normal';
+
+      protected testing: eui.Rect;
 
       constructor(data: any) {
         super(data);
@@ -160,17 +158,8 @@ namespace we {
               },
               250
             );
-
-            // const matrix = new egret.Matrix();
-            // matrix.createGradientBox(10,10);
-            // .beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000], [0.7, 0.7, 0], [0, 200, 255], matrix2);
-
-
-            this._upperMask.fillColor = 0xffffff;
-            this._lowerMask.fillColor = 0xffffff;
-            this._upperMask.alpha = 1;
-            this._lowerMask.alpha = 0.5;
-            // this.lowerGp.blendMode = egret.BlendMode.ERASE;
+            this.testing.alpha = 1;
+            this.mask = this.testing;
             break;
           case 'small':
           case 'normal':
@@ -182,9 +171,7 @@ namespace we {
               },
               250
             );
-            this._upperMask.alpha = 0;
-            this._lowerMask.alpha = 0;
-
+            this._tableLayer.alpha = 0;
             break;
         }
 

@@ -108,6 +108,5 @@
 				</e:Group>
 			</e:Group>
 		</e:Scroller>
-		<e:Group id="mask_gp" y="0" height="100%" width="100%"  touchEnabled="false"/>
 	</e:Group>
 </e:Skin>

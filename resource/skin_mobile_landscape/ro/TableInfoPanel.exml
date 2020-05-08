@@ -22,7 +22,7 @@
 	</e:Group>
 	<e:Group id="content" left="0" top="0" right="0" bottom="0">
 		<e:Rect id="_bg" scaleX="1" scaleY="1" fillColor="0x212425" left="0" right="0" top="0" bottom="0"/>
-		<e:Scroller left="0" right="0" top="0" bottom="0" scrollPolicyV="off">
+		<e:Scroller id="_infoArea" scrollPolicyH="auto" scrollPolicyV="off" width="100%" height="100%">
 			<e:Group>
 				<e:Group x="22.000000000000004" y="0" scaleX="1" scaleY="1">
 					<e:Image id="btnDetail" width="59" height="59" x="346" y="34.5" source="m_ba_tag_btn_detail_png"/>
