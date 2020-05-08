@@ -55,7 +55,6 @@ namespace we {
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
 
         mouse.setButtonMode(this.close, true);
-<<<<<<< HEAD
 
         if (env.orientation === 'landscape') {
           this._infoArea.addEventListener(eui.UIEvent.CHANGE_START, this.toShowMask, this);
@@ -79,17 +78,12 @@ namespace we {
           this._mask.alpha = 0;
           // this.mask = this.mask_gp;
         }
-=======
->>>>>>> dfff5d83514347bf3474048a67f50711c6128c9c
       }
 
       public onExit() {
         this.destroy();
-<<<<<<< HEAD
         dir.evtHandler.removeEventListener(eui.UIEvent.CHANGE_START, this.toShowMask, this);
         dir.evtHandler.removeEventListener(eui.UIEvent.CHANGE_END, this.toHideMask, this);
-=======
->>>>>>> dfff5d83514347bf3474048a67f50711c6128c9c
       }
 
       public setValue(tableInfo: data.TableInfo) {

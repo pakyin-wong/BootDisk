@@ -171,7 +171,6 @@ namespace we {
               },
               250
             );
-            this._tableLayer.alpha = 0;
             break;
         }
 
