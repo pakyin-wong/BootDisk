@@ -1,11 +1,11 @@
 namespace we {
   export namespace lw {
-    export enum WinType {
-      NONE,
-      DRAGON,
-      TIGER,
-      TIE,
-    }
+    // export enum WinType {
+    //   NONE,
+    //   DRAGON,
+    //   TIGER,
+    //   TIE,
+    // }
 
     export const BetField = {
       LW_0: 'LW_0',

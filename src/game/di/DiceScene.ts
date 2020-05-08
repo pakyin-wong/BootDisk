@@ -67,6 +67,7 @@ namespace we {
         if (!isNaN(this._tableInfo.totalWin)) {
           totalWin = this._tableInfo.totalWin;
         }
+        (this._tableLayer as di.TableLayer).flashFields(this._gameData);
 
         if (this.hasBet()) {
           if (this._gameData && !isNaN(totalWin)) {

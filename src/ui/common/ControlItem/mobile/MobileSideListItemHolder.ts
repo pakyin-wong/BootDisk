@@ -29,7 +29,7 @@ namespace we {
             generalGameType = 'di';
             break;
           case we.core.GameType.DT:
-          default:
+            // default:
             generalGameType = 'dt';
             break;
           case we.core.GameType.LW:

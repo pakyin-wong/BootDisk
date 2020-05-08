@@ -6,6 +6,8 @@ namespace we {
 
       protected gameIdLabel: eui.Label;
 
+      protected betLimitLabel: eui.Label;
+
       protected oddevenLabel: eui.Label;
       protected sizeLabel: eui.Label;
       protected tripleLabel: eui.Label;
@@ -165,16 +167,6 @@ namespace we {
         setTimeout(() => {
           this.isAnimating = false;
         }, this.duration * 1000 + 50);
-      }
-
-      public changeLang() {
-        super.changeLang();
-
-        this.oddevenLabel.text = i18n.t('dice.odd') + '/' + i18n.t('dice.even');
-        this.sizeLabel.text = i18n.t('dice.big') + '/' + i18n.t('dice.small');
-        this.tripleLabel.text = i18n.t('dice.triple');
-        this.allTripleLabel.text = i18n.t('dice.allTriple');
-        this.doubleLabel.text = i18n.t('dice.double');
       }
 
       public setValue(tableInfo: data.TableInfo) {

@@ -876,7 +876,7 @@ declare module skin_mobile_landscape.lw{
 	class MobileBottomRoadmapPanel extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait.lw{
+declare module skin_mobile_landscape.lw{
 	class SideListChipLayerSkin extends eui.Skin{
 	}
 }
@@ -1059,6 +1059,14 @@ declare module skin_mobile_portrait.ba{
 	}
 }
 declare module skin_mobile_portrait.ba{
+	class QuickBetChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
+	class QuickBetTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ba{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
@@ -1175,6 +1183,14 @@ declare module skin_mobile_portrait.di{
 	}
 }
 declare module skin_mobile_portrait.di{
+	class QuickBetChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class QuickBetTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
 	class SideListChipLayerSkin extends eui.Skin{
 	}
 }
@@ -1228,6 +1244,14 @@ declare module skin_mobile_portrait.dt{
 }
 declare module skin_mobile_portrait.dt{
 	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class QuickBetChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.dt{
+	class QuickBetTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.dt{
@@ -1336,6 +1360,18 @@ declare module skin_mobile_portrait.lw{
 }
 declare module skin_mobile_portrait.lw{
 	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.lw{
+	class QuickBetChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.lw{
+	class QuickBetTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.lw{
+	class SideListChipLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.lw{
@@ -1500,6 +1536,14 @@ declare module skin_mobile_portrait.ro{
 }
 declare module skin_mobile_portrait.ro{
 	class MobileSettingPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class QuickBetChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class QuickBetTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
