@@ -38,15 +38,15 @@
         <e:Group id="_sum_6_group" width="147" height="100%" x="298" anchorOffsetX="0" y="0"/>
         <e:Group id="_sum_7_group" width="147" height="100%" x="446" anchorOffsetX="0"/>
         <e:Group id="_sum_8_group" width="147" height="100%" x="594" anchorOffsetX="0"/>
-        <e:Group id="_sum_9_group" width="147" height="100%" x="742" anchorOffsetX="0"/>
-        <e:Group id="_sum_10_group" width="147" height="100%" x="890" anchorOffsetX="0"/>
-        <e:Group id="_sum_11_group" width="147" height="100%" x="1038" anchorOffsetX="0"/>
-        <e:Group id="_sum_12_group" width="147" height="100%" x="1186" anchorOffsetX="0"/>
-        <e:Group id="_sum_13_group" width="147" height="100%" x="1334" anchorOffsetX="0"/>
-        <e:Group id="_sum_14_group" width="147" height="100%" x="1482" anchorOffsetX="0"/>
-        <e:Group id="_sum_15_group" width="147" height="100%" x="1630" anchorOffsetX="0"/>
-        <e:Group id="_sum_16_group" width="147" height="100%" x="1778" anchorOffsetX="0"/>
-        <e:Group id="_sum_17_group" width="147" height="100%" x="1926" anchorOffsetX="0"/>
+        <e:Group id="_sum_9_group" width="147" height="100%" x="740.67" anchorOffsetX="0"/>
+        <e:Group id="_sum_10_group" width="147" height="100%" x="888.67" anchorOffsetX="0"/>
+        <e:Group id="_sum_11_group" width="147" height="100%" x="1036.67" anchorOffsetX="0"/>
+        <e:Group id="_sum_12_group" width="147" height="100%" x="1184.67" anchorOffsetX="0"/>
+        <e:Group id="_sum_13_group" width="147" height="100%" x="1332.67" anchorOffsetX="0"/>
+        <e:Group id="_sum_14_group" width="147" height="100%" x="1480.67" anchorOffsetX="0"/>
+        <e:Group id="_sum_15_group" width="147" height="100%" x="1628.67" anchorOffsetX="0"/>
+        <e:Group id="_sum_16_group" width="147" height="100%" x="1776.67" anchorOffsetX="0"/>
+        <e:Group id="_sum_17_group" width="147" height="100%" x="1924.67" anchorOffsetX="0"/>
     </e:Group>
     <e:Group id="_row3" width="100%" height="187" y="472">
         <e:Group id="_combine_1_2_group" width="137" height="100%" x="2" anchorOffsetX="0"/>
@@ -60,10 +60,10 @@
         <e:Group id="_combine_2_6_group" width="137" height="100%" x="1106" anchorOffsetX="0"/>
         <e:Group id="_combine_3_4_group" width="137" height="100%" x="1244" anchorOffsetX="0"/>
         <e:Group id="_combine_3_5_group" width="137" height="100%" x="1382" anchorOffsetX="0"/>
-        <e:Group id="_combine_3_6_group" width="137" height="100%" x="1520" anchorOffsetX="0"/>
-        <e:Group id="_combine_4_5_group" width="137" height="100%" x="1658" anchorOffsetX="0"/>
-        <e:Group id="_combine_4_6_group" width="137" height="100%" x="1796" anchorOffsetX="0"/>
-        <e:Group id="_combine_5_6_group" width="137" height="100%" x="1934" anchorOffsetX="0"/>
+        <e:Group id="_combine_3_6_group" width="137" height="100%" x="1519.33" anchorOffsetX="0"/>
+        <e:Group id="_combine_4_5_group" width="137" height="100%" x="1657.33" anchorOffsetX="0"/>
+        <e:Group id="_combine_4_6_group" width="137" height="100%" x="1795.33" anchorOffsetX="0"/>
+        <e:Group id="_combine_5_6_group" width="137" height="100%" x="1933.33" anchorOffsetX="0"/>
     </e:Group>
     <e:Group id="_row4" width="100%" height="122" y="708">
         <e:Group id="_specific_1_group" width="295" height="100%" x="296" anchorOffsetX="0"/>

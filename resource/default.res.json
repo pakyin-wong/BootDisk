@@ -7069,19 +7069,24 @@
 			"name": "d_lw_history_record_white_png"
 		},
 		{
-			"name": "m_dt_gameresult_dragon_win_png",
+			"url": "assets/m/dt/m_dt_gameresult_dragon_win.png",
 			"type": "image",
-			"url": "assets/m/dt/m_dt_gameresult_dragon_win.png"
+			"name": "m_dt_gameresult_dragon_win_png"
 		},
 		{
-			"name": "m_dt_gameresult_tie_win_png",
+			"url": "assets/m/dt/m_dt_gameresult_tie_win.png",
 			"type": "image",
-			"url": "assets/m/dt/m_dt_gameresult_tie_win.png"
+			"name": "m_dt_gameresult_tie_win_png"
 		},
 		{
-			"name": "m_dt_gameresult_tiger_win_png",
+			"url": "assets/m/dt/m_dt_gameresult_tiger_win.png",
 			"type": "image",
-			"url": "assets/m/dt/m_dt_gameresult_tiger_win.png"
+			"name": "m_dt_gameresult_tiger_win_png"
+		},
+		{
+			"url": "assets/m/di/m_sb_betarea_bg_hover_15_horizontal.png",
+			"type": "image",
+			"name": "m_sb_betarea_bg_hover_15_horizontal_png"
 		}
 	]
 }
