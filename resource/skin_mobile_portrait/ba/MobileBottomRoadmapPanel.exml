@@ -18,7 +18,7 @@
 		<e:Image id="switchModeButton" width="72" height="72" x="504" y="457" source="d_ba_swaproadmap_button_element_png" scaleX="1" scaleY="1"/>
 		<e:Image id="iconBankerBead" width="116" height="52" x="15" y="23" source="d_ba_roadmap_topbar_textbg_banker_png" anchorOffsetX="0" />
 		<e:Image id="iconPlayerBead" width="116" height="52" x="247" y="23" source="d_ba_roadmap_topbar_textbg_player_png" />
-		<ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="247" y="23.5" textAlign="center" anchorOffsetX="0" width="116" size="28" height="52" verticalAlign="middle" touchEnabled="false" />
-		<ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="15" y="23" textAlign="center" anchorOffsetX="0" width="116" size="28" verticalAlign="middle" height="52" touchEnabled="false" />
+		<ui:RunTimeLabel id="playerButtonLabel" text="Ask P" x="247" y="23.5" textAlign="center" anchorOffsetX="0" width="116" size="28" height="52" verticalAlign="middle" touchEnabled="false" textKey="baccarat.askPlayer" />
+		<ui:RunTimeLabel id="bankerButtonLabel" text="Ask B" x="15" y="23" textAlign="center" anchorOffsetX="0" width="116" size="28" height="52" verticalAlign="middle" textKey="baccarat.askBanker"/>
 	</e:Group>
 </e:Skin>

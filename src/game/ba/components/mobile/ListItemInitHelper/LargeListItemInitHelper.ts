@@ -3,7 +3,7 @@ namespace we {
     export class LargeListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ba.TableLayer();
-        tableLayer.skinName = `skin_mobile_portrait.ba.SideListTableLayerSkin`;
+        tableLayer.skinName = `skin_mobile_portrait.ba.QuickBetTableLayerSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
@@ -11,7 +11,7 @@ namespace we {
 
       public generateChipLayer(node: eui.Component) {
         const chipLayer = new ba.ChipLayer();
-        chipLayer.skinName = `skin_mobile_portrait.ba.SideListChipLayerSkin`;
+        chipLayer.skinName = `skin_mobile_portrait.ba.QuickBetChipLayerSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;

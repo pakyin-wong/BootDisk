@@ -1,11 +1,11 @@
 namespace we {
   export namespace lw {
     export class TableInfoPanel extends ui.TableInfoPanel {
-      protected bankerLabel: eui.Label;
-      protected playerLabel: eui.Label;
-      protected tieLabel: eui.Label;
-      protected bankerPairLabel: eui.Label;
-      protected playerPairLabel: eui.Label;
+      protected bankerLabel: ui.RunTimeLabel;
+      protected playerLabel: ui.RunTimeLabel;
+      protected tieLabel: ui.RunTimeLabel;
+      protected bankerPairLabel: ui.RunTimeLabel;
+      protected playerPairLabel: ui.RunTimeLabel;
 
       protected pBanker: eui.Label;
       protected pPlayer: eui.Label;
@@ -13,8 +13,16 @@ namespace we {
       protected pBankerPair: eui.Label;
       protected pPlayerPair: eui.Label;
 
-      protected gameIdLabel: eui.Label;
-      protected betLimitLabel: eui.Label;
+      protected eastLabel: ui.RunTimeLabel;
+      protected southLabel: ui.RunTimeLabel;
+      protected westLabel: ui.RunTimeLabel;
+      protected northLabel: ui.RunTimeLabel;
+      protected redLabel: ui.RunTimeLabel;
+      protected greenLabel: ui.RunTimeLabel;
+      protected whiteLabel: ui.RunTimeLabel;
+
+      protected gameIdLabel: ui.RunTimeLabel;
+      protected betLimitLabel: ui.RunTimeLabel;
 
       protected pGameID: eui.Label;
 
@@ -47,6 +55,7 @@ namespace we {
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
 
         mouse.setButtonMode(this.close, true);
+<<<<<<< HEAD
 
         if (env.orientation === 'landscape') {
           this._infoArea.addEventListener(eui.UIEvent.CHANGE_START, this.toShowMask, this);
@@ -70,12 +79,17 @@ namespace we {
           this._mask.alpha = 0;
           // this.mask = this.mask_gp;
         }
+=======
+>>>>>>> dfff5d83514347bf3474048a67f50711c6128c9c
       }
 
       public onExit() {
         this.destroy();
+<<<<<<< HEAD
         dir.evtHandler.removeEventListener(eui.UIEvent.CHANGE_START, this.toShowMask, this);
         dir.evtHandler.removeEventListener(eui.UIEvent.CHANGE_END, this.toHideMask, this);
+=======
+>>>>>>> dfff5d83514347bf3474048a67f50711c6128c9c
       }
 
       public setValue(tableInfo: data.TableInfo) {

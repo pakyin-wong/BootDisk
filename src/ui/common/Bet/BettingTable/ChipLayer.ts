@@ -300,6 +300,7 @@ namespace we {
         this._cfmBetDetails.map((value, index) => {
           if (this._betChipStackMapping[value.field]) {
             this._betChipStackMapping[value.field].cfmBet = value.amount * this.getRate(value.field);
+            console.log('-----------------------------', [value, value.field]);
             this._betChipStackMapping[value.field].draw();
           }
         });

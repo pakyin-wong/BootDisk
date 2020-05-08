@@ -3,12 +3,13 @@ namespace we {
     export class TableInfoPanel extends ui.TableInfoPanel {
       protected contentTwo: eui.Group;
 
-      protected gameIdLabel: eui.Label;
-      protected colorLabel: eui.Label;
-      protected oddevenLabel: eui.Label;
-      protected sizeLabel: eui.Label;
-      protected columnbetLabel: eui.Label;
-      protected rowbetLabel: eui.Label;
+      protected gameIdLabel: ui.RunTimeLabel;
+      protected colorLabel: ui.RunTimeLabel;
+      protected oddevenLabel: ui.RunTimeLabel;
+      protected sizeLabel: ui.RunTimeLabel;
+      protected columnbetLabel: ui.RunTimeLabel;
+      protected rowbetLabel: ui.RunTimeLabel;
+      protected betLimitLabel: ui.RunTimeLabel;
 
       public pBetLimit: ui.RunTimeLabel;
       protected pGameID: eui.Label;
@@ -38,23 +39,23 @@ namespace we {
       protected pLineBet: eui.Label;
       protected pLineBetRatio: eui.Label;
 
-      protected rowLabel: eui.Label;
+      protected rowLabel: ui.RunTimeLabel;
       protected pRow: eui.Label;
       protected pRowRatio: eui.Label;
 
-      protected dozenLabel: eui.Label;
+      protected dozenLabel: ui.RunTimeLabel;
       protected pDozen: eui.Label;
       protected pDozenRatio: eui.Label;
 
-      protected colorTwoLabel: eui.Label;
+      protected colorTwoLabel: ui.RunTimeLabel;
       protected pColorTwo: eui.Label;
       protected pColorTwoRatio: eui.Label;
 
-      protected oddevenTwoLabel: eui.Label;
+      protected oddevenTwoLabel: ui.RunTimeLabel;
       protected pOddevenTwo: eui.Label;
       protected pOddevenTwoRatio: eui.Label;
 
-      protected sizeTwoLabel: eui.Label;
+      protected sizeTwoLabel: ui.RunTimeLabel;
       protected pSizeTwo: eui.Label;
       protected pSizeTwoRatio: eui.Label;
 
@@ -201,15 +202,15 @@ namespace we {
         }, this.duration * 1000 + 50);
       }
 
-      public changeLang() {
-        super.changeLang();
-
-        this.colorLabel.text = i18n.t('roulette.betGroup.color');
-        this.oddevenLabel.text = i18n.t('roulette.betGroup.oddeven');
-        this.sizeLabel.text = i18n.t('roulette.betGroup.size');
-        this.columnbetLabel.text = i18n.t('roulette.betGroup.column');
-        this.rowbetLabel.text = i18n.t('roulette.betGroup.row');
-      }
+      // public changeLang() {
+      //   super.changeLang();
+      // this.directNoteLabel.text = i18n.t('roulette.XXX');
+      // this.separateLabel.text = i18n.t('roulette.XXX');
+      // this.streetLabel.text = i18n.t('roulette.XXX');
+      // this.cornerLabel.text = i18n.t('roulette.XXX');
+      // this.lineBetLabel.text = i18n.t('roulette.XXX');
+      // this.betLimitLabel.text = i18n.t('rouletteXXX');
+      // }
 
       public setValue(tableInfo: data.TableInfo) {
         super.setValue(tableInfo);

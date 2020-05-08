@@ -14,13 +14,13 @@ namespace we {
       protected betCombinations: we.data.BetCombination[];
 
       protected totalTableCount = {
-        [we.core.GameType.BAC]: 30,
+        [we.core.GameType.BAC]: 5,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
-        [we.core.GameType.DT]: 30,
-        [we.core.GameType.RO]: 30,
-        [we.core.GameType.DI]: 30,
-        [we.core.GameType.LW]: 30,
+        [we.core.GameType.DT]: 5,
+        [we.core.GameType.RO]: 5,
+        [we.core.GameType.DI]: 5,
+        [we.core.GameType.LW]: 5,
         [we.core.GameType.BAM]: 1,
         [we.core.GameType.ROL]: 1,
       };
