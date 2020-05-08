@@ -61,14 +61,13 @@
 					<ro:RaceTrackTableLayer id="_raceTrackTableLayer" horizontalCenter="0"/>
 				</e:Group>
 				<ro:MobileChipLayer id="_chipLayer" width="879" height="1769" isEdgeDismissable="true" skinName="skin_mobile_portrait.ro.ChipLayerRaceSkin" x="0" y="0" scaleX="1" scaleY="1"/>
-				<e:Rect id="testing" width="875.76" height="512.12" y="229" fillColor="0x994040"/>
 			</e:Group>
 			<ro:RaceTrackChipLayer id="_raceTrackChipLayer" horizontalCenter="0" visible="false"/>
     </e:Group>
   </e:Scroller>
 
 
-  <e:Group id="_betSet" y="489" left="0" right="0" touchThrough="true" visible="false">
+  <e:Group id="_betSet" y="489" left="0" right="0" touchThrough="true">
     <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="1052" x.left="5"/>
     <e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
       <e:Group x="0" y="0" scaleX.left="-1" x.left="888">
