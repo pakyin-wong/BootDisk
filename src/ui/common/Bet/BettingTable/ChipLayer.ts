@@ -490,7 +490,7 @@ namespace we {
       protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number): boolean {
         const betLimit: data.BetLimitSet = env.betLimits[this._getSelectedBetLimitIndex()];
         // TODO: check balance
- …
+        const balance = env.balance;
         if (balance < totalBetAmount) {
           this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
           return false;
