@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile_portrait.GameSetting" width="980" height="654" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect fillColor="0x14181e" left="0" top="0" bottom="0" right="0"/>
+		<e:Rect left="0" top="0" bottom="0" right="0" ellipseWidth="130" ellipseHeight="130" fillColor="0x0f1721"/>
 		<e:Image id="close" width="80" height="80" source="d-lobby-button-close-none_png"  x="850" y="50"/>
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="44"
 		                 width="750" height="120"  verticalAlign="middle" textColor="0xc59466" size="76" anchorOffsetX="0" bold="true"/>

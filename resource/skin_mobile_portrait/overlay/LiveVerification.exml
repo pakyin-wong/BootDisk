@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.LiveVerification" width="520" height="749" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Rect left="0" top="0" bottom="0" right="0" ellipseWidth="130" ellipseHeight="130" fillColor="0x0f1721"/>
+		<ui:RunTimeLabel id="liveVer_title" text="Label" x="60" y="50" width="400" height="71" verticalAlign="middle" textColor="0xc59466" size="48" anchorOffsetX="0" bold="true" textAlign="center"/>
+		<ui:RunTimeLabel id="liveVer_text" text="Label" x="0" y="151" width="520" height="33" verticalAlign="middle" size="24" anchorOffsetX="0" bold="true" textAlign="center" textColor="0xffffff"/>
+		<e:Group id="showColGroup" x="95" y="202">
+			<e:Rect id="firstCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="0" y="0"/>
+			<e:Rect id="secCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="88" y="0"/>
+			<e:Rect id="thirdCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="176" y="0"/>
+			<e:Rect id="fortCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="264" y="0"/>
+		</e:Group>
+		<e:Group id="btnGroup" x="60" y="299">
+			<e:Rect id="_bg" ellipseWidth="15" ellipseHeight="15" fillColor="0x1e262f" width="400" height="305" x="0" y="0"/>
+			<e:Image id="_btnOne" width="66" height="66" x="36" y="25" source="m_common_chartroom_emoji_icon_1_png"/>
+			<e:Image id="_btnTwo" width="66" height="66" x="123" y="25" source="m_common_chartroom_emoji_icon_2_png"/>
+			<e:Image id="_btnThree" width="66" height="66" x="209" y="25" source="m_common_chartroom_emoji_icon_3_png"/>
+			<e:Image id="_btnFour" width="66" height="66" x="296" y="25" source="m_common_chartroom_emoji_icon_4_png"/>
+			<e:Image id="_btnFive" width="66" height="66" x="36" y="120" source="m_common_chartroom_emoji_icon_5_png"/>
+			<e:Image id="_btnSix" width="66" height="66" x="123" y="120" source="m_common_chartroom_emoji_icon_6_png"/>
+			<e:Image id="_btnSeven" width="66" height="66" x="209" y="120" source="m_common_chartroom_emoji_icon_7_png"/>
+			<e:Image id="_btnEight" width="66" height="66" x="296" y="120" source="m_common_chartroom_emoji_icon_8_png"/>
+			<e:Image id="_btnNine" width="66" height="66" x="36" y="214" source="m_common_chartroom_emoji_icon_9_png"/>
+			<e:Image id="_btnTen" width="66" height="66" x="123" y="214" source="m_common_chartroom_emoji_icon_10_png"/>
+			<e:Image id="_btnEleven" width="66" height="66" x="209" y="214" source="m_common_chartroom_emoji_icon_11_png"/>
+			<e:Image id="_btnTwelve" width="66" height="66" x="296" y="214" source="m_common_chartroom_emoji_icon_12_png"/>
+		</e:Group>
+
+		<e:Group id="confirmBtn" width="322" height="66" x="99" y="635">
+			<e:Rect strokeWeight="3" ellipseWidth="60" ellipseHeight="60" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x1b416e" fillAlpha="0" strokeColor="0x444444"/>
+			<ui:RunTimeLabel id="confirmLabel" text="Label" x="0" y="0" width="100%" height="100%" verticalAlign="middle" textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<e:Image id="close" width="80" height="80" source="d-lobby-button-close-none_png"  x="420" y="13"/>
+		<e:Group id="alertGroup" x="0" y="0" width="100%" height="100%" visible="false">
+			<e:Rect ellipseWidth="15" ellipseHeight="15" width="100%" height="100%" x="0" y="0" fillAlpha="0.58" fillColor="0x000000"/>
+			<e:Rect ellipseWidth="15" ellipseHeight="15" width="400" height="275" x="60" y="236" fillAlpha="1" fillColor="0x1e262f"/>
+			<e:Image width="91" height="91" x="215" y="284" source="m_common_listpanel_goodroad_bg_png"/>
+			<ui:RunTimeLabel id="success_text" text="Label" x="60" y="399" width="400" height="68" verticalAlign="middle" size="24" anchorOffsetX="0" bold="true" textAlign="center" textColor="0xffffff"/>
+		</e:Group>
+
+	</e:Group>
+</e:Skin>
