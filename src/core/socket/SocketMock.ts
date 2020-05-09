@@ -370,7 +370,23 @@ namespace we {
             chips: [100, 500, 2000, 10000, 50000],
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
+          {
+            currency: Currency.RMB,
+            maxlimit: 100000,
+            minlimit: 2000,
+            chips: [2000, 10000, 30000, 40000, 50000],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+          },
+          {
+            currency: Currency.RMB,
+            maxlimit: 500000,
+            minlimit: 5000,
+            chips: [5000, 10000, 200000, 300000, 500000],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+          },
         ];
+
+        /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
           denominationList.push(...betLimit.chips);
@@ -381,6 +397,7 @@ namespace we {
             return a < b ? -1 : 1;
           });
         env.wholeDenomList = denominationList;
+        */
 
         env.mode = null || -1;
         env.categorySortOrder = '{}';
