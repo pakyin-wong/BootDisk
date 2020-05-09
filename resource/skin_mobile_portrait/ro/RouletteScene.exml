@@ -51,11 +51,11 @@
 	<e:Group id="_settingTransition" height="1685" y="278" left="0" right="0">
 		<ro:MobileSettingPanel id="_settingPanel" skinName="skin_mobile_portrait.ro.MobileSettingPanel" scaleX="1" scaleY="1" x="31" x.left="1105.5"/>
 	</e:Group>
-  <e:Scroller id="_betArea" x="172" y="167" width="879" height="1769" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off">
-    <e:Group id="_bAViewport">
+  <e:Scroller id="_betArea" x="172" y="167" width="879" height="1920" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off" anchorOffsetY="0">
+    <e:Group id="_bAViewport" anchorOffsetY="0" height="100%">
 			<e:Group id="_bATransition" x="0">
-				<e:Group id="_bANormal" x="0" height="1769" width="879">
-					<ro:TableLayer id="_tableLayer" width="879" height="1769" skinName="skin_mobile_portrait.ro.TableLayerSkin" isEdgeDismissable="true"/>
+				<e:Group id="_bANormal" x="0" width="879">
+					<ro:TableLayer id="_tableLayer" top="100" width="879" height="1769" skinName="skin_mobile_portrait.ro.TableLayerSkin" isEdgeDismissable="true"/>
 				</e:Group>
 				<e:Group id="_bARace" width="879" x="879" height="1769">
 					<ro:RaceTrackTableLayer id="_raceTrackTableLayer" horizontalCenter="0"/>
@@ -67,7 +67,7 @@
   </e:Scroller>
 
 
-  <e:Group id="_betSet" y="489" left="0" right="0" touchThrough="true">
+  <e:Group id="_betSet" y="489" left="0" right="0" touchThrough="true" visible="false">
     <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="160" height="160" skinName="skin_mobile.BetChipSkin" labelSize="48" x="1052" x.left="5"/>
     <e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
       <e:Group x="0" y="0" scaleX.left="-1" x.left="888">

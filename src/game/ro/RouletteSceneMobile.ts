@@ -70,7 +70,7 @@ namespace we {
         const gr = this._mask.graphics;
         const matrix = new egret.Matrix();
         matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
-        gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 23, 230, 255], matrix);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
         gr.drawRect(0, 0, this._betArea.width, 1270); //
         gr.endFill();
         this.addChild(this._mask);
@@ -169,8 +169,12 @@ namespace we {
               },
               250
             );
-            this._tableLayer.mask = this._mask;
-            this._mask.visible = true;
+            if (env.orientation === "portrait") {
+              this._tableLayer.top = 100;
+              this._tableLayer.bottom = 100;
+              this._tableLayer.mask = this._mask;
+              this._mask.visible = true;
+            }
             break;
           case 'small':
           case 'normal':
@@ -181,8 +185,12 @@ namespace we {
               },
               250
             );
-            this._tableLayer.mask = null;
-            this._mask.visible = false;
+            if (env.orientation === "portrait") {
+              this._tableLayer.top = 0;
+              this._tableLayer.bottom = 0;
+              this._tableLayer.mask = null;
+              this._mask.visible = false;
+            }
             break;
           default:
             this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
