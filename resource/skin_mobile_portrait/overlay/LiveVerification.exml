@@ -6,7 +6,7 @@
 		<ui:RunTimeLabel id="liveVer_title" text="Label" x="60" y="50" width="400" height="71" verticalAlign="middle" textColor="0xc59466" size="48" anchorOffsetX="0" bold="true" textAlign="center"/>
 		<ui:RunTimeLabel id="liveVer_text" text="Label" x="0" y="151" width="520" height="33" verticalAlign="middle" size="24" anchorOffsetX="0" bold="true" textAlign="center" textColor="0xffffff"/>
 		<e:Group id="showColGroup" x="95" y="202">
-			<e:Rect id="firstCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="0" y="0"/>
+			<e:Rect id="firstCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="0" y="0" strokeColor="0x444444"/>
 			<e:Rect id="secCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="88" y="0"/>
 			<e:Rect id="thirdCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="176" y="0"/>
 			<e:Rect id="fortCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="264" y="0"/>
