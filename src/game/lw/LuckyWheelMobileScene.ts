@@ -10,6 +10,7 @@ namespace we {
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
       protected _verticalGroup: eui.Group;
+
       private _common_listpanel: ui.BaseImageButton;
 
       constructor(data: any) {
@@ -184,7 +185,7 @@ namespace we {
 
         console.log('checkResultMessage', this._gameData);
 
-        const result = (<ro.GameData> this._gameData).value;
+        const result = (<ro.GameData>this._gameData).value;
         const resultNo: number = +result.toString().substr(1) - 1;
 
         // (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo.toString()}`);

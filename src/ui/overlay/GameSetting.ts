@@ -48,7 +48,10 @@ namespace we {
       }
 
       protected onSendLiveVerCall() {
-        // OpenSendLiveVerCallPanel
+        dir.evtHandler.createOverlay({
+          class: 'LiveVerification',
+        });
+        logger.l(`GameSetting::LiveVerification`);
       }
 
       protected initOrientationDependentComponent() {

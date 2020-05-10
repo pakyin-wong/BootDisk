@@ -27,6 +27,9 @@ namespace we {
       protected e11: eui.Image;
       protected e12: eui.Image;
 
+      protected confirmLabel: ui.RunTimeLabel;
+      protected confirmBtn: eui.Component;
+
       protected sendLabel: ui.RunTimeLabel;
 
       protected alert_group: eui.Group;
@@ -47,10 +50,13 @@ namespace we {
         this.addListeners();
         this.updateText();
         this.createArray();
+        this.resetAll();
+        this.checkBoxHighlight();
       }
 
       protected destroy() {
         super.destroy();
+        this.resetAll();
         this.removeListeners();
       }
 
@@ -60,41 +66,67 @@ namespace we {
 
         this.sendLabel.text = i18n.t('live_verification_send');
         this.success_text.text = i18n.t('live_verification_success_text');
+
+        this.confirmLabel.text = i18n.t('mobile_dropdown_confirm');
       }
 
-      protected boxHighlight(){
-        for(var i = 0; i < this.colArray.length; i++){
-          if(i == this.inputIndex)
-            this.colArray[i].strokeColor = 0xFFFFFF;
-          else
-            this.colArray[i].strokeColor = 0x444444;
+      protected checkBoxHighlight() {
+        for (let i = 0; i < this.colArray.length; i++) {
+          if (i == this.inputIndex) this.colArray[i].strokeColor = 0xffffff;
+          else this.colArray[i].strokeColor = 0x444444;
         }
       }
 
-      protected createArray(){
+      protected resetAll() {
+        this.inputIndex = 0;
+        for (let i = 0; i < this.inputArray.length; i++) {
+          this.inputArray[i].source = '';
+        }
+        this.checkBoxHighlight();
+        this.alert_group.visible = false;
+      }
+
+      protected createArray() {
         this.colArray = [this.firstCol, this.secCol, this.thirdCol, this.fortCol];
         this.inputArray = [this.firstImg, this.secImg, this.thirdImg, this.fortImg];
         this.imageArray = [this.e1, this.e2, this.e3, this.e4, this.e5, this.e6, this.e7, this.e8, this.e9, this.e10, this.e11, this.e12];
-        for(var i = 0; i < this.imageArray.length; i++){
+      }
+
+      protected onImageClick(e: eui.UIEvent) {
+        if (this.inputIndex >= 3) {
+          return;
+        }
+        const arr: string[] = [];
+        const click: eui.Image = e.target;
+        this.pattern.push(click.name);
+        this.inputArray[this.inputIndex].source = click.source;
+        this.inputIndex += 1;
+        this.checkBoxHighlight();
+
+        logger.l('THE PATTERN = ' + this.pattern);
+      }
+
+      protected sendVerification() {
+        if (this.inputIndex < 3) {
+          return;
+        }
+        this.alert_group.visible = true;
+      }
+
+      protected addListeners() {
+        this.confirmBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.sendVerification, this);
+
+        for (let i = 0; i < this.imageArray.length; i++) {
           this.imageArray[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onImageClick, this);
         }
       }
 
-      protected onImageClick(e: eui.UIEvent) {
-        var arr: string[] = [];
-        const click: eui.Image = e.target;
-        this.pattern.push(click.name);
-        this.inputIndex += 1;
-      }
-
-      protected addListeners() {
-        // utils.addButtonListener(this._btn_showHint, this.onSwitchShowHint, this);
-        // this._btn_sendLiveVer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSendLiveVerCall, this);
-      }
-
       protected removeListeners() {
-        // this._btn_showHint.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchShowHint, this);
-        // this._btn_sendLiveVer.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSendLiveVerCall, this);
+        this.confirmBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.sendVerification, this);
+
+        for (let i = 0; i < this.imageArray.length; i++) {
+          this.imageArray[i].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onImageClick, this);
+        }
       }
 
       protected initOrientationDependentComponent() {
