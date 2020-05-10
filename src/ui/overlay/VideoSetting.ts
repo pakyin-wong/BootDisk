@@ -10,12 +10,15 @@ namespace we {
       private closeCamBtn: eui.RadioButton;
 
       private autoQuaBtn: eui.RadioButton;
-      private blueRayBtn: eui.RadioButton;
+      private bluRayBtn: eui.RadioButton;
       private highQuaBtn: eui.RadioButton;
       private standQuaBtn: eui.RadioButton;
 
       private confirmBtn: eui.Component;
       protected confirmLabel: ui.RunTimeLabel;
+
+      protected camIndex: number = 0;
+      protected quaIndex: number = 0;
 
       constructor() {
         super('VideoSetting');
@@ -27,25 +30,35 @@ namespace we {
         this.updateText();
       }
 
-      protected onViewChange(e: eui.UIEvent) {
+      protected onCamChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
-        // this.viewStack.selectedIndex = radio.value;
+        this.camIndex = radio.value;
+      }
+
+      protected onQuaChange(e: eui.UIEvent) {
+        const radio: eui.RadioButton = e.target;
+        this.quaIndex = radio.value;
+      }
+
+      protected onConfirmChange(){
+        //call the change function after press confirm
       }
 
       public updateText() {
-        this.autoCamBtn.label = i18n.t('mobile_game_panel_historyRoad');
-        this.closerCamBtn.label = i18n.t('mobile_game_panel_history');
-        this.farCamBtn.label = i18n.t('mobile_game_panel_road_sheet');
-        this.closeCamBtn.label = i18n.t('mobile_game_panel_statistic_chart');
+        this.autoCamBtn.label = i18n.t('video_setting_auto');
+        this.closerCamBtn.label = i18n.t('video_setting_closer');
+        this.farCamBtn.label = i18n.t('video_setting_far');
+        this.closeCamBtn.label = i18n.t('video_setting_close');
 
-        this.autoQuaBtn.label = i18n.t('mobile_game_panel_table_info');
-        this.blueRayBtn.label = i18n.t('mobile_panel_game_Info');
-        this.highQuaBtn.label = i18n.t('mobile_game_panel_table_info');
-        this.standQuaBtn.label = i18n.t('mobile_panel_game_Info');
+        this.autoQuaBtn.label = i18n.t('video_setting_auto');
+        this.bluRayBtn.label = i18n.t('video_setting_bluray');
+        this.highQuaBtn.label = i18n.t('video_setting_highQua');
+        this.standQuaBtn.label = i18n.t('video_setting_standQua');
 
-        this.cam_title.text = i18n.t('mobile_panel_game_Info');
-        this.qua_title.text = i18n.t('mobile_panel_game_Info');
-        this.confirmLabel.text = i18n.t('mobile_panel_game_Info');
+        this.cam_title.text = i18n.t('video_setting_cam');
+        this.qua_title.text = i18n.t('video_setting_qua');
+
+        this.confirmLabel.text = i18n.t('mobile_dropdown_confirm');
       }
 
       protected destroy() {
@@ -54,27 +67,31 @@ namespace we {
       }
 
       protected addListeners() {
-        this.autoCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.closerCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.farCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.closeCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.autoCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
+        this.closerCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
+        this.farCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
+        this.closeCamBtn.addEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
 
-        this.autoQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.blueRayBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.highQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.standQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.autoQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
+        this.bluRayBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
+        this.highQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
+        this.standQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
+
+        this.confirmBtn.addEventListener(eui.UIEvent.CHANGE, this.onConfirmChange, this);
       }
 
       protected removeListeners() {
-        this.autoCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.closerCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.farCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.closeCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.autoCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
+        this.closerCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
+        this.farCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
+        this.closeCamBtn.removeEventListener(eui.UIEvent.CHANGE, this.onCamChange, this);
 
-        this.autoQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.blueRayBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.highQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.standQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.autoQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
+        this.bluRayBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
+        this.highQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
+        this.standQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
+
+        this.confirmBtn.removeEventListener(eui.UIEvent.CHANGE, this.onConfirmChange, this);
       }
 
 
