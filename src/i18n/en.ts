@@ -150,6 +150,12 @@ namespace we {
           soundfx: 'Sound Effect',
           bgm: 'Music',
           term: 'Term of Service',
+          changeName: 'Nickname Setting',
+        },
+        userName: {
+          cartoon: 'Cartoon Characters',
+          myth: 'Myth Characters',
+          movie: 'Movie Characters',
         },
       },
       lobby: {

@@ -24,7 +24,7 @@
 				<e:Label id="_follower" text="Label" y="1615" height="72" right="96" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle"/>
 				<e:Label id="_following" text="Label" y="1731" height="72" right="96" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle"/>
 				<e:Label id="_favouriteDealer" text="Label" y="1846" height="72" right="96" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle"/>
-							<ui:BaseImageButton width="58" height="60" x="1087" y="710" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
+							<ui:BaseImageButton id="_editName" width="58" height="60" x="1087" y="710" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
 							<ui:BaseImageButton width="57" height="58" x="1088" y="831" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
 							<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55.00000000000001" width="1000" height="119" verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1"/>
             </e:Group>

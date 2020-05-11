@@ -150,6 +150,12 @@ namespace we {
           soundfx: '遊戲音效',
           bgm: '背景音樂',
           term: '服務條款',
+          changeName: '設定暱稱',
+        },
+        userName: {
+          cartoon: '卡通人物角色',
+          myth: '神話人物角色',
+          movie: '電影人物角色',
         },
       },
       lobby: {
