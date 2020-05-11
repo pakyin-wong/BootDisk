@@ -1443,6 +1443,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class CustomRoad extends eui.Skin{
 	}
 }

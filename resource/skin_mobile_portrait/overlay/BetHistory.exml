@@ -31,11 +31,14 @@
 				<e:List id="_datagroup" />
 			</e:Scroller>
 			<overlay:DoubleCalendarPicker skinName="skin_mobile_portrait.DoubleCalendarPicker" id="_datepicker" width="1050"
-			                              height="1402" horizontalCenter="-0.5" y="456" x="96" scaleX="1" scaleY="1" />
+			                              height="1402" horizontalCenter="-0.5" y="456" x="96" scaleX="1" scaleY="1"  visible="false"/>
 		</e:Group>
 		<bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
 		                     bottom="0" />
-		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
+		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png"/>
+		<bh:BetHistorySearch skinName="skin_mobile_portrait.BetHistorySearch" id="_search" left="0" right="0" top="0"
+		                     bottom="0"  touchEnabled="true"/>
+
 		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" fontFamily="NotoSansCJKtc" size="24"
 		                 alpha="0.7" verticalAlign="middle" visible="false" />
 		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47"
@@ -57,12 +60,12 @@
 		<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" x="1386" y="168" width="176" height="29" size="20"
 		                 verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
 		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1562" y="168" width="88" size="20" verticalAlign="middle"
-		                 height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false" />
+		                 height="29" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1"  visible="false"/>
 		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1650" y="168" width="490" height="29" size="20"
 		                 verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" textAlign="center"
 		                 visible="false" />
 		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle"
-		                 fontFamily="NotoSansCJKtc" size="24" width="96" alpha="0.7" visible="false" />
+		                 fontFamily="NotoSansCJKtc" size="24" width="96" alpha="0.7"  visible="false"/>
 		<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle"
 		                fontFamily="NotoSansCJKtc" size="24" visible="false" />
 		<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077"
