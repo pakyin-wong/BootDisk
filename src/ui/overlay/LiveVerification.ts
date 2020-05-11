@@ -30,8 +30,6 @@ namespace we {
       protected confirmLabel: ui.RunTimeLabel;
       protected confirmBtn: eui.Component;
 
-      protected sendLabel: ui.RunTimeLabel;
-
       protected alert_group: eui.Group;
       protected success_text: ui.RunTimeLabel;
 
@@ -47,9 +45,17 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this.addListeners();
-        this.updateText();
+      }
+
+      protected init_menu() {
+        this.liveVer_title.renderText = () => `${i18n.t('live_verification_title')}`;
+        this.liveVer_text.renderText = () => `${i18n.t('live_verification_text')}`;
+
+        this.success_text.renderText = () => `${i18n.t('live_verification_success_text')}`;
+        this.confirmLabel.renderText = () => `${i18n.t('live_verification_send')}`;
+
         this.createArray();
+        this.addListeners();
         this.resetAll();
         this.checkBoxHighlight();
       }
@@ -60,26 +66,16 @@ namespace we {
         this.removeListeners();
       }
 
-      public updateText() {
-        this.liveVer_title.text = i18n.t('live_verification_title');
-        this.liveVer_text.text = i18n.t('live_verification_text');
-
-        this.sendLabel.text = i18n.t('live_verification_send');
-        this.success_text.text = i18n.t('live_verification_success_text');
-
-        this.confirmLabel.text = i18n.t('mobile_dropdown_confirm');
-      }
-
       protected checkBoxHighlight() {
-        for (let i = 0; i < this.colArray.length; i++) {
-          if (i == this.inputIndex) this.colArray[i].strokeColor = 0xffffff;
+        for (let i: number = 0; i < this.colArray.length; i++) {
+          if (i === this.inputIndex) this.colArray[i].strokeColor = 0xffffff;
           else this.colArray[i].strokeColor = 0x444444;
         }
       }
 
       protected resetAll() {
         this.inputIndex = 0;
-        for (let i = 0; i < this.inputArray.length; i++) {
+        for (let i: number = 0; i < this.inputArray.length; i++) {
           this.inputArray[i].source = '';
         }
         this.checkBoxHighlight();
@@ -93,17 +89,18 @@ namespace we {
       }
 
       protected onImageClick(e: eui.UIEvent) {
-        if (this.inputIndex >= 3) {
+        console.log('THE PATTERN = ' + this.pattern);
+        if (this.inputIndex > 3) {
           return;
         }
-        const arr: string[] = [];
+        // const arr: string[] = [];
         const click: eui.Image = e.target;
         this.pattern.push(click.name);
         this.inputArray[this.inputIndex].source = click.source;
         this.inputIndex += 1;
         this.checkBoxHighlight();
 
-        logger.l('THE PATTERN = ' + this.pattern);
+        console.log('THE PATTERN = ' + this.pattern);
       }
 
       protected sendVerification() {
@@ -116,7 +113,7 @@ namespace we {
       protected addListeners() {
         this.confirmBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.sendVerification, this);
 
-        for (let i = 0; i < this.imageArray.length; i++) {
+        for (let i: number = 0; i < this.imageArray.length; i++) {
           this.imageArray[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onImageClick, this);
         }
       }
@@ -124,13 +121,14 @@ namespace we {
       protected removeListeners() {
         this.confirmBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.sendVerification, this);
 
-        for (let i = 0; i < this.imageArray.length; i++) {
+        for (let i: number = 0; i < this.imageArray.length; i++) {
           this.imageArray[i].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onImageClick, this);
         }
       }
 
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
+        this.init_menu();
       }
     }
   }

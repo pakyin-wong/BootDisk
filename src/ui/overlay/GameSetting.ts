@@ -35,7 +35,7 @@ namespace we {
 
       protected addListeners() {
         utils.addButtonListener(this._btn_showHint, this.onSwitchShowHint, this);
-        this._btn_sendLiveVer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSendLiveVerCall, this);
+        utils.addButtonListener(this._btn_sendLiveVer, this.onSendLiveVerCall, this);
       }
 
       protected removeListeners() {

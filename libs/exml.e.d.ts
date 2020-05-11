@@ -941,6 +941,14 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class GameSetting extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LiveVerification extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class MemberReport extends eui.Skin{
 	}
 }
@@ -962,6 +970,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class SystemSetting extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class VideoSetting extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.ro{
@@ -1423,6 +1435,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class LiveVerification extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class MemberReport extends eui.Skin{
 	}
 }
@@ -1452,6 +1468,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class SystemSetting extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class VideoSetting extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
