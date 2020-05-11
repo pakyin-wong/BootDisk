@@ -10,9 +10,9 @@ namespace we {
       private _textBg: eui.Rect;
       private _titleLabel: eui.EditableText;
       private _clearButton: ui.BaseImageButton;
-      private _removeButton: ui.BaseImageButton;
-      private _removeAllButton: ui.BaseImageButton;
-      private _saveButton: ui.BaseImageButton;
+      private _removeButton: ui.BaseAnimationButton;
+      private _removeAllButton: ui.BaseAnimationButton;
+      private _saveButton: ui.BaseAnimationButton;
       private _bigRoadMask: eui.Rect;
 
       private roadId: string;

@@ -76,6 +76,8 @@ namespace we {
           // this.width = this._display.width;
           // this.height = this._display.height;
         }
+        const oldState = [this._down, this._hover];
+        this.update(oldState);
       }
 
       public get buttonEnabled() {
@@ -146,7 +148,7 @@ namespace we {
         this.dispatchEvent(new egret.Event('CLICKED'));
       }
 
-      private playPromise(anim, count, progress = 0) {
+      private playPromise(anim, count) {
         console.log('BaseAnimationButton', anim);
 
         return new Promise(resolve => {
@@ -165,11 +167,7 @@ namespace we {
           return;
         }
 
-        // this._display.animation.timeScale = 5;
         await this.prevProm;
-        // this._display.animation.timeScale = 1;
-        // this._display.animation.stop();
-        // await this.playPromise('idle', 1, 0.99);
         // console.log('BaseAnimationButto oldDown', oldDown);
         // console.log('BaseAnimationButto _down', this._down);
         // console.log('BaseAnimationButto oldHover', oldHover);
@@ -191,6 +189,10 @@ namespace we {
         } else if (!this._active) {
           this.playPromise('idle', 0);
         }
+      }
+
+      public playAnimation(anim, count) {
+        this.playPromise(anim, count);
       }
     }
   }

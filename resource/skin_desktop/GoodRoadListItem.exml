@@ -8,13 +8,14 @@
 		<ba:GoodRoadmap id="_bigRoad" width="291" height="175" y="52" x="1" />
 		<ui:BaseImageButton id="_binButton" currentState="b_bin" y="13" width="24" height="26" anchorOffsetX="0" x="216"
 		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
-		<ui:ToggleButton id="_activeButton" resNameOn="d_lobby_panel_button_checkboxes_active_png"
+		<ui:ToggleButton id="_activeButton"
+                         resNameOn="d_lobby_panel_button_checkboxes_active_png"
 		                 hoverResNameOn="d_lobby_panel_button_checkboxes_active_png"
 		                 resNameOff="d_lobby_panel_button_checkboxes_normal_png"
 		                 hoverResNameOff="d_lobby_panel_button_checkboxes_hover_png" y="16" width="22" height="22"
 		                 anchorOffsetX="0" x="255" />
-		<ui:BaseImageButton id="_addButton" currentState="b_add" horizontalCenter="0.5" width="44" height="44"
-		                    anchorOffsetX="0" verticalCenter="21.5" skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		<ui:BaseAnimationButton id="_addButton" horizontalCenter="0" width="44" height="44"
+		                    verticalCenter="21.5" dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad" />
 		<ui:BaseImageButton id="_editButton" currentState="b_edit" horizontalCenter="0.5" width="30" height="30"
 		                    anchorOffsetX="0" verticalCenter="21.5" skinName="skin_desktop.ImageButtonSkinGoodRoad" />
 		<e:Label id="_titleLabel" text="百家樂01" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="17" y="14" size="24"

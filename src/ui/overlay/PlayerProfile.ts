@@ -5,6 +5,7 @@ namespace we {
       private _section_main: eui.Group;
 
       private _playerIcon: eui.Image;
+      private _playerIconSelection: ui.BaseAnimationButton;
       private _username: eui.Label;
       private _balance: eui.Label;
       private _maxWinAmount: eui.Label;
@@ -73,6 +74,8 @@ namespace we {
         this._iconList.dataProvider = this._iconListData;
 
         this._iconScroller.useMiniScrollBar = true;
+
+        this._playerIconSelection.playAnimation('ani', 0);
 
         this.addListeners();
       }
