@@ -76,6 +76,7 @@ namespace we {
         this.addChild(this._mask);
         this._mask.x = this._betArea.x;
         this._mask.y = this._betArea.y;
+        this._mask.visible = false;
       }
 
       protected addEventListeners() {
