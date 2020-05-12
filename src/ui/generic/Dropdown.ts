@@ -107,6 +107,16 @@ namespace we {
         this._label.text = this._items.length > 0 ? this._items[this._selectedIndex] : '';
       }
 
+      public isCollapsed() {
+        return this._scroller ? this._scroller.isCollapsed() : true;
+      }
+
+      public toggle() {
+        if (this._scroller) {
+          this._scroller.toggle();
+        }
+      }
+
       protected onChange(evt: eui.UIEvent) {
         this.selectedIndex = this._list.selectedIndex;
         this._scroller.collapse();
