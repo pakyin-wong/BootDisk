@@ -3,11 +3,30 @@ namespace we {
     export namespace betHistory {
       export class BetHistorySearch extends ui.Panel {
         protected _btn_clean: eui.Image;
+        protected _btn_search: ui.BaseImageButton;
+        protected _txt_search: ui.RunTimeLabel;
+        protected _txt_record_date: ui.RunTimeLabel;
+        protected _txt_record_game: ui.RunTimeLabel;
+        protected _txt_record_win: ui.RunTimeLabel;
+        protected _tf_search: eui.EditableText;
+
+        protected _datagroup: eui.DataGroup;
+        protected _dataColl: eui.ArrayCollection;
+
+        protected _total: number = 1;
+        protected _page: number = 1;
+        protected _starttime: number;
+        protected _endtime: number;
+        protected _limit: number = 11;
+        protected _type: number = -1;
+
+        protected _searchDelay: number;
 
         constructor() {
           super();
           this.isPoppable = true;
           this.hideOnStart = true;
+          this._dataColl = new eui.ArrayCollection();
         }
 
         protected mount() {
@@ -15,7 +34,84 @@ namespace we {
           this.initBetHistorySearch();
         }
 
-        protected initBetHistorySearch() {}
+        protected initBetHistorySearch() {
+          this._txt_record_date.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_date')}`;
+          this._txt_record_game.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_game')}`;
+          this._txt_record_win.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_win')}`;
+          this._tf_search.addEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
+          // this._btn_search.addEventListener('CLICKED', this.search, this);
+          this._btn_clean.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickClean, this);
+          this._datagroup.dataProvider = this._dataColl;
+          this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+          this.search();
+        }
+
+        protected destroy() {
+          super.destroy();
+          this._tf_search.removeEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
+          // this._btn_search.removeEventListener('CLICKED', this.search, this);
+          this._btn_clean.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickClean, this);
+        }
+
+        protected updatePlaceHolder() {
+          this._txt_search.$setVisible(this._tf_search.text === '');
+        }
+
+        protected onSearchEnter() {
+          this.updatePlaceHolder();
+          clearTimeout(this._searchDelay);
+          this._searchDelay = setTimeout(this.search.bind(this), 1000);
+        }
+
+        protected search() {
+          clearTimeout(this._searchDelay);
+          const opt = this.searchOpt;
+          dir.socket.getBetHistory(opt, this.update, this);
+        }
+
+        protected get searchOpt(): {} {
+          return {
+            startdate: this._starttime * 1000,
+            enddate: this._endtime * 1000,
+            limit: this._limit,
+            offset: (this._page - 1) * this._limit,
+            filter: this._type,
+            // search: this._tf_search.text,
+            search: '',
+          };
+        }
+
+        protected update(res: any) {
+          logger.l('getBetHistory', res);
+          if (res.error) {
+            // TODO: handle error if bet history is not available
+          } else {
+            this.total = Math.ceil(res.total / this._limit);
+            this._page = Math.floor(res.offset / this._limit) + 1;
+            // this._ddm_page && this._ddm_page.dropdown.select(this._page);
+            res.history.forEach((element, i) => {
+              if (i % 2 === 1) {
+                element.colorIndex = 1;
+              } else {
+                element.colorIndex = 0;
+              }
+            });
+            this._dataColl.replaceAll(res.history);
+          }
+        }
+
+        protected set total(t) {
+          if (this._total === t) {
+            return;
+          }
+        }
+        protected onClickClean() {
+          console.log('cleannnnnnn');
+          this._tf_search.text = '';
+          // this._txt_search.$setVisible(this._tf_search.text === '');
+        }
+
+        // make sure it supports orientation
       }
     }
   }

@@ -38,7 +38,6 @@
 		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png"/>
 		<bh:BetHistorySearch skinName="skin_mobile_portrait.BetHistorySearch" id="_search" left="0" right="0" top="0"
 		                     bottom="0"  touchEnabled="true"/>
-
 		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" fontFamily="NotoSansCJKtc" size="24"
 		                 alpha="0.7" verticalAlign="middle" visible="false" />
 		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47"

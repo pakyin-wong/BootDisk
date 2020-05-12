@@ -967,6 +967,7 @@ namespace we {
           //     },
           //   },
           // ],
+          total: 20,
           history: tempData,
         });
       }
