@@ -99,6 +99,7 @@ namespace we {
       mobile_ba_clear: 'Clear',
       mobile_ba_double: 'Double',
       mobile_ba_repeat: 'Bet Again',
+      mobile_game_panel_historyRoad: 'History/Road',
       mobile_game_panel_history: 'History',
       mobile_game_panel_road_sheet: 'Road Sheet',
       mobile_game_panel_statistic_chart: 'Statistic Chart',
@@ -194,15 +195,40 @@ namespace we {
         tieShort: 'Ti',
         askDragon: 'Ask Dn',
         askTiger: 'Ask Tr',
+        DragonTigerTieRatio: 'Dragon Tiger ratio',
+        round: 'round',
+        rounds: 'rounds',
+      },
+      luckywheel: {
+        east: 'East',
+        south: 'South',
+        west: 'West',
+        north: 'North',
+        red: 'Red',
+        green: 'Green',
+        white: 'White',
+        betLimitShort: 'Bet Limit',
+        gameId: 'ID',
+        banker: 'Banker',
+        player: 'Player',
+        tie: 'Tie',
+        playerPair: 'Player Pair',
+        bankerPair: 'Banker Pair',
       },
       dice: {
         big: 'B',
         small: 'S',
         even: 'E',
         odd: 'O',
+        bigFull: 'Big',
+        smallFull: 'Small',
+        evenFull: 'Even',
+        oddFull: 'Odd',
         single: 'single',
         double: 'double',
         triple: 'triple',
+        triple_: 'triple',
+        TableLayerMsg: 'One Die 1:1 Two Die 2:1 Three Die3:1',
 
         roadBig: 'Big',
         roadSmall: 'Small',
@@ -219,6 +245,15 @@ namespace we {
         gameStats: 'Game Stats.',
         dicePercent: 'Dice %',
         allTriple: 'All Triple',
+
+        betLimitShort: 'Bet Limit',
+        gameId: 'ID',
+
+        betGroup: {
+          color: 'Red / Black',
+          oddeven: 'Odd / Even',
+          size: 'Big / Small',
+        },
       },
       roulette: {
         row_1: 'ROW 1',
@@ -254,6 +289,8 @@ namespace we {
         luckyNumber: 'Lucky Number',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
+        betLimitShort: 'Bet Limit',
+        gameId: 'ID',
         distribution: {
           text: 'Distribution',
           x: 30,
@@ -333,6 +370,10 @@ namespace we {
         clickToSeeVideo: 'Click to see video for this round',
         askBanker: 'Ask B',
         askPlayer: 'Ask P',
+        BankerPlayerRatio: 'Banker:Player:Tie ratio',
+        PairRatio: 'Banker pair:Player pair ratio',
+        round: 'round',
+        rounds: 'rounds',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
@@ -373,3 +414,4 @@ namespace we {
     };
   }
 }
+>>>>>>> 420fab3ab9026f54b1409f110e585af7231b16f7

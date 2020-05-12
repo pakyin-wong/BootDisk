@@ -5,7 +5,7 @@
 			"name": "egret_basic"
 		},
 		{
-			"keys": "m_lobby_horizontal_banner_1_png,m_lobby_horizontal_banner_2_png,m_lobby_horizontal_banner_3_png,m_lobby_horizontal_banner_4_png,m_ba_betarea_supersix_tie_horizontal_hover_png,m_ba_betarea_supersix_tie_horizontal_png,m_ba_betarea_tie_horizontal_hover_png,m_ba_betarea_tie_horizontal_png,m_ba_betarea_banker_horizontal_hover_png,m_ba_betarea_banker_horizontal_png,m_ba_betarea_bankerpair_horizontal_hover_png,m_ba_betarea_bankerpair_horizontal_png,m_ba_betarea_player_horizontal_hover_png,m_ba_betarea_player_horizontal_png,m_ba_betarea_playerpair_horizontal_hover_png,m_ba_betarea_playerpair_horizontal_png,m_common_chartroom_emoji_icon_1_png,m_common_chartroom_emoji_icon_10_png,m_common_chartroom_emoji_icon_11_png,m_common_chartroom_emoji_icon_12_png,m_common_chartroom_emoji_icon_13_png,m_common_chartroom_emoji_icon_14_png,m_common_chartroom_emoji_icon_15_png,m_common_chartroom_emoji_icon_16_png,m_common_chartroom_emoji_icon_17_png,m_common_chartroom_emoji_icon_18_png,m_common_chartroom_emoji_icon_19_png,m_common_chartroom_emoji_icon_2_png,m_common_chartroom_emoji_icon_20_png,m_common_chartroom_emoji_icon_21_png,m_common_chartroom_emoji_icon_3_png,m_common_chartroom_emoji_icon_4_png,m_common_chartroom_emoji_icon_5_png,m_common_chartroom_emoji_icon_6_png,m_common_chartroom_emoji_icon_7_png,m_common_chartroom_emoji_icon_8_png,m_common_chartroom_emoji_icon_9_png,m_common_chatroom_btnbg_png,m_common_chatroom_chatbg_png,m_common_chatroom_chatbg_line_png,m_common_chatroom_chatbg_other_png,m_common_chatroom_chatbg_scrollbar_png,m_common_chatroom_chatbg_self_png,m_common_header_goodroad_bg_png,m_common_header_goodroad_icon_doublestar_png,m_common_panel_btn_disable_png,m_common_panel_setting_bg_png,m_common_panel_setting_btn_bg_png,m_common_panel_setting_btn_switch_disable_png,m_common_panel_setting_menubg_png,m_common_verification_btn_disable_svg,m_common_verification_btn_active_svg,m_common_verification_btn_select_svg,m_lobby_header_submenu_bg_png,m_lobby_header_submenu_hl_png,d_ba_roadmap_bar_remainingstate_png,m_lobby_login_banner_jpg,d_ro_chips_small_png,d_ro_panel_betcontrol_betarea_even_hover_png,d_ro_panel_gamelist_betarea_black_hover_png,d_ro_panel_gamelist_betarea_red_hover_png,d_ro_savelayout_add_icon_png,d_ro_savelayout_confrim_bg_png",
+			"keys": "m_lobby_horizontal_banner_1_png,m_lobby_horizontal_banner_2_png,m_lobby_horizontal_banner_3_png,m_lobby_horizontal_banner_4_png,m_ba_betarea_supersix_tie_horizontal_hover_png,m_ba_betarea_supersix_tie_horizontal_png,m_ba_betarea_tie_horizontal_hover_png,m_ba_betarea_tie_horizontal_png,m_ba_betarea_banker_horizontal_hover_png,m_ba_betarea_banker_horizontal_png,m_ba_betarea_bankerpair_horizontal_hover_png,m_ba_betarea_bankerpair_horizontal_png,m_ba_betarea_player_horizontal_hover_png,m_ba_betarea_player_horizontal_png,m_ba_betarea_playerpair_horizontal_hover_png,m_ba_betarea_playerpair_horizontal_png,m_common_chartroom_emoji_icon_1_png,m_common_chartroom_emoji_icon_10_png,m_common_chartroom_emoji_icon_11_png,m_common_chartroom_emoji_icon_12_png,m_common_chartroom_emoji_icon_13_png,m_common_chartroom_emoji_icon_14_png,m_common_chartroom_emoji_icon_15_png,m_common_chartroom_emoji_icon_16_png,m_common_chartroom_emoji_icon_17_png,m_common_chartroom_emoji_icon_18_png,m_common_chartroom_emoji_icon_19_png,m_common_chartroom_emoji_icon_2_png,m_common_chartroom_emoji_icon_20_png,m_common_chartroom_emoji_icon_21_png,m_common_chartroom_emoji_icon_3_png,m_common_chartroom_emoji_icon_4_png,m_common_chartroom_emoji_icon_5_png,m_common_chartroom_emoji_icon_6_png,m_common_chartroom_emoji_icon_7_png,m_common_chartroom_emoji_icon_8_png,m_common_chartroom_emoji_icon_9_png,m_common_chatroom_btnbg_png,m_common_chatroom_chatbg_png,m_common_chatroom_chatbg_line_png,m_common_chatroom_chatbg_other_png,m_common_chatroom_chatbg_scrollbar_png,m_common_chatroom_chatbg_self_png,m_common_header_goodroad_bg_png,m_common_header_goodroad_icon_doublestar_png,m_common_panel_btn_disable_png,m_common_panel_setting_bg_png,m_common_panel_setting_btn_bg_png,m_common_panel_setting_btn_switch_disable_png,m_common_panel_setting_menubg_png,m_common_verification_btn_disable_svg,m_common_verification_btn_active_svg,m_common_verification_btn_select_svg,m_lobby_header_submenu_bg_png,m_lobby_header_submenu_hl_png,d_ba_roadmap_bar_remainingstate_png,m_lobby_login_banner_jpg,d_ro_chips_small_png,d_ro_panel_betcontrol_betarea_even_hover_png,d_ro_panel_gamelist_betarea_black_hover_png,d_ro_panel_gamelist_betarea_red_hover_png,d_ro_savelayout_add_icon_png,d_ro_savelayout_confrim_bg_png,m_dt_gameresult_dragon_win_png,m_dt_gameresult_tie_win_png,m_dt_gameresult_tiger_win_png,baccarat_ui_ske_json,baccarat_ui_tex_json,baccarat_ui_tex_png,common_ui_ske_json,common_ui_tex_json,common_ui_tex_png,lobby_ui_ske_json,lobby_ui_tex_json,lobby_ui_tex_png,roulette_ui_ske_json,roulette_ui_tex_json,roulette_ui_tex_png,m_dt_gameresult_dragon_win2_png,m_dt_gameresult_tie_win2_png,m_dt_gameresult_tiger_win2_png",
 			"name": "preload"
 		}
 	],
@@ -7027,6 +7027,136 @@
 			"url": "assets/d/di/d_sic_roadmap_red.png",
 			"type": "image",
 			"name": "d_sic_roadmap_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_green.png",
+			"type": "image",
+			"name": "d_lw_history_record_green_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_north.png",
+			"type": "image",
+			"name": "d_lw_history_record_north_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_east.png",
+			"type": "image",
+			"name": "d_lw_history_record_east_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_red.png",
+			"type": "image",
+			"name": "d_lw_history_record_red_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_hl.png",
+			"type": "image",
+			"name": "d_lw_history_record_hl_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_south.png",
+			"type": "image",
+			"name": "d_lw_history_record_south_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_west.png",
+			"type": "image",
+			"name": "d_lw_history_record_west_png"
+		},
+		{
+			"url": "assets/d/lw/d_lw_history_record_white.png",
+			"type": "image",
+			"name": "d_lw_history_record_white_png"
+		},
+		{
+			"name": "m_dt_gameresult_dragon_win_png",
+			"type": "image",
+			"url": "assets/m/dt/m_dt_gameresult_dragon_win.png"
+		},
+		{
+			"name": "m_dt_gameresult_tie_win_png",
+			"type": "image",
+			"url": "assets/m/dt/m_dt_gameresult_tie_win.png"
+		},
+		{
+			"name": "m_dt_gameresult_tiger_win_png",
+			"type": "image",
+			"url": "assets/m/dt/m_dt_gameresult_tiger_win.png"
+		},
+		{
+			"name": "baccarat_ui_ske_json",
+			"type": "json",
+			"url": "assets/dragonbones/baccarat_ui/baccarat_ui_ske.json"
+		},
+		{
+			"name": "baccarat_ui_tex_json",
+			"type": "json",
+			"url": "assets/dragonbones/baccarat_ui/baccarat_ui_tex.json"
+		},
+		{
+			"name": "baccarat_ui_tex_png",
+			"type": "image",
+			"url": "assets/dragonbones/baccarat_ui/baccarat_ui_tex.png"
+		},
+		{
+			"name": "common_ui_ske_json",
+			"type": "json",
+			"url": "assets/dragonbones/common_ui/common_ui_ske.json"
+		},
+		{
+			"name": "common_ui_tex_json",
+			"type": "json",
+			"url": "assets/dragonbones/common_ui/common_ui_tex.json"
+		},
+		{
+			"name": "common_ui_tex_png",
+			"type": "image",
+			"url": "assets/dragonbones/common_ui/common_ui_tex.png"
+		},
+		{
+			"name": "lobby_ui_ske_json",
+			"type": "json",
+			"url": "assets/dragonbones/lobby_ui/lobby_ui_ske.json"
+		},
+		{
+			"name": "lobby_ui_tex_json",
+			"type": "json",
+			"url": "assets/dragonbones/lobby_ui/lobby_ui_tex.json"
+		},
+		{
+			"name": "lobby_ui_tex_png",
+			"type": "image",
+			"url": "assets/dragonbones/lobby_ui/lobby_ui_tex.png"
+		},
+		{
+			"name": "roulette_ui_ske_json",
+			"type": "json",
+			"url": "assets/dragonbones/roulette_ui/roulette_ui_ske.json"
+		},
+		{
+			"name": "roulette_ui_tex_json",
+			"type": "json",
+			"url": "assets/dragonbones/roulette_ui/roulette_ui_tex.json"
+		},
+		{
+			"name": "roulette_ui_tex_png",
+			"type": "image",
+			"url": "assets/dragonbones/roulette_ui/roulette_ui_tex.png"
+		},
+		{
+			"name": "m_dt_gameresult_dragon_win2_png",
+			"type": "image",
+			"url": "assets/m/dt/m_dt_gameresult_dragon_win.png"
+		},
+		{
+			"name": "m_dt_gameresult_tie_win2_png",
+			"type": "image",
+			"url": "assets/m/dt/m_dt_gameresult_tie_win.png"
+		},
+		{
+			"name": "m_dt_gameresult_tiger_win2_png",
+			"type": "image",
+			"url": "assets/m/dt/m_dt_gameresult_tiger_win.png"
 		}
 	]
 }

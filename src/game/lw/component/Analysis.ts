@@ -19,6 +19,8 @@ namespace we {
       public _lbl_lwValue5: ui.RunTimeLabel;
       public _lbl_lwValue6: ui.RunTimeLabel;
 
+      public advancedRoad: we.ui.IAdvancedRoad;
+
       public set tableId(value: string) {
         this._tableId = value;
       }

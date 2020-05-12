@@ -32,6 +32,8 @@ namespace we {
         super.childrenCreated();
 
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this.changeLang();
         this.contentTwo.x = this.stage.width;
         this.configSlides();
       }
@@ -227,6 +229,10 @@ namespace we {
         if (tableInfo.gamestatistic.points) {
           this._diChance.setDiceValues(tableInfo.gamestatistic.points);
         }
+      }
+
+      public changeLang() {
+        this._diPie.changeLang();
       }
     }
   }

@@ -140,12 +140,12 @@ namespace we {
           // landscape position
           if (betChipSetGridPosition.y < 450) {
             this._betPanelGroup.scaleY = -1;
-            this._betChipSetPanel.x = betChipSetGridPosition.x - 200;
+            // this._betChipSetPanel.x = betChipSetGridPosition.x - 200;
             this._betChipSetPanel.y = betChipSetGridPosition.y + 230;
             this._betPanelGroup.y = 430;
           } else if (betChipSetGridPosition.y >= 450) {
             this._betPanelGroup.scaleY = 1;
-            this._betChipSetPanel.x = betChipSetGridPosition.x - 200;
+            // this._betChipSetPanel.x = betChipSetGridPosition.x - 200;
             this._betChipSetPanel.y = betChipSetGridPosition.y - 500;
             this._betPanelGroup.y = 0;
           }

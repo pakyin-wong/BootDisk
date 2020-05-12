@@ -1,6 +1,11 @@
 namespace we {
   export namespace ui {
     export class LiveListAdvancedItem extends LiveListItem {
+      protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
+      protected _betChipSetGridEnabled: boolean = false;
+      protected _closeButton: ui.BaseImageButton;
+      protected _prevButton: ui.BaseImageButton;
+
       protected _advancedRoadNode: eui.Component;
       protected _advancedRoad: IAdvancedRoad & eui.Component;
       protected _analysisNode: eui.Component;
@@ -8,6 +13,12 @@ namespace we {
 
       public constructor(skinName: string = null) {
         super(skinName);
+      }
+
+      protected getBetChipSet() {
+        const betChipSet = new BetChipSetGrid();
+        betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
+        return betChipSet;
       }
 
       public destroy() {
@@ -25,21 +36,30 @@ namespace we {
       }
 
       protected initChildren() {
-        this.generateAnalysis();
-        this.generateAdvancedRoad();
+        const analysis = this.generateAnalysis();
+        const advancedRoad = this.generateAdvancedRoad();
+        analysis.advancedRoad = advancedRoad;
+        advancedRoad.analysis = analysis;
         super.initChildren();
       }
-      
+
       protected showQuickBetGroup() {
         super.showQuickBetGroup();
-        this.setChildIndex(this._quickBetGroup, 1500);
-        this.setChildIndex(this._chipLayerNode, 2500);
+        this._quickBetGroup.touchEnabled = true;
+        this._quickBetGroup.touchChildren = true;
+      }
+
+      protected hideQuickBetGroup() {
+        super.hideQuickBetGroup();
+        this._quickBetGroup.touchEnabled = false;
+        this._quickBetGroup.touchChildren = false;
+        this.hideBetChipPanel();
       }
 
       protected onTouchTap(evt: egret.Event) {
         const target = evt.target;
 
-        if (target instanceof eui.Image && target.name === 'askRoad') {
+        if (target instanceof eui.Group && target.name === 'askRoad') {
           evt.stopPropagation();
           return;
         }
@@ -62,7 +82,12 @@ namespace we {
       protected generateAdvancedRoad() {
         if (this.itemInitHelper) {
           this._advancedRoad = this.itemInitHelper.generateAdvancedRoad(this._advancedRoadNode);
+          if (this._advancedRoad) {
+            this._advancedRoad.touchEnabled = false;
+            this._advancedRoad.touchChildren = false;
+          }
         }
+        return this._advancedRoad;
       }
 
       protected generateAnalysis() {
@@ -70,8 +95,10 @@ namespace we {
           this._analysis = this.itemInitHelper.generateAnalysis(this._analysisNode);
           if (this._analysis) {
             this._analysis.cacheAsBitmap = true;
+            this._analysis.touchEnabled = false;
           }
         }
+        return this._analysis;
       }
 
       protected initCustomPos() {
@@ -83,12 +110,41 @@ namespace we {
         this._offsetMovement = 800;
       }
 
+      protected addEventListeners() {
+        super.addEventListeners();
+        this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        this._closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
+        this._prevButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickUndoButton, this);
+      }
+
+      public onClickUndoButton(evt: egret.Event) {
+        this._undoStack.popAndUndo();
+      }
+
+      protected onClickBetChipSelected() {
+        this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
+      }
+
+      protected showBetChipPanel() {
+        if (this._betChipSet) {
+          egret.Tween.get(this._betChipSet).to({ y: 590, alpha: 1 }, 250);
+        }
+        this._betChipSetGridEnabled = true;
+      }
+
+      protected hideBetChipPanel() {
+        if (this._betChipSet) {
+          egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        }
+        this._betChipSetGridEnabled = false;
+      }
+
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onRoadDataUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._analysis) {
               this._analysis.tableId = this._tableId;
@@ -129,7 +185,7 @@ namespace we {
         // console.log('LiveListAdvancedItem', this._tableId);
         // console.log('LiveListAdvancedItem::onTableBetInfoUpdate', evt.data);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._analysis) {
               this._analysis.tableId = this._tableId;

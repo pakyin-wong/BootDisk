@@ -14,13 +14,13 @@ namespace we {
       protected betCombinations: we.data.BetCombination[];
 
       protected totalTableCount = {
-        [we.core.GameType.BAC]: 30,
+        [we.core.GameType.BAC]: 5,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
-        [we.core.GameType.DT]: 30,
-        [we.core.GameType.RO]: 30,
-        [we.core.GameType.DI]: 30,
-        [we.core.GameType.LW]: 30,
+        [we.core.GameType.DT]: 5,
+        [we.core.GameType.RO]: 5,
+        [we.core.GameType.DI]: 5,
+        [we.core.GameType.LW]: 5,
         [we.core.GameType.BAM]: 1,
         [we.core.GameType.ROL]: 1,
       };
@@ -370,7 +370,35 @@ namespace we {
             chips: [100, 500, 2000, 10000, 50000],
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
+          {
+            currency: Currency.RMB,
+            maxlimit: 100000,
+            minlimit: 2000,
+            chips: [2000, 10000, 30000, 40000, 50000],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+          },
+          {
+            currency: Currency.RMB,
+            maxlimit: 500000,
+            minlimit: 5000,
+            chips: [5000, 10000, 200000, 300000, 500000],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+          },
         ];
+
+        /*
+        let denominationList = [];
+        for (const betLimit of env.betLimits) {
+          denominationList.push(...betLimit.chips);
+        }
+        denominationList = denominationList
+          .filter((v, i) => denominationList.indexOf(v) === i)
+          .sort((a, b) => {
+            return a < b ? -1 : 1;
+          });
+        env.wholeDenomList = denominationList;
+        */
+
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');

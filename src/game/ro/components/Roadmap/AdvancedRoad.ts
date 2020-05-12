@@ -21,6 +21,8 @@ namespace we {
 
       protected totalCount: number;
 
+      public analysis: we.ui.IAnalysis;
+
       public constructor(skin?: string) {
         super(skin);
       }

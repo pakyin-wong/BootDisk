@@ -48,16 +48,17 @@ namespace we {
           this._menu.dismissOnClickOutside = true;
         }
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+        if (env.isMobile) {
+          this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+          this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
+          dir.meterCtr.register('balance', this._balanceGame);
+        }
         dir.meterCtr.register('balance', this._balance);
+        console.log('this._balance', this._balance);
         if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
         this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
-
-        if (env.isMobile) {
-          this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
-          this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
-        }
 
         this.addListeners();
       }
@@ -65,15 +66,19 @@ namespace we {
       private addListeners() {
         if (env.isMobile) {
           utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this);
-          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
           // dir.evtHandler.addEventListener(core.Event.BA_POPUP, this.gameListPopUp, this);
           // dir.evtHandler.addEventListener(core.Event.BA_POPDOWN, this.gameListPopDown, this);
           // this._lantern.alignToLeft();
-        } else {
-          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         }
+        dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
-        // dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
+      }
+
+      private removeListeners() {
+        dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
+        // listen to the event dispatched by some particular scroller and update the background alpha
+        dir.evtHandler.removeEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
       }
 
       private onSceneChange(e = null) {

@@ -15,6 +15,7 @@ namespace we {
       public _statisticChartPanel: ro.StatisticChartPanel;
 
       // viewStack and radioBtn
+      protected historyRoadBtn: eui.RadioButton;
       protected historyBtn: eui.RadioButton;
       protected roadSheetBtn: eui.RadioButton;
       protected chartBtn: eui.RadioButton;
@@ -57,6 +58,7 @@ namespace we {
 
       protected addListeners() {
         super.addListeners();
+        this.historyRoadBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.historyBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -65,6 +67,7 @@ namespace we {
 
       protected removeListeners() {
         super.removeListeners();
+        this.historyRoadBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.historyBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.roadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -72,6 +75,7 @@ namespace we {
       }
 
       public updateText() {
+        this.historyRoadBtn.label = i18n.t('mobile_game_panel_historyRoad');
         this.historyBtn.label = i18n.t('mobile_game_panel_history');
         this.roadSheetBtn.label = i18n.t('mobile_game_panel_road_sheet');
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');

@@ -99,6 +99,7 @@ namespace we {
       mobile_ba_clear: '清除',
       mobile_ba_double: '双倍',
       mobile_ba_repeat: '再次下注',
+      mobile_game_panel_historyRoad: '历史记录/路纸',
       mobile_game_panel_history: '历史记录',
       mobile_game_panel_road_sheet: '路纸',
       mobile_game_panel_statistic_chart: '统计图表',
@@ -195,15 +196,24 @@ namespace we {
         tieShort: '和',
         askDragon: '龙问路',
         askTiger: '虎问路',
+        DragonTigerTieRatio: '龙虎和比例',
+        round: '局',
+        rounds: '局',
       },
       dice: {
         big: '大',
         small: '细',
         even: '双',
         odd: '单',
+        bigFull: '大',
+        smallFull: '細',
+        evenFull: '双',
+        oddFull: '单',
         single: '单骰',
         double: '双骰',
         triple: '三骰',
+        triple_: '围',
+        TableLayerMsg: '单骰1:1 双骰2:1 三骰3:1',
 
         roadBig: '大',
         roadSmall: '小',
@@ -220,6 +230,15 @@ namespace we {
         gameStats: '结果统计',
         dicePercent: '骰子机率',
         allTriple: '全圍',
+
+        betLimitShort: '限红',
+        gameId: '编号',
+
+        betGroup: {
+          color: '红 / 黑',
+          oddeven: '单 / 双',
+          size: '大 / 小',
+        },
       },
       roulette: {
         row_1: '第一行',
@@ -255,6 +274,8 @@ namespace we {
         luckyNumber: '幸运数字',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
+        betLimitShort: '限红',
+        gameId: '编号',
         distribution: {
           text: '散布',
           x: 60,
@@ -296,6 +317,20 @@ namespace we {
       },
       luckywheel: {
         pool: '即时彩池',
+        east: '东',
+        south: '南',
+        west: '西',
+        north: '北',
+        red: '中',
+        green: '發',
+        white: '白',
+        betLimitShort: '限红',
+        gameId: '编号',
+        banker: '庄',
+        player: '闲',
+        tie: '和',
+        playerPair: '闲对',
+        bankerPair: '庄对',
       },
       game: {
         startBet: '开始下注',
@@ -337,6 +372,10 @@ namespace we {
         clickToSeeVideo: '点击播放本局视频',
         askBanker: '庄问路',
         askPlayer: '闲问路',
+        BankerPlayerRatio: '庄闲和比例',
+        PairRatio: '庄对闲对比例',
+        round: '局',
+        rounds: '局',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',
@@ -377,3 +416,4 @@ namespace we {
     };
   }
 }
+>>>>>>> 420fab3ab9026f54b1409f110e585af7231b16f7

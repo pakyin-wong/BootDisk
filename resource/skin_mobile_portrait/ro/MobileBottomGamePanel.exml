@@ -7,6 +7,15 @@
 	</e:layout>
 		<e:Group id="_topPart" width="100%" x="0" y="0" scaleX="1" scaleY="1">
 			<e:Rect width="100%" height="100" x="0" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" locked="true"/>
+			<e:RadioButton id="historyRoadBtn" label="歷史記錄" x="16" y="20" width="270" height="80" visible="false">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="down" alpha="1"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" bold="true"/>
+					<e:Image width="100%" height="100%" source="m_ba_tab_roadmap_active_png" includeIn="up" alpha="0"/>
+				</e:Skin>
+				</e:skinName>
+			</e:RadioButton>
 			<e:RadioButton id="historyBtn" label="歷史記錄" x="16" y="20" width="270" height="80" value="0" selected="true" scaleX="1" scaleY="1" visible.off="false" groupName="top">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
@@ -48,7 +57,7 @@
 			<ui:RunTimeLabel id="_gameInfoLabel" text="Label" size="42" bold="true" visible.on="false" x="47" y="29"/>
 		</e:Group>
 		<e:Group id="_middlePart" width="1242" x="0" y="100" scaleX="1" scaleY="1">
-			<e:Rect strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" left="0" right="0" top="0" bottom="0" locked="true"/>
+			<e:Rect strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" left="0" right="0" top="0" bottom="0"/>
 			<e:Rect id="viewStackMask" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1"/>
 			<e:ViewStack id="viewStack" width="1242" height="532" x="0" y="0" scaleX="1" scaleY="1" selectedIndex="1">
 			<e:Group id="_historyGroup" width="100%" height="100%" name="Group">
@@ -60,7 +69,7 @@
 			<e:Group id="_chartGroup" width="100%" height="100%" name="Group">
 				<ro:StatisticChartPanel id="_statisticChartPanel" skinName="skin_mobile_portrait.ro.StatisticChartPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 			</e:Group>
-				<e:Group id="_infoGroup" width="100%" height="100%" name="Group" x="0" y="0" scaleX="1" scaleY="1">
+				<e:Group id="_infoGroup" width="100%" height="100%" name="Group">
 					<ro:TableInfoPanel id="_tableInfoPanel" skinName="skin_mobile_portrait.ro.TableInfoPanel" width="100%" height="100%" scaleX="1" scaleY="1"/>
 				</e:Group>
 			</e:ViewStack>

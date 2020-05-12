@@ -1,11 +1,11 @@
 namespace we {
   export namespace ba {
     export class StatisticChartPanel extends ui.Panel {
-      protected _leftTitle: eui.Label;
-      protected _rightTitle: eui.Label;
+      protected _leftTitle: ui.RunTimeLabel;
+      protected _rightTitle: ui.RunTimeLabel;
 
-      protected roundLabelLeft: eui.Label;
-      protected roundLabelRight: eui.Label;
+      protected roundLabelLeft: ui.RunTimeLabel;
+      protected roundLabelRight: ui.RunTimeLabel;
 
       protected totalBankerCount: ui.RunTimeLabel;
       protected totalBankerCountPer: ui.RunTimeLabel;
@@ -24,15 +24,21 @@ namespace we {
       protected tiePairCountPer: ui.RunTimeLabel;
 
       protected roundCount: ui.RunTimeLabel;
-      protected roundPairCountPer: ui.RunTimeLabel;
+      protected roundPairCount: ui.RunTimeLabel;
+
+      protected roundCounter: number = 99;
+      protected roundPairCounter: number = 1;
+
       public constructor() {
         super();
       }
+
       protected partAdded(partName: string, instance: any): void {
         super.partAdded(partName, instance);
       }
       protected childrenCreated(): void {
         super.childrenCreated();
+
         let _x: number;
         let _y: number;
         if (env.orientation === 'portrait') {
@@ -42,11 +48,22 @@ namespace we {
           _x = 15;
           _y = 130;
         }
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        // this.changeLang();
+
         this.drawChartArc(400, 600, 100, _x + 500, _y, 100, 15);
         this.drawChartArc(50, 20, 70, _x + 1110, _y, 100, 15);
+
+        this.roundCount.text = this.roundCounter.toString();
+        this.roundPairCount.text = this.roundPairCounter.toString();
+
+        if (this.roundCounter === 1) {
+          this.roundLabelLeft.textKey = 'baccarat.round';
+        }
+
+        if (this.roundPairCounter === 1) {
+          this.roundLabelRight.textKey = 'baccarat.round';
+        }
       }
+
       protected drawChartArc(a: number, b: number, c: number, x: number, y: number, radius: number, thickness: number) {
         const totalAmount = a + b + c;
         const radiusA = 360 * (a / totalAmount);
@@ -68,19 +85,7 @@ namespace we {
         shapeGreen.graphics.endFill();
         this.addChild(shapeGreen);
       }
-      public changeLang() {
-        // this.bankerLabel.text = i18n.t('baccarat.banker');
-        // this.playerLabel.text = i18n.t('baccarat.player');
-        // this.tieLabel.text = i18n.t('baccarat.tie');
-        // this.bankerPairLabel.text = i18n.t('baccarat.bankerPair');
-        // this.playerPairLabel.text = i18n.t('baccarat.playerPair');
-        // if (this.gameIdLabel) {
-        //   this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
-        // }
-        // if (this.betLimitLabel) {
-        //   this.betLimitLabel.text = i18n.t('baccarat.betLimitshort');
-        // }
-      }
+
       public setValue(tableInfo: data.TableInfo) {
         if (tableInfo.gamestatistic.bankerCount) {
           this.totalBankerCount && (this.totalBankerCount.text = tableInfo.gamestatistic.bankerCount.toString());
