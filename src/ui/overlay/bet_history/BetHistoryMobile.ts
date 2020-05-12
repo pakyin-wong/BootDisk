@@ -10,6 +10,11 @@ namespace we {
       protected _getFlag: boolean = false;
       protected _getLock: boolean = false;
 
+      protected _test = 1;
+
+      public get test() {
+        return this._test;
+      }
       protected mount() {
         super.mount();
         this.initBetHistoryMobile();
@@ -41,6 +46,7 @@ namespace we {
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
         this._scroller.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
+        this._search.setBetHistoryMobile = this;
         this.addListeners();
       }
 

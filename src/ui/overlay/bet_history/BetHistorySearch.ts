@@ -22,6 +22,8 @@ namespace we {
 
         protected _searchDelay: number;
 
+        protected _betHistoryMobile: overlay.BetHistoryMobile;
+
         constructor() {
           super();
           this.isPoppable = true;
@@ -39,7 +41,7 @@ namespace we {
           this._txt_record_game.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_game')}`;
           this._txt_record_win.renderText = () => `${i18n.t('overlaypanel_bethistory_recordtab_win')}`;
           this._tf_search.addEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
-          // this._btn_search.addEventListener('CLICKED', this.search, this);
+          this._btn_search.addEventListener('CLICKED', this.search, this);
           this._btn_clean.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickClean, this);
           this._datagroup.dataProvider = this._dataColl;
           this._datagroup.itemRenderer = betHistory.BetHistoryItem;
@@ -49,8 +51,12 @@ namespace we {
         protected destroy() {
           super.destroy();
           this._tf_search.removeEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
-          // this._btn_search.removeEventListener('CLICKED', this.search, this);
+          this._btn_search.removeEventListener('CLICKED', this.search, this);
           this._btn_clean.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickClean, this);
+        }
+
+        public set setBetHistoryMobile(value: overlay.BetHistoryMobile) {
+          this._betHistoryMobile = value;
         }
 
         protected updatePlaceHolder() {
@@ -64,22 +70,29 @@ namespace we {
         }
 
         protected search() {
-          clearTimeout(this._searchDelay);
-          const opt = this.searchOpt;
-          dir.socket.getBetHistory(opt, this.update, this);
+          if (this._betHistoryMobile) {
+            console.log('_betHistoryMobile', this._betHistoryMobile.test);
+          } else {
+            return;
+          }
+          // clearTimeout(this._searchDelay);
+          // const opt = this._betHistoryMobile.searchOpt;
+          // console.log('test opt', opt);
+          // const opt = overlay.BetHistory.searchOpt();
+          // console.log('opt', opt);
+          // dir.socket.getBetHistory(opt, this.update, this);
         }
 
-        protected get searchOpt(): {} {
-          return {
-            startdate: this._starttime * 1000,
-            enddate: this._endtime * 1000,
-            limit: this._limit,
-            offset: (this._page - 1) * this._limit,
-            filter: this._type,
-            // search: this._tf_search.text,
-            search: '',
-          };
-        }
+        // protected searchOpt(): {} {
+        //     return {
+        //       startdate: this._starttime * 1000,
+        //       enddate: this._endtime * 1000,
+        //       limit: this._limit,
+        //       offset: (this._page - 1) * this._limit,
+        //       filter: this._type,
+        //       search: this._tf_search.text,
+        //     };
+        // }
 
         protected update(res: any) {
           logger.l('getBetHistory', res);
