@@ -69,9 +69,9 @@ namespace we {
         this._mask = new egret.Shape();
         const gr = this._mask.graphics;
         const matrix = new egret.Matrix();
-        matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
+        matrix.createGradientBox(this._betArea.width, 1404, Math.PI / 2, 0, 0);
         gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
-        gr.drawRect(0, 0, this._betArea.width, 1270); //
+        gr.drawRect(0, 0, this._betArea.width, 1404); //
         gr.endFill();
         this.addChild(this._mask);
         this._mask.x = this._betArea.x;
@@ -169,10 +169,8 @@ namespace we {
               },
               250
             );
-            if (env.orientation === "portrait") {
-              this._tableLayer.top = 100;
-              this._tableLayer.bottom = 100;
-              this._tableLayer.mask = this._mask;
+            if (env.orientation === 'portrait') {
+              this._betArea.mask = this._mask;
               this._mask.visible = true;
             }
             break;
@@ -185,10 +183,8 @@ namespace we {
               },
               250
             );
-            if (env.orientation === "portrait") {
-              this._tableLayer.top = 0;
-              this._tableLayer.bottom = 0;
-              this._tableLayer.mask = null;
+            if (env.orientation === 'portrait') {
+              this._betArea.mask = null;
               this._mask.visible = false;
             }
             break;
@@ -314,7 +310,7 @@ namespace we {
       public checkResultMessage() {
         let totalWin: number = NaN;
 
-        this._tableLayer.mask = null;
+        this._betArea.mask = null;
         this._mask.visible = false;
 
         if (this._tableInfo.totalWin) {
@@ -325,7 +321,7 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData>this._gameData).value;
+        const resultNo = (<ro.GameData> this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         if (this.hasBet() && !isNaN(totalWin)) {
