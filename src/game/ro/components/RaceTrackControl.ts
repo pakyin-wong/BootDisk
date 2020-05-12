@@ -1,7 +1,7 @@
 namespace we {
   export namespace ro {
     export class RaceTrackControl extends core.BaseEUI {
-      protected _distributionLabel: ui.RunTimePropertyLabel;
+      // protected _distributionLabel: ui.RunTimeLabel;         this._distributionLabel.renderText = () => i18n.e('roulette.distribution');
       protected _distNumLabel: eui.Label;
       protected _addButton: ui.BaseImageButton;
       protected _lessButton: ui.BaseImageButton;
@@ -15,7 +15,6 @@ namespace we {
       }
 
       protected mount() {
-        this._distributionLabel.renderProperty = () => i18n.e('roulette.distribution');
         this._addButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.add, this);
         this._lessButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.minus, this);
       }

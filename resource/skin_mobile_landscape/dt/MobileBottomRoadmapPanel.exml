@@ -37,9 +37,9 @@
 			<e:Image source="m_ba_goodroad_info_round_banker_png" y="215"  x="45"/>
 			<e:Image source="m_ba_goodroad_info_line_banker_png" y="215"  x="80"/>
 			<ui:RunTimeLabel id="playerButtonLabel" text="虎問路" x="0" y="152" textAlign="center" anchorOffsetX="0" width="116"
-			                 size="28" height="52" verticalAlign="middle" touchEnabled="false" />
+			                 size="28" height="52" verticalAlign="middle" touchEnabled="false" textKey="dragontiger.askTiger" />
 			<ui:RunTimeLabel id="bankerButtonLabel" text="龍問路" x="0" y="20" textAlign="center" anchorOffsetX="0" width="116"
-			                 size="28" verticalAlign="middle" height="52" touchEnabled="false" />
+			                 size="28" verticalAlign="middle" height="52" touchEnabled="false" textKey="dragontiger.askDragon" />
 		</e:Group>
 		<e:Image id="switchModeButton" width="72" height="72" x="512" y="182" source="d_ba_swaproadmap_button_element_png"
 		         scaleX="1" scaleY="1" visible="false" locked="true" />

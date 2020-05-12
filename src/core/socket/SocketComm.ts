@@ -100,7 +100,21 @@ namespace we {
       }
 
       public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
-        this.client.getLobbyMaterial(this.warpServerCallback(callback));
+        if (dir.config.resource && dir.config.resource === 'local') {
+          callback({
+            logourl: '', // logo image url
+            homeherobanners: [],
+            homelargebanners: [],
+            homebanners: [],
+            liveherobanners: [],
+            lotteryherobanners: [],
+            egameherobanners: [],
+            favouriteherobanners: [],
+            messages: [],
+          });
+        } else {
+          this.client.getLobbyMaterial(this.warpServerCallback(callback));
+        }
       }
 
       public updateSetting(key: string, value: string) {
@@ -145,6 +159,20 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
+
+        /*
+        let denominationList = [];
+        for (const betLimit of env.betLimits) {
+          denominationList.push(...betLimit.chips);
+        }
+        denominationList = denominationList
+          .filter((v, i) => denominationList.indexOf(v) === i)
+          .sort((a, b) => {
+            return a < b ? -1 : 1;
+          });
+        env.wholeDenomList = denominationList;
+        */
+
         env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
         if (player.profile.categoryorders) {
           env.categorySortOrder = player.profile.categoryorders;

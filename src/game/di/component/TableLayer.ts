@@ -307,8 +307,7 @@ namespace we {
         await Promise.all(tweenPromises);
       }
 
-      /*
-      public async flashFields(fieldName: string) {
+      public async flashFields(fieldName: we.data.GameData) {
         const winningFields = di.getWinningFields(fieldName);
         const initRectPromises = [];
         // init dim rects
@@ -376,7 +375,6 @@ namespace we {
         };
         setTimeout(tick, 300);
       }
-      */
     }
   }
 }

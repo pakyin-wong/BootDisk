@@ -4,10 +4,10 @@
 	<e:Group x="0" y="0">
 		<e:Image id="_bigImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_red_box_png" />
 		<ui:RunTimeLabel id="_bigLabel" text="大" i18n="roulette.roadBig" textAlign="center" anchorOffsetX="0" width="55"
-		                 size="36" height="55" verticalAlign="middle" bold="true" horizontalCenter="0" verticalCenter="0" />
+		                 size="36" height="55" verticalAlign="middle" bold="true" horizontalCenter="0" verticalCenter="0"  textKey="roulette.bigShort"/>
 	</e:Group>
 	<e:Group x="0" y="150">
-		<ui:RunTimeLabel id="_totalbigCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+		<e:Label id="_totalLeftCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
 		                 verticalAlign="middle" bold="true" alpha="1" />
 		<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"
 		         alpha="1" />
@@ -19,10 +19,10 @@
 		<e:Group x="0" y="0">
 			<e:Image id="_bigZeroImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_green_box_png" />
 			<ui:RunTimeLabel id="_bigZeroLabel" text="零" i18n="roulette.zeroShort" x="0" y="0" textAlign="center"
-			                 anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true" />
+			                 anchorOffsetX="0" width="55" size="36" height="55" verticalAlign="middle" bold="true"  textKey="roulette.zeroShort"/>
 		</e:Group>
 		<e:Group x="0" y="150">
-			<ui:RunTimeLabel id="_totalBigZeroCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+			<e:Label id="_totalMidCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
 			                 verticalAlign="middle" bold="true" alpha="1" />
 			<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"
 			         alpha="1" />
@@ -34,10 +34,10 @@
 	<e:Group x="445" y="0">
 		<e:Image id="_smallImg" width="55" height="55" x="0" y="0" source="m_ro_roadmap_light_blue_box_png" />
 		<ui:RunTimeLabel id="_smallLabel" text="小" i18n="roulette.roadSmall" x="0" y="0" textAlign="center" anchorOffsetX="0"
-		                 width="55" size="36" height="55" verticalAlign="middle" bold="true" />
+		                 width="55" size="36" height="55" verticalAlign="middle" bold="true" textKey="roulette.smallShort" />
 	</e:Group>
 	<e:Group x="445" y="150">
-		<ui:RunTimeLabel id="_totalSmallCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
+		<e:Label id="_totalRightCount" text="99" x="0" y="2" textAlign="center" anchorOffsetX="0" size="34"
 		                 verticalAlign="middle" bold="true" alpha="1" />
 		<e:Label text="%" x="40" y="0" scaleX="1" scaleY="1" size="24" textAlign="center" verticalAlign="bottom" bold="true"
 		         alpha="1" />

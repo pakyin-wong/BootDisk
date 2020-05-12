@@ -3,7 +3,11 @@ namespace we {
     export class LiveListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new dt.TableLayer();
-        tableLayer.skinName = `skin_desktop.dt.LiveListItemTableLayerSkin`;
+        if (node.name === 'AdvancedTableLayerNode') {
+          tableLayer.skinName = `skin_desktop.dt.LiveListAdvancedItemTableLayerSkin`;
+        } else {
+          tableLayer.skinName = `skin_desktop.dt.LiveListItemTableLayerSkin`;
+        }
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
@@ -11,7 +15,11 @@ namespace we {
 
       public generateChipLayer(node: eui.Component) {
         const chipLayer = new dt.ChipLayer();
-        chipLayer.skinName = `skin_desktop.dt.LiveListItemChipLayerSkin`;
+        if (node.name === 'AdvancedChipLayerNode') {
+          chipLayer.skinName = `skin_desktop.dt.LiveListAdvancedItemChipLayerSkin`;
+        } else {
+          chipLayer.skinName = `skin_desktop.dt.LiveListItemChipLayerSkin`;
+        }
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;

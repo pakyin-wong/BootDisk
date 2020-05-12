@@ -41,6 +41,7 @@ namespace we {
 
       set denomList(value: number[]) {
         this._denomList = value;
+        this.passDenomListToBetChipStack();
       }
 
       get denomList() {
@@ -98,6 +99,9 @@ namespace we {
       protected createMapping() {}
 
       protected passDenomListToBetChipStack() {
+        if (!this._betChipStackMapping) {
+          return;
+        }
         Object.keys(this._betChipStackMapping).forEach(value => {
           if (this._betChipStackMapping[value]) {
             this._betChipStackMapping[value].denomList = this._denomList;
@@ -216,6 +220,7 @@ namespace we {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdateEvent, this);
+            mouse.setButtonMode(this._mouseAreaMapping[value], true);
           }
         });
       }
@@ -512,7 +517,7 @@ namespace we {
       public validateBetAction(betDetail: data.BetDetail): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
         fieldAmounts[betDetail.field] += betDetail.amount;
-        return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount() + this.getTotalCfmBetAmount() + betDetail.amount);
+        return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount() + betDetail.amount);
       }
 
       public resetUnconfirmedBet() {

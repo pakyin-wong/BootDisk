@@ -1,137 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.DiceScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:di="we.di.*" xmlns:w="http://ns.egret.com/wing"
-        xmlns:live="we.live.*" states="left_hand_mode,right_hand_mode" >
+        xmlns:live="we.live.*" states="left_hand_mode,right_hand_mode">
 	<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0">
-	<e:skinName>
-		<e:Skin states="normal,zip,small">
-			<e:Component id="checker" width="924" height="1530" x="159" y.zip="167" y.normal="313" scaleX.normal="1" scaleY.zip="1" scaleX.zip="1" scaleY.normal="1" height.zip="1330" scaleX.small="0.673120728929385" scaleY.small="0.6721311475409836" x.small="326" y.small="748"/>
-		</e:Skin>
-	</e:skinName>
+		<e:skinName>
+			<e:Skin states="normal,zip,small">
+				<e:Component id="checker" width="924" height="1530" x="159" y.zip="167" y.normal="313" scaleX.normal="1"
+				             scaleY.zip="1" scaleX.zip="1" scaleY.normal="1" height.zip="1330" scaleX.small="0.673120728929385"
+				             scaleY.small="0.6721311475409836" x.small="326" y.small="748" />
+			</e:Skin>
+		</e:skinName>
 	</ui:TweenConfig>
 	<ui:TweenConfig id="_betSetTween" left="0" right="0" top="-3" bottom="3">
 		<ui:skinName>
-		<e:Skin states="normal,zip,small">
-			<e:Component id="checker" width="1530" height="924" x="0" y="489" scaleX="1" scaleY="1" y.small="489" y.normal="267.45" y.zip="267.45"/>
-		</e:Skin>
+			<e:Skin states="normal,zip,small">
+				<e:Component id="checker" width="1530" height="924" x="0" y="489" scaleX="1" scaleY="1" y.small="489"
+				             y.normal="267.45" y.zip="267.45" />
+			</e:Skin>
 		</ui:skinName>
 	</ui:TweenConfig>
-        <e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" left="0" right="0" locked="true"/>
+	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" left="0" right="0" locked="true" />
 	<e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="1242" touchEnabled="false"
 	         touchChildren="true" touchThrough="true" height="121">
-			 <!--<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin"  x="215" y="23"/>-->
-			 <!--<ui:BAGoodRoadLabel id="_BAGoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" right="13" bottom="10" />-->
+		<!--<ui:GoodRoadLabel id="_BAgoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" x="215" y="23" />
+		-->
+		<!--<ui:BAGoodRoadLabel id="_BAGoodRoadLabel" skinName="skin_mobile_portrait.BAGoodRoadLabelSkin" right="13"
+		                        bottom="10" />
+		-->
 		<ui:RunTimeLabel id="_lblRoomNo" x="25" y="15" size="40" height="56" verticalAlign="middle" width="200"
 		                 textAlign="left" anchorOffsetX="0" text="Label" />
 		<e:Group x="25" y="65">
-			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40"  text="label"/>
-			<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19"  visible="false"/>
+			<ui:RunTimeLabel id="_lblBetLimit" textAlign="left" fontFamily="Barlow" size="40" text="label" />
+			<e:Image source="m_common_panel_icon_dropdown_png" width="34" height="19" visible="false" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="middle" />
 			</e:layout>
 		</e:Group>
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" x="0"
-		                        visible="false"/>
+		                       visible="false" />
 		<e:Group id="_btnBack" width="104" height="104" x="31" y="149" left.right_hand_mode="18" top.right_hand_mode="149">
-			<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" x.right_hand_mode="0" y.right_hand_mode="0"/>
-			<e:Image width="41" height="33" source="d_ba_navbar_chevron_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+			<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+			        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" x.right_hand_mode="0" y.right_hand_mode="0" />
+			<e:Image width="41" height="33" source="d_ba_navbar_chevron_png" scaleX="1" scaleY="1" horizontalCenter="0"
+			         verticalCenter="0" />
 		</e:Group>
 		<ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_mobile_portrait.GameBar" visible="false" />
 		<e:Group height="48" y="73" right="0">
-				<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right"/>
-				<ui:RunTimeLabel id="_totalBetText" text="" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right"/>
+			<ui:RunTimeLabel id="_totalBet" text="0" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
+			<ui:RunTimeLabel id="_totalBetText" text="" y="0" height="100%" right="0" anchorOffsetX="0" textAlign="right" />
 			<e:layout>
-				<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20"/>
+				<e:HorizontalLayout horizontalAlign="right" gap="20" gap.left_hand_mode="20" />
 			</e:layout>
 		</e:Group>
 	</e:Group>
-        <ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"                          currentState="lobby_panel_gamelist_tag_icon_allgame"  x.right_hand_mode="9.09" y.right_hand_mode="618.19" y.left_hand_mode="370" x.left_hand_mode="1099.5" includeIn="left_hand_mode,right_hand_mode" left.right_hand_mode="18" top.right_hand_mode="531" right.left_hand_mode="18" top.left_hand_mode="531"/>
-        <e:Group width="104" height="104" left.right_hand_mode="18" top.right_hand_mode="270" right.left_hand_mode="18" top.left_hand_mode="270">
-                <e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8"/>
-                <e:Image id="_bavideo" width="104" height="104" source="m_ba_btn_video_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
-        </e:Group>
-        <e:Group width="104" height="104" right.left_hand_mode="18" left.right_hand_mode="18" top.right_hand_mode="400" top.left_hand_mode="400">
-                <e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8"/>
-                <e:Image id="_bachat" width="104" height="104" source="m_ba_btn_chatroom_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
-        </e:Group>
-        <e:Group width="104" height="104" right.left_hand_mode="18" left.right_hand_mode="18" top.right_hand_mode="661" top.left_hand_mode="661">
-                <e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0" ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8"/>
-		<ui:RunTimeLabel id="_bainfo" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" text="i" size.left_hand_mode="60" size.right_hand_mode="60"/>
-        </e:Group>     
-        <e:Scroller id="_betArea" width="924" height="1530" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off" x="159" y="313">
-                <e:Group id="_bAViewport">
-                        <e:Group id="_bATransition" x="0">
-                                <e:Group id="_bANormal" x="0" height="1530" width="924">
-                                        <di:MobileTableLayer id="_tableLayer" width="100%" height="100%" skinName="skin_mobile_portrait.di.MobileTableLayerSkin" isEdgeDismissable="true" />
-                                        <di:MobileChipLayer id="_chipLayer" width="100%" height="100%" isEdgeDismissable="true" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" x.right_hand_mode="8" y.right_hand_mode="3" x.left_hand_mode="-15" y.left_hand_mode="3"/>
-                                </e:Group>
-                        </e:Group>
-                </e:Group>
-        </e:Scroller>
-
-  <di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"  horizontalCenter.left_hand_mode="0" top.left_hand_mode="350" horizontalCenter.right_hand_mode="0" top.right_hand_mode="350"/>
-  <ui:InGameMessage
-    id="_message"
-    x="311"
-    y="474"
-    skinName="skin_mobile_portrait.InGameMessageSkin"
-    infoBg="d_ba_gamerecord_playerelement_png"
-    successBg="d_ba_gamerecord_tieelement_png"
-    errorBg="d_ba_gamerecord_bankerelement_png"/>
-  <e:Group id="_betSet" y="122" left="0" right="0" touchThrough="true" left.left_hand_mode="3" right.left_hand_mode="-3" left.right_hand_mode="16" right.right_hand_mode="0" y.left_hand_mode="267.45" y.right_hand_mode="267.45">
-        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="150" height="150"
-			        skinName="skin_mobile.BetChipSkin"
-			        labelSize="48"  right.right_hand_mode="0" top.right_hand_mode="30" top.left_hand_mode="30" left.left_hand_mode="0"/>    
-        <e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
-                <e:Group x="0" y="0" scaleX.left_hand_mode="-1" x.left_hand_mode="888">
-                <e:Image id="_panel" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1" width="855" height="871" x="0" y="0"/>
-                <e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" scaleX="1" rotation="90" x="888" y="40"/>
-                </e:Group>
-                <ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="208" betChipHeight="208" scaleY="1" labelSize="48" width="855" height="871" numChipsInRow="3" right.left_hand_mode="0"/>
-        </e:Group>
-    <!--<e:Group id="_betRelatedGroup" x.right_hand_mode="1074" y="181.0000000000001" scaleX="1" scaleY="1" width="128" right.right_hand_mode="10" left.left_hand_mode="10" top.left_hand_mode="190" top.right_hand_mode="190">
-      <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
-      <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120" horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90"/>
-      <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675" horizontalCenter="0" rotation="90" currentState="vertical"/>
-      <ui:BaseImageButton id="_repeatButton" y="81" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat"/>
-      <ui:BaseImageButton id="_cancelButton" y="362" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel" horizontalCenter="0"/>
-      <ui:BaseImageButton id="_doubleButton" y="233" anchorOffsetX="0" anchorOffsetY="0" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" horizontalCenter="0"/>
-      <ui:BaseImageButton id="_undoButton" y="514" anchorOffsetX="0" anchorOffsetY="0" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo" horizontalCenter="0"/>
-    </e:Group>-->
-    <e:Group id="_betRelatedGroup" x.right_hand_mode="1074" y="181" scaleX="1" scaleY="1" width="128" right.right_hand_mode="10" left.left_hand_mode="10" top.left_hand_mode="190" top.right_hand_mode="190">
-	  <e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150" fillColor="0x444444"/>
-	  <e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
-	     x.right_hand_mode="124" skinName="skin_mobile_portrait.BetConfirmButtonMobile"
-	    x.left_hand_mode="130" rotation="90" y="740"/>
-	  <ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="740" horizontalCenter="0" rotation="90" currentState="vertical" width.right_hand_mode="300" anchorOffsetX.right_hand_mode="0" horizontalCenter.right_hand_mode="0"  x.left_hand_mode="130" width.left_hand_mode="300"/>
-	     <e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0" touchChildren="false" touchEnabled="false">
-	       <ui:RunTimeLabel id="_repeatLabel" text="再次下注"  x.left_hand_mode="5" y="95" horizontalCenter="0"/>
-	       <ui:RunTimeLabel id="_cancelLabel" text="清除" x.right_hand_mode="35"  x.left_hand_mode="40" y="475" horizontalCenter="0"/>
-	       <ui:RunTimeLabel id="_doubleLabel" text="雙倍" x.right_hand_mode="35"  x.left_hand_mode="35" y="279" horizontalCenter="0"/>
-	       <ui:RunTimeLabel id="_undoLabel" text="復原" x.right_hand_mode="36"  x.left_hand_mode="37" y="651" horizontalCenter="0"/>
-	     </e:Group>
-	     <ui:BaseImageButton id="_repeatButton" y="33" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
-	       skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
-	       currentState="b_repeat"  x.right_hand_mode="2" x.left_hand_mode="787" horizontalCenter="0"/>
-	     <ui:BaseImageButton id="_cancelButton" y="415" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
-	       skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
-	       currentState="b_cancel"  x.right_hand_mode="28" x.left_hand_mode="497" horizontalCenter="0"/>
-	     <ui:BaseImageButton id="_doubleButton" y="216" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
-	       skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
-	       currentState="b_double"  x.right_hand_mode="28" x.left_hand_mode="650" horizontalCenter="0"/>
-	     <ui:BaseImageButton id="_undoButton" y="596" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
-	       skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel"
-	       currentState="b_undo"  x.right_hand_mode="28" x.left_hand_mode="350" horizontalCenter="0"/>
-   </e:Group>
-  </e:Group>
-  <e:Rect strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" left="0" right="0" top="2095" bottom="0"/>
-  <di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242" x="0" scaleY="1" scaleX="1" bottom="55" locked="true"/>
-  <e:Group bottom="0" left="0" width="700">
-      <ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15" bottom.left_hand_mode="94"/>
-      <ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0"/>
-      <e:layout>
-      <e:HorizontalLayout/>
-      </e:layout>
-  </e:Group>
+	<ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1"
+	                    scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
+	                    currentState="lobby_panel_gamelist_tag_icon_allgame" x.right_hand_mode="9.09"
+	                    y.right_hand_mode="618.19" y.left_hand_mode="370" x.left_hand_mode="1099.5"
+	                    includeIn="left_hand_mode,right_hand_mode" left.right_hand_mode="18" top.right_hand_mode="531"
+	                    right.left_hand_mode="18" top.left_hand_mode="531" />
+	<e:Group width="104" height="104" left.right_hand_mode="18" top.right_hand_mode="270" right.left_hand_mode="18"
+	         top.left_hand_mode="270">
+		<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+		        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
+		<e:Image id="_bavideo" width="104" height="104" source="m_ba_btn_video_png" scaleX="1" scaleY="1" horizontalCenter="0"
+		         verticalCenter="0" />
+	</e:Group>
+	<e:Group width="104" height="104" right.left_hand_mode="18" left.right_hand_mode="18" top.right_hand_mode="400"
+	         top.left_hand_mode="400">
+		<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+		        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
+		<e:Image id="_bachat" width="104" height="104" source="m_ba_btn_chatroom_png" scaleX="1" scaleY="1"
+		         horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+	<e:Group width="104" height="104" right.left_hand_mode="18" left.right_hand_mode="18" top.right_hand_mode="661"
+	         top.left_hand_mode="661">
+		<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
+		        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
+		<ui:RunTimeLabel id="_bainfo" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" text="i"
+		                 size.left_hand_mode="60" size.right_hand_mode="60" />
+	</e:Group>
+	<e:Scroller id="_betArea" width="924" height="1530" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off"
+	            x="159" y="313">
+		<e:Group id="_bAViewport">
+			<e:Group id="_bATransition" x="0">
+				<e:Group id="_bANormal" x="0" height="1530" width="924">
+					<di:MobileTableLayer id="_tableLayer" width="100%" height="100%"
+					                     skinName="skin_mobile_portrait.di.MobileTableLayerSkin" isEdgeDismissable="true" />
+					<di:MobileChipLayer id="_chipLayer" width="100%" height="100%" isEdgeDismissable="true"
+					                    skinName="skin_mobile_portrait.di.MobileChipLayerSkin" x.right_hand_mode="8"
+					                    y.right_hand_mode="3" x.left_hand_mode="-15" y.left_hand_mode="3" />
+				</e:Group>
+			</e:Group>
+		</e:Group>
+	</e:Scroller>
+	<di:GameResultMessage id="_resultMessage" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"
+	                      horizontalCenter.left_hand_mode="0" top.left_hand_mode="350" horizontalCenter.right_hand_mode="0"
+	                      top.right_hand_mode="350" />
+	<ui:InGameMessage id="_message" x="311" y="474" skinName="skin_mobile_portrait.InGameMessageSkin"
+	                  infoBg="d_ba_gamerecord_playerelement_png" successBg="d_ba_gamerecord_tieelement_png"
+	                  errorBg="d_ba_gamerecord_bankerelement_png" />
+	<e:Group id="_betSet" y="122" left="0" right="0" touchThrough="true" left.left_hand_mode="3" right.left_hand_mode="-3"
+	         left.right_hand_mode="16" right.right_hand_mode="0" y.left_hand_mode="267.45" y.right_hand_mode="267.45">
+		<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="150" height="150" skinName="skin_mobile.BetChipSkin"
+		                           labelSize="48" right.right_hand_mode="0" top.right_hand_mode="30" top.left_hand_mode="30"
+		                           left.left_hand_mode="0" />
+		<e:Group id="_betChipSetPanel" width="888" height="871" horizontalCenter="0">
+			<e:Group x="0" y="0" scaleX.left_hand_mode="-1" x.left_hand_mode="888">
+				<e:Image id="_panel" source="m_ba_betarea_chipsbg_round_png" scale9Grid="33,33,0,0" scaleY="1" scaleX="1"
+				         width="855" height="871" x="0" y="0" />
+				<e:Image id="_arrowPanel" height="40" source="m_ba_betarea_chipsbg_triangle_png" scaleY="1" scaleX="1" rotation="90"
+				         x="888" y="40" />
+			</e:Group>
+			<ui:BetChipSetGrid id="_betChipSet" alpha="0" anchorOffsetX="0" betChipWidth="208" betChipHeight="208" scaleY="1"
+			                   labelSize="48" width="855" height="871" numChipsInRow="3" right.left_hand_mode="0" />
+		</e:Group>
+		<!--<e:Group id="_betRelatedGroup" x.right_hand_mode="1074" y="181.0000000000001" scaleX="1" scaleY="1" width="128" right.right_hand_mode="10" left.left_hand_mode="10" top.left_hand_mode="190" top.right_hand_mode="190">
+		<e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+		        fillColor="0x444444" />
+		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="256" anchorOffsetY="0" height="120"
+		          horizontalCenter="0" y="675" skinName="skin_mobile_portrait.BetConfirmButtonMobile" rotation="90" />
+		<ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="675"
+		                   horizontalCenter="0" rotation="90" currentState="vertical" />
+		<ui:BaseImageButton id="_repeatButton" y="81" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_repeat" />
+		<ui:BaseImageButton id="_cancelButton" y="362" anchorOffsetX="0" anchorOffsetY="0" height="120"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_cancel"
+		                    horizontalCenter="0" />
+		<ui:BaseImageButton id="_doubleButton" y="233" anchorOffsetX="0" anchorOffsetY="0"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double"
+		                    horizontalCenter="0" />
+		<ui:BaseImageButton id="_undoButton" y="514" anchorOffsetX="0" anchorOffsetY="0" height="120"
+		                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"
+		                    horizontalCenter="0" />
+	</e:Group>
+	-->
+	<e:Group id="_betRelatedGroup" x.right_hand_mode="1074" y="181" scaleX="1" scaleY="1" width="128"
+	         right.right_hand_mode="10" left.left_hand_mode="10" top.left_hand_mode="190" top.right_hand_mode="190">
+		<e:Rect id="_roundPanel" width="128" height="834" fillAlpha="0.4" ellipseHeight="150" ellipseWidth="150"
+		        fillColor="0x444444" />
+		<e:Button id="_confirmButton" label="" anchorOffsetX="0" width="300" anchorOffsetY="0" height="120" x="684"
+		          x.right_hand_mode="124" skinName="skin_mobile_portrait.BetConfirmButtonMobile" x.left_hand_mode="130"
+		          rotation="90" y="740" />
+		<ui:CountdownTimer id="_timer" width="256" height="120" skinName="skin_mobile_portrait.CountdownTimerSkin" y="740"
+		                   horizontalCenter="0" rotation="90" currentState="vertical" width.right_hand_mode="300"
+		                   anchorOffsetX.right_hand_mode="0" horizontalCenter.right_hand_mode="0" x.left_hand_mode="130"
+		                   width.left_hand_mode="300" />
+		<e:Group id="_betLabelGroup" width="100%" height="100%" verticalCenter="28" x.right_hand_mode="0"
+		         touchChildren="false" touchEnabled="false">
+			<ui:RunTimeLabel id="_repeatLabel" text="再次下注" x.left_hand_mode="5" y="95" horizontalCenter="0" />
+			<ui:RunTimeLabel id="_cancelLabel" text="清除" x.right_hand_mode="35" x.left_hand_mode="40" y="475"
+			                 horizontalCenter="0" />
+			<ui:RunTimeLabel id="_doubleLabel" text="雙倍" x.right_hand_mode="35" x.left_hand_mode="35" y="279"
+			                 horizontalCenter="0" />
+			<ui:RunTimeLabel id="_undoLabel" text="復原" x.right_hand_mode="36" x.left_hand_mode="37" y="651" horizontalCenter="0" />
+		</e:Group>
+		<ui:BaseImageButton id="_repeatButton" y="33" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
+		                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_repeat"
+		                    x.right_hand_mode="2" x.left_hand_mode="787" horizontalCenter="0" />
+		<ui:BaseImageButton id="_cancelButton" y="415" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
+		                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_cancel"
+		                    x.right_hand_mode="28" x.left_hand_mode="497" horizontalCenter="0" />
+		<ui:BaseImageButton id="_doubleButton" y="216" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
+		                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_double"
+		                    x.right_hand_mode="28" x.left_hand_mode="650" horizontalCenter="0" />
+		<ui:BaseImageButton id="_undoButton" y="596" anchorOffsetX="0" width="50" anchorOffsetY="0" height="50"
+		                    skinName="skin_mobile_landscape.ImageButtonSkinBettingPanel" currentState="b_undo"
+		                    x.right_hand_mode="28" x.left_hand_mode="350" horizontalCenter="0" />
+	</e:Group>
+</e:Group>
+<e:Rect strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" left="0"
+        right="0" top="2095" bottom="0" />
+<di:MobileBottomGamePanel skinName="skin_mobile_portrait.di.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
+                          x="0" scaleY="1" scaleX="1" bottom="55" locked="true" />
+<e:Group bottom="0" left="0" width="700">
+	<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15"
+	                 bottom.left_hand_mode="94" />
+	<ui:RunTimeLabel id="_baGameID" text="ID" bottom="0" left="0" />
+	<e:layout>
+		<e:HorizontalLayout/>
+	</e:layout>
+</e:Group>
 </e:Skin>

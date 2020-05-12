@@ -154,7 +154,7 @@ namespace we {
 
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = this.getNewChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
+              const chip = this.getNewChip(value[0], value[1], we.core.ChipType.PERSPECTIVE);
               chip.touchEnabled = false;
               // chip.labelSize = this._chipLabelSize;
               // chip.labelOffset = this._chipLabelOffset;
@@ -283,19 +283,22 @@ namespace we {
         return this._betSumBackground;
       }
 
-      protected getBettingTableGridDenom(denomlist: number[], amount) {
+      protected getBettingTableGridDenom(currDenomlist: number[], amount) {
         let total = amount;
-        let index = denomlist.length - 1;
-        const b = new Array();
+        const wholeDenomMap = env.getWholeDenomMap();
+        const wholeDenomMapKeyArr = Object.keys(wholeDenomMap).sort((a, b) => +a - +b);
+        let index = wholeDenomMapKeyArr.length - 1;
+        const result = new Array();
         while (total > 0) {
-          if (total >= denomlist[index]) {
-            total -= denomlist[index];
-            b.push(index);
+          const denomValue = +wholeDenomMapKeyArr[index];
+          if (total >= denomValue) {
+            total -= denomValue;
+            result.push([wholeDenomMapKeyArr[index], wholeDenomMap[+wholeDenomMapKeyArr[index]]]);
           } else {
             index--;
           }
         }
-        return b;
+        return result;
       }
     }
   }

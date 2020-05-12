@@ -28,7 +28,7 @@ namespace we {
       protected _tableLayerNode: eui.Component;
       protected _chipLayerNode: eui.Component;
       protected _roadmapNode: eui.Component;
-
+      // skinName = LiveOverlayItemSkin in quickbet
       public constructor(skinName: string = null) {
         super(skinName);
         this._betChipSetPanel.visible = false;
@@ -37,10 +37,10 @@ namespace we {
       }
 
       protected initComponents() {
-        super.initComponents();
         this.generateRoadmap();
         this.generateTableLayer();
         this.generateChipLayer();
+        super.initComponents();
       }
 
       protected generateTableLayer() {

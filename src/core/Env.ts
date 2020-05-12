@@ -2,6 +2,8 @@
 namespace we {
   export namespace core {
     export class Env {
+      public readonly chipImageLimit = 11;
+
       private static _env: Env;
 
       public static get Instance(): Env {
@@ -12,7 +14,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.4.0';
+      public version: string = '0.4.1';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
@@ -27,6 +29,7 @@ namespace we {
       public voice: string = 'mandarin';
       public bgm = 1;
       public betLimits: data.BetLimitSet[];
+      public wholeDenomList: number[];
       public goodRoadData: data.GoodRoadMapData;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
@@ -126,10 +129,11 @@ namespace we {
           }
 
           const gameType = tableInfo.gametype;
-          // if (gameType === core.GameType.DI) {
-          //   tableInfo.displayReady = false;
-          //   return false;
-          // }
+          const validGameTypes = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
+          if (validGameTypes.indexOf(gameType) < 0) {
+            tableInfo.displayReady = false;
+            return false;
+          }
         }
 
         if (tableInfo && !tableInfo.displayReady) {
@@ -145,6 +149,34 @@ namespace we {
           return env.tableInfos[tableid].tablename;
         }
         return null;
+      }
+      public getWholeDenomMap() {
+        if (!env) {
+          return;
+        }
+        if (!env.betLimits) {
+          return;
+        }
+        const denomMap = {};
+        let chipIndex = 0;
+        env.betLimits.map(limit => {
+          limit.chips.map(chipValue => {
+            if (!denomMap[chipValue]) {
+              if (this.chipImageLimit > chipIndex) {
+                denomMap[chipValue] = chipIndex;
+                chipIndex++;
+              } else {
+                denomMap[chipValue] = this.chipImageLimit - 1;
+              }
+            }
+          });
+        });
+        /*
+        currDenomlist.map((chipValue, chipIndex) => {
+          denomMap[chipValue] = chipIndex;
+        });
+        */
+        return denomMap;
       }
 
       public gotoScene(tableId: string) {
