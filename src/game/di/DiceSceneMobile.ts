@@ -27,6 +27,8 @@ namespace we {
 
       protected _mode: string = 'normal';
 
+      protected _mask: egret.Shape;
+
       constructor(data: any) {
         super(data);
       }
@@ -75,9 +77,23 @@ namespace we {
               },
               250
             );
+            if (env.orientation === 'portrait') {
+              this._tableLayer.top = this._tableLayer.bottom = 100;
+              this._mask.x = this._betArea.x;
+              this._mask.y = 180;
+              this._tableLayer.mask = this._mask;
+              this._mask.visible = true;
+            }
             break;
           case 'small':
           case 'normal':
+            if (env.orientation === 'portrait') {
+              this._tableLayer.top = this._tableLayer.bottom = 0;
+              this._tableLayer.mask = null;
+              if (this._mask) {
+                this._mask.visible = false;
+              }
+            }
           default:
             this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
             egret.Tween.get(this._betArea.viewport).to(
@@ -145,6 +161,16 @@ namespace we {
         }
 
         this.changeHandMode();
+
+        this._mask = new egret.Shape();
+        const gr = this._mask.graphics;
+        const matrix = new egret.Matrix();
+        matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
+        gr.drawRect(0, 0, this._betArea.width, 1270); //
+        gr.endFill();
+        this.addChild(this._mask);
+        this._mask.visible = false;
       }
 
       protected addEventListeners() {
