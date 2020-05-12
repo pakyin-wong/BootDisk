@@ -154,9 +154,18 @@ namespace we {
           changeName: '設定暱稱',
         },
         userName: {
-          cartoon: '卡通人物角色',
-          myth: '神話人物角色',
-          movie: '電影人物角色',
+          category: {
+            cartoon: '卡通人物角色',
+            myth: '神話人物角色',
+            movie: '電影人物角色',
+          },
+          name:{
+            name1:'黑豹',
+            name2:'黑寡婦',
+            name3:'刀鋒戰士',
+            name4:'酷寒戰士',
+            name5:'美國隊長',
+          }
         },
       },
       lobby: {

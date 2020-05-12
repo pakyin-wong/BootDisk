@@ -30,6 +30,8 @@ namespace we {
       private _iconList: eui.List;
       private _iconGaySize = 10;
 
+      private _editName: ui.BaseImageButton;
+
       public constructor(skin = null) {
         // super('PlayerProfile');
         super(skin);
@@ -85,11 +87,13 @@ namespace we {
       private addListeners() {
         this._playerIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         this._sectionBackIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
+        this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.changeNameSection, this);
       }
 
       private removeListeners() {
         this._playerIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         this._sectionBackIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
+        this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.changeNameSection, this);
       }
 
       private slideToIconSelectSection() {
@@ -108,6 +112,13 @@ namespace we {
         // tween move to new position
         egret.Tween.get(this._section_main).to({ $x: 0 }, 200);
         egret.Tween.get(this._section_iconSelect).to({ $x: this._section_iconSelect.width }, 200);
+      }
+
+      private changeNameSection() {
+        dir.evtHandler.createOverlay({
+          class: 'ChangeName',
+        });
+        logger.l(`NavSideMenu::onClickHistory`);
       }
 
       protected initOrientationDependentComponent() {

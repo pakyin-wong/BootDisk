@@ -154,9 +154,18 @@ namespace we {
           changeName: 'Nickname Setting',
         },
         userName: {
-          cartoon: 'Cartoon Characters',
-          myth: 'Myth Characters',
-          movie: 'Movie Characters',
+          category: {
+            cartoon: 'Cartoon Character',
+            myth: 'Myth Character',
+            movie: 'Movie Character',
+          },
+          name:{
+            name1:'Black Panther',
+            name2:'Black Widow',
+            name3:'Blade',
+            name4:'Winter Soldier',
+            name5:'Captain America',
+          }
         },
       },
       lobby: {
@@ -414,4 +423,3 @@ namespace we {
     };
   }
 }
->>>>>>> 420fab3ab9026f54b1409f110e585af7231b16f7

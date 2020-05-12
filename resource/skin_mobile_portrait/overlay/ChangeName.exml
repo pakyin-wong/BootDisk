@@ -6,27 +6,33 @@
 		<e:Image id="close" width="96" height="96" source="d-lobby-button-close-none_png" x="1120" y="66" />
 		<ui:RunTimeLabel id="_txt_title" text="ChangeName" x="48" y="53" width="1000" height="119" verticalAlign="middle"
 		                 textColor="0xc59466" size="80" />
-		<e:Group horizontalCenter="0" y="328">
+		<e:Group horizontalCenter="0" y="328" touchEnabled="false" touchChildren="true">
 			<e:Group id="_btn_Cartoon" width="1050" height="130" x="97" y="431">
 				<e:Rect fillAlpha="0.2" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0"
 				        bottom="0" fillColor="0x4b535b" />
 				<ui:RunTimeLabel id="_txt_Cartoon" text="Label" y="16" width="453" height="89" verticalAlign="middle"
 				                 textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" horizontalCenter="0" />
+				<e:Image id="_arrow_Cartoon" source="d_lobby_button_down_normal_png" width="80" height="80" right="0"
+				         verticalCenter="0" />
 			</e:Group>
 			<e:Group id="_btn_Myth" width="1050" height="130" x="107" y="626">
 				<e:Rect fillAlpha="0.2" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0"
 				        bottom="0" fillColor="0x4b535b" />
 				<ui:RunTimeLabel id="_txt_Myth" text="Label" y="16" width="453" height="89" verticalAlign="middle"
 				                 textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" horizontalCenter="0" />
+				<e:Image id="_arrow_Myth" source="d_lobby_button_down_normal_png" width="80" height="80" right="0"
+				         verticalCenter="0" />
 			</e:Group>
 			<e:Group id="_btn_Movie" width="1050" height="130" x="107" y="844">
 				<e:Rect fillAlpha="0.2" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0"
 				        bottom="0" fillColor="0x4b535b" />
 				<ui:RunTimeLabel id="_txt_Movie" text="Label" y="16" width="453" height="89" verticalAlign="middle"
 				                 textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" horizontalCenter="0" />
+				<e:Image id="_arrow_Movie" source="d_lobby_button_down_normal_png" width="80" height="80" right="0"
+				         verticalCenter="0" />
 			</e:Group>
 			<e:layout>
-				<e:VerticalLayout gap="137" />
+				<e:VerticalLayout gap="75" />
 			</e:layout>
 		</e:Group>
 	</e:Group>

@@ -19,6 +19,10 @@ namespace we {
       private _ddm_Myth: ui.Panel;
       private _ddm_Movie: ui.Panel;
 
+      private _arrow_Cartoon: eui.Image;
+      private _arrow_Myth: eui.Image;
+      private _arrow_Movie: eui.Image;
+
       constructor() {
         super('ChangeName');
       }
@@ -29,8 +33,18 @@ namespace we {
 
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.system.changeName')}`;
+        this._txt_Cartoon.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
+        this._txt_Myth.renderText = () => `${i18n.t('nav.userName.category.myth')}`;
+        this._txt_Movie.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
 
-        const _arrCol_Cartoon = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
+        const _arrCol_Cartoon = new eui.ArrayCollection([
+          ui.NewDropdownItem('1', () => `${i18n.t('nav.userName.name.name1')}`),
+          ui.NewDropdownItem('2', () => `${i18n.t('nav.userName.name.name2')}`),
+          ui.NewDropdownItem('3', () => `${i18n.t('nav.userName.name.name3')}`),
+          ui.NewDropdownItem('4', () => `${i18n.t('nav.userName.name.name4')}`),
+          ui.NewDropdownItem('5', () => `${i18n.t('nav.userName.name.name5')}`),
+        ]);
+
         if (this._ddm_Cartoon) {
           this._ddm_Cartoon.isDropdown = true;
           this._ddm_Cartoon.isPoppable = true;
@@ -38,20 +52,22 @@ namespace we {
           this._ddm_Cartoon.setToggler(this._btn_Cartoon);
           this._ddm_Cartoon.dropdown.review = this._txt_Cartoon;
           this._ddm_Cartoon.dropdown.data.replaceAll(_arrCol_Cartoon.source);
-          this._ddm_Cartoon.dropdown.select(env.language);
+          this._ddm_Cartoon.dropdown.select(env.nickname);
         }
         utils.DropdownCreator.new({
           toggler: this._btn_Cartoon,
           review: this._txt_Cartoon,
           arrCol: _arrCol_Cartoon,
           title: () => ``,
-          selected: env.language,
+          selected: this._txt_Cartoon,
         });
 
         const _arrCol_Myth = new eui.ArrayCollection([
-          ui.NewDropdownItem('cantonese', () => `${i18n.t('voice_cantonese')}`),
-          ui.NewDropdownItem('mandarin', () => `${i18n.t('voice_mandarin')}`),
-          ui.NewDropdownItem('english', () => `${i18n.t('voice_english')}`),
+          ui.NewDropdownItem('1', () => `${i18n.t('nav.userName.name.name1')}`),
+          ui.NewDropdownItem('2', () => `${i18n.t('nav.userName.name.name2')}`),
+          ui.NewDropdownItem('3', () => `${i18n.t('nav.userName.name.name3')}`),
+          ui.NewDropdownItem('4', () => `${i18n.t('nav.userName.name.name4')}`),
+          ui.NewDropdownItem('5', () => `${i18n.t('nav.userName.name.name5')}`),
         ]);
         if (this._ddm_Myth) {
           this._ddm_Myth.isDropdown = true;
@@ -60,20 +76,22 @@ namespace we {
           this._ddm_Myth.setToggler(this._btn_Myth);
           this._ddm_Myth.dropdown.review = this._txt_Myth;
           this._ddm_Myth.dropdown.data.replaceAll(_arrCol_Myth.source);
-          this._ddm_Myth.dropdown.select(env.voice);
+          this._ddm_Myth.dropdown.select(env.nickname);
         }
         utils.DropdownCreator.new({
           toggler: this._btn_Myth,
           review: this._txt_Myth,
           arrCol: _arrCol_Myth,
           title: () => ``,
-          selected: env.voice,
+          selected: this._txt_Myth,
         });
 
         const _arrCol_Movie = new eui.ArrayCollection([
-          ui.NewDropdownItem(1, () => `${i18n.t('nav.system.bgm')} 01`),
-          ui.NewDropdownItem(2, () => `${i18n.t('nav.system.bgm')} 02`),
-          ui.NewDropdownItem(3, () => `${i18n.t('nav.system.bgm')} 03`),
+          ui.NewDropdownItem('1', () => `${i18n.t('nav.userName.name.name1')}`),
+          ui.NewDropdownItem('2', () => `${i18n.t('nav.userName.name.name2')}`),
+          ui.NewDropdownItem('3', () => `${i18n.t('nav.userName.name.name3')}`),
+          ui.NewDropdownItem('4', () => `${i18n.t('nav.userName.name.name4')}`),
+          ui.NewDropdownItem('5', () => `${i18n.t('nav.userName.name.name5')}`),
         ]);
         if (this._ddm_Movie) {
           this._ddm_Movie.isDropdown = true;
@@ -82,17 +100,15 @@ namespace we {
           this._ddm_Movie.setToggler(this._btn_Movie);
           this._ddm_Movie.dropdown.review = this._txt_Movie;
           this._ddm_Movie.dropdown.data.replaceAll(_arrCol_Movie.source);
-          this._ddm_Movie.dropdown.select(env.bgm);
+          // this._ddm_Movie.dropdown.select(env.nickname);
         }
         utils.DropdownCreator.new({
           toggler: this._btn_Movie,
           review: this._txt_Movie,
           arrCol: _arrCol_Movie,
           title: () => ``,
-          selected: env.bgm,
+          selected: this._txt_Movie,
         });
-
-        // this._txt_version.text = env.version;
 
         this.addListeners();
       }
@@ -103,38 +119,66 @@ namespace we {
       }
 
       protected addListeners() {
-        this._btn_Cartoon.addEventListener('DROPDOWN_ITEM_CHANGE', this.onCartoonSelect, this);
-        this._btn_Myth.addEventListener('DROPDOWN_ITEM_CHANGE', this.onMythSelect, this);
-        this._btn_Movie.addEventListener('DROPDOWN_ITEM_CHANGE', this.onMovieSelect, this);
+        this._btn_Cartoon.addEventListener('DROPDOWN_ITEM_CHANGE', this.onCartoonChange, this);
+        this._btn_Myth.addEventListener('DROPDOWN_ITEM_CHANGE', this.onMythChange, this);
+        this._btn_Movie.addEventListener('DROPDOWN_ITEM_CHANGE', this.onMovieChange, this);
+        this._btn_Cartoon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCartoonSelect, this);
+        this._btn_Myth.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onMythSelect, this);
+        this._btn_Movie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onMovieSelect, this);
       }
 
       protected removeListeners() {
-        this._btn_Cartoon.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onCartoonSelect, this);
-        this._btn_Myth.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onMythSelect, this);
-        this._btn_Movie.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onMovieSelect, this);
+        console.log("remove listener");
+        this._btn_Cartoon.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onCartoonChange, this);
+        this._btn_Myth.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onMythChange, this);
+        this._btn_Movie.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onMovieChange, this);
+        this._btn_Cartoon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCartoonSelect, this);
+        this._btn_Myth.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onMythSelect, this);
+        this._btn_Movie.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onMovieSelect, this);
       }
 
-      private onCartoonSelect(e) {
-        i18n.setLang(e.data);
-        this._ddm_Cartoon && this._ddm_Cartoon.dropdown.select(env.language);
+      private onCartoonSelect() {
+        this._arrow_Cartoon.rotation += 180;
+        console.log(`rotation${this._arrow_Cartoon.rotation}`);
       }
 
-      private onMythSelect(e) {
-        env.voice = e.data;
-        dir.evtHandler.dispatch(core.Event.VOICE_UPDATE, e.data);
-        this._ddm_Myth && this._ddm_Myth.dropdown.select(env.voice);
+      private onMythSelect() {
+        this._arrow_Cartoon.rotation += 180;
+        console.log(`rotation${this._arrow_Cartoon.rotation}`);
       }
 
-      private onMovieSelect(e) {
-        env.bgm = e.data;
-        dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
-        this._ddm_Movie && this._ddm_Movie.dropdown.select(env.bgm);
+      private onMovieSelect() {
+        this._arrow_Cartoon.rotation += 180;
+        console.log(`rotation${this._arrow_Cartoon.rotation}`);
       }
+    
+      private onCartoonChange(e) {
+      env.nickname = e.data;
+      console.log(env.nickname);
+      dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
+      this.destroy();
+    }
+
+      private onMythChange(e) {
+      this._arrow_Myth.rotation = 180;
+      env.nickname = e.data;
+      console.log(`rotation${this._arrow_Cartoon.rotation}`);
+      console.log(env.nickname);
+      dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
+    }
+
+      private onMovieChange(e) {
+      this._arrow_Movie.rotation = 180;
+      env.nickname = e.data;
+      console.log(`rotation${this._arrow_Cartoon.rotation}`);
+      console.log(env.nickname);
+      dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
+    }
 
       protected initOrientationDependentComponent() {
-        super.initOrientationDependentComponent();
-        this.init_menu();
-      }
+      super.initOrientationDependentComponent();
+      this.init_menu();
     }
   }
+}
 }
