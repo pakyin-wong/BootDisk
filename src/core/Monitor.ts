@@ -4,7 +4,7 @@ namespace we {
     export class Monitor {
       private _nav: ui.Nav;
       private _navMobileSilder: ui.NavMobileSilder;
-      private _mDropdown: ui.MobileDropdown;
+      public _mDropdown: ui.MobileDropdown;
       private _notificationController: egret.DisplayObject & ui.INotificationController;
       private _liveSidePanel: ui.LiveSidePanel;
       private _overlay: ui.Overlay;

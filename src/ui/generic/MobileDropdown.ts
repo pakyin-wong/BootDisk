@@ -8,7 +8,7 @@ namespace we {
       selected: any;
     }
     export class MobileDropdown extends ui.Panel {
-      private _title: RunTimeLabel;
+      public _title: RunTimeLabel;
       private _scroller: eui.Scroller;
       private _list: eui.List;
       private _itemHeight: number = 0;
@@ -42,7 +42,7 @@ namespace we {
       }
 
       protected initOrientationDependentComponent() {
-        (<RunTimeLabel> this.close).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
+        (<RunTimeLabel>this.close).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
 
         this._scroller.bounces = false;
         this._list.dataProvider = this._dataCollection = new eui.ArrayCollection(['']);
@@ -62,7 +62,7 @@ namespace we {
       }
 
       // set the position of the children components
-      protected arrangeComponents() {}
+      protected arrangeComponents() { }
 
       protected destroy() {
         super.destroy();
@@ -77,7 +77,7 @@ namespace we {
         this._list.addEventListener(egret.Event.CHANGE, this.onChange, this);
         this._list.addEventListener(egret.Event.RENDER, this.onRender, this);
       }
-      protected removeListeners() {}
+      protected removeListeners() { }
       protected async toggleDropdown(e) {
         if (this._opt && this.isActivated) {
           return;
@@ -103,7 +103,7 @@ namespace we {
       protected get calIndex() {
         return Math.floor((this._scroller.viewport.scrollV + this._itemHeight * 0.1) / this._itemHeight);
       }
-      protected handleTap() {}
+      protected handleTap() { }
       protected onChange() {
         // this._scroller.stopAnimation();
         this.update();
