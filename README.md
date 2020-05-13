@@ -79,6 +79,7 @@ npm install -g tslint prettier typescript
 - [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
 - [Frontend MQTT Library (PlayerClient)](https://github.com/PGITAb/fe-lib-player-client-js)
 
+- [Localization](https://docs.google.com/spreadsheets/d/1G_UuP8YY-f9LVLlT8l7_3n31NbQ2p6L5-2AWhQdbJKk/edit?ts=5eb92386#gid=945429433)
 - [發送現場驗證](https://docs.google.com/document/d/1t95ChIAEF8qaDjjNGctLC8_rrXgayfzQqnIPao6MXSg/edit?ts=5e995758)
 - [bet area button rules (rebet & double)](https://docs.google.com/document/d/138UwHLBXfloAOWvXo-21BHkUjwdByYcl8ZtbCtN48BI/edit?ts=5e995d51)
 
@@ -110,6 +111,9 @@ npm install -g tslint prettier typescript
 - [Baccarat Requirement](https://docs.google.com/document/d/1LnNBQPlFsOTKK8xodzg-xC5P_9_uzOzWBsiqt_5ThLw/edit)
 - [Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1VmyNAUTKaQCB-r9Mlw2Sz8FiQ09LSyCJm1BxpepZsaM/edit)
 - [Baccarat Mobile Requirement (Landscape)](https://docs.google.com/document/d/1ClByP765L4drUzyGhPCQmsBJt10CyP4VKCiCfTeemlM/edit?ts=5e635d25)
+
+- [Baccarat Requirement](https://docs.google.com/document/d/1vjd9PBGGMaTAzS12U4EoiQ-daw8yi-vkYh7-XDRwkuw/edit)
+- [Squeezed Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1MmLHwUiXZQiW7N5u73z9Ej02oTBvUwS5esCrPSS-k80/edit)
 
 
 

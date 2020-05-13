@@ -71,10 +71,6 @@ namespace we {
       private _bulletOne: eui.Image;
       private _bulletTwo: eui.Image;
 
-      protected _infoArea: eui.Scroller;
-
-      protected _mask: egret.Shape;
-
       public constructor() {
         super();
       }
@@ -86,30 +82,6 @@ namespace we {
           this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
           this.contentTwo.alpha = 0;
           this.configSlides();
-        }
-
-        if (env.orientation === 'landscape') {
-          this._mask = new egret.Shape();
-
-          this._infoArea.addEventListener(eui.UIEvent.CHANGE_START, this.toShowMask, this);
-          this._infoArea.addEventListener(eui.UIEvent.CHANGE_END, this.toHideMask, this);
-
-          this.addChild(this._mask);
-          const filterMask = this._mask.graphics;
-          const matrix = new egret.Matrix();
-
-          matrix.createGradientBox(150, 318, 0, 0, 0);
-          filterMask.beginGradientFill(egret.GradientType.LINEAR, [0x212425, 0x212425], [1, 0], [100, 255], matrix);
-          filterMask.drawRect(0, 0, 150, 318);
-          filterMask.endFill();
-
-          matrix.createGradientBox(150, 318, 0, 1990, 0);
-          filterMask.beginGradientFill(egret.GradientType.LINEAR, [0x212425, 0x212425], [0, 1], [0, 185], matrix);
-          filterMask.drawRect(1990, 0, 150, 318);
-          filterMask.endFill();
-
-          this._mask.alpha = 0;
-          // this.mask = this.mask_gp;
         }
       }
 
@@ -246,13 +218,6 @@ namespace we {
         }
       }
 
-      protected toShowMask() {
-        this._mask.alpha = 1;
-      }
-
-      protected toHideMask() {
-        this._mask.alpha = 0;
-      }
       // public setValue(tableInfo: data.TableInfo) {
       //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
       //   this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();

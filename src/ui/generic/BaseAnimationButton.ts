@@ -155,7 +155,7 @@ namespace we {
             resolve();
           };
           this._display.armature.eventDispatcher.addDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
-          this._display.animation.gotoAndPlayByProgress(anim, progress, count);
+          this._display.animation.play(anim, count);
         });
       }
 
@@ -165,9 +165,9 @@ namespace we {
           return;
         }
 
-        this._display.animation.timeScale = 5;
+        // this._display.animation.timeScale = 5;
         await this.prevProm;
-        this._display.animation.timeScale = 1;
+        // this._display.animation.timeScale = 1;
         // this._display.animation.stop();
         // await this.playPromise('idle', 1, 0.99);
         // console.log('BaseAnimationButto oldDown', oldDown);
@@ -176,20 +176,20 @@ namespace we {
         // console.log('BaseAnimationButto _hover', this._hover);
 
         if (!this._enabled) {
-          this.prevProm = this.playPromise('disable', 0);
+          this.playPromise('disable', 0);
         } else if (this._hover && !oldDown && this._down) {
-          this.prevProm = this.playPromise('press', 1);
+          this.playPromise('press', 1);
         } else if (this._hover && oldDown && !this._down) {
           this.prevProm = this.playPromise('release', 1);
         } else if (!oldHover && this._hover) {
-          this.prevProm = this.playPromise('mouse_in', 1);
+          this.playPromise('mouse_in', 1);
         } else if (oldHover && !this._hover) {
-          if (oldDown) {
-            await this.playPromise('release', 1);
-          }
-          this.prevProm = this.playPromise('mouse_out', 1);
+          //   if (oldDown) {
+          //     await this.playPromise('release', 1);
+          //   }
+          this.playPromise('mouse_out', 1);
         } else if (!this._active) {
-          this.prevProm = this.playPromise('idle', 0);
+          this.playPromise('idle', 0);
         }
       }
     }
