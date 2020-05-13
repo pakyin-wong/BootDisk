@@ -11,7 +11,7 @@
 				<e:Image id="_playerIcon" width="375" height="375" y="301" anchorOffsetX="0" anchorOffsetY="0" source="d_lobby_profile_pic_03_png" horizontalCenter="0"/>
 							<e:Image width="84" height="84" x="729" y="592" source="m_common_setting_playinfo_profilepic_edit_bg_png"/>
 							<e:Image width="52" height="52" x="745" y="608" source="m_common_setting_playinfo_profilepic_edit_icon_png"/>
-				<e:Label id="_username" text="Johathan" y="686" textColor="0xc59466" size="80" anchorOffsetY="0" height="96" fontFamily="Barlow" textAlign="center" width="700" horizontalCenter="0" verticalAlign="middle"/>
+				<ui:RunTimeLabel id="_username" text="Johathan" y="686" textColor="0xc59466" size="80" anchorOffsetY="0" height="96" fontFamily="Barlow" textAlign="center" width="700" horizontalCenter="0" verticalAlign="middle"/>
                 <e:Label id="_balance" text="RMB 120,889,200" y="806" size="80"  height="96" width="700" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
 				<ui:RunTimeLabel id="_txt_maxWinAmount" text="Label" x="96" y="1218" size="56" alpha="0.7" height="83" verticalAlign="middle"/>
 				<ui:RunTimeLabel id="_txt_maxWinCount" text="Label" x="96" y="1333" height="83" size="56" alpha="0.7" verticalAlign="middle"/>

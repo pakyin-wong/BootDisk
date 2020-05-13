@@ -5,7 +5,6 @@ namespace we {
       private _section_main: eui.Group;
 
       private _playerIcon: eui.Image;
-      private _username: eui.Label;
       private _balance: eui.Label;
       private _maxWinAmount: eui.Label;
       private _maxWinCount: eui.Label;
@@ -13,6 +12,7 @@ namespace we {
       private _following: eui.Label;
       private _favouriteDealer: eui.Label;
 
+      private _username: ui.RunTimeLabel;
       private _txt_maxWinAmount: ui.RunTimeLabel;
       private _txt_maxWinCount: ui.RunTimeLabel;
       private _txt_follower: ui.RunTimeLabel;
@@ -56,6 +56,7 @@ namespace we {
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
+        this._username.renderText = () => `${i18n.t(`nav.userName.name.name${env.nickname}`)}`;
         if (env.isMobile) {
           this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;

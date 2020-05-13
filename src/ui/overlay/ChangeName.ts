@@ -23,6 +23,11 @@ namespace we {
       private _arrow_Myth: eui.Image;
       private _arrow_Movie: eui.Image;
 
+      private _mask_Cartoon: eui.Rect;
+      private _mask_Myth: eui.Rect;
+      private _mask_Movie: eui.Rect;
+      private _mask: eui.Rect;
+
       constructor() {
         super('ChangeName');
       }
@@ -128,7 +133,7 @@ namespace we {
       }
 
       protected removeListeners() {
-        console.log("remove listener");
+        console.log('remove listener');
         this._btn_Cartoon.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onCartoonChange, this);
         this._btn_Myth.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onMythChange, this);
         this._btn_Movie.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onMovieChange, this);
@@ -138,47 +143,60 @@ namespace we {
       }
 
       private onCartoonSelect() {
+        this._mask_Cartoon.fillColor = 0x1b416e;
+        this._mask.alpha = 0.4;
+        console.log(this._mask.alpha);
         this._arrow_Cartoon.rotation += 180;
-        console.log(`rotation${this._arrow_Cartoon.rotation}`);
       }
 
       private onMythSelect() {
-        this._arrow_Cartoon.rotation += 180;
-        console.log(`rotation${this._arrow_Cartoon.rotation}`);
+        this._mask_Myth.fillColor = 0x1b416e;
+        this._mask.alpha = 0.4;
+        this._arrow_Myth.rotation += 180;
       }
 
       private onMovieSelect() {
-        this._arrow_Cartoon.rotation += 180;
-        console.log(`rotation${this._arrow_Cartoon.rotation}`);
+        this._mask_Movie.fillColor = 0x1b416e;
+        this._mask.alpha = 0.4;
+        this._arrow_Movie.rotation += 180;
       }
-    
+
       private onCartoonChange(e) {
-      env.nickname = e.data;
-      console.log(env.nickname);
-      dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
-      this.destroy();
-    }
+        env.nickname = e.data;
+        console.log(env.nickname);
+        dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
+        this.previousPage();
+      }
 
       private onMythChange(e) {
-      this._arrow_Myth.rotation = 180;
-      env.nickname = e.data;
-      console.log(`rotation${this._arrow_Cartoon.rotation}`);
-      console.log(env.nickname);
-      dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
-    }
+        this._arrow_Myth.rotation = 180;
+        env.nickname = e.data;
+        console.log(`rotation${this._arrow_Cartoon.rotation}`);
+        console.log(env.nickname);
+        dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
+        this.previousPage();
+      }
 
       private onMovieChange(e) {
-      this._arrow_Movie.rotation = 180;
-      env.nickname = e.data;
-      console.log(`rotation${this._arrow_Cartoon.rotation}`);
-      console.log(env.nickname);
-      dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
-    }
+        this._arrow_Movie.rotation = 180;
+        env.nickname = e.data;
+        console.log(`rotation${this._arrow_Cartoon.rotation}`);
+        console.log(env.nickname);
+        dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
+        this.previousPage();
+      }
+      private previousPage() {
+        dir.evtHandler.createOverlay({
+          class: 'PlayerProfile',
+          args: ['PlayerProfile'],
+        });
+        logger.l(`NavSideMenu::PlayerProfile`);
+      }
 
       protected initOrientationDependentComponent() {
-      super.initOrientationDependentComponent();
-      this.init_menu();
+        super.initOrientationDependentComponent();
+        this.init_menu();
+      }
     }
   }
-}
 }
