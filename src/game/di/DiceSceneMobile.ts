@@ -16,6 +16,9 @@ namespace we {
       protected _roadmapControl: DiRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
 
+      protected _panelGroup: eui.Group;
+      protected _panelTween: ui.TweenConfig;
+
       protected _baGameIDText: ui.RunTimeLabel;
       protected _baGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
@@ -31,6 +34,20 @@ namespace we {
 
       constructor(data: any) {
         super(data);
+      }
+
+      protected set panelState(s) {
+        if (env.orientation === 'portrait') return;
+        const state = s;
+
+        if (this._panelTween.currentState === state) {
+          return;
+        }
+        this._panelTween.currentState = state;
+        this._panelTween.validateNow();
+
+        egret.Tween.removeTweens(this._panelGroup);
+        egret.Tween.get(this._panelGroup).to(this._panelTween.getTweenPackage(), 250);
       }
 
       protected set betSetState(s) {
@@ -110,6 +127,8 @@ namespace we {
       }
 
       protected set diState(s) {
+        if (env.orientation === 'landscape') this.panelState = s;
+
         this.betAreaState = this.betSetState = s;
       }
 

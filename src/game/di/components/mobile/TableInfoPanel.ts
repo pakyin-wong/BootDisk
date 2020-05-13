@@ -73,7 +73,7 @@ namespace we {
         super.childrenCreated();
 
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this.contentTwo.alpha = 0;
+        // this.contentTwo.alpha = 0;
         this.configSlides();
       }
 
@@ -89,6 +89,8 @@ namespace we {
       }
 
       private onTouchBegin(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') return;
+
         if (!this.touchEnabled) {
           return;
         }
@@ -103,6 +105,8 @@ namespace we {
       }
 
       private onTouchMove(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') return;
+
         this.isMoved = true;
 
         if (!this.slides.length) {
@@ -124,6 +128,7 @@ namespace we {
       }
 
       private onTouchEnd(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') return;
         clearTimeout(this.autoPlayTimer);
         this.isDown = false;
         this.isMoved = false;
