@@ -67,7 +67,7 @@ namespace we {
         this._video.y = 0;
         this._video.width = 2600;
         this._video.height = 1340;
-        this._video.load('http://192.168.1.85:8090/live/360.flv');
+        this._video.load('http://h5.weinfra247.com:8090/live/720.flv');
 
         this.touchEnabled = true;
       }
@@ -99,6 +99,8 @@ namespace we {
         this.addChild(this._video);
         this.setChildIndex(this._video, 0);
         // this.playVideo();
+        this._video.play();
+        this._bgImg.visible = false;
 
         this._gameBar.setPlayFunc(this.playVideo(this));
         this._gameBar.setStopFunc(this.stopVideo(this));
@@ -558,16 +560,14 @@ namespace we {
       public playVideo(scene: any) {
         return () => {
           scene._video.play();
-          scene.bgImg.visible = false;
-          scene.bgImg.enabled = false;
+          scene._bgImg.visible = false;
         };
       }
 
       public stopVideo(scene: any) {
         return () => {
           scene._video.stop();
-          scene.bgImg.visible = true;
-          scene.bgImg.enabled = true;
+          scene._bgImg.visible = true;
         };
       }
     }
