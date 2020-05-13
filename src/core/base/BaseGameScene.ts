@@ -63,10 +63,8 @@ namespace we {
         mouse.setButtonMode(this._confirmButton, true);
 
         this._video = dir.videoPool.get();
-        this._video.x = 0;
-        this._video.y = 0;
-        this._video.width = 2600;
-        this._video.height = 1340;
+        // this._video.width = this.stage.stageWidth;
+        // this._video.height = this.stage.stageHeight;
         this._video.load('http://h5.weinfra247.com:8090/live/720.flv');
 
         this.touchEnabled = true;
@@ -99,6 +97,14 @@ namespace we {
         this.addChild(this._video);
         this.setChildIndex(this._video, 0);
         // this.playVideo();
+        const aspect = 16 / 9;
+        const ratio = this.stage.stageWidth / this.stage.stageHeight;
+        this._video.x = this.stage.stageWidth * 0.5;
+        this._video.y = this.stage.stageHeight * 0.5;
+        this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
+        this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
+        this._video.$anchorOffsetX = this._video.width * 0.5;
+        this._video.$anchorOffsetY = this._video.height * 0.5;
         this._video.play();
         this._bgImg.visible = false;
 
