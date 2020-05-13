@@ -23,8 +23,8 @@ namespace we {
 
         protected _searchDelay: number;
 
-        protected _betHistoryMobile: overlay.BetHistoryMobile;
-        protected searchOpt;
+        // protected _betHistoryMobile: overlay.BetHistoryMobile;
+        protected _detail: betHistory.BetHistoryDetail;
 
         constructor() {
           super();
@@ -46,8 +46,11 @@ namespace we {
           this._tf_search.addEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
           this._btn_search.addEventListener('CLICKED', this.search, this);
           this._btn_clean.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickClean, this);
+          this._datagroup.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
           this._datagroup.dataProvider = this._dataColl;
           this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+          this._starttime = moment().utcOffset(8).startOf('day').unix();
+          this._endtime = moment().utcOffset(8).endOf('day').unix();
           this.search();
         }
 
@@ -57,11 +60,8 @@ namespace we {
           this._tf_search.removeEventListener(egret.Event.CHANGE, this.onSearchEnter, this);
           this._btn_search.removeEventListener('CLICKED', this.search, this);
           this._btn_clean.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickClean, this);
+          this._datagroup.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
         }
-
-        // public set setBetHistoryMobile(value: overlay.BetHistoryMobile) {
-        //   this._betHistoryMobile = value;
-        // }
 
         protected updatePlaceHolder() {
           this._txt_search.$setVisible(this._tf_search.text === '');
@@ -75,29 +75,30 @@ namespace we {
 
         protected search() {
           clearTimeout(this._searchDelay);
-          this.searchOpt = {
+          const opt = this.searchOpt;
+          dir.socket.getBetHistory(opt, this.update, this);
+        }
+
+        protected get searchOpt(): {} {
+          return {
             startdate: this._starttime * 1000,
             enddate: this._endtime * 1000,
             limit: this._limit,
             offset: (this._page - 1) * this._limit,
             filter: this._type,
-            search: this._tf_search.text,
+            search: this._tf_search ? (this._tf_search.text ? this._tf_search.text : '') : '',
           };
-          const opt = this.searchOpt;
-          console.log('this._tf_search.text', this._tf_search.text);
-          dir.socket.getBetHistory(opt, this.update, this);
+          /*
+          return {
+            startdate: this._starttime * 1000,
+            enddate: this._endtime * 1000,
+            limit: this._limit,
+            offset: (this._page - 1) * this._limit,
+            filter: this._type,
+            search: this._tf_search ? (this._tf_search.text ? this._tf_search.text : '') : '',
+          };
+          */
         }
-
-        // protected get searchOpt(): {} {
-        //     return {
-        //       startdate: this._starttime * 1000,
-        //       enddate: this._endtime * 1000,
-        //       limit: this._limit,
-        //       offset: (this._page - 1) * this._limit,
-        //       filter: this._type,
-        //       search: this._tf_search.text,
-        //     };
-        // }
 
         protected update(res: any) {
           logger.l('getBetHistory', res);
@@ -118,6 +119,11 @@ namespace we {
           }
         }
 
+        protected onClickResult(e) {
+          this._detail.dataChanged(this._dataColl.source[e.itemIndex]);
+          this._detail.show();
+        }
+
         protected set total(t) {
           if (this._total === t) {
             return;
@@ -125,7 +131,6 @@ namespace we {
         }
 
         protected onClickClean() {
-          console.log('cleannnnnnn');
           this._tf_search.text = '';
         }
 

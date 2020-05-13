@@ -27,6 +27,8 @@
             <e:Image id="_btn_clean" width="50" height="50" source="d-lobby-button-close-none_png" x="908" y="87"/>
             <e:Scroller id="_scroller" height="1719" y="432" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
 				<e:List id="_datagroup" />
-			</e:Scroller>
+	    </e:Scroller>
+            <bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
+		                     bottom="0" />
         </e:Group>
 </e:Skin>
