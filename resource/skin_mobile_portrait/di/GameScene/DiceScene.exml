@@ -81,17 +81,17 @@
 		<ui:RunTimeLabel id="_bainfo" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" text="i"
 		                 size.left_hand_mode="60" size.right_hand_mode="60" />
 	</e:Group>
-	<e:Scroller id="_betArea" width="924" height="1530" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off"
+	<e:Scroller id="_betArea" width="924" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off"
 	            x="159" y="67">
 		<e:Group id="_bAViewport">
 			<e:Rect width="879" height="100" fillAlpha="0" />
-			<e:Group x="0" y="100">
+			<e:Group x="0" y="0">
 				<e:Group id="_bATransition" x="0">
-					<e:Group id="_bANormal" x="0" height="1530" width="924">
+					<e:Group id="_bANormal" x="0" width="924">
 						<di:MobileTableLayer id="_tableLayer" width="100%" height="100%"
 						                     skinName="skin_mobile_portrait.di.MobileTableLayerSkin" isEdgeDismissable="true" />
 					</e:Group>
-					<di:MobileChipLayer id="_chipLayer" width="924" height="1530" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" isEdgeDismissable="true" scaleX="1" scaleY="1"/>
+					<di:MobileChipLayer id="_chipLayer" width="100%" height="100%" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" isEdgeDismissable="true" scaleX="1" scaleY="1"/>
 				</e:Group>
 			</e:Group>
 		</e:Group>

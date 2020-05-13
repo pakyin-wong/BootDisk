@@ -78,21 +78,18 @@ namespace we {
               250
             );
             if (env.orientation === 'portrait') {
-              // this._tableLayer.top = this._tableLayer.bottom = 100;
-              // this._chipLayer.top = this._chipLayer.bottom = 100;
-              // this._mask.x = this._betArea.x;
-              this._mask.y = this._betArea.y;
-              console.log(this._mask.y);
-              console.log(this._betArea.y);
-              // this._betArea.mask = this._mask;
+              this._tableLayer.top = this._tableLayer.bottom = 100;
+              this._chipLayer.top = this._chipLayer.bottom = 100;
+
+              this._betArea.mask = this._mask;
               this._mask.visible = true;
             }
             break;
           case 'small':
           case 'normal':
             if (env.orientation === 'portrait') {
-              // this._tableLayer.top = this._tableLayer.bottom = 0;
-              // this._chipLayer.top = this._chipLayer.bottom = 0;
+              this._tableLayer.top = this._tableLayer.bottom = 0;
+              this._chipLayer.top = this._chipLayer.bottom = 0;
               this._betArea.mask = null;
               if (this._mask) {
                 this._mask.visible = false;
@@ -169,13 +166,13 @@ namespace we {
         this._mask = new egret.Shape();
         const gr = this._mask.graphics;
         const matrix = new egret.Matrix();
-        matrix.createGradientBox(this._betArea.width, 1404, Math.PI / 2, 0, 0);
+        matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
         gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
-        gr.drawRect(0, 0, this._betArea.width, 1404); //
+        gr.drawRect(0, 0, this._betArea.width, 1270); //
         gr.endFill();
         this.addChild(this._mask);
         this._mask.x = this._betArea.x;
-        this._mask.y = this._betArea.y = 67;
+        this._mask.y = 180;
         this._mask.visible = false;
       }
 
