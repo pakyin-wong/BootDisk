@@ -44,11 +44,11 @@ namespace we {
         this._txt_Movie.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
 
         const _arrCol_Cartoon = new eui.ArrayCollection([
-          ui.NewDropdownItem('1', () => `${i18n.t('nav.userName.name.name1')}`),
-          ui.NewDropdownItem('2', () => `${i18n.t('nav.userName.name.name2')}`),
-          ui.NewDropdownItem('3', () => `${i18n.t('nav.userName.name.name3')}`),
-          ui.NewDropdownItem('4', () => `${i18n.t('nav.userName.name.name4')}`),
-          ui.NewDropdownItem('5', () => `${i18n.t('nav.userName.name.name5')}`),
+          ui.NewDropdownItem(0, () => env.nicknames.nickname_group1[0]),
+          ui.NewDropdownItem(1, () => env.nicknames.nickname_group1[1]),
+          ui.NewDropdownItem(2, () => env.nicknames.nickname_group1[2]),
+          ui.NewDropdownItem(3, () => env.nicknames.nickname_group1[3]),
+          ui.NewDropdownItem(4, () => env.nicknames.nickname_group1[4]),
         ]);
 
         if (this._ddm_Cartoon) {
@@ -69,11 +69,11 @@ namespace we {
         });
 
         const _arrCol_Myth = new eui.ArrayCollection([
-          ui.NewDropdownItem('1', () => `${i18n.t('nav.userName.name.name1')}`),
-          ui.NewDropdownItem('2', () => `${i18n.t('nav.userName.name.name2')}`),
-          ui.NewDropdownItem('3', () => `${i18n.t('nav.userName.name.name3')}`),
-          ui.NewDropdownItem('4', () => `${i18n.t('nav.userName.name.name4')}`),
-          ui.NewDropdownItem('5', () => `${i18n.t('nav.userName.name.name5')}`),
+          ui.NewDropdownItem(0, () => env.nicknames.nickname_group2[0]),
+          ui.NewDropdownItem(1, () => env.nicknames.nickname_group2[1]),
+          ui.NewDropdownItem(2, () => env.nicknames.nickname_group2[2]),
+          ui.NewDropdownItem(3, () => env.nicknames.nickname_group2[3]),
+          ui.NewDropdownItem(4, () => env.nicknames.nickname_group2[4]),
         ]);
         if (this._ddm_Myth) {
           this._ddm_Myth.isDropdown = true;
@@ -93,11 +93,11 @@ namespace we {
         });
 
         const _arrCol_Movie = new eui.ArrayCollection([
-          ui.NewDropdownItem('1', () => `${i18n.t('nav.userName.name.name1')}`),
-          ui.NewDropdownItem('2', () => `${i18n.t('nav.userName.name.name2')}`),
-          ui.NewDropdownItem('3', () => `${i18n.t('nav.userName.name.name3')}`),
-          ui.NewDropdownItem('4', () => `${i18n.t('nav.userName.name.name4')}`),
-          ui.NewDropdownItem('5', () => `${i18n.t('nav.userName.name.name5')}`),
+          ui.NewDropdownItem(0, () => env.nicknames.nickname_group3[0]),
+          ui.NewDropdownItem(1, () => env.nicknames.nickname_group3[1]),
+          ui.NewDropdownItem(2, () => env.nicknames.nickname_group3[2]),
+          ui.NewDropdownItem(3, () => env.nicknames.nickname_group3[3]),
+          ui.NewDropdownItem(4, () => env.nicknames.nickname_group3[4]),
         ]);
         if (this._ddm_Movie) {
           this._ddm_Movie.isDropdown = true;
@@ -163,21 +163,22 @@ namespace we {
       }
 
       private onCartoonChange(e) {
-        env.nickname = e.data;
+        this._arrow_Myth.rotation = 180;
+        env.nickname = env.nicknames.nickname_group1[e.data];
         dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
         this.previousPage();
       }
 
       private onMythChange(e) {
         this._arrow_Myth.rotation = 180;
-        env.nickname = e.data;
+        env.nickname = env.nicknames.nickname_group2[e.data];
         dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
         this.previousPage();
       }
 
       private onMovieChange(e) {
         this._arrow_Movie.rotation = 180;
-        env.nickname = e.data;
+        env.nickname = env.nicknames.nickname_group3[e.data];
         dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
         this.previousPage();
       }

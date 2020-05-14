@@ -56,7 +56,7 @@ namespace we {
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
-        this._username.renderText = () => `${i18n.t(`nav.userName.name.name${env.nickname}`)}`;
+        this._username.renderText = () => env.nickname;
         if (env.isMobile) {
           this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;

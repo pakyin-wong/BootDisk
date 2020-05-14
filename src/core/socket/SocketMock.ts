@@ -347,7 +347,7 @@ namespace we {
         return tables;
       }
 
-      public updateSetting(key: string, value: string) {}
+      public updateSetting(key: string, value: string) { }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
@@ -368,7 +368,20 @@ namespace we {
         env.currTime = Date.now();
         env.playerID = 'PID001';
         env.currency = Currency.RMB;
-        env.nickname = '1';
+        env.nickname = 'Jonathan';
+        env.nicknames = {
+          nickname_group1: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+          nickname_group2: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+          nickname_group3: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+        };
+        env.icons = ['resource/assets/m/common/m_common_header_profile_pic_01.png',
+          'resource/assets/m/common/m_common_header_profile_pic_02.png',
+          'resource/assets/m/common/m_common_header_profile_pic_03.png',
+          'resource/assets/m/common/m_common_header_profile_pic_04.png',
+          'resource/assets/m/common/m_common_header_profile_pic_05.png',
+          'resource/assets/m/common/m_common_header_profile_pic_06.png',
+          'resource/assets/m/common/m_common_header_profile_pic_07.png',
+          'resource/assets/m/common/m_common_header_profile_pic_08.png'];
         env.profileImageURL = 'https://url';
         env.betLimits = [
           {
@@ -439,7 +452,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) {}
+      public leaveTable(tableID: string) { }
 
       public getTableList(filter: string) {
         /*

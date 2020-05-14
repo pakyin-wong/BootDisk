@@ -141,7 +141,8 @@ namespace we {
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
-        env.nickname = player.profile.nickname;
+        // env.nickname = player.profile.nickname;
+        env.nickname = player.profile.settings.nickname? player.profile.settings.nickname:player.profile.nickname;
         env.profileImageURL = player.profile.profileimage;
         logger.l('PlayerClient::handleReady() ' + player.profile.betlimits);
         env.betLimits = player.profile.betlimits
