@@ -3,115 +3,115 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*">
 	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betboard_inactive_png"
 	         fillMode="scale" />
-	<e:Group id="_direct_0_group" width="98" height="211" x="3" y="2" anchorOffsetX="0" anchorOffsetY="0" locked="true">
+	<e:Group id="_direct_0_group" width="101" height="212" x="1" y="1" anchorOffsetX="0" anchorOffsetY="0" locked="true">
 		<e:Label id="_direct_0_label" text="0" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_1_group" width="80" height="70" x="104" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_1_group" width="82" height="72" x="103" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_1_label" text="1" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_2_group" width="80" height="70" x="104" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_2_group" width="82" height="70" x="103" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_2_label" text="2" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_3_group" width="80" height="70" x="104" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_3_group" width="82" height="70" x="103" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_3_label" text="3" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_4_group" width="80" height="70" x="187" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_4_group" width="82" height="72" x="186" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_4_label" text="4" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_5_group" width="80" height="70" x="187" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_5_group" width="82" height="70" x="186" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_5_label" text="5" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_6_group" width="80" height="70" x="187" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_6_group" width="82" height="70" x="186" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_6_label" text="6" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_7_group" width="80" height="70" x="270" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_7_group" width="82" height="72" x="269" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_7_label" text="7" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_8_group" width="80" height="70" x="270" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_8_group" width="82" height="70" x="269" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_8_label" text="8" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_9_group" width="80" height="70" x="270" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_9_group" width="82" height="70" x="269" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_9_label" text="9" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_10_group" width="80" height="70" x="353" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_10_group" width="82" height="72" x="352" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_10_label" text="10" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_11_group" width="80" height="70" x="353" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_11_group" width="82" height="70" x="352" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_11_label" text="11" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_12_group" width="80" height="70" x="353" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_12_group" width="82" height="70" x="352" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_12_label" text="12" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_13_group" width="80" height="70" x="436" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_13_group" width="82" height="72" x="435" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_13_label" text="13" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_14_group" width="80" height="70" x="436" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_14_group" width="82" height="70" x="435" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_14_label" text="14" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_15_group" width="80" height="70" x="436" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_15_group" width="82" height="70" x="435" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_15_label" text="15" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_16_group" width="80" height="70" x="519" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_16_group" width="83" height="72" x="517" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_16_label" text="16" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_17_group" width="80" height="70" x="519" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_17_group" width="83" height="70" x="517" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_17_label" text="17" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_18_group" width="80" height="70" x="519" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_18_group" width="83" height="70" x="517" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_18_label" text="18" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_19_group" width="80" height="70" x="602" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_19_group" width="83" height="72" x="600" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_19_label" text="19" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_20_group" width="80" height="70" x="602" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_20_group" width="83" height="70" x="600" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_20_label" text="20" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_21_group" width="80" height="70" x="602" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_21_group" width="83" height="70" x="600" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_21_label" text="21" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_22_group" width="80" height="70" x="685" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_22_group" width="82" height="72" x="684" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_22_label" text="22" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_23_group" width="80" height="70" x="685" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_23_group" width="82" height="70" x="684" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_23_label" text="23" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_24_group" width="80" height="70" x="685" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_24_group" width="82" height="70" x="684" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_24_label" text="24" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_25_group" width="80" height="70" x="768" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_25_group" width="82" height="72" x="767" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_25_label" text="25" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_26_group" width="80" height="70" x="768" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_26_group" width="82" height="70" x="767" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_26_label" text="26" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_27_group" width="80" height="70" x="768" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_27_group" width="82" height="70" x="767" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_27_label" text="27" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_28_group" width="80" height="70" x="851" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_28_group" width="82" height="72" x="850" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_28_label" text="28" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_29_group" width="80" height="70" x="851" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_29_group" width="82" height="70" x="850" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_29_label" text="29" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_30_group" width="80" height="70" x="851" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_30_group" width="82" height="70" x="850" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_30_label" text="30" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_31_group" width="80" height="70" x="934" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_31_group" width="82" height="72" x="933" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_31_label" text="31" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_32_group" width="80" height="70" x="934" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_32_group" width="82" height="70" x="933" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_32_label" text="32" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_33_group" width="80" height="70" x="934" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_33_group" width="82" height="70" x="933" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_33_label" text="33" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_34_group" width="80" height="70" x="1017" y="143" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_34_group" width="82" height="72" x="1016" y="142" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_34_label" text="34" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_35_group" width="80" height="70" x="1017" y="72" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_35_group" width="82" height="70" x="1016" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_35_label" text="35" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_direct_36_group" width="80" height="70" x="1017" y="1" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_direct_36_group" width="82" height="70" x="1016" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_36_label" text="36" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_separate_1_2_group" width="40" height="35" x="124" y="125" anchorOffsetX="0" anchorOffsetY="0">
@@ -447,31 +447,31 @@
 	<e:Group id="_row_1_group" width="108" height="70" x="1098" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_row_1_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_dozen_1_12_group" width="330" height="59" x="102" y="215" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_dozen_1_12_group" width="331" height="60" x="102" y="215" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_dozen_1_12_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_dozen_13_24_group" width="330" height="59.39" x="435" y="215" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_dozen_13_24_group" width="332" height="60" x="434" y="215" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_dozen_13_24_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_dozen_25_36_group" width="330" height="59" x="769" y="215" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_dozen_25_36_group" width="333" height="60" x="766" y="215" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_dozen_25_36_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_red_group" width="163" height="60" x="436" y="278.2" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_red_group" width="164" height="61" x="435" y="277" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_red_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_black_group" width="163" height="60" x="602" y="278.2" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_black_group" width="163" height="61" x="602" y="277" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_black_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_odd_group" width="162" height="59" x="769" y="278.2" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_odd_group" width="163" height="61" x="768" y="277" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_even_group" width="163.6" height="60.4" x="269.79" y="277.8" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_even_group" width="165" height="61" x="269" y="277" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_small_group" width="164.8" height="60.8" x="102.4" y="277.8" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_small_group" width="165" height="61" x="102" y="277" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_small_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_big_group" width="164" height="60.4" x="933.59" y="277.8" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="_big_group" width="164" height="61" x="933.59" y="277" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_big_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betborad_outline_png"
