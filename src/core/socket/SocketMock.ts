@@ -26,9 +26,14 @@ namespace we {
       };
 
       constructor() {
+        // For the update event
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
+        // end
+
+        env.balance = 2800000;
+        env.currency = core.Currency.RMB;
 
         this.tables = Object.keys(this.totalTableCount).reduce((tables, key) => [...tables, ...this.createMockGameTable(key)], []);
 
@@ -437,10 +442,12 @@ namespace we {
       public leaveTable(tableID: string) {}
 
       public getTableList(filter: string) {
+        /*
         setInterval(() => {
           this.balanceEvent(this);
           dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
         }, 6000);
+        */
 
         setTimeout(() => {
           this.dispatchListUpdateEvent();
@@ -530,6 +537,9 @@ namespace we {
         });
       }
 
+      /*
+        Not in use
+      */
       public balanceEvent(myObj: any) {
         if (myObj.balance_index < myObj.balances.length) {
           env.balance = myObj.balances[myObj.balance_index];
@@ -859,6 +869,8 @@ namespace we {
 
               isMatch = true;
               cfmBetDetail.amount += betDetail.amount;
+              env.balance -= betDetail.amount;
+              dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
               break;
             }
           }
@@ -871,6 +883,8 @@ namespace we {
               winamount: 0,
               iswin: 0,
             });
+            env.balance -= betDetail.amount;
+            dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
           }
         }
         this.dispatchInfoUpdateEvent(data);

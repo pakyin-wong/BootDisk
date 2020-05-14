@@ -75,7 +75,7 @@ namespace we {
 
         console.log('checkResultMessage', this._gameData);
 
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData>this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo}`);
         const lwGameResultMessage = new lw.GameResultMessage();
         lwGameResultMessage.type = null;

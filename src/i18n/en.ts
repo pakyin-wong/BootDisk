@@ -300,25 +300,11 @@ namespace we {
         customBet: 'Custom Bet',
         betLimitShort: 'Bet Limit',
         gameId: 'ID',
-        distribution: {
-          text: 'Distribution',
-          x: 30,
-        },
-        tiers: {
-          text: 'Tiers',
-          x: 51,
-        },
-        orphelins: {
-          text: 'Orphelins',
-          x: 57,
-        },
-        voisins: {
-          text: 'Voisins',
-          x: 34,
-        },
-        zero: {
-          text: 'Zero',
-        },
+        distribution: 'Distribution',
+        tiers: 'Tiers',
+        orphelins: 'Orphelins',
+        voisins: 'Voisins',
+        zero: 'Zero',
         betGroup: {
           color: 'Red / Black',
           oddeven: 'Odd / Even',
