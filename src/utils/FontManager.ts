@@ -67,7 +67,7 @@ class FontManager {
     );
   }
 
-  public loadFonts(resources: { res: string; name?: string }[]): Promise<{}> {
+  public loadFonts(resources: Array<{ res: string; name?: string }>): Promise<{}> {
     return Promise.all(resources.map(data => this.loadFont(data.res, data.name)));
   }
 }

@@ -16,6 +16,9 @@ namespace we {
       protected _roadmapControl: DiRoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
 
+      protected _panelGroup: eui.Group;
+      protected _panelTween: ui.TweenConfig;
+
       protected _baGameIDText: ui.RunTimeLabel;
       protected _baGameID: ui.RunTimeLabel;
       protected _totalBet: ui.RunTimeLabel;
@@ -27,8 +30,24 @@ namespace we {
 
       protected _mode: string = 'normal';
 
+      protected _mask: egret.Shape;
+
       constructor(data: any) {
         super(data);
+      }
+
+      protected set panelState(s) {
+        if (env.orientation === 'portrait') return;
+        const state = s;
+
+        if (this._panelTween.currentState === state) {
+          return;
+        }
+        this._panelTween.currentState = state;
+        this._panelTween.validateNow();
+
+        egret.Tween.removeTweens(this._panelGroup);
+        egret.Tween.get(this._panelGroup).to(this._panelTween.getTweenPackage(), 250);
       }
 
       protected set betSetState(s) {
@@ -75,9 +94,24 @@ namespace we {
               },
               250
             );
+            if (env.orientation === 'portrait') {
+              this._tableLayer.top = this._tableLayer.bottom = 100;
+              this._chipLayer.top = this._chipLayer.bottom = 100;
+
+              this._betArea.mask = this._mask;
+              this._mask.visible = true;
+            }
             break;
           case 'small':
           case 'normal':
+            if (env.orientation === 'portrait') {
+              this._tableLayer.top = this._tableLayer.bottom = 0;
+              this._chipLayer.top = this._chipLayer.bottom = 0;
+              this._betArea.mask = null;
+              if (this._mask) {
+                this._mask.visible = false;
+              }
+            }
           default:
             this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
             egret.Tween.get(this._betArea.viewport).to(
@@ -93,6 +127,8 @@ namespace we {
       }
 
       protected set diState(s) {
+        if (env.orientation === 'landscape') this.panelState = s;
+
         this.betAreaState = this.betSetState = s;
       }
 
@@ -145,6 +181,18 @@ namespace we {
         }
 
         this.changeHandMode();
+
+        this._mask = new egret.Shape();
+        const gr = this._mask.graphics;
+        const matrix = new egret.Matrix();
+        matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
+        gr.drawRect(0, 0, this._betArea.width, 1270); //
+        gr.endFill();
+        this.addChild(this._mask);
+        this._mask.x = this._betArea.x;
+        this._mask.y = 180;
+        this._mask.visible = false;
       }
 
       protected addEventListeners() {

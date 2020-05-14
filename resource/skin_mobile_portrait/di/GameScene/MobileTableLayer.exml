@@ -34,7 +34,6 @@
         <e:Group id="_double_1_group" width="308" height="100%" anchorOffsetX="0">
         </e:Group>
         <e:Group id="_double_3_group" width="307" height="100%" x="309" y="0" anchorOffsetX="0">
-            <e:Image id="_double_3_hover"/>
         </e:Group>
         <e:Group id="_double_5_group" width="307" height="100%" anchorOffsetX="0" x="616.5" y="0">
         </e:Group>
@@ -91,5 +90,5 @@
         <e:Group id="_specific_5_group" width="155" height="100%" x="616" anchorOffsetX="0"/>
         <e:Group id="_specific_6_group" width="151" height="100%" x="771" anchorOffsetX="0"/>
     </e:Group>
-    <ui:RunTimeLabel id="_specific_label" text="單骰1:1 雙骰2:1 三骰3:1" size="24" horizontalCenter="0" bottom="10" textColor="0xffffff" fontFamily="Microsoft JhengHei"/>
+    <ui:RunTimeLabel id="_specific_label" text="單骰 1:1 雙骰 2:1 三骰 12:1" size="24" horizontalCenter="0" bottom="10" textColor="0xffffff" fontFamily="Microsoft JhengHei"/>
 </e:Skin>

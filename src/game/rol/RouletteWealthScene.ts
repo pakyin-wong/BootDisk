@@ -30,43 +30,43 @@ namespace we {
       }
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.rol.RolLeftPanel> this._leftGamePanel).clearLuckyNumbers();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.rol.RolLeftPanel> this._leftGamePanel).clearLuckyNumbers();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (this._previousState !== we.core.GameState.FINISH || isInit) {
-          (<we.rol.RolLeftPanel> this._leftGamePanel).updateLuckyNumbers();
+          (<we.rol.RolLeftPanel>this._leftGamePanel).updateLuckyNumbers();
         }
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.rol.RolLeftPanel> this._leftGamePanel).clearLuckyNumbers();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.rol.RolLeftPanel> this._leftGamePanel).clearLuckyNumbers();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
-        (<we.rol.RolLeftPanel> this._leftGamePanel).clearLuckyNumbers();
+        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.RolLeftPanel>this._leftGamePanel).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.rol.ChipLayer> this._chipLayer).showLuckyNumber();
-          (<we.rol.RolLeftPanel> this._leftGamePanel).updateLuckyNumbers();
+          (<we.rol.ChipLayer>this._chipLayer).showLuckyNumber();
+          (<we.rol.RolLeftPanel>this._leftGamePanel).updateLuckyNumbers();
         }
       }
 

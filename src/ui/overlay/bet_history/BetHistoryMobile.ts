@@ -41,7 +41,6 @@ namespace we {
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
         this._scroller.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
-        // this._search.setBetHistoryMobile = this;
         this.addListeners();
       }
 
@@ -134,7 +133,6 @@ namespace we {
       }
 
       protected onClickSearch(e) {
-        // this.close.visible = false;
         this._search.show();
       }
 
