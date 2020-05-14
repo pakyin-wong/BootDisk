@@ -299,6 +299,7 @@
 		"resource/skin_mobile_landscape/overlay/DoubleCalendarPicker.exml",
 		"resource/skin_mobile_landscape/overlay/BetHistory.exml",
 		"resource/skin_mobile_landscape/overlay/BetHistoryItem.exml",
+		"resource/skin_mobile_landscape/overlay/changeName.exml",
 		"resource/skin_mobile_portrait/GoodRoadEditItem.exml",
 		"resource/skin_mobile_landscape/overlay/CustomRoad.exml",
 		"resource/skin_mobile_landscape/overlay/MemberReport.exml",

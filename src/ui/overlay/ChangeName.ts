@@ -142,42 +142,54 @@ namespace we {
       }
 
       private onCartoonSelect() {
-        this._mask_Cartoon.fillColor = 0x1b416e;
-        this._arrow_Cartoon.rotation += 180;
-        this._mask.visible = this._mask.visible ? false : true;
+        if (env.orientation === "portrait") {
+          this._mask_Cartoon.fillColor = 0x1b416e;
+          this._arrow_Cartoon.rotation += 180;
+          this._mask.visible = this._mask.visible ? false : true;
+        }
         dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
       }
 
       private onMythSelect() {
-        this._mask_Myth.fillColor = 0x1b416e;
-        this._arrow_Myth.rotation += 180;
-        this._mask.visible = this._mask.visible ? false : true;
+        if (env.orientation === "portrait") {
+          this._mask_Myth.fillColor = 0x1b416e;
+          this._arrow_Myth.rotation += 180;
+          this._mask.visible = this._mask.visible ? false : true;
+        }
         dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.myth')}`;
       }
 
       private onMovieSelect() {
-        this._mask_Movie.fillColor = 0x1b416e;
-        this._arrow_Movie.rotation += 180;
-        this._mask.visible = this._mask.visible ? false : true;
+        if (env.orientation === "portrait") {
+          this._mask_Movie.fillColor = 0x1b416e;
+          this._arrow_Movie.rotation += 180;
+          this._mask.visible = this._mask.visible ? false : true;
+        }
         dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
       }
 
       private onCartoonChange(e) {
-        this._arrow_Myth.rotation = 180;
+        if (env.orientation === "portrait") {
+          this._arrow_Myth.rotation = 180;
+        }
         env.nickname = env.nicknames.nickname_group1[e.data];
         dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
         this.previousPage();
       }
 
       private onMythChange(e) {
-        this._arrow_Myth.rotation = 180;
+        if (env.orientation === "portrait") {
+          this._arrow_Myth.rotation = 180;
+        }
         env.nickname = env.nicknames.nickname_group2[e.data];
         dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
         this.previousPage();
       }
 
       private onMovieChange(e) {
-        this._arrow_Movie.rotation = 180;
+        if (env.orientation === "portrait") {
+          this._arrow_Movie.rotation = 180;
+        }
         env.nickname = env.nicknames.nickname_group3[e.data];
         dir.evtHandler.dispatch(core.Event.PLAYER_PROFILE_UPDATE, e.data);
         this.previousPage();
