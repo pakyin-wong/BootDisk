@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.di.StatisticChartPanel" width="1242" height="532" xmlns:di="we.di.*" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-    <e:Group id="content" width="100%" height="100%">
-        <e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
-	    <e:Image id="moveArea" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
-        <e:ViewStack id="pageOneStack" width="100%" height="80%" x="0" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
-            <e:Group width="100%" height="100%" name="Group">
-                <di:DiPie id="_diPie" skinName="skin_desktop.DiRightPanelPie"  scaleX="1.5" scaleY="1.5" horizontalCenter="0" top="0"/>
-            </e:Group>
-        </e:ViewStack>
-    </e:Group>
-    <e:Group id="contentTwo" width="100%" height="100%">
-        <e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
-	    <e:Image id="moveArea0" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
-        <e:ViewStack id="pageTwoStack" width="100%" height="80%" x="0" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
-            <e:Group width="100%" height="100%" name="View">
-                <di:DiChance id="_diChance" skinName="skin_desktop.DiRightPanelChance" scaleX="1.5" scaleY="1.5" horizontalCenter="0" top="0"/>
-            </e:Group>    
-        </e:ViewStack>
-    </e:Group>
-    <e:Image id="_bulletOne" width="20" height="20" x="591" y="485" source="m_lobby_banner_bullet_png"/>
-    <e:Image id="_bulletTwo" width="20" height="20" x="631" y="485" source="m_lobby_banner_bullet_active_png"/>
+    <ui:HorizontalHolder width="1242" height="532" slideWidth="1242" slideHeight="532" isLoop="true" isAuto="true">
+        <e:Group id="content" width="100%" height="100%">
+            <e:Rect id="_bg" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
+            <e:Image id="moveArea" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
+            <e:ViewStack id="pageOneStack" width="100%" height="80%" x="0" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
+                <e:Group width="100%" height="100%" name="Group">
+                    <di:DiPie id="_diPie" skinName="skin_desktop.DiRightPanelPie"  scaleX="1.5" scaleY="1.5" horizontalCenter="0" top="0"/>
+                </e:Group>
+            </e:ViewStack>
+        </e:Group>
+        <e:Group id="contentTwo" width="100%" height="100%">
+            <e:Rect id="_bg0" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" fillColor="0x212425"/>
+            <e:Image id="moveArea0" source="nav_panel_bg" left="0" top="0" bottom="0" right="0" scale9Grid="28,22,18,7" visible="false"/>
+            <e:ViewStack id="pageTwoStack" width="100%" height="80%" x="0" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
+                <e:Group width="100%" height="100%" name="View">
+                    <di:DiChance id="_diChance" skinName="skin_desktop.DiRightPanelChance" scaleX="1.5" scaleY="1.5" horizontalCenter="0" top="0"/>
+                </e:Group>    
+            </e:ViewStack>
+        </e:Group>
+    </ui:HorizontalHolder>
 </e:Skin>
