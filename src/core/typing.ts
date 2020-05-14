@@ -22,6 +22,9 @@ namespace we {
       getBetCombination();
       removeBetCombination(id: string);
       retryPlayerClient(functionName: string, args: any[]);
+      getBalance();
+      getPlayerProfileSummary(callback: (data: any) => void);
+      getPlayerStatistic();
     }
 
     export interface ILobbyRoad {

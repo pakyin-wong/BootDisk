@@ -41,7 +41,7 @@
 					<e:Label id="_following" text="Label" y="621" height="72" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle" x="2055"/>
 					<e:Label id="_favouriteDealer" text="Label" y="728" height="72" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle" x="2055"/>
 					<ui:BaseImageButton width="58" height="60" x="1087" y="523" skinName="skin_mobile_landscape.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
-					<ui:BaseImageButton width="57" height="58" x="1088" y="644" skinName="skin_mobile_landscape.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
+					<ui:BaseImageButton id="_btn_reload_player_profile" width="57" height="58" x="1088" y="644" skinName="skin_mobile_landscape.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
 				</e:Group>
 				
 			</e:Group>

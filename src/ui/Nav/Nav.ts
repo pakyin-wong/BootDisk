@@ -54,7 +54,6 @@ namespace we {
           dir.meterCtr.register('balance', this._balanceGame);
         }
         dir.meterCtr.register('balance', this._balance);
-        console.log('this._balance', this._balance);
         if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
@@ -70,15 +69,21 @@ namespace we {
           // dir.evtHandler.addEventListener(core.Event.BA_POPDOWN, this.gameListPopDown, this);
           // this._lantern.alignToLeft();
         }
+        this._refreshButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
         dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
         dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
       }
 
       private removeListeners() {
+        this._refreshButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
         dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
         dir.evtHandler.removeEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
+      }
+
+      private updateBalance() {
+        dir.socket.getBalance();
       }
 
       private onSceneChange(e = null) {

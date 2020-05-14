@@ -10,6 +10,7 @@ namespace we {
       private mockProcesses: MockProcess[] = [];
 
       private _tempIdx: number = 0;
+      private countforplayerprofile = 0; // check getPlayerProfileSummary work
 
       protected betCombinations: we.data.BetCombination[];
 
@@ -52,6 +53,25 @@ namespace we {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
         }, 5000);*/
+      }
+
+      public getBalance() {}
+
+      public getPlayerStatistic() {
+        //         PlayerStatistic {
+        //   bet: int,       // total bet
+        //   winloss: int,   // total win loss
+        // }
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        const data = new we.data.PlayerProfileSummary();
+        const tempMaxwin = 100100;
+        const tempwinningstreak = 10;
+        data.maxwin = tempMaxwin;
+        data.winningstreak = tempwinningstreak + this.countforplayerprofile;
+        this.countforplayerprofile += 1;
+        callback(data);
       }
 
       protected generateDummyStatistic(data) {
