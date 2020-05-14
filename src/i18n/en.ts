@@ -123,17 +123,17 @@ namespace we {
       video_setting_auto: 'Automatic',
       video_setting_cam: 'Camera',
       video_setting_qua: 'Quality',
-      video_setting_closer: 'Close mirror',
-      video_setting_far: 'Far mirror',
-      video_setting_close: 'Close',
-      video_setting_bluray: 'Blu-ray',
-      video_setting_highQua: 'Super clear',
-      video_setting_standQua: 'Standard Definition',
+      video_setting_closer: 'Close mirror',
+      video_setting_far: 'Far mirror',
+      video_setting_close: 'Close',
+      video_setting_bluray: 'Blu-ray',
+      video_setting_highQua: 'Super clear',
+      video_setting_standQua: 'Standard Definition',
 
       live_verification_title: 'Live verification',
-      live_verification_text: 'Click to input emoji to send to live tablet',
-      live_verification_send: 'Send',
-      live_verification_success_text: 'Successfully sent, please pay attention to the display on the live tablet',
+      live_verification_text: 'Click to input emoji to send to live tablet',
+      live_verification_send: 'Send',
+      live_verification_success_text: 'Successfully sent, please pay attention to the display on the live tablet',
 
       loading: {
         socket: {

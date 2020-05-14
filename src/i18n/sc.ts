@@ -124,17 +124,17 @@ namespace we {
       video_setting_auto: '自动',
       video_setting_cam: '镜头',
       video_setting_qua: '画质',
-      video_setting_closer: '近镜',
-      video_setting_far: '远镜',
-      video_setting_close: '关闭',
-      video_setting_bluray: '蓝光',
-      video_setting_highQua: '超清',
-      video_setting_standQua: '标清',
+      video_setting_closer: '近镜',
+      video_setting_far: '远镜',
+      video_setting_close: '关闭',
+      video_setting_bluray: '蓝光',
+      video_setting_highQua: '超清',
+      video_setting_standQua: '标清',
 
       live_verification_title: '现场验证',
-      live_verification_text: '点击输入表情符号传送至现场平板电脑',
-      live_verification_send: '发送',
-      live_verification_success_text: '成功发送，请留意现场平板电脑的显示',
+      live_verification_text: '点击输入表情符号传送至现场平板电脑',
+      live_verification_send: '发送',
+      live_verification_success_text: '成功发送，请留意现场平板电脑的显示',
 
       loading: {
         socket: {

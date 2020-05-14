@@ -53,7 +53,7 @@
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
-			<e:RadioButton id="blueRayBtn" label="藍光" x="315" y="611" width="128" height="101" value="0" selected="true" scaleX="1" scaleY="1" groupName="top">
+			<e:RadioButton id="bluRayBtn" label="藍光" x="315" y="611" width="128" height="101" value="0" selected="true" scaleX="1" scaleY="1" groupName="top">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
 				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
