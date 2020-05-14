@@ -27,6 +27,7 @@ namespace we {
       private _mask_Cartoon: eui.Rect;
       private _mask_Myth: eui.Rect;
       private _mask_Movie: eui.Rect;
+      private _mask: eui.Rect;
 
       constructor() {
         super('ChangeName');
@@ -143,18 +144,21 @@ namespace we {
       private onCartoonSelect() {
         this._mask_Cartoon.fillColor = 0x1b416e;
         this._arrow_Cartoon.rotation += 180;
+        this._mask.visible = this._mask.visible ? false : true;
         dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
       }
 
       private onMythSelect() {
         this._mask_Myth.fillColor = 0x1b416e;
         this._arrow_Myth.rotation += 180;
+        this._mask.visible = this._mask.visible ? false : true;
         dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.myth')}`;
       }
 
       private onMovieSelect() {
         this._mask_Movie.fillColor = 0x1b416e;
         this._arrow_Movie.rotation += 180;
+        this._mask.visible = this._mask.visible ? false : true;
         dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
       }
 

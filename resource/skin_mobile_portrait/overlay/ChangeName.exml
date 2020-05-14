@@ -35,5 +35,6 @@
 				<e:VerticalLayout gap="75" />
 			</e:layout>
 		</e:Group>
+		<e:Rect id="_mask" left="0" right="0" top="0" bottom="0" fillColor="0x14181e" fillAlpha="0.5" visible="false" touchEnabled="true"/>
 	</e:Group>
 </e:Skin>
