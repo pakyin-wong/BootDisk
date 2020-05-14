@@ -22,13 +22,13 @@ namespace we {
         const offsetForTableList = -208;
 
         // init image slider
-        const slider = new we.ui.ImageSlider();
-        slider.height = 1242;
-        slider.width = 1242;
-        slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.slider = new we.ui.ImageSlider();
+        root.slider.height = 1242;
+        root.slider.width = 1242;
+        root.slider.configSlides(dir.liveResources.liveHeroBanners);
 
         // init room grids
-        root.roomList = new ui.TableList();
+        // root.roomList = new ui.TableList();
         // root.roomList.isFreezeScrolling = true;
         // root.roomList.isGlobalLock = true;
         root.roomList.width = root.stage.stageWidth;
@@ -63,11 +63,11 @@ namespace we {
         section.scroller = root.scroller;
         section.isHeaderSticky = true;
         section.contentPaddingTop = this.normalGapSize;
-        section.y = slider.height + offsetForTableList + this.normalGapSize;
+        section.y = root.slider.height + offsetForTableList + this.normalGapSize;
         section.percentWidth = 100;
 
         const group = new eui.Group();
-        group.addChild(slider);
+        // group.addChild(root.slider);
         group.addChild(section);
 
         tabBarGroup.percentWidth = 100;
