@@ -6,7 +6,7 @@ namespace we {
       private _user: eui.Label;
       private _profile_toggle: eui.Group;
       private _profile: Panel;
-      private _menu_toggle: eui.Image;
+      private _menu_toggle: ui.BaseAnimationButton;
       private _menu: Panel;
       private _slider_toggle: ui.BaseImageButton;
 

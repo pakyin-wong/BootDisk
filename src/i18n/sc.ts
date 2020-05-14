@@ -331,9 +331,9 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
-        bet: '已下注',
+        betted: '已下注',
         goodroad: '好路',
-        allgame: '全部游戏',
+        allgames: '全部游戏',
       },
       baccarat: {
         playerPair: '闲对',

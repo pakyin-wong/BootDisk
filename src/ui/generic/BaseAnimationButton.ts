@@ -56,6 +56,13 @@ namespace we {
       }
 
       protected mount() {
+        super.mount();
+        if (!this._dbClass) {
+          throw new Error('Missing property dbClass in BaseAnimationButton');
+        }
+        if (!this._dbDisplay) {
+          throw new Error('Missing property dbDisplay in BaseAnimationButton');
+        }
         if (!this._display) {
           const factory = BaseAnimationButton.getFactory(this._dbClass);
           this._display = factory.buildArmatureDisplay(this._dbDisplay);
@@ -79,6 +86,14 @@ namespace we {
         const oldState = [this._down, this._hover];
         this.update(oldState);
       }
+
+      // enter scene have bug causing destroy called
+      // protected destroy() {
+      //   super.destroy();
+      //   if (this._display) {
+      //     this._display.dispose();
+      //   }
+      // }
 
       public get buttonEnabled() {
         return this._enabled;
@@ -151,6 +166,10 @@ namespace we {
       private playPromise(anim, count) {
         console.log('BaseAnimationButton', anim);
 
+        if (!this._display.armature) {
+          throw new Error('Animation missing armature');
+        }
+
         return new Promise(resolve => {
           const listener = () => {
             this._display.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
@@ -186,8 +205,10 @@ namespace we {
           //     await this.playPromise('release', 1);
           //   }
           this.playPromise('mouse_out', 1);
-        } else if (!this._active) {
+        } else if (this._active) {
           this.playPromise('idle', 0);
+        } else {
+          this.playPromise('disable', 0);
         }
       }
 

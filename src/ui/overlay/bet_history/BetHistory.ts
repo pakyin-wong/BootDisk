@@ -32,8 +32,8 @@ namespace we {
       protected _ddm_page: ui.Panel;
       protected _txt_page: ui.RunTimeLabel;
 
-      protected _btn_prev: ui.BaseImageButton;
-      protected _btn_next: ui.BaseImageButton;
+      protected _btn_prev: ui.BaseAnimationButton;
+      protected _btn_next: ui.BaseAnimationButton;
 
       protected _datagroup: eui.DataGroup;
       protected _dataColl: eui.ArrayCollection;

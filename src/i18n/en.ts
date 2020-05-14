@@ -329,9 +329,9 @@ namespace we {
         stopBet: 'Stop Bet',
       },
       sidePanel: {
-        bet: 'Bet',
+        betted: 'Bet',
         goodroad: 'Good Road',
-        allgame: 'All Game',
+        allgames: 'All Game',
       },
       baccarat: {
         playerPair: 'Player Pair',

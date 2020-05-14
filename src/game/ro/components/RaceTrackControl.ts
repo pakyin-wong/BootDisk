@@ -3,8 +3,8 @@ namespace we {
     export class RaceTrackControl extends core.BaseEUI {
       protected _distributionLabel: ui.RunTimePropertyLabel;
       protected _distNumLabel: eui.Label;
-      protected _addButton: ui.BaseImageButton;
-      protected _lessButton: ui.BaseImageButton;
+      protected _addButton: ui.BaseAnimationButton;
+      protected _lessButton: ui.BaseAnimationButton;
       protected _value: number;
       protected _min: number = 0;
       protected _max: number = 7;

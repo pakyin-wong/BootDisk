@@ -1,9 +1,7 @@
 namespace we {
   export namespace ui {
     export class ImageTabItemWithBadge extends TabItemWithBadge {
-      protected _image: eui.Image;
-      // protected _badge: eui.Group;
-      // protected _badgeLabel: eui.Label;
+      protected _image: ui.BaseAnimationButton;
 
       constructor() {
         super();
@@ -23,15 +21,20 @@ namespace we {
       }
 
       protected updateImage(state) {
-        let imgState = 'normal';
+        if (!this._image) {
+          this._image = new we.ui.BaseAnimationButton();
+          this._image.dbClass = 'lobby_ui';
+          this._image.dbDisplay = `d_lobby_panel_gamelist_${this.data}`;
+          this.addChildAt(this._image, 0);
+        }
+        this._image.active = false;
         switch (state) {
           case 'down':
           case 'upAndSelected':
           case 'downAndSelected':
-            imgState = 'active';
+            this._image.active = true;
             break;
         }
-        this._image.source = `d_lobby_panel_gamelist_icon_${this.data}_${imgState}_png`;
       }
     }
   }

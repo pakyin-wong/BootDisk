@@ -46,12 +46,10 @@
 		<ui:BaseButton id="_btn_searchType" width="210" height="60" x="358" y="47" skinName="skin_desktop.OverlayPanelButton"
 		               active="true" />
 		<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="348" y="117" skinName="skin_desktop.NavDropdown" />
-		<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077" skinName="skin_desktop.ImageButtonSkinNav"
-		                    currentState="page_prev_icon" />
-		<ui:BaseImageButton id="_btn_next" width="46" height="46" x="1132" y="1077" skinName="skin_desktop.ImageButtonSkinNav"
-		                    currentState="page_next_icon" />
+		<ui:BaseAnimationButton id="_btn_prev" width="46" height="46" x="963" y="1077" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_prev" />
+		<ui:BaseAnimationButton id="_btn_next" width="46" height="46" x="1132" y="1077" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_next" />
 		<e:Group id="_btn_page" width="83" height="46" x="1029" y="1077">
-			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0" verticalAlign="middle"
+			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="0" top="0" bottom="0" verticalAlign="middle"
 			                 textAlign="center" fontFamily="Barlow" size="28" />
 		</e:Group>
 		<ui:Panel id="_ddm_page" width="123" x="1009" bottom="65" maxHeight="300" skinName="skin_desktop.NavDropdown" />

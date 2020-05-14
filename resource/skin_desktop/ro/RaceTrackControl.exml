@@ -4,8 +4,8 @@
 	<ui:RunTimePropertyLabel id="_distributionLabel" verticalCenter="0" x="0"/>
 	<e:Label id="_distNumLabel" text="0" x="304.5" anchorOffsetX="0" width="44" anchorOffsetY="0" height="28"
 	         verticalCenter="0" />
-	<ui:BaseImageButton id="_addButton" anchorOffsetX="0" width="47" anchorOffsetY="0" height="47" verticalCenter="0.5"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_add" x="337.5" />
-	<ui:BaseImageButton id="_lessButton" anchorOffsetX="0" width="47" height="47" verticalCenter="0.5"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_less" x="246.5" />
+	<ui:BaseAnimationButton id="_addButton" width="50" height="50" verticalCenter="0"
+	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_add" currentState="b_add" x="337.5" />
+	<ui:BaseAnimationButton id="_lessButton" width="50" height="50" verticalCenter="0"
+	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_deduct" currentState="b_less" x="246.5" />
 </e:Skin>
