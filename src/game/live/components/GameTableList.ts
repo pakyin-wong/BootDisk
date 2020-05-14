@@ -52,7 +52,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, false);
 
         this.contentInitializer.initContent(this);
-        this.roomList.addChild(this.slider);
+        this.roomList.addChildAt(this.slider, 0);
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);

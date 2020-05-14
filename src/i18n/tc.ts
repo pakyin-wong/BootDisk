@@ -285,23 +285,11 @@ namespace we {
         customBet: '自選投注組合',
         betLimitShort: '限紅',
         gameId: '編號',
-        distribution: { text: '散佈', x: 60 },
-        tiers: {
-          text: '輪盤下角注',
-          x: 23,
-        },
-        orphelins: {
-          text: '輪上孤注',
-          x: 62,
-        },
-        voisins: {
-          text: '零旁注上角',
-          x: 16,
-        },
-
-        zero: {
-          text: '輪上零旁',
-        },
+        distribution: '散佈',
+        tiers: '輪盤下角注',
+        orphelins: '輪上孤注',
+        voisins: '零旁注上角',
+        zero: '輪上零旁',
         betGroup: {
           color: '紅 / 黑',
           oddeven: '單 / 雙',

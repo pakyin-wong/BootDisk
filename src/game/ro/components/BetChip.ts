@@ -21,11 +21,9 @@ namespace we {
             this._chipImage.source = this.getChipSource(this._type);
             break;
         }
-            this._chipValueLabel.text = utils.numberToFaceValue(this._value);
-            this._chipValueLabel.verticalCenter = this.height * -0.05;
-            this.height = this.width;
-
-
+        this._chipValueLabel.text = utils.numberToFaceValue(this._value);
+        this._chipValueLabel.verticalCenter = this.height * -0.05;
+        this.height = this.width;
       }
 
       protected getChipSource(type): string {

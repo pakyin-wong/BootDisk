@@ -47,13 +47,21 @@ namespace we {
       }
 
       protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
+        const banker = this.getAllValue(fieldAmounts, ba.BetField.BANKER);
+        const player = this.getAllValue(fieldAmounts, ba.BetField.PLAYER);
+        const superSixBanker = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX_BANKER);
+        const tie = this.getAllValue(fieldAmounts, ba.BetField.TIE);
+        const bankerPair = this.getAllValue(fieldAmounts, ba.BetField.BANKER_PAIR);
+        const playerPair = this.getAllValue(fieldAmounts, ba.BetField.PLAYER_PAIR);
+        const superSix = this.getAllValue(fieldAmounts, ba.BetField.SUPER_SIX);
+
         return (
-          Math.abs(fieldAmounts[ba.BetField.BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
-          Math.abs(fieldAmounts[ba.BetField.SUPER_SIX_BANKER] - fieldAmounts[ba.BetField.PLAYER]) > betLimit.maxlimit ||
-          fieldAmounts[ba.BetField.TIE] > betLimit.maxlimit ||
-          fieldAmounts[ba.BetField.BANKER_PAIR] > betLimit.maxlimit ||
-          fieldAmounts[ba.BetField.PLAYER_PAIR] > betLimit.maxlimit ||
-          fieldAmounts[ba.BetField.SUPER_SIX] > betLimit.maxlimit
+          Math.abs(banker - player) > betLimit.maxlimit ||
+          Math.abs(superSixBanker - player) > betLimit.maxlimit ||
+          tie > betLimit.maxlimit ||
+          bankerPair > betLimit.maxlimit ||
+          playerPair > betLimit.maxlimit ||
+          superSix > betLimit.maxlimit
         );
       }
 

@@ -152,19 +152,19 @@
 	</e:Group>
 	<e:Group id="_group_tiers" x="140" y="140">
 		<e:Image id="_section_tiers" source="h_Tires_png" x="0" y="0" scale9Grid="0,198,380,159" visible="false"/>
-		<ui:RunTimePropertyLabel id="_label_tiers" text="輪盤下角注" size="48" height="208" textAlign="center" verticalAlign="middle" y="47" x="71" width="341"/>
+		<ui:RunTimeLabel id="_label_tiers" text="輪盤下角注" size="48" height="208" textAlign="center" verticalAlign="middle" y="47" x="71" width="341"/>
 	</e:Group>
 	<e:Group id="_group_orphelins" x="496" y="140">
 		<e:Image id="_section_orphelins" source="h_Orphelins_png" x="0" y="0" visible="false"/>
-		<ui:RunTimePropertyLabel id="_label_orphelins" text="輪上孤注" size="48" height="208" y="47" textAlign="center" verticalAlign="middle" x="174" width="312"/>
+		<ui:RunTimeLabel id="_label_orphelins" text="輪上孤注" size="48" height="208" y="47" textAlign="center" verticalAlign="middle" x="174" width="312"/>
 	</e:Group>
 	<e:Group id="_group_voisins" x="1017" y="140">
 		<e:Image id="_section_voisins" source="h_Voisins_png" x="0" y="0" visible="false"/>
-		<ui:RunTimePropertyLabel id="_label_voisins" text="零旁注上角" size="48" y="47" verticalAlign="middle" textAlign="center" height="208" x="23" width="341"/>
+		<ui:RunTimeLabel id="_label_voisins" text="零旁注上角" size="48" y="47" verticalAlign="middle" textAlign="center" height="208" x="23" width="341"/>
 	</e:Group>
 	<e:Group id="_group_zero" x="1385" y="140">
 		<e:Image id="_section_zero" source="h_Zero_png" x="0" y="0" visible="false"/>
-		<ui:RunTimePropertyLabel id="_label_zero" text="輪上零旁" size="48" height="208" verticalAlign="middle" textAlign="center" y="47" x="43" width="312"/>
+		<ui:RunTimeLabel id="_label_zero" text="輪上零旁" size="48" height="208" verticalAlign="middle" textAlign="center" y="47" x="43" width="312"/>
 	</e:Group>
 	<e:Image x="0" y="0"  source="m_ro_h_reatrack_outline_png"/>
 </e:Skin>
