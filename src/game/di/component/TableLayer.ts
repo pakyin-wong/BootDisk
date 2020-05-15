@@ -348,7 +348,9 @@ namespace we {
                 egret.Tween.get(rect)
                   .to({ alpha: 0 }, 125)
                   .call(() => {
-                    group.removeChild(rect);
+                    if (rect && group.contains(rect)) {
+                      group.removeChild(rect);
+                    }
                     resolve();
                   });
               });
