@@ -140,6 +140,8 @@ namespace we {
         const image = new eui.Image();
         image.name = 'image';
         image.source = this._groupHoverImageMapping[fieldName];
+        image.width = group.width;
+        image.height = group.height;
         group.addChildAt(image, 0);
       }
 

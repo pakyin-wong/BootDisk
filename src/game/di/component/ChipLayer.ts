@@ -263,7 +263,6 @@ namespace we {
 
         Object.keys(this).map(value => {
           if (this[value] instanceof egret.DisplayObject && this[value] !== this._tableLayer) {
-            console.log('chiplayer dice', value, this[value]);
             egret.Tween.removeTweens(this[value]);
           }
         });
