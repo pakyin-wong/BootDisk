@@ -66,6 +66,7 @@ namespace we {
       private addListeners() {
         if (env.isMobile) {
           utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this);
+          dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
           // dir.evtHandler.addEventListener(core.Event.BA_POPUP, this.gameListPopUp, this);
           // dir.evtHandler.addEventListener(core.Event.BA_POPDOWN, this.gameListPopDown, this);
           // this._lantern.alignToLeft();
@@ -76,6 +77,9 @@ namespace we {
       }
 
       private removeListeners() {
+        if (env.isMobile) {
+          dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
+        }
         dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
         dir.evtHandler.removeEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
@@ -102,7 +106,7 @@ namespace we {
               this._lantern.visible = true;
 
               this._profilePrc.visible = true;
-              this._profilePrc.source = env.icon;
+              this.updateIconImage();
               this.currentState = 'Lobby';
               break;
 
@@ -114,6 +118,10 @@ namespace we {
               break;
           }
         }
+      }
+
+      protected updateIconImage() {
+        this._profilePrc.source = env.icon;
       }
 
       private onClickSliderToggle() {
