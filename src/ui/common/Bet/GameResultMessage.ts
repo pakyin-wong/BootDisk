@@ -39,6 +39,13 @@ namespace we {
         this.startAnim(gameType, resultData);
       }
 
+      protected destroy() {
+        super.destroy();
+        if (this._display) {
+          this._display.dispose();
+        }
+      }
+
       protected createAniamtionObject() {
         const skeletonData = RES.getRes(`${this._dbClass}_game_result_ske_json`);
         const textureData = RES.getRes(`${this._dbClass}_game_result_tex_json`);
