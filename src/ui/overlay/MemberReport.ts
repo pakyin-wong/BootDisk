@@ -75,16 +75,6 @@ namespace we {
           ui.NewDropdownItem('week', () => `${i18n.t('overlaypanel_memberreport_week')}`),
         ]);
 
-        if (this._ddm_date) {
-          this._ddm_date.isDropdown = true;
-          this._ddm_date.isPoppable = true;
-          this._ddm_date.dismissOnClickOutside = true;
-          this._ddm_date.setToggler(this._btn_date);
-          this._ddm_date.dropdown.review = this._txt_date;
-          this._ddm_date.dropdown.data.replaceAll(_arrCol_date.source);
-          this._ddm_date.dropdown.select('today');
-        }
-
         if (this._ddm_searchType) {
           this._ddm_searchType.isDropdown = true;
           this._ddm_searchType.isPoppable = true;
@@ -137,7 +127,6 @@ namespace we {
       }
 
       protected updateMemberReport(data) {
-        console.log('updatePlayerStatistic');
         if (data.error) {
           this._txt_betAmount_value.text = '-';
           this._txt_winAmount_value.text = '-';
@@ -189,7 +178,6 @@ namespace we {
             this.searchToday();
             break;
         }
-        console.log('adskldhfaskljhadskljdfaskljdfs');
         this._btn_date.active = true;
       }
 
@@ -252,9 +240,9 @@ namespace we {
       //   });
       //   this[`_btn_${type}`].active = true;
       // }
-      protected update() {
-        console.log('update');
-      }
+      // protected update() {
+      //   console.log('update');
+      // }
 
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();

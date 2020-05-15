@@ -26,6 +26,6 @@
 		<ui:RunTimeLabel id="_txt_winAmount_value" text="Label" x="74.8" y="540.98" size="60"/>
 		<ui:RunTimeLabel id="_txt_totalAmount_value" text="Label" x="901.97" y="540.98" size="60"/>
 	</e:Group>
-	<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1402" height="1050" y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"/>
-	<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="335" y="117" skinName="skin_desktop.NavDropdown" />
+	<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="795" y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"/>
+	<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="348" y="117" skinName="skin_desktop.NavDropdown" />
 </e:Skin>
