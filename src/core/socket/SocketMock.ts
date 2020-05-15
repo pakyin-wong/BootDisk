@@ -57,11 +57,13 @@ namespace we {
 
       public getBalance() {}
 
-      public getPlayerStatistic() {
-        //         PlayerStatistic {
-        //   bet: int,       // total bet
-        //   winloss: int,   // total win loss
-        // }
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        const data = new we.data.PlayerStatistic();
+        const tempbet = 10100;
+        const tempwinloss = 2000;
+        data.bet = tempbet;
+        data.winloss = tempwinloss;
+        callback(data);
       }
 
       public getPlayerProfileSummary(callback: (data: any) => void) {

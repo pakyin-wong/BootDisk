@@ -44,7 +44,9 @@ namespace we {
         // this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
       }
 
-      public getPlayerStatistic() {}
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        // this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
+      }
 
       protected subscribeEvents() {
         this.client.subscribe(core.MQTT.READY, this.handleReady, this);

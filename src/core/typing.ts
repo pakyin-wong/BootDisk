@@ -24,7 +24,7 @@ namespace we {
       retryPlayerClient(functionName: string, args: any[]);
       getBalance();
       getPlayerProfileSummary(callback: (data: any) => void);
-      getPlayerStatistic();
+      getPlayerStatistic(filter: any, callback: (data: any) => void);
     }
 
     export interface ILobbyRoad {
