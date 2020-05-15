@@ -273,6 +273,14 @@ namespace we {
       }
 
       protected onClearSelection() {
+        if (!this._dropdown.isCollapsed()) {
+          // ============================================
+          this._dropdown.toggle();
+          //  egret.Tween.removeTweens(this._dropdown);
+          //   egret.Tween.get(this._dropdown)
+          //   .to({ height: 0 }, 200)
+          // ============================================
+        }
         super.onClearSelection();
         egret.Tween.removeTweens(this._bg);
         egret.Tween.get(this._bg).to({ alpha: 0 }, 200);

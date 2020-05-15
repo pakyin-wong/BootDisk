@@ -140,6 +140,8 @@ namespace we {
         const image = new eui.Image();
         image.name = 'image';
         image.source = this._groupHoverImageMapping[fieldName];
+        image.width = group.width;
+        image.height = group.height;
         group.addChildAt(image, 0);
       }
 
@@ -294,7 +296,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }
@@ -348,7 +350,9 @@ namespace we {
                 egret.Tween.get(rect)
                   .to({ alpha: 0 }, 125)
                   .call(() => {
-                    group.removeChild(rect);
+                    if (rect && group.contains(rect)) {
+                      group.removeChild(rect);
+                    }
                     resolve();
                   });
               });
@@ -363,7 +367,9 @@ namespace we {
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
-              egret.Tween.get(rect).to({ alpha }, 125).call(resolve);
+              egret.Tween.get(rect)
+                .to({ alpha }, 125)
+                .call(resolve);
             });
             tickFlashPromises.push(prom);
           }

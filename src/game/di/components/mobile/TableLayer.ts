@@ -13,11 +13,15 @@ namespace we {
       protected _even_label: eui.Label;
       protected _specific_label: eui.Label;
 
+      protected _groupHoverMappingLandscape;
       protected createMapping() {
         super.createMapping();
         this._groupHoverImageMapping = {};
+        this._groupHoverMappingLandscape = {};
+
         Object.keys(we.di.BETFIELD_IMAGE_MAPPING).map(value => {
           this._groupHoverImageMapping[value] = we.di.MOBILE_BETFIELD_IMAGE_MAPPING[value];
+          this._groupHoverMappingLandscape[value] = we.di.MOBILE_LANDSCAPE_BETFIELD_IMAGE_MAPPING[value];
         });
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
@@ -35,11 +39,11 @@ namespace we {
         }
       }
 
-      public onRollover(fieldName: string) { }
+      public onRollover(fieldName: string) {}
 
-      public onRollout(fieldName: string) { }
+      public onRollout(fieldName: string) {}
 
-      public clearAllHighlights() { }
+      public clearAllHighlights() {}
 
       public async flashFields(data) {
         if (!data) {
@@ -63,7 +67,14 @@ namespace we {
           image.name = 'image';
           image.alpha = 0;
           image.percentWidth = image.percentHeight = 100;
-          image.source = this._groupHoverImageMapping[field];
+          switch (env.orientation) {
+            case 'landscape':
+              image.source = this._groupHoverMappingLandscape[field];
+              break;
+            case 'portrait':
+              image.source = this._groupHoverImageMapping[field];
+              break;
+          }
           group.addChildAt(image, 0);
 
           const promise = new Promise(resolve => {

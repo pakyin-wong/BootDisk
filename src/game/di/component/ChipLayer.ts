@@ -258,6 +258,15 @@ namespace we {
       public async animateToState(collapsed: boolean) {
         const time = 3000;
         const tweenPromises = [];
+
+        egret.Tween.removeTweens(this);
+
+        Object.keys(this).map(value => {
+          if (this[value] instanceof egret.DisplayObject && this[value] !== this._tableLayer) {
+            egret.Tween.removeTweens(this[value]);
+          }
+        });
+
         /*
         for (let i = 1; i <= 3; i += 1) {
           const promise = new Promise(resolve => {

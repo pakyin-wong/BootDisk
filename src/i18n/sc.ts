@@ -270,25 +270,11 @@ namespace we {
         customBet: '自选投注组合',
         betLimitShort: '限红',
         gameId: '编号',
-        distribution: {
-          text: '散布',
-          x: 60,
-        },
-        tiers: {
-          text: '轮盘下角注',
-          x: 23,
-        },
-        orphelins: {
-          text: '轮上孤注',
-          x: 62,
-        },
-        voisins: {
-          text: '零旁注上角',
-          x: 16,
-        },
-        zero: {
-          text: '轮上零旁',
-        },
+        distribution: '散布',
+        tiers: '轮盘下角注',
+        orphelins: '轮上孤注',
+        voisins: '零旁注上角',
+        zero: '轮上零旁',
         betGroup: {
           color: '红 / 黑',
           oddeven: '单 / 双',
