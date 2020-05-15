@@ -347,7 +347,7 @@ namespace we {
         return tables;
       }
 
-      public updateSetting(key: string, value: string) { }
+      public updateSetting(key: string, value: string) {}
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
@@ -370,18 +370,21 @@ namespace we {
         env.currency = Currency.RMB;
         env.nickname = 'Jonathan';
         env.nicknames = {
-          nickname_group1: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
-          nickname_group2: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+          nickname_group1: ['海綿寶寶', '哆啦A夢 (小叮噹)', '蠟筆小新', '巴斯光年', '米奇老鼠 (米老鼠)'],
+          nickname_group2: ['天使', '獨角獸', '外星人', '鳳凰', '二重身'],
           nickname_group3: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
         };
-        env.icons = ['resource/assets/m/common/m_common_header_profile_pic_01.png',
-          'resource/assets/m/common/m_common_header_profile_pic_02.png',
-          'resource/assets/m/common/m_common_header_profile_pic_03.png',
-          'resource/assets/m/common/m_common_header_profile_pic_04.png',
-          'resource/assets/m/common/m_common_header_profile_pic_05.png',
-          'resource/assets/m/common/m_common_header_profile_pic_06.png',
-          'resource/assets/m/common/m_common_header_profile_pic_07.png',
-          'resource/assets/m/common/m_common_header_profile_pic_08.png'];
+        env.icons = [
+          'resource/d_lobby_profile_pic_01_png',
+          'resource/d_lobby_profile_pic_02_png',
+          'resource/d_lobby_profile_pic_03_png',
+          'resource/d_lobby_profile_pic_04_png',
+          'resource/d_lobby_profile_pic_05_png',
+          'resource/d_lobby_profile_pic_06_png',
+          'resource/d_lobby_profile_pic_07_png',
+          'resource/d_lobby_profile_pic_08_png',
+        ];
+        env.icon = 'resource/d_lobby_profile_pic_01_png';
         env.profileImageURL = 'https://url';
         env.betLimits = [
           {
@@ -452,7 +455,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) { }
+      public leaveTable(tableID: string) {}
 
       public getTableList(filter: string) {
         /*

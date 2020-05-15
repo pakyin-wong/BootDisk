@@ -7,8 +7,10 @@ namespace we {
       title: () => string;
       selected: any;
     }
+
     export class MobileDropdown extends ui.Panel {
       public _title: RunTimeLabel;
+      public _subtitle: RunTimeLabel;
       private _scroller: eui.Scroller;
       private _list: eui.List;
       private _itemHeight: number = 0;
@@ -62,7 +64,7 @@ namespace we {
       }
 
       // set the position of the children components
-      protected arrangeComponents() { }
+      protected arrangeComponents() {}
 
       protected destroy() {
         super.destroy();
@@ -77,7 +79,7 @@ namespace we {
         this._list.addEventListener(egret.Event.CHANGE, this.onChange, this);
         this._list.addEventListener(egret.Event.RENDER, this.onRender, this);
       }
-      protected removeListeners() { }
+      protected removeListeners() {}
       protected async toggleDropdown(e) {
         if (this._opt && this.isActivated) {
           return;
@@ -103,7 +105,7 @@ namespace we {
       protected get calIndex() {
         return Math.floor((this._scroller.viewport.scrollV + this._itemHeight * 0.1) / this._itemHeight);
       }
-      protected handleTap() { }
+      protected handleTap() {}
       protected onChange() {
         // this._scroller.stopAnimation();
         this.update();
@@ -116,6 +118,8 @@ namespace we {
       }
       protected onScroll() {
         this._list.selectedIndex = this.calIndex;
+        // this._subtitle.visible = true;
+        // this._subtitle.renderText = () => env.nicknames.nickname_group1[this.calIndex];
       }
       protected onScrollEnd() {
         this._list.selectedIndex = this.calIndex;

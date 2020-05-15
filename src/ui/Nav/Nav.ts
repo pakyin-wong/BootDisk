@@ -102,6 +102,7 @@ namespace we {
               this._lantern.visible = true;
 
               this._profilePrc.visible = true;
+              this._profilePrc.source = env.icon;
               this.currentState = 'Lobby';
               break;
 

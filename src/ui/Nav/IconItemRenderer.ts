@@ -4,8 +4,9 @@ namespace we {
       private _icon: eui.Image;
 
       protected dataChanged() {
-        this._key = this.data.key;
-        this._icon.source = this.data.url;
+        // this._key = this.data.key;
+        // this._icon.source = this.data.url;
+        this._icon.source = this.data;
       }
     }
   }

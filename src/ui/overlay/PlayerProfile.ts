@@ -5,6 +5,7 @@ namespace we {
       private _section_main: eui.Group;
 
       private _playerIcon: eui.Image;
+      private _changeIcon: eui.Group;
       private _balance: eui.Label;
       private _maxWinAmount: eui.Label;
       private _maxWinCount: eui.Label;
@@ -36,14 +37,12 @@ namespace we {
         // super('PlayerProfile');
         super(skin);
 
-        this._iconListData = new eui.ArrayCollection([
-          {
-            key: 1,
-            url: 'resource/d_lobby_profile_pic_01_png',
-          },
-        ]);
+        this._iconListData = new eui.ArrayCollection(env.icons);
+        //   [{
+        //     key: 0,
+        //     url: env.icons[0],
+        //   }],
       }
-
       // protected mount() {
       //   super.mount();
       //   this.initPlayerProfile();
@@ -57,6 +56,7 @@ namespace we {
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
         this._username.renderText = () => env.nickname;
+        this._playerIcon.source = env.icons[0];
         if (env.isMobile) {
           this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
@@ -86,15 +86,21 @@ namespace we {
       }
 
       private addListeners() {
-        this._playerIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         this._sectionBackIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
-        this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.changeNameSection, this);
+        if (env.isMobile) {
+          this._changeIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
+          this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
+          this._iconList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
+        }
       }
 
       private removeListeners() {
-        this._playerIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         this._sectionBackIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
-        this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.changeNameSection, this);
+        if (env.isMobile) {
+          this._changeIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
+          this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
+          this._iconList.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
+        }
       }
 
       private slideToIconSelectSection() {
@@ -115,11 +121,15 @@ namespace we {
         egret.Tween.get(this._section_iconSelect).to({ $x: this._section_iconSelect.width }, 200);
       }
 
-      private changeNameSection() {
+      private onChangeName() {
         dir.evtHandler.createOverlay({
           class: 'ChangeName',
         });
         logger.l(`NavSideMenu::onClickHistory`);
+      }
+
+      private onChangeIcon() {
+        this._playerIcon.source = env.icon = env.icons[this._iconList.selectedIndex];
       }
 
       protected initOrientationDependentComponent() {

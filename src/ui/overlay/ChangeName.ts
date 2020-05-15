@@ -142,34 +142,34 @@ namespace we {
       }
 
       private onCartoonSelect() {
-        if (env.orientation === "portrait") {
+        if (env.orientation === 'portrait') {
           this._mask_Cartoon.fillColor = 0x1b416e;
           this._arrow_Cartoon.rotation += 180;
-          this._mask.visible = this._mask.visible ? false : true;
         }
-        dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
+        this._mask.visible = this._mask.visible ? false : true;
+        dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.cartoon')}  `;
       }
 
       private onMythSelect() {
-        if (env.orientation === "portrait") {
+        if (env.orientation === 'portrait') {
           this._mask_Myth.fillColor = 0x1b416e;
           this._arrow_Myth.rotation += 180;
-          this._mask.visible = this._mask.visible ? false : true;
         }
+        this._mask.visible = this._mask.visible ? false : true;
         dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.myth')}`;
       }
 
       private onMovieSelect() {
-        if (env.orientation === "portrait") {
+        if (env.orientation === 'portrait') {
           this._mask_Movie.fillColor = 0x1b416e;
           this._arrow_Movie.rotation += 180;
-          this._mask.visible = this._mask.visible ? false : true;
         }
+        this._mask.visible = this._mask.visible ? false : true;
         dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
       }
 
       private onCartoonChange(e) {
-        if (env.orientation === "portrait") {
+        if (env.orientation === 'portrait') {
           this._arrow_Myth.rotation = 180;
         }
         env.nickname = env.nicknames.nickname_group1[e.data];
@@ -178,7 +178,7 @@ namespace we {
       }
 
       private onMythChange(e) {
-        if (env.orientation === "portrait") {
+        if (env.orientation === 'portrait') {
           this._arrow_Myth.rotation = 180;
         }
         env.nickname = env.nicknames.nickname_group2[e.data];
@@ -187,7 +187,7 @@ namespace we {
       }
 
       private onMovieChange(e) {
-        if (env.orientation === "portrait") {
+        if (env.orientation === 'portrait') {
           this._arrow_Movie.rotation = 180;
         }
         env.nickname = env.nicknames.nickname_group3[e.data];

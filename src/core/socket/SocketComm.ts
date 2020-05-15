@@ -142,7 +142,10 @@ namespace we {
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
-        env.nickname = player.profile.settings.nickname? player.profile.settings.nickname:player.profile.nickname;
+        env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
+        env.nickname = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
+        env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.icon;
+        env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
         env.profileImageURL = player.profile.profileimage;
         logger.l('PlayerClient::handleReady() ' + player.profile.betlimits);
         env.betLimits = player.profile.betlimits
