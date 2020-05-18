@@ -2,13 +2,17 @@
 namespace we {
   export namespace ui {
     export class HorizontalHolder extends eui.Group {
-      protected _slides; // eui.Group
+      protected _slides: any[]; // eui.Group
       protected _sortedSlides;
       private currentPageIdx: number = 0;
       private pageCount: number;
 
       public slideWidth: number = 0;
       public slideHeight: number = 0;
+      public _duration = 500;
+
+      public isTouchEnabled = true;
+      public isDragonBone: boolean = false;
       public isLoop: boolean = true;
       public isAuto: boolean = true;
 
@@ -22,7 +26,6 @@ namespace we {
       private _nextIdx;
       private _direction;
 
-      private _duration = 500;
       private _autoTimer = -1;
 
       private _touchArea;
@@ -42,7 +45,7 @@ namespace we {
       protected childrenCreated() {
         super.childrenCreated();
 
-        this.initSlider();
+        if (!this.isDragonBone) this.initSlider();
       }
 
       public initSlider() {
@@ -55,7 +58,7 @@ namespace we {
         this.pageCount = this.numChildren;
 
         if (this.pageCount <= 1) {
-          console.error('One page is not allowed');
+          console.error('One page or less is not allowed');
           return;
         }
 
@@ -72,24 +75,19 @@ namespace we {
         this._slides[this.currentPageIdx].x = 0;
         this._slides[this.currentPageIdx].y = 0;
 
-        // if(this.isLoop)
-        // this.doLoop();
         this.sortSlides();
         this.initComponents();
 
         this.addListeners();
-
-        // if (this.isAuto) this.doNext();
       }
 
       public addListeners() {
-        if (env.isMobile) {
+        if (this.isTouchEnabled) {
           this._touchArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
           // this._touchArea.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
           // this._touchArea.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
           // this._touchArea.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchEnd, this);
           // this._touchArea.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onTouchEnd, this);
-        } else {
           // this.addEventListener(mouse.MouseEvent.,this.onTouchBegin,this);
           // this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onTouchMove,this);
           // this.addEventListener(mouse.MouseEvent.Mouse,this.onTouchEnd,this);
@@ -97,17 +95,14 @@ namespace we {
       }
 
       public removeListeners() {
-        if (env.isMobile) {
-          this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-          // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-          // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-          // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchEnd, this);
-          // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onTouchEnd, this);
-        } else {
-          // this.addEventListener(mouse.MouseEvent.,this.onTouchBegin,this);
-          // this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onTouchMove,this);
-          // this.addEventListener(mouse.MouseEvent.Mouse,this.onTouchEnd,this);
-        }
+        this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchEnd, this);
+        // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onTouchEnd, this);
+        // this.addEventListener(mouse.MouseEvent.,this.onTouchBegin,this);
+        // this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onTouchMove,this);
+        // this.addEventListener(mouse.MouseEvent.Mouse,this.onTouchEnd,this);
       }
 
       protected initComponents() {
@@ -197,10 +192,7 @@ namespace we {
 
         if (this._nextIdx > this.pageCount - 1) this._nextIdx = 0;
 
-        // // check current page
-
-        // this._previousIdx = this.currentPageIdx-- >= 0 ? this.currentPageIdx : this.pageCount - 1;
-        // this._nextIdx = this.currentPageIdx++ <= this.pageCount - 1 ? this.currentPageIdx : 0;
+        // check current page
 
         const prev = this._slides[this._previousIdx];
         const current = this._slides[this.currentPageIdx];
@@ -212,17 +204,6 @@ namespace we {
         current.visible = true;
         next.x = this.slideWidth;
         next.visible = true;
-
-        // this._sortedSlides = [];
-        // this._sortedSlides.push(prev);
-        // this._sortedSlides.push(current);
-        // this._sortedSlides.push(next);
-        // }
-        // else {
-        // this._sortedSlides = [];
-        // this._sortedSlides.push(this._slides[0]);
-        // this._sortedSlides.push(this._slides[1]);
-        // }
       }
 
       protected checkCurrentIndex() {
@@ -233,7 +214,12 @@ namespace we {
 
       protected doNext() {
         this.isAnimating = true;
-        // check current page
+
+        if (this.isAuto && this.currentPageIdx === this.pageCount - 1 && this.isNextBlock) {
+          this.clearAuto();
+          this.onMoveFinished(0);
+          return;
+        }
 
         const previous = this._slides[this._previousIdx];
         const current = this._slides[this.currentPageIdx];
@@ -259,22 +245,20 @@ namespace we {
             duration
           )
           .call(this.onMoveFinished, this, [1]);
-
-        // setTimeout(() => {
-        //   this.onMoveFinished(1);
-        // }, 2005);
       }
 
       protected onMoveFinished(e: number) {
+        this.clearAuto();
         this.isAnimating = false;
         this.currentPageIdx += e;
         this.checkCurrentIndex();
         this.sortSlides();
         this.updateBullets();
-        // if (this.isAuto)
-        //   this._autoTimer = setTimeout(() => {
-        //     this.doPrevious();
-        //   }, 3000);
+
+        if (this.isAuto)
+          this._autoTimer = setTimeout(() => {
+            this.doNext();
+          }, 3000);
       }
 
       protected doPrevious() {
@@ -305,10 +289,6 @@ namespace we {
             duration
           )
           .call(this.onMoveFinished, this, [-1]);
-
-        // setTimeout(() => {
-        //   this.onMoveFinished(-1);
-        // }, 2005);
       }
 
       protected doAuto() {
@@ -338,28 +318,42 @@ namespace we {
         this._startPosition = e.$stageX;
         this._startTime = egret.getTimer();
 
-        (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
-        (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
+        const canvas = document.getElementsByTagName('canvas')[0];
 
-        // this._touchArea.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        // this._touchArea.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        if (env.isMobile) {
+          this._previousPosition = this._startPosition;
+          (<any>canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any>canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
+          console.log('mobile :' + this._startPosition);
+        } else {
+          (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
+          console.log('desktop :' + this._startPosition);
+        }
 
-        // current.x = this.globalToLocal(0, 0).x + this._startPosition - this.slideWidth / 2; // centerpoint
-        // next.x = this.globalToLocal(0, 0).x + this._startPosition + this.slideWidth - this.slideWidth / 2;
-        // previous.x = this.globalToLocal(0, 0).x + this._startPosition - this.slideWidth - this.slideWidth / 2;
+        // (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
+        // (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
 
         previous.visible = true;
         next.visible = true;
       }
 
-      protected onTouchMove = (event: MouseEvent) => {
+      protected onTouchMove = event => {
         if (this.isAnimating) return;
         // const move
         const current = this._slides[this.currentPageIdx];
+
         const previous = this._slides[this._previousIdx];
         const next = this._slides[this._nextIdx];
+        let touchPos;
 
-        const touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
+        const canvas = document.getElementsByTagName('canvas')[0];
+        if (env.isMobile) {
+          touchPos = Math.round((event.targetTouches[0].screenX - canvas.offsetLeft) / egret.sys.DisplayList.$canvasScaleX) * egret.sys.DisplayList.$canvasScaleFactor;
+        } else {
+          touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
+        }
+        console.log('tp: ' + touchPos);
         // const touchPos = e.$stageX;
         if (!this._previousPosition) {
           // this._previousPosition = e.$stageX;
@@ -395,13 +389,20 @@ namespace we {
           if (offset < 0) previous.x = current.x - this.slideWidth;
         } else {
           next.x = current.x + this.slideWidth;
+          if (next.x <= 0) {
+            next.x = 0;
+            current.x = -this.slideWidth;
+          }
           previous.x = current.x - this.slideWidth;
+          if (previous.x >= 0) {
+            previous.x = 0;
+            current.x = this.slideWidth;
+          }
         }
-
         this._previousPosition = touchPos;
       }
 
-      protected onTouchEnd = (event: MouseEvent) => {
+      protected onTouchEnd = event => {
         if (this.isAnimating) return;
 
         const current = this._slides[this.currentPageIdx];
@@ -412,9 +413,14 @@ namespace we {
 
         const canvas = document.getElementsByTagName('canvas')[0];
 
-        const touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
-
-        // console.log('SP '+ this._startPosition + 'TP ' + touchPos + 'OX ' + event.offsetX + 'CX ' + event.clientX + 'SX' + event.screenX + 'canvas left:' + canvas.style.left);
+        let touchPos;
+        if (env.isMobile) {
+          // touchPos = Math.round((this._previousPosition - canvas.offsetLeft) / egret.sys.DisplayList.$canvasScaleX) * egret.sys.DisplayList.$canvasScaleFactor;
+          touchPos = this._previousPosition;
+        } else {
+          touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
+        }
+        console.log('SP ' + this._startPosition + 'TP ' + touchPos + 'OX ' + event.offsetX + 'CX ' + event.clientX + 'SX' + event.screenX + 'canvas left:' + canvas.offsetLeft);
         // const touchPos = e.$stageX;
         // const currentPosition = e.$stageX;
         const currentPosition = touchPos;
@@ -457,10 +463,18 @@ namespace we {
       }
 
       protected clearTouch() {
-        (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
-        (<any>window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
-        // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        // this._touchArea.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        const canvas = document.getElementsByTagName('canvas')[0];
+
+        if (env.isMobile) {
+          (<any>canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any>canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
+        } else {
+          (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any>window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
+        }
+
+        // (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
+        // (<any>window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
 
         this._startPosition = null;
         this._previousPosition = null;
@@ -471,7 +485,7 @@ namespace we {
       }
 
       protected calculateDuration(targetX: number, currentX: number): number {
-        let duration = 500;
+        let duration = this._duration;
         const speed = this.slideWidth / duration;
         const distance = Math.abs(targetX - currentX);
         duration = distance / speed;
@@ -563,21 +577,6 @@ namespace we {
 
         // will change after touchEvent
       }
-
-      // protected onMouseDown(e)
-      // {
-
-      // }
-
-      // protected onMouseMove(e)
-      // {
-
-      // }
-
-      // protected onMouseEnd(e)
-      // {
-
-      // }
     }
   }
 }
