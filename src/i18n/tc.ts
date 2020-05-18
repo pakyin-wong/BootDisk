@@ -84,6 +84,9 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
+      overlaypanel_gameSet_showGoodRoadHint: '顯示好路提示',
+      overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
+
       datePicker_clean: '清除',
       datePicker_confirm: '確定',
       datePicker_weekday_0: '日',
@@ -158,6 +161,7 @@ namespace we {
           logoutMsg: '確定登出?',
           confirm: '確定',
           cancel: '取消',
+          gameSet: '遊戲設定',
         },
         system: {
           title: '系統設定',

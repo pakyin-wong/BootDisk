@@ -84,6 +84,9 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: 'All',
 
+      overlaypanel_gameSet_showGoodRoadHint: 'Show GoodRoad Hint',
+      overlaypanel_gameSet_sendLiveVerfication: 'Send Live Verfication',
+
       datePicker_clean: 'Clean',
       datePicker_confirm: 'Confirm',
       datePicker_weekday_0: 'Su',
@@ -158,6 +161,7 @@ namespace we {
           logoutMsg: 'Are you sure to logout?',
           confirm: 'Confirm',
           cancel: 'Cancel',
+          gameSet: 'Game Setting',
         },
         system: {
           title: 'System',
@@ -410,4 +414,3 @@ namespace we {
     };
   }
 }
-
