@@ -2,6 +2,8 @@
 namespace we {
   export namespace core {
     export class Env {
+      public readonly chipImageLimit = 11;
+
       private static _env: Env;
 
       public static get Instance(): Env {
@@ -148,6 +150,34 @@ namespace we {
           return env.tableInfos[tableid].tablename;
         }
         return null;
+      }
+      public getWholeDenomMap() {
+        if (!env) {
+          return;
+        }
+        if (!env.betLimits) {
+          return;
+        }
+        const denomMap = {};
+        let chipIndex = 0;
+        env.betLimits.map(limit => {
+          limit.chips.map(chipValue => {
+            if (!denomMap[chipValue]) {
+              if (this.chipImageLimit > chipIndex) {
+                denomMap[chipValue] = chipIndex;
+                chipIndex++;
+              } else {
+                denomMap[chipValue] = this.chipImageLimit - 1;
+              }
+            }
+          });
+        });
+        /*
+        currDenomlist.map((chipValue, chipIndex) => {
+          denomMap[chipValue] = chipIndex;
+        });
+        */
+        return denomMap;
       }
 
       public gotoScene(tableId: string) {

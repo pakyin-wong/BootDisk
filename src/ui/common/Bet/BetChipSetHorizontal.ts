@@ -7,7 +7,7 @@ namespace we {
       private _visibleDenomNum = 0;
       private _leftNav: eui.Label;
       private _rightNav: eui.Label;
-      private _chipList: (IBetChip & core.BaseEUI)[] = [];
+      private _chipList: Array<IBetChip & core.BaseEUI> = [];
       protected _chipContainer: eui.Component;
 
       public constructor() {
@@ -153,7 +153,7 @@ namespace we {
         this._denomList = denomList;
         this._denomList.map((value, index) => {
           const betChip = new BetChip(value);
-          betChip.index = index;
+          betChip.index = env.getWholeDenomMap()[value];
           betChip.type = we.core.ChipType.PERSPECTIVE;
           betChip.addEventListener(egret.TouchEvent.TOUCH_TAP, this._onChipSelected.bind(this, index), this);
           mouse.setButtonMode(betChip, true);

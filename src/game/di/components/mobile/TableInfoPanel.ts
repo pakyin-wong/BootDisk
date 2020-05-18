@@ -6,6 +6,8 @@ namespace we {
 
       protected gameIdLabel: eui.Label;
 
+      protected betLimitLabel: eui.Label;
+
       protected oddevenLabel: eui.Label;
       protected sizeLabel: eui.Label;
       protected tripleLabel: eui.Label;
@@ -71,7 +73,7 @@ namespace we {
         super.childrenCreated();
 
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this.contentTwo.alpha = 0;
+        // this.contentTwo.alpha = 0;
         this.configSlides();
       }
 
@@ -87,6 +89,10 @@ namespace we {
       }
 
       private onTouchBegin(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
+
         if (!this.touchEnabled) {
           return;
         }
@@ -101,6 +107,10 @@ namespace we {
       }
 
       private onTouchMove(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
+
         this.isMoved = true;
 
         if (!this.slides.length) {
@@ -122,6 +132,9 @@ namespace we {
       }
 
       private onTouchEnd(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
         clearTimeout(this.autoPlayTimer);
         this.isDown = false;
         this.isMoved = false;
@@ -160,16 +173,6 @@ namespace we {
         setTimeout(() => {
           this.isAnimating = false;
         }, this.duration * 1000 + 50);
-      }
-
-      public changeLang() {
-        super.changeLang();
-
-        this.oddevenLabel.text = i18n.t('dice.odd') + '/' + i18n.t('dice.even');
-        this.sizeLabel.text = i18n.t('dice.big') + '/' + i18n.t('dice.small');
-        this.tripleLabel.text = i18n.t('dice.triple');
-        this.allTripleLabel.text = i18n.t('dice.allTriple');
-        this.doubleLabel.text = i18n.t('dice.double');
       }
 
       public setValue(tableInfo: data.TableInfo) {

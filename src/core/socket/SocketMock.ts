@@ -14,21 +14,26 @@ namespace we {
       protected betCombinations: we.data.BetCombination[];
 
       protected totalTableCount = {
-        [we.core.GameType.BAC]: 30,
+        [we.core.GameType.BAC]: 5,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
-        [we.core.GameType.DT]: 30,
-        [we.core.GameType.RO]: 30,
-        [we.core.GameType.DI]: 30,
-        [we.core.GameType.LW]: 30,
+        [we.core.GameType.DT]: 5,
+        [we.core.GameType.RO]: 5,
+        [we.core.GameType.DI]: 5,
+        [we.core.GameType.LW]: 5,
         [we.core.GameType.BAM]: 1,
         [we.core.GameType.ROL]: 1,
       };
 
       constructor() {
+        // For the update event
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
+        // end
+
+        env.balance = 2800000;
+        env.currency = core.Currency.RMB;
 
         this.tables = Object.keys(this.totalTableCount).reduce((tables, key) => [...tables, ...this.createMockGameTable(key)], []);
 
@@ -370,7 +375,23 @@ namespace we {
             chips: [100, 500, 2000, 10000, 50000],
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
+          {
+            currency: Currency.RMB,
+            maxlimit: 100000,
+            minlimit: 2000,
+            chips: [2000, 10000, 30000, 40000, 50000],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+          },
+          {
+            currency: Currency.RMB,
+            maxlimit: 500000,
+            minlimit: 5000,
+            chips: [5000, 10000, 200000, 300000, 500000],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+          },
         ];
+
+        /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
           denominationList.push(...betLimit.chips);
@@ -381,6 +402,7 @@ namespace we {
             return a < b ? -1 : 1;
           });
         env.wholeDenomList = denominationList;
+        */
 
         env.mode = null || -1;
         env.categorySortOrder = '{}';
@@ -417,10 +439,12 @@ namespace we {
       public leaveTable(tableID: string) {}
 
       public getTableList(filter: string) {
+        /*
         setInterval(() => {
           this.balanceEvent(this);
           dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
         }, 6000);
+        */
 
         setTimeout(() => {
           this.dispatchListUpdateEvent();
@@ -510,6 +534,9 @@ namespace we {
         });
       }
 
+      /*
+        Not in use
+      */
       public balanceEvent(myObj: any) {
         if (myObj.balance_index < myObj.balances.length) {
           env.balance = myObj.balances[myObj.balance_index];
@@ -755,6 +782,8 @@ namespace we {
 
               isMatch = true;
               cfmBetDetail.amount += betDetail.amount;
+              env.balance -= betDetail.amount;
+              dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
               break;
             }
           }
@@ -767,6 +796,8 @@ namespace we {
               winamount: 0,
               iswin: 0,
             });
+            env.balance -= betDetail.amount;
+            dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
           }
         }
         this.dispatchInfoUpdateEvent(data);

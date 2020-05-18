@@ -84,9 +84,6 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: '全部游戏',
 
-      overlaypanel_gameSet_showGoodRoadHint: '显示好路提示',
-      overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
-
       datePicker_clean: '清除',
       datePicker_confirm: '确定',
       datePicker_weekday_0: '日',
@@ -158,7 +155,6 @@ namespace we {
           road: '好路提示',
           system: '系统设定',
           logout: '登出',
-          gameSet: '游戏设定',
           leftHandMode: '左手模式',
           logoutMsg: '确定登出?',
           confirm: '确定',
@@ -209,15 +205,24 @@ namespace we {
         tieShort: '和',
         askDragon: '龙问路',
         askTiger: '虎问路',
+        DragonTigerTieRatio: '龙虎和比例',
+        round: '局',
+        rounds: '局',
       },
       dice: {
         big: '大',
         small: '细',
         even: '双',
         odd: '单',
+        bigFull: '大',
+        smallFull: '細',
+        evenFull: '双',
+        oddFull: '单',
         single: '单骰',
         double: '双骰',
         triple: '三骰',
+        triple_: '围',
+        TableLayerMsg: '单骰1:1 双骰2:1 三骰3:1',
 
         roadBig: '大',
         roadSmall: '小',
@@ -234,6 +239,15 @@ namespace we {
         gameStats: '结果统计',
         dicePercent: '骰子机率',
         allTriple: '全圍',
+
+        betLimitShort: '限红',
+        gameId: '编号',
+
+        betGroup: {
+          color: '红 / 黑',
+          oddeven: '单 / 双',
+          size: '大 / 小',
+        },
       },
       roulette: {
         row_1: '第一行',
@@ -269,25 +283,13 @@ namespace we {
         luckyNumber: '幸运数字',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
-        distribution: {
-          text: '散布',
-          x: 60,
-        },
-        tiers: {
-          text: '轮盘下角注',
-          x: 23,
-        },
-        orphelins: {
-          text: '轮上孤注',
-          x: 62,
-        },
-        voisins: {
-          text: '零旁注上角',
-          x: 16,
-        },
-        zero: {
-          text: '轮上零旁',
-        },
+        betLimitShort: '限红',
+        gameId: '编号',
+        distribution: '散布',
+        tiers: '轮盘下角注',
+        orphelins: '轮上孤注',
+        voisins: '零旁注上角',
+        zero: '轮上零旁',
         betGroup: {
           color: '红 / 黑',
           oddeven: '单 / 双',
@@ -310,6 +312,20 @@ namespace we {
       },
       luckywheel: {
         pool: '即时彩池',
+        east: '东',
+        south: '南',
+        west: '西',
+        north: '北',
+        red: '中',
+        green: '發',
+        white: '白',
+        betLimitShort: '限红',
+        gameId: '编号',
+        banker: '庄',
+        player: '闲',
+        tie: '和',
+        playerPair: '闲对',
+        bankerPair: '庄对',
       },
       game: {
         startBet: '开始下注',
@@ -351,6 +367,11 @@ namespace we {
         clickToSeeVideo: '点击播放本局视频',
         askBanker: '庄问路',
         askPlayer: '闲问路',
+        BankerPlayerRatio: '庄闲和比例',
+        PairRatio: '庄对闲对比例',
+        round: '局',
+        rounds: '局',
+        playersqueeze: '玩家咪牌',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

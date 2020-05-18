@@ -84,9 +84,6 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: 'All',
 
-      overlaypanel_gameSet_showGoodRoadHint: 'Show GoodRoad Hint',
-      overlaypanel_gameSet_sendLiveVerfication: 'Send Live Verfication',
-
       datePicker_clean: 'Clean',
       datePicker_confirm: 'Confirm',
       datePicker_weekday_0: 'Su',
@@ -157,7 +154,6 @@ namespace we {
           road: 'Road Notice',
           system: 'System',
           logout: 'Logout',
-          gameSet: 'Game Setting',
           leftHandMode: 'Left Mode',
           logoutMsg: 'Are you sure to logout?',
           confirm: 'Confirm',
@@ -208,15 +204,40 @@ namespace we {
         tieShort: 'Ti',
         askDragon: 'Ask Dn',
         askTiger: 'Ask Tr',
+        DragonTigerTieRatio: 'Dragon Tiger ratio',
+        round: 'round',
+        rounds: 'rounds',
+      },
+      luckywheel: {
+        east: 'East',
+        south: 'South',
+        west: 'West',
+        north: 'North',
+        red: 'Red',
+        green: 'Green',
+        white: 'White',
+        betLimitShort: 'Bet Limit',
+        gameId: 'ID',
+        banker: 'Banker',
+        player: 'Player',
+        tie: 'Tie',
+        playerPair: 'Player Pair',
+        bankerPair: 'Banker Pair',
       },
       dice: {
         big: 'B',
         small: 'S',
         even: 'E',
         odd: 'O',
+        bigFull: 'Big',
+        smallFull: 'Small',
+        evenFull: 'Even',
+        oddFull: 'Odd',
         single: 'single',
         double: 'double',
         triple: 'triple',
+        triple_: 'triple',
+        TableLayerMsg: 'One Die 1:1 Two Die 2:1 Three Die3:1',
 
         roadBig: 'Big',
         roadSmall: 'Small',
@@ -233,6 +254,15 @@ namespace we {
         gameStats: 'Game Stats.',
         dicePercent: 'Dice %',
         allTriple: 'All Triple',
+
+        betLimitShort: 'Bet Limit',
+        gameId: 'ID',
+
+        betGroup: {
+          color: 'Red / Black',
+          oddeven: 'Odd / Even',
+          size: 'Big / Small',
+        },
       },
       roulette: {
         row_1: 'ROW 1',
@@ -268,25 +298,13 @@ namespace we {
         luckyNumber: 'Lucky Number',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
-        distribution: {
-          text: 'Distribution',
-          x: 30,
-        },
-        tiers: {
-          text: 'Tiers',
-          x: 51,
-        },
-        orphelins: {
-          text: 'Orphelins',
-          x: 57,
-        },
-        voisins: {
-          text: 'Voisins',
-          x: 34,
-        },
-        zero: {
-          text: 'Zero',
-        },
+        betLimitShort: 'Bet Limit',
+        gameId: 'ID',
+        distribution: 'Distribution',
+        tiers: 'Tiers',
+        orphelins: 'Orphelins',
+        voisins: 'Voisins',
+        zero: 'Zero',
         betGroup: {
           color: 'Red / Black',
           oddeven: 'Odd / Even',
@@ -347,6 +365,11 @@ namespace we {
         clickToSeeVideo: 'Click to see video for this round',
         askBanker: 'Ask B',
         askPlayer: 'Ask P',
+        BankerPlayerRatio: 'Banker:Player:Tie ratio',
+        PairRatio: 'Banker pair:Player pair ratio',
+        round: 'round',
+        rounds: 'rounds',
+        playersqueeze: 'Squeeze',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',
@@ -387,3 +410,4 @@ namespace we {
     };
   }
 }
+

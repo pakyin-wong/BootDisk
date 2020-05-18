@@ -15,6 +15,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+
         this._colorChart.setParam(500, 10, 20, 30, 0, 80, 38, [0x474747, 0x000000]);
         this._colorChart.draw();
         this._oddChart.setParam(500, 70, 500, 300, 0, 80, 38);

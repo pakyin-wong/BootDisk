@@ -181,6 +181,8 @@ namespace we {
         this._chipLayer.init();
         this._chipLayer.getSelectedBetLimitIndex = this.getSelectedBetLimitIndex;
         this._chipLayer.getSelectedChipIndex = () => this._betChipSet.selectedChipIndex;
+
+        this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
       }
 
       protected runtimeGenerateTableLayer() {
