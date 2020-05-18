@@ -14,10 +14,6 @@
 					<e:Image width="84" height="84" source="m_common_setting_playinfo_profilepic_edit_bg_png" />
 					<e:Image width="52" height="52" source="m_common_setting_playinfo_profilepic_edit_icon_png" x="17" y="17" />
 				</e:Group>
-				<e:Group id="_selectedIcon">
-					<e:Image width="435" height="373" y="271" source="m_common_setting_choose_btn_png" horizontalCenter="0" />
-					<e:Image width="435" height="373" y="271" source="m_common_setting_editpic_selected_png" horizontalCenter="0" />
-				</e:Group>
 				<ui:RunTimeLabel id="_username" text="Johathan" y="686" textColor="0xc59466" size="80" anchorOffsetY="0" height="96"
 				                 fontFamily="Barlow" textAlign="center" width="700" horizontalCenter="0" verticalAlign="middle" />
 				<e:Label id="_balance" text="RMB 120,889,200" y="806" size="80" height="96" width="700" horizontalCenter="0"
@@ -52,7 +48,7 @@
 			</e:Group>
 			<e:Group id="_section_iconSelect" x="1242" width="1242" height="2155" y="0">
 				<e:Image id="_sectionBackIcon" width="30" height="54" x="51" y="87" source="m_common_btn_previous_png" />
-				<e:Label id="_txt_iconsetting" text="設定頭像" y="53" size="80" height="119" textAlign="center" textColor="0xce925e"
+				<ui:RunTimeLabel id="_txt_setting" text="頭像設定" y="53" size="80" height="119" textAlign="center" textColor="0xce925e"
 				         verticalAlign="middle" x="121" />
 				<ui:Scroller id="_iconScroller" height="1445" width="1050" x="96" y="316">
 					<e:Group>

@@ -15,6 +15,13 @@ namespace we {
         this.visible = false;
       }
 
+      protected destroy() {
+        super.destroy();
+        if (this._display) {
+          this._display.dispose();
+        }
+      }
+
       public showResult(gameType: core.GameType, resultData: any) {
         switch (gameType) {
           case core.GameType.BAC:
