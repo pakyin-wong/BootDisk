@@ -32,12 +32,15 @@ namespace we {
       private _iconGaySize = 10;
 
       private _nameScroller: we.ui.Scroller;
-      private _nameListData: eui.ArrayCollection;
       private _nameList: eui.List;
 
       protected _btn_name: egret.DisplayObject;
       protected _ddm_name: ui.Panel;
       protected _txt_name: ui.RunTimeLabel;
+      private _arrow: eui.Image;
+
+      private _nameListData: eui.ArrayCollection;
+      protected dropdownSource: any[];
 
       private _editName: ui.BaseImageButton;
 
@@ -45,35 +48,18 @@ namespace we {
         // super('PlayerProfile');
         super(skin);
         this._iconListData = new eui.ArrayCollection(env.icons);
-
-        //   [{
-        //     key: 0,
-        //     url: env.icons[0],
-        //   }],
       }
       protected mount() {
         super.mount();
 
         if (!env.isMobile) {
           this._txt_name.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
+          console.log(this._txt_name.text);
 
-          this._nameListData = new eui.ArrayCollection([
-            ui.NewDropdownItem(0, () => env.nicknames.nickname_group1[0]),
-            ui.NewDropdownItem(1, () => env.nicknames.nickname_group1[1]),
-            ui.NewDropdownItem(2, () => env.nicknames.nickname_group1[2]),
-            ui.NewDropdownItem(3, () => env.nicknames.nickname_group1[3]),
-            ui.NewDropdownItem(4, () => env.nicknames.nickname_group1[4]),
-            ui.NewDropdownItem(0, () => env.nicknames.nickname_group2[0]),
-            ui.NewDropdownItem(5, () => env.nicknames.nickname_group2[1]),
-            ui.NewDropdownItem(6, () => env.nicknames.nickname_group2[2]),
-            ui.NewDropdownItem(7, () => env.nicknames.nickname_group2[3]),
-            ui.NewDropdownItem(8, () => env.nicknames.nickname_group2[4]),
-            ui.NewDropdownItem(0, () => env.nicknames.nickname_group3[0]),
-            ui.NewDropdownItem(9, () => env.nicknames.nickname_group3[1]),
-            ui.NewDropdownItem(10, () => env.nicknames.nickname_group3[2]),
-            ui.NewDropdownItem(11, () => env.nicknames.nickname_group3[3]),
-            ui.NewDropdownItem(12, () => env.nicknames.nickname_group3[4]),
-          ]);
+          this.dropdownSource = env.nicknames.nickname_group1.map((data, index) => {
+            return ui.NewDropdownItem(index, () => env.nicknames.nickname_group1[index])
+          });
+          this._nameListData = new eui.ArrayCollection(this.dropdownSource);
 
           if (this._ddm_name) {
             this._ddm_name.isDropdown = true;
@@ -92,7 +78,6 @@ namespace we {
             selected: env.nickname,
           });
         }
-        console.log(env.nickname);
       }
 
       protected initPlayerProfile() {
@@ -195,9 +180,10 @@ namespace we {
           });
           logger.l(`NavSideMenu::ChangeName`);
         } else {
-          env.nickname = e.data;
-          console.log(env.nickname);
+          this._username.text = env.nickname = env.nicknames.nickname_group1[e.data];
           dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
+          this.slideToMainSection();
+          this.mount();
         }
       }
 

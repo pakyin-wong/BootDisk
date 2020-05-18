@@ -56,18 +56,25 @@
                 </ui:Scroller>
                 <ui:Scroller id="_nameScroller" width="420" x="35" anchorOffsetY="0" height="578" y="186">
                     <e:Group y="100%" x="100%">
-                        <e:Group id="_btn_name" width="412" height="50" x="3" y="0" scaleX="1" scaleY="1">
+                        <e:Group id="_btn_name" width="330" height="50" x="3" y="0" scaleX="1" scaleY="1">
                             <e:Rect fillAlpha="1" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0"
-                                    right="0" top="0" bottom="0" fillColor="0x1b416e" />
+                                    top="0" bottom="0" fillColor="0x1b416e" width="100%" />
                             <ui:RunTimeLabel id="_txt_name" text="Label" x="48" y="7" width="155" height="36"
                                              verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc"
-                                             size="24" alpha="0.7" scaleX="1" scaleY="1" />
+                                             size="24" scaleX="1" scaleY="1" />
+                                             <e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="40" height="40"
+				         verticalCenter="0"  x="286"/>
                         </e:Group>
-                        <ui:Panel id="_ddm_name" width="100%" x="0" skinName="skin_desktop.NavDropdown"
-                                  anchorOffsetY="0" bottom="0" height="504" />
-											<e:layout>
-												<e:VerticalLayout gap="30"/>
-											</e:layout>
+                        <ui:Panel id="_ddm_name" width="330" x="0" skinName="skin_desktop.NavDropdown" anchorOffsetY="0"
+                                  bottom="0" height="504" />
+
+
+
+
+
+                        <e:layout>
+                            <e:VerticalLayout gap="30" />
+                        </e:layout>
                     </e:Group>
                 </ui:Scroller>
             </e:Group>
