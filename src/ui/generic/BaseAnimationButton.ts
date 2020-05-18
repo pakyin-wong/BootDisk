@@ -206,9 +206,9 @@ namespace we {
           //   }
           this.playPromise('mouse_out', 1);
         } else if (this._active) {
-          this.playPromise('idle', 0);
+          this.playPromise('active', 0);
         } else {
-          this.playPromise('disable', 0);
+          this.playPromise('inactive', 0);
         }
       }
 

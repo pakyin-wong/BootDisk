@@ -27,14 +27,14 @@ namespace we {
           this._image.dbDisplay = `d_lobby_panel_gamelist_${this.data}`;
           this.addChildAt(this._image, 0);
         }
-        this._image.active = false;
-        switch (state) {
-          case 'down':
-          case 'upAndSelected':
-          case 'downAndSelected':
-            this._image.active = true;
-            break;
-        }
+        // this._image.active = false;
+        // switch (state) {
+        //   case 'down':
+        //   case 'upAndSelected':
+        //   case 'downAndSelected':
+        //     this._image.active = true;
+        //     break;
+        // }
       }
     }
   }
