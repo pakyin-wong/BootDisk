@@ -4,6 +4,7 @@ namespace we {
       protected _lblName: RunTimeLabel;
       protected _lblWinAMount: eui.Label;
       protected _resultRect: eui.Rect;
+      protected _resultImage: eui.Image;
       protected _lblResult: RunTimeLabel;
 
       protected _btnQuickBet: BaseImageButton;
@@ -28,12 +29,12 @@ namespace we {
         super.setData(tableInfo);
         const tableNo = tableInfo.tablename;
         const winAmount = tableInfo.totalWin;
-        const winType = tableInfo.data.wintype;
+        const tabledata = tableInfo.data;
         const gameType = tableInfo.gametype;
 
         this._lblName.renderText = () => `${i18n.t('gametype_' + we.core.GameType[gameType])} ${tableNo}`;
         this._lblWinAMount.text = `${winAmount >= 0 ? '+' : ''}${utils.formatNumber(winAmount)}`;
-        this.updateResult(gameType, winType);
+        this.updateResult(gameType, tabledata);
       }
 
       protected abstract updateResult(gameType, winType);

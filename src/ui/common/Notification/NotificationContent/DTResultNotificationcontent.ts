@@ -3,6 +3,7 @@ namespace we {
     export class DTResultNotificationContent extends ResultNotificationContent {
       constructor() {
         super();
+        this.currentState = 'DT';
         // this.skinName = utils.getSkinByClassname('ResultNotificationSkin');
         // if (env.isMobile) {
         // } else {
@@ -25,7 +26,8 @@ namespace we {
       //     this.updateResult(gameType, winType);
       //   }
 
-      protected updateResult(gameType, winType) {
+      protected updateResult(gameType, tabledata) {
+        const { winType } = tabledata;
         // need to be abstract calss
         // switch (gameType) {
         //   case we.core.GameType.BAC:

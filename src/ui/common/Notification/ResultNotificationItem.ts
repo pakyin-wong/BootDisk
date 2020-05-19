@@ -21,9 +21,14 @@ namespace we {
           case 1:
           case 2:
             this._content = new BAResultNotificationContent();
+            // this.currentState = 'BA';
             break;
           case 5:
             this._content = new DTResultNotificationContent();
+            // this.currentState = 'DT';
+            break;
+          case 16:
+            this._content = new LWResultNotificationContent();
           default:
             console.log('not yet done');
             break;
