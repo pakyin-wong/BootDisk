@@ -38,14 +38,14 @@ namespace we {
                 this._coinGroupLayout.gap = 45;
                 break;
               case 4:
-                imgCoin.width = 118;
-                imgCoin.height = 138;
+                imgCoin.width = 130;
+                imgCoin.height = 152;
                 this._coinGroupLayout.gap = 20;
                 break;
               case 5:
               default:
-                imgCoin.width = 130;
-                imgCoin.height = 152;
+                imgCoin.width = 118;
+                imgCoin.height = 138;
                 this._coinGroupLayout.gap = 10;
                 break;
             }
