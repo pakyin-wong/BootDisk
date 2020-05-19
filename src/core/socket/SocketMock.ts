@@ -784,6 +784,12 @@ namespace we {
               cfmBetDetail.amount += betDetail.amount;
               env.balance -= betDetail.amount;
               dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+              if (data.gametype === core.GameType.BAC) {
+                const total = { tableid: tableID, amount: { [cfmBetDetail.field]: cfmBetDetail.amount }, count: { [cfmBetDetail.field]: 1000 } };
+                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+              }
+
               break;
             }
           }
@@ -798,8 +804,14 @@ namespace we {
             });
             env.balance -= betDetail.amount;
             dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+            if (data.gametype === core.GameType.BAC) {
+              const total = { tableid: tableID, amount: { [betDetail.field]: betDetail.amount }, count: { [betDetail.field]: 1000 } };
+              dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+            }
           }
         }
+        data.data.previousstate = we.core.GameState.BET;
         this.dispatchInfoUpdateEvent(data);
         this.dispatchBetResultEvent();
         this.dispatchBetInfoUpdateEvent(data);
