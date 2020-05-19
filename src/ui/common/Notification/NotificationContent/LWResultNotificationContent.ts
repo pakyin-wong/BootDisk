@@ -56,7 +56,7 @@ namespace we {
         //   case we.core.GameType.BAI:
         this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
         switch (value) {
-          case 0;
+          case 0:
             this._resultImage.source = 'd_lw_game_detail_record_bet_east_png';
             break;
           case 1:
