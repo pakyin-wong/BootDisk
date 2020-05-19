@@ -6,7 +6,29 @@ namespace we {
       }
 
       protected createNormalContent() {
-        this._content = new ResultNotificationContent();
+        switch (this.tableInfo.gametype) {
+          // BAC = 0, // classic baccarat
+          // BAS = 1, // speed baccarat
+          // BAI = 2, // insurance baccarat
+          // BAM = 18, // squeeze baccarat
+          // DT = 5, // Dragon Tiger
+          // RO = 14, // Roulette
+          // ROL = 17, // Roulette (God of Wealth) // L stands for luck
+          // DI = 12, // Dice
+          // LW = 16, // Lucky Wheel
+          // // MJ = 13, // MaJong
+          case 0:
+          case 1:
+          case 2:
+            this._content = new BAResultNotificationContent();
+            break;
+          case 5:
+            this._content = new DTResultNotificationContent();
+          default:
+            console.log('not yet done');
+            break;
+        }
+        // this._content = new ResultNotificationContent();
         if (this.tableInfo) {
           this._content.setData(this.tableInfo);
         }
