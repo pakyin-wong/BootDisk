@@ -16,7 +16,7 @@
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
 				</e:Group>
-				<ui:RunTimeLabel fontFamily="Barlow" id="_small_label" size="40" i18n="dice.small" />
+				<ui:RunTimeLabel id="_small_label" size="40" i18n="dice.small" />
 				<e:layout>
 					<e:VerticalLayout gap="8" horizontalAlign="center" />
 				</e:layout>
@@ -25,7 +25,7 @@
 		<e:Group id="_odd_group" width="151" height="100%" x="152">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Label fontFamily="Barlow" text="54%" size="15" />
-				<ui:RunTimeLabel fontFamily="Barlow" id="_odd_label" size="40" i18n="dice.odd" />
+				<ui:RunTimeLabel id="_odd_label" size="40" i18n="dice.odd" />
 				<e:layout>
 					<e:VerticalLayout gap="8" horizontalAlign="center" />
 				</e:layout>
@@ -200,7 +200,7 @@
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
 				</e:Group>
-				<ui:RunTimeLabel fontFamily="Barlow" id="_even_label" size="40" i18n="dice.even" />
+				<ui:RunTimeLabel id="_even_label" size="40" i18n="dice.even" />
 				<e:layout>
 					<e:VerticalLayout gap="8" horizontalAlign="center" />
 				</e:layout>
@@ -415,7 +415,7 @@
 	<e:Group id="_specific_odd_group" width="196" height="68" x="2" y="411">
 		<e:Group horizontalCenter="0" verticalCenter="0">
 			<e:Group>
-				<ui:RunTimeLabel fontFamily="Barlow" id="_single_label" size="15" left="0" i18n="dice.single" />
+				<ui:RunTimeLabel id="_single_label" size="15" left="0" i18n="dice.single" />
 				<e:Label fontFamily="Barlow" text="1:1" size="15" right="0" />
 				<e:layout>
 					<e:HorizontalLayout gap="2" />
@@ -423,14 +423,14 @@
 			</e:Group>
 			<e:Group>
 				<e:Group>
-					<ui:RunTimeLabel fontFamily="Barlow" id="_double_label" size="15" i18n="dice.double" />
+					<ui:RunTimeLabel id="_double_label" size="15" i18n="dice.double" />
 					<e:Label fontFamily="Barlow" text="2:1" size="15" />
 					<e:layout>
 						<e:HorizontalLayout gap="2" />
 					</e:layout>
 				</e:Group>
 				<e:Group>
-					<ui:RunTimeLabel fontFamily="Barlow" id="_triple_label" size="15" i18n="dice.triple" />
+					<ui:RunTimeLabel id="_triple_label" size="15" i18n="dice.triple" />
 					<e:Label fontFamily="Barlow" text="12:1" size="15" />
 					<e:layout>
 						<e:HorizontalLayout gap="2" />
