@@ -77,8 +77,10 @@ namespace we {
 
         this.sortSlides();
         this.initComponents();
-
         this.addListeners();
+
+        if(this.isAuto)
+          this.doAuto();
       }
 
       public addListeners() {
@@ -212,7 +214,7 @@ namespace we {
         if (this.currentPageIdx < 0) this.currentPageIdx = this.pageCount - 1;
       }
 
-      protected doNext() {
+      public doNext() {
         this.isAnimating = true;
 
         if (this.isAuto && this.currentPageIdx === this.pageCount - 1 && this.isNextBlock) {
@@ -256,12 +258,10 @@ namespace we {
         this.updateBullets();
 
         if (this.isAuto)
-          this._autoTimer = setTimeout(() => {
-            this.doNext();
-          }, 3000);
+            this.doAuto();
       }
 
-      protected doPrevious() {
+      public doPrevious() {
         // this._sortedSlides[this._nextIdx].visible = false;
         this.isAnimating = true;
 
@@ -353,7 +353,7 @@ namespace we {
         } else {
           touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
         }
-        console.log('tp: ' + touchPos);
+        // console.log('tp: ' + touchPos);
         // const touchPos = e.$stageX;
         if (!this._previousPosition) {
           // this._previousPosition = e.$stageX;
@@ -377,6 +377,8 @@ namespace we {
 
         if (last < -this.slideWidth / 2) this._direction = 'prev';
 
+        this._previousPosition = touchPos;
+
         if (!this.isLoop) {
           if (offset < 0 && this.isPrevBlock) return;
           if (offset > 0 && this.isNextBlock) return;
@@ -399,7 +401,6 @@ namespace we {
             current.x = this.slideWidth;
           }
         }
-        this._previousPosition = touchPos;
       }
 
       protected onTouchEnd = event => {
@@ -420,7 +421,7 @@ namespace we {
         } else {
           touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
         }
-        console.log('SP ' + this._startPosition + 'TP ' + touchPos + 'OX ' + event.offsetX + 'CX ' + event.clientX + 'SX' + event.screenX + 'canvas left:' + canvas.offsetLeft);
+        // console.log('SP ' + this._startPosition + 'TP ' + touchPos + 'OX ' + event.offsetX + 'CX ' + event.clientX + 'SX' + event.screenX + 'canvas left:' + canvas.offsetLeft);
         // const touchPos = e.$stageX;
         // const currentPosition = e.$stageX;
         const currentPosition = touchPos;
@@ -492,7 +493,7 @@ namespace we {
         return duration;
       }
 
-      protected resetPosition() {
+      public resetPosition() {
         this.isAnimating = true;
 
         const current = this._slides[this.currentPageIdx];
