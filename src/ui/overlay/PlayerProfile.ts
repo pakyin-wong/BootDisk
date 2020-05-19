@@ -28,19 +28,18 @@ namespace we {
 
       private _iconScroller: we.ui.Scroller;
       private _iconListData: eui.ArrayCollection;
+      private _nameListData: eui.ArrayCollection;
+      protected dropdownSource: any[];
       private _iconList: eui.List;
       private _iconGaySize = 10;
 
       private _nameScroller: we.ui.Scroller;
       private _nameList: eui.List;
+      private _arrow: eui.Image;
 
       protected _btn_name: egret.DisplayObject;
       protected _ddm_name: ui.Panel;
       protected _txt_name: ui.RunTimeLabel;
-      private _arrow: eui.Image;
-
-      private _nameListData: eui.ArrayCollection;
-      protected dropdownSource: any[];
 
       private _editName: ui.BaseImageButton;
 
@@ -141,8 +140,10 @@ namespace we {
       }
 
       private slideToIconSelectSection() {
-        this._iconScroller.visible = true;
-        this._nameScroller.visible = false;
+        if (!env.isMobile) {
+          this._iconScroller.visible = true;
+          this._nameScroller.visible = false;
+        }
         this._txt_setting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
         // cancel current tween
         egret.Tween.removeTweens(this._section_main);
@@ -153,8 +154,10 @@ namespace we {
       }
 
       private slideToNameSelectSection() {
-        this._iconScroller.visible = false;
-        this._nameScroller.visible = true;
+        if (!env.isMobile) {
+          this._iconScroller.visible = false;
+          this._nameScroller.visible = true;
+        }
         this._txt_setting.renderText = () => `${i18n.t('nav.system.changeName')}`;
         // cancel current tween
         egret.Tween.removeTweens(this._section_main);
@@ -190,18 +193,12 @@ namespace we {
       private onChangeIcon() {
         this._playerIcon.source = env.icon = env.icons[this._iconList.selectedIndex];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
-        this.slideToMainSection();
       }
 
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this.initPlayerProfile();
       }
-
-      // protected onOrientationChangePlayerProfile() {
-      //   this.destroy();
-      //   this.initPlayerProfile();
-      // }
     }
   }
 }
