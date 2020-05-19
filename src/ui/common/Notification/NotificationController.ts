@@ -43,7 +43,7 @@ namespace we {
         // group with horizontal layout
         // holding 2 notification holder
         // this.notificationHolders = [];
-        this.notificationList = [];
+        this.notificationList = []; // 會store住D data先,之後(even只有一個)會係showNextNotification將data push上collection到用listDisplay去render(NotificationController > listDisplay > NotificationHolder)
         // const group = new eui.Group();
         // this.addChild(group);
 
