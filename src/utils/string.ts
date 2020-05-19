@@ -40,7 +40,8 @@ namespace we {
       return source
         .replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2')
         .replace('diamond', 'diamonds')
-        .replace('heart', 'hearts');
+        .replace('heart', 'hearts')
+        .replace(/(1(?!0))/, 'a');
     }
 
     export function cardToNumber(source) {
