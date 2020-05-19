@@ -11,7 +11,7 @@
             <e:Rect height="208" fillAlpha="0.4" ellipseHeight="0"
 			        ellipseWidth="0" scaleX="1" scaleY="1"  fillColor="0x444444" left="0" right="0"/>        
             <ui:RunTimeLabel id="_txt_search" text="Label" x="185" y="66" height="88" verticalAlign="middle"
-		                     fontFamily="NotoSansCJKtc" size="50" width="702" alpha="0.7"  textColor="0xc9c9c9"/>
+		                     size="50" width="702" alpha="0.7"  textColor="0xc9c9c9"/>
 		    <ui:BaseImageButton id="_btn_search" width="62" height="62" x="78" y="79" currentState="search_icon"
 		                     skinName="skin_desktop.ImageButtonSkinNav" />
 		    <e:EditableText id="_tf_search" width="1794" height="88" text="" x="185" y="66" verticalAlign="middle"
