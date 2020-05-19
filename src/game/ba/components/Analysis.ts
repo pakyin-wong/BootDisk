@@ -122,7 +122,7 @@ namespace we {
         if (evt.target === this._iconBankerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<we.ba.AdvancedRoad>this.advancedRoad).askBankerRoad();
+            (<we.ba.AdvancedRoad> this.advancedRoad).askBankerRoad();
           }
         }
       }
@@ -131,7 +131,7 @@ namespace we {
         if (evt.target === this._iconPlayerBead) {
           evt.stopPropagation();
           if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<we.ba.AdvancedRoad>this.advancedRoad).askPlayerRoad();
+            (<we.ba.AdvancedRoad> this.advancedRoad).askPlayerRoad();
           }
         }
       }

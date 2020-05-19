@@ -1,3 +1,11 @@
+/* tslint:disable triple-equals */
+/**
+ * RouletteScene
+ *
+ * RouletteScene consist of serveral components: Betting table, Video, serveral roadmap, table list panel on right hand side, table info panel and some statistic graph
+ * It also contains
+ *
+ */
 namespace we {
   export namespace ro {
     export class MobileScene extends core.MobileBaseGameScene {
@@ -314,7 +322,7 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData>this._gameData).value;
+        const resultNo = (<ro.GameData> this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         if (this.hasBet() && !isNaN(totalWin)) {

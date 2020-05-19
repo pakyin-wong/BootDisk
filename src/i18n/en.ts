@@ -369,6 +369,7 @@ namespace we {
         PairRatio: 'Banker pair:Player pair ratio',
         round: 'round',
         rounds: 'rounds',
+        playersqueeze: 'Squeeze',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

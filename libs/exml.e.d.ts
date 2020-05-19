@@ -186,6 +186,10 @@ declare module skin_desktop{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class CountdownTimerRoundSqueezeBaccaratSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.di{
 	class Analysis extends eui.Skin{
 	}
@@ -969,6 +973,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class ChangeName extends eui.Skin{
 	}
 }
@@ -1484,6 +1492,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BetHistorySearch extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
