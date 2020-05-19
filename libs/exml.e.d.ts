@@ -537,6 +537,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class GameSetting extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class MemberReport extends eui.Skin{
 	}
 }
@@ -561,7 +565,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class SoundSetting extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class SystemSetting extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class VideoSetting extends eui.Skin{
 	}
 }
 declare module skin_desktop{

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.VideoSetting" width="1962" height="658" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.VideoSetting" width="1962" height="658" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect left="0" top="0" bottom="0" right="0" ellipseWidth="130" ellipseHeight="130" fillColor="0x0f1721"/>
