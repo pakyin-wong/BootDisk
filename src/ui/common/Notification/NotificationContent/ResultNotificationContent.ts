@@ -6,6 +6,7 @@ namespace we {
       protected _resultRect: eui.Rect;
       protected _resultImage: eui.Image;
       protected _lblResult: RunTimeLabel;
+      protected _ROlblResult: RunTimeLabel;
 
       protected _btnQuickBet: BaseImageButton;
       protected _btnDismiss: BaseImageButton;

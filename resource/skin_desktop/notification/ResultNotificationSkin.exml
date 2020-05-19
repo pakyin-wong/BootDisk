@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ResultNotificationSkin" width="385" height="100" states="BA,DT,LW"  xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.ResultNotificationSkin" width="385" height="100" states="BA,DT,LW,RO"  xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
         <e:Image id="_touchArea" source="nav_panel_bg" scale9Grid="25,20,23,10" anchorOffsetX="0" anchorOffsetY="0"
                  left="0" top="0" bottom="0" right="0" />
         <ui:RunTimeLabel id="_lblName" text="Label" x="95" y="22" size="22" touchEnabled="false" />
         <e:Label id="_lblWinAMount" text="Label" x="95" y="50" size="24" touchEnabled="false" />
-        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" visible.LW="false">
+        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="BA,DT" >
                 <e:Rect id="_resultRect" width="54" height="54" x="0" y="0" scaleX="1" scaleY="1" ellipseWidth="54"
                         ellipseHeight="54" fillColor="0xff0000" />
                 <ui:RunTimeLabel id="_lblResult" text="B" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"
                                  verticalAlign="middle" textAlign="center" size="24" />
         </e:Group>
-        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" visible.BA="false" visible.DT="false" width.LW="46" height.LW="54">
-		<e:Image id="_resultImage" top="0" left="0" right="0" bottom="0" visible.BA="false" visible.DT="false" x.LW="0" y.LW="0"/>
+        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="LW" height.LW="53" x.LW="32">
+		<e:Image id="_resultImage" top="0" left="0" right="0" bottom="0" includeIn="LW" x="0" y="0"/>
+        </e:Group>
+        <e:Group x="30" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="RO" width="55" height="53">
+		<e:Rect id="_ROresultRect" width="54" height="54" x="0" y="0" scaleX="1" scaleY="1" ellipseWidth="54"
+                        ellipseHeight="54" fillColor="0xff0000" />
+                <ui:RunTimeLabel id="_ROlblResult" text="B" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"
+                                 verticalAlign="middle" textAlign="center" size="24" />
         </e:Group>
         <ui:BaseImageButton id="_btnDismiss" width="122" height="39" x="250" y="8.7" anchorOffsetX="0" anchorOffsetY="0"
                             skinName="skin_desktop.ImageButtonSkinLobby" currentState="lobby_notify_btn_hide" useColorFilter="true" />

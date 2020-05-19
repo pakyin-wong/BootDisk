@@ -29,6 +29,10 @@ namespace we {
             break;
           case 16:
             this._content = new LWResultNotificationContent();
+            break;
+          case 14:
+            this._content = new ROResultNotificationContent();
+            break;
           default:
             console.log('not yet done');
             break;
