@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.BetHistorySearch" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*"
+        xmlns:bh="we.overlay.betHistory.*">
+        <e:Group id="content" left="0" right="0" top="0" bottom="0">
+            <e:Rect left="0" right="0" top="0" bottom="0" strokeColor="0x333c4a" strokeWeight="2" fillColor="0x14181e" x="0"
+			        y="0" scaleX="1" scaleY="1" />
+            <e:Rect height="80" y="352" left="0" right="0" fillColor="0x1b416e" x="0" scaleX="1" scaleY="1" />
+            <e:Rect width="932" height="115" x="55" y="53" fillAlpha="0.4" ellipseHeight="115"
+			        ellipseWidth="115" scaleX="1" scaleY="1"  fillColor="0x666666"/>
+            <e:Rect height="208" fillAlpha="0.4" ellipseHeight="0"
+			        ellipseWidth="0" scaleX="1" scaleY="1"  fillColor="0x444444" left="0" right="0"/>        
+            <ui:RunTimeLabel id="_txt_search" text="Label" x="185" y="66" height="88" verticalAlign="middle"
+		                     fontFamily="NotoSansCJKtc" size="50" width="702" alpha="0.7" />
+		    <ui:BaseImageButton id="_btn_search" width="62" height="62" x="78" y="79" currentState="search_icon"
+		                     skinName="skin_desktop.ImageButtonSkinNav" />
+		    <e:EditableText id="_tf_search" width="702" height="88" text="" x="185" y="66" verticalAlign="middle"
+		                     fontFamily="NotoSansCJKtc" size="50" />        
+            <ui:RunTimeLabel id="_txt_record_date" text="Label" x="4" y="352" width="477" size="40" verticalAlign="middle"
+			                 height="59" textColor="0xd5d5d5" scaleX="1" scaleY="1" />
+            <ui:RunTimeLabel id="_txt_record_game" text="Label" x="571" y="352" width="275" height="59" size="40"
+			                 verticalAlign="middle" scaleX="1" scaleY="1" />
+            <ui:RunTimeLabel id="_txt_record_win" text="Label" y="352" width="275" height="59" size="40" verticalAlign="middle"
+			                 scaleX="1" scaleY="1" textAlign="right" right="47" x="920" />
+            <ui:BaseButton id="close" width="248" height="120" x="977" y="55"
+			                 skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1" />
+            <e:Image id="_btn_clean" width="50" height="50" source="d-lobby-button-close-none_png" x="908" y="87"/>
+            <e:Scroller id="_scroller" height="1719" y="432" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
+				<e:List id="_datagroup" />
+	    </e:Scroller>
+            <bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
+		                     bottom="0" />
+        </e:Group>
+</e:Skin>
