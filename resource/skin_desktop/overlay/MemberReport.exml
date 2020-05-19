@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.MemberReport" width="1689" height="731" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*">
+<e:Skin class="skin_desktop.MemberReport" width="1689" height="731" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:overlay="we.overlay.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x14181e" ellipseHeight="48" ellipseWidth="48" strokeColor="0x333c4a" strokeWeight="2" locked="true"/>
 		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png"/>
@@ -26,4 +26,6 @@
 		<ui:RunTimeLabel id="_txt_winAmount_value" text="Label" x="74.8" y="540.98" size="60"/>
 		<ui:RunTimeLabel id="_txt_totalAmount_value" text="Label" x="901.97" y="540.98" size="60"/>
 	</e:Group>
+	<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="795" y="-24" x="511" scaleX="1" scaleY="1" anchorOffsetY="0"/>
+	<ui:Panel id="_ddm_searchType" width="370" maxHeight="300" x="348" y="117" skinName="skin_desktop.NavDropdown" />
 </e:Skin>

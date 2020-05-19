@@ -296,6 +296,7 @@
 		"resource/skin_mobile_portrait/overlay/OverlayPanelButton.exml",
 		"resource/skin_mobile_portrait/overlay/OverlayPanelSwitch.exml",
 		"resource/skin_mobile_landscape/overlay/BetHistoryDetail.exml",
+		"resource/skin_mobile_landscape/overlay/BetHistorySearch.exml",
 		"resource/skin_mobile_landscape/overlay/DoubleCalendarPicker.exml",
 		"resource/skin_mobile_landscape/overlay/BetHistory.exml",
 		"resource/skin_mobile_landscape/overlay/BetHistoryItem.exml",
