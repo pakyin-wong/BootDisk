@@ -133,7 +133,6 @@ namespace we {
       }
 
       protected onClickSearch(e) {
-        // this.close.visible = false;
         this._search.show();
       }
 
