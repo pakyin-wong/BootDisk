@@ -35,6 +35,8 @@ namespace we {
         const winAmount = tableInfo.totalWin;
         const tabledata = tableInfo.data;
         const gameType = tableInfo.gametype;
+        const winType = tableInfo.data.wintype;
+        console.log(tableInfo)
 
         this._lblName.renderText = () => `${i18n.t('gametype_' + we.core.GameType[gameType])} ${tableNo}`;
         this._lblWinAMount.text = `${winAmount >= 0 ? '+' : ''}${utils.formatNumber(winAmount)}`;

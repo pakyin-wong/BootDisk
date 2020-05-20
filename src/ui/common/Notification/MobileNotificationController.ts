@@ -16,6 +16,9 @@ namespace we {
       protected layout2: eui.VerticalLayout = new eui.VerticalLayout();
       protected layout3: eui.VerticalLayout = new eui.VerticalLayout();
 
+      protected _max_result: number;
+      protected _max_goodRoad: number = 1;;
+
       constructor() {
         super();
         this.init();
@@ -46,6 +49,8 @@ namespace we {
         this.percentWidth = 100;
         this.percentHeight = 100;
 
+        this._max_result = 1;
+
         this._notificationGroup = new eui.Group();
         if (env.orientation === egret.OrientationMode.PORTRAIT) {
         } else {
@@ -58,14 +63,17 @@ namespace we {
 
 
         this.layout2.horizontalAlign = egret.HorizontalAlign.CENTER;
+        this.layout3.horizontalAlign = egret.HorizontalAlign.CENTER;
+
         this.goodRoadListDisplay.layout = this.layout2;
         this.goodRoadListDisplay.isFade = false;
         this.goodRoadListDisplay.isSwipeable = false;
         this.goodRoadListDisplay.isAnimateItemTransition = true;
         this.goodRoadListDisplay.dataProvider = this._goodRoadCollection;
         this.goodRoadListDisplay.itemRenderer = NotificationItemHolder;
-        this.goodRoadListDisplay.width = this.stage.width;
-        this.goodRoadListDisplay.top = 28;
+        this.goodRoadListDisplay.width = this.stage.stageWidth;
+        // this.goodRoadListDisplay.top = 28;
+        this.goodRoadListDisplay.bottom = 150;
         this.goodRoadListDisplay.isAnimateItemTransition = true;
         this.goodRoadListDisplay.useVirtualLayout = false;
         this.addChild(this.goodRoadListDisplay);
@@ -73,14 +81,7 @@ namespace we {
         this.resultListDisplay = new ui.List();
         this._resultCollection = new eui.ArrayCollection([]);
 
-        switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
-          case 'Lobby':
-            this.layout3.horizontalAlign = egret.HorizontalAlign.CENTER;
-            break;
-          case 'Game':
-            this.layout3.horizontalAlign = egret.HorizontalAlign.LEFT;
-            break;
-        }
+
         this.resultListDisplay.layout = this.layout3;
         this.resultListDisplay.isFade = false;
         this.resultListDisplay.isSwipeable = false;
@@ -88,12 +89,20 @@ namespace we {
         this.resultListDisplay.dataProvider = this._resultCollection;
         this.resultListDisplay.itemRenderer = NotificationItemHolder;
         this.resultListDisplay.width = this.stage.stageWidth;
-        console.log(this.resultListDisplay.width);
         this.resultListDisplay.bottom = 150;
         this.resultListDisplay.isAnimateItemTransition = true;
         this.resultListDisplay.useVirtualLayout = false;
         this.addChild(this.resultListDisplay);
 
+        if (dir.sceneCtr.currScene.sceneHeaderPlacement === 'Game') {
+          if (env.orientation === 'landscape') {
+            this.layout2.horizontalAlign = egret.HorizontalAlign.LEFT;
+            this.layout3.horizontalAlign = egret.HorizontalAlign.LEFT;
+            this.goodRoadListDisplay.bottom = 500;
+            this.resultListDisplay.bottom = 500;
+            this._max_result = 6;
+          }
+        }
       }
 
       protected onNotified(evt: egret.Event) {
@@ -102,10 +111,18 @@ namespace we {
         this.showNextNotification();
       }
 
+      protected hasAvailableHolder() {
+        return this._activeNotificationCount.total < this._max_result + this._max_goodRoad;
+      }
+
       public showNextNotification() {
+        // check if there is empty holder
+        if (!this.hasAvailableHolder()) {
+          return;
+        }
+
         const notification = this.nextNotification;
         if (notification) {
-          console.log('notification.type', notification.type);
           switch (notification.type) {
             case core.NotificationType.GoodRoad:
               // const group = new eui.Group();
@@ -123,7 +140,6 @@ namespace we {
               this.resultListDisplay.addItem(notification);
               break;
           }
-
           this.showNotification(notification.type);
         }
       }
@@ -132,9 +148,11 @@ namespace we {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
         switch (type) {
           case core.NotificationType.GoodRoad:
-            return this._activeNotificationCount['GoodRoad'] === 0;
+            //set max no. of GoodRoad notification at one time
+            return this._activeNotificationCount['GoodRoad'] <= this._max_goodRoad;
           case core.NotificationType.Result:
-            return this._activeNotificationCount['Result'] === 0;
+            //set max no. of Result notification at one time
+            return this._activeNotificationCount['Result'] < this._max_result;
         }
         return false;
       }
