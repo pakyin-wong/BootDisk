@@ -27,8 +27,6 @@
 					<e:layout>
 						<e:HorizontalLayout gap="6"/>
 					</e:layout>
-		<!--<e:Rect id="_ROresultRect" width="54" height="54" x="0" y="0" scaleX="1" scaleY="1" ellipseWidth="54"
-                        ellipseHeight="54" fillColor="0xff0000" />-->
         </e:Group>
         <ui:BaseImageButton id="_btnDismiss" width="122" height="39" x="250" y="8.7" anchorOffsetX="0" anchorOffsetY="0"
                             skinName="skin_desktop.ImageButtonSkinLobby" currentState="lobby_notify_btn_hide" useColorFilter="true"  x.DI="255"/>
