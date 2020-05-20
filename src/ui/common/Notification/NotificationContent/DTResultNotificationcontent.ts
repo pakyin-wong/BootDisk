@@ -27,13 +27,13 @@ namespace we {
       //   }
 
       protected updateResult(gameType, tabledata) {
-        const { winType } = tabledata;
+        const { wintype } = tabledata;
         // need to be abstract calss
         // switch (gameType) {
         //   case we.core.GameType.BAC:
         //   case we.core.GameType.BAS:
         //   case we.core.GameType.BAI:
-        this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
+        this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, wintype, true));
         // switch (winType) {
         //   case ba.WinType.BANKER:
         //     this._resultRect.fillColor = 0xff0000;
@@ -48,7 +48,7 @@ namespace we {
         // break;
         //   case we.core.GameType.DT:
         //     this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
-        switch (winType) {
+        switch (wintype) {
           case dt.WinType.DRAGON:
             this._resultRect.fillColor = 0x0000ff;
             break;

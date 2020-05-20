@@ -27,14 +27,15 @@ namespace we {
       //   }
 
       protected updateResult(gameType, tabledata) {
-        const { winType } = tabledata;
+        const { wintype } = tabledata;
+        console.log('tbdata in ba', tabledata);
         // need to be abstract calss
         // switch (gameType) {
         //   case we.core.GameType.BAC:
         //   case we.core.GameType.BAS:
         //   case we.core.GameType.BAI:
-        this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
-        switch (winType) {
+        this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, wintype, true));
+        switch (wintype) {
           case ba.WinType.BANKER:
             this._resultRect.fillColor = 0xff0000;
             break;
