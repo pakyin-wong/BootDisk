@@ -35,6 +35,11 @@ namespace we {
       protected _active: boolean = false;
       protected _down: boolean = false;
 
+      public useColorFilter: boolean = false;
+      public pressScaleOffset: number = 0.9;
+      public downColorOffset: number = -30;
+      public hoverColorOffset: number = 30;
+
       public get dbClass() {
         return this._dbClass;
       }
@@ -134,29 +139,48 @@ namespace we {
         this.update(oldState);
       }
 
+      protected updateColorFilter(buttonState) {
+        let colorMatrix;
+        let offset = 0;
+        switch (buttonState) {
+          case BaseAnimationButtonState.hover:
+            offset = this.hoverColorOffset;
+            break;
+          case BaseAnimationButtonState.down:
+            offset = this.downColorOffset;
+            break;
+        }
+        if (buttonState === BaseAnimationButtonState.disabled) {
+          colorMatrix = [0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0, 0, 0, 1, 0];
+        } else {
+          colorMatrix = [1, 0, 0, 0, offset, 0, 1, 0, 0, offset, 0, 0, 1, 0, offset, 0, 0, 0, 1, 0];
+        }
+        const colorFilter = new egret.ColorMatrixFilter(colorMatrix);
+        this.filters = [colorFilter];
+      }
+
       private onRollover() {
-        const oldState = [this._down, this._hover];
-        this._hover = true;
-        this.update(oldState);
+        if (this.useColorFilter) {
+          this.updateColorFilter(BaseAnimationButtonState.hover);
+        }
       }
 
       private onRollout() {
-        const oldState = [this._down, this._hover];
-        this._down = false;
-        this._hover = false;
-        this.update(oldState);
+        if (this.useColorFilter) {
+          this.updateColorFilter(BaseAnimationButtonState.normal);
+        }
       }
 
       private onTouchDown() {
-        const oldState = [this._down, this._hover];
-        this._down = true;
-        this.update(oldState);
+        egret.Tween.removeTweens(this);
+        egret.Tween.get(this).to({ scaleX: this.pressScaleOffset, scaleY: this.pressScaleOffset }, 150);
       }
 
       private onTouchUp() {
-        const oldState = [this._down, this._hover];
-        this._down = false;
-        this.update(oldState);
+        egret.Tween.removeTweens(this);
+        egret.Tween.get(this).to({ scaleX: 1.0, scaleY: 1.0 }, 150);
+        // play release
+        this.playPromise('release', 1);
       }
 
       private onClick() {
