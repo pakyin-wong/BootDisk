@@ -33,11 +33,13 @@ namespace we {
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           this._lblGoodRoad.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         }
-        if (this._timer) {
-          this._timer.countdownValue = 10 * 1000;
-          this._timer.remainingTime = 10 * 1000;
-          console.log('this._timer exist');
-        }
+        // if (this._timer) {
+        //   this._timer.countdownValue = 10 * 1000;
+        //   this._timer.remainingTime = 10 * 1000;
+        //   this._timer.visible = true;
+        //   this._timer.start();
+        //   console.log('this._timer exist');
+        // }
       }
 
       protected onMatchGoodRoadUpdate() {
