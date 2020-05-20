@@ -20,18 +20,19 @@ namespace we {
           case 0:
           case 1:
           case 2:
-            this._content = new BAResultNotificationContent();
-            // this.currentState = 'BA';
+            this._content = new BAResultNotificationContent(); // BA
             break;
           case 5:
-            this._content = new DTResultNotificationContent();
-            // this.currentState = 'DT';
+            this._content = new DTResultNotificationContent(); // DT
             break;
           case 16:
-            this._content = new LWResultNotificationContent();
+            this._content = new LWResultNotificationContent(); // LW
             break;
           case 14:
-            this._content = new ROResultNotificationContent();
+            this._content = new ROResultNotificationContent(); // RO
+            break;
+          case 12:
+            this._content = new DIResultNotificationContent(); // DI
             break;
           default:
             console.log('not yet done');
