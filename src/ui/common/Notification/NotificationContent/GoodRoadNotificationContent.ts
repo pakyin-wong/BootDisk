@@ -25,6 +25,9 @@ namespace we {
 
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
+        const gameType = tableInfo.gametype;
+        const tableNo = tableInfo.tablename;
+        this._label.renderText = () => `${i18n.t('gametype_' + we.core.GameType[gameType])} ${tableNo}`;
         if (this.tableInfo.goodRoad) {
           const goodRoadData = this.tableInfo.goodRoad;
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
@@ -56,7 +59,29 @@ namespace we {
       }
 
       protected enterRoom() {
-        dir.sceneCtr.goto('ba', { tableid: this.tableId });
+        switch (this.tableInfo.gametype){
+          case 0:
+          case 1:
+          case 2:
+            dir.sceneCtr.goto('ba', { tableid: this.tableId }); // BA
+            break;
+          case 5:
+            dir.sceneCtr.goto('dt', { tableid: this.tableId }); // DT
+            break;
+          case 16:
+            dir.sceneCtr.goto('lw', { tableid: this.tableId }); // LW
+            break;
+          case 14:
+            dir.sceneCtr.goto('ro', { tableid: this.tableId }); // RO
+            break;
+          case 12:
+            dir.sceneCtr.goto('di', { tableid: this.tableId }); // DI
+            break;
+          default:
+            console.log('not yet done');
+            break;
+        }
+        // dir.sceneCtr.goto('ba', { tableid: this.tableId });
         this.removeSelf();
       }
     }
