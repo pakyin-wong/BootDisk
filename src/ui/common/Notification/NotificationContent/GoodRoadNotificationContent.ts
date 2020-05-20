@@ -3,7 +3,7 @@ namespace we {
     export class GoodRoadNotificationContent extends ui.ControlItem {
       protected _label: RunTimeLabel;
       protected _lblGoodRoad: RunTimeLabel;
-      protected _timer: CountdownTimer;
+      protected _timer: ui.CountdownTimer;
 
       protected _btnQuickBet: BaseImageButton;
       protected _btnDismiss: BaseImageButton;
@@ -33,6 +33,11 @@ namespace we {
           const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
           this._lblGoodRoad.renderText = () => (goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`));
         }
+        if (this._timer) {
+          this._timer.countdownValue = 10 * 1000;
+          this._timer.remainingTime = 10 * 1000;
+          console.log('this._timer exist');
+        }
       }
 
       protected onMatchGoodRoadUpdate() {
@@ -59,7 +64,7 @@ namespace we {
       }
 
       protected enterRoom() {
-        switch (this.tableInfo.gametype){
+        switch (this.tableInfo.gametype) {
           case 0:
           case 1:
           case 2:
