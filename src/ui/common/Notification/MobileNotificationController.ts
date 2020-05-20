@@ -13,10 +13,14 @@ namespace we {
 
       private _notificationGroup: eui.Group;
 
+      protected layout2: eui.VerticalLayout = new eui.VerticalLayout();
+      protected layout3: eui.VerticalLayout = new eui.VerticalLayout();
+
       constructor() {
         super();
         this.init();
         dir.evtHandler.addEventListener(core.Event.NOTIFICATION, this.onNotified, this);
+        dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.mount, this);
       }
 
       protected init() {
@@ -34,11 +38,11 @@ namespace we {
       protected destroy() {
         super.destroy();
         dir.evtHandler.removeEventListener(core.Event.NOTIFICATION, this.onNotified, this);
+        dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.mount, this);
       }
 
       public mount() {
         super.mount();
-
         this.percentWidth = 100;
         this.percentHeight = 100;
 
@@ -52,9 +56,9 @@ namespace we {
         this.goodRoadListDisplay = new ui.List();
         this._goodRoadCollection = new eui.ArrayCollection([]);
 
-        const layout2 = new eui.VerticalLayout();
-        layout2.horizontalAlign = egret.HorizontalAlign.CENTER;
-        this.goodRoadListDisplay.layout = layout2;
+
+        this.layout2.horizontalAlign = egret.HorizontalAlign.CENTER;
+        this.goodRoadListDisplay.layout = this.layout2;
         this.goodRoadListDisplay.isFade = false;
         this.goodRoadListDisplay.isSwipeable = false;
         this.goodRoadListDisplay.isAnimateItemTransition = true;
@@ -69,23 +73,31 @@ namespace we {
         this.resultListDisplay = new ui.List();
         this._resultCollection = new eui.ArrayCollection([]);
 
-        const layout3 = new eui.VerticalLayout();
-        layout3.horizontalAlign = egret.HorizontalAlign.CENTER;
-        this.resultListDisplay.layout = layout3;
+        switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
+          case 'Lobby':
+            this.layout3.horizontalAlign = egret.HorizontalAlign.CENTER;
+            break;
+          case 'Game':
+            this.layout3.horizontalAlign = egret.HorizontalAlign.LEFT;
+            break;
+        }
+        this.resultListDisplay.layout = this.layout3;
         this.resultListDisplay.isFade = false;
         this.resultListDisplay.isSwipeable = false;
         this.resultListDisplay.isAnimateItemTransition = true;
         this.resultListDisplay.dataProvider = this._resultCollection;
         this.resultListDisplay.itemRenderer = NotificationItemHolder;
-        this.resultListDisplay.width = this.stage.width;
-        this.resultListDisplay.bottom = 55 + 20;
+        this.resultListDisplay.width = this.stage.stageWidth;
+        console.log(this.resultListDisplay.width);
+        this.resultListDisplay.bottom = 150;
         this.resultListDisplay.isAnimateItemTransition = true;
         this.resultListDisplay.useVirtualLayout = false;
         this.addChild(this.resultListDisplay);
+
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification> evt.data;
+        const notification: data.Notification = <data.Notification>evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -177,6 +189,11 @@ namespace we {
         //   }
         //   this._currentFocus = null;
         // }
+      }
+
+      protected onOrientationChange() {
+        super.onOrientationChange();
+        this.mount();
       }
     }
   }
