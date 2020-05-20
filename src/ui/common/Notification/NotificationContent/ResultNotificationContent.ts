@@ -5,6 +5,9 @@ namespace we {
       protected _lblWinAMount: eui.Label;
       protected _resultRect: eui.Rect;
       protected _resultImage: eui.Image;
+      protected _DIresultImage1: eui.Image;
+      protected _DIresultImage2: eui.Image;
+      protected _DIresultImage3: eui.Image;
       protected _lblResult: RunTimeLabel;
       protected _ROlblResult: RunTimeLabel;
 

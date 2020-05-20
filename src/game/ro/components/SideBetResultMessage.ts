@@ -16,7 +16,6 @@ namespace we {
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
-        console.log('ro.SideBetResultMessage::showResult().resultData ', resultData);
         this.visible = true;
         const resultValue = resultData.value;
         const allResult = we.ro.getNeighbour(resultValue, 1);
