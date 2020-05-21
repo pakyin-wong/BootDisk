@@ -119,6 +119,9 @@ npm install -g tslint prettier typescript
 
 ## Asset Link from Design Team (Copied from whatsapp group)
 
+- [Squeeze Baccarat Desktop](https://drive.google.com/open?id=1AY6lAwunBfeqW4Rrg-gEPtgtv4m_q7Xb)
+- [Squeeze Baccarat Mobile](https://drive.google.com/open?id=1vccNZi4X2dp3TfgodQukk3KOSaPm6JAq)
+
 - [Asset root directory](https://drive.google.com/drive/folders/1_sZjq7i8acgw9bF33yMfOV3lCJrG6LqT)
 
 - [dragonbone icon animation](https://drive.google.com/drive/folders/10d3Jv2eo5CnRjLkJ_J5qJ711EQOA_qhY)
