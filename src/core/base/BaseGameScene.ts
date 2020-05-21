@@ -82,6 +82,7 @@ namespace we {
 
       public onExit() {
         super.onExit();
+        this._video.stop();
         dir.videoPool.release(this._video);
         this.removeEventListeners();
         this.removeChildren();

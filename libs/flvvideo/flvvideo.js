@@ -77,41 +77,55 @@ var egret;
                 if (true && !url) {
                     egret.$error(3002);
                 }
-                if (this.src == url) {
-                    return;
-                }
+                // if (this.src == url) {
+                //     return;
+                // }
                 this.src = url;
 
                 // create a canvas for video image capture
                 var videoCanvas;
-                var videoCanvasId = 'videoCanvas' + videoIndex++;
-                if (!this.videoCanvas) {
+                var videoCanvasId = this.videoCanvasId || 'videoCanvas' + videoIndex++;
+                if (!this.videoCanvas || !this.player) {
                     videoCanvas = document.createElement('canvas');
                     videoCanvas.id = videoCanvasId;
                     videoCanvas.width = 640;
                     videoCanvas.height = 360;
                     videoCanvas.style.display = 'none';
                     this.videoCanvas = videoCanvas;
+                    this.videoCanvasId = videoCanvasId;
                     document.body.appendChild(videoCanvas);
+
+                    if (this.player) {
+                        this.player.stop();
+                    }
+                    var player1 = new WFPlayer()
+                    WFPlayer.debug(false)
+                    player1.enableAudio(true)
+                    player1.setView(videoCanvasId)
+                    player1.setScaleMode(1)
+                    player1.setBufferTime(1000)
+                    _this.startFunc1 = function () {
+                        player1.stop()
+                        if (this.playTimeoutId) {
+                            clearTimeout(this.playTimeoutId);
+                            this.playTimeoutId = null;
+                        }
+                        this.playTimeoutId = setTimeout(() => {
+                            player1.start(url)
+                            egret.startTick(this.markDirty, this);
+                        }, 500)
+                    }
+                    _this.stopFunc1 = function () {
+                        player1.stop()
+                        if (this.playTimeoutId) {
+                            clearTimeout(this.playTimeoutId);
+                            this.playTimeoutId = null;
+                        }
+                        egret.stopTick(this.markDirty, this);
+                    }
+                    this.player = player1;
                 }
 
-                var player1 = new WFPlayer()
-                WFPlayer.debug(false)
-                player1.enableAudio(true)
-                player1.setView(videoCanvasId)
-                player1.setScaleMode(1)
-                player1.setBufferTime(1000)
-                _this.startFunc1 = function () {
-                    player1.stop()
-                    setTimeout(() => {
-                        player1.start(url)
-                        egret.startTick(this.markDirty, this);
-                    }, 500)
-                }
-                _this.stopFunc1 = function () {
-                    player1.stop()
-                    egret.stopTick(this.markDirty, this);
-                }
             };
 
             /**
@@ -130,6 +144,11 @@ var egret;
                 this.userPause = true;
                 this.userPlay = false;
                 this.stopFunc1();
+
+                const gl = this.videoCanvas.getContext('webgl');
+                gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
+
+                this.markDirty();
             };
 
             /**

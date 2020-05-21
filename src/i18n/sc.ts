@@ -360,6 +360,7 @@ namespace we {
         PairRatio: '庄对闲对比例',
         round: '局',
         rounds: '局',
+        playersqueeze: '玩家咪牌',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

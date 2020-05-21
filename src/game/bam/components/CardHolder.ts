@@ -27,9 +27,7 @@ namespace we {
       protected _playerWinningField: eui.Image;
       protected _bankerWinningField: eui.Image;
 
-      protected _debugMsg: eui.Label;
-
-      constructor() {
+      public constructor() {
         super();
       }
 
@@ -67,8 +65,6 @@ namespace we {
           });
         }
 
-        // console.log('point: ', points);
-
         this._bankerSum.text = ((points[0] + points[1] + points[2]) % 10).toString();
         this._playerSum.text = ((points[3] + points[4] + points[5]) % 10).toString();
       }
@@ -80,8 +76,142 @@ namespace we {
         this.setCardImage(4);
       }
 
+      protected setPeekState() {
+        this._playerWinningField.visible = false;
+        this._bankerWinningField.visible = false;
+        if (this._currState !== this._prevState) {
+          if (this._cardHolderArr) {
+            this._cardHolderArr.map(value => {
+              value.reset();
+            });
+          }
+          this.calculatePoint();
+        }
+
+        if (this._timer) {
+          this._timer.visible = true;
+          this._timer.countdownValue = this.gameData.countdownA * 1000;
+          this._timer.remainingTime = this.gameData.countdownA * 1000 - (env.currTime - this.gameData.peekstarttime);
+          this._timer.start();
+        }
+
+        this._bankerCard3.visible = false;
+        this._playerCard3.visible = false;
+
+        this.setNormalCards();
+        this.setCardsFlipAllowed();
+      }
+
+      protected setPeekPlayerState() {
+        this._playerWinningField.visible = false;
+        this._bankerWinningField.visible = false;
+        if (!this._prevState) {
+          this.setNormalCards();
+        }
+        if (this._timer) {
+          this._timer.visible = true;
+          this._timer.countdownValue = this.gameData.countdownB * 1000;
+          this._timer.remainingTime = this.gameData.countdownB * 1000 - (env.currTime - this.gameData.peekstarttime);
+          this._timer.start();
+        }
+        this._cardHolderArr[0].showFinal();
+        this._cardHolderArr[1].showFinal();
+        this._cardHolderArr[3].showFinal();
+        this._cardHolderArr[4].showFinal();
+
+        this.setCardImage(5);
+        this.setCardsFlipAllowed();
+        this._playerCard3.visible = true;
+      }
+
+      protected setPeekBankerState() {
+        this._playerWinningField.visible = false;
+        this._bankerWinningField.visible = false;
+        if (!this._prevState) {
+          this.setNormalCards();
+        }
+        if (this._timer) {
+          this._timer.visible = true;
+          this._timer.countdownValue = this.gameData.countdownB * 1000;
+          this._timer.remainingTime = this.gameData.countdownB * 1000 - (env.currTime - this.gameData.starttime - this.gameData.peekstarttime);
+          this._timer.start();
+        }
+        this._cardHolderArr[0].showFinal();
+        this._cardHolderArr[1].showFinal();
+        this._cardHolderArr[3].showFinal();
+        this._cardHolderArr[4].showFinal();
+
+        this.setCardImage(2);
+        this.setCardsFlipAllowed();
+        this._bankerCard3.visible = true;
+        if (this._cardArr[5]) {
+          this.setCardImage(5);
+          this._playerCard3.visible = true;
+          this._cardHolderArr[5].showFinal();
+        }
+      }
+
+      protected setFinishState() {
+        this._disabledPlayerRect.visible = false;
+        this._disabledBankerRect.visible = false;
+
+        if (this._timer) {
+          this._timer.visible = false;
+        }
+        if (!this._prevState) {
+          this.setNormalCards();
+          this.setCardImage(2);
+          this.setCardImage(5);
+        }
+        if (this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === we.ba.WinType.TIE) {
+          this._bankerWinningField.visible = true;
+          egret.Tween.get(this._bankerWinningField)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200);
+        }
+        if (this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === we.ba.WinType.TIE) {
+          this._playerWinningField.visible = true;
+          egret.Tween.get(this._playerWinningField)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200)
+            .to({ alpha: 1 }, 200)
+            .to({ alpha: 0.3 }, 200);
+        }
+
+        this._cardHolderArr[0].showFinal();
+        this._cardHolderArr[1].showFinal();
+        this._cardHolderArr[3].showFinal();
+        this._cardHolderArr[4].showFinal();
+
+        if (this._cardArr && this._cardArr[2]) {
+          this._bankerCard3.visible = true;
+          this._bankerCard3.showFinal();
+        }
+        if (this._cardArr && this._cardArr[5]) {
+          this._playerCard3.visible = true;
+          this._playerCard3.showFinal();
+        }
+      }
+
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
-        console.log(<any> gameData);
         this.gameData = <bam.GameData> gameData;
         this._chipLayer = chipLayer;
 
@@ -90,177 +220,20 @@ namespace we {
         if (this.gameData) {
           this._currState = this.gameData.state;
         }
-        // TODO: update card using the gameData
-
         this.calculatePoint();
-
-        this._debugMsg.text = gameData.state.toString();
 
         switch (gameData.state) {
           case core.GameState.PEEK:
-            this._playerWinningField.visible = false;
-            this._bankerWinningField.visible = false;
-            if (this._currState !== this._prevState) {
-              if (this._cardHolderArr) {
-                this._cardHolderArr.map(value => {
-                  value.reset();
-                });
-              }
-              this.calculatePoint();
-            }
-
-            if (this._timer) {
-              this._timer.visible = true;
-              this._timer.countdownValue = this.gameData.countdownA * 1000;
-              this._timer.remainingTime = this.gameData.countdownA * 1000 - (env.currTime - this.gameData.peekstarttime);
-              this._timer.start();
-            }
-
-            this._bankerCard3.visible = false;
-            this._playerCard3.visible = false;
-            if (this._cardArr) {
-              console.log('card 0: ', this._cardArr[0]);
-              console.log('card 1: ', this._cardArr[1]);
-              console.log('card 2: ', this._cardArr[2]);
-              console.log('card 3: ', this._cardArr[3]);
-              console.log('card 4: ', this._cardArr[4]);
-              console.log('card 5: ', this._cardArr[5]);
-            }
-            this.setNormalCards();
-            this.setCardsFlipAllowed();
+            this.setPeekState();
             break;
           case core.GameState.PEEK_PLAYER:
-            this._playerWinningField.visible = false;
-            this._bankerWinningField.visible = false;
-            if (!this._prevState) {
-              this.setNormalCards();
-            }
-            if (this._timer) {
-              this._timer.visible = true;
-              this._timer.countdownValue = this.gameData.countdownB * 1000;
-              this._timer.remainingTime = this.gameData.countdownB * 1000 - (env.currTime - this.gameData.peekstarttime);
-              this._timer.start();
-            }
-            this._cardHolderArr[0].showFinal();
-            this._cardHolderArr[1].showFinal();
-            this._cardHolderArr[3].showFinal();
-            this._cardHolderArr[4].showFinal();
-            if (this._cardArr) {
-              console.log('card 0: ', this._cardArr[0]);
-              console.log('card 1: ', this._cardArr[1]);
-              console.log('card 2: ', this._cardArr[2]);
-              console.log('card 3: ', this._cardArr[3]);
-              console.log('card 4: ', this._cardArr[4]);
-              console.log('card 5: ', this._cardArr[5]);
-            }
-            this.setCardImage(5);
-            this.setCardsFlipAllowed();
-            this._playerCard3.visible = true;
-
+            this.setPeekPlayerState();
             break;
           case core.GameState.PEEK_BANKER:
-            this._playerWinningField.visible = false;
-            this._bankerWinningField.visible = false;
-            if (!this._prevState) {
-              this.setNormalCards();
-            }
-            if (this._timer) {
-              this._timer.visible = true;
-              this._timer.countdownValue = this.gameData.countdownB * 1000;
-              this._timer.remainingTime = this.gameData.countdownB * 1000 - (env.currTime - this.gameData.starttime - this.gameData.peekstarttime);
-              this._timer.start();
-            }
-            this._cardHolderArr[0].showFinal();
-            this._cardHolderArr[1].showFinal();
-            this._cardHolderArr[3].showFinal();
-            this._cardHolderArr[4].showFinal();
-
-            if (this._cardArr) {
-              console.log('card 0: ', this._cardArr[0]);
-              console.log('card 1: ', this._cardArr[1]);
-              console.log('card 2: ', this._cardArr[2]);
-              console.log('card 3: ', this._cardArr[3]);
-              console.log('card 4: ', this._cardArr[4]);
-              console.log('card 5: ', this._cardArr[5]);
-            }
-
-            this.setCardImage(2);
-            this.setCardsFlipAllowed();
-            this._bankerCard3.visible = true;
-            if (this._cardArr[5]) {
-              this.setCardImage(5);
-              this._playerCard3.visible = true;
-              this._cardHolderArr[5].showFinal();
-            }
-
+            this.setPeekBankerState();
             break;
           case core.GameState.FINISH:
-            this._disabledPlayerRect.visible = false;
-
-            this._disabledBankerRect.visible = false;
-
-            if (this._timer) {
-              this._timer.visible = false;
-            }
-            if (!this._prevState) {
-              this.setNormalCards();
-              this.setCardImage(2);
-              this.setCardImage(5);
-            }
-            if (this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === we.ba.WinType.TIE) {
-              this._bankerWinningField.visible = true;
-              egret.Tween.get(this._bankerWinningField)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200);
-            }
-            if (this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === we.ba.WinType.TIE) {
-              this._playerWinningField.visible = true;
-              egret.Tween.get(this._playerWinningField)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200)
-                .to({ alpha: 1 }, 200)
-                .to({ alpha: 0.3 }, 200);
-            }
-
-            this._cardHolderArr[0].showFinal();
-            this._cardHolderArr[1].showFinal();
-            this._cardHolderArr[3].showFinal();
-            this._cardHolderArr[4].showFinal();
-            if (this._cardArr) {
-              console.log('card 0: ', this._cardArr[0]);
-              console.log('card 1: ', this._cardArr[1]);
-              console.log('card 2: ', this._cardArr[2]);
-              console.log('card 3: ', this._cardArr[3]);
-              console.log('card 4: ', this._cardArr[4]);
-              console.log('card 5: ', this._cardArr[5]);
-            }
-            if (this._cardArr && this._cardArr[2]) {
-              this._bankerCard3.visible = true;
-              this._bankerCard3.showFinal();
-            }
-            if (this._cardArr && this._cardArr[5]) {
-              this._playerCard3.visible = true;
-              this._playerCard3.showFinal();
-            }
-
+            this.setFinishState();
             break;
           default:
             break;

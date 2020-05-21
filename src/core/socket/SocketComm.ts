@@ -40,6 +40,14 @@ namespace we {
         logger.l('MQTTSocketComm is created', this.client);
       }
 
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        // this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+      }
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        // this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
+      }
+
       protected subscribeEvents() {
         this.client.subscribe(core.MQTT.READY, this.handleReady, this);
         this.client.subscribe(core.MQTT.TABLE_LIST_UPDATE, this.onTableListUpdate, this);

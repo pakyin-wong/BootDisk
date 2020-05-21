@@ -10,6 +10,7 @@ namespace we {
       private mockProcesses: MockProcess[] = [];
 
       private _tempIdx: number = 0;
+      private countforplayerprofile = 0; // check getPlayerProfileSummary work
 
       protected betCombinations: we.data.BetCombination[];
 
@@ -54,6 +55,27 @@ namespace we {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
         }, 5000);*/
+      }
+
+      public getBalance() {}
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        const data = new we.data.PlayerStatistic();
+        const tempbet = 10100;
+        const tempwinloss = 2000;
+        data.bet = tempbet;
+        data.winloss = tempwinloss;
+        callback(data);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        const data = new we.data.PlayerProfileSummary();
+        const tempMaxwin = 100100;
+        const tempwinningstreak = 10;
+        data.maxwin = tempMaxwin;
+        data.winningstreak = tempwinningstreak + this.countforplayerprofile;
+        this.countforplayerprofile += 1;
+        callback(data);
       }
 
       protected generateDummyStatistic(data) {
@@ -784,6 +806,12 @@ namespace we {
               cfmBetDetail.amount += betDetail.amount;
               env.balance -= betDetail.amount;
               dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+              if (data.gametype === core.GameType.BAC) {
+                const total = { tableid: tableID, amount: { [cfmBetDetail.field]: cfmBetDetail.amount }, count: { [cfmBetDetail.field]: 1000 } };
+                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+              }
+
               break;
             }
           }
@@ -798,8 +826,14 @@ namespace we {
             });
             env.balance -= betDetail.amount;
             dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+            if (data.gametype === core.GameType.BAC) {
+              const total = { tableid: tableID, amount: { [betDetail.field]: betDetail.amount }, count: { [betDetail.field]: 1000 } };
+              dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+            }
           }
         }
+        data.data.previousstate = we.core.GameState.BET;
         this.dispatchInfoUpdateEvent(data);
         this.dispatchBetResultEvent();
         this.dispatchBetInfoUpdateEvent(data);
@@ -816,57 +850,86 @@ namespace we {
       }
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
+        const tempData = [];
+        for (let i = 0; i < 20; i++) {
+          tempData.push({
+            id: 'XXXXXXXXXX',
+            datetime: 1576242221, // timestamp
+            gametype: 1, // type of the Game, GameType
+            tablename: '132', // name of the table (i.e. table number)
+            roundid: '2132131',
+            replayurl: '1232131',
+            remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+            field: 'BANKER',
+            betAmount: 200,
+            winAmount: 400,
+            prevremaining: 1231232, // balance before bet
+            endremaining: 21321321, // balance after result
+            result: {
+              a1: 'spade1', // banker 1st card
+              a2: 'spade2',
+              a3: 'spade3',
+              b1: 'spade4', // player 1st card
+              b2: 'spade5',
+              b3: '',
+              playerpoint: 6,
+              bankerpoint: 7,
+            },
+          });
+        }
         callback.call(thisArg, {
-          history: [
-            {
-              id: 'XXXXXXXXXX',
-              datetime: 1576242221, // timestamp
-              gametype: 1, // type of the Game, GameType
-              tablename: '132', // name of the table (i.e. table number)
-              roundid: '2132131',
-              replayurl: '1232131',
-              remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
-              field: 'BANKER',
-              betAmount: 200,
-              winAmount: 400,
-              prevremaining: 1231232, // balance before bet
-              endremaining: 21321321, // balance after result
-              result: {
-                a1: 'spade1', // banker 1st card
-                a2: 'spade2',
-                a3: 'spade3',
-                b1: 'spade4', // player 1st card
-                b2: 'spade5',
-                b3: '',
-                playerpoint: 6,
-                bankerpoint: 7,
-              },
-            },
-            {
-              id: 'XXXXXXXXXX',
-              datetime: 1576242221, // timestamp
-              gametype: 0, // type of the Game, GameType
-              tablename: '132', // name of the table (i.e. table number)
-              roundid: '2132131',
-              replayurl: '1232131',
-              remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
-              field: 'BANKER',
-              betAmount: 200,
-              winAmount: 400,
-              prevremaining: 1231232, // balance before bet
-              endremaining: 21321321, // balance after result
-              result: {
-                a1: 'heart2', // banker 1st card
-                a2: 'heartk',
-                a3: '',
-                b1: 'diamonda', // player 1st card
-                b2: 'diamondj',
-                b3: 'spade2',
-                playerpoint: 3,
-                bankerpoint: 1,
-              },
-            },
-          ],
+          // history: [
+          //   {
+          //     id: 'XXXXXXXXXX',
+          //     datetime: 1576242221, // timestamp
+          //     gametype: 1, // type of the Game, GameType
+          //     tablename: '132', // name of the table (i.e. table number)
+          //     roundid: '2132131',
+          //     replayurl: '1232131',
+          //     remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          //     field: 'BANKER',
+          //     betAmount: 200,
+          //     winAmount: 400,
+          //     prevremaining: 1231232, // balance before bet
+          //     endremaining: 21321321, // balance after result
+          //     result: {
+          //       a1: 'spade1', // banker 1st card
+          //       a2: 'spade2',
+          //       a3: 'spade3',
+          //       b1: 'spade4', // player 1st card
+          //       b2: 'spade5',
+          //       b3: '',
+          //       playerpoint: 6,
+          //       bankerpoint: 7,
+          //     },
+          //   },
+          //   {
+          //     id: 'XXXXXXXXXX',
+          //     datetime: 1576242221, // timestamp
+          //     gametype: 0, // type of the Game, GameType
+          //     tablename: '132', // name of the table (i.e. table number)
+          //     roundid: '2132131',
+          //     replayurl: '1232131',
+          //     remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          //     field: 'BANKER',
+          //     betAmount: 200,
+          //     winAmount: 400,
+          //     prevremaining: 1231232, // balance before bet
+          //     endremaining: 21321321, // balance after result
+          //     result: {
+          //       a1: 'heart2', // banker 1st card
+          //       a2: 'heartk',
+          //       a3: '',
+          //       b1: 'diamonda', // player 1st card
+          //       b2: 'diamondj',
+          //       b3: 'spade2',
+          //       playerpoint: 3,
+          //       bankerpoint: 1,
+          //     },
+          //   },
+          // ],
+          total: 20,
+          history: tempData,
         });
       }
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
