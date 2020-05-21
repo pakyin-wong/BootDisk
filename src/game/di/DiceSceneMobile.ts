@@ -37,7 +37,9 @@ namespace we {
       }
 
       protected set panelState(s) {
-        if (env.orientation === 'portrait') return;
+        if (env.orientation === 'portrait') {
+          return;
+        }
         const state = s;
 
         if (this._panelTween.currentState === state) {
@@ -127,7 +129,9 @@ namespace we {
       }
 
       protected set diState(s) {
-        if (env.orientation === 'landscape') this.panelState = s;
+        if (env.orientation === 'landscape') {
+          this.panelState = s;
+        }
 
         this.betAreaState = this.betSetState = s;
       }

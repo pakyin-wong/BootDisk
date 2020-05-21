@@ -186,6 +186,10 @@ declare module skin_desktop{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class CountdownTimerRoundSqueezeBaccaratSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.di{
 	class Analysis extends eui.Skin{
 	}
@@ -748,6 +752,42 @@ declare module skin_mobile_landscape{
 	class LiveOverlayItemSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.di{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class DiceScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class MobileBottomBeadRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class MobileButtonRoadPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class MobileBottomRoadmapPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class StatisticChartPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.di{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.dt{
 	class ChipLayerSkin extends eui.Skin{
 	}
@@ -930,6 +970,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class BetHistorySearch extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1144,6 +1188,10 @@ declare module skin_mobile_portrait.di{
 }
 declare module skin_mobile_portrait.di{
 	class MobileBottomGamePanel extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.di{
+	class MobileButtonRoadPanel extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.di{
@@ -1440,6 +1488,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BetHistoryItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class BetHistorySearch extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

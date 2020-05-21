@@ -22,54 +22,29 @@ namespace we {
         const offsetForTableList = -208;
 
         // init image slider
-        const slider = new we.ui.ImageSlider();
-        slider.height = 1242;
-        slider.width = 1242;
-        slider.configSlides(dir.liveResources.liveHeroBanners);
+        root.slider = new we.ui.ImageSlider();
+        root.slider.height = 1242;
+        root.slider.width = 1242;
+        root.slider.configSlides(dir.liveResources.liveHeroBanners);
 
         // init room grids
-        root.roomList = new ui.TableList();
-        // root.roomList.isFreezeScrolling = true;
-        // root.roomList.isGlobalLock = true;
         root.roomList.width = root.stage.stageWidth;
         this.roomLayout = new eui.AnimTileLayout();
         this.roomLayout.horizontalGap = this.normalGapSize;
         this.roomLayout.verticalGap = this.normalGapSize;
         this.roomLayout.paddingLeft = paddingHorizontal;
         this.roomLayout.paddingRight = paddingHorizontal;
+        this.roomLayout.paddingTop = 160 + root.slider.height + offsetForTableList + this.normalGapSize * 2;
         this.roomLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
 
         this.roomLayout.paddingBottom = this.normalGapSize * 3;
         this.setDisplayMode(env.lobbyGridType);
-        // this.roomLayout.columnWidth = (2600 - paddingHorizontal * 2 - gapSize * (this.roomLayout.requestedColumnCount - 1)) / this.roomLayout.requestedColumnCount;
         root.roomList.layout = this.roomLayout;
-        // this.roomList.dataProvider = this.collection;
         root.roomList.itemRenderer = MobileLiveListHolder;
-        // roomList.left = paddingHorizontal;
-        // roomList.right = paddingHorizontal;
-        // roomList.y = slider.height + offsetForTableList + gapSize;
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
 
         const tabBarGroup = new eui.Group();
-
-        // tabs.left = paddingHorizontal;
-        // tabs.bottom = gapSize + -offsetForTableList;
-        const section = new ui.ScrollerSection();
-        section.header = tabBarGroup;
-        section.content = root.roomList;
-        // section.header = new eui.Rect(640, 100, 0xff11ff);
-        // section.content = new eui.Rect(640, 2000, 0x22ffff);
-        section.scroller = root.scroller;
-        section.isHeaderSticky = true;
-        section.contentPaddingTop = this.normalGapSize;
-        section.y = slider.height + offsetForTableList + this.normalGapSize;
-        section.percentWidth = 100;
-
-        const group = new eui.Group();
-        group.addChild(slider);
-        group.addChild(section);
-
         tabBarGroup.percentWidth = 100;
         const tabbarBg: eui.Image = new eui.Image('m_lobby_submenu_bg_png');
         tabbarBg.percentWidth = 100;
@@ -78,9 +53,28 @@ namespace we {
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
         root.tabs = new LiveGameTabbar(root.tabItems);
         tabBarGroup.addChild(root.tabs);
-        // tabBarGroup.addChild(new LiveDisplayModeSwitch());
 
-        root.scroller.viewport = group;
+        const stickyHeader = new ui.StickyContent();
+        stickyHeader.width = 1242;
+        stickyHeader.content = tabBarGroup;
+        stickyHeader.scroller = root.scroller;
+        stickyHeader.contentPaddingTop = this.normalGapSize;
+        stickyHeader.y = root.slider.height + offsetForTableList + this.normalGapSize;
+        root.roomList.addChild(stickyHeader);
+
+        // const section = new ui.ScrollerSection();
+        // section.header = tabBarGroup;
+        // section.content = root.roomList;
+        // section.scroller = root.scroller;
+        // section.isHeaderSticky = true;
+        // section.contentPaddingTop = this.normalGapSize;
+        // section.y = root.slider.height + offsetForTableList + this.normalGapSize;
+        // section.percentWidth = 100;
+
+        // const group = new eui.Group();
+        // group.addChild(section);
+
+        root.scroller.viewport = root.roomList;
 
         const gridSwitch: MobileLobbyGridLayoutSwitch = new MobileLobbyGridLayoutSwitch();
         gridSwitch.x = 1088;

@@ -38,7 +38,7 @@
 				<ui:RunTimeLabel id="_txt_bgm" text="Label" x="687" y="973" size="56" width="400" height="83" textColor="0xb2b2b2"
 				                 verticalAlign="middle" scaleX="1" scaleY="1" />
 				<ui:Slider id="_slider_bgm" width="1042" height="70" x="687" y="1142" skinName="skin_mobile_portrait.Slider" scaleX="1" scaleY="1"/>
-				<ui:RunTimeLabel id="_txt_term" text="Label" x="564.58" y="1261.53" size="20" fontFamily="NotoSansCJKtc" width="80"
+				<ui:RunTimeLabel id="_txt_term" text="Label" x="564.58" y="1261.53" size="20" width="80"
 				                 height="29" textColor="0xb2b2b2" scaleX="1" scaleY="1" visible="false" />
 				<e:Label id="_txt_version" text="Label" x="870.58" y="1262.53" textColor="0xb2b2b2" width="90" height="26" size="22"
 				         fontFamily="Barlow" scaleX="1" scaleY="1" visible="false" />
@@ -46,14 +46,8 @@
 					<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
 					        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
 					<ui:RunTimeLabel id="_txt_currBgm" text="Label" x="600" y="7" width="155" height="83" verticalAlign="middle"
-					                 textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+					                 textAlign="center" size="24" alpha="0.7" scaleX="1" scaleY="1" />
 				</e:Group>
-				<ui:Panel id="_ddm_currBgm" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
-				          scaleX="1" scaleY="1" height="756"  locked="true" visible="false"/>
-				<ui:Panel id="_ddm_currFx" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
-				          scaleX="1" scaleY="1" height="756"  locked="true" visible="false"/>
-				<ui:Panel id="_ddm_currLang" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
-				          scaleX="1" scaleY="1" anchorOffsetY="0" height="756" anchorOffsetX="0"  locked="true" visible="false"/>
 			</e:Group>
 		</ui:Scroller>
 	</e:Group>

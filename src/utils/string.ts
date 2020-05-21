@@ -33,14 +33,18 @@ namespace we {
     }
 
     export function formatTime(timestamp) {
-      return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
+      return moment
+        .unix(timestamp)
+        .utcOffset(8)
+        .format('YYYY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {
       return source
         .replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2')
         .replace('diamond', 'diamonds')
-        .replace('heart', 'hearts');
+        .replace('heart', 'hearts')
+        .replace(/(1(?!0))/, 'a');
     }
 
     export function cardToNumber(source) {

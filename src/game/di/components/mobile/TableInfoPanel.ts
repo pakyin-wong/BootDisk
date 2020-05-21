@@ -72,7 +72,7 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
-        // this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
         // this.contentTwo.alpha = 0;
         this.configSlides();
       }
@@ -88,86 +88,92 @@ namespace we {
         const slide = this.slides[this.currentIndex];
       }
 
-      // private onTouchBegin(event: egret.TouchEvent): void {
-      //   if (env.orientation === 'landscape') return;
+      private onTouchBegin(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
 
-      //   if (!this.touchEnabled) {
-      //     return;
-      //   }
-      //   if (this.isAnimating) {
-      //     clearTimeout(this.autoPlayTimer);
-      //     return;
-      //   }
-      //   this.isDown = true;
-      //   this.initX = event.$stageX;
-      //   this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-      //   this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-      // }
+        if (!this.touchEnabled) {
+          return;
+        }
+        if (this.isAnimating) {
+          clearTimeout(this.autoPlayTimer);
+          return;
+        }
+        this.isDown = true;
+        this.initX = event.$stageX;
+        this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+      }
 
-      // private onTouchMove(event: egret.TouchEvent): void {
-      //   if (env.orientation === 'landscape') return;
+      private onTouchMove(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
 
-      //   this.isMoved = true;
+        this.isMoved = true;
 
-      //   if (!this.slides.length) {
-      //     return;
-      //   }
+        if (!this.slides.length) {
+          return;
+        }
 
-      //   this.content.x = event.$stageX - this.initX;
-      //   if (this.content.x > 0) {
-      //     // invisible one to left (prev)
-      //     this.contentTwo.x = this.content.x - 2484;
-      //     this.direction = 'prev';
-      //   } else {
-      //     // invisble one to right (next)
-      //     this.contentTwo.x = this.content.x + 2484;
-      //     this.direction = 'next';
-      //   }
-      //   const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
-      //   this.contentTwo.alpha = 1;
-      // }
+        this.content.x = event.$stageX - this.initX;
+        if (this.content.x > 0) {
+          // invisible one to left (prev)
+          this.contentTwo.x = this.content.x - 2484;
+          this.direction = 'prev';
+        } else {
+          // invisble one to right (next)
+          this.contentTwo.x = this.content.x + 2484;
+          this.direction = 'next';
+        }
+        const index = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
+        this.contentTwo.alpha = 1;
+      }
 
-      // private onTouchEnd(event: egret.TouchEvent): void {
-      //   if (env.orientation === 'landscape') return;
-      //   clearTimeout(this.autoPlayTimer);
-      //   this.isDown = false;
-      //   this.isMoved = false;
-      //   this.isAnimating = true;
-      //   this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-      //   this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+      private onTouchEnd(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
+        clearTimeout(this.autoPlayTimer);
+        this.isDown = false;
+        this.isMoved = false;
+        this.isAnimating = true;
+        this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
 
-      //   const diff = event.$stageX - this.initX;
+        const diff = event.$stageX - this.initX;
 
-      //   if (Math.abs(diff) / 2484 <= 0.25) {
-      //     // not reach threshold, don't slide
-      //     TweenLite.to(this.content, this.duration, {
-      //       x: 0,
-      //     });
-      //     TweenLite.to(this.contentTwo, this.duration, {
-      //       x: this.direction === 'next' ? 2484 : -2484,
-      //     });
+        if (Math.abs(diff) / 2484 <= 0.25) {
+          // not reach threshold, don't slide
+          TweenLite.to(this.content, this.duration, {
+            x: 0,
+          });
+          TweenLite.to(this.contentTwo, this.duration, {
+            x: this.direction === 'next' ? 2484 : -2484,
+          });
 
-      //     setTimeout(() => {
-      //       this.contentTwo.alpha = 0;
-      //       this.isAnimating = false;
-      //     }, this.duration * 1000 + 50);
-      //     return;
-      //   }
+          setTimeout(() => {
+            this.contentTwo.alpha = 0;
+            this.isAnimating = false;
+          }, this.duration * 1000 + 50);
+          return;
+        }
 
-      //   // Before Animate
-      //   this.currentIndex = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
+        // Before Animate
+        this.currentIndex = (this.slides.length + (this.currentIndex + (this.direction === 'prev' ? -1 : 1))) % this.slides.length;
 
-      //   TweenLite.to(this.contentTwo, this.duration, {
-      //     x: 0,
-      //   });
-      //   TweenLite.to(this.content, this.duration, {
-      //     x: this.direction === 'next' ? -2484 : 2484,
-      //   });
+        TweenLite.to(this.contentTwo, this.duration, {
+          x: 0,
+        });
+        TweenLite.to(this.content, this.duration, {
+          x: this.direction === 'next' ? -2484 : 2484,
+        });
 
-      //   setTimeout(() => {
-      //     this.isAnimating = false;
-      //   }, this.duration * 1000 + 50);
-      // }
+        setTimeout(() => {
+          this.isAnimating = false;
+        }, this.duration * 1000 + 50);
+      }
 
       public setValue(tableInfo: data.TableInfo) {
         super.setValue(tableInfo);
