@@ -63,6 +63,8 @@ namespace we {
             return 'BaQuickBetContainerSkin';
           case core.GameType.DT:
             return 'DtQuickBetContainerSkin';
+          case core.GameType.LW:
+            return 'LwQuickBetContainerSkin';
           // case we.core.GameType.BAC:
           // case we.core.GameType.BAS:
           // case we.core.GameType.BAI:

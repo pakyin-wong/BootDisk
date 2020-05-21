@@ -3,6 +3,7 @@ namespace we {
   export namespace ui {
     export class NotificationQuickBetContent extends ui.ControlItem {
       protected _bigRoad: we.ba.BALobbyBigRoad;
+      protected _beadRoad: we.lw.LwLobbyBeadRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
@@ -19,6 +20,24 @@ namespace we {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
+        if (this._beadRoad) {
+          this._beadRoad.roadRow = 3;
+          this._beadRoad.roadCol = 8;
+          this._beadRoad.roadCellWidth = 42;
+          this._beadRoad.roadCellHeight = 42;
+          this._beadRoad.roadImageWidth = 27;
+          this._beadRoad.roadImageHeight = 35;
+          this._beadRoad.roadScale = 1;
+          this._beadRoad.roadGridColor = 0xffffff;
+          this._beadRoad.roadGridAlpha = 1;
+          this._beadRoad.roadGridBorderColor = 0xdfdfdf;
+          this._beadRoad.test();
+          // this._beadRoad.updateSideBarRoadData(this._beadRoad)
+          //        const idx = node.parent.getChildIndex(node);
+          // node.parent.addChildAt(road, idx);
+          const gameResultMessage = new lw.SideBetResultMessage();
+          console.log('lwgameResultMessage', gameResultMessage);
+        }
       }
 
       protected setStateBet(isInit: boolean = false) {
@@ -63,6 +82,9 @@ namespace we {
           if (this._bigRoad) {
             this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
           }
+          if (this._beadRoad) {
+            this._beadRoad.updateSideBarRoadData(tableInfo.roadmap);
+          }
         }
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
@@ -78,7 +100,7 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
