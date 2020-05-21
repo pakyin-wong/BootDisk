@@ -17,7 +17,7 @@ namespace we {
       protected _startPosY: number;
 
       public get controller(): NotificationController {
-        return <any> this.parent.parent;
+        return <any>this.parent.parent;
       }
 
       constructor() {
@@ -36,7 +36,7 @@ namespace we {
         this.mount();
       }
 
-      public mount() {}
+      public mount() { }
 
       public get isAvailable() {
         return !this._displayItem;
@@ -72,7 +72,8 @@ namespace we {
             this._displayItem = new GoodRoadNotificationItem(this._holderState);
             break;
           case core.NotificationType.Result:
-            this._displayItem = new ResultNotificationItem(this._holderState);
+            this._displayItem = new GoodRoadNotificationItem(this._holderState);
+            // this._displayItem = new ResultNotificationItem(this._holderState);
             break;
         }
         this._displayItem.holder = this;
@@ -144,7 +145,7 @@ namespace we {
       }
 
       public setLayoutBoundsPosition(x: number, y: number) {
-        const list = <List> this.parent;
+        const list = <List>this.parent;
         const matrix = this.$getMatrix();
         if (!this.isDeltaIdentity(matrix) || this.anchorOffsetX !== 0 || this.anchorOffsetY !== 0) {
           const bounds = egret.$TempRectangle;

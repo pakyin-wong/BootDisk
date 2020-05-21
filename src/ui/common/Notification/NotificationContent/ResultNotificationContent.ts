@@ -13,22 +13,25 @@ namespace we {
 
       protected _btnQuickBet: BaseImageButton;
       protected _btnDismiss: BaseImageButton;
-      protected _touchArea: eui.Component;
+      protected _touchArea2: eui.Group;
 
       public duration: number = 4000;
 
       constructor() {
         super();
         this.skinName = utils.getSkinByClassname('ResultNotificationSkin');
+
         if (env.isMobile) {
+          this._touchArea2.touchEnabled = true;
+          this._touchArea2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.enterRoom, this);
         } else {
+          this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
+          this._btnQuickBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.quickBet, this);
+          this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label')
           this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
-          this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label');
-        }
-        this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
-        this._btnQuickBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.quickBet, this);
-        this._touchArea.addEventListener(egret.TouchEvent.TOUCH_TAP, this.enterRoom, this);
+        };
       }
+
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
         const tableNo = tableInfo.tablename;
@@ -84,29 +87,30 @@ namespace we {
       }
 
       protected quickBet() {
-        this.dispatchEvent(new egret.Event('QUICK_BET'));
+        this.dispatchEvent(new egret.Event('QUICK_BET'))
       }
 
-      protected abstract enterRoom();
-      // {
-      //   switch (this.tableInfo.gametype) {
-      //     case core.GameType.BAC:
-      //     case core.GameType.BAI:
-      //     case core.GameType.BAS:
-      //       dir.sceneCtr.goto('ba', { tableid: this.tableId });
-      //       break;
-      //     case core.GameType.DT:
-      //       dir.sceneCtr.goto('dt', { tableid: this.tableId });
-      //       break;
-      //     case core.GameType.RO:
-      //       dir.sceneCtr.goto('ro', { tableid: this.tableId });
-      //       break;
-      //     case core.GameType.DI:
-      //       dir.sceneCtr.goto('di', { tableid: this.tableId });
-      //       break;
-      //   }
-      //   this.removeSelf();
-      // }
+      protected enterRoom() {
+        {
+          switch (this.tableInfo.gametype) {
+            case core.GameType.BAC:
+            case core.GameType.BAI:
+            case core.GameType.BAS:
+              dir.sceneCtr.goto('ba', { tableid: this.tableId });
+              break;
+            case core.GameType.DT:
+              dir.sceneCtr.goto('dt', { tableid: this.tableId });
+              break;
+            case core.GameType.RO:
+              dir.sceneCtr.goto('ro', { tableid: this.tableId });
+              break;
+            case core.GameType.DI:
+              dir.sceneCtr.goto('di', { tableid: this.tableId });
+              break;
+          }
+          this.removeSelf();
+        }
+      }
     }
   }
 }
