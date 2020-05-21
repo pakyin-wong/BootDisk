@@ -7087,6 +7087,41 @@
 			"url": "assets/m/di/m_sb_betarea_bg_hover_15_horizontal.png",
 			"type": "image",
 			"name": "m_sb_betarea_bg_hover_15_horizontal_png"
+		},
+		{
+			"url": "assets/m_common_notify_result_lw_east.png",
+			"type": "image",
+			"name": "m_common_notify_result_lw_east_png"
+		},
+		{
+			"url": "assets/m_common_notify_result_lw_green.png",
+			"type": "image",
+			"name": "m_common_notify_result_lw_green_png"
+		},
+		{
+			"url": "assets/m_common_notify_result_lw_red.png",
+			"type": "image",
+			"name": "m_common_notify_result_lw_red_png"
+		},
+		{
+			"url": "assets/m_common_notify_result_lw_south.png",
+			"type": "image",
+			"name": "m_common_notify_result_lw_south_png"
+		},
+		{
+			"url": "assets/m_common_notify_result_lw_western.png",
+			"type": "image",
+			"name": "m_common_notify_result_lw_western_png"
+		},
+		{
+			"url": "assets/m_common_notify_result_lw_north.png",
+			"type": "image",
+			"name": "m_common_notify_result_lw_north_png"
+		},
+		{
+			"url": "assets/m_common_notify_result_lw_white.png",
+			"type": "image",
+			"name": "m_common_notify_result_lw_white_png"
 		}
 	]
 }
