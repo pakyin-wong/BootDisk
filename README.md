@@ -119,6 +119,9 @@ npm install -g tslint prettier typescript
 
 ## Asset Link from Design Team (Copied from whatsapp group)
 
+- [Lucky Wheel 結果通知 Asset](https://drive.google.com/open?id=1C-jERs8Ixsdw3E2gKbYCROna_SuEa5n7)
+- [Lucky Wheel 結果通知 Asset mobile](https://drive.google.com/open?id=1IO_lTsvor9o_dSryBiRPuYKLPn28drGu)
+
 - [Squeeze Baccarat Desktop](https://drive.google.com/open?id=1AY6lAwunBfeqW4Rrg-gEPtgtv4m_q7Xb)
 - [Squeeze Baccarat Mobile](https://drive.google.com/open?id=1vccNZi4X2dp3TfgodQukk3KOSaPm6JAq)
 
