@@ -67,6 +67,7 @@ namespace we {
         this.createQuickBetContent();
         this._quickBetContent.addEventListener('DISMISS', this.removeSelf, this);
         this.addChild(this._quickBetContent);
+        this._quickBetContent.setData(this.tableInfo);
       }
 
       protected createNormalContent() {}
