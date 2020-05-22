@@ -59,13 +59,20 @@ namespace we {
         if (!this._display) {
           const factory = BaseAnimationButton.getFactory(this._dbClass);
           this._display = factory.buildArmatureDisplay(this._dbDisplay);
+          const group = new eui.Group();
+          const tl = new eui.TileLayout();
+          tl.horizontalAlign = egret.HorizontalAlign.CENTER;
+          tl.verticalAlign = egret.VerticalAlign.MIDDLE;
+          group.layout = tl;
+          group.width = this.width;
+          group.height = this.height;
           // this._display.x = this._display.width / -2;
           // this._display.y = this._display.height / -2;
-          // const group = new eui.Group();
           // group.verticalCenter = 0;
           // group.horizontalCenter = 0;
           // group.addChild(this._display);
-          this.addChild(this._display);
+          group.addChild(this._display);
+          this.addChild(group);
           // this.width = this._display.width;
           // this.height = this._display.height;
         }
@@ -96,7 +103,8 @@ namespace we {
           mouse.setButtonMode(this, false);
         }
         this._enabled = enabled;
-        this.update();
+        const oldState = [this._down, this._hover];
+        this.update(oldState);
       }
 
       public get active() {
@@ -104,89 +112,85 @@ namespace we {
       }
 
       public set active(active) {
+        const oldState = [this._down, this._hover];
         this._active = active;
-        this.update();
+        this.update(oldState);
       }
 
       private onRollover() {
+        const oldState = [this._down, this._hover];
         this._hover = true;
-        this.update();
+        this.update(oldState);
       }
 
       private onRollout() {
-        this._hover = false;
+        const oldState = [this._down, this._hover];
         this._down = false;
-        this.update();
+        this._hover = false;
+        this.update(oldState);
       }
 
       private onTouchDown() {
+        const oldState = [this._down, this._hover];
         this._down = true;
-        this.update();
+        this.update(oldState);
       }
 
       private onTouchUp() {
+        const oldState = [this._down, this._hover];
         this._down = false;
-        this.update();
+        this.update(oldState);
       }
 
       private onClick() {
         this.dispatchEvent(new egret.Event('CLICKED'));
       }
 
-      private update() {
-        let buttonState;
-        if (!this._enabled) {
-          buttonState = BaseAnimationButtonState.disabled;
-        } else if (this._down) {
-          buttonState = BaseAnimationButtonState.down;
-        } else if (this._active || this._hover) {
-          buttonState = BaseAnimationButtonState.hover;
-        } else {
-          buttonState = BaseAnimationButtonState.normal;
-        }
-        // nothing changed
-        if (buttonState === this._buttonState) {
-          return;
-        }
+      private playPromise(anim, count, progress = 0) {
+        console.log('BaseAnimationButton', anim);
 
+        return new Promise(resolve => {
+          const listener = () => {
+            this._display.armature.eventDispatcher.removeDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
+            resolve();
+          };
+          this._display.armature.eventDispatcher.addDBEventListener(dragonBones.EventObject.COMPLETE, listener, this);
+          this._display.animation.play(anim, count);
+        });
+      }
+
+      private prevProm: Promise<any> = Promise.resolve();
+      private async update([oldDown, oldHover]: boolean[]) {
         if (!this._display) {
           return;
         }
 
-        this.updateSource(buttonState);
-        this._buttonState = buttonState;
-      }
+        // this._display.animation.timeScale = 5;
+        await this.prevProm;
+        // this._display.animation.timeScale = 1;
+        // this._display.animation.stop();
+        // await this.playPromise('idle', 1, 0.99);
+        // console.log('BaseAnimationButto oldDown', oldDown);
+        // console.log('BaseAnimationButto _down', this._down);
+        // console.log('BaseAnimationButto oldHover', oldHover);
+        // console.log('BaseAnimationButto _hover', this._hover);
 
-      protected updateSource(buttonState) {
-        // this._display.armature.eventDispatcher.addDBEventListener(
-        //   dragonBones.EventObject.COMPLETE,
-        //   () => {
-        //     this.visible = false;
-        //   },
-        //   this
-        // );
-
-        if (buttonState === BaseAnimationButtonState.disabled) {
-          this._display.animation.play('disable', 0);
-        } else if (buttonState === BaseAnimationButtonState.down) {
-          this._display.animation.play('press', 1);
-        } else if (buttonState === BaseAnimationButtonState.hover) {
-          this._display.animation.play('mouse_in', 1);
-        } else {
-          this._display.animation.play('idle', 0);
+        if (!this._enabled) {
+          this.playPromise('disable', 0);
+        } else if (this._hover && !oldDown && this._down) {
+          this.playPromise('press', 1);
+        } else if (this._hover && oldDown && !this._down) {
+          this.prevProm = this.playPromise('release', 1);
+        } else if (!oldHover && this._hover) {
+          this.playPromise('mouse_in', 1);
+        } else if (oldHover && !this._hover) {
+          //   if (oldDown) {
+          //     await this.playPromise('release', 1);
+          //   }
+          this.playPromise('mouse_out', 1);
+        } else if (!this._active) {
+          this.playPromise('idle', 0);
         }
-        console.log(buttonState);
-        // // update button's apperance
-        // const source = this._background.source;
-        // if (!source || source instanceof egret.Texture) {
-        //   // throw new Error('Source cannot be texture');
-        //   return;
-        // }
-        // const newSource = source.replace(this._buttonState.toString(), buttonState);
-        // if (RES.getRes(newSource)) {
-        //   // use res string to allow replace
-        //     //   this.changeSourceWithAnimation(source, newSource);
-        // }
       }
     }
   }

@@ -7,13 +7,25 @@ namespace we {
       protected _odd_percent: eui.Label;
       protected _even_percent: eui.Label;
       protected _big_percent: eui.Label;
+      protected _big_label: eui.Label;
+      protected _small_label: eui.Label;
+      protected _odd_label: eui.Label;
+      protected _even_label: eui.Label;
+      protected _specific_label: eui.Label;
 
+      protected _groupHoverMappingLandscape;
       protected createMapping() {
         super.createMapping();
         this._groupHoverImageMapping = {};
+        this._groupHoverMappingLandscape = {};
+
         Object.keys(we.di.BETFIELD_IMAGE_MAPPING).map(value => {
           this._groupHoverImageMapping[value] = we.di.MOBILE_BETFIELD_IMAGE_MAPPING[value];
+          this._groupHoverMappingLandscape[value] = we.di.MOBILE_LANDSCAPE_BETFIELD_IMAGE_MAPPING[value];
         });
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this.changeLang();
       }
 
       public updateText(tableInfo: data.TableInfo) {
@@ -55,7 +67,14 @@ namespace we {
           image.name = 'image';
           image.alpha = 0;
           image.percentWidth = image.percentHeight = 100;
-          image.source = this._groupHoverImageMapping[field];
+          switch (env.orientation) {
+            case 'landscape':
+              image.source = this._groupHoverMappingLandscape[field];
+              break;
+            case 'portrait':
+              image.source = this._groupHoverImageMapping[field];
+              break;
+          }
           group.addChildAt(image, 0);
 
           const promise = new Promise(resolve => {
@@ -113,6 +132,13 @@ namespace we {
           setTimeout(tick, 300);
         };
         setTimeout(tick, 300);
+      }
+      public changeLang() {
+        this._big_label.text = i18n.t('dice.bigFull');
+        this._small_label.text = i18n.t('dice.smallFull');
+        this._odd_label.text = i18n.t('dice.oddFull');
+        this._even_label.text = i18n.t('dice.evenFull');
+        this._specific_label.text = i18n.t('dice.TableLayerMsg');
       }
     }
   }

@@ -126,12 +126,16 @@ namespace we {
       }
 
       protected showBetChipPanel() {
-        egret.Tween.get(this._betChipSet).to({ y: 590, alpha: 1 }, 250);
+        if (this._betChipSet) {
+          egret.Tween.get(this._betChipSet).to({ y: 590, alpha: 1 }, 250);
+        }
         this._betChipSetGridEnabled = true;
       }
 
       protected hideBetChipPanel() {
-        egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        if (this._betChipSet) {
+          egret.Tween.get(this._betChipSet).to({ y: 0, alpha: 0 }, 250);
+        }
         this._betChipSetGridEnabled = false;
       }
 

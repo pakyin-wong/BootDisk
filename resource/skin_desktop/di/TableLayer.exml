@@ -3,10 +3,10 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*" xmlns:tween="egret.tween.*"
         xmlns:di="we.di.*">
 	<e:Image width="100%" height="100%" x="0" y="0" source="d_sic_panel_open_png" fillMode="scale" locked="true" />
-	<e:Group id="_bigrow_1" height="150" width="1386" y="2">
+	<e:Group id="_bigrow_1" height="151" width="1386" y="1">
 		<e:Rect fillColor="0xff0000" fillAlpha="0.25" width="100%" height="100%" locked="true" />
 		<di:Row1 width="100%" height="100%" />
-		<e:Group id="_small_group" width="149" height="100%" x="2">
+		<e:Group id="_small_group" width="150" height="100%" x="1">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Group>
 					<e:Label fontFamily="Barlow" text="4-10" size="15" />
@@ -16,23 +16,23 @@
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
 				</e:Group>
-				<ui:RunTimeLabel fontFamily="Barlow" id="_small_label" size="40" i18n="dice.small" />
+				<ui:RunTimeLabel id="_small_label" size="40" i18n="dice.small" />
 				<e:layout>
 					<e:VerticalLayout gap="8" horizontalAlign="center" />
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_odd_group" width="151" height="100%" x="151">
+		<e:Group id="_odd_group" width="151" height="100%" x="152">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Label fontFamily="Barlow" text="54%" size="15" />
-				<ui:RunTimeLabel fontFamily="Barlow" id="_odd_label" size="40" i18n="dice.odd" />
+				<ui:RunTimeLabel id="_odd_label" size="40" i18n="dice.odd" />
 				<e:layout>
 					<e:VerticalLayout gap="8" horizontalAlign="center" />
 				</e:layout>
 			</e:Group>
 		</e:Group>
 		<e:Group width="127" height="100%" x="304">
-			<e:Group id="_double_1_group" width="100%" height="33.33%">
+			<e:Group id="_double_1_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-1_png" />
 					<e:Image source="d_sic_history_lv1_dice-1_png" />
@@ -41,7 +41,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_double_2_group" width="100%" height="33.33%" y="51">
+			<e:Group id="_double_2_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-2_png" />
 					<e:Image source="d_sic_history_lv1_dice-2_png" />
@@ -50,7 +50,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_double_3_group" width="100%" height="48" y="102" anchorOffsetY="0">
+			<e:Group id="_double_3_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-3_png" />
 					<e:Image source="d_sic_history_lv1_dice-3_png" />
@@ -59,9 +59,12 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
+			<e:layout>
+				<e:VerticalLayout gap="0" />
+			</e:layout>
 		</e:Group>
-		<e:Group width="136" height="100%" x="433">
-			<e:Group id="_triple_1_group" width="100%" height="33.33%">
+		<e:Group width="135" height="100%" x="433">
+			<e:Group id="_triple_1_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-1_png" />
 					<e:Image source="d_sic_history_lv1_dice-1_png" />
@@ -71,7 +74,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_triple_2_group" width="100%" height="33.33%" y="51">
+			<e:Group id="_triple_2_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-2_png" />
 					<e:Image source="d_sic_history_lv1_dice-2_png" />
@@ -81,7 +84,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_triple_3_group" width="100%" height="33.33%" y="102">
+			<e:Group id="_triple_3_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-3_png" />
 					<e:Image source="d_sic_history_lv1_dice-3_png" />
@@ -91,8 +94,11 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
+			<e:layout>
+				<e:VerticalLayout gap="0" />
+			</e:layout>
 		</e:Group>
-		<e:Group id="_triple_all_group" width="248" height="100%" x="571">
+		<e:Group id="_triple_all_group" width="249" height="100%" x="569">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Image source="d_sic_history_lv1_dice-1_png" />
 				<e:Image source="d_sic_history_lv1_dice-1_png" />
@@ -117,8 +123,8 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group width="136" height="100%" x="821">
-			<e:Group id="_triple_4_group" width="100%" height="33.33%">
+		<e:Group width="136" height="100%" x="817">
+			<e:Group id="_triple_4_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-4_png" />
 					<e:Image source="d_sic_history_lv1_dice-4_png" />
@@ -128,7 +134,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_triple_5_group" width="100%" height="33.33%" y="51">
+			<e:Group id="_triple_5_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-5_png" />
 					<e:Image source="d_sic_history_lv1_dice-5_png" />
@@ -138,7 +144,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_triple_6_group" width="100%" height="33.33%" y="102">
+			<e:Group id="_triple_6_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-6_png" />
 					<e:Image source="d_sic_history_lv1_dice-6_png" />
@@ -148,9 +154,12 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
+			<e:layout>
+				<e:VerticalLayout gap="0" />
+			</e:layout>
 		</e:Group>
-		<e:Group width="127" height="100%" x="959">
-			<e:Group id="_double_4_group" width="100%" height="33.33%">
+		<e:Group width="128" height="100%" x="953">
+			<e:Group id="_double_4_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-4_png" />
 					<e:Image source="d_sic_history_lv1_dice-4_png" />
@@ -159,7 +168,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_double_5_group" width="100%" height="33.33%" y="51">
+			<e:Group id="_double_5_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-5_png" />
 					<e:Image source="d_sic_history_lv1_dice-5_png" />
@@ -168,7 +177,7 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group id="_double_6_group" width="100%" height="33.33%" y="102">
+			<e:Group id="_double_6_group" width="100%" height="33%">
 				<e:Group horizontalCenter="0" verticalCenter="0">
 					<e:Image source="d_sic_history_lv1_dice-6_png" />
 					<e:Image source="d_sic_history_lv1_dice-6_png" />
@@ -177,8 +186,11 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
+			<e:layout>
+				<e:VerticalLayout gap="0" />
+			</e:layout>
 		</e:Group>
-		<e:Group id="_even_group" width="149" height="100%" x="1088">
+		<e:Group id="_even_group" width="153" height="100%" x="1081">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Group>
 					<e:Label fontFamily="Barlow" text="4-10" size="15" />
@@ -188,13 +200,13 @@
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
 				</e:Group>
-				<ui:RunTimeLabel fontFamily="Barlow" id="_even_label" size="40" i18n="dice.even" />
+				<ui:RunTimeLabel id="_even_label" size="40" i18n="dice.even" />
 				<e:layout>
 					<e:VerticalLayout gap="8" horizontalAlign="center" />
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_big_group" width="147" height="100%" x="1239">
+		<e:Group id="_big_group" width="151" height="100%" x="1233">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Group>
 					<e:Label fontFamily="Barlow" text="4-10" size="15" />
@@ -259,12 +271,12 @@
 			<e:Label fontFamily="Barlow" id="_sum_17_label" text="17" verticalCenter="0" horizontalCenter="0" />
 		</e:Group>
 	</e:Group>
-	<e:Group id="_bigrow_3" height="109" y="273" width="1386">
+	<e:Group id="_bigrow_3" height="109" y="274" width="1386">
 		<e:Rect fillColor="0x0000ff" fillAlpha="0.25" width="100%" height="100%" locked="true" />
 		<di:Row3 width="100%" height="100%" />
 		<e:Rect width="1" height="100%" left="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
 		<e:Rect width="1" height="100%" right="0" top="0" fillColor="0x417DB9" anchorOffsetX="0" anchorOffsetY="0" />
-		<e:Group id="_combine_1_2_group" width="90" height="100%" x="2">
+		<e:Group id="_combine_1_2_group" width="91" height="100%" x="1">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Image source="d_sic_history_lv2_dice-1_png" />
 				<e:Image source="d_sic_history_lv2_dice-2_png" />
@@ -273,7 +285,7 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_combine_1_3_group" width="90" height="100%" x="93">
+		<e:Group id="_combine_1_3_group" width="92" height="100%" x="92">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Image source="d_sic_history_lv2_dice-1_png" />
 				<e:Image source="d_sic_history_lv2_dice-3_png" />
@@ -282,7 +294,7 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_combine_1_4_group" width="90" height="100%" x="185">
+		<e:Group id="_combine_1_4_group" width="91" height="100%" x="185">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Image source="d_sic_history_lv2_dice-1_png" />
 				<e:Image source="d_sic_history_lv2_dice-4_png" />
@@ -291,7 +303,7 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_combine_1_5_group" width="90" height="100%" x="277">
+		<e:Group id="_combine_1_5_group" width="91" height="100%" x="277">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Image source="d_sic_history_lv2_dice-1_png" />
 				<e:Image source="d_sic_history_lv2_dice-5_png" />
@@ -372,7 +384,7 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_combine_4_5_group" width="90" height="100%" x="1110">
+		<e:Group id="_combine_4_5_group" width="91" height="100%" x="1109">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Image source="d_sic_history_lv2_dice-4_png" />
 				<e:Image source="d_sic_history_lv2_dice-5_png" />
@@ -381,7 +393,7 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_combine_4_6_group" width="90" height="100%" x="1202">
+		<e:Group id="_combine_4_6_group" width="91" height="100%" x="1201">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Image source="d_sic_history_lv2_dice-4_png" />
 				<e:Image source="d_sic_history_lv2_dice-6_png" />
@@ -390,7 +402,7 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="_combine_5_6_group" width="90" height="100%" x="1295">
+		<e:Group id="_combine_5_6_group" width="91" height="100%" x="1294">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Image source="d_sic_history_lv2_dice-5_png" />
 				<e:Image source="d_sic_history_lv2_dice-6_png" />
@@ -403,7 +415,7 @@
 	<e:Group id="_specific_odd_group" width="196" height="68" x="2" y="411">
 		<e:Group horizontalCenter="0" verticalCenter="0">
 			<e:Group>
-				<ui:RunTimeLabel fontFamily="Barlow" id="_single_label" size="15" left="0" i18n="dice.single" />
+				<ui:RunTimeLabel id="_single_label" size="15" left="0" i18n="dice.single" />
 				<e:Label fontFamily="Barlow" text="1:1" size="15" right="0" />
 				<e:layout>
 					<e:HorizontalLayout gap="2" />
@@ -411,14 +423,14 @@
 			</e:Group>
 			<e:Group>
 				<e:Group>
-					<ui:RunTimeLabel fontFamily="Barlow" id="_double_label" size="15" i18n="dice.double" />
+					<ui:RunTimeLabel id="_double_label" size="15" i18n="dice.double" />
 					<e:Label fontFamily="Barlow" text="2:1" size="15" />
 					<e:layout>
 						<e:HorizontalLayout gap="2" />
 					</e:layout>
 				</e:Group>
 				<e:Group>
-					<ui:RunTimeLabel fontFamily="Barlow" id="_triple_label" size="15" i18n="dice.triple" />
+					<ui:RunTimeLabel id="_triple_label" size="15" i18n="dice.triple" />
 					<e:Label fontFamily="Barlow" text="12:1" size="15" />
 					<e:layout>
 						<e:HorizontalLayout gap="2" />
@@ -433,23 +445,28 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-	<e:Group id="_specific_1_group" width="197" height="68" x="199" y="411">
-		<e:Image source="d_sic_history_lv2_dice-1_png" horizontalCenter="0" verticalCenter="0" />
-	</e:Group>
-	<e:Group id="_specific_2_group" width="197" height="68" x="397" y="411">
-		<e:Image source="d_sic_history_lv2_dice-2_png" horizontalCenter="0" verticalCenter="0" />
-	</e:Group>
-	<e:Group id="_specific_3_group" width="197" height="68" x="595" y="411">
-		<e:Image source="d_sic_history_lv2_dice-3_png" horizontalCenter="0" verticalCenter="0" />
-	</e:Group>
-	<e:Group id="_specific_4_group" width="197" height="68" x="793" y="411">
-		<e:Image source="d_sic_history_lv2_dice-4_png" horizontalCenter="0" verticalCenter="0" />
-	</e:Group>
-	<e:Group id="_specific_5_group" width="197" height="68" x="991" y="411">
-		<e:Image source="d_sic_history_lv2_dice-5_png" horizontalCenter="0" verticalCenter="0" />
-	</e:Group>
-	<e:Group id="_specific_6_group" width="197" height="68" x="1189" y="411">
-		<e:Image source="d_sic_history_lv2_dice-6_png" horizontalCenter="0" verticalCenter="0" />
+	<e:Group id="_specific_group" y="411" x="196">
+		<e:Group id="_specific_1_group" width="197" height="68">
+			<e:Image source="d_sic_history_lv2_dice-1_png" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_specific_2_group" width="196" height="68">
+			<e:Image source="d_sic_history_lv2_dice-2_png" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_specific_3_group" width="198" height="68">
+			<e:Image source="d_sic_history_lv2_dice-3_png" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_specific_4_group" width="198" height="68">
+			<e:Image source="d_sic_history_lv2_dice-4_png" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_specific_5_group" width="197" height="68">
+			<e:Image source="d_sic_history_lv2_dice-5_png" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_specific_6_group" width="210" height="68">
+			<e:Image source="d_sic_history_lv2_dice-6_png" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="0" horizontalAlign="center" />
+		</e:layout>
 	</e:Group>
 	<e:Group id="_label_group_1" height="27" width="1386" y="151">
 		<e:Rect fillColor="0x000000" fillAlpha="0.5" width="100%" height="100%" locked="true" />

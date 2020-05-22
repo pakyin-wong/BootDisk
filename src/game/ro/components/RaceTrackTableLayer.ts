@@ -42,10 +42,10 @@ namespace we {
       protected _section_tiers: eui.Image;
       protected _section_voisins: eui.Image;
       protected _section_zero: eui.Image;
-      protected _label_orphelins: ui.RunTimePropertyLabel;
-      protected _label_tiers: ui.RunTimePropertyLabel;
-      protected _label_voisins: ui.RunTimePropertyLabel;
-      protected _label_zero: ui.RunTimePropertyLabel;
+      protected _label_orphelins: ui.RunTimeLabel;
+      protected _label_tiers: ui.RunTimeLabel;
+      protected _label_voisins: ui.RunTimeLabel;
+      protected _label_zero: ui.RunTimeLabel;
 
       protected _sectionMapping: { [s: string]: eui.Image };
 
@@ -101,10 +101,10 @@ namespace we {
           this._sectionMapping[value].name = '0';
         });
 
-        this._label_tiers.renderProperty = () => i18n.e('roulette.tiers');
-        this._label_voisins.renderProperty = () => i18n.e('roulette.voisins');
-        this._label_orphelins.renderProperty = () => i18n.e('roulette.orphelins');
-        this._label_zero.renderProperty = () => i18n.e('roulette.zero');
+        this._label_tiers.renderText = () => i18n.e('roulette.tiers');
+        this._label_voisins.renderText = () => i18n.e('roulette.voisins');
+        this._label_orphelins.renderText = () => i18n.e('roulette.orphelins');
+        this._label_zero.renderText = () => i18n.e('roulette.zero');
       }
 
       public onRollover(fieldName: string) {
