@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.LiveListAdvancedItemSkin" width="1204" height="450" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="_betChipSetPanel">
-		<ui:BetChipSetGrid id="_betChipSetNode" width="350" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
+		<e:Component id="_betChipSetNode" width="350" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
 	</e:Group>
 	<e:Group id="_contentContainer" width="1204" height="450" x="0" y="0">
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
@@ -14,8 +14,9 @@
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
 			</e:Group>
 			<live:BetLimitDropdown id="_dropdown" width="200" x="22" y="396" skinName="BetLimitDropdownSkin" />
-			<e:Component id="_advancedRoadNode" width="584" height="450" x="350" y="0" visible="false" />
 			<e:Component id="_analysisNode" right="0" y="0" width="278" height="450" />
+			<e:Component id="_advancedRoadNode" width="584" height="450" x="350" y="0" visible="false" />
+			
 		</e:Group>
 		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0" touchEnabled="false">
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="15" y="15" skinName="skin_desktop.CountdownTimerRoundSkin" />

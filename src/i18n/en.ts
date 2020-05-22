@@ -283,6 +283,10 @@ namespace we {
         luckyNumber: 'Lucky Number',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
+        edit: 'Edit',
+        complete: 'Complete',
+        addCustomBet: 'Create new custom bet',
+        betCombination: 'Bet group',
         betLimitShort: 'Bet Limit',
         gameId: 'ID',
         distribution: 'Distribution',
@@ -354,6 +358,7 @@ namespace we {
         PairRatio: 'Banker pair:Player pair ratio',
         round: 'round',
         rounds: 'rounds',
+        playersqueeze: 'Squeeze',
       },
       message: {
         test: 'You won $1, and $2% will belongs to me',

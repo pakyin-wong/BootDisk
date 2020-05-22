@@ -268,6 +268,10 @@ namespace we {
         luckyNumber: '幸运数字',
         jockeyBet: '马场下注区',
         customBet: '自选投注组合',
+        edit: '编辑',
+        complete: '完成',
+        addCustomBet: '加入新的投注组合',
+        betCombination: '投注组合',
         betLimitShort: '限红',
         gameId: '编号',
         distribution: '散布',
@@ -356,6 +360,7 @@ namespace we {
         PairRatio: '庄对闲对比例',
         round: '局',
         rounds: '局',
+        playersqueeze: '玩家咪牌',
       },
       message: {
         test: '你贏得 $1，$2% 會比左我',

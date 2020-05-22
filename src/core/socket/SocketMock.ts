@@ -8,8 +8,10 @@ namespace we {
       private currency: core.Currency[];
       private balance_index: number;
       private mockProcesses: MockProcess[] = [];
+      protected goodRoadTableList: string[];
 
       private _tempIdx: number = 0;
+      private countforplayerprofile = 0; // check getPlayerProfileSummary work
 
       protected betCombinations: we.data.BetCombination[];
 
@@ -44,7 +46,10 @@ namespace we {
         betCombination.gametype = we.core.GameType.RO;
         betCombination.id = 'f1';
         betCombination.playerid = '12321';
-        betCombination.optionsList = [{ amount: 1000, betcode: we.ro.BetField.BIG }, { amount: 1000, betcode: we.ro.BetField.BLACK }];
+        betCombination.optionsList = [
+          { amount: 1000, betcode: we.ro.BetField.BIG },
+          { amount: 1000, betcode: we.ro.BetField.BLACK },
+        ];
         this.betCombinations.push(betCombination);
 
         /*
@@ -54,6 +59,31 @@ namespace we {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
         }, 5000);*/
+        this.goodRoadTableList = [];
+        setInterval(() => {
+          this.onGoodRoadMatch();
+        }, 6000);
+      }
+
+      public getBalance() {}
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        const data = new we.data.PlayerStatistic();
+        const tempbet = 10100;
+        const tempwinloss = 2000;
+        data.bet = tempbet;
+        data.winloss = tempwinloss;
+        callback(data);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        const data = new we.data.PlayerProfileSummary();
+        const tempMaxwin = 100100;
+        const tempwinningstreak = 10;
+        data.maxwin = tempMaxwin;
+        data.winningstreak = tempwinningstreak + this.countforplayerprofile;
+        this.countforplayerprofile += 1;
+        callback(data);
       }
 
       protected generateDummyStatistic(data) {
@@ -633,16 +663,37 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 12 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
           roach: [{ v: 'p' }],
         },
 
         inGameB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: 'b', t: 5 },
+          ],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -654,8 +705,18 @@ namespace we {
         },
 
         inGameP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: 'p', t: 0 },
+          ],
           bigEye: [{ v: 'p' }, { v: 'p' }],
           small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
           roach: [{ v: 'p' }, { v: 'p' }],
@@ -667,16 +728,37 @@ namespace we {
         },
 
         lobbyPro: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
           roach: [{ v: 'p' }],
         },
 
         lobbyProB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: 'b', t: 5 },
+          ],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -688,8 +770,18 @@ namespace we {
         },
 
         lobbyProP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
+          bead: [
+            { v: 't', b: 0, p: 0, w: 2 },
+            { v: 'p', b: 0, p: 0, w: 4 },
+            { v: 'b', b: 0, p: 1, w: 7 },
+            { v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: 'p', t: 0 },
+          ],
           bigEye: [{ v: 'p' }, { v: 'p' }],
           small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
           roach: [{ v: 'p' }, { v: 'p' }],
@@ -701,11 +793,19 @@ namespace we {
         },
 
         sideBar: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
         },
 
         lobbyUnPro: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
         },
 
         inGameInfoStart: 0,
@@ -726,7 +826,11 @@ namespace we {
         cold: [1, 2, 3, 4, 5],
 
         inGame: {
-          bead: [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'g34345' }, { v: 20, gameRoundID: 'g45454' }],
+          bead: [
+            { v: 0, gameRoundID: 'cde345' },
+            { v: 1, gameRoundID: 'g34345' },
+            { v: 20, gameRoundID: 'g45454' },
+          ],
           color: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
           size: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
           odd: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }, {}, {}, {}, {}, {}, { v: 2, gameRoundID: 'g45454' }],
@@ -745,10 +849,16 @@ namespace we {
         odd: { odd: 1, even: 2, tie: 3 }, // odd stats
 
         inGame: {
-          bead: [{ gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' }, { gameRoundID: 'g34345', dice: [1, 2, 3], video: 'null' }],
+          bead: [
+            { gameRoundID: 'cde345', dice: [1, 2, 3], video: 'null' },
+            { gameRoundID: 'g34345', dice: [1, 2, 3], video: 'null' },
+          ],
           size: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }], // 0 = tie, 1 = small, 2 = big
           odd: [{ v: 0, gameRoundID: 'cde345' }, {}, {}, {}, {}, {}, { v: 1, gameRoundID: 'g34345' }], // 0 = tie, 1 = odd, 2 = even
-          sum: [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'g34345' }], // show the sum value directly
+          sum: [
+            { v: 0, gameRoundID: 'cde345' },
+            { v: 1, gameRoundID: 'g34345' },
+          ], // show the sum value directly
         },
 
         gameInfo: {
@@ -764,7 +874,11 @@ namespace we {
         shoeid: '1',
 
         inGame: {
-          bead: [{ v: '01', gameRoundID: 'cde345' }, { v: '02', gameRoundID: 'g34345' }, { v: '03', gameRoundID: 'g45454' }],
+          bead: [
+            { v: '01', gameRoundID: 'cde345' },
+            { v: '02', gameRoundID: 'g34345' },
+            { v: '03', gameRoundID: 'g45454' },
+          ],
         },
 
         gameInfo: { cde345: { gameRoundID: 'cde345', v: '01', video: 'null' }, g34345: { gameRoundID: 'g34345', v: '02', video: 'null' }, g45454: { gameRoundID: 'g45454', v: '03', video: 'null' } },
@@ -784,6 +898,12 @@ namespace we {
               cfmBetDetail.amount += betDetail.amount;
               env.balance -= betDetail.amount;
               dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+              if (data.gametype === core.GameType.BAC) {
+                const total = { tableid: tableID, amount: { [cfmBetDetail.field]: cfmBetDetail.amount }, count: { [cfmBetDetail.field]: 1000 } };
+                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+              }
+
               break;
             }
           }
@@ -798,13 +918,63 @@ namespace we {
             });
             env.balance -= betDetail.amount;
             dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+            if (data.gametype === core.GameType.BAC) {
+              const total = { tableid: tableID, amount: { [betDetail.field]: betDetail.amount }, count: { [betDetail.field]: 1000 } };
+              dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+            }
           }
         }
+        data.data.previousstate = we.core.GameState.BET;
         this.dispatchInfoUpdateEvent(data);
         this.dispatchBetResultEvent();
         this.dispatchBetInfoUpdateEvent(data);
 
         // return promise.resolve with BetResult
+      }
+
+      private onGoodRoadMatch() {
+        // random get a ba table
+        const baTables = this.tables.filter(tableinfo => {
+          return tableinfo.gametype === core.GameType.BAC;
+        });
+        const idx = Math.floor(Math.random() * baTables.length);
+        const tableInfo = baTables[idx];
+        // update ba table good road match data
+        const goodRoadData: data.GoodRoadData = {
+          roadmapid: '1',
+          name: '好路',
+          custom: true,
+          tableid: tableInfo.tableid,
+        };
+        if (!tableInfo.goodRoad) {
+          this.goodRoadTableList.push(tableInfo.tableid);
+        }
+        tableInfo.goodRoad = goodRoadData;
+
+        const data = {
+          tableid: tableInfo.tableid,
+        };
+        const notification: data.Notification = {
+          type: core.NotificationType.GoodRoad,
+          data,
+        };
+        dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+
+        // dispatch match event
+        dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
+        this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        // set timeout to reset the good road match data
+        setTimeout(() => {
+          tableInfo.goodRoad = null;
+          const idx = this.goodRoadTableList.indexOf(tableInfo.tableid);
+          if (idx > -1) {
+            this.goodRoadTableList.splice(idx, 1);
+          }
+          // dispatch match event
+          dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
+          this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        }, 20000);
       }
 
       private onReceivedMsg(res) {
@@ -816,57 +986,86 @@ namespace we {
       }
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
+        const tempData = [];
+        for (let i = 0; i < 20; i++) {
+          tempData.push({
+            id: 'XXXXXXXXXX',
+            datetime: 1576242221, // timestamp
+            gametype: 1, // type of the Game, GameType
+            tablename: '132', // name of the table (i.e. table number)
+            roundid: '2132131',
+            replayurl: '1232131',
+            remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+            field: 'BANKER',
+            betAmount: 200,
+            winAmount: 400,
+            prevremaining: 1231232, // balance before bet
+            endremaining: 21321321, // balance after result
+            result: {
+              a1: 'spade1', // banker 1st card
+              a2: 'spade2',
+              a3: 'spade3',
+              b1: 'spade4', // player 1st card
+              b2: 'spade5',
+              b3: '',
+              playerpoint: 6,
+              bankerpoint: 7,
+            },
+          });
+        }
         callback.call(thisArg, {
-          history: [
-            {
-              id: 'XXXXXXXXXX',
-              datetime: 1576242221, // timestamp
-              gametype: 1, // type of the Game, GameType
-              tablename: '132', // name of the table (i.e. table number)
-              roundid: '2132131',
-              replayurl: '1232131',
-              remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
-              field: 'BANKER',
-              betAmount: 200,
-              winAmount: 400,
-              prevremaining: 1231232, // balance before bet
-              endremaining: 21321321, // balance after result
-              result: {
-                a1: 'spade1', // banker 1st card
-                a2: 'spade2',
-                a3: 'spade3',
-                b1: 'spade4', // player 1st card
-                b2: 'spade5',
-                b3: '',
-                playerpoint: 6,
-                bankerpoint: 7,
-              },
-            },
-            {
-              id: 'XXXXXXXXXX',
-              datetime: 1576242221, // timestamp
-              gametype: 0, // type of the Game, GameType
-              tablename: '132', // name of the table (i.e. table number)
-              roundid: '2132131',
-              replayurl: '1232131',
-              remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
-              field: 'BANKER',
-              betAmount: 200,
-              winAmount: 400,
-              prevremaining: 1231232, // balance before bet
-              endremaining: 21321321, // balance after result
-              result: {
-                a1: 'heart2', // banker 1st card
-                a2: 'heartk',
-                a3: '',
-                b1: 'diamonda', // player 1st card
-                b2: 'diamondj',
-                b3: 'spade2',
-                playerpoint: 3,
-                bankerpoint: 1,
-              },
-            },
-          ],
+          // history: [
+          //   {
+          //     id: 'XXXXXXXXXX',
+          //     datetime: 1576242221, // timestamp
+          //     gametype: 1, // type of the Game, GameType
+          //     tablename: '132', // name of the table (i.e. table number)
+          //     roundid: '2132131',
+          //     replayurl: '1232131',
+          //     remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          //     field: 'BANKER',
+          //     betAmount: 200,
+          //     winAmount: 400,
+          //     prevremaining: 1231232, // balance before bet
+          //     endremaining: 21321321, // balance after result
+          //     result: {
+          //       a1: 'spade1', // banker 1st card
+          //       a2: 'spade2',
+          //       a3: 'spade3',
+          //       b1: 'spade4', // player 1st card
+          //       b2: 'spade5',
+          //       b3: '',
+          //       playerpoint: 6,
+          //       bankerpoint: 7,
+          //     },
+          //   },
+          //   {
+          //     id: 'XXXXXXXXXX',
+          //     datetime: 1576242221, // timestamp
+          //     gametype: 0, // type of the Game, GameType
+          //     tablename: '132', // name of the table (i.e. table number)
+          //     roundid: '2132131',
+          //     replayurl: '1232131',
+          //     remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          //     field: 'BANKER',
+          //     betAmount: 200,
+          //     winAmount: 400,
+          //     prevremaining: 1231232, // balance before bet
+          //     endremaining: 21321321, // balance after result
+          //     result: {
+          //       a1: 'heart2', // banker 1st card
+          //       a2: 'heartk',
+          //       a3: '',
+          //       b1: 'diamonda', // player 1st card
+          //       b2: 'diamondj',
+          //       b3: 'spade2',
+          //       playerpoint: 3,
+          //       bankerpoint: 1,
+          //     },
+          //   },
+          // ],
+          total: 20,
+          history: tempData,
         });
       }
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {

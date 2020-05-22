@@ -183,22 +183,27 @@ namespace we {
 
       public setFocus(holder: NotificationItemHolder) {
         // get notification index from _collection
-        console.log("mobile setFocus");
+
         const notification: data.Notification = holder.itemData;
-        const idx = this._goodRoadCollection.getItemIndex(notification);
-        if (idx > -1) {
-          this.dismissFocus(false);
-          // store the selected item and the position of that and remove from list
-          const x = holder.x;
-          const y = holder.y;
-          notification.state = NotificationItemHolder.STATE_FOCUS;
-          notification.x = x;
-          notification.y = y;
-          this.goodRoadListDisplay.removeItem(notification);
-          // add back to the top of the list and provide the previous position and the status from the data object
-          this.goodRoadListDisplay.addItemAt(notification, 0);
-          this._currentFocus = notification;
-        }
+        const { tableid } = notification.data;
+        // const idx = this._collection.getItemIndex(notification);
+        // if (idx > -1) {
+        //   this.dismissFocus(false);
+        //   // store the selected item and the position of that and remove from list
+        //   const x = holder.x;
+        //   const y = holder.y;
+        //   notification.state = NotificationItemHolder.STATE_FOCUS;
+        //   notification.x = x;
+        //   notification.y = y;
+        //   this.listDisplay.removeItem(notification);
+        //   // add back to the top of the list and provide the previous position and the status from the data object
+        //   this.listDisplay.addItemAt(notification, 0);
+        //   this._currentFocus = notification;
+        // }
+        dir.evtHandler.createOverlay({
+          class: 'MobileQuickBet',
+          args: [tableid],
+        });
       }
 
       public dismissFocus(isRemoved: boolean) {

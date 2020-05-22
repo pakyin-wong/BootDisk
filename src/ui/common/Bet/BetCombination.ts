@@ -15,6 +15,28 @@ namespace we {
       protected _textFieldMaxLimit = 12;
       protected _combinations: any;
 
+      public constructor() {
+        super();
+      }
+
+      protected mount() {
+        dir.evtHandler.addEventListener(core.Event.BET_COMBINATION_UPDATE, this.onUpdateTable, this);
+        dir.evtHandler.addEventListener(core.Event.BET_COMBINATION_AMOUNT_UPDATE, this.onUpdateAmount, this);
+        const layout = new eui.TileLayout();
+        layout.orientation = eui.TileOrientation.COLUMNS;
+        layout.requestedColumnCount = 2;
+        layout.horizontalGap = 25;
+        layout.verticalGap = 5;
+
+        this._group = new eui.Group();
+        this._group.layout = layout;
+        this._group.addChild(this.newBetCombination());
+        this.fillEmptyGrids(1);
+        this.addChild(this._group);
+
+        dir.socket.getBetCombination();
+      }
+
       public set chipLayer(value: ui.ChipLayer) {
         this._chipLayer = value;
       }
@@ -355,24 +377,6 @@ namespace we {
           betOptions.push(betOp);
         });
         return betOptions;
-      }
-
-      protected mount() {
-        dir.evtHandler.addEventListener(core.Event.BET_COMBINATION_UPDATE, this.onUpdateTable, this);
-        dir.evtHandler.addEventListener(core.Event.BET_COMBINATION_AMOUNT_UPDATE, this.onUpdateAmount, this);
-        const layout = new eui.TileLayout();
-        layout.orientation = eui.TileOrientation.COLUMNS;
-        layout.requestedColumnCount = 2;
-        layout.horizontalGap = 25;
-        layout.verticalGap = 5;
-
-        this._group = new eui.Group();
-        this._group.layout = layout;
-        this._group.addChild(this.newBetCombination());
-        this.fillEmptyGrids(1);
-        this.addChild(this._group);
-
-        dir.socket.getBetCombination();
       }
 
       protected getOldBetAmount(data: we.data.BetCombination) {

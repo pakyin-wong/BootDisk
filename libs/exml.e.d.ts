@@ -186,6 +186,10 @@ declare module skin_desktop{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class CountdownTimerRoundSqueezeBaccaratSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.di{
 	class Analysis extends eui.Skin{
 	}
@@ -969,6 +973,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class CustomRoad extends eui.Skin{
 	}
 }
@@ -1002,6 +1010,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape.ro{
 	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ro{
+	class MobileBetCombination extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.ro{
@@ -1483,6 +1495,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class CustomRoad extends eui.Skin{
 	}
 }
@@ -1548,6 +1564,10 @@ declare module skin_mobile_portrait.ro{
 }
 declare module skin_mobile_portrait.ro{
 	class LiveListItemBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class MobileBetCombination extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
@@ -1706,6 +1726,14 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class MobileSideGameListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile.ro{
+	class MobileBetCombinationCreateItem extends eui.Skin{
+	}
+}
+declare module skin_mobile.ro{
+	class MobileBetCombinationItem extends eui.Skin{
 	}
 }
 declare module skin_mobile{

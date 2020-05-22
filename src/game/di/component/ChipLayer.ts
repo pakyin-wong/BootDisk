@@ -318,22 +318,21 @@ namespace we {
 */
         // transform last row
         (() => {
-          for (let i = 1; i <= 6; i += 1) {
-            const promise = new Promise(resolve => {
-              egret.Tween.get(this[`_specific_${i}_group`])
-                .to(
-                  {
-                    width: collapsed ? 228 : 197,
-                    height: collapsed ? 64 : 68,
-                    x: (collapsed ? 0 : 196) + (collapsed ? 228 : 197) * (i - 1) + border,
-                    y: collapsed ? 274 : 411,
-                  },
-                  125
-                )
-                .call(resolve);
-            });
-            tweenPromises.push(promise);
-          }
+          const promise = new Promise(resolve => {
+            egret.Tween.get(this[`_specific_group`])
+              .to(
+                {
+                  scaleX: collapsed ? 1.166 : 1,
+                  // width: collapsed ? 1384 : 1186,
+                  height: collapsed ? 64 : 68,
+                  x: collapsed ? 2 : 199,
+                  y: collapsed ? 274 : 411,
+                },
+                125
+              )
+              .call(resolve);
+          });
+          tweenPromises.push(promise);
         })();
         // transform last row bg odd
         // transform last row bg
