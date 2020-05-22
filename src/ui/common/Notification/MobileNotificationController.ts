@@ -11,13 +11,13 @@ namespace we {
 
       protected _activeNotificationCount: any;
 
-      private _notificationGroup: eui.Group;
+      private _notificationContainer: eui.Group;
 
-      protected layout2: eui.VerticalLayout = new eui.VerticalLayout();
-      protected layout3: eui.VerticalLayout = new eui.VerticalLayout();
+      protected layoutH: eui.HorizontalLayout = new eui.HorizontalLayout();
+      protected layoutV: eui.VerticalLayout = new eui.VerticalLayout();
 
       protected _max_result: number;
-      protected _max_goodRoad: number = 1;;
+      protected _max_goodRoad: number = 0;
 
       protected _currentFocus: any;
 
@@ -51,9 +51,8 @@ namespace we {
         this.percentWidth = 100;
         this.percentHeight = 100;
 
-        this._max_result = 1;
+        this._max_result = 0;
 
-        this._notificationGroup = new eui.Group();
         if (env.orientation === egret.OrientationMode.PORTRAIT) {
         } else {
         }
@@ -61,48 +60,61 @@ namespace we {
         this.notificationList = [];
 
         this.goodRoadListDisplay = new ui.List();
+        this.resultListDisplay = new ui.List();
+
         this._goodRoadCollection = new eui.ArrayCollection([]);
+        this._resultCollection = new eui.ArrayCollection([]);
 
+        this._notificationContainer = new eui.Group();
+        this._notificationContainer.width = this.stage.stageWidth;
+        this.addChild(this._notificationContainer);
+        this._notificationContainer.addChild(this.goodRoadListDisplay);
+        this._notificationContainer.addChild(this.resultListDisplay);
 
-        this.layout2.horizontalAlign = egret.HorizontalAlign.CENTER;
-        this.layout3.horizontalAlign = egret.HorizontalAlign.CENTER;
-
-        this.goodRoadListDisplay.layout = this.layout2;
         this.goodRoadListDisplay.isFade = false;
         this.goodRoadListDisplay.isSwipeable = false;
         this.goodRoadListDisplay.isAnimateItemTransition = true;
         this.goodRoadListDisplay.dataProvider = this._goodRoadCollection;
         this.goodRoadListDisplay.itemRenderer = NotificationItemHolder;
-        this.goodRoadListDisplay.width = this.stage.stageWidth;
-        // this.goodRoadListDisplay.top = 28;
-        this.goodRoadListDisplay.bottom = 150;
         this.goodRoadListDisplay.isAnimateItemTransition = true;
         this.goodRoadListDisplay.useVirtualLayout = false;
-        this.addChild(this.goodRoadListDisplay);
 
-        this.resultListDisplay = new ui.List();
-        this._resultCollection = new eui.ArrayCollection([]);
-
-
-        this.resultListDisplay.layout = this.layout3;
         this.resultListDisplay.isFade = false;
         this.resultListDisplay.isSwipeable = false;
         this.resultListDisplay.isAnimateItemTransition = true;
         this.resultListDisplay.dataProvider = this._resultCollection;
         this.resultListDisplay.itemRenderer = NotificationItemHolder;
-        this.resultListDisplay.width = this.stage.stageWidth;
-        this.resultListDisplay.bottom = 150;
         this.resultListDisplay.isAnimateItemTransition = true;
         this.resultListDisplay.useVirtualLayout = false;
-        this.addChild(this.resultListDisplay);
 
         if (dir.sceneCtr.currScene.sceneHeaderPlacement === 'Game') {
-          if (env.orientation === 'landscape') {
-            this.layout2.horizontalAlign = egret.HorizontalAlign.LEFT;
-            this.layout3.horizontalAlign = egret.HorizontalAlign.LEFT;
-            this.goodRoadListDisplay.bottom = 500;
-            this.resultListDisplay.bottom = 500;
-            this._max_result = 6;
+          this._notificationContainer.layout = this.layoutV;
+          switch (env.orientation) {
+            case 'landscape':
+              this.layoutV.horizontalAlign = egret.HorizontalAlign.LEFT;
+              this._notificationContainer.bottom = 500;
+              this._max_result = 6;
+              break;
+            case 'portrait':
+              this.layoutV.horizontalAlign = egret.HorizontalAlign.CENTER;
+              this._notificationContainer.bottom = 150;
+              this._max_result = 6;
+              break;
+          }
+        } else {
+          // in lobby
+          this._notificationContainer.bottom = 150;
+          switch (env.orientation) {
+            case 'landscape':
+              this._notificationContainer.layout = this.layoutH;
+              this.layoutH.horizontalAlign = egret.HorizontalAlign.CENTER;
+              this._max_result = 1;
+              break;
+            case 'portrait':
+              this._notificationContainer.layout = this.layoutV;
+              this.layoutV.horizontalAlign = egret.HorizontalAlign.CENTER;
+              this._max_result = 6;
+              break;
           }
         }
       }
@@ -114,7 +126,7 @@ namespace we {
       }
 
       protected hasAvailableHolder() {
-        return this._activeNotificationCount.total < this._max_result + this._max_goodRoad;
+        return this._activeNotificationCount.total <= this._max_result + this._max_goodRoad;
       }
 
       public showNextNotification() {
@@ -150,10 +162,10 @@ namespace we {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
         switch (type) {
           case core.NotificationType.GoodRoad:
-            //set max no. of GoodRoad notification at one time
-            return this._activeNotificationCount['GoodRoad'] <= this._max_goodRoad;
+            // set max no. of GoodRoad notification at one time
+            return this._activeNotificationCount['GoodRoad'] === this._max_goodRoad;
           case core.NotificationType.Result:
-            //set max no. of Result notification at one time
+            // set max no. of Result notification at one time
             return this._activeNotificationCount['Result'] < this._max_result;
         }
         return false;
