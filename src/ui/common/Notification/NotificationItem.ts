@@ -7,7 +7,7 @@ namespace we {
 
       protected _state: number;
       protected _timeoutId: number;
-      public duration: number = 4000;
+      public duration: number = 5000;
 
       protected _content: ui.ControlItem;
       protected _quickBetContent: ui.ControlItem;

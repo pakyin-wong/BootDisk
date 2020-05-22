@@ -39,6 +39,7 @@ namespace we {
 
       public mount() {
         super.mount();
+        console.log('Notification::mount()');
 
         // group with horizontal layout
         // holding 2 notification holder
@@ -121,9 +122,31 @@ namespace we {
         }
         const notification = this.nextNotification;
         if (notification) {
-          this.listDisplay.addItem(notification);
-          this.showNotification(notification.type);
+          // if(notification.type === core.NotificationType.GoodRoad && notification.data.tableid && env.tableInfos[notification.data.tableid]. )
+          if (notification.type === 1) {
+            this.listDisplay.addItem(notification);
+            this.showNotification(notification.type);
+          } else {
+            if (this.isCountDownAvailble(notification)) {
+              // if true => next countdown >=5s
+              this.listDisplay.addItem(notification);
+              this.showNotification(notification.type);
+            } else {
+              // if false => next countdown < 5s
+              this.showNextNotification();
+            }
+          }
         }
+      }
+
+      protected isCountDownAvailble(nextnotification: data.Notification) {
+        const currentTime = Date.now();
+        const correspondTableid = nextnotification.data.tableid;
+        const correspondTableInfos = env.tableInfos[correspondTableid];
+        const correspondStarttime = correspondTableInfos.data.starttime;
+        const correspondCountDown = correspondTableInfos.data.countdown;
+        const remainingBetTime = correspondCountDown - (currentTime - correspondStarttime);
+        return remainingBetTime >= 5 ? true : false;
       }
 
       protected get nextNotification(): data.Notification {
