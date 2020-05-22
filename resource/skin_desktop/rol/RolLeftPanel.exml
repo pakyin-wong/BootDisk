@@ -63,7 +63,7 @@
                         </e:Skin>
                 </e:skinName>
         </e:RadioButton>
-        <e:ViewStack id="pageStack" width="100%" height="249" x="0" y="41" selectedIndex="3" anchorOffsetX="0"
+        <e:ViewStack id="pageStack" width="100%" height="249" x="0" y="41" selectedIndex="0" anchorOffsetX="0"
                      anchorOffsetY="0">
                 <e:Group id="page1" width="100%" height="100%" name="Group" anchorOffsetX="0">
                         <e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"
@@ -150,7 +150,7 @@
                         <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" />
                         <e:Group id="_coinGroup" width="100%" height="100%">
                                 <e:layout>
-                                        <e:HorizontalLayout verticalAlign="middle" horizontalAlign="center" />
+                                        <e:HorizontalLayout id="_coinGroupLayout" verticalAlign="middle" horizontalAlign="center" />
                                 </e:layout>
                         </e:Group>
                 </e:Group>

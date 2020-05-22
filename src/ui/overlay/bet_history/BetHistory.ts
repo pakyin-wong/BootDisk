@@ -98,6 +98,7 @@ namespace we {
         }
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+        this._tf_search.prompt = '';
         mouse.setButtonMode(this._tf_search, true);
         this.updatePlaceHolder();
         this.addListeners();

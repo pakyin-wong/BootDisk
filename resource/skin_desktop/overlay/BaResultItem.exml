@@ -8,8 +8,8 @@
 	<e:Image id="_bCard3" width="34" height="48" x="362.9" y="14" scaleX="1" scaleY="1"/>
 	<e:Rect width="22" height="44" x="213" y="16" ellipseHeight="8" ellipseWidth="8" fillColor="0x3e60f8"/>
 	<e:Rect width="22" height="44" x="253" y="16" ellipseHeight="8" ellipseWidth="8" fillColor="0xed4c4c"/>
-	<ui:RunTimeLabel id="_txt_player" text="A" x="213" y="13" size="18" fontFamily="NotoSansCJKtc" textAlign="center" verticalAlign="middle" width="21" height="27" bold="true"/>
-	<ui:RunTimeLabel id="_txt_banker" text="B" x="253" y="13" size="18" fontFamily="NotoSansCJKtc" verticalAlign="middle" textAlign="center" width="21" height="27" bold="true"/>
+	<ui:RunTimeLabel id="_txt_player" text="A" x="213" y="13" size="18" textAlign="center" verticalAlign="middle" width="21" height="27" bold="true"/>
+	<ui:RunTimeLabel id="_txt_banker" text="B" x="253" y="13" size="18" verticalAlign="middle" textAlign="center" width="21" height="27" bold="true"/>
 	<e:Label id="_txt_pPoint" text="0" x="213" y="32" fontFamily="Barlow" size="24" width="21" height="29" textAlign="center" verticalAlign="middle"/>
 	<e:Label id="_txt_bPoint" text="0" x="253" y="32" fontFamily="Barlow" size="24" width="21" height="29" textAlign="center" verticalAlign="middle"/>
 
