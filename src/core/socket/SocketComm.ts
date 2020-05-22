@@ -28,6 +28,12 @@ namespace we {
         if (dir.config.rabbitmqprotocol) {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
+        if (dir.config.rabbitmqvirtualhost) {
+          options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
+        }
+        if (dir.config.path){
+          options.path = dir.config.path;
+        }
 
         if (env.isMobile) {
           options.layout = 'mobile_web';
@@ -38,6 +44,14 @@ namespace we {
         this.client = new PlayerClient(options);
 
         logger.l('MQTTSocketComm is created', this.client);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        // this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+      }
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        // this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
       }
 
       protected subscribeEvents() {
@@ -159,6 +173,8 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
+
+        /*
         let denominationList = [];
         for (const betLimit of env.betLimits) {
           denominationList.push(...betLimit.chips);
@@ -169,6 +185,7 @@ namespace we {
             return a < b ? -1 : 1;
           });
         env.wholeDenomList = denominationList;
+        */
 
         env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
         if (player.profile.categoryorders) {

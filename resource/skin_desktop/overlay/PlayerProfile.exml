@@ -20,7 +20,7 @@
 				<e:Label id="_following" text="Label" y="637" height="29" right="48" size="24" fontFamily="Barlow" width="99" textAlign="right" verticalAlign="middle"/>
 				<e:Label id="_favouriteDealer" text="Label" y="691" height="29" right="48" size="24" fontFamily="Barlow" width="99" textAlign="right" verticalAlign="middle"/>
 							<ui:BaseImageButton width="30" height="30" x="412" y="196" skinName="skin_desktop.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
-							<ui:BaseImageButton width="30" height="30" x="412" y="248" skinName="skin_desktop.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
+							<ui:BaseImageButton id="_btn_reload_player_profile" width="30" height="30" x="412" y="248" skinName="skin_desktop.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
             </e:Group>
             <e:Group id="_section_iconSelect" x="490" width="490" height="764" y="0">
                 <e:Image id="_sectionBackIcon" width="48" height="48" x="19" y="18"

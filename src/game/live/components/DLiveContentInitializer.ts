@@ -6,7 +6,7 @@ namespace we {
       private gapSize: number = 48;
       private roomLayout: eui.TileLayout;
 
-      private _slider: ui.ImageSlider;
+      // private _slider: ui.ImageSlider;
       private _stickyHeader: ui.StickyContent;
 
       protected _tabbarBg: eui.Rect;
@@ -77,7 +77,7 @@ namespace we {
 
         // root.scroller.viewport = group;
 
-        root.roomList = new ui.TableList();
+        // root.roomList = new ui.TableList();
         root.roomList.isFreezeScrolling = true;
         root.roomList.isGlobalLock = true;
         this.roomLayout = new eui.TileLayout();
@@ -113,11 +113,10 @@ namespace we {
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
 
-        this._slider = new we.ui.ImageSlider();
-        this._slider.height = 790;
-        this._slider.width = 2600;
-        this._slider.configSlides(dir.liveResources.liveHeroBanners);
-        root.roomList.addChild(this._slider);
+        root.slider = new we.ui.ImageSlider();
+        root.slider.height = 790;
+        root.slider.width = 2600;
+        root.slider.configSlides(dir.liveResources.liveHeroBanners);
 
         const tabBarGroup = new eui.Group();
         this._tabbarBg = new eui.Rect();
@@ -140,7 +139,7 @@ namespace we {
         this._stickyHeader.content = tabBarGroup;
         this._stickyHeader.scroller = root.scroller;
         this._stickyHeader.contentPaddingTop = this.gapSize;
-        this._stickyHeader.y = this._slider.height + offsetForTableList + this.gapSize;
+        this._stickyHeader.y = root.slider.height + offsetForTableList + this.gapSize;
         root.roomList.addChild(this._stickyHeader);
 
         root.scroller.viewport = root.roomList;

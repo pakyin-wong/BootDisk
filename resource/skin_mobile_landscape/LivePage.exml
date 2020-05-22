@@ -2,5 +2,4 @@
 <e:Skin class="skin_mobile_landscape.LivePage" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect id="background" fillColor="0x121212" strokeColor="0x121212"  top="0" left="0" right="0" bottom="0"/>
-	<live:GameTableList id="_gameTableList"  left="0" right="0" top="0" bottom="0" skinName="skin_mobile_landscape.LiveGameTableList"/>
 </e:Skin>

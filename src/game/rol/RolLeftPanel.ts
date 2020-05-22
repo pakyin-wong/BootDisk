@@ -3,6 +3,7 @@ namespace we {
     export class RolLeftPanel extends ro.RoLeftPanel {
       protected pageRadioBtn4: eui.RadioButton;
       protected _coinGroup: eui.Group;
+      protected _coinGroupLayout: eui.HorizontalLayout;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RolLeftPanel');
@@ -30,6 +31,24 @@ namespace we {
             const imgCoin = new LuckyCoin();
             imgCoin.odd = this.tableInfo.data.luckynumber[key];
             imgCoin.value = +key;
+            switch (Object.keys(this.tableInfo.data.luckynumber).length) {
+              case 3:
+                imgCoin.width = 170;
+                imgCoin.height = 200;
+                this._coinGroupLayout.gap = 45;
+                break;
+              case 4:
+                imgCoin.width = 130;
+                imgCoin.height = 152;
+                this._coinGroupLayout.gap = 20;
+                break;
+              case 5:
+              default:
+                imgCoin.width = 118;
+                imgCoin.height = 138;
+                this._coinGroupLayout.gap = 10;
+                break;
+            }
             this._coinGroup.addChild(imgCoin);
             if (this._chipLayer) {
               const betDetails = this._chipLayer.getConfirmedBetDetails();

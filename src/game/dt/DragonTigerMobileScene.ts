@@ -231,6 +231,34 @@ namespace we {
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
         }
+
+        let subject;
+
+        switch (this._tableInfo.gametype) {
+          case core.GameType.DT: {
+            (this._tableLayer as dt.TableLayer).flashFields(this._gameData);
+            switch (this._gameData.wintype) {
+              case dt.WinType.DRAGON: {
+                subject = 'player';
+                break;
+              }
+              case dt.WinType.TIGER: {
+                subject = 'banker';
+                break;
+              }
+              case dt.WinType.TIE: {
+                subject = 'banker';
+                break;
+              }
+              default:
+                break;
+            }
+            break;
+          }
+          default:
+            break;
+        }
+
         if (this.hasBet()) {
           if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
             this._resultMessage.showResult(this._tableInfo.gametype, {

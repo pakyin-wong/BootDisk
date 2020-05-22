@@ -28,14 +28,15 @@ namespace we {
                 img.height = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].height;
               } else {
                 img.source = 'd_gow_rou_betborad_hl_png';
-                img.width = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].width * 0.9;
-                img.height = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].height * 0.9;
+                img.width = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].width * 0.97;
+                img.height = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].height * 0.97;
               }
 
               const label = new eui.Label();
-              label.verticalCenter = 15;
+              label.verticalCenter = -23;
               label.horizontalCenter = 0;
-              label.size = 12;
+              label.size = 25;
+              label.textColor = 0x83f3af;
               label.text = env.tableInfos[this._tableId].data.luckynumber[key] + 'x';
 
               this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(img);

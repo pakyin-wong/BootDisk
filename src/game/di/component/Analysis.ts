@@ -4,6 +4,7 @@ namespace we {
       protected _tableId;
       protected _diPie: di.DiPie;
       protected _diChance: di.DiChance;
+      public advancedRoad: we.ui.IAdvancedRoad;
 
       public set tableId(value: string) {
         this._tableId = value;

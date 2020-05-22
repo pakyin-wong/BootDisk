@@ -8,6 +8,8 @@ namespace we {
       public oddBigRoad: DiOddBigRoad;
       protected _roadmapControl: we.di.DiRoadmapControl;
 
+      public analysis: we.ui.IAnalysis;
+
       protected roadsContainer: egret.DisplayObjectContainer;
 
       protected totalCount: number;

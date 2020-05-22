@@ -24,6 +24,10 @@ namespace we {
         this.poppableAddon = new PoppableAddonBottomSilder(this);
       }
 
+      protected onOrientationChange() {
+        this.arrangeComponents();
+      }
+
       protected initOrientationDependentComponent() {
         this._txt_title.renderText = () => `${i18n.t('sidegamelist_title')}`;
 
@@ -45,6 +49,8 @@ namespace we {
       }
 
       protected arrangeComponents() {
+        this.currentState = env.orientation.toLowerCase();
+        this.validateNow();
         this._betTableList.layout = this.getLayout();
         this._goodRoadTableList.layout = this.getLayout();
         this._allTableList.layout = this.getLayout();
@@ -55,6 +61,7 @@ namespace we {
         this.removeEventListeners();
       }
       protected addEventListeners() {
+        dir.evtHandler.addEventListener(core.Event.TOGGLE_SIDE_GAMELIST, this.show, this);
         // listen to table list update
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update
@@ -66,6 +73,7 @@ namespace we {
       }
 
       protected removeEventListeners() {
+        dir.evtHandler.removeEventListener(core.Event.TOGGLE_SIDE_GAMELIST, this.show, this);
         // listen to table list update
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update

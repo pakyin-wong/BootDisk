@@ -85,7 +85,7 @@ namespace we {
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification> evt.data;
+        const notification: data.Notification = <data.Notification>evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -151,7 +151,8 @@ namespace we {
 
       public setFocus(holder: NotificationItemHolder) {
         // get notification index from _collection
-        // const notification: data.Notification = holder.itemData;
+        const notification: data.Notification = holder.itemData;
+        const { tableid } = notification.data;
         // const idx = this._collection.getItemIndex(notification);
         // if (idx > -1) {
         //   this.dismissFocus(false);
@@ -166,6 +167,11 @@ namespace we {
         //   this.listDisplay.addItemAt(notification, 0);
         //   this._currentFocus = notification;
         // }
+
+        dir.evtHandler.createOverlay({
+          class: 'MobileQuickBet',
+          args: [tableid],
+        });
       }
 
       public dismissFocus(isRemoved: boolean) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.DoubleCalendarPicker" width="1207" height="718" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
+<e:Skin class="skin_desktop.DoubleCalendarPicker" width="1207" height="795" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
 
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="2" top="0" bottom="0" right="-2"/>

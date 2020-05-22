@@ -15,6 +15,7 @@ namespace we {
       protected _settingTransition: eui.Group;
       protected _settingTween: ui.TweenConfig;
       protected _hotcoldPanel: MobileHotColdPanel;
+      protected _betCombination: MobileBetCombination;
 
       protected _betArea: eui.Scroller;
       protected _betAreaTween: ui.TweenConfig;
@@ -30,7 +31,15 @@ namespace we {
       protected _raceTrackTableLayer: RaceTrackTableLayer;
       protected _raceTrackControl: RaceTrackControl;
 
+      protected _baGameIDText: ui.RunTimeLabel;
+      protected _baGameID: ui.RunTimeLabel;
+
+      protected _totalBetText: ui.RunTimeLabel;
+      protected _totalBet: ui.RunTimeLabel;
+
       protected _mode: string = 'normal';
+
+      protected _mask: egret.Shape;
 
       constructor(data: any) {
         super(data);
@@ -39,10 +48,8 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
 
-        this.initRoadMap();
-        this._roadmapControl.setTableInfo(this._tableInfo);
-        this._chipLayer.type = we.core.BettingTableType.NORMAL;
-        this._tableLayer.type = we.core.BettingTableType.NORMAL;
+        this._baGameIDText.renderText = () => `${i18n.t('mobile_table_info_gameID')}`;
+        this._totalBetText.renderText = () => `${i18n.t('baccarat.totalbet')}`;
 
         this.initBottomBetLimitSelector();
         this.changeHandMode();
@@ -51,11 +58,35 @@ namespace we {
         this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
         this._raceTrackChipLayer.chipLayer = this._chipLayer;
         this.refreshBetMode();
+
+        this._betCombination.chipLayer = this._chipLayer;
+      }
+
+      protected initChildren() {
+        super.initChildren();
+        this.initRoadMap();
+        this._roadmapControl.setTableInfo(this._tableInfo);
+        this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._tableLayer.type = we.core.BettingTableType.NORMAL;
+
+        this._mask = new egret.Shape();
+        const gr = this._mask.graphics;
+        const matrix = new egret.Matrix();
+        matrix.createGradientBox(this._betArea.width, 1404, Math.PI / 2, 0, 0);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
+        gr.drawRect(0, 0, this._betArea.width, 1404); //
+        gr.endFill();
+        this.addChild(this._mask);
+        this._mask.x = this._betArea.x;
+        this._mask.y = this._betArea.y;
+        this._mask.visible = false;
       }
 
       protected addEventListeners() {
         super.addEventListeners();
 
+        utils.addButtonListener(this._settingPanel.btnCombination, this.onToggleBtnCombination, this);
+        this._betCombination.addEventListener('close', this.hideBetCombination, this);
         this._bottomGamePanel.addEventListener('TOGGLE', this.onBottomToggle, this);
         this._settingPanel.addEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
@@ -64,6 +95,8 @@ namespace we {
       protected removeEventListeners() {
         super.removeEventListeners();
 
+        utils.removeButtonListener(this._settingPanel.btnCombination, this.onToggleBtnCombination, this);
+        this._betCombination.removeEventListener('close', this.hideBetCombination, this);
         this._bottomGamePanel.removeEventListener('TOGGLE', this.onBottomToggle, this);
         this._settingPanel.removeEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
@@ -144,9 +177,25 @@ namespace we {
               },
               250
             );
+            if (env.orientation === 'portrait') {
+              this._betArea.mask = this._mask;
+              this._mask.visible = true;
+            }
             break;
           case 'small':
           case 'normal':
+            this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
+            egret.Tween.get(this._betArea.viewport).to(
+              {
+                scrollV: 0,
+              },
+              250
+            );
+            if (env.orientation === 'portrait') {
+              this._betArea.mask = null;
+              this._mask.visible = false;
+            }
+            break;
           default:
             this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
             egret.Tween.get(this._betArea.viewport).to(
@@ -251,6 +300,20 @@ namespace we {
         egret.Tween.get(this._settingTransition).to(this._settingTween.getTweenPackage(), 250);
       }
 
+      protected onToggleBtnCombination() {
+        if (this._betCombination.isActivated) {
+          this.hideBetCombination();
+        } else if (!this._betAreaLock) {
+          this._betCombination.show();
+          this._settingPanel.combonationActived = true;
+        }
+      }
+
+      protected hideBetCombination() {
+        this._betCombination.hide();
+        this._settingPanel.combonationActived = false;
+      }
+
       protected set raceState(s) {
         this._raceTrackControl.visible = s !== 'small' && this._mode === 'race';
         this._raceTrackControl.currentState = s;
@@ -268,6 +331,10 @@ namespace we {
 
       public checkResultMessage() {
         let totalWin: number = NaN;
+
+        this._betArea.mask = null;
+        this._mask.visible = false;
+
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
         }
@@ -334,6 +401,7 @@ namespace we {
         this._betAreaLock = true;
         this._bottomGamePanel.manualClose();
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
+        this.hideBetCombination();
         this.roState = 'small';
       }
 
@@ -342,6 +410,12 @@ namespace we {
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.roState = 'normal';
+      }
+
+      protected updateTableInfoRelatedComponents() {
+        super.updateTableInfoRelatedComponents();
+        this._baGameID.renderText = () => `${this._tableInfo.tableid}`;
+        this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
       }
     }
   }
