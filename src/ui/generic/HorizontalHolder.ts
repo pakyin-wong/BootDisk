@@ -16,6 +16,16 @@ namespace we {
       public isLoop: boolean = true;
       public isAuto: boolean = true;
 
+      public bulletBottom: number = null;
+      public bulletTop: number = null;
+      public bulletLeft: number = null;
+      public bulletRight: number = null;
+      public bulletVerticalCenter: number = null;
+      public bulletHorizontalCenter: number = null;
+      public bulletWidth: number = 20;
+      public bulletHeight: number = 20;
+      public bulletGap: number = 2;
+
       private _currentTime;
       private _startTime;
 
@@ -79,8 +89,7 @@ namespace we {
         this.initComponents();
         this.addListeners();
 
-        if(this.isAuto)
-          this.doAuto();
+        if (this.isAuto) this.doAuto();
       }
 
       public addListeners() {
@@ -111,16 +120,26 @@ namespace we {
         this._bulletGroup = new eui.Group();
 
         this.addChild(this._bulletGroup);
-        this._bulletGroup.horizontalCenter = 0;
-        this._bulletGroup.bottom = 0;
-        this._bulletGroup.width = this.width;
-        this._bulletGroup.height = 20;
+        if (this.bulletHorizontalCenter != null) this._bulletGroup.horizontalCenter = this.bulletHorizontalCenter;
+
+        if (this.bulletLeft != null) this._bulletGroup.left = this.bulletLeft;
+
+        if (this.bulletRight != null) this._bulletGroup.right = this.bulletRight;
+
+        if (this.bulletTop != null) this._bulletGroup.top = this.bulletTop;
+
+        if (this.bulletBottom != null) this._bulletGroup.bottom = this.bulletBottom;
+
+        if (this.bulletVerticalCenter != null) this._bulletGroup.verticalCenter = this.bulletVerticalCenter;
+
+        this._bulletGroup.height = this.bulletHeight;
 
         let bullet: eui.Image;
 
         for (let i = 0; i < this.pageCount; i++) {
           bullet = new eui.Image();
-          bullet.width = bullet.height = 20;
+          bullet.width = this.bulletWidth;
+          bullet.height = this.bulletHeight;
           bullet.source = this._bulletOff;
           bullet.horizontalCenter = 0;
           this._bulletGroup.addChild(bullet);
@@ -129,7 +148,7 @@ namespace we {
         const layout = new eui.HorizontalLayout();
         layout.verticalAlign = 'middle';
         layout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        layout.gap = 2;
+        layout.gap = this.bulletGap;
         this._bulletGroup.layout = layout;
 
         this.updateBullets();
@@ -251,14 +270,13 @@ namespace we {
 
       protected onMoveFinished(e: number) {
         this.clearAuto();
-        this.isAnimating = false;
         this.currentPageIdx += e;
         this.checkCurrentIndex();
         this.sortSlides();
         this.updateBullets();
+        this.isAnimating = false;
 
-        if (this.isAuto)
-            this.doAuto();
+        if (this.isAuto) this.doAuto();
       }
 
       public doPrevious() {
@@ -304,6 +322,7 @@ namespace we {
 
       protected onTouchBegin(e: egret.TouchEvent) {
         if (this.isAnimating) return;
+        e.stopPropagation();
 
         const current = this._slides[this.currentPageIdx];
         const previous = this._slides[this._previousIdx];
@@ -320,8 +339,9 @@ namespace we {
 
         const canvas = document.getElementsByTagName('canvas')[0];
 
+        this._previousPosition = this._startPosition;
+
         if (env.isMobile) {
-          this._previousPosition = this._startPosition;
           (<any>canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
           (<any>canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
           console.log('mobile :' + this._startPosition);
@@ -353,7 +373,7 @@ namespace we {
         } else {
           touchPos = Math.round(event.offsetX / egret.sys.DisplayList.$canvasScaleX);
         }
-        // console.log('tp: ' + touchPos);
+        console.log('tp: ' + touchPos);
         // const touchPos = e.$stageX;
         if (!this._previousPosition) {
           // this._previousPosition = e.$stageX;
@@ -379,17 +399,73 @@ namespace we {
 
         this._previousPosition = touchPos;
 
-        if (!this.isLoop) {
-          if (offset < 0 && this.isPrevBlock) return;
-          if (offset > 0 && this.isNextBlock) return;
-        }
-
-        current.x = current.x - offset; // centerpoint
-
         if (this._nextIdx === this._previousIdx) {
-          if (offset > 0) next.x = current.x + this.slideWidth;
-          if (offset < 0) previous.x = current.x - this.slideWidth;
+          current.x = current.x - offset; // centerpoint
+
+          const target = next;
+
+          let dir = 'next';
+          if (offset > 0) {
+            dir = 'next';
+          }
+
+          if (offset < 0) {
+            dir = 'prev';
+          }
+
+          if (dir === 'next') {
+            if (current.x > 0) target.x = current.x - this.slideWidth;
+            else target.x = current.x + this.slideWidth;
+
+            if (current.x <= -this.slideWidth) {
+              target.x = 0;
+              current.x = -this.slideWidth;
+            }
+          }
+
+          if (dir === 'prev') {
+            if (current.x < 0) target.x = current.x + this.slideWidth;
+            else target.x = current.x - this.slideWidth;
+
+            if (current.x >= this.slideWidth) {
+              target.x = 0;
+              current.x = this.slideWidth;
+            }
+          }
+
+          if (!this.isLoop) {
+            if (offset < 0 && this.isPrevBlock && current.x > 0) {
+              current.x = 0;
+              target.x = this.slideWidth;
+            }
+            if (offset > 0 && this.isNextBlock && current.x < 0) {
+              current.x = 0;
+              target.x = -this.slideWidth;
+            }
+          }
+          // if (offset > 0) {
+          //   target = next;
+          //   // if(next.x >= current.x + this.slideWidth)
+          //     // next.x = current.x + this.slideWidth
+
+          //   // next.x = current.x + this.slideWidth;
+          //   // if (next.x <= 0) {
+          //   //   next.x = 0;
+          //   //   current.x = -this.slideWidth;
+          //   // }
+          // }
+
+          // if (offset < 0) {
+          //   target = previous;
+          //   // previous.x = current.x - this.slideWidth;
+          //   // if (previous.x >= 0) {
+          //   //   previous.x = 0;
+          //   //   current.x = this.slideWidth;
+          //   // }
+          // }
         } else {
+          current.x = current.x - offset;
+
           next.x = current.x + this.slideWidth;
           if (next.x <= 0) {
             next.x = 0;
@@ -399,6 +475,14 @@ namespace we {
           if (previous.x >= 0) {
             previous.x = 0;
             current.x = this.slideWidth;
+          }
+
+          if (!this.isLoop) {
+            if ((offset < 0 && this.isPrevBlock && current.x > 0) || (offset > 0 && this.isNextBlock && current.x < 0)) {
+              current.x = 0;
+              next.x = this.slideWidth;
+              previous.x = -this.slideWidth;
+            }
           }
         }
       }
@@ -438,10 +522,12 @@ namespace we {
         if (!this.isLoop) {
           if (positionOffset < 0 && this.isPrevBlock) {
             this.clearTouch();
+            this.resetPosition();
             return;
           }
           if (positionOffset > 0 && this.isNextBlock) {
             this.clearTouch();
+            this.resetPosition();
             return;
           }
         }
