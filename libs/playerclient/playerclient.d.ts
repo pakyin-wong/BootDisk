@@ -15,7 +15,8 @@ declare class PlayerClient {
     private _endpoint;
     private _pingTimer;
     private _pingTimeout;
-    constructor({ service, playerID, secret, endpoint, hostname, port, protocol, path, device, connectTimeout, pingTimeout, reconnectPeriod, rabbitmqhostname, rabbitmqport, rabbitmqprotocol, logEnabled, }: {
+        rabbitmqvirtualhost?: string;
+        constructor({ service, playerID, secret, endpoint, hostname, port, protocol, path, device, connectTimeout, pingTimeout, reconnectPeriod, rabbitmqhostname, rabbitmqport, rabbitmqprotocol, rabbitmqvirtualhost, logEnabled, }: {
         service?: string;
         playerID?: string;
         secret?: string;
@@ -28,9 +29,10 @@ declare class PlayerClient {
         connectTimeout?: number;
         pingTimeout?: number;
         reconnectPeriod?: number;
-        rabbitmqhostname?: any;
-        rabbitmqport?: any;
-        rabbitmqprotocol?: any;
+        rabbitmqhostname?: string;
+        rabbitmqport?: string;
+        rabbitmqprotocol?: string;
+        rabbitmqvirtualhost?: string;
         logEnabled?: boolean;
     });
     init(lang: string, callback: Function): void;
@@ -61,6 +63,7 @@ declare class PlayerClient {
     createBetTemplate(title: string, betOptions: BetValueCommand[], callback?: Function): void;
     getBetTemplate(callback?: Function): void;
     removeBetTemplate(id: string, callback?: Function): void;
+    updateBetTemplate(title: string, betOptions: BetValueCommand[], callback?: Function): void;
     sendVerifyInfo(tableID: string, pattern: string[], callback?: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;

@@ -28,6 +28,12 @@ namespace we {
         if (dir.config.rabbitmqprotocol) {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
+        if (dir.config.rabbitmqvirtualhost) {
+          options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
+        }
+        if (dir.config.path){
+          options.path = dir.config.path;
+        }
 
         if (env.isMobile) {
           options.layout = 'mobile_web';
