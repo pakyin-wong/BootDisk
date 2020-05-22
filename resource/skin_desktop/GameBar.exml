@@ -13,7 +13,7 @@
 		<e:Image width="52" height="52" x="0" y="0" source="d_ba_navbar_icon_hoverelement_png"/>
 		<e:Image width="28" height="28" x="12" y="13" source="d_ba_navbar_icon_setting_png"/>
 	</e:Group>
-	<e:Group x="0" y="0">
+	<e:Group id="soundBtn" x="0" y="0">
 		<e:Image width="52" height="52" x="0" y="0" source="d_ba_navbar_icon_hoverelement_png"/>
 		<e:Image width="26" height="26" x="13" y="14.5" source="d_ba_navbar_icon_sound_png"/>
 	</e:Group>

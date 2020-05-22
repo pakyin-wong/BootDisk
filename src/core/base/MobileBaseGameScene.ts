@@ -18,7 +18,7 @@ namespace we {
 
       protected _veritcalTop: eui.Group;
 
-      private _bavideo: eui.Group;
+      private _videoBtn: eui.Image;
 
       constructor(data: any) {
         super(data);
@@ -178,13 +178,13 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
-        this._bavideo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        this._videoBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
-        this._bavideo.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        this._videoBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
       }
 
       protected onClickVideo() {

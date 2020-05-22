@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.SoundSetting" width="516" height="785" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.SoundSetting" width="516" height="401" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Image source="nav_panel_bg" left="0" top="0" right="0" bottom="0" />
 		<e:Image id="close" width="48" height="48" right="44" top="44" source="d-lobby-button-close-none_png" />
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="61" y="39.3" fontFamily="NotoSansCJKtc" textColor="0xce925e"
-		                 width="120" height="45" />
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="61" y="40" fontFamily="NotoSansCJKtc" textColor="0xce925e"
+		                 width="360" height="45"  verticalAlign="middle" textAlign="left" bold="true"/>
 
 
 
-		<ui:RunTimeLabel id="_txt_soundfx" text="Label" x="61" y="400" size="24" fontFamily="NotoSansCJKtc" width="96"
-		                 height="36" />
-		<ui:RunTimeLabel id="_txt_bgm" text="Label" x="61" y="569.3" size="24" fontFamily="NotoSansCJKtc" width="96"
-		                 height="36" />
+
+		<ui:RunTimeLabel id="_txt_bgm" text="Label" x="61" y="120" size="24" fontFamily="NotoSansCJKtc" width="360"
+		                 height="36"  verticalAlign="middle" textAlign="left"/>
+		<ui:Slider id="_slider_bgm" width="400" height="36" x="58" y="165" skinName="skin_desktop.Slider"/>
+		<ui:RunTimeLabel id="_txt_soundfx" text="Label" x="61" y="230" size="24" fontFamily="NotoSansCJKtc" width="130" height="36" verticalAlign="middle" textAlign="left"/>
 
 
 
-		<ui:Slider id="_slider_soundfx" width="400" height="36" x="58" y="497" skinName="skin_desktop.Slider" />
-		<ui:Slider id="_slider_bgm" width="400" height="36" x="58" y="623" skinName="skin_desktop.Slider" />
+		<ui:Slider id="_slider_soundfx" width="400" height="36" x="58" y="310" skinName="skin_desktop.Slider" />
 
-		<e:Group id="_btn_currLang" width="251" height="50" x="205" y="400">
+
+		<e:Group id="_btn_currLang" width="251" height="50" x="205" y="230">
 			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
 			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
 			<ui:RunTimeLabel id="_txt_currLang" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
@@ -27,7 +28,7 @@
 		</e:Group>
 
 
-		<ui:Panel id="_ddm_currLang" width="251" x="205" y="488.5" skinName="skin_desktop.NavDropdown" maxHeight="200" />
+		<ui:Panel id="_ddm_currLang" width="251" x="205" y="298" skinName="skin_desktop.NavDropdown" maxHeight="200" />
 
 	</e:Group>
 </e:Skin>

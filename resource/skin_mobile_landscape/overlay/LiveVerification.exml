@@ -44,11 +44,11 @@
 			<ui:RunTimeLabel id="confirmLabel" text="Label" x="0" y="0" width="100%" height="100%" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1"/>
 		</e:Group>
 		<e:Image id="close" width="120" height="120" source="d-lobby-button-close-none_png"  x="2304" y="1"/>
-		<e:Group id="alert_group" x="0" y="0" width="100%" height="100%" visible="false">
+		<e:Group id="alert_group" x="0" y="0" width="100%" height="100%">
 			<e:Rect id="close_bg" ellipseWidth="15" ellipseHeight="15" width="100%" height="100%" x="0" y="0" fillAlpha="0.58" fillColor="0x000000"/>
-			<e:Rect ellipseWidth="15" ellipseHeight="15" width="400" height="275" x="60" y="236" fillAlpha="1" fillColor="0x1e262f"/>
-			<e:Image width="91" height="91" x="215" y="284" source="m_common_listpanel_goodroad_bg_png"/>
-			<ui:RunTimeLabel id="success_text" text="Label" x="60" y="399" width="400" height="68" verticalAlign="middle" size="24" anchorOffsetX="0" bold="true" textAlign="center" textColor="0xffffff"/>
+			<e:Rect ellipseWidth="15" ellipseHeight="15" width="800" height="800" x="812" y="76" fillAlpha="1" fillColor="0x1e262f" anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Image width="400" height="400" x="1012" y="199" source="m_common_listpanel_goodroad_bg_png"/>
+			<ui:RunTimeLabel id="success_text" text="Label" x="812" y="650" width="800" height="150" verticalAlign="middle" size="60" anchorOffsetX="0" bold="true" textAlign="center" textColor="0xffffff"/>
 		</e:Group>
 	</e:Group>
 </e:Skin>

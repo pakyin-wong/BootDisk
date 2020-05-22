@@ -108,6 +108,8 @@ namespace we {
           return;
         }
         this.alert_group.visible = true;
+        const id = new we.data.TableInfo();
+        dir.socket.sendVerifyInfo(id.tableid, this.pattern);
       }
 
       protected addListeners() {

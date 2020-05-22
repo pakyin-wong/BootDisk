@@ -31,7 +31,7 @@ namespace we {
         if (dir.config.rabbitmqvirtualhost) {
           options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
         }
-        if (dir.config.path){
+        if (dir.config.path) {
           options.path = dir.config.path;
         }
 
@@ -574,7 +574,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 
@@ -736,6 +736,20 @@ namespace we {
               // TODO:  handle error on cancel
             } else {
               dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
+      }
+
+      public sendVerifyInfo(id: string, pattern: string[]) {
+        this.client.sendVerifyInfo(
+          id,
+          pattern,
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO:  handle error on cancel
+            } else {
+              // dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
             }
           })
         );

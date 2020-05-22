@@ -1078,6 +1078,9 @@ namespace we {
         this.betCombinations.push(betCombination);
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
+
+      public sendVerifyInfo(id: string, pattern: string[]) {}
+
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
