@@ -3,6 +3,8 @@ namespace we {
   export namespace ui {
     export class NotificationQuickBetContent extends ui.ControlItem {
       protected _bigRoad: we.ba.BALobbyBigRoad;
+      protected _beadRoad;
+      protected _dibeadRoad: we.di.DiLobbyBeadRoad;
       protected _denomLayer: eui.Component;
       protected _alreadyBetSign: eui.Group;
       protected _goodRoadLabel: ui.GoodRoadLabel;
@@ -19,6 +21,40 @@ namespace we {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
+        if (this._beadRoad) {
+          if (skinName === 'DiQuickBetContainerSkin') {
+            // this._beadRoad.x = 0;
+            // this._beadRoad.y = 0;
+            // this._beadRoad.scaleX = this._beadRoad.scaleY =1;
+            // this._beadRoad.setLayout(3);
+            this._beadRoad.roadGridSize = 30;
+            this._beadRoad.roadCol = 8;
+            this._beadRoad.roadRow = 1;
+            this._beadRoad.roadIndentX = 6;
+            this._beadRoad.roadIndentY = 5;
+            this._beadRoad.roadOffsetX = 12;
+            this._beadRoad.roadOffsetY = 5;
+            this._beadRoad.roadIconItemYOffset = 4;
+            this._beadRoad.roadIconItemColors = [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
+            // this._beadRoad.roadImageWidth = 18;
+            // this._beadRoad.roadImageHeight = 18;
+            // this._beadRoad.roadScale = 1;
+            // this._beadRoad.roadGridColor = 0xffffff;
+            // this._beadRoad.roadGridAlpha = 1;
+            // this._beadRoad.roadGridBorderColor = 0xdfdfdf;
+          } else {
+            this._beadRoad.roadRow = 3;
+            this._beadRoad.roadCol = 8;
+            this._beadRoad.roadCellWidth = 42;
+            this._beadRoad.roadCellHeight = 42;
+            this._beadRoad.roadImageWidth = 27;
+            this._beadRoad.roadImageHeight = 35;
+            this._beadRoad.roadScale = 1;
+            this._beadRoad.roadGridColor = 0xffffff;
+            this._beadRoad.roadGridAlpha = 1;
+            this._beadRoad.roadGridBorderColor = 0xdfdfdf;
+          }
+        }
       }
 
       protected setStateBet(isInit: boolean = false) {
@@ -63,6 +99,9 @@ namespace we {
           if (this._bigRoad) {
             this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
           }
+          if (this._beadRoad) {
+            this._beadRoad.updateSideBarRoadData(tableInfo.roadmap);
+          }
         }
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
@@ -78,10 +117,13 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
+            }
+            if (this._beadRoad) {
+              this._beadRoad.updateSideBarRoadData(tableInfo.roadmap);
             }
           }
         }
