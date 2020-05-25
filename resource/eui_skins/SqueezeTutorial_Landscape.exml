@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.ba.SqueezeTutorial" width="2422" height="1242" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	    <e:Rect id="_dim" fillColor="0x000000" width="2422" height="1242" alpha="0.4" />
+            <e:Group id="_content" width="1900" height="1051" horizontalCenter="0" verticalCenter="0">
+	            <e:Rect id="_bg" fillColor="0x14181e" width="1900" height="1051" alpha="1" />
+                <e:Group id="_top" width="1900" height="169">
+                    <ui:RunTimeLabel id="_title" bold="true" text="咪牌教學" x="49" y="55" size="80" textColor="0xc59466" fontFamily="Microsoft JhengHei"/>
+                    <e:Image id="_close" x="1777" y="55" width="70" height="70" source="m_sq_ba_button_close_none_png"/>
+                </e:Group>
+                <e:Group id="_left" x="0" bottom="0" width="1058" height="882">
+                    <ui:HorizontalHolder bulletHorizontalCenter="0" bulletBottom="136" width="1058" height="882" slideWidth="1058" slideHeight="882" isTouchEnabled="false" isLoop="false" isAuto="false">
+                    
+                    </ui:HorizontalHolder>
+                </e:Group>
+                <e:Group id="_right" x="1058" bottom="0" width="842" height="882">
+                </e:Group>
+
+	            <e:Rect x="1058" y="169" fillColor="0xd8d8d8" width="2" height="776" alpha="0.4" />
+            </e:Group>
+
+</e:Skin>
