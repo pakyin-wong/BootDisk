@@ -1,3 +1,12 @@
 {
-    "target": "development"
+    "target": "development",
+    "mode": "comm",
+    "playerID": "BNC9O6DH5S5JNQTG8PR2",
+    "endpoint": "https://dev-rest-gateway.weapi247.com",
+    "rabbitmqhostname": "burly-seastar.rmq.cloudamqp.com",
+    "rabbitmqvirtualhost": "/",
+    "rabbitmqport": "443",
+    "rabbitmqprotocol": "wss",
+    "path": "/ws/mqtt",
+    "connectTimeout": 1000000
 }
