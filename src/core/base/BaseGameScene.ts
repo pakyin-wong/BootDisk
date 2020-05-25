@@ -63,6 +63,7 @@ namespace we {
         mouse.setButtonMode(this._confirmButton, true);
 
         this._video = dir.videoPool.get();
+        this._video.setBrowser(env.UAInfo.browser.name);
         // this._video.width = this.stage.stageWidth;
         // this._video.height = this.stage.stageHeight;
         this._video.load('http://h5.weinfra247.com:8090/live/720.flv');
@@ -260,7 +261,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -300,7 +301,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
