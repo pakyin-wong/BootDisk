@@ -505,7 +505,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class DiQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class DtQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LwQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoQuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

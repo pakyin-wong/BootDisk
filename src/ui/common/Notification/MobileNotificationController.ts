@@ -23,12 +23,10 @@ namespace we {
 
       constructor() {
         super();
-        this.init();
-        dir.evtHandler.addEventListener(core.Event.NOTIFICATION, this.onNotified, this);
-        dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.mount, this);
+        this.initMobileNotificationController();
       }
 
-      protected init() {
+      protected initMobileNotificationController() {
         const notTypes = utils.EnumHelpers.keys(core.NotificationType);
         this._activeNotificationCount = notTypes.map(value => {
           return {
@@ -42,8 +40,7 @@ namespace we {
 
       protected destroy() {
         super.destroy();
-        dir.evtHandler.removeEventListener(core.Event.NOTIFICATION, this.onNotified, this);
-        dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.mount, this);
+        this.removeEventListeners();
       }
 
       public mount() {
@@ -52,10 +49,6 @@ namespace we {
         this.percentHeight = 100;
 
         this._max_result = 0;
-
-        if (env.orientation === egret.OrientationMode.PORTRAIT) {
-        } else {
-        }
 
         this.notificationList = [];
 
@@ -66,10 +59,16 @@ namespace we {
         this._resultCollection = new eui.ArrayCollection([]);
 
         this._notificationContainer = new eui.Group();
-        this._notificationContainer.width = this.stage.stageWidth;
+
         this.addChild(this._notificationContainer);
-        this._notificationContainer.addChild(this.goodRoadListDisplay);
-        this._notificationContainer.addChild(this.resultListDisplay);
+
+        this._notificationContainer.touchEnabled = true;
+        this._notificationContainer.touchThrough = true;
+
+        // this._notificationContainer.addChild(this.goodRoadListDisplay);
+        this._notificationContainer.addChildAt(this.goodRoadListDisplay, 100);
+        // this._notificationContainer.addChild(this.resultListDisplay);
+        this._notificationContainer.addChildAt(this.resultListDisplay, 100);
 
         this.goodRoadListDisplay.isFade = false;
         this.goodRoadListDisplay.isSwipeable = false;
@@ -78,6 +77,7 @@ namespace we {
         this.goodRoadListDisplay.itemRenderer = NotificationItemHolder;
         this.goodRoadListDisplay.isAnimateItemTransition = true;
         this.goodRoadListDisplay.useVirtualLayout = false;
+        this.goodRoadListDisplay.alpha = 1;
 
         this.resultListDisplay.isFade = false;
         this.resultListDisplay.isSwipeable = false;
@@ -87,33 +87,63 @@ namespace we {
         this.resultListDisplay.isAnimateItemTransition = true;
         this.resultListDisplay.useVirtualLayout = false;
 
+        this.onChangeScene();
+        this.addEventListeners();
+      }
+
+      protected addEventListeners() {
+        dir.evtHandler.addEventListener(core.Event.NOTIFICATION, this.onNotified, this);
+        dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onChangeScene, this);
+      }
+
+      protected removeEventListeners() {
+        dir.evtHandler.removeEventListener(core.Event.NOTIFICATION, this.onNotified, this);
+        dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.onChangeScene, this);
+      }
+
+      protected onChangeScene() {
         if (dir.sceneCtr.currScene.sceneHeaderPlacement === 'Game') {
+          this._notificationContainer.width = this.stage.stageWidth;
+          this._notificationContainer.height = this.stage.stageHeight;
           this._notificationContainer.layout = this.layoutV;
+
           switch (env.orientation) {
             case 'landscape':
               this.layoutV.horizontalAlign = egret.HorizontalAlign.LEFT;
-              this._notificationContainer.bottom = 500;
+              this.layoutV.verticalAlign = egret.VerticalAlign.MIDDLE;
+              this.layoutV.gap = 5;
               this._max_result = 6;
               break;
             case 'portrait':
               this.layoutV.horizontalAlign = egret.HorizontalAlign.CENTER;
-              this._notificationContainer.bottom = 150;
-              this._max_result = 6;
+              this.layoutV.verticalAlign = egret.VerticalAlign.BOTTOM;
+              this.layoutV.paddingBottom = 150;
+              this.layoutV.paddingTop = 50;
+              this.layoutV.gap = this._notificationContainer.height - 300;
+              this._max_result = 1;
               break;
           }
         } else {
           // in lobby
-          this._notificationContainer.bottom = 150;
+          this._notificationContainer.width = this.stage.stageWidth;
+          this._notificationContainer.height = this.stage.stageHeight;
+          this.layoutV.verticalAlign = egret.VerticalAlign.BOTTOM;
+
           switch (env.orientation) {
             case 'landscape':
               this._notificationContainer.layout = this.layoutH;
               this.layoutH.horizontalAlign = egret.HorizontalAlign.CENTER;
+              this.layoutH.verticalAlign = egret.VerticalAlign.BOTTOM;
               this._max_result = 1;
               break;
             case 'portrait':
               this._notificationContainer.layout = this.layoutV;
               this.layoutV.horizontalAlign = egret.HorizontalAlign.CENTER;
-              this._max_result = 6;
+              this.layoutV.verticalAlign = egret.VerticalAlign.BOTTOM;
+              this.layoutV.paddingBottom = 150;
+              this.layoutV.paddingTop = 50;
+              this.layoutV.gap = this._notificationContainer.height - 300;
+              this._max_result = 1;
               break;
           }
         }
@@ -139,6 +169,14 @@ namespace we {
         if (notification) {
           switch (notification.type) {
             case core.NotificationType.GoodRoad:
+              if (this.isCountDownAvailble(notification)) {
+                // if true => next countdown >=5s
+                this.goodRoadListDisplay.addItem(notification);
+                this.showNotification(notification.type);
+              } else {
+                // if false => next countdown < 5s
+                this.showNextNotification();
+              }
               // const group = new eui.Group();
 
               // const holder1 = new ui.NotificationItemHolder();
@@ -147,15 +185,26 @@ namespace we {
               // group.addChild(holder1);
               // this.addChild(group);
 
-              this.goodRoadListDisplay.addItem(notification);
+              // this.goodRoadListDisplay.addItem(notification);
               break;
             case core.NotificationType.Result:
               //   this.notificationDisplayTypeResult.alpha = 1;
               this.resultListDisplay.addItem(notification);
+              this.showNotification(notification.type);
               break;
           }
-          this.showNotification(notification.type);
         }
+      }
+
+      protected isCountDownAvailble(nextnotification: data.Notification) {
+        console.log('MobileNotificationController :: isCountDownAvailble');
+        const currentTime = Date.now();
+        const correspondTableid = nextnotification.data.tableid;
+        const correspondTableInfos = env.tableInfos[correspondTableid];
+        const correspondStarttime = correspondTableInfos.data.starttime;
+        const correspondCountDown = correspondTableInfos.data.countdown;
+        const remainingBetTime = correspondCountDown * 1000 - (currentTime - correspondStarttime);
+        return remainingBetTime >= 5000 ? true : false;
       }
 
       protected isTypeAvailable(type: number) {
@@ -231,7 +280,7 @@ namespace we {
 
       protected onOrientationChange() {
         super.onOrientationChange();
-        this.mount();
+        this.onChangeScene();
       }
     }
   }

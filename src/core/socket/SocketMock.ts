@@ -941,12 +941,15 @@ namespace we {
         const idx = Math.floor(Math.random() * baTables.length);
         const tableInfo = baTables[idx];
         // update ba table good road match data
+
         const goodRoadData: data.GoodRoadData = {
           roadmapid: '1',
           name: '好路',
           custom: true,
           tableid: tableInfo.tableid,
+          alreadyShown: false,
         };
+
         if (!tableInfo.goodRoad) {
           this.goodRoadTableList.push(tableInfo.tableid);
         }
@@ -960,7 +963,6 @@ namespace we {
         //   data,
         // };
         // dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
-
 
         // dispatch match event
         dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
