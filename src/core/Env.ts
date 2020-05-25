@@ -36,6 +36,9 @@ namespace we {
       public leftHandMode: boolean = false;
       public showGoodRoadHint: boolean = false;
 
+      public camMode: number = 0;
+      public qualityMode: number = 0;
+
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
 

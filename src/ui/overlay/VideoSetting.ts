@@ -20,11 +20,16 @@ namespace we {
       protected camIndex: number = 0;
       protected quaIndex: number = 0;
 
-      constructor() {
+      protected targetGameScene: core.BaseGameScene;
+
+      constructor(data) {
         super('VideoSetting');
+        this.targetGameScene = data.target;
       }
 
       protected mount() {
+        this.camIndex = env.camMode;
+        this.quaIndex = env.qualityMode;
         super.mount();
       }
 
@@ -53,16 +58,24 @@ namespace we {
 
       protected onCamChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
-        this.camIndex = radio.value;
+        this.camIndex = parseInt(radio.value, 10);
       }
 
       protected onQuaChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
-        this.quaIndex = radio.value;
+        this.quaIndex = parseInt(radio.value, 10);
       }
 
       protected onConfirmChange() {
         // call the change function after press confirm
+        env.camMode = this.camIndex;
+        env.qualityMode = this.quaIndex;
+        if (this.camIndex === 3) {
+          this.targetGameScene.stopVideo(this.targetGameScene);
+        } else {
+          this.targetGameScene.playVideo(this.targetGameScene);
+        }
+        this.dispatchEvent(new egret.Event('close'));
       }
 
       protected addListeners() {
@@ -74,7 +87,7 @@ namespace we {
         this.bluRayBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
         this.highQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
         this.standQuaBtn.addEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.confirmBtn.addEventListener(eui.UIEvent.CHANGE, this.onConfirmChange, this);
+        this.confirmBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmChange, this);
       }
 
       protected removeListeners() {
@@ -86,7 +99,7 @@ namespace we {
         this.bluRayBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
         this.highQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
         this.standQuaBtn.removeEventListener(eui.UIEvent.CHANGE, this.onQuaChange, this);
-        this.confirmBtn.removeEventListener(eui.UIEvent.CHANGE, this.onConfirmChange, this);
+        this.confirmBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmChange, this);
       }
 
       protected initOrientationDependentComponent() {
