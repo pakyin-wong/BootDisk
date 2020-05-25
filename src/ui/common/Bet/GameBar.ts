@@ -3,6 +3,7 @@ namespace we {
     export class GameBar extends eui.Component implements eui.UIComponent {
       private videoButton: egret.DisplayObject;
       private soundBtn: egret.DisplayObject;
+      private gameButton: egret.DisplayObject;
 
       private played: boolean;
       private playFunc: () => void;
@@ -23,6 +24,7 @@ namespace we {
         super.childrenCreated();
         this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
         if (this.soundBtn) this.soundBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
+        if (this.gameButton) this.gameButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
         // this.videoButton.addEventListener(
         //   egret.TouchEvent.TOUCH_TAP,
         //   () => {
@@ -48,6 +50,7 @@ namespace we {
       protected removeEventListeners() {
         this.videoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
         if (this.soundBtn) this.soundBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
+        if (this.gameButton) this.gameButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
       }
 
       protected destroy() {
@@ -66,6 +69,13 @@ namespace we {
           class: 'SoundSetting',
         });
         logger.l(`onClickSound`);
+      }
+
+      protected onClickGame() {
+        dir.evtHandler.createOverlay({
+          class: 'GameSetting',
+        });
+        logger.l(`onClickGame`);
       }
     }
   }

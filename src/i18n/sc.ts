@@ -85,6 +85,7 @@ namespace we {
       overlaypanel_bethistory_searchtype_all: '全部游戏',
 
       overlaypanel_gameSet_showGoodRoadHint: '显示好路提示',
+      overlaypanel_gameSet_autoBet: '自动确认投注',
       overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
 
       datePicker_clean: '清除',

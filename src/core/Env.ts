@@ -26,15 +26,21 @@ namespace we {
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
       public language: string;
+
       public voice: string = 'mandarin';
       public bgm = 1;
+      public liveVolume = 1;
+      public soundEffect = 1;
+
       public betLimits: data.BetLimitSet[];
       public wholeDenomList: number[];
       public goodRoadData: data.GoodRoadMapData;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
       public leftHandMode: boolean = false;
+
       public showGoodRoadHint: boolean = false;
+      public autoConfirmBet: boolean = false;
 
       public camMode: number = 0;
       public qualityMode: number = 0;
