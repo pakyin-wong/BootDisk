@@ -103,6 +103,18 @@ namespace we {
         gameData.starttime = Date.now();
         gameData.countdown = this.betStateInterval;
         gameData.gameroundid = (this.roundID++).toString();
+
+        if (data.gametype === core.GameType.BAC && data.goodRoad && !data.goodRoad.alreadyShown) {
+          data.goodRoad.alreadyShown = true;
+          const d = {
+            tableid: data.tableid,
+          };
+          const notification: data.Notification = {
+            type: core.NotificationType.GoodRoad,
+            data: d,
+          };
+          dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+        }
       }
 
       protected dispatchEvent(data: data.TableInfo) {

@@ -4,20 +4,20 @@
 	<e:Group id="_playerGroup" x="0" y="0" width="573" height="191">
 		<e:Image id="_playerImage" source="d_ba_betarea_player_normal_png" name="d_ba_betarea_player_hover_png" width="573"
 		         height="191" />
-		<ui:RunTimeLabel id="_playerLabel" verticalCenter="-35" horizontalCenter="0" />
+		<ui:RunTimeLabel id="_playerLabel" y="30" horizontalCenter="0" size="64" />
 		<e:Label text="1:1" verticalCenter="25" horizontalCenter="0" size="30" />
 		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" />
-		<e:Label id="_playerTotalAmount" horizontalCenter="-65" verticalCenter="60" size="20" />
+		<e:Label id="_playerTotalAmount" x="222" verticalCenter="60" size="20" />
 		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" />
 		<e:Label id="_playerTotalPerson" horizontalCenter="90" verticalCenter="60" size="20" />
 	</e:Group>
 	<e:Group id="_bankerGroup" includeIn="Normal" x="573" y="0" width="573" height="191">
 		<e:Image id="_bankerImage" source="d_ba_betarea_banker_normal_png" name="d_ba_betarea_banker_hover_png" width="573"
 		         height="191" />
-		<ui:RunTimeLabel id="_bankerLabel" verticalCenter="-35" horizontalCenter="0" />
+		<ui:RunTimeLabel id="_bankerLabel" y="30" horizontalCenter="0" size="64" />
 		<e:Label text="0.95:1" verticalCenter="25" horizontalCenter="0" size="30" />
 		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" />
-		<e:Label id="_bankerTotalAmount" horizontalCenter="-65" verticalCenter="60" size="20" />
+		<e:Label id="_bankerTotalAmount" x="222" verticalCenter="60" size="20" />
 		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" />
 		<e:Label id="_bankerTotalPerson" horizontalCenter="90" verticalCenter="60" size="20" />
 	</e:Group>
@@ -42,8 +42,12 @@
 	<e:Group id="_superSixBankerGroup" includeIn="SuperSix" x="573" y="0" width="573" height="191">
 		<e:Image id="_superSixBankerImage" source="d_ba_betarea_banker_normal_png" name="d_ba_betarea_banker_hover_png"
 		         width="573" height="191" />
-		<ui:RunTimeLabel id="_superSixBankerLabel" verticalCenter="-15" horizontalCenter="0" />
-		<e:Label text="1:1" verticalCenter="45" horizontalCenter="0" size="30" />
+		<ui:RunTimeLabel id="_superSixBankerLabel" y="30" horizontalCenter="0" size="64" />
+		<e:Label text="1:1" verticalCenter="25" horizontalCenter="0" size="30" />
+		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" />
+		<e:Label id="_superSixBankerTotalAmount" x="222" verticalCenter="60" size="20" />
+		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" />
+		<e:Label id="_superSixBankerTotalPerson" horizontalCenter="90" verticalCenter="60" size="20" />
 	</e:Group>
 	<e:Group id="_superSixGroup" includeIn="SuperSix" x="573" y="191" width="191" height="113">
 		<e:Image id="_superSixImage" source="d_ba_betarea_supersix_tie_normal_png" name="d_ba_betarea_supersix_tie_hover_png"

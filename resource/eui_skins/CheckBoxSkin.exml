@@ -11,6 +11,6 @@
                  source.disabledAndSelected="checkbox_select_disabled_png"/>
         <e:Label id="labelDisplay" size="20" textColor="0x707070"
                  textAlign="center" verticalAlign="middle"
-                 fontFamily="Tahoma"/>
+                />
     </e:Group>
 </e:Skin>

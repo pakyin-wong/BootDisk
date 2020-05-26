@@ -28,6 +28,12 @@ namespace we {
         if (dir.config.rabbitmqprotocol) {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
+        if (dir.config.rabbitmqvirtualhost) {
+          options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
+        }
+        if (dir.config.path){
+          options.path = dir.config.path;
+        }
 
         if (env.isMobile) {
           options.layout = 'mobile_web';
@@ -38,6 +44,14 @@ namespace we {
         this.client = new PlayerClient(options);
 
         logger.l('MQTTSocketComm is created', this.client);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        // this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+      }
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        // this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
       }
 
       protected subscribeEvents() {
@@ -345,6 +359,19 @@ namespace we {
             tableInfo.totalWin = NaN;
             tableInfo.totalBet = 0;
             dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
+
+            // check good road notification
+            if (tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+              tableInfo.goodRoad.alreadyShown = true;
+              const data = {
+                tableid: tableInfo.tableid,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.GoodRoad,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
           }
           if (data.state === core.GameState.FINISH) {
             this.checkResultNotificationReady(tableInfo);
@@ -752,6 +779,7 @@ namespace we {
         // }
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = data.match.map(goodRoadData => {
+          goodRoadData.alreadyShown = false;
           return {
             tableid: goodRoadData.tableid,
             goodRoad: goodRoadData,
@@ -765,14 +793,18 @@ namespace we {
         env.goodRoadTableList = goodRoadTableList;
 
         for (const tableid of added) {
-          const data = {
-            tableid,
-          };
-          const notification: data.Notification = {
-            type: core.NotificationType.GoodRoad,
-            data,
-          };
-          dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+          const tableInfo = env.tableInfos[tableid];
+          if (tableInfo.data.state === core.GameState.BET) {
+            tableInfo.goodRoad.alreadyShown = true;
+            const data = {
+              tableid,
+            };
+            const notification: data.Notification = {
+              type: core.NotificationType.GoodRoad,
+              data,
+            };
+            dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+          }
         }
         for (const tableid of removed) {
           const tableInfo = env.tableInfos[tableid];

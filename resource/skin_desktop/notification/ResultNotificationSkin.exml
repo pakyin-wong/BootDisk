@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ResultNotificationSkin" width="385" height="100" states="BA,DT,LW,RO,DI"  currentState="BA" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.ResultNotificationSkin" width="385" height="100" states="DT,LW,RO,DI"  xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" width.DI="389">
         <e:Image id="_touchArea" source="nav_panel_bg" scale9Grid="25,20,23,10" anchorOffsetX="0" anchorOffsetY="0"
                  left="0" top="0" bottom="0" right="0" />
         <ui:RunTimeLabel id="_lblName" text="Label" x="95" y="22" size="22" touchEnabled="false"  x.DI="159"/>
         <e:Label id="_lblWinAMount" text="Label" x="95" y="50" size="24" touchEnabled="false"  x.DI="159"/>
-        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="BA,DT" >
+        <e:Group x="29" y="20" touchEnabled="false" touchChildren="false" touchThrough="true" includeIn="DT" >
                 <e:Rect id="_resultRect" width="54" height="54" x="0" y="0" scaleX="1" scaleY="1" ellipseWidth="54"
                         ellipseHeight="54" fillColor="0xff0000" />
                 <ui:RunTimeLabel id="_lblResult" text="B" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0"

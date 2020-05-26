@@ -6,7 +6,7 @@
 		<e:Group name="Group" width="240" height="334">
 			<e:Group width="240" height="160" y="0">
 				<e:Rect width="240" height="160" x="0" y="0" fillColor="0x212425" />
-				<ui:RunTimeLabel id="_normalTitle" text="庄閒和比例(100局)" x="14" y="10" height="27" size="20" textAlign="left"
+				<ui:RunTimeLabel factor="2" id="_normalTitle" text="庄閒和比例(100局)" x="14" y="10" height="27" size="20" textAlign="left"
 				                 verticalAlign="middle" bold="true" />
 				<e:Group x="19" y="66">
 					<e:Image width="21" height="21" source="d_ba_roadmap_bar_bankerstate_png" />

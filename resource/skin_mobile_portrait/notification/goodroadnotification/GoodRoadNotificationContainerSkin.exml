@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.GoodRoadNotificationContainerSkin" width="966" height="104"
+<e:Skin class="skin_mobile_portrait.GoodRoadNotificationContainerSkin" width="746" height="104"
         xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*"
         xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="100%" height="100%" x="0" y="0"/>
     <e:Image id="_touchArea" left="0" top="0" bottom="0" right="0" source="m_common_notification_bg_png"
-             scale9Grid="25,25,1,1" locked="true" />
+             scale9Grid="25,25,1,1" />
     <ui:CountdownTimer id="_timer" width="77" height="77" skinName="skin_mobile.CountdownTimerRoundSkin"
-                       verticalCenter="0" x="22" />
-    <ui:RunTimeLabel id="_lblGoodRoad" text="長路轉長路" size="40" fontFamily="Barlow" verticalCenter="0" x="116" />
-    <e:Rect width="3" height="50" fillColor="0xd8d8d8" alpha="0.2" verticalCenter="0" x="338" />
-    <ui:RunTimeLabel id="_label" text="百家樂 04" size="40" fontFamily="Barlow" verticalCenter="0" x="362" />
-    <e:Group id="_touchArea2"  height="100%" width="633" touchEnabled="false"/>
+                       verticalCenter="0" x="12" />
+    <ui:RunTimeLabel id="_lblGoodRoad" text="長路轉長路" size="40" fontFamily="Barlow" verticalCenter="0" x="106" />
+    <e:Rect width="3" height="50" fillColor="0xd8d8d8" alpha="0.2" verticalCenter="0" x="317" />
+    <ui:RunTimeLabel id="_label" text="百家樂 04" size="40" fontFamily="Barlow" verticalCenter="0" x="331" />
+    <e:Group id="_touchArea2"  height="100%" width="504" touchEnabled="false">
+		</e:Group>
     <ui:BaseImageButton id="_btnQuickBet" width="144" height="65" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-                        currentState="lobby_notify_btn_action" useColorFilter="true" verticalCenter="0.5" x="695" />
-    <e:Rect width="3" height="40" fillColor="0xD8D8D8" alpha="0.2" verticalCenter="0" x="861" />
+                        currentState="lobby_notify_btn_action" useColorFilter="true" verticalCenter="0.5" x="518" />
+    <e:Rect width="3" height="40" fillColor="0xD8D8D8" alpha="0.2" verticalCenter="0" x="671" />
     <ui:BaseImageButton id="_btnDismiss" width="30" height="30" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-                        currentState="lobby_notify_btn_hide" useColorFilter="true" verticalCenter="0" x="894" />
+                        currentState="lobby_notify_btn_hide" useColorFilter="true" verticalCenter="0" x="693" />
 </e:Skin>

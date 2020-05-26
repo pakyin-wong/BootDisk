@@ -25,9 +25,12 @@ namespace we {
 
       private _sectionBackIcon: eui.Image;
 
+      private _btn_reload_player_profile: ui.BaseImageButton;
+
       private _iconScroller: we.ui.Scroller;
       private _iconListData: eui.ArrayCollection;
       private _iconList: eui.List;
+
       private _iconGaySize = 10;
 
       public constructor(skin = null) {
@@ -73,7 +76,7 @@ namespace we {
         this._iconList.dataProvider = this._iconListData;
 
         this._iconScroller.useMiniScrollBar = true;
-
+        this.updatePlayerProfileSummary();
         this.addListeners();
       }
 
@@ -83,11 +86,13 @@ namespace we {
       }
 
       private addListeners() {
+        this._btn_reload_player_profile.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
         this._playerIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         this._sectionBackIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
       }
 
       private removeListeners() {
+        this._btn_reload_player_profile.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
         this._playerIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         this._sectionBackIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
       }
@@ -115,10 +120,23 @@ namespace we {
         this.initPlayerProfile();
       }
 
-      // protected onOrientationChangePlayerProfile() {
-      //   this.destroy();
-      //   this.initPlayerProfile();
-      // }
+      protected updatePlayerProfileSummary() {
+        dir.socket.getPlayerProfileSummary((data: any) => {
+          this.updatePlayerProfile(data);
+        });
+      }
+
+      protected updatePlayerProfile(data) {
+        if (data.error) {
+          this._maxWinAmount.text = '-';
+          this._maxWinCount.text = '-';
+        } else {
+          const { maxwin, winningstreak } = data;
+          this._maxWinAmount.text = maxwin;
+          this._maxWinCount.text = winningstreak;
+        }
+      }
+
     }
   }
 }
