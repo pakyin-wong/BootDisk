@@ -147,7 +147,7 @@ namespace we {
         if (notification) {
           switch (notification.type) {
             case core.NotificationType.GoodRoad:
-              if (this.isCountDownAvailble(notification)) {
+              if (this.isCountDownAvailble(notification.data.tableid)) {
                 // if true => next countdown >=5s
                 this.goodRoadListDisplay.addItem(notification);
                 this.showNotification(notification.type);
@@ -174,15 +174,30 @@ namespace we {
         }
       }
 
-      protected isCountDownAvailble(nextnotification: data.Notification) {
-        console.log('MobileNotificationController :: isCountDownAvailble');
+      protected isCountDownAvailble(nextTableID: number) {
         const currentTime = Date.now();
-        const correspondTableid = nextnotification.data.tableid;
+        const correspondTableid = nextTableID;
         const correspondTableInfos = env.tableInfos[correspondTableid];
         const correspondStarttime = correspondTableInfos.data.starttime;
-        const correspondCountDown = correspondTableInfos.data.countdown;
-        const remainingBetTime = correspondCountDown * 1000 - (currentTime - correspondStarttime);
+        const correspondCountDown = correspondTableInfos.data.countdown * 1000;
+        const remainingBetTime = correspondCountDown - (currentTime - correspondStarttime);
         return remainingBetTime >= 5000 ? true : false;
+      }
+
+      protected get nextNotification(): data.Notification {
+        let idx = 0;
+        for (const notification of this.notificationList) {
+          if (this.isTypeAvailable(notification.type)) {
+            if (notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) {
+              this.notificationList.splice(idx, 1);
+              continue;
+            } else {
+              this.notificationList.splice(idx, 1);
+              return notification;
+            }
+          }
+          idx++;
+        }
       }
 
       protected isTypeAvailable(type: number) {
@@ -207,17 +222,6 @@ namespace we {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
         this._activeNotificationCount[typeStr] += 1;
         this._activeNotificationCount.total += 1;
-      }
-
-      protected get nextNotification(): data.Notification {
-        let idx = 0;
-        for (const notification of this.notificationList) {
-          if (this.isTypeAvailable(notification.type)) {
-            this.notificationList.splice(idx, 1);
-            return notification;
-          }
-          idx++;
-        }
       }
 
       public setFocus(holder: NotificationItemHolder) {

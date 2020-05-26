@@ -126,7 +126,7 @@ namespace we {
         }
       }
 
-      public isCountDownAvailble(nextTableID: number) {
+      protected isCountDownAvailble(nextTableID: number) {
         const currentTime = Date.now();
         const correspondTableid = nextTableID;
         const correspondTableInfos = env.tableInfos[correspondTableid];
