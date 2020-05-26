@@ -16,7 +16,7 @@ namespace we {
       private _balanceText: ui.RunTimeLabel;
 
       private _profilePrc: eui.Image;
-      private _refreshButton: ui.BaseImageButton;
+      private _refreshButton: eui.Image;
       // from Monitor.ts
       // private _liveSidePanel: ui.LiveSidePanel;
       // private _sideGameList: ui.MobileSideGameList;

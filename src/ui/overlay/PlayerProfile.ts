@@ -25,7 +25,7 @@ namespace we {
 
       private _sectionBackIcon: eui.Image;
 
-      private _btn_reload_player_profile: ui.BaseImageButton;
+      private _btn_reload_player_profile: ui.BaseAnimationButton;
 
       private _iconScroller: we.ui.Scroller;
       private _iconListData: eui.ArrayCollection;
@@ -136,7 +136,6 @@ namespace we {
           this._maxWinCount.text = winningstreak;
         }
       }
-
     }
   }
 }

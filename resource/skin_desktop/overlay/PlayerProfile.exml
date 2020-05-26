@@ -6,7 +6,9 @@
         <e:Group id="_maskContainer" width="490" height="764" x="13" y="13">
             <e:Group id="_section_main" x="0" y="0" width="490" height="764">
 				<e:Image id="_playerIcon" width="114" height="114" y="63" anchorOffsetX="0" anchorOffsetY="0" source="d_lobby_profile_pic_03_png" horizontalCenter="0"/>
-				<e:Label id="_username" text="Johathan" y="195" textColor="0xc59466" size="30" anchorOffsetY="0" height="36" fontFamily="Barlow" textAlign="center" width="280" horizontalCenter="0" verticalAlign="middle"/>
+                <ui:BaseAnimationButton id="_playerIconSelection" width="132" height="132" x="179" y="54" dbClass="lobby_ui" dbDisplay="d_lobby_avatar_selection" />
+				<e:Label id="_username" text="Johathan" y="195" textColor="0xc59466" size="30" width="280" height="36"
+                    fontFamily="Barlow" textAlign="center" horizontalCenter="0" verticalAlign="middle"/>
                 <e:Label id="_balance" text="RMB 120,889,200" y="245" size="22"  height="36" width="280" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
 				<ui:RunTimeLabel id="_txt_maxWinAmount" text="Label" x="47" y="404" size="24" fontFamily="Barlow" alpha="0.7" width="144" height="36" verticalAlign="middle"/>
 				<ui:RunTimeLabel id="_txt_maxWinCount" text="Label" x="47" y="458" height="36" width="144" fontFamily="Barlow" size="24" alpha="0.7" verticalAlign="middle"/>
@@ -19,17 +21,18 @@
 				<e:Label id="_follower" text="Label" y="582" height="29" right="48" size="24" fontFamily="Barlow" width="99" textAlign="right" verticalAlign="middle"/>
 				<e:Label id="_following" text="Label" y="637" height="29" right="48" size="24" fontFamily="Barlow" width="99" textAlign="right" verticalAlign="middle"/>
 				<e:Label id="_favouriteDealer" text="Label" y="691" height="29" right="48" size="24" fontFamily="Barlow" width="99" textAlign="right" verticalAlign="middle"/>
-							<ui:BaseImageButton width="30" height="30" x="412" y="196" skinName="skin_desktop.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
-							<ui:BaseImageButton id="_btn_reload_player_profile" width="30" height="30" x="412" y="248" skinName="skin_desktop.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
+                <ui:BaseAnimationButton width="30" height="30" x="412" y="196" dbClass="lobby_ui" dbDisplay="d_lobby_setting_playinfo_icon_edit" />
+                <ui:BaseAnimationButton id="_btn_reload_player_profile" width="30" height="30" x="412" y="248" dbClass="lobby_ui" dbDisplay="d_lobby_setting_playinfo_icon_refresh" />
             </e:Group>
             <e:Group id="_section_iconSelect" x="490" width="490" height="764" y="0">
                 <e:Image id="_sectionBackIcon" width="48" height="48" x="19" y="18"
                          source="d_lobby_button_prev_normal_png" />
                 <e:Label text="設定頭像" y="60.8" size="30" anchorOffsetY="0" height="45"  left="0" right="0" textAlign="center" textColor="0xce925e" fontFamily="Barlow" verticalAlign="middle"/>
                 <ui:Scroller id="_iconScroller" height="578" width="420"  x="35" y="135">
-                									<e:List id="_iconList">
-                                    <e:layout><e:TileLayout requestedColumnCount="3" horizontalGap="10" verticalGap="10"/></e:layout>
-                                </e:List></ui:Scroller>
+                    <e:List id="_iconList">
+                        <e:layout><e:TileLayout requestedColumnCount="3" horizontalGap="10" verticalGap="10"/></e:layout>
+                    </e:List>
+                </ui:Scroller>
             </e:Group>
         </e:Group>
     </e:Group>
