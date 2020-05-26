@@ -21,7 +21,7 @@
 			"name": "temp"
 		},
 		{
-			"keys": "d-lobby-loading-progress-bar-active,d-lobby-loading-progress-bar-base,m_lobby_loading_progress_bar_active_png,m_lobby_loading_progress_bar_base_png",
+			"keys": "m_lobby_loading_progress_bar_active_png,m_lobby_loading_progress_bar_base_png,d-lobby-loading-progress-bar-base_png,d-lobby-loading-progress-bar-active_png",
 			"name": "scene_loading"
 		},
 		{
@@ -152,36 +152,6 @@
 			"url": "assets/temp/baccarat_dealer_1.jpg",
 			"type": "image",
 			"name": "temp_baccarat_dealer_1"
-		},
-		{
-			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-active.png",
-			"type": "image",
-			"name": "d-lobby-loading-progress-bar-active"
-		},
-		{
-			"url": "assets/Scene/loading/d-lobby-loading-progress-bar-base.png",
-			"type": "image",
-			"name": "d-lobby-loading-progress-bar-base"
-		},
-		{
-			"url": "assets/Nav/d-lobby-button-close-none.png",
-			"type": "image",
-			"name": "d-lobby-button-close-none_png"
-		},
-		{
-			"url": "assets/Nav/d-lobby-header-dim.png",
-			"type": "image",
-			"name": "d-lobby-header-dim_png"
-		},
-		{
-			"url": "assets/Nav/d-lobby-button-close-none.png",
-			"type": "image",
-			"name": "d-lobby-button-close-none2_png"
-		},
-		{
-			"url": "assets/Nav/d-lobby-header-dim.png",
-			"type": "image",
-			"name": "d-lobby-header-dim2_png"
 		},
 		{
 			"url": "assets/temp/sn_bgm002.mp3",
@@ -4254,6 +4224,16 @@
 			"url": "assets/m/di/history/d_sic_history_chart_line-2.png",
 			"type": "image",
 			"name": "d_sic_history_chart_line-2_png"
+		},
+		{
+			"url": "assets/m/loading/d-lobby-loading-progress-bar-base.png",
+			"type": "image",
+			"name": "d-lobby-loading-progress-bar-base_png"
+		},
+		{
+			"url": "assets/m/loading/d-lobby-loading-progress-bar-active.png",
+			"type": "image",
+			"name": "d-lobby-loading-progress-bar-active_png"
 		}
 	]
 }
