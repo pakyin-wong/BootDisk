@@ -40,7 +40,7 @@ namespace we {
         this.mount();
       }
 
-      public mount() {}
+      public mount() { }
 
       public get isAvailable() {
         return !this._displayItem;
