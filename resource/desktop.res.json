@@ -13,7 +13,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,start_png,start_json,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5,sn_banker_english_mp3,sn_banker_mandarin_mp3,sn_banker_cantonese_mp3,advanced_dealer_sicbo_png,advanced_dealer_1_png,advanced_dealer_2_png",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5,sn_banker_english_mp3,sn_banker_mandarin_mp3,sn_banker_cantonese_mp3,advanced_dealer_sicbo_png,advanced_dealer_1_png,advanced_dealer_2_png",
 			"name": "temp"
 		},
 		{
@@ -181,16 +181,6 @@
 			"url": "assets/temp/sn_player_tc.mp3",
 			"type": "sound",
 			"name": "sn_player_cantonese_mp3"
-		},
-		{
-			"url": "assets/temp/start.png",
-			"type": "image",
-			"name": "start_png"
-		},
-		{
-			"url": "assets/temp/start.json",
-			"type": "json",
-			"name": "start_json"
 		},
 		{
 			"url": "assets/temp/Mask_test.png",
