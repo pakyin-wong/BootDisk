@@ -61,14 +61,11 @@ namespace we {
         this._notificationContainer = new eui.Group();
 
         this.addChild(this._notificationContainer);
+        this._notificationContainer.addChild(this.goodRoadListDisplay);
+        this._notificationContainer.addChild(this.resultListDisplay);
 
         this._notificationContainer.touchEnabled = true;
         this._notificationContainer.touchThrough = true;
-
-        // this._notificationContainer.addChild(this.goodRoadListDisplay);
-        this._notificationContainer.addChildAt(this.goodRoadListDisplay, 100);
-        // this._notificationContainer.addChild(this.resultListDisplay);
-        this._notificationContainer.addChildAt(this.resultListDisplay, 100);
 
         this.goodRoadListDisplay.isFade = false;
         this.goodRoadListDisplay.isSwipeable = false;
@@ -77,7 +74,6 @@ namespace we {
         this.goodRoadListDisplay.itemRenderer = NotificationItemHolder;
         this.goodRoadListDisplay.isAnimateItemTransition = true;
         this.goodRoadListDisplay.useVirtualLayout = false;
-        this.goodRoadListDisplay.alpha = 1;
 
         this.resultListDisplay.isFade = false;
         this.resultListDisplay.isSwipeable = false;
@@ -102,50 +98,32 @@ namespace we {
       }
 
       protected onChangeScene() {
-        if (dir.sceneCtr.currScene.sceneHeaderPlacement === 'Game') {
-          this._notificationContainer.width = this.stage.stageWidth;
-          this._notificationContainer.height = this.stage.stageHeight;
-          this._notificationContainer.layout = this.layoutV;
+        this._notificationContainer.width = this.stage.stageWidth;
+        this._notificationContainer.height = this.stage.stageHeight;
 
-          switch (env.orientation) {
-            case 'landscape':
+        if (env.orientation === 'landscape') {
+          switch (dir.sceneCtr.currScene.sceneHeaderPlacement) {
+            case 'Game':
+              this._notificationContainer.layout = this.layoutV;
               this.layoutV.horizontalAlign = egret.HorizontalAlign.LEFT;
               this.layoutV.verticalAlign = egret.VerticalAlign.MIDDLE;
               this.layoutV.gap = 5;
               this._max_result = 6;
               break;
-            case 'portrait':
-              this.layoutV.horizontalAlign = egret.HorizontalAlign.CENTER;
-              this.layoutV.verticalAlign = egret.VerticalAlign.BOTTOM;
-              this.layoutV.paddingBottom = 150;
-              this.layoutV.paddingTop = 50;
-              this.layoutV.gap = this._notificationContainer.height - 300;
-              this._max_result = 1;
-              break;
-          }
-        } else {
-          // in lobby
-          this._notificationContainer.width = this.stage.stageWidth;
-          this._notificationContainer.height = this.stage.stageHeight;
-          this.layoutV.verticalAlign = egret.VerticalAlign.BOTTOM;
-
-          switch (env.orientation) {
-            case 'landscape':
+            case 'Lobby':
               this._notificationContainer.layout = this.layoutH;
               this.layoutH.horizontalAlign = egret.HorizontalAlign.CENTER;
               this.layoutH.verticalAlign = egret.VerticalAlign.BOTTOM;
               this._max_result = 1;
               break;
-            case 'portrait':
-              this._notificationContainer.layout = this.layoutV;
-              this.layoutV.horizontalAlign = egret.HorizontalAlign.CENTER;
-              this.layoutV.verticalAlign = egret.VerticalAlign.BOTTOM;
-              this.layoutV.paddingBottom = 150;
-              this.layoutV.paddingTop = 50;
-              this.layoutV.gap = this._notificationContainer.height - 300;
-              this._max_result = 1;
-              break;
           }
+        } else {//portrait
+          this._notificationContainer.layout = null;
+          this.resultListDisplay.y = this._notificationContainer.height - 200;
+          this.resultListDisplay.x = 363; //horizontal center
+          this.goodRoadListDisplay.x = 248; //horizontal center
+          this.goodRoadListDisplay.y = 50;
+          this._max_result = 1;
         }
       }
 

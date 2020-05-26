@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ResultNotificationSkin" width="515" height="104" states="BA,DT,LW,RO,DI"
         xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
-    <e:Rect id="_roundPanel" width="515" height="104" fillAlpha=".8" ellipseHeight="104" ellipseWidth="104"
+    <e:Rect id="_roundPanel" width="515" height="104" fillAlpha="0.9" ellipseHeight="104" ellipseWidth="104"
             fillColor="0x23282e" />
 
     <e:Label id="_lblWinAMount" text="Label" x="321" size="40" touchEnabled="false" verticalCenter="0" />

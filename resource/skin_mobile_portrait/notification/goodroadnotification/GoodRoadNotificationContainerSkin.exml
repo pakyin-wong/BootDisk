@@ -2,9 +2,8 @@
 <e:Skin class="skin_mobile_portrait.GoodRoadNotificationContainerSkin" width="746" height="104"
         xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:live="we.live.*"
         xmlns:w="http://ns.egret.com/wing">
-	<e:Rect width="100%" height="100%" x="0" y="0"/>
     <e:Image id="_touchArea" left="0" top="0" bottom="0" right="0" source="m_common_notification_bg_png"
-             scale9Grid="25,25,1,1" />
+             scale9Grid="25,25,1,1" alpha="0.9" />
     <ui:CountdownTimer id="_timer" width="77" height="77" skinName="skin_mobile.CountdownTimerRoundSkin"
                        verticalCenter="0" x="12" />
     <ui:RunTimeLabel id="_lblGoodRoad" text="長路轉長路" size="40" fontFamily="Barlow" verticalCenter="0" x="106" />
