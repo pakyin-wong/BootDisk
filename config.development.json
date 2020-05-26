@@ -8,6 +8,5 @@
     "rabbitmqport": "443",
     "rabbitmqprotocol": "wss",
     "path": "/ws/mqtt",
-    "connectTimeout": 1000000,
-    "resource": "local"
+    "connectTimeout": 1000000
 }

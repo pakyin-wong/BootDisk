@@ -66,6 +66,9 @@ var egret;
             WebFlvVideo.prototype.createNativeDisplayObject = function () {
                 this.$nativeDisplayObject = new egret_native.NativeDisplayObject(1 /* BITMAP */ );
             };
+            WebFlvVideo.prototype.setBrowser = function (name) {
+                this.browserName = name;
+            };
             /**
              * @inheritDoc
              */
@@ -94,6 +97,18 @@ var egret;
                     this.videoCanvas = videoCanvas;
                     this.videoCanvasId = videoCanvasId;
                     document.body.appendChild(videoCanvas);
+
+                    // This workaround is to solve the flickering of playing video in IE/Edge
+                    // Method: Wrapping one more canvas on the video
+                    if(this.browserName && this.browserName === 'Edge'){
+                        const tempCanvas = document.createElement('canvas');
+                        tempCanvas.id = 'tempCanvas' + this.videoCanvas.id 
+                        tempCanvas.width = 640;
+                        tempCanvas.height = 360;
+                        tempCanvas.style.display = 'none';
+                        document.body.appendChild(tempCanvas);
+                        this.tempCanvas = tempCanvas
+                    }
 
                     if (this.player) {
                         this.player.stop();
@@ -199,7 +214,12 @@ var egret;
                     if (!this.isPlayed)
                         return null;
                     if (!this._bitmapData) {
-                        this._bitmapData = new egret.BitmapData(this.videoCanvas);
+                        if(this.browserName && this.browserName === 'Edge'){
+                            this._bitmapData = new egret.BitmapData(this.tempCanvas);
+                        }else{
+                            this._bitmapData = new egret.BitmapData(this.videoCanvas);
+                        }
+                        
                         this._bitmapData.$deleteSource = false;
                     }
                     return this._bitmapData;
@@ -280,6 +300,10 @@ var egret;
                     node.imageHeight = height;
                     node.drawImage(0, 0, posterData.width, posterData.height, 0, 0, width, height);
                 } else if (bitmapData) {
+                    if(this.tempCanvas){
+                        this.tempCanvas.getContext('2d').drawImage(this.videoCanvas,0,0)                        
+                    }
+
                     node.image = bitmapData;
                     node.imageWidth = bitmapData.width;
                     node.imageHeight = bitmapData.height;

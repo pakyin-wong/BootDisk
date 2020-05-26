@@ -46,6 +46,19 @@ declare namespace egret {
          * @platform Web,Native
          * @language zh_CN
          */
+        setBrowser(name: boolean): void;
+        /**
+         * Set the browser type.
+         * @param name The type of the browser, if it is Edge/IE, a workaround is introduced (one more canvas to wrap the video) , (default = null)
+         * @version Egret 2.4
+         * @platform Web,Native
+         * @language en_US
+         */
+        /**
+         * @version Egret 2.4
+         * @platform Web,Native
+         * @language zh_CN
+         */
         load(url: string, cache?: boolean): void;
         /**
          * Play back the video.
