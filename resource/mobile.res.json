@@ -9,11 +9,11 @@
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "m_ba_result_poker_banker_png,m_ba_result_poker_player_png,m_ba_betarea_banker_png,m_ba_betarea_banker_horizontal_png,m_ba_betarea_banker_horizontal_hover_png,m_ba_betarea_bankerpair_png,m_ba_betarea_bankerpair_horizontal_png,m_ba_betarea_bankerpair_horizontal_hover_png,m_ba_betarea_player_png,m_ba_betarea_player_horizontal_png,m_ba_betarea_player_horizontal_hover_png,m_ba_betarea_playerpair_png,m_ba_betarea_playerpair_horizontal_png,m_ba_betarea_playerpair_horizontal_hover_png,m_ba_betarea_supersix_tie_horizontal_png,m_ba_betarea_supersix_tie_horizontal_hover_png,m_ba_betarea_tie_png,m_ba_betarea_tie_horizontal_png,m_ba_betarea_tie_horizontal_hover_png,m_common_betarea_icon_totalbet_png,m_common_betarea_icon_totalperson_png,m_ba_goodroad_info_line_banker_png,m_ba_goodroad_info_line_player_png,m_ba_goodroad_info_ring_banker_png,m_ba_goodroad_info_ring_player_png,m_ba_goodroad_info_round_banker_png,m_ba_goodroad_info_round_player_png,m_ba_goodroad_info_state_banker_png,m_ba_goodroad_info_state_player_png,m_ba_goodroad_infobg_banker_png,m_ba_goodroad_infobg_player_png",
+			"keys": "m_ba_result_poker_banker_png,m_ba_result_poker_player_png,m_ba_betarea_banker_png,m_ba_betarea_banker_horizontal_png,m_ba_betarea_banker_horizontal_hover_png,m_ba_betarea_bankerpair_png,m_ba_betarea_bankerpair_horizontal_png,m_ba_betarea_bankerpair_horizontal_hover_png,m_ba_betarea_player_png,m_ba_betarea_player_horizontal_png,m_ba_betarea_player_horizontal_hover_png,m_ba_betarea_playerpair_png,m_ba_betarea_playerpair_horizontal_png,m_ba_betarea_playerpair_horizontal_hover_png,m_ba_betarea_supersix_tie_horizontal_png,m_ba_betarea_supersix_tie_horizontal_hover_png,m_ba_betarea_tie_png,m_ba_betarea_tie_horizontal_png,m_ba_betarea_tie_horizontal_hover_png,m_common_betarea_icon_totalbet_png,m_common_betarea_icon_totalperson_png,m_ba_goodroad_info_line_banker_png,m_ba_goodroad_info_line_player_png,m_ba_goodroad_info_ring_banker_png,m_ba_goodroad_info_ring_player_png,m_ba_goodroad_info_round_banker_png,m_ba_goodroad_info_round_player_png,m_ba_goodroad_info_state_banker_png,m_ba_goodroad_info_state_player_png,m_ba_goodroad_infobg_banker_png,m_ba_goodroad_infobg_player_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_navbar_icon_video_png,d_ba_navbar_icon_stat_png,d_ba_navbar_icon_setting_png,d_ba_navbar_icon_sound_png,d_ba_navbar_icon_hoverelement_png",
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,h_0_png,h_10_png,h_23_png,h_24_png,h_26_png,h_3_png,h_30_png,h_32_png,h_35_png,h_5_png,h_8_png,h_Orphelins_png,h_Rectangle_png,h_Tires_png,h_Voisins_png,h_Zero_png,m_v_ro_reatrack_dim_png,v_0_png,v_10_png,v_12_png,v_15_png,v_23_png,v_24_png,v_26_png,v_3_png,v_30_png,v_32_png,v_35_png,v_5_png,v_8_png,v_Orphelins_png,v_Rectangle_png,v_Tires_png,v_Voisins_png,v_Zero_png,m_ro_h_betborad_hover_png,m_ro_h_betborad_inactive_png,m_ro_h_betborad_outline_png,m_ro_h_reatrack_hover_png,m_ro_h_reatrack_inactive_png,m_ro_h_reatrack_outline_png,m_ro_v_betborad_hover_png,m_ro_v_betborad_inactive_png,m_ro_v_betborad_outline_png,m_ro_v_reatrack_hover_png,m_ro_v_reatrack_inactive_png,m_ro_v_reatrack_outline_png,m_ro_add_icon_hover_png,m_ro_add_icon_Inactive_png,m_ro_btn_reactack_png,m_ro_less_icon_hover_png,m_ro_less_icon_Inactive_png,m_lobby_ro_history_black_Rectangle_png,m_lobby_ro_history_green_Rectangle_png,m_lobby_ro_history_red_Rectangle_png,m_ro_history_black_bar_png,m_ro_history_gray_bar_bg_png,m_ro_history_green_bar_png,m_ro_history_hight_blue_bar_png,m_ro_history_red_bar_png,m_ro_h_cold_bar_png,m_ro_h_hot_bar_png,m_ro_v_cold_bar_png,m_ro_v_cold_icon_png,m_ro_v_hot_bar_png,m_ro_v_hot_icon_png,m_ro_roadmap_black_ball_png,m_ro_roadmap_black_box_png,m_ro_roadmap_dark_ball_png,m_ro_roadmap_green_ball_png,m_ro_roadmap_green_box_png,m_ro_roadmap_light_blue_box_png,m_ro_roadmap_light_green_box_png,m_ro_roadmap_light_red_box_png,m_ro_roadmap_red_ball_png,m_ro_roadmap_red_box_png,m_ro_active_add_icon_png,m_ro_active_detele_icon_png,m_ro_btn_savelayout_png,m_ro_inactive_add_icon_png,m_ro_savelayout_active_bg_png,m_ro_savelayout_confirm_bg_png,m_ro_savelayout_hover_bg_png,m_ro_savelayout_inactive_bg_png",
+			"keys": "roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,h_0_png,h_10_png,h_23_png,h_24_png,h_26_png,h_3_png,h_30_png,h_32_png,h_35_png,h_5_png,h_8_png,h_Orphelins_png,h_Rectangle_png,h_Tires_png,h_Voisins_png,h_Zero_png,m_v_ro_reatrack_dim_png,v_0_png,v_10_png,v_12_png,v_15_png,v_23_png,v_24_png,v_26_png,v_3_png,v_30_png,v_32_png,v_35_png,v_5_png,v_8_png,v_Orphelins_png,v_Rectangle_png,v_Tires_png,v_Voisins_png,v_Zero_png,m_ro_h_betborad_hover_png,m_ro_h_betborad_inactive_png,m_ro_h_betborad_outline_png,m_ro_h_reatrack_hover_png,m_ro_h_reatrack_inactive_png,m_ro_h_reatrack_outline_png,m_ro_v_betborad_hover_png,m_ro_v_betborad_inactive_png,m_ro_v_betborad_outline_png,m_ro_v_reatrack_hover_png,m_ro_v_reatrack_inactive_png,m_ro_v_reatrack_outline_png,m_ro_add_icon_hover_png,m_ro_add_icon_Inactive_png,m_ro_btn_reactack_png,m_ro_less_icon_hover_png,m_ro_less_icon_Inactive_png,m_lobby_ro_history_black_Rectangle_png,m_lobby_ro_history_green_Rectangle_png,m_lobby_ro_history_red_Rectangle_png,m_ro_history_black_bar_png,m_ro_history_gray_bar_bg_png,m_ro_history_green_bar_png,m_ro_history_hight_blue_bar_png,m_ro_history_red_bar_png,m_ro_h_cold_bar_png,m_ro_h_hot_bar_png,m_ro_v_cold_bar_png,m_ro_v_cold_icon_png,m_ro_v_hot_bar_png,m_ro_v_hot_icon_png,m_ro_roadmap_black_ball_png,m_ro_roadmap_black_box_png,m_ro_roadmap_dark_ball_png,m_ro_roadmap_green_ball_png,m_ro_roadmap_green_box_png,m_ro_roadmap_light_blue_box_png,m_ro_roadmap_light_green_box_png,m_ro_roadmap_light_red_box_png,m_ro_roadmap_red_ball_png,m_ro_roadmap_red_box_png,m_ro_active_add_icon_png,m_ro_active_detele_icon_png,m_ro_btn_savelayout_png,m_ro_inactive_add_icon_png,m_ro_savelayout_active_bg_png,m_ro_savelayout_confirm_bg_png,m_ro_savelayout_hover_bg_png,m_ro_savelayout_inactive_bg_png,m_ro_spread_bg_png",
 			"name": "scene_roulette"
 		},
 		{
@@ -33,7 +33,7 @@
 			"name": "scene_dragontiger"
 		},
 		{
-			"keys": "sicbo_game_result_ske_json,sicbo_game_result_tex_json,sicbo_game_result_tex_png,m_sb_betarea_bg_hover_1_horizontal_png,m_sb_betarea_bg_hover_1_png,m_sb_betarea_bg_hover_10_horizontal_png,m_sb_betarea_bg_hover_10_png,m_sb_betarea_bg_hover_11_horizontal_png,m_sb_betarea_bg_hover_11_png,m_sb_betarea_bg_hover_12_png,m_sb_betarea_bg_hover_13_png,m_sb_betarea_bg_hover_14_png,m_sb_betarea_bg_hover_15_horizontal_png,m_sb_betarea_bg_hover_2_horizontal_png,m_sb_betarea_bg_hover_2_png,m_sb_betarea_bg_hover_3_horizontal_png,m_sb_betarea_bg_hover_3_png,m_sb_betarea_bg_hover_4_horizontal_png,m_sb_betarea_bg_hover_4_png,m_sb_betarea_bg_hover_5_horizontal_png,m_sb_betarea_bg_hover_5_png,m_sb_betarea_bg_hover_6_horizontal_png,m_sb_betarea_bg_hover_6_png,m_sb_betarea_bg_hover_7_horizontal_png,m_sb_betarea_bg_hover_7_png,m_sb_betarea_bg_hover_8_horizontal_png,m_sb_betarea_bg_hover_8_png,m_sb_betarea_bg_hover_9_horizontal_png,m_sb_betarea_bg_hover_9_png,m_sb_betarea_horizontal_png,m_sb_betarea_png,m_sb_panel_chart_bar_png,m_sb_panel_chart_bg_left_png,m_sb_panel_chart_bg_right_png,m_sb_panel_chart_bluecircle_png,m_sb_panel_chart_greencircle_png,m_sb_panel_chart_redcircle_png",
+			"keys": "sicbo_game_result_ske_json,sicbo_game_result_tex_json,sicbo_game_result_tex_png,m_sb_betarea_bg_hover_1_horizontal_png,m_sb_betarea_bg_hover_1_png,m_sb_betarea_bg_hover_10_horizontal_png,m_sb_betarea_bg_hover_10_png,m_sb_betarea_bg_hover_11_horizontal_png,m_sb_betarea_bg_hover_11_png,m_sb_betarea_bg_hover_12_png,m_sb_betarea_bg_hover_13_png,m_sb_betarea_bg_hover_14_png,m_sb_betarea_bg_hover_15_horizontal_png,m_sb_betarea_bg_hover_2_horizontal_png,m_sb_betarea_bg_hover_2_png,m_sb_betarea_bg_hover_3_horizontal_png,m_sb_betarea_bg_hover_3_png,m_sb_betarea_bg_hover_4_horizontal_png,m_sb_betarea_bg_hover_4_png,m_sb_betarea_bg_hover_5_horizontal_png,m_sb_betarea_bg_hover_5_png,m_sb_betarea_bg_hover_6_horizontal_png,m_sb_betarea_bg_hover_6_png,m_sb_betarea_bg_hover_7_horizontal_png,m_sb_betarea_bg_hover_7_png,m_sb_betarea_bg_hover_8_horizontal_png,m_sb_betarea_bg_hover_8_png,m_sb_betarea_bg_hover_9_horizontal_png,m_sb_betarea_bg_hover_9_png,m_sb_betarea_horizontal_png,m_sb_betarea_png,m_sb_panel_chart_bar_png,m_sb_panel_chart_bg_left_png,m_sb_panel_chart_bg_right_png,m_sb_panel_chart_bluecircle_png,m_sb_panel_chart_greencircle_png,m_sb_panel_chart_redcircle_png,d_sic_history_chart_line-2_png",
 			"name": "scene_dice"
 		}
 	],
@@ -4209,6 +4209,51 @@
 			"url": "assets/m/lobby/temp/d_lobby_panel_button_page_prev_normal.png",
 			"type": "image",
 			"name": "d_lobby_panel_button_page_prev_normal_png"
+		},
+		{
+			"url": "assets/m/ba/roadmap/temp/d_ba_roadmap_bar_bankerpairstate.png",
+			"type": "image",
+			"name": "d_ba_roadmap_bar_bankerpairstate_png"
+		},
+		{
+			"url": "assets/m/ba/roadmap/temp/d_ba_roadmap_bar_playerpairstate.png",
+			"type": "image",
+			"name": "d_ba_roadmap_bar_playerpairstate_png"
+		},
+		{
+			"url": "assets/m/ba/roadmap/temp/d_ba_navbar_icon_video.png",
+			"type": "image",
+			"name": "d_ba_navbar_icon_video_png"
+		},
+		{
+			"url": "assets/m/ba/roadmap/temp/d_ba_navbar_icon_stat.png",
+			"type": "image",
+			"name": "d_ba_navbar_icon_stat_png"
+		},
+		{
+			"url": "assets/m/ba/roadmap/temp/d_ba_navbar_icon_setting.png",
+			"type": "image",
+			"name": "d_ba_navbar_icon_setting_png"
+		},
+		{
+			"url": "assets/m/ba/roadmap/temp/d_ba_navbar_icon_sound.png",
+			"type": "image",
+			"name": "d_ba_navbar_icon_sound_png"
+		},
+		{
+			"url": "assets/m/ba/roadmap/temp/d_ba_navbar_icon_hoverelement.png",
+			"type": "image",
+			"name": "d_ba_navbar_icon_hoverelement_png"
+		},
+		{
+			"url": "assets/m/ro/button/m_ro_spread_bg.png",
+			"type": "image",
+			"name": "m_ro_spread_bg_png"
+		},
+		{
+			"url": "assets/m/di/history/d_sic_history_chart_line-2.png",
+			"type": "image",
+			"name": "d_sic_history_chart_line-2_png"
 		}
 	]
 }
