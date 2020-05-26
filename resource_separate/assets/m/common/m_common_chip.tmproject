@@ -1,0 +1,36 @@
+{
+    "version": 5,
+    "options": {
+        "sizeMode": "2n",
+        "layoutMath": "2",
+        "extend": 2,
+        "layoutGap": 2,
+        "useExtension": 1
+    },
+    "projectName": "m_common_chip",
+    "files": [
+        "./chip/m_lobby_panel_betcontrol_chip11_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip11.png",
+        "./chip/m_lobby_panel_betcontrol_chip05.png",
+        "./chip/m_lobby_panel_betcontrol_chip04.png",
+        "./chip/m_lobby_panel_betcontrol_chip10.png",
+        "./chip/m_lobby_panel_betcontrol_chip06.png",
+        "./chip/m_lobby_panel_betcontrol_chip07.png",
+        "./chip/m_lobby_panel_betcontrol_chip03.png",
+        "./chip/m_lobby_panel_betcontrol_chip05_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip02.png",
+        "./chip/m_lobby_panel_betcontrol_chip01.png",
+        "./chip/m_lobby_panel_betcontrol_chip08_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip02_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip07_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip04_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip09_active.png",
+        "./chip/m_lobby_panel_betcontrol_chips_select.png",
+        "./chip/m_lobby_panel_betcontrol_chip10_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip01_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip06_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip09.png",
+        "./chip/m_lobby_panel_betcontrol_chip03_active.png",
+        "./chip/m_lobby_panel_betcontrol_chip08.png"
+    ]
+}
