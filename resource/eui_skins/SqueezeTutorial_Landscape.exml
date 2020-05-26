@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.ba.SqueezeTutorial" width="2422" height="1242" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile_landscape.SqueezeTutorial" width="2422" height="1242" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	    <e:Rect id="_dim" fillColor="0x000000" width="2422" height="1242" alpha="0.4" />
             <e:Group id="_content" width="1900" height="1051" horizontalCenter="0" verticalCenter="0">
-	            <e:Rect id="_bg" fillColor="0x14181e" width="1900" height="1051" alpha="1" />
+	            <!--<e:Rect id="_bg" fillColor="0x14181e" width="1900" height="1051" alpha="1"/>-->
+                <e:Image source="d_sq_ba_instruction_bg_png" width="1900" height="1051">
+                    <e:scale9Grid> <e:Rectangle x="10" y="10" width="45" height="35"/> </e:scale9Grid> 
+                </e:Image>
                 <e:Group id="_top" width="1900" height="169">
                     <ui:RunTimeLabel id="_title" bold="true" text="咪牌教學" x="49" y="55" size="80" textColor="0xc59466" fontFamily="Microsoft JhengHei"/>
                     <e:Image id="_close" x="1777" y="55" width="70" height="70" source="m_sq_ba_button_close_none_png"/>
                 </e:Group>
                 <e:Group id="_left" x="0" bottom="0" width="1058" height="882">
-                    <ui:HorizontalHolder bulletHorizontalCenter="0" bulletBottom="136" width="1058" height="882" slideWidth="1058" slideHeight="882" isTouchEnabled="false" isLoop="false" isAuto="false">
-                    
+                    <ui:HorizontalHolder id="_holder" bulletGap="5" bulletHorizontalCenter="0" bulletBottom="136" width="1058" height="882" slideWidth="1058" slideHeight="882" isTouchEnabled="false" isLoop="false" isAuto="false">
+                        <e:Group id="_pageOne" width="1058" height="882">
+                            <e:Image width="176" height="62" x="129" y="630" source="m_v_sp_ba_instruction_reveal_all_btn_png"/>
+                            <ui:RunTimeLabel id="_allOpenOne" width="176" height="62" x="129" y="630" textAlign="center" text="全開" size="30" alpha="0.7" fontFamily="Microsoft JhengHei" verticalAlign="middle"/>
+                            <e:Image source="m_h_sq_ba_instruction_crad_group_png" horizontalCenter="0.5" verticalCenter="0" width="727" height="610" scaleX="0.81" scaleY="0.9"/>
+                            <e:Image x="248" y="636" source="m_sq_ba_touch_icon_png"  width="106" height="82"/>
+                        </e:Group>
+                        <e:Group id="_pageTwo" width="1058" height="882">
+                            <e:Image width="176" height="62" x="129" y="630" source="m_v_sp_ba_instruction_reveal_all_btn_png"/>
+                            <ui:RunTimeLabel id="_allOpenTwo" width="176" height="62" x="129" y="630" textAlign="center" text="全開" size="30" alpha="0.7" fontFamily="Microsoft JhengHei" verticalAlign="middle"/>
+                            <e:Image source="m_h_sq_ba_instruction_swtich_crad_group_png" horizontalCenter="0.5" verticalCenter="0" width="727" height="610" scaleX="0.81" scaleY="0.9"/>
+                        </e:Group>
+                        <e:Group id="_pageThree" width="1058" height="882">
+                            <e:Image width="506" height="772" source="m_v_sq_ba_instruction_large_crad_png" horizontalCenter="0" verticalCenter="-20" rotation="270"/>
+                            <e:Image source="m_sq_ba_touch_icon_png" horizontalCenter="47" verticalCenter="0" scaleX="0.8" scaleY="0.8"/>
+                        </e:Group>
+                        <e:Group id="_pageFour" width="1058" height="882">
+                            <e:Image width="506" height="772" source="m_v_sq_ba_instruction_large_crad_png" horizontalCenter="0" verticalCenter="-20" rotation="270"/>
+                            <e:Image width="509" height="775" source="m_v_sq_ba_instruction_large_crad_HL_png" horizontalCenter="0" verticalCenter="-20" rotation="270"/>
+                            <e:Image source="m_sq_ba_touch_icon_png" horizontalCenter="386.5" verticalCenter="235" scaleX="0.8" scaleY="0.8"/>
+                        </e:Group>
                     </ui:HorizontalHolder>
                 </e:Group>
                 <e:Group id="_right" x="1058" bottom="0" width="842" height="882">
-                </e:Group>
+                    <ui:RunTimeLabel id="_captionOne" horizontalCenter="0" bottom="588" text="點撃全開按鈕 卡牌立即全開" size="48" alpha="0.7" fontFamily="Microsoft JhengHei"/>
+                    <ui:RunTimeLabel id="_captionTwo" horizontalCenter="0" bottom="588" text="點擊卡牌可切換大卡牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" visible="false"/>
+                    <ui:RunTimeLabel id="_captionThree" horizontalCenter="0" bottom="588" text="點擊大卡牌中間位置快速開牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" visible="false"/>
+                    <ui:RunTimeLabel id="_captionFour" horizontalCenter="0" bottom="588" text="卡牌四邊四角可咪牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" visible="false"/>
 
+                    <ui:RunTimeLabel id="_buttonText" text="下一頁" horizontalCenter="0" bottom="392" width="448" height="136" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" verticalAlign="middle" textAlign="center" touchEnabled="true"/>
+                    <e:Image id="_nextButton" source="m_sq_ba_panel_btn_bg_Inactive_png" horizontalCenter="0" bottom="392" width="448"/>
+                </e:Group>
 	            <e:Rect x="1058" y="169" fillColor="0xd8d8d8" width="2" height="776" alpha="0.4" />
             </e:Group>
 

@@ -31,13 +31,13 @@ namespace we {
         // }
 
         const face = new egret.DisplayObjectContainer();
-        const temp = new eui.Component();
+        const temp = new we.bam.SqueezeTutorial('SqueezeTutorial');
         // const slider = new
-        temp.skinName = 'TestHorizontalHolderSkin';
+        // temp.skinName = 'TestHorizontalHolderSkin';
         face.addChild(temp);
         this.addChild(face);
-        face.x = 300;
-        face.y = 400;
+        face.x = 200;
+        face.y = 200;
         // step 3: connect socket
         // this.socketConnect();
         // dir.sceneCtr.goto('LobbyScene');

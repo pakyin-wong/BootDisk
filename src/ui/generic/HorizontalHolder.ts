@@ -4,17 +4,18 @@ namespace we {
     export class HorizontalHolder extends eui.Group {
       protected _slides: any[]; // eui.Group
       protected _sortedSlides;
-      private currentPageIdx: number = 0;
+      private _currentPageIdx: number = 0;
       private pageCount: number;
 
       public slideWidth: number = 0;
       public slideHeight: number = 0;
       public _duration = 500;
 
-      public isTouchEnabled = true;
+      public isTouchEnabled: boolean = true;
       public isDragonBone: boolean = false;
       public isLoop: boolean = true;
       public isAuto: boolean = true;
+      public isBullet: boolean = true;
 
       public bulletBottom: number = null;
       public bulletTop: number = null;
@@ -58,6 +59,10 @@ namespace we {
         if (!this.isDragonBone) this.initSlider();
       }
 
+      public get currentPageIdx() {
+        return this._currentPageIdx;
+      }
+
       public initSlider() {
         this.width = this.slideWidth;
         this.height = this.slideHeight;
@@ -72,7 +77,7 @@ namespace we {
           return;
         }
 
-        this.currentPageIdx = 0;
+        this._currentPageIdx = 0;
 
         for (let i = 0; i < this.pageCount; i++) {
           this._slides.push(this.getChildAt(i));
@@ -82,8 +87,8 @@ namespace we {
           }
         }
 
-        this._slides[this.currentPageIdx].x = 0;
-        this._slides[this.currentPageIdx].y = 0;
+        this._slides[this._currentPageIdx].x = 0;
+        this._slides[this._currentPageIdx].y = 0;
 
         this.sortSlides();
         this.initComponents();
@@ -117,41 +122,43 @@ namespace we {
       }
 
       protected initComponents() {
-        this._bulletGroup = new eui.Group();
+        if (this.isBullet) {
+          this._bulletGroup = new eui.Group();
 
-        this.addChild(this._bulletGroup);
-        if (this.bulletHorizontalCenter != null) this._bulletGroup.horizontalCenter = this.bulletHorizontalCenter;
+          this.addChild(this._bulletGroup);
+          if (this.bulletHorizontalCenter != null) this._bulletGroup.horizontalCenter = this.bulletHorizontalCenter;
 
-        if (this.bulletLeft != null) this._bulletGroup.left = this.bulletLeft;
+          if (this.bulletLeft != null) this._bulletGroup.left = this.bulletLeft;
 
-        if (this.bulletRight != null) this._bulletGroup.right = this.bulletRight;
+          if (this.bulletRight != null) this._bulletGroup.right = this.bulletRight;
 
-        if (this.bulletTop != null) this._bulletGroup.top = this.bulletTop;
+          if (this.bulletTop != null) this._bulletGroup.top = this.bulletTop;
 
-        if (this.bulletBottom != null) this._bulletGroup.bottom = this.bulletBottom;
+          if (this.bulletBottom != null) this._bulletGroup.bottom = this.bulletBottom;
 
-        if (this.bulletVerticalCenter != null) this._bulletGroup.verticalCenter = this.bulletVerticalCenter;
+          if (this.bulletVerticalCenter != null) this._bulletGroup.verticalCenter = this.bulletVerticalCenter;
 
-        this._bulletGroup.height = this.bulletHeight;
+          this._bulletGroup.height = this.bulletHeight;
 
-        let bullet: eui.Image;
+          let bullet: eui.Image;
 
-        for (let i = 0; i < this.pageCount; i++) {
-          bullet = new eui.Image();
-          bullet.width = this.bulletWidth;
-          bullet.height = this.bulletHeight;
-          bullet.source = this._bulletOff;
-          bullet.horizontalCenter = 0;
-          this._bulletGroup.addChild(bullet);
+          for (let i = 0; i < this.pageCount; i++) {
+            bullet = new eui.Image();
+            bullet.width = this.bulletWidth;
+            bullet.height = this.bulletHeight;
+            bullet.source = this._bulletOff;
+            bullet.horizontalCenter = 0;
+            this._bulletGroup.addChild(bullet);
+          }
+
+          const layout = new eui.HorizontalLayout();
+          layout.verticalAlign = 'middle';
+          layout.horizontalAlign = egret.HorizontalAlign.CENTER;
+          layout.gap = this.bulletGap;
+          this._bulletGroup.layout = layout;
+
+          this.updateBullets();
         }
-
-        const layout = new eui.HorizontalLayout();
-        layout.verticalAlign = 'middle';
-        layout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        layout.gap = this.bulletGap;
-        this._bulletGroup.layout = layout;
-
-        this.updateBullets();
 
         let shape = new egret.Shape();
         let gr = shape.graphics;
@@ -183,11 +190,12 @@ namespace we {
       }
 
       protected updateBullets() {
+        if (!this.isBullet) return;
         for (let i = 0; i < this._bulletGroup.numChildren; i++) {
           (this._bulletGroup.getChildAt(i) as eui.Image).source = this._bulletOff;
         }
 
-        (this._bulletGroup.getChildAt(this.currentPageIdx) as eui.Image).source = this._bulletOn;
+        (this._bulletGroup.getChildAt(this._currentPageIdx) as eui.Image).source = this._bulletOn;
       }
 
       protected sortSlides() {
@@ -198,14 +206,14 @@ namespace we {
           this._slides[i].visible = false;
         }
 
-        this._previousIdx = this.currentPageIdx - 1;
+        this._previousIdx = this._currentPageIdx - 1;
 
         if (!this.isLoop && this._previousIdx < 0) {
           this.isPrevBlock = true;
         }
         if (this._previousIdx < 0) this._previousIdx = this.pageCount - 1;
 
-        this._nextIdx = this.currentPageIdx + 1;
+        this._nextIdx = this._currentPageIdx + 1;
 
         if (!this.isLoop && this._nextIdx > this.pageCount - 1) {
           this.isNextBlock = true;
@@ -216,7 +224,7 @@ namespace we {
         // check current page
 
         const prev = this._slides[this._previousIdx];
-        const current = this._slides[this.currentPageIdx];
+        const current = this._slides[this._currentPageIdx];
         const next = this._slides[this._nextIdx];
 
         prev.x = -this.slideWidth;
@@ -228,22 +236,28 @@ namespace we {
       }
 
       protected checkCurrentIndex() {
-        if (this.currentPageIdx > this.pageCount - 1) this.currentPageIdx = 0;
+        if (this._currentPageIdx > this.pageCount - 1) this._currentPageIdx = 0;
 
-        if (this.currentPageIdx < 0) this.currentPageIdx = this.pageCount - 1;
+        if (this._currentPageIdx < 0) this._currentPageIdx = this.pageCount - 1;
       }
 
-      public doNext() {
+      public doNext(isButton: boolean = false) {
         this.isAnimating = true;
 
-        if (this.isAuto && this.currentPageIdx === this.pageCount - 1 && this.isNextBlock) {
+        if (isButton) {
+          if (this._currentPageIdx === this.pageCount - 1) {
+            return;
+          }
+        }
+
+        if (this.isAuto && this._currentPageIdx === this.pageCount - 1 && this.isNextBlock) {
           this.clearAuto();
           this.onMoveFinished(0);
           return;
         }
 
         const previous = this._slides[this._previousIdx];
-        const current = this._slides[this.currentPageIdx];
+        const current = this._slides[this._currentPageIdx];
         const next = this._slides[this._nextIdx];
 
         if (this._previousIdx === this._nextIdx) next.x = current.x + this.slideWidth;
@@ -270,7 +284,7 @@ namespace we {
 
       protected onMoveFinished(e: number) {
         this.clearAuto();
-        this.currentPageIdx += e;
+        this._currentPageIdx += e;
         this.checkCurrentIndex();
         this.sortSlides();
         this.updateBullets();
@@ -279,11 +293,17 @@ namespace we {
         if (this.isAuto) this.doAuto();
       }
 
-      public doPrevious() {
+      public doPrevious(isButton: boolean = false) {
         // this._sortedSlides[this._nextIdx].visible = false;
         this.isAnimating = true;
 
-        const current = this._slides[this.currentPageIdx];
+        if (isButton) {
+          if (this._currentPageIdx === 0) {
+            return;
+          }
+        }
+
+        const current = this._slides[this._currentPageIdx];
         const previous = this._slides[this._previousIdx];
         const next = this._slides[this._nextIdx];
 
@@ -324,7 +344,7 @@ namespace we {
         if (this.isAnimating) return;
         e.stopPropagation();
 
-        const current = this._slides[this.currentPageIdx];
+        const current = this._slides[this._currentPageIdx];
         const previous = this._slides[this._previousIdx];
         const next = this._slides[this._nextIdx];
 
@@ -361,7 +381,7 @@ namespace we {
       protected onTouchMove = event => {
         if (this.isAnimating) return;
         // const move
-        const current = this._slides[this.currentPageIdx];
+        const current = this._slides[this._currentPageIdx];
 
         const previous = this._slides[this._previousIdx];
         const next = this._slides[this._nextIdx];
@@ -485,12 +505,12 @@ namespace we {
             }
           }
         }
-      }
+      };
 
       protected onTouchEnd = event => {
         if (this.isAnimating) return;
 
-        const current = this._slides[this.currentPageIdx];
+        const current = this._slides[this._currentPageIdx];
         const previous = this._slides[this._previousIdx];
         const next = this._slides[this._nextIdx];
 
@@ -547,7 +567,7 @@ namespace we {
             break;
         }
         this.clearTouch();
-      }
+      };
 
       protected clearTouch() {
         const canvas = document.getElementsByTagName('canvas')[0];
@@ -582,7 +602,7 @@ namespace we {
       public resetPosition() {
         this.isAnimating = true;
 
-        const current = this._slides[this.currentPageIdx];
+        const current = this._slides[this._currentPageIdx];
         const previous = this._slides[this._previousIdx];
         const next = this._slides[this._nextIdx];
 
