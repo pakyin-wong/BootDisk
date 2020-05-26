@@ -40,7 +40,7 @@ namespace we {
         this._iconListData = new eui.ArrayCollection([
           {
             key: 1,
-            url: 'resource/d_lobby_profile_pic_01_png',
+            url: 'd_lobby_profile_pic_01_png',
           },
         ]);
       }
@@ -136,7 +136,6 @@ namespace we {
           this._maxWinCount.text = winningstreak;
         }
       }
-
     }
   }
 }
