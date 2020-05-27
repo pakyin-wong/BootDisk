@@ -11,6 +11,7 @@ namespace we {
         gameData.dice1 = points[0];
         gameData.dice2 = points[1];
         gameData.dice3 = points[2];
+        gameData.total = points[0] + points[1] + points[2];
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
 

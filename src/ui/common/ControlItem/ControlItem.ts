@@ -7,11 +7,11 @@ namespace we {
       protected _tableLayer: TableLayer;
 
       protected _betChipSet: ui.BetChipSet;
-      protected _cardHolder: IResultDisplay;
+      protected _cardHolder: IResultDisplay & eui.Component;
 
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
-      protected _resultMessage: ui.IGameResultMessage;
+      protected _resultMessage: ui.IGameResultMessage & eui.Component;
       protected _message: ui.InGameMessage;
       protected _dropdown: live.BetLimitDropdown;
       protected _toggler: egret.DisplayObject;
@@ -39,8 +39,17 @@ namespace we {
         this.touchEnabled = true;
       }
 
-      protected mount() {
-        super.mount();
+      // protected mount() {
+      //   super.mount();
+      // }
+
+      protected clearComponents() {
+        this.removeEventListeners();
+        this.removeChildren();
+      }
+
+      protected initComponents() {
+        super.initComponents();
         this.initChildren();
         this.addEventListeners();
       }
@@ -64,14 +73,14 @@ namespace we {
       }
 
       protected initDenom() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.init(3, denominationList);
         }
       }
 
       protected initBettingTable() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._tableLayer) {
           this._tableLayer.init();
         }
@@ -90,7 +99,7 @@ namespace we {
       }
 
       protected addEventListeners() {
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this, false);
         if (this._contentContainer) {
           this._contentContainer.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onRollover, this);
           this._contentContainer.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollout, this);
@@ -139,7 +148,7 @@ namespace we {
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.resetDenominationList(denominationList);
         }
@@ -167,7 +176,7 @@ namespace we {
 
       protected onMatchGoodRoadUpdate() {}
 
-      protected onTableBetInfoUpdate() {
+      protected onTableBetInfoUpdate(evt: egret.Event) {
         // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
@@ -217,9 +226,7 @@ namespace we {
         }
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {
-        logger.l('BaccaratScene::onRoadDataUpdate');
-      }
+      protected onRoadDataUpdate(evt: egret.Event) {}
 
       public updateGame(isInit: boolean = false) {
         if (!this._gameData) {

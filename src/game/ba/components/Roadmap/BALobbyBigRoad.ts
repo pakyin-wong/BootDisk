@@ -22,6 +22,7 @@ namespace we {
         this.bigRoad = new BABigRoad(25, 23);
         this.bigRoad.scaleX = this.bigRoad.scaleY = 578 / 575;
         this.addChild(this.bigRoad);
+        this.bigRoad.initRoadData();
       }
 
       protected onParserUpdate(e: egret.Event) {

@@ -33,6 +33,7 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
+      // protected _btnBack: eui.Image;
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
 
@@ -53,7 +54,7 @@ namespace we {
       }
 
       protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('BaccaratScene');
+        // this.skinName = utils.getSkinByClassname('BaccaratScene');
       }
 
       protected mount() {
@@ -62,11 +63,9 @@ namespace we {
         mouse.setButtonMode(this._confirmButton, true);
 
         this._video = dir.videoPool.get();
-        this._video.x = 0;
-        this._video.y = 0;
-        this._video.width = 2600;
-        this._video.height = 1340;
-        this._video.load('http://192.168.1.85:8090/live/360.flv');
+        // this._video.width = this.stage.stageWidth;
+        // this._video.height = this.stage.stageHeight;
+        this._video.load('http://h5.weinfra247.com:8090/live/720.flv');
 
         this.touchEnabled = true;
       }
@@ -83,6 +82,7 @@ namespace we {
 
       public onExit() {
         super.onExit();
+        this._video.stop();
         dir.videoPool.release(this._video);
         this.removeEventListeners();
         this.removeChildren();
@@ -98,6 +98,16 @@ namespace we {
         this.addChild(this._video);
         this.setChildIndex(this._video, 0);
         // this.playVideo();
+        const aspect = 16 / 9;
+        const ratio = this.stage.stageWidth / this.stage.stageHeight;
+        this._video.x = this.stage.stageWidth * 0.5;
+        this._video.y = this.stage.stageHeight * 0.5;
+        this._video.width = ratio < 1 ? this.stage.stageHeight * aspect : this.stage.stageWidth;
+        this._video.height = ratio < 1 ? this.stage.stageHeight : this.stage.stageWidth / aspect;
+        this._video.$anchorOffsetX = this._video.width * 0.5;
+        this._video.$anchorOffsetY = this._video.height * 0.5;
+        this._video.play();
+        this._bgImg.visible = false;
 
         this._gameBar.setPlayFunc(this.playVideo(this));
         this._gameBar.setStopFunc(this.stopVideo(this));
@@ -119,14 +129,14 @@ namespace we {
       }
 
       protected initDenom() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
         }
       }
 
       protected initBettingTable() {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._tableLayer) {
           this._tableLayer.init();
         }
@@ -216,7 +226,6 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         }
-
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
@@ -241,7 +250,7 @@ namespace we {
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.resetDenominationList(denominationList);
         }
@@ -343,6 +352,15 @@ namespace we {
           case core.GameState.DEAL:
             this.setStateDeal(isInit);
             break;
+          case core.GameState.PEEK:
+            this.setStatePeek(isInit);
+            break;
+          case core.GameState.PEEK_BANKER:
+            this.setStatePeekBanker(isInit);
+            break;
+          case core.GameState.PEEK_PLAYER:
+            this.setStatePeekPlayer(isInit);
+            break;
           case core.GameState.FINISH:
             this.setStateFinish(isInit);
             break;
@@ -369,6 +387,13 @@ namespace we {
           this.setResultRelatedComponentsEnabled(false);
         }
       }
+
+      protected setStatePeek(isInit: boolean = false) {}
+
+      protected setStatePeekPlayer(isInit: boolean = false) {}
+
+      protected setStatePeekBanker(isInit: boolean = false) {}
+
       protected setStateBet(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);
@@ -424,6 +449,7 @@ namespace we {
           this._resultDisplay.updateResult(this._gameData);
         }
       }
+
       protected setStateFinish(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.FINISH || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -541,16 +567,14 @@ namespace we {
       public playVideo(scene: any) {
         return () => {
           scene._video.play();
-          scene.bgImg.visible = false;
-          scene.bgImg.enabled = false;
+          scene._bgImg.visible = false;
         };
       }
 
       public stopVideo(scene: any) {
         return () => {
           scene._video.stop();
-          scene.bgImg.visible = true;
-          scene.bgImg.enabled = true;
+          scene._bgImg.visible = true;
         };
       }
     }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.di.MobileBottomBeadRoadPanel" width="1242" height="532" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*">
+	<e:Group id="content" width="100%" height="100%">
+		<e:Component id="_roadmapBg" height="509" left="8" right="8" bottom="0">
+            <e:skinName>
+            <e:Skin states="dark,light">
+                <e:Rect width="100%" height="100%" fillColor.light="0xffffff" fillColor.dark="0x262a2b"/>
+            </e:Skin>
+            </e:skinName>
+        </e:Component>
+            <e:ViewStack id="_roadmapView" scaleX="1" scaleY="1" left="8" right="8" height="413" y="20">
+            <e:Group name="_beadRoad" left="0" right="0" top="0" bottom="0">
+                <di:RoadMapConfig id="beadRoadConfig" scaleX="1" scaleY="1" roadmap_col="18" roadmap_gridSize="68"/>
+            </e:Group>
+            </e:ViewStack>
+            <!--<e:RadioButton id="beadRoadSizeBtn" label="大 / 小" x="223" y="442" width="380" height="70" value="0" scaleX="1" scaleY="1" selected="true" groupName="roadmap">
+                <e:skinName>
+                    <e:Skin states="up,down,disabled">
+                    <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+                    </e:Skin>
+                </e:skinName>
+            </e:RadioButton>
+            <e:RadioButton id="beadRoadOddEvenBtn" label="單 / 雙" x="623" y="442" width="380" height="70" value="1" scaleX="1" scaleY="1" groupName="roadmap">
+                <e:skinName>
+                    <e:Skin states="up,down,disabled">
+                    <e:Rect width="100%" height="100%" fillColor.up="0x375b7f" fillAlpha.up="0.2" fillColor.down="0x375b7f" fillAlpha.down="1" ellipseHeight="72" ellipseWidth="72"/>
+                    <e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="42" textColor.up="0x375b7f" textColor.down="0xffffff"/>
+                    </e:Skin>
+                </e:skinName>
+            </e:RadioButton>-->
+	</e:Group>
+    </e:Skin>

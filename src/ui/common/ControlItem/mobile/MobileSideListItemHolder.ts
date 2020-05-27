@@ -1,3 +1,4 @@
+// deprecated
 namespace we {
   export namespace ui {
     export class MobileSideListItemHolder extends ui.TableListItemHolder {
@@ -21,17 +22,27 @@ namespace we {
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
-
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
-
+          case we.core.GameType.DI:
+            generalGameType = 'di';
+            break;
           case we.core.GameType.DT:
-          default:
+            // default:
             generalGameType = 'dt';
+            break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
         }
 
-        this._displayItem = new we.ui.MobileLiveListItem(generalGameType + '.LiveListItemSkin');
+        const listItem = new we.ui.MobileLiveListItem('LiveListItemSkin');
+        if (we[generalGameType].LargeListItemInitHelper) {
+          listItem.itemInitHelper = new we[generalGameType].LargeListItemInitHelper();
+        }
+
+        this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
       }
     }

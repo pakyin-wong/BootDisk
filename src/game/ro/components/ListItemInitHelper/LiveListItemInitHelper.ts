@@ -3,7 +3,11 @@ namespace we {
     export class LiveListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ro.LobbyTableLayer();
-        tableLayer.skinName = `skin_desktop.ro.LiveListItemTableLayerSkin`;
+        if (node.name === 'AdvancedTableLayerNode') {
+          tableLayer.skinName = `skin_desktop.ro.LiveListAdvancedItemTableLayerSkin`;
+        } else {
+          tableLayer.skinName = `skin_desktop.ro.LiveListItemTableLayerSkin`;
+        }
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(tableLayer, idx);
         return tableLayer;
@@ -11,14 +15,19 @@ namespace we {
 
       public generateChipLayer(node: eui.Component) {
         const chipLayer = new ro.LobbyChipLayer();
-        chipLayer.skinName = `skin_desktop.ro.LiveListItemChipLayerSkin`;
+        if (node.name === 'AdvancedChipLayerNode') {
+          chipLayer.skinName = `skin_desktop.ro.LiveListAdvancedItemChipLayerSkin`;
+        } else {
+          chipLayer.skinName = `skin_desktop.ro.LiveListItemChipLayerSkin`;
+        }
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
         return chipLayer;
       }
 
       public generateRoadmap(node: eui.Component) {
-        const bigRoad = new ro.ROLobbyBeadRoad();
+        // const bigRoad = new ro.ROLobbyBeadRoad();
+        const bigRoad = dir.lobbyRoadPool.get(core.GameType.RO);
         bigRoad.roadGridSize = 40;
         bigRoad.roadCol = 12;
         bigRoad.roadRow = 3;
@@ -31,6 +40,22 @@ namespace we {
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
         return bigRoad;
+      }
+
+      public generateAnalysis(node: eui.Component) {
+        // const analysis = new ro.Analysis();
+        const analysis = dir.analysisPool.get(core.GameType.RO);
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(analysis, idx);
+        return analysis;
+      }
+
+      public generateAdvancedRoad(node: eui.Component) {
+        // const advancedRoad = new ro.AdvancedRoad();
+        const advancedRoad = dir.advancedRoadPool.get(core.GameType.RO);
+        const idx = node.parent.getChildIndex(node);
+        node.parent.addChildAt(advancedRoad, idx);
+        return advancedRoad;
       }
     }
   }

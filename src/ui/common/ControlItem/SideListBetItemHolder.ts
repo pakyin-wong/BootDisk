@@ -1,3 +1,4 @@
+// deprecated
 namespace we {
   export namespace ui {
     export class SideListBetItemHolder extends ui.TableListItemHolder {
@@ -21,7 +22,9 @@ namespace we {
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
-
+          case we.core.GameType.BAM:
+            generalGameType = 'bam';
+            break;
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
@@ -33,6 +36,9 @@ namespace we {
             break;
           case we.core.GameType.LW:
             generalGameType = 'lw';
+            break;
+          case we.core.GameType.ROL:
+            generalGameType = 'rol';
             break;
           default:
             throw new Error('Invalid Game Type');

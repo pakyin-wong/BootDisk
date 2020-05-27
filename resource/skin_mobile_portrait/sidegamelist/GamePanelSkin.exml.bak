@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.GamePanelSkinBak" width="1242" height="2001" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+    <e:Group id="content" left="0" right="0" top="0" bottom="0" touchChildren="true" touchEnabled="false">
+        <e:Rect left="0" right="0" top="0" bottom="0" ellipseHeight="80" ellipseWidth="80" strokeWeight="3"
+                strokeColor="0x282828"  fillColor="0x14181e"/>
+			<e:Image x="48" y="44" height="61" width="61" source="m_lobby_panel_gamelist_tag_icon_allgame_png"/>
+			<ui:RunTimeLabel id="_txt_title" text="Label" x="132" y="39" size="48" height="71" verticalAlign="middle"/>
+			<e:Group id="_layoutRefer" height="1718" y="228" left="0" right="0">
+				<e:layout>
+					<e:TileLayout verticalGap="48" horizontalAlign="center" requestedColumnCount="1" columnWidth="1140" rowHeight="399" horizontalGap="0" paddingLeft="48"/>
+				</e:layout>
+			</e:Group>
+        <e:ViewStack id="_viewStack" left="0" right="0"
+                     selectedIndex="0" y="228" height="1718">
+					<ui:Scroller left="0" right="0" top="0" bottom="0">
+						<ui:TableList id="_allTableList"/>
+					</ui:Scroller>
+					<ui:Scroller left="0" right="0" top="0" bottom="0">
+						<ui:TableList id="_betTableList"/>
+					</ui:Scroller>
+					<ui:Scroller left="0" right="0" top="0" bottom="0">
+						<ui:TableList id="_goodRoadTableList"/>
+					</ui:Scroller>
+        </e:ViewStack>
+			<e:Scroller height="108" y="120" left="48" right="48">
+				<e:TabBar id="_tabs">
+					<e:layout>
+						<e:HorizontalLayout gap="83"/>
+					</e:layout>
+				</e:TabBar>
+			</e:Scroller>
+			<e:Group id="close" width="120" height="120" right="4">
+				<ui:BaseImageButton width="40" height="40" skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="game_list_close_btn" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" useColorFilter="true"/>
+			</e:Group>
+    </e:Group>
+</e:Skin>

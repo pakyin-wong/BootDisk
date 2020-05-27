@@ -24,9 +24,11 @@ namespace we {
       public constructor(skinName: string = null) {
         super(skinName);
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
       }
+
+      protected checkSkin() {}
 
       protected addEventListeners() {
         super.addEventListeners();
@@ -109,16 +111,16 @@ namespace we {
 
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        if (this._chipLayer.isAlreadyBet()) {
+        if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;
         }
       }
 
-      protected onTableBetInfoUpdate() {
-        super.onTableBetInfoUpdate();
-        if (this._chipLayer.isAlreadyBet()) {
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
+        if (this.tableInfo.totalBet > 0) {
           this._alreadyBetSign.visible = true;
         } else {
           this._alreadyBetSign.visible = false;

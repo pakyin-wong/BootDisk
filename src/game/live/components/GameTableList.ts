@@ -1,24 +1,30 @@
 namespace we {
   export namespace live {
-    export class GameTableList extends eui.Component {
+    export class GameTableList extends core.BaseEUI {
       public scroller: ui.Scroller;
       // private collection: eui.ArrayCollection;
       public roomIds: string[] = [];
 
+      public slider: ui.ImageSlider;
       public tabs: LiveGameTabbar;
       public tabItems: string[];
       public roomList: ui.TableList;
+      public roomListRefer: eui.List;
 
       private contentInitializer: IContentInitializer;
-      // public roomLayout: eui.AnimTileLayout;
-      // private normalGapSize: number = 48;
-      // private simpleGapSize: number = 20;
 
-      constructor() {
+      constructor(roomList: ui.TableList) {
         super();
 
+        this.roomList = roomList;
+
         if (env.isMobile) {
-          this.contentInitializer = new MLiveContentInitializer();
+          if (env.orientation === egret.OrientationMode.PORTRAIT) {
+            this.contentInitializer = new MPLiveContentInitializer();
+          } else {
+            this.updateSkin('LiveGameTableList');
+            this.contentInitializer = new MLLiveContentInitializer();
+          }
         } else {
           this.contentInitializer = new DLiveContentInitializer();
         }
@@ -33,14 +39,11 @@ namespace we {
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
-      protected partAdded(partName: string, instance: any): void {
-        super.partAdded(partName, instance);
-      }
-
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
+        this.roomList.removeChild(this.slider);
       }
 
       protected childrenCreated(): void {
@@ -49,10 +52,11 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, false);
 
         this.contentInitializer.initContent(this);
+        this.roomList.addChildAt(this.slider, 0);
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
-        dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
+        dir.evtHandler.addEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this, false, -1);
       }
 
       private onDisplayMode(evt: egret.Event) {
@@ -77,9 +81,14 @@ namespace we {
       private onSelectedIndexChanged(evt: any) {
         const item = this.tabItems[this.tabs.tabBar.selectedIndex];
 
+        const scrollV = this.scroller.viewport.scrollV;
+
         this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
         this.roomList.invalidateDisplayList();
+
+        this.scroller.validateNow();
+        this.scroller.viewport.scrollV = scrollV;
       }
 
       public selectGameType(game: string = null) {

@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.LwRightPanel" width="657" height="304" xmlns:e="http://ns.egret.com/eui" xmlns:lw="we.lw.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
         <e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x061323"
-                fillAlpha="0.8"  locked="true"/>
+                fillAlpha="0.8"  visible="false" locked="true"/>
 	<ui:RunTimeLabel id="_lblPool" x="24" y="13" size="20" height="24" verticalAlign="middle" text="即時彩池" alpha=".7"/>
 	<lw:RightPanelBar id="_progress0" width="432" height="16" y="74" x="57" source="d_lw_betpool_barchart_east_png" />
 	<lw:RightPanelBar id="_progress1" width="432" height="16" y="105" x="57" source="d_lw_betpool_barchart_south_png" />
@@ -11,13 +11,13 @@
 	<lw:RightPanelBar id="_progress4" width="432" height="16" y="198" x="57" source="d_lw_betpool_barchart_white_png" />
 	<lw:RightPanelBar id="_progress5" width="432" height="16" y="229" x="57" source="d_lw_betpool_barchart_gold_png" />
 	<lw:RightPanelBar id="_progress6" width="432" height="16" y="260" x="57" source="d_lw_betpool_barchart_gold_png" />
-	<ui:RunTimeLabel id="_lbl_lwTitle0" x="24" y="69" size="20" height="26" verticalAlign="middle" text="東"/>
-	<ui:RunTimeLabel id="_lbl_lwTitle1" x="24" y="100" size="20" height="26" verticalAlign="middle" text="南"/>
-	<ui:RunTimeLabel id="_lbl_lwTitle2" x="24" y="131" size="20" height="26" verticalAlign="middle" text="西"/>
-	<ui:RunTimeLabel id="_lbl_lwTitle3" x="24" y="162" size="20" height="26" verticalAlign="middle" text="北"/>
-	<ui:RunTimeLabel id="_lbl_lwTitle4" x="24" y="193" size="20" height="26" verticalAlign="middle" text="白"/>
-	<ui:RunTimeLabel id="_lbl_lwTitle5" x="24" y="224" size="20" height="26" verticalAlign="middle" text="中"/>
-	<ui:RunTimeLabel id="_lbl_lwTitle6" x="24" y="255" size="20" height="26" verticalAlign="middle" text="發"/>
+	<ui:RunTimeLabel id="_lbl_lwTitle0" x="24" y="69" size="20" height="26" verticalAlign="middle" text="東" textKey="luckywheel.east" />
+	<ui:RunTimeLabel id="_lbl_lwTitle1" x="24" y="100" size="20" height="26" verticalAlign="middle" text="南" textKey="luckywheel.south" />
+	<ui:RunTimeLabel id="_lbl_lwTitle2" x="24" y="131" size="20" height="26" verticalAlign="middle" text="西" textKey="luckywheel.west" />
+	<ui:RunTimeLabel id="_lbl_lwTitle3" x="24" y="162" size="20" height="26" verticalAlign="middle" text="北" textKey="luckywheel.north" />
+	<ui:RunTimeLabel id="_lbl_lwTitle4" x="24" y="193" size="20" height="26" verticalAlign="middle" text="白" textKey="luckywheel.white" />
+	<ui:RunTimeLabel id="_lbl_lwTitle5" x="24" y="224" size="20" height="26" verticalAlign="middle" text="中" textKey="luckywheel.red" />
+	<ui:RunTimeLabel id="_lbl_lwTitle6" x="24" y="255" size="20" height="26" verticalAlign="middle" text="發" textKey="luckywheel.green" />
 	<ui:RunTimeLabel id="_lbl_lwValue0" size="20" height="26" verticalAlign="middle" text="80,000" textAlign="right" fontFamily="Barlow"  x="489" y="69" anchorOffsetX="-19"/>
 	<ui:RunTimeLabel id="_lbl_lwValue1" size="20" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow" x="489" y="100" anchorOffsetX="-19"/>
 	<ui:RunTimeLabel id="_lbl_lwValue2" size="20" height="26" verticalAlign="middle" text="25,080,000" textAlign="right" fontFamily="Barlow" x="489" y="131" anchorOffsetX="-19"/>

@@ -10,13 +10,28 @@ namespace we {
       setTableInfo?(tableInfo: data.TableInfo);
     }
 
+    export interface IAdvancedRoad {
+      tableInfo;
+      analysis: IAnalysis;
+      update(roadmapData: any);
+    }
+
+    export interface IAnalysis {
+      tableId: string;
+      advancedRoad: IAdvancedRoad;
+      updateTableBetInfo();
+      updateRoad();
+    }
+
     export interface IListItemHelper {
       // updateRoadData(roadmapData: any);
-      generateTableLayer(node: eui.Component): TableLayer;
-      generateChipLayer(node: eui.Component): ChipLayer;
+      generateTableLayer?(node: eui.Component): TableLayer;
+      generateChipLayer?(node: eui.Component): ChipLayer;
       generateRoadmap(node: eui.Component): ILobbyRoad & eui.Component;
-      generateResultMessage?(node: eui.Component): IGameResultMessage;
-      generateResultDisplay?(node: eui.Component): IResultDisplay;
+      generateAdvancedRoad?(node: eui.Component): IAdvancedRoad & eui.Component;
+      generateAnalysis?(node: eui.Component): IAnalysis & eui.Component;
+      generateResultMessage?(node: eui.Component): IGameResultMessage & eui.Component;
+      generateResultDisplay?(node: eui.Component): IResultDisplay & eui.Component;
     }
 
     export interface IRunTimeComponent extends egret.DisplayObject {
@@ -24,7 +39,7 @@ namespace we {
     }
 
     export interface IResultDisplay {
-      updateResult(gameData: data.GameData);
+      updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer);
       reset();
 
       visible: boolean;
@@ -45,13 +60,14 @@ namespace we {
     // Opt
     export interface IOverlayOpt {
       class: string;
+      replace?: boolean;
       args?: any[];
     }
 
     export interface IMessageDialogOpt {
       [button: string]: {
         text: string;
-        onClick?: () => Promise<void>;
+        onClick?: () => Promise<any>;
       };
     }
 
@@ -92,6 +108,11 @@ namespace we {
     export interface ICollapsible {
       setToggler(toggler: egret.DisplayObject, onToggleCallback?: (value: boolean) => void);
       removeToggler(toggler: egret.DisplayObject);
+    }
+
+    // Notification
+    export interface INotificationController {
+      notificationList: data.Notification[];
     }
   }
 }

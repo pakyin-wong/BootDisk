@@ -3,13 +3,20 @@ namespace we {
   export namespace core {
     // base control class that hold and manage the basic item in Ba Item
     export class MobileBaseGameScene extends BaseGameScene {
-      protected _bottomGamePanel: BaseGamePanel;
+      protected _bottomGamePanel: ui.MobileBottomCommonPanel;
       protected _lblBetLimit: ui.RunTimeLabel;
 
       protected _betChipSetGridSelected: ui.BetChipSetGridSelected;
       protected _betChipSetPanel: eui.Group;
       protected _betPanelGroup: eui.Group;
       protected _betChipSetGridEnabled: boolean = false;
+
+      protected _repeatLabel: ui.RunTimeLabel;
+      protected _cancelLabel: ui.RunTimeLabel;
+      protected _doubleLabel: ui.RunTimeLabel;
+      protected _undoLabel: ui.RunTimeLabel;
+
+      protected _veritcalTop: eui.Group;
 
       constructor(data: any) {
         super(data);
@@ -18,18 +25,37 @@ namespace we {
         this._betChipSet.alpha = 1;
       }
 
+      public get betChipSetPanelVisible(): boolean {
+        return this._betChipSetPanel.visible;
+      }
+
+      public set betChipSetPanelVisible(value: boolean) {
+        if (value) {
+          if (!this._betChipSetPanel.visible) {
+            this.showBetChipPanel();
+          }
+        } else {
+          if (this._betChipSetPanel.visible) {
+            this.hideBetChipPanel();
+          }
+        }
+      }
+
       protected initChildren() {
         super.initChildren();
         this._bottomGamePanel.setTableInfo(this._tableInfo);
-
+        this._bottomGamePanel.gameScene = this;
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
+
+          dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+          this.changeLang();
         }
       }
 
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
-        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         this._betChipSet.init(null, denominationList);
       }
 
@@ -79,6 +105,8 @@ namespace we {
       }
 
       protected onClickBetChipSelected() {
+        const testpoint: egret.Point = this._betChipSetGridSelected.localToGlobal(0, 0); // _betChipSetGridSelected(0,0)=> global x and y
+        console.log(' this._veritcalTop.localToGlobal(49,61)', testpoint);
         this._betChipSetGridEnabled ? this.hideBetChipPanel() : this.showBetChipPanel();
       }
 
@@ -93,6 +121,36 @@ namespace we {
       }
 
       protected showBetChipPanel() {
+        const betChipSetGridPosition = this._betChipSetGridSelected.localToGlobal(0, 0);
+        if (env.orientation === 'portrait') {
+          // portrait position
+          if (betChipSetGridPosition.y < 900) {
+            // bottomGamePanel is on
+            this._betPanelGroup.scaleY = 1;
+
+            this._betPanelGroup.y = betChipSetGridPosition.y;
+            this._betChipSetPanel.y = betChipSetGridPosition.y + 185;
+          } else if (betChipSetGridPosition.y >= 900) {
+            // bottomGamePanel is off
+            this._betPanelGroup.y = betChipSetGridPosition.y;
+            this._betChipSetPanel.y = betChipSetGridPosition.y - 780;
+            this._betPanelGroup.scaleY = -1;
+          }
+        } else {
+          // landscape position
+          if (betChipSetGridPosition.y < 450) {
+            this._betPanelGroup.scaleY = -1;
+            // this._betChipSetPanel.x = betChipSetGridPosition.x - 200;
+            this._betChipSetPanel.y = betChipSetGridPosition.y + 230;
+            this._betPanelGroup.y = 430;
+          } else if (betChipSetGridPosition.y >= 450) {
+            this._betPanelGroup.scaleY = 1;
+            // this._betChipSetPanel.x = betChipSetGridPosition.x - 200;
+            this._betChipSetPanel.y = betChipSetGridPosition.y - 500;
+            this._betPanelGroup.y = 0;
+          }
+        }
+
         this._betChipSetPanel.visible = true;
         this._betChipSetPanel.anchorOffsetY = 30;
         egret.Tween.get(this._betChipSetPanel).to({ alpha: 1, anchorOffsetY: 0 }, 250);
@@ -121,8 +179,34 @@ namespace we {
       }
 
       protected removeEventListeners() {
-        super.addEventListeners();
+        super.removeEventListeners();
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+      }
+
+      protected onOrientationChange(gameModeExist?: boolean) {
+        this.onExit();
+        super.onOrientationChange();
+        if (gameModeExist != null) {
+          this.checkGameMode(gameModeExist);
+        }
+        this.onEnter();
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this._betChipSetPanel.alpha = 0;
+        this._betChipSetPanel.visible = false;
+        this._betChipSet.alpha = 1;
+      }
+
+      // check if game mode btn (e.g. BA) is selected when orientation
+      protected checkGameMode(value: boolean) {}
+
+      protected changeLang() {
+        this._repeatLabel.text = i18n.t('mobile_ba_repeat');
+        this._cancelLabel.text = i18n.t('mobile_ba_clear');
+        this._doubleLabel.text = i18n.t('mobile_ba_double');
+        this._undoLabel.text = i18n.t('mobile_ba_undo');
       }
     }
   }

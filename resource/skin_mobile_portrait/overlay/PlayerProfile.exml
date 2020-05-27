@@ -25,13 +25,13 @@
 				<e:Label id="_following" text="Label" y="1731" height="72" right="96" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle"/>
 				<e:Label id="_favouriteDealer" text="Label" y="1846" height="72" right="96" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle"/>
 							<ui:BaseImageButton width="58" height="60" x="1087" y="710" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
-							<ui:BaseImageButton width="57" height="58" x="1088" y="831" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
+							<ui:BaseImageButton id="_btn_reload_player_profile" width="57" height="58" x="1088" y="831" skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
 							<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="55.00000000000001" width="1000" height="119" verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1"/>
             </e:Group>
             <e:Group id="_section_iconSelect" x="1242" width="1242" height="2155" y="0">
                 <e:Image id="_sectionBackIcon" width="30" height="54" x="51" y="87"
                           source="m_common_btn_previous_png"/>
-                <e:Label text="設定頭像" y="53" size="80" height="119"  textAlign="center" textColor="0xce925e" verticalAlign="middle" x="121"/>
+                <e:Label id="_txt_iconsetting" text="設定頭像" y="53" size="80" height="119"  textAlign="center" textColor="0xce925e" verticalAlign="middle" x="121"/>
                 <ui:Scroller id="_iconScroller" height="1445" width="1050"  x="96" y="316">
 									<e:List id="_iconList">
                                     <e:layout><e:TileLayout requestedColumnCount="3" horizontalGap="68" verticalGap="91"/></e:layout>

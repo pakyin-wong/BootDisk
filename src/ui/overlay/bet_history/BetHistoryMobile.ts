@@ -2,14 +2,20 @@ namespace we {
   export namespace overlay {
     export class BetHistoryMobile extends BetHistory {
       protected _btn_date: ui.BaseButton;
+      protected _btn_search: ui.BaseImageButton;
       protected _scroller: eui.Scroller;
       protected _detail: betHistory.BetHistoryDetail;
+      protected _search: betHistory.BetHistorySearch;
 
       protected _getFlag: boolean = false;
       protected _getLock: boolean = false;
 
       protected mount() {
         super.mount();
+        this.initBetHistoryMobile();
+      }
+
+      protected initBetHistoryMobile() {
         utils.DropdownCreator.new({
           toggler: this._btn_searchType,
           review: this._btn_searchType.label,
@@ -35,11 +41,13 @@ namespace we {
 
         // this._scroller.scrollPolicyV = eui.ScrollPolicy.ON;
         this._scroller.verticalScrollBar.skinName = utils.getSkinByClassname('ScrollBarVertical');
+        this.addListeners();
       }
 
       protected addListeners() {
         super.addListeners();
         this._btn_date.addEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
+        this._btn_search.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSearch, this);
         this._scroller.addEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
         this._scroller.addEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
         this._datagroup.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
@@ -48,6 +56,7 @@ namespace we {
       protected removeListeners() {
         super.removeListeners();
         this._btn_date.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onDateDropdownSelected, this);
+        this._btn_search.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSearch, this);
         this._scroller.removeEventListener(egret.Event.CHANGE, this.onScrollerChange, this);
         this._scroller.removeEventListener(eui.UIEvent.CHANGE_END, this.onScrollerChangeEnd, this);
         this._datagroup.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
@@ -108,15 +117,30 @@ namespace we {
       }
 
       protected scrollUpdate(res: any) {
-        this.total = Math.ceil(res.total / this._limit);
-        this._page = Math.floor(res.offset / this._limit) + 1;
-        this._dataColl.replaceAll(this._dataColl.source.concat(res.history));
-        this._getLock = false;
+        if (res.error) {
+          // TODO: handle error if bet history is not available
+        } else {
+          this.total = Math.ceil(res.total / this._limit);
+          this._page = Math.floor(res.offset / this._limit) + 1;
+          this._dataColl.replaceAll(this._dataColl.source.concat(res.history));
+          this._getLock = false;
+        }
       }
 
       protected onClickResult(e) {
         this._detail.dataChanged(this._dataColl.source[e.itemIndex]);
         this._detail.show();
+      }
+
+      protected onClickSearch(e) {
+        this._search.show();
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.initBetHistory();
+        this.initBetHistoryMobile();
+        this.addListeners();
       }
     }
   }

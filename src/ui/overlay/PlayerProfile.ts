@@ -18,17 +18,23 @@ namespace we {
       private _txt_follower: ui.RunTimeLabel;
       private _txt_following: ui.RunTimeLabel;
       private _txt_favouriteDealer: ui.RunTimeLabel;
-
+      // new add
+      private _txt_title: ui.RunTimeLabel;
+      private _txt_iconsetting: ui.RunTimeLabel;
       private _section_iconSelect: eui.Group;
 
       private _sectionBackIcon: eui.Image;
 
+      private _btn_reload_player_profile: ui.BaseImageButton;
+
       private _iconScroller: we.ui.Scroller;
       private _iconListData: eui.ArrayCollection;
       private _iconList: eui.List;
+
       private _iconGaySize = 10;
 
       public constructor(skin = null) {
+        // super('PlayerProfile');
         super(skin);
 
         this._iconListData = new eui.ArrayCollection([
@@ -39,14 +45,23 @@ namespace we {
         ]);
       }
 
-      protected mount() {
-        super.mount();
+      // protected mount() {
+      //   super.mount();
+      //   this.initPlayerProfile();
+      //   // dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChangePlayerProfile, this);
+      // }
 
+      protected initPlayerProfile() {
         this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
         this._txt_maxWinCount.renderText = () => `${i18n.t('playerprofile_maxWinCount')}`;
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
+        if (env.isMobile) {
+          this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
+          this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
+          this._txt_iconsetting.renderText = () => `${i18n.t('playerprofile_iconsetting')}`;
+        }
 
         // create mask
         const shape = new egret.Shape();
@@ -61,7 +76,7 @@ namespace we {
         this._iconList.dataProvider = this._iconListData;
 
         this._iconScroller.useMiniScrollBar = true;
-
+        this.updatePlayerProfileSummary();
         this.addListeners();
       }
 
@@ -71,11 +86,13 @@ namespace we {
       }
 
       private addListeners() {
+        this._btn_reload_player_profile.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
         this._playerIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         this._sectionBackIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
       }
 
       private removeListeners() {
+        this._btn_reload_player_profile.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
         this._playerIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
         this._sectionBackIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
       }
@@ -97,6 +114,29 @@ namespace we {
         egret.Tween.get(this._section_main).to({ $x: 0 }, 200);
         egret.Tween.get(this._section_iconSelect).to({ $x: this._section_iconSelect.width }, 200);
       }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this.initPlayerProfile();
+      }
+
+      protected updatePlayerProfileSummary() {
+        dir.socket.getPlayerProfileSummary((data: any) => {
+          this.updatePlayerProfile(data);
+        });
+      }
+
+      protected updatePlayerProfile(data) {
+        if (data.error) {
+          this._maxWinAmount.text = '-';
+          this._maxWinCount.text = '-';
+        } else {
+          const { maxwin, winningstreak } = data;
+          this._maxWinAmount.text = maxwin;
+          this._maxWinCount.text = winningstreak;
+        }
+      }
+
     }
   }
 }

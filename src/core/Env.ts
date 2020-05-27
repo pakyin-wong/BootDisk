@@ -2,6 +2,8 @@
 namespace we {
   export namespace core {
     export class Env {
+      public readonly chipImageLimit = 11;
+
       private static _env: Env;
 
       public static get Instance(): Env {
@@ -12,7 +14,8 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.3.2';
+      public version: string = '0.5.0';
+      public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
@@ -25,7 +28,8 @@ namespace we {
       public language: string;
       public voice: string = 'mandarin';
       public bgm = 1;
-      public betLimits: data.BetLimit[];
+      public betLimits: data.BetLimitSet[];
+      public wholeDenomList: number[];
       public goodRoadData: data.GoodRoadMapData;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
@@ -125,7 +129,8 @@ namespace we {
           }
 
           const gameType = tableInfo.gametype;
-          if (gameType === core.GameType.DI || gameType === core.GameType.LW) {
+          const validGameTypes = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
+          if (validGameTypes.indexOf(gameType) < 0) {
             tableInfo.displayReady = false;
             return false;
           }
@@ -145,6 +150,34 @@ namespace we {
         }
         return null;
       }
+      public getWholeDenomMap() {
+        if (!env) {
+          return;
+        }
+        if (!env.betLimits) {
+          return;
+        }
+        const denomMap = {};
+        let chipIndex = 0;
+        env.betLimits.map(limit => {
+          limit.chips.map(chipValue => {
+            if (!denomMap[chipValue]) {
+              if (this.chipImageLimit > chipIndex) {
+                denomMap[chipValue] = chipIndex;
+                chipIndex++;
+              } else {
+                denomMap[chipValue] = this.chipImageLimit - 1;
+              }
+            }
+          });
+        });
+        /*
+        currDenomlist.map((chipValue, chipIndex) => {
+          denomMap[chipValue] = chipIndex;
+        });
+        */
+        return denomMap;
+      }
 
       public gotoScene(tableId: string) {
         const gameType = env.tableInfos[tableId].gametype;
@@ -153,6 +186,9 @@ namespace we {
           case core.GameType.BAS:
           case core.GameType.BAI:
             dir.sceneCtr.goto('ba', { tableid: tableId });
+            break;
+          case core.GameType.BAM:
+            dir.sceneCtr.goto('bam', { tableid: tableId });
             break;
           case core.GameType.DT:
             dir.sceneCtr.goto('dt', { tableid: tableId });
@@ -165,6 +201,9 @@ namespace we {
             break;
           case core.GameType.LW:
             dir.sceneCtr.goto('lw', { tableid: tableId });
+            break;
+          case core.GameType.ROL:
+            dir.sceneCtr.goto('rol', { tableid: tableId });
             break;
           default:
             logger.e(`Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);

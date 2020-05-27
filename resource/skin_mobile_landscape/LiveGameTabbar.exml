@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.LiveGameTabbar" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="background" left="0" right="0" top="0" bottom="0"/>
+	<e:Scroller scrollPolicyH="off" left="0" right="0" top="0" bottom="0">
+			<ui:List id="tabBar" horizontalCenter="0">
+				<e:layout>
+				<e:VerticalLayout gap="0" horizontalAlign="center"/>
+				</e:layout>
+			</ui:List>
+	</e:Scroller>
+</e:Skin>

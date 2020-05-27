@@ -1,11 +1,11 @@
 namespace we {
   export namespace core {
     export class BaseScene extends BaseEUI {
-      public static HEADER_PLACEMENT_RIGHT: string = 'right';
-      public static HEADER_PLACEMENT_LEFT: string = 'left';
+      public static HEADER_PLACEMENT_LOBBY: string = 'Lobby';
+      public static HEADER_PLACEMENT_GAME: string = 'Game';
 
       public sceneHeader: egret.Sprite = new egret.Sprite();
-      public sceneHeaderPlacement: string = BaseScene.HEADER_PLACEMENT_RIGHT;
+      public sceneHeaderPlacement: string = BaseScene.HEADER_PLACEMENT_GAME;
 
       protected _header: egret.DisplayObjectContainer;
 
@@ -24,8 +24,25 @@ namespace we {
       public async onFadeExit() {}
 
       protected mount() {
+        super.mount();
+      }
+
+      protected initComponents() {
+        super.initComponents();
+        // this._header && this.sceneHeader.addChild(this._header);
+      }
+
+      protected clearOrientationDependentComponent() {
+        this.sceneHeader.removeChildren();
+      }
+
+      protected initOrientationDependentComponent() {
         this._header && this.sceneHeader.addChild(this._header);
       }
+
+      // protected mount() {
+      //   this._header && this.sceneHeader.addChild(this._header);
+      // }
 
       protected destroy() {
         super.destroy();

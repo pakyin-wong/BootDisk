@@ -35,7 +35,7 @@ namespace we {
       protected renderGrid() {}
 
       // override for base class
-      protected initRoadData() {
+      public initRoadData() {
         const n = this.numCol * this.numRow;
         let iconIndex = 0;
         this.roadMapIconList = new Array<ROBeadRoadIcon>();
@@ -44,7 +44,8 @@ namespace we {
           icon.setByObject({});
           icon.x = (this.gridSize / this.gridUnit + this.xOffset) * (iconIndex % this.numCol);
           icon.y = (this.gridSize / this.gridUnit + this.yOffset) * Math.floor(iconIndex / this.numCol);
-          this.addChild(icon);
+          // this.addChild(icon);
+          icon.addToLayer(this._shapeLayer, this._textLayer);
           this.roadMapIconList.push(icon);
           iconIndex++;
         }

@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
-    export class NotificationController extends core.BaseEUI {
-      protected notificationList: data.Notification[];
+    export class NotificationController extends core.BaseEUI implements INotificationController {
+      public notificationList: data.Notification[];
       // protected notificationHolders: NotificationHolder[];
 
       public listDisplay: ui.List;
@@ -107,6 +107,7 @@ namespace we {
         this._activeNotificationCount[typeStr] -= 1;
         this._activeNotificationCount.total -= 1;
       }
+
       protected showNotification(type: number) {
         const typeStr = utils.EnumHelpers.getKeyByValue(core.NotificationType, type);
         this._activeNotificationCount[typeStr] += 1;
@@ -115,7 +116,7 @@ namespace we {
 
       public showNextNotification() {
         // check if there is empty holder
-        if (!this.hasAvailableHolder) {
+        if (!this.hasAvailableHolder()) {
           return;
         }
         const notification = this.nextNotification;

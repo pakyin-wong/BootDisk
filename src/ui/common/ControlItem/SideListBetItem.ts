@@ -23,17 +23,20 @@ namespace we {
       }
 
       protected initComponents() {
-        super.initComponents();
         this._dimmer.visible = false;
         this.generateTableLayer();
         this.generateChipLayer();
         this.generateResultMessage();
         this.generateResultDisplay();
+
+        super.initComponents();
       }
 
       protected generateTableLayer() {
         if (this.itemInitHelper) {
           this._tableLayer = this.itemInitHelper.generateTableLayer(this._tableLayerNode);
+          this._tableLayer.touchEnabled = false;
+          this._tableLayer.touchChildren = false;
         }
       }
 
@@ -85,11 +88,14 @@ namespace we {
           if (this._resultMessage) {
             this._resultMessage[att] = this._resultMessageNode[att];
           }
+          if (this._cardHolder) {
+            this._cardHolder[att] = this._resultDisplayNode[att];
+          }
         }
       }
 
       protected initDenom() {
-        const denomList = env.betLimits[this.getSelectedBetLimitIndex()].chipList;
+        const denomList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
         if (this._betChipSet) {
           this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
           this._betChipSet.init(null, denomList);
@@ -105,8 +111,8 @@ namespace we {
         this._originalQuickBetButtonY = 85;
         this._targetQuickbetPanelY = 154;
         this._originalQuickBetPanelY = 0;
-        this._offsetLimit = 650;
-        this._offsetMovement = 550;
+        this._offsetLimit = 10000;
+        this._offsetMovement = 0;
         this._hoverScale = 1;
       }
 
@@ -184,6 +190,7 @@ namespace we {
         super.animateQuickBetButton(show);
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
+          this._quickbetButton.y = this._targetQuickBetButtonY;
           egret.Tween.get(this._quickbetButton).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
           egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250);
@@ -195,6 +202,8 @@ namespace we {
         egret.Tween.get(this._quickbetButton).to({ alpha: 1 }, 250);
         this._betChipSetGridEnabled = false;
         this._betEnabled = false;
+        this._quickbetButton.touchEnabled = true;
+        this._quickbetButton.touchChildren = true;
         this._chipLayer.setTouchEnabled(this._betEnabled);
         this.hideBetChipPanel();
         super.hideQuickBetGroup();
@@ -205,6 +214,9 @@ namespace we {
         egret.Tween.get(this._quickbetButton).to({ alpha: 0 }, 250);
         this._betChipSetGridEnabled = true;
         this._betEnabled = true;
+        this._quickbetButton.touchEnabled = false;
+        this._quickbetButton.touchChildren = false;
+
         this._chipLayer.setTouchEnabled(this._betEnabled);
         super.showQuickBetGroup();
       }

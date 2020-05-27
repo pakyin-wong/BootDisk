@@ -36,6 +36,11 @@ namespace we {
         dir.evtHandler.$addListener(core.Event.TOGGLE_SILDER_MENU, this.onToggle, this);
       }
 
+      protected destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.TOGGLE_SILDER_MENU, this.onToggle, this);
+      }
+
       protected onToggle(e: egret.Event) {
         this.show();
       }

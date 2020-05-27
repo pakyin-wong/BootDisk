@@ -48,7 +48,29 @@ namespace we {
         this.betTableList.isFreezeScrolling = true;
         this.betTableList.extendHeight = 400;
         this.betTableList.isAnimateItemTransition = true;
-        this.betTableList.itemRenderer = SideListBetItemHolder;
+        // this.betTableList.itemRenderer = SideListBetItemHolder;
+        this.betTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.SideListBetItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.SideListBetItemHolder;
+            case we.core.GameType.DI:
+              return di.SideListBetItemHolder;
+            case we.core.GameType.LW:
+              return lw.SideListBetItemHolder;
+            case we.core.GameType.DT:
+              return dt.SideListBetItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
         this.betTableList.layout = this.getLayout();
         scroller.viewport = this.betTableList;
 
@@ -66,7 +88,30 @@ namespace we {
         this.goodRoadTableList.isFreezeScrolling = true;
         this.goodRoadTableList.extendHeight = 400;
         this.goodRoadTableList.isAnimateItemTransition = true;
-        this.goodRoadTableList.itemRenderer = SideListItemHolder;
+        // this.goodRoadTableList.itemRenderer = SideListItemHolder;
+        this.goodRoadTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.SideListItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.SideListItemHolder;
+            case we.core.GameType.DI:
+              return di.SideListItemHolder;
+            case we.core.GameType.LW:
+              return lw.SideListItemHolder;
+            case we.core.GameType.DT:
+              return dt.SideListItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
+
         this.goodRoadTableList.layout = this.getLayout();
         scroller.viewport = this.goodRoadTableList;
 
@@ -84,7 +129,31 @@ namespace we {
         this.allTableList.isFreezeScrolling = true;
         this.allTableList.extendHeight = 400;
         this.allTableList.isAnimateItemTransition = true;
-        this.allTableList.itemRenderer = SideListItemHolder;
+        // this.allTableList.itemRenderer = SideListItemHolder;
+
+        this.allTableList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            //  switch (0) {
+            case we.core.GameType.BAC:
+            case we.core.GameType.BAI:
+            case we.core.GameType.BAS:
+            case we.core.GameType.BAM:
+              return ba.SideListItemHolder;
+            case we.core.GameType.RO:
+            case we.core.GameType.ROL:
+              return ro.SideListItemHolder;
+            case we.core.GameType.DI:
+              return di.SideListItemHolder;
+            case we.core.GameType.LW:
+              return lw.SideListItemHolder;
+            case we.core.GameType.DT:
+              return dt.SideListItemHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
+
         this.allTableList.layout = this.getLayout();
         allTableGroup.addChild(this.allTableList);
         scroller.viewport = this.allTableList;
@@ -105,6 +174,7 @@ namespace we {
         layout.paddingTop = 20;
         layout.paddingBottom = 20;
         layout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        layout.useVirtualLayout = true;
         return layout;
       }
 
@@ -203,6 +273,14 @@ namespace we {
       }
 
       protected onClearSelection() {
+        if (!this._dropdown.isCollapsed()) {
+          // ============================================
+          this._dropdown.toggle();
+          //  egret.Tween.removeTweens(this._dropdown);
+          //   egret.Tween.get(this._dropdown)
+          //   .to({ height: 0 }, 200)
+          // ============================================
+        }
         super.onClearSelection();
         egret.Tween.removeTweens(this._bg);
         egret.Tween.get(this._bg).to({ alpha: 0 }, 200);

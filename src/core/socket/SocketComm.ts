@@ -28,6 +28,12 @@ namespace we {
         if (dir.config.rabbitmqprotocol) {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
+        if (dir.config.rabbitmqvirtualhost) {
+          options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
+        }
+        if (dir.config.path){
+          options.path = dir.config.path;
+        }
 
         if (env.isMobile) {
           options.layout = 'mobile_web';
@@ -38,6 +44,14 @@ namespace we {
         this.client = new PlayerClient(options);
 
         logger.l('MQTTSocketComm is created', this.client);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        // this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+      }
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        // this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
       }
 
       protected subscribeEvents() {
@@ -56,46 +70,65 @@ namespace we {
 
       public onError(value: any) {
         logger.l('PlayerClient::onError ', value);
-        dir.errHandler.handleError(value);
+        if (value.action !== 'retry' || value.method === 'getBalance' || value.method === 'getTableList' || value.method === 'updateSetting') {
+          dir.errHandler.handleError(value);
+        }
         // console.dir(value);
       }
 
       // Good Road
       public getGoodRoad() {
-        this.client.getRoadmap(this._goodRoadUpdateCallback);
+        this.client.getRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
       public updateCustomGoodRoad(id: string, data: any) {
-        this.client.updateCustomRoadmap(id, data, this._goodRoadUpdateCallback);
+        this.client.updateCustomRoadmap(id, data, this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
       public updateDefaultGoodRoad(ids: string[]) {
-        this.client.updateDefaultRoadmap(ids, this._goodRoadUpdateCallback);
+        this.client.updateDefaultRoadmap(ids, this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
       public createGoodRoad(name: string, pattern: string) {
-        this.client.createCustomRoadmap(name, pattern, this._goodRoadUpdateCallback);
+        this.client.createCustomRoadmap(name, pattern, this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
       public removeGoodRoadmap(id: string) {
-        this.client.removeCustomRoadmap(id, this._goodRoadUpdateCallback);
+        this.client.removeCustomRoadmap(id, this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
       public resetGoodRoadmap() {
-        this.client.resetRoadmap(this._goodRoadUpdateCallback);
+        this.client.resetRoadmap(this.warpServerCallback(this._goodRoadUpdateCallback));
       }
 
       private _goodRoadUpdateCallback(data: any) {
-        env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
+        if (!data.error) {
+          // if the data is an error, do not update the data
+          env.goodRoadData = ba.GoodRoadParser.CreateGoodRoadMapDataFromObject(data);
+        }
         dir.evtHandler.dispatch(core.Event.GOOD_ROAD_DATA_UPDATE);
       }
 
       public getStaticInitData(callback: (res: any) => void, thisArg) {
-        this.client.init(env.language, callback.bind(thisArg));
+        this.client.init(env.language, this.warpServerCallback(callback.bind(thisArg)));
       }
 
       public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
-        this.client.getLobbyMaterial(callback);
+        if (dir.config.resource && dir.config.resource === 'local') {
+          callback({
+            logourl: '', // logo image url
+            homeherobanners: [],
+            homelargebanners: [],
+            homebanners: [],
+            liveherobanners: [],
+            lotteryherobanners: [],
+            egameherobanners: [],
+            favouriteherobanners: [],
+            messages: [],
+          });
+        } else {
+          this.client.getLobbyMaterial(this.warpServerCallback(callback));
+        }
       }
 
       public updateSetting(key: string, value: string) {
@@ -104,9 +137,11 @@ namespace we {
 
       public connect() {
         this.subscribeEvents();
-        this.client.connect(err => {
-          this.onConnectError(err);
-        });
+        this.client.connect(
+          this.warpServerCallback(err => {
+            this.onConnectError(err);
+          })
+        );
       }
 
       protected onConnectError(err) {
@@ -130,7 +165,7 @@ namespace we {
                 currency: Currency.RMB,
                 maxlimit: 1000,
                 minlimit: 10,
-                chipList: [1, 5, 20, 100, 500],
+                chips: [1, 5, 20, 100, 500],
                 // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
               },
             ];
@@ -138,6 +173,20 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
+
+        /*
+        let denominationList = [];
+        for (const betLimit of env.betLimits) {
+          denominationList.push(...betLimit.chips);
+        }
+        denominationList = denominationList
+          .filter((v, i) => denominationList.indexOf(v) === i)
+          .sort((a, b) => {
+            return a < b ? -1 : 1;
+          });
+        env.wholeDenomList = denominationList;
+        */
+
         env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
         if (player.profile.categoryorders) {
           env.categorySortOrder = player.profile.categoryorders;
@@ -336,18 +385,38 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(tableid);
 
+        /*
+        if (gameStatistic) {
+          if (gameStatistic.statistic) {
+            console.log('SocketComm::onGameStatisticUpdate');
+            console.log(tableid);
+            console.log(gameStatistic.statistic);
+          }
+        }
+        */
+
+        function getStatistic(field: string) {
+          return gameStatistic.statistic[field] ? gameStatistic.statistic[field] : 0;
+        }
+
         switch (gameStatistic.gametype) {
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.DT: {
             const roadmapData = parseAscString(gameStatistic.roadmapdata);
-            const bankerCount: number = gameStatistic.statistic.bankerwincount ? gameStatistic.statistic.bankerwincount : 0;
-            const playerCount: number = gameStatistic.statistic.playerwincount ? gameStatistic.statistic.playerwincount : 0;
-            const tieCount: number = gameStatistic.statistic.tiewincount ? gameStatistic.statistic.tiewincount : 0;
-            const playerPairCount: number = gameStatistic.statistic.playerpairwincount ? gameStatistic.statistic.playerpairwincount : 0;
-            const bankerPairCount: number = gameStatistic.statistic.bankerpairwincount ? gameStatistic.statistic.bankerpairwincount : 0;
+            const bankerCount: number = getStatistic('bankerwincount');
+            const playerCount: number = getStatistic('playerwincount');
+            const tieCount: number = getStatistic('tiewincount');
+            const playerPairCount: number = getStatistic('playerpairwincount');
+            const bankerPairCount: number = getStatistic('bankerpairwincount');
             const totalCount: number = bankerCount + playerCount + tieCount;
+            const shoeBankerPairCount: number = getStatistic('shoebankerpairwincount');
+            const shoeBankerCount: number = getStatistic('shoebankerwincount');
+            const shoePlayerPairCount: number = getStatistic('shoeplayerpairwincount');
+            const shoePlayerCount: number = getStatistic('shoeplayerwincount');
+            const shoeTieCount: number = getStatistic('shoetiewincount');
+            const shoeTotalCount: number = shoeBankerCount + shoePlayerCount + shoeTieCount;
 
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(roadmapData);
 
@@ -358,21 +427,52 @@ namespace we {
             stats.playerPairCount = playerPairCount;
             stats.bankerPairCount = bankerPairCount;
             stats.totalCount = totalCount;
+            stats.shoeTieCount = shoeTieCount;
+            stats.shoePlayerPairCount = shoePlayerPairCount;
+            stats.shoePlayerCount = shoePlayerCount;
+            stats.shoeBankerPairCount = shoeBankerPairCount;
+            stats.shoeBankerCount = shoeBankerCount;
+            stats.shoeTotalCount = shoeTotalCount;
 
             tableInfo.gamestatistic = stats;
             break;
           }
-          case core.GameType.RO:
-          case core.GameType.DI:
-          case core.GameType.LW:
-          default: {
+          case core.GameType.RO: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
             const stats = new we.data.GameStatistic();
-            stats.coldNumbers = gameStatistic.statistic.cold;
-            stats.hotNumbers = gameStatistic.statistic.hot;
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.roOdd = getStatistic('odd');
+            stats.roRed = getStatistic('red');
+            stats.roSmall = getStatistic('small');
+            stats.roShoeOdd = getStatistic('shoeodd');
+            stats.roShoeRed = getStatistic('shoered');
+            stats.roShoeSmall = getStatistic('shoesmall');
+            tableInfo.gamestatistic = stats;
+
+            break;
+          }
+          case core.GameType.DI: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.diOdd = getStatistic('odd');
+            stats.diSize = getStatistic('size');
+            stats.points = getStatistic('points');
+            tableInfo.gamestatistic = stats;
+            break;
+          }
+          case core.GameType.LW:
+          default: {
+            const stats = new we.data.GameStatistic();
+            stats.totalCount = getStatistic('totalCount');
             tableInfo.gamestatistic = stats;
             break;
           }
@@ -571,9 +671,17 @@ namespace we {
               amount: data.amount,
             };
           });
-        this.client.bet(tableID, betCommands, result => {
-          this.betResultCallback(result);
-        });
+        this.client.bet(
+          tableID,
+          betCommands,
+          this.warpServerCallback(result => {
+            if (result.error) {
+              // TODO: handle error on cancel
+            } else {
+              this.betResultCallback(result);
+            }
+          })
+        );
         logger.l('Placed bet');
       }
 
@@ -583,6 +691,7 @@ namespace we {
       }
 
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
+        /*
         console.log(
           'SocketComm::createCustomBetCombination title/betOptions ',
           title,
@@ -590,28 +699,46 @@ namespace we {
             return { field: value.betcode, amount: value.amount };
           })
         );
+        */
         this.client.createBetTemplate(
           title,
           betOptions.map(value => {
             return { field: value.betcode, amount: value.amount };
           }),
-          (data: any[]) => {
-            dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-          }
+          this.warpServerCallback((data: any) => {
+            if (!data.error) {
+              // TODO: handle error on cancel
+            } else {
+              dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
         );
       }
 
       public getBetCombination() {
-        this.client.getBetTemplate((data: any[]) => {
-          console.log('SocketComm::getBetCombination data ', data);
-          dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-        });
+        this.client.getBetTemplate(
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO:  handle error on cancel
+            } else {
+              // console.log('SocketComm::getBetCombination data ', data);
+              dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
       }
 
       public removeBetCombination(id: string) {
-        this.client.removeBetTemplate(id, (data: any[]) => {
-          dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-        });
+        this.client.removeBetTemplate(
+          id,
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO:  handle error on cancel
+            } else {
+              dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
       }
 
       public getTableHistory() {}
@@ -674,7 +801,39 @@ namespace we {
       }
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
-        this.client.getBetHistory(filter, callback.bind(thisArg));
+        this.client.getBetHistory(filter, this.warpServerCallback(callback.bind(thisArg)));
+      }
+
+      public warpServerCallback(callback: any) {
+        return data => {
+          if (data.error) {
+            // if data is an error
+            if (!data.args) {
+              console.error('Missing Arguments on retry.');
+              callback(data);
+              return;
+              // data.args = [];
+            }
+            data.args.push(callback);
+            dir.errHandler.handleError(data);
+          } else {
+            // data is a result
+            callback(data);
+          }
+        };
+      }
+
+      public retryPlayerClient(functionName: string, args: any[]) {
+        // switch (functionName.toLowerCase()) {
+        //   case 'removecustomroadmap':
+        //   case 'updatecustomroadmap':
+        //     args.push(this._goodRoadUpdateCallback);
+        //     break;
+        // }
+        const callback = args.splice(args.length - 1, 1)[0];
+        this.client[functionName](...args, this.warpServerCallback(callback));
+        // args.push(this.warpServerCallback(callback));
+        // this.client[functionName].apply(this, args);
       }
     }
   }

@@ -8,23 +8,34 @@ namespace we {
       private currency: core.Currency[];
       private balance_index: number;
       private mockProcesses: MockProcess[] = [];
+      protected goodRoadTableList: string[];
 
       private _tempIdx: number = 0;
+      private countforplayerprofile = 0; // check getPlayerProfileSummary work
 
       protected betCombinations: we.data.BetCombination[];
 
       protected totalTableCount = {
-        [we.core.GameType.BAC]: 3,
-        [we.core.GameType.DT]: 3,
-        [we.core.GameType.RO]: 3,
-        [we.core.GameType.DI]: 3,
-        [we.core.GameType.LW]: 0,
+        [we.core.GameType.BAC]: 5,
+        // [we.core.GameType.BAI]: 1,
+        // [we.core.GameType.BAS]: 1,
+        [we.core.GameType.DT]: 5,
+        [we.core.GameType.RO]: 5,
+        [we.core.GameType.DI]: 5,
+        [we.core.GameType.LW]: 5,
+        [we.core.GameType.BAM]: 1,
+        [we.core.GameType.ROL]: 1,
       };
 
       constructor() {
+        // For the update event
         this.currency = [core.Currency.EUR, core.Currency.JPY, core.Currency.RMB, core.Currency.HKD];
         this.balances = [3000, 6000, 99999999999999, 2000];
         this.balance_index = 0;
+        // end
+
+        env.balance = 2800000;
+        env.currency = core.Currency.RMB;
 
         this.tables = Object.keys(this.totalTableCount).reduce((tables, key) => [...tables, ...this.createMockGameTable(key)], []);
 
@@ -41,16 +52,42 @@ namespace we {
         ];
         this.betCombinations.push(betCombination);
 
+        /*
         setInterval(() => {
           // mock error
           if (Math.random() > 0.9) {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
-        }, 5000);
+        }, 5000);*/
+        this.goodRoadTableList = [];
+        setInterval(() => {
+          this.onGoodRoadMatch();
+        }, 6000);
+      }
+
+      public getBalance() {}
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        const data = new we.data.PlayerStatistic();
+        const tempbet = 10100;
+        const tempwinloss = 2000;
+        data.bet = tempbet;
+        data.winloss = tempwinloss;
+        callback(data);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        const data = new we.data.PlayerProfileSummary();
+        const tempMaxwin = 100100;
+        const tempwinningstreak = 10;
+        data.maxwin = tempMaxwin;
+        data.winningstreak = tempwinningstreak + this.countforplayerprofile;
+        this.countforplayerprofile += 1;
+        callback(data);
       }
 
       protected generateDummyStatistic(data) {
-        if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC) {
+        if (data.gametype === core.GameType.DT || data.gametype === core.GameType.BAC || data.gametype === core.GameType.BAM) {
           let bankerCount: number = 0;
           let playerCount: number = 0;
           let tieCount: number = 0;
@@ -83,7 +120,7 @@ namespace we {
           stats.totalCount = totalCount;
 
           return stats;
-        } else if (data.gametype === core.GameType.RO) {
+        } else if (data.gametype === core.GameType.RO || data.gametype === core.GameType.ROL) {
           const stats = new we.data.GameStatistic();
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
@@ -92,6 +129,10 @@ namespace we {
           const stats = new we.data.GameStatistic();
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
+
+          stats.diOdd = { odd: 19, even: 40, tie: 8 };
+          stats.diSize = { big: 27, small: 32, tie: 8 };
+          stats.points = [4, 2, 7, 11, 5, 2];
           return stats;
         }
       }
@@ -133,6 +174,38 @@ namespace we {
             });
             break;
           }
+          case we.core.GameType.BAM: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockBARoadData);
+              data.gametype = core.GameType.BAM;
+
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessBaccaratSqueeze(this, core.GameType.BAM);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
+          }
           case we.core.GameType.RO: {
             tables = Array.apply(null, { length: count }).map((value, idx) => {
               const data = new we.data.TableInfo();
@@ -153,6 +226,38 @@ namespace we {
 
               data.bets = [];
               const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
+          }
+          case we.core.GameType.ROL: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
+              data.gametype = core.GameType.ROL;
+
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessRouletteWealth(this, core.GameType.ROL);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;
@@ -227,6 +332,7 @@ namespace we {
               idx++;
               return data;
             });
+            break;
           }
           case we.core.GameType.LW: {
             tables = Array.apply(null, { length: count }).map((value, idx) => {
@@ -258,10 +364,13 @@ namespace we {
               idx++;
               return data;
             });
+            break;
           }
+
           default:
             break;
         }
+
         return tables;
       }
 
@@ -293,10 +402,38 @@ namespace we {
             currency: Currency.RMB,
             maxlimit: 100000,
             minlimit: 100,
-            chipList: [100, 500, 2000, 10000, 50000],
+            chips: [100, 500, 2000, 10000, 50000],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+          },
+          {
+            currency: Currency.RMB,
+            maxlimit: 100000,
+            minlimit: 2000,
+            chips: [2000, 10000, 30000, 40000, 50000],
+            // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+          },
+          {
+            currency: Currency.RMB,
+            maxlimit: 500000,
+            minlimit: 5000,
+            chips: [5000, 10000, 200000, 300000, 500000],
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];
+
+        /*
+        let denominationList = [];
+        for (const betLimit of env.betLimits) {
+          denominationList.push(...betLimit.chips);
+        }
+        denominationList = denominationList
+          .filter((v, i) => denominationList.indexOf(v) === i)
+          .sort((a, b) => {
+            return a < b ? -1 : 1;
+          });
+        env.wholeDenomList = denominationList;
+        */
+
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
@@ -332,10 +469,12 @@ namespace we {
       public leaveTable(tableID: string) {}
 
       public getTableList(filter: string) {
+        /*
         setInterval(() => {
           this.balanceEvent(this);
           dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
         }, 6000);
+        */
 
         setTimeout(() => {
           this.dispatchListUpdateEvent();
@@ -353,6 +492,10 @@ namespace we {
 
       public getGoodRoad() {
         this._goodRoadUpdateCallback(this.mockGoodRoadMapData);
+      }
+
+      public retryPlayerClient(functionName: string, args: any[]) {
+        logger.l('retryPlayerClient', functionName, args);
       }
 
       public updateCustomGoodRoad(id: string, data: any) {
@@ -421,6 +564,9 @@ namespace we {
         });
       }
 
+      /*
+        Not in use
+      */
       public balanceEvent(myObj: any) {
         if (myObj.balance_index < myObj.balances.length) {
           env.balance = myObj.balances[myObj.balance_index];
@@ -750,6 +896,14 @@ namespace we {
 
               isMatch = true;
               cfmBetDetail.amount += betDetail.amount;
+              env.balance -= betDetail.amount;
+              dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+              if (data.gametype === core.GameType.BAC) {
+                const total = { tableid: tableID, amount: { [cfmBetDetail.field]: cfmBetDetail.amount }, count: { [cfmBetDetail.field]: 1000 } };
+                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+              }
+
               break;
             }
           }
@@ -762,13 +916,65 @@ namespace we {
               winamount: 0,
               iswin: 0,
             });
+            env.balance -= betDetail.amount;
+            dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+            if (data.gametype === core.GameType.BAC) {
+              const total = { tableid: tableID, amount: { [betDetail.field]: betDetail.amount }, count: { [betDetail.field]: 1000 } };
+              dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+            }
           }
         }
+        data.data.previousstate = we.core.GameState.BET;
         this.dispatchInfoUpdateEvent(data);
         this.dispatchBetResultEvent();
         this.dispatchBetInfoUpdateEvent(data);
 
         // return promise.resolve with BetResult
+      }
+
+      private onGoodRoadMatch() {
+        // random get a ba table
+        const baTables = this.tables.filter(tableinfo => {
+          return tableinfo.gametype === core.GameType.BAC;
+        });
+        const idx = Math.floor(Math.random() * baTables.length);
+        const tableInfo = baTables[idx];
+        // update ba table good road match data
+        const goodRoadData: data.GoodRoadData = {
+          roadmapid: '1',
+          name: '好路',
+          custom: true,
+          tableid: tableInfo.tableid,
+        };
+        if (!tableInfo.goodRoad) {
+          this.goodRoadTableList.push(tableInfo.tableid);
+        }
+        tableInfo.goodRoad = goodRoadData;
+
+        const data = {
+          tableid: tableInfo.tableid,
+        };
+        const notification: data.Notification = {
+          type: core.NotificationType.GoodRoad,
+          data,
+        };
+        dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+
+        // dispatch match event
+        dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
+        this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        // set timeout to reset the good road match data
+        setTimeout(() => {
+          tableInfo.goodRoad = null;
+          const idx = this.goodRoadTableList.indexOf(tableInfo.tableid);
+          if (idx > -1) {
+            this.goodRoadTableList.splice(idx, 1);
+          }
+          // dispatch match event
+          dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
+          this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        }, 20000);
       }
 
       private onReceivedMsg(res) {
@@ -780,57 +986,86 @@ namespace we {
       }
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
+        const tempData = [];
+        for (let i = 0; i < 20; i++) {
+          tempData.push({
+            id: 'XXXXXXXXXX',
+            datetime: 1576242221, // timestamp
+            gametype: 1, // type of the Game, GameType
+            tablename: '132', // name of the table (i.e. table number)
+            roundid: '2132131',
+            replayurl: '1232131',
+            remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+            field: 'BANKER',
+            betAmount: 200,
+            winAmount: 400,
+            prevremaining: 1231232, // balance before bet
+            endremaining: 21321321, // balance after result
+            result: {
+              a1: 'spade1', // banker 1st card
+              a2: 'spade2',
+              a3: 'spade3',
+              b1: 'spade4', // player 1st card
+              b2: 'spade5',
+              b3: '',
+              playerpoint: 6,
+              bankerpoint: 7,
+            },
+          });
+        }
         callback.call(thisArg, {
-          history: [
-            {
-              id: 'XXXXXXXXXX',
-              datetime: 1576242221, // timestamp
-              gametype: 1, // type of the Game, GameType
-              tablename: '132', // name of the table (i.e. table number)
-              roundid: '2132131',
-              replayurl: '1232131',
-              remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
-              field: 'BANKER',
-              betAmount: 200,
-              winAmount: 400,
-              prevremaining: 1231232, // balance before bet
-              endremaining: 21321321, // balance after result
-              result: {
-                a1: 'spade1', // banker 1st card
-                a2: 'spade2',
-                a3: 'spade3',
-                b1: 'spade4', // player 1st card
-                b2: 'spade5',
-                b3: '',
-                playerpoint: 6,
-                bankerpoint: 7,
-              },
-            },
-            {
-              id: 'XXXXXXXXXX',
-              datetime: 1576242221, // timestamp
-              gametype: 0, // type of the Game, GameType
-              tablename: '132', // name of the table (i.e. table number)
-              roundid: '2132131',
-              replayurl: '1232131',
-              remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
-              field: 'BANKER',
-              betAmount: 200,
-              winAmount: 400,
-              prevremaining: 1231232, // balance before bet
-              endremaining: 21321321, // balance after result
-              result: {
-                a1: 'heart2', // banker 1st card
-                a2: 'heartk',
-                a3: '',
-                b1: 'diamonda', // player 1st card
-                b2: 'diamondj',
-                b3: 'spade2',
-                playerpoint: 3,
-                bankerpoint: 1,
-              },
-            },
-          ],
+          // history: [
+          //   {
+          //     id: 'XXXXXXXXXX',
+          //     datetime: 1576242221, // timestamp
+          //     gametype: 1, // type of the Game, GameType
+          //     tablename: '132', // name of the table (i.e. table number)
+          //     roundid: '2132131',
+          //     replayurl: '1232131',
+          //     remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          //     field: 'BANKER',
+          //     betAmount: 200,
+          //     winAmount: 400,
+          //     prevremaining: 1231232, // balance before bet
+          //     endremaining: 21321321, // balance after result
+          //     result: {
+          //       a1: 'spade1', // banker 1st card
+          //       a2: 'spade2',
+          //       a3: 'spade3',
+          //       b1: 'spade4', // player 1st card
+          //       b2: 'spade5',
+          //       b3: '',
+          //       playerpoint: 6,
+          //       bankerpoint: 7,
+          //     },
+          //   },
+          //   {
+          //     id: 'XXXXXXXXXX',
+          //     datetime: 1576242221, // timestamp
+          //     gametype: 0, // type of the Game, GameType
+          //     tablename: '132', // name of the table (i.e. table number)
+          //     roundid: '2132131',
+          //     replayurl: '1232131',
+          //     remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          //     field: 'BANKER',
+          //     betAmount: 200,
+          //     winAmount: 400,
+          //     prevremaining: 1231232, // balance before bet
+          //     endremaining: 21321321, // balance after result
+          //     result: {
+          //       a1: 'heart2', // banker 1st card
+          //       a2: 'heartk',
+          //       a3: '',
+          //       b1: 'diamonda', // player 1st card
+          //       b2: 'diamondj',
+          //       b3: 'spade2',
+          //       playerpoint: 3,
+          //       bankerpoint: 1,
+          //     },
+          //   },
+          // ],
+          total: 20,
+          history: tempData,
         });
       }
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {

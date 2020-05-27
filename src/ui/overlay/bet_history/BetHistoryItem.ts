@@ -14,6 +14,8 @@ namespace we {
         private _txt_record_finbalance: eui.Label;
         private _record_result: egret.DisplayObjectContainer;
         private _btn_replay: egret.DisplayObject;
+        private _txt_record_bgcolor: eui.Rect;
+        private _txt_hover_color: eui.Rect;
 
         public constructor() {
           super();
@@ -33,6 +35,11 @@ namespace we {
           this._txt_record_id.text = this.data.betid;
           this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
           this._txt_record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
+          if (env.isMobile) {
+            this._txt_hover_color.visible = false;
+            this._txt_record_bgcolor.fillColor = 0x4b535b;
+            this._txt_record_bgcolor.fillAlpha = this.data.colorIndex === 1 ? 0.3 : 0.5;
+          }
           this._txt_record_round.text = this.data.gameroundid;
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
           this._txt_record_bettype.text = this.formatBetType(this.data.gametype, this.data.field);

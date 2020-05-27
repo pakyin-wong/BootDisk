@@ -12,16 +12,18 @@ namespace we {
         this.tableid = tableid;
       }
 
-      public setRoads(r1, leftPanel, rightPanel, resultPanel) {
+      public setRoads(r1, leftPanel, rightPanel, resultPanel, isInteractable = true) {
         this.beadRoad = r1;
 
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;
         this.resultPanel = resultPanel;
 
-        this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
-        this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
-        this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        if (this.beadRoad && isInteractable) {
+          this.beadRoad.addEventListener('RollOverResult', this.onBeadRoadOver, this);
+          this.beadRoad.addEventListener('RollOutResult', this.onBeadRoadOut, this);
+          this.beadRoad.addEventListener('ClickResult', this.onBeadRoadClick, this);
+        }
       }
 
       protected onBeadRoadOver(e: egret.Event) {

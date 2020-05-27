@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ro.MobileSettingPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="normal,race" >
+	<e:Group id="_btn_video" x="2231" y="390">
+		<e:Image source="m_ba_btn_bg_png" x="0" y="0"/>
+		<e:Image source="m_ba_btn_video_png" x="0" y="0"/>
+	</e:Group>
+	<e:Group id="_btn_chat" x="0" y="0">
+		<e:Image source="m_ba_btn_bg_png" y="0" x="0"/>
+		<e:Image source="m_ba_btn_chatroom_png"/>
+	</e:Group>
+	<e:Group id="_btn_gamelist" x="2231" y="260">
+		<e:Image source="m_ba_btn_bg_png"/>
+		<e:Image source="m_lobby_panel_gamelist_tag_icon_allgame_png" verticalCenter="0" horizontalCenter="0" width="36" height="36"/>
+	</e:Group>
+	<e:Group id="_btn_combination" x="0" y="260">
+		<e:Image id="_hl_combination" source="m_ba_btn_bg_hover_png" visible="false"/>
+		<e:Image source="m_ba_btn_bg_png"/>
+		<e:Image source="m_ro_btn_savelayout_png" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group id="_btn_race" x="0" y="390">
+		<e:Image includeIn="race" source="m_ba_btn_bg_hover_png"/>
+		<e:Image source="m_ba_btn_bg_png"/>
+		<e:Image source="m_ro_btn_reactack_png" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+</e:Skin>

@@ -19,9 +19,11 @@ namespace we {
 
       protected _playerTotalAmount: eui.Label;
       protected _bankerTotalAmount: eui.Label;
+      protected _superSixBankerTotalAmount: eui.Label;
 
       protected _playerTotalPerson: eui.Label;
       protected _bankerTotalPerson: eui.Label;
+      protected _superSixBankerTotalPerson: eui.Label;
 
       protected _totalPersonMapping: any; // Total Person for each grid
       protected _totalAmountMapping: any; // Total amount for each grid
@@ -31,6 +33,11 @@ namespace we {
       constructor() {
         super();
         this._betField = ba.BetField;
+        this.addEventListener(egret.Event.COMPLETE, this.onSkinChanged, this);
+      }
+
+      public onSkinChanged() {
+        console.log(this.skinName);
       }
 
       protected createMapping() {
@@ -65,10 +72,12 @@ namespace we {
         this._totalPersonMapping = {};
         this._totalPersonMapping[ba.BetField.PLAYER] = this._playerTotalPerson;
         this._totalPersonMapping[ba.BetField.BANKER] = this._bankerTotalPerson;
+        this._totalPersonMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerTotalPerson;
 
         this._totalAmountMapping = {};
         this._totalAmountMapping[ba.BetField.PLAYER] = this._playerTotalAmount;
         this._totalAmountMapping[ba.BetField.BANKER] = this._bankerTotalAmount;
+        this._totalAmountMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerTotalAmount;
 
         this._playerLabel.renderText = () => i18n.t('baccarat.player');
         this._bankerLabel.renderText = () => i18n.t('baccarat.banker');
@@ -99,7 +108,9 @@ namespace we {
         if (this._totalPersonMapping) {
           Object.keys(persons).map(value => {
             if (this._totalPersonMapping[value]) {
-              this._totalPersonMapping[value].text = persons[value];
+              if (persons[value] !== null) {
+                this._totalPersonMapping[value].text = persons[value];
+              }
             }
           });
         }
@@ -113,7 +124,7 @@ namespace we {
         if (this._totalAmountMapping) {
           Object.keys(amounts).map(value => {
             if (this._totalAmountMapping[value]) {
-              this._totalAmountMapping[value].text = amounts[value];
+              this._totalAmountMapping[value].text = amounts[value] / 100;
             }
           });
         }

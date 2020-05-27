@@ -23,24 +23,34 @@ namespace we {
       public mount() {
         super.mount();
 
-        this._scroller.setToggler(this._toggler, () => {
-          this.onToggle();
-        });
-        this._collection = new eui.ArrayCollection(this._items);
-        // this._list = this._scroller.viewport as List;
-        this._list.dataProvider = this._collection;
-        // const vLayout = new eui.VerticalLayout();
-        // vLayout.gap = 0;
-        // this._list.layout = vLayout;
-        this._list.addEventListener(eui.UIEvent.CHANGE, this.onChange, this);
+        if (this._scroller) {
+          this._scroller.setToggler(this._toggler, () => {
+            this.onToggle();
+          });
+        } else {
+          this._toggler.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+          mouse.setButtonMode(this._toggler, true);
+        }
+
+        if (this._list) {
+          this._collection = new eui.ArrayCollection(this._items);
+          // this._list = this._scroller.viewport as List;
+          this._list.dataProvider = this._collection;
+          // const vLayout = new eui.VerticalLayout();
+          // vLayout.gap = 0;
+          // this._list.layout = vLayout;
+          this._list.addEventListener(eui.UIEvent.CHANGE, this.onChange, this);
+        }
 
         if (this._items.length > 0) {
           this.updateLabel();
-          this._list.selectedIndex = this._selectedIndex;
+          if (this._list) {
+            this._list.selectedIndex = this._selectedIndex;
+          }
         }
 
         if (this._bg) {
-          this._bg.alpha = this._scroller.isCollapsed() ? 0 : 1;
+          this._bg.alpha = this._scroller ? (this._scroller.isCollapsed() ? 0 : 1) : 0;
         }
 
         if (this._mask) {
@@ -50,7 +60,17 @@ namespace we {
         }
       }
 
+      protected runtimeGenerateScroller() {}
+
       protected onToggle() {
+        if (!this._scroller) {
+          this._toggler.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggle, this);
+          this.runtimeGenerateScroller();
+          if (!this._scroller) {
+            return;
+          }
+          this._scroller.toggle();
+        }
         if (this._bg) {
           egret.Tween.removeTweens(this._bg);
           if (this._scroller.isCollapsed()) {
@@ -66,12 +86,14 @@ namespace we {
       public setItems(items: string[]) {
         this._items = items;
         this._collection = new eui.ArrayCollection(this._items);
-        this._list.dataProvider = this._collection;
+        if (this._list) {
+          this._list.dataProvider = this._collection;
+        }
       }
 
       public set selectedIndex(value: number) {
         this._selectedIndex = Math.max(0, Math.min(value, this._items.length - 1));
-        if (this._items.length > 0) {
+        if (this._list && this._items.length > 0) {
           this._list.selectedIndex = this._selectedIndex;
         }
         this.updateLabel();
@@ -83,6 +105,16 @@ namespace we {
 
       protected updateLabel() {
         this._label.text = this._items.length > 0 ? this._items[this._selectedIndex] : '';
+      }
+
+      public isCollapsed() {
+        return this._scroller ? this._scroller.isCollapsed() : true;
+      }
+
+      public toggle() {
+        if (this._scroller) {
+          this._scroller.toggle();
+        }
       }
 
       protected onChange(evt: eui.UIEvent) {

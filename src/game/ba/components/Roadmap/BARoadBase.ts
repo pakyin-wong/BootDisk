@@ -15,9 +15,14 @@ namespace we {
       protected roadData: any;
       protected abstract createIcon(size: number): BARoadIconBase;
 
-      protected _iconGroup: eui.Group;
-      protected _renderTexture: egret.RenderTexture;
-      protected _image: eui.Image;
+      // protected _iconGroup: eui.Group;
+      // protected _renderTexture: egret.RenderTexture;
+      // protected _image: eui.Image;
+
+      protected _staticLayer: egret.DisplayObjectContainer;
+      protected _shapeLayer: egret.DisplayObjectContainer;
+      protected _textLayer: egret.DisplayObjectContainer;
+      protected _dynamicLayer: egret.DisplayObjectContainer;
 
       public constructor(_numCol: number, _gridSize: number, _scale: number, _gridLine: number = 1) {
         super();
@@ -26,18 +31,30 @@ namespace we {
         this.gridLine = _gridLine;
         this.numCol = _numCol;
 
-        this._iconGroup = new eui.Group();
+        // this._iconGroup = new eui.Group();
 
         this.grid = new egret.Shape();
-        this._iconGroup.addChild(this.grid);
         // this.addChild(this._iconGroup);
 
         // this.cacheAsBitmap = true;
 
-        this._renderTexture = new egret.RenderTexture();
-        this._image = new eui.Image();
-        this._image.texture = this._renderTexture;
-        this.addChild(this._image);
+        // this._renderTexture = new egret.RenderTexture();
+        // this._image = new eui.Image();
+        // this._image.texture = this._renderTexture;
+        // this.addChild(this._image);
+
+        this._staticLayer = new egret.DisplayObjectContainer();
+        this._shapeLayer = new egret.DisplayObjectContainer();
+        this._textLayer = new egret.DisplayObjectContainer();
+        this._dynamicLayer = new egret.DisplayObjectContainer();
+
+        this._staticLayer.cacheAsBitmap = true;
+
+        this.addChild(this._staticLayer);
+        this._staticLayer.addChild(this.grid);
+        this._staticLayer.addChild(this._shapeLayer);
+        this._staticLayer.addChild(this._textLayer);
+        this.addChild(this._dynamicLayer);
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAdded, this);
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoved, this);
@@ -45,7 +62,7 @@ namespace we {
         this.onModeUpdate(null);
       }
 
-      protected initRoadData() {
+      public initRoadData() {
         const n = this.numCol * 6;
         let iconIndex = 0;
         this.roadMapIconList = new Array<BARoadIconBase>();
@@ -54,7 +71,8 @@ namespace we {
           icon.setByObject({});
           icon.x = (this.gridSize / this.gridUnit) * Math.floor(iconIndex / 6);
           icon.y = (this.gridSize / this.gridUnit) * (iconIndex % 6);
-          this._iconGroup.addChild(icon);
+          // this._iconGroup.addChild(icon);
+          icon.addToLayer(this._shapeLayer, this._textLayer);
           this.roadMapIconList.push(icon);
           iconIndex++;
         }
@@ -126,13 +144,17 @@ namespace we {
           }
           for (let i = 0; i < roadDataCopy.length; i++) {
             const icon = this.roadMapIconList[i];
+            if (icon.isAtAnimateLayer) {
+              icon.addToLayer(this._shapeLayer, this._textLayer);
+            }
             icon.setByObject(roadDataCopy[i]);
 
             if (roadDataCopy[i].isPredict && roadDataCopy[i].v) {
+              icon.addToAnimateLayer(this._dynamicLayer);
               icon.animate();
             }
           }
-          this.updateTexture();
+          // this.updateTexture();
         }
       }
 
@@ -167,16 +189,16 @@ namespace we {
           lineX += size * this.gridUnit;
         }
 
-        this.updateTexture();
+        // this.updateTexture();
       }
 
-      protected updateTexture() {
-        this._iconGroup.validateNow();
-        const rect = this._iconGroup.getBounds();
-        this._renderTexture.drawToTexture(this._iconGroup, rect, 1);
-        this._image.width = rect.width;
-        this._image.height = rect.height;
-      }
+      // protected updateTexture() {
+      //   this._iconGroup.validateNow();
+      //   const rect = this._iconGroup.getBounds();
+      //   this._renderTexture.drawToTexture(this._iconGroup, rect, 1);
+      //   this._image.width = rect.width;
+      //   this._image.height = rect.height;
+      // }
 
       public set DarkMode(n: number) {
         this.darkModeNumber = n;

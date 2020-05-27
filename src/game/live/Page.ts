@@ -4,10 +4,26 @@ namespace we {
       private video: egret.FlvVideo;
 
       private _gameTableList: GameTableList;
+      private _roomList: ui.TableList;
 
       public constructor(data: any = null) {
         super('LivePage', data);
+        this._roomList = new ui.TableList();
       }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+        this._gameTableList = new GameTableList(this._roomList);
+        this._gameTableList.percentWidth = 100;
+        this._gameTableList.percentHeight = 100;
+        this.addChild(this._gameTableList);
+      }
+
+      public i = 0;
 
       public onEnter() {
         super.onEnter();

@@ -1,20 +1,33 @@
 namespace we {
   export namespace ro {
-    export class ROColorBigRoadIcon extends ba.BARoadIconBase {
-      private iconFaceArr: egret.DisplayObjectContainer[];
-      private iconText: egret.TextField;
-      private iconHightLight: egret.Shape;
-      private iconFace: egret.DisplayObjectContainer;
+    export class ROColorBigRoadIcon extends ROBigRoadIconBase {
+      // private iconFaceArr: egret.DisplayObjectContainer[];
+      // private iconText: egret.TextField;
+      // private iconHightLight: egret.Shape;
+      // private iconFace: egret.DisplayObjectContainer;
 
       // private redNumbers: number[] = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
 
       public constructor(size: number = 30) {
         super(size);
-        this.initGraphics();
-        this.setByObject({});
+        // this.initGraphics();
 
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this.changeLang();
+        // this._offsetX = this._iconText.width * 0.48;
+        // this._offsetY = this._iconText.height * 0.46;
+
+        // const iconSize = this.size;
+        // const circleRadius = (this.size / 2) * 0.9;
+        // const lineWidth = 1;
+        // this.iconHightLight = new egret.Shape();
+        // this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
+        // this.iconHightLight.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
+        // this.iconHightLight.graphics.endFill();
+        // this.iconHightLight.visible = false;
+
+        // this.setByObject({});
+
+        // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        // this.changeLang();
       }
 
       public changeLang() {
@@ -22,27 +35,101 @@ namespace we {
           if (this.value.v !== undefined) {
             if (this.value.v === 0) {
               // green
-              this.iconText.text = i18n.t('roulette.zeroShort');
+              this._iconText.text = i18n.t('roulette.zeroShort');
             } else if (this.value.v === 2) {
               // black
-              this.iconText.text = i18n.t('roulette.blackShort');
+              this._iconText.text = i18n.t('roulette.blackShort');
             } else {
               // red
-              this.iconText.text = i18n.t('roulette.redShort');
+              this._iconText.text = i18n.t('roulette.redShort');
             }
           }
         }
       }
 
-      protected initGraphics() {
-        this.iconFaceArr = new Array<egret.DisplayObjectContainer>();
-        this.iconFace = new egret.DisplayObjectContainer();
-        this.iconText = new egret.TextField();
-        this.iconHightLight = new egret.Shape();
+      // protected initGraphics() {
+      //   this.iconFaceArr = new Array<egret.DisplayObjectContainer>();
+      //   this.iconFace = new egret.DisplayObjectContainer();
+      //   this.iconText = new egret.TextField();
+      //   this.iconHightLight = new egret.Shape();
 
-        this.addChild(this.iconFace);
-        this.addChild(this.iconHightLight);
-        this.addChild(this.iconText);
+      //   this.addChild(this.iconFace);
+      //   this.addChild(this.iconHightLight);
+      //   this.addChild(this.iconText);
+
+      //   const colors = [0xee2e2e, 0x333333, 0x00ff00, 0x990909, 0x000000, 0x00dd00];
+      //   const gradientColors = [[0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b], [0xff0000, 0xff0000], [0x000000, 0x000000], [0x00ff00, 0x10662b]];
+      //   const iconSize = this.size;
+      //   const circleRadius = (this.size / 2) * 0.9;
+      //   const lineWidth = 1;
+      //   const offset = (iconSize - circleRadius * 2) / 2;
+
+      //   // const tfStroke = [0xffffff, 0xffffff, 0xffffff]
+
+      //   // draw the dark modes
+      //   for (let d = 0; d < 2; d++) {
+      //     // draw the icon faces
+      //     for (let i = 0; i < 3; i++) {
+      //       const face = new egret.DisplayObjectContainer();
+      //       const shape = new egret.Shape();
+      //       shape.graphics.lineStyle(lineWidth, 0x6d7278, 0.5, true);
+      //       shape.graphics.beginFill(colors[i + d * 3]);
+
+      //       const fillMatrix = new egret.Matrix();
+      //       fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);
+      //       shape.graphics.beginGradientFill(egret.GradientType.LINEAR, gradientColors[i + d * 3], [1, 1], [0, 255], fillMatrix);
+      //       shape.graphics.drawRoundRect(lineWidth, lineWidth, iconSize - lineWidth * 2, iconSize - lineWidth * 2, 12, 12);
+      //       shape.graphics.endFill();
+      //       face.addChild(shape);
+      //       face.visible = false;
+      //       this.iconFaceArr.push(face);
+      //       this.iconFace.addChild(face);
+      //     }
+      //   }
+
+      //   // draw the icon text
+      //   this.iconText.textAlign = egret.HorizontalAlign.CENTER;
+      //   this.iconText.verticalAlign = egret.VerticalAlign.MIDDLE;
+      //   this.iconText.textColor = 0xffffff; // colors[2];
+      //   this.iconText.text = '2';
+      //   this.iconText.width = this.size;
+      //   this.iconText.height = this.size;
+      //   this.iconText.size = this.size * 0.7;
+      //   // this.iconText.fontFamily = 'Times New Roman';
+
+      //   // draw the tie line
+      //   this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
+      //   this.iconHightLight.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
+      //   this.iconHightLight.graphics.endFill();
+      //   this.iconHightLight.visible = false;
+      // }
+
+      // public setByObject(value: any) {
+      //   this.reset();
+      //   this.value = value;
+      //   // use different icon face for light/dark mode
+      //   const useDarkMode = this.darkModeNumber === 0 ? 0 : 3;
+
+      //   if (value.v != null) {
+      //     this.iconText.text = value.v;
+
+      //     if (value.v === 0) {
+      //       // green
+      //       this.iconFaceArr[2 + useDarkMode].visible = true;
+      //     } else if (value.v === 2) {
+      //       // black
+      //       this.iconFaceArr[1 + useDarkMode].visible = true;
+      //     } else {
+      //       // red
+      //       this.iconFaceArr[0 + useDarkMode].visible = true;
+      //     }
+      //     this.changeLang();
+      //   }
+      // }
+
+      public updateDisplay() {
+        super.updateDisplay();
+        const value = this.value;
 
         const colors = [0xee2e2e, 0x333333, 0x00ff00, 0x990909, 0x000000, 0x00dd00];
         const gradientColors = [[0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b], [0xff0000, 0xff0000], [0x000000, 0x000000], [0x00ff00, 0x10662b]];
@@ -51,84 +138,32 @@ namespace we {
         const lineWidth = 1;
         const offset = (iconSize - circleRadius * 2) / 2;
 
-        // const tfStroke = [0xffffff, 0xffffff, 0xffffff]
+        const useDarkMode = this.darkModeNumber === 0 ? 0 : 3;
+        let colorIdx = -1;
 
-        // draw the dark modes
-        for (let d = 0; d < 2; d++) {
-          // draw the icon faces
-          for (let i = 0; i < 3; i++) {
-            const face = new egret.DisplayObjectContainer();
-            const shape = new egret.Shape();
-            shape.graphics.lineStyle(lineWidth, 0x6d7278, 0.5, true);
-            shape.graphics.beginFill(colors[i + d * 3]);
+        if (value.v != null) {
+          if (value.v === 0) {
+            // green
+            colorIdx = 2 + useDarkMode;
+          } else if (value.v === 2) {
+            // black
+            colorIdx = 1 + useDarkMode;
+          } else {
+            // red
+            colorIdx = 0 + useDarkMode;
+          }
+          if (colorIdx >= 0) {
+            this._iconShape.graphics.lineStyle(lineWidth, 0x6d7278, 0.5, true);
+            this._iconShape.graphics.beginFill(colors[colorIdx]);
 
             const fillMatrix = new egret.Matrix();
             fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);
-            shape.graphics.beginGradientFill(egret.GradientType.LINEAR, gradientColors[i + d * 3], [1, 1], [0, 255], fillMatrix);
-            shape.graphics.drawRoundRect(lineWidth, lineWidth, iconSize - lineWidth * 2, iconSize - lineWidth * 2, 12, 12);
-            shape.graphics.endFill();
-            face.addChild(shape);
-            face.visible = false;
-            this.iconFaceArr.push(face);
-            this.iconFace.addChild(face);
+            this._iconShape.graphics.beginGradientFill(egret.GradientType.LINEAR, gradientColors[colorIdx], [1, 1], [0, 255], fillMatrix);
+            this._iconShape.graphics.drawRoundRect(lineWidth, lineWidth, iconSize - lineWidth * 2, iconSize - lineWidth * 2, 12, 12);
+            this._iconShape.graphics.endFill();
+            this.changeLang();
           }
         }
-
-        // draw the icon text
-        this.iconText.textAlign = egret.HorizontalAlign.CENTER;
-        this.iconText.verticalAlign = egret.VerticalAlign.MIDDLE;
-        this.iconText.textColor = 0xffffff; // colors[2];
-        this.iconText.text = '2';
-        this.iconText.width = this.size;
-        this.iconText.height = this.size;
-        this.iconText.size = this.size * 0.7;
-        // this.iconText.fontFamily = 'Times New Roman';
-
-        // draw the tie line
-        this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
-        this.iconHightLight.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
-        this.iconHightLight.graphics.endFill();
-        this.iconHightLight.visible = false;
-      }
-
-      public setByObject(value: any) {
-        this.reset();
-        this.value = value;
-        // use different icon face for light/dark mode
-        const useDarkMode = this.darkModeNumber === 0 ? 0 : 3;
-
-        if (value.v != null) {
-          this.iconText.text = value.v;
-
-          if (value.v === 0) {
-            // green
-            this.iconFaceArr[2 + useDarkMode].visible = true;
-          } else if (value.v === 2) {
-            // black
-            this.iconFaceArr[1 + useDarkMode].visible = true;
-          } else {
-            // red
-            this.iconFaceArr[0 + useDarkMode].visible = true;
-          }
-          this.changeLang();
-        }
-      }
-
-      public showHighLight() {
-        if (this.value) {
-          if (this.value.v) {
-            this.iconHightLight.visible = true;
-          }
-        }
-      }
-
-      public reset() {
-        for (const face of this.iconFaceArr) {
-          face.visible = false;
-        }
-        this.iconText.text = '';
-        this.iconHightLight.visible = false;
-        this.value = null;
       }
 
       public dispose() {

@@ -8,12 +8,13 @@ namespace we {
       protected _betSumBackgroundY: number;
       protected _betSumBackgroundWidth: number;
       protected _betSumBackgroundHeight: number;
+      protected _betSumLabelFontSize: number;
 
       protected _betSum: number;
       protected _denomList: number[];
       protected _cfmDenomList: number[];
-      protected _cfmBet: number;
-      protected _uncfmBet: number;
+      protected _cfmBet: number = 0;
+      protected _uncfmBet: number = 0;
       protected _stackLimit: number = 3;
       protected _chipWidth: number;
       protected _chipHeight: number;
@@ -32,6 +33,7 @@ namespace we {
         super('BetChipStackSkin', false);
         this.touchEnabled = false;
         this.touchChildren = false;
+        this.totalCfmOffset = 600;
       }
 
       public mount() {
@@ -44,7 +46,6 @@ namespace we {
         if (this._betSumBackground) {
           this._betSumBackground.width = value;
         }
-
         this._betSumBackgroundWidth = value;
       }
 
@@ -53,11 +54,26 @@ namespace we {
       }
 
       set betSumBackgroundHeight(value: number) {
+        if (this._betSumBackground) {
+          this._betSumBackground.height = value;
+        }
         this._betSumBackgroundHeight = value;
       }
 
       get betSumBackgroundHeight() {
         return this._betSumBackgroundHeight;
+      }
+
+      // change fontsize
+      set betSumLabelFontSize(value: number) {
+        if (this._betSumLabel) {
+          this._betSumLabel.size = value;
+        }
+        this._betSumLabelFontSize = value;
+      }
+
+      get betSumLabelFontSize() {
+        return this._betSumLabelFontSize;
       }
 
       set chipInterval(value: number) {
@@ -110,6 +126,10 @@ namespace we {
         this._betSumLabel.visible = false;
       }
 
+      protected getNewChip(total = null, index = null, type = null, highlight = null) {
+        return new BetChip(total, index, type, highlight);
+      }
+
       public draw() {
         // No cfmBet and no uncfmBet - draw nothing
         this.removeChips();
@@ -118,19 +138,23 @@ namespace we {
           return;
         }
         const total = this._uncfmBet + this._cfmBet;
+
         if (this._uncfmBet) {
           // Contains uncfmBet, show one coin and total
-          const chip = new BetChip(total);
+          const chip = this.getNewChip(total);
           chip.touchEnabled = false;
           this._chips.push(chip);
         } else {
           // No uncfmBet, show stack and total
           this._cfmDenomList = this.getBettingTableGridDenom(this._denomList, total);
-          this._cfmDenomList.reverse();
+
+          // this._cfmDenomList.reverse();
+
           // this._cfmDenomList.slice(this._cfmDenomList.length - this._stackLimit).map(value => {
+
           this._cfmDenomList.map((value, index) => {
             if (this._useStackLimit && this._cfmDenomList.length - index <= this._stackLimit) {
-              const chip = new BetChip(this._denomList[value], value, we.core.ChipType.PERSPECTIVE);
+              const chip = this.getNewChip(value[0], value[1], we.core.ChipType.PERSPECTIVE);
               chip.touchEnabled = false;
               // chip.labelSize = this._chipLabelSize;
               // chip.labelOffset = this._chipLabelOffset;
@@ -154,11 +178,15 @@ namespace we {
 
       protected drawChips() {
         this._chips.map((value, index) => {
+          // this._chip value= BetChip , index = 0
+
           value.horizontalCenter = 0;
-          value.y = index * -this._chipInterval;
+          // value.y = index * -this._chipInterval;
           value.width = this._chipWidth;
           value.height = this._chipHeight;
-          value.verticalCenter = 0;
+          value.verticalCenter = index * -this._chipInterval;
+          value.labelSize = this._chipLabelSize;
+          // value.verticalCenter = index * -this._chipHeight * 0.1;
           this.addChild(value);
           this.setChildIndex(value, index);
         });
@@ -255,19 +283,22 @@ namespace we {
         return this._betSumBackground;
       }
 
-      private getBettingTableGridDenom(denomlist: number[], amount) {
+      protected getBettingTableGridDenom(currDenomlist: number[], amount) {
         let total = amount;
-        let index = denomlist.length - 1;
-        const b = new Array();
+        const wholeDenomMap = env.getWholeDenomMap();
+        const wholeDenomMapKeyArr = Object.keys(wholeDenomMap).sort((a, b) => +a - +b);
+        let index = wholeDenomMapKeyArr.length - 1;
+        const result = new Array();
         while (total > 0) {
-          if (total >= denomlist[index]) {
-            total -= denomlist[index];
-            b.push(index);
+          const denomValue = +wholeDenomMapKeyArr[index];
+          if (total >= denomValue) {
+            total -= denomValue;
+            result.push([wholeDenomMapKeyArr[index], wholeDenomMap[+wholeDenomMapKeyArr[index]]]);
           } else {
             index--;
           }
         }
-        return b;
+        return result;
       }
     }
   }

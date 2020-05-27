@@ -25,6 +25,8 @@ namespace we {
         this._betField = lw.BetField;
       }
 
+      protected restructureChildren() {}
+
       protected createMapping() {
         super.createMapping();
         this._mouseAreaMapping = {};
@@ -55,7 +57,7 @@ namespace we {
         });
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimit) {
+      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
         for (const key of Object.keys(fieldAmounts)) {
           if (fieldAmounts[key] > betLimit.maxlimit) {
             return true;

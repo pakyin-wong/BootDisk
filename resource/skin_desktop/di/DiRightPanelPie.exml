@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.DiRightPanelPie" width="580" height="341" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*">
+	<e:Image width="506" height="86" y="45" source="d_sic_lobby_chart_bg_right_png" right="0" />
+	<e:Image width="506" height="86" y="172" source="d_sic_lobby_chart_bg_left_png" left="0" />
+	<ui:RunTimeLabel id="bigNameLabel" text="大" x="137" y="57" textColor="0xe4493a" textAlign="center" size="22" textKey="dice.bigFull"/>
+	<ui:RunTimeLabel id="smallNameLabel" text="小" x="228" y="57" textColor="0x2da1fe" textAlign="center" size="22" textKey="dice.smallFull"/>
+	<ui:RunTimeLabel id="tripleNameLabel" text="圍" x="319" y="57" textColor="0x6dd400" textAlign="center" size="22" textKey="dice.triple_"/>
+	<ui:RunTimeLabel id="evenNameLabel" text="雙" x="222" y="184" textColor="0xe4493a" textAlign="center" size="22" textKey="dice.evenFull"/>
+	<ui:RunTimeLabel id="oddNameLabel" text="單" x="315" y="184" textColor="0x2da1fe" textAlign="center" size="22" textKey="dice.oddFull"/>
+	<ui:RunTimeLabel id="triple2NameLabel" text="圍" x="405" y="184" textColor="0x6dd400" textAlign="center" size="22" textKey="dice.triple_"/>
+	<e:Group x="228" y="82">
+		<e:Label id="smallLabel" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+		<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
+		</e:layout>
+	</e:Group>
+	<e:Group x="137" y="82">
+		<e:Label id="bigLabel" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+		<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
+		</e:layout>
+	</e:Group>
+	<e:Group x="405" y="209">
+		<e:Label id="triple2Label" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+		<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
+		</e:layout>
+	</e:Group>
+	<e:Group x="315" y="209">
+		<e:Label id="oddLabel" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+		<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
+		</e:layout>
+	</e:Group>
+	<e:Group x="222" y="209">
+		<e:Label id="evenLabel" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+		<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
+		</e:layout>
+	</e:Group>
+	<e:Group x="319" y="82">
+		<e:Label id="tripleLabel" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
+		<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="bottom" gap="2" />
+		</e:layout>
+	</e:Group>
+	<di:RankedPieChart id="_pieSize" x="476" y="87" maxChartSize="130" />
+	<di:RankedPieChart id="_pieOdd" x="104" y="212" maxChartSize="130" />
+</e:Skin>

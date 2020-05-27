@@ -52,30 +52,50 @@ namespace we {
           case we.core.GameType.RO:
             generalGameType = 'ro';
             break;
+          case we.core.GameType.DI:
+            generalGameType = 'di';
+            break;
+          case we.core.GameType.LW:
+            generalGameType = 'lw';
+            break;
         }
 
         let itemName;
         let skinName;
 
         switch (this._mode) {
-          case we.lobby.mode.NORMAL:
+          case we.lobby.mode.NORMAL: {
             this.width = 1140;
             this.height = 388;
             itemName = 'MobileLiveListItem';
             skinName = 'LiveListItemSkin';
+            utils.assertSkinClassExists(skinName);
+            const listItem = new we.ui[itemName](skinName);
+            if (we[generalGameType].LargeListItemInitHelper) {
+              listItem.itemInitHelper = new we[generalGameType].LargeListItemInitHelper();
+            }
+
+            this._displayItem = listItem;
             break;
+          }
           case we.lobby.mode.SIMPLE:
           case we.lobby.mode.ADVANCED:
-          default:
+          default: {
             this.width = 552;
             this.height = 219;
             itemName = 'MobileLiveListSimpleItem';
             skinName = 'LiveListSimpleItemSkin';
+            utils.assertSkinClassExists(skinName);
+            const listItem = new we.ui[itemName](skinName);
+            if (we[generalGameType].SmallListItemInitHelper) {
+              listItem.itemInitHelper = new we[generalGameType].SmallListItemInitHelper();
+            }
+
+            this._displayItem = listItem;
+            break;
+          }
         }
 
-        utils.assertSkinClassExists(`${generalGameType}.${skinName}`);
-
-        this._displayItem = new we.ui[itemName](`${generalGameType}.${skinName}`);
         this.setDisplayItem(this._displayItem);
         if (this.tableInfo) {
           this.updateDisplayItem();

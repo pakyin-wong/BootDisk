@@ -39,6 +39,33 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.BET_LIMIT_CHANGE);
       }
 
+      protected runtimeGenerateScroller() {
+        const scroller = new ui.Scroller();
+        scroller.isCollapsible = true;
+        scroller.iscollapseAnimate = true;
+        scroller.collapseOnStart = true;
+        scroller.percentWidth = 100;
+        this._scroller = scroller;
+
+        const list = new ui.List();
+        list.itemRendererSkinName = 'BetLimitDropdownItemSkin';
+        list.top = 0;
+        list.percentWidth = 100;
+        scroller.viewport = list;
+        this._list = list;
+
+        this._toggler.parent.addChild(scroller);
+
+        this._scroller.setToggler(this._toggler, () => {
+          this.onToggle();
+        });
+
+        this.setItems(this._items);
+        this._list.selectedIndex = this._selectedIndex;
+        this._list.validateNow();
+        this._list.addEventListener(eui.UIEvent.CHANGE, this.onChange, this);
+      }
+
       public get toggler() {
         return this._toggler;
       }
@@ -51,7 +78,7 @@ namespace we {
       protected updateLabel() {
         this._label.text = `${i18n.t('baccarat.betLimitshort')} ${this._items.length > 0 ? this._items[this._selectedIndex] : ''}`;
         if (this._toggleArrow) {
-          this._toggleArrow.rotation = this._scroller.isCollapsed() ? 0 : 180;
+          this._toggleArrow.rotation = this._scroller ? (this._scroller.isCollapsed() ? 0 : 180) : 0;
         }
       }
 

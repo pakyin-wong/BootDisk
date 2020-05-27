@@ -2,6 +2,7 @@ namespace we {
   export namespace utils {
     export class Logger {
       private static _logger: Logger;
+      private _whitelist: string[] = ['socketcomm']; // white list file and function ['socketcomm.ongamestatusupdate'], white list nothing[''], white list everything []
 
       public static get Instance(): Logger {
         return this._logger ? this._logger : new Logger();
@@ -9,8 +10,16 @@ namespace we {
 
       private _logmsgmeasurer;
 
+      // set whitelist to string[] of fileName.FunctionName
+      public whitelist(list: string[]) {
+        this._whitelist = list;
+        this._whitelist.forEach(e => {
+          e = e.toLowerCase();
+        });
+      }
+
       public l(...args) {
-        this.log('log', ...args);
+        // this.log('log', ...args);
       }
 
       public e(...args) {
@@ -22,8 +31,31 @@ namespace we {
           .split('\n')
           [1 /* logger internal */ + 2].trim()
           .replace('at ', '');
-        const link = msg.match(/http[^\)]+/)[0];
-        msg = msg.replace(link, '').replace(' ()', '');
+        const match = msg.match(/http[^\)]+/);
+        let link = '';
+        if (match && match.length > 0) {
+          link = match[0];
+          if (link) {
+            msg = msg.replace(link, '');
+          }
+        }
+        msg = msg.replace(' ()', '');
+
+        // if whitelist is enabled
+        if (this._whitelist.length > 0) {
+          // check if the filename.Function is in the whitelist
+          let isFound = false;
+          this.whitelist(this._whitelist);
+          const msglower = msg.toLowerCase();
+          this._whitelist.forEach(e => {
+            if (msglower.indexOf(e) > -1) {
+              isFound = true;
+            }
+          });
+          if (!isFound) {
+            return;
+          }
+        }
 
         const font = 'font: 12px monospace; font-weight: bold';
         if (!this._logmsgmeasurer) {
