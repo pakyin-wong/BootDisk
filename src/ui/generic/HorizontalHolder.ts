@@ -56,7 +56,9 @@ namespace we {
       protected childrenCreated() {
         super.childrenCreated();
 
-        if (!this.isDragonBone) this.initSlider();
+        if (!this.isDragonBone) {
+          this.initSlider();
+        }
       }
 
       public get currentPageIdx() {
@@ -98,7 +100,9 @@ namespace we {
         this.initComponents();
         this.addListeners();
 
-        if (this.isAuto) this.doAuto();
+        if (this.isAuto) {
+          this.doAuto();
+        }
       }
 
       public addListeners() {
@@ -130,17 +134,29 @@ namespace we {
           this._bulletGroup = new eui.Group();
 
           this.addChild(this._bulletGroup);
-          if (this.bulletHorizontalCenter != null) this._bulletGroup.horizontalCenter = this.bulletHorizontalCenter;
+          if (this.bulletHorizontalCenter != null) {
+            this._bulletGroup.horizontalCenter = this.bulletHorizontalCenter;
+          }
 
-          if (this.bulletLeft != null) this._bulletGroup.left = this.bulletLeft;
+          if (this.bulletLeft != null) {
+            this._bulletGroup.left = this.bulletLeft;
+          }
 
-          if (this.bulletRight != null) this._bulletGroup.right = this.bulletRight;
+          if (this.bulletRight != null) {
+            this._bulletGroup.right = this.bulletRight;
+          }
 
-          if (this.bulletTop != null) this._bulletGroup.top = this.bulletTop;
+          if (this.bulletTop != null) {
+            this._bulletGroup.top = this.bulletTop;
+          }
 
-          if (this.bulletBottom != null) this._bulletGroup.bottom = this.bulletBottom;
+          if (this.bulletBottom != null) {
+            this._bulletGroup.bottom = this.bulletBottom;
+          }
 
-          if (this.bulletVerticalCenter != null) this._bulletGroup.verticalCenter = this.bulletVerticalCenter;
+          if (this.bulletVerticalCenter != null) {
+            this._bulletGroup.verticalCenter = this.bulletVerticalCenter;
+          }
 
           this._bulletGroup.height = this.bulletHeight;
 
@@ -194,7 +210,9 @@ namespace we {
       }
 
       protected updateBullets() {
-        if (!this.isBullet) return;
+        if (!this.isBullet) {
+          return;
+        }
         for (let i = 0; i < this._bulletGroup.numChildren; i++) {
           (this._bulletGroup.getChildAt(i) as eui.Image).source = this._bulletOff;
         }
@@ -215,7 +233,9 @@ namespace we {
         if (!this.isLoop && this._previousIdx < 0) {
           this.isPrevBlock = true;
         }
-        if (this._previousIdx < 0) this._previousIdx = this.pageCount - 1;
+        if (this._previousIdx < 0) {
+          this._previousIdx = this.pageCount - 1;
+        }
 
         this._nextIdx = this._currentPageIdx + 1;
 
@@ -223,7 +243,9 @@ namespace we {
           this.isNextBlock = true;
         }
 
-        if (this._nextIdx > this.pageCount - 1) this._nextIdx = 0;
+        if (this._nextIdx > this.pageCount - 1) {
+          this._nextIdx = 0;
+        }
 
         // check current page
 
@@ -240,13 +262,19 @@ namespace we {
       }
 
       protected checkCurrentIndex() {
-        if (this._currentPageIdx > this.pageCount - 1) this._currentPageIdx = 0;
+        if (this._currentPageIdx > this.pageCount - 1) {
+          this._currentPageIdx = 0;
+        }
 
-        if (this._currentPageIdx < 0) this._currentPageIdx = this.pageCount - 1;
+        if (this._currentPageIdx < 0) {
+          this._currentPageIdx = this.pageCount - 1;
+        }
       }
 
       public doNext(isButton: boolean = false) {
-        if (this._isAnimating) return;
+        if (this._isAnimating) {
+          return;
+        }
         this._isAnimating = true;
 
         if (isButton) {
@@ -267,7 +295,9 @@ namespace we {
         const current = this._slides[this._currentPageIdx];
         const next = this._slides[this._nextIdx];
 
-        if (this._previousIdx === this._nextIdx) next.x = current.x + this.slideWidth;
+        if (this._previousIdx === this._nextIdx) {
+          next.x = current.x + this.slideWidth;
+        }
 
         const targetX = -this.slideWidth;
         const duration = this.calculateDuration(targetX, current.x);
@@ -297,11 +327,15 @@ namespace we {
         this.updateBullets();
         this._isAnimating = false;
 
-        if (this.isAuto) this.doAuto();
+        if (this.isAuto) {
+          this.doAuto();
+        }
       }
 
       public doPrevious(isButton: boolean = false) {
-        if (this._isAnimating) return;
+        if (this._isAnimating) {
+          return;
+        }
         // this._sortedSlides[this._nextIdx].visible = false;
         this._isAnimating = true;
 
@@ -317,7 +351,9 @@ namespace we {
         const previous = this._slides[this._previousIdx];
         const next = this._slides[this._nextIdx];
 
-        if (this._previousIdx === this._nextIdx) previous.x = current.x - this.slideWidth;
+        if (this._previousIdx === this._nextIdx) {
+          previous.x = current.x - this.slideWidth;
+        }
 
         const targetX = this.slideWidth;
         const duration = this.calculateDuration(targetX, current.x);
@@ -352,7 +388,9 @@ namespace we {
       }
 
       protected onTouchBegin(e: egret.TouchEvent) {
-        if (this._isAnimating) return;
+        if (this._isAnimating) {
+          return;
+        }
         e.stopPropagation();
 
         const current = this._slides[this._currentPageIdx];
@@ -371,12 +409,12 @@ namespace we {
         this._previousPosition = this._startPosition;
 
         if (env.isMobile) {
-          (<any>canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any>canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any> canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any> canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
           console.log('mobile :' + this._startPosition);
         } else {
-          (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any> window).addEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any> window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
           console.log('desktop :' + this._startPosition);
         }
 
@@ -388,7 +426,9 @@ namespace we {
       }
 
       protected onTouchMove = event => {
-        if (this._isAnimating) return;
+        if (this._isAnimating) {
+          return;
+        }
         // const move
         const current = this._slides[this._currentPageIdx];
 
@@ -422,9 +462,13 @@ namespace we {
 
         // if (offset <= -10) this._direction = 'prev';
 
-        if (last > this.slideWidth / 2) this._direction = 'next';
+        if (last > this.slideWidth / 2) {
+          this._direction = 'next';
+        }
 
-        if (last < -this.slideWidth / 2) this._direction = 'prev';
+        if (last < -this.slideWidth / 2) {
+          this._direction = 'prev';
+        }
 
         this._previousPosition = touchPos;
 
@@ -445,8 +489,11 @@ namespace we {
           }
 
           if (dir === 'next') {
-            if (current.x > 0) target.x = current.x - this.slideWidth;
-            else target.x = current.x + this.slideWidth;
+            if (current.x > 0) {
+              target.x = current.x - this.slideWidth;
+            } else {
+              target.x = current.x + this.slideWidth;
+            }
 
             if (current.x <= -this.slideWidth) {
               target.x = 0;
@@ -455,8 +502,11 @@ namespace we {
           }
 
           if (dir === 'prev') {
-            if (current.x < 0) target.x = current.x + this.slideWidth;
-            else target.x = current.x - this.slideWidth;
+            if (current.x < 0) {
+              target.x = current.x + this.slideWidth;
+            } else {
+              target.x = current.x - this.slideWidth;
+            }
 
             if (current.x >= this.slideWidth) {
               target.x = 0;
@@ -519,7 +569,9 @@ namespace we {
       }
 
       protected onTouchEnd = event => {
-        if (this._isAnimating) return;
+        if (this._isAnimating) {
+          return;
+        }
 
         const current = this._slides[this._currentPageIdx];
         const previous = this._slides[this._previousIdx];
@@ -545,9 +597,13 @@ namespace we {
         const timeOffset = this._currentTime - this._startTime;
 
         if (timeOffset < 150) {
-          if (positionOffset > 0) this._direction = 'next';
+          if (positionOffset > 0) {
+            this._direction = 'next';
+          }
 
-          if (positionOffset < 0) this._direction = 'prev';
+          if (positionOffset < 0) {
+            this._direction = 'prev';
+          }
         }
 
         if (!this.isLoop) {
@@ -584,11 +640,11 @@ namespace we {
         const canvas = document.getElementsByTagName('canvas')[0];
 
         if (env.isMobile) {
-          (<any>canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any>canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any> canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any> canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
         } else {
-          (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any>window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any> window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any> window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
         }
 
         // (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
