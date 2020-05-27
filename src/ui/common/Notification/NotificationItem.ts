@@ -55,7 +55,7 @@ namespace we {
       }
 
       protected setFocus() {
-        console.log("quick bet set focus");
+        console.log('quick bet set focus');
         clearTimeout(this._timeoutId);
         this.holder.controller.setFocus(this.holder);
       }
