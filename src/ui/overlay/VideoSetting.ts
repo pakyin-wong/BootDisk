@@ -48,12 +48,49 @@ namespace we {
         this.qua_title.text = i18n.t('video_setting_qua');
 
         this.confirmLabel.text = i18n.t('mobile_dropdown_confirm');
+
+        // this.updateCamButton(this.camIndex);
+        // this.updateQuaButton(this.quaIndex);
         this.addListeners();
       }
 
       protected destroy() {
         super.destroy();
         this.removeListeners();
+      }
+
+      protected updateCamButton(index: number) {
+        switch (index) {
+          case 0:
+            this.autoCamBtn.selected = true;
+            break;
+          case 1:
+            this.closerCamBtn.selected = true;
+            break;
+          case 2:
+            this.farCamBtn.selected = true;
+            break;
+          case 3:
+            this.closeCamBtn.selected = true;
+            break;
+        }
+      }
+
+      protected updateQuaButton(index: number) {
+        switch (index) {
+          case 0:
+            this.autoQuaBtn.selected = true;
+            break;
+          case 1:
+            this.bluRayBtn.selected = true;
+            break;
+          case 2:
+            this.highQuaBtn.selected = true;
+            break;
+          case 3:
+            this.standQuaBtn.selected = true;
+            break;
+        }
       }
 
       protected onCamChange(e: eui.UIEvent) {

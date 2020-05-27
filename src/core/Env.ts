@@ -45,8 +45,8 @@ namespace we {
       public showGoodRoadHint: boolean = false;
       public autoConfirmBet: boolean = false;
 
-      public camMode: number = 0;
-      public qualityMode: number = 0;
+      public camMode: number = 2;
+      public qualityMode: number = 3;
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};

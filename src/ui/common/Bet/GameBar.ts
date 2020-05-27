@@ -20,7 +20,7 @@ namespace we {
       }
 
       protected childrenCreated(): void {
-        mouse.setButtonMode(this.videoButton, true);
+        mouse.setButtonMode(this.videoButton, this.played);
         super.childrenCreated();
         // this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
         if (this.soundBtn) {
@@ -59,6 +59,19 @@ namespace we {
         if (this.gameButton) {
           this.gameButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
         }
+
+        this.videoButton.removeEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            if (this.played) {
+              this.stopFunc();
+            } else {
+              this.playFunc();
+            }
+            this.played = !this.played;
+          },
+          this
+        );
       }
 
       protected destroy() {

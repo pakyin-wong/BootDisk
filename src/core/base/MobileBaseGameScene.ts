@@ -20,11 +20,17 @@ namespace we {
 
       private _videoBtn: eui.Image;
 
+      public played: boolean;
+      public playFunc: () => void;
+      public stopFunc: () => void;
+
       constructor(data: any) {
         super(data);
         this._betChipSetPanel.alpha = 0;
         this._betChipSetPanel.visible = false;
         this._betChipSet.alpha = 1;
+
+        this.played = false;
       }
 
       public get betChipSetPanelVisible(): boolean {
@@ -45,11 +51,11 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        mouse.setButtonMode(this._videoBtn, this.played);
         this._bottomGamePanel.setTableInfo(this._tableInfo);
         this._bottomGamePanel.gameScene = this;
         if (this._lblBetLimit) {
           this.initBetLimitSelector();
-
           dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
           this.changeLang();
         }
@@ -178,13 +184,53 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
-        if (this._videoBtn) { this._videoBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this); }
+        // if (this._videoBtn) {
+        //   this._videoBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        // }
+        if (this._videoBtn) {
+          this._videoBtn.addEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              if (this.played) {
+                this.stopFunc();
+              } else {
+                this.playFunc();
+              }
+              this.played = !this.played;
+            },
+            this
+          );
+        }
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
-        if (this._videoBtn) { this._videoBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this); }
+        // if (this._videoBtn) {
+        //   this._videoBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        // }
+        if (this._videoBtn) {
+          this._videoBtn.removeEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              if (this.played) {
+                this.stopFunc();
+              } else {
+                this.playFunc();
+              }
+              this.played = !this.played;
+            },
+            this
+          );
+        }
+      }
+
+      public setPlayFunc(func: () => void) {
+        this.playFunc = func;
+      }
+
+      public setStopFunc(func: () => void) {
+        this.stopFunc = func;
       }
 
       protected onClickVideo() {
