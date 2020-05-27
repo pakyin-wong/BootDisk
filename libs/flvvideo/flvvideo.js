@@ -119,6 +119,7 @@ var egret;
                     player1.setView(videoCanvasId)
                     player1.setScaleMode(1)
                     player1.setBufferTime(1000)
+                    player1.volume = 1;
                     _this.startFunc1 = function () {
                         player1.stop()
                         if (this.playTimeoutId) {
@@ -179,17 +180,17 @@ var egret;
                  * @inheritDoc
                  */
                 get: function () {
-                    if (!this.video)
+                    if (!this.player1)
                         return 1;
-                    return this.video.volume;
+                    return this.player1.volume;
                 },
                 /**
                  * @inheritDoc
                  */
                 set: function (value) {
-                    if (!this.video)
+                    if (!this.player1)
                         return;
-                    this.video.volume = value;
+                    this.player1.volume = value;
                 },
                 enumerable: true,
                 configurable: true
