@@ -67,7 +67,7 @@ namespace we {
         // this._video.width = this.stage.stageWidth;
         // this._video.height = this.stage.stageHeight;
         this._video.load('http://h5.weinfra247.com:8090/live/720.flv');
-
+        dir.audioCtr.video = this._video;
         this.touchEnabled = true;
       }
 
@@ -83,6 +83,7 @@ namespace we {
 
       public onExit() {
         super.onExit();
+        dir.audioCtr.video = null;
         this._video.stop();
         dir.videoPool.release(this._video);
         this.removeEventListeners();
