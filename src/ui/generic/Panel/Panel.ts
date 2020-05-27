@@ -89,7 +89,7 @@ namespace we {
         super.childrenCreated();
       }
 
-      private dismiss() {
+      protected dismiss() {
         this.removeToggler();
         this.poppableAddon.deactivate();
         this.edgeDismissableAddon.deactivate();

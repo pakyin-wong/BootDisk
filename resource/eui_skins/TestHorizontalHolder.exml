@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="TestHorizontalHolderSkin" width="400" height="300" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+    <ui:HorizontalHolder slideWidth="400" slideHeight="300" isLoop="false" isAuto="true">
+	    <e:Rect fillColor="0x23282f" width="400" height="300" alpha="1" />
+	    <e:Rect fillColor="0x34282f" width="400" height="300" alpha="1" />
+        <e:Rect fillColor="0x12282f" width="400" height="300" alpha="1" />
+	    <e:Rect fillColor="0x04012f" width="400" height="300" alpha="1" />
+	    <e:Rect fillColor="0x00082f" width="400" height="300" alpha="1" />
+
+    </ui:HorizontalHolder>
+</e:Skin>

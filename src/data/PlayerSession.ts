@@ -9,6 +9,8 @@ namespace we {
         operatorid: string;
         currency: number; // Curency Enum of the player
         nickname: string; // Player nickname
+        nicknames: {}; // player nickname choice
+        icons: string[];
         profileimage: string; // URL of the profile image
         betlimits: BetLimitSet[];
         mode: number;

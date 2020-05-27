@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.bam.SqueezeArrowButtonSkin" width="46" height="46" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="on,off">
+        <e:Image width="46" height="46" source="d_sq_bac_page_next_none_png" source.on="d_sq_bac_page_next_none_png" source.off="d_sq_bac_page_next_disable_png"/>
+</e:Skin>
