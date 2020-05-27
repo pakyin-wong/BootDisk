@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.bam.CardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*"
+        width="1606" height="432">
+        <e:Rect width="100%" height="83%" fillColor="0x000000" alpha="0.5" bottom="0"/>       
+
+        <e:Group width="50%" height="83%" bottom="0">
+                <e:Image id="_playerWinningField" width="100%" height="100%" source="d-sq-ba-p-win-hl-copy_png" visible="false"/>
+                <e:Group width="168" height="102">
+                        <ui:RunTimeLabel text="閒" x="34" size="50" i18n="baccarat.playerShort" bottom="8" />
+                        <e:Label id="_playerSum" text="0" x="111" size="80" bottom="0" verticalAlign="bottom" />
+                </e:Group>
+                <ba:FlipCard id="_playerCard1" cardWidth="189" cardHeight="289" x="385" y="31" />
+                <ba:FlipCard id="_playerCard2" cardWidth="189" cardHeight="289" x="590" y="31" />
+                <ba:FlipCard id="_playerCard3" cardWidth="189" cardHeight="289" x="359" y="131" rotation="90" />
+                <e:Rect id="_disabledPlayerRect" width="100%" height="100%" visible="false" fillColor="0x000000" alpha="0.6"/>
+
+        </e:Group>
+        <e:Group width="50%" height="83%" right="0" bottom="0">
+                <e:Image id="_bankerWinningField" width="100%" height="100%" source="d-sq-ba-b-win-hl-copy_png" visible="false" />
+                <e:Group width="168" height="102" right="0">
+                        <ui:RunTimeLabel text="庄" right="34" size="50" i18n="baccarat.bankerShort" bottom="8" />
+                        <e:Label id="_bankerSum" text="0" right="111" size="80" bottom="0" verticalAlign="bottom" />
+                </e:Group>
+                <ba:FlipCard id="_bankerCard1" cardWidth="189" cardHeight="289" x="24" y="31" />
+                <ba:FlipCard id="_bankerCard2" cardWidth="189" cardHeight="289" x="229" y="31" />
+                <ba:FlipCard id="_bankerCard3" cardWidth="189" cardHeight="289" x="434" y="322" rotation="270" />
+                <e:Rect id="_disabledBankerRect" width="100%" height="100%" visible="false" fillColor="0x000000" alpha="0.6"/>
+        </e:Group>
+        <ui:CountdownTimer id="_timer" width="144" height="144"  y="0" horizontalCenter="0" skinName="skin_desktop.CountdownTimerRoundSqueezeBaccaratSkin" />
+</e:Skin>

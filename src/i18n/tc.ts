@@ -84,6 +84,10 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
+      overlaypanel_gameSet_showGoodRoadHint: '顯示好路提示',
+      overlaypanel_gameSet_autoBet: '自動確認投注',
+      overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
+
       datePicker_clean: '清除',
       datePicker_confirm: '確定',
       datePicker_weekday_0: '日',
@@ -117,6 +121,21 @@ namespace we {
 
       mobile_dropdown_confirm: '確定',
 
+      video_setting_auto: '自動',
+      video_setting_cam: '鏡頭',
+      video_setting_qua: '畫質',
+      video_setting_closer: '近鏡',
+      video_setting_far: '遠鏡',
+      video_setting_close: '關閉',
+      video_setting_bluray: '藍光',
+      video_setting_highQua: '超清',
+      video_setting_standQua: '標清',
+
+      live_verification_title: '現場驗證',
+      live_verification_text: '點擊輸入表情符號傳送至現場平板電腦',
+      live_verification_send: '發送',
+      live_verification_success_text: '成功發送，請留意現場平板電腦的顯示',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
@@ -143,6 +162,7 @@ namespace we {
           logoutMsg: '確定登出?',
           confirm: '確定',
           cancel: '取消',
+          gameSet: '遊戲設定',
         },
         system: {
           title: '系統設定',
@@ -151,6 +171,21 @@ namespace we {
           soundfx: '遊戲音效',
           bgm: '背景音樂',
           term: '服務條款',
+          changeName: '設定暱稱',
+        },
+        userName: {
+          category: {
+            cartoon: '卡通人物角色',
+            myth: '神話人物角色',
+            movie: '電影人物角色',
+          },
+          name: {
+            name1: '黑豹',
+            name2: '黑寡婦',
+            name3: '刀鋒戰士',
+            name4: '酷寒戰士',
+            name5: '美國隊長',
+          },
         },
       },
       lobby: {
@@ -283,6 +318,10 @@ namespace we {
         luckyNumber: '幸運數字',
         jockeyBet: '馬場下注區',
         customBet: '自選投注組合',
+        edit: '編輯',
+        complete: '完成',
+        addCustomBet: '加入新的投注組合',
+        betCombination: '投注組合',
         betLimitShort: '限紅',
         gameId: '編號',
         distribution: '散佈',
@@ -315,9 +354,9 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
-        bet: '已下注',
+        betted: '已下注',
         goodroad: '好路',
-        allgame: '全部遊戲',
+        allgames: '全部遊戲',
       },
       baccarat: {
         playerPair: '閒對',

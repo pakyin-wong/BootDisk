@@ -505,7 +505,19 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class DiQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class DtQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LwQuickBetContainerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoQuickBetContainerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -537,6 +549,14 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class GameSetting extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LiveVerification extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class MemberReport extends eui.Skin{
 	}
 }
@@ -561,7 +581,15 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class SoundSetting extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class SystemSetting extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class VideoSetting extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -749,6 +777,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class LiveGameTableList extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class LiveOverlayItemSkin extends eui.Skin{
 	}
 }
@@ -873,10 +905,6 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
-	class LiveGameTableList extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape{
 	class LivePage extends eui.Skin{
 	}
 }
@@ -977,11 +1005,23 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class ChangeName extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class CustomRoad extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
 	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class GameSetting extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LiveVerification extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1008,8 +1048,16 @@ declare module skin_mobile_landscape{
 	class SystemSetting extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class VideoSetting extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape.ro{
 	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ro{
+	class MobileBetCombination extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape.ro{
@@ -1495,6 +1543,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class ChangeName extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class CustomRoad extends eui.Skin{
 	}
 }
@@ -1504,6 +1556,14 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class DoubleCalendarPicker extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class GameSetting extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LiveVerification extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -1538,6 +1598,10 @@ declare module skin_mobile_portrait{
 	class SystemSetting extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait{
+	class VideoSetting extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait.ro{
 	class ChipLayerSkin extends eui.Skin{
 	}
@@ -1560,6 +1624,10 @@ declare module skin_mobile_portrait.ro{
 }
 declare module skin_mobile_portrait.ro{
 	class LiveListItemBettingTableSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
+	class MobileBetCombination extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.ro{
@@ -1718,6 +1786,14 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class MobileSideGameListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile.ro{
+	class MobileBetCombinationCreateItem extends eui.Skin{
+	}
+}
+declare module skin_mobile.ro{
+	class MobileBetCombinationItem extends eui.Skin{
 	}
 }
 declare module skin_mobile{

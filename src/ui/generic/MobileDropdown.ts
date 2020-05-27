@@ -7,8 +7,10 @@ namespace we {
       title: () => string;
       selected: any;
     }
+
     export class MobileDropdown extends ui.Panel {
-      private _title: RunTimeLabel;
+      public _title: RunTimeLabel;
+      public _subtitle: RunTimeLabel;
       private _scroller: eui.Scroller;
       private _list: eui.List;
       private _itemHeight: number = 0;
@@ -116,6 +118,8 @@ namespace we {
       }
       protected onScroll() {
         this._list.selectedIndex = this.calIndex;
+        // this._subtitle.visible = true;
+        // this._subtitle.renderText = () => env.nicknames.nickname_group1[this.calIndex];
       }
       protected onScrollEnd() {
         this._list.selectedIndex = this.calIndex;

@@ -28,6 +28,12 @@ namespace we {
         if (dir.config.rabbitmqprotocol) {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
+        if (dir.config.rabbitmqvirtualhost) {
+          options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
+        }
+        if (dir.config.path) {
+          options.path = dir.config.path;
+        }
 
         if (env.isMobile) {
           options.layout = 'mobile_web';
@@ -149,7 +155,23 @@ namespace we {
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
-        env.nickname = player.profile.nickname;
+        // env.nickname = player.profile.nickname;
+        env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
+        env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
+        // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
+        // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
+        env.icons = [
+          'd_lobby_profile_pic_01_png',
+          'd_lobby_profile_pic_02_png',
+          'd_lobby_profile_pic_03_png',
+          'd_lobby_profile_pic_04_png',
+          'd_lobby_profile_pic_05_png',
+          'd_lobby_profile_pic_06_png',
+          'd_lobby_profile_pic_07_png',
+          'd_lobby_profile_pic_08_png',
+        ];
+        env.icon = player.profile.settings.icon ? player.profile.settings.icon : 'd_lobby_profile_pic_01_png';
+
         env.profileImageURL = player.profile.profileimage;
         logger.l('PlayerClient::handleReady() ' + player.profile.betlimits);
         env.betLimits = player.profile.betlimits
@@ -353,6 +375,19 @@ namespace we {
             tableInfo.totalWin = NaN;
             tableInfo.totalBet = 0;
             dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
+
+            // check good road notification
+            if (tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+              tableInfo.goodRoad.alreadyShown = true;
+              const data = {
+                tableid: tableInfo.tableid,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.GoodRoad,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
           }
           if (data.state === core.GameState.FINISH) {
             this.checkResultNotificationReady(tableInfo);
@@ -735,6 +770,20 @@ namespace we {
         );
       }
 
+      public sendVerifyInfo(id: string, pattern: string[]) {
+        this.client.sendVerifyInfo(
+          id,
+          pattern,
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO:  handle error on cancel
+            } else {
+              // dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
+      }
+
       public getTableHistory() {}
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
@@ -760,6 +809,7 @@ namespace we {
         // }
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = data.match.map(goodRoadData => {
+          goodRoadData.alreadyShown = false;
           return {
             tableid: goodRoadData.tableid,
             goodRoad: goodRoadData,
@@ -773,14 +823,18 @@ namespace we {
         env.goodRoadTableList = goodRoadTableList;
 
         for (const tableid of added) {
-          const data = {
-            tableid,
-          };
-          const notification: data.Notification = {
-            type: core.NotificationType.GoodRoad,
-            data,
-          };
-          dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+          const tableInfo = env.tableInfos[tableid];
+          if (tableInfo.data.state === core.GameState.BET) {
+            tableInfo.goodRoad.alreadyShown = true;
+            const data = {
+              tableid,
+            };
+            const notification: data.Notification = {
+              type: core.NotificationType.GoodRoad,
+              data,
+            };
+            dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+          }
         }
         for (const tableid of removed) {
           const tableInfo = env.tableInfos[tableid];

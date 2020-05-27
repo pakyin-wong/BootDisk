@@ -14,15 +14,15 @@
 		<ui:BaseImageButton id="_clearButton" currentState="b_clear" y="29" width="17" height="18" anchorOffsetX="0" x="238"
 		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
 		<e:Image id="close" width="29" height="29" x="282" y="22" source="d-lobby-button-close-none_png" />
-		<ui:BaseImageButton id="_playerButton" currentState="b_player" width="46" height="46" anchorOffsetX="0" y="262" x="65"
-		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
-		<ui:BaseImageButton id="_removeButton" currentState="b_remove" width="46" height="46" anchorOffsetX="0" y="262"
-		                    x="117" skinName="skin_desktop.ImageButtonSkinGoodRoad" />
 		<ui:BaseImageButton id="_bankerButton" currentState="b_banker" width="46" height="46" anchorOffsetX="0" y="262" x="13"
 		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
-		<ui:BaseImageButton id="_removeAllButton" currentState="b_removeAll" width="46" height="46" anchorOffsetX="0" x="169"
-		                    y="262" skinName="skin_desktop.ImageButtonSkinGoodRoad" />
-		<ui:BaseImageButton id="_saveButton" currentState="b_save" width="85" height="50" anchorOffsetX="0" x="221" y="259"
+		<ui:BaseImageButton id="_playerButton" currentState="b_player" width="46" height="46" anchorOffsetX="0" y="262" x="61.65"
 		                    skinName="skin_desktop.ImageButtonSkinGoodRoad" />
+		<ui:BaseAnimationButton id="_removeButton" width="46" height="46" x="110.97" y="262"
+		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_undo" />
+		<ui:BaseAnimationButton id="_removeAllButton" width="46" height="46" x="160.96" y="262"
+		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_clear" />
+		<ui:BaseAnimationButton id="_saveButton" width="95" height="46" x="211" y="262"
+		                    dbClass="lobby_ui" dbDisplay="d_lobby_goodroad_panel_addroad_btn_confirm" />
 	</e:Group>
 </e:Skin>

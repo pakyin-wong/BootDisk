@@ -43,7 +43,7 @@ namespace we {
         // group with horizontal layout
         // holding 2 notification holder
         // this.notificationHolders = [];
-        this.notificationList = [];
+        this.notificationList = []; 
         // const group = new eui.Group();
         // this.addChild(group);
 
@@ -73,7 +73,7 @@ namespace we {
       }
 
       public updatePosition(evt: egret.Event) {
-        const sidePanel = <LiveSidePanel> evt.data;
+        const sidePanel = <LiveSidePanel>evt.data;
         let right = 30;
         if (!sidePanel.isCollapsed) {
           right += sidePanel.width + 20;
@@ -82,7 +82,7 @@ namespace we {
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification> evt.data;
+        const notification: data.Notification = <data.Notification>evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -121,17 +121,34 @@ namespace we {
         }
         const notification = this.nextNotification;
         if (notification) {
-          this.listDisplay.addItem(notification);
-          this.showNotification(notification.type);
+            this.listDisplay.addItem(notification);
+            this.showNotification(notification.type);
         }
       }
 
+      protected isCountDownAvailble(nextTableID: number) {
+        const currentTime = Date.now();
+        const correspondTableid = nextTableID;
+        const correspondTableInfos = env.tableInfos[correspondTableid];
+        const correspondStarttime = correspondTableInfos.data.starttime;
+        const correspondCountDown = correspondTableInfos.data.countdown * 1000;
+        const remainingBetTime = correspondCountDown - (currentTime - correspondStarttime);
+        return remainingBetTime >= 5 * 1000 ? true : false;
+      }
+
       protected get nextNotification(): data.Notification {
-        let idx = 0;
-        for (const notification of this.notificationList) {
+        // for (const notification of this.notificationList) {
+        for (var idx=0 ; idx < this.notificationList.length;) {
+          const notification = this.notificationList[idx];
           if (this.isTypeAvailable(notification.type)) {
-            this.notificationList.splice(idx, 1);
-            return notification;
+            // check if type is goodRoad && remainingBetTime<5s
+            if (notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) {
+              this.notificationList.splice(idx, 1);
+              continue;
+            } else {
+              this.notificationList.splice(idx, 1);
+              return notification;
+            }
           }
           idx++;
         }
@@ -160,7 +177,7 @@ namespace we {
         // remove the focus item if exist
         if (this._currentFocus) {
           if (!isRemoved) {
-            const holder = <NotificationItemHolder> this.listDisplay.getChildAt(0);
+            const holder = <NotificationItemHolder>this.listDisplay.getChildAt(0);
             holder.removeItem();
           }
           this._currentFocus = null;

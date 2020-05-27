@@ -63,6 +63,7 @@ namespace we {
         mouse.setButtonMode(this._confirmButton, true);
 
         this._video = dir.videoPool.get();
+        this._video.setBrowser(env.UAInfo.browser.name);
         // this._video.width = this.stage.stageWidth;
         // this._video.height = this.stage.stageHeight;
         this._video.load('http://h5.weinfra247.com:8090/live/720.flv');

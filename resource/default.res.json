@@ -7089,99 +7089,39 @@
 			"name": "m_sb_betarea_bg_hover_15_horizontal_png"
 		},
 		{
-			"url": "assets/m/ba/squeezeTutorial/m_h_sp_ba_instruction_reveal_all_btn.png",
+			"url": "assets/m_common_notify_result_lw_east.png",
 			"type": "image",
-			"name": "m_h_sp_ba_instruction_reveal_all_btn_png"
+			"name": "m_common_notify_result_lw_east_png"
 		},
 		{
-			"url": "assets/m/ba/squeezeTutorial/m_h_sq_ba_instruction_crad_group.png",
+			"url": "assets/m_common_notify_result_lw_green.png",
 			"type": "image",
-			"name": "m_h_sq_ba_instruction_crad_group_png"
+			"name": "m_common_notify_result_lw_green_png"
 		},
 		{
-			"url": "assets/m/ba/squeezeTutorial/m_h_sq_ba_instruction_swtich_crad_group.png",
+			"url": "assets/m_common_notify_result_lw_red.png",
 			"type": "image",
-			"name": "m_h_sq_ba_instruction_swtich_crad_group_png"
+			"name": "m_common_notify_result_lw_red_png"
 		},
 		{
-			"url": "assets/m/ba/squeezeTutorial/m_sq_ba_button_close_none.png",
+			"url": "assets/m_common_notify_result_lw_south.png",
 			"type": "image",
-			"name": "m_sq_ba_button_close_none_png"
+			"name": "m_common_notify_result_lw_south_png"
 		},
 		{
-			"url": "assets/m/ba/squeezeTutorial/m_sq_ba_touch_icon.png",
+			"url": "assets/m_common_notify_result_lw_western.png",
 			"type": "image",
-			"name": "m_sq_ba_touch_icon_png"
+			"name": "m_common_notify_result_lw_western_png"
 		},
 		{
-			"url": "assets/m/ba/squeezeTutorial/m_v_sp_ba_instruction_reveal_all_btn.png",
+			"url": "assets/m_common_notify_result_lw_north.png",
 			"type": "image",
-			"name": "m_v_sp_ba_instruction_reveal_all_btn_png"
+			"name": "m_common_notify_result_lw_north_png"
 		},
 		{
-			"url": "assets/m/ba/squeezeTutorial/m_v_sq_ba_instruction_crad_group.png",
+			"url": "assets/m_common_notify_result_lw_white.png",
 			"type": "image",
-			"name": "m_v_sq_ba_instruction_crad_group_png"
-		},
-		{
-			"url": "assets/m/ba/squeezeTutorial/m_v_sq_ba_instruction_large_crad.png",
-			"type": "image",
-			"name": "m_v_sq_ba_instruction_large_crad_png"
-		},
-		{
-			"url": "assets/m/ba/squeezeTutorial/m_v_sq_ba_instruction_large_crad_HL.png",
-			"type": "image",
-			"name": "m_v_sq_ba_instruction_large_crad_HL_png"
-		},
-		{
-			"url": "assets/m/ba/squeezeTutorial/m_v_sq_ba_instruction_swtich_crad_group.png",
-			"type": "image",
-			"name": "m_v_sq_ba_instruction_swtich_crad_group_png"
-		},
-		{
-			"url": "assets/m/ba/squeezeTutorial/m_sq_ba_panel_btn_bg_Inactive.png",
-			"type": "image",
-			"name": "m_sq_ba_panel_btn_bg_Inactive_png"
-		},
-		{
-			"url": "assets/m/ba/squeezeTutorial/d_sq_ba_instruction_bg.png",
-			"type": "image",
-			"name": "d_sq_ba_instruction_bg_png"
-		},
-		{
-			"url": "assets/d/ba/squeezeTutorial/d_sq_ba_all_open_btn_hover_p.png",
-			"type": "image",
-			"name": "d_sq_ba_all_open_btn_hover_p_png"
-		},
-		{
-			"url": "assets/d/ba/squeezeTutorial/d_sq_ba_all_open_btn_inactive_player.png",
-			"type": "image",
-			"name": "d_sq_ba_all_open_btn_inactive_player_png"
-		},
-		{
-			"url": "assets/d/ba/squeezeTutorial/d_sq_ba_card_back.png",
-			"type": "image",
-			"name": "d_sq_ba_card_back_png"
-		},
-		{
-			"url": "assets/d/ba/squeezeTutorial/d_sq_ba_instruction_crad_group_02.png",
-			"type": "image",
-			"name": "d_sq_ba_instruction_crad_group_02_png"
-		},
-		{
-			"url": "assets/d/ba/squeezeTutorial/d_sq_ba_touch_icon.png",
-			"type": "image",
-			"name": "d_sq_ba_touch_icon_png"
-		},
-		{
-			"url": "assets/d/ba/squeezeTutorial/d_sq_bac_page_next_disable.png",
-			"type": "image",
-			"name": "d_sq_bac_page_next_disable_png"
-		},
-		{
-			"url": "assets/d/ba/squeezeTutorial/d_sq_bac_page_next_none.png",
-			"type": "image",
-			"name": "d_sq_bac_page_next_none_png"
+			"name": "m_common_notify_result_lw_white_png"
 		}
 	]
 }
