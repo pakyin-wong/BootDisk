@@ -1017,6 +1017,10 @@ declare module skin_mobile_landscape.ro{
 	}
 }
 declare module skin_mobile_landscape.ro{
+	class MobileBetCombination extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.ro{
 	class MobileBottomGamePanel extends eui.Skin{
 	}
 }
@@ -1571,6 +1575,10 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class MobileBetCombination extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.ro{
 	class MobileBigBarChart extends eui.Skin{
 	}
 }
@@ -1726,6 +1734,14 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class MobileSideGameListItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_mobile.ro{
+	class MobileBetCombinationCreateItem extends eui.Skin{
+	}
+}
+declare module skin_mobile.ro{
+	class MobileBetCombinationItem extends eui.Skin{
 	}
 }
 declare module skin_mobile{

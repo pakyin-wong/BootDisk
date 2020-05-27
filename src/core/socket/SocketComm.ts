@@ -28,6 +28,12 @@ namespace we {
         if (dir.config.rabbitmqprotocol) {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
+        if (dir.config.rabbitmqvirtualhost) {
+          options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
+        }
+        if (dir.config.path) {
+          options.path = dir.config.path;
+        }
 
         if (env.isMobile) {
           options.layout = 'mobile_web';
@@ -38,6 +44,14 @@ namespace we {
         this.client = new PlayerClient(options);
 
         logger.l('MQTTSocketComm is created', this.client);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        // this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+      }
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        // this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
       }
 
       protected subscribeEvents() {

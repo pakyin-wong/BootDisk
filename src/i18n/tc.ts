@@ -159,13 +159,13 @@ namespace we {
             myth: '神話人物角色',
             movie: '電影人物角色',
           },
-          name:{
-            name1:'黑豹',
-            name2:'黑寡婦',
-            name3:'刀鋒戰士',
-            name4:'酷寒戰士',
-            name5:'美國隊長',
-          }
+          name: {
+            name1: '黑豹',
+            name2: '黑寡婦',
+            name3: '刀鋒戰士',
+            name4: '酷寒戰士',
+            name5: '美國隊長',
+          },
         },
       },
       lobby: {
@@ -298,6 +298,10 @@ namespace we {
         luckyNumber: '幸運數字',
         jockeyBet: '馬場下注區',
         customBet: '自選投注組合',
+        edit: '編輯',
+        complete: '完成',
+        addCustomBet: '加入新的投注組合',
+        betCombination: '投注組合',
         betLimitShort: '限紅',
         gameId: '編號',
         distribution: '散佈',
@@ -330,9 +334,9 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
-        bet: '已下注',
+        betted: '已下注',
         goodroad: '好路',
-        allgame: '全部遊戲',
+        allgames: '全部遊戲',
       },
       baccarat: {
         playerPair: '閒對',

@@ -16,7 +16,7 @@ namespace we {
       private _balanceText: ui.RunTimeLabel;
 
       private _profilePrc: eui.Image;
-      private _refreshButton: ui.BaseImageButton;
+      private _refreshButton: eui.Image;
       // from Monitor.ts
       // private _liveSidePanel: ui.LiveSidePanel;
       // private _sideGameList: ui.MobileSideGameList;
@@ -54,7 +54,6 @@ namespace we {
           dir.meterCtr.register('balance', this._balanceGame);
         }
         dir.meterCtr.register('balance', this._balance);
-        console.log('this._balance', this._balance);
         if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
@@ -74,6 +73,7 @@ namespace we {
         }
         dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
+        this._refreshButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
         dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
         dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
@@ -84,9 +84,14 @@ namespace we {
         }
         dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
+        this._refreshButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
         dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
         dir.evtHandler.removeEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
+      }
+
+      private updateBalance() {
+        dir.socket.getBalance();
       }
 
       private onSceneChange(e = null) {

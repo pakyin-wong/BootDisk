@@ -11,11 +11,11 @@
             <e:Rect height="208" fillAlpha="0.4" ellipseHeight="0"
 			        ellipseWidth="0" scaleX="1" scaleY="1"  fillColor="0x444444" left="0" right="0"/>        
             <ui:RunTimeLabel id="_txt_search" text="Label" x="185" y="66" height="88" verticalAlign="middle"
-		                     fontFamily="NotoSansCJKtc" size="50" width="702" alpha="0.7" />
+		                     size="50" width="702" alpha="0.7"  textColor="0xc9c9c9"/>
 		    <ui:BaseImageButton id="_btn_search" width="62" height="62" x="78" y="79" currentState="search_icon"
 		                     skinName="skin_desktop.ImageButtonSkinNav" />
 		    <e:EditableText id="_tf_search" width="1794" height="88" text="" x="185" y="66" verticalAlign="middle"
-		                     fontFamily="NotoSansCJKtc" size="50" />        
+		                     size="50" />        
             <ui:RunTimeLabel id="_txt_record_date" text="Label" x="4" y="208" width="477" size="40" verticalAlign="middle"
 			                 height="59" textColor="0xd5d5d5" scaleX="1" scaleY="1" />
             <ui:RunTimeLabel id="_txt_record_game" text="Label" x="571" y="208" width="275" height="59" size="40"
@@ -28,6 +28,6 @@
             <e:Scroller id="_scroller" height="707" y="288" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
 				<e:List id="_datagroup" />
 	    </e:Scroller>
-            <bh:BetHistoryDetail skinName="skin_mobile_landscape.BetHistoryDetail" id="_detail" x="0" y="-242"/>
+            <bh:BetHistoryDetail skinName="skin_mobile_landscape.BetHistoryDetail" id="_detail" x="0" y="-242" visible="false"/>
         </e:Group>
 </e:Skin>

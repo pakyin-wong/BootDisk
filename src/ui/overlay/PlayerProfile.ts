@@ -5,7 +5,7 @@ namespace we {
       private _section_main: eui.Group;
 
       private _playerIcon: eui.Image;
-      private _changeIcon: eui.Group;
+      private _changeIcon: eui.Component;
       private _balance: eui.Label;
       private _maxWinAmount: eui.Label;
       private _maxWinCount: eui.Label;
@@ -56,7 +56,7 @@ namespace we {
           console.log(this._txt_name.text);
 
           this.dropdownSource = env.nicknames.nickname_group1.map((data, index) => {
-            return ui.NewDropdownItem(index, () => env.nicknames.nickname_group1[index])
+            return ui.NewDropdownItem(index, () => env.nicknames.nickname_group1[index]);
           });
           this._nameListData = new eui.ArrayCollection(this.dropdownSource);
 

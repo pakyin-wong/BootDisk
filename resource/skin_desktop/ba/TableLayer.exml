@@ -43,7 +43,11 @@
 		<e:Image id="_superSixBankerImage" source="d_ba_betarea_banker_normal_png" name="d_ba_betarea_banker_hover_png"
 		         width="573" height="191" />
 		<ui:RunTimeLabel id="_superSixBankerLabel" y="30" horizontalCenter="0" size="64" />
-		<e:Label text="1:1" verticalCenter="45" horizontalCenter="0" size="30" />
+		<e:Label text="1:1" verticalCenter="25" horizontalCenter="0" size="30" />
+		<e:Image source="d_ba_betarea_icon_bet_png" horizontalCenter="-100" verticalCenter="60" />
+		<e:Label id="_superSixBankerTotalAmount" x="222" verticalCenter="60" size="20" />
+		<e:Image source="d_ba_betarea_icon_person_png" horizontalCenter="50" verticalCenter="60" />
+		<e:Label id="_superSixBankerTotalPerson" horizontalCenter="90" verticalCenter="60" size="20" />
 	</e:Group>
 	<e:Group id="_superSixGroup" includeIn="SuperSix" x="573" y="191" width="191" height="113">
 		<e:Image id="_superSixImage" source="d_ba_betarea_supersix_tie_normal_png" name="d_ba_betarea_supersix_tie_hover_png"

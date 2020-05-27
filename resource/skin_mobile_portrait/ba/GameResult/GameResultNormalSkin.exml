@@ -3,5 +3,5 @@
     <e:Image id="_bg" width="829" height="200" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"
              source="d_ba_gameresult_playerwin_png" />
     <e:Label id="_label" text="庄贏" horizontalCenter="0" verticalCenter="0" size="110"
-             fontFamily="Barlow, Arial, Helvetica, sans-serif"  bold="true"/>
+             bold="true"/>
 </e:Skin>

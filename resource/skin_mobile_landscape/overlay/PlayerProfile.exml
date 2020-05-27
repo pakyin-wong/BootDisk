@@ -64,6 +64,7 @@
 						<ui:BaseImageButton width="57" height="58" x="1088" y="644" skinName="skin_mobile_landscape.ImageButtonSkinNav"
 						                    currentState="lobby_profile_reload" />
 					</e:Group>
+
 				</e:Group>
 			</ui:Scroller>
 		</e:Group>

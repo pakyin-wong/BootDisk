@@ -159,13 +159,13 @@ namespace we {
             myth: 'Myth Character',
             movie: 'Movie Character',
           },
-          name:{
-            name1:'Black Panther',
-            name2:'Black Widow',
-            name3:'Blade',
-            name4:'Winter Soldier',
-            name5:'Captain America',
-          }
+          name: {
+            name1: 'Black Panther',
+            name2: 'Black Widow',
+            name3: 'Blade',
+            name4: 'Winter Soldier',
+            name5: 'Captain America',
+          },
         },
       },
       lobby: {
@@ -298,6 +298,10 @@ namespace we {
         luckyNumber: 'Lucky Number',
         jockeyBet: 'Jockey Bet',
         customBet: 'Custom Bet',
+        edit: 'Edit',
+        complete: 'Complete',
+        addCustomBet: 'Create new custom bet',
+        betCombination: 'Bet group',
         betLimitShort: 'Bet Limit',
         gameId: 'ID',
         distribution: 'Distribution',
@@ -330,9 +334,9 @@ namespace we {
         stopBet: 'Stop Bet',
       },
       sidePanel: {
-        bet: 'Bet',
+        betted: 'Bet',
         goodroad: 'Good Road',
-        allgame: 'All Game',
+        allgames: 'All Game',
       },
       baccarat: {
         playerPair: 'Player Pair',
