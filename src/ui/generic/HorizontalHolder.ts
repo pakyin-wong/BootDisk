@@ -45,7 +45,7 @@ namespace we {
       private _bulletOn = 'm_lobby_banner_bullet_active_png';
       private _bulletOff = 'm_lobby_banner_bullet_png';
 
-      private isAnimating = false;
+      private _isAnimating = false;
       private isPrevBlock = false;
       private isNextBlock = false;
 
@@ -61,6 +61,10 @@ namespace we {
 
       public get currentPageIdx() {
         return this._currentPageIdx;
+      }
+
+      public get isAnimating() {
+        return this._isAnimating;
       }
 
       public initSlider() {
@@ -242,12 +246,12 @@ namespace we {
       }
 
       public doNext(isButton: boolean = false) {
-        if (this.isAnimating) return;
-        this.isAnimating = true;
+        if (this._isAnimating) return;
+        this._isAnimating = true;
 
         if (isButton) {
           if (this._currentPageIdx === this.pageCount - 1) {
-            this.isAnimating = false;
+            this._isAnimating = false;
             this.onMoveFinished(0);
             return;
           }
@@ -291,19 +295,19 @@ namespace we {
         this.checkCurrentIndex();
         this.sortSlides();
         this.updateBullets();
-        this.isAnimating = false;
+        this._isAnimating = false;
 
         if (this.isAuto) this.doAuto();
       }
 
       public doPrevious(isButton: boolean = false) {
-        if (this.isAnimating) return;
+        if (this._isAnimating) return;
         // this._sortedSlides[this._nextIdx].visible = false;
-        this.isAnimating = true;
+        this._isAnimating = true;
 
         if (isButton) {
           if (this._currentPageIdx === 0) {
-            this.isAnimating = false;
+            this._isAnimating = false;
             this.onMoveFinished(0);
             return;
           }
@@ -348,7 +352,7 @@ namespace we {
       }
 
       protected onTouchBegin(e: egret.TouchEvent) {
-        if (this.isAnimating) return;
+        if (this._isAnimating) return;
         e.stopPropagation();
 
         const current = this._slides[this._currentPageIdx];
@@ -384,7 +388,7 @@ namespace we {
       }
 
       protected onTouchMove = event => {
-        if (this.isAnimating) return;
+        if (this._isAnimating) return;
         // const move
         const current = this._slides[this._currentPageIdx];
 
@@ -515,7 +519,7 @@ namespace we {
       }
 
       protected onTouchEnd = event => {
-        if (this.isAnimating) return;
+        if (this._isAnimating) return;
 
         const current = this._slides[this._currentPageIdx];
         const previous = this._slides[this._previousIdx];
@@ -607,7 +611,7 @@ namespace we {
       }
 
       public resetPosition() {
-        this.isAnimating = true;
+        this._isAnimating = true;
 
         const current = this._slides[this._currentPageIdx];
         const previous = this._slides[this._previousIdx];

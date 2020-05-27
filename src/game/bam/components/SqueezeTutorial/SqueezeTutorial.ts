@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace bam {
-    export class SqueezeTutorial extends core.BaseEUI {
+    export class SqueezeTutorial extends we.ui.Panel {
       private _nextButton;
       private _prevButton;
       private _close;
@@ -19,15 +19,25 @@ namespace we {
 
       private _pageText;
       private _pageIndex = 0;
+
       constructor(skin) {
         super(skin);
+
         // this._skinKey = 'SqueezeTutorial';
         // this.skinName = utils.getSkinByClassname('SqueezeTutorial');
         // this.init();
       }
+      protected partAdded(partName: string, instance: any): void {
+        super.partAdded(partName, instance);
+      }
+
+      protected childrenCreated(): void {
+        super.childrenCreated();
+      }
 
       protected initComponents() {
         super.initComponents();
+        this.addListeners();
         this.init();
       }
 
@@ -37,7 +47,6 @@ namespace we {
       }
 
       private init() {
-        this.addListeners();
         this._captionArr = [];
         this._captionArr.push(this._captionOne);
         this._captionArr.push(this._captionTwo);
@@ -70,6 +79,8 @@ namespace we {
       }
 
       private doNext(e) {
+        if (this._holder.isAnimating) return;
+
         this._holder.doNext(true);
         this._pageIndex++;
         if (this._pageIndex < this._captionArr.length) this.updateText(this._pageIndex);
@@ -79,6 +90,8 @@ namespace we {
       }
 
       private doPrev(e) {
+        if (this._holder.isAnimating) return;
+
         this._holder.doPrevious(true);
 
         this._pageIndex--;
