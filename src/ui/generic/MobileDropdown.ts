@@ -44,7 +44,7 @@ namespace we {
       }
 
       protected initOrientationDependentComponent() {
-        (<RunTimeLabel>this.close).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
+        (<RunTimeLabel> this.close).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
 
         this._scroller.bounces = false;
         this._list.dataProvider = this._dataCollection = new eui.ArrayCollection(['']);

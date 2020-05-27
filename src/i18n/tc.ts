@@ -84,6 +84,10 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: '全部遊戲',
 
+      overlaypanel_gameSet_showGoodRoadHint: '顯示好路提示',
+      overlaypanel_gameSet_autoBet: '自動確認投注',
+      overlaypanel_gameSet_sendLiveVerfication: '發送現場驗證',
+
       datePicker_clean: '清除',
       datePicker_confirm: '確定',
       datePicker_weekday_0: '日',
@@ -117,6 +121,21 @@ namespace we {
 
       mobile_dropdown_confirm: '確定',
 
+      video_setting_auto: '自動',
+      video_setting_cam: '鏡頭',
+      video_setting_qua: '畫質',
+      video_setting_closer: '近鏡',
+      video_setting_far: '遠鏡',
+      video_setting_close: '關閉',
+      video_setting_bluray: '藍光',
+      video_setting_highQua: '超清',
+      video_setting_standQua: '標清',
+
+      live_verification_title: '現場驗證',
+      live_verification_text: '點擊輸入表情符號傳送至現場平板電腦',
+      live_verification_send: '發送',
+      live_verification_success_text: '成功發送，請留意現場平板電腦的顯示',
+
       loading: {
         socket: {
           connecting: '連接伺服器中',
@@ -143,6 +162,7 @@ namespace we {
           logoutMsg: '確定登出?',
           confirm: '確定',
           cancel: '取消',
+          gameSet: '遊戲設定',
         },
         system: {
           title: '系統設定',

@@ -84,6 +84,10 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: '全部游戏',
 
+      overlaypanel_gameSet_showGoodRoadHint: '显示好路提示',
+      overlaypanel_gameSet_autoBet: '自动确认投注',
+      overlaypanel_gameSet_sendLiveVerfication: '发送现场验证',
+
       datePicker_clean: '清除',
       datePicker_confirm: '确定',
       datePicker_weekday_0: '日',
@@ -118,6 +122,21 @@ namespace we {
 
       mobile_dropdown_confirm: '确定',
 
+      video_setting_auto: '自动',
+      video_setting_cam: '镜头',
+      video_setting_qua: '画质',
+      video_setting_closer: '近镜',
+      video_setting_far: '远镜',
+      video_setting_close: '关闭',
+      video_setting_bluray: '蓝光',
+      video_setting_highQua: '超清',
+      video_setting_standQua: '标清',
+
+      live_verification_title: '现场验证',
+      live_verification_text: '点击输入表情符号传送至现场平板电脑',
+      live_verification_send: '发送',
+      live_verification_success_text: '成功发送，请留意现场平板电脑的显示',
+
       loading: {
         socket: {
           connecting: '连结伺服器中',
@@ -144,6 +163,7 @@ namespace we {
           logoutMsg: '确定登出?',
           confirm: '确定',
           cancel: '取消',
+          gameSet: '游戏设定',
         },
         system: {
           title: '系统设定',

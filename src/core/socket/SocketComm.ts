@@ -757,6 +757,20 @@ namespace we {
         );
       }
 
+      public sendVerifyInfo(id: string, pattern: string[]) {
+        this.client.sendVerifyInfo(
+          id,
+          pattern,
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO:  handle error on cancel
+            } else {
+              // dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
+      }
+
       public getTableHistory() {}
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
