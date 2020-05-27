@@ -43,7 +43,7 @@ namespace we {
         // group with horizontal layout
         // holding 2 notification holder
         // this.notificationHolders = [];
-        this.notificationList = []; 
+        this.notificationList = [];
         // const group = new eui.Group();
         // this.addChild(group);
 
@@ -121,8 +121,8 @@ namespace we {
         }
         const notification = this.nextNotification;
         if (notification) {
-            this.listDisplay.addItem(notification);
-            this.showNotification(notification.type);
+          this.listDisplay.addItem(notification);
+          this.showNotification(notification.type);
         }
       }
 
@@ -138,7 +138,7 @@ namespace we {
 
       protected get nextNotification(): data.Notification {
         // for (const notification of this.notificationList) {
-        for (var idx=0 ; idx < this.notificationList.length;) {
+        for (let idx = 0; idx < this.notificationList.length; ) {
           const notification = this.notificationList[idx];
           if (this.isTypeAvailable(notification.type)) {
             // check if type is goodRoad && remainingBetTime<5s

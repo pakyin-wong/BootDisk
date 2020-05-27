@@ -18,7 +18,7 @@ namespace we {
 
       protected _veritcalTop: eui.Group;
 
-      private _videoBtn: eui.Image;
+      private _videoBtn: egret.DisplayObject;
 
       public played: boolean;
       public playFunc: () => void;
@@ -51,7 +51,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        mouse.setButtonMode(this._videoBtn, this.played);
+        // mouse.setButtonMode(this._videoBtn, false);
         this._bottomGamePanel.setTableInfo(this._tableInfo);
         this._bottomGamePanel.gameScene = this;
         if (this._lblBetLimit) {
@@ -59,6 +59,11 @@ namespace we {
           dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
           this.changeLang();
         }
+
+        this.setPlayFunc(this.playVideo(this));
+        this.setStopFunc(this.stopVideo(this));
+
+        this.played = true;
       }
 
       protected initDenom() {

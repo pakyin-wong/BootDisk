@@ -80,7 +80,7 @@ namespace we {
 
       public init() {
         this._soundBGM = RES.getRes('sn_bgm002_mp3');
-        this._channelBGM = this._soundBGM.play();
+        // this._channelBGM = this._soundBGM.play();
       }
 
       public async playSequence(resNameSeq: string[]) {

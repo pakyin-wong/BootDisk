@@ -27,9 +27,9 @@ namespace we {
         } else {
           this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
           this._btnQuickBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.quickBet, this);
-          this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label')
+          this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label');
           this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
-        };
+        }
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -39,7 +39,7 @@ namespace we {
         const tabledata = tableInfo.data;
         const gameType = tableInfo.gametype;
         const winType = tableInfo.data.wintype;
-        console.log(tableInfo)
+        console.log(tableInfo);
 
         this._lblName.renderText = () => `${i18n.t('gametype_' + we.core.GameType[gameType])} ${tableNo}`;
         this._lblWinAMount.text = `${winAmount >= 0 ? '+' : ''}${utils.formatNumber(winAmount)}`;
@@ -87,7 +87,7 @@ namespace we {
       }
 
       protected quickBet() {
-        this.dispatchEvent(new egret.Event('QUICK_BET'))
+        this.dispatchEvent(new egret.Event('QUICK_BET'));
       }
 
       protected enterRoom() {

@@ -32,8 +32,8 @@ namespace we {
 
       public voice: string = 'mandarin';
       public bgm = 1;
-      public liveVolume = 1;
-      public soundEffect = 1;
+      // public liveVolume = 1;
+      // public soundEffect = 1;
 
       public betLimits: data.BetLimitSet[];
       public wholeDenomList: number[];
