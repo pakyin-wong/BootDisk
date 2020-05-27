@@ -5,6 +5,8 @@ namespace we {
       private _channelBGM: egret.SoundChannel;
       private _channelFX: egret.SoundChannel;
 
+      private _video: egret.FlvVideo;
+
       private _volumeBGM = 0.5;
       private _volumeFX = 0.5;
       private _volumeLive = 0.5;
@@ -63,6 +65,17 @@ namespace we {
       public set volumeLive(vol: number) {
         logger.l(`Setting volumeLive to ${vol}`);
         this._volumeLive = vol;
+        if (this._video) {
+          this._video.volume = vol;
+        }
+      }
+
+      public get video() {
+        return this._video;
+      }
+
+      public set video(value: egret.FlvVideo) {
+        this._video = value;
       }
 
       public init() {
