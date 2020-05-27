@@ -113,6 +113,10 @@ namespace we {
     // Notification
     export interface INotificationController {
       notificationList: data.Notification[];
+      dismissFocus(isRemoved: boolean);
+      setFocus(holder: NotificationItemHolder);
+      showNextNotification();
+      dismissNotification(type: number);
     }
   }
 }

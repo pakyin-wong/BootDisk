@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.VideoSetting" width="1962" height="658" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Rect left="0" top="0" bottom="0" right="0" ellipseWidth="130" ellipseHeight="130" fillColor="0x0f1721"/>
+		<ui:RunTimeLabel id="cam_title" text="Label" x="96" y="44" width="750" height="112" verticalAlign="middle" textColor="0xc59466" size="76" anchorOffsetX="0" bold="true"/>
+			<e:RadioButton id="autoCamBtn" label="自動" x="92" y="212" width="128" height="101" value="0" selected="true" scaleX="1" scaleY="1" groupName="cam">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="closerCamBtn" label="近鏡" x="315" y="212" width="128" height="101" value="1" selected="true" scaleX="1" scaleY="1" groupName="cam">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>			
+			<e:RadioButton id="farCamBtn" label="遠鏡" x="537" y="212" width="128" height="101" value="2" selected="true" scaleX="1" scaleY="1" groupName="cam">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="closeCamBtn" label="關閉" x="760" y="212" width="128" height="101" value="3" selected="true" scaleX="1" scaleY="1" groupName="cam">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+
+			<ui:RunTimeLabel id="qua_title" text="Label" x="1078" y="44" width="750" height="112" verticalAlign="middle" textColor="0xc59466" size="76" anchorOffsetX="0" bold="true"/>
+			<e:RadioButton id="autoQuaBtn" label="自動" x="1078" y="212" width="128" height="101" value="0" selected="true" scaleX="1" scaleY="1" groupName="qua">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="bluRayBtn" label="藍光" x="1301" y="212" width="128" height="101" value="1" selected="true" scaleX="1" scaleY="1" groupName="qua">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>			
+			<e:RadioButton id="highQuaBtn" label="超清" x="1523" y="212" width="128" height="101" value="2" selected="true" scaleX="1" scaleY="1" groupName="qua">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+			<e:RadioButton id="standQuaBtn" label="標清" x="1746" y="212" width="128" height="101" value="3" selected="true" scaleX="1" scaleY="1" groupName="qua">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
+				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				</e:Skin>
+			</e:skinName>
+			</e:RadioButton>
+
+		<e:Group id="confirmBtn" width="499" height="150" x="732" y="441">
+			<e:Rect strokeWeight="3" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" strokeColor="0x1b416e" fillColor="0x1b416e"/>
+			<ui:RunTimeLabel id="confirmLabel" text="Label" x="0" y="0" width="499" height="150" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1"/>
+		</e:Group>
+		
+		<e:Image id="close" width="80" height="80" source="d-lobby-button-close-none_png"  x="1836" y="50"/>
+
+	</e:Group>
+</e:Skin>

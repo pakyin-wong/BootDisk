@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LiveVerification" width="520" height="749" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group id="content" left="0" right="0" top="0" bottom="0">
+		<e:Rect left="0" top="0" bottom="0" right="0" ellipseWidth="130" ellipseHeight="130" fillColor="0x0f1721"/>
+		<ui:RunTimeLabel id="liveVer_title" text="Label" x="0" y="48" width="520" height="71" verticalAlign="middle" textColor="0xc59466" size="48" anchorOffsetX="0" bold="true" textAlign="center"/>
+		<ui:RunTimeLabel id="liveVer_text" text="Label" x="0" y="151" width="520" height="33" verticalAlign="middle" size="24" anchorOffsetX="0" bold="true" textAlign="center" textColor="0xffffff"/>
+		<e:Group id="showColGroup" x="95" y="202">
+			<e:Group x="0" y="0">
+				<e:Rect id="firstCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="0" y="0" strokeColor="0x444444"/>
+				<e:Image id="firstImg" width="66" height="66" x="0" y="0"/>
+			</e:Group>
+			<e:Group x="88" y="0">
+				<e:Rect id="secCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="0" y="0" strokeColor="0x444444"/>
+				<e:Image id="secImg" width="66" height="66" x="0" y="0"/>
+			</e:Group>
+			<e:Group x="176" y="0">
+				<e:Rect id="thirdCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="0" y="0"/>
+				<e:Image id="thirdImg" width="66" height="66" x="0" y="0"/>
+			</e:Group>
+			<e:Group x="264" y="0">
+				<e:Rect id="fortCol" ellipseWidth="30" ellipseHeight="30" fillColor="0x0f1721" width="66" height="66" fillAlpha="0" strokeWeight="2" x="0" y="0"/>
+				<e:Image id="fortImg" width="66" height="66" x="0" y="0"/>
+			</e:Group>
+		</e:Group>
+		<e:Group id="btnGroup" x="60" y="299">
+			<e:Rect id="_bg" ellipseWidth="15" ellipseHeight="15" fillColor="0x1e262f" width="400" height="305" x="0" y="0"/>
+			<e:Image id="e1" name="e1" width="68" height="65" x="36" y="25" source="m_common_chartroom_emoji_icon_1_png"/>
+			<e:Image id="e2" name="e2" height="65" x="123" y="25" source="m_common_chartroom_emoji_icon_2_png" width="68"/>
+			<e:Image id="e3" name="e3" height="65" x="209" y="25" source="m_common_chartroom_emoji_icon_3_png" width="68"/>
+			<e:Image id="e4" name="e4" height="65" x="296" y="25" source="m_common_chartroom_emoji_icon_4_png" width="68"/>
+			<e:Image id="e5" name="e5" height="65" x="36" y="120" source="m_common_chartroom_emoji_icon_5_png" width="68"/>
+			<e:Image id="e6" name="e6" height="65" x="123" y="120" source="m_common_chartroom_emoji_icon_6_png" width="68"/>
+			<e:Image id="e7" name="e7" height="65" x="208" y="120" source="m_common_chartroom_emoji_icon_7_png" width="68"/>
+			<e:Image id="e8" name="e8" height="65" x="296" y="120" source="m_common_chartroom_emoji_icon_8_png" width="68"/>
+			<e:Image id="e9" name="e9" height="65" x="39" y="214" source="m_common_chartroom_emoji_icon_9_png" width="68"/>
+			<e:Image id="e10" name="e10" height="65" x="124" y="214" source="m_common_chartroom_emoji_icon_10_png" width="68"/>
+			<e:Image id="e11" name="e11" height="65" x="208" y="214" source="m_common_chartroom_emoji_icon_11_png" width="68"/>
+			<e:Image id="e12" name="e12" height="65" x="296" y="214" source="m_common_chartroom_emoji_icon_12_png" width="68"/>
+		</e:Group>
+
+		<e:Group id="confirmBtn" width="322" height="66" x="99" y="635">
+			<e:Rect strokeWeight="3" ellipseWidth="60" ellipseHeight="60" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x1b416e" fillAlpha="0" strokeColor="0x444444"/>
+			<ui:RunTimeLabel id="confirmLabel" text="Label" x="0" y="0" width="100%" height="100%" verticalAlign="middle" textAlign="center" size="44" alpha="0.7" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<e:Image id="close" width="68" height="68" source="d-lobby-button-close-none_png"  x="426" y="16"/>
+		<e:Group id="alert_group" x="0" y="0" width="100%" height="100%" visible="false">
+			<e:Rect id="close_bg" ellipseWidth="15" ellipseHeight="15" width="100%" height="100%" x="0" y="0" fillAlpha="0.58" fillColor="0x000000"/>
+			<e:Rect ellipseWidth="15" ellipseHeight="15" width="400" height="305" fillAlpha="1" fillColor="0x1e262f" verticalCenter="0" horizontalCenter="0"/>
+			<e:Image width="120" height="120" source="m_common_listpanel_goodroad_bg_png" verticalCenter="-45" horizontalCenter="0"/>
+			<ui:RunTimeLabel id="success_text" text="Label" width="400" height="80" verticalAlign="middle" size="40" anchorOffsetX="0" bold="true" textAlign="center" textColor="0xffffff" horizontalCenter="0" verticalCenter="85"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>

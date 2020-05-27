@@ -21,6 +21,10 @@
 			<e:Image width="47" height="47" x="0" y="36" source.light="d_lobby_select_round_no_png" source.dark="d_lobby_select_round_yes_png"/>
 			<e:Image width="158" height="118" x="91" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_active_png" source.light="m_common_panel_setting_uicolour_png"/>
 		</e:Group>
+		<e:Group id="btn_gameSet" x="104" y="1760" height="96">
+			<ui:RunTimeLabel id="txt_gameSet" text="Label" x="184" y="3" anchorOffsetX="0" width="650" height="89" size="60" textColor="0xffffff" verticalAlign="middle"/>
+			<e:Image source="m_common_panel_setting_icon_setting_png" width="86" height="85" x="5" y="5.5"/>
+		</e:Group>
 		<e:Group id="btn_leftHandMode" x="104" y="1934" height="96" touchChildren="false">
 			<ui:RunTimeLabel id="txt_leftHandMode" text="Label" x="184" y="3" anchorOffsetX="0" width="650" height="89" size="60" textColor="0xFFFFFF" verticalAlign="middle"/>
 			<ui:BaseButton id="switch_leftHandMode" width="155" height="95" x="0" y="0.5" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
