@@ -12,7 +12,7 @@ namespace we {
         const allResult = we.ro.getNeighbour(value, 1);
         this._ROlblResult.text = allResult[1].toString();
         this._lblResult.renderText = () => i18n.t(utils.getWinMessageKey(gameType, winType, true));
-        switch(value) {
+        switch (value) {
           case we.ro.Color.RED:
             this._resultImage.source = 'd_lobby_ro_panel_gamelist_gameresult_red_win_png';
             break;

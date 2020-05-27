@@ -17,7 +17,6 @@ namespace we {
           this._touchArea2.touchEnabled = true;
           this._touchArea2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.enterRoom, this);
           this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label_real_mobile');
-
         } else {
           this._btnDismiss.label.renderText = () => i18n.t('mobile_notification_close_button_label');
           this._btnQuickBet.label.renderText = () => i18n.t('mobile_notification_quick_bet_button_label');
@@ -25,7 +24,6 @@ namespace we {
         }
         this._btnDismiss.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeSelf, this);
         this._btnQuickBet.addEventListener(egret.TouchEvent.TOUCH_TAP, this.quickBet, this);
-
       }
 
       public setData(tableInfo: data.TableInfo) {
