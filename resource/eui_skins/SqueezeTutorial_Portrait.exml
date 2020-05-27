@@ -36,6 +36,10 @@
     </e:Group>
     <e:Group id="_bottom" width="1242" height="300" bottom="0">
         <ui:RunTimeLabel id="_buttonText" text="下一頁" horizontalCenter="0" bottom="160" width="448" height="136" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" verticalAlign="middle" textAlign="center"/>
-        <e:Image id="_nextButton" source="m_sq_ba_panel_btn_bg_Inactive_png" horizontalCenter="0" bottom="160" width="448" height="136"/>
+        <e:Image id="_nextButton" source="m_sq_ba_panel_btn_bg_Inactive_png" horizontalCenter="0" bottom="160" width="448" height="136">
+            <e:scale9Grid> 
+                <e:Rectangle x="62" y="136" width="0" height="0"/> 
+            </e:scale9Grid> 
+        </e:Image>
     </e:Group>
 </e:Skin>

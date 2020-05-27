@@ -42,7 +42,11 @@
                     <ui:RunTimeLabel id="_captionFour" horizontalCenter="0" bottom="588" text="卡牌四邊四角可咪牌" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" visible="false"/>
 
                     <ui:RunTimeLabel id="_buttonText" text="下一頁" horizontalCenter="0" bottom="392" width="448" height="136" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" verticalAlign="middle" textAlign="center" touchEnabled="true"/>
-                    <e:Image id="_nextButton" source="m_sq_ba_panel_btn_bg_Inactive_png" horizontalCenter="0" bottom="392" width="448"/>
+                    <e:Image id="_nextButton" source="m_sq_ba_panel_btn_bg_Inactive_png" horizontalCenter="0" bottom="392" width="448">
+                        <e:scale9Grid> 
+                            <e:Rectangle x="62" y="136" width="0" height="0"/> 
+                        </e:scale9Grid> 
+                    </e:Image>
                 </e:Group>
 	            <e:Rect x="1058" y="169" fillColor="0xd8d8d8" width="2" height="776" alpha="0.4" />
             </e:Group>

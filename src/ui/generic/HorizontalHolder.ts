@@ -242,15 +242,18 @@ namespace we {
       }
 
       public doNext(isButton: boolean = false) {
+        if (this.isAnimating) return;
         this.isAnimating = true;
 
         if (isButton) {
           if (this._currentPageIdx === this.pageCount - 1) {
+            this.isAnimating = false;
+            this.onMoveFinished(0);
             return;
           }
         }
 
-        if (this.isAuto && this._currentPageIdx === this.pageCount - 1 && this.isNextBlock) {
+        if (this.isAuto && this._currentPageIdx === this.pageCount - 1 && !this.isLoop) {
           this.clearAuto();
           this.onMoveFinished(0);
           return;
@@ -294,11 +297,14 @@ namespace we {
       }
 
       public doPrevious(isButton: boolean = false) {
+        if (this.isAnimating) return;
         // this._sortedSlides[this._nextIdx].visible = false;
         this.isAnimating = true;
 
         if (isButton) {
           if (this._currentPageIdx === 0) {
+            this.isAnimating = false;
+            this.onMoveFinished(0);
             return;
           }
         }
@@ -330,9 +336,10 @@ namespace we {
       }
 
       protected doAuto() {
+        this.clearAuto();
         this._autoTimer = setTimeout(() => {
           this.doNext();
-        }, 5000);
+        }, 3000);
       }
 
       protected clearAuto() {
@@ -347,8 +354,6 @@ namespace we {
         const current = this._slides[this._currentPageIdx];
         const previous = this._slides[this._previousIdx];
         const next = this._slides[this._nextIdx];
-
-        this.clearAuto();
 
         egret.Tween.removeTweens(current);
         egret.Tween.removeTweens(previous);
@@ -418,6 +423,8 @@ namespace we {
         if (last < -this.slideWidth / 2) this._direction = 'prev';
 
         this._previousPosition = touchPos;
+
+        this.clearAuto();
 
         if (this._nextIdx === this._previousIdx) {
           current.x = current.x - offset; // centerpoint
@@ -505,7 +512,7 @@ namespace we {
             }
           }
         }
-      };
+      }
 
       protected onTouchEnd = event => {
         if (this.isAnimating) return;
@@ -567,7 +574,7 @@ namespace we {
             break;
         }
         this.clearTouch();
-      };
+      }
 
       protected clearTouch() {
         const canvas = document.getElementsByTagName('canvas')[0];
