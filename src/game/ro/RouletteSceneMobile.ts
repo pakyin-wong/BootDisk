@@ -65,6 +65,10 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
@@ -343,7 +347,7 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         if (this.hasBet() && !isNaN(totalWin)) {

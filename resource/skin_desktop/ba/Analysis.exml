@@ -190,7 +190,7 @@
 						</e:Group>
 						<e:Group width="240" height="160" x="240">
 							<e:Rect width="240" height="160" x="0" y="0" fillColor="0x212425" />
-							<e:Label id="_shoePairTitle" text="庄對閒對比例(1)" x="14" y="10" size="20" textAlign="center" verticalAlign="middle"
+							<e:Label id="_shoePairTitle" text="庄對閒對比例(1靴)" x="14" y="10" size="20" textAlign="center" verticalAlign="middle"
 									 bold="true" />
 							<e:Group x="19" y="66">
 								<e:Image width="21" height="21" source="d_ba_roadmap_bar_bankerpairstate_png" />
