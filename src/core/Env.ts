@@ -21,6 +21,9 @@ namespace we {
       public currency: Currency;
       public playerID: string;
       public nickname: string;
+      public nicknames: { nickname_group1: string[]; nickname_group2: string[]; nickname_group3: string[] };
+      public icon: string;
+      public icons: string[];
       public profileImageURL: string;
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions

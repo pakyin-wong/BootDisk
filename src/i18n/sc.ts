@@ -152,6 +152,21 @@ namespace we {
           soundfx: '游戏音效',
           bgm: '背景音乐',
           term: '服务条款',
+          changeName: '设定暱称',
+        },
+        userName: {
+          category: {
+            cartoon: '卡通人物角色',
+            myth: '神话人物角色',
+            movie: '电影人物角色',
+          },
+          name: {
+            name1: '黑豹',
+            name2: '黑寡妇',
+            name3: '刀锋战士',
+            name4: '酷寒战士',
+            name5: '美国队长',
+          },
         },
       },
       lobby: {

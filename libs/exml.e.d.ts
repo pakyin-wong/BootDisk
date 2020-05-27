@@ -749,6 +749,10 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
+	class LiveGameTableList extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
 	class LiveOverlayItemSkin extends eui.Skin{
 	}
 }
@@ -873,10 +877,6 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
-	class LiveGameTableList extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape{
 	class LivePage extends eui.Skin{
 	}
 }
@@ -974,6 +974,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class ChangeName extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1496,6 +1500,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class BetHistorySearch extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class ChangeName extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

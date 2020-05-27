@@ -395,7 +395,23 @@ namespace we {
         env.currTime = Date.now();
         env.playerID = 'PID001';
         env.currency = Currency.RMB;
-        env.nickname = 'PGPG';
+        env.nickname = 'Jonathan';
+        env.nicknames = {
+          nickname_group1: ['海綿寶寶', '哆啦A夢 (小叮噹)', '蠟筆小新', '巴斯光年', '米奇老鼠 (米老鼠)'],
+          nickname_group2: ['天使', '獨角獸', '外星人', '鳳凰', '二重身'],
+          nickname_group3: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+        };
+        env.icons = [
+          'd_lobby_profile_pic_01_png',
+          'd_lobby_profile_pic_02_png',
+          'd_lobby_profile_pic_03_png',
+          'd_lobby_profile_pic_04_png',
+          'd_lobby_profile_pic_05_png',
+          'd_lobby_profile_pic_06_png',
+          'd_lobby_profile_pic_07_png',
+          'd_lobby_profile_pic_08_png',
+        ];
+        env.icon = 'd_lobby_profile_pic_01_png';
         env.profileImageURL = 'https://url';
         env.betLimits = [
           {
