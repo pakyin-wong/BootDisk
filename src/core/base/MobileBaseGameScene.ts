@@ -178,13 +178,13 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
-        this._videoBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        if (this._videoBtn) { this._videoBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this); }
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
-        this._videoBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        if (this._videoBtn) { this._videoBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this); }
       }
 
       protected onClickVideo() {
