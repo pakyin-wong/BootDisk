@@ -117,18 +117,19 @@ namespace we {
               this._max_result = 1;
               break;
           }
-        } else {//portrait
+        } else {
+          // portrait
           this._notificationContainer.layout = null;
           this.resultListDisplay.y = this._notificationContainer.height - 200;
-          this.resultListDisplay.x = 363; //horizontal center
-          this.goodRoadListDisplay.x = 248; //horizontal center
+          this.resultListDisplay.x = 363; // horizontal center
+          this.goodRoadListDisplay.x = 248; // horizontal center
           this.goodRoadListDisplay.y = 50;
           this._max_result = 1;
         }
       }
 
       protected onNotified(evt: egret.Event) {
-        const notification: data.Notification = <data.Notification>evt.data;
+        const notification: data.Notification = <data.Notification> evt.data;
         this.notificationList.push(notification);
         this.showNextNotification();
       }
@@ -253,7 +254,7 @@ namespace we {
         // remove the focus item if exist
         if (this._currentFocus) {
           if (!isRemoved) {
-            const holder = <NotificationItemHolder>this.goodRoadListDisplay.getChildAt(0);
+            const holder = <NotificationItemHolder> this.goodRoadListDisplay.getChildAt(0);
             holder.removeItem();
           }
           this._currentFocus = null;
