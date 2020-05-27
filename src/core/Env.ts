@@ -32,8 +32,8 @@ namespace we {
 
       public voice: string = 'mandarin';
       public bgm = 1;
-      public liveVolume = 1;
-      public soundEffect = 1;
+      // public liveVolume = 1;
+      // public soundEffect = 1;
 
       public betLimits: data.BetLimitSet[];
       public wholeDenomList: number[];
@@ -45,8 +45,8 @@ namespace we {
       public showGoodRoadHint: boolean = false;
       public autoConfirmBet: boolean = false;
 
-      public camMode: number = 0;
-      public qualityMode: number = 0;
+      public camMode: number = 2;
+      public qualityMode: number = 3;
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
@@ -65,6 +65,9 @@ namespace we {
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
+
+      // Check if playing bam first time
+      public isFirstTimeBam = false;
 
       public init() {
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);

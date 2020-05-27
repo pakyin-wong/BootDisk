@@ -11,6 +11,14 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        if (!env.isFirstTimeBam) {
+          const tutorial = new SqueezeTutorial('SqueezeTutorial');
+          tutorial.x = 106;
+          tutorial.y = 171;
+          tutorial.isDraggable = true;
+          this.addChild(tutorial);
+          env.isFirstTimeBam = true;
+        }
       }
 
       protected setSkinName() {
