@@ -957,40 +957,44 @@ namespace we {
         const idx = Math.floor(Math.random() * baTables.length);
         const tableInfo = baTables[idx];
         // update ba table good road match data
+
         const goodRoadData: data.GoodRoadData = {
           roadmapid: '1',
           name: '好路',
           custom: true,
           tableid: tableInfo.tableid,
+          alreadyShown: false,
         };
+
         if (!tableInfo.goodRoad) {
           this.goodRoadTableList.push(tableInfo.tableid);
         }
         tableInfo.goodRoad = goodRoadData;
 
-        const data = {
-          tableid: tableInfo.tableid,
-        };
-        const notification: data.Notification = {
-          type: core.NotificationType.GoodRoad,
-          data,
-        };
-        dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+        // const data = {
+        //   tableid: tableInfo.tableid,
+        // };
+        // const notification: data.Notification = {
+        //   type: core.NotificationType.GoodRoad,
+        //   data,
+        // };
+        // dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
 
         // dispatch match event
         dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
         this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
         // set timeout to reset the good road match data
-        setTimeout(() => {
-          tableInfo.goodRoad = null;
-          const idx = this.goodRoadTableList.indexOf(tableInfo.tableid);
-          if (idx > -1) {
-            this.goodRoadTableList.splice(idx, 1);
-          }
-          // dispatch match event
-          dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
-          this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
-        }, 20000);
+
+        // setTimeout(() => {
+        //   tableInfo.goodRoad = null;
+        //   const idx = this.goodRoadTableList.indexOf(tableInfo.tableid);
+        //   if (idx > -1) {
+        //     this.goodRoadTableList.splice(idx, 1);
+        //   }
+        //   // dispatch match event
+        //   dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
+        //   this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        // }, 20000);
       }
 
       private onReceivedMsg(res) {

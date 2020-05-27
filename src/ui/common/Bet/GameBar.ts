@@ -23,8 +23,12 @@ namespace we {
         mouse.setButtonMode(this.videoButton, true);
         super.childrenCreated();
         // this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
-        if (this.soundBtn) { this.soundBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this); }
-        if (this.gameButton) { this.gameButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this); }
+        if (this.soundBtn) {
+          this.soundBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
+        }
+        if (this.gameButton) {
+          this.gameButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
+        }
         this.videoButton.addEventListener(
           egret.TouchEvent.TOUCH_TAP,
           () => {
@@ -49,8 +53,12 @@ namespace we {
 
       protected removeEventListeners() {
         // this.videoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
-        if (this.soundBtn) { this.soundBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this); }
-        if (this.gameButton) { this.gameButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this); }
+        if (this.soundBtn) {
+          this.soundBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
+        }
+        if (this.gameButton) {
+          this.gameButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
+        }
       }
 
       protected destroy() {

@@ -68,8 +68,11 @@ namespace we {
 
       protected checkBoxHighlight() {
         for (let i: number = 0; i < this.colArray.length; i++) {
-          if (i === this.inputIndex) this.colArray[i].strokeColor = 0xffffff;
-          else this.colArray[i].strokeColor = 0x444444;
+          if (i === this.inputIndex) {
+            this.colArray[i].strokeColor = 0xffffff;
+          } else {
+            this.colArray[i].strokeColor = 0x444444;
+          }
         }
       }
 
