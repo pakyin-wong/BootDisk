@@ -7,36 +7,36 @@
 			<e:RadioButton id="autoCamBtn" label="自動" x="92" y="212" width="128" height="101" value="0" selected="true" scaleX="1" scaleY="1" groupName="cam">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
 			<e:RadioButton id="closerCamBtn" label="近鏡" x="315" y="212" width="128" height="101" value="1" selected="true" scaleX="1" scaleY="1" groupName="cam">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>			
 			<e:RadioButton id="farCamBtn" label="遠鏡" x="537" y="212" width="128" height="101" value="2" selected="true" scaleX="1" scaleY="1" groupName="cam">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
 			<e:RadioButton id="closeCamBtn" label="關閉" x="760" y="212" width="128" height="101" value="3" selected="true" scaleX="1" scaleY="1" groupName="cam">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
@@ -45,36 +45,36 @@
 			<e:RadioButton id="autoQuaBtn" label="自動" x="1078" y="212" width="128" height="101" value="0" selected="true" scaleX="1" scaleY="1" groupName="qua">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
 			<e:RadioButton id="bluRayBtn" label="藍光" x="1301" y="212" width="128" height="101" value="1" selected="true" scaleX="1" scaleY="1" groupName="qua">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>			
 			<e:RadioButton id="highQuaBtn" label="超清" x="1523" y="212" width="128" height="101" value="2" selected="true" scaleX="1" scaleY="1" groupName="qua">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
 			<e:RadioButton id="standQuaBtn" label="標清" x="1746" y="212" width="128" height="101" value="3" selected="true" scaleX="1" scaleY="1" groupName="qua">
 			<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="down" alpha="1" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="m_lobby_header_submenu_hl_png" includeIn="up" alpha="0" y="93"/>
+				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
 				</e:Skin>
 			</e:skinName>
 			</e:RadioButton>
