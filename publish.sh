@@ -34,6 +34,7 @@ $bin publish -version $1
 echo `cp $path/config.json $target`
 cp -f $path/config.json $target
 cp -f $path/style.css $target
+cp -f $path/swipeup.png $target
 cp -rf $path/jslib $target
 cp $path/config.$1.json $target
 

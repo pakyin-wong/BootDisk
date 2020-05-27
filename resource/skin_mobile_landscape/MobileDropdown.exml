@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_landscape.MobileDropdown" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
-
-
-
-	<e:Group id="content" y="381" left="0" right="0">
-		<e:Rect fillColor="0x1a1a1a" top="0" bottom="0" left="0" right="0"/>
-
-		<ui:RunTimeLabel id="_title" text="Label" y="0" height="146" textAlign="center" verticalAlign="middle" size="70" left="0" right="0"/>
-		<ui:RunTimeLabel id="close" text="Label" y="0" height="146" verticalAlign="middle" textAlign="right" size="60" right="50"/>
-		<e:Scroller id="_scroller" height="718" y="143" left="0" right="0">
+<e:Skin class="skin_mobile_landscape.MobileDropdown" width="2424" height="1242" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="content" y="237" left="0" right="0" anchorOffsetY="0" height="1005">
+		<e:Rect fillColor="0x1a1a1a" top="0" left="0" right="0" height="100%" />
+		<ui:RunTimeLabel id="close" text="Label" y="0" height="146" verticalAlign="middle" textAlign="right" size="60"
+		                 right="50" />
+		<e:Group horizontalCenter="0">
+			<ui:RunTimeLabel id="_title" text="Label" y="0" height="146" textAlign="center" verticalAlign="middle" size="70"
+			                 left="0" right="0" width="600" />
+			<ui:RunTimeLabel id="_subtitle" text="Label" y="0" height="146" textAlign="center" verticalAlign="middle" size="70"
+			                 width="600" x="1291" visible="false" />
+		</e:Group>
+		<e:Scroller id="_scroller" height="718" left="0" right="0" bottom="0">
 			<e:List id="_list">
-			<e:layout>
-				<e:VerticalLayout paddingTop="303" paddingBottom="297" gap="0" horizontalAlign="center"/>
-			</e:layout>
+				<e:layout>
+					<e:VerticalLayout paddingTop="303" paddingBottom="297" gap="0" horizontalAlign="center" />
+				</e:layout>
 			</e:List>
 		</e:Scroller>
 	</e:Group>
-
 </e:Skin>

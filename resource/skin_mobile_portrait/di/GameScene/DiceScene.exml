@@ -91,7 +91,7 @@
 						<di:MobileTableLayer id="_tableLayer" width="100%" height="100%"
 						                     skinName="skin_mobile_portrait.di.MobileTableLayerSkin" isEdgeDismissable="true" />
 					</e:Group>
-					<di:MobileChipLayer id="_chipLayer" width="100%" height="100%" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" isEdgeDismissable="true" scaleX="1" scaleY="1"/>
+					<di:MobileChipLayer id="_chipLayer" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" isEdgeDismissable="true" scaleX="1" scaleY="1" left="0" right="0" horizontalCenter="0" top="0"/>
 				</e:Group>
 			</e:Group>
 		</e:Group>

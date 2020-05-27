@@ -12,6 +12,7 @@ RUN egret publish -version ${ENVIRONMENT}
 ADD jslib bin-release/web/${ENVIRONMENT}/jslib
 ADD config.json bin-release/web/${ENVIRONMENT}/config.json
 ADD style.css bin-release/web/${ENVIRONMENT}/style.css
+ADD swipeup.png bin-release/web/${ENVIRONMENT}/swipeup.png
 ADD config.${ENVIRONMENT}.json bin-release/web/${ENVIRONMENT}/config.${ENVIRONMENT}.json
 RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
 

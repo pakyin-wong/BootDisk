@@ -22,21 +22,21 @@ namespace we {
       protected childrenCreated(): void {
         mouse.setButtonMode(this.videoButton, true);
         super.childrenCreated();
-        this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
-        if (this.soundBtn) this.soundBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
-        if (this.gameButton) this.gameButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
-        // this.videoButton.addEventListener(
-        //   egret.TouchEvent.TOUCH_TAP,
-        //   () => {
-        //     if (this.played) {
-        //       this.stopFunc();
-        //     } else {
-        //       this.playFunc();
-        //     }
-        //     this.played = !this.played;
-        //   },
-        //   this
-        // );
+        // this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        if (this.soundBtn) { this.soundBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this); }
+        if (this.gameButton) { this.gameButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this); }
+        this.videoButton.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          () => {
+            if (this.played) {
+              this.stopFunc();
+            } else {
+              this.playFunc();
+            }
+            this.played = !this.played;
+          },
+          this
+        );
       }
 
       public setPlayFunc(func: () => void) {
@@ -48,9 +48,9 @@ namespace we {
       }
 
       protected removeEventListeners() {
-        this.videoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
-        if (this.soundBtn) this.soundBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
-        if (this.gameButton) this.gameButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
+        // this.videoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        if (this.soundBtn) { this.soundBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this); }
+        if (this.gameButton) { this.gameButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this); }
       }
 
       protected destroy() {

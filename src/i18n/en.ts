@@ -171,6 +171,21 @@ namespace we {
           soundfx: 'Sound Effect',
           bgm: 'Music',
           term: 'Term of Service',
+          changeName: 'Nickname Setting',
+        },
+        userName: {
+          category: {
+            cartoon: 'Cartoon Character',
+            myth: 'Myth Character',
+            movie: 'Movie Character',
+          },
+          name: {
+            name1: 'Black Panther',
+            name2: 'Black Widow',
+            name3: 'Blade',
+            name4: 'Winter Soldier',
+            name5: 'Captain America',
+          },
         },
       },
       lobby: {
@@ -339,9 +354,9 @@ namespace we {
         stopBet: 'Stop Bet',
       },
       sidePanel: {
-        bet: 'Bet',
+        betted: 'Bet',
         goodroad: 'Good Road',
-        allgame: 'All Game',
+        allgames: 'All Game',
       },
       baccarat: {
         playerPair: 'Player Pair',

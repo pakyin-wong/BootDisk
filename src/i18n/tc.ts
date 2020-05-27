@@ -171,6 +171,21 @@ namespace we {
           soundfx: '遊戲音效',
           bgm: '背景音樂',
           term: '服務條款',
+          changeName: '設定暱稱',
+        },
+        userName: {
+          category: {
+            cartoon: '卡通人物角色',
+            myth: '神話人物角色',
+            movie: '電影人物角色',
+          },
+          name: {
+            name1: '黑豹',
+            name2: '黑寡婦',
+            name3: '刀鋒戰士',
+            name4: '酷寒戰士',
+            name5: '美國隊長',
+          },
         },
       },
       lobby: {
@@ -339,9 +354,9 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
-        bet: '已下注',
+        betted: '已下注',
         goodroad: '好路',
-        allgame: '全部遊戲',
+        allgames: '全部遊戲',
       },
       baccarat: {
         playerPair: '閒對',

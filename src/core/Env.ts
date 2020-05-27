@@ -14,13 +14,16 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.4.1';
+      public version: string = '0.5.0';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
       public nickname: string;
+      public nicknames: { nickname_group1: string[]; nickname_group2: string[]; nickname_group3: string[] };
+      public icon: string;
+      public icons: string[];
       public profileImageURL: string;
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
