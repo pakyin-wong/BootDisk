@@ -157,9 +157,21 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-        env.nickname = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
-        env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.icon;
-        env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
+        env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
+        // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
+        // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
+        env.icons = [
+          'd_lobby_profile_pic_01_png',
+          'd_lobby_profile_pic_02_png',
+          'd_lobby_profile_pic_03_png',
+          'd_lobby_profile_pic_04_png',
+          'd_lobby_profile_pic_05_png',
+          'd_lobby_profile_pic_06_png',
+          'd_lobby_profile_pic_07_png',
+          'd_lobby_profile_pic_08_png',
+        ];
+        env.icon = player.profile.settings.icon ? player.profile.settings.icon : 'd_lobby_profile_pic_01_png';
+
         env.profileImageURL = player.profile.profileimage;
         logger.l('PlayerClient::handleReady() ' + player.profile.betlimits);
         env.betLimits = player.profile.betlimits

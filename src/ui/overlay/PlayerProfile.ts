@@ -55,9 +55,10 @@ namespace we {
           this._txt_name.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
           console.log(this._txt_name.text);
 
-          this.dropdownSource = env.nicknames.nickname_group1.map((data, index) => {
-            return ui.NewDropdownItem(index, () => env.nicknames.nickname_group1[index]);
-          });
+          // this.dropdownSource = env.nicknames.nickname_group1.map((data, index) => {
+          //   return ui.NewDropdownItem(index, () => env.nicknames.nickname_group1[index]);
+          // });
+          this.dropdownSource = [];
           this._nameListData = new eui.ArrayCollection(this.dropdownSource);
 
           if (this._ddm_name) {
@@ -114,28 +115,28 @@ namespace we {
       private addListeners() {
         this._sectionBackIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
         this._changeIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
-        if (env.isMobile) {
-          this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
-        }
-        if (!env.isMobile) {
-          // if desktop
-          this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
-          this._ddm_name.addEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
-        }
+        // if (env.isMobile) {
+        //   this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
+        // }
+        // if (!env.isMobile) {
+        //   // if desktop
+        //   this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
+        //   this._ddm_name.addEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
+        // }
         this._iconList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
       }
 
       private removeListeners() {
         this._sectionBackIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
         this._changeIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
-        if (env.isMobile) {
-          this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
-        }
-        if (!env.isMobile) {
-          // if desktop
-          this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
-          this._ddm_name.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
-        }
+        // if (env.isMobile) {
+        //   this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
+        // }
+        // if (!env.isMobile) {
+        //   // if desktop
+        //   this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
+        //   this._ddm_name.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
+        // }
         this._iconList.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
       }
 

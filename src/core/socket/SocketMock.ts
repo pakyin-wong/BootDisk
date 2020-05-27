@@ -402,16 +402,16 @@ namespace we {
           nickname_group3: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
         };
         env.icons = [
-          'resource/d_lobby_profile_pic_01_png',
-          'resource/d_lobby_profile_pic_02_png',
-          'resource/d_lobby_profile_pic_03_png',
-          'resource/d_lobby_profile_pic_04_png',
-          'resource/d_lobby_profile_pic_05_png',
-          'resource/d_lobby_profile_pic_06_png',
-          'resource/d_lobby_profile_pic_07_png',
-          'resource/d_lobby_profile_pic_08_png',
+          'd_lobby_profile_pic_01_png',
+          'd_lobby_profile_pic_02_png',
+          'd_lobby_profile_pic_03_png',
+          'd_lobby_profile_pic_04_png',
+          'd_lobby_profile_pic_05_png',
+          'd_lobby_profile_pic_06_png',
+          'd_lobby_profile_pic_07_png',
+          'd_lobby_profile_pic_08_png',
         ];
-        env.icon = 'resource/d_lobby_profile_pic_01_png';
+        env.icon = 'd_lobby_profile_pic_01_png';
         env.profileImageURL = 'https://url';
         env.betLimits = [
           {
