@@ -186,17 +186,18 @@ var egret;
                  * @inheritDoc
                  */
                 get: function () {
-                    if (!this.player1)
+                    if (!this.player)
                         return 1;
-                    return this.player1.volume;
+                    return this.player.volume;
                 },
                 /**
                  * @inheritDoc
                  */
                 set: function (value) {
-                    if (!this.player1)
+                    if (!this.player)
                         return;
-                    this.player1.volume = value;
+                    this.player.volume = value;
+                    console.log(this.player.volume, value);
                 },
                 enumerable: true,
                 configurable: true
