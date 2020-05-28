@@ -13,7 +13,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5,sn_banker_english_mp3,sn_banker_mandarin_mp3,sn_banker_cantonese_mp3,advanced_dealer_sicbo_png,advanced_dealer_1_png,advanced_dealer_2_png",
+			"keys": "temp_baccarat_dealer_2,temp_baccarat_dealer_1,sn_bgm002_mp3,sn_player_english_mp3,sn_win_english_mp3,sn_player_mandarin_mp3,sn_win_cantonese_mp3,sn_win_mandarin_mp3,sn_player_cantonese_mp3,Mask_test_png,temp_baccarat_dealer_3,temp_baccarat_dealer_4,temp_baccarat_dealer_5,sn_banker_english_mp3,sn_banker_mandarin_mp3,sn_banker_cantonese_mp3,advanced_dealer_sicbo_png,advanced_dealer_1_png,advanced_dealer_2_png,d_sic_game result_bg_01_png,d_sic_game result_bg_02_png,d_sic_game result_bg_03_png,d_sic_game result_bg_04_png,d_sic_game result_blue_png,d_sic_game result_green_png,d_sic_game result_red_png,d_lw_listpenal_result_east_png,d_lw_listpenal_result_green_png,d_lw_listpenal_result_money_bg_east_png,d_lw_listpenal_result_money_bg_gold_png,d_lw_listpenal_result_money_bg_north_png,d_lw_listpenal_result_money_bg_south_png,d_lw_listpenal_result_money_bg_west_png,d_lw_listpenal_result_money_bg_white_png,d_lw_listpenal_result_north_png,d_lw_listpenal_result_red_png,d_lw_listpenal_result_south_png,d_lw_listpenal_result_west_png,d_lw_listpenal_result_white_png",
 			"name": "temp"
 		},
 		{
@@ -23,10 +23,6 @@
 		{
 			"keys": "dragon_tiger_game_result_tex_png,dragon_tiger_game_result_tex_json,dragon_tiger_game_result_ske_json,d_dt_json",
 			"name": "scene_dragontiger"
-		},
-		{
-			"keys": "",
-			"name": "NewlyAdded"
 		},
 		{
 			"keys": "roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,roulette_ui_tex_png,roulette_ui_tex_json,roulette_ui_ske_json,d_ro_json",
@@ -645,6 +641,106 @@
 			"type": "sheet",
 			"name": "d_lw_json",
 			"subkeys": "d_lw_betarea_bet_east_hover_png,d_lw_betarea_bet_east_png,d_lw_betarea_bet_green_hover_png,d_lw_betarea_bet_green_png,d_lw_betarea_bet_north_hover_png,d_lw_betarea_bet_north_png,d_lw_betarea_bet_red_hover_png,d_lw_betarea_bet_red_png,d_lw_betarea_bet_south_hover_png,d_lw_betarea_bet_south_png,d_lw_betarea_bet_west_hover_png,d_lw_betarea_bet_west_png,d_lw_betarea_bet_white_hover_png,d_lw_betarea_bet_white_png,d_lw_betpool_barchart_east_png,d_lw_betpool_barchart_gold_png,d_lw_betpool_barchart_north_png,d_lw_betpool_barchart_south_png,d_lw_betpool_barchart_west_png,d_lw_betpool_barchart_white_png,d_lw_game_detail_record_bet_east_png,d_lw_game_detail_record_bet_green_png,d_lw_game_detail_record_bet_north_png,d_lw_game_detail_record_bet_red_png,d_lw_game_detail_record_bet_south_png,d_lw_game_detail_record_bet_west_png,d_lw_game_detail_record_bet_white_png,d_lw_game_detail_record_bg_png,d_lw_result_east_png,d_lw_result_green_png,d_lw_result_money_bg_east_png,d_lw_result_money_bg_gold_png,d_lw_result_money_bg_north_png,d_lw_result_money_bg_south_png,d_lw_result_money_bg_west_png,d_lw_result_money_bg_white_png,d_lw_result_north_png,d_lw_result_red_png,d_lw_result_south_png,d_lw_result_west_png,d_lw_result_white_png"
+		},
+		{
+			"url": "assets/temp/sb/d_sic_game result_bg_01.png",
+			"type": "image",
+			"name": "d_sic_game result_bg_01_png"
+		},
+		{
+			"url": "assets/temp/sb/d_sic_game result_bg_02.png",
+			"type": "image",
+			"name": "d_sic_game result_bg_02_png"
+		},
+		{
+			"url": "assets/temp/sb/d_sic_game result_bg_03.png",
+			"type": "image",
+			"name": "d_sic_game result_bg_03_png"
+		},
+		{
+			"url": "assets/temp/sb/d_sic_game result_bg_04.png",
+			"type": "image",
+			"name": "d_sic_game result_bg_04_png"
+		},
+		{
+			"url": "assets/temp/sb/d_sic_game result_blue.png",
+			"type": "image",
+			"name": "d_sic_game result_blue_png"
+		},
+		{
+			"url": "assets/temp/sb/d_sic_game result_green.png",
+			"type": "image",
+			"name": "d_sic_game result_green_png"
+		},
+		{
+			"url": "assets/temp/sb/d_sic_game result_red.png",
+			"type": "image",
+			"name": "d_sic_game result_red_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_east.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_east_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_green.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_green_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_money_bg_east.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_money_bg_east_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_money_bg_gold.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_money_bg_gold_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_money_bg_north.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_money_bg_north_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_money_bg_south.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_money_bg_south_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_money_bg_west.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_money_bg_west_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_money_bg_white.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_money_bg_white_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_north.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_north_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_red.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_red_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_south.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_south_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_west.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_west_png"
+		},
+		{
+			"url": "assets/temp/lw/d_lw_listpenal_result_white.png",
+			"type": "image",
+			"name": "d_lw_listpenal_result_white_png"
 		}
 	]
 }
