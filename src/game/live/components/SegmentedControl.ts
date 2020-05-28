@@ -40,6 +40,7 @@ namespace we {
         this.tabBar.layout = tlayout;
         this.tabBar.dataProvider = this.collection;
         this.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onSelectedIndexChanged.bind(this, false), this);
+        this.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onChange, this);
         this.tabBar.addEventListener(eui.UIEvent.MOVE, this.onSelectedIndexChanged.bind(this, true), this);
 
         this.activeLine = new eui.Rect();
@@ -70,6 +71,10 @@ namespace we {
             .to({ x, width }, fromItemRenderer ? 400 : 200)
             .call(resolve);
         });
+      }
+
+      private onChange(evt) {
+        this.dispatchEvent(new egret.Event('CHANGE'));
       }
 
       public setSelectedIndex(idx: number) {
