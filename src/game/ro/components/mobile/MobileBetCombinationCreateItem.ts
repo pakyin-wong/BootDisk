@@ -8,6 +8,8 @@ namespace we {
 
       protected _evtHandler: egret.EventDispatcher;
 
+      protected _vaild: boolean = false;
+
       protected _data;
 
       public constructor(evtHandler: egret.EventDispatcher) {
@@ -53,7 +55,7 @@ namespace we {
       }
 
       protected onRollover() {
-        this.currentState = 'edit';
+        this._vaild && (this.currentState = 'edit');
       }
 
       protected onRollout() {
@@ -62,6 +64,8 @@ namespace we {
 
       public set amount(n: number) {
         this._txt_amount.text = '$' + (n * 0.01).toString();
+        this._vaild = n > 0;
+        !this._vaild && (this.currentState = 'normal');
       }
     }
   }

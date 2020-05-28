@@ -31,7 +31,7 @@ namespace we {
         if (dir.config.rabbitmqvirtualhost) {
           options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
         }
-        if (dir.config.path){
+        if (dir.config.path) {
           options.path = dir.config.path;
         }
 
