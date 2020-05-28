@@ -7,7 +7,7 @@ namespace we {
 
       protected _state: number;
       protected _timeoutId: number;
-      public duration: number = 4000;
+      public duration: number = 5000;
 
       protected _content: ui.ControlItem;
       protected _quickBetContent: ui.ControlItem;
@@ -55,6 +55,7 @@ namespace we {
       }
 
       protected setFocus() {
+        console.log('quick bet set focus');
         clearTimeout(this._timeoutId);
         this.holder.controller.setFocus(this.holder);
       }
@@ -67,6 +68,7 @@ namespace we {
         this.createQuickBetContent();
         this._quickBetContent.addEventListener('DISMISS', this.removeSelf, this);
         this.addChild(this._quickBetContent);
+        this._quickBetContent.setData(this.tableInfo);
       }
 
       protected createNormalContent() {}

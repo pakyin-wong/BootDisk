@@ -19,7 +19,7 @@ namespace we {
         this._quickBetContent.scaleY = 1.05;
         this._quickBetContent.horizontalCenter = 0;
         this._quickBetContent.top = 8;
-        this._quickBetContent.setData(this.tableInfo);
+        // this._quickBetContent.setData(this.tableInfo);
       }
     }
   }

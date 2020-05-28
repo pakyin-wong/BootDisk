@@ -25,7 +25,6 @@
 			<e:Image id="dropdownBtn" width="27" height="16" x="248" y="31" source="m_ba_tag_redlimit_btn_dropdown_png"/>
 		</e:Group>
 		<ui:RunTimeLabel id="pBetLimit" text="Label" x="311" y="385" width="304" height="74" size="44" bold="true" verticalAlign="middle" textAlign="center"/>
-
 		<e:Label id="pBanker" text="-" y="86" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
 		<e:Label id="pPlayer" text="-" y="160" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
 		<e:Label id="pTie" text="-" y="240" textAlign="right" x="896" scaleX="1" scaleY="1" size="44"  width="301" bold="true"/>
@@ -36,14 +35,5 @@
 		<ui:RunTimeLabel id="tieLabel" text="和" y="236" x="745" scaleX="1" scaleY="1" size="44"  bold="true" textKey="baccarat.tie" />
 		<ui:RunTimeLabel id="bankerPairLabel" text="庄對" y="314" x="745" scaleX="1" scaleY="1" size="44"  bold="true" textKey="baccarat.bankerPair" />
 		<ui:RunTimeLabel id="playerPairLabel" text="閒對" y="392" x="745" scaleX="1" scaleY="1" size="44"  bold="true" textKey="baccarat.playerPair" />
-
-
-
-
-
-
-
-
-
 	</e:Group>
 </e:Skin>

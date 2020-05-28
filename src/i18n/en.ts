@@ -84,6 +84,10 @@ namespace we {
 
       overlaypanel_bethistory_searchtype_all: 'All',
 
+      overlaypanel_gameSet_showGoodRoadHint: 'Show GoodRoad Hint',
+      overlaypanel_gameSet_autoBet: 'Auto Bet Confirm',
+      overlaypanel_gameSet_sendLiveVerfication: 'Send Live Verfication',
+
       datePicker_clean: 'Clean',
       datePicker_confirm: 'Confirm',
       datePicker_weekday_0: 'Su',
@@ -117,6 +121,21 @@ namespace we {
 
       mobile_dropdown_confirm: 'Confirm',
 
+      video_setting_auto: 'Automatic',
+      video_setting_cam: 'Camera',
+      video_setting_qua: 'Quality',
+      video_setting_closer: 'Close mirror',
+      video_setting_far: 'Far mirror',
+      video_setting_close: 'Close',
+      video_setting_bluray: 'Blu-ray',
+      video_setting_highQua: 'Super clear',
+      video_setting_standQua: 'Standard Definition',
+
+      live_verification_title: 'Live verification',
+      live_verification_text: 'Click to input emoji to send to live tablet',
+      live_verification_send: 'Send',
+      live_verification_success_text: 'Successfully sent, please pay attention to the display on the live tablet',
+
       loading: {
         socket: {
           connecting: 'Socket Connecting',
@@ -143,6 +162,7 @@ namespace we {
           logoutMsg: 'Are you sure to logout?',
           confirm: 'Confirm',
           cancel: 'Cancel',
+          gameSet: 'Game Setting',
         },
         system: {
           title: 'System',
@@ -151,6 +171,21 @@ namespace we {
           soundfx: 'Sound Effect',
           bgm: 'Music',
           term: 'Term of Service',
+          changeName: 'Nickname Setting',
+        },
+        userName: {
+          category: {
+            cartoon: 'Cartoon Character',
+            myth: 'Myth Character',
+            movie: 'Movie Character',
+          },
+          name: {
+            name1: 'Black Panther',
+            name2: 'Black Widow',
+            name3: 'Blade',
+            name4: 'Winter Soldier',
+            name5: 'Captain America',
+          },
         },
       },
       lobby: {
@@ -319,9 +354,9 @@ namespace we {
         stopBet: 'Stop Bet',
       },
       sidePanel: {
-        bet: 'Bet',
+        betted: 'Bet',
         goodroad: 'Good Road',
-        allgame: 'All Game',
+        allgames: 'All Game',
       },
       baccarat: {
         playerPair: 'Player Pair',

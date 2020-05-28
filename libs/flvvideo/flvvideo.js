@@ -113,32 +113,37 @@ var egret;
                     if (this.player) {
                         this.player.stop();
                     }
-                    var player1 = new WFPlayer()
-                    WFPlayer.debug(false)
-                    player1.enableAudio(true)
-                    player1.setView(videoCanvasId)
-                    player1.setScaleMode(1)
-                    player1.setBufferTime(1000)
-                    _this.startFunc1 = function () {
-                        player1.stop()
-                        if (this.playTimeoutId) {
-                            clearTimeout(this.playTimeoutId);
-                            this.playTimeoutId = null;
+                    try {
+                        var player1 = new WFPlayer()
+                        WFPlayer.debug(false)
+                        player1.enableAudio(true)
+                        player1.setView(videoCanvasId)
+                        player1.setScaleMode(1)
+                        player1.setBufferTime(1000)
+                        player1.volume = 1;
+                        _this.startFunc1 = function () {
+                            player1.stop()
+                            if (this.playTimeoutId) {
+                                clearTimeout(this.playTimeoutId);
+                                this.playTimeoutId = null;
+                            }
+                            this.playTimeoutId = setTimeout(() => {
+                                player1.start(url)
+                                egret.startTick(this.markDirty, this);
+                            }, 500)
                         }
-                        this.playTimeoutId = setTimeout(() => {
-                            player1.start(url)
-                            egret.startTick(this.markDirty, this);
-                        }, 500)
-                    }
-                    _this.stopFunc1 = function () {
-                        player1.stop()
-                        if (this.playTimeoutId) {
-                            clearTimeout(this.playTimeoutId);
-                            this.playTimeoutId = null;
+                        _this.stopFunc1 = function () {
+                            player1.stop()
+                            if (this.playTimeoutId) {
+                                clearTimeout(this.playTimeoutId);
+                                this.playTimeoutId = null;
+                            }
+                            egret.stopTick(this.markDirty, this);
                         }
-                        egret.stopTick(this.markDirty, this);
+                        this.player = player1;
+                    } catch(err) {
+                        console.log('video not support');
                     }
-                    this.player = player1;
                 }
 
             };
@@ -147,6 +152,7 @@ var egret;
              * @inheritDoc
              */
             WebFlvVideo.prototype.play = function () {
+                if (!this.player) return;
                 this.userPause = false;
                 this.userPlay = true;
                 this.isPlayed = true;
@@ -156,6 +162,7 @@ var egret;
              * @inheritDoc
              */
             WebFlvVideo.prototype.stop = function () {
+                if (!this.player) return;
                 this.userPause = true;
                 this.userPlay = false;
                 this.stopFunc1();
@@ -179,17 +186,18 @@ var egret;
                  * @inheritDoc
                  */
                 get: function () {
-                    if (!this.video)
+                    if (!this.player)
                         return 1;
-                    return this.video.volume;
+                    return this.player.volume;
                 },
                 /**
                  * @inheritDoc
                  */
                 set: function (value) {
-                    if (!this.video)
+                    if (!this.player)
                         return;
-                    this.video.volume = value;
+                    this.player.volume = value;
+                    console.log(this.player.volume, value);
                 },
                 enumerable: true,
                 configurable: true

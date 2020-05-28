@@ -126,12 +126,29 @@ namespace we {
         }
       }
 
+      protected isCountDownAvailble(nextTableID: number) {
+        const currentTime = Date.now();
+        const correspondTableid = nextTableID;
+        const correspondTableInfos = env.tableInfos[correspondTableid];
+        const correspondStarttime = correspondTableInfos.data.starttime;
+        const correspondCountDown = correspondTableInfos.data.countdown * 1000;
+        const remainingBetTime = correspondCountDown - (currentTime - correspondStarttime);
+        return remainingBetTime >= 5 * 1000 ? true : false;
+      }
+
       protected get nextNotification(): data.Notification {
-        let idx = 0;
-        for (const notification of this.notificationList) {
+        // for (const notification of this.notificationList) {
+        for (let idx = 0; idx < this.notificationList.length; ) {
+          const notification = this.notificationList[idx];
           if (this.isTypeAvailable(notification.type)) {
-            this.notificationList.splice(idx, 1);
-            return notification;
+            // check if type is goodRoad && remainingBetTime<5s
+            if (notification.type === 0 && !this.isCountDownAvailble(notification.data.tableid)) {
+              this.notificationList.splice(idx, 1);
+              continue;
+            } else {
+              this.notificationList.splice(idx, 1);
+              return notification;
+            }
           }
           idx++;
         }
