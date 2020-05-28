@@ -57,25 +57,25 @@ namespace we {
       }
 
       public setValue(tableInfo: data.TableInfo) {
-        // super.setValue(tableInfo);
-        // if (tableInfo.gamestatistic.bankerCount) {
-        //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.playerCount) {
-        //   this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.tieCount) {
-        //   this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.bankerPairCount) {
-        //   this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.playerPairCount) {
-        //   this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
-        // }
-        // if (this.pGameID) {
-        //   this.pGameID.text = tableInfo.betInfo.gameroundid;
-        // }
+        super.setValue(tableInfo);
+        if (tableInfo.gamestatistic.bankerCount) {
+          this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
+        }
+        if (tableInfo.gamestatistic.playerCount) {
+          this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
+        }
+        if (tableInfo.gamestatistic.tieCount) {
+          this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
+        }
+        if (tableInfo.gamestatistic.bankerPairCount) {
+          this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
+        }
+        if (tableInfo.gamestatistic.playerPairCount) {
+          this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
+        }
+        if (this.pGameID) {
+          this.pGameID.text = tableInfo.betInfo.gameroundid;
+        }
       }
     }
   }

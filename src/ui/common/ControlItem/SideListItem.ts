@@ -89,7 +89,7 @@ namespace we {
 
         if (tableInfo.roadmap) {
           if (this._bigRoad) {
-            this._bigRoad.updateSideBarRoadData(tableInfo.roadmap);
+            this._bigRoad.updateSideBarRoadData(tableInfo.roadmap); // init  roadmap
           }
         }
 
@@ -153,6 +153,7 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        // when rm need update
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
           const tableInfo = <data.TableInfo> evt.data;

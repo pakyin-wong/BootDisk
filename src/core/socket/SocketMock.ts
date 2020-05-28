@@ -395,7 +395,23 @@ namespace we {
         env.currTime = Date.now();
         env.playerID = 'PID001';
         env.currency = Currency.RMB;
-        env.nickname = 'PGPG';
+        env.nickname = 'Jonathan';
+        env.nicknames = {
+          nickname_group1: ['海綿寶寶', '哆啦A夢 (小叮噹)', '蠟筆小新', '巴斯光年', '米奇老鼠 (米老鼠)'],
+          nickname_group2: ['天使', '獨角獸', '外星人', '鳳凰', '二重身'],
+          nickname_group3: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+        };
+        env.icons = [
+          'd_lobby_profile_pic_01_png',
+          'd_lobby_profile_pic_02_png',
+          'd_lobby_profile_pic_03_png',
+          'd_lobby_profile_pic_04_png',
+          'd_lobby_profile_pic_05_png',
+          'd_lobby_profile_pic_06_png',
+          'd_lobby_profile_pic_07_png',
+          'd_lobby_profile_pic_08_png',
+        ];
+        env.icon = 'd_lobby_profile_pic_01_png';
         env.profileImageURL = 'https://url';
         env.betLimits = [
           {
@@ -941,40 +957,44 @@ namespace we {
         const idx = Math.floor(Math.random() * baTables.length);
         const tableInfo = baTables[idx];
         // update ba table good road match data
+
         const goodRoadData: data.GoodRoadData = {
           roadmapid: '1',
           name: '好路',
           custom: true,
           tableid: tableInfo.tableid,
+          alreadyShown: false,
         };
+
         if (!tableInfo.goodRoad) {
           this.goodRoadTableList.push(tableInfo.tableid);
         }
         tableInfo.goodRoad = goodRoadData;
 
-        const data = {
-          tableid: tableInfo.tableid,
-        };
-        const notification: data.Notification = {
-          type: core.NotificationType.GoodRoad,
-          data,
-        };
-        dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+        // const data = {
+        //   tableid: tableInfo.tableid,
+        // };
+        // const notification: data.Notification = {
+        //   type: core.NotificationType.GoodRoad,
+        //   data,
+        // };
+        // dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
 
         // dispatch match event
         dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
         this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
         // set timeout to reset the good road match data
-        setTimeout(() => {
-          tableInfo.goodRoad = null;
-          const idx = this.goodRoadTableList.indexOf(tableInfo.tableid);
-          if (idx > -1) {
-            this.goodRoadTableList.splice(idx, 1);
-          }
-          // dispatch match event
-          dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
-          this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
-        }, 20000);
+
+        // setTimeout(() => {
+        //   tableInfo.goodRoad = null;
+        //   const idx = this.goodRoadTableList.indexOf(tableInfo.tableid);
+        //   if (idx > -1) {
+        //     this.goodRoadTableList.splice(idx, 1);
+        //   }
+        //   // dispatch match event
+        //   dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
+        //   this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        // }, 20000);
       }
 
       private onReceivedMsg(res) {
@@ -1078,6 +1098,9 @@ namespace we {
         this.betCombinations.push(betCombination);
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
+
+      public sendVerifyInfo(id: string, pattern: string[]) {}
+
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }

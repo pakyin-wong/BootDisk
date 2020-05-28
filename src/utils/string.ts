@@ -1,8 +1,11 @@
 namespace we {
   export namespace utils {
     function zeroPad(num, places) {
-      const zero = places - num.toString().length + 1;
-      return Array(+(zero > 0 && zero)).join('0') + num;
+      let val = parseInt(num, 10);
+      const sign = utils.sign(val);
+      val *= sign;
+      const zero = places - val.toString().length + 1;
+      return (sign < 0 ? '-' : '') + Array(+(zero > 0 && zero)).join('0') + val;
     }
 
     export function numberToFaceValue(value: number) {

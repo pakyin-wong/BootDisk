@@ -66,6 +66,9 @@ var egret;
             WebFlvVideo.prototype.createNativeDisplayObject = function () {
                 this.$nativeDisplayObject = new egret_native.NativeDisplayObject(1 /* BITMAP */ );
             };
+            WebFlvVideo.prototype.setBrowser = function (name) {
+                this.browserName = name;
+            };
             /**
              * @inheritDoc
              */
@@ -95,35 +98,52 @@ var egret;
                     this.videoCanvasId = videoCanvasId;
                     document.body.appendChild(videoCanvas);
 
+                    // This workaround is to solve the flickering of playing video in IE/Edge
+                    // Method: Wrapping one more canvas on the video
+                    if(this.browserName && this.browserName === 'Edge'){
+                        const tempCanvas = document.createElement('canvas');
+                        tempCanvas.id = 'tempCanvas' + this.videoCanvas.id 
+                        tempCanvas.width = 640;
+                        tempCanvas.height = 360;
+                        tempCanvas.style.display = 'none';
+                        document.body.appendChild(tempCanvas);
+                        this.tempCanvas = tempCanvas
+                    }
+
                     if (this.player) {
                         this.player.stop();
                     }
-                    var player1 = new WFPlayer()
-                    WFPlayer.debug(false)
-                    player1.enableAudio(true)
-                    player1.setView(videoCanvasId)
-                    player1.setScaleMode(1)
-                    player1.setBufferTime(1000)
-                    _this.startFunc1 = function () {
-                        player1.stop()
-                        if (this.playTimeoutId) {
-                            clearTimeout(this.playTimeoutId);
-                            this.playTimeoutId = null;
+                    try {
+                        var player1 = new WFPlayer()
+                        WFPlayer.debug(false)
+                        player1.enableAudio(true)
+                        player1.setView(videoCanvasId)
+                        player1.setScaleMode(1)
+                        player1.setBufferTime(1000)
+                        player1.volume = 1;
+                        _this.startFunc1 = function () {
+                            player1.stop()
+                            if (this.playTimeoutId) {
+                                clearTimeout(this.playTimeoutId);
+                                this.playTimeoutId = null;
+                            }
+                            this.playTimeoutId = setTimeout(() => {
+                                player1.start(url)
+                                egret.startTick(this.markDirty, this);
+                            }, 500)
                         }
-                        this.playTimeoutId = setTimeout(() => {
-                            player1.start(url)
-                            egret.startTick(this.markDirty, this);
-                        }, 500)
-                    }
-                    _this.stopFunc1 = function () {
-                        player1.stop()
-                        if (this.playTimeoutId) {
-                            clearTimeout(this.playTimeoutId);
-                            this.playTimeoutId = null;
+                        _this.stopFunc1 = function () {
+                            player1.stop()
+                            if (this.playTimeoutId) {
+                                clearTimeout(this.playTimeoutId);
+                                this.playTimeoutId = null;
+                            }
+                            egret.stopTick(this.markDirty, this);
                         }
-                        egret.stopTick(this.markDirty, this);
+                        this.player = player1;
+                    } catch(err) {
+                        console.log('video not support');
                     }
-                    this.player = player1;
                 }
 
             };
@@ -132,6 +152,7 @@ var egret;
              * @inheritDoc
              */
             WebFlvVideo.prototype.play = function () {
+                if (!this.player) return;
                 this.userPause = false;
                 this.userPlay = true;
                 this.isPlayed = true;
@@ -141,6 +162,7 @@ var egret;
              * @inheritDoc
              */
             WebFlvVideo.prototype.stop = function () {
+                if (!this.player) return;
                 this.userPause = true;
                 this.userPlay = false;
                 this.stopFunc1();
@@ -164,17 +186,18 @@ var egret;
                  * @inheritDoc
                  */
                 get: function () {
-                    if (!this.video)
+                    if (!this.player)
                         return 1;
-                    return this.video.volume;
+                    return this.player.volume;
                 },
                 /**
                  * @inheritDoc
                  */
                 set: function (value) {
-                    if (!this.video)
+                    if (!this.player)
                         return;
-                    this.video.volume = value;
+                    this.player.volume = value;
+                    console.log(this.player.volume, value);
                 },
                 enumerable: true,
                 configurable: true
@@ -199,7 +222,12 @@ var egret;
                     if (!this.isPlayed)
                         return null;
                     if (!this._bitmapData) {
-                        this._bitmapData = new egret.BitmapData(this.videoCanvas);
+                        if(this.browserName && this.browserName === 'Edge'){
+                            this._bitmapData = new egret.BitmapData(this.tempCanvas);
+                        }else{
+                            this._bitmapData = new egret.BitmapData(this.videoCanvas);
+                        }
+                        
                         this._bitmapData.$deleteSource = false;
                     }
                     return this._bitmapData;
@@ -280,6 +308,10 @@ var egret;
                     node.imageHeight = height;
                     node.drawImage(0, 0, posterData.width, posterData.height, 0, 0, width, height);
                 } else if (bitmapData) {
+                    if(this.tempCanvas){
+                        this.tempCanvas.getContext('2d').drawImage(this.videoCanvas,0,0)                        
+                    }
+
                     node.image = bitmapData;
                     node.imageWidth = bitmapData.width;
                     node.imageHeight = bitmapData.height;

@@ -10,6 +10,7 @@ namespace we {
       DragonTiger: 'scene_dragontiger',
       Dice: 'scene_dice',
       Roulette: 'scene_roulette',
+      LuckyWheel: 'scene_luckywheel',
     };
   }
 }

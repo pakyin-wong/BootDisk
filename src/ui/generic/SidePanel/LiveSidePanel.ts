@@ -36,7 +36,7 @@ namespace we {
 
         // create bet table list
         const betTableGroup = new eui.Group();
-        betTableGroup.name = 'bet';
+        betTableGroup.name = 'betted';
         this._viewStack.addChild(betTableGroup);
         betTableGroup.width = group.width;
         betTableGroup.height = group.height;
@@ -117,7 +117,7 @@ namespace we {
 
         // create all game list
         const allTableGroup = new eui.Group();
-        allTableGroup.name = 'allgame';
+        allTableGroup.name = 'allgames';
         this._viewStack.addChild(allTableGroup);
         allTableGroup.width = group.width;
         allTableGroup.height = group.height;
