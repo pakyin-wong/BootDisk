@@ -154,6 +154,16 @@ namespace we {
             case we.core.GameType.DT:
               p = new DtResultItem(gameResult);
               break;
+
+            case we.core.GameType.ROL:
+            case we.core.GameType.RO:
+              p = new RoResultItem(gameResult);
+              break;
+
+            case we.core.GameType.DI:
+              p = new DiResultItem(gameResult);
+              break;
+
             default:
               p = new core.BaseEUI();
               break;

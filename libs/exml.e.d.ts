@@ -1593,6 +1593,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class DiResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class DoubleCalendarPicker extends eui.Skin{
 	}
 }
@@ -1630,6 +1634,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class PlayerProfileIconItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RoResultItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

@@ -13,7 +13,9 @@ namespace we {
 
         protected mount() {
           this._ball = new ro.ROBeadRoadIcon(this._ballContainer.width);
-          this._ball.setByObject(this._gameResult);
+          this._ball.setByObject({
+            v: Number(this._gameResult.a1),
+          });
           this._ballContainer.addChild(this._ball);
         }
       }
