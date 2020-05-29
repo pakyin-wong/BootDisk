@@ -4,7 +4,7 @@
     <e:Rect id="background" width="100%" height="100%" fillColor="0x121212" />
     <e:Component id="_page" width="100%" height="100%" />
     <ui:BaseImageButton id="_common_listpanel" width="104" height="104" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" skinName="skin_mobile_portrait.ImageButtonSkinLobby"
-		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="2282" y="577"/>
+		                    currentState="lobby_panel_gamelist_tag_icon_allgame"  x="2278" y="809"/>
     <e:Group id="_header" touchThrough="true" anchorOffsetX="0" height="144" left="0" right="0" y="1061">
         <e:Image id="_logo" x="37"  fillMode="scale" verticalCenter="0" source="m_lobby_login_logo_png" height="144" width="401.5900621118012"/>
         <e:Image height="120" width="1201"  verticalCenter="0" x="612" source="m_lobby_header_submenu_bg_png"/>

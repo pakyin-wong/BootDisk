@@ -46,7 +46,7 @@ namespace we {
     }
 
     export function sign(x) {
-      return (x > 0 ? 1 : 0) - (x < 0 ? -1 : 0) || +x;
+      return (x > 0 ? 1 : 0) + (x < 0 ? -1 : 0) || +x;
     }
   }
 }

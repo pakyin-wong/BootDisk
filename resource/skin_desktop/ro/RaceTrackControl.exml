@@ -2,8 +2,8 @@
 <e:Skin class="skin_desktop.ro.RaceTrackControlSkin" width="200" height="60" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
 	<e:Label id="_distNumLabel" text="0" horizontalCenter="0" verticalCenter="0" size="35" />
-	<ui:BaseImageButton id="_addButton" width="32" height="32" horizontalCenter="42" verticalCenter="0"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_add"/>
-	<ui:BaseImageButton id="_lessButton" width="32" height="32" horizontalCenter="-42" verticalCenter="0"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_less" />
+	<ui:BaseAnimationButton id="_addButton" width="32" height="32" horizontalCenter="42" verticalCenter="0"
+	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_add" />
+	<ui:BaseAnimationButton id="_lessButton" width="32" height="32" horizontalCenter="-42" verticalCenter="0"
+	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_deduct" />
 </e:Skin>

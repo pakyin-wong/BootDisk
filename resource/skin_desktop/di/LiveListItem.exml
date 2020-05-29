@@ -34,6 +34,6 @@
 		<ui:CountdownTimer id="_timer" width="80" height="80" x="20" y="20" skinName="skin_desktop.CountdownTimerRoundSkin" />
 	</e:Group>
 	<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" x="20" y="198" />
-	<di:LobbyChipLayer id="_chipLayer" width="100%" skinName="skin_desktop.di.LiveListItemChipLayerSkin" anchorOffsetY="0"
-	                   left="0" y="0" alpha="0" />
+	<di:LobbyChipLayer id="_chipLayer" skinName="skin_desktop.di.LiveListItemChipLayerSkin" anchorOffsetY="0"
+	                   left="0" y="0" alpha="0"  right="0"/>
 </e:Skin>

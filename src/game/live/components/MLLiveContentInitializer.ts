@@ -10,6 +10,7 @@ namespace we {
         this.root = root;
 
         root.slider = new ui.ImageSlider();
+        root.slider.x = 60;
         root.slider.width = 850;
         root.slider.height = 850;
         root.slider.configSlides(dir.liveResources.liveHeroBanners);
@@ -22,8 +23,9 @@ namespace we {
 
         root.scroller.viewport = root.roomList;
 
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
-        root.tabs.collection.replaceAll(root.tabItems);
+        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        root.tabs = new DropDownLiveGameTabbar(root.tabItems);
+        root.addChild(root.tabs);
 
         this.setDisplayMode(env.lobbyGridType);
       }
