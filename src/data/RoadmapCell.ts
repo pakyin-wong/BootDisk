@@ -15,6 +15,9 @@ namespace we {
 
       // di
       public dice?: number[];
+
+      // rol
+      public odds?: number;
     }
   }
 }

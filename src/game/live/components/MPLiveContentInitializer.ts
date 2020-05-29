@@ -44,35 +44,28 @@ namespace we {
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
 
-        const tabBarGroup = new eui.Group();
-        tabBarGroup.percentWidth = 100;
-        const tabbarBg: eui.Image = new eui.Image('m_lobby_submenu_bg_png');
-        tabbarBg.percentWidth = 100;
-        tabbarBg.percentHeight = 100;
-        tabBarGroup.addChild(tabbarBg);
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
-        root.tabs = new LiveGameTabbar(root.tabItems);
-        tabBarGroup.addChild(root.tabs);
+        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        root.tabs = new DropDownLiveGameTabbar(root.tabItems);
+        root.roomList.addChildAt(root.tabs, 0);
 
-        const stickyHeader = new ui.StickyContent();
-        stickyHeader.width = 1242;
-        stickyHeader.content = tabBarGroup;
-        stickyHeader.scroller = root.scroller;
-        stickyHeader.contentPaddingTop = this.normalGapSize;
-        stickyHeader.y = root.slider.height + offsetForTableList + this.normalGapSize;
-        root.roomList.addChild(stickyHeader);
+        // const tabBarGroup = new eui.Group();
+        // tabBarGroup.percentWidth = 100;
+        // const tabbarBg: eui.Image = new eui.Image('m_lobby_submenu_bg_png');
+        // tabbarBg.percentWidth = 100;
+        // tabbarBg.percentHeight = 100;
+        // tabBarGroup.addChild(tabbarBg);
+        // root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        // // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
+        // root.tabs = new LiveGameTabbar(root.tabItems);
+        // tabBarGroup.addChild(root.tabs);
 
-        // const section = new ui.ScrollerSection();
-        // section.header = tabBarGroup;
-        // section.content = root.roomList;
-        // section.scroller = root.scroller;
-        // section.isHeaderSticky = true;
-        // section.contentPaddingTop = this.normalGapSize;
-        // section.y = root.slider.height + offsetForTableList + this.normalGapSize;
-        // section.percentWidth = 100;
-
-        // const group = new eui.Group();
-        // group.addChild(section);
+        // const stickyHeader = new ui.StickyContent();
+        // stickyHeader.width = 1242;
+        // stickyHeader.content = tabBarGroup;
+        // stickyHeader.scroller = root.scroller;
+        // stickyHeader.contentPaddingTop = this.normalGapSize;
+        // stickyHeader.y = root.slider.height + offsetForTableList + this.normalGapSize;
+        // root.roomList.addChild(stickyHeader);
 
         root.scroller.viewport = root.roomList;
 

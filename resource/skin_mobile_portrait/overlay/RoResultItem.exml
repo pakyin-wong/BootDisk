@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.RoResultItem" width="1069" height="165" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Group id="_ballContainer" width="144" height="144" verticalCenter="0"/>
+</e:Skin>

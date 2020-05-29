@@ -196,7 +196,7 @@ var egret;
                 set: function (value) {
                     if (!this.player)
                         return;
-                    this.player.volume = value;
+                    this.player.setVolume(value);
                     console.log(this.player.volume, value);
                 },
                 enumerable: true,

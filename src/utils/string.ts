@@ -50,6 +50,17 @@ namespace we {
         .replace(/(1(?!0))/, 'a');
     }
 
+    export function formatCardForFlip(source: string) {
+      let result = source.replace('club', 'clover');
+      let lastChar = result[result.length - 1];
+      if (lastChar === '1') {
+        lastChar = 'A';
+      }
+      result = result.substring(0, result.length - 1);
+      result += lastChar.toUpperCase();
+      return result;
+    }
+
     export function cardToNumber(source) {
       return source
         .replace(/^(.+?)([0-9ajqk][0]?)$/, '$2')

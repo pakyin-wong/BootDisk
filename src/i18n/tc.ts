@@ -394,6 +394,7 @@ namespace we {
         round: '局',
         rounds: '局',
         playersqueeze: '玩家咪牌',
+        allOpen: '全開',
       },
       message: {
         test: '你贏左 $1，$2% 會比左我',
