@@ -43,25 +43,25 @@ namespace we {
         this._distributionLabel.y = 240;
         this._distributionLabel.right = 400;
 
-        this._raceTrackControl = new RaceTrackControl();
-        this._raceTrackControl.horizontalCenter = 0;
-        this._raceTrackControl.y = 220;
+        // this._raceTrackControl = new RaceTrackControl();
+        // this._raceTrackControl.horizontalCenter = 0;
+        // this._raceTrackControl.y = 220;
 
         this._raceTrackTableLayer = new RaceTrackTableLayer();
         this._raceTrackTableLayer.horizontalCenter = 0;
         this._raceTrackTableLayer.y = 20;
 
-        this._raceTrackChipLayer = new RaceTrackChipLayer();
-        this._raceTrackChipLayer.horizontalCenter = 0;
-        this._raceTrackChipLayer.y = 20;
+        // this._raceTrackChipLayer = new RaceTrackChipLayer();
+        // this._raceTrackChipLayer.horizontalCenter = 0;
+        // this._raceTrackChipLayer.y = 20;
 
-        this._raceTrackChipLayer.raceTrackTableLayer = this._raceTrackTableLayer;
-        this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
-        this._raceTrackChipLayer.chipLayer = chipLayer;
+        // this._raceTrackChipLayer.raceTrackTableLayer = this._raceTrackTableLayer;
+        // this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
+        // this._raceTrackChipLayer.chipLayer = chipLayer; //set rochiplayer into race chiplayer
 
         page1Group.addChild(this._raceTrackTableLayer);
-        page1Group.addChild(this._raceTrackChipLayer);
-        page1Group.addChild(this._raceTrackControl);
+        // page1Group.addChild(this._raceTrackChipLayer);
+        // page1Group.addChild(this._raceTrackControl);
         page1Group.addChild(this._distributionLabel);
       }
 
