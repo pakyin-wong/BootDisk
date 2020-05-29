@@ -14,11 +14,9 @@ namespace we {
         }
 
         protected mount() {
-          const dice = this._gameResult.dice;
-
-          this.diceImage1.source = 'd_sic_history_lv2_dice-' + dice[0] + '_png';
-          this.diceImage2.source = 'd_sic_history_lv2_dice-' + dice[1] + '_png';
-          this.diceImage3.source = 'd_sic_history_lv2_dice-' + dice[2] + '_png';
+          this.diceImage1.source = 'd_sic_history_lv2_dice-' + this._gameResult.a1 + '_png';
+          this.diceImage2.source = 'd_sic_history_lv2_dice-' + this._gameResult.a2 + '_png';
+          this.diceImage3.source = 'd_sic_history_lv2_dice-' + this._gameResult.a3 + '_png';
         }
       }
     }
