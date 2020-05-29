@@ -1,4 +1,4 @@
-# fe-game-client-egret
+# fe-game-client-egret v0.5.5
 This is the game client for World Entertainment.
 
 ## Roadmap
