@@ -14,7 +14,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.5.3';
+      public version: string = '0.5.4';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ImageButtonSkinBettingPanel" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="b_cancel,b_repeat,b_double,b_undo,b_add,b_less">
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="b_cancel,b_repeat,b_double,b_undo,b_add,b_less,b_openAllB,b_openAllP">
 	<e:Image id="_background" left="0" right="0" top="0" bottom="0" source.b_cancel="d_ba_betcontrol_icon_cancel_png"
 	         source.b_repeat="d_ba_betcontrol_icon_repeat_png" source.b_double="d_ba_betcontrol_icon_double_png"
 	         source.b_undo="d_ba_live_button_swapvideo_png" source.b_add="d_ro_rm_add_btn_normal_png"
-	         source.b_less="d_ro_rm_less_btn_normal_png" />
+	         source.b_less="d_ro_rm_less_btn_normal_png" source.b_openAllB="d_sq_ba_all_open_btn_normal_b_png" 
+		 source.b_openAllP="d_sq_ba_all_open_btn_normal_p_png" />
 	<e:Group id="_group" left="0" right="0" top="0" bottom="0">
 		<e:Label id="_label" textAlign="center" verticalAlign="justify" scaleX="1" scaleY="1" left="0" right="0" top="0"
 		         bottom="0" />
