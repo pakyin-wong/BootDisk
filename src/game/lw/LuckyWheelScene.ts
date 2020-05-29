@@ -79,7 +79,7 @@ namespace we {
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
         // const lwGameResultMessage = new lw.GameResultMessage();
         // lwGameResultMessage.type = null;
-        this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
+        this._resultMessage.showResult(this._tableInfo.gametype, { value: resultNo, totalWin });
       }
     }
   }
