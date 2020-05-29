@@ -14,7 +14,7 @@ namespace we {
 
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
-      protected _flipCard: FlipCard;
+      protected _goodRoadLabel: ui.GoodRoadLabel;
 
       constructor(data: any) {
         super(data);
@@ -56,6 +56,9 @@ namespace we {
         // if (env.isMobile) {
         //   dir.moniter._sideGameList.setToggler(this._common_listpanel);
         // }
+        if (this._goodRoadLabel) {
+          this._goodRoadLabel.visible = false;
+        }
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -76,6 +79,19 @@ namespace we {
           this._rightGamePanel,
           this._beadRoadResultPanel
         );
+      }
+
+      protected onMatchGoodRoadUpdate() {
+        if (this._goodRoadLabel) {
+          if (this._tableInfo.goodRoad) {
+            this._goodRoadLabel.visible = true;
+            const goodRoadData = this._tableInfo.goodRoad;
+            const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+            this._goodRoadLabel.renderText = () => goodRoadName;
+          } else {
+            this._goodRoadLabel.visible = false;
+          }
+        }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
