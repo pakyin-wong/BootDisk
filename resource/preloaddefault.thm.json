@@ -21,8 +21,8 @@
 	},
 	"autoGenerateExmlsList": false,
 	"exmls": [
-		"resource/skin_desktop/BetChip.exml",
 		"resource/skin_desktop/GoodRoadLabelSkin.exml",
+		"resource/skin_desktop/BetChip.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinDialog.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinEmpty.exml",
 		"resource/skin_desktop/imagebutton/ImageButtonSkinNav.exml",

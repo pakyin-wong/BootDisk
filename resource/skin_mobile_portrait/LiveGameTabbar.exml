@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.LiveGameTabbar" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" height="160" width="1242">
-	<e:Rect id="background" fillColor="0x121212" left="0" right="0" top="0" bottom="0" alpha="0"/>
-	<ui:List id="tabBar" top="0" bottom="0" horizontalCenter="0">
-		<e:layout>
-			<e:HorizontalLayout gap="0" horizontalAlign="justify"/>
-		</e:layout>
-	</ui:List>
+        xmlns:ui="we.ui.*" xmlns:live="we.live.*" xmlns:w="http://ns.egret.com/wing" width="1242">
+	<ui:RunTimeLabel id="review" text="全部遊戲" x="51" y="1103" size="48" height="71" verticalAlign="middle"/>
+	<e:Image id="trigger" width="104" height="104" x="1087" y="1087" source="m-lobby-btn-filter-v_png"/>
+
+
 </e:Skin>

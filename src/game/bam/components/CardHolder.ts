@@ -27,6 +27,9 @@ namespace we {
       protected _playerWinningField: eui.Image;
       protected _bankerWinningField: eui.Image;
 
+      protected _openAllBanker: eui.Image;
+      protected _openAllPlayer: eui.Image;
+
       public constructor() {
         super();
       }
@@ -46,6 +49,38 @@ namespace we {
         this._bankerCard3.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
 
         this._cardHolderArr = [this._bankerCard1, this._bankerCard2, this._bankerCard3, this._playerCard1, this._playerCard2, this._playerCard3];
+        this._openAllBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAllBanker, this);
+        this._openAllPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAllPlayer, this);
+      }
+
+      protected openAllBanker(evt: egret.Event) {
+        if (!this.gameData && !this.gameData.state) {
+          return;
+        }
+        switch (this.gameData.state) {
+          case core.GameState.PEEK:
+            this._bankerCard1.showFinal();
+            this._bankerCard2.showFinal();
+            break;
+          case core.GameState.PEEK_BANKER:
+            this._bankerCard3.showFinal();
+            break;
+        }
+      }
+
+      protected openAllPlayer(evt: egret.Event) {
+        if (!this.gameData && !this.gameData.state) {
+          return;
+        }
+        switch (this.gameData.state) {
+          case core.GameState.PEEK:
+            this._playerCard1.showFinal();
+            this._playerCard2.showFinal();
+            break;
+          case core.GameState.PEEK_PLAYER:
+            this._playerCard3.showFinal();
+            break;
+        }
       }
 
       protected updateCardArr() {
@@ -242,11 +277,11 @@ namespace we {
 
       protected setCardImage(index: number) {
         if (this._cardHolderArr && this._cardHolderArr[index] && this._cardArr && this._cardArr[index]) {
-          // console.log('PLAYER setImage');
+          console.log('flipcardpath', `d_sq_bac_large_poker_${utils.formatCardForFlip(this._cardArr[index])}_png`);
           this._cardHolderArr[index].setCardImage(
-            'd_common_poker_vertical_back_png',
-            `d_common_poker_vertical_${utils.formatCard(this._cardArr[index])}_png`,
-            `d_common_poker_vertical_${utils.formatCard(this._cardArr[index])}_png`
+            'd_sq_ba_card_back_png',
+            `d_sq_bac_large_poker_${utils.formatCardForFlip(this._cardArr[index])}_png`,
+            `d_sq_bac_large_poker_${utils.formatCardForFlip(this._cardArr[index])}_png`
           );
         }
       }

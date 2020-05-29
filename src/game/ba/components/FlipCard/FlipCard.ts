@@ -4,7 +4,12 @@ namespace we {
       protected debugShape: egret.Shape;
       protected _cardWidth: number;
       protected _cardHeight: number;
-      protected cardFace: CardImage;
+      protected cardFace: CardFaceImage;
+      protected cardFaceFingerLeft: eui.Image;
+      protected cardFaceFingerRight: eui.Image;
+      protected cardFaceFingerCorner: eui.Image;
+      protected _direction: string;
+
       protected cardBack: CardImage;
       protected cardFinal: CardImage;
       protected cardBackMask: eui.Rect;
@@ -73,7 +78,7 @@ namespace we {
         this.cardBackShadowMask.visible = false;
         this.addChild(this.cardBackShadowMask);
 
-        this.cardFace = new CardImage(this._cardWidth, this._cardHeight);
+        this.cardFace = new CardFaceImage(this._cardWidth, this._cardHeight);
         this.addChild(this.cardFace);
 
         this.cardFaceShadow = new egret.Shape();
@@ -94,8 +99,28 @@ namespace we {
         this.cardFinal.visible = false;
         this.addChild(this.cardFinal);
 
+        this.cardFaceFingerLeft = new eui.Image();
+        this.cardFaceFingerLeft.source = 'd_sq_ba_thumb_up_png';
+        this.cardFaceFingerLeft.width = this._cardWidth / 4;
+        this.cardFaceFingerLeft.height = this._cardHeight / 4;
+        this.addChild(this.cardFaceFingerLeft);
+
+        this.cardFaceFingerRight = new eui.Image();
+        this.cardFaceFingerRight.source = 'd_sq_ba_thumb_up_png';
+        this.cardFaceFingerRight.width = this._cardWidth / 4;
+        this.cardFaceFingerRight.height = this._cardHeight / 4;
+        this.addChild(this.cardFaceFingerRight);
+
+        this.cardFaceFingerCorner = new eui.Image();
+        this.cardFaceFingerCorner.source = 'd_sq_ba_thumb_up_png';
+        this.cardFaceFingerCorner.width = this._cardWidth / 4;
+        this.cardFaceFingerCorner.height = this._cardHeight / 4;
+        this.addChild(this.cardFaceFingerCorner);
+
         this.debugShape = new egret.Shape();
+        /*
         this.addChild(this.debugShape);
+        */
 
         this.initedComponents = true;
         this.setCardImage(this.backImgSrc, this.faceImgSrc, this.finalImgSrc);
@@ -151,16 +176,12 @@ namespace we {
         this.cardFace.visible = false;
         this.cardBack.visible = false;
         this.cardFinal.visible = true;
+        this.cardFaceFingerLeft.visible = false;
+        this.cardFaceFingerRight.visible = false;
+        this.cardFaceFingerCorner.visible = false;
 
         this._flipped = true;
         this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED));
-
-        /*
-                // auto reset for this moment
-                setTimeout(() => {
-                  // this.reset();
-                }, 4000);
-                */
       }
 
       public clearUserEvents() {
@@ -187,6 +208,9 @@ namespace we {
         this.cardFace.visible = false;
         this.cardFinal.visible = false;
         this.cardBack.visible = true;
+        this.cardFaceFingerLeft.visible = false;
+        this.cardFaceFingerRight.visible = false;
+        this.cardFaceFingerCorner.visible = false;
         this._flipped = false;
       }
 
@@ -336,6 +360,7 @@ namespace we {
 
         if (!p1.equals(p2)) {
           this.computeCardBackMask(p1, p2);
+
           const pdy = p2.y - p1.y;
           const pdx = p2.x - p1.x;
           const angle = pdx === 0 ? 90 : utils.rad2deg(Math.atan(pdy / pdx));
@@ -347,6 +372,41 @@ namespace we {
           this.cardFace.y = p1.y;
 
           this.cardFace.rotation = 180 + 2 * angle;
+
+          console.log('FLIP_DIRECTION:', this._direction);
+          if (this._direction) {
+            switch (this._direction) {
+              case 'FROM_BOTTOM':
+              case 'FROM_TOP':
+                this.cardFaceFingerLeft.visible = false;
+                this.cardFaceFingerRight.visible = false;
+                this.cardFaceFingerCorner.visible = false;
+
+                this.cardFaceFingerLeft.x = this.cardFace.x + this.cardFace.anchorOffsetX;
+                this.cardFaceFingerLeft.y = this.cardFace.y + this.cardFace.anchorOffsetY;
+                this.cardFaceFingerLeft.rotation = 180 + 2 * angle;
+                // this.cardFaceFingerLeft.rotation += 90;
+                console.log('this.cardFaceFingerLeft.anchorOffsetX', this.cardFaceFingerLeft.anchorOffsetX);
+                console.log('this.cardFaceFingerLeft.anchorOffsetY', this.cardFaceFingerLeft.anchorOffsetY);
+                console.log('this.cardFaceFingerLeft.x', this.cardFaceFingerLeft.x);
+                console.log('this.cardFaceFingerLeft.y', this.cardFaceFingerLeft.y);
+
+                this.cardFaceFingerRight.x = this.cardFace.x - this._cardWidth + this._cardWidth / 4 + this.cardFace.anchorOffsetX;
+                this.cardFaceFingerRight.y = this.cardFace.y + this.cardFace.anchorOffsetY;
+                this.cardFaceFingerRight.rotation = 180 + 2 * angle;
+                // this.cardFaceFingerRight.rotation -= 90;
+                console.log('this.cardFaceFingerRight.anchorOffsetX', this.cardFaceFingerRight.anchorOffsetX);
+                console.log('this.cardFaceFingerRight.anchorOffsetY', this.cardFaceFingerRight.anchorOffsetY);
+                console.log('this.cardFaceFingerRight.x', this.cardFaceFingerRight.x);
+                console.log('this.cardFaceFingerRight.y', this.cardFaceFingerRight.y);
+
+                break;
+              case 'FROM_BOTTOM':
+                break;
+              case 'FROM_LEFT':
+                break;
+            }
+          }
 
           this.cardFaceShadowMask.anchorOffsetX = p3.x;
           this.cardFaceShadowMask.anchorOffsetY = p3.y;
@@ -388,6 +448,9 @@ namespace we {
           this.cardFaceShadow.visible = false;
           this.cardBackShadow.mask = null;
           this.cardBackShadow.visible = false;
+          this.cardFaceFingerLeft.visible = false;
+          this.cardFaceFingerRight.visible = false;
+          this.cardFaceFingerCorner.visible = false;
         }
 
         this.drawDebugShape(s, t, p1, p2);
@@ -399,31 +462,39 @@ namespace we {
         const threshold = this._cardWidth * 0.2;
         if (t.x < threshold && t.y > this._cardHeight - threshold) {
           // return left corner
+          this._direction = 'FROM_LEFT_LOWER';
           return egret.Point.create(0, this._cardHeight);
         } else if (t.x > this._cardWidth - threshold && t.y > this._cardHeight - threshold) {
           // return right corner
+          this._direction = 'FROM_RIGHT_LOWER';
           return egret.Point.create(this._cardWidth, this._cardHeight);
         }
         if (t.x < threshold && t.y < threshold) {
           // return left upper corner
+          this._direction = 'FROM_LEFT_UPPER';
           return egret.Point.create(0, 0);
         } else if (t.x > this._cardWidth - threshold && t.y < threshold) {
           // return right upper corner
+          this._direction = 'FROM_RIGHT_UPPER';
           return egret.Point.create(this._cardWidth, 0);
         } else if (t.x < threshold) {
           // return point by projecting t to left edge
+          this._direction = 'FROM_RIGHT';
           this.freezeY = true;
           return egret.Point.create(0, t.y);
         } else if (t.x > this._cardWidth - threshold) {
           // return point by projecting t to right edge
+          this._direction = 'FROM_LEFT';
           this.freezeY = true;
           return egret.Point.create(this._cardWidth, t.y);
         } else if (t.y < threshold) {
           // return point by project t to bottom edge
+          this._direction = 'FROM_TOP';
           this.freezeX = true;
           return egret.Point.create(t.x, 0);
         } else if (t.y > this._cardHeight - threshold) {
           // return point by project t to bottom edge
+          this._direction = 'FROM_BOTTOM';
           this.freezeX = true;
           return egret.Point.create(t.x, this._cardHeight);
         }

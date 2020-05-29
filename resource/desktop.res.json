@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "roadmapfont_fnt,common_ui_tex_png,common_ui_tex_json,common_ui_ske_json,d_common_menu_json,d_common_gammepanel_json,d_common_general_json,d_common_chips_json,d_common_cards_json,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_warnbtn_png,d_common_popup_warnbtn_hover_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,nav_panel_bg",
+			"keys": "roadmapfont_fnt,common_ui_tex_png,common_ui_tex_json,common_ui_ske_json,d_common_menu_json,d_common_gammepanel_json,d_common_general_json,d_common_chips_json,d_common_cards_json,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_warnbtn_png,d_common_popup_warnbtn_hover_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,nav_panel_bg,d_lobby_notify_btn_action_png,d_lobby_notify_btn_hide_png",
 			"name": "common"
 		},
 		{
@@ -9,7 +9,7 @@
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "baccarat_game_result_tex_png,baccarat_game_result_tex_json,baccarat_game_result_ske_json,baccarat_ui_tex_png,baccarat_ui_tex_json,baccarat_ui_ske_json,frame-3_png,d_ba_json",
+			"keys": "baccarat_game_result_tex_png,baccarat_game_result_tex_json,baccarat_game_result_ske_json,baccarat_ui_tex_png,baccarat_ui_tex_json,baccarat_ui_ske_json,frame-3_png,d_ba_json,d_sq_ba_all_open_btn_normal_p_png,d_sq_ba_all_open_btn_normal_b_png,d_sq_ba_all_open_btn_inactive_p_png,d_sq_ba_all_open_btn_inactive_b_png,d_sq_ba_all_open_btn_hover_p_png,d_sq_ba_all_open_btn_hover_b_png,d_sq_ba_all_open_btn_disabled_p_png,d_sq_ba_all_open_btn_disabled_b_png,d_sq_ba_thumb_up_png",
 			"name": "scene_baccarat"
 		},
 		{
@@ -617,7 +617,7 @@
 			"url": "assets/d/ba/d_ba.json",
 			"type": "sheet",
 			"name": "d_ba_json",
-			"subkeys": "d-sq-ba-b-win-hl-copy_png,d-sq-ba-p-win-hl-copy_png,d_ba_betarea_banker_hover_png,d_ba_betarea_banker_normal_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_bankerpair_normal_png,d_ba_betarea_button_active_png,d_ba_betarea_button_normal_png,d_ba_betarea_icon_bet_png,d_ba_betarea_icon_person_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_normal_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_normal_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_normal_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_normal_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_normal_png,d_ba_betarea_tie_hover_png,d_ba_betarea_tie_normal_png,d_ba_betcontrol_pagenav_left_png,d_ba_betcontrol_pagenav_right_png,d_ba_gamerecord_bankerelement_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_tieelement_png,d_ba_goodroad_info_state_total_png,d_ba_panel_statistics_bankerelement_png,d_ba_panel_statistics_playerelement_png,d_ba_panel_statistics_tieelement_png,d_ba_roadmap_bar_bankerelement_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerelement_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_remainingstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_roadmap_record_cardresult_banker_png,d_ba_roadmap_record_cardresult_player_png,d_ba_roadmap_record_result_banker_png,d_ba_roadmap_record_result_player_png,d_ba_roadmap_record_result_tie_png,d_ba_roadmap_topbar_textbg_banker_png,d_ba_roadmap_topbar_textbg_player_png,d_ba_swaproadmap_button_element_png,d_sq_ba_all_open_btn_hover_p_png,d_sq_ba_all_open_btn_inactive_player_png,d_sq_ba_card_back_png,d_sq_ba_instruction_bg_png,d_sq_ba_instruction_crad_group_02_png,d_sq_ba_touch_icon_png,d_sq_bac_page_next_disable_png,d_sq_bac_page_next_none_png,m_v_sp_ba_instruction_reveal_all_btn_png"
+			"subkeys": "d-sq-ba-b-win-hl-copy_png,d-sq-ba-p-win-hl-copy_png,d_ba_betarea_banker_hover_png,d_ba_betarea_banker_normal_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_bankerpair_normal_png,d_ba_betarea_button_active_png,d_ba_betarea_button_normal_png,d_ba_betarea_icon_bet_png,d_ba_betarea_icon_person_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_normal_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_normal_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_normal_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_normal_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_normal_png,d_ba_betarea_tie_hover_png,d_ba_betarea_tie_normal_png,d_ba_betcontrol_pagenav_left_png,d_ba_betcontrol_pagenav_right_png,d_ba_gamerecord_bankerelement_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_tieelement_png,d_ba_goodroad_info_state_total_png,d_ba_panel_statistics_bankerelement_png,d_ba_panel_statistics_playerelement_png,d_ba_panel_statistics_tieelement_png,d_ba_roadmap_bar_bankerelement_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerelement_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_remainingstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_roadmap_record_cardresult_banker_png,d_ba_roadmap_record_cardresult_player_png,d_ba_roadmap_record_result_banker_png,d_ba_roadmap_record_result_player_png,d_ba_roadmap_record_result_tie_png,d_ba_roadmap_topbar_textbg_banker_png,d_ba_roadmap_topbar_textbg_player_png,d_ba_swaproadmap_button_element_png,d_sq_ba_all_open_btn_inactive_player_png,d_sq_ba_instruction_bg_png,d_sq_ba_instruction_crad_group_02_png,d_sq_ba_touch_icon_png,d_sq_bac_page_next_disable_png,d_sq_bac_page_next_none_png,m_v_sp_ba_instruction_reveal_all_btn_png"
 		},
 		{
 			"url": "assets/d/ro/d_ro.json",
@@ -741,6 +741,68 @@
 			"url": "assets/temp/lw/d_lw_listpenal_result_white.png",
 			"type": "image",
 			"name": "d_lw_listpenal_result_white_png"
+		},
+		{
+			"url": "assets/d/common/notification/d_lobby_notify_btn_action.png",
+			"type": "image",
+			"name": "d_lobby_notify_btn_action_png"
+		},
+		{
+			"url": "assets/d/common/notification/d_lobby_notify_btn_hide.png",
+			"type": "image",
+			"name": "d_lobby_notify_btn_hide_png"		},
+		{
+			"url": "assets/d/ba/d_sq_ba_all_open_btn_disabled_b.png",
+			"type": "image",
+			"name": "d_sq_ba_all_open_btn_disabled_b_png",
+			"scale9grid": "24,21,20,7"
+		},
+		{
+			"url": "assets/d/ba/d_sq_ba_all_open_btn_disabled_p.png",
+			"type": "image",
+			"name": "d_sq_ba_all_open_btn_disabled_p_png",
+			"scale9grid": "24,21,20,7"
+		},
+		{
+			"url": "assets/d/ba/d_sq_ba_all_open_btn_hover_p.png",
+			"type": "image",
+			"name": "d_sq_ba_all_open_btn_hover_p_png",
+			"scale9grid": "24,21,20,7"
+		},
+		{
+			"url": "assets/d/ba/d_sq_ba_all_open_btn_hover_b.png",
+			"type": "image",
+			"name": "d_sq_ba_all_open_btn_hover_b_png",
+			"scale9grid": "24,21,20,7"
+		},
+		{
+			"url": "assets/d/ba/d_sq_ba_all_open_btn_inactive_b.png",
+			"type": "image",
+			"name": "d_sq_ba_all_open_btn_inactive_b_png",
+			"scale9grid": "24,21,20,7"
+		},
+		{
+			"url": "assets/d/ba/d_sq_ba_all_open_btn_inactive_p.png",
+			"type": "image",
+			"name": "d_sq_ba_all_open_btn_inactive_p_png",
+			"scale9grid": "24,21,20,7"
+		},
+		{
+			"url": "assets/d/ba/d_sq_ba_all_open_btn_normal_b.png",
+			"type": "image",
+			"name": "d_sq_ba_all_open_btn_normal_b_png",
+			"scale9grid": "24,21,20,7"
+		},
+		{
+			"url": "assets/d/ba/d_sq_ba_all_open_btn_normal_p.png",
+			"type": "image",
+			"name": "d_sq_ba_all_open_btn_normal_p_png",
+			"scale9grid": "24,21,20,7"
+		},
+		{
+			"url": "assets/d/ba/d_sq_ba_thumb_up.png",
+			"type": "image",
+			"name": "d_sq_ba_thumb_up_png"
 		}
 	]
 }
