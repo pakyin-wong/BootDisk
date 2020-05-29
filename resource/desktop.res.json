@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "roadmapfont_fnt,common_ui_tex_png,common_ui_tex_json,common_ui_ske_json,d_common_menu_json,d_common_gammepanel_json,d_common_general_json,d_common_chips_json,d_common_cards_json,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_warnbtn_png,d_common_popup_warnbtn_hover_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,nav_panel_bg",
+			"keys": "roadmapfont_fnt,common_ui_tex_png,common_ui_tex_json,common_ui_ske_json,d_common_menu_json,d_common_gammepanel_json,d_common_general_json,d_common_chips_json,d_common_cards_json,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_warnbtn_png,d_common_popup_warnbtn_hover_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,nav_panel_bg,d_lobby_notify_btn_action_png,d_lobby_notify_btn_hide_png",
 			"name": "common"
 		},
 		{
@@ -741,6 +741,16 @@
 			"url": "assets/temp/lw/d_lw_listpenal_result_white.png",
 			"type": "image",
 			"name": "d_lw_listpenal_result_white_png"
+		},
+		{
+			"url": "assets/d/common/notification/d_lobby_notify_btn_action.png",
+			"type": "image",
+			"name": "d_lobby_notify_btn_action_png"
+		},
+		{
+			"url": "assets/d/common/notification/d_lobby_notify_btn_hide.png",
+			"type": "image",
+			"name": "d_lobby_notify_btn_hide_png"
 		}
 	]
 }
