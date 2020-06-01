@@ -4,15 +4,15 @@
 	<e:Group id="_contentContainer" width="100%" height="399" x="0" y="0" anchorOffsetY="0">
 		<e:Rect height="105" y="0" fillColor="0x202020" right="0" left="0" />
 		<ui:CountdownTimer id="_timer" width="90" height="90" x="7" y="7" skinName="skin_mobile.CountdownTimerRoundSkin" />
-		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="110" y="30" size="48" text="" />
+		<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" x="110" y="30" size="48" text="" />
 		<e:Component id="_roadmapNode" width="1136" height="288" y="105" anchorOffsetY="0" horizontalCenter="0"
-		             visible="false" />
+		              visible="false"/>
 		<ui:InGameMessage id="_message" anchorOffsetX="238.79" anchorOffsetY="42.5"
 		                  skinName="skin_mobile_portrait.InGameMessageSkin" width="476" height="85" horizontalCenter="0"
 		                  y="237" infoBg="m_common_gamestate_message_black_png"
 		                  successBg="m_common_gamestate_message_green_png" errorBg="m_common_gamestate_message_red_png" />
 		<e:Group right="30" y="30">
-			<ui:RunTimeLabel id="_toggler" textAlign="left" fontFamily="Barlow" y="24" size="48" x="924" />
+			<ui:RunTimeLabel id="_toggler" textAlign="left" y="24" size="48" x="924" />
 			<e:Image source="m_common_panel_icon_dropdown_png" x="920" y="52" width="34" height="19" />
 			<e:layout>
 				<e:HorizontalLayout verticalAlign="middle" />

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ro.MobileHotColdPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" >
+	<e:Group id="_hotCold">
+		<e:Image source="m_ro_v_hot_icon_png" y="0" x="0" width="61" height="95"/>
+		<e:Image y="23" x="85" source="m_ro_h_hot_bar_png"/>
+		<e:Image source="m_ro_v_cold_icon_png" y="17" x="957" width="73" height="79"/>
+		<e:Image y="23" x="529" source="m_ro_h_cold_bar_png"/>
+		<e:Group id="_hotnum" x="86" y="25" scaleX="1" scaleY="1">
+			<e:Component width="64" height="64" x="0" y="0"/>
+			<e:Component width="64" height="64" x="86" y="0"/>
+			<e:Component width="64" height="64" x="171" y="0"/>
+			<e:Component width="64" height="64" x="256" y="0"/>
+			<e:Component width="64" height="64" x="341" y="0"/>
+		</e:Group>
+		<e:Group id="_coldnum" x="531" y="25" scaleX="1" scaleY="1">
+			<e:Component width="64" height="64" scaleX="1" scaleY="1" x="0" y="0"/>
+			<e:Component width="64" height="64" scaleX="1" scaleY="1" x="85" y="0"/>
+			<e:Component width="64" height="64" scaleX="1" scaleY="1" x="170" y="0"/>
+			<e:Component width="64" height="64" scaleX="1" scaleY="1" x="255" y="0"/>
+			<e:Component width="64" height="64" scaleX="1" scaleY="1" x="340" y="0"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>

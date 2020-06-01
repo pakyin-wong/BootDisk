@@ -7,6 +7,12 @@ namespace we {
       private _tabArrayCollection: eui.ArrayCollection;
       private _viewStack: eui.ViewStack;
 
+      private _btnAlreadyBet: ui.GamePanelTabButton;
+      private _btnGoodRoad: ui.GamePanelTabButton;
+      private _btnAllGame: ui.GamePanelTabButton;
+
+      protected _lblBetHint: ui.RunTimeLabel;
+
       protected _betTableList: TableList;
       protected _goodRoadTableList: TableList;
       protected _allTableList: TableList;
@@ -14,7 +20,8 @@ namespace we {
       protected _betList: string[] = [];
       protected _goodRoadList: string[] = [];
 
-      protected fixedTab: string[] = ['allGame', 'bet', 'goodroad'];
+      // protected fixedTab: string[] = ['allGame', 'bet', 'goodroad'];
+      protected _pageIds: string = 'bet';
 
       protected _txt_title: RunTimeLabel;
       protected _selected: number = 0;
@@ -24,8 +31,13 @@ namespace we {
         this.poppableAddon = new PoppableAddonBottomSilder(this);
       }
 
+      protected onOrientationChange() {
+        this.arrangeComponents();
+      }
+
       protected initOrientationDependentComponent() {
-        this._txt_title.renderText = () => `${i18n.t('sidegamelist_title')}`;
+        // this._txt_title.renderText = () => `${i18n.t('sidegamelist_title')}`;
+        this._lblBetHint.renderText = () => i18n.t('mobile_game_panel_bet_hint_label');
 
         this.initTabs();
         this.initPage();
@@ -45,6 +57,8 @@ namespace we {
       }
 
       protected arrangeComponents() {
+        this.currentState = env.orientation.toLowerCase();
+        this.validateNow();
         this._betTableList.layout = this.getLayout();
         this._goodRoadTableList.layout = this.getLayout();
         this._allTableList.layout = this.getLayout();
@@ -55,6 +69,7 @@ namespace we {
         this.removeEventListeners();
       }
       protected addEventListeners() {
+        dir.evtHandler.addEventListener(core.Event.TOGGLE_SIDE_GAMELIST, this.show, this);
         // listen to table list update
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update
@@ -62,16 +77,25 @@ namespace we {
         // listen to bet list update
         dir.evtHandler.addEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
 
+        utils.addButtonListener(this._btnAlreadyBet, this.onClickBet, this);
+        utils.addButtonListener(this._btnGoodRoad, this.onClickGoodRoad, this);
+        utils.addButtonListener(this._btnAllGame, this.onClickAllGame, this);
+
         this._tabs.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.updateView, this);
       }
 
       protected removeEventListeners() {
+        dir.evtHandler.removeEventListener(core.Event.TOGGLE_SIDE_GAMELIST, this.show, this);
         // listen to table list update
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.onTableListUpdate, this);
         // listen to good road list update
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE, this.onGoodRoadTableListUpdate, this);
         // listen to bet list update
         dir.evtHandler.removeEventListener(core.Event.BET_TABLE_LIST_UPDATE, this.onBetTableListUpdate, this);
+
+        utils.removeButtonListener(this._btnAlreadyBet, this.onClickBet, this);
+        utils.removeButtonListener(this._btnGoodRoad, this.onClickGoodRoad, this);
+        utils.removeButtonListener(this._btnAllGame, this.onClickAllGame, this);
 
         this._tabs.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.updateView, this);
       }
@@ -166,17 +190,18 @@ namespace we {
       }
 
       protected initTabs() {
-        const tabList = [...this.fixedTab, ...utils.EnumHelpers.values(core.LiveGameTab)];
+        // const tabList = [...this.fixedTab, ...utils.EnumHelpers.values(core.LiveGameTab)];
+        const tabList = utils.EnumHelpers.values(core.LiveGameTab);
 
         this._tabSource = tabList.map(tab => {
           switch (tab) {
-            case 'bet':
-            case 'goodroad':
-              return {
-                tab,
-                text: `sidegamelist_tab_${tab}`,
-                count: 0,
-              };
+            // case 'bet':
+            // case 'goodroad':
+            //   return {
+            //     tab,
+            //     text: `sidegamelist_tab_${tab}`,
+            //     count: 0,
+            //   };
 
             default:
               return {
@@ -208,27 +233,31 @@ namespace we {
         }
 
         this._selected = this._tabs.selectedIndex;
-        const type: string = this._tabs.selectedItem.tab;
+        // const type: string = this._tabs.selectedItem.tab;
 
-        switch (type) {
+        switch (this._pageIds) {
           case 'bet':
-            this._viewStack.selectedIndex = 1;
+            this._viewStack.selectedIndex = 0;
             break;
 
           case 'goodroad':
-            this._viewStack.selectedIndex = 2;
+            this._viewStack.selectedIndex = 1;
             break;
 
-          case 'allGame':
-            this.setAllTableList(-1);
-            this._viewStack.selectedIndex = 0;
-            break;
+          // case 'allGame':
+          //   this.setAllTableList(-1);
+          //   this._viewStack.selectedIndex = 0;
+          //   break;
 
           default:
-            this.setAllTableList(this._tabs.selectedIndex - this.fixedTab.length);
-            this._viewStack.selectedIndex = 0;
+            this.setAllTableList(this._tabs.selectedIndex);
+            this._viewStack.selectedIndex = 2;
             break;
         }
+
+        this._btnAlreadyBet.focus = this._pageIds === 'bet';
+        this._btnAllGame.focus = this._pageIds === 'allGame';
+        this._btnGoodRoad.focus = this._pageIds === 'goodroad';
       }
 
       protected setTab(idx: number) {
@@ -249,18 +278,35 @@ namespace we {
       protected setBetList() {
         this._betTableList.setTableList(this._betList);
         const count = this._betList.length;
-        const item = this._tabSource.find(i => i.tab === 'bet');
-        const idx = this._tabSource.indexOf(item);
-        item.count = count;
-        this._tabArrayCollection.replaceItemAt(item, idx);
+        // const item = this._tabSource.find(i => i.tab === 'bet');
+        // const idx = this._tabSource.indexOf(item);
+        // item.count = count;
+        // this._tabArrayCollection.replaceItemAt(item, idx);
+        this._btnAlreadyBet.setBadge(count);
       }
       protected setGoodRoadList() {
         this._goodRoadTableList.setTableList(this._goodRoadList);
         const count = this._goodRoadList.length;
-        const item = this._tabSource.find(i => i.tab === 'goodroad');
-        const idx = this._tabSource.indexOf(item);
-        item.count = count;
-        this._tabArrayCollection.replaceItemAt(item, idx);
+        // const item = this._tabSource.find(i => i.tab === 'goodroad');
+        // const idx = this._tabSource.indexOf(item);
+        // item.count = count;
+        // this._tabArrayCollection.replaceItemAt(item, idx);
+        this._btnGoodRoad.setBadge(count);
+      }
+
+      protected onClickBet() {
+        this._pageIds = 'bet';
+        this.updateView();
+      }
+
+      protected onClickGoodRoad() {
+        this._pageIds = 'goodroad';
+        this.updateView();
+      }
+
+      protected onClickAllGame() {
+        this._pageIds = 'allGame';
+        this.updateView();
       }
 
       protected onGoodRoadTableListUpdate(evt: egret.Event) {

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ro.TableLayerSkin" width="2061" height="664" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*">
+	<e:Image
+	         fillMode="scale"  source="m_ro_h_betborad_hover_png" locked="true"/>
+	<e:Group id="_direct_0_group" width="140" height="444">
+		<e:Label id="_direct_0_label" text="0" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_1_group" width="148" height="148" x="140" y="296">
+		<e:Label id="_direct_1_label" text="1" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_2_group" width="148" height="148" x="140" y="148">
+		<e:Label id="_direct_2_label" text="2" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_3_group" width="148" height="148" x="140">
+		<e:Label id="_direct_3_label" text="3" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_4_group" width="148" height="148" x="288" y="296">
+		<e:Label id="_direct_4_label" text="4" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_5_group" width="148" height="148" x="288" y="148">
+		<e:Label id="_direct_5_label" text="5" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_6_group" width="148" height="148" x="288">
+		<e:Label id="_direct_6_label" text="6" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_7_group" width="148" height="148" x="436" y="296">
+		<e:Label id="_direct_7_label" text="7" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_8_group" width="148" height="148" x="436" y="148">
+		<e:Label id="_direct_8_label" text="8" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_9_group" width="148" height="148" x="436">
+		<e:Label id="_direct_9_label" text="9" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_10_group" width="148" height="148" x="584" y="296">
+		<e:Label id="_direct_10_label" text="10" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_11_group" width="148" height="148" x="584" y="148">
+		<e:Label id="_direct_11_label" text="11" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_12_group" width="148" height="148" x="584">
+		<e:Label id="_direct_12_label" text="12" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_13_group" width="148" height="148" x="732" y="296">
+		<e:Label id="_direct_13_label" text="13" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_14_group" width="148" height="148" x="732" y="148">
+		<e:Label id="_direct_14_label" text="14" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_15_group" width="148" height="148" x="732">
+		<e:Label id="_direct_15_label" text="15" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_16_group" width="148" height="148" x="880" y="296">
+		<e:Label id="_direct_16_label" text="16" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_17_group" width="148" height="148" x="880" y="148">
+		<e:Label id="_direct_17_label" text="17" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_18_group" width="148" height="148" x="880">
+		<e:Label id="_direct_18_label" text="18" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_19_group" width="148" height="148" x="1028" y="296">
+		<e:Label id="_direct_19_label" text="19" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_20_group" width="148" height="148" x="1028" y="148">
+		<e:Label id="_direct_20_label" text="20" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_21_group" width="148" height="148" x="1028">
+		<e:Label id="_direct_21_label" text="21" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_22_group" width="148" height="148" x="1176" y="296">
+		<e:Label id="_direct_22_label" text="22" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_23_group" width="148" height="148" x="1176" y="148">
+		<e:Label id="_direct_23_label" text="23" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_24_group" width="148" height="148" x="1176">
+		<e:Label id="_direct_24_label" text="24" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_25_group" width="148" height="148" x="1324" y="296">
+		<e:Label id="_direct_25_label" text="25" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_26_group" width="148" height="148" x="1324" y="148">
+		<e:Label id="_direct_26_label" text="26" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_27_group" width="148" height="148" x="1324">
+		<e:Label id="_direct_27_label" text="27" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_28_group" width="148" height="148" x="1472" y="296">
+		<e:Label id="_direct_28_label" text="28" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_29_group" width="148" height="148" x="1472" y="148">
+		<e:Label id="_direct_29_label" text="29" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_30_group" width="148" height="148" x="1472">
+		<e:Label id="_direct_30_label" text="30" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_31_group" width="148" height="148" x="1620" y="296">
+		<e:Label id="_direct_31_label" text="31" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_32_group" width="148" height="148" x="1620" y="148">
+		<e:Label id="_direct_32_label" text="32" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_33_group" width="148" height="148" x="1620">
+		<e:Label id="_direct_33_label" text="33" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_34_group" width="148" height="148" x="1768" y="296">
+		<e:Label id="_direct_34_label" text="34" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_35_group" width="148" height="148" x="1768" y="148">
+		<e:Label id="_direct_35_label" text="35" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_direct_36_group" width="148" height="148" x="1768">
+		<e:Label id="_direct_36_label" text="36" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_1_2_group" width="74" height="74" x="177" y="259">
+		<e:Label id="_separate_1_2_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_2_3_group" width="74" height="74" x="177" y="111">
+		<e:Label id="_separate_2_3_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_4_5_group" width="74" height="74" x="325" y="259">
+		<e:Label id="_separate_4_5_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_5_6_group" width="74" height="74" x="325" y="111">
+		<e:Label id="_separate_5_6_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_7_8_group" width="74" height="74" x="473" y="259">
+		<e:Label id="_separate_7_8_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_8_9_group" width="74" height="74" x="473" y="111">
+		<e:Label id="_separate_8_9_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_10_11_group" width="74" height="74" x="621" y="259">
+		<e:Label id="_separate_10_11_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_11_12_group" width="74" height="74" x="621" y="111">
+		<e:Label id="_separate_11_12_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_13_14_group" width="74" height="74" x="769" y="259">
+		<e:Label id="_separate_13_14_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_14_15_group" width="74" height="74" x="769" y="111">
+		<e:Label id="_separate_14_15_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_16_17_group" width="74" height="74" x="917" y="259">
+		<e:Label id="_separate_16_17_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_17_18_group" width="74" height="74" x="917" y="111">
+		<e:Label id="_separate_17_18_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_19_20_group" width="74" height="74" x="1065" y="259">
+		<e:Label id="_separate_19_20_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_20_21_group" width="74" height="74" x="1065" y="111">
+		<e:Label id="_separate_20_21_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_22_23_group" width="74" height="74" x="1213" y="259">
+		<e:Label id="_separate_22_23_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_23_24_group" width="74" height="74" x="1213" y="111">
+		<e:Label id="_separate_23_24_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_25_26_group" width="74" height="74" x="1361" y="259">
+		<e:Label id="_separate_25_26_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_26_27_group" width="74" height="74" x="1361" y="111">
+		<e:Label id="_separate_26_27_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_28_29_group" width="74" height="74" x="1509" y="259">
+		<e:Label id="_separate_28_29_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_29_30_group" width="74" height="74" x="1509" y="111">
+		<e:Label id="_separate_29_30_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_31_32_group" width="74" height="74" x="1657" y="259">
+		<e:Label id="_separate_31_32_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_32_33_group" width="74" height="74" x="1657" y="111">
+		<e:Label id="_separate_32_33_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_34_35_group" width="74" height="74" x="1805" y="259">
+		<e:Label id="_separate_34_35_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_35_36_group" width="74" height="74" x="1805" y="111">
+		<e:Label id="_separate_35_36_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_0_1_group" width="74" height="74" x="103" y="333">
+		<e:Label id="_separate_0_1_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_0_2_group" width="74" height="74" x="103" y="185">
+		<e:Label id="_separate_0_2_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_0_3_group" width="74" height="74" x="103" y="37">
+		<e:Label id="_separate_0_3_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_1_4_group" width="74" height="74" x="251" y="333">
+		<e:Label id="_separate_1_4_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_2_5_group" width="74" height="74" x="251" y="185">
+		<e:Label id="_separate_2_5_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_3_6_group" width="74" height="74" x="251" y="37">
+		<e:Label id="_separate_3_6_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_4_7_group" width="74" height="74" x="399" y="333">
+		<e:Label id="_separate_4_7_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_5_8_group" width="74" height="74" x="399" y="185">
+		<e:Label id="_separate_5_8_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_6_9_group" width="74" height="74" x="399" y="37">
+		<e:Label id="_separate_6_9_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_7_10_group" width="74" height="74" x="547" y="333">
+		<e:Label id="_separate_7_10_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_8_11_group" width="74" height="74" x="547" y="185">
+		<e:Label id="_separate_8_11_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_9_12_group" width="74" height="74" x="547" y="37">
+		<e:Label id="_separate_9_12_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_10_13_group" width="74" height="74" x="695" y="333">
+		<e:Label id="_separate_10_13_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_11_14_group" width="74" height="74" x="695" y="185">
+		<e:Label id="_separate_11_14_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_12_15_group" width="74" height="74" x="695" y="37">
+		<e:Label id="_separate_12_15_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_13_16_group" width="74" height="74" x="843" y="333">
+		<e:Label id="_separate_13_16_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_14_17_group" width="74" height="74" x="843" y="185">
+		<e:Label id="_separate_14_17_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_15_18_group" width="74" height="74" x="843" y="37">
+		<e:Label id="_separate_15_18_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_16_19_group" width="74" height="74" x="991" y="333">
+		<e:Label id="_separate_16_19_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_17_20_group" width="74" height="74" x="991" y="185">
+		<e:Label id="_separate_17_20_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_18_21_group" width="74" height="74" x="991" y="37">
+		<e:Label id="_separate_18_21_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_19_22_group" width="74" height="74" x="1139" y="333">
+		<e:Label id="_separate_19_22_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_20_23_group" width="74" height="74" x="1139" y="185">
+		<e:Label id="_separate_20_23_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_21_24_group" width="74" height="74" x="1139" y="37">
+		<e:Label id="_separate_21_24_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_22_25_group" width="74" height="74" x="1287" y="333">
+		<e:Label id="_separate_22_25_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_23_26_group" width="74" height="74" x="1287" y="185">
+		<e:Label id="_separate_23_26_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_24_27_group" width="74" height="74" x="1287" y="37">
+		<e:Label id="_separate_24_27_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_25_28_group" width="74" height="74" x="1435" y="333">
+		<e:Label id="_separate_25_28_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_26_29_group" width="74" height="74" x="1435" y="185">
+		<e:Label id="_separate_26_29_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_27_30_group" width="74" height="74" x="1435" y="37">
+		<e:Label id="_separate_27_30_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_28_31_group" width="74" height="74" x="1583" y="333">
+		<e:Label id="_separate_28_31_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_29_32_group" width="74" height="74" x="1583" y="185">
+		<e:Label id="_separate_29_32_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_30_33_group" width="74" height="74" x="1583" y="37">
+		<e:Label id="_separate_30_33_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_31_34_group" width="74" height="74" x="1731" y="333">
+		<e:Label id="_separate_31_34_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_32_35_group" width="74" height="74" x="1731" y="185">
+		<e:Label id="_separate_32_35_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_separate_33_36_group" width="74" height="74" x="1731" y="37">
+		<e:Label id="_separate_33_36_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_1_2_3_group" width="74" height="74" x="177" y="407">
+		<e:Label id="_street_1_2_3_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_4_5_6_group" width="74" height="74" x="325" y="407">
+		<e:Label id="_street_4_5_6_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_7_8_9_group" width="74" height="74" x="473" y="407">
+		<e:Label id="_street_7_8_9_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_10_11_12_group" width="74" height="74" x="621" y="407">
+		<e:Label id="_street_10_11_12_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_13_14_15_group" width="74" height="74" x="769" y="407">
+		<e:Label id="_street_13_14_15_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_16_17_18_group" width="74" height="74" x="917" y="407">
+		<e:Label id="_street_16_17_18_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_19_20_21_group" width="74" height="74" x="1065" y="407">
+		<e:Label id="_street_19_20_21_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_22_23_24_group" width="74" height="74" x="1213" y="407">
+		<e:Label id="_street_22_23_24_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_25_26_27_group" width="74" height="74" x="1361" y="407">
+		<e:Label id="_street_25_26_27_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_28_29_30_group" width="74" height="74" x="1509" y="407">
+		<e:Label id="_street_28_29_30_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_31_32_33_group" width="74" height="74" x="1657" y="407">
+		<e:Label id="_street_31_32_33_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_34_35_36_group" width="74" height="74" x="1805" y="407">
+		<e:Label id="_street_34_35_36_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_0_1_2_group" width="74" height="74" x="103" y="259">
+		<e:Label id="_street_0_1_2_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_street_0_2_3_group" width="74" height="74" x="103" y="111">
+		<e:Label id="_street_0_2_3_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_1_2_4_5_group" width="74" height="74" x="251" y="259">
+		<e:Label id="_corner_1_2_4_5_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_2_3_5_6_group" width="74" height="74" x="251" y="111">
+		<e:Label id="_corner_2_3_5_6_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_4_5_7_8_group" width="74" height="74" x="399" y="259">
+		<e:Label id="_corner_4_5_7_8_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_5_6_8_9_group" width="74" height="74" x="399" y="111">
+		<e:Label id="_corner_5_6_8_9_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_7_8_10_11_group" width="74" height="74" x="547" y="259">
+		<e:Label id="_corner_7_8_10_11_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_8_9_11_12_group" width="74" height="74" x="547" y="111">
+		<e:Label id="_corner_8_9_11_12_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_10_11_13_14_group" width="74" height="74" x="695" y="259">
+		<e:Label id="_corner_10_11_13_14_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_11_12_14_15_group" width="74" height="74" x="695" y="111">
+		<e:Label id="_corner_11_12_14_15_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_13_14_16_17_group" width="74" height="74" x="843" y="259">
+		<e:Label id="_corner_13_14_16_17_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_14_15_17_18_group" width="74" height="74" x="843" y="111">
+		<e:Label id="_corner_14_15_17_18_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_16_17_19_20_group" width="74" height="74" x="991" y="259">
+		<e:Label id="_corner_16_17_19_20_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_17_18_20_21_group" width="74" height="74" x="991" y="111">
+		<e:Label id="_corner_17_18_20_21_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_19_20_22_23_group" width="74" height="74" x="1139" y="259">
+		<e:Label id="_corner_19_20_22_23_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_20_21_23_24_group" width="74" height="74" x="1139" y="111">
+		<e:Label id="_corner_20_21_23_24_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_22_23_25_26_group" width="74" height="74" x="1287" y="259">
+		<e:Label id="_corner_22_23_25_26_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_23_24_26_27_group" width="74" height="74" x="1287" y="111">
+		<e:Label id="_corner_23_24_26_27_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_25_26_28_29_group" width="74" height="74" x="1435" y="259">
+		<e:Label id="_corner_25_26_28_29_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_26_27_29_30_group" width="74" height="74" x="1435" y="111">
+		<e:Label id="_corner_26_27_29_30_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_28_29_31_32_group" width="74" height="74" x="1583" y="259">
+		<e:Label id="_corner_28_29_31_32_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_29_30_32_33_group" width="74" height="74" x="1583" y="111">
+		<e:Label id="_corner_29_30_32_33_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_31_32_34_35_group" width="74" height="74" x="1731" y="259">
+		<e:Label id="_corner_31_32_34_35_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_32_33_35_36_group" width="74" height="74" x="1731" y="111">
+		<e:Label id="_corner_32_33_35_36_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_corner_0_1_2_3_group" width="74" height="74" x="103" y="407">
+		<e:Label id="_corner_0_1_2_3_betChipStack" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_1_6_group" width="74" height="74" x="251" y="407">
+		<e:Label id="_line_1_6_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_4_9_group" width="74" height="74" x="399" y="407">
+		<e:Label id="_line_4_9_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_7_12_group" width="74" height="74" x="547" y="407">
+		<e:Label id="_line_7_12_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_10_15_group" width="74" height="74" x="695" y="407">
+		<e:Label id="_line_10_15_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_13_18_group" width="74" height="74" x="843" y="407">
+		<e:Label id="_line_13_18_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_16_21_group" width="74" height="74" x="991" y="407">
+		<e:Label id="_line_16_21_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_19_24_group" width="74" height="74" x="1139" y="407">
+		<e:Label id="_line_19_24_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_22_27_group" width="74" height="74" x="1287" y="407">
+		<e:Label id="_line_22_27_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_25_30_group" width="74" height="74" x="1435" y="407">
+		<e:Label id="_line_25_30_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_28_33_group" width="74" height="74" x="1583" y="407">
+		<e:Label id="_line_28_33_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_line_31_36_group" width="74" height="74" x="1731" y="407">
+		<e:Label id="_line_31_36_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_row_3_group" width="148" height="148" x="1912">
+		<ui:RunTimeLabel id="_row_3_label" verticalCenter="0" horizontalCenter="0"  size="36" fontFamily="Barlow" text="row 3"/>
+	</e:Group>
+	<e:Group id="_row_2_group" width="148" height="148" x="1912" y="148">
+		<ui:RunTimeLabel id="_row_2_label" verticalCenter="0" horizontalCenter="0"  size="36" fontFamily="Barlow" text="row 2"/>
+	</e:Group>
+	<e:Group id="_row_1_group" width="148" height="148" x="1912" y="296">
+		<ui:RunTimeLabel id="_row_1_label" verticalCenter="0" horizontalCenter="0"  size="36" fontFamily="Barlow" text="row 1"/>
+	</e:Group>
+	<e:Group id="_dozen_1_12_group" width="590" height="111" y="444" x="140">
+		<ui:RunTimeLabel id="_dozen_1_12_label" size="40" text="第一組" wordWrap="true" textAlign="center" left="0" right="0" top="0" bottom="0" verticalAlign="middle"/>
+	</e:Group>
+	<e:Group id="_dozen_13_24_group" width="590" height="111" x="736" y="444">
+		<ui:RunTimeLabel id="_dozen_13_24_label" size="40" text="第二組" wordWrap="true" textAlign="center" left="0" right="0" top="0" bottom="0" verticalAlign="middle"/>
+	</e:Group>
+	<e:Group id="_dozen_25_36_group" width="590" height="111" x="1326" y="444">
+		<ui:RunTimeLabel id="_dozen_25_36_label" size="40" text="第三組" wordWrap="true" textAlign="center" left="0" right="0" top="0" bottom="0" verticalAlign="middle"/>
+	</e:Group>
+	<e:Group id="_red_group" width="295" height="109" x="732" y="553">
+		<e:Label id="_red_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_black_group" width="295" height="109" x="1028" y="553">
+		<e:Label id="_black_label" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
+	</e:Group>
+	<e:Group id="_odd_group" width="295" height="109" x="1324" y="553">
+		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0"  size="46" text="單"/>
+	</e:Group>
+	<e:Group id="_even_group" width="295" height="109" x="436" y="553">
+		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0"  size="46" text="雙"/>
+	</e:Group>
+	<e:Group id="_small_group" width="295" height="109" x="140" y="553">
+		<ui:RunTimeLabel id="_small_label"  size="46" fontFamily="Barlow" text="1 - 18" left="0" right="0" top="0" bottom="0" verticalAlign="middle" textAlign="center"/>
+	</e:Group>
+	<e:Group id="_big_group" width="295" height="109" x="1620" y="553">
+		<ui:RunTimeLabel id="_big_label"  size="46" fontFamily="Barlow" text="19 - 36" left="0" right="0" top="0" bottom="0" verticalAlign="middle" textAlign="center"/>
+	</e:Group>
+	<e:Image
+	         fillMode="scale"  source="m_ro_h_betborad_outline_png" locked="true"/>
+</e:Skin>

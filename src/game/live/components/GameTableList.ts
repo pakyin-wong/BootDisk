@@ -1,6 +1,6 @@
 namespace we {
   export namespace live {
-    export class GameTableList extends eui.Component {
+    export class GameTableList extends core.BaseEUI {
       public scroller: ui.Scroller;
       // private collection: eui.ArrayCollection;
       public roomIds: string[] = [];
@@ -13,13 +13,16 @@ namespace we {
 
       private contentInitializer: IContentInitializer;
 
-      constructor() {
+      constructor(roomList: ui.TableList) {
         super();
+
+        this.roomList = roomList;
 
         if (env.isMobile) {
           if (env.orientation === egret.OrientationMode.PORTRAIT) {
             this.contentInitializer = new MPLiveContentInitializer();
           } else {
+            this.updateSkin('LiveGameTableList');
             this.contentInitializer = new MLLiveContentInitializer();
           }
         } else {
@@ -36,14 +39,11 @@ namespace we {
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
-      protected partAdded(partName: string, instance: any): void {
-        super.partAdded(partName, instance);
-      }
-
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
+        this.roomList.removeChild(this.slider);
       }
 
       protected childrenCreated(): void {
@@ -52,6 +52,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.LIVE_PAGE_LOCK, false);
 
         this.contentInitializer.initContent(this);
+        this.roomList.addChildAt(this.slider, 0);
 
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
         // dir.evtHandler.addEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
@@ -78,11 +79,16 @@ namespace we {
       }
 
       private onSelectedIndexChanged(evt: any) {
-        const item = this.tabItems[this.tabs.tabBar.selectedIndex];
+        const item = this.tabItems[this.tabs.selectedIndex];
 
-        this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
+        const scrollV = this.scroller.viewport.scrollV;
+
+        this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
         this.roomList.invalidateDisplayList();
+
+        this.scroller.validateNow();
+        this.scroller.viewport.scrollV = scrollV;
       }
 
       public selectGameType(game: string = null) {
@@ -96,12 +102,12 @@ namespace we {
 
         this.tabs.setSelectedIndex(itemIdx);
 
-        this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
+        this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
         this.roomList.invalidateDisplayList();
 
-        this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);
-        this.tabs.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onSelectedIndexChanged, this);
+        this.tabs.tabBar && this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);
+        this.tabs.addEventListener('CHANGE', this.onSelectedIndexChanged, this);
       }
     }
   }

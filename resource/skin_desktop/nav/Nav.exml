@@ -2,14 +2,16 @@
 <e:Skin class="skin_desktop.Nav" width="2600" height="1340" states="Game,Lobby" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:o="we.overlay.*">
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false" />
+	<e:Rect id="_background" height="101.39" fillColor="0x121312" left="0" right="0" x="0" y="0" alpha="0" anchorOffsetY="0" name="background"/>
 	<e:Rect width="1" height="60" x="2152" y="16.4" fillColor="0x4c4c4c" />
 	<!--<e:Image id="_logo" width="246" height="71" x="7" y="12" fillMode="clip" source="" />
 	-->
 	<ui:NavLantern id="_lantern" width="698" height="22" x="1382" y="23.4" x.Game="369" />
 	<e:Label id="_time" text="yyyy/mm/dd 00:00:00" x="1382" x.Game="369" y="46" size="28" textColor="0xffffff"
 	         fontFamily="Barlow" width="698" height="34" textAlign="right" anchorOffsetX="0" verticalAlign="middle" />
-	<e:Image width="22" height="22" x="2092" y="53" x.Game="335" source="d_lobby_navbar_time_png" />
+	<ui:BaseAnimationButton dbClass="common_ui" dbDisplay="d_common_icon_time" width="22" height="22" x="2092" y="53" x.Game="335" />
 	<e:Group id="_profile_toggle" x="2190" y="11.2" anchorOffsetX="0" width="300">
+
 		<e:Label id="_user" text="User" x="79" y="0" width="220" height="34" size="28" fontFamily="Barlow"
 		         textColor="0xffffff" scaleX="1" scaleY="1" />
 		<ui:RunTimeLabel id="_balance" text="123,456,789" x="79" y="35" width="220" height="34" fontFamily="Barlow" size="28"
@@ -17,6 +19,7 @@
 		<e:Image id="_profilePrc" width="58" height="58" x="0" y="7.8" anchorOffsetX="0" anchorOffsetY="0" fillMode="scale"
 		         scaleX="1" scaleY="1" source="d_lobby_profile_pic_03_png" />
 	</e:Group>
+	<e:Image id="_refreshButton" scaleX="1" scaleY="1" source="m_common_header_icon_refresh_png" y="31" width="30" height="30" x="2436"/>
 	<e:Image id="_menu_toggle" width="28.8" height="24.4" x="2527" y="35" source="d_lobby_navbar_menu_png" />
 	<!--<ui:UserInfoWindow id="_userInfo" width="480" height="700" x="2000" y="115.76" isPoppable="true"
 	                       dismissOnClickOutside="true" />
@@ -25,5 +28,5 @@
 	                isPoppable="true" dismissOnClickOutside="true" />
 	<o:PlayerProfile skinName="skin_desktop.PlayerProfile" id="_profile" width="516" height="789" x="1980" y="100"
 	                 isPoppable="true" dismissOnClickOutside="true" />
-	<e:Image width="22" height="23" source="d_ba_navbar_icon_rss_png" x.Game="335" y.Game="21" x.Lobby="2092" y.Lobby="19" />
+	<ui:BaseAnimationButton dbClass="common_ui" dbDisplay="d_common_icon_news_Group" width="22" height="22" x.Game="335" y.Game="21" x.Lobby="2092" y.Lobby="19" />
 </e:Skin>

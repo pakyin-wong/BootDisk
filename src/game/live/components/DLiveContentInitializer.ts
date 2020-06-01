@@ -6,8 +6,10 @@ namespace we {
       private gapSize: number = 48;
       private roomLayout: eui.TileLayout;
 
-      private _slider: ui.ImageSlider;
+      // private _slider: ui.ImageSlider;
       private _stickyHeader: ui.StickyContent;
+
+      protected _tabbarBg: eui.Rect;
 
       constructor() {}
 
@@ -18,6 +20,7 @@ namespace we {
         root.scroller.height = 1340;
         root.scroller.headerOffset = 100;
         root.addChild(root.scroller);
+        root.scroller.addEventListener(egret.Event.CHANGE, this.onScroll, this);
 
         const paddingHorizontal = 71;
         const offsetForTableList = -paddingHorizontal * 3;
@@ -74,7 +77,7 @@ namespace we {
 
         // root.scroller.viewport = group;
 
-        root.roomList = new ui.TableList();
+        // root.roomList = new ui.TableList();
         root.roomList.isFreezeScrolling = true;
         root.roomList.isGlobalLock = true;
         this.roomLayout = new eui.TileLayout();
@@ -110,13 +113,20 @@ namespace we {
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
 
-        this._slider = new we.ui.ImageSlider();
-        this._slider.height = 790;
-        this._slider.width = 2600;
-        this._slider.configSlides(dir.liveResources.liveHeroBanners);
-        root.roomList.addChild(this._slider);
+        root.slider = new we.ui.ImageSlider();
+        root.slider.height = 790;
+        root.slider.width = 2600;
+        root.slider.configSlides(dir.liveResources.liveHeroBanners);
 
         const tabBarGroup = new eui.Group();
+        this._tabbarBg = new eui.Rect();
+        this._tabbarBg.fillColor = 0x121312;
+        this._tabbarBg.left = 0;
+        this._tabbarBg.right = 0;
+        this._tabbarBg.top = 0;
+        this._tabbarBg.bottom = 0;
+        this._tabbarBg.alpha = 0;
+        tabBarGroup.addChild(this._tabbarBg);
         tabBarGroup.left = paddingHorizontal;
         tabBarGroup.right = paddingHorizontal;
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
@@ -129,7 +139,7 @@ namespace we {
         this._stickyHeader.content = tabBarGroup;
         this._stickyHeader.scroller = root.scroller;
         this._stickyHeader.contentPaddingTop = this.gapSize;
-        this._stickyHeader.y = this._slider.height + offsetForTableList + this.gapSize;
+        this._stickyHeader.y = root.slider.height + offsetForTableList + this.gapSize;
         root.roomList.addChild(this._stickyHeader);
 
         root.scroller.viewport = root.roomList;
@@ -216,6 +226,19 @@ namespace we {
         // this.root.scroller.viewport = this.root.roomList;
         // this.root.scroller.validateNow();
         // this.root.scroller.viewport.scrollV = scrollV;
+      }
+
+      protected onScroll() {
+        const currentScrollV = this.root.scroller.viewport.scrollV;
+        this.updateNavbarOpacity(currentScrollV);
+      }
+
+      protected updateNavbarOpacity(scrollV: number) {
+        const scrollTarget = 700;
+        const ratio = Math.min(1, scrollV / scrollTarget);
+        const opacity = egret.Ease.quintIn(ratio);
+        this._tabbarBg.alpha = opacity;
+        dir.evtHandler.dispatch(core.Event.UPDATE_NAVBAR_OPACITY, opacity);
       }
     }
   }

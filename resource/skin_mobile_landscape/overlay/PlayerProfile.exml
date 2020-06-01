@@ -4,49 +4,69 @@
 	<e:Group id="content" width="2424" height="1500" y="0">
 		<e:Rect left="0" top="0" bottom="-188" fillColor="0x14181e" width="100%" height="220" anchorOffsetY="0" />
 	</e:Group>
-	<e:Group id="_maskContainer" width="2424" x="0" y="-266" scaleX="1" scaleY="1" >
+	<e:Group id="_maskContainer" width="2424" x="0" y="-266" scaleX="1" scaleY="1">
 		<e:Group id="_section_iconSelect" x="2424" width="2424" height="1242" y="262" scaleX="1" scaleY="1">
-			<e:Image id="_sectionBackIcon" width="81" height="81" x="10" y="70" source="m_common_btn_previous_png"/>
-			<e:Label id="_txt_iconsetting" text="設定頭像" y="51" size="80" height="119" textAlign="center" textColor="0xce925e" verticalAlign="middle" x="126"/>
+			<e:Image id="_sectionBackIcon" width="61" height="61" x="10" y="70" source="m_common_btn_previous_png"  anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Label id="_txt_setting" text="設定頭像" y="51" size="80" height="119" textAlign="center" textColor="0xce925e"
+			         verticalAlign="middle" x="126" />
 			<ui:Scroller id="_iconScroller" height="772" width="2224" x="100" y="220" scaleX="1" scaleY="1">
-			<e:List id="_iconList" width="100%">
-				<e:layout>
-				<e:TileLayout requestedColumnCount="3" horizontalGap="68" verticalGap="91"/>
-				</e:layout>
-			</e:List>
+				<e:List id="_iconList" width="100%">
+					<e:layout>
+						<e:TileLayout requestedColumnCount="6" horizontalGap="68" verticalGap="91" />
+					</e:layout>
+				</e:List>
 			</ui:Scroller>
 		</e:Group>
-
-			<e:Group id="_section_main" width="2424">
-				<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="300" width="1000" height="119" verticalAlign="middle" textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1"/>
-				<e:Image id="close" width="96" height="96" right="26" source="d-lobby-button-close-none_png" x="2302" y="290" scaleX="1" scaleY="1"/>
+		<e:Group id="_section_main" width="2424">
+			<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="300" width="1000" height="119" verticalAlign="middle"
+			                 textColor="0xc59466" size="80" bold="true" scaleX="1" scaleY="1" />
+			<e:Image id="close" width="96" height="96" right="26" source="d-lobby-button-close-none_png" x="2302" y="290"
+			         scaleX="1" scaleY="1" />
 			<ui:Scroller height="756" left="0" right="0" y="486" width="100%" x="0" scaleX="1" scaleY="1">
-			<e:Group height="1042" width="2424">
-				<e:Group x="0" y="0" width="1242" height="1242" scaleX="1" scaleY="1">
-					<e:Image width="435" height="373" y="89" source="m_common_setting_playinfo_profilepic_oval_png" horizontalCenter="0" locked="true"/>
-					<e:Image id="_playerIcon" width="375" height="375" y="119" anchorOffsetX="0" anchorOffsetY="0" source="d_lobby_profile_pic_03_png" horizontalCenter="0" locked="true"/>
-					<e:Image width="84" height="84" x="729" y="400" source="m_common_setting_playinfo_profilepic_edit_bg_png"/>
-					<e:Image width="52" height="52" x="745" y="415" source="m_common_setting_playinfo_profilepic_edit_icon_png"/>
-					<e:Label id="_username" text="Johathan" y="499" textColor="0xc59466" size="80" anchorOffsetY="0" height="96" fontFamily="Barlow" textAlign="center" width="700" horizontalCenter="0" verticalAlign="middle"/>
-					<e:Label id="_balance" text="RMB 120,889,200" y="619" size="80" height="96" width="700" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
-					<ui:RunTimeLabel id="_txt_maxWinAmount" text="Label" x="1259" y="108" size="56" alpha="0.7" height="83" verticalAlign="middle"/>
-					<ui:RunTimeLabel id="_txt_maxWinCount" text="Label" x="1258" y="223" height="83" size="56" alpha="0.7" verticalAlign="middle"/>
-					<e:Label id="_maxWinAmount" text="Label" y="113" size="60" height="72" verticalAlign="middle" textAlign="right" fontFamily="Barlow" x="2055"/>
-					<e:Label id="_maxWinCount" text="Label" y="231" height="72" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle" x="2055"/>
-					<e:Rect width="1048" height="3" y="400" fillAlpha="0.9" fillColor="0x979797" x="1261" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_txt_follower" text="Label" x="1259" y="498" height="83" size="56" alpha="0.7" verticalAlign="middle" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_txt_following" text="Label" x="1258" y="613" height="83" size="56" alpha="0.7" verticalAlign="middle" scaleX="1" scaleY="1"/>
-					<ui:RunTimeLabel id="_txt_favouriteDealer" text="Label" x="1259" y="728" height="83" size="56" alpha="0.7" verticalAlign="middle" scaleX="1" scaleY="1"/>
-					<e:Label id="_follower" text="Label" y="505" height="72" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle" x="2055"/>
-					<e:Label id="_following" text="Label" y="621" height="72" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle" x="2055"/>
-					<e:Label id="_favouriteDealer" text="Label" y="728" height="72" size="60" fontFamily="Barlow" textAlign="right" verticalAlign="middle" x="2055"/>
-					<ui:BaseImageButton width="58" height="60" x="1087" y="523" skinName="skin_mobile_landscape.ImageButtonSkinNav" currentState="lobby_profile_edit"/>
-					<ui:BaseImageButton width="57" height="58" x="1088" y="644" skinName="skin_mobile_landscape.ImageButtonSkinNav" currentState="lobby_profile_reload"/>
-				</e:Group>
-				
-			</e:Group>
-			</ui:Scroller>
-			</e:Group>
+				<e:Group height="1042" width="2424">
+					<e:Group x="0" y="0" width="1242" height="1242" scaleX="1" scaleY="1">
+						<e:Image width="435" height="373" y="89" source="m_common_setting_playinfo_profilepic_oval_png"
+						         horizontalCenter="0" />
+						<e:Image id="_playerIcon" width="375" height="375" y="119" anchorOffsetX="0" anchorOffsetY="0"
+						         source="d_lobby_profile_pic_03_png" horizontalCenter="0" />
+						<e:Group id="_changeIcon" x="729" y="400">
+							<e:Image width="84" height="84" source="m_common_setting_playinfo_profilepic_edit_bg_png" />
+							<e:Image width="52" height="52" source="m_common_setting_playinfo_profilepic_edit_icon_png"  x="18" y="16"/>
+						</e:Group>
+						<ui:RunTimeLabel id="_username" text="Johathan" y="499" textColor="0xc59466" size="80" anchorOffsetY="0"
+						                 height="96" fontFamily="Barlow" textAlign="center" width="700" horizontalCenter="0"
+						                 verticalAlign="middle" />
+						<e:Label id="_balance" text="RMB 120,889,200" y="619" size="80" height="96" width="700" horizontalCenter="0"
+						         verticalAlign="middle" textAlign="center" />
+						<ui:RunTimeLabel id="_txt_maxWinAmount" text="Label" x="1259" y="108" size="56" alpha="0.7" height="83"
+						                 verticalAlign="middle" />
+						<ui:RunTimeLabel id="_txt_maxWinCount" text="Label" x="1258" y="223" height="83" size="56" alpha="0.7"
+						                 verticalAlign="middle" />
+						<e:Label id="_maxWinAmount" text="Label" y="113" size="60" height="72" verticalAlign="middle" textAlign="right"
+						         fontFamily="Barlow" x="2055" />
+						<e:Label id="_maxWinCount" text="Label" y="231" height="72" size="60" fontFamily="Barlow" textAlign="right"
+						         verticalAlign="middle" x="2055" />
+						<e:Rect width="1048" height="3" y="400" fillAlpha="0.9" fillColor="0x979797" x="1261" scaleX="1" scaleY="1" />
+						<ui:RunTimeLabel id="_txt_follower" text="Label" x="1259" y="498" height="83" size="56" alpha="0.7"
+						                 verticalAlign="middle" scaleX="1" scaleY="1" />
+						<ui:RunTimeLabel id="_txt_following" text="Label" x="1258" y="613" height="83" size="56" alpha="0.7"
+						                 verticalAlign="middle" scaleX="1" scaleY="1" />
+						<ui:RunTimeLabel id="_txt_favouriteDealer" text="Label" x="1259" y="728" height="83" size="56" alpha="0.7"
+						                 verticalAlign="middle" scaleX="1" scaleY="1" />
+						<e:Label id="_follower" text="Label" y="505" height="72" size="60" fontFamily="Barlow" textAlign="right"
+						         verticalAlign="middle" x="2055" />
+						<e:Label id="_following" text="Label" y="621" height="72" size="60" fontFamily="Barlow" textAlign="right"
+						         verticalAlign="middle" x="2055" />
+						<e:Label id="_favouriteDealer" text="Label" y="728" height="72" size="60" fontFamily="Barlow" textAlign="right"
+						         verticalAlign="middle" x="2055" />
+						<ui:BaseImageButton id="_editName" width="58" height="60" x="1087" y="523"
+						                    skinName="skin_mobile_landscape.ImageButtonSkinNav" currentState="lobby_profile_edit" />
+						<ui:BaseImageButton width="57" height="58" x="1088" y="644" skinName="skin_mobile_landscape.ImageButtonSkinNav"
+						                    currentState="lobby_profile_reload" />
+					</e:Group>
 
+				</e:Group>
+			</ui:Scroller>
+		</e:Group>
 	</e:Group>
 </e:Skin>

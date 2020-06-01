@@ -34,14 +34,28 @@ namespace we {
       }
 
       protected initRoadMap() {
-        this.sumRoad = new DiSumBigRoad(18, 68, 1, false);
-        this.sumBigRoadConfig.parent.addChild(this.sumRoad);
+        switch (env.orientation) {
+          case 'portrait':
+            this.sumRoad = new DiSumBigRoad(18, 68, 1, false);
+            this.sumBigRoadConfig.parent.addChild(this.sumRoad);
 
-        this.sizeRoad = new DiSizeBigRoad(18, 68, 1, false);
-        this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);
+            this.sizeRoad = new DiSizeBigRoad(18, 68, 1, false);
+            this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);
 
-        this.oddRoad = new DiOddBigRoad(18, 68, 1, false);
-        this.oddBigRoadConfig.parent.addChild(this.oddRoad);
+            this.oddRoad = new DiOddBigRoad(18, 68, 1, false);
+            this.oddBigRoadConfig.parent.addChild(this.oddRoad);
+            break;
+          case 'landscape':
+            this.sumRoad = new DiSumBigRoad(18, 45, 1, false);
+            this.sumBigRoadConfig.parent.addChild(this.sumRoad);
+
+            this.sizeRoad = new DiSizeBigRoad(18, 45, 1, false);
+            this.sizeBigRoadConfig.parent.addChild(this.sizeRoad);
+
+            this.oddRoad = new DiOddBigRoad(18, 45, 1, false);
+            this.oddBigRoadConfig.parent.addChild(this.oddRoad);
+            break;
+        }
       }
 
       public destroy() {
@@ -55,30 +69,30 @@ namespace we {
       }
 
       protected addListeners() {
-        this.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.addEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       protected removeListeners() {
-        this.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
-        this.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        // this.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
 
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
         dir.evtHandler.removeEventListener(core.Event.MODE_UPDATE, this.updateMode, this);
       }
 
       public updateText() {
-        this.roadmapSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
-        this.roadmapOddevenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
-        this.roadmapSumBtn.label = i18n.t('dice.total');
+        // this.roadmapSizeBtn.label = i18n.t('dice.roadBig') + '/' + i18n.t('dice.roadSmall');
+        // this.roadmapOddevenBtn.label = i18n.t('dice.roadOdd') + '/' + i18n.t('dice.roadEven');
+        // this.roadmapSumBtn.label = i18n.t('dice.total');
       }
 
-      protected onRoadMapChanged(e) {
+      public onRoadMapChanged(e) {
         this._roadmapView.selectedIndex = e.target.value;
       }
 

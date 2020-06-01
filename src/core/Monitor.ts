@@ -4,7 +4,7 @@ namespace we {
     export class Monitor {
       private _nav: ui.Nav;
       private _navMobileSilder: ui.NavMobileSilder;
-      private _mDropdown: ui.MobileDropdown;
+      public _mDropdown: ui.MobileDropdown;
       private _notificationController: egret.DisplayObject & ui.INotificationController;
       private _liveSidePanel: ui.LiveSidePanel;
       private _overlay: ui.Overlay;
@@ -52,7 +52,7 @@ namespace we {
           // gameListButton
           // const gameListButton = new ui.GameListButton();
           // this._gameListButton = gameListButton;
-          // dir.layerCtr.top.addChild(this._gameListButton);
+          // dir.layerCtr.notification.addChild(this._gameListButton);
           // gameListButton.right = 50;
           // if (env.orientation === egret.OrientationMode.PORTRAIT) {
           //   this._gameListButton.y = 419;
@@ -78,19 +78,26 @@ namespace we {
           this._notificationController = new ui.MobileNotificationController();
           this._notificationController.x = 0;
           this._notificationController.y = 0;
-          dir.layerCtr.top.addChild(this._notificationController);
+          dir.layerCtr.notification.addChild(this._notificationController);
         } else {
           // this._overlay = new ui.Overlay();
           this._liveSidePanel = new ui.LiveSidePanel();
           this._liveSidePanel.right = 20;
           this._liveSidePanel.y = 80;
-          dir.layerCtr.top.addChild(this._liveSidePanel);
+
+          const child = this._nav.getChildByName('background');
+          let idx = 2;
+          if (child) {
+            idx = this._nav.getChildIndex(child) + 1;
+          }
+          this._nav.addChildAt(this._liveSidePanel, idx);
+          // dir.layerCtr.notification.addChild(this._liveSidePanel);
           dir.layerCtr.overlay.addChild(this._overlay);
 
           this._notificationController = new ui.NotificationController();
           this._notificationController.x = stage.stageWidth - 410;
           this._notificationController.y = 180;
-          dir.layerCtr.top.addChild(this._notificationController);
+          dir.layerCtr.notification.addChild(this._notificationController);
         }
 
         this._nav.touchEnabled = false;

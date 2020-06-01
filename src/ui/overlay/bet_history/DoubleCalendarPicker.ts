@@ -2,11 +2,11 @@ namespace we {
   export namespace overlay {
     export class DoubleCalendarPicker extends ui.Panel {
       private _calender_prev: DatepickerCalendar;
-      private _btn_prev: ui.BaseImageButton;
+      private _btn_prev: ui.BaseAnimationButton;
       private _txt_prev: eui.Label;
 
       private _calender_next: DatepickerCalendar;
-      private _btn_next: ui.BaseImageButton;
+      private _btn_next: ui.BaseAnimationButton;
       private _txt_next: eui.Label;
 
       private _btn_confirm: ui.BaseButton;

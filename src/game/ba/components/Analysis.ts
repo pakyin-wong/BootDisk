@@ -1,10 +1,10 @@
 namespace we {
   export namespace ba {
-    export class Analysis extends core.BaseEUI implements we.ui.IAnalysis {
+    export class Analysis extends core.BaseEUI implements we.ui.IAnalysis, IBARoadmapDisplayObject {
       protected _tableId;
-      protected _advancedRoad: AdvancedRoad;
-      protected _playerAskLabel;
-      protected _bankerAskLabel;
+
+      protected _playerAskLabel: ui.RunTimeLabel;
+      protected _bankerAskLabel: ui.RunTimeLabel;
       protected _playerCount;
       protected _bankerCount;
       protected _tieCount;
@@ -21,38 +21,144 @@ namespace we {
       protected _remainingPercentage;
       protected _normalChart: ui.SimpleChart;
       protected _pairChart: ui.SimpleChart;
-      protected _iconBankerBead: eui.Image;
-      protected _iconPlayerBead: eui.Image;
+
+      protected _shoePlayerCount;
+      protected _shoeBankerCount;
+      protected _shoeTieCount;
+      protected _shoePlayerPairCount;
+      protected _shoeBankerPairCount;
+      protected _shoeRemainingCount;
+      protected _shoeNormalTotal;
+      protected _shoePairTotal;
+      protected _shoePlayerPercentage;
+      protected _shoeBankerPercentage;
+      protected _shoeTiePercentage;
+      protected _shoePlayerPairPercentage;
+      protected _shoeBankerPairPercentage;
+      protected _shoeRemainingPercentage;
+      protected _shoeNormalChart: ui.SimpleChart;
+      protected _shoePairChart: ui.SimpleChart;
+
+      protected _iconBankerBead: BABeadRoadIcon;
+      protected _iconPlayerBead: BABeadRoadIcon;
+      protected _bankerBeadGroup: eui.Group;
+      protected _playerBeadGroup: eui.Group;
+      protected _analysisGroup: eui.Group;
+      public advancedRoad: we.ui.IAdvancedRoad;
+
+      public iconBankerBigEye: BABigEyeRoadIcon;
+      public iconPlayerBigEye: BABigEyeRoadIcon;
+      public iconBankerSmall: BASmallRoadIcon;
+      public iconPlayerSmall: BASmallRoadIcon;
+      public iconBankerCockroach: BACockroachRoadIcon;
+      public iconPlayerCockroach: BACockroachRoadIcon;
 
       constructor() {
         super(env.isMobile ? null : 'ba.Analysis');
       }
 
+      public set iconBankerBead(value: BABeadRoadIcon) {
+        this._iconBankerBead = value;
+      }
+
+      public get iconBankerBead() {
+        return this._iconBankerBead;
+      }
+
+      public set iconPlayerBead(value: BABeadRoadIcon) {
+        this._iconPlayerBead = value;
+      }
+
+      public get iconPlayerBead() {
+        return this._iconPlayerBead;
+      }
+
+      public setPredictIcons(b1: any, b2: any, b3: any, p1: any, p2: any, p3: any) {
+        this.iconBankerBigEye.setByObject(b1);
+        this.iconBankerSmall.setByObject(b2);
+        this.iconBankerCockroach.setByObject(b3);
+        this.iconPlayerBigEye.setByObject(p1);
+        this.iconPlayerSmall.setByObject(p2);
+        this.iconPlayerCockroach.setByObject(p3);
+      }
+
       protected mount() {
-        this._playerAskLabel.text = i18n.t('baccarat.askPlayer');
-        this._bankerAskLabel.text = i18n.t('baccarat.askBanker');
-        this._iconBankerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askBankerRoad, this);
-        this._iconPlayerBead.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askPlayerRoad, this);
+        this._bankerBeadGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askBankerRoad, this);
+        this._playerBeadGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askPlayerRoad, this);
+        this._analysisGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.stopProg, this);
+
+        this._bankerAskLabel.renderText = () => i18n.t('baccarat.askBanker');
+        this._playerAskLabel.renderText = () => i18n.t('baccarat.askPlayer');
+
+        this.iconBankerBigEye = new BABigEyeRoadIcon();
+        this.iconBankerBigEye.x = 20;
+        this.iconBankerBigEye.y = 34;
+        this.iconBankerBigEye.width = 14;
+        this.iconBankerBigEye.height = 14;
+
+        this.iconBankerSmall = new BASmallRoadIcon();
+        this.iconBankerSmall.horizontalCenter = 0;
+        this.iconBankerSmall.y = 34;
+        this.iconBankerSmall.width = 14;
+        this.iconBankerSmall.height = 14;
+
+        this.iconBankerCockroach = new BACockroachRoadIcon();
+        this.iconBankerCockroach.right = 20;
+        this.iconBankerCockroach.y = 34;
+        this.iconBankerCockroach.width = 14;
+        this.iconBankerCockroach.height = 14;
+
+        this.iconPlayerBigEye = new BABigEyeRoadIcon();
+        this.iconPlayerBigEye.x = 20;
+        this.iconPlayerBigEye.y = 34;
+        this.iconPlayerBigEye.width = 14;
+        this.iconPlayerBigEye.height = 14;
+
+        this.iconPlayerSmall = new BASmallRoadIcon();
+        this.iconPlayerSmall.horizontalCenter = 0;
+        this.iconPlayerSmall.y = 34;
+        this.iconPlayerSmall.width = 14;
+        this.iconPlayerSmall.height = 14;
+
+        this.iconPlayerCockroach = new BACockroachRoadIcon();
+        this.iconPlayerCockroach.right = 20;
+        this.iconPlayerCockroach.y = 34;
+        this.iconPlayerCockroach.width = 14;
+        this.iconPlayerCockroach.height = 14;
+
+        this._bankerBeadGroup.addChild(this.iconBankerBigEye);
+        this._bankerBeadGroup.addChild(this.iconBankerSmall);
+        this._bankerBeadGroup.addChild(this.iconBankerCockroach);
+
+        this._playerBeadGroup.addChild(this.iconPlayerBigEye);
+        this._playerBeadGroup.addChild(this.iconPlayerSmall);
+        this._playerBeadGroup.addChild(this.iconPlayerCockroach);
+
+        mouse.setButtonMode(this._analysisGroup, true);
+        mouse.setButtonMode(this._bankerBeadGroup, true);
+        mouse.setButtonMode(this._playerBeadGroup, true);
       }
 
       public askBankerRoad(evt: egret.Event) {
-        // console.log('askBanker', this.parent instanceof we.ui.LiveListAdvancedItem);
-        // console.log(this);
-        // console.log(this.parent);
-        if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
-          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
-            // console.log('askBanker2');
-            (<AdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askBankerRoad();
+        if (evt.target === this._iconBankerBead) {
+          evt.stopPropagation();
+          if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
+            (<we.ba.AdvancedRoad> this.advancedRoad).askBankerRoad();
           }
         }
       }
 
       public askPlayerRoad(evt: egret.Event) {
-        if (this.parent && this.parent instanceof we.ui.LiveListAdvancedItem) {
-          if ((<we.ui.LiveListAdvancedItem> this.parent).advancedRoad && (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad instanceof we.ba.AdvancedRoad) {
-            (<AdvancedRoad> (<we.ui.LiveListAdvancedItem> this.parent).advancedRoad).askPlayerRoad();
+        if (evt.target === this._iconPlayerBead) {
+          evt.stopPropagation();
+          if (this.advancedRoad && this.advancedRoad instanceof we.ba.AdvancedRoad) {
+            (<we.ba.AdvancedRoad> this.advancedRoad).askPlayerRoad();
           }
         }
+      }
+
+      public stopProg(evt: egret.Event) {
+        evt.stopPropagation();
       }
 
       public set tableId(value: string) {
@@ -95,7 +201,7 @@ namespace we {
           this._playerPercentage.text = Math.round(playerPercentage * 100);
           this._tiePercentage.text = Math.round(tiePercentage * 100);
 
-          console.log('normalChart', bankerPercentage, playerPercentage);
+          // console.log('normalChart', bankerPercentage, playerPercentage);
           this._normalChart.redAngle = bankerPercentage * 360;
           this._normalChart.blueAngle = playerPercentage * 360;
           this._normalChart.drawChart();
@@ -111,7 +217,53 @@ namespace we {
           this._pairChart.redAngle = (bankerPairCount / totalCount) * 360;
           this._pairChart.blueAngle = (playerPairCount / totalCount) * 360;
           this._pairChart.drawChart();
+
+          this.updateShoe();
         }
+      }
+
+      private updateShoe() {
+        const bankerCount = env.tableInfos[this._tableId].gamestatistic.shoeBankerCount;
+        const playerCount = env.tableInfos[this._tableId].gamestatistic.shoePlayerCount;
+        const tieCount = env.tableInfos[this._tableId].gamestatistic.shoeTieCount;
+        const totalCount = env.tableInfos[this._tableId].gamestatistic.shoeTotalCount;
+        const bankerPairCount = env.tableInfos[this._tableId].gamestatistic.shoeBankerPairCount;
+        const playerPairCount = env.tableInfos[this._tableId].gamestatistic.shoePlayerPairCount;
+        const remainingCount = totalCount - bankerPairCount - playerPairCount;
+
+        this._shoeBankerCount.text = bankerCount;
+        this._shoePlayerCount.text = playerCount;
+        this._shoeTieCount.text = tieCount;
+        this._shoeNormalTotal.text = totalCount;
+        this._shoeBankerPairCount.text = bankerPairCount;
+        this._shoePlayerPairCount.text = playerPairCount;
+        this._shoeRemainingCount.text = remainingCount;
+        this._shoePairTotal.text = totalCount;
+
+        const bankerPercentage = bankerCount / totalCount;
+        const playerPercentage = playerCount / totalCount;
+        const tiePercentage = tieCount / totalCount;
+
+        this._shoeBankerPercentage.text = Math.round(bankerPercentage * 100);
+        this._shoePlayerPercentage.text = Math.round(playerPercentage * 100);
+        this._shoeTiePercentage.text = Math.round(tiePercentage * 100);
+
+        // console.log('normalChart', bankerPercentage, playerPercentage);
+        this._shoeNormalChart.redAngle = bankerPercentage * 360;
+        this._shoeNormalChart.blueAngle = playerPercentage * 360;
+        this._shoeNormalChart.drawChart();
+
+        const bankerPairPercentage = bankerPairCount / totalCount;
+        const playerPairPercentage = playerPairCount / totalCount;
+        const remainingPercentage = remainingCount / totalCount;
+
+        this._shoeBankerPairPercentage.text = Math.round(bankerPercentage * 100);
+        this._shoePlayerPairPercentage.text = Math.round(playerPercentage * 100);
+        this._shoeRemainingPercentage.text = Math.round(remainingPercentage * 100);
+
+        this._shoePairChart.redAngle = (bankerPairCount / totalCount) * 360;
+        this._shoePairChart.blueAngle = (playerPairCount / totalCount) * 360;
+        this._shoePairChart.drawChart();
       }
     }
   }

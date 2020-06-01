@@ -28,6 +28,12 @@ namespace we {
         if (dir.config.rabbitmqprotocol) {
           options.rabbitmqprotocol = dir.config.rabbitmqprotocol;
         }
+        if (dir.config.rabbitmqvirtualhost) {
+          options.rabbitmqvirtualhost = dir.config.rabbitmqvirtualhost;
+        }
+        if (dir.config.path) {
+          options.path = dir.config.path;
+        }
 
         if (env.isMobile) {
           options.layout = 'mobile_web';
@@ -38,6 +44,14 @@ namespace we {
         this.client = new PlayerClient(options);
 
         logger.l('MQTTSocketComm is created', this.client);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        // this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+      }
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        // this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
       }
 
       protected subscribeEvents() {
@@ -100,7 +114,21 @@ namespace we {
       }
 
       public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
-        this.client.getLobbyMaterial(this.warpServerCallback(callback));
+        if (dir.config.resource && dir.config.resource === 'local') {
+          callback({
+            logourl: '', // logo image url
+            homeherobanners: [],
+            homelargebanners: [],
+            homebanners: [],
+            liveherobanners: [],
+            lotteryherobanners: [],
+            egameherobanners: [],
+            favouriteherobanners: [],
+            messages: [],
+          });
+        } else {
+          this.client.getLobbyMaterial(this.warpServerCallback(callback));
+        }
       }
 
       public updateSetting(key: string, value: string) {
@@ -127,7 +155,23 @@ namespace we {
         this.updateTimestamp(timestamp);
         env.playerID = player.playerid;
         env.currency = player.profile.currency;
-        env.nickname = player.profile.nickname;
+        // env.nickname = player.profile.nickname;
+        env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
+        env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
+        // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
+        // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
+        env.icons = [
+          'd_lobby_profile_pic_01_png',
+          'd_lobby_profile_pic_02_png',
+          'd_lobby_profile_pic_03_png',
+          'd_lobby_profile_pic_04_png',
+          'd_lobby_profile_pic_05_png',
+          'd_lobby_profile_pic_06_png',
+          'd_lobby_profile_pic_07_png',
+          'd_lobby_profile_pic_08_png',
+        ];
+        env.icon = player.profile.settings.icon ? player.profile.settings.icon : 'd_lobby_profile_pic_01_png';
+
         env.profileImageURL = player.profile.profileimage;
         logger.l('PlayerClient::handleReady() ' + player.profile.betlimits);
         env.betLimits = player.profile.betlimits
@@ -145,6 +189,20 @@ namespace we {
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
         }
+
+        /*
+        let denominationList = [];
+        for (const betLimit of env.betLimits) {
+          denominationList.push(...betLimit.chips);
+        }
+        denominationList = denominationList
+          .filter((v, i) => denominationList.indexOf(v) === i)
+          .sort((a, b) => {
+            return a < b ? -1 : 1;
+          });
+        env.wholeDenomList = denominationList;
+        */
+
         env.mode = player.profile.settings.mode ? Math.round(player.profile.settings.mode) : -1;
         if (player.profile.categoryorders) {
           env.categorySortOrder = player.profile.categoryorders;
@@ -317,6 +375,19 @@ namespace we {
             tableInfo.totalWin = NaN;
             tableInfo.totalBet = 0;
             dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, tableInfo.bets);
+
+            // check good road notification
+            if (tableInfo.goodRoad && !tableInfo.goodRoad.alreadyShown) {
+              tableInfo.goodRoad.alreadyShown = true;
+              const data = {
+                tableid: tableInfo.tableid,
+              };
+              const notification: data.Notification = {
+                type: core.NotificationType.GoodRoad,
+                data,
+              };
+              dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+            }
           }
           if (data.state === core.GameState.FINISH) {
             this.checkResultNotificationReady(tableInfo);
@@ -358,6 +429,7 @@ namespace we {
         }
 
         switch (gameStatistic.gametype) {
+          case core.GameType.BAM:
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
@@ -395,9 +467,22 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
+          case core.GameType.ROL:
           case core.GameType.RO: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
+
+            // add the odds from gameInfo to bead for ROL
+            gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
+              const gameRoundID1 = e1.gameRoundID;
+              const info = gameStatistic.roadmapdata.gameInfo[gameRoundID1];
+              if (info !== undefined) {
+                if (info.odds !== undefined) {
+                  e1.odds = info.odds;
+                }
+              }
+            });
+
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
             const stats = new we.data.GameStatistic();
@@ -429,6 +514,10 @@ namespace we {
           }
           case core.GameType.LW:
           default: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+
             const stats = new we.data.GameStatistic();
             stats.totalCount = getStatistic('totalCount');
             tableInfo.gamestatistic = stats;
@@ -699,6 +788,20 @@ namespace we {
         );
       }
 
+      public sendVerifyInfo(id: string, pattern: string[]) {
+        this.client.sendVerifyInfo(
+          id,
+          pattern,
+          this.warpServerCallback((data: any) => {
+            if (data.error) {
+              // TODO:  handle error on cancel
+            } else {
+              // dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
+            }
+          })
+        );
+      }
+
       public getTableHistory() {}
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
@@ -724,6 +827,7 @@ namespace we {
         // }
         // merge the new tableList to tableListArray
         const tableInfos: data.TableInfo[] = data.match.map(goodRoadData => {
+          goodRoadData.alreadyShown = false;
           return {
             tableid: goodRoadData.tableid,
             goodRoad: goodRoadData,
@@ -737,14 +841,18 @@ namespace we {
         env.goodRoadTableList = goodRoadTableList;
 
         for (const tableid of added) {
-          const data = {
-            tableid,
-          };
-          const notification: data.Notification = {
-            type: core.NotificationType.GoodRoad,
-            data,
-          };
-          dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+          const tableInfo = env.tableInfos[tableid];
+          if (tableInfo.data.state === core.GameState.BET) {
+            tableInfo.goodRoad.alreadyShown = true;
+            const data = {
+              tableid,
+            };
+            const notification: data.Notification = {
+              type: core.NotificationType.GoodRoad,
+              data,
+            };
+            dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+          }
         }
         for (const tableid of removed) {
           const tableInfo = env.tableInfos[tableid];

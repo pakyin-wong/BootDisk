@@ -3,12 +3,12 @@
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*">
 	<e:Image width="506" height="86" y="45" source="d_sic_lobby_chart_bg_right_png" right="0" />
 	<e:Image width="506" height="86" y="172" source="d_sic_lobby_chart_bg_left_png" left="0" />
-	<e:Label id="bigNameLabel" text="大" x="137" y="57" textColor="0xe4493a" textAlign="center" size="22" />
-	<e:Label id="smallNameLabel" text="小" x="228" y="57" textColor="0x2da1fe" textAlign="center" size="22" />
-	<e:Label id="tripleNameLabel" text="圍" x="319" y="57" textColor="0x6dd400" textAlign="center" size="22" />
-	<e:Label id="evenNameLabel" text="雙" x="222" y="184" textColor="0xe4493a" textAlign="center" size="22" />
-	<e:Label id="oddNameLabel" text="單" x="315" y="184" textColor="0x2da1fe" textAlign="center" size="22" />
-	<e:Label id="triple2NameLabel" text="圍" x="405" y="184" textColor="0x6dd400" textAlign="center" size="22" />
+	<ui:RunTimeLabel id="bigNameLabel" text="大" x="137" y="57" textColor="0xe4493a" textAlign="center" size="22" textKey="dice.bigFull"/>
+	<ui:RunTimeLabel id="smallNameLabel" text="小" x="228" y="57" textColor="0x2da1fe" textAlign="center" size="22" textKey="dice.smallFull"/>
+	<ui:RunTimeLabel id="tripleNameLabel" text="圍" x="319" y="57" textColor="0x6dd400" textAlign="center" size="22" textKey="dice.triple_"/>
+	<ui:RunTimeLabel id="evenNameLabel" text="雙" x="222" y="184" textColor="0xe4493a" textAlign="center" size="22" textKey="dice.evenFull"/>
+	<ui:RunTimeLabel id="oddNameLabel" text="單" x="315" y="184" textColor="0x2da1fe" textAlign="center" size="22" textKey="dice.oddFull"/>
+	<ui:RunTimeLabel id="triple2NameLabel" text="圍" x="405" y="184" textColor="0x6dd400" textAlign="center" size="22" textKey="dice.triple_"/>
 	<e:Group x="228" y="82">
 		<e:Label id="smallLabel" text="45" x="28.5" y="-47" size="40" textAlign="center" scaleX="1" scaleY="1" />
 		<e:Label text="%" x="80" y="-34" size="22" textAlign="left" scaleX="1" scaleY="1" />

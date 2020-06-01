@@ -66,7 +66,8 @@ namespace we {
       public setValue(tableInfo: data.TableInfo) {
         this.pTableID.text = tableInfo.tableid;
         this.pRoundID.text = tableInfo.data.gameroundid;
-        this.pGameID.text = tableInfo.betInfo.gameroundid;
+        if (tableInfo.betInfo) this.pGameID.text = tableInfo.betInfo.gameroundid ? tableInfo.betInfo.gameroundid : '-';
+        else this.pGameID.text = '-';
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
 
         const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];

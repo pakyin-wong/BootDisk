@@ -152,19 +152,27 @@
 	</e:Group>
 	<e:Group id="_group_tiers" x="47" y="46" width="177" height="97">
 		<e:Image id="_section_tiers" source="d_ro_racetrack_tiers_hover_png" width="177" height="97" visible="false" />
-		<ui:RunTimePropertyLabel id="_label_tiers" text="輪盤下角注" size="20"  x="23" verticalCenter="0.5"/>
+		<e:Group x="23" verticalCenter="0.5" width="100">
+			<ui:RunTimeLabel id="_label_tiers" text="輪盤下角注" size="20" horizontalCenter="0"/>
+		</e:Group>		
 	</e:Group>
 	<e:Group id="_group_voisins" x="325" y="48" width="160" height="95">
 		<e:Image id="_section_voisins" source="d_ro_racetrack_voisins_hover_png" width="160" height="95" visible="false" />
-		<ui:RunTimePropertyLabel id="_label_voisins" text="零旁注上角" size="20" verticalCenter="0.5"  x="16"/>
+		<e:Group verticalCenter="0.5" x="16" width="100">
+			<ui:RunTimeLabel id="_label_voisins" text="零旁注上角" horizontalCenter="0" size="20" />
+		</e:Group>
 	</e:Group>
 	<e:Group id="_group_zero" x="452.5" y="49" width="114" height="94">
 		<e:Image id="_section_zero" source="d_ro_racetrack_zero_hover_png" width="114" height="94" visible="false" />
-		<ui:RunTimePropertyLabel id="_label_zero" text="輪上零旁" size="20" verticalCenter="0" horizontalCenter="0" />
+		<e:Group verticalCenter="0" horizontalCenter="0" width="80">
+			<ui:RunTimeLabel id="_label_zero" text="輪上零旁" size="20" verticalCenter="0" horizontalCenter="0" />
+		</e:Group>
 	</e:Group>
 	<e:Group id="_group_orphelins" x="160" y="46" width="165" height="97">
 		<e:Image id="_section_orphelins" source="d_ro_racetrack_orphelins_hover_png" width="165" height="97" visible="false" />
-		<ui:RunTimePropertyLabel id="_label_orphelins" text="輪上孤注" size="20" verticalCenter="0.5"  x="62"/>
+		<e:Group verticalCenter="0.5"  x="62" width="80">
+		<ui:RunTimeLabel id="_label_orphelins" text="輪上孤注" size="20" horizontalCenter="0"/>
+		</e:Group>
 	</e:Group>
 	<e:Image x="0" y="0" source="d_ro_racetrack_outline_png" locked="true" />
 </e:Skin>

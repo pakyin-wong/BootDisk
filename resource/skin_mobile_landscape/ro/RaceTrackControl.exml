@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ro.RaceTrackControlSkin" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" currentState="normal" xmlns:ui="we.ui.*" states="normal,zip">
+	<e:Image source="m_ro_spread_bg_png" y="140"/>
+	<ui:RunTimeLabel id="_distributionLabel" width="82" height="124" horizontalCenter="0" size="42" textColor="0x2da1fe" textAlign="center" verticalAlign="middle" visible.zip="false"/>
+	<e:Label id="_distNumLabel" text="0" height="74"
+	          y="242" size="62" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+	<ui:BaseImageButton id="_addButton" width="77" height="77"
+	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_add"  y="149" horizontalCenter="0"/>
+	<ui:BaseImageButton id="_lessButton" width="77" height="77"
+	                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_less"  y="333" horizontalCenter="0"/>
+</e:Skin>

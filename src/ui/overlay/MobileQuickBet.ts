@@ -34,6 +34,7 @@ namespace we {
           case we.core.GameType.DT:
           default:
             generalGameType = 'dt';
+            break;
 
           case we.core.GameType.LW:
             generalGameType = 'lw';

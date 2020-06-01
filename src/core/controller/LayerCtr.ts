@@ -3,7 +3,7 @@ namespace we {
     export class LayerCtr {
       public bottom: eui.Group;
       public scene: eui.Group;
-      public top: eui.Group;
+      public notification: eui.Group;
       public nav: eui.Group;
       public overlay: eui.Group;
       public msg: eui.Group;
@@ -17,8 +17,8 @@ namespace we {
 
         this._stage.addChild(this.bottom);
         this._stage.addChild(this.scene);
-        this._stage.addChild(this.top);
         this._stage.addChild(this.nav);
+        this._stage.addChild(this.notification);
         this._stage.addChild(this.overlay);
         this._stage.addChild(this.msg);
 
@@ -46,7 +46,7 @@ namespace we {
       protected initComponents() {
         this.bottom = this.newLayer();
         this.scene = this.newLayer();
-        this.top = this.newLayer();
+        this.notification = this.newLayer();
         this.nav = this.newLayer();
         this.overlay = this.newLayer();
         this.msg = this.newLayer();
@@ -56,7 +56,7 @@ namespace we {
       protected arrangeComponents() {
         this.arrangeLayer(this.bottom);
         this.arrangeLayer(this.scene);
-        this.arrangeLayer(this.top);
+        this.arrangeLayer(this.notification);
         this.arrangeLayer(this.nav);
         this.arrangeLayer(this.overlay);
         this.arrangeLayer(this.msg);

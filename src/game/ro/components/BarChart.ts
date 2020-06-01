@@ -13,6 +13,35 @@ namespace we {
       protected _barRightColor: number[];
       protected _barMidColor: number[];
       protected _barLeftColor: number[];
+      protected _totalLeftCount: eui.Label;
+      protected _totalMidCount: eui.Label;
+      protected _totalRightCount: eui.Label;
+
+      protected _zeroLabel: ui.RunTimeLabel;
+      protected _evenLabel: ui.RunTimeLabel;
+      protected _oddLabel: ui.RunTimeLabel;
+      protected _bigLabel: ui.RunTimeLabel;
+      protected _smallLabel: ui.RunTimeLabel;
+      protected _bigZeroLabel: ui.RunTimeLabel;
+
+      public get zeroLabel() {
+        return this._zeroLabel;
+      }
+      public get evenLabel() {
+        return this._evenLabel;
+      }
+      public get oddLabel() {
+        return this._oddLabel;
+      }
+      public get bigLabel() {
+        return this._bigLabel;
+      }
+      public get smallLabel() {
+        return this._smallLabel;
+      }
+      public get bigZeroLabel() {
+        return this._bigZeroLabel;
+      }
 
       public setParam(
         totalWidth: number,
@@ -36,6 +65,12 @@ namespace we {
         this._barLeftColor = barLeftColor;
         this._barMidColor = barMidColor;
         this._barRightColor = barRightColor;
+      }
+
+      public updateValue(a: number, b: number, c: number) {
+        this._a = a;
+        this._b = b;
+        this._c = c;
       }
 
       public draw() {
@@ -79,6 +114,11 @@ namespace we {
         groupMask.graphics.endFill();
         this._staticGroup.addChild(groupMask);
         this._staticGroup.mask = groupMask;
+
+        const stat = we.utils.stat.toPercentages([this._a, this._b, this._c]);
+        this._totalLeftCount.text = stat[0];
+        this._totalMidCount.text = stat[1];
+        this._totalRightCount.text = stat[2];
       }
     }
   }

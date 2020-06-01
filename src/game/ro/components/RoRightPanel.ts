@@ -3,6 +3,7 @@ namespace we {
     export class RoRightPanel extends core.BaseGamePanel {
       protected pageRadioBtn1: eui.RadioButton;
       protected pageRadioBtn2: eui.RadioButton;
+      protected _distributionLabel: ui.RunTimeLabel;
       protected _raceTrackChipLayer: RaceTrackChipLayer;
       protected _raceTrackTableLayer: RaceTrackTableLayer;
       protected _raceTrackControl: RaceTrackControl;
@@ -36,8 +37,14 @@ namespace we {
       public initRaceTrack(chipLayer: we.ui.ChipLayer, tableLayer: we.ui.TableLayer) {
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
+        this._distributionLabel = new ui.RunTimeLabel();
+        this._distributionLabel.renderText = () => i18n.t('roulette.distribution');
+        this._distributionLabel.size = 20;
+        this._distributionLabel.y = 240;
+        this._distributionLabel.right = 400;
+
         this._raceTrackControl = new RaceTrackControl();
-        this._raceTrackControl.x = 40;
+        this._raceTrackControl.horizontalCenter = 0;
         this._raceTrackControl.y = 220;
 
         this._raceTrackTableLayer = new RaceTrackTableLayer();
@@ -55,6 +62,7 @@ namespace we {
         page1Group.addChild(this._raceTrackTableLayer);
         page1Group.addChild(this._raceTrackChipLayer);
         page1Group.addChild(this._raceTrackControl);
+        page1Group.addChild(this._distributionLabel);
       }
 
       public changeLang() {

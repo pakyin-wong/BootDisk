@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class ChipLayer extends ui.Panel {
+    export abstract class ChipLayer extends ui.Panel {
       protected _tableId: string;
       protected _type: we.core.BettingTableType;
       protected _denomList: number[];
@@ -21,6 +21,7 @@ namespace we {
 
       constructor(skinName?: string) {
         super(skinName);
+        this._cfmBetDetails = [];
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 
@@ -41,6 +42,7 @@ namespace we {
 
       set denomList(value: number[]) {
         this._denomList = value;
+        this.passDenomListToBetChipStack();
       }
 
       get denomList() {
@@ -98,6 +100,9 @@ namespace we {
       protected createMapping() {}
 
       protected passDenomListToBetChipStack() {
+        if (!this._betChipStackMapping) {
+          return;
+        }
         Object.keys(this._betChipStackMapping).forEach(value => {
           if (this._betChipStackMapping[value]) {
             this._betChipStackMapping[value].denomList = this._denomList;
@@ -216,6 +221,7 @@ namespace we {
         Object.keys(this._mouseAreaMapping).forEach(value => {
           if (this._mouseAreaMapping[value]) {
             this._mouseAreaMapping[value].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBetFieldUpdateEvent, this);
+            mouse.setButtonMode(this._mouseAreaMapping[value], true);
           }
         });
       }
@@ -295,6 +301,7 @@ namespace we {
         this._cfmBetDetails.map((value, index) => {
           if (this._betChipStackMapping[value.field]) {
             this._betChipStackMapping[value.field].cfmBet = value.amount * this.getRate(value.field);
+            console.log('-----------------------------', [value, value.field]);
             this._betChipStackMapping[value.field].draw();
           }
         });
@@ -480,6 +487,7 @@ namespace we {
         return this._getSelectedBetLimitIndex;
       }
 
+      // Tick button
       protected validateBet(): boolean {
         const fieldAmounts = utils.arrayToKeyValue(this._uncfmBetDetails, 'field', 'amount');
         return this.validateFieldAmounts(fieldAmounts, this.getTotalUncfmBetAmount());
@@ -488,12 +496,13 @@ namespace we {
       // check if the current unconfirmed betDetails are valid
       protected validateFieldAmounts(fieldAmounts: {}, totalBetAmount: number): boolean {
         const betLimit: data.BetLimitSet = env.betLimits[this._getSelectedBetLimitIndex()];
-        // TODO: check balance
+
         const balance = env.balance;
         if (balance < totalBetAmount) {
           this.dispatchEvent(new egret.Event(core.Event.INSUFFICIENT_BALANCE));
           return false;
         }
+
         const exceedBetLimit = this.isExceedBetLimit(fieldAmounts, betLimit);
 
         if (exceedBetLimit) {
@@ -503,9 +512,22 @@ namespace we {
         return true;
       }
 
-      protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {
-        return false;
+      // All amounts = betting value + uncfmvalue + cfmamount
+      protected getAllValue(fieldAmounts, fieldname: string) {
+        let total = 0;
+        // fieldAmount has already included the uncfm values
+        if (fieldAmounts && fieldAmounts[fieldname]) {
+          total += fieldAmounts[fieldname];
+        }
+        this._cfmBetDetails.map(value => {
+          if (value.field === fieldname) {
+            total += value.amount;
+          }
+        });
+        return total;
       }
+
+      protected abstract isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet);
 
       // check if the current bet action is valid
       public validateBetAction(betDetail: data.BetDetail): boolean {

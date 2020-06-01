@@ -2,6 +2,8 @@
 namespace we {
   export namespace core {
     export class Env {
+      public readonly chipImageLimit = 11;
+
       private static _env: Env;
 
       public static get Instance(): Env {
@@ -12,25 +14,39 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.4.0';
+      public version: string = '0.5.6';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
       public nickname: string;
+      public nicknames: { nickname_group1: string[]; nickname_group2: string[]; nickname_group3: string[] };
+      public icon: string;
+      public icons: string[];
       public profileImageURL: string;
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
       public language: string;
+
       public voice: string = 'mandarin';
       public bgm = 1;
+      // public liveVolume = 1;
+      // public soundEffect = 1;
+
       public betLimits: data.BetLimitSet[];
+      public wholeDenomList: number[];
       public goodRoadData: data.GoodRoadMapData;
       public isMobile: boolean = false;
       public orientation: string = egret.OrientationMode.LANDSCAPE;
       public leftHandMode: boolean = false;
+
+      public showGoodRoadHint: boolean = false;
+      public autoConfirmBet: boolean = false;
+
+      public camMode: number = 2;
+      public qualityMode: number = 3;
 
       private _tableInfoArray: data.TableInfo[] = [];
       private _tableInfos: { [key: string]: data.TableInfo } = {};
@@ -49,6 +65,9 @@ namespace we {
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
+
+      // Check if playing bam first time
+      public isFirstTimeBam = false;
 
       public init() {
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
@@ -126,10 +145,11 @@ namespace we {
           }
 
           const gameType = tableInfo.gametype;
-          // if (gameType === core.GameType.DI) {
-          //   tableInfo.displayReady = false;
-          //   return false;
-          // }
+          const validGameTypes = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
+          if (validGameTypes.indexOf(gameType) < 0) {
+            tableInfo.displayReady = false;
+            return false;
+          }
         }
 
         if (tableInfo && !tableInfo.displayReady) {
@@ -145,6 +165,34 @@ namespace we {
           return env.tableInfos[tableid].tablename;
         }
         return null;
+      }
+      public getWholeDenomMap() {
+        if (!env) {
+          return;
+        }
+        if (!env.betLimits) {
+          return;
+        }
+        const denomMap = {};
+        let chipIndex = 0;
+        env.betLimits.map(limit => {
+          limit.chips.map(chipValue => {
+            if (!denomMap[chipValue]) {
+              if (this.chipImageLimit > chipIndex) {
+                denomMap[chipValue] = chipIndex;
+                chipIndex++;
+              } else {
+                denomMap[chipValue] = this.chipImageLimit - 1;
+              }
+            }
+          });
+        });
+        /*
+        currDenomlist.map((chipValue, chipIndex) => {
+          denomMap[chipValue] = chipIndex;
+        });
+        */
+        return denomMap;
       }
 
       public gotoScene(tableId: string) {

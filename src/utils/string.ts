@@ -1,8 +1,11 @@
 namespace we {
   export namespace utils {
     function zeroPad(num, places) {
-      const zero = places - num.toString().length + 1;
-      return Array(+(zero > 0 && zero)).join('0') + num;
+      let val = parseInt(num, 10);
+      const sign = utils.sign(val);
+      val *= sign;
+      const zero = places - val.toString().length + 1;
+      return (sign < 0 ? '-' : '') + Array(+(zero > 0 && zero)).join('0') + val;
     }
 
     export function numberToFaceValue(value: number) {
@@ -43,7 +46,19 @@ namespace we {
       return source
         .replace(/^(.+?)([0-9ajqk][0]?)$/, '$1_$2')
         .replace('diamond', 'diamonds')
-        .replace('heart', 'hearts');
+        .replace('heart', 'hearts')
+        .replace(/(1(?!0))/, 'a');
+    }
+
+    export function formatCardForFlip(source: string) {
+      let result = source.replace('club', 'clover');
+      let lastChar = result[result.length - 1];
+      if (lastChar === '1') {
+        lastChar = 'A';
+      }
+      result = result.substring(0, result.length - 1);
+      result += lastChar.toUpperCase();
+      return result;
     }
 
     export function cardToNumber(source) {

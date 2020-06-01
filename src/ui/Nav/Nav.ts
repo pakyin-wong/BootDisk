@@ -16,7 +16,7 @@ namespace we {
       private _balanceText: ui.RunTimeLabel;
 
       private _profilePrc: eui.Image;
-      private _refreshButton: ui.BaseImageButton;
+      private _refreshButton: eui.Image;
       // from Monitor.ts
       // private _liveSidePanel: ui.LiveSidePanel;
       // private _sideGameList: ui.MobileSideGameList;
@@ -48,32 +48,50 @@ namespace we {
           this._menu.dismissOnClickOutside = true;
         }
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+        if (env.isMobile) {
+          this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+          this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
+          dir.meterCtr.register('balance', this._balanceGame);
+        }
         dir.meterCtr.register('balance', this._balance);
         if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
         this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
 
-        if (env.isMobile) {
-          this._balanceGame.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
-          this._balanceText.renderText = () => `${i18n.t('nav.bet_balance')}`;
-        }
-
+        this.updateIconImage();
+        this.updateNickname();
         this.addListeners();
       }
 
       private addListeners() {
         if (env.isMobile) {
           utils.addButtonListener(this._slider_toggle, this.onClickSliderToggle, this);
-          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
           // dir.evtHandler.addEventListener(core.Event.BA_POPUP, this.gameListPopUp, this);
           // dir.evtHandler.addEventListener(core.Event.BA_POPDOWN, this.gameListPopDown, this);
           // this._lantern.alignToLeft();
-        } else {
-          dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         }
+        dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
+        dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
+        this._refreshButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
+        dir.evtHandler.addEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
         // listen to the event dispatched by some particular scroller and update the background alpha
-        // dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
+        dir.evtHandler.addEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
+      }
+
+      private removeListeners() {
+        if (env.isMobile) {
+        }
+        dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
+        dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
+        this._refreshButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
+        dir.evtHandler.removeEventListener(core.Event.ENTER_SCENE, this.onSceneChange, this);
+        // listen to the event dispatched by some particular scroller and update the background alpha
+        dir.evtHandler.removeEventListener(core.Event.UPDATE_NAVBAR_OPACITY, this.onBackgroundOpacityUpdate, this);
+      }
+
+      private updateBalance() {
+        dir.socket.getBalance();
       }
 
       private onSceneChange(e = null) {
@@ -97,6 +115,7 @@ namespace we {
               this._lantern.visible = true;
 
               this._profilePrc.visible = true;
+              this.updateIconImage();
               this.currentState = 'Lobby';
               break;
 
@@ -108,6 +127,14 @@ namespace we {
               break;
           }
         }
+      }
+
+      protected updateIconImage() {
+        this._profilePrc.source = env.icon;
+      }
+
+      protected updateNickname() {
+        this._user.text = env.nickname;
       }
 
       private onClickSliderToggle() {

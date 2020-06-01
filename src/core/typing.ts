@@ -21,7 +21,11 @@ namespace we {
       createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]);
       getBetCombination();
       removeBetCombination(id: string);
+      sendVerifyInfo(id: string, pattern: string[]);
       retryPlayerClient(functionName: string, args: any[]);
+      getBalance();
+      getPlayerProfileSummary(callback: (data: any) => void);
+      getPlayerStatistic(filter: any, callback: (data: any) => void);
     }
 
     export interface ILobbyRoad {

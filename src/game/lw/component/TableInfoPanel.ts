@@ -39,7 +39,7 @@ namespace we {
         this.northLabel.text = i18n.t('luckywheel.north');
         this.whiteLabel.text = i18n.t('luckywheel.white');
         this.centerLabel.text = i18n.t('luckywheel.center');
-        this.fatLabel.text = i18n.t('luckywheel.fai');
+        this.fatLabel.text = i18n.t('luckywheel.fat');
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -69,6 +69,49 @@ namespace we {
           }
         }
       }
+      // =======
+      protected childrenCreated(): void {
+        super.childrenCreated();
+        this._initY = this.y;
+        // this.alpha = 0;
+        // this.visible = true;
+        // this.close.addEventListener(
+        //   egret.TouchEvent.TOUCH_TAP,
+        //   () => {
+        //     this.visible = !this.visible;
+        //   },
+        //   this
+        // );
+        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
+        mouse.setButtonMode(this.close, true);
+      }
+
+      public onExit() {
+        this.destroy();
+      }
+
+      //       public setValue(tableInfo: data.TableInfo) {
+      //         super.setValue(tableInfo);
+      //         if (tableInfo.gamestatistic.bankerCount) {
+      //           this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
+      //         }
+      //         if (tableInfo.gamestatistic.playerCount) {
+      //           this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
+      //         }
+      //         if (tableInfo.gamestatistic.tieCount) {
+      //           this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
+      //         }
+      //         if (tableInfo.gamestatistic.bankerPairCount) {
+      //           this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
+      //         }
+      //         if (tableInfo.gamestatistic.playerPairCount) {
+      //           this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
+      //         }
+      //         if (this.pGameID) {
+      //           this.pGameID.text = tableInfo.betInfo.gameroundid;
+      // >>>>>>> develop
+      //         }
+      //       }
     }
   }
 }

@@ -9,6 +9,7 @@ namespace we {
       public name: string;
       public custom: boolean;
       public tableid: string; // table id of the matched table
+      public alreadyShown?: boolean;
     }
   }
 }

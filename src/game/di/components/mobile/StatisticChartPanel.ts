@@ -32,7 +32,11 @@ namespace we {
         super.childrenCreated();
 
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this.contentTwo.x = this.stage.width;
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this.changeLang();
+        if (env.orientation === 'portrait') {
+          this.contentTwo.x = this.stage.width;
+        }
         this.configSlides();
       }
 
@@ -48,6 +52,10 @@ namespace we {
       }
 
       private onTouchBegin(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
+
         if (!this.touchEnabled) {
           return;
         }
@@ -62,6 +70,9 @@ namespace we {
       }
 
       private onTouchMove(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
         this.isMoved = true;
 
         if (!this.slides.length) {
@@ -110,6 +121,10 @@ namespace we {
       }
 
       private onTouchEnd(event: egret.TouchEvent): void {
+        if (env.orientation === 'landscape') {
+          return;
+        }
+
         clearTimeout(this.autoPlayTimer);
         this.isDown = false;
         this.isMoved = false;
@@ -227,6 +242,10 @@ namespace we {
         if (tableInfo.gamestatistic.points) {
           this._diChance.setDiceValues(tableInfo.gamestatistic.points);
         }
+      }
+
+      public changeLang() {
+        this._diPie.changeLang();
       }
     }
   }

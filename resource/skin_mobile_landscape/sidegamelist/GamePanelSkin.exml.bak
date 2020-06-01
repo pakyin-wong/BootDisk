@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.GamePanelSkinBak" width="2424" height="992" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing">
+    <e:Group id="content" left="0" right="0" top="0" bottom="0" touchChildren="true" touchEnabled="false">
+        <e:Rect left="0" right="0" top="0" bottom="0" ellipseHeight="80" ellipseWidth="80" strokeWeight="3"
+                strokeColor="0x282828"  fillColor="0x14181e"/>
+			<e:Group id="_layoutRefer" height="790" y="202" left="0" right="0">
+				<e:layout>
+					<e:TileLayout verticalGap="48" requestedColumnCount="2" columnWidth="1140" rowHeight="400" horizontalGap="48" paddingLeft="48" paddingRight="48" orientation="columns"/>
+				</e:layout>
+			</e:Group>
+        <e:ViewStack id="_viewStack" left="0" right="0"
+                     selectedIndex="0" y="202" height="790">
+					<ui:Scroller left="0" right="0" top="0" bottom="0">
+						<ui:TableList id="_allTableList"/>
+					</ui:Scroller>
+					<ui:Scroller left="0" right="0" top="0" bottom="0">
+						<ui:TableList id="_betTableList"/>
+					</ui:Scroller>
+					<ui:Scroller left="0" right="0" top="0" bottom="0">
+						<ui:TableList id="_goodRoadTableList"/>
+					</ui:Scroller>
+        </e:ViewStack>
+			<e:Group y="64" left="46" right="120" height="108">
+				<e:Image x="0" y="5" height="61" width="61" source="m_lobby_panel_gamelist_tag_icon_allgame_png"/>
+				<ui:RunTimeLabel id="_txt_title" text="Label" x="84" y="0" size="48" height="71" verticalAlign="middle"/>
+				<e:Scroller height="108" y="0" left="0" right="0" x="-46.00000000000001">
+					<e:TabBar id="_tabs">
+					<e:layout>
+						<e:HorizontalLayout gap="83" verticalAlign="middle"/>
+					</e:layout>
+					</e:TabBar>
+				</e:Scroller>
+				<e:layout>
+					<e:HorizontalLayout gap="21" verticalAlign="middle"/>
+				</e:layout>
+			</e:Group>
+			<e:Group id="close" width="120" height="120" right="0">
+				<ui:BaseImageButton width="40" height="40" skinName="skin_mobile_portrait.ImageButtonSkinLobby" currentState="game_list_close_btn" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" useColorFilter="true"/>
+			</e:Group>
+    </e:Group>
+</e:Skin>

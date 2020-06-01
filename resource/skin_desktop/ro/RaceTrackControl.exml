@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.ro.RaceTrackControlSkin" width="445" height="60" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.ro.RaceTrackControlSkin" width="200" height="60" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
-	<ui:RunTimePropertyLabel id="_distributionLabel" verticalCenter="0" x="0"/>
-	<e:Label id="_distNumLabel" text="0" x="304.5" anchorOffsetX="0" width="44" anchorOffsetY="0" height="28"
-	         verticalCenter="0" />
-	<ui:BaseImageButton id="_addButton" anchorOffsetX="0" width="47" anchorOffsetY="0" height="47" verticalCenter="0.5"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_add" x="337.5" />
-	<ui:BaseImageButton id="_lessButton" anchorOffsetX="0" width="47" height="47" verticalCenter="0.5"
-	                    skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_less" x="246.5" />
+	<e:Label id="_distNumLabel" text="0" horizontalCenter="0" verticalCenter="0" size="35" />
+	<ui:BaseAnimationButton id="_addButton" width="32" height="32" horizontalCenter="42" verticalCenter="0"
+	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_add" />
+	<ui:BaseAnimationButton id="_lessButton" width="32" height="32" horizontalCenter="-42" verticalCenter="0"
+	                    dbClass="roulette_ui" dbDisplay="d_ro_racetrack_bet_deduct" />
 </e:Skin>

@@ -9,15 +9,23 @@ namespace we {
       public initContent(root: GameTableList) {
         this.root = root;
 
+        root.slider = new ui.ImageSlider();
+        root.slider.x = 60;
+        root.slider.width = 850;
+        root.slider.height = 850;
         root.slider.configSlides(dir.liveResources.liveHeroBanners);
 
         root.roomList.layout = root.roomListRefer.layout;
         root.roomList.itemRenderer = MobileLiveListHolder;
         root.roomList.setGameFilters(core.LiveGameTab.ba);
         root.roomList.setTableList(root.roomIds);
+        root.roomList.useVirtualLayout = true;
 
-        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab); // ['bacarrat', 'dragontiger', 'luckywheel', 'wheel', 'dice', 'goodroad'];
-        root.tabs.collection.replaceAll(root.tabItems);
+        root.scroller.viewport = root.roomList;
+
+        root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
+        root.tabs = new DropDownLiveGameTabbar(root.tabItems);
+        root.addChild(root.tabs);
 
         this.setDisplayMode(env.lobbyGridType);
       }
@@ -27,6 +35,7 @@ namespace we {
       }
 
       protected setDisplayMode(mode) {
+        this.root.roomList.layout.clearVirtualLayoutCache();
         switch (mode) {
           case we.lobby.mode.NORMAL:
             this.root.currentState = 'normal';

@@ -14,6 +14,8 @@ namespace we {
         this._betField = dt.BetField;
       }
 
+      protected restructureChildren() {}
+
       protected createMapping() {
         super.createMapping();
         this._mouseAreaMapping = {};

@@ -75,30 +75,11 @@ namespace we {
 
         console.log('checkResultMessage', this._gameData);
 
-        const result = (<ro.GameData> this._gameData).value;
-        const resultNo: number = +result.toString().substr(1) - 1;
-
-        (this._tableLayer as lw.TableLayer).flashFields(`LW_${resultNo.toString()}`);
-        this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
-
-        /*
-                const resultNo = (<ro.GameData> this._gameData).value;
-                (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
-
-                if (this.hasBet() && !isNaN(totalWin)) {
-                  this._resultMessage.showResult(this._tableInfo.gametype, {
-                    resultNo,
-                    winAmount: this._tableInfo.totalWin,
-                  });
-                  dir.audioCtr.playSequence(['player', 'win']);
-                } else {
-                  this._resultMessage.showResult(this._tableInfo.gametype, {
-                    resultNo,
-                    winAmount: NaN,
-                  });
-                  dir.audioCtr.playSequence(['player', 'win']);
-                }
-                */
+        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
+        // const lwGameResultMessage = new lw.GameResultMessage();
+        // lwGameResultMessage.type = null;
+        this._resultMessage.showResult(this._tableInfo.gametype, { value: resultNo, totalWin });
       }
     }
   }
