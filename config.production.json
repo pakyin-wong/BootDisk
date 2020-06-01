@@ -3,8 +3,10 @@
     "mode": "comm",
     "playerID": "BMJCQSLH5S5VDBFBP1A0",
     "endpoint": "https://prod-rest-gateway.weapi247.com",
-    "rabbitmqhostname": "prod-rabbitmq-mqtt.weapi247.com",
+    "rabbitmqhostname": "dark-crane-01.rmq.cloudamqp.com",
     "rabbitmqport": "443",
     "rabbitmqprotocol": "wss",
+    "rabbitmqvirtualhost":"/",
+    "path":"/ws/mqtt",
     "connectTimeout": 1000000
 }

@@ -47,6 +47,22 @@ namespace we {
             }
           }
         });
+
+        switch (this.gameData.state) {
+          case core.GameState.PEEK:
+            cardHolderArr[0].setCard('back', true);
+            cardHolderArr[1].setCard('back', true);
+            cardHolderArr[3].setCard('back', true);
+            cardHolderArr[4].setCard('back', true);
+
+            break;
+          case core.GameState.PEEK_PLAYER:
+            cardHolderArr[5].setCard('back', true);
+            break;
+          case core.GameState.PEEK_BANKER:
+            cardHolderArr[2].setCard('back', true);
+            break;
+        }
       }
 
       public reset() {

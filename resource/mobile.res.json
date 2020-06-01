@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "mroadmapfont_fnt,m_common_cards_json,m_common_chip_json,m_common_gamepanel_json,m_common_general_json,m_common_menu_json,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,nav_panel_bg,m_lobby_header_submenu_bg_png",
+			"keys": "mroadmapfont_fnt,m_common_cards_json,m_common_chip_json,m_common_gamepanel_json,m_common_general_json,m_common_menu_json,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,nav_panel_bg,m_lobby_header_submenu_bg_png,m_lobby_panel_gamelist_remark_box_png",
 			"name": "common"
 		},
 		{
@@ -13,7 +13,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,m_ro_betarea_landscape_json,m_ro_betarea_portrait_json,m_ro_json",
+			"keys": "roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,m_ro_betarea_landscape_json,m_ro_betarea_portrait_json,m_ro_json,d_ro_chips_small_not_confirm_png,d_ro_chips_small_png",
 			"name": "scene_roulette"
 		},
 		{
@@ -539,6 +539,21 @@
 			"type": "image",
 			"name": "m_lobby_header_submenu_bg_png",
 			"scale9grid": "29,29,4,4"
+		},
+		{
+			"url": "assets/m/ro/d/d_ro_chips_small_not_confirm.png",
+			"type": "image",
+			"name": "d_ro_chips_small_not_confirm_png"
+		},
+		{
+			"url": "assets/m/ro/d/d_ro_chips_small.png",
+			"type": "image",
+			"name": "d_ro_chips_small_png"
+		},
+		{
+			"url": "assets/m/common/gamepanel/m_lobby_panel_gamelist_remark_box.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_remark_box_png"
 		}
 	]
 }
