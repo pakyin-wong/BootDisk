@@ -77,7 +77,6 @@ namespace we {
       // }
 
       public updateSideBarRoadData(roadmapData: any) {
-        console.log('roadmapData', roadmapData);
         if (roadmapData && roadmapData.inGame) {
           if (this.beadRoad) {
             this.beadRoad.parseRoadData(roadmapData.inGame.bead);
@@ -85,7 +84,7 @@ namespace we {
         }
       }
 
-      public dispose() {}
+      public dispose() { }
     }
   }
 }
