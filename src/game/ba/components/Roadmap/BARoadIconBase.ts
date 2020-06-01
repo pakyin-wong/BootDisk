@@ -46,6 +46,7 @@ namespace we {
       }
 
       public updateDisplay() {
+        this._iconText.text = '';
         this._iconShape.graphics.clear();
       }
 
