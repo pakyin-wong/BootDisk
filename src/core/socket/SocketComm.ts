@@ -466,9 +466,22 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
+          case core.GameType.ROL:
           case core.GameType.RO: {
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
+
+            // add the odds from gameInfo to bead for ROL
+            gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
+              const gameRoundID1 = e1.gameRoundID;
+              const info = gameStatistic.roadmapdata.gameInfo[gameRoundID1];
+              if (info !== undefined) {
+                if (info.odds !== undefined) {
+                  e1.odds = info.odds;
+                }
+              }
+            });
+
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
 
             const stats = new we.data.GameStatistic();

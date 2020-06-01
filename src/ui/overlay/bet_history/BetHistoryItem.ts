@@ -103,6 +103,11 @@ namespace we {
 
             case we.core.GameType.DT:
               return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
+
+            case we.core.GameType.ROL:
+            case we.core.GameType.RO:
+              return bettype;
+
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);
           }
@@ -115,10 +120,22 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAS:
             case we.core.GameType.BAI:
+            case we.core.GameType.BAM:
               p = new BaResultItem(gameResult);
               break;
             case we.core.GameType.DT:
               p = new DtResultItem(gameResult);
+              break;
+
+            case we.core.GameType.ROL:
+            case we.core.GameType.RO:
+              p = new RoResultItem(gameResult);
+              break;
+            case we.core.GameType.DI:
+              p = new DiResultItem(gameResult);
+              break;
+            case we.core.GameType.LW:
+              p = new LwResultItem(gameResult);
               break;
             default:
               p = new core.BaseEUI();

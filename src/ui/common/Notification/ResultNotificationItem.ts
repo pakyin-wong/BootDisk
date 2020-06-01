@@ -39,7 +39,7 @@ namespace we {
             break;
         }
         // this._content = new ResultNotificationContent();
-        if (this.tableInfo) {
+        if (this.tableInfo && this._content) {
           this._content.setData(this.tableInfo);
         }
       }

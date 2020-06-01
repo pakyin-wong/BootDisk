@@ -9,6 +9,7 @@ namespace we {
       private emptyAlpha: number;
 
       private redNumbers: number[] = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+      protected _iconTopText: egret.TextField;
 
       public constructor(size: number = 30, emptyColor: number = 0xc1c1c1, emptyAlpha: number = 0.2) {
         super(size);
@@ -28,6 +29,23 @@ namespace we {
         this.iconHightLight.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
+
+        //
+        this._iconTopText = new egret.TextField();
+        this._iconTopText.size = size * 0.3 * 2;
+        this._iconTopText.scaleX = this._iconTopText.scaleY = 0.5;
+        this._iconTopText.textColor = 0xf7b500;
+        this._iconTopText.width = size * 2;
+        this._iconTopText.height = size * 2;
+        this._iconTopText.bold = true;
+        this._iconTopText.textAlign = egret.HorizontalAlign.CENTER;
+        this._iconTopText.verticalAlign = egret.VerticalAlign.MIDDLE;
+        this._iconTopText.anchorOffsetX = this._iconTopText.width * 0.5;
+        this._iconTopText.anchorOffsetY = this._iconTopText.height * 0.5;
+        this.addChild(this._iconTopText);
+        this._iconTopText.x = this._iconTopText.width * 0.5;
+        this._iconTopText.y = this._iconTopText.height * -0.2;
+        this._iconTopText.visible = false;
 
         // this.initGraphics();
         this.setByObject({});
@@ -144,6 +162,14 @@ namespace we {
         if (value.v != null) {
           this._iconText.text = value.v;
 
+          this._iconTopText.visible = false;
+          if (value.odds) {
+            if (value.odds > 1) {
+              this._iconTopText.text = value.odds + 'X';
+              this._iconTopText.visible = true;
+            }
+          }
+
           if (value.v === 0) {
             // green
             colorIdx = 2 + useDarkMode;
@@ -185,6 +211,13 @@ namespace we {
         // this.iconText.text = '';
         // this.iconHightLight.visible = false;
         // this.value = null;
+      }
+      public addToTopTextLayer(topTextLayer: egret.DisplayObjectContainer) {
+        if (this._iconTopText) {
+          topTextLayer.addChild(this._iconTopText);
+          this._iconTopText.x = this.x + this._offsetX;
+          this._iconTopText.y = this.y;
+        }
       }
 
       public addToLayer(shapeLayer: egret.DisplayObjectContainer, textLayer: egret.DisplayObjectContainer) {

@@ -66,7 +66,10 @@ namespace we {
         this._video.setBrowser(env.UAInfo.browser.name);
         // this._video.width = this.stage.stageWidth;
         // this._video.height = this.stage.stageHeight;
-        this._video.load('http://h5.weinfra247.com:8090/live/720.flv');
+        // this._video.load('//h5.weinfra247.com:8090/live/720.flv');
+        // this._video.load('//210.61.148.50:8000/live/test.flv');
+        this._video.load('wss://www.webflv.com:8443/live/test.flv');
+
         dir.audioCtr.video = this._video;
         this.touchEnabled = true;
       }
@@ -262,7 +265,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -302,7 +305,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;

@@ -31,9 +31,11 @@ namespace we {
           this.removeChild(this._content);
         }
         this.createNormalContent();
-        this._content.addEventListener('DISMISS', this.removeSelf, this);
-        this._content.addEventListener('QUICK_BET', this.setFocus, this);
-        this.addChild(this._content);
+        if (this._content) {
+          this._content.addEventListener('DISMISS', this.removeSelf, this);
+          this._content.addEventListener('QUICK_BET', this.setFocus, this);
+          this.addChild(this._content);
+        }
 
         if (this._state === NotificationItemHolder.STATE_FOCUS) {
           this.onQuickBet();

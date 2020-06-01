@@ -629,6 +629,11 @@ namespace we {
             roadCell.dice = data.dice;
           }
 
+          // rol
+          if (data.odds !== undefined) {
+            roadCell.odds = data.odds;
+          }
+
           if (data.gameRoundID !== undefined) {
             roadCell.gameRoundID = data.gameRoundID;
           }

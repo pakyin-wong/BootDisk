@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.SidePanelGameResultNormalSkin" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing">
     <e:Image id="_bg" width="319" height="58" anchorOffsetX="0" anchorOffsetY="0"
-             source="d_ba_gameresult_playerwin_png"  horizontalCenter="0" verticalCenter="0"/>
+             source="d_lobby_panel_gamelist_gameresult_playerwin_png"  horizontalCenter="0" verticalCenter="0"/>
     <e:Label id="_label" text="庄贏" horizontalCenter="0" verticalCenter="0" size="36"
               />
 </e:Skin>

@@ -14,7 +14,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.5.0';
+      public version: string = '0.5.5';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
@@ -65,6 +65,9 @@ namespace we {
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
+
+      // Check if playing bam first time
+      public isFirstTimeBam = false;
 
       public init() {
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);

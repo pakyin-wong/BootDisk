@@ -30,6 +30,16 @@ declare module skins{
 	class ScrollerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape{
+	class SqueezeTutorial extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class SqueezeTutorial extends eui.Skin{
+	}
+}
+declare class TestHorizontalHolderSkin extends eui.Skin{
+}
 declare module skins{
 	class TextInputSkin extends eui.Skin{
 	}
@@ -144,6 +154,14 @@ declare module skin_desktop.bam{
 }
 declare module skin_desktop{
 	class SqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_desktop.bam{
+	class SqueezeArrowButtonSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SqueezeTutorial extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -545,6 +563,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class DiResultItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class DoubleCalendarPicker extends eui.Skin{
 	}
 }
@@ -554,6 +576,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class LiveVerification extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LwResultItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -578,6 +604,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class PlayerProfileIconItem extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RoResultItem extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1563,6 +1593,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class DiResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class DoubleCalendarPicker extends eui.Skin{
 	}
 }
@@ -1600,6 +1634,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class PlayerProfileIconItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RoResultItem extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

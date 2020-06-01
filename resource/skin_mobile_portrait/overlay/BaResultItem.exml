@@ -5,7 +5,7 @@
 	<e:Image id="_pCard1" width="106" height="154" x="304" y="7" scaleX="1" scaleY="1"/>
 	<e:Image id="_bCard1" width="106" height="154" x="659" y="7" scaleX="1" scaleY="1"/>
 	<e:Image id="_bCard2" width="106" height="154" x="787" y="7" scaleX="1" scaleY="1"/>
-	<e:Image id="_bCard3" width="106" height="154" scaleX="1" scaleY="1" rotation="-90" bottom="4"/>
+	<e:Image id="_bCard3" width="106" height="154" scaleX="1" scaleY="1" rotation="-90" bottom="4" right="0"/>
 	<e:Rect width="72" height="156" x="432" y="5" ellipseHeight="26" ellipseWidth="26" fillColor="0x3e60f8"/>
 	<e:Rect width="72" height="156" x="565" y="5" ellipseHeight="26" ellipseWidth="26" fillColor="0xed4c4c"/>
 	<ui:RunTimeLabel id="_txt_player" text="A" x="439" y="0" size="60" textAlign="center" verticalAlign="middle" width="56" height="89" bold="true"/>
