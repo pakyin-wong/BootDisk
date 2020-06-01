@@ -554,6 +554,541 @@
 			"url": "assets/m/common/gamepanel/m_lobby_panel_gamelist_remark_box.png",
 			"type": "image",
 			"name": "m_lobby_panel_gamelist_remark_box_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club5_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club5_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club6_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club6_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club7_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club7_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club8_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club8_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club9_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club9_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club10_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club10_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_clubA_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_clubA_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_clubJ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_clubJ_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_clubK_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_clubK_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_clubQ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_clubQ_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond2_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond2_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond3_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond3_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond4_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond4_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond5_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond5_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond6_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond6_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond7_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond7_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond8_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond8_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond9_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond9_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamond10_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamond10_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamondA_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamondA_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamondJ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamondJ_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamondK_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamondK_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_diamondQ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_diamondQ_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart2_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart2_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart3_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart3_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart4_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart4_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart5_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart5_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart6_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart6_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart7_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart7_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart8_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart8_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart9_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart9_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heart10_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heart10_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heartA_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heartA_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heartJ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heartJ_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heartK_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heartK_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade2_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade2_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_heartQ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_heartQ_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade3_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade3_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade4_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade4_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade5_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade5_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade6_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade6_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade7_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade7_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade8_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade8_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade9_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade9_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spade10_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spade10_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spadeA_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spadeA_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spadeJ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spadeJ_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spadeK_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spadeK_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_spadeQ_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_spadeQ_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_backside.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_backside_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club2_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club2_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club3_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club3_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/small_poker_card/m_sq_bac_small_poker_club4_vertical.png",
+			"type": "image",
+			"name": "m_sq_bac_small_poker_club4_vertical_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_ba_large_poker_backside.png",
+			"type": "image",
+			"name": "m_sq_ba_large_poker_backside_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover2.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover2_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover3.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover3_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_ba_large_poker_card_mask.png",
+			"type": "image",
+			"name": "m_sq_ba_large_poker_card_mask_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover4.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover4_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover5.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover5_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover6.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover6_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover7.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover7_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover8.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover8_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover9.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover9_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_clover10.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_clover10_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_cloverA.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_cloverA_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_cloverJ.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_cloverJ_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_cloverK.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_cloverK_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_cloverQ.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_cloverQ_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond2.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond2_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond3.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond3_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond4.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond4_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond5.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond5_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond6.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond6_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond7.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond7_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond8.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond8_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond9.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond9_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamond10.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamond10_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamondA.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamondA_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamondK.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamondK_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamondJ.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamondJ_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_diamondQ.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_diamondQ_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart2.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart2_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart3.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart3_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart4.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart4_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart5.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart5_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart6.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart6_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart7.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart7_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart8.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart8_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart9.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart9_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heart10.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heart10_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heartA.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heartA_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heartJ.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heartJ_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heartK.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heartK_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_heartQ.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_heartQ_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade2.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade2_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade3.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade3_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade4.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade4_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade5.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade5_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade6.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade6_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade7.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade7_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade8.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade8_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade9.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade9_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spade10.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spade10_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spadeA.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spadeA_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spadeJ.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spadeJ_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spadeK.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spadeK_png"
+		},
+		{
+			"url": "assets/m/ba/large_poker_card/m_sq_bac_large_poker_spadeQ.png",
+			"type": "image",
+			"name": "m_sq_bac_large_poker_spadeQ_png"
 		}
 	]
 }
