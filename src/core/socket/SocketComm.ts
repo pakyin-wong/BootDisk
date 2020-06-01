@@ -429,6 +429,7 @@ namespace we {
         }
 
         switch (gameStatistic.gametype) {
+          case core.GameType.BAM:
           case core.GameType.BAC:
           case core.GameType.BAI:
           case core.GameType.BAS:
