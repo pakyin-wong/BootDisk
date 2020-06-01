@@ -513,6 +513,10 @@ namespace we {
           }
           case core.GameType.LW:
           default: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+
             const stats = new we.data.GameStatistic();
             stats.totalCount = getStatistic('totalCount');
             tableInfo.gamestatistic = stats;
