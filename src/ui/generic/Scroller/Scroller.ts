@@ -183,6 +183,7 @@ namespace we {
         progress = Math.min(Math.max(progress, 0), 1);
         const viewHeight = this.viewport.contentHeight - this.height;
         this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
+        this.dispatchEvent(new egret.Event(egret.Event.CHANGE));
       }
 
       private onMouseUp = (event: MouseEvent) => {
@@ -200,6 +201,7 @@ namespace we {
         progress = Math.min(Math.max(progress, 0), 1);
         const viewHeight = this.viewport.contentHeight - this.height;
         this.viewport.scrollV = Math.max(0, Math.min(viewHeight, viewHeight * progress));
+        this.dispatchEvent(new egret.Event(egret.Event.CHANGE));
       }
 
       private onMouseOver(event: egret.TouchEvent) {
