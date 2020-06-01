@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.SqueezeBaccaratScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
-        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:ns1="*"
+<e:Skin class="skin_mobile_portrait.SqueezeBaccaratScenes" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:bam="we.bam.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:ns1="*"
         states="left_hand_mode,right_hand_mode">
 	<w:Config id="17181f4be03"/>
 	<e:Rect width="1242" height="2155" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
@@ -58,8 +58,8 @@
 				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
 				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"  x="351" x.right_hand_mode="588"/>
 			</e:Group>
-			<ba:CardHolder id="_resultDisplay" width="412" height="152" y="40" horizontalCenter="0" anchorOffsetX="0"
-			               anchorOffsetY="0" x="415" scaleX="1" scaleY="1" />
+			<bam:CardHolder id="_resultDisplay" width="1242" height="380" y="40" horizontalCenter="0" anchorOffsetX="0"
+			               anchorOffsetY="0" x="415" scaleX="1" scaleY="1"  y.left_hand_mode="-150"/>
 		</e:Group>
 		<ba:MobileBottomGamePanel skinName="skin_mobile_portrait.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 		                          x="0" scaleY="1" y="783" scaleX="1" />

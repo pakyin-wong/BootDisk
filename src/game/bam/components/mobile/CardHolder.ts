@@ -17,6 +17,9 @@ namespace we {
       protected _openAllBanker: eui.Image;
       protected _openAllPlayer: eui.Image;
 
+      protected _cardHolderArr: ba.FlipCard[];
+      protected _cardArr;
+      
       constructor() {
         super();
       }
