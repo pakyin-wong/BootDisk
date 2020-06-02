@@ -53,10 +53,6 @@ namespace we {
         }
       }
 
-      protected destroy() {
-        super.destroy();
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-      }
       protected initDenom() {
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
@@ -184,7 +180,9 @@ namespace we {
 
       protected removeEventListeners() {
         super.removeEventListeners();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        this._lblBetLimit.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
       }
 
       protected onOrientationChange(gameModeExist?: boolean) {
