@@ -66,8 +66,8 @@ namespace we {
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -83,7 +83,7 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        this._roadmapControl.setTableInfo(this._tableInfo);
+        // this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -236,17 +236,17 @@ namespace we {
       }
 
       protected initRoadMap() {
-        this._roadmapControl = new BARoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(
-          this._bottomGamePanel._roadmapPanel.beadRoad,
-          this._bottomGamePanel._roadmapPanel.bigRoad,
-          this._bottomGamePanel._roadmapPanel.bigEyeRoad,
-          this._bottomGamePanel._roadmapPanel.smallRoad,
-          this._bottomGamePanel._roadmapPanel.cockroachRoad,
-          [16, 33, 66, 34, 32],
-          this._bottomGamePanel._roadmapPanel,
-          this._beadRoadResultPanel
-        );
+        // this._roadmapControl = new BARoadmapControl(this._tableId);
+        // this._roadmapControl.setRoads(
+        //   this._bottomGamePanel._roadmapPanel.beadRoad,
+        //   this._bottomGamePanel._roadmapPanel.bigRoad,
+        //   this._bottomGamePanel._roadmapPanel.bigEyeRoad,
+        //   this._bottomGamePanel._roadmapPanel.smallRoad,
+        //   this._bottomGamePanel._roadmapPanel.cockroachRoad,
+        //   [16, 33, 66, 34, 32],
+        //   this._bottomGamePanel._roadmapPanel,
+        //   this._beadRoadResultPanel
+        // );
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

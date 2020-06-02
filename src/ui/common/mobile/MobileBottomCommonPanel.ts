@@ -20,6 +20,10 @@ namespace we {
 
       protected _gameScene: core.MobileBaseGameScene;
 
+      protected _roadmapGroup: eui.Group;
+      protected _chartGroup: eui.Group;
+      protected _infoGroup: eui.Group;
+
       public constructor(skin?: string) {
         super();
       }
@@ -39,6 +43,13 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        this._roadmapGroup.removeChildren();
+        // const test1 = this.viewStack.getChildAt(0) as eui.Group;
+        // test1.removeChildren();
+        // const test2 = this.viewStack.getChildAt(1) as eui.Group;
+        // test2.removeChildren();
+        // const test3 = this.viewStack.getChildAt(2) as eui.Group;
+        // test3.removeChildren();
         this.removeListeners();
       }
 
