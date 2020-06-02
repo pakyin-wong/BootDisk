@@ -254,8 +254,6 @@ namespace we {
         tie: 'Tie',
         playerPair: 'Player Pair',
         bankerPair: 'Banker Pair',
-        center: 'Center',
-        fat: 'Fat',
       },
       dice: {
         big: 'B',

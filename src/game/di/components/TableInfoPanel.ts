@@ -121,7 +121,13 @@ namespace we {
             { target: this.pSpecificTripleOdd, value: limits.SPECIFIC_3.odd },
           ];
           for (const { target, value } of list) {
-            target.text = value.toString();
+            if (target) {
+              if (value) {
+                target.text = value.toString();
+              } else {
+                target.text = '-';
+              }
+            }
           }
         }
       }

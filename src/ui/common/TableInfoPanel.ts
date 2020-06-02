@@ -55,12 +55,14 @@ namespace we {
         this.roundNoLabel.text = i18n.t('tableInfo.roundNo');
         this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
         this.dealerLabel.text = i18n.t('tableInfo.dealer');
-        this.tableBetLimitLabel.text = i18n.t('tableInfo.tableBetLimit');
         this.betLimitLabel.text = i18n.t('tableInfo.betLimit');
 
-        this.lblBet.text = i18n.t('tableInfo.bet');
-        this.lblMax.text = i18n.t('tableInfo.max');
-        this.lblOdds.text = i18n.t('tableInfo.odds');
+        if (!env.isMobile) {
+          this.tableBetLimitLabel.text = i18n.t('tableInfo.tableBetLimit');
+          this.lblBet.text = i18n.t('tableInfo.bet');
+          this.lblMax.text = i18n.t('tableInfo.max');
+          this.lblOdds.text = i18n.t('tableInfo.odds');
+        }
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -71,7 +73,7 @@ namespace we {
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
 
         const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
-        this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
+        if (this.pTableBetLimit) this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
         this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.chips[0])} -  ${utils.numberToFaceValue(betLimitSet.chips[betLimitSet.chips.length - 1])}`;
 
         const config = this.getConfig();

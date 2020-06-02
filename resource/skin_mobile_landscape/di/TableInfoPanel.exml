@@ -34,44 +34,44 @@
                 <e:Label id="sizeLabel" text="大 / 小" y="40" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
                 <e:Label id="oddevenLabel" text="單 / 雙" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
                 <e:Label id="tripleLabel" text="圍骰" y="200" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pOddEven" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" bold="true" right="28"/>
-                <e:Label id="pSize" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" bold="true" right="28"/>
-                <e:Label id="pTriple" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" bold="true" right="28"/>
+                <e:Label id="pOddEvenMax" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" bold="true" right="28"/>
+                <e:Label id="pBigSmallMax" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" bold="true" right="28"/>
+                <e:Label id="pTripleMax" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="301" bold="true" right="28"/>
                 <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
             </e:Group>
             <e:Group id="column4" x="1564.5" width="521.5" height="100%">
                 <e:Label id="allTripleLabel" text="全圍" y="40" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
                 <e:Label id="doubleLabel" text="雙骰" y="120" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
                 <e:Label id="fourSeventeenLabel" text="直接注" y="200" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pAllTriple" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="40" width="301" bold="true" right="28"/>
-                <e:Label id="pDouble" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="40" width="301" bold="true" right="28"/>
-                <e:Label id="pFourSeventeen" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="40" width="202" height="44" bold="true" right="28"/>
+                <e:Label id="pTripleAllMax" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="40" width="301" bold="true" right="28"/>
+                <e:Label id="pDoubleMax" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="40" width="301" bold="true" right="28"/>
+                <e:Label id="pFourSeventeenMax" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="40" width="202" height="44" bold="true" right="28"/>
                 <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
             </e:Group>
             <e:Group id="column5" x="2086" width="521.5" height="100%">
                 <e:Label id="fiveSixteenLabel" text="總數4 / 17" y="40" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pFiveSixteen" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
+                <e:Label id="pFiveSixteenMax" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
                 <e:Label id="sixFifthteenLabel" text="總數5 / 16" y="120" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pSixFifthTeen" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
+                <e:Label id="pSixFifthTeenMax" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
                 <e:Label id="sevenFourteenLabel" text="總數7 / 14" y="200" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pSevenFourTeen" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
+                <e:Label id="pSevenFourTeenMax" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
                 <e:Rect width="1" height="100%" fillColor="0xd8d8d8" fillAlpha="1" right="0"/>
             </e:Group>
             <e:Group id="column6" x="2607.5" width="521.5" height="100%">
                 <e:Label id="eightThirdteenLabel" text="總數8 / 13" y="40" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pEightThirdteen" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
-                <e:Label id="nineTenLabel" text="總數9 / 10,11 / 12" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pNineTen" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28"/>
-                <e:Label id="paiGowLabel" text="牌九式" y="200" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pPaiGow" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28"/>
+                <e:Label id="pEightThirdteenMax" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
+                <e:Label id="nineTenElevenTwelveLabel" text="總數9 / 10,11 / 12" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
+                <e:Label id="pNineTenElevenTwelveMax" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28"/>
+                <e:Label id="combineLabel" text="牌九式" y="200" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
+                <e:Label id="pCombineMax" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28"/>
             </e:Group>
             <e:Group id="column7" x="3129" width="521.5" height="100%">
                 <e:Label id="specificSingleLabel" text="指定單骰" y="40" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pSpecificSingle" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
+                <e:Label id="pSpecificSingleMax" text="-" y="40" textAlign="right" scaleX="1" scaleY="1" size="40" bold="true" width="202" right="28"/>
                 <e:Label id="specificDoubleLabel" text="指定雙骰" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pSpecificDouble" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28"/>
+                <e:Label id="pSpecificDoubleMax" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28"/>
                 <e:Label id="specificTripleLabel" text="指定三骰" y="200" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pSpecificTriple" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28"/>
+                <e:Label id="pSpecificTripleMax" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28"/>
             </e:Group>
         </e:Group>
     </e:Scroller>

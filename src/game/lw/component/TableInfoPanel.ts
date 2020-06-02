@@ -38,8 +38,8 @@ namespace we {
         this.westLabel.text = i18n.t('luckywheel.west');
         this.northLabel.text = i18n.t('luckywheel.north');
         this.whiteLabel.text = i18n.t('luckywheel.white');
-        this.centerLabel.text = i18n.t('luckywheel.center');
-        this.fatLabel.text = i18n.t('luckywheel.fat');
+        this.centerLabel.text = i18n.t('luckywheel.red');
+        this.fatLabel.text = i18n.t('luckywheel.green');
       }
 
       public setValue(tableInfo: data.TableInfo) {
