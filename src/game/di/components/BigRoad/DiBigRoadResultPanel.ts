@@ -102,6 +102,11 @@ namespace we {
 
         this.changeLang();
       }
+
+      protected destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
     }
   }
 }

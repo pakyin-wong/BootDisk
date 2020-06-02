@@ -63,6 +63,12 @@ namespace we {
       public setProgress(value: number) {
         this._bar.x = -this.width * (1 - value);
       }
+
+      // public destroy() {
+      //   super.destroy();
+      //   this.removeChild(this._bar);
+      //   console.log('RightPanelBar::destroy');
+      // }
     }
   }
 }
