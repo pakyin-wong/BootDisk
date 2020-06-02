@@ -78,6 +78,13 @@ namespace we {
         }
       }
 
+      public destroy() {
+        super.destroy();
+        if (this._display) {
+          this._display.dispose();
+        }
+      }
+
       public get buttonEnabled() {
         return this._enabled;
       }

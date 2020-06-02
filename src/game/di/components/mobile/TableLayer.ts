@@ -7,11 +7,21 @@ namespace we {
       protected _odd_percent: eui.Label;
       protected _even_percent: eui.Label;
       protected _big_percent: eui.Label;
-      protected _big_label: eui.Label;
-      protected _small_label: eui.Label;
-      protected _odd_label: eui.Label;
-      protected _even_label: eui.Label;
-      protected _specific_label: eui.Label;
+      // protected _big_label: eui.Label;
+      // protected _small_label: eui.Label;
+      // protected _odd_label: eui.Label;
+      // protected _even_label: eui.Label;
+      // protected _specific_label: eui.Label;
+
+      protected _small_label: ui.RunTimeLabel;
+      protected _odd_label: ui.RunTimeLabel;
+      protected _even_label: ui.RunTimeLabel;
+      protected _big_label: ui.RunTimeLabel;
+      protected _specific_label: ui.RunTimeLabel;
+
+      protected _single_label: ui.RunTimeLabel;
+      protected _double_label: ui.RunTimeLabel;
+      protected _triple_label: ui.RunTimeLabel;
 
       protected _groupHoverMappingLandscape;
       protected createMapping() {
@@ -121,9 +131,7 @@ namespace we {
             }
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 1 : 0;
-              egret.Tween.get(image)
-                .to({ alpha }, 125)
-                .call(resolve);
+              egret.Tween.get(image).to({ alpha }, 125).call(resolve);
             });
             tickFlashPromises.push(prom);
           }
@@ -134,11 +142,20 @@ namespace we {
         setTimeout(tick, 300);
       }
       public changeLang() {
-        this._big_label.text = i18n.t('dice.bigFull');
-        this._small_label.text = i18n.t('dice.smallFull');
-        this._odd_label.text = i18n.t('dice.oddFull');
-        this._even_label.text = i18n.t('dice.evenFull');
-        this._specific_label.text = i18n.t('dice.TableLayerMsg');
+        // this._big_label.text = i18n.t('dice.bigFull');
+        // this._small_label.text = i18n.t('dice.smallFull');
+        // this._odd_label.text = i18n.t('dice.oddFull');
+        // this._even_label.text = i18n.t('dice.evenFull');
+        // this._specific_label.text = i18n.t('dice.TableLayerMsg');
+
+        this._small_label.renderText = () => i18n.t('dice.small');
+        this._odd_label.renderText = () => i18n.t('dice.odd');
+        this._even_label.renderText = () => i18n.t('dice.even');
+        this._big_label.renderText = () => i18n.t('dice.big');
+        this._specific_label.renderText = () => i18n.t('dice.TableLayerMsg');
+        // this._single_label.renderText = () => i18n.t('dice.single');
+        // this._double_label.renderText = () => i18n.t('dice.double');
+        // this._triple_label.renderText = () => i18n.t('dice.triple');
       }
     }
   }
