@@ -23,7 +23,7 @@ lastrun=$(expr $now - $lastrun)
 
 echo $now > /tmp/egretlastrun.tmp
 
-if test $lastrun -gt 60; then
+# if test $lastrun -gt 60; then
     # greater than 30 seconds
     echo "[prelaunch] started linting (${lastrun}s)"
     # $0[0]=space=unstaged, $0[1]=character=staged (git added)
@@ -35,8 +35,8 @@ if test $lastrun -gt 60; then
     else
         sleep 1 && prettier --write $flist && sleep 0.5 && tslint -c tslint.json --fix $flist && sleep 0.5 && $bin $@
     fi
-else
-    # skip linting
-    echo "[prelaunch] skipped linting for this run (${lastrun}s)"
-    $bin $@
-fi
+# else
+#     # skip linting
+#     echo "[prelaunch] skipped linting for this run (${lastrun}s)"
+#     $bin $@
+# fi
