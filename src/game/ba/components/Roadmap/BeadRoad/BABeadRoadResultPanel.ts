@@ -19,6 +19,11 @@ namespace we {
         this._gameInfoLabel.visible = false;
       }
 
+      protected destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
+
       public changeLang() {
         if (this.winType === 1) {
           this._winLabel.text = i18n.t('winType.ba.BANKER');
@@ -32,11 +37,6 @@ namespace we {
         }
 
         this._gameNumLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameRoundID;
-      }
-
-      protected destroy() {
-        super.destroy();
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
       constructor() {

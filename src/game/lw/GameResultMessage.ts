@@ -51,31 +51,49 @@ namespace we {
         this._dbClass = 'roulette';
         this.removeChildren();
         const image = new eui.Image();
-        switch (resultData) {
-          case 0:
+        switch (resultData.value) {
+          case '01':
             image.source = this.eastSource;
             break;
-          case 1:
+          case '02':
             image.source = this.southSource;
             break;
-          case 2:
+          case '03':
             image.source = this.westSource;
             break;
-          case 3:
+          case '04':
             image.source = this.northSource;
             break;
-          case 4:
+          case '05':
             image.source = this.whiteSource;
             break;
-          case 5:
+          case '06':
             image.source = this.redSource;
             break;
-          case 6:
+          case '07':
           default:
             image.source = this.greenSource;
             break;
         }
         this.addChild(image);
+
+        if (resultData.totalWin) {
+          const banner = new eui.Image();
+          banner.source = image.source.replace('result', 'result_money_bg').replace('green', 'gold');
+          banner.y = 400;
+          banner.horizontalCenter = 0;
+          // banner.bottom = -40;
+          this.addChild(banner);
+
+          const lab = new eui.Label();
+          lab.text = utils.formatNumber(resultData.totalWin);
+          lab.size = 40;
+          lab.y = 420;
+          lab.horizontalCenter = 0;
+          // lab.horizontalCenter = 0;
+          // lab.bottom = -40;
+          this.addChild(lab);
+        }
       }
 
       public clearMessage() {

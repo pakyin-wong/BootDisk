@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.ChangeName" width="2424" height="992" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<w:Config id="17152535af4" />
+	<e:Group id="content" left="0" top="0" bottom="0" width="100%" height="1500">
+		<e:Rect left="0" top="0" bottom="-188" fillColor="0x14181e" width="100%" height="220" anchorOffsetY="0" />
+		<e:Image id="close" width="80" height="80" source="d-lobby-button-close-none_png" y="40" x="2321" />
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="114" y="50" width="577.58" height="119" verticalAlign="middle"
+		                 textColor="0xc59466" size="80" anchorOffsetX="0" />
+		<e:Group horizontalCenter="0" y="331">
+			<e:Group id="_btn_Cartoon" width="1146" height="120" x="1128" y="5" horizontalCenter="0">
+				<e:Rect fillColor="0x4b535b" fillAlpha="0.2" strokeWeight="3" strokeColor="0x4b535b" ellipseWidth="130"
+				        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" width="609" height="120" verticalCenter="0" />
+				<ui:RunTimeLabel id="_txt_Cartoon" text="Label" y="20.5" width="500" height="89" verticalAlign="middle"
+				                 textAlign="center" size="60" alpha="1" scaleX="1" scaleY="1" left="73" />
+			</e:Group>
+			<e:Group id="_btn_Myth" width="1146" height="120" x="1128" y="658" horizontalCenter="0">
+				<e:Rect fillColor="0x4b535b" fillAlpha="0.2" strokeWeight="3" strokeColor="0x4B535B" ellipseWidth="130"
+				        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+				<ui:RunTimeLabel id="_txt_Myth" text="Label" y="15.5" width="500" height="89" verticalAlign="middle"
+				                 textAlign="center" size="60" alpha="1" scaleX="1" scaleY="1" left="73" />
+			</e:Group>
+			<e:Group id="_btn_Movie" width="1146" height="120" x="1138" y="668" horizontalCenter="0">
+				<e:Rect fillColor="0x4b535b" fillAlpha="0.2" strokeWeight="3" strokeColor="0x4B535B" ellipseWidth="130"
+				        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+				<ui:RunTimeLabel id="_txt_Movie" text="Label" y="15.5" width="500" height="89" verticalAlign="middle"
+				                 textAlign="center" size="60" alpha="1" scaleX="1" scaleY="1" left="73" />
+			</e:Group>
+			<e:layout>
+				<e:VerticalLayout gap="38" />
+			</e:layout>
+		</e:Group>
+		<ui:Scroller height="756" left="0" right="0" y="266" width="100%" visible="false">
+			<e:Group height="1042" width="2424" visible="false">
+				<ui:Panel id="_ddm_currBgm" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
+				          scaleX="1" scaleY="1" height="756" locked="true" visible="false" />
+				<ui:Panel id="_ddm_currFx" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
+				          scaleX="1" scaleY="1" height="756" locked="true" visible="false" />
+				<ui:Panel id="_ddm_currLang" width="2424" x="0" y="0" skinName="skin_mobile_landscape.NavDropdown" maxHeight="200"
+				          scaleX="1" scaleY="1" anchorOffsetY="0" height="756" anchorOffsetX="0" locked="true" visible="false" />
+				<e:layout>
+					<e:VerticalLayout/>
+				</e:layout>
+			</e:Group>
+		</ui:Scroller>
+	</e:Group>
+	<e:Rect id="_mask" left="0" top="0" width="100%" height="100%" fillColor="0x14181e" fillAlpha="0.5" touchEnabled="true"
+	        visible="false" />
+</e:Skin>

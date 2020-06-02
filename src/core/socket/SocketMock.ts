@@ -8,8 +8,10 @@ namespace we {
       private currency: core.Currency[];
       private balance_index: number;
       private mockProcesses: MockProcess[] = [];
+      protected goodRoadTableList: string[];
 
       private _tempIdx: number = 0;
+      private countforplayerprofile = 0; // check getPlayerProfileSummary work
 
       protected betCombinations: we.data.BetCombination[];
 
@@ -54,6 +56,31 @@ namespace we {
             dir.errHandler.handleError({ code: Math.random() ? 9 : 1001 });
           }
         }, 5000);*/
+        this.goodRoadTableList = [];
+        setInterval(() => {
+          this.onGoodRoadMatch();
+        }, 6000);
+      }
+
+      public getBalance() {}
+
+      public getPlayerStatistic(filter: any, callback: (data: any) => void) {
+        const data = new we.data.PlayerStatistic();
+        const tempbet = 10100;
+        const tempwinloss = 2000;
+        data.bet = tempbet;
+        data.winloss = tempwinloss;
+        callback(data);
+      }
+
+      public getPlayerProfileSummary(callback: (data: any) => void) {
+        const data = new we.data.PlayerProfileSummary();
+        const tempMaxwin = 100100;
+        const tempwinningstreak = 10;
+        data.maxwin = tempMaxwin;
+        data.winningstreak = tempwinningstreak + this.countforplayerprofile;
+        this.countforplayerprofile += 1;
+        callback(data);
       }
 
       protected generateDummyStatistic(data) {
@@ -365,7 +392,23 @@ namespace we {
         env.currTime = Date.now();
         env.playerID = 'PID001';
         env.currency = Currency.RMB;
-        env.nickname = 'PGPG';
+        env.nickname = 'Jonathan';
+        env.nicknames = {
+          nickname_group1: ['海綿寶寶', '哆啦A夢 (小叮噹)', '蠟筆小新', '巴斯光年', '米奇老鼠 (米老鼠)'],
+          nickname_group2: ['天使', '獨角獸', '外星人', '鳳凰', '二重身'],
+          nickname_group3: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+        };
+        env.icons = [
+          'd_lobby_profile_pic_01_png',
+          'd_lobby_profile_pic_02_png',
+          'd_lobby_profile_pic_03_png',
+          'd_lobby_profile_pic_04_png',
+          'd_lobby_profile_pic_05_png',
+          'd_lobby_profile_pic_06_png',
+          'd_lobby_profile_pic_07_png',
+          'd_lobby_profile_pic_08_png',
+        ];
+        env.icon = 'd_lobby_profile_pic_01_png';
         env.profileImageURL = 'https://url';
         env.betLimits = [
           {
@@ -784,6 +827,12 @@ namespace we {
               cfmBetDetail.amount += betDetail.amount;
               env.balance -= betDetail.amount;
               dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+              if (data.gametype === core.GameType.BAC) {
+                const total = { tableid: tableID, amount: { [cfmBetDetail.field]: cfmBetDetail.amount }, count: { [cfmBetDetail.field]: 1000 } };
+                dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+              }
+
               break;
             }
           }
@@ -798,13 +847,67 @@ namespace we {
             });
             env.balance -= betDetail.amount;
             dir.evtHandler.dispatch(core.Event.BALANCE_UPDATE);
+
+            if (data.gametype === core.GameType.BAC) {
+              const total = { tableid: tableID, amount: { [betDetail.field]: betDetail.amount }, count: { [betDetail.field]: 1000 } };
+              dir.evtHandler.dispatch(core.Event.TABLE_BET_INFO_UPDATE, total);
+            }
           }
         }
+        data.data.previousstate = we.core.GameState.BET;
         this.dispatchInfoUpdateEvent(data);
         this.dispatchBetResultEvent();
         this.dispatchBetInfoUpdateEvent(data);
 
         // return promise.resolve with BetResult
+      }
+
+      private onGoodRoadMatch() {
+        // random get a ba table
+        const baTables = this.tables.filter(tableinfo => {
+          return tableinfo.gametype === core.GameType.BAC;
+        });
+        const idx = Math.floor(Math.random() * baTables.length);
+        const tableInfo = baTables[idx];
+        // update ba table good road match data
+
+        const goodRoadData: data.GoodRoadData = {
+          roadmapid: '1',
+          name: '好路',
+          custom: true,
+          tableid: tableInfo.tableid,
+          alreadyShown: false,
+        };
+
+        if (!tableInfo.goodRoad) {
+          this.goodRoadTableList.push(tableInfo.tableid);
+        }
+        tableInfo.goodRoad = goodRoadData;
+
+        // const data = {
+        //   tableid: tableInfo.tableid,
+        // };
+        // const notification: data.Notification = {
+        //   type: core.NotificationType.GoodRoad,
+        //   data,
+        // };
+        // dir.evtHandler.dispatch(core.Event.NOTIFICATION, notification);
+
+        // dispatch match event
+        dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
+        this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        // set timeout to reset the good road match data
+
+        // setTimeout(() => {
+        //   tableInfo.goodRoad = null;
+        //   const idx = this.goodRoadTableList.indexOf(tableInfo.tableid);
+        //   if (idx > -1) {
+        //     this.goodRoadTableList.splice(idx, 1);
+        //   }
+        //   // dispatch match event
+        //   dir.evtHandler.dispatch(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, [tableInfo]);
+        //   this.filterAndDispatch(this.goodRoadTableList, core.Event.MATCH_GOOD_ROAD_TABLE_LIST_UPDATE);
+        // }, 20000);
       }
 
       private onReceivedMsg(res) {
@@ -816,57 +919,86 @@ namespace we {
       }
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
+        const tempData = [];
+        for (let i = 0; i < 20; i++) {
+          tempData.push({
+            id: 'XXXXXXXXXX',
+            datetime: 1576242221, // timestamp
+            gametype: 1, // type of the Game, GameType
+            tablename: '132', // name of the table (i.e. table number)
+            roundid: '2132131',
+            replayurl: '1232131',
+            remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+            field: 'BANKER',
+            betAmount: 200,
+            winAmount: 400,
+            prevremaining: 1231232, // balance before bet
+            endremaining: 21321321, // balance after result
+            result: {
+              a1: 'spade1', // banker 1st card
+              a2: 'spade2',
+              a3: 'spade3',
+              b1: 'spade4', // player 1st card
+              b2: 'spade5',
+              b3: '',
+              playerpoint: 6,
+              bankerpoint: 7,
+            },
+          });
+        }
         callback.call(thisArg, {
-          history: [
-            {
-              id: 'XXXXXXXXXX',
-              datetime: 1576242221, // timestamp
-              gametype: 1, // type of the Game, GameType
-              tablename: '132', // name of the table (i.e. table number)
-              roundid: '2132131',
-              replayurl: '1232131',
-              remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
-              field: 'BANKER',
-              betAmount: 200,
-              winAmount: 400,
-              prevremaining: 1231232, // balance before bet
-              endremaining: 21321321, // balance after result
-              result: {
-                a1: 'spade1', // banker 1st card
-                a2: 'spade2',
-                a3: 'spade3',
-                b1: 'spade4', // player 1st card
-                b2: 'spade5',
-                b3: '',
-                playerpoint: 6,
-                bankerpoint: 7,
-              },
-            },
-            {
-              id: 'XXXXXXXXXX',
-              datetime: 1576242221, // timestamp
-              gametype: 0, // type of the Game, GameType
-              tablename: '132', // name of the table (i.e. table number)
-              roundid: '2132131',
-              replayurl: '1232131',
-              remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
-              field: 'BANKER',
-              betAmount: 200,
-              winAmount: 400,
-              prevremaining: 1231232, // balance before bet
-              endremaining: 21321321, // balance after result
-              result: {
-                a1: 'heart2', // banker 1st card
-                a2: 'heartk',
-                a3: '',
-                b1: 'diamonda', // player 1st card
-                b2: 'diamondj',
-                b3: 'spade2',
-                playerpoint: 3,
-                bankerpoint: 1,
-              },
-            },
-          ],
+          // history: [
+          //   {
+          //     id: 'XXXXXXXXXX',
+          //     datetime: 1576242221, // timestamp
+          //     gametype: 1, // type of the Game, GameType
+          //     tablename: '132', // name of the table (i.e. table number)
+          //     roundid: '2132131',
+          //     replayurl: '1232131',
+          //     remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          //     field: 'BANKER',
+          //     betAmount: 200,
+          //     winAmount: 400,
+          //     prevremaining: 1231232, // balance before bet
+          //     endremaining: 21321321, // balance after result
+          //     result: {
+          //       a1: 'spade1', // banker 1st card
+          //       a2: 'spade2',
+          //       a3: 'spade3',
+          //       b1: 'spade4', // player 1st card
+          //       b2: 'spade5',
+          //       b3: '',
+          //       playerpoint: 6,
+          //       bankerpoint: 7,
+          //     },
+          //   },
+          //   {
+          //     id: 'XXXXXXXXXX',
+          //     datetime: 1576242221, // timestamp
+          //     gametype: 0, // type of the Game, GameType
+          //     tablename: '132', // name of the table (i.e. table number)
+          //     roundid: '2132131',
+          //     replayurl: '1232131',
+          //     remark: 0, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          //     field: 'BANKER',
+          //     betAmount: 200,
+          //     winAmount: 400,
+          //     prevremaining: 1231232, // balance before bet
+          //     endremaining: 21321321, // balance after result
+          //     result: {
+          //       a1: 'heart2', // banker 1st card
+          //       a2: 'heartk',
+          //       a3: '',
+          //       b1: 'diamonda', // player 1st card
+          //       b2: 'diamondj',
+          //       b3: 'spade2',
+          //       playerpoint: 3,
+          //       bankerpoint: 1,
+          //     },
+          //   },
+          // ],
+          total: 20,
+          history: tempData,
         });
       }
       public createCustomBetCombination(title: string, betOptions: we.data.BetValueOption[]) {
@@ -879,6 +1011,9 @@ namespace we {
         this.betCombinations.push(betCombination);
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
+
+      public sendVerifyInfo(id: string, pattern: string[]) {}
+
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }

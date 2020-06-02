@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class RunTimeLabel extends eui.Label implements ui.IRunTimeComponent {
+    export class RunTimeLabel extends ui.Label implements ui.IRunTimeComponent {
       private _renderer: () => string;
       private _isReg: boolean = false;
 

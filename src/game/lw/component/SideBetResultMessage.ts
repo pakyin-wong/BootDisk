@@ -3,7 +3,8 @@ namespace we {
     export class SideBetResultMessage extends core.BaseEUI implements we.ui.IGameResultMessage {
       protected _resultGroup: eui.Group;
       protected _winAmountGroup: eui.Group;
-      protected _imgResult: eui.Image;
+      protected _resultImage: eui.Image;
+      protected _resultBackground: eui.Image;
       protected _lblWinAmount: eui.Label;
       protected _isAnimating: boolean;
 
@@ -17,20 +18,40 @@ namespace we {
 
       protected getResultImage(value) {
         switch (value) {
-          case '01':
+          case 1:
             return 'd_lw_listpenal_result_east_png';
-          case '02':
+          case 2:
             return 'd_lw_listpenal_result_south_png';
-          case '03':
+          case 3:
             return 'd_lw_listpenal_result_west_png';
-          case '04':
+          case 4:
             return 'd_lw_listpenal_result_north_png';
-          case '05':
+          case 5:
             return 'd_lw_listpenal_result_red_png';
-          case '06':
+          case 6:
             return 'd_lw_listpenal_result_green_png';
-          case '07':
+          case 7:
             return 'd_lw_listpenal_result_white_png';
+        }
+        return null;
+      }
+
+      protected getBannerImage(value) {
+        switch (value) {
+          case 1:
+            return 'd_lw_listpenal_result_money_bg_east_png';
+          case 2:
+            return 'd_lw_listpenal_result_money_bg_south_png';
+          case 3:
+            return 'd_lw_listpenal_result_money_bg_west_png';
+          case 4:
+            return 'd_lw_listpenal_result_money_bg_north_png';
+          case 5:
+            return 'd_lw_listpenal_result_money_bg_red_png';
+          case 6:
+            return 'd_lw_listpenal_result_money_bg_gold_png';
+          case 7:
+            return 'd_lw_listpenal_result_money_bg_white_png';
         }
         return null;
       }
@@ -41,7 +62,8 @@ namespace we {
         this.visible = true;
         this._resultGroup.visible = true;
         this._winAmountGroup.visible = false;
-        this._imgResult.source = this.getResultImage(gameData.value);
+        this._resultImage.source = this.getResultImage(gameData.value);
+        this._resultBackground.source = this.getBannerImage(gameData.value);
 
         if (!isNaN(winAmount)) {
           this._lblWinAmount.text = utils.formatNumber(winAmount, true);

@@ -7,9 +7,10 @@ namespace we {
           const _toggler = opt.toggler;
 
           _toggler['mDropdownItem'] = opt;
+          _toggler['mDropdownLock'] = false;
 
           const toggleCallback = function () {
-            dir.evtHandler.createDropDown(this['mDropdownItem']);
+            !this['mDropdownLock'] && dir.evtHandler.createDropDown(this['mDropdownItem']);
           };
           _toggler.addEventListener(egret.TouchEvent.TOUCH_TAP, toggleCallback, _toggler);
 
@@ -35,6 +36,14 @@ namespace we {
             }
           }
         }
+      }
+
+      public static lock(toggler: egret.DisplayObject) {
+        toggler['mDropdownLock'] = true;
+      }
+
+      public static unlock(toggler: egret.DisplayObject) {
+        toggler['mDropdownLock'] = false;
       }
     }
   }

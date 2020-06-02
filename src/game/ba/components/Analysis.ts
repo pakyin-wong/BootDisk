@@ -21,10 +21,29 @@ namespace we {
       protected _remainingPercentage;
       protected _normalChart: ui.SimpleChart;
       protected _pairChart: ui.SimpleChart;
+
+      protected _shoePlayerCount;
+      protected _shoeBankerCount;
+      protected _shoeTieCount;
+      protected _shoePlayerPairCount;
+      protected _shoeBankerPairCount;
+      protected _shoeRemainingCount;
+      protected _shoeNormalTotal;
+      protected _shoePairTotal;
+      protected _shoePlayerPercentage;
+      protected _shoeBankerPercentage;
+      protected _shoeTiePercentage;
+      protected _shoePlayerPairPercentage;
+      protected _shoeBankerPairPercentage;
+      protected _shoeRemainingPercentage;
+      protected _shoeNormalChart: ui.SimpleChart;
+      protected _shoePairChart: ui.SimpleChart;
+
       protected _iconBankerBead: BABeadRoadIcon;
       protected _iconPlayerBead: BABeadRoadIcon;
       protected _bankerBeadGroup: eui.Group;
       protected _playerBeadGroup: eui.Group;
+      protected _analysisGroup: eui.Group;
       public advancedRoad: we.ui.IAdvancedRoad;
 
       public iconBankerBigEye: BABigEyeRoadIcon;
@@ -66,6 +85,7 @@ namespace we {
       protected mount() {
         this._bankerBeadGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askBankerRoad, this);
         this._playerBeadGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.askPlayerRoad, this);
+        this._analysisGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.stopProg, this);
 
         this._bankerAskLabel.renderText = () => i18n.t('baccarat.askBanker');
         this._playerAskLabel.renderText = () => i18n.t('baccarat.askPlayer');
@@ -114,6 +134,7 @@ namespace we {
         this._playerBeadGroup.addChild(this.iconPlayerSmall);
         this._playerBeadGroup.addChild(this.iconPlayerCockroach);
 
+        mouse.setButtonMode(this._analysisGroup, true);
         mouse.setButtonMode(this._bankerBeadGroup, true);
         mouse.setButtonMode(this._playerBeadGroup, true);
       }
@@ -134,6 +155,10 @@ namespace we {
             (<we.ba.AdvancedRoad> this.advancedRoad).askPlayerRoad();
           }
         }
+      }
+
+      public stopProg(evt: egret.Event) {
+        evt.stopPropagation();
       }
 
       public set tableId(value: string) {
@@ -192,7 +217,53 @@ namespace we {
           this._pairChart.redAngle = (bankerPairCount / totalCount) * 360;
           this._pairChart.blueAngle = (playerPairCount / totalCount) * 360;
           this._pairChart.drawChart();
+
+          this.updateShoe();
         }
+      }
+
+      private updateShoe() {
+        const bankerCount = env.tableInfos[this._tableId].gamestatistic.shoeBankerCount;
+        const playerCount = env.tableInfos[this._tableId].gamestatistic.shoePlayerCount;
+        const tieCount = env.tableInfos[this._tableId].gamestatistic.shoeTieCount;
+        const totalCount = env.tableInfos[this._tableId].gamestatistic.shoeTotalCount;
+        const bankerPairCount = env.tableInfos[this._tableId].gamestatistic.shoeBankerPairCount;
+        const playerPairCount = env.tableInfos[this._tableId].gamestatistic.shoePlayerPairCount;
+        const remainingCount = totalCount - bankerPairCount - playerPairCount;
+
+        this._shoeBankerCount.text = bankerCount;
+        this._shoePlayerCount.text = playerCount;
+        this._shoeTieCount.text = tieCount;
+        this._shoeNormalTotal.text = totalCount;
+        this._shoeBankerPairCount.text = bankerPairCount;
+        this._shoePlayerPairCount.text = playerPairCount;
+        this._shoeRemainingCount.text = remainingCount;
+        this._shoePairTotal.text = totalCount;
+
+        const bankerPercentage = bankerCount / totalCount;
+        const playerPercentage = playerCount / totalCount;
+        const tiePercentage = tieCount / totalCount;
+
+        this._shoeBankerPercentage.text = Math.round(bankerPercentage * 100);
+        this._shoePlayerPercentage.text = Math.round(playerPercentage * 100);
+        this._shoeTiePercentage.text = Math.round(tiePercentage * 100);
+
+        // console.log('normalChart', bankerPercentage, playerPercentage);
+        this._shoeNormalChart.redAngle = bankerPercentage * 360;
+        this._shoeNormalChart.blueAngle = playerPercentage * 360;
+        this._shoeNormalChart.drawChart();
+
+        const bankerPairPercentage = bankerPairCount / totalCount;
+        const playerPairPercentage = playerPairCount / totalCount;
+        const remainingPercentage = remainingCount / totalCount;
+
+        this._shoeBankerPairPercentage.text = Math.round(bankerPercentage * 100);
+        this._shoePlayerPairPercentage.text = Math.round(playerPercentage * 100);
+        this._shoeRemainingPercentage.text = Math.round(remainingPercentage * 100);
+
+        this._shoePairChart.redAngle = (bankerPairCount / totalCount) * 360;
+        this._shoePairChart.blueAngle = (playerPairCount / totalCount) * 360;
+        this._shoePairChart.drawChart();
       }
     }
   }

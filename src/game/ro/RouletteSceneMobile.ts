@@ -15,6 +15,7 @@ namespace we {
       protected _settingTransition: eui.Group;
       protected _settingTween: ui.TweenConfig;
       protected _hotcoldPanel: MobileHotColdPanel;
+      protected _betCombination: MobileBetCombination;
 
       protected _betArea: eui.Scroller;
       protected _betAreaTween: ui.TweenConfig;
@@ -57,11 +58,17 @@ namespace we {
         this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
         this._raceTrackChipLayer.chipLayer = this._chipLayer;
         this.refreshBetMode();
+
+        this._betCombination.chipLayer = this._chipLayer;
       }
 
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
+        if (this._bottomGamePanel._tableInfoPanel) {
+          this._bottomGamePanel._tableInfoPanel.setToggler(this._lblRoomInfo);
+          this._bottomGamePanel._tableInfoPanel.setValue(this._tableInfo);
+        }
         this._roadmapControl.setTableInfo(this._tableInfo);
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
@@ -82,6 +89,8 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
 
+        utils.addButtonListener(this._settingPanel.btnCombination, this.onToggleBtnCombination, this);
+        this._betCombination.addEventListener('close', this.hideBetCombination, this);
         this._bottomGamePanel.addEventListener('TOGGLE', this.onBottomToggle, this);
         this._settingPanel.addEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
@@ -90,6 +99,8 @@ namespace we {
       protected removeEventListeners() {
         super.removeEventListeners();
 
+        utils.removeButtonListener(this._settingPanel.btnCombination, this.onToggleBtnCombination, this);
+        this._betCombination.removeEventListener('close', this.hideBetCombination, this);
         this._bottomGamePanel.removeEventListener('TOGGLE', this.onBottomToggle, this);
         this._settingPanel.removeEventListener('RACE_BTN_CLICKED', this.toggleBetMode, this);
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
@@ -293,6 +304,20 @@ namespace we {
         egret.Tween.get(this._settingTransition).to(this._settingTween.getTweenPackage(), 250);
       }
 
+      protected onToggleBtnCombination() {
+        if (this._betCombination.isActivated) {
+          this.hideBetCombination();
+        } else if (!this._betAreaLock) {
+          this._betCombination.show();
+          this._settingPanel.combonationActived = true;
+        }
+      }
+
+      protected hideBetCombination() {
+        this._betCombination.hide();
+        this._settingPanel.combonationActived = false;
+      }
+
       protected set raceState(s) {
         this._raceTrackControl.visible = s !== 'small' && this._mode === 'race';
         this._raceTrackControl.currentState = s;
@@ -380,6 +405,7 @@ namespace we {
         this._betAreaLock = true;
         this._bottomGamePanel.manualClose();
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
+        this.hideBetCombination();
         this.roState = 'small';
       }
 

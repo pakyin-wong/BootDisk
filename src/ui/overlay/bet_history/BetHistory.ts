@@ -32,8 +32,8 @@ namespace we {
       protected _ddm_page: ui.Panel;
       protected _txt_page: ui.RunTimeLabel;
 
-      protected _btn_prev: ui.BaseImageButton;
-      protected _btn_next: ui.BaseImageButton;
+      protected _btn_prev: ui.BaseAnimationButton;
+      protected _btn_next: ui.BaseAnimationButton;
 
       protected _datagroup: eui.DataGroup;
       protected _dataColl: eui.ArrayCollection;
@@ -98,6 +98,7 @@ namespace we {
         }
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = betHistory.BetHistoryItem;
+        this._tf_search.prompt = '';
         mouse.setButtonMode(this._tf_search, true);
         this.updatePlaceHolder();
         this.addListeners();

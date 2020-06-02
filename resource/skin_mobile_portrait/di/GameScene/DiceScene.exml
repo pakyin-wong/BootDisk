@@ -64,7 +64,7 @@
 	         top.left_hand_mode="270">
 		<e:Rect width="100%" height="100%" x="0" y="0" strokeColor="0x444444" fillColor="0x444444" ellipseHeight="0"
 		        ellipseWidth="104" strokeAlpha="0.1" fillAlpha="0.8" />
-		<e:Image id="_bavideo" width="104" height="104" source="m_ba_btn_video_png" scaleX="1" scaleY="1" horizontalCenter="0"
+		<e:Image id="_videoBtn" width="104" height="104" source="m_ba_btn_video_png" scaleX="1" scaleY="1" horizontalCenter="0"
 		         verticalCenter="0" />
 	</e:Group>
 	<e:Group width="104" height="104" right.left_hand_mode="18" left.right_hand_mode="18" top.right_hand_mode="400"
@@ -91,7 +91,7 @@
 						<di:MobileTableLayer id="_tableLayer" width="100%" height="100%"
 						                     skinName="skin_mobile_portrait.di.MobileTableLayerSkin" isEdgeDismissable="true" />
 					</e:Group>
-					<di:MobileChipLayer id="_chipLayer" width="100%" height="100%" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" isEdgeDismissable="true" scaleX="1" scaleY="1"/>
+					<di:MobileChipLayer id="_chipLayer" skinName="skin_mobile_portrait.di.MobileChipLayerSkin" isEdgeDismissable="true" scaleX="1" scaleY="1" left="0" right="0" horizontalCenter="0" top="0"/>
 				</e:Group>
 			</e:Group>
 		</e:Group>

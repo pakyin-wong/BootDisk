@@ -60,6 +60,17 @@ npm install -g tslint prettier typescript
 npm install -g tslint prettier typescript
 ```
 
+### SpriteSheet 
+Image assets are packed into spritesheet before load by the game client. To add, remove, or update images. Please follow the steps.
+1. raw image assets are stored at /resource_separate/assets, while /resource_separate/asset_old are the previous structure of the assets
+2. images can be added, removed, or updated in /resource_separate/assets
+3. open the corresponding Texture Merger project based on the modified images
+4. drag the new image to the texture merger project and save the project
+5. export the spritesheet to the corresponding folder in /resource_separate/assets_spritesheet
+6. use tinypng/ optimizilla to compress the exported Images
+7. drag the updated json and png to the corresponding folder in /resource/assets
+8. inside the desktop.res.json/ mobile.res.json, locate the spritesheet, right click and select "Refresh Sheet"
+
 ## Testing Site
 1. [Development](https://dev-web-game-fe.wehosts247.com/)
 
@@ -118,6 +129,12 @@ npm install -g tslint prettier typescript
 
 
 ## Asset Link from Design Team (Copied from whatsapp group)
+
+- [Lucky Wheel 結果通知 Asset](https://drive.google.com/open?id=1C-jERs8Ixsdw3E2gKbYCROna_SuEa5n7)
+- [Lucky Wheel 結果通知 Asset mobile](https://drive.google.com/open?id=1IO_lTsvor9o_dSryBiRPuYKLPn28drGu)
+
+- [Squeeze Baccarat Desktop](https://drive.google.com/open?id=1AY6lAwunBfeqW4Rrg-gEPtgtv4m_q7Xb)
+- [Squeeze Baccarat Mobile](https://drive.google.com/open?id=1vccNZi4X2dp3TfgodQukk3KOSaPm6JAq)
 
 - [Asset root directory](https://drive.google.com/drive/folders/1_sZjq7i8acgw9bF33yMfOV3lCJrG6LqT)
 
