@@ -1,6 +1,6 @@
 namespace we {
   export namespace bam {
-    export class FlipCardHolder extends core.BaseEUI implements ui.IResultDisplay {
+    export class MobileFlipCardHolder extends core.BaseEUI implements ui.IResultDisplay {
       protected gameData: we.bam.GameData;
       protected _chipLayer: ui.ChipLayer;
       protected _prevState: core.GameState;
@@ -303,22 +303,26 @@ namespace we {
           this._playerCard1.touchEnabled = true;
           this._playerCard2.touchEnabled = true;
           this._playerCard3.touchEnabled = true;
+          this._openAllPlayer.touchEnabled = true;
         } else {
           this._disabledPlayerRect.visible = true;
           this._playerCard1.touchEnabled = false;
           this._playerCard2.touchEnabled = false;
           this._playerCard3.touchEnabled = false;
+          this._openAllPlayer.touchEnabled = false;
         }
         if (this.isBankerFlipAllowed()) {
           this._disabledBankerRect.visible = false;
           this._bankerCard1.touchEnabled = true;
           this._bankerCard2.touchEnabled = true;
           this._bankerCard3.touchEnabled = true;
+          this._openAllBanker.touchEnabled = true;
         } else {
           this._disabledBankerRect.visible = true;
           this._bankerCard1.touchEnabled = false;
           this._bankerCard2.touchEnabled = false;
           this._bankerCard3.touchEnabled = false;
+          this._openAllBanker.touchEnabled = false;
         }
       }
 
