@@ -36,7 +36,7 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkinByClassname('bam.FlipCardHolderSkin');
+        this.skinName = utils.getSkinByClassname('bam.CardHolderSkin');
       }
 
       protected childrenCreated() {

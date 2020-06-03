@@ -20,20 +20,24 @@ namespace we {
       }
 
       protected initRenderText() {
-        if (this._textKey) {
+        if (this._renderer) {
+          i18n.register(this);
+          this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
+        } else if (this._textKey) {
           this.renderText = () => i18n.t(this._textKey);
         }
       }
 
       protected destroy() {
-        i18n.drop(this);
-        this._isReg = false;
+        if (this._isReg) {
+          i18n.drop(this);
+          this._isReg = false;
+        }
         this.once(eui.UIEvent.ADDED_TO_STAGE, this.initRenderText, this);
       }
 
       public set i18n(value: string) {
-        this._renderer = () => i18n.t(value);
-        this.render();
+        this.renderText = () => i18n.t(value);
       }
 
       public get i18n() {
@@ -42,8 +46,9 @@ namespace we {
 
       public set renderText(renderer: () => string) {
         this._renderer = renderer;
-        if (!this._isReg) {
+        if (!this._isReg && this.$hasAddToStage) {
           i18n.register(this);
+          this._isReg = true;
           this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
         }
         this.render();
