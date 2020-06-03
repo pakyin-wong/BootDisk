@@ -21,6 +21,11 @@ namespace we {
       protected chartBtn: eui.RadioButton;
       protected tableInfoBtn: eui.RadioButton;
 
+      protected _roadmapGroup: eui.Group;
+      protected _chartGroup: eui.Group;
+      protected _infoGroup: eui.Group;
+      protected _historyGroup: eui.Group;
+
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'ro.MobileBottomGamePanel');
       }
@@ -50,7 +55,12 @@ namespace we {
 
       public destroy() {
         super.destroy();
-
+        if (this._roadmapGroup) {
+          this._roadmapGroup.removeChildren();
+        }
+        if (this._historyGroup) {
+          this._historyGroup.removeChildren();
+        }
         this.beadRoad.dispose();
 
         this.removeListeners();
