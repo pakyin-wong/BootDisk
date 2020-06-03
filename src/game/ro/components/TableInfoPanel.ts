@@ -32,7 +32,7 @@ namespace we {
       protected cornerLabel: eui.Label;
       // <<<<<<< HEAD
       protected lineLabel: eui.Label;
-      protected rowbetLabel: eui.Label;
+      protected rowLabel: eui.Label;
       protected columnbetLabel: eui.Label;
       protected colorLabel: eui.Label;
       protected oddevenLabel: eui.Label;
@@ -224,15 +224,19 @@ namespace we {
       //   this.sizeLabel.text = i18n.t('roulette.betGroup.size');
       // }
       // =======
-      // public changeLang() {
-      //   super.changeLang();
-      // this.directNoteLabel.text = i18n.t('roulette.XXX');
-      // this.separateLabel.text = i18n.t('roulette.XXX');
-      // this.streetLabel.text = i18n.t('roulette.XXX');
-      // this.cornerLabel.text = i18n.t('roulette.XXX');
-      // this.lineBetLabel.text = i18n.t('roulette.XXX');
-      // this.betLimitLabel.text = i18n.t('rouletteXXX');
-      // }
+      public changeLang() {
+        super.changeLang();
+        this.directLabel.text = i18n.t('roulette.betGroup.direct');
+        this.separateLabel.text = i18n.t('roulette.betGroup.separate');
+        this.streetLabel.text = i18n.t('roulette.betGroup.street');
+        this.cornerLabel.text = i18n.t('roulette.betGroup.corner');
+        this.lineLabel.text = i18n.t('roulette.betGroup.line');
+        this.rowLabel.text = i18n.t('roulette.betGroup.row');
+        this.columnbetLabel.text = i18n.t('roulette.betGroup.column');
+        this.colorLabel.text = i18n.t('roulette.betGroup.color');
+        this.oddevenLabel.text = i18n.t('roulette.betGroup.oddeven');
+        this.sizeLabel.text = i18n.t('roulette.betGroup.size');
+      }
       // >>>>>>> develop
 
       public setValue(tableInfo: data.TableInfo) {
@@ -264,7 +268,13 @@ namespace we {
             { target: this.pBigSmallOdd, value: limits.BIG_SMALL.odd },
           ];
           for (const { target, value } of list) {
-            target.text = value.toString();
+            if (target) {
+              if (value) {
+                target.text = value.toString();
+              } else {
+                target.text = '-';
+              }
+            }
           }
         }
       }

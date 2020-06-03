@@ -56,9 +56,9 @@ namespace we {
         this.gameIdLabel.text = i18n.t('mobile_table_info_gameID');
         this.dealerLabel.text = i18n.t('tableInfo.dealer');
         this.betLimitLabel.text = i18n.t('tableInfo.betLimit');
+        this.tableBetLimitLabel.text = i18n.t('tableInfo.tableBetLimit');
 
         if (!env.isMobile) {
-          this.tableBetLimitLabel.text = i18n.t('tableInfo.tableBetLimit');
           this.lblBet.text = i18n.t('tableInfo.bet');
           this.lblMax.text = i18n.t('tableInfo.max');
           this.lblOdds.text = i18n.t('tableInfo.odds');
@@ -73,7 +73,7 @@ namespace we {
         this.pDealer.text = tableInfo.dealername ? tableInfo.dealername : '-';
 
         const betLimitSet = env.betLimits[env.currentSelectedBetLimitIndex];
-        if (this.pTableBetLimit) this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
+        this.pTableBetLimit.text = utils.numberToFaceValue(betLimitSet.maxlimit);
         this.pBetLimit.text = `${utils.numberToFaceValue(betLimitSet.chips[0])} -  ${utils.numberToFaceValue(betLimitSet.chips[betLimitSet.chips.length - 1])}`;
 
         const config = this.getConfig();

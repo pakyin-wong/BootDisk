@@ -352,6 +352,11 @@ namespace we {
           size: '大 / 小',
           column: '下注一打',
           row: '行注',
+          direct: '直接注',
+          separate: '分注',
+          street: '街注/三數',
+          corner: '角注/四個號碼',
+          line: '線注',
         },
       },
       goodroad: {

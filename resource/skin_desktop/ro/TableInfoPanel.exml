@@ -50,11 +50,11 @@
 		<e:Label id="pLineOdd" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pRowMax" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pRowOdd" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pDozenMax" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pDozenMax" text="-" y="522" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pDozenOdd" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pRedBlackMax" text="-" y="558" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pRedBlackOdd" text="-" y="558" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pOddEvenMax" text="-" y="592" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pOddEvenMax" text="-" y="591" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pOddEvenOdd" text="-" y="592" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pBigSmallMax" text="-" y="626" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pBigSmallOdd" text="-" y="626" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>

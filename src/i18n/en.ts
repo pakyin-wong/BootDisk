@@ -352,6 +352,11 @@ namespace we {
           size: 'Big / Small',
           column: 'Column',
           row: 'Row',
+          direct: 'Direct',
+          separate: 'Separate',
+          street: 'Street',
+          corner: 'Corner',
+          line: 'Line',
         },
       },
       goodroad: {
