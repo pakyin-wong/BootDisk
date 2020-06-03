@@ -7,6 +7,29 @@
 namespace we {
   export namespace ba {
     export class MobileScene extends core.MobileBaseGameScene {
+      constructor(data: any) {
+        super(data);
+      }
+
+      public onEnter() {}
+
+      public onExit() {}
+
+      protected mount() {
+        this.skinName = utils.getSkinByClassname('BaccaratScene');
+        mouse.setButtonMode(this._btnBack, true);
+        this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+      }
+
+      protected initComponents() {}
+
+      protected destroy() {}
+
+      public backToLobby() {
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+      }
+
+      /*
       protected _roadmapControl: BARoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
@@ -359,6 +382,7 @@ namespace we {
           this.setChipPanelPos();
         }
       }
+      */
     }
   }
 }

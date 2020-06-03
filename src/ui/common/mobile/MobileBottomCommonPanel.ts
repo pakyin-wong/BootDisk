@@ -29,7 +29,7 @@ namespace we {
       }
 
       public set gameScene(value: core.MobileBaseGameScene) {
-        this._gameScene = value;
+        // this._gameScene = value;
       }
 
       protected mount() {
@@ -56,13 +56,13 @@ namespace we {
       protected addListeners() {
         this._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         this._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+        // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
       }
 
       protected removeListeners() {
         this._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         this._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+        // dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
       }
 
       public updateText() {
@@ -83,6 +83,7 @@ namespace we {
       }
 
       protected onPanelToggle(firstTime?: boolean) {
+        /*
         this.currentState = this.isPanelOpen ? 'off' : 'on';
         egret.Tween.removeTweens(this._middlePart);
         // egret.Tween.removeTweens(this.viewStack);
@@ -117,6 +118,7 @@ namespace we {
           // }
         }
         this.dispatchEvent(new egret.Event('TOGGLE'));
+        */
       }
 
       // protected onPanelToggle() {
@@ -136,8 +138,10 @@ namespace we {
       // }
 
       protected onViewChange(e: eui.UIEvent) {
+        /*
         const radio: eui.RadioButton = e.target;
         this.viewStack.selectedIndex = radio.value;
+        */
       }
 
       public update() {
