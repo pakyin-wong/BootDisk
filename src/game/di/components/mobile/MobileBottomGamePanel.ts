@@ -20,6 +20,10 @@ namespace we {
 
       protected historyAndRoadSheetBtn: eui.RadioButton;
 
+      protected _roadmapGroup: eui.Group;
+      protected _chartGroup: eui.Group;
+      protected _infoGroup: eui.Group;
+
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'di.MobileBottomGamePanel');
       }
@@ -33,7 +37,9 @@ namespace we {
 
       public destroy() {
         super.destroy();
-
+        this._roadmapGroup.removeChildren();
+        // this._chartGroup.removeChildren();
+        // this._infoGroup.removeChildren();
         this.removeListeners();
       }
 
