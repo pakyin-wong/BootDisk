@@ -1229,11 +1229,19 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
-	class SqueezeBaccaratScene extends eui.Skin{
+	class SqueezeBaccaratScenes extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.bam{
 	class CardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bam{
+	class MobileCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class SqueezeBaccaratScene extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

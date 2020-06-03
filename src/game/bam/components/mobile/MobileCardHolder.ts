@@ -17,30 +17,59 @@ namespace we {
       protected _openAllBanker: eui.Image;
       protected _openAllPlayer: eui.Image;
 
-      protected _cardHolderArr: ba.FlipCard[];
-      protected _cardArr;
-      
+      protected _mobileFlipCard: MobileFlipCardHolder;
+
       constructor() {
         super();
       }
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkinByClassname('bam.CardHolderSkin');
+        this.skinName = utils.getSkinByClassname('bam.MobileCardHolderSkin');
       }
 
       protected childrenCreated() {
         super.childrenCreated();
         this.reset();
 
+        this.addEventListeners();
+      }
+
+      protected addEventListeners() {
         this._openAllBanker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAllBanker, this);
         this._openAllPlayer.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openAllPlayer, this);
+
+        this.card1Player.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+        this.card2Player.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+        this.card3Player.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+
+        this.card1Banker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+        this.card2Banker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+        this.card3Banker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+      }
+
+      protected removeEventListeners() {
+        this._openAllBanker.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openAllBanker, this);
+        this._openAllPlayer.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openAllPlayer, this);
+
+        this.card1Player.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+        this.card2Player.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+        this.card3Player.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+
+        this.card1Banker.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+        this.card2Banker.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+        this.card3Banker.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
+      }
+
+      protected openFlipCard(evt: egret.Event){
+        this._mobileFlipCard._flipCard.visible = true;
+        
       }
 
       public updateResult(gameData: data.GameData) {
         // TODO: update card using the gameData
 
-        this.gameData = <bam.GameData> gameData;
+        this.gameData = <bam.GameData>gameData;
         const cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
         const cardHolderArr = [this.card1Banker, this.card2Banker, this.card3Banker, this.card1Player, this.card2Player, this.card3Player];
 
@@ -133,7 +162,6 @@ namespace we {
         //     break;
         // }
       }
-
 
       public reset() {
         this.card1Player.setCard('back', true);
