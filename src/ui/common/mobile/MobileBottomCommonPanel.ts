@@ -20,16 +20,12 @@ namespace we {
 
       protected _gameScene: core.MobileBaseGameScene;
 
-      // protected _roadmapGroup: eui.Group;
-      // protected _chartGroup: eui.Group;
-      // protected _infoGroup: eui.Group;
-
       public constructor(skin?: string) {
         super();
       }
 
       public set gameScene(value: core.MobileBaseGameScene) {
-        // this._gameScene = value;
+        this._gameScene = value;
       }
 
       protected mount() {
@@ -43,26 +39,19 @@ namespace we {
 
       public destroy() {
         super.destroy();
-        // this._roadmapGroup.removeChildren();
-        // const test1 = this.viewStack.getChildAt(0) as eui.Group;
-        // test1.removeChildren();
-        // const test2 = this.viewStack.getChildAt(1) as eui.Group;
-        // test2.removeChildren();
-        // const test3 = this.viewStack.getChildAt(2) as eui.Group;
-        // test3.removeChildren();
         this.removeListeners();
       }
 
       protected addListeners() {
         this._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         this._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
-        // dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
       }
 
       protected removeListeners() {
         this._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         this._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
-        // dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.updateText, this);
       }
 
       public updateText() {
@@ -83,7 +72,6 @@ namespace we {
       }
 
       protected onPanelToggle(firstTime?: boolean) {
-        /*
         this.currentState = this.isPanelOpen ? 'off' : 'on';
         egret.Tween.removeTweens(this._middlePart);
         // egret.Tween.removeTweens(this.viewStack);
@@ -118,7 +106,6 @@ namespace we {
           // }
         }
         this.dispatchEvent(new egret.Event('TOGGLE'));
-        */
       }
 
       // protected onPanelToggle() {
@@ -138,10 +125,8 @@ namespace we {
       // }
 
       protected onViewChange(e: eui.UIEvent) {
-        /*
         const radio: eui.RadioButton = e.target;
         this.viewStack.selectedIndex = radio.value;
-        */
       }
 
       public update() {
