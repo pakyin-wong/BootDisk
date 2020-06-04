@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" currentState="light">
 	<w:Config id="16df87cf43a"></w:Config>
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Image source="nav_panel_bg" left="0" right="0" top="0" bottom="0" />
+		<e:Image source="popover_png" left="0" right="0" top="0" bottom="0" />
 		<e:Rect width="241" height="1" x="59" y="243" fillAlpha="0.4" fillColor="0x616161" />
 		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="45" anchorOffsetX="0" width="282" anchorOffsetY="0" height="36"
 		                 textAlign="center" size="24" textColor="0xffffff" x="41"
