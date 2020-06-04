@@ -83,6 +83,7 @@ namespace we {
       public onExit() {
         super.onExit();
         dir.videoPool.release(this._video);
+        this._chipLayer.getSelectedChipIndex = null;
         this.removeEventListeners();
         this.removeChildren();
       }
