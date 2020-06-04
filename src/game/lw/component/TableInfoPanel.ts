@@ -6,8 +6,8 @@ namespace we {
       protected westLabel: eui.Label;
       protected northLabel: eui.Label;
       protected whiteLabel: eui.Label;
-      protected centerLabel: eui.Label;
-      protected fatLabel: eui.Label;
+      protected redLabel: eui.Label;
+      protected greenLabel: eui.Label;
 
       protected pEastMax: eui.Label;
       protected pEastOdd: eui.Label;
@@ -24,11 +24,11 @@ namespace we {
       protected pWhiteMax: eui.Label;
       protected pWhiteOdd: eui.Label;
 
-      protected pCenterMax: eui.Label;
-      protected pCenterOdd: eui.Label;
+      protected pRedMax: eui.Label;
+      protected pRedOdd: eui.Label;
 
-      protected pFatMax: eui.Label;
-      protected pFatOdd: eui.Label;
+      protected pGreenMax: eui.Label;
+      protected pGreenOdd: eui.Label;
 
       public changeLang() {
         super.changeLang();
@@ -38,8 +38,8 @@ namespace we {
         this.westLabel.text = i18n.t('luckywheel.west');
         this.northLabel.text = i18n.t('luckywheel.north');
         this.whiteLabel.text = i18n.t('luckywheel.white');
-        this.centerLabel.text = i18n.t('luckywheel.red');
-        this.fatLabel.text = i18n.t('luckywheel.green');
+        this.redLabel.text = i18n.t('luckywheel.red');
+        this.greenLabel.text = i18n.t('luckywheel.green');
       }
 
       public setValue(tableInfo: data.TableInfo) {
@@ -59,13 +59,19 @@ namespace we {
             { target: this.pNorthOdd, value: limits.LW_3.odd },
             { target: this.pWhiteMax, value: utils.numberToFaceValue(limits.LW_4.maxlimit) },
             { target: this.pWhiteOdd, value: limits.LW_4.odd },
-            { target: this.pCenterMax, value: utils.numberToFaceValue(limits.LW_5.maxlimit) },
-            { target: this.pCenterOdd, value: limits.LW_5.odd },
-            { target: this.pFatMax, value: utils.numberToFaceValue(limits.LW_6.maxlimit) },
-            { target: this.pFatOdd, value: limits.LW_6.odd },
+            { target: this.pRedMax, value: utils.numberToFaceValue(limits.LW_5.maxlimit) },
+            { target: this.pRedOdd, value: limits.LW_5.odd },
+            { target: this.pGreenMax, value: utils.numberToFaceValue(limits.LW_6.maxlimit) },
+            { target: this.pGreenOdd, value: limits.LW_6.odd },
           ];
           for (const { target, value } of list) {
-            target.text = value.toString();
+            if (target) {
+              if (value) {
+                target.text = value.toString();
+              } else {
+                target.text = '-';
+              }
+            }
           }
         }
       }

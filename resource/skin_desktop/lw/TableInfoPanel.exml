@@ -32,8 +32,8 @@
 		<e:Label id="westLabel" text="西" y="388" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="northLabel" text="北" y="422" textAlign="left" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="whiteLabel" text="白" y="456" x="30" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="centerLabel" text="中" y="490" x="30" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="fatLabel" text="發" y="524" x="30" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="redLabel" text="中" y="490" x="30" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="greenLabel" text="發" y="524" x="30" scaleX="1" scaleY="1" size="20" />
 
 		<e:Label id="pEastMax" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pEastOdd" text="-" y="320" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
@@ -45,10 +45,10 @@
 		<e:Label id="pNorthOdd" text="-" y="422" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pWhiteMax" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 		<e:Label id="pWhiteOdd" text="-" y="456" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pCenterMax" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pCenterOdd" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pFatMax" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="pFatOdd" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pRedMax" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pRedOdd" text="-" y="490" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pGreenMax" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Label id="pGreenOdd" text="-" y="524" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0"/>
 
 	</e:Group>
 </e:Skin>
