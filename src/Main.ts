@@ -134,12 +134,17 @@ class Main extends eui.UILayer {
     egret.registerImplementation('eui.IAssetAdapter', new AssetAdapter());
     egret.registerImplementation('eui.IThemeAdapter', new ThemeAdapter());
     RES.registerVersionController(versionController);
+
+    RES.processor.map('zip', new ZipProcessor());
+
     try {
-      await RES.loadConfig(`resource/default.res.json`, 'resource/');
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}.res.json`, 'resource/');
       await this.loadTheme();
-      fontMgr.loadFonts([{ res: 'Barlow-Regular', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' }]);
-      await RES.loadGroup(we.core.res.EgretBasic);
+      fontMgr.loadFonts([
+        { res: 'Barlow-Regular', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' },
+      ]);
+      // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
       logger.e(err);
     }

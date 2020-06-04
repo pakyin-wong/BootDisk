@@ -1,7 +1,7 @@
 /// 阅读 api.d.ts 查看文档
 ///<reference path="api.d.ts"/>
 
-import { CompilePlugin, EmitResConfigFilePlugin, ExmlPlugin, IncrementCompilePlugin, ManifestPlugin, RenamePlugin, TextureMergerPlugin, UglifyPlugin, ZipPlugin } from 'built-in';
+import { CleanPlugin, CompilePlugin, EmitResConfigFilePlugin, ExmlPlugin, IncrementCompilePlugin, ManifestPlugin, RenamePlugin, TextureMergerPlugin, UglifyPlugin, ZipPlugin } from 'built-in';
 import * as path from 'path';
 import { BricksPlugin } from './bricks/bricks';
 import { CustomPlugin } from './myplugin';
@@ -36,22 +36,67 @@ const config: ResourceManagerConfig = {
           new ExmlPlugin('commonjs'), // 非 EUI 项目关闭此设置
           new ZipPlugin({
             mergeSelector: path => {
+              // const groups = ['common', 'lobby', 'loading', 'ba', 'dt', 'ro', 'di', 'lw'];
               // 如果文件是assets/Button/路径下的， 压缩到assets/but.zip
-              if (path.indexOf('assets/Button/') >= 0) {
-                return 'assets/but.zip';
+              const platforms = ['d', 'm'];
+              for (const p of platforms) {
+                if (path.indexOf(`assets/images/${p}/`) >= 0) {
+                  const groupName = path.split('/')[4];
+                  return `resource/assets/zip/${p}/${groupName}/${groupName}.zip`;
+                }
+              }
+              if (path.indexOf(`assets/images/preload/`) >= 0) {
+                return `resource/assets/zip/preload.zip`;
               }
             },
           }),
+          new CleanPlugin({
+            matchers: ['resource/asset/images'],
+          }),
           new EmitResConfigFilePlugin({
-            output: 'resource/test.res.json',
+            output: 'resource/desktop.res.json',
             typeSelector: config.typeSelector,
             nameSelector: p => {
-              const ext = p.substr(p.lastIndexOf('.') + 1);
-              if (ext === 'zip') {
+              if (p.indexOf(`assets/zip/m/`) >= 0) {
+                return '';
+              } else {
+                return path.basename(p).replace(/\./gi, '_');
               }
-              return path.basename(p).replace(/\./gi, '_');
             },
-            groupSelector: p => 'preload',
+            groupSelector: p => {
+              const groupMap = {
+                common: 'common',
+                loading: 'scene_loading',
+                lobby: 'scene_lobby',
+                ba: 'scene_baccarat',
+                dt: 'scene_dragontiger',
+                di: 'scene_dice',
+                ro: 'scene_roulette',
+                lw: 'scene_luckywheel',
+              };
+
+              // dragonbones
+              if (p.indexOf('assets/dragonbones/') >= 0) {
+                const groupName = p.split('/')[3];
+                return groupMap[groupName];
+              }
+              // fonts
+              if (p.indexOf('assets/fonts/') >= 0) {
+                return groupMap.loading;
+              }
+              // zip
+              if (p.indexOf(`assets/zip/d/`) >= 0) {
+                const groupName = p.split('/')[4];
+                return groupMap[groupName];
+              }
+              if (p.indexOf(`assets/zip/preload`) >= 0) {
+                return groupMap.common;
+              }
+              // sounds
+              if (p.indexOf('assets/sounds/') >= 0) {
+                return 'sound';
+              }
+            },
           }),
           new UglifyPlugin([
             {
@@ -81,6 +126,9 @@ const config: ResourceManagerConfig = {
   },
 
   typeSelector: path => {
+    if (path.indexOf(`assets/zip/m/`) >= 0) {
+      return null;
+    }
     const ext = path.substr(path.lastIndexOf('.') + 1);
     const typeMap = {
       jpg: 'image',
