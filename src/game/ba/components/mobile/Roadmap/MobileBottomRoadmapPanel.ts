@@ -216,7 +216,7 @@ namespace we {
         this.bigRoad.dispose();
         this.bigEyeRoad.dispose();
         this.smallRoad.dispose();
-        // this.cockroachRoad.dispose();
+        this.cockroachRoad.dispose();
         // this.parent.removeChildren();
 
         if (this.switchModeButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {

@@ -74,7 +74,7 @@ namespace we {
         this._totalAmountMapping = {};
         this._totalAmountMapping[ba.BetField.PLAYER] = this._playerTotalAmount;
         this._totalAmountMapping[ba.BetField.BANKER] = this._bankerTotalAmount;
-
+        // test /*
         this._playerLabel.renderText = () => i18n.t('baccarat.player');
         this._bankerLabel.renderText = () => i18n.t('baccarat.banker');
         this._playerPairLabel.renderText = () => i18n.t('baccarat.playerPair');
@@ -82,6 +82,7 @@ namespace we {
         this._bankerPairLabel.renderText = () => i18n.t('baccarat.bankerPair');
         this._superSixBankerLabel.renderText = () => i18n.t('baccarat.banker');
         this._superSixLabel.renderText = () => i18n.t('baccarat.superSix');
+        // */
       }
 
       public onRollover(fieldName: string) {
@@ -219,9 +220,7 @@ namespace we {
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
-              egret.Tween.get(rect)
-                .to({ alpha }, 125)
-                .call(resolve);
+              egret.Tween.get(rect).to({ alpha }, 125).call(resolve);
             });
             tickFlashPromises.push(prom);
           }
