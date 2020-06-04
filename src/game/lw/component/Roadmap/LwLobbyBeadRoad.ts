@@ -84,7 +84,7 @@ namespace we {
         }
       }
 
-      public dispose() { }
+      public dispose() {}
     }
   }
 }

@@ -212,12 +212,12 @@ namespace we {
 
       public destroy() {
         super.destroy();
-
         this.beadRoad.dispose();
         this.bigRoad.dispose();
         this.bigEyeRoad.dispose();
         this.smallRoad.dispose();
         this.cockroachRoad.dispose();
+        // this.removeChild(this.roadsContainer);
 
         if (this.switchModeButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
           this.switchModeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);

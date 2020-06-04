@@ -88,13 +88,21 @@ namespace we {
         this.update();
       }
 
-      // enter scene have bug causing destroy called
-      // protected destroy() {
-      //   super.destroy();
-      //   if (this._display) {
-      //     this._display.dispose();
-      //   }
-      // }
+      public destroy() {
+        super.destroy();
+        if (this._display) {
+          this._display.dispose();
+          this._display = null;
+          this.removeChild(this._group);
+        }
+        // since ingame header button is being removed once in order to move to headerComponent
+        this.once(eui.UIEvent.ADDED_TO_STAGE, this.addedAgain, this);
+      }
+
+      protected addedAgain() {
+        this.mount();
+        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
+      }
 
       public get buttonEnabled() {
         return this._enabled;

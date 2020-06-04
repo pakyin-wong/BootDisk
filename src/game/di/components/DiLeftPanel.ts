@@ -99,7 +99,12 @@ namespace we {
         this.sizeBigRoad = new DiSizeBigRoad(17, 34, 1, true);
         this.sizeBigRoad.scaleX = 580 / 578;
 
-        const data2 = [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'cde345' }, { v: 12, gameRoundID: 'cde345' }];
+        const data2 = [
+          { v: 0, gameRoundID: 'cde345' },
+          { v: 1, gameRoundID: 'cde345' },
+          { v: 2, gameRoundID: 'cde345' },
+          { v: 12, gameRoundID: 'cde345' },
+        ];
         this.sizeBigRoad.parseRoadData(data2);
 
         // add road to road stack 1
@@ -256,7 +261,11 @@ namespace we {
       public destroy() {
         super.destroy();
 
-        // this.beadRoad.dispose();
+        this.beadRoad.dispose();
+        this.sizeBigRoad.dispose();
+        this.oddBigRoad.dispose();
+        this.sumBigRoad.dispose();
+
         egret.Tween.removeTweens(this.activeLine);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);

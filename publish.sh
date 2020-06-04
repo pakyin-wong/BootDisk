@@ -46,3 +46,7 @@ case "${arch}" in
     sed -i "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
   ;;
 esac
+
+#zip /js 
+cross-zip $target/js $target/js.zip
+for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;

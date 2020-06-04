@@ -293,6 +293,7 @@ namespace we {
         }
       }
 
+      // dispose never be called
       public dispose() {
         if (this.predictTimeout) {
           egret.clearTimeout(this.predictTimeout);
