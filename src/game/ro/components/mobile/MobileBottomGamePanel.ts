@@ -55,10 +55,10 @@ namespace we {
 
       public destroy() {
         super.destroy();
-        if (this._roadmapGroup) {
+        if (env.orientation === 'portrait') {
           this._roadmapGroup.removeChildren();
-        }
-        if (this._historyGroup) {
+          this._historyGroup.removeChildren();
+        } else {
           this._historyGroup.removeChildren();
         }
         this.beadRoad.dispose();
