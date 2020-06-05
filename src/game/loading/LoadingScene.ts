@@ -94,7 +94,7 @@ namespace we {
         this._progressbar.maximum = 1;
         this._progressbar.value = 0;
 
-        await utils.sleep(1000);
+        await utils.sleep(100);
         this.next();
       }
 
@@ -185,7 +185,7 @@ namespace we {
           });
         });
         RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-        await utils.sleep(1000);
+        await utils.sleep(100);
         this.next();
       }
 

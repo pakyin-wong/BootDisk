@@ -46,6 +46,7 @@ if (list has new goodroad) we send out Notification.
 4. Install the following programs
 ```
 npm install -g tslint prettier typescript
+npm install -g cross-zip cross-zip-cli
 ```
 
 ### Windows

@@ -256,7 +256,11 @@ namespace we {
       public destroy() {
         super.destroy();
 
-        // this.beadRoad.dispose();
+        this.beadRoad.dispose();
+        this.sizeBigRoad.dispose();
+        this.oddBigRoad.dispose();
+        this.sumBigRoad.dispose();
+
         egret.Tween.removeTweens(this.activeLine);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
