@@ -37,11 +37,39 @@ namespace we {
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
-        this._diChance.setDiceValues([1, 8, 30, 1, 15, 25]);
-        this._diPie.setSizeValues({ small: 30, tie: 15, big: 55 });
-        this._diPie.setOddValues({ odd: 45, tie: 10, even: 45 });
+        this.updateStat();
 
         this.changeLang();
+      }
+
+      public updateStat() {
+        if (this.tableInfo) {
+          const stat = this.tableInfo.gamestatistic;
+
+          if (stat.diOdd) {
+            const odd = stat.diOdd.odd;
+            const even = stat.diOdd.even;
+            const oddTie = stat.diOdd.tie;
+            const result = we.utils.stat.toPercentages([odd, even, oddTie]);
+            this._diPie.setPieOdd(result);
+            this._diPie.setOddValues(stat.diOdd);
+          }
+
+          if (stat.diSize) {
+            const small = stat.diSize.small;
+            const big = stat.diSize.big;
+            const sizeTie = stat.diSize.tie;
+            const result = we.utils.stat.toPercentages([small, big, sizeTie]);
+            this._diPie.setPieSize(result);
+            this._diPie.setSizeValues(stat.diSize);
+          }
+
+          if (stat.points) {
+            const result = we.utils.stat.toPercentages(stat.points);
+            this._diChance.setDiceValues(result);
+            this._diChance.setMaxWidth(80);
+          }
+        }
       }
 
       protected onViewChange(e: eui.UIEvent) {
