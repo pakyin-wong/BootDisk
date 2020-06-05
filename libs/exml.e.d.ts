@@ -1228,12 +1228,8 @@ declare module skin_mobile_portrait{
 	class BAGoodRoadLabelSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait{
-	class SqueezeBaccaratScenes extends eui.Skin{
-	}
-}
 declare module skin_mobile_portrait.bam{
-	class CardHolderSkin extends eui.Skin{
+	class FlipCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.bam{

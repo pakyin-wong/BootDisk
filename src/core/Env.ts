@@ -145,7 +145,7 @@ namespace we {
           }
 
           const gameType = tableInfo.gametype;
-          const validGameTypes = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
+          const validGameTypes = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
           if (validGameTypes.indexOf(gameType) < 0) {
             tableInfo.displayReady = false;
             return false;
