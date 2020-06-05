@@ -48,6 +48,11 @@ namespace we {
         }
 
         this.totalText.text = this.total + '';
+        if (this.layout === 1) {
+          this.totalText.textColor = this.oddText.textColor;
+        } else {
+          this.totalText.textColor = this.sizeText.textColor;
+        }
       }
 
       protected initGraphics() {
@@ -115,7 +120,11 @@ namespace we {
       // layout 0 = inGame.Size, layout 1 = inGame.Odd, layout 3 = side bar/lobby
       public setLayout(layout: number) {
         this.layout = layout;
-        const spacing: number = this.size * 0.64 + this.itemYOffset;
+
+        const iconSize = this.size;
+        const displaySize = iconSize * 0.64;
+        const spacing: number = displaySize + this.itemYOffset;
+
         if (this.layout === 0) {
           // size
           this.sizeText.visible = true;

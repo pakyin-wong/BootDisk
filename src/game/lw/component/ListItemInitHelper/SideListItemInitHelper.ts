@@ -31,6 +31,7 @@ namespace we {
         road.roadGridBorderColor = 0xdfdfdf;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(road, idx);
+        road.drawGridBg(337, 127);
         return road;
       }
 
