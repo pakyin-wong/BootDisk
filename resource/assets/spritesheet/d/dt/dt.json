@@ -1,0 +1,77 @@
+{
+  "file": "dt.png",
+  "frames": {
+    "d_dt_betarea_general_dragon_hover_png": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 402,
+        "h": 304,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 402,
+        "sourceH": 304
+      }
+    },
+    "d_dt_betarea_general_dragon_png": {
+      "frame": {
+        "x": 2,
+        "y": 310,
+        "w": 402,
+        "h": 304,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 402,
+        "sourceH": 304
+      }
+    },
+    "d_dt_betarea_general_tiger_hover_png": {
+      "frame": {
+        "x": 408,
+        "y": 2,
+        "w": 402,
+        "h": 304,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 402,
+        "sourceH": 304
+      }
+    },
+    "d_dt_betarea_general_tiger_png": {
+      "frame": {
+        "x": 408,
+        "y": 310,
+        "w": 402,
+        "h": 304,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 402,
+        "sourceH": 304
+      }
+    },
+    "d_dt_betarea_general_tie_hover_png": {
+      "frame": {
+        "x": 2,
+        "y": 618,
+        "w": 342,
+        "h": 304,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 342,
+        "sourceH": 304
+      }
+    },
+    "d_dt_betarea_general_tie_png": {
+      "frame": {
+        "x": 348,
+        "y": 618,
+        "w": 342,
+        "h": 304,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 342,
+        "sourceH": 304
+      }
+    }
+  }
+}

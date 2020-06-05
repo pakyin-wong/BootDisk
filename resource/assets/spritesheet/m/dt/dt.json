@@ -1,0 +1,149 @@
+{
+  "file": "dt.png",
+  "frames": {
+    "m_dt_betarea_dragon_horizontal_hover_png": {
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 236,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 236,
+        "sourceH": 100
+      }
+    },
+    "m_dt_betarea_dragon_horizontal_png": {
+      "frame": {
+        "x": 1,
+        "y": 103,
+        "w": 236,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 236,
+        "sourceH": 100
+      }
+    },
+    "m_dt_betarea_tiger_horizontal_hover_png": {
+      "frame": {
+        "x": 1,
+        "y": 205,
+        "w": 236,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 236,
+        "sourceH": 100
+      }
+    },
+    "m_dt_betarea_tiger_horizontal_png": {
+      "frame": {
+        "x": 239,
+        "y": 1,
+        "w": 236,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 236,
+        "sourceH": 100
+      }
+    },
+    "m_dt_betarea_dragon_hover_png": {
+      "frame": {
+        "x": 239,
+        "y": 103,
+        "w": 207.5,
+        "h": 174,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 207.5,
+        "sourceH": 174
+      }
+    },
+    "m_dt_betarea_dragon_png": {
+      "frame": {
+        "x": 1,
+        "y": 307,
+        "w": 207.5,
+        "h": 174,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 207.5,
+        "sourceH": 174
+      }
+    },
+    "m_dt_betarea_tiger_hover_png": {
+      "frame": {
+        "x": 210.5,
+        "y": 307,
+        "w": 207.5,
+        "h": 174,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 207.5,
+        "sourceH": 174
+      }
+    },
+    "m_dt_betarea_tiger_png": {
+      "frame": {
+        "x": 477,
+        "y": 1,
+        "w": 207.5,
+        "h": 174,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 207.5,
+        "sourceH": 174
+      }
+    },
+    "m_dt_betarea_tie_horizontal_hover_png": {
+      "frame": {
+        "x": 448.5,
+        "y": 177,
+        "w": 204,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 204,
+        "sourceH": 100
+      }
+    },
+    "m_dt_betarea_tie_horizontal_png": {
+      "frame": {
+        "x": 420,
+        "y": 279,
+        "w": 204,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 204,
+        "sourceH": 100
+      }
+    },
+    "m_dt_betarea_tie_hover_png": {
+      "frame": {
+        "x": 1,
+        "y": 483,
+        "w": 176,
+        "h": 174,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 176,
+        "sourceH": 174
+      }
+    },
+    "m_dt_betarea_tie_png": {
+      "frame": {
+        "x": 179,
+        "y": 483,
+        "w": 176,
+        "h": 174,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 176,
+        "sourceH": 174
+      }
+    }
+  }
+}

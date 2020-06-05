@@ -1,0 +1,461 @@
+{
+  "file": "ba.png",
+  "frames": {
+    "m_ba_betarea_banker_png": {
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 295.5,
+        "h": 116,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 295.5,
+        "sourceH": 116
+      }
+    },
+    "m_ba_betarea_player_png": {
+      "frame": {
+        "x": 1,
+        "y": 119,
+        "w": 295.5,
+        "h": 116,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 295.5,
+        "sourceH": 116
+      }
+    },
+    "m_ba_betarea_supersix_tie_horizontal_hover_png": {
+      "frame": {
+        "x": 1,
+        "y": 237,
+        "w": 280,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 280,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_supersix_tie_horizontal_png": {
+      "frame": {
+        "x": 283,
+        "y": 237,
+        "w": 280,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 280,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_bankerpair_png": {
+      "frame": {
+        "x": 298.5,
+        "y": 1,
+        "w": 197,
+        "h": 116,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 197,
+        "sourceH": 116
+      }
+    },
+    "m_ba_betarea_playerpair_png": {
+      "frame": {
+        "x": 298.5,
+        "y": 119,
+        "w": 197,
+        "h": 116,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 197,
+        "sourceH": 116
+      }
+    },
+    "m_ba_betarea_tie_png": {
+      "frame": {
+        "x": 1,
+        "y": 339,
+        "w": 197,
+        "h": 116,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 197,
+        "sourceH": 116
+      }
+    },
+    "m_ba_betarea_banker_horizontal_hover_png": {
+      "frame": {
+        "x": 200,
+        "y": 339,
+        "w": 192,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 192,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_banker_horizontal_png": {
+      "frame": {
+        "x": 1,
+        "y": 457,
+        "w": 192,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 192,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_player_horizontal_hover_png": {
+      "frame": {
+        "x": 195,
+        "y": 457,
+        "w": 192,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 192,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_player_horizontal_png": {
+      "frame": {
+        "x": 1,
+        "y": 559,
+        "w": 192,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 192,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_tie_horizontal_hover_png": {
+      "frame": {
+        "x": 195,
+        "y": 559,
+        "w": 160,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 160,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_tie_horizontal_png": {
+      "frame": {
+        "x": 357,
+        "y": 559,
+        "w": 160,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 160,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_bankerpair_horizontal_hover_png": {
+      "frame": {
+        "x": 389,
+        "y": 441,
+        "w": 128,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 128,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_bankerpair_horizontal_png": {
+      "frame": {
+        "x": 394,
+        "y": 339,
+        "w": 128,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 128,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_playerpair_horizontal_hover_png": {
+      "frame": {
+        "x": 565,
+        "y": 1,
+        "w": 128,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 128,
+        "sourceH": 100
+      }
+    },
+    "m_ba_betarea_playerpair_horizontal_png": {
+      "frame": {
+        "x": 565,
+        "y": 103,
+        "w": 128,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 128,
+        "sourceH": 100
+      }
+    },
+    "m_ba_goodroad_infobg_banker_png": {
+      "frame": {
+        "x": 497.5,
+        "y": 205,
+        "w": 58,
+        "h": 26,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 58,
+        "sourceH": 26
+      }
+    },
+    "m_ba_goodroad_infobg_player_png": {
+      "frame": {
+        "x": 557.5,
+        "y": 205,
+        "w": 58,
+        "h": 26,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 58,
+        "sourceH": 26
+      }
+    },
+    "m_ba_result_poker_banker_png": {
+      "frame": {
+        "x": 497.5,
+        "y": 1,
+        "w": 29,
+        "h": 37,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 29,
+        "sourceH": 37
+      }
+    },
+    "m_ba_result_poker_player_png": {
+      "frame": {
+        "x": 528.5,
+        "y": 1,
+        "w": 29,
+        "h": 37,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 29,
+        "sourceH": 37
+      }
+    },
+    "d_ba_navbar_icon_hoverelement_png": {
+      "frame": {
+        "x": 497.5,
+        "y": 40,
+        "w": 26,
+        "h": 26,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 26,
+        "sourceH": 26
+      }
+    },
+    "d_ba_navbar_icon_video_png": {
+      "frame": {
+        "x": 200,
+        "y": 441,
+        "w": 18,
+        "h": 14,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 18,
+        "sourceH": 14
+      }
+    },
+    "m_ba_goodroad_info_state_banker_png": {
+      "frame": {
+        "x": 525.5,
+        "y": 40,
+        "w": 17,
+        "h": 17,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 17,
+        "sourceH": 17
+      }
+    },
+    "m_ba_goodroad_info_state_player_png": {
+      "frame": {
+        "x": 544.5,
+        "y": 40,
+        "w": 17,
+        "h": 17,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 17,
+        "sourceH": 17
+      }
+    },
+    "m_common_betarea_icon_totalbet_png": {
+      "frame": {
+        "x": 525.5,
+        "y": 59,
+        "w": 16,
+        "h": 16,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 16,
+        "sourceH": 16
+      }
+    },
+    "m_common_betarea_icon_totalperson_png": {
+      "frame": {
+        "x": 543.5,
+        "y": 59,
+        "w": 16,
+        "h": 16,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 16,
+        "sourceH": 16
+      }
+    },
+    "d_ba_navbar_icon_setting_png": {
+      "frame": {
+        "x": 389,
+        "y": 543,
+        "w": 14,
+        "h": 14,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 14,
+        "sourceH": 14
+      }
+    },
+    "d_ba_navbar_icon_sound_png": {
+      "frame": {
+        "x": 220,
+        "y": 441,
+        "w": 14,
+        "h": 14,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 14,
+        "sourceH": 14
+      }
+    },
+    "d_ba_navbar_icon_stat_png": {
+      "frame": {
+        "x": 405,
+        "y": 543,
+        "w": 14,
+        "h": 14,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 14,
+        "sourceH": 14
+      }
+    },
+    "m_ba_goodroad_info_line_banker_png": {
+      "frame": {
+        "x": 695,
+        "y": 1,
+        "w": 13.5,
+        "h": 13.5,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 13.5,
+        "sourceH": 13.5
+      }
+    },
+    "m_ba_goodroad_info_line_player_png": {
+      "frame": {
+        "x": 695,
+        "y": 16.5,
+        "w": 13.5,
+        "h": 13.5,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 13.5,
+        "sourceH": 13.5
+      }
+    },
+    "m_ba_goodroad_info_ring_banker_png": {
+      "frame": {
+        "x": 695,
+        "y": 32,
+        "w": 13.5,
+        "h": 13.5,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 13.5,
+        "sourceH": 13.5
+      }
+    },
+    "m_ba_goodroad_info_ring_player_png": {
+      "frame": {
+        "x": 695,
+        "y": 47.5,
+        "w": 13.5,
+        "h": 13.5,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 13.5,
+        "sourceH": 13.5
+      }
+    },
+    "m_ba_goodroad_info_round_banker_png": {
+      "frame": {
+        "x": 695,
+        "y": 63,
+        "w": 13.5,
+        "h": 13.5,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 13.5,
+        "sourceH": 13.5
+      }
+    },
+    "m_ba_goodroad_info_round_player_png": {
+      "frame": {
+        "x": 695,
+        "y": 78.5,
+        "w": 13.5,
+        "h": 13.5,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 13.5,
+        "sourceH": 13.5
+      }
+    },
+    "d_ba_roadmap_bar_bankerpairstate_png": {
+      "frame": {
+        "x": 695,
+        "y": 94,
+        "w": 11,
+        "h": 11,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 11,
+        "sourceH": 11
+      }
+    },
+    "d_ba_roadmap_bar_playerpairstate_png": {
+      "frame": {
+        "x": 695,
+        "y": 107,
+        "w": 11,
+        "h": 11,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 11,
+        "sourceH": 11
+      }
+    }
+  }
+}

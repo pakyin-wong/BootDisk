@@ -42,8 +42,9 @@ if (list has new goodroad) we send out Notification.
 ### MacOS
 1. Install Egret Launcher. (Don't install Egret Wing solely.)
 2. Install Egret Wing and Egret Engine(5.2.29).
-3. Install npm
-4. Install the following programs
+3. Install optipng for image compression
+4. Install npm
+5. Install the following programs
 ```
 npm install -g tslint prettier typescript
 npm install -g cross-zip cross-zip-cli

@@ -1,0 +1,1001 @@
+{
+  "file": "di.png",
+  "frames": {
+    "d_di_betboard_inactive_png": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 1386,
+        "h": 482,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 1386,
+        "sourceH": 482
+      }
+    },
+    "d_sic_panel_normal_png": {
+      "frame": {
+        "x": 2,
+        "y": 488,
+        "w": 1386,
+        "h": 340,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 1386,
+        "sourceH": 340
+      }
+    },
+    "d_sic_panel_open_png": {
+      "frame": {
+        "x": 2,
+        "y": 832,
+        "w": 1386,
+        "h": 482,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 1386,
+        "sourceH": 482
+      }
+    },
+    "d_di_betboard_hover_triple_all_png": {
+      "frame": {
+        "x": 2,
+        "y": 1318,
+        "w": 251,
+        "h": 151,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 251,
+        "sourceH": 151
+      }
+    },
+    "d_sic_panel_open-a_5_hover_png": {
+      "frame": {
+        "x": 257,
+        "y": 1318,
+        "w": 249,
+        "h": 149,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 249,
+        "sourceH": 149
+      }
+    },
+    "d_sic_panel_open-a_5_pressed_png": {
+      "frame": {
+        "x": 510,
+        "y": 1318,
+        "w": 249,
+        "h": 149,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 249,
+        "sourceH": 149
+      }
+    },
+    "d_sic_lobby_chart_bg_left_png": {
+      "frame": {
+        "x": 763,
+        "y": 1318,
+        "w": 236,
+        "h": 50,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 236,
+        "sourceH": 50
+      }
+    },
+    "d_sic_lobby_chart_bg_right_png": {
+      "frame": {
+        "x": 763,
+        "y": 1372,
+        "w": 236,
+        "h": 51,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 236,
+        "sourceH": 51
+      }
+    },
+    "d_di_betboard_hover_specific_png": {
+      "frame": {
+        "x": 1003,
+        "y": 1318,
+        "w": 197,
+        "h": 70,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 197,
+        "sourceH": 70
+      }
+    },
+    "d_sic_panel_open-d_6_hover_png": {
+      "frame": {
+        "x": 1003,
+        "y": 1392,
+        "w": 197,
+        "h": 67,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 197,
+        "sourceH": 67
+      }
+    },
+    "d_sic_panel_open-d_6_pressed_png": {
+      "frame": {
+        "x": 1392,
+        "y": 2,
+        "w": 197,
+        "h": 67,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 197,
+        "sourceH": 67
+      }
+    },
+    "d_sic_panel_open-d_7_hover_png": {
+      "frame": {
+        "x": 1392,
+        "y": 73,
+        "w": 195,
+        "h": 67,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 195,
+        "sourceH": 67
+      }
+    },
+    "d_sic_panel_open-d_7_pressed_png": {
+      "frame": {
+        "x": 1392,
+        "y": 144,
+        "w": 195,
+        "h": 67,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 195,
+        "sourceH": 67
+      }
+    },
+    "d_sic_history_grid_png": {
+      "frame": {
+        "x": 1392,
+        "y": 215,
+        "w": 168,
+        "h": 115,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 168,
+        "sourceH": 115
+      }
+    },
+    "d_di_betboard_hover_large_group_png": {
+      "frame": {
+        "x": 1204,
+        "y": 1318,
+        "w": 151,
+        "h": 148,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 151,
+        "sourceH": 148
+      }
+    },
+    "d_sic_panel_open-a_2_hover_png": {
+      "frame": {
+        "x": 1359,
+        "y": 1318,
+        "w": 151,
+        "h": 149,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 151,
+        "sourceH": 149
+      }
+    },
+    "d_sic_panel_open-a_2_pressed_png": {
+      "frame": {
+        "x": 1392,
+        "y": 334,
+        "w": 151,
+        "h": 149,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 151,
+        "sourceH": 149
+      }
+    },
+    "d_sic_panel_open-a_1_hover_png": {
+      "frame": {
+        "x": 1392,
+        "y": 487,
+        "w": 150,
+        "h": 149,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 150,
+        "sourceH": 149
+      }
+    },
+    "d_sic_panel_open-a_1_pressed_png": {
+      "frame": {
+        "x": 1392,
+        "y": 640,
+        "w": 150,
+        "h": 149,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 150,
+        "sourceH": 149
+      }
+    },
+    "d_sic_panel_open-a_9_hover_png": {
+      "frame": {
+        "x": 1392,
+        "y": 793,
+        "w": 149,
+        "h": 149,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 149,
+        "sourceH": 149
+      }
+    },
+    "d_sic_panel_open-a_9_pressed_png": {
+      "frame": {
+        "x": 1392,
+        "y": 946,
+        "w": 149,
+        "h": 149,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 149,
+        "sourceH": 149
+      }
+    },
+    "d_di_betboard_hover_triple_png": {
+      "frame": {
+        "x": 1392,
+        "y": 1099,
+        "w": 136,
+        "h": 55,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 136,
+        "sourceH": 55
+      }
+    },
+    "d_sic_panel_open-a_4_hover_png": {
+      "frame": {
+        "x": 1392,
+        "y": 1158,
+        "w": 135,
+        "h": 49,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 135,
+        "sourceH": 49
+      }
+    },
+    "d_sic_panel_open-a_4_pressed_png": {
+      "frame": {
+        "x": 1392,
+        "y": 1211,
+        "w": 135,
+        "h": 49,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 135,
+        "sourceH": 49
+      }
+    },
+    "d_sic_history_chart_line-2_png": {
+      "frame": {
+        "x": 763,
+        "y": 1427,
+        "w": 130,
+        "h": 10,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 130,
+        "sourceH": 10
+      }
+    },
+    "d_di_betboard_hover_double_png": {
+      "frame": {
+        "x": 2,
+        "y": 1473,
+        "w": 127,
+        "h": 51,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 127,
+        "sourceH": 51
+      }
+    },
+    "d_sic_panel_open-a_3_hover_png": {
+      "frame": {
+        "x": 1392,
+        "y": 1264,
+        "w": 127,
+        "h": 49,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 127,
+        "sourceH": 49
+      }
+    },
+    "d_sic_panel_open-a_3_pressed_png": {
+      "frame": {
+        "x": 133,
+        "y": 1473,
+        "w": 127,
+        "h": 49,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 127,
+        "sourceH": 49
+      }
+    },
+    "d_di_betboard_hover_combine_png": {
+      "frame": {
+        "x": 2,
+        "y": 1528,
+        "w": 90,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 90,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_10_hover_png": {
+      "frame": {
+        "x": 96,
+        "y": 1528,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_10_pressed_png": {
+      "frame": {
+        "x": 192,
+        "y": 1526,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_11_hover_png": {
+      "frame": {
+        "x": 897,
+        "y": 1427,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_11_pressed_png": {
+      "frame": {
+        "x": 763,
+        "y": 1441,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_15_hover_png": {
+      "frame": {
+        "x": 992,
+        "y": 1471,
+        "w": 89,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 89,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_15_pressed_png": {
+      "frame": {
+        "x": 1085,
+        "y": 1463,
+        "w": 89,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 89,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_1_hover_png": {
+      "frame": {
+        "x": 288,
+        "y": 1471,
+        "w": 90,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 90,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_1_pressed_png": {
+      "frame": {
+        "x": 1178,
+        "y": 1471,
+        "w": 90,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 90,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_6_hover_png": {
+      "frame": {
+        "x": 382,
+        "y": 1471,
+        "w": 93,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 93,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_6_pressed_png": {
+      "frame": {
+        "x": 1272,
+        "y": 1471,
+        "w": 93,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 93,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-b_2_hover_png": {
+      "frame": {
+        "x": 479,
+        "y": 1553,
+        "w": 98,
+        "h": 64,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 98,
+        "sourceH": 64
+      }
+    },
+    "d_sic_panel_open-b_2_pressed_png": {
+      "frame": {
+        "x": 479,
+        "y": 1471,
+        "w": 98,
+        "h": 64,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 98,
+        "sourceH": 64
+      }
+    },
+    "d_sic_panel_open-b_1_hover_png": {
+      "frame": {
+        "x": 581,
+        "y": 1553,
+        "w": 97,
+        "h": 64,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 97,
+        "sourceH": 64
+      }
+    },
+    "d_sic_panel_open-b_1_pressed_png": {
+      "frame": {
+        "x": 581,
+        "y": 1471,
+        "w": 97,
+        "h": 64,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 97,
+        "sourceH": 64
+      }
+    },
+    "d_di_betboard_hover_sum_png": {
+      "frame": {
+        "x": 682,
+        "y": 1553,
+        "w": 96,
+        "h": 64,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 96,
+        "sourceH": 64
+      }
+    },
+    "d_sic_panel_open-b_14_hover_png": {
+      "frame": {
+        "x": 782,
+        "y": 1553,
+        "w": 96,
+        "h": 64,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 96,
+        "sourceH": 64
+      }
+    },
+    "d_sic_panel_open-b_14_pressed_png": {
+      "frame": {
+        "x": 882,
+        "y": 1539,
+        "w": 96,
+        "h": 64,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 96,
+        "sourceH": 64
+      }
+    },
+    "d_sic_lobby_bg_2_png": {
+      "frame": {
+        "x": 1514,
+        "y": 1317,
+        "w": 74,
+        "h": 52,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 74,
+        "sourceH": 52
+      }
+    },
+    "d_sic_history_lv3_dice-1_png": {
+      "frame": {
+        "x": 1532,
+        "y": 1099,
+        "w": 54,
+        "h": 54,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 54,
+        "sourceH": 54
+      }
+    },
+    "d_sic_history_lv3_dice-2_png": {
+      "frame": {
+        "x": 1532,
+        "y": 1157,
+        "w": 54,
+        "h": 54,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 54,
+        "sourceH": 54
+      }
+    },
+    "d_sic_history_lv3_dice-3_png": {
+      "frame": {
+        "x": 1531,
+        "y": 1215,
+        "w": 54,
+        "h": 54,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 54,
+        "sourceH": 54
+      }
+    },
+    "d_sic_history_lv3_dice-4_png": {
+      "frame": {
+        "x": 1085,
+        "y": 1575,
+        "w": 54,
+        "h": 54,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 54,
+        "sourceH": 54
+      }
+    },
+    "d_sic_history_lv3_dice-5_png": {
+      "frame": {
+        "x": 1514,
+        "y": 1373,
+        "w": 54,
+        "h": 54,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 54,
+        "sourceH": 54
+      }
+    },
+    "d_sic_history_lv3_dice-6_png": {
+      "frame": {
+        "x": 1514,
+        "y": 1431,
+        "w": 54,
+        "h": 54,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 54,
+        "sourceH": 54
+      }
+    },
+    "d_sic_history_lv2_dice-1_png": {
+      "frame": {
+        "x": 1523,
+        "y": 1273,
+        "w": 36,
+        "h": 36,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 36,
+        "sourceH": 36
+      }
+    },
+    "d_sic_history_lv2_dice-2_png": {
+      "frame": {
+        "x": 1547,
+        "y": 334,
+        "w": 36,
+        "h": 36,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 36,
+        "sourceH": 36
+      }
+    },
+    "d_sic_history_lv2_dice-3_png": {
+      "frame": {
+        "x": 1547,
+        "y": 374,
+        "w": 36,
+        "h": 36,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 36,
+        "sourceH": 36
+      }
+    },
+    "d_sic_history_lv2_dice-4_png": {
+      "frame": {
+        "x": 1547,
+        "y": 414,
+        "w": 36,
+        "h": 36,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 36,
+        "sourceH": 36
+      }
+    },
+    "d_sic_history_lv2_dice-5_png": {
+      "frame": {
+        "x": 1547,
+        "y": 454,
+        "w": 36,
+        "h": 36,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 36,
+        "sourceH": 36
+      }
+    },
+    "d_sic_history_lv2_dice-6_png": {
+      "frame": {
+        "x": 1546,
+        "y": 494,
+        "w": 36,
+        "h": 36,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 36,
+        "sourceH": 36
+      }
+    },
+    "d_sic_history_btn_hide_hover_png": {
+      "frame": {
+        "x": 264,
+        "y": 1471,
+        "w": 20,
+        "h": 11,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 20,
+        "sourceH": 11
+      }
+    },
+    "d_sic_history_btn_hide_png": {
+      "frame": {
+        "x": 858,
+        "y": 1441,
+        "w": 20,
+        "h": 11,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 20,
+        "sourceH": 11
+      }
+    },
+    "d_sic_history_btn_showall_hover_png": {
+      "frame": {
+        "x": 264,
+        "y": 1486,
+        "w": 20,
+        "h": 11,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 20,
+        "sourceH": 11
+      }
+    },
+    "d_sic_history_btn_showall_png": {
+      "frame": {
+        "x": 858,
+        "y": 1456,
+        "w": 20,
+        "h": 11,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 20,
+        "sourceH": 11
+      }
+    },
+    "d_sic_panel_open-c_12_hover_png": {
+      "frame": {
+        "x": 96,
+        "y": 1528,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_14_hover_png": {
+      "frame": {
+        "x": 96,
+        "y": 1528,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_2_hover_png": {
+      "frame": {
+        "x": 96,
+        "y": 1528,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_4_hover_png": {
+      "frame": {
+        "x": 96,
+        "y": 1528,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_8_hover_png": {
+      "frame": {
+        "x": 96,
+        "y": 1528,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_12_pressed_png": {
+      "frame": {
+        "x": 192,
+        "y": 1526,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_14_pressed_png": {
+      "frame": {
+        "x": 192,
+        "y": 1526,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_2_pressed_png": {
+      "frame": {
+        "x": 192,
+        "y": 1526,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_4_pressed_png": {
+      "frame": {
+        "x": 192,
+        "y": 1526,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_8_pressed_png": {
+      "frame": {
+        "x": 192,
+        "y": 1526,
+        "w": 92,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 92,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_13_hover_png": {
+      "frame": {
+        "x": 897,
+        "y": 1427,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_3_hover_png": {
+      "frame": {
+        "x": 897,
+        "y": 1427,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_5_hover_png": {
+      "frame": {
+        "x": 897,
+        "y": 1427,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_7_hover_png": {
+      "frame": {
+        "x": 897,
+        "y": 1427,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_9_hover_png": {
+      "frame": {
+        "x": 897,
+        "y": 1427,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_13_pressed_png": {
+      "frame": {
+        "x": 763,
+        "y": 1441,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_3_pressed_png": {
+      "frame": {
+        "x": 763,
+        "y": 1441,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_5_pressed_png": {
+      "frame": {
+        "x": 763,
+        "y": 1441,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_7_pressed_png": {
+      "frame": {
+        "x": 763,
+        "y": 1441,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    },
+    "d_sic_panel_open-c_9_pressed_png": {
+      "frame": {
+        "x": 763,
+        "y": 1441,
+        "w": 91,
+        "h": 108,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 91,
+        "sourceH": 108
+      }
+    }
+  }
+}

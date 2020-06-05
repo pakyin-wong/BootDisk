@@ -1,0 +1,785 @@
+{
+  "file": "ba.png",
+  "frames": {
+    "d-sq-ba-b-win-hl-copy_png": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 800,
+        "h": 396,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 800,
+        "sourceH": 396
+      }
+    },
+    "d-sq-ba-p-win-hl-copy_png": {
+      "frame": {
+        "x": 2,
+        "y": 402,
+        "w": 800,
+        "h": 396,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 800,
+        "sourceH": 396
+      }
+    },
+    "d_sq_ba_instruction_crad_group_02_png": {
+      "frame": {
+        "x": 2,
+        "y": 802,
+        "w": 689,
+        "h": 538,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 689,
+        "sourceH": 538
+      }
+    },
+    "d_ba_betarea_banker_hover_png": {
+      "frame": {
+        "x": 806,
+        "y": 2,
+        "w": 558,
+        "h": 190,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 558,
+        "sourceH": 190
+      }
+    },
+    "d_ba_betarea_banker_normal_png": {
+      "frame": {
+        "x": 806,
+        "y": 196,
+        "w": 558,
+        "h": 190,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 558,
+        "sourceH": 190
+      }
+    },
+    "d_ba_betarea_player_hover_png": {
+      "frame": {
+        "x": 806,
+        "y": 390,
+        "w": 558,
+        "h": 190,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 558,
+        "sourceH": 190
+      }
+    },
+    "d_ba_betarea_player_normal_png": {
+      "frame": {
+        "x": 806,
+        "y": 584,
+        "w": 558,
+        "h": 190,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 558,
+        "sourceH": 190
+      }
+    },
+    "d_ba_betarea_bankerpair_hover_png": {
+      "frame": {
+        "x": 806,
+        "y": 778,
+        "w": 372,
+        "h": 112,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 372,
+        "sourceH": 112
+      }
+    },
+    "d_ba_betarea_bankerpair_normal_png": {
+      "frame": {
+        "x": 695,
+        "y": 894,
+        "w": 372,
+        "h": 112,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 372,
+        "sourceH": 112
+      }
+    },
+    "d_ba_betarea_playerpair_hover_png": {
+      "frame": {
+        "x": 695,
+        "y": 1010,
+        "w": 372,
+        "h": 112,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 372,
+        "sourceH": 112
+      }
+    },
+    "d_ba_betarea_playerpair_normal_png": {
+      "frame": {
+        "x": 695,
+        "y": 1126,
+        "w": 372,
+        "h": 112,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 372,
+        "sourceH": 112
+      }
+    },
+    "d_ba_betarea_tie_hover_png": {
+      "frame": {
+        "x": 2,
+        "y": 1344,
+        "w": 372,
+        "h": 112,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 372,
+        "sourceH": 112
+      }
+    },
+    "d_ba_betarea_tie_normal_png": {
+      "frame": {
+        "x": 378,
+        "y": 1344,
+        "w": 372,
+        "h": 112,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 372,
+        "sourceH": 112
+      }
+    },
+    "m_v_sp_ba_instruction_reveal_all_btn_png": {
+      "frame": {
+        "x": 754,
+        "y": 1242,
+        "w": 339,
+        "h": 120,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 339,
+        "sourceH": 120
+      }
+    },
+    "d_sq_ba_thumb_up_png": {
+      "frame": {
+        "x": 1071,
+        "y": 894,
+        "w": 208,
+        "h": 335,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 208,
+        "sourceH": 335
+      }
+    },
+    "d_ba_roadmap_record_result_banker_png": {
+      "frame": {
+        "x": 754,
+        "y": 1366,
+        "w": 320,
+        "h": 32,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 320,
+        "sourceH": 32
+      }
+    },
+    "d_ba_roadmap_record_result_player_png": {
+      "frame": {
+        "x": 754,
+        "y": 1402,
+        "w": 320,
+        "h": 32,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 320,
+        "sourceH": 32
+      }
+    },
+    "d_ba_roadmap_record_result_tie_png": {
+      "frame": {
+        "x": 1368,
+        "y": 2,
+        "w": 320,
+        "h": 32,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 320,
+        "sourceH": 32
+      }
+    },
+    "d_ba_gamerecord_chipvalue_png": {
+      "frame": {
+        "x": 1368,
+        "y": 38,
+        "w": 303,
+        "h": 32,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 303,
+        "sourceH": 32
+      }
+    },
+    "d_ba_gamerecord_playerelement_png": {
+      "frame": {
+        "x": 1368,
+        "y": 74,
+        "w": 303,
+        "h": 32,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 303,
+        "sourceH": 32
+      }
+    },
+    "d_ba_gamerecord_bankerelement_png": {
+      "frame": {
+        "x": 1368,
+        "y": 110,
+        "w": 302,
+        "h": 32,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 302,
+        "sourceH": 32
+      }
+    },
+    "d_ba_gamerecord_tieelement_png": {
+      "frame": {
+        "x": 1368,
+        "y": 146,
+        "w": 302,
+        "h": 32,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 302,
+        "sourceH": 32
+      }
+    },
+    "d_sq_ba_card_back_png": {
+      "frame": {
+        "x": 1368,
+        "y": 182,
+        "w": 189,
+        "h": 289,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 189,
+        "sourceH": 289
+      }
+    },
+    "d_ba_betarea_supersix_tie_hover_png": {
+      "frame": {
+        "x": 1368,
+        "y": 475,
+        "w": 287,
+        "h": 113,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 287,
+        "sourceH": 113
+      }
+    },
+    "d_ba_betarea_supersix_tie_normal_png": {
+      "frame": {
+        "x": 1368,
+        "y": 592,
+        "w": 287,
+        "h": 113,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 287,
+        "sourceH": 113
+      }
+    },
+    "d_ba_betarea_supersix_bankerpair_hover_png": {
+      "frame": {
+        "x": 1368,
+        "y": 709,
+        "w": 286,
+        "h": 113,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 286,
+        "sourceH": 113
+      }
+    },
+    "d_ba_betarea_supersix_bankerpair_normal_png": {
+      "frame": {
+        "x": 1097,
+        "y": 1233,
+        "w": 286,
+        "h": 113,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 286,
+        "sourceH": 113
+      }
+    },
+    "d_ba_betarea_supersix_playerpair_hover_png": {
+      "frame": {
+        "x": 1387,
+        "y": 826,
+        "w": 286,
+        "h": 113,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 286,
+        "sourceH": 113
+      }
+    },
+    "d_ba_betarea_supersix_playerpair_normal_png": {
+      "frame": {
+        "x": 1387,
+        "y": 943,
+        "w": 286,
+        "h": 113,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 286,
+        "sourceH": 113
+      }
+    },
+    "d_ba_roadmap_record_cardresult_banker_png": {
+      "frame": {
+        "x": 1182,
+        "y": 778,
+        "w": 154,
+        "h": 107,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 154,
+        "sourceH": 107
+      }
+    },
+    "d_ba_roadmap_record_cardresult_player_png": {
+      "frame": {
+        "x": 1283,
+        "y": 1060,
+        "w": 154,
+        "h": 107,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 154,
+        "sourceH": 107
+      }
+    },
+    "d_sq_ba_instruction_bg_png": {
+      "frame": {
+        "x": 1283,
+        "y": 889,
+        "w": 100,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 100,
+        "sourceH": 100
+      }
+    },
+    "d_sq_ba_touch_icon_png": {
+      "frame": {
+        "x": 1097,
+        "y": 1350,
+        "w": 67,
+        "h": 100,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 67,
+        "sourceH": 100
+      }
+    },
+    "d_sq_ba_all_open_btn_disabled_b_png": {
+      "frame": {
+        "x": 1283,
+        "y": 1171,
+        "w": 68,
+        "h": 48,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 48
+      }
+    },
+    "d_sq_ba_all_open_btn_disabled_p_png": {
+      "frame": {
+        "x": 1355,
+        "y": 1171,
+        "w": 68,
+        "h": 48,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 48
+      }
+    },
+    "d_sq_ba_all_open_btn_hover_b_png": {
+      "frame": {
+        "x": 1283,
+        "y": 993,
+        "w": 68,
+        "h": 48,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 48
+      }
+    },
+    "d_sq_ba_all_open_btn_hover_p_png": {
+      "frame": {
+        "x": 695,
+        "y": 802,
+        "w": 68,
+        "h": 56,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 56
+      }
+    },
+    "d_sq_ba_all_open_btn_inactive_b_png": {
+      "frame": {
+        "x": 1168,
+        "y": 1350,
+        "w": 68,
+        "h": 48,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 48
+      }
+    },
+    "d_sq_ba_all_open_btn_inactive_p_png": {
+      "frame": {
+        "x": 1168,
+        "y": 1402,
+        "w": 68,
+        "h": 48,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 48
+      }
+    },
+    "d_sq_ba_all_open_btn_inactive_player_png": {
+      "frame": {
+        "x": 1240,
+        "y": 1350,
+        "w": 68,
+        "h": 56,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 56
+      }
+    },
+    "d_ba_roadmap_topbar_textbg_banker_png": {
+      "frame": {
+        "x": 1240,
+        "y": 1410,
+        "w": 66,
+        "h": 30,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 66,
+        "sourceH": 30
+      }
+    },
+    "d_ba_roadmap_topbar_textbg_player_png": {
+      "frame": {
+        "x": 1310,
+        "y": 1410,
+        "w": 66,
+        "h": 30,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 66,
+        "sourceH": 30
+      }
+    },
+    "d_ba_swaproadmap_button_element_png": {
+      "frame": {
+        "x": 1380,
+        "y": 1350,
+        "w": 58,
+        "h": 58,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 58,
+        "sourceH": 58
+      }
+    },
+    "d_ba_betarea_button_active_png": {
+      "frame": {
+        "x": 695,
+        "y": 1242,
+        "w": 53,
+        "h": 33,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 53,
+        "sourceH": 33
+      }
+    },
+    "d_ba_betarea_button_normal_png": {
+      "frame": {
+        "x": 695,
+        "y": 1279,
+        "w": 53,
+        "h": 33,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 53,
+        "sourceH": 33
+      }
+    },
+    "d_sq_bac_page_next_disable_png": {
+      "frame": {
+        "x": 1312,
+        "y": 1350,
+        "w": 50,
+        "h": 50,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 50,
+        "sourceH": 50
+      }
+    },
+    "d_sq_bac_page_next_none_png": {
+      "frame": {
+        "x": 1387,
+        "y": 1223,
+        "w": 50,
+        "h": 50,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 50,
+        "sourceH": 50
+      }
+    },
+    "d_ba_panel_statistics_bankerelement_png": {
+      "frame": {
+        "x": 767,
+        "y": 802,
+        "w": 31,
+        "h": 31,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 31,
+        "sourceH": 31
+      }
+    },
+    "d_ba_panel_statistics_playerelement_png": {
+      "frame": {
+        "x": 767,
+        "y": 837,
+        "w": 31,
+        "h": 31,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 31,
+        "sourceH": 31
+      }
+    },
+    "d_ba_panel_statistics_tieelement_png": {
+      "frame": {
+        "x": 1340,
+        "y": 826,
+        "w": 31,
+        "h": 31,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 31,
+        "sourceH": 31
+      }
+    },
+    "d_ba_roadmap_bar_bankerelement_png": {
+      "frame": {
+        "x": 1658,
+        "y": 709,
+        "w": 30,
+        "h": 30,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 30,
+        "sourceH": 30
+      }
+    },
+    "d_ba_roadmap_bar_playerelement_png": {
+      "frame": {
+        "x": 1658,
+        "y": 743,
+        "w": 30,
+        "h": 30,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 30,
+        "sourceH": 30
+      }
+    },
+    "d_ba_betarea_icon_bet_png": {
+      "frame": {
+        "x": 695,
+        "y": 1316,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_ba_betarea_icon_person_png": {
+      "frame": {
+        "x": 1340,
+        "y": 778,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_ba_betcontrol_pagenav_left_png": {
+      "frame": {
+        "x": 1675,
+        "y": 38,
+        "w": 13,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 13,
+        "sourceH": 22
+      }
+    },
+    "d_ba_betcontrol_pagenav_right_png": {
+      "frame": {
+        "x": 1675,
+        "y": 64,
+        "w": 13,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 13,
+        "sourceH": 22
+      }
+    },
+    "d_ba_goodroad_info_state_total_png": {
+      "frame": {
+        "x": 1340,
+        "y": 861,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_ba_roadmap_bar_bankerpairstate_png": {
+      "frame": {
+        "x": 721,
+        "y": 1316,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_ba_roadmap_bar_bankerstate_png": {
+      "frame": {
+        "x": 1355,
+        "y": 993,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_ba_roadmap_bar_playerpairstate_png": {
+      "frame": {
+        "x": 695,
+        "y": 862,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_ba_roadmap_bar_playerstate_png": {
+      "frame": {
+        "x": 1355,
+        "y": 1019,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_ba_roadmap_bar_remainingstate_png": {
+      "frame": {
+        "x": 721,
+        "y": 862,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_ba_roadmap_bar_tierstate_png": {
+      "frame": {
+        "x": 1659,
+        "y": 182,
+        "w": 22,
+        "h": 22,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 22,
+        "sourceH": 22
+      }
+    },
+    "d_sq_ba_all_open_btn_normal_b_png": {
+      "frame": {
+        "x": 1283,
+        "y": 1171,
+        "w": 68,
+        "h": 48,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 48
+      }
+    },
+    "d_sq_ba_all_open_btn_normal_p_png": {
+      "frame": {
+        "x": 1355,
+        "y": 1171,
+        "w": 68,
+        "h": 48,
+        "offX": 0,
+        "offY": 0,
+        "sourceW": 68,
+        "sourceH": 48
+      }
+    }
+  }
+}
