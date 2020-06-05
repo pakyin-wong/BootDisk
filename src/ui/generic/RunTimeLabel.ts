@@ -20,9 +20,11 @@ namespace we {
       }
 
       protected initRenderText() {
-        if (this._renderer) {
+        if (!this._isReg && this._renderer) {
           i18n.register(this);
+          this._isReg = true;
           this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
+          this.render();
         } else if (this._textKey) {
           this.renderText = () => i18n.t(this._textKey);
         }
@@ -50,8 +52,8 @@ namespace we {
           i18n.register(this);
           this._isReg = true;
           this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
+          this.render();
         }
-        this.render();
       }
 
       public get renderText() {
