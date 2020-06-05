@@ -47,11 +47,11 @@ namespace we {
       }
 
       public getPlayerProfileSummary(callback: (data: any) => void) {
-        // this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+        this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
       }
 
       public getPlayerStatistic(filter: any, callback: (data: any) => void) {
-        // this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
+        this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
       }
 
       protected subscribeEvents() {
