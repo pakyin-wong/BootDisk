@@ -11,6 +11,10 @@ namespace we {
       private gridBorderColor: number;
       private theStage: egret.Stage;
 
+      protected icon1: we.lw.LwBeadRoadIcon;
+      protected icon2: we.lw.LwBeadRoadIcon;
+      protected icon3: ba.BARoadIconBase;
+
       public constructor(
         _numRow: number = 3,
         _numCol: number = 10,
@@ -108,8 +112,8 @@ namespace we {
       }
 
       protected createIcon(size: number): LwBeadRoadIcon {
-        const icon = new LwBeadRoadIcon(this.imageWidth, this.imageHeight);
-        return icon;
+        this.icon1 = new LwBeadRoadIcon(this.imageWidth, this.imageHeight);
+        return this.icon1;
       }
 
       // override for base class
@@ -147,12 +151,12 @@ namespace we {
         let iconIndex = 0;
         this.roadMapIconList = new Array<LwBeadRoadIcon>();
         for (let i = 0; i < n; i++) {
-          const icon = this.createIcon(this.gridSize);
-          icon.setByObject({});
-          icon.x = (this.cellWidth - this.imageWidth) / 2 + this.cellWidth * (iconIndex % this.numCol);
-          icon.y = (this.cellHeight - this.imageHeight) / 2 + this.cellHeight * Math.floor(iconIndex / this.numCol);
-          icon.addToLayer(this._staticLayer);
-          this.roadMapIconList.push(icon);
+          this.icon2 = this.createIcon(this.gridSize);
+          this.icon2.setByObject({});
+          this.icon2.x = (this.cellWidth - this.imageWidth) / 2 + this.cellWidth * (iconIndex % this.numCol);
+          this.icon2.y = (this.cellHeight - this.imageHeight) / 2 + this.cellHeight * Math.floor(iconIndex / this.numCol);
+          this.icon2.addToLayer(this._staticLayer);
+          this.roadMapIconList.push(this.icon2);
           iconIndex++;
         }
         (this.roadMapIconList[0] as LwBeadRoadIcon).showHighLight();
@@ -181,8 +185,8 @@ namespace we {
             roadDataCopy.splice(maxNum, exceed);
           }
           for (let i = 0; i < roadDataCopy.length; i++) {
-            const icon = this.roadMapIconList[i];
-            icon.setByObject(roadDataCopy[i]);
+            this.icon3 = this.roadMapIconList[i];
+            this.icon3.setByObject(roadDataCopy[i]);
           }
           (this.roadMapIconList[0] as LwBeadRoadIcon).showHighLight();
         }
@@ -203,10 +207,14 @@ namespace we {
         }
 
         if (this.theStage) {
-          if (this.theStage.hasEventListener(mouse.MouseEvent.MOUSE_MOVE)) {
-            this.theStage.removeEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
-          }
+          // if (this.theStage.hasEventListener(mouse.MouseEvent.MOUSE_MOVE)) {
+          this.theStage.removeEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onMove, this);
+          this.theStage = null;
+          // }
         }
+        this.icon1 = null;
+        this.icon2 = null;
+        this.icon3 = null;
       }
     }
   }
