@@ -127,21 +127,13 @@ namespace we {
 
       /** Step 6: load general resource (lobby, baccarat) */
       private async loadGeneralRes() {
-        // RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Roulette, core.res.Dice, core.res.Common, core.res.Nav, core.res.LuckyWheel, 'temp', 'test']);
-        RES.createGroup('firstRun', [core.res.Lobby, core.res.Common, core.res.Baccarat]);
+        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Roulette, core.res.Dice, core.res.Common, core.res.Nav, core.res.LuckyWheel, 'temp', 'test']);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
         this._progressbar.minimum = 0;
         this._progressbar.maximum = 0;
         this._progressbar.value = 0;
-        // await RES.loadGroup('firstRun');
-        await RES.loadGroup(core.res.Lobby);
-        await RES.loadGroup(core.res.Common);
-        await RES.loadGroup(core.res.Baccarat);
-        await RES.loadGroup(core.res.DragonTiger);
-        await RES.loadGroup(core.res.Roulette);
-        await RES.loadGroup(core.res.Dice);
-        await RES.loadGroup(core.res.LuckyWheel);
+        await RES.loadGroup('firstRun');
         await new Promise(resolve => {
           dir.socket.getLobbyMaterial(async res => {
             logger.l(res);

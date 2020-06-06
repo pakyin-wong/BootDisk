@@ -1,0 +1,480 @@
+{
+	"groups": [
+		{
+			"keys": "roadmapfont_fnt,common_ui_ske_json,common_ui_tex_json,common_ui_tex_png,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,popover_png,common_cards_json,common_chips_json,common_game_panel_json,common_general_json,common_menu_json,preload_json",
+			"name": "common"
+		},
+		{
+			"keys": "font_fnt,lobby_ui_ske_json,lobby_ui_tex_json,lobby_ui_tex_png,d_common_quickbet_bg_png,d_common_quickbet_btn_confirm_active_png,d_common_quickbet_btn_confirm_png,d_common_quickbet_confirm_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_quick_bet_notification_follow_normal_png,lobby_json",
+			"name": "scene_lobby"
+		},
+		{
+			"keys": "baccarat_game_result_ske_json,baccarat_game_result_tex_json,baccarat_game_result_tex_png,baccarat_ui_ske_json,baccarat_ui_tex_json,baccarat_ui_tex_png,frame-3_png,ba_json",
+			"name": "scene_baccarat"
+		},
+		{
+			"keys": "",
+			"name": "temp"
+		},
+		{
+			"keys": "font_fnt,roadmapfont_fnt,loading_json",
+			"name": "scene_loading"
+		},
+		{
+			"keys": "dragon_tiger_game_result_ske_json,dragon_tiger_game_result_tex_json,dragon_tiger_game_result_tex_png,dt_json",
+			"name": "scene_dragontiger"
+		},
+		{
+			"keys": "roulette_game_result_ske_json,roulette_game_result_tex_json,roulette_game_result_tex_png,roulette_ui_ske_json,roulette_ui_tex_json,roulette_ui_tex_png,ro_json",
+			"name": "scene_roulette"
+		},
+		{
+			"keys": "sicbo_game_result_ske_json,sicbo_game_result_tex_json,sicbo_game_result_tex_png,di_json",
+			"name": "scene_dice"
+		},
+		{
+			"keys": "d_mw_bg_a_png,lw_json",
+			"name": "scene_luckywheel"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/fonts/font.fnt",
+			"type": "font",
+			"name": "font_fnt"
+		},
+		{
+			"url": "assets/fonts/roadmapfont.fnt",
+			"type": "font",
+			"name": "roadmapfont_fnt"
+		},
+		{
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
+			"type": "image",
+			"name": "common_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/dt/dragon_tiger_game_result/dragon_tiger_game_result_tex.png",
+			"type": "image",
+			"name": "dragon_tiger_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/di/sicbo_game_result/sicbo_game_result_tex.png",
+			"type": "image",
+			"name": "sicbo_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/lobby/lobby_ui/lobby_ui_tex.png",
+			"type": "image",
+			"name": "lobby_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/ba/baccarat_ui/baccarat_ui_tex.png",
+			"type": "image",
+			"name": "baccarat_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/ba/baccarat_game_result/baccarat_game_result_tex.png",
+			"type": "image",
+			"name": "baccarat_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/ro/roulette_ui/roulette_ui_tex.png",
+			"type": "image",
+			"name": "roulette_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/ro/roulette_game_result/roulette_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/common_ui/common_ui_ske.json",
+			"type": "json",
+			"name": "common_ui_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/dt/dragon_tiger_game_result/dragon_tiger_game_result_ske.json",
+			"type": "json",
+			"name": "dragon_tiger_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex.json",
+			"type": "json",
+			"name": "common_ui_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/dt/dragon_tiger_game_result/dragon_tiger_game_result_tex.json",
+			"type": "json",
+			"name": "dragon_tiger_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/di/sicbo_game_result/sicbo_game_result_tex.json",
+			"type": "json",
+			"name": "sicbo_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/lobby/lobby_ui/lobby_ui_tex.json",
+			"type": "json",
+			"name": "lobby_ui_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/lobby/lobby_ui/lobby_ui_ske.json",
+			"type": "json",
+			"name": "lobby_ui_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/di/sicbo_game_result/sicbo_game_result_ske.json",
+			"type": "json",
+			"name": "sicbo_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/ba/baccarat_ui/baccarat_ui_ske.json",
+			"type": "json",
+			"name": "baccarat_ui_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/ba/baccarat_game_result/baccarat_game_result_ske.json",
+			"type": "json",
+			"name": "baccarat_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/ro/roulette_game_result/roulette_game_result_ske.json",
+			"type": "json",
+			"name": "roulette_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/ro/roulette_ui/roulette_ui_tex.json",
+			"type": "json",
+			"name": "roulette_ui_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/ba/baccarat_game_result/baccarat_game_result_tex.json",
+			"type": "json",
+			"name": "baccarat_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/ba/baccarat_ui/baccarat_ui_tex.json",
+			"type": "json",
+			"name": "baccarat_ui_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/ro/roulette_game_result/roulette_game_result_tex.json",
+			"type": "json",
+			"name": "roulette_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/ro/roulette_ui/roulette_ui_ske.json",
+			"type": "json",
+			"name": "roulette_ui_ske_json"
+		},
+		{
+			"url": "assets/sounds/sn_banker_en.mp3",
+			"type": "sound",
+			"name": "sn_banker_en_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_banker_sc.mp3",
+			"type": "sound",
+			"name": "sn_banker_sc_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_banker_tc.mp3",
+			"type": "sound",
+			"name": "sn_banker_tc_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_bgm002.mp3",
+			"type": "sound",
+			"name": "sn_bgm002_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_player_en.mp3",
+			"type": "sound",
+			"name": "sn_player_en_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_player_sc.mp3",
+			"type": "sound",
+			"name": "sn_player_sc_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_player_tc.mp3",
+			"type": "sound",
+			"name": "sn_player_tc_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_win_en.mp3",
+			"type": "sound",
+			"name": "sn_win_en_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_win_sc.mp3",
+			"type": "sound",
+			"name": "sn_win_sc_mp3"
+		},
+		{
+			"url": "assets/sounds/sn_win_tc.mp3",
+			"type": "sound",
+			"name": "sn_win_tc_mp3"
+		},
+		{
+			"url": "assets/nmimages/d/lw/d_mw_bg_a.png",
+			"type": "image",
+			"name": "d_mw_bg_a_png"
+		},
+		{
+			"url": "assets/nmimages/d/ba/frame-3.png",
+			"type": "image",
+			"name": "frame-3_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_listpanel_bg.png",
+			"type": "image",
+			"name": "d_common_listpanel_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_notify_bg.png",
+			"type": "image",
+			"name": "d_common_notify_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_btn.png",
+			"type": "image",
+			"name": "d_common_panel_btn_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_btn_active.png",
+			"type": "image",
+			"name": "d_common_panel_btn_active_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_btn_hover.png",
+			"type": "image",
+			"name": "d_common_panel_btn_hover_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_gamelist_bg.png",
+			"type": "image",
+			"name": "d_common_panel_gamelist_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_systemsetting_pressedbg.png",
+			"type": "image",
+			"name": "d_common_panel_systemsetting_pressedbg_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_bg.png",
+			"type": "image",
+			"name": "d_common_popup_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_btn.png",
+			"type": "image",
+			"name": "d_common_popup_btn_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_btn_hover.png",
+			"type": "image",
+			"name": "d_common_popup_btn_hover_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_btn_pressed.png",
+			"type": "image",
+			"name": "d_common_popup_btn_pressed_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_panel_btn.png",
+			"type": "image",
+			"name": "d_common_popup_panel_btn_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_panel_btn_hover.png",
+			"type": "image",
+			"name": "d_common_popup_panel_btn_hover_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_panel_btn_pressed.png",
+			"type": "image",
+			"name": "d_common_popup_panel_btn_pressed_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_warnbtn.png",
+			"type": "image",
+			"name": "d_common_popup_warnbtn_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_warnbtn_hover.png",
+			"type": "image",
+			"name": "d_common_popup_warnbtn_hover_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_bg.png",
+			"type": "image",
+			"name": "d_lobby_goodroad_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_bg.png",
+			"type": "image",
+			"name": "d_lobby_goodroad_btn_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_bg_active.png",
+			"type": "image",
+			"name": "d_lobby_goodroad_btn_bg_active_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_bg_hover.png",
+			"type": "image",
+			"name": "d_lobby_goodroad_btn_bg_hover_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_confirm.png",
+			"type": "image",
+			"name": "d_lobby_goodroad_btn_confirm_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_confirm_hover.png",
+			"type": "image",
+			"name": "d_lobby_goodroad_btn_confirm_hover_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_textbox.png",
+			"type": "image",
+			"name": "d_lobby_goodroad_textbox_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_restart_btn.png",
+			"type": "image",
+			"name": "d_lobby_restart_btn_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_send_btn_hover.png",
+			"type": "image",
+			"name": "d_lobby_send_btn_hover_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/d_lobby_send_btn_normal.png",
+			"type": "image",
+			"name": "d_lobby_send_btn_normal_png"
+		},
+		{
+			"url": "assets/nmimages/d/common/ninegrids/popover.png",
+			"type": "image",
+			"name": "popover_png"
+		},
+		{
+			"url": "assets/nmimages/d/lobby/ninegrids/d_common_quickbet_bg.png",
+			"type": "image",
+			"name": "d_common_quickbet_bg_png"
+		},
+		{
+			"url": "assets/nmimages/d/lobby/ninegrids/d_common_quickbet_btn_confirm.png",
+			"type": "image",
+			"name": "d_common_quickbet_btn_confirm_png"
+		},
+		{
+			"url": "assets/nmimages/d/lobby/ninegrids/d_common_quickbet_btn_confirm_active.png",
+			"type": "image",
+			"name": "d_common_quickbet_btn_confirm_active_png"
+		},
+		{
+			"url": "assets/nmimages/d/lobby/ninegrids/d_common_quickbet_confirm.png",
+			"type": "image",
+			"name": "d_common_quickbet_confirm_png"
+		},
+		{
+			"url": "assets/nmimages/d/lobby/ninegrids/d_lobby_quick_bet_notification_follow_hover.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_notification_follow_hover_png"
+		},
+		{
+			"url": "assets/nmimages/d/lobby/ninegrids/d_lobby_quick_bet_notification_follow_normal.png",
+			"type": "image",
+			"name": "d_lobby_quick_bet_notification_follow_normal_png"
+		},
+		{
+			"url": "assets/spritesheet/d/common/common_chips.json",
+			"type": "sheet",
+			"name": "common_chips_json",
+			"subkeys": "d_common_chips_10_png,d_common_chips_1_png,d_common_chips_2_png,d_common_chips_3_png,d_common_chips_4_png,d_common_chips_5_png,d_common_chips_6_png,d_common_chips_7_png,d_common_chips_8_png,d_common_chips_9_png,d_common_chips_betting_png,d_common_chips_perspective_1_png,d_common_chips_perspective_2_png,d_common_chips_perspective_3_png,d_common_chips_perspective_4_png,d_common_chips_perspective_5_png,d_common_chips_perspective_6_png,d_common_chips_perspective_7_png,d_common_chips_perspective_8_png,d_common_chips_perspective_9_png,d_lobby_panel_betcontrol_chips_select_png,m_lobby_panel_betcontrol_chip01_active_png,m_lobby_panel_betcontrol_chip01_png,m_lobby_panel_betcontrol_chip02_active_png,m_lobby_panel_betcontrol_chip02_png,m_lobby_panel_betcontrol_chip03_active_png,m_lobby_panel_betcontrol_chip03_png,m_lobby_panel_betcontrol_chip04_active_png,m_lobby_panel_betcontrol_chip04_png,m_lobby_panel_betcontrol_chip05_active_png,m_lobby_panel_betcontrol_chip05_png,m_lobby_panel_betcontrol_chip06_active_png,m_lobby_panel_betcontrol_chip06_png,m_lobby_panel_betcontrol_chip07_active_png,m_lobby_panel_betcontrol_chip07_png,m_lobby_panel_betcontrol_chip08_active_png,m_lobby_panel_betcontrol_chip08_png,m_lobby_panel_betcontrol_chip09_active_png,m_lobby_panel_betcontrol_chip09_png,m_lobby_panel_betcontrol_chip10_active_png,m_lobby_panel_betcontrol_chip10_png,m_lobby_panel_betcontrol_chip11_active_png,m_lobby_panel_betcontrol_chip11_png,m_lobby_panel_betcontrol_chips_select_png"
+		},
+		{
+			"url": "assets/spritesheet/d/common/common_cards.json",
+			"type": "sheet",
+			"name": "common_cards_json",
+			"subkeys": "d_common_poker_horizontal_club_10_png,d_common_poker_horizontal_club_2_png,d_common_poker_horizontal_club_3_png,d_common_poker_horizontal_club_4_png,d_common_poker_horizontal_club_5_png,d_common_poker_horizontal_club_6_png,d_common_poker_horizontal_club_7_png,d_common_poker_horizontal_club_8_png,d_common_poker_horizontal_club_9_png,d_common_poker_horizontal_club_a_png,d_common_poker_horizontal_club_j_png,d_common_poker_horizontal_club_k_png,d_common_poker_horizontal_club_q_png,d_common_poker_horizontal_diamonds_10_png,d_common_poker_horizontal_diamonds_2_png,d_common_poker_horizontal_diamonds_3_png,d_common_poker_horizontal_diamonds_4_png,d_common_poker_horizontal_diamonds_5_png,d_common_poker_horizontal_diamonds_6_png,d_common_poker_horizontal_diamonds_7_png,d_common_poker_horizontal_diamonds_8_png,d_common_poker_horizontal_diamonds_9_png,d_common_poker_horizontal_diamonds_a_png,d_common_poker_horizontal_diamonds_j_png,d_common_poker_horizontal_diamonds_k_png,d_common_poker_horizontal_diamonds_q_png,d_common_poker_horizontal_hearts_10_png,d_common_poker_horizontal_hearts_2_png,d_common_poker_horizontal_hearts_3_png,d_common_poker_horizontal_hearts_4_png,d_common_poker_horizontal_hearts_5_png,d_common_poker_horizontal_hearts_6_png,d_common_poker_horizontal_hearts_7_png,d_common_poker_horizontal_hearts_8_png,d_common_poker_horizontal_hearts_9_png,d_common_poker_horizontal_hearts_a_png,d_common_poker_horizontal_hearts_j_png,d_common_poker_horizontal_hearts_k_png,d_common_poker_horizontal_hearts_q_png,d_common_poker_horizontal_spade_10_png,d_common_poker_horizontal_spade_2_png,d_common_poker_horizontal_spade_3_png,d_common_poker_horizontal_spade_4_png,d_common_poker_horizontal_spade_5_png,d_common_poker_horizontal_spade_6_png,d_common_poker_horizontal_spade_7_png,d_common_poker_horizontal_spade_8_png,d_common_poker_horizontal_spade_9_png,d_common_poker_horizontal_spade_a_png,d_common_poker_horizontal_spade_j_png,d_common_poker_horizontal_spade_k_png,d_common_poker_horizontal_spade_q_png,d_common_poker_vertical_back_png,d_common_poker_vertical_club_10_png,d_common_poker_vertical_club_2_png,d_common_poker_vertical_club_3_png,d_common_poker_vertical_club_4_png,d_common_poker_vertical_club_5_png,d_common_poker_vertical_club_6_png,d_common_poker_vertical_club_7_png,d_common_poker_vertical_club_8_png,d_common_poker_vertical_club_9_png,d_common_poker_vertical_club_a_png,d_common_poker_vertical_club_j_png,d_common_poker_vertical_club_k_png,d_common_poker_vertical_club_q_png,d_common_poker_vertical_diamonds_10_png,d_common_poker_vertical_diamonds_2_png,d_common_poker_vertical_diamonds_3_png,d_common_poker_vertical_diamonds_4_png,d_common_poker_vertical_diamonds_5_png,d_common_poker_vertical_diamonds_6_png,d_common_poker_vertical_diamonds_7_png,d_common_poker_vertical_diamonds_8_png,d_common_poker_vertical_diamonds_9_png,d_common_poker_vertical_diamonds_a_png,d_common_poker_vertical_diamonds_j_png,d_common_poker_vertical_diamonds_k_png,d_common_poker_vertical_diamonds_q_png,d_common_poker_vertical_hearts_10_png,d_common_poker_vertical_hearts_2_png,d_common_poker_vertical_hearts_3_png,d_common_poker_vertical_hearts_4_png,d_common_poker_vertical_hearts_5_png,d_common_poker_vertical_hearts_6_png,d_common_poker_vertical_hearts_7_png,d_common_poker_vertical_hearts_8_png,d_common_poker_vertical_hearts_9_png,d_common_poker_vertical_hearts_a_png,d_common_poker_vertical_hearts_j_png,d_common_poker_vertical_hearts_k_png,d_common_poker_vertical_hearts_q_png,d_common_poker_vertical_spade_10_png,d_common_poker_vertical_spade_2_png,d_common_poker_vertical_spade_3_png,d_common_poker_vertical_spade_4_png,d_common_poker_vertical_spade_5_png,d_common_poker_vertical_spade_6_png,d_common_poker_vertical_spade_7_png,d_common_poker_vertical_spade_8_png,d_common_poker_vertical_spade_9_png,d_common_poker_vertical_spade_a_png,d_common_poker_vertical_spade_j_png,d_common_poker_vertical_spade_k_png,d_common_poker_vertical_spade_q_png,d_sq_ba_card_back_png,d_sq_ba_large_poker_card_mask_png,d_sq_ba_small_card_back_png,d_sq_bac_large_poker_clover10_png,d_sq_bac_large_poker_clover2_png,d_sq_bac_large_poker_clover3_png,d_sq_bac_large_poker_clover4_png,d_sq_bac_large_poker_clover5_png,d_sq_bac_large_poker_clover6_png,d_sq_bac_large_poker_clover7_png,d_sq_bac_large_poker_clover8_png,d_sq_bac_large_poker_clover9_png,d_sq_bac_large_poker_cloverA_png,d_sq_bac_large_poker_cloverJ_png,d_sq_bac_large_poker_cloverK_png,d_sq_bac_large_poker_cloverQ_png,d_sq_bac_large_poker_diamond10_png,d_sq_bac_large_poker_diamond2_png,d_sq_bac_large_poker_diamond3_png,d_sq_bac_large_poker_diamond4_png,d_sq_bac_large_poker_diamond5_png,d_sq_bac_large_poker_diamond6_png,d_sq_bac_large_poker_diamond7_png,d_sq_bac_large_poker_diamond8_png,d_sq_bac_large_poker_diamond9_png,d_sq_bac_large_poker_diamondA_png,d_sq_bac_large_poker_diamondJ_png,d_sq_bac_large_poker_diamondK_png,d_sq_bac_large_poker_diamondQ_png,d_sq_bac_large_poker_heart10_png,d_sq_bac_large_poker_heart2_png,d_sq_bac_large_poker_heart3_png,d_sq_bac_large_poker_heart4_png,d_sq_bac_large_poker_heart5_png,d_sq_bac_large_poker_heart6_png,d_sq_bac_large_poker_heart7_png,d_sq_bac_large_poker_heart8_png,d_sq_bac_large_poker_heart9_png,d_sq_bac_large_poker_heartA_png,d_sq_bac_large_poker_heartJ_png,d_sq_bac_large_poker_heartK_png,d_sq_bac_large_poker_heartQ_png,d_sq_bac_large_poker_spade10_png,d_sq_bac_large_poker_spade2_png,d_sq_bac_large_poker_spade3_png,d_sq_bac_large_poker_spade4_png,d_sq_bac_large_poker_spade5_png,d_sq_bac_large_poker_spade6_png,d_sq_bac_large_poker_spade7_png,d_sq_bac_large_poker_spade8_png,d_sq_bac_large_poker_spade9_png,d_sq_bac_large_poker_spadeA_png,d_sq_bac_large_poker_spadeJ_png,d_sq_bac_large_poker_spadeK_png,d_sq_bac_large_poker_spadeQ_png"
+		},
+		{
+			"url": "assets/spritesheet/d/common/common_game_panel.json",
+			"type": "sheet",
+			"name": "common_game_panel_json",
+			"subkeys": "d_common_panel_gamelist_notifydot_green_png,d_common_panel_gamelist_notifydot_png,d_common_quickbet_betarea_general_dragon_hover_png,d_common_quickbet_betarea_general_dragon_png,d_common_quickbet_betarea_general_tie_hover_png,d_common_quickbet_betarea_general_tie_png,d_common_quickbet_betarea_general_tiger_hover_png,d_common_quickbet_betarea_general_tiger_png,d_lobby_panel_gamelist_betresult_banker_png,d_lobby_panel_gamelist_betresult_bankerbg_png,d_lobby_panel_gamelist_betresult_bankwinbg_png,d_lobby_panel_gamelist_betresult_dim_png,d_lobby_panel_gamelist_betresult_playbg_png,d_lobby_panel_gamelist_betresult_player_png,d_lobby_panel_gamelist_betresult_playwinbg_png,d_lobby_panel_gamelist_gameresult_bankerloss_png,d_lobby_panel_gamelist_gameresult_bankerwin_png,d_lobby_panel_gamelist_gameresult_playerloss_png,d_lobby_panel_gamelist_gameresult_playerwin_png,d_lobby_panel_gamelist_gameresult_tieloss_png,d_lobby_panel_gamelist_gameresult_tiewin_png,d_lobby_panel_gamelist_icon_allgame_active_png,d_lobby_panel_gamelist_icon_allgame_normal_png,d_lobby_panel_gamelist_icon_bet_active_png,d_lobby_panel_gamelist_icon_bet_normal_png,d_lobby_panel_gamelist_icon_goodroad_active_png,d_lobby_panel_gamelist_icon_goodroad_normal_png,d_lw_listpenal_betarea_bet_east_png,d_lw_listpenal_betarea_bet_green_png,d_lw_listpenal_betarea_bet_north_png,d_lw_listpenal_betarea_bet_red_png,d_lw_listpenal_betarea_bet_south_png,d_lw_listpenal_betarea_bet_west_png,d_lw_listpenal_betarea_bet_white_png,d_lw_listpenal_history_record_east_png,d_lw_listpenal_history_record_green_png,d_lw_listpenal_history_record_hl_png,d_lw_listpenal_history_record_north_png,d_lw_listpenal_history_record_red_png,d_lw_listpenal_history_record_south_png,d_lw_listpenal_history_record_west_png,d_lw_listpenal_history_record_white_png,d_lw_listpenal_result_east_png,d_lw_listpenal_result_green_png,d_lw_listpenal_result_money_bg_east_png,d_lw_listpenal_result_money_bg_gold_png,d_lw_listpenal_result_money_bg_north_png,d_lw_listpenal_result_money_bg_south_png,d_lw_listpenal_result_money_bg_west_png,d_lw_listpenal_result_money_bg_white_png,d_lw_listpenal_result_north_png,d_lw_listpenal_result_red_png,d_lw_listpenal_result_south_png,d_lw_listpenal_result_west_png,d_lw_listpenal_result_white_png,d_sic_game result_bg_01_png,d_sic_game result_bg_02_png,d_sic_game result_bg_03_png,d_sic_game result_bg_04_png,d_sic_game result_blue_png,d_sic_game result_green_png,d_sic_game result_red_png,d_sic_history_lv1_dice-1_png,d_sic_history_lv1_dice-2_png,d_sic_history_lv1_dice-3_png,d_sic_history_lv1_dice-4_png,d_sic_history_lv1_dice-5_png,d_sic_history_lv1_dice-6_png"
+		},
+		{
+			"url": "assets/spritesheet/d/di/di.json",
+			"type": "sheet",
+			"name": "di_json",
+			"subkeys": "d_di_betboard_hover_combine_png,d_di_betboard_hover_double_png,d_di_betboard_hover_large_group_png,d_di_betboard_hover_specific_png,d_di_betboard_hover_sum_png,d_di_betboard_hover_triple_all_png,d_di_betboard_hover_triple_png,d_di_betboard_inactive_png,d_sic_history_btn_hide_hover_png,d_sic_history_btn_hide_png,d_sic_history_btn_showall_hover_png,d_sic_history_btn_showall_png,d_sic_history_chart_line-2_png,d_sic_history_grid_png,d_sic_history_lv2_dice-1_png,d_sic_history_lv2_dice-2_png,d_sic_history_lv2_dice-3_png,d_sic_history_lv2_dice-4_png,d_sic_history_lv2_dice-5_png,d_sic_history_lv2_dice-6_png,d_sic_history_lv3_dice-1_png,d_sic_history_lv3_dice-2_png,d_sic_history_lv3_dice-3_png,d_sic_history_lv3_dice-4_png,d_sic_history_lv3_dice-5_png,d_sic_history_lv3_dice-6_png,d_sic_lobby_bg_2_png,d_sic_lobby_chart_bg_left_png,d_sic_lobby_chart_bg_right_png,d_sic_panel_normal_png,d_sic_panel_open-a_1_hover_png,d_sic_panel_open-a_1_pressed_png,d_sic_panel_open-a_2_hover_png,d_sic_panel_open-a_2_pressed_png,d_sic_panel_open-a_3_hover_png,d_sic_panel_open-a_3_pressed_png,d_sic_panel_open-a_4_hover_png,d_sic_panel_open-a_4_pressed_png,d_sic_panel_open-a_5_hover_png,d_sic_panel_open-a_5_pressed_png,d_sic_panel_open-a_9_hover_png,d_sic_panel_open-a_9_pressed_png,d_sic_panel_open-b_14_hover_png,d_sic_panel_open-b_14_pressed_png,d_sic_panel_open-b_1_hover_png,d_sic_panel_open-b_1_pressed_png,d_sic_panel_open-b_2_hover_png,d_sic_panel_open-b_2_pressed_png,d_sic_panel_open-c_10_hover_png,d_sic_panel_open-c_10_pressed_png,d_sic_panel_open-c_11_hover_png,d_sic_panel_open-c_11_pressed_png,d_sic_panel_open-c_12_hover_png,d_sic_panel_open-c_12_pressed_png,d_sic_panel_open-c_13_hover_png,d_sic_panel_open-c_13_pressed_png,d_sic_panel_open-c_14_hover_png,d_sic_panel_open-c_14_pressed_png,d_sic_panel_open-c_15_hover_png,d_sic_panel_open-c_15_pressed_png,d_sic_panel_open-c_1_hover_png,d_sic_panel_open-c_1_pressed_png,d_sic_panel_open-c_2_hover_png,d_sic_panel_open-c_2_pressed_png,d_sic_panel_open-c_3_hover_png,d_sic_panel_open-c_3_pressed_png,d_sic_panel_open-c_4_hover_png,d_sic_panel_open-c_4_pressed_png,d_sic_panel_open-c_5_hover_png,d_sic_panel_open-c_5_pressed_png,d_sic_panel_open-c_6_hover_png,d_sic_panel_open-c_6_pressed_png,d_sic_panel_open-c_7_hover_png,d_sic_panel_open-c_7_pressed_png,d_sic_panel_open-c_8_hover_png,d_sic_panel_open-c_8_pressed_png,d_sic_panel_open-c_9_hover_png,d_sic_panel_open-c_9_pressed_png,d_sic_panel_open-d_6_hover_png,d_sic_panel_open-d_6_pressed_png,d_sic_panel_open-d_7_hover_png,d_sic_panel_open-d_7_pressed_png,d_sic_panel_open_png"
+		},
+		{
+			"url": "assets/spritesheet/d/common/common_general.json",
+			"type": "sheet",
+			"name": "common_general_json",
+			"subkeys": "d-lobby-button-close-none_png,d-lobby-header-dim_png,d-lobby-notify-btn-action_png,d-lobby-notify-btn-hide_png,d_ba_betcontrol_button_confirm_png,d_ba_betcontrol_icon_cancel_png,d_ba_betcontrol_icon_double_png,d_ba_betcontrol_icon_repeat_png,d_ba_chartroom_iconelement_png,d_ba_live_button_swapvideo_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_hoverelement_png,d_ba_navbar_icon_info_png,d_ba_navbar_icon_rss_png,d_ba_navbar_icon_setting_png,d_ba_navbar_icon_sound_png,d_ba_navbar_icon_stat_png,d_ba_navbar_icon_video_png,d_common_chartroom_controlbg_png,d_common_chartroom_emoji_icon_10_png,d_common_chartroom_emoji_icon_11_png,d_common_chartroom_emoji_icon_12_png,d_common_chartroom_emoji_icon_13_png,d_common_chartroom_emoji_icon_14_png,d_common_chartroom_emoji_icon_15_png,d_common_chartroom_emoji_icon_16_png,d_common_chartroom_emoji_icon_17_png,d_common_chartroom_emoji_icon_18_png,d_common_chartroom_emoji_icon_19_png,d_common_chartroom_emoji_icon_1_png,d_common_chartroom_emoji_icon_20_png,d_common_chartroom_emoji_icon_21_png,d_common_chartroom_emoji_icon_2_png,d_common_chartroom_emoji_icon_3_png,d_common_chartroom_emoji_icon_4_png,d_common_chartroom_emoji_icon_5_png,d_common_chartroom_emoji_icon_6_png,d_common_chartroom_emoji_icon_7_png,d_common_chartroom_emoji_icon_8_png,d_common_chartroom_emoji_icon_9_png,d_common_chartroom_icon_hover_png,d_common_chartroom_otherbg_png,d_common_chartroom_selfbg_png,d_common_icon_chart_normal_png,d_common_icon_close_png,d_common_icon_emoji_disabled_png,d_common_icon_emoji_enabled_png,d_common_icon_msg_disabled_png,d_common_icon_msg_enabled_png,d_common_panel_uicolour_icon_drak_png,d_common_panel_uicolour_icon_light_png,d_common_scrollbar_png,d_lobby_navbar_logo_png,d_lobby_navbar_menu_png,d_lobby_navbar_time_png,d_lobby_select_round_no_png,d_lobby_select_round_yes_png,d_lobby_switch_dark_png,d_lobby_switch_png,m_common_header_icon_refresh_png"
+		},
+		{
+			"url": "assets/spritesheet/d/common/common_menu.json",
+			"type": "sheet",
+			"name": "common_menu_json",
+			"subkeys": "d_common_panel_systemsetting_pressed_select_png,d_lobby_Icon_chart_hover_png,d_lobby_Icon_chart_normal_png,d_lobby_Icon_edit_hover_png,d_lobby_Icon_edit_normal_png,d_lobby_Icon_logout_hover_png,d_lobby_Icon_logout_normal_png,d_lobby_Icon_record_hover_png,d_lobby_Icon_record_normal_png,d_lobby_Icon_setting_hover_png,d_lobby_Icon_setting_normal_png,d_lobby_btn_bet_icon_close_png,d_lobby_btn_dropdown_png,d_lobby_btn_dropup_popover_png,d_lobby_button_add_road_banker_png,d_lobby_button_add_road_player_png,d_lobby_button_clear_road_png,d_lobby_button_deduct_png,d_lobby_button_down_hover_png,d_lobby_button_down_normal_png,d_lobby_button_next_hover_png,d_lobby_button_next_normal_png,d_lobby_button_pagenav_png,d_lobby_button_prev_hover_png,d_lobby_button_prev_normal_png,d_lobby_button_search_hover_png,d_lobby_button_search_normal_png,d_lobby_button_triangle_next_png,d_lobby_button_triangle_prev_png,d_lobby_form_textclear_png,d_lobby_goodroad_icon_previous_png,d_lobby_goodroad_select_active_png,d_lobby_goodroad_select_hover_png,d_lobby_goodroad_select_png,d_lobby_goodroad_textbox_btn_clear_png,d_lobby_goodroadsetting_hover_png,d_lobby_goodroadsetting_icon_trash_png,d_lobby_goodroadsetting_normal_png,d_lobby_panel_button_checkboxes_active_png,d_lobby_panel_button_checkboxes_normal_png,d_lobby_panel_button_page_next_normal_png,d_lobby_panel_button_page_prev_normal_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png,d_lobby_panel_button_slide_select_png,d_lobby_profile_edit_hover_png,d_lobby_profile_edit_normal_png,d_lobby_profile_reload_hover_png,d_lobby_profile_reload_normal_png"
+		},
+		{
+			"url": "assets/spritesheet/d/loading/loading.json",
+			"type": "sheet",
+			"name": "loading_json",
+			"subkeys": "d-lobby-loading-progress-bar-active_png,d-lobby-loading-progress-bar-base_png"
+		},
+		{
+			"url": "assets/spritesheet/d/lw/lw.json",
+			"type": "sheet",
+			"name": "lw_json",
+			"subkeys": "d_lw_betarea_bet_east_hover_png,d_lw_betarea_bet_east_png,d_lw_betarea_bet_green_hover_png,d_lw_betarea_bet_green_png,d_lw_betarea_bet_north_hover_png,d_lw_betarea_bet_north_png,d_lw_betarea_bet_red_hover_png,d_lw_betarea_bet_red_png,d_lw_betarea_bet_south_hover_png,d_lw_betarea_bet_south_png,d_lw_betarea_bet_west_hover_png,d_lw_betarea_bet_west_png,d_lw_betarea_bet_white_hover_png,d_lw_betarea_bet_white_png,d_lw_betpool_barchart_east_png,d_lw_betpool_barchart_gold_png,d_lw_betpool_barchart_north_png,d_lw_betpool_barchart_south_png,d_lw_betpool_barchart_west_png,d_lw_betpool_barchart_white_png,d_lw_game_detail_record_bet_east_png,d_lw_game_detail_record_bet_green_png,d_lw_game_detail_record_bet_north_png,d_lw_game_detail_record_bet_red_png,d_lw_game_detail_record_bet_south_png,d_lw_game_detail_record_bet_west_png,d_lw_game_detail_record_bet_white_png,d_lw_game_detail_record_bg_png,d_lw_result_east_png,d_lw_result_green_png,d_lw_result_money_bg_east_png,d_lw_result_money_bg_gold_png,d_lw_result_money_bg_north_png,d_lw_result_money_bg_south_png,d_lw_result_money_bg_west_png,d_lw_result_money_bg_white_png,d_lw_result_north_png,d_lw_result_red_png,d_lw_result_south_png,d_lw_result_west_png,d_lw_result_white_png"
+		},
+		{
+			"url": "assets/spritesheet/d/dt/dt.json",
+			"type": "sheet",
+			"name": "dt_json",
+			"subkeys": "d_dt_betarea_general_dragon_hover_png,d_dt_betarea_general_dragon_png,d_dt_betarea_general_tie_hover_png,d_dt_betarea_general_tie_png,d_dt_betarea_general_tiger_hover_png,d_dt_betarea_general_tiger_png"
+		},
+		{
+			"url": "assets/spritesheet/d/ba/ba.json",
+			"type": "sheet",
+			"name": "ba_json",
+			"subkeys": "d-sq-ba-b-win-hl-copy_png,d-sq-ba-p-win-hl-copy_png,d_ba_betarea_banker_hover_png,d_ba_betarea_banker_normal_png,d_ba_betarea_bankerpair_hover_png,d_ba_betarea_bankerpair_normal_png,d_ba_betarea_button_active_png,d_ba_betarea_button_normal_png,d_ba_betarea_icon_bet_png,d_ba_betarea_icon_person_png,d_ba_betarea_player_hover_png,d_ba_betarea_player_normal_png,d_ba_betarea_playerpair_hover_png,d_ba_betarea_playerpair_normal_png,d_ba_betarea_supersix_bankerpair_hover_png,d_ba_betarea_supersix_bankerpair_normal_png,d_ba_betarea_supersix_playerpair_hover_png,d_ba_betarea_supersix_playerpair_normal_png,d_ba_betarea_supersix_tie_hover_png,d_ba_betarea_supersix_tie_normal_png,d_ba_betarea_tie_hover_png,d_ba_betarea_tie_normal_png,d_ba_betcontrol_pagenav_left_png,d_ba_betcontrol_pagenav_right_png,d_ba_gamerecord_bankerelement_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_tieelement_png,d_ba_goodroad_info_state_total_png,d_ba_panel_statistics_bankerelement_png,d_ba_panel_statistics_playerelement_png,d_ba_panel_statistics_tieelement_png,d_ba_roadmap_bar_bankerelement_png,d_ba_roadmap_bar_bankerpairstate_png,d_ba_roadmap_bar_bankerstate_png,d_ba_roadmap_bar_playerelement_png,d_ba_roadmap_bar_playerpairstate_png,d_ba_roadmap_bar_playerstate_png,d_ba_roadmap_bar_remainingstate_png,d_ba_roadmap_bar_tierstate_png,d_ba_roadmap_record_cardresult_banker_png,d_ba_roadmap_record_cardresult_player_png,d_ba_roadmap_record_result_banker_png,d_ba_roadmap_record_result_player_png,d_ba_roadmap_record_result_tie_png,d_ba_roadmap_topbar_textbg_banker_png,d_ba_roadmap_topbar_textbg_player_png,d_ba_swaproadmap_button_element_png,d_sq_ba_all_open_btn_disabled_b_png,d_sq_ba_all_open_btn_disabled_p_png,d_sq_ba_all_open_btn_hover_b_png,d_sq_ba_all_open_btn_hover_p_png,d_sq_ba_all_open_btn_inactive_b_png,d_sq_ba_all_open_btn_inactive_p_png,d_sq_ba_all_open_btn_inactive_player_png,d_sq_ba_all_open_btn_normal_b_png,d_sq_ba_all_open_btn_normal_p_png,d_sq_ba_instruction_bg_png,d_sq_ba_instruction_crad_group_02_png,d_sq_ba_thumb_up_png,d_sq_ba_touch_icon_png,d_sq_bac_page_next_disable_png,d_sq_bac_page_next_none_png,m_v_sp_ba_instruction_reveal_all_btn_png"
+		},
+		{
+			"url": "assets/spritesheet/d/lobby/lobby.json",
+			"type": "sheet",
+			"name": "lobby_json",
+			"subkeys": "d_lobby_betcontrol_btn_left_png,d_lobby_betcontrol_btn_previous_png,d_lobby_betcontrol_btn_right_png,d_lobby_confirm_btn_hover_png,d_lobby_confirm_btn_normal_png,d_lobby_icon_view_01_hover_png,d_lobby_icon_view_01_normal_png,d_lobby_icon_view_02_hover_png,d_lobby_icon_view_02_normal_png,d_lobby_icon_view_03_hover_png,d_lobby_icon_view_03_normal_png,d_lobby_panel_betcontrol_betarea_banker_hover_png,d_lobby_panel_betcontrol_betarea_banker_normal_png,d_lobby_panel_betcontrol_betarea_bankerpair_hover_png,d_lobby_panel_betcontrol_betarea_bankerpair_normal_png,d_lobby_panel_betcontrol_betarea_player_hover_png,d_lobby_panel_betcontrol_betarea_player_normal_png,d_lobby_panel_betcontrol_betarea_playerpair_hover_png,d_lobby_panel_betcontrol_betarea_playerpair_normal_png,d_lobby_panel_betcontrol_betarea_tie_hover_png,d_lobby_panel_betcontrol_betarea_tie_normal_png,d_lobby_panel_betcontrol_btn_close_hover_png,d_lobby_panel_betcontrol_btn_close_normal_png,d_lobby_panel_betcontrol_btn_previous_hover_png,d_lobby_panel_betcontrol_btn_previous_normal_png,d_lobby_profile_pic_01_png,d_lobby_profile_pic_02_png,d_lobby_profile_pic_03_png,d_lobby_profile_pic_04_png,d_lobby_profile_pic_05_png,d_lobby_profile_pic_06_png,d_lobby_profile_pic_07_png,d_lobby_profile_pic_08_png,d_lobby_profile_selected_png,d_lobby_quick_bet_area_up_png,d_lobby_quick_bet_circle_png,d_lobby_quickbet_betarea_general_dragon_png,d_lobby_quickbet_betarea_general_tie_png,d_lobby_quickbet_betarea_general_tiger_png,d_lobby_ro_panel_betcontrol_betarea_black_hover_png,d_lobby_ro_panel_betcontrol_betarea_black_png,d_lobby_ro_panel_betcontrol_betarea_even_hover_png,d_lobby_ro_panel_betcontrol_betarea_even_png,d_lobby_ro_panel_betcontrol_betarea_odd_hover_png,d_lobby_ro_panel_betcontrol_betarea_odd_png,d_lobby_ro_panel_betcontrol_betarea_red_hover_png,d_lobby_ro_panel_betcontrol_betarea_red_png,d_lobby_ro_panel_gamelist_gameresult_black_win_png,d_lobby_ro_panel_gamelist_gameresult_green_win_png,d_lobby_ro_panel_gamelist_gameresult_red_win_png,d_lw_history_record_east_png,d_lw_history_record_green_png,d_lw_history_record_hl_png,d_lw_history_record_north_png,d_lw_history_record_red_png,d_lw_history_record_south_png,d_lw_history_record_west_png,d_lw_history_record_white_png,d_lw_listpenal_bet_east_dim_png,d_lw_listpenal_bet_east_png,d_lw_listpenal_bet_green_dim_png,d_lw_listpenal_bet_green_png,d_lw_listpenal_bet_north_dim_png,d_lw_listpenal_bet_north_png,d_lw_listpenal_bet_red_dim_png,d_lw_listpenal_bet_red_png,d_lw_listpenal_bet_south_dim_png,d_lw_listpenal_bet_south_png,d_lw_listpenal_bet_west_dim_png,d_lw_listpenal_bet_west_png,d_lw_listpenal_bet_white_dim_png,d_lw_listpenal_bet_white_png,d_ro_panel_gamelist_history_ball_gray_png,d_ro_panel_gamelist_history_ball_hl_png,d_sic_lobby_betarea_01_hover_png,d_sic_lobby_betarea_01_normal_png,d_sic_lobby_betarea_02_hover_png,d_sic_lobby_betarea_02_normal_png,d_sic_lobby_betarea_03_hover_png,d_sic_lobby_betarea_03_normal_png,d_sic_lobby_betarea_04_hover_png,d_sic_lobby_betarea_04_normal_png,m_lobby_banner_bullet_active_png,m_lobby_banner_bullet_png,m_lobby_ro_history_black_Rectangle_png,m_lobby_ro_history_green_Rectangle_png,m_lobby_ro_history_red_Rectangle_png,m_ro_roadmap_light_blue_box_png,m_ro_roadmap_light_green_box_png,m_ro_roadmap_light_red_box_png"
+		},
+		{
+			"url": "assets/spritesheet/d/ro/ro.json",
+			"type": "sheet",
+			"name": "ro_json",
+			"subkeys": "d_gow_rou_betborad_hl_big_png,d_gow_rou_betborad_hl_png,d_gow_rou_lucky_number_bk_png,d_gow_rou_lucky_number_gn_png,d_gow_rou_lucky_number_red_png,d_ro_betboard_disable_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_png,d_ro_betboard_hover_black_square_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_even_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_small_png,d_ro_betboard_inactive_png,d_ro_betborad_outline_png,d_ro_chips_small_not_confirm_png,d_ro_chips_small_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_32_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_inactive_png,d_ro_racetrack_normal_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_outline_png,d_ro_racetrack_red_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_add_btn_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_disabled_png,d_ro_rm_less_btn_hover_png,d_ro_rm_less_btn_normal_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_add_icon_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_confrim_bg_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,d_ro_savelayout_star_icon_png"
+		},
+		{
+			"url": "assets/spritesheet/preload/preload.json",
+			"type": "sheet",
+			"name": "preload_json",
+			"subkeys": "Mask_test_png,advanced_dealer_1_png,advanced_dealer_2_png,advanced_dealer_sicbo_png,baccarat_dealer_1_jpg,baccarat_dealer_2_jpg,baccarat_dealer_3_jpg,baccarat_dealer_4_jpg,baccarat_dealer_5_jpg,border_png,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,handle_png,header_png,off_png,on_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,selected_png,thumb_png,track_png,tracklight_png"
+		}
+	]
+}

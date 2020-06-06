@@ -34,70 +34,70 @@ const config: ResourceManagerConfig = {
           new CustomPlugin(),
           new CompilePlugin({ libraryType: 'release', defines: { DEBUG: false, RELEASE: true } }),
           new ExmlPlugin('commonjs'), // 非 EUI 项目关闭此设置
-          new ZipPlugin({
-            mergeSelector: path => {
-              // const groups = ['common', 'lobby', 'loading', 'ba', 'dt', 'ro', 'di', 'lw'];
-              // 如果文件是assets/Button/路径下的， 压缩到assets/but.zip
-              const platforms = ['d', 'm'];
-              for (const p of platforms) {
-                if (path.indexOf(`assets/images/${p}/`) >= 0) {
-                  const groupName = path.split('/')[4];
-                  return `resource/assets/zip/${p}/${groupName}/${groupName}.zip`;
-                }
-              }
-              if (path.indexOf(`assets/images/preload/`) >= 0) {
-                return `resource/assets/zip/preload.zip`;
-              }
-            },
-          }),
+          // new ZipPlugin({
+          //   mergeSelector: path => {
+          //     // const groups = ['common', 'lobby', 'loading', 'ba', 'dt', 'ro', 'di', 'lw'];
+          //     // 如果文件是assets/Button/路径下的， 压缩到assets/but.zip
+          //     const platforms = ['d', 'm'];
+          //     for (const p of platforms) {
+          //       if (path.indexOf(`assets/images/${p}/`) >= 0) {
+          //         const groupName = path.split('/')[4];
+          //         return `resource/assets/zip/${p}/${groupName}/${groupName}.zip`;
+          //       }
+          //     }
+          //     if (path.indexOf(`assets/images/preload/`) >= 0) {
+          //       return `resource/assets/zip/preload.zip`;
+          //     }
+          //   },
+          // }),
           new CleanPlugin({
-            matchers: ['resource/asset/images'],
+            matchers: ['resource/assets/images'],
           }),
-          new EmitResConfigFilePlugin({
-            output: 'resource/desktop.res.json',
-            typeSelector: config.typeSelector,
-            nameSelector: p => {
-              if (p.indexOf(`assets/zip/m/`) >= 0) {
-                return '';
-              } else {
-                return path.basename(p).replace(/\./gi, '_');
-              }
-            },
-            groupSelector: p => {
-              const groupMap = {
-                common: 'common',
-                loading: 'scene_loading',
-                lobby: 'scene_lobby',
-                ba: 'scene_baccarat',
-                dt: 'scene_dragontiger',
-                di: 'scene_dice',
-                ro: 'scene_roulette',
-                lw: 'scene_luckywheel',
-              };
+          // new EmitResConfigFilePlugin({
+          //   output: 'resource/desktop.res.json',
+          //   typeSelector: config.typeSelector,
+          //   nameSelector: p => {
+          //     if (p.indexOf(`assets/zip/m/`) >= 0) {
+          //       return '';
+          //     } else {
+          //       return path.basename(p).replace(/\./gi, '_');
+          //     }
+          //   },
+          //   groupSelector: p => {
+          //     const groupMap = {
+          //       common: 'common',
+          //       loading: 'scene_loading',
+          //       lobby: 'scene_lobby',
+          //       ba: 'scene_baccarat',
+          //       dt: 'scene_dragontiger',
+          //       di: 'scene_dice',
+          //       ro: 'scene_roulette',
+          //       lw: 'scene_luckywheel',
+          //     };
 
-              // dragonbones
-              if (p.indexOf('assets/dragonbones/') >= 0) {
-                const groupName = p.split('/')[3];
-                return groupMap[groupName];
-              }
-              // fonts
-              if (p.indexOf('assets/fonts/') >= 0) {
-                return groupMap.loading;
-              }
-              // zip
-              if (p.indexOf(`assets/zip/d/`) >= 0) {
-                const groupName = p.split('/')[4];
-                return groupMap[groupName];
-              }
-              if (p.indexOf(`assets/zip/preload`) >= 0) {
-                return groupMap.common;
-              }
-              // sounds
-              if (p.indexOf('assets/sounds/') >= 0) {
-                return 'sound';
-              }
-            },
-          }),
+          //     // dragonbones
+          //     if (p.indexOf('assets/dragonbones/') >= 0) {
+          //       const groupName = p.split('/')[3];
+          //       return groupMap[groupName];
+          //     }
+          //     // fonts
+          //     if (p.indexOf('assets/fonts/') >= 0) {
+          //       return groupMap.loading;
+          //     }
+          //     // zip
+          //     if (p.indexOf(`assets/zip/d/`) >= 0) {
+          //       const groupName = p.split('/')[4];
+          //       return groupMap[groupName];
+          //     }
+          //     if (p.indexOf(`assets/zip/preload`) >= 0) {
+          //       return groupMap.common;
+          //     }
+          //     // sounds
+          //     if (p.indexOf('assets/sounds/') >= 0) {
+          //       return 'sound';
+          //     }
+          //   },
+          // }),
           new UglifyPlugin([
             {
               sources: ['main.js'],

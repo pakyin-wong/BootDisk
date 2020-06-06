@@ -3,16 +3,14 @@
   "frames": {
     {{#rects}}
     "{{{name}}}": {
-      "frame": {
-        "x": {{frame.x}},
-        "y": {{frame.y}},
-        "w": {{frame.w}},
-        "h": {{frame.h}},
-        "offX": {{spriteSourceSize.x}},
-        "offY": {{spriteSourceSize.y}},
-        "sourceW": {{spriteSourceSize.w}},
-        "sourceH": {{spriteSourceSize.h}}
-      }
+      "x": {{frame.x}},
+      "y": {{frame.y}},
+      "w": {{frame.w}},
+      "h": {{frame.h}},
+      "offX": {{spriteSourceSize.x}},
+      "offY": {{spriteSourceSize.y}},
+      "sourceW": {{spriteSourceSize.w}},
+      "sourceH": {{spriteSourceSize.h}}
     }{{^last}},{{/last}}
     {{/rects}}
   }

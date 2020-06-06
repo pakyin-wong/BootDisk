@@ -2,76 +2,64 @@
   "file": "loading.png",
   "frames": {
     "d-lobby-header-dim_png": {
-      "frame": {
-        "x": 1,
-        "y": 1,
-        "w": 1300,
-        "h": 75,
-        "offX": 0,
-        "offY": 0,
-        "sourceW": 1300,
-        "sourceH": 75
-      }
+      "x": 1,
+      "y": 1,
+      "w": 1300,
+      "h": 75,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1300,
+      "sourceH": 75
     },
     "m_lobby_loading_progress_bar_active_png": {
-      "frame": {
-        "x": 1,
-        "y": 78,
-        "w": 507,
-        "h": 15,
-        "offX": 0,
-        "offY": 0,
-        "sourceW": 507,
-        "sourceH": 15
-      }
+      "x": 1,
+      "y": 78,
+      "w": 507,
+      "h": 15,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 507,
+      "sourceH": 15
     },
     "d-lobby-loading-progress-bar-base_png": {
-      "frame": {
-        "x": 510,
-        "y": 78,
-        "w": 336,
-        "h": 8,
-        "offX": 0,
-        "offY": 0,
-        "sourceW": 336,
-        "sourceH": 8
-      }
+      "x": 510,
+      "y": 78,
+      "w": 336,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 336,
+      "sourceH": 8
     },
     "d-lobby-loading-progress-bar-active_png": {
-      "frame": {
-        "x": 848,
-        "y": 78,
-        "w": 291,
-        "h": 10,
-        "offX": 0,
-        "offY": 0,
-        "sourceW": 291,
-        "sourceH": 10
-      }
+      "x": 848,
+      "y": 78,
+      "w": 291,
+      "h": 10,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 291,
+      "sourceH": 10
     },
     "d_lobby_navbar_logo_png": {
-      "frame": {
-        "x": 1,
-        "y": 95,
-        "w": 198,
-        "h": 56.5,
-        "offX": 0,
-        "offY": 0,
-        "sourceW": 198,
-        "sourceH": 56.5
-      }
+      "x": 1,
+      "y": 95,
+      "w": 198,
+      "h": 56.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 198,
+      "sourceH": 56.5
     },
     "m_lobby_loading_progress_bar_base_png": {
-      "frame": {
-        "x": 201,
-        "y": 95,
-        "w": 15.5,
-        "h": 12.5,
-        "offX": 0,
-        "offY": 0,
-        "sourceW": 15.5,
-        "sourceH": 12.5
-      }
+      "x": 201,
+      "y": 95,
+      "w": 15.5,
+      "h": 12.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15.5,
+      "sourceH": 12.5
     }
   }
 }

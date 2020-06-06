@@ -17,6 +17,54 @@ let texturePacker = require("free-tex-packer-core");
 // });
 
 // console.log(args["--input"]);
+
+async function generateSpriteSheet(textureName, srcDir, outDir, scale) {
+  let entries = [...await glob([`${srcDir}/**/*.png`]), ...await glob([`${srcDir}/**/*.jpg`])]
+
+  entries = entries.map( entry => {
+    let name = path.basename(entry).replace('.png', '_png').replace('.jpg', '_jpg');
+
+    return {
+      path: name,
+      contents: fs.readFileSync(entry)
+    }
+  })
+
+  let exporter = {
+    fileExt: "json",
+    template: "./Egret.mst"
+  };
+
+  let options = {
+    textureName: textureName,
+    width: 8192,
+    height: 8192,
+    fixedSize: false,
+    powerOfTwo: true,
+    padding: 2,
+    allowRotation: false,
+    detectIdentical: true,
+    allowTrim: false,
+    exporter: exporter,
+    removeFileExtension: false,
+    prependFolderName: true,
+    scale: scale,
+    packer: 'MaxRectsPacker'
+  };
+
+  try {
+    const files = await texturePacker.packAsync(entries, options);
+    for(let item of files) {
+      console.log(`${outDir}/${item.name}`);
+
+      fs.mkdirSync(outDir, {recursive: true});
+      await fs.writeFileSync(`${outDir}/${item.name}`, item.buffer);
+    }
+  } catch(error) {
+    console.error('Packaging failed', error);
+  }
+}
+
 void async function() {
   const configPath = '../texturepacker.config.json';
 
@@ -30,56 +78,65 @@ void async function() {
 
   fs.rmdirSync(outBaseDir, {recursive: true});
 
+  const srcDir = `${baseDir}/preload`;
+  const outDir = `${outBaseDir}/preload`;
+  await generateSpriteSheet('preload', srcDir, outDir, 0.5);
+
   const platforms = ['m','d'];
   for (const platform of platforms) {
     for (const item of directories) {
       const dir = item.dir;
-      let entries = await glob([`${baseDir}/${platform}/${dir}/**/*.png`])
+      const srcDir = `${baseDir}/${platform}/${dir}`;
+      const outDir = `${outBaseDir}/${platform}/${dir.split('/')[0]}`;
+      const textureName = dir.replace('/', '_');
+      await generateSpriteSheet(textureName, srcDir, outDir, item[platform].scale);
+      // const dir = item.dir;
+      // let entries = [...await glob([`${baseDir}/${platform}/${dir}/**/*.png`]), ...await glob([`${baseDir}/${platform}/${dir}/**/*.jpg`])]
 
-      entries = entries.map( entry => {
-        let dir = path.dirname(entry).replace(`${baseDir}/`, '')
-        let name = path.basename(entry).replace('.png', '_png')
+      // entries = entries.map( entry => {
+      //   let dir = path.dirname(entry).replace(`${baseDir}/`, '')
+      //   let name = path.basename(entry).replace('.png', '_png')
 
-        return {
-          path: name,
-          contents: fs.readFileSync(entry)
-        }
-      })
+      //   return {
+      //     path: name,
+      //     contents: fs.readFileSync(entry)
+      //   }
+      // })
 
-      let exporter = {
-        fileExt: "json",
-        template: "./Egret.mst"
-      };
+      // let exporter = {
+      //   fileExt: "json",
+      //   template: "./Egret.mst"
+      // };
 
-      let options = {
-        textureName: dir.replace('/', '_'),
-        width: 8192,
-        height: 8192,
-        fixedSize: false,
-        powerOfTwo: true,
-        padding: 2,
-        allowRotation: false,
-        detectIdentical: true,
-        allowTrim: false,
-        exporter: exporter,
-        removeFileExtension: false,
-        prependFolderName: true,
-        scale: item[platform].scale,
-        packer: 'MaxRectsPacker'
-      };
+      // let options = {
+      //   textureName: dir.replace('/', '_'),
+      //   width: 8192,
+      //   height: 8192,
+      //   fixedSize: false,
+      //   powerOfTwo: true,
+      //   padding: 2,
+      //   allowRotation: false,
+      //   detectIdentical: true,
+      //   allowTrim: false,
+      //   exporter: exporter,
+      //   removeFileExtension: false,
+      //   prependFolderName: true,
+      //   scale: item[platform].scale,
+      //   packer: 'MaxRectsPacker'
+      // };
 
-      try {
-        const files = await texturePacker.packAsync(entries, options);
-        for(let item of files) {
-          const outDir = `${outBaseDir}/${platform}/${dir.split('/')[0]}`;
-          console.log(`${outDir}/${item.name}`);
+      // try {
+      //   const files = await texturePacker.packAsync(entries, options);
+      //   for(let item of files) {
+      //     const outDir = `${outBaseDir}/${platform}/${dir.split('/')[0]}`;
+      //     console.log(`${outDir}/${item.name}`);
 
-          fs.mkdirSync(outDir, {recursive: true});
-          await fs.writeFileSync(`${outDir}/${item.name}`, item.buffer);
-        }
-      } catch(error) {
-        console.error('Packaging failed', error);
-      }
+      //     fs.mkdirSync(outDir, {recursive: true});
+      //     await fs.writeFileSync(`${outDir}/${item.name}`, item.buffer);
+      //   }
+      // } catch(error) {
+      //   console.error('Packaging failed', error);
+      // }
     }
   }
 }();
