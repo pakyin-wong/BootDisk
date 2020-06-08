@@ -32,6 +32,7 @@ namespace we {
         super.mount();
         this.addListeners();
         this.updateText();
+        this.updateStat();
         this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
         this.onPanelToggle(this.isFirstTime);
@@ -40,6 +41,7 @@ namespace we {
       public destroy() {
         super.destroy();
         this._gameScene = null;
+
         this.removeListeners();
       }
 
@@ -141,8 +143,11 @@ namespace we {
           //   }
           // }
           this.updateText();
+          this.updateStat();
         }
       }
+
+      protected updateStat() {}
     }
   }
 }

@@ -16,6 +16,7 @@ namespace we {
       public roadGridColor: number = 0xffffff;
       public roadGridAlpha: number = 1;
       public roadGridBorderColor: number = 0x000000;
+      protected beadRoadGrid: egret.Shape;
 
       public constructor() {
         super();
@@ -47,8 +48,19 @@ namespace we {
 
         // const rdata: any = [];
         // this.beadRoad.parseRoadData(rdata);
+
+        // grid bg rectangle
+        this.beadRoadGrid = new egret.Shape();
+        this.addChild(this.beadRoadGrid);
         this.addChild(this.beadRoad);
         this.beadRoad.initRoadData();
+      }
+
+      public drawGridBg(width: number, height: number) {
+        this.beadRoadGrid.graphics.beginFill(0xffffff, 1);
+        this.beadRoadGrid.graphics.lineStyle(1, 0xafafaf, 1, true);
+        RoundRect.drawRoundRect(this.beadRoadGrid.graphics, 0, 0, width, height, { tl: 0, tr: 0, bl: 8, br: 8 });
+        this.beadRoadGrid.graphics.endFill();
       }
 
       public updateRoadData(roadmapData: data.RoadmapData) {
@@ -67,7 +79,16 @@ namespace we {
         }
       }
 
-      public updateSideBarRoadData(roadmapData: data.RoadmapData) {
+      // public updateSideBarRoadData(roadmapData: data.RoadmapData) {
+      //   console.log('roadmapData', roadmapData);
+      //   if (roadmapData && roadmapData.inGame) {
+      //     if (this.beadRoad) {
+      //       this.beadRoad.parseRoadData(roadmapData.inGame.bead);
+      //     }
+      //   }
+      // }
+
+      public updateSideBarRoadData(roadmapData: any) {
         if (roadmapData && roadmapData.inGame) {
           if (this.beadRoad) {
             this.beadRoad.parseRoadData(roadmapData.inGame.bead);

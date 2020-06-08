@@ -14,7 +14,7 @@ namespace we {
 
       protected _switchBaMode: eui.ToggleSwitch;
       protected _lblBaMode: ui.RunTimeLabel;
-      protected _flipCard: FlipCard;
+      protected _goodRoadLabel: ui.GoodRoadLabel;
 
       constructor(data: any) {
         super(data);
@@ -31,8 +31,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
       }
@@ -56,6 +56,9 @@ namespace we {
         // if (env.isMobile) {
         //   dir.moniter._sideGameList.setToggler(this._common_listpanel);
         // }
+        if (this._goodRoadLabel) {
+          this._goodRoadLabel.visible = false;
+        }
       }
 
       protected onBaModeToggle(evt: eui.UIEvent) {
@@ -78,17 +81,30 @@ namespace we {
         );
       }
 
+      protected onMatchGoodRoadUpdate() {
+        if (this._goodRoadLabel) {
+          if (this._tableInfo.goodRoad) {
+            this._goodRoadLabel.visible = true;
+            const goodRoadData = this._tableInfo.goodRoad;
+            const goodRoadName: string = goodRoadData.custom ? goodRoadData.name : i18n.t(`goodroad.${goodRoadData.roadmapid}`);
+            this._goodRoadLabel.renderText = () => goodRoadName;
+          } else {
+            this._goodRoadLabel.visible = false;
+          }
+        }
+      }
+
       protected onRoadDataUpdate(evt: egret.Event) {
         this._roadmapControl.updateRoadData();
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

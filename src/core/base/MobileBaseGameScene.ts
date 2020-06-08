@@ -18,12 +18,20 @@ namespace we {
 
       protected _veritcalTop: eui.Group;
 
+      private _videoBtn: egret.DisplayObject;
+
+      public played: boolean;
+      public playFunc: () => void;
+      public stopFunc: () => void;
+
       constructor(data: any) {
         super(data);
 
         this._betChipSetPanel.alpha = 0;
         this._betChipSetPanel.visible = false;
         this._betChipSet.alpha = 1;
+
+        this.played = false;
       }
 
       public get betChipSetPanelVisible(): boolean {
@@ -44,6 +52,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        // mouse.setButtonMode(this._videoBtn, false);
         this._bottomGamePanel.setTableInfo(this._tableInfo);
         this._bottomGamePanel.gameScene = this;
         if (this._lblBetLimit) {
@@ -51,6 +60,11 @@ namespace we {
           dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
           this.changeLang();
         }
+
+        this.setPlayFunc(this.playVideo(this));
+        this.setStopFunc(this.stopVideo(this));
+
+        this.played = true;
       }
 
       protected initDenom() {
@@ -176,13 +190,62 @@ namespace we {
       protected addEventListeners() {
         super.addEventListeners();
         this._betChipSetGridSelected.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
+        // if (this._videoBtn) {
+        //   this._videoBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        // }
+        if (this._videoBtn) {
+          this._videoBtn.addEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              if (this.played) {
+                this.stopFunc();
+              } else {
+                this.playFunc();
+              }
+              this.played = !this.played;
+            },
+            this
+          );
+        }
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
-        this._lblBetLimit.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+
+        // if (this._videoBtn) {
+        //   this._videoBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        // }
+        if (this._videoBtn) {
+          this._videoBtn.removeEventListener(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+              if (this.played) {
+                this.stopFunc();
+              } else {
+                this.playFunc();
+              }
+              this.played = !this.played;
+            },
+            this
+          );
+        }
+      }
+
+      public setPlayFunc(func: () => void) {
+        this.playFunc = func;
+      }
+
+      public setStopFunc(func: () => void) {
+        this.stopFunc = func;
+      }
+
+      protected onClickVideo() {
+        dir.evtHandler.createOverlay({
+          class: 'VideoSetting',
+        });
+        logger.l(`onClickVideo`);
       }
 
       protected onOrientationChange(gameModeExist?: boolean) {

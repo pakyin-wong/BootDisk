@@ -158,7 +158,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -213,7 +213,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -241,6 +241,11 @@ namespace we {
             break;
           case core.GameState.DEAL:
             this.setStateDeal(isInit);
+            break;
+          case core.GameState.PEEK:
+          case core.GameState.PEEK_BANKER:
+          case core.GameState.PEEK_PLAYER:
+            this.setStatePeek(isInit);
             break;
           case core.GameState.FINISH:
             this.setStateFinish(isInit);
@@ -321,6 +326,31 @@ namespace we {
           this._cardHolder.updateResult(this._gameData);
         }
       }
+
+      protected setStatePeek(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+        }
+
+        if (this._previousState !== we.core.GameState.DEAL) {
+          if (this._cardHolder) {
+            this._cardHolder.reset();
+          }
+
+          if ((this._previousState === core.GameState.BET || this._previousState === core.GameState.DEAL) && this._message && !isInit) {
+            this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+          }
+
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+        if (this._cardHolder) {
+          this._cardHolder.updateResult(this._gameData);
+        }
+      }
+
       protected setStateFinish(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.FINISH || isInit) {
           this.setBetRelatedComponentsEnabled(false);

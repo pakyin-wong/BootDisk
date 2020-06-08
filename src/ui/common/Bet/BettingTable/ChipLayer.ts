@@ -21,6 +21,7 @@ namespace we {
 
       constructor(skinName?: string) {
         super(skinName);
+        this._cfmBetDetails = [];
         this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
       }
 

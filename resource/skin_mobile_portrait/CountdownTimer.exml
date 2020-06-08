@@ -3,5 +3,5 @@
 	<w:Config id="16dcf084172"></w:Config>
 	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
 	                            right="0" thickness="6" touchEnabled="false" touchChildren="false" />
-	<e:Label id="countdownLabel" text="30" verticalCenter="0" textAlign="center" verticalAlign="middle"           anchorOffsetX="25" anchorOffsetY="15" width="62"  size="54" bold="true" textColor="0x15d688" x="50" rotation="0" rotation.vertical="270"/>
+	<e:Label id="countdownLabel" text="30" verticalCenter="0" textAlign="center" verticalAlign="middle"           anchorOffsetX="25" anchorOffsetY="15" width="62"  size="54" bold="true" textColor="0x15d688" x="50" rotation="0" rotation.vertical="270" fontFamily="Barlow"/>
 </e:Skin>

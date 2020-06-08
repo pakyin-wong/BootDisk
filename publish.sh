@@ -34,6 +34,7 @@ $bin publish -version $1
 echo `cp $path/config.json $target`
 cp -f $path/config.json $target
 cp -f $path/style.css $target
+cp -f $path/swipeup.png $target
 cp -rf $path/jslib $target
 cp $path/config.$1.json $target
 
@@ -45,3 +46,7 @@ case "${arch}" in
     sed -i "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
   ;;
 esac
+
+#zip /js 
+cross-zip $target/js $target/js.zip
+for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;

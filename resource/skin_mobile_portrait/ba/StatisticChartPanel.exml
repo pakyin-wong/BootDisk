@@ -79,8 +79,10 @@
 				<e:HorizontalLayout gap="2" horizontalAlign="center" verticalAlign="bottom" />
 			</e:layout>
 		</e:Group>
+		<ui:SimpleChart id="_normalChart" x="429" y="258" width="140" height="140" radius="70" lineWidth="8" />
 		<ui:RunTimeLabel id="roundCount" text="99" x="449" y="258" textAlign="center" anchorOffsetX="0" width="100" size="88"
 		                 height="118" verticalAlign="middle" />
+		<ui:SimpleChart id="_pairChart" x="1044" y="258" width="140" height="140" radius="70" lineWidth="8" />
 		<ui:RunTimeLabel id="roundPairCount" text="9" x="1065" y="258" textAlign="center" anchorOffsetX="0" width="100"
 		                 size="88" height="118" verticalAlign="middle" />
 		<ui:RunTimeLabel id="roundLabelLeft" text="局" x="400" y="348" scaleX="1" scaleY="1" width="200" height="46" size="35"

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.DoubleCalendarPicker" width="1207" height="718" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
-
+<e:Skin class="skin_desktop.DoubleCalendarPicker" width="1207" height="795" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="2" top="0" bottom="0" right="-2"/>
 		<overlay:DatepickerCalendar id="_calender_prev" width="490" height="490" x="39" y="262"/>
 		<overlay:DatepickerCalendar id="_calender_next" width="490" height="490" y="262" x="678"/>
-		<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="64" y="203" skinName="skin_desktop.ImageButtonSkinNav" currentState="page_prev_icon"/>
-		<ui:BaseImageButton id="_btn_next" width="46" height="46" y="203" x="1097" skinName="skin_desktop.ImageButtonSkinNav" currentState="page_next_icon"/>
+		<ui:BaseAnimationButton id="_btn_prev" width="46" height="46" x="64" y="203" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_prev" />
+		<ui:BaseAnimationButton id="_btn_next" width="46" height="46" y="203" x="1097" dbClass="lobby_ui" dbDisplay="d_lobby_betrecord_icon_next" />
 		<e:Label id="_txt_prev" text="Label" x="132" y="202" height="45" textAlign="left" verticalAlign="middle" width="200"/>
 		<e:Label id="_txt_next" text="Label" y="202" height="45" textAlign="right" verticalAlign="middle" width="200" x="875"/>
 		<ui:BaseButton id="_btn_confirm" width="200" height="60" x="945" y="67" skinName="skin_desktop.OverlayPanelButton"/>
@@ -14,5 +13,4 @@
 		<e:Rect width="418" height="60" x="64" y="67" fillColor="0x1b416e" ellipseHeight="60" ellipseWidth="60"/>
 		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle" fontFamily="Barlow" size="28"/>
 	</e:Group>
-
 </e:Skin>

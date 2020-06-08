@@ -23,27 +23,27 @@ namespace we {
         // this.anchorOffsetY = this.height * 0.5;
       }
 
-      protected setBackgroundImage(type: string, isWin: boolean) {
+      protected setBackgroundImage(gametype: string, type: string, isWin: boolean) {
         switch (type) {
           case 'red':
             if (isWin) {
-              this._bg.source = 'd_lobby_panel_gamelist_gameresult_bankerwin_png';
+              this._bg.source = `d_lobby_panel_gamelist_gameresult_bankerwin_png`;
             } else {
-              this._bg.source = 'd_lobby_panel_gamelist_gameresult_bankerloss_png';
+              this._bg.source = `d_lobby_panel_gamelist_gameresult_bankerloss_png`;
             }
             break;
           case 'blue':
             if (isWin) {
-              this._bg.source = 'd_lobby_panel_gamelist_gameresult_playerwin_png';
+              this._bg.source = `d_lobby_panel_gamelist_gameresult_playerwin_png`;
             } else {
-              this._bg.source = 'd_lobby_panel_gamelist_gameresult_playerloss_png';
+              this._bg.source = `d_lobby_panel_gamelist_gameresult_playerloss_png`;
             }
             break;
           case 'green':
             if (isWin) {
-              this._bg.source = 'd_lobby_panel_gamelist_gameresult_tiewin_png';
+              this._bg.source = `d_lobby_panel_gamelist_gameresult_tiewin_png`;
             } else {
-              this._bg.source = 'd_lobby_panel_gamelist_gameresult_tieloss_png';
+              this._bg.source = `d_lobby_panel_gamelist_gameresult_tieloss_png`;
             }
             break;
         }

@@ -14,6 +14,7 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+
         this._leftGamePanel.setTableInfo(this._tableInfo);
         this._rightGamePanel.setTableInfo(this._tableInfo);
 

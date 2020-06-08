@@ -7,8 +7,8 @@
 		<e:Label id="_txt_record_date" text="Label" x="47" y="0" width="477" size="50" verticalAlign="middle" height="140" fontFamily="Barlow" scaleX="1" scaleY="1"/>
 		<e:Label id="_txt_record_game" text="Label" x="571" y="0" width="275" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1"/>
 		<e:Label id="_txt_record_round" text="Label" x="657" y="0" width="109" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>
-		<e:Label id="_txt_record_remark" text="Label" x="865" y="0" width="66" height="76" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
-		<e:Label id="_txt_record_bettype" text="Label" x="951" y="0" width="109" height="76" size="20" verticalAlign="middle" fontFamily="NotoSansCJKtc" scaleX="1" scaleY="1" visible="false"/>
+		<e:Label id="_txt_record_remark" text="Label" x="865" y="0" width="66" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1" visible="false"/>
+		<e:Label id="_txt_record_bettype" text="Label" x="951" y="0" width="109" height="76" size="20" verticalAlign="middle" scaleX="1" scaleY="1" visible="false"/>
 		<e:Label id="_txt_record_betamount" text="Label" x="1080" y="0" width="127" size="20" verticalAlign="middle" height="76" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>
 		<e:Label id="_txt_record_win" text="Label" x="1973" y="0" width="411" height="140" size="50" verticalAlign="middle" scaleX="1" scaleY="1" textAlign="right"/>
 		<e:Label id="_txt_record_orgbalance" text="Label" x="1386" y="0" width="156" height="76" size="20" verticalAlign="middle" fontFamily="Barlow" scaleX="1" scaleY="1" visible="false"/>

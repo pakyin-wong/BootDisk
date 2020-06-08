@@ -7,6 +7,8 @@ namespace we {
       private xOffset: number;
       private yOffset: number;
 
+      protected _topTextLayer: egret.DisplayObjectContainer;
+
       public constructor(
         _numRow: number = 3,
         _numCol: number = 10,
@@ -24,6 +26,9 @@ namespace we {
         this.emptyAlpha = _emptyAlpha;
         this.numRow = _numRow;
         this.gridUnit = 1;
+
+        this._topTextLayer = new egret.DisplayObjectContainer();
+        this._staticLayer.addChild(this._topTextLayer);
       }
 
       protected createIcon(size: number): ROBeadRoadIcon {
@@ -46,6 +51,7 @@ namespace we {
           icon.y = (this.gridSize / this.gridUnit + this.yOffset) * Math.floor(iconIndex / this.numCol);
           // this.addChild(icon);
           icon.addToLayer(this._shapeLayer, this._textLayer);
+          icon.addToTopTextLayer(this._topTextLayer);
           this.roadMapIconList.push(icon);
           iconIndex++;
         }

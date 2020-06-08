@@ -51,10 +51,6 @@
 		</e:Group>
 		<ui:GameBar id="_gameBar" skinName="skin_mobile_landscape.GameBar" visible="false"/>
   </e:Group>
-	<e:Group id="_settingTransition" x="36" y="363">
-		<ro:MobileSettingPanel id="_settingPanel" skinName="skin_mobile_landscape.ro.MobileSettingPanel" x="0" y="233"/>
-		<ro:RaceTrackControl id="_raceTrackControl" width="91" height="417" y="0" x="2238" skinName="skin_mobile_landscape.ro.RaceTrackControlSkin"/>
-	</e:Group>
   <e:Scroller id="_betArea" x="181" y="501" width="2061" height="664" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off">
     <e:Group id="_bAViewport">
 			<e:Group id="_bATransition" x="0">
@@ -91,7 +87,13 @@
 				<ui:BaseImageButton id="_doubleButton" x="225" width="64" height="120" skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_double" y="5" x.left="672"/>    
     </e:Group>
   </e:Group>
-	<!--===============^-->
+
+	<e:Group id="_settingTransition" x="36" y="363" width="2335" height="727" touchThrough="true">
+		<ro:MobileSettingPanel id="_settingPanel" skinName="skin_mobile_landscape.ro.MobileSettingPanel" x="0" y="233"/>
+		<ro:RaceTrackControl id="_raceTrackControl" width="91" height="417" y="0" x="2238" skinName="skin_mobile_landscape.ro.RaceTrackControlSkin"/>
+		<ro:MobileBetCombination id="_betCombination" skinName="skin_mobile_landscape.ro.MobileBetCombination" x="185" bottom="-50" minDisplay="10"/>
+	</e:Group>
+
   <!--<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right_hand_mode"/>-->
