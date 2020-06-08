@@ -27,10 +27,24 @@ namespace we {
         return `d_sic_history_lv3_dice-${value}_png`;
       }
 
+      protected getDiceBackground(hasbet): any {
+        if (hasbet) {
+          return 'd_sic_game result_bg_01_png';
+        }
+        return 'd_sic_game result_bg_02_png';
+      }
+
+      protected getAmountBackground(hasbet): any {
+        if (hasbet) {
+          return 'd_sic_game result_bg_03_png';
+        }
+        return 'd_sic_game result_bg_04_png';
+      }
+
       public showResult(gameType: core.GameType, resultData: any) {
         const { winAmount, gameData } = resultData;
 
-        const { dice1, dice2, dice3, size, odd, total } = <di.GameData> gameData;
+        const { dice1, dice2, dice3, size, odd, total } = <di.GameData>gameData;
 
         console.log('di.SideBetResultMessage::showResult().resultData ', resultData);
         this.visible = true;
@@ -44,13 +58,13 @@ namespace we {
 
         if (!isNaN(winAmount)) {
           // has bet
-          this._diceBackground.source = 'd_sic_game result_bg_01_png';
-          this._winAmountBackground.source = 'd_sic_game result_bg_03_png';
+          this._diceBackground.source = this.getDiceBackground(true);
+          this._winAmountBackground.source = this.getAmountBackground(true);
           this._lblWinAmount.text = utils.formatNumber(winAmount, true);
         } else {
           // no bet
-          this._diceBackground.source = 'd_sic_game result_bg_02_png';
-          this._winAmountBackground.source = 'd_sic_game result_bg_04_png';
+          this._diceBackground.source = this.getDiceBackground(false);
+          this._winAmountBackground.source = this.getAmountBackground(false);
         }
         this._badgeRed.text = size === 1 ? '小' : '大';
         this._badgeBlue.text = odd === 1 ? '單' : '雙';
