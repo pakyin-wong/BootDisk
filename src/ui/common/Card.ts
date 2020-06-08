@@ -1,30 +1,31 @@
 namespace we {
   export namespace ui {
     export class Card extends eui.Component {
+      protected texName: string;
+
       constructor() {
         super();
       }
       protected childrenCreated() {
         super.childrenCreated();
       }
-      
+
       public setCard(resName: string, vertical: boolean) {
         this.removeChildren();
         // console.log('resName', resName);
         if (resName) {
           const card: egret.Bitmap = new egret.Bitmap();
           // console.log(resName);
-          // const texName: string = '';
-          // if(env.isMobile){
-            const texName = `d_common_poker_${vertical ? 'vertical' : 'horizontal'}_${resName}_png`;
-          // }
-          // else{
-          //   const texName = `m_common_poker_${vertical ? 'vertical' : 'horizontal'}_${resName}_png`;
-          //   m_sq_bac_small_poker_club2_vertical
-          // }
+          const texName: string = '';
+          if (!env.isMobile) {
+            this.texName = `d_common_poker_${vertical ? 'vertical' : 'horizontal'}_${resName}_png`;
+          } else {
+            this.texName = `m_sq_bac_small_poker_${resName}_vertical_png`;
+            if (resName === 'back') this.texName = `m_sq_bac_small_poker_backside`;
+          }
 
           // card.texture = RES.getRes(core.Card[resName]);
-          card.texture = RES.getRes(texName);
+          card.texture = RES.getRes(this.texName);
           if (vertical) {
             card.width = this.width;
             card.height = this.height;

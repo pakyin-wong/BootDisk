@@ -16,6 +16,23 @@ namespace we {
         super.childrenCreated();
       }
 
+      protected moveCard() {
+        // egret.Tween.get(next).to(
+        //   {
+        //     x: this.slideWidth,
+        //   },
+        //   duration
+        // );
+        // egret.Tween.get(current)
+        //   .to(
+        //     {
+        //       x: 0,
+        //     },
+        //     duration
+        //   )
+        //   .call(this.onMoveFinished, this, [0]);
+      }
+
       public setCardImage(index: number, value: string) {
         console.log('flipcardpath', `d_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
         this._flipCard.setCardImage('d_sq_ba_card_back_png', `d_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`, `d_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);

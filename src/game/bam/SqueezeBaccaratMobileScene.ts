@@ -7,16 +7,20 @@
 namespace we {
   export namespace bam {
     export class MobileScene extends ba.MobileScene {
+      protected _resultCard: MobileFlipCardHolder;
+      protected _resultDisplay: MobileCardHolder;
+
       protected initChildren() {
         super.initChildren();
-        if (!env.isFirstTimeBam) {
-          const tutorial = new SqueezeTutorial('SqueezeTutorial');
-          tutorial.x = 106;
-          tutorial.y = 171;
-          tutorial.isDraggable = true;
-          this.addChild(tutorial);
-          env.isFirstTimeBam = true;
-        }
+        this._resultDisplay.passFlipCard(this._resultCard);
+        // if (!env.isFirstTimeBam) {
+        //   const tutorial = new SqueezeTutorial('SqueezeTutorial');
+        //   tutorial.x = 0;
+        //   tutorial.y = 0;
+        //   tutorial.isDraggable = true;
+        //   this.addChild(tutorial);
+        //   env.isFirstTimeBam = true;
+        // }
       }
 
       protected setSkinName() {

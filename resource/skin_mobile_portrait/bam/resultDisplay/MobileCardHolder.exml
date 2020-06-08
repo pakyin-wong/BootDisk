@@ -27,10 +27,10 @@
                                          touchEnabled="false"  size="48"/>
         </e:Group>
 
-        <ui:Card id="card3Banker" width="140" height="96" horizontalCenter="450" y="265" />
+        <ui:Card id="card3Banker" width="96" height="140" horizontalCenter="450" y="265"  rotation="90"/>
         <ui:Card id="card2Banker" width="96" height="140" horizontalCenter="300" y="225" />
         <ui:Card id="card1Banker" width="96" height="140" horizontalCenter="170" y="225" />
-        <ui:Card id="card3Player" width="140" height="96" horizontalCenter="-450" y="265" />
+        <ui:Card id="card3Player" width="96" height="140" horizontalCenter="-450" y="265"  rotation="90"/>
         <ui:Card id="card2Player" width="96" height="140" horizontalCenter="-300" y="225" />
         <ui:Card id="card1Player" width="96" height="140" horizontalCenter="-170" y="225" />
 

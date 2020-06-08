@@ -66,9 +66,9 @@ namespace we {
         if (tableInfo.gamestatistic && tableInfo.gamestatistic.playerPairCount) {
           this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
         }
-        if (this.pGameID) {
-          this.pGameID.text = tableInfo.betInfo.gameroundid;
-        }
+        // if (this.pGameID) {
+        //   this.pGameID.text = tableInfo.betInfo.gameroundid;
+        // }
       }
     }
   }
