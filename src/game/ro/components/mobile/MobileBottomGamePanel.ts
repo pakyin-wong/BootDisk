@@ -21,10 +21,14 @@ namespace we {
       protected chartBtn: eui.RadioButton;
       protected tableInfoBtn: eui.RadioButton;
 
+      // exist in portrait
       protected _roadmapGroup: eui.Group;
       protected _chartGroup: eui.Group;
       protected _infoGroup: eui.Group;
       protected _historyGroup: eui.Group;
+
+      // exist in landscape
+      protected _historyRoadGroup: eui.Group;
 
       public constructor(skin?: string) {
         super(skin || !env.isMobile ? skin : 'ro.MobileBottomGamePanel');
@@ -59,7 +63,7 @@ namespace we {
           this._roadmapGroup.removeChildren();
           this._historyGroup.removeChildren();
         } else {
-          this._historyGroup.removeChildren();
+          this._historyRoadGroup.removeChildren();
         }
         this.beadRoad.dispose();
 
