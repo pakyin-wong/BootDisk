@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "roadmapfont_fnt,common_ui_ske_json,common_ui_tex_json,common_ui_tex_png,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,popover_png,common_cards_json,common_chips_json,common_game_panel_json,common_general_json,common_menu_json,preload_json",
+			"keys": "roadmapfont_fnt,common_ui_ske_json,common_ui_tex_json,common_ui_tex_png,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,popover_png,common_cards_json,common_chips_json,common_game_panel_json,common_general_json,common_menu_json,preload_json,baccarat_dealer_4_jpg,baccarat_dealer_1_jpg,baccarat_dealer_3_jpg,advanced_dealer_sicbo_png,advanced_dealer_2_png,advanced_dealer_1_png,baccarat_dealer_2_jpg,baccarat_dealer_5_jpg",
 			"name": "common"
 		},
 		{
@@ -9,7 +9,7 @@
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "baccarat_game_result_ske_json,baccarat_game_result_tex_json,baccarat_game_result_tex_png,baccarat_ui_ske_json,baccarat_ui_tex_json,baccarat_ui_tex_png,frame-3_png,ba_json",
+			"keys": "baccarat_game_result_ske_json,baccarat_game_result_tex_json,baccarat_game_result_tex_png,baccarat_ui_ske_json,baccarat_ui_tex_json,baccarat_ui_tex_png,frame-3_jpg,ba_json",
 			"name": "scene_baccarat"
 		},
 		{
@@ -25,7 +25,7 @@
 			"name": "scene_dragontiger"
 		},
 		{
-			"keys": "roulette_game_result_ske_json,roulette_game_result_tex_json,roulette_game_result_tex_png,roulette_ui_ske_json,roulette_ui_tex_json,roulette_ui_tex_png,ro_json",
+			"keys": "roulette_game_result_ske_json,roulette_game_result_tex_json,roulette_game_result_tex_png,roulette_ui_ske_json,roulette_ui_tex_json,roulette_ui_tex_png,ro_json,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png",
 			"name": "scene_roulette"
 		},
 		{
@@ -33,7 +33,7 @@
 			"name": "scene_dice"
 		},
 		{
-			"keys": "d_mw_bg_a_png,lw_json",
+			"keys": "d_mw_bg_a_jpg,lw_json",
 			"name": "scene_luckywheel"
 		}
 	],
@@ -224,179 +224,212 @@
 			"name": "sn_win_tc_mp3"
 		},
 		{
-			"url": "assets/nmimages/d/lw/d_mw_bg_a.png",
+			"url": "assets/nmimages/d/lw/d_mw_bg_a.jpg",
 			"type": "image",
-			"name": "d_mw_bg_a_png"
+			"name": "d_mw_bg_a_jpg"
 		},
 		{
-			"url": "assets/nmimages/d/ba/frame-3.png",
+			"url": "assets/nmimages/d/ba/frame-3.jpg",
 			"type": "image",
-			"name": "frame-3_png"
+			"name": "frame-3_jpg"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_listpanel_bg.png",
 			"type": "image",
-			"name": "d_common_listpanel_bg_png"
+			"name": "d_common_listpanel_bg_png",
+			"scale9grid": "28,28,2,2"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_notify_bg.png",
 			"type": "image",
-			"name": "d_common_notify_bg_png"
+			"name": "d_common_notify_bg_png",
+			"scale9grid": "8,8,1,66"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_btn.png",
 			"type": "image",
-			"name": "d_common_panel_btn_png"
+			"name": "d_common_panel_btn_png",
+			"scale9grid": "33,33,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_btn_active.png",
 			"type": "image",
-			"name": "d_common_panel_btn_active_png"
+			"name": "d_common_panel_btn_active_png",
+			"scale9grid": "33,33,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_btn_hover.png",
 			"type": "image",
-			"name": "d_common_panel_btn_hover_png"
+			"name": "d_common_panel_btn_hover_png",
+			"scale9grid": "33,33,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_gamelist_bg.png",
 			"type": "image",
-			"name": "d_common_panel_gamelist_bg_png"
+			"name": "d_common_panel_gamelist_bg_png",
+			"scale9grid": "13,13,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_panel_systemsetting_pressedbg.png",
 			"type": "image",
-			"name": "d_common_panel_systemsetting_pressedbg_png"
+			"name": "d_common_panel_systemsetting_pressedbg_png",
+			"scale9grid": "13,13,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_bg.png",
 			"type": "image",
-			"name": "d_common_popup_bg_png"
+			"name": "d_common_popup_bg_png",
+			"scale9grid": "21,21,7,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_btn.png",
 			"type": "image",
-			"name": "d_common_popup_btn_png"
+			"name": "d_common_popup_btn_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_btn_hover.png",
 			"type": "image",
-			"name": "d_common_popup_btn_hover_png"
+			"name": "d_common_popup_btn_hover_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_btn_pressed.png",
 			"type": "image",
-			"name": "d_common_popup_btn_pressed_png"
+			"name": "d_common_popup_btn_pressed_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_panel_btn.png",
 			"type": "image",
-			"name": "d_common_popup_panel_btn_png"
+			"name": "d_common_popup_panel_btn_png",
+			"scale9grid": "27,27,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_panel_btn_hover.png",
 			"type": "image",
-			"name": "d_common_popup_panel_btn_hover_png"
+			"name": "d_common_popup_panel_btn_hover_png",
+			"scale9grid": "27,27,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_panel_btn_pressed.png",
 			"type": "image",
-			"name": "d_common_popup_panel_btn_pressed_png"
+			"name": "d_common_popup_panel_btn_pressed_png",
+			"scale9grid": "27,27,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_warnbtn.png",
 			"type": "image",
-			"name": "d_common_popup_warnbtn_png"
+			"name": "d_common_popup_warnbtn_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_common_popup_warnbtn_hover.png",
 			"type": "image",
-			"name": "d_common_popup_warnbtn_hover_png"
+			"name": "d_common_popup_warnbtn_hover_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_bg.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_bg_png"
+			"name": "d_lobby_goodroad_bg_png",
+			"scale9grid": "13,13,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_bg.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_bg_png"
+			"name": "d_lobby_goodroad_btn_bg_png",
+			"scale9grid": "22,22,2,2"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_bg_active.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_bg_active_png"
+			"name": "d_lobby_goodroad_btn_bg_active_png",
+			"scale9grid": "22,22,2,2"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_bg_hover.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_bg_hover_png"
+			"name": "d_lobby_goodroad_btn_bg_hover_png",
+			"scale9grid": "22,22,2,2"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_confirm.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_confirm_png"
+			"name": "d_lobby_goodroad_btn_confirm_png",
+			"scale9grid": "24,24,2,2"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_btn_confirm_hover.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_confirm_hover_png"
+			"name": "d_lobby_goodroad_btn_confirm_hover_png",
+			"scale9grid": "26,26,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_goodroad_textbox.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_textbox_png"
+			"name": "d_lobby_goodroad_textbox_png",
+			"scale9grid": "7,7,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_restart_btn.png",
 			"type": "image",
-			"name": "d_lobby_restart_btn_png"
+			"name": "d_lobby_restart_btn_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_send_btn_hover.png",
 			"type": "image",
-			"name": "d_lobby_send_btn_hover_png"
+			"name": "d_lobby_send_btn_hover_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/d_lobby_send_btn_normal.png",
 			"type": "image",
-			"name": "d_lobby_send_btn_normal_png"
+			"name": "d_lobby_send_btn_normal_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/d/common/ninegrids/popover.png",
 			"type": "image",
-			"name": "popover_png"
+			"name": "popover_png",
+			"scale9grid": "26,21,21,10"
 		},
 		{
 			"url": "assets/nmimages/d/lobby/ninegrids/d_common_quickbet_bg.png",
 			"type": "image",
-			"name": "d_common_quickbet_bg_png"
+			"name": "d_common_quickbet_bg_png",
+			"scale9grid": "8,8,1,1"
 		},
 		{
 			"url": "assets/nmimages/d/lobby/ninegrids/d_common_quickbet_btn_confirm.png",
 			"type": "image",
-			"name": "d_common_quickbet_btn_confirm_png"
+			"name": "d_common_quickbet_btn_confirm_png",
+			"scale9grid": "28,28,2,2"
 		},
 		{
 			"url": "assets/nmimages/d/lobby/ninegrids/d_common_quickbet_btn_confirm_active.png",
 			"type": "image",
-			"name": "d_common_quickbet_btn_confirm_active_png"
+			"name": "d_common_quickbet_btn_confirm_active_png",
+			"scale9grid": "28,28,2,2"
 		},
 		{
 			"url": "assets/nmimages/d/lobby/ninegrids/d_common_quickbet_confirm.png",
 			"type": "image",
-			"name": "d_common_quickbet_confirm_png"
+			"name": "d_common_quickbet_confirm_png",
+			"scale9grid": "28,28,2,2"
 		},
 		{
 			"url": "assets/nmimages/d/lobby/ninegrids/d_lobby_quick_bet_notification_follow_hover.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_notification_follow_hover_png"
+			"name": "d_lobby_quick_bet_notification_follow_hover_png",
+			"scale9grid": "18,16,112,10"
 		},
 		{
 			"url": "assets/nmimages/d/lobby/ninegrids/d_lobby_quick_bet_notification_follow_normal.png",
 			"type": "image",
-			"name": "d_lobby_quick_bet_notification_follow_normal_png"
+			"name": "d_lobby_quick_bet_notification_follow_normal_png",
+			"scale9grid": "18,16,112,10"
 		},
 		{
 			"url": "assets/spritesheet/d/common/common_chips.json",
@@ -468,13 +501,83 @@
 			"url": "assets/spritesheet/d/ro/ro.json",
 			"type": "sheet",
 			"name": "ro_json",
-			"subkeys": "d_gow_rou_betborad_hl_big_png,d_gow_rou_betborad_hl_png,d_gow_rou_lucky_number_bk_png,d_gow_rou_lucky_number_gn_png,d_gow_rou_lucky_number_red_png,d_ro_betboard_disable_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_png,d_ro_betboard_hover_black_square_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_even_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_small_png,d_ro_betboard_inactive_png,d_ro_betborad_outline_png,d_ro_chips_small_not_confirm_png,d_ro_chips_small_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_32_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_inactive_png,d_ro_racetrack_normal_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_outline_png,d_ro_racetrack_red_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_add_btn_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_disabled_png,d_ro_rm_less_btn_hover_png,d_ro_rm_less_btn_normal_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_add_icon_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_confrim_bg_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,d_ro_savelayout_star_icon_png"
+			"subkeys": "d_gow_rou_betborad_hl_big_png,d_gow_rou_betborad_hl_png,d_gow_rou_lucky_number_bk_png,d_gow_rou_lucky_number_gn_png,d_gow_rou_lucky_number_red_png,d_ro_betboard_disable_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_png,d_ro_betboard_hover_black_square_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_even_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_small_png,d_ro_betboard_inactive_png,d_ro_betborad_outline_png,d_ro_chips_small_not_confirm_png,d_ro_chips_small_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_32_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_inactive_png,d_ro_racetrack_normal_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_outline_png,d_ro_racetrack_red_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_add_btn_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_disabled_png,d_ro_rm_less_btn_hover_png,d_ro_rm_less_btn_normal_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_add_icon_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_confrim_bg_png,d_ro_savelayout_star_icon_png"
 		},
 		{
 			"url": "assets/spritesheet/preload/preload.json",
 			"type": "sheet",
 			"name": "preload_json",
-			"subkeys": "Mask_test_png,advanced_dealer_1_png,advanced_dealer_2_png,advanced_dealer_sicbo_png,baccarat_dealer_1_jpg,baccarat_dealer_2_jpg,baccarat_dealer_3_jpg,baccarat_dealer_4_jpg,baccarat_dealer_5_jpg,border_png,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,handle_png,header_png,off_png,on_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,selected_png,thumb_png,track_png,tracklight_png"
+			"subkeys": "border_png,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,handle_png,header_png,off_png,on_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,selected_png,thumb_png,track_png,tracklight_png"
+		},
+		{
+			"url": "assets/nmimages/preload/temp/baccarat_dealer_4.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_4_jpg"
+		},
+		{
+			"url": "assets/nmimages/preload/temp/baccarat_dealer_1.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_1_jpg"
+		},
+		{
+			"url": "assets/nmimages/preload/temp/baccarat_dealer_3.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_3_jpg"
+		},
+		{
+			"url": "assets/nmimages/preload/temp/advanced_dealer_sicbo.png",
+			"type": "image",
+			"name": "advanced_dealer_sicbo_png"
+		},
+		{
+			"url": "assets/nmimages/preload/temp/advanced_dealer_2.png",
+			"type": "image",
+			"name": "advanced_dealer_2_png"
+		},
+		{
+			"url": "assets/nmimages/preload/temp/advanced_dealer_1.png",
+			"type": "image",
+			"name": "advanced_dealer_1_png"
+		},
+		{
+			"url": "assets/nmimages/preload/temp/baccarat_dealer_2.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_2_jpg"
+		},
+		{
+			"url": "assets/nmimages/preload/temp/baccarat_dealer_5.jpg",
+			"type": "image",
+			"name": "baccarat_dealer_5_jpg"
+		},
+		{
+			"url": "assets/nmimages/d/ro/ninegrids/d_ro_rm_switch_tag_btn_active.png",
+			"type": "image",
+			"name": "d_ro_rm_switch_tag_btn_active_png",
+			"scale9grid": "18,17,4,2"
+		},
+		{
+			"url": "assets/nmimages/d/ro/ninegrids/d_ro_rm_switch_tag_btn_hover.png",
+			"type": "image",
+			"name": "d_ro_rm_switch_tag_btn_hover_png",
+			"scale9grid": "18,17,4,2"
+		},
+		{
+			"url": "assets/nmimages/d/ro/ninegrids/d_ro_rm_switch_tag_btn_inactive.png",
+			"type": "image",
+			"name": "d_ro_rm_switch_tag_btn_inactive_png",
+			"scale9grid": "18,17,4,2"
+		},
+		{
+			"url": "assets/nmimages/d/ro/ninegrids/d_ro_savelayout_inactive_bg.png",
+			"type": "image",
+			"name": "d_ro_savelayout_inactive_bg_png",
+			"scale9grid": "18,18,4,2"
+		},
+		{
+			"url": "assets/nmimages/d/ro/ninegrids/d_ro_savelayout_rename_mode_bg.png",
+			"type": "image",
+			"name": "d_ro_savelayout_rename_mode_bg_png",
+			"scale9grid": "18,18,4,2"
 		}
 	]
 }

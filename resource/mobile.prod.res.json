@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "common_ui_ske_json,common_ui_tex_json,common_ui_tex_png,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_cards_json,common_chips_json,common_game_panel_json,common_general_json,common_menu_json,preload_json",
+			"keys": "common_ui_ske_json,common_ui_tex_json,common_ui_tex_png,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_cards_json,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_png",
 			"name": "common"
 		},
 		{
@@ -21,7 +21,7 @@
 			"name": "temp"
 		},
 		{
-			"keys": "Barlow-Regular_otf,BarlowCondensed-SemiBold_otf,font_fnt,font_png,mroadmapfont_fnt,mroadmapfont_png,roadmapfont_fnt,roadmapfont_png,loading_json",
+			"keys": "Barlow-Regular_otf,BarlowCondensed-SemiBold_otf,font_fnt,mroadmapfont_fnt,roadmapfont_fnt,loading_json",
 			"name": "scene_loading"
 		},
 		{
@@ -109,29 +109,14 @@
 			"name": "font_fnt"
 		},
 		{
-			"url": "assets/fonts/font.png",
-			"type": "image",
-			"name": "font_png"
-		},
-		{
 			"url": "assets/fonts/mroadmapfont.fnt",
 			"type": "font",
 			"name": "mroadmapfont_fnt"
 		},
 		{
-			"url": "assets/fonts/mroadmapfont.png",
-			"type": "image",
-			"name": "mroadmapfont_png"
-		},
-		{
 			"url": "assets/fonts/roadmapfont.fnt",
 			"type": "font",
 			"name": "roadmapfont_fnt"
-		},
-		{
-			"url": "assets/fonts/roadmapfont.png",
-			"type": "image",
-			"name": "roadmapfont_png"
 		},
 		{
 			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
@@ -266,152 +251,182 @@
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_listpanel_bg.png",
 			"type": "image",
-			"name": "d_common_listpanel_bg_png"
+			"name": "d_common_listpanel_bg_png",
+			"scale9grid": "28,28,2,2"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_notify_bg.png",
 			"type": "image",
-			"name": "d_common_notify_bg_png"
+			"name": "d_common_notify_bg_png",
+			"scale9grid": "8,8,1,66"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_panel_btn.png",
 			"type": "image",
-			"name": "d_common_panel_btn_png"
+			"name": "d_common_panel_btn_png",
+			"scale9grid": "33,33,1,1"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_panel_btn_active.png",
 			"type": "image",
-			"name": "d_common_panel_btn_active_png"
+			"name": "d_common_panel_btn_active_png",
+			"scale9grid": "33,33,1,1"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_panel_btn_hover.png",
 			"type": "image",
-			"name": "d_common_panel_btn_hover_png"
+			"name": "d_common_panel_btn_hover_png",
+			"scale9grid": "33,33,1,1"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_panel_gamelist_bg.png",
 			"type": "image",
-			"name": "d_common_panel_gamelist_bg_png"
+			"name": "d_common_panel_gamelist_bg_png",
+			"scale9grid": "13,13,1,1"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_panel_systemsetting_pressedbg.png",
 			"type": "image",
-			"name": "d_common_panel_systemsetting_pressedbg_png"
+			"name": "d_common_panel_systemsetting_pressedbg_png",
+			"scale9grid": "13,13,1,1"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_bg.png",
 			"type": "image",
-			"name": "d_common_popup_bg_png"
+			"name": "d_common_popup_bg_png",
+			"scale9grid": "21,21,7,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_btn.png",
 			"type": "image",
-			"name": "d_common_popup_btn_png"
+			"name": "d_common_popup_btn_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_btn_hover.png",
 			"type": "image",
-			"name": "d_common_popup_btn_hover_png"
+			"name": "d_common_popup_btn_hover_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_btn_pressed.png",
 			"type": "image",
-			"name": "d_common_popup_btn_pressed_png"
+			"name": "d_common_popup_btn_pressed_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_panel_btn.png",
 			"type": "image",
-			"name": "d_common_popup_panel_btn_png"
+			"name": "d_common_popup_panel_btn_png",
+			"scale9grid": "27,27,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_panel_btn_hover.png",
 			"type": "image",
-			"name": "d_common_popup_panel_btn_hover_png"
+			"name": "d_common_popup_panel_btn_hover_png",
+			"scale9grid": "27,27,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_panel_btn_pressed.png",
 			"type": "image",
-			"name": "d_common_popup_panel_btn_pressed_png"
+			"name": "d_common_popup_panel_btn_pressed_png",
+			"scale9grid": "27,27,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_warnbtn.png",
 			"type": "image",
-			"name": "d_common_popup_warnbtn_png"
+			"name": "d_common_popup_warnbtn_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_common_popup_warnbtn_hover.png",
 			"type": "image",
-			"name": "d_common_popup_warnbtn_hover_png"
+			"name": "d_common_popup_warnbtn_hover_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_goodroad_bg.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_bg_png"
+			"name": "d_lobby_goodroad_bg_png",
+			"scale9grid": "13,13,1,1"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_goodroad_btn_bg.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_bg_png"
+			"name": "d_lobby_goodroad_btn_bg_png",
+			"scale9grid": "22,22,2,2"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_goodroad_btn_bg_active.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_bg_active_png"
+			"name": "d_lobby_goodroad_btn_bg_active_png",
+			"scale9grid": "22,22,2,2"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_goodroad_btn_bg_hover.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_bg_hover_png"
+			"name": "d_lobby_goodroad_btn_bg_hover_png",
+			"scale9grid": "22,22,2,2"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_goodroad_btn_confirm.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_confirm_png"
+			"name": "d_lobby_goodroad_btn_confirm_png",
+			"scale9grid": "24,24,2,2"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_goodroad_btn_confirm_hover.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_btn_confirm_hover_png"
+			"name": "d_lobby_goodroad_btn_confirm_hover_png",
+			"scale9grid": "26,26,1,1"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_goodroad_textbox.png",
 			"type": "image",
-			"name": "d_lobby_goodroad_textbox_png"
+			"name": "d_lobby_goodroad_textbox_png",
+			"scale9grid": "7,7,1,1"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_restart_btn.png",
 			"type": "image",
-			"name": "d_lobby_restart_btn_png"
+			"name": "d_lobby_restart_btn_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_send_btn_hover.png",
 			"type": "image",
-			"name": "d_lobby_send_btn_hover_png"
+			"name": "d_lobby_send_btn_hover_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/d_lobby_send_btn_normal.png",
 			"type": "image",
-			"name": "d_lobby_send_btn_normal_png"
+			"name": "d_lobby_send_btn_normal_png",
+			"scale9grid": "31,31,6,6"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/m_lobby_header_submenu_bg.png",
 			"type": "image",
-			"name": "m_lobby_header_submenu_bg_png"
+			"name": "m_lobby_header_submenu_bg_png",
+			"scale9grid": "30,30,3,3"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/m_lobby_roadmap_1column_btn.png",
 			"type": "image",
-			"name": "m_lobby_roadmap_1column_btn_png"
+			"name": "m_lobby_roadmap_1column_btn_png",
+			"scale9grid": "48,48,4,4"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/m_lobby_roadmap_2column_btn.png",
 			"type": "image",
-			"name": "m_lobby_roadmap_2column_btn_png"
+			"name": "m_lobby_roadmap_2column_btn_png",
+			"scale9grid": "34,34,4,4"
 		},
 		{
 			"url": "assets/nmimages/m/common/ninegrids/popover.png",
 			"type": "image",
-			"name": "popover_png"
+			"name": "popover_png",
+			"scale9grid": "26,21,21,10"
 		},
 		{
 			"url": "assets/spritesheet/m/ba/ba.json",
@@ -450,12 +465,6 @@
 			"subkeys": "m_dt_betarea_dragon_horizontal_hover_png,m_dt_betarea_dragon_horizontal_png,m_dt_betarea_dragon_hover_png,m_dt_betarea_dragon_png,m_dt_betarea_tie_horizontal_hover_png,m_dt_betarea_tie_horizontal_png,m_dt_betarea_tie_hover_png,m_dt_betarea_tie_png,m_dt_betarea_tiger_horizontal_hover_png,m_dt_betarea_tiger_horizontal_png,m_dt_betarea_tiger_hover_png,m_dt_betarea_tiger_png"
 		},
 		{
-			"url": "assets/spritesheet/m/common/common_general.json",
-			"type": "sheet",
-			"name": "common_general_json",
-			"subkeys": "d-lobby-button-close-none_png,d_ba_betarea_icon_bet_png,d_ba_betarea_icon_person_png,d_ba_betcontrol_button_confirm_png,d_ba_gamerecord_bankerelement_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_tieelement_png,d_ba_goodroad_info_state_total_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_info_png,d_ba_roadmap_record_result_banker_png,d_ba_roadmap_record_result_player_png,d_ba_roadmap_record_result_tie_png,d_ba_roadmap_topbar_textbg_banker_png,d_ba_roadmap_topbar_textbg_player_png,d_ba_swaproadmap_button_element_png,d_common_chips_betting_png,d_common_panel_systemsetting_pressed_select_png,d_common_scrollbar_png,d_lobby_button_down_normal_png,d_lobby_button_search_normal_png,d_lobby_goodroadsetting_normal_png,d_lobby_panel_betcontrol_chips_select_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png,d_lobby_quick_bet_circle_png,d_sic_history_grid_png,d_sic_lobby_chart_bg_left_png,d_sic_lobby_chart_bg_right_png,m_ba_betarea_chipsbg_round_png,m_ba_betarea_chipsbg_triangle_png,m_ba_betcontrol_btn_betconfirm_png,m_ba_betcontrol_btn_clear_png,m_ba_betcontrol_btn_double_png,m_ba_betcontrol_btn_rebet_png,m_ba_betcontrol_btn_undo_png,m_ba_bg_offvideo_png,m_ba_btn_bg_hover_png,m_ba_btn_bg_png,m_ba_btn_chatroom_png,m_ba_btn_video_png,m_ba_setting_btn_liveverification_png,m_ba_tab_bottom_png,m_ba_tab_btn_dropdown_png,m_ba_tab_roadmap_active_png,m_ba_tag_btn_detail_png,m_ba_tag_redlimit_bg_png,m_ba_tag_redlimit_btn_dropdown_png,m_common_btn_disabled_png,m_common_btn_menu_png,m_common_btn_panel_quickbet_png,m_common_btn_png,m_common_btn_previous_png,m_common_btn_red_png,m_common_chartroom_emoji_icon_10_png,m_common_chartroom_emoji_icon_11_png,m_common_chartroom_emoji_icon_12_png,m_common_chartroom_emoji_icon_13_png,m_common_chartroom_emoji_icon_14_png,m_common_chartroom_emoji_icon_15_png,m_common_chartroom_emoji_icon_16_png,m_common_chartroom_emoji_icon_17_png,m_common_chartroom_emoji_icon_18_png,m_common_chartroom_emoji_icon_19_png,m_common_chartroom_emoji_icon_1_png,m_common_chartroom_emoji_icon_20_png,m_common_chartroom_emoji_icon_21_png,m_common_chartroom_emoji_icon_2_png,m_common_chartroom_emoji_icon_3_png,m_common_chartroom_emoji_icon_4_png,m_common_chartroom_emoji_icon_5_png,m_common_chartroom_emoji_icon_6_png,m_common_chartroom_emoji_icon_7_png,m_common_chartroom_emoji_icon_8_png,m_common_chartroom_emoji_icon_9_png,m_common_chatroom_btnbg_png,m_common_chatroom_chatbg_line_png,m_common_chatroom_chatbg_other_png,m_common_chatroom_chatbg_png,m_common_chatroom_chatbg_scrollbar_png,m_common_chatroom_chatbg_self_png,m_common_header_bg_dim_png,m_common_header_bg_png,m_common_header_goodroad_icon_star_png,m_common_header_icon_logo_png,m_common_header_icon_menu_png,m_common_header_icon_refresh_png,m_common_icon_close_png,m_common_listpanel_betted_bg_png,m_common_listpanel_bg_png,m_common_listpanel_goodroad_bg_png,m_common_notification_bg_png,m_common_notification_close_bg_png,m_common_notification_close_icon_png,m_common_notification_quickbet_bg_png,m_common_notification_quickbet_icon_png,m_common_notify_result_lw_east_png,m_common_notify_result_lw_green_png,m_common_notify_result_lw_north_png,m_common_notify_result_lw_red_png,m_common_notify_result_lw_south_png,m_common_notify_result_lw_western_png,m_common_notify_result_lw_white_png,m_common_panel_icon_dropdown_active_png,m_common_panel_icon_dropdown_png,m_common_panel_setting_bg_png,m_common_panel_setting_btn_bg_png,m_common_panel_setting_btn_select_dim_png,m_common_panel_setting_btn_select_png,m_lobby_banner_bullet_active_png,m_lobby_banner_bullet_png,m_lobby_header_submenu_hl_png,m_lobby_panel_betcontrol_btn_confirm_bg_png,m_lobby_panel_gamelist_goodroad_remark_bg_png,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png"
-		},
-		{
 			"url": "assets/spritesheet/m/lobby/lobby.json",
 			"type": "sheet",
 			"name": "lobby_json",
@@ -489,7 +498,30 @@
 			"url": "assets/spritesheet/preload/preload.json",
 			"type": "sheet",
 			"name": "preload_json",
-			"subkeys": "Mask_test_png,advanced_dealer_1_png,advanced_dealer_2_png,advanced_dealer_sicbo_png,baccarat_dealer_1_jpg,baccarat_dealer_2_jpg,baccarat_dealer_3_jpg,baccarat_dealer_4_jpg,baccarat_dealer_5_jpg,border_png,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,handle_png,header_png,off_png,on_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,selected_png,thumb_png,track_png,tracklight_png"
+			"subkeys": "border_png,button_down_png,button_up_png,checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,handle_png,header_png,off_png,on_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,selected_png,thumb_png,track_png,tracklight_png"
+		},
+		{
+			"url": "assets/nmimages/m/common/ninegrids/m_lobby_panel_gamelist_tag_bg_allgame.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_bg_allgame_png",
+			"scale9grid": "50,50,2,2"
+		},
+		{
+			"url": "assets/nmimages/m/common/ninegrids/m_lobby_panel_gamelist_tag_bg_betted.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_bg_betted_png",
+			"scale9grid": "50,50,2,2"
+		},
+		{
+			"url": "assets/nmimages/m/common/ninegrids/m_lobby_panel_gamelist_tag_bg_goodroad.png",
+			"type": "image",
+			"name": "m_lobby_panel_gamelist_tag_bg_goodroad_png",
+			"scale9grid": "50,50,2,2"
+		},
+		{
+			"url": "assets/spritesheet/m/common/common_general.png",
+			"type": "image",
+			"name": "common_general_png"
 		}
 	]
 }

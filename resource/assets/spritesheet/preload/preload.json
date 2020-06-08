@@ -1,99 +1,9 @@
 {
   "file": "preload.png",
   "frames": {
-    "Mask_test_png": {
-      "x": 1,
-      "y": 1,
-      "w": 512,
-      "h": 512,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 512,
-      "sourceH": 512
-    },
-    "baccarat_dealer_1_jpg": {
-      "x": 515,
-      "y": 1,
-      "w": 289,
-      "h": 124.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 289,
-      "sourceH": 124.5
-    },
-    "baccarat_dealer_2_jpg": {
-      "x": 515,
-      "y": 127.5,
-      "w": 289,
-      "h": 124.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 289,
-      "sourceH": 124.5
-    },
-    "baccarat_dealer_3_jpg": {
-      "x": 515,
-      "y": 254,
-      "w": 289,
-      "h": 124.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 289,
-      "sourceH": 124.5
-    },
-    "baccarat_dealer_4_jpg": {
-      "x": 515,
-      "y": 380.5,
-      "w": 289,
-      "h": 124.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 289,
-      "sourceH": 124.5
-    },
-    "baccarat_dealer_5_jpg": {
-      "x": 515,
-      "y": 507,
-      "w": 289,
-      "h": 124.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 289,
-      "sourceH": 124.5
-    },
-    "advanced_dealer_1_png": {
-      "x": 1,
-      "y": 633.5,
-      "w": 182,
-      "h": 220.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 182,
-      "sourceH": 220.5
-    },
-    "advanced_dealer_2_png": {
-      "x": 185,
-      "y": 633.5,
-      "w": 182,
-      "h": 220.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 182,
-      "sourceH": 220.5
-    },
-    "advanced_dealer_sicbo_png": {
-      "x": 369,
-      "y": 633.5,
-      "w": 172.5,
-      "h": 220.5,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 172.5,
-      "sourceH": 220.5
-    },
     "border_png": {
       "x": 1,
-      "y": 515,
+      "y": 1,
       "w": 88.5,
       "h": 23.5,
       "offX": 0,
@@ -103,7 +13,7 @@
     },
     "off_png": {
       "x": 1,
-      "y": 540.5,
+      "y": 26.5,
       "w": 32.5,
       "h": 13.5,
       "offX": 0,
@@ -112,8 +22,8 @@
       "sourceH": 13.5
     },
     "on_png": {
-      "x": 1,
-      "y": 556,
+      "x": 35.5,
+      "y": 26.5,
       "w": 32.5,
       "h": 13.5,
       "offX": 0,
@@ -122,8 +32,8 @@
       "sourceH": 13.5
     },
     "thumb_png": {
-      "x": 1,
-      "y": 571.5,
+      "x": 70,
+      "y": 26.5,
       "w": 12.5,
       "h": 12.5,
       "offX": 0,
@@ -133,7 +43,7 @@
     },
     "checkbox_select_disabled_png": {
       "x": 1,
-      "y": 586,
+      "y": 42,
       "w": 11.5,
       "h": 11.5,
       "offX": 0,
@@ -142,8 +52,8 @@
       "sourceH": 11.5
     },
     "checkbox_select_down_png": {
-      "x": 1,
-      "y": 599.5,
+      "x": 14.5,
+      "y": 42,
       "w": 11.5,
       "h": 11.5,
       "offX": 0,
@@ -152,8 +62,8 @@
       "sourceH": 11.5
     },
     "checkbox_select_up_png": {
-      "x": 1,
-      "y": 613,
+      "x": 28,
+      "y": 42,
       "w": 11.5,
       "h": 11.5,
       "offX": 0,
@@ -162,8 +72,8 @@
       "sourceH": 11.5
     },
     "checkbox_unselect_png": {
-      "x": 14.5,
-      "y": 586,
+      "x": 41.5,
+      "y": 42,
       "w": 11.5,
       "h": 11.5,
       "offX": 0,
@@ -172,8 +82,8 @@
       "sourceH": 11.5
     },
     "handle_png": {
-      "x": 15.5,
-      "y": 571.5,
+      "x": 55,
+      "y": 42,
       "w": 11.5,
       "h": 11.5,
       "offX": 0,
@@ -182,8 +92,8 @@
       "sourceH": 11.5
     },
     "radiobutton_select_disabled_png": {
-      "x": 14.5,
-      "y": 599.5,
+      "x": 68.5,
+      "y": 42,
       "w": 11,
       "h": 11,
       "offX": 0,
@@ -192,8 +102,8 @@
       "sourceH": 11
     },
     "radiobutton_select_up_png": {
-      "x": 14.5,
-      "y": 612.5,
+      "x": 1,
+      "y": 55.5,
       "w": 11,
       "h": 11,
       "offX": 0,
@@ -202,8 +112,8 @@
       "sourceH": 11
     },
     "radiobutton_unselect_png": {
-      "x": 27.5,
-      "y": 599.5,
+      "x": 14,
+      "y": 55.5,
       "w": 11,
       "h": 11,
       "offX": 0,
@@ -212,8 +122,8 @@
       "sourceH": 11
     },
     "button_down_png": {
-      "x": 28,
-      "y": 585,
+      "x": 81.5,
+      "y": 41,
       "w": 8,
       "h": 8,
       "offX": 0,
@@ -222,8 +132,8 @@
       "sourceH": 8
     },
     "button_up_png": {
-      "x": 29,
-      "y": 571.5,
+      "x": 81.5,
+      "y": 51,
       "w": 8,
       "h": 8,
       "offX": 0,
@@ -232,8 +142,8 @@
       "sourceH": 8
     },
     "header_png": {
-      "x": 38,
-      "y": 581.5,
+      "x": 68.5,
+      "y": 55,
       "w": 8,
       "h": 8,
       "offX": 0,
@@ -242,8 +152,8 @@
       "sourceH": 8
     },
     "selected_png": {
-      "x": 27.5,
-      "y": 612.5,
+      "x": 27,
+      "y": 55.5,
       "w": 8,
       "h": 8,
       "offX": 0,
@@ -252,8 +162,8 @@
       "sourceH": 8
     },
     "track_png": {
-      "x": 1,
-      "y": 626.5,
+      "x": 84.5,
+      "y": 26.5,
       "w": 3,
       "h": 3,
       "offX": 0,
@@ -262,8 +172,8 @@
       "sourceH": 3
     },
     "tracklight_png": {
-      "x": 6,
-      "y": 626.5,
+      "x": 84.5,
+      "y": 31.5,
       "w": 3,
       "h": 3,
       "offX": 0,
@@ -272,8 +182,8 @@
       "sourceH": 3
     },
     "radiobutton_select_down_png": {
-      "x": 14.5,
-      "y": 599.5,
+      "x": 68.5,
+      "y": 42,
       "w": 11,
       "h": 11,
       "offX": 0,

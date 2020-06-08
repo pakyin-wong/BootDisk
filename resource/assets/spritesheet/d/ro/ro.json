@@ -661,58 +661,8 @@
       "sourceW": 42,
       "sourceH": 38
     },
-    "d_ro_savelayout_inactive_bg_png": {
-      "x": 901,
-      "y": 1378,
-      "w": 42,
-      "h": 38,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 42,
-      "sourceH": 38
-    },
-    "d_ro_savelayout_rename_mode_bg_png": {
-      "x": 947,
-      "y": 1378,
-      "w": 42,
-      "h": 38,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 42,
-      "sourceH": 38
-    },
-    "d_ro_rm_switch_tag_btn_active_png": {
-      "x": 993,
-      "y": 1378,
-      "w": 39,
-      "h": 36,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 39,
-      "sourceH": 36
-    },
-    "d_ro_rm_switch_tag_btn_hover_png": {
-      "x": 1036,
-      "y": 1378,
-      "w": 39,
-      "h": 36,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 39,
-      "sourceH": 36
-    },
-    "d_ro_rm_switch_tag_btn_inactive_png": {
-      "x": 1079,
-      "y": 1378,
-      "w": 39,
-      "h": 36,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 39,
-      "sourceH": 36
-    },
     "d_ro_chips_small_not_confirm_png": {
-      "x": 1122,
+      "x": 901,
       "y": 1378,
       "w": 36,
       "h": 36,
@@ -722,7 +672,7 @@
       "sourceH": 36
     },
     "d_ro_chips_small_png": {
-      "x": 1162,
+      "x": 941,
       "y": 1378,
       "w": 36,
       "h": 36,

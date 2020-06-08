@@ -50,9 +50,6 @@ const config: ResourceManagerConfig = {
           //     }
           //   },
           // }),
-          new CleanPlugin({
-            matchers: ['resource/assets/images'],
-          }),
           // new EmitResConfigFilePlugin({
           //   output: 'resource/desktop.res.json',
           //   typeSelector: config.typeSelector,
@@ -110,6 +107,9 @@ const config: ResourceManagerConfig = {
             matchers: [{ from: '**/*.js', to: '[path][name]_[hash].[ext]' }],
           }),
           new ManifestPlugin({ output: 'manifest.json' }),
+          new CleanPlugin({
+            matchers: ['resource/assets/images'],
+          }),
         ],
       };
     } else {

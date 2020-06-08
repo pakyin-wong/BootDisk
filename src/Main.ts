@@ -138,16 +138,13 @@ class Main extends eui.UILayer {
     // RES.processor.map('zip', new ZipProcessor());
 
     try {
-      const prodStr = '.prod';
-      // if (DEBUG) {
-      //   prodStr = '';
-      // }
+      let prodStr = '.prod';
+      if (DEBUG) {
+        prodStr = '';
+      }
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
-      fontMgr.loadFonts([
-        { res: 'Barlow-Regular', name: 'Barlow' },
-        { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' },
-      ]);
+      fontMgr.loadFonts([{ res: 'Barlow-Regular', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' }]);
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
       logger.e(err);

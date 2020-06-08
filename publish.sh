@@ -50,5 +50,7 @@ case "${arch}" in
 esac
 
 #zip /js 
-cross-zip $target/js $target/js.zip
+cd $target
+cross-zip js js.zip
+cd ../../..
 for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;
