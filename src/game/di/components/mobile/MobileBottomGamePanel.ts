@@ -38,10 +38,13 @@ namespace we {
 
       public destroy() {
         super.destroy();
-        this._roadmapGroup.removeChildren();
-        if (this._historyGroup) {
+        if (env.orientation === 'portrait') {
           this._historyGroup.removeChildren();
+          this._roadmapGroup.removeChildren();
+        } else {
+          this._roadmapGroup.removeChildren();
         }
+
         // this._chartGroup.removeChildren();
         // this._infoGroup.removeChildren();
         this.removeListeners();
@@ -49,6 +52,8 @@ namespace we {
 
       protected addListeners() {
         super.addListeners();
+        this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this._roadButtonPanel.roadmapSumBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this._roadButtonPanel.roadmapOddevenBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         this._roadButtonPanel.roadmapSizeBtn.addEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
@@ -58,8 +63,6 @@ namespace we {
         if (this.roadSheetBtn) {
           this.roadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
-        this.chartBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.tableInfoBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.historyAndRoadSheetBtn) {
           this.historyAndRoadSheetBtn.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
@@ -67,14 +70,17 @@ namespace we {
 
       protected removeListeners() {
         super.removeListeners();
+        this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this._roadButtonPanel.roadmapSumBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        this._roadButtonPanel.roadmapOddevenBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
+        this._roadButtonPanel.roadmapSizeBtn.removeEventListener(eui.UIEvent.CHANGE, this.onRoadMapChanged, this);
         if (this.historyBtn) {
           this.historyBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
         if (this.roadSheetBtn) {
           this.roadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
-        this.chartBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.tableInfoBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         if (this.historyAndRoadSheetBtn) {
           this.historyAndRoadSheetBtn.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         }
