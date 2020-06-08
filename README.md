@@ -48,6 +48,7 @@ if (list has new goodroad) we send out Notification.
 ```
 npm install -g tslint prettier typescript
 npm install -g cross-zip cross-zip-cli
+npm i -g @ffflorian/jszip-cli
 npm install -g jpegoptim-bin
 ```
 

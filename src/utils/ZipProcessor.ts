@@ -13,15 +13,23 @@ class ZipProcessor implements RES.processor.Processor {
     while (ZipProcessor.currentProcess) {
       await we.utils.sleep(1000);
     }
-    console.log(resource.name + ' start');
+    // console.log(resource.name + ' start');
     const res = await host.load(resource, RES.processor.BinaryProcessor);
     ZipProcessor.currentProcess = resource.name;
     let { files }: any = await JSZip.loadAsync(res);
     try {
       files = Object.keys(files)
-        .filter((name: string) => name.indexOf('_') !== 0)
+        // .filter((name: string) => name.indexOf('_') !== 0)
+        .filter(name => !files[name].dir)
         .map(name => files[name]);
-      const blobs = await Promise.all<Blob>(files.map((file: JSZip.JSZipObject) => file.async('blob')));
+      const blobs = await Promise.all<Blob>(
+        files.map((file: JSZip.JSZipObject) => {
+          if (file.dir) {
+            return Promise.resolve(null);
+          }
+          return file.async('blob');
+        })
+      );
       // const blobs = [];
       // let index = 0;
       // for (const file of files) {
@@ -39,12 +47,12 @@ class ZipProcessor implements RES.processor.Processor {
           return RES.getResAsync(name);
         })
       );
-      console.log(resource.name + ' loaded');
+      // console.log(resource.name + ' loaded');
       ZipProcessor.currentProcess = null;
 
       return Promise.resolve(blobUrls);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
     // console.log('load json', resource.url)
     // if (resource.url.indexOf("config/") == -1) {
@@ -101,11 +109,12 @@ class ZipProcessor implements RES.processor.Processor {
 
   public async createResource(blobUrls: any, blob: Blob, file: any) {
     const name = file.name
-      .split('\\')
+      .split('/')
       .pop()
       .replace(/\./gi, '_');
     let url;
     const ext = file.name.split('.').pop();
+    let type = RES.ResourceItem.TYPE_IMAGE;
     switch (ext) {
       case 'svg': {
         // convert to png
@@ -113,13 +122,18 @@ class ZipProcessor implements RES.processor.Processor {
         url = await this.renderSvgToPng(blob);
         break;
       }
+      case 'json': {
+        type = RES.ResourceItem.TYPE_JSON;
+        url = window.URL.createObjectURL(blob);
+        break;
+      }
       default: {
         url = window.URL.createObjectURL(blob);
         break;
       }
     }
-    const type = RES.ResourceItem.TYPE_IMAGE;
     const resource = { name, url, type };
+    // console.log(resource);
     RES.$addResourceData(resource);
     blobUrls.push({ name, url });
     return Promise.resolve({ name, url });
