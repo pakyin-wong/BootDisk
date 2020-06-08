@@ -88,7 +88,7 @@ namespace we {
         egret.Tween.removeTweens(this._betArea);
 
         switch (s) {
-          case 'zip':
+          case 'zip': // when mobilebottompanel is on
             this._betArea.scrollPolicyV = eui.ScrollPolicy.ON;
             egret.Tween.get(this._betArea.viewport).to(
               {
@@ -99,20 +99,33 @@ namespace we {
             if (env.orientation === 'portrait') {
               this._tableLayer.top = this._tableLayer.bottom = 100;
               this._chipLayer.top = this._chipLayer.bottom = 100;
-
-              this._betArea.mask = this._mask;
-              this._mask.visible = true;
             }
+            if (env.orientation === 'landscape') {
+              egret.Tween.get(this._betArea).to({ y: 0 }, 250);
+              // this._betArea.bottom = this._betArea.top = 0;
+
+              this._tableLayer.top = this._chipLayer.top = 50;
+              this._tableLayer.bottom = this._chipLayer.bottom = 0;
+            }
+            this._betArea.mask = this._mask;
+            this._mask.visible = true;
+
             break;
           case 'small':
-          case 'normal':
+          case 'normal': // when mobilebottompanel is off
             if (env.orientation === 'portrait') {
               this._tableLayer.top = this._tableLayer.bottom = 0;
               this._chipLayer.top = this._chipLayer.bottom = 0;
-              this._betArea.mask = null;
-              if (this._mask) {
-                this._mask.visible = false;
-              }
+            }
+            if (env.orientation === 'landscape') {
+              egret.Tween.get(this._betArea).to({ y: 300 }, 250);
+              this._tableLayer.top = this._tableLayer.bottom = 0; // tbc
+              this._chipLayer.top = this._chipLayer.bottom = 0; // tbc
+            }
+
+            this._betArea.mask = null;
+            if (this._mask) {
+              this._mask.visible = false;
             }
           default:
             this._betArea.scrollPolicyV = eui.ScrollPolicy.OFF;
@@ -189,13 +202,23 @@ namespace we {
         this._mask = new egret.Shape();
         const gr = this._mask.graphics;
         const matrix = new egret.Matrix();
-        matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
-        gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
-        gr.drawRect(0, 0, this._betArea.width, 1270); //
+
+        if (env.orientation === 'portrait') {
+          matrix.createGradientBox(this._betArea.width, 1270, Math.PI / 2, 0, 0);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
+          gr.drawRect(0, 0, this._betArea.width, 1270); //
+          this._mask.y = 180;
+        }
+        if (env.orientation === 'landscape') {
+          matrix.createGradientBox(this._betArea.width, 850, Math.PI / 2, 0, 0);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
+          gr.drawRect(0, 0, this._betArea.width, 850); //
+          this._mask.y = 50;
+        }
+
         gr.endFill();
         this.addChild(this._mask);
         this._mask.x = this._betArea.x;
-        this._mask.y = 180;
         this._mask.visible = false;
       }
 
