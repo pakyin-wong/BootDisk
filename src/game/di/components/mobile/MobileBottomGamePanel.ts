@@ -31,7 +31,6 @@ namespace we {
 
       protected mount() {
         super.mount();
-
         this._betLimitDropDownBtn = this._tableInfoPanel.pBetLimit;
         this._roadButtonPanel.changeState();
       }
@@ -109,8 +108,11 @@ namespace we {
       }
 
       protected onViewChange(e: eui.UIEvent) {
+        super.onViewChange(e);
         switch (env.orientation) {
           case 'landscape':
+            console.log(this.viewStack.selectedIndex);
+            console.log(e.target.value);
             if (e.target.value === '3') {
               e.target.value = 0;
             }
@@ -142,6 +144,8 @@ namespace we {
 
       protected onPanelToggle() {
         super.onPanelToggle();
+        this.viewStack.selectedIndex = 0;
+        console.log(this.viewStack.selectedIndex);
         if (this.isPanelOpen) {
           this._roadmapPanel.visible = true;
           this._beadroadPanel.visible = true;
