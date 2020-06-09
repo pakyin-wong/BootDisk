@@ -27,11 +27,11 @@ namespace we {
       constructor(data: any) {
         super(data);
 
-        this._betChipSetPanel.alpha = 0;
-        this._betChipSetPanel.visible = false;
-        this._betChipSet.alpha = 1;
+        // this._betChipSetPanel.alpha = 0;
+        // this._betChipSetPanel.visible = false;
+        // this._betChipSet.alpha = 1;
 
-        this.played = false;
+        // this.played = false;
       }
 
       public get betChipSetPanelVisible(): boolean {

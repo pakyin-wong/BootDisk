@@ -89,6 +89,14 @@ namespace we {
       public updateSideBarRoadData(roadmapData: any) {
         this._roadmapControl.updateRoadData();
       }
+
+      protected destroy() {
+        super.destroy();
+        this._bigRoadMap.dispose();
+        this._bigEyeRoad.dispose();
+        this._smallRoad.dispose();
+        this._cockroachRoad.dispose();
+      }
     }
   }
 }
