@@ -2,354 +2,354 @@
   "file": "di.png",
   "frames": {
     "m_sb_betarea_horizontal_png": {
-      "x": 2,
-      "y": 2,
-      "w": 2073,
-      "h": 832,
+      "x": 1,
+      "y": 1,
+      "w": 1036.5,
+      "h": 416,
       "offX": 0,
       "offY": 0,
-      "sourceW": 2073,
-      "sourceH": 832
+      "sourceW": 1036.5,
+      "sourceH": 416
     },
     "m_sb_betarea_png": {
-      "x": 2,
-      "y": 838,
-      "w": 926,
-      "h": 1532,
+      "x": 1,
+      "y": 419,
+      "w": 463,
+      "h": 766,
       "offX": 0,
       "offY": 0,
-      "sourceW": 926,
-      "sourceH": 1532
+      "sourceW": 463,
+      "sourceH": 766
     },
     "m_sb_panel_chart_bg_left_png": {
-      "x": 932,
-      "y": 838,
-      "w": 876,
-      "h": 170,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 876,
-      "sourceH": 170
-    },
-    "m_sb_panel_chart_bg_right_png": {
-      "x": 932,
-      "y": 1012,
-      "w": 876,
-      "h": 170,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 876,
-      "sourceH": 170
-    },
-    "m_sb_betarea_bg_hover_6_horizontal_png": {
-      "x": 932,
-      "y": 1186,
-      "w": 415,
-      "h": 260,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 415,
-      "sourceH": 260
-    },
-    "m_sb_betarea_bg_hover_3_png": {
-      "x": 1351,
-      "y": 1186,
-      "w": 308,
-      "h": 189,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 308,
-      "sourceH": 189
-    },
-    "m_sb_betarea_bg_hover_6_png": {
-      "x": 1663,
-      "y": 1186,
-      "w": 308,
-      "h": 105,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 308,
-      "sourceH": 105
-    },
-    "m_sb_betarea_bg_hover_8_png": {
-      "x": 1663,
-      "y": 1295,
-      "w": 308,
-      "h": 97,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 308,
-      "sourceH": 97
-    },
-    "m_sb_betarea_bg_hover_5_png": {
-      "x": 1351,
-      "y": 1379,
-      "w": 307,
-      "h": 105,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 307,
-      "sourceH": 105
-    },
-    "m_sb_betarea_bg_hover_7_png": {
-      "x": 1662,
-      "y": 1396,
-      "w": 307,
-      "h": 97,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 307,
-      "sourceH": 97
-    },
-    "m_sb_panel_chart_bar_png": {
-      "x": 932,
-      "y": 1450,
-      "w": 302,
-      "h": 24,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 302,
-      "sourceH": 24
-    },
-    "m_sb_betarea_bg_hover_11_horizontal_png": {
-      "x": 932,
-      "y": 1478,
-      "w": 295,
-      "h": 122,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 295,
-      "sourceH": 122
-    },
-    "m_sb_betarea_bg_hover_15_horizontal_png": {
-      "x": 1231,
-      "y": 1488,
-      "w": 295,
-      "h": 122,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 295,
-      "sourceH": 122
-    },
-    "m_sb_panel_chart_redcircle_png": {
-      "x": 932,
-      "y": 1604,
-      "w": 288,
-      "h": 288,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 288,
-      "sourceH": 288
-    },
-    "m_sb_panel_chart_bluecircle_png": {
-      "x": 932,
-      "y": 1896,
-      "w": 266,
-      "h": 266,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 266,
-      "sourceH": 266
-    },
-    "m_sb_betarea_bg_hover_1_horizontal_png": {
-      "x": 1812,
-      "y": 838,
-      "w": 205,
-      "h": 260,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 205,
-      "sourceH": 260
-    },
-    "m_sb_betarea_bg_hover_2_horizontal_png": {
-      "x": 1202,
-      "y": 1896,
-      "w": 205,
-      "h": 260,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 205,
-      "sourceH": 260
-    },
-    "m_sb_betarea_bg_hover_7_horizontal_png": {
-      "x": 1224,
-      "y": 1614,
-      "w": 205,
-      "h": 260,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 205,
-      "sourceH": 260
-    },
-    "m_sb_panel_chart_greencircle_png": {
-      "x": 1411,
-      "y": 1878,
-      "w": 242,
-      "h": 242,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 242,
-      "sourceH": 242
-    },
-    "m_sb_betarea_bg_hover_3_horizontal_png": {
-      "x": 932,
-      "y": 2166,
-      "w": 207,
-      "h": 87,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 207,
-      "sourceH": 87
-    },
-    "m_sb_betarea_bg_hover_4_horizontal_png": {
-      "x": 932,
-      "y": 2257,
-      "w": 207,
-      "h": 86,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 207,
-      "sourceH": 86
-    },
-    "m_sb_betarea_bg_hover_5_horizontal_png": {
-      "x": 1143,
-      "y": 2166,
-      "w": 207,
+      "x": 466,
+      "y": 419,
+      "w": 438,
       "h": 85,
       "offX": 0,
       "offY": 0,
-      "sourceW": 207,
+      "sourceW": 438,
       "sourceH": 85
     },
-    "m_sb_betarea_bg_hover_1_png": {
-      "x": 1354,
-      "y": 2160,
-      "w": 153,
-      "h": 189,
+    "m_sb_panel_chart_bg_right_png": {
+      "x": 466,
+      "y": 506,
+      "w": 438,
+      "h": 85,
       "offX": 0,
       "offY": 0,
-      "sourceW": 153,
-      "sourceH": 189
+      "sourceW": 438,
+      "sourceH": 85
     },
-    "m_sb_betarea_bg_hover_2_png": {
-      "x": 1511,
-      "y": 2124,
-      "w": 153,
-      "h": 189,
+    "m_sb_betarea_bg_hover_6_horizontal_png": {
+      "x": 466,
+      "y": 593,
+      "w": 207.5,
+      "h": 130,
       "offX": 0,
       "offY": 0,
-      "sourceW": 153,
-      "sourceH": 189
+      "sourceW": 207.5,
+      "sourceH": 130
     },
-    "m_sb_betarea_bg_hover_4_png": {
-      "x": 1433,
-      "y": 1614,
-      "w": 153,
-      "h": 189,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 153,
-      "sourceH": 189
-    },
-    "m_sb_betarea_bg_hover_10_horizontal_png": {
-      "x": 1590,
-      "y": 1497,
-      "w": 137,
-      "h": 187,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 137,
-      "sourceH": 187
-    },
-    "m_sb_betarea_bg_hover_9_horizontal_png": {
-      "x": 1731,
-      "y": 1497,
-      "w": 138,
-      "h": 187,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 138,
-      "sourceH": 187
-    },
-    "m_sb_betarea_bg_hover_12_png": {
-      "x": 1143,
-      "y": 2255,
-      "w": 186,
-      "h": 104,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 186,
-      "sourceH": 104
-    },
-    "m_sb_betarea_bg_hover_11_png": {
-      "x": 1873,
-      "y": 1497,
-      "w": 181,
-      "h": 104,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 181,
-      "sourceH": 104
-    },
-    "m_sb_betarea_bg_hover_8_horizontal_png": {
-      "x": 1590,
-      "y": 1688,
-      "w": 147,
-      "h": 159,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 147,
-      "sourceH": 159
-    },
-    "m_sb_betarea_bg_hover_14_png": {
-      "x": 1873,
-      "y": 1605,
+    "m_sb_betarea_bg_hover_3_png": {
+      "x": 675.5,
+      "y": 593,
       "w": 154,
-      "h": 106,
+      "h": 94.5,
       "offX": 0,
       "offY": 0,
       "sourceW": 154,
-      "sourceH": 106
+      "sourceH": 94.5
+    },
+    "m_sb_betarea_bg_hover_6_png": {
+      "x": 831.5,
+      "y": 593,
+      "w": 154,
+      "h": 52.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 154,
+      "sourceH": 52.5
+    },
+    "m_sb_betarea_bg_hover_8_png": {
+      "x": 831.5,
+      "y": 647.5,
+      "w": 154,
+      "h": 48.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 154,
+      "sourceH": 48.5
+    },
+    "m_sb_betarea_bg_hover_5_png": {
+      "x": 675.5,
+      "y": 689.5,
+      "w": 153.5,
+      "h": 52.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 153.5,
+      "sourceH": 52.5
+    },
+    "m_sb_betarea_bg_hover_7_png": {
+      "x": 831,
+      "y": 698,
+      "w": 153.5,
+      "h": 48.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 153.5,
+      "sourceH": 48.5
+    },
+    "m_sb_panel_chart_bar_png": {
+      "x": 466,
+      "y": 725,
+      "w": 151,
+      "h": 12,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 151,
+      "sourceH": 12
+    },
+    "m_sb_betarea_bg_hover_11_horizontal_png": {
+      "x": 466,
+      "y": 739,
+      "w": 147.5,
+      "h": 61,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 147.5,
+      "sourceH": 61
+    },
+    "m_sb_betarea_bg_hover_15_horizontal_png": {
+      "x": 615.5,
+      "y": 744,
+      "w": 147.5,
+      "h": 61,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 147.5,
+      "sourceH": 61
+    },
+    "m_sb_panel_chart_redcircle_png": {
+      "x": 466,
+      "y": 802,
+      "w": 144,
+      "h": 144,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 144,
+      "sourceH": 144
+    },
+    "m_sb_panel_chart_bluecircle_png": {
+      "x": 466,
+      "y": 948,
+      "w": 133,
+      "h": 133,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 133,
+      "sourceH": 133
+    },
+    "m_sb_betarea_bg_hover_1_horizontal_png": {
+      "x": 906,
+      "y": 419,
+      "w": 102.5,
+      "h": 130,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 102.5,
+      "sourceH": 130
+    },
+    "m_sb_betarea_bg_hover_2_horizontal_png": {
+      "x": 601,
+      "y": 948,
+      "w": 102.5,
+      "h": 130,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 102.5,
+      "sourceH": 130
+    },
+    "m_sb_betarea_bg_hover_7_horizontal_png": {
+      "x": 612,
+      "y": 807,
+      "w": 102.5,
+      "h": 130,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 102.5,
+      "sourceH": 130
+    },
+    "m_sb_panel_chart_greencircle_png": {
+      "x": 705.5,
+      "y": 939,
+      "w": 121,
+      "h": 121,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 121,
+      "sourceH": 121
+    },
+    "m_sb_betarea_bg_hover_3_horizontal_png": {
+      "x": 466,
+      "y": 1083,
+      "w": 103.5,
+      "h": 43.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 103.5,
+      "sourceH": 43.5
+    },
+    "m_sb_betarea_bg_hover_4_horizontal_png": {
+      "x": 466,
+      "y": 1128.5,
+      "w": 103.5,
+      "h": 43,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 103.5,
+      "sourceH": 43
+    },
+    "m_sb_betarea_bg_hover_5_horizontal_png": {
+      "x": 571.5,
+      "y": 1083,
+      "w": 103.5,
+      "h": 42.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 103.5,
+      "sourceH": 42.5
+    },
+    "m_sb_betarea_bg_hover_1_png": {
+      "x": 677,
+      "y": 1080,
+      "w": 76.5,
+      "h": 94.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 76.5,
+      "sourceH": 94.5
+    },
+    "m_sb_betarea_bg_hover_2_png": {
+      "x": 755.5,
+      "y": 1062,
+      "w": 76.5,
+      "h": 94.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 76.5,
+      "sourceH": 94.5
+    },
+    "m_sb_betarea_bg_hover_4_png": {
+      "x": 716.5,
+      "y": 807,
+      "w": 76.5,
+      "h": 94.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 76.5,
+      "sourceH": 94.5
+    },
+    "m_sb_betarea_bg_hover_10_horizontal_png": {
+      "x": 795,
+      "y": 748.5,
+      "w": 68.5,
+      "h": 93.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68.5,
+      "sourceH": 93.5
+    },
+    "m_sb_betarea_bg_hover_9_horizontal_png": {
+      "x": 865.5,
+      "y": 748.5,
+      "w": 69,
+      "h": 93.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 69,
+      "sourceH": 93.5
+    },
+    "m_sb_betarea_bg_hover_12_png": {
+      "x": 571.5,
+      "y": 1127.5,
+      "w": 93,
+      "h": 52,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 93,
+      "sourceH": 52
+    },
+    "m_sb_betarea_bg_hover_11_png": {
+      "x": 936.5,
+      "y": 748.5,
+      "w": 90.5,
+      "h": 52,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 90.5,
+      "sourceH": 52
+    },
+    "m_sb_betarea_bg_hover_8_horizontal_png": {
+      "x": 795,
+      "y": 844,
+      "w": 73.5,
+      "h": 79.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 73.5,
+      "sourceH": 79.5
+    },
+    "m_sb_betarea_bg_hover_14_png": {
+      "x": 936.5,
+      "y": 802.5,
+      "w": 77,
+      "h": 53,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 77,
+      "sourceH": 53
     },
     "m_sb_betarea_bg_hover_13_png": {
-      "x": 1657,
-      "y": 1851,
-      "w": 152,
-      "h": 106,
+      "x": 828.5,
+      "y": 925.5,
+      "w": 76,
+      "h": 53,
       "offX": 0,
       "offY": 0,
-      "sourceW": 152,
-      "sourceH": 106
+      "sourceW": 76,
+      "sourceH": 53
     },
     "m_sb_betarea_bg_hover_10_png": {
-      "x": 1741,
-      "y": 1715,
-      "w": 132,
-      "h": 107,
+      "x": 870.5,
+      "y": 857.5,
+      "w": 66,
+      "h": 53.5,
       "offX": 0,
       "offY": 0,
-      "sourceW": 132,
-      "sourceH": 107
+      "sourceW": 66,
+      "sourceH": 53.5
     },
     "d_sic_history_chart_line-2_png": {
-      "x": 1224,
-      "y": 1878,
-      "w": 130,
-      "h": 10,
+      "x": 612,
+      "y": 939,
+      "w": 65,
+      "h": 5,
       "offX": 0,
       "offY": 0,
-      "sourceW": 130,
-      "sourceH": 10
+      "sourceW": 65,
+      "sourceH": 5
     },
     "m_sb_betarea_bg_hover_9_png": {
-      "x": 1657,
-      "y": 1961,
-      "w": 129,
-      "h": 107,
+      "x": 828.5,
+      "y": 980.5,
+      "w": 64.5,
+      "h": 53.5,
       "offX": 0,
       "offY": 0,
-      "sourceW": 129,
-      "sourceH": 107
+      "sourceW": 64.5,
+      "sourceH": 53.5
     }
   }
 }

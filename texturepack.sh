@@ -8,6 +8,7 @@ echo Lossless compress images at resource/assets/spritesheet...
 optipng resource/assets/spritesheet/**/**/*.png
 pngquant --force --ext .png --skip-if-larger resource/assets/nmimages/**/**/*.png
 jpegoptim --max=70 resource/assets/nmimages/**/*.jpg
+optipng resource/assets/fonts/*.png
 optipng resource/assets/dragonbones/**/*.png
 optipng resource/assets/dragonbones/**/**/*.png
 optipng resource/assets/dragonbones/**/**/**/*.png
