@@ -210,10 +210,10 @@ namespace we {
           this._mask.y = 180;
         }
         if (env.orientation === 'landscape') {
-          matrix.createGradientBox(this._betArea.width, 850, Math.PI / 2, 0, 0);
-          gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000, 0x000000], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
-          gr.drawRect(0, 0, this._betArea.width, 850); //
-          this._mask.y = 50;
+          matrix.createGradientBox(this._betArea.width, 550, Math.PI / 2, 0, 0);
+          gr.beginGradientFill(egret.GradientType.LINEAR, [0xffffff, 0xffffff, 0xffffff, 0xffffff], [0, 1, 1, 0], [0, 20, 235, 255], matrix);
+          gr.drawRect(0, 0, this._betArea.width, 550); //
+          this._mask.y = 380;
         }
 
         gr.endFill();

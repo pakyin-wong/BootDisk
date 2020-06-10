@@ -62,7 +62,7 @@
         <ui:GameBar width="251" height="52" x="900" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
                     skinName="skin_mobile_portrait.GameBar" visible="false" />
     </e:Group>
-    <e:Group id="_verticalTop" anchorOffsetY="0" bottom="0" >
+    <e:Group id="_verticalTop" anchorOffsetY="0" bottom="0"  width="2424">
         <e:Group id="verticalGroup">
 					<e:Scroller id="_betArea" width="2071" height="830" scaleX="1" scaleY="1" scrollPolicyH="off" scrollPolicyV="off" x="168" y="300">
 						<e:Group id="_bAViewport">
@@ -90,9 +90,9 @@
 						</e:Group>
 					</e:Group>
 </e:Group>
-			<di:MobileBottomGamePanel skinName="skin_mobile_landscape.di.MobileBottomGamePanel" width="100%" id="_bottomGamePanel" x="0" scaleY="1" scaleX="1" y="1062"/>
+			<di:MobileBottomGamePanel skinName="skin_mobile_landscape.di.MobileBottomGamePanel" width="2424" id="_bottomGamePanel" x="0" scaleY="1" scaleX="1" y="1062"/>
 			<e:layout>
-				<e:VerticalLayout gap="0"/>
+				<e:VerticalLayout gap="-65"/>
 			</e:layout>
     </e:Group>
     <e:Group bottom="0" left="0" width="700">
