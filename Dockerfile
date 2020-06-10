@@ -16,8 +16,15 @@ ADD swipeup.png bin-release/web/${ENVIRONMENT}/swipeup.png
 ADD config.${ENVIRONMENT}.json bin-release/web/${ENVIRONMENT}/config.${ENVIRONMENT}.json
 RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
 
+RUN  apt-get update -y && \
+     apt-get upgrade -y && \
+     apt-get dist-upgrade -y && \
+     apt-get -y autoremove && \
+     apt-get clean
+RUN apt-get install -y zip
+RUN zip bin-release/web/${ENVIRONMENT}/js.zip bin-release/web/${ENVIRONMENT}/js
 # RUN npm -g config set user root
-RUN npm -g install jszip-cli && /usr/local/bin/jszip-cli add bin-release/web/${ENVIRONMENT}/js > bin-release/web/${ENVIRONMENT}/js.zip
+# RUN npm -g install jszip-cli && /usr/local/bin/jszip-cli add bin-release/web/${ENVIRONMENT}/js > bin-release/web/${ENVIRONMENT}/js.zip
 # RUN for i in $(ls bin-release/web/${ENVIRONMENT}/js | grep -v jszip); do rm "bin-release/web/${ENVIRONMENT}/js/$i"; done;
 
 FROM pgpg/infra-nginx:latest as production
