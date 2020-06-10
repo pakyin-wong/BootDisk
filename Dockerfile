@@ -16,10 +16,9 @@ ADD swipeup.png bin-release/web/${ENVIRONMENT}/swipeup.png
 ADD config.${ENVIRONMENT}.json bin-release/web/${ENVIRONMENT}/config.${ENVIRONMENT}.json
 RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
 
-RUN npm -g config set user root
-RUN npm -g install jszip-cli
-RUN /usr/local/bin/jszip-cli add bin-release/web/${ENVIRONMENT}/js > bin-release/web/${ENVIRONMENT}/js.zip
-RUN for i in $(ls bin-release/web/${ENVIRONMENT}/js | grep -v jszip); do rm "bin-release/web/${ENVIRONMENT}/js/$i"; done;
+# RUN npm -g config set user root
+RUN npm -g install jszip-cli && jszip-cli add bin-release/web/${ENVIRONMENT}/js > bin-release/web/${ENVIRONMENT}/js.zip
+# RUN for i in $(ls bin-release/web/${ENVIRONMENT}/js | grep -v jszip); do rm "bin-release/web/${ENVIRONMENT}/js/$i"; done;
 
 FROM pgpg/infra-nginx:latest as production
 
