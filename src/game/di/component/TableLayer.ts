@@ -147,9 +147,15 @@ namespace we {
         this._odd_label.renderText = () => i18n.t('dice.odd');
         this._even_label.renderText = () => i18n.t('dice.even');
         this._big_label.renderText = () => i18n.t('dice.big');
-        if (this._single_label) { this._single_label.renderText = () => i18n.t('dice.single'); }
-        if (this._double_label) { this._double_label.renderText = () => i18n.t('dice.double'); }
-        if (this._triple_label) { this._triple_label.renderText = () => i18n.t('dice.triple'); }
+        if (this._single_label) {
+          this._single_label.renderText = () => i18n.t('dice.single');
+        }
+        if (this._double_label) {
+          this._double_label.renderText = () => i18n.t('dice.double');
+        }
+        if (this._triple_label) {
+          this._triple_label.renderText = () => i18n.t('dice.triple');
+        }
       }
 
       public onRollover(fieldName: string) {

@@ -9,6 +9,8 @@ namespace we {
       protected _smallRoad: ba.BASmallRoad;
       protected _cockroachRoad: ba.BACockroachRoad;
 
+      protected beadRoadGrid: egret.Shape;
+
       public constructor() {
         super();
         this.cacheAsBitmap = true;
@@ -30,6 +32,10 @@ namespace we {
         const gridSize = 32;
         const lineWidth = 2;
         const lineColor = 0xaaaaaa;
+
+        // grid bg rectangle
+        this.beadRoadGrid = new egret.Shape();
+        this.addChild(this.beadRoadGrid);
 
         this._bigRoadMap = new ba.BABigRoad(17, gridSizeBR);
         this._bigRoadMap.x = 0;
@@ -67,6 +73,13 @@ namespace we {
         rect3.y = gridSize * 6;
 
         this._roadmapControl.setRoads(null, this._bigRoadMap, this._bigEyeRoad, this._smallRoad, this._cockroachRoad, [16, 17, 20, 20, 20], null, null, false);
+      }
+
+      public drawGridBg(width: number, height: number) {
+        this.beadRoadGrid.graphics.beginFill(0xffffff, 1);
+        this.beadRoadGrid.graphics.lineStyle(1, 0xafafaf, 1, true);
+        RoundRect.drawRoundRect(this.beadRoadGrid.graphics, 0, 0, width, height, { tl: 0, tr: 0, bl: 8, br: 8 });
+        this.beadRoadGrid.graphics.endFill();
       }
 
       public updateLobbyRoadData(roadmapData: any) {
