@@ -99,6 +99,7 @@ namespace we {
         }
       }
 
+      // dispose never be called
       public dispose() {
         if (this.beadRoad.hasEventListener('RollOverResult')) {
           this.beadRoad.removeEventListener('RollOverResult', this.onBeadRoadOver, this);

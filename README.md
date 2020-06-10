@@ -42,10 +42,14 @@ if (list has new goodroad) we send out Notification.
 ### MacOS
 1. Install Egret Launcher. (Don't install Egret Wing solely.)
 2. Install Egret Wing and Egret Engine(5.2.29).
-3. Install npm
-4. Install the following programs
+3. Install optipng and pngquant for image compression
+4. Install npm
+5. Install the following programs
 ```
 npm install -g tslint prettier typescript
+npm install -g cross-zip cross-zip-cli
+npm i -g @ffflorian/jszip-cli
+npm install -g jpegoptim-bin
 ```
 
 ### Windows
@@ -62,14 +66,19 @@ npm install -g tslint prettier typescript
 
 ### SpriteSheet 
 Image assets are packed into spritesheet before load by the game client. To add, remove, or update images. Please follow the steps.
-1. raw image assets are stored at /resource_separate/assets, while /resource_separate/asset_old are the previous structure of the assets
-2. images can be added, removed, or updated in /resource_separate/assets
-3. open the corresponding Texture Merger project based on the modified images
-4. drag the new image to the texture merger project and save the project
-5. export the spritesheet to the corresponding folder in /resource_separate/assets_spritesheet
-6. use tinypng/ optimizilla to compress the exported Images
-7. drag the updated json and png to the corresponding folder in /resource/assets
-8. inside the desktop.res.json/ mobile.res.json, locate the spritesheet, right click and select "Refresh Sheet"
+1. images can be added, removed, or updated in /resource/assets/images
+2. for those images you don't want to pack to spritesheet, place them under /resource/assets/nmimages
+3. edit the texturepacker.config.json if necessary (i.e. if you want to add another spritesheet or change the scale of the exported png)
+4. run texturepack.sh, exported spritesheet will locate at /resource/assets/spritesheets
+5. check and update if necessary the desktop.prod.res.json and mobile.prod.res.json to see if the subkeys are updated (sometimes you need to refresh the spritesheet to load the latest subkeys)
+
+
+### Pre-publish
+There are few steps needed to be taken before publish
+1. generate the spritesheet (Please see [SpriteSheet](#spriteSheet))
+2. zip all the dragonbone related json, run compressdbjson.sh (you may edit the .zipdb.config.json for more control)
+3. check if the output zip file (resource/assets/zip/dbjson.zip) is added to desktop.prod.res.json and mobile.prod.res.json
+4. Ready to build
 
 ## Testing Site
 1. [Development](https://dev-web-game-fe.wehosts247.com/)

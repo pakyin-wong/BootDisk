@@ -32,6 +32,11 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.changeLang();
       }
+
+      // public destroy() {
+      //   super.destroy();
+      //   dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      // }
     }
   }
 }

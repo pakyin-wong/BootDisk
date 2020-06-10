@@ -5,9 +5,12 @@ namespace we {
       protected _cardWidth: number;
       protected _cardHeight: number;
       protected cardFace: CardFaceImage;
-      protected cardFaceFingerLeft: eui.Image;
-      protected cardFaceFingerRight: eui.Image;
-      protected cardFaceFingerCorner: eui.Image;
+      protected _cardLayer: eui.Component;
+
+      protected _fingerLayer: eui.Component;
+      protected _fingerLeft: eui.Image;
+      protected _fingerRight: eui.Image;
+      protected _fingerToCardRatio = 3;
       protected _direction: string;
 
       protected cardBack: CardImage;
@@ -61,8 +64,10 @@ namespace we {
       }
 
       protected mount() {
+        this._cardLayer = new eui.Component();
+
         this.cardBack = new CardImage(this._cardWidth, this._cardHeight);
-        this.addChild(this.cardBack);
+        this._cardLayer.addChild(this.cardBack);
 
         this.cardBackShadow = new egret.Shape();
         this.cardBackShadow.visible = false;
@@ -72,14 +77,14 @@ namespace we {
         gr2.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000, 0x000000], [0.7, 0.7, 0], [0, 200, 255], matrix2);
         gr2.drawRect(0, -this._cardHeight * 1.5, this._cardWidth * 0.05, this._cardHeight * 3);
         gr2.endFill();
-        this.addChild(this.cardBackShadow);
+        this._cardLayer.addChild(this.cardBackShadow);
 
         this.cardBackShadowMask = new CardShape(this._cardWidth, this._cardHeight);
         this.cardBackShadowMask.visible = false;
-        this.addChild(this.cardBackShadowMask);
+        this._cardLayer.addChild(this.cardBackShadowMask);
 
         this.cardFace = new CardFaceImage(this._cardWidth, this._cardHeight);
-        this.addChild(this.cardFace);
+        this._cardLayer.addChild(this.cardFace);
 
         this.cardFaceShadow = new egret.Shape();
         this.cardFaceShadow.visible = false;
@@ -89,33 +94,59 @@ namespace we {
         gr.beginGradientFill(egret.GradientType.LINEAR, [0x000000, 0x000000], [0.8, 0], [0, 255], matrix);
         gr.drawRect(0, -this._cardHeight * 1.5, this._cardWidth * 0.05, this._cardHeight * 3);
         gr.endFill();
-        this.addChild(this.cardFaceShadow);
+        this._cardLayer.addChild(this.cardFaceShadow);
 
         this.cardFaceShadowMask = new CardShape(this._cardWidth, this._cardHeight);
         this.cardFaceShadowMask.visible = false;
-        this.addChild(this.cardFaceShadowMask);
+        this._cardLayer.addChild(this.cardFaceShadowMask);
 
         this.cardFinal = new CardImage(this._cardWidth, this._cardHeight);
         this.cardFinal.visible = false;
-        this.addChild(this.cardFinal);
+        this._cardLayer.addChild(this.cardFinal);
 
-        this.cardFaceFingerLeft = new eui.Image();
-        this.cardFaceFingerLeft.source = 'd_sq_ba_thumb_up_png';
-        this.cardFaceFingerLeft.width = this._cardWidth / 4;
-        this.cardFaceFingerLeft.height = this._cardHeight / 4;
-        this.addChild(this.cardFaceFingerLeft);
+        this.addChild(this._cardLayer);
 
-        this.cardFaceFingerRight = new eui.Image();
-        this.cardFaceFingerRight.source = 'd_sq_ba_thumb_up_png';
-        this.cardFaceFingerRight.width = this._cardWidth / 4;
-        this.cardFaceFingerRight.height = this._cardHeight / 4;
-        this.addChild(this.cardFaceFingerRight);
+        this._fingerLayer = new eui.Component();
+        this.addChild(this._fingerLayer);
 
-        this.cardFaceFingerCorner = new eui.Image();
-        this.cardFaceFingerCorner.source = 'd_sq_ba_thumb_up_png';
-        this.cardFaceFingerCorner.width = this._cardWidth / 4;
-        this.cardFaceFingerCorner.height = this._cardHeight / 4;
-        this.addChild(this.cardFaceFingerCorner);
+        /*
+                const fingerLayerBgUL = new eui.Label();
+                fingerLayerBgUL.text = '左上';
+                fingerLayerBgUL.left = 0;
+                fingerLayerBgUL.top = 0;
+
+                const fingerLayerBgUR = new eui.Label();
+                fingerLayerBgUR.text = '右上';
+                fingerLayerBgUR.right = 0;
+                fingerLayerBgUR.top = 0;
+
+                const fingerLayerBgLL = new eui.Label();
+                fingerLayerBgLL.text = '左下';
+                fingerLayerBgUR.left = 0;
+                fingerLayerBgUR.bottom = 0;
+
+                const fingerLayerBgLR = new eui.Label();
+                fingerLayerBgLR.text = '右下';
+                fingerLayerBgUR.right = 0;
+                fingerLayerBgUR.bottom = 0;
+
+                this._fingerLayer.addChild(fingerLayerBgUL);
+                this._fingerLayer.addChild(fingerLayerBgUR);
+                this._fingerLayer.addChild(fingerLayerBgLL);
+                this._fingerLayer.addChild(fingerLayerBgLR);
+        */
+
+        this._fingerLeft = new eui.Image();
+        this._fingerLeft.source = 'd_sq_ba_thumb_up_png';
+        this._fingerLeft.width = this._cardWidth / this._fingerToCardRatio;
+        this._fingerLeft.height = this._cardHeight / this._fingerToCardRatio;
+        this._fingerLayer.addChild(this._fingerLeft);
+
+        this._fingerRight = new eui.Image();
+        this._fingerRight.source = 'd_sq_ba_thumb_up_png';
+        this._fingerRight.width = this._cardWidth / this._fingerToCardRatio;
+        this._fingerRight.height = this._cardHeight / this._fingerToCardRatio;
+        this._fingerLayer.addChild(this._fingerRight);
 
         this.debugShape = new egret.Shape();
         /*
@@ -176,10 +207,8 @@ namespace we {
         this.cardFace.visible = false;
         this.cardBack.visible = false;
         this.cardFinal.visible = true;
-        this.cardFaceFingerLeft.visible = false;
-        this.cardFaceFingerRight.visible = false;
-        this.cardFaceFingerCorner.visible = false;
-
+        this._fingerLeft.visible = false;
+        this._fingerRight.visible = false;
         this._flipped = true;
         this.dispatchEvent(new egret.Event(we.core.Event.CARD_FLIPPED));
       }
@@ -208,9 +237,8 @@ namespace we {
         this.cardFace.visible = false;
         this.cardFinal.visible = false;
         this.cardBack.visible = true;
-        this.cardFaceFingerLeft.visible = false;
-        this.cardFaceFingerRight.visible = false;
-        this.cardFaceFingerCorner.visible = false;
+        this._fingerLeft.visible = false;
+        this._fingerRight.visible = false;
         this._flipped = false;
       }
 
@@ -373,37 +401,129 @@ namespace we {
 
           this.cardFace.rotation = 180 + 2 * angle;
 
+          this._fingerLayer.width = this._cardWidth;
+          this._fingerLayer.height = this._cardHeight;
+          this._fingerLayer.x = this.cardFace.x;
+          this._fingerLayer.y = this.cardFace.y;
+          this._fingerLayer.anchorOffsetX = this.cardFace.anchorOffsetX;
+          this._fingerLayer.anchorOffsetY = this.cardFace.anchorOffsetY;
+          this._fingerLayer.rotation = this.cardFace.rotation;
+
           console.log('FLIP_DIRECTION:', this._direction);
           if (this._direction) {
             switch (this._direction) {
               case 'FROM_BOTTOM':
+                this._fingerLeft.visible = true;
+                this._fingerRight.visible = true;
+
+                this._fingerLeft.x = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.y = this._cardHeight;
+                this._fingerLeft.rotation = 90;
+                this._fingerLeft.anchorOffsetX = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.anchorOffsetY = 0;
+
+                this._fingerRight.x = this._cardWidth - this._cardWidth / this._fingerToCardRatio;
+                this._fingerRight.y = this._cardHeight;
+                this._fingerRight.rotation = -90;
+                this._fingerRight.anchorOffsetX = 0;
+                this._fingerRight.anchorOffsetY = 0;
+                break;
+
               case 'FROM_TOP':
-                this.cardFaceFingerLeft.visible = false;
-                this.cardFaceFingerRight.visible = false;
-                this.cardFaceFingerCorner.visible = false;
+                this._fingerLeft.visible = true;
+                this._fingerRight.visible = true;
 
-                this.cardFaceFingerLeft.x = this.cardFace.x + this.cardFace.anchorOffsetX;
-                this.cardFaceFingerLeft.y = this.cardFace.y + this.cardFace.anchorOffsetY;
-                this.cardFaceFingerLeft.rotation = 180 + 2 * angle;
-                // this.cardFaceFingerLeft.rotation += 90;
-                console.log('this.cardFaceFingerLeft.anchorOffsetX', this.cardFaceFingerLeft.anchorOffsetX);
-                console.log('this.cardFaceFingerLeft.anchorOffsetY', this.cardFaceFingerLeft.anchorOffsetY);
-                console.log('this.cardFaceFingerLeft.x', this.cardFaceFingerLeft.x);
-                console.log('this.cardFaceFingerLeft.y', this.cardFaceFingerLeft.y);
+                this._fingerLeft.x = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.y = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.rotation = 90;
+                this._fingerLeft.anchorOffsetX = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.anchorOffsetY = 0;
 
-                this.cardFaceFingerRight.x = this.cardFace.x - this._cardWidth + this._cardWidth / 4 + this.cardFace.anchorOffsetX;
-                this.cardFaceFingerRight.y = this.cardFace.y + this.cardFace.anchorOffsetY;
-                this.cardFaceFingerRight.rotation = 180 + 2 * angle;
-                // this.cardFaceFingerRight.rotation -= 90;
-                console.log('this.cardFaceFingerRight.anchorOffsetX', this.cardFaceFingerRight.anchorOffsetX);
-                console.log('this.cardFaceFingerRight.anchorOffsetY', this.cardFaceFingerRight.anchorOffsetY);
-                console.log('this.cardFaceFingerRight.x', this.cardFaceFingerRight.x);
-                console.log('this.cardFaceFingerRight.y', this.cardFaceFingerRight.y);
+                this._fingerRight.x = this._cardWidth - this._cardWidth / this._fingerToCardRatio;
+                this._fingerRight.y = this._cardWidth / this._fingerToCardRatio;
+                this._fingerRight.rotation = -90;
+                this._fingerRight.anchorOffsetX = 0;
+                this._fingerRight.anchorOffsetY = 0;
+                break;
+
+              case 'FROM_LEFT': // FROM RIGHT
+                this._fingerLeft.visible = true;
+                this._fingerRight.visible = true;
+
+                this._fingerLeft.x = 0;
+                this._fingerLeft.y = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.rotation = 180;
+                this._fingerLeft.anchorOffsetX = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.anchorOffsetY = 0;
+
+                this._fingerRight.x = 0;
+                this._fingerRight.y = this._cardHeight - this._cardWidth / this._fingerToCardRatio;
+                this._fingerRight.rotation = 0;
+                this._fingerRight.anchorOffsetX = 0;
+                this._fingerRight.anchorOffsetY = 0;
+                break;
+
+              case 'FROM_RIGHT': // FROM LEFT IN FACT
+                this._fingerLeft.visible = true;
+                this._fingerRight.visible = true;
+
+                this._fingerLeft.x = this._cardWidth - this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.y = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.rotation = 180;
+                this._fingerLeft.anchorOffsetX = this._cardWidth / this._fingerToCardRatio;
+                this._fingerLeft.anchorOffsetY = 0;
+
+                this._fingerRight.x = this._cardWidth - this._cardWidth / this._fingerToCardRatio;
+                this._fingerRight.y = this._cardHeight - this._cardWidth / this._fingerToCardRatio;
+                this._fingerRight.rotation = 0;
+                this._fingerRight.anchorOffsetX = 0;
+                this._fingerRight.anchorOffsetY = 0;
+                break;
+
+              case 'FROM_RIGHT_UPPER':
+                this._fingerLeft.visible = true;
+                this._fingerRight.visible = false;
+
+                this._fingerLeft.x = 0;
+                this._fingerLeft.y = 0;
+                this._fingerLeft.anchorOffsetX = this._cardWidth / this._fingerToCardRatio / 2;
+                this._fingerLeft.anchorOffsetY = this._cardWidth / this._fingerToCardRatio / 2;
+                this._fingerLeft.rotation = 135;
 
                 break;
-              case 'FROM_BOTTOM':
+              case 'FROM_RIGHT_LOWER':
+                this._fingerLeft.visible = true;
+                this._fingerRight.visible = false;
+
+                this._fingerLeft.x = 0;
+                this._fingerLeft.y = this._cardHeight;
+                this._fingerLeft.anchorOffsetX = this._cardWidth / this._fingerToCardRatio / 2;
+                this._fingerLeft.anchorOffsetY = this._cardWidth / this._fingerToCardRatio / 2;
+                this._fingerLeft.rotation = 45;
+
                 break;
-              case 'FROM_LEFT':
+
+              case 'FROM_LEFT_UPPER':
+                this._fingerLeft.visible = true;
+                this._fingerRight.visible = false;
+
+                this._fingerLeft.x = this._cardWidth;
+                this._fingerLeft.y = 0;
+                this._fingerLeft.anchorOffsetX = this._cardWidth / this._fingerToCardRatio / 2;
+                this._fingerLeft.anchorOffsetY = this._cardWidth / this._fingerToCardRatio / 2;
+                this._fingerLeft.rotation = 225;
+
+                break;
+              case 'FROM_LEFT_LOWER':
+                this._fingerLeft.visible = true;
+                this._fingerRight.visible = false;
+
+                this._fingerLeft.x = this._cardWidth;
+                this._fingerLeft.y = this._cardHeight;
+                this._fingerLeft.anchorOffsetX = this._cardWidth / this._fingerToCardRatio / 2;
+                this._fingerLeft.anchorOffsetY = this._cardWidth / this._fingerToCardRatio / 2;
+                this._fingerLeft.rotation = 315;
+
                 break;
             }
           }
@@ -443,14 +563,13 @@ namespace we {
               this.cardBackMask.parent.removeChild(this.cardBackMask);
             }
           }
-          this.mask = null;
+          this._cardLayer.mask = null;
           this.cardFaceShadow.mask = null;
           this.cardFaceShadow.visible = false;
           this.cardBackShadow.mask = null;
           this.cardBackShadow.visible = false;
-          this.cardFaceFingerLeft.visible = false;
-          this.cardFaceFingerRight.visible = false;
-          this.cardFaceFingerCorner.visible = false;
+          this._fingerLeft.visible = false;
+          this._fingerRight.visible = false;
         }
 
         this.drawDebugShape(s, t, p1, p2);
@@ -569,8 +688,8 @@ namespace we {
         // this.cardBack.mask = this.cardBackMask;
         // this.cardBack.addChild(this.cardBackMask);
 
-        this.mask = this.cardBackMask;
-        this.addChild(this.cardBackMask);
+        this._cardLayer.mask = this.cardBackMask;
+        this._cardLayer.addChild(this.cardBackMask);
       }
 
       protected computeMask(p1: egret.Point, p2: egret.Point) {
