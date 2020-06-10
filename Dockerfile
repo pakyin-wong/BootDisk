@@ -16,7 +16,7 @@ ADD swipeup.png bin-release/web/${ENVIRONMENT}/swipeup.png
 ADD config.${ENVIRONMENT}.json bin-release/web/${ENVIRONMENT}/config.${ENVIRONMENT}.json
 RUN cp bin-release/web/${ENVIRONMENT}/resource/desktop.res.json bin-release/web/${ENVIRONMENT}/resource/mobile.res.json
 RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
-RUN sed -i "s/zip\/d/zip\/m/g" "$target/resource/mobile.res.json"
+RUN sed -i "s/zip\/d/zip\/m/g" bin-release/web/${ENVIRONMENT}/resource/mobile.res.json
 
 RUN npm install -g jszip-cli --unsafe-perm
 RUN jszip-cli add bin-release/web/${ENVIRONMENT}/js > bin-release/web/${ENVIRONMENT}/js.zip
