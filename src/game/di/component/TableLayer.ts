@@ -147,9 +147,15 @@ namespace we {
         this._odd_label.renderText = () => i18n.t('dice.odd');
         this._even_label.renderText = () => i18n.t('dice.even');
         this._big_label.renderText = () => i18n.t('dice.big');
-        this._single_label.renderText = () => i18n.t('dice.single');
-        this._double_label.renderText = () => i18n.t('dice.double');
-        this._triple_label.renderText = () => i18n.t('dice.triple');
+        if (this._single_label) {
+          this._single_label.renderText = () => i18n.t('dice.single');
+        }
+        if (this._double_label) {
+          this._double_label.renderText = () => i18n.t('dice.double');
+        }
+        if (this._triple_label) {
+          this._triple_label.renderText = () => i18n.t('dice.triple');
+        }
       }
 
       public onRollover(fieldName: string) {
@@ -333,7 +339,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }
@@ -404,9 +410,7 @@ namespace we {
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
-              egret.Tween.get(rect)
-                .to({ alpha }, 125)
-                .call(resolve);
+              egret.Tween.get(rect).to({ alpha }, 125).call(resolve);
             });
             tickFlashPromises.push(prom);
           }
