@@ -23,6 +23,8 @@ RUN  apt-get update -y && \
      apt-get clean
 RUN apt-get install -y zip
 RUN zip -r bin-release/web/${ENVIRONMENT}/js.zip bin-release/web/${ENVIRONMENT}/js
+RUN rm -r bin-release/web/${ENVIRONMENT}/resource/assets/images
+RUN for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;
 
 FROM pgpg/infra-nginx:latest as production
 
