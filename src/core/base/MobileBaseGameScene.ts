@@ -26,12 +26,11 @@ namespace we {
 
       constructor(data: any) {
         super(data);
+        this._betChipSetPanel.alpha = 0;
+        this._betChipSetPanel.visible = false;
+        this._betChipSet.alpha = 1;
 
-        // this._betChipSetPanel.alpha = 0;
-        // this._betChipSetPanel.visible = false;
-        // this._betChipSet.alpha = 1;
-
-        // this.played = false;
+        this.played = false;
       }
 
       public get betChipSetPanelVisible(): boolean {
@@ -211,9 +210,7 @@ namespace we {
 
       protected removeEventListeners() {
         super.removeEventListeners();
-        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this._betChipSetGridSelected.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickBetChipSelected, this);
-
         // if (this._videoBtn) {
         //   this._videoBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
         // }

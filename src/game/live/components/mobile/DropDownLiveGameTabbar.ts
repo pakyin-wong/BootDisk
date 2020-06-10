@@ -29,6 +29,8 @@ namespace we {
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLockChanged, this);
+        // clear almost all memory when adding this
+        dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         this.trigger.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onChange, this);
       }
 

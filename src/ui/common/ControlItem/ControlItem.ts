@@ -43,6 +43,7 @@ namespace we {
       //   super.mount();
       // }
 
+      // clearComponents hvn't been called
       protected clearComponents() {
         this.removeEventListeners();
         this.removeChildren();
@@ -145,6 +146,7 @@ namespace we {
       protected destroy() {
         super.destroy();
         this.removeEventListeners();
+        this._timer.stop();
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
