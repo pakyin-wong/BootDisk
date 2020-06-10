@@ -47,7 +47,7 @@ namespace we {
           case 4:
             return 'd_lw_listpenal_result_money_bg_north_png';
           case 5:
-            return 'd_lw_listpenal_result_money_bg_red_png';
+            return 'd_lw_listpenal_result_money_bg_gold_png';
           case 6:
             return 'd_lw_listpenal_result_money_bg_gold_png';
           case 7:

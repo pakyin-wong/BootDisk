@@ -1,0 +1,17 @@
+{
+  "name": "postpublish",
+  "version": "1.0.0",
+  "description": "minify css, merge js files and modify manifest file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "args": "^5.0.1",
+    "concat": "^1.0.3",
+    "minify": "^5.1.1",
+    "random-hash": "^4.0.1",
+    "try-to-catch": "^3.0.0"
+  }
+}

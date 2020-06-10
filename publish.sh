@@ -37,16 +37,21 @@ cp -f $path/style.css $target
 cp -f $path/swipeup.png $target
 cp -rf $path/jslib $target
 cp $path/config.$1.json $target
-
+cp $target/resource/desktop.res.json $target/resource/mobile.res.json
 case "${arch}" in
   Linux*|Darwin*)
     sed -i "" "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
+    sed -i "" "s/zip\/d/zip\/m/g" "$target/resource/mobile.res.json"
   ;;
   CYGWIN*|MINGW32*|MSYS*|MINGW64*)
     sed -i "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
+    sed -i "s/zip\/d/zip\/m/g" "$target/resource/mobile.res.json"
   ;;
 esac
 
 #zip /js 
-cross-zip $target/js $target/js.zip
+jszip-cli add $target/js > $target/js.zip
+# cd $target
+# cross-zip js js.zip
+# cd ../../..
 for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;

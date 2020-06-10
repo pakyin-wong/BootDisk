@@ -1,0 +1,25 @@
+{
+  "file": "loading.png",
+  "frames": {
+    "d-lobby-loading-progress-bar-base_png": {
+      "x": 2,
+      "y": 2,
+      "w": 672,
+      "h": 16,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 672,
+      "sourceH": 16
+    },
+    "d-lobby-loading-progress-bar-active_png": {
+      "x": 2,
+      "y": 22,
+      "w": 582,
+      "h": 20,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 582,
+      "sourceH": 20
+    }
+  }
+}

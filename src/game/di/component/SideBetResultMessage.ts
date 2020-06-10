@@ -44,7 +44,7 @@ namespace we {
       public showResult(gameType: core.GameType, resultData: any) {
         const { winAmount, gameData } = resultData;
 
-        const { dice1, dice2, dice3, size, odd, total } = <di.GameData>gameData;
+        const { dice1, dice2, dice3, size, odd, total } = <di.GameData> gameData;
 
         console.log('di.SideBetResultMessage::showResult().resultData ', resultData);
         this.visible = true;

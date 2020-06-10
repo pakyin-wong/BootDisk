@@ -41,6 +41,9 @@ namespace we {
 
       public getConfig() {
         const betlimits = env.betLimits[env.currentSelectedBetLimitIndex].limits.dt;
+        if (!betlimits) {
+          return [];
+        }
         return [
           { data: betlimits.DRAGON, lblMax: this.pDragonMax, lblOdd: this.pDragonOdd },
           { data: betlimits.TIGER, lblMax: this.pTigerMax, lblOdd: this.pTigerOdd },

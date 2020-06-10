@@ -57,7 +57,10 @@
     {
         // console.log('create script: ' + file);
         //解压出来变成script脚本
-        var text = zip.file(file).async("string")
+        const filenames = Object.keys(zip.files);
+        const filename = filenames.find(name=> name.indexOf(file)>=0);
+        console.log(filename);
+        var text = zip.file(filename).async("string")
         .then(function (content) {
             var script = document.createElement("script");
             script.setAttribute("type", "text/javascript");
