@@ -1484,6 +1484,10 @@ declare module skin_mobile_portrait.lw{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.lw{
+	class SideBetResultMessage extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class LuckyWheelScene extends eui.Skin{
 	}

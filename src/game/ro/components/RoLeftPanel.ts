@@ -196,7 +196,6 @@ namespace we {
         this.roadRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
 
         // (this.radioBtn1 as any).buttonImage.width = (this.radioBtn1 as any).labelDisplay.textWidth + 10;
-
         this.changeLang();
       }
 
@@ -257,8 +256,44 @@ namespace we {
       }
       public destroy() {
         super.destroy();
+        /*
+              public beadRoad: ROBeadRoad;
+      public colorBigRoad: ROColorBigRoad;
+      public sizeBigRoad: ROSizeBigRoad;
+      public oddBigRoad: ROOddBigRoad;*/
+        this.pageRadioBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.pageRadioBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.pageRadioBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
-        // this.beadRoad.dispose();
+        // this.pageStack.removeChild(this.hotIcon1);
+        // this.pageStack.removeChild(this.hotIcon2);
+        // this.pageStack.removeChild(this.hotIcon3);
+        // this.pageStack.removeChild(this.hotIcon4);
+        // this.pageStack.removeChild(this.hotIcon5);
+
+        // this.pageStack.removeChild(this.coldIcon1);
+        // this.pageStack.removeChild(this.coldIcon2);
+        // this.pageStack.removeChild(this.coldIcon3);
+        // this.pageStack.removeChild(this.coldIcon4);
+        // this.pageStack.removeChild(this.coldIcon5);
+        this.roadRadioBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+        this.roadRadioBtn2.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+        this.roadRadioBtn3.removeEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+        this.hotIcon1.dispose();
+        this.hotIcon2.dispose();
+        this.hotIcon3.dispose();
+        this.hotIcon4.dispose();
+        this.hotIcon5.dispose();
+        this.coldIcon1.dispose();
+        this.coldIcon2.dispose();
+        this.coldIcon3.dispose();
+        this.coldIcon4.dispose();
+        this.coldIcon5.dispose();
+
+        this.beadRoad.dispose();
+        this.colorBigRoad.dispose();
+        this.sizeBigRoad.dispose();
+        this.oddBigRoad.dispose();
         egret.Tween.removeTweens(this.activeLine);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);

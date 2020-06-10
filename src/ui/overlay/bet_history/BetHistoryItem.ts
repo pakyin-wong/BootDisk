@@ -99,14 +99,11 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAS:
             case we.core.GameType.BAI:
+            case we.core.GameType.BAM:
               return i18n.t(`betfield_baccarat_${bettype.toLowerCase()}`);
 
             case we.core.GameType.DT:
               return i18n.t(`betfield_dragonTiger_${bettype.toLowerCase()}`);
-
-            case we.core.GameType.ROL:
-            case we.core.GameType.RO:
-              return bettype;
 
             default:
               return i18n.t(`betfield_${bettype.toLowerCase()}`);

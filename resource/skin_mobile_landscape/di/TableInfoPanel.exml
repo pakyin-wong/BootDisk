@@ -86,9 +86,9 @@
                 <ui:RunTimeLabel id="specificDoubleLabel" text="指定雙骰" y="120" textAlign="left" x="24" scaleX="1" scaleY="1" size="44"/>
                 <e:Label id="pSpecificDoubleOdd" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
                 <e:Label id="pSpecificDoubleMax" text="-" y="120" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="140" alpha=".7"/>
-                <ui:RunTimeLabel id="specificTripleLabel" text="指定三骰" y="200" x="24" scaleX="1" scaleY="1" size="44" bold="true"/>
-                <e:Label id="pSpecificTripleOdd" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="28" alpha=".7"/>
-                <e:Label id="pSpecificTripleMax" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" bold="true" right="140" alpha=".7"/>
+                <ui:RunTimeLabel id="specificTripleLabel" text="指定三骰" y="200" x="24" scaleX="1" scaleY="1" size="44"/>
+                <e:Label id="pSpecificTripleOdd" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="28" alpha=".7"/>
+                <e:Label id="pSpecificTripleMax" text="-" y="200" textAlign="right" scaleX="1" scaleY="1" size="44" width="202" right="140" alpha=".7"/>
             </e:Group>
         </e:Group>
     </e:Scroller>

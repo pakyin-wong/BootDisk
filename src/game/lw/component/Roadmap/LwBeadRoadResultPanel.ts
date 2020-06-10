@@ -33,6 +33,12 @@ namespace we {
         this._beadRoadIcon.setByObject({ v: result.v });
         this.changeLang();
       }
+
+      protected destroy() {
+        this.removeChild(this._beadRoadIcon);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        super.destroy();
+      }
     }
   }
 }

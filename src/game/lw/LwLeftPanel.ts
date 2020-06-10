@@ -43,6 +43,8 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        // following BARoadmapLeftPanel
+        this.beadRoad.dispose();
       }
     }
   }

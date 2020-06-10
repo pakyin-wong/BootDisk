@@ -32,7 +32,7 @@
 		<e:Label id="streetLabel" text="街注 / 三數" y="388" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="cornerLabel" text="角注 / 四個號碼" y="422" textAlign="left" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="lineLabel" text="線注" y="456" x="30" scaleX="1" scaleY="1" size="20" />
-		<e:Label id="rowbetLabel" text="行注" y="490" x="30" scaleX="1" scaleY="1" size="20" />
+		<e:Label id="rowLabel" text="行注" y="490" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="columnbetLabel" text="下注一打" y="524" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="colorLabel" text="紅 / 黑" y="558" textAlign="left" x="30" scaleX="1" scaleY="1" size="20" />
 		<e:Label id="oddevenLabel" text="雙數 / 單數" y="592" x="30" scaleX="1" scaleY="1" size="20" />

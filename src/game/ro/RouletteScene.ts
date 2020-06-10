@@ -20,8 +20,11 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._rightGamePanel.initBetCombination(this._chipLayer);
-        this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
+        if (this._rightGamePanel) {
+          // for testing
+          this._rightGamePanel.initBetCombination(this._chipLayer);
+          this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
+        } // for testing
       }
 
       protected setSkinName() {
@@ -39,22 +42,28 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        this._roadmapControl.setTableInfo(this._tableInfo);
+        if (this._leftGamePanel && this._rightGamePanel) {
+          // for testing
+          this._roadmapControl.setTableInfo(this._tableInfo);
+        } // for testing
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
       protected initRoadMap() {
         this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
-        this._roadmapControl.setRoads(
-          this._leftGamePanel.beadRoad,
-          this._leftGamePanel.colorBigRoad,
-          this._leftGamePanel.sizeBigRoad,
-          this._leftGamePanel.oddBigRoad,
-          this._leftGamePanel,
-          this._rightGamePanel,
-          this._bigRoadResultPanel
-        );
+        if (this._leftGamePanel) {
+          // for testing
+          this._roadmapControl.setRoads(
+            this._leftGamePanel.beadRoad,
+            this._leftGamePanel.colorBigRoad,
+            this._leftGamePanel.sizeBigRoad,
+            this._leftGamePanel.oddBigRoad,
+            this._leftGamePanel,
+            this._rightGamePanel,
+            this._bigRoadResultPanel
+          );
+        } // for testing
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
@@ -63,14 +72,17 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        if (this._rightGamePanel.raceTrackChipLayer) {
-          this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
-          this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
-        }
-        if (this._rightGamePanel.betCombination) {
-          this._rightGamePanel.betCombination.touchEnabled = enable;
-          this._rightGamePanel.betCombination.touchChildren = enable;
-        }
+        if (this._rightGamePanel) {
+          // for testing
+          if (this._rightGamePanel.raceTrackChipLayer) {
+            this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
+            this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
+          }
+          if (this._rightGamePanel.betCombination) {
+            this._rightGamePanel.betCombination.touchEnabled = enable;
+            this._rightGamePanel.betCombination.touchChildren = enable;
+          }
+        } // for testing
       }
 
       public checkResultMessage() {

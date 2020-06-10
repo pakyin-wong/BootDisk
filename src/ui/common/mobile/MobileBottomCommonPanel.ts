@@ -32,6 +32,7 @@ namespace we {
         super.mount();
         this.addListeners();
         this.updateText();
+        this.updateStat();
         this._middlePart.mask = this.viewStackMask;
         this.viewStack.selectedIndex = 0;
         this.onPanelToggle(this.isFirstTime);
@@ -140,8 +141,11 @@ namespace we {
           //   }
           // }
           this.updateText();
+          this.updateStat();
         }
       }
+
+      protected updateStat() {}
     }
   }
 }

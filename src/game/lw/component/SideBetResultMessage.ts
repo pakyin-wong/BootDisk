@@ -16,7 +16,7 @@ namespace we {
         this._isAnimating = false;
       }
 
-      protected getResultImage(value) {
+      protected getResultImage(value): any {
         switch (value) {
           case 1:
             return 'd_lw_listpenal_result_east_png';
@@ -36,7 +36,7 @@ namespace we {
         return null;
       }
 
-      protected getBannerImage(value) {
+      protected getBannerImage(value): any {
         switch (value) {
           case 1:
             return 'd_lw_listpenal_result_money_bg_east_png';

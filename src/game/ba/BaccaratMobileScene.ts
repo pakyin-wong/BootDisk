@@ -38,22 +38,22 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this.addListeners();
+        // this.addListeners();
       }
 
-      public destroy() {
-        super.destroy();
-        this.removeListeners();
-      }
+      // public destroy() {
+      //   super.destroy();
+      //   // this.removeListeners();
+      // }
 
       protected addListeners() {
-        this._bottomGamePanel._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
-        this._bottomGamePanel._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        // this._bottomGamePanel._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        // this._bottomGamePanel._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
       }
 
       protected removeListeners() {
-        this._bottomGamePanel._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
-        this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        // this._bottomGamePanel._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        // this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
       }
 
       protected setStateBet(isInit: boolean) {
@@ -91,7 +91,7 @@ namespace we {
         if (this._switchBaMode) {
           this._tableLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
-          this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+          // this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
         }
 
         if (this._lblBaMode) {
@@ -121,7 +121,7 @@ namespace we {
         if (env.isMobile) {
           dir.monitor._sideGameList.setToggler(this._common_listpanel);
         }
-        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
+        // dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
       }
 
       protected initBottomBetLimitSelector() {
@@ -145,7 +145,7 @@ namespace we {
 
         this.updateBetLimit(selectedIndex);
 
-        this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+        // this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
       }
 
       protected updateBetLimit(selectedIndex) {
@@ -161,14 +161,30 @@ namespace we {
 
       protected addEventListeners() {
         super.addEventListeners();
-
+        if (this._switchBaMode) {
+          this._switchBaMode.addEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+        }
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+        }
         dir.evtHandler.addEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
+        dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
+        this._bottomGamePanel._arrow.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.addEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
       }
 
       protected removeEventListeners() {
         super.removeEventListeners();
-
+        if (this._switchBaMode) {
+          this._switchBaMode.removeEventListener(eui.UIEvent.CHANGE, this.onBaModeToggle, this);
+        }
+        if (this._bottomGamePanel._betLimitDropDownBtn) {
+          this._bottomGamePanel._betLimitDropDownBtn.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
+        }
         dir.evtHandler.removeEventListener(core.Event.SWITCH_LEFT_HAND_MODE, this.changeHandMode, this);
+        dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
+        this._bottomGamePanel._arrow.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
+        this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
       }
 
       protected changeHandMode() {

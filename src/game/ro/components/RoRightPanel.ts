@@ -57,7 +57,7 @@ namespace we {
 
         this._raceTrackChipLayer.raceTrackTableLayer = this._raceTrackTableLayer;
         this._raceTrackChipLayer.raceTrackControl = this._raceTrackControl;
-        this._raceTrackChipLayer.chipLayer = chipLayer;
+        this._raceTrackChipLayer.chipLayer = chipLayer; // set rochiplayer into race chiplayer
 
         page1Group.addChild(this._raceTrackTableLayer);
         page1Group.addChild(this._raceTrackChipLayer);
@@ -132,6 +132,12 @@ namespace we {
 
       public destroy() {
         super.destroy();
+
+        const page1Group = this.pageStack.getChildAt(0) as eui.Group;
+        page1Group.removeChildren();
+
+        const page2Group = this.pageStack.getChildAt(1) as eui.Group;
+        page2Group.removeChildren();
 
         // this.beadRoad.dispose();
         egret.Tween.removeTweens(this.activeLine);
