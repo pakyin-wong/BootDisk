@@ -22,10 +22,7 @@ RUN  apt-get update -y && \
      apt-get -y autoremove && \
      apt-get clean
 RUN apt-get install -y zip
-RUN zip bin-release/web/${ENVIRONMENT}/js.zip bin-release/web/${ENVIRONMENT}/js
-# RUN npm -g config set user root
-# RUN npm -g install jszip-cli && /usr/local/bin/jszip-cli add bin-release/web/${ENVIRONMENT}/js > bin-release/web/${ENVIRONMENT}/js.zip
-# RUN for i in $(ls bin-release/web/${ENVIRONMENT}/js | grep -v jszip); do rm "bin-release/web/${ENVIRONMENT}/js/$i"; done;
+RUN zip -r bin-release/web/${ENVIRONMENT}/js.zip bin-release/web/${ENVIRONMENT}/js
 
 FROM pgpg/infra-nginx:latest as production
 
