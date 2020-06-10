@@ -18,7 +18,7 @@ RUN cp bin-release/web/${ENVIRONMENT}/resource/desktop.res.json bin-release/web/
 RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
 RUN sed -i "s/zip\/d/zip\/m/g" "$target/resource/mobile.res.json"
 
-RUN npm install -g jszip-cli
+RUN npm install -g jszip-cli --unsafe-perm
 RUN jszip-cli add bin-release/web/${ENVIRONMENT}/js > bin-release/web/${ENVIRONMENT}/js.zip
 RUN for i in $(ls bin-release/web/${ENVIRONMENT}/js | grep -v jszip); do rm "bin-release/web/${ENVIRONMENT}/js/$i"; done;
 
