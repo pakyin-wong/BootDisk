@@ -4315,6 +4315,16 @@
 			"url": "assets/images/d/common/general/notification/d_lobby_notify_btn_hide.png",
 			"type": "image",
 			"name": "d_lobby_notify_btn_hide_png"
+		},
+		{
+			"url": "assets/fonts/Barlow-Regular.otf",
+			"type": "bin",
+			"name": "Barlow-Regular_otf"
+		},
+		{
+			"url": "assets/fonts/BarlowCondensed-SemiBold.otf",
+			"type": "bin",
+			"name": "BarlowCondensed-SemiBold_otf"
 		}
 	]
 }
