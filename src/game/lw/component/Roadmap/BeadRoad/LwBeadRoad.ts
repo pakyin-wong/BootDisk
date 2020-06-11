@@ -123,20 +123,20 @@ namespace we {
         this.grid.graphics.clear();
 
         // draw bg rectangle
-        this.grid.graphics.beginFill(this.gridColor, this.gridAlpha);
-        this.grid.graphics.drawRect(0, 0, this.numCol * sizeW, this.numRow * sizeH);
-        this.grid.graphics.endFill();
+        // this.grid.graphics.beginFill(this.gridColor, this.gridAlpha);
+        // this.grid.graphics.drawRect(0, 0, this.numCol * sizeW, this.numRow * sizeH);
+        // this.grid.graphics.endFill();
 
         // draw grid lines
         this.grid.graphics.lineStyle(this.gridLine * this.scale, this.gridBorderColor, 1, true);
-        let lineY: number = 0;
-        for (let r = 0; r <= this.numRow; r += this.gridUnit) {
+        let lineY: number = sizeH * this.gridUnit;
+        for (let r = 1; r < this.numRow; r += this.gridUnit) {
           this.grid.graphics.moveTo(0, lineY);
           this.grid.graphics.lineTo(this.numCol * sizeW, lineY);
           lineY += sizeH * this.gridUnit;
         }
-        let lineX: number = 0;
-        for (let c = 0; c <= this.numCol; c += this.gridUnit) {
+        let lineX: number = sizeW * this.gridUnit;
+        for (let c = 1; c < this.numCol; c += this.gridUnit) {
           this.grid.graphics.moveTo(lineX, 0);
           this.grid.graphics.lineTo(lineX, this.numRow * sizeH);
           lineX += sizeW * this.gridUnit;

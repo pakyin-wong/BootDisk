@@ -29,25 +29,65 @@ namespace we {
         frame.graphics.moveTo(152, 0);
         frame.graphics.lineTo(152, this._rowHeight);
 
+        // double
         frame.graphics.lineStyle(1, 0x417db9);
         frame.graphics.moveTo(304, 0);
         frame.graphics.lineTo(304, this._rowHeight);
 
         frame.graphics.lineStyle(1, 0x417db9);
+        frame.graphics.moveTo(304, this._rowHeight / 3);
+        frame.graphics.lineTo(432, this._rowHeight / 3);
+
+        frame.graphics.lineStyle(1, 0x417db9);
+        frame.graphics.moveTo(304, (this._rowHeight / 3) * 2);
+        frame.graphics.lineTo(432, (this._rowHeight / 3) * 2);
+        // double end
+
+        // triple
+        frame.graphics.lineStyle(1, 0x417db9);
         frame.graphics.moveTo(432, 0);
         frame.graphics.lineTo(432, this._rowHeight);
+
+        frame.graphics.lineStyle(1, 0x417db9);
+        frame.graphics.moveTo(432, this._rowHeight / 3);
+        frame.graphics.lineTo(568, this._rowHeight / 3);
+
+        frame.graphics.lineStyle(1, 0x417db9);
+        frame.graphics.moveTo(432, (this._rowHeight / 3) * 2);
+        frame.graphics.lineTo(568, (this._rowHeight / 3) * 2);
+        // triple end
 
         frame.graphics.lineStyle(1, 0x417db9);
         frame.graphics.moveTo(568, 0);
         frame.graphics.lineTo(568, this._rowHeight);
 
+        // triple
         frame.graphics.lineStyle(1, 0x417db9);
         frame.graphics.moveTo(818, 0);
         frame.graphics.lineTo(818, this._rowHeight);
 
         frame.graphics.lineStyle(1, 0x417db9);
+        frame.graphics.moveTo(818, this._rowHeight / 3);
+        frame.graphics.lineTo(954, this._rowHeight / 3);
+
+        frame.graphics.lineStyle(1, 0x417db9);
+        frame.graphics.moveTo(818, (this._rowHeight / 3) * 2);
+        frame.graphics.lineTo(954, (this._rowHeight / 3) * 2);
+        // triple end
+
+        // double
+        frame.graphics.lineStyle(1, 0x417db9);
         frame.graphics.moveTo(954, 0);
         frame.graphics.lineTo(954, this._rowHeight);
+
+        frame.graphics.lineStyle(1, 0x417db9);
+        frame.graphics.moveTo(954, this._rowHeight / 3);
+        frame.graphics.lineTo(1082, this._rowHeight / 3);
+
+        frame.graphics.lineStyle(1, 0x417db9);
+        frame.graphics.moveTo(954, (this._rowHeight / 3) * 2);
+        frame.graphics.lineTo(1082, (this._rowHeight / 3) * 2);
+        // double end
 
         frame.graphics.lineStyle(1, 0x417db9);
         frame.graphics.moveTo(1082, 0);

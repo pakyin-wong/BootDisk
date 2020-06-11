@@ -11,6 +11,14 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
+        if (!env.isFirstTimeBam) {
+          const tutorial = new SqueezeTutorial('SqueezeTutorial');
+          tutorial.x = 106;
+          tutorial.y = 171;
+          tutorial.isDraggable = true;
+          this.addChild(tutorial);
+          env.isFirstTimeBam = true;
+        }
       }
 
       protected setSkinName() {
@@ -20,7 +28,7 @@ namespace we {
       protected setStateDeal(isInit: boolean = false) {}
 
       protected setStatePeek(isInit: boolean = false) {
-        console.log('PEEK ' + new Date(Date.now()).toString());
+        // console.log('PEEK ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer);
         if (this._previousState !== we.core.GameState.PEEK || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -29,7 +37,7 @@ namespace we {
       }
 
       protected setStatePeekPlayer(isInit: boolean = false) {
-        console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
+        // console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer);
 
         if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
@@ -39,7 +47,7 @@ namespace we {
       }
 
       protected setStatePeekBanker(isInit: boolean = false) {
-        console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
+        // console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer);
         if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
           this.setBetRelatedComponentsEnabled(false);
@@ -48,7 +56,7 @@ namespace we {
       }
 
       protected setStateFinish(isInit: boolean = false) {
-        console.log('FINISH ' + new Date(Date.now()).toString());
+        // console.log('FINISH ' + new Date(Date.now()).toString());
         super.setStateFinish(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer);
         this.setResultRelatedComponentsEnabled(true);

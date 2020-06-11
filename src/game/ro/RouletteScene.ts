@@ -20,10 +20,11 @@ namespace we {
 
       protected mount() {
         super.mount();
-        // if (this._rightGamePanel) { // for testing
-        this._rightGamePanel.initBetCombination(this._chipLayer);
-        this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
-        // }// for testing
+        if (this._rightGamePanel) {
+          // for testing
+          this._rightGamePanel.initBetCombination(this._chipLayer);
+          this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
+        } // for testing
       }
 
       protected setSkinName() {

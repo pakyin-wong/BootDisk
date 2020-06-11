@@ -94,7 +94,7 @@ namespace we {
         this._progressbar.maximum = 1;
         this._progressbar.value = 0;
 
-        await utils.sleep(1000);
+        await utils.sleep(100);
         this.next();
       }
 
@@ -125,7 +125,7 @@ namespace we {
 
       /** Step 6: load general resource (lobby, baccarat) */
       private async loadGeneralRes() {
-        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Roulette, core.res.Dice, core.res.Common, core.res.Nav, 'temp', 'test']);
+        RES.createGroup('firstRun', [core.res.Lobby, core.res.Baccarat, core.res.DragonTiger, core.res.Roulette, core.res.Dice, core.res.Common, core.res.Nav, core.res.LuckyWheel, 'temp', 'test']);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         this._progressMsg.renderText = () => `${i18n.t('loading.res.onload')}`;
         this._progressbar.minimum = 0;
@@ -185,7 +185,7 @@ namespace we {
           });
         });
         RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-        await utils.sleep(1000);
+        await utils.sleep(100);
         this.next();
       }
 

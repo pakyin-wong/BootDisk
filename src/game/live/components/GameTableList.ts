@@ -41,6 +41,8 @@ namespace we {
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        // console.log('GameTableList :::::', dir.evtHandler.hasEventListener(core.Event.ORIENTATION_UPDATE));
+        dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
         this.roomList.removeChild(this.slider);
@@ -79,11 +81,11 @@ namespace we {
       }
 
       private onSelectedIndexChanged(evt: any) {
-        const item = this.tabItems[this.tabs.tabBar.selectedIndex];
+        const item = this.tabItems[this.tabs.selectedIndex];
 
         const scrollV = this.scroller.viewport.scrollV;
 
-        this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
+        this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
         this.roomList.invalidateDisplayList();
 
@@ -102,12 +104,12 @@ namespace we {
 
         this.tabs.setSelectedIndex(itemIdx);
 
-        this.roomList.setGameFiltersByTabIndex(this.tabs.tabBar.selectedIndex);
+        this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
         this.roomList.invalidateDisplayList();
 
-        this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);
-        this.tabs.tabBar.addEventListener(eui.UIEvent.CHANGE, this.onSelectedIndexChanged, this);
+        this.tabs.tabBar && this.tabs.tabBar.addEventListener('REORDER', this.onSelectedIndexSorted, this);
+        this.tabs.addEventListener('CHANGE', this.onSelectedIndexChanged, this);
       }
     }
   }

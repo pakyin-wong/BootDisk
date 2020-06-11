@@ -59,6 +59,10 @@
             "path": "./libs/moment"
         },
         {
+            "name": "jszip",
+            "path": "./libs/jszip"
+        },
+        {
             "name": "roadmap",
             "path": "./libs/roadmap"
         }

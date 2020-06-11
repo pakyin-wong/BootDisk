@@ -24,6 +24,8 @@ namespace we {
       protected _textLayer: egret.DisplayObjectContainer;
       protected _dynamicLayer: egret.DisplayObjectContainer;
 
+      protected gridCorners: any = { tl: 0, tr: 0, bl: 0, br: 0 }; // the corner radius for the grid background
+
       public constructor(_numCol: number, _gridSize: number, _scale: number, _gridLine: number = 1) {
         super();
         this.scale = _scale;
@@ -158,6 +160,11 @@ namespace we {
         }
       }
 
+      public setGridCorners(gridCorners: any) {
+        this.gridCorners = gridCorners;
+        this.renderGrid();
+      }
+
       public render(e) {
         this.renderGrid();
       }
@@ -171,19 +178,21 @@ namespace we {
 
         // draw bg rectangle
         this.grid.graphics.beginFill(bgColors[this.darkModeNumber], 1);
-        this.grid.graphics.drawRect(0, 0, this.numCol * size, 6 * size);
+        // this.grid.graphics.drawRect(0, 0, this.numCol * size, 6 * size);
+        this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[this.darkModeNumber], 1, true);
+        RoundRect.drawRoundRect(this.grid.graphics, 0, 0, this.numCol * size, 6 * size, this.gridCorners);
         this.grid.graphics.endFill();
 
         // draw grid lines
         this.grid.graphics.lineStyle(this.gridLine * this.scale, gridColors[this.darkModeNumber], 1, true);
-        let lineY: number = 0;
-        for (let r = 0; r <= 6; r += this.gridUnit) {
+        let lineY: number = size * this.gridUnit;
+        for (let r = 0; r < 5; r += this.gridUnit) {
           this.grid.graphics.moveTo(0, lineY);
           this.grid.graphics.lineTo(this.numCol * size, lineY);
           lineY += size * this.gridUnit;
         }
-        let lineX: number = 0;
-        for (let c = 0; c <= this.numCol; c += this.gridUnit) {
+        let lineX: number = size * this.gridUnit;
+        for (let c = 0; c < this.numCol - 1; c += this.gridUnit) {
           this.grid.graphics.moveTo(lineX, 0);
           this.grid.graphics.lineTo(lineX, 6 * size);
           lineX += size * this.gridUnit;

@@ -31,7 +31,7 @@ namespace we {
       public updateResult(gameData: data.GameData) {
         // TODO: update card using the gameData
 
-        this.gameData = <ba.GameData> gameData;
+        this.gameData = <ba.GameData>gameData;
         const cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
         const cardHolderArr = [this.card1Banker, this.card2Banker, this.card3Banker, this.card1Player, this.card2Player, this.card3Player];
 
@@ -47,6 +47,22 @@ namespace we {
             }
           }
         });
+
+        switch (this.gameData.state) {
+          case core.GameState.PEEK:
+            cardHolderArr[0].setCard('back', true);
+            cardHolderArr[1].setCard('back', true);
+            cardHolderArr[3].setCard('back', true);
+            cardHolderArr[4].setCard('back', true);
+
+            break;
+          case core.GameState.PEEK_PLAYER:
+            cardHolderArr[5].setCard('back', true);
+            break;
+          case core.GameState.PEEK_BANKER:
+            cardHolderArr[2].setCard('back', true);
+            break;
+        }
       }
 
       public reset() {

@@ -22,17 +22,7 @@
         }
 
     </style>
-<!--<link href="./style.css" type="text/css" rel="stylesheet">-->
-<script>
-    var head  = document.getElementsByTagName('head')[0];
-    var link  = document.createElement('link');
-    link.rel  = 'stylesheet';
-    link.type = 'text/css';
-    link.href = './style.css?v=' + Math.random();
-    link.media = 'all';
-    head.appendChild(link);
-</script>
-<script src="jslib/vendor-player/WFPlayer.min.js"></script>
+<link href="./style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -41,20 +31,75 @@
     <div class='fullscreen-overlay'>
         <img src='swipeup.png'/>
     </div>
-<script>
+    <script type="text/javascript" src="jslib/vendor-player/WFPlayer.min.js"></script>
+<script>    
+    function loadZip(url,callBack)
+    {
+        // console.log(url);
+        var xhrZip = new XMLHttpRequest();
+        xhrZip.open("GET", url, true);
+        xhrZip.responseType = "arraybuffer";
+        xhrZip.addEventListener("load", function (oEvent)
+        {
+            var arrayBuffer = xhrZip.response; // 注意:不是oReq.responseText
+            if (!arrayBuffer)
+            {
+                console.log(url + "解析异常:" + xhrZip);
+                throw new Error("zip异常");
+            }
+            JSZip.loadAsync(arrayBuffer).then(function (zip) {
+                callBack(zip);
+            });
+        });
+        xhrZip.send(null);
+    }
+    function createScript(zip,file,callback)
+    {
+        // console.log('create script: ' + file);
+        //解压出来变成script脚本
+        var text = zip.file(file).async("string")
+        .then(function (content) {
+            var script = document.createElement("script");
+            script.setAttribute("type", "text/javascript");
+            script.text = content;
+            document.body.appendChild(script);
+            document.body.removeChild(script);
+            callback();
+        });
+    }
+
+    var loadJSZipLib = function (list, callback) {
+        const jslibName = list.find(element => element.includes('jszip'));
+        // console.log(jslibName);
+        loadSingleScript(jslibName,function() {
+            callback();
+        });
+    }
+
     var loadScript = function (list, callback) {
-        var loaded = 0;
-        var loadNext = function () {
-            loadSingleScript(list[loaded], function () {
-                loaded++;
-                if (loaded >= list.length) {
-                    callback();
-                } else {
-                    loadNext();
-                }
+        // load the jszip lib first
+        const nameList = list.map(item=>{
+            const strs = item.split('/');
+            return strs.length>1?strs[1]: item;
+        })
+        loadJSZipLib(list, function() {
+            var loaded = 0;
+            // unzip js.zip
+            let zip = loadZip('js.zip', function(zip) {
+                var loadNext = function () {
+                    // console.log(list[loaded]);
+                    createScript(zip,nameList[loaded], function () {
+                        loaded++;
+                        if (loaded >= nameList.length) {
+                            callback();
+                        } else {
+                            loadNext();
+                        }
+                    })
+                };
+            loadNext();
             })
-        };
-        loadNext();
+        });
     };
 
     var loadSingleScript = function (src, callback) {

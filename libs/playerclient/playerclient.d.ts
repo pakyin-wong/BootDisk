@@ -15,7 +15,8 @@ declare class PlayerClient {
     private _endpoint;
     private _pingTimer;
     private _pingTimeout;
-    constructor({ service, playerID, secret, endpoint, hostname, port, protocol, path, device, connectTimeout, pingTimeout, reconnectPeriod, rabbitmqhostname, rabbitmqport, rabbitmqprotocol, logEnabled, }: {
+        rabbitmqvirtualhost?: string;
+        constructor({ service, playerID, secret, endpoint, hostname, port, protocol, path, device, connectTimeout, pingTimeout, reconnectPeriod, rabbitmqhostname, rabbitmqport, rabbitmqprotocol, rabbitmqvirtualhost, logEnabled, }: {
         service?: string;
         playerID?: string;
         secret?: string;
@@ -28,20 +29,21 @@ declare class PlayerClient {
         connectTimeout?: number;
         pingTimeout?: number;
         reconnectPeriod?: number;
-        rabbitmqhostname?: any;
-        rabbitmqport?: any;
-        rabbitmqprotocol?: any;
+        rabbitmqhostname?: string;
+        rabbitmqport?: string;
+        rabbitmqprotocol?: string;
+        rabbitmqvirtualhost?: string;
         logEnabled?: boolean;
     });
     init(lang: string, callback: Function): void;
     connect(callback?: Function): void;
     ping(callback?: Function): void;
+    getStatistic(): object;
     close(): void;
     subscribe(eventName: string, f: Function, context?: object, options?: any): void;
     unsubscribe(eventName: string, f: Function, options?: any): void;
     getTableList(filter?: string): void;
     getBalance(): void;
-    getBetHistory(filter: object, callback?: (data: object) => void): void;
     enterTable(tableID: string): void;
     leaveTable(tableID: string): void;
     bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
@@ -59,8 +61,12 @@ declare class PlayerClient {
     removeCustomRoadmap(id: string, callback?: Function): void;
     _handleBetTemplateUpdate(result: any, callback: Function, f: Function, status: string, method: string, args: Array<Object>): void;
     createBetTemplate(title: string, betOptions: BetValueCommand[], callback?: Function): void;
+    updateBetTemplate(title: string, betOptions?: BetValueCommand[], callback?: Function): void;
     getBetTemplate(callback?: Function): void;
     removeBetTemplate(id: string, callback?: Function): void;
+    getBetHistory(filter: object, callback?: (data: object) => void): void;
+    getPlayerProfileSummary(callback?: Function): void;
+    getPlayerStatistic(filter: object, callback?: Function): void;
     sendVerifyInfo(tableID: string, pattern: string[], callback?: Function): void;
     private _handleGetTableList;
     private _handleTableInfoUpdate;

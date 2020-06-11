@@ -4,7 +4,7 @@ namespace we {
     // Components
     export interface ILobbyRoad {
       // updateRoadData(roadmapData: any);
-
+      drawGridBg(width: number, height: number);
       updateLobbyRoadData(roadmapData: any);
       updateSideBarRoadData(roadmapData: any);
       setTableInfo?(tableInfo: data.TableInfo);
@@ -113,6 +113,10 @@ namespace we {
     // Notification
     export interface INotificationController {
       notificationList: data.Notification[];
+      dismissFocus(isRemoved: boolean);
+      setFocus(holder: NotificationItemHolder);
+      showNextNotification();
+      dismissNotification(type: number);
     }
   }
 }

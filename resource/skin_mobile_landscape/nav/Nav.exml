@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile_landscape.Nav" width="2424" height="1242" states="Game,Lobby" currentState="Lobby" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Rect id="_background" right="0" left="0" top="0" anchorOffsetY="0" height="238"
-	        fillAlpha="0.3"  fillColor="0x000000" height.Game="139" fillAlpha.Game="0.1" touchEnabled.Lobby="true" touchChildren.Lobby="true" height.Lobby="85"/>
+	        fillAlpha="0.3"  fillColor="0x000000" height.Game="139" fillAlpha.Game="0.1" touchEnabled.Lobby="true" touchChildren.Lobby="true" height.Lobby="85" touchEnabled.Game="false"/>
 	<ui:NavLantern id="_lantern" width="2000" height="38"   y="17" x="20" lineSpacing="38" fontsize="36" visible.Game="false" visible.Lobby="true"/>
 
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false"  visible="false"/>
@@ -27,7 +27,7 @@
 		</e:layout>
 	</e:Group>
 
-	<e:Image width="55" height="55" y="1106" scaleX="1" scaleY="1" source="m_common_header_icon_refresh_png" right="38" visible.Game="false"/>
+	<e:Image id="_refreshButton" width="55" height="55" y="1106" scaleX="1" scaleY="1" source="m_common_header_icon_refresh_png" right="38" visible.Game="false"/>
 	<ui:BaseImageButton id="_slider_toggle" y="944" width="117" height="117"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="lobby_icon_menu"  x="2270" y.Game="148"/>
 

@@ -22,8 +22,8 @@ namespace we {
           const btn = new we.ui.BaseAnimationButton();
           btn.dbClass = 'lobby_ui';
           btn.dbDisplay = name;
-          btn.height = 60;
-          btn.width = 60;
+          btn.height = 30;
+          btn.width = 30;
           btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onItemClick.bind(this, idx), this);
           this.container.addChild(btn);
           this.buttons.push(btn);

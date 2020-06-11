@@ -7,28 +7,6 @@
 namespace we {
   export namespace ba {
     export class MobileScene extends core.MobileBaseGameScene {
-      // constructor(data: any) {
-      //   super(data);
-      // }
-
-      // public onEnter() {}
-
-      // public onExit() {}
-
-      // protected mount() {
-      //   this.skinName = utils.getSkinByClassname('BaccaratScene');
-      //   mouse.setButtonMode(this._btnBack, true);
-      //   this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
-      // }
-
-      // protected initComponents() {}
-
-      // protected destroy() {}
-
-      // public backToLobby() {
-      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
-      // }
-
       protected _roadmapControl: BARoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
       protected _beadRoadResultPanel: BaBeadRoadResultPanel;
@@ -105,7 +83,7 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        // this._roadmapControl.setTableInfo(this._tableInfo);
+        this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -258,17 +236,17 @@ namespace we {
       }
 
       protected initRoadMap() {
-        // this._roadmapControl = new BARoadmapControl(this._tableId);
-        // this._roadmapControl.setRoads(
-        //   this._bottomGamePanel._roadmapPanel.beadRoad,
-        //   this._bottomGamePanel._roadmapPanel.bigRoad,
-        //   this._bottomGamePanel._roadmapPanel.bigEyeRoad,
-        //   this._bottomGamePanel._roadmapPanel.smallRoad,
-        //   this._bottomGamePanel._roadmapPanel.cockroachRoad,
-        //   [16, 33, 66, 34, 32],
-        //   this._bottomGamePanel._roadmapPanel,
-        //   this._beadRoadResultPanel
-        // );
+        this._roadmapControl = new BARoadmapControl(this._tableId);
+        this._roadmapControl.setRoads(
+          this._bottomGamePanel._roadmapPanel.beadRoad,
+          this._bottomGamePanel._roadmapPanel.bigRoad,
+          this._bottomGamePanel._roadmapPanel.bigEyeRoad,
+          this._bottomGamePanel._roadmapPanel.smallRoad,
+          this._bottomGamePanel._roadmapPanel.cockroachRoad,
+          [16, 33, 66, 34, 32],
+          this._bottomGamePanel._roadmapPanel,
+          this._beadRoadResultPanel
+        );
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

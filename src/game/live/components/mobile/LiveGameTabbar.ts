@@ -54,6 +54,10 @@ namespace we {
       public setSelectedIndex(idx: number) {
         this.tabBar.selectedIndex = idx;
       }
+
+      public get selectedIndex(): number {
+        return this.tabBar.selectedIndex;
+      }
     }
   }
 }

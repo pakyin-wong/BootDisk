@@ -59,6 +59,10 @@ namespace we {
         // this._infoGroup.removeChildren();
         this.removeListeners();
       }
+      protected updateStat() {
+        super.updateStat();
+        this._statisticChartPanel.update();
+      }
     }
   }
 }

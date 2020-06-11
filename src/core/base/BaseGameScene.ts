@@ -63,10 +63,14 @@ namespace we {
         mouse.setButtonMode(this._confirmButton, true);
 
         this._video = dir.videoPool.get();
+        this._video.setBrowser(env.UAInfo.browser.name);
         // this._video.width = this.stage.stageWidth;
         // this._video.height = this.stage.stageHeight;
-        this._video.load('http://h5.weinfra247.com:8090/live/720.flv');
+        // this._video.load('//h5.weinfra247.com:8090/live/720.flv');
+        // this._video.load('//210.61.148.50:8000/live/test.flv');
+        this._video.load('wss://www.webflv.com:8443/live/test.flv');
 
+        dir.audioCtr.video = this._video;
         this.touchEnabled = true;
       }
 
@@ -82,6 +86,8 @@ namespace we {
 
       public onExit() {
         super.onExit();
+        dir.audioCtr.video = null;
+        this._video.stop();
         dir.videoPool.release(this._video);
         this._chipLayer.getSelectedChipIndex = null;
         this._timer.stop();
@@ -567,14 +573,22 @@ namespace we {
 
       public playVideo(scene: any) {
         return () => {
-          scene._video.play();
+          try {
+            scene._video.play();
+          } catch (e) {
+            console.log('Video play Error');
+          }
           scene._bgImg.visible = false;
         };
       }
 
       public stopVideo(scene: any) {
         return () => {
-          scene._video.stop();
+          try {
+            scene._video.stop();
+          } catch (e) {
+            console.log('Video play Error');
+          }
           scene._bgImg.visible = true;
         };
       }

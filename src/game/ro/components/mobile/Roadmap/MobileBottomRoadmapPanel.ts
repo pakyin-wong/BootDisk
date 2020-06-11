@@ -17,6 +17,10 @@ namespace we {
       protected _roadmapBg: eui.Component;
       protected _roadmapView: eui.ViewStack;
 
+      protected color: eui.Group;
+      protected size: eui.Group;
+      protected oddeven: eui.Group;
+
       public constructor() {
         super();
       }
@@ -44,7 +48,9 @@ namespace we {
 
       public destroy() {
         super.destroy();
-
+        this.colorBigRoadConfig.parent.removeChildren();
+        this.sizeBigRoadConfig.parent.removeChildren();
+        this.oddBigRoadConfig.parent.removeChildren();
         this.colorBigRoad.dispose();
         this.sizeBigRoad.dispose();
         this.oddBigRoad.dispose();

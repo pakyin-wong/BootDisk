@@ -115,12 +115,13 @@ namespace we {
         await Promise.all(initRectPromises);
         // start flashing
         let run = 1;
+        const self = this;
         const tick = async () => {
           // end flashing
           if (run >= 6) {
             const fadeOutPromises = [];
             for (const field of Object.keys(lw.BetField)) {
-              const group = this._imageMapping[field].parent;
+              const group = self._imageMapping[field].parent;
               const rect = group.getChildByName('dim');
               const promise = new Promise(resolve => {
                 egret.Tween.get(rect)
@@ -139,13 +140,11 @@ namespace we {
           }
           const tickFlashPromises = [];
           for (const field of winningFields) {
-            const group = this._imageMapping[field].parent;
+            const group = self._imageMapping[field].parent;
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
-              egret.Tween.get(rect)
-                .to({ alpha }, 125)
-                .call(resolve);
+              egret.Tween.get(rect).to({ alpha }, 125).call(resolve);
             });
             tickFlashPromises.push(prom);
           }

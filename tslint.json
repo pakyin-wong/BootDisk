@@ -16,6 +16,7 @@
             200
         ],
         "forin": false,
+        "prefer-for-of": false,
         "member-ordering": false,
         "no-angle-bracket-type-assertion": false,
         "no-bitwise": false,
