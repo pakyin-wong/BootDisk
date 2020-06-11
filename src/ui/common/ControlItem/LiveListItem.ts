@@ -16,16 +16,19 @@ namespace we {
         if (this._contentContainerStatic) {
           this._contentContainerStatic.cacheAsBitmap = true;
         }
+        this.addRoundCornerMask();
       }
 
       protected addRoundCornerMask() {
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
-        shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        // shape.graphics.drawRoundRect(0, 0, this.width, this.height, 16, 16);
+        RoundRect.drawRoundRect(shape.graphics, 0, 0, this.width, this.dealerImage.height, { tl: 8, tr: 8, bl: 0, br: 0 });
         shape.graphics.endFill();
 
         this._contentContainer.addChild(shape);
-        this._contentContainer.mask = shape;
+        // this._contentContainer.mask = shape;
+        this.dealerImage.mask = shape;
       }
 
       protected initCustomPos() {
