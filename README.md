@@ -93,7 +93,7 @@ There are few steps needed to be taken before publish
 ## External Resource
 - [Slack for whole team](https://perfectgaming.slack.com/)
 - [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
-- [Frondend Documents](https://drive.google.com/drive/u/0/folders/1HHHJ0gJwfynMjYndl5te1XN4agXu-vn6)
+- [Frontend Documents](https://drive.google.com/drive/u/0/folders/1HHHJ0gJwfynMjYndl5te1XN4agXu-vn6)
 - [Auto Dealer](http://18.139.237.86:8901/?checked=true)
 - [Invision Template](https://projects.invisionapp.com/prototype/Quick-Bet-ck3dwku8c00f0el01k01o5kam/)
 - [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
