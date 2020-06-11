@@ -48,6 +48,7 @@ if (list has new goodroad) we send out Notification.
 ```
 npm install -g tslint prettier typescript
 npm install -g cross-zip cross-zip-cli
+npm install -g optipng pngquant
 npm i -g @ffflorian/jszip-cli
 npm install -g jpegoptim-bin
 ```
@@ -62,6 +63,10 @@ npm install -g jpegoptim-bin
 6. Install the following programs
 ```
 npm install -g tslint prettier typescript
+npm install -g cross-zip cross-zip-cli
+npm install -g optipng pngquant
+npm i -g @ffflorian/jszip-cli
+npm install -g jpegoptim-bin
 ```
 
 ### SpriteSheet 
