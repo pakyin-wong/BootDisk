@@ -419,6 +419,7 @@ namespace we {
             maxlimit: 100000,
             minlimit: 100,
             chips: [100, 500, 2000, 10000, 50000],
+            limits: {},
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
           {
@@ -426,6 +427,7 @@ namespace we {
             maxlimit: 100000,
             minlimit: 2000,
             chips: [2000, 10000, 30000, 40000, 50000],
+            limits: {},
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
           {
@@ -433,6 +435,7 @@ namespace we {
             maxlimit: 500000,
             minlimit: 5000,
             chips: [5000, 10000, 200000, 300000, 500000],
+            limits: {},
             // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
           },
         ];

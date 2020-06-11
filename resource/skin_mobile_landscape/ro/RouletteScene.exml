@@ -27,7 +27,7 @@
 		</ui:skinName>
 	</ui:TweenConfig>
 
-  <e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" left="0" right="0" locked="true"/>
+  <e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" left="0" right="0" locked="true"/>
   <e:Group id="_header" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" touchEnabled="false" touchChildren="true" touchThrough="true" height="121" right="0" width="2424">
     <ui:RunTimeLabel id="_lblRoomNo" x="20" y="15" size="40" height="56" verticalAlign="middle" text="輪盤 01"/>
 		<ui:RunTimeLabel id="_lblBetLimit" size="40" text="10-500" x="20" y="65" height="48" verticalAlign="middle" fontFamily="Barlow"/>

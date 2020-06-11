@@ -1,0 +1,65 @@
+{
+  "file": "loading.png",
+  "frames": {
+    "d-lobby-header-dim_png": {
+      "x": 2,
+      "y": 2,
+      "w": 2600,
+      "h": 150,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 2600,
+      "sourceH": 150
+    },
+    "m_lobby_loading_progress_bar_active_png": {
+      "x": 2,
+      "y": 156,
+      "w": 1014,
+      "h": 30,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1014,
+      "sourceH": 30
+    },
+    "d-lobby-loading-progress-bar-base_png": {
+      "x": 1020,
+      "y": 156,
+      "w": 672,
+      "h": 16,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 672,
+      "sourceH": 16
+    },
+    "d-lobby-loading-progress-bar-active_png": {
+      "x": 1696,
+      "y": 156,
+      "w": 582,
+      "h": 20,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 582,
+      "sourceH": 20
+    },
+    "d_lobby_navbar_logo_png": {
+      "x": 2,
+      "y": 190,
+      "w": 396,
+      "h": 113,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 396,
+      "sourceH": 113
+    },
+    "m_lobby_loading_progress_bar_base_png": {
+      "x": 402,
+      "y": 190,
+      "w": 31,
+      "h": 25,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 31,
+      "sourceH": 25
+    }
+  }
+}

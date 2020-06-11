@@ -16,6 +16,11 @@ ADD swipeup.png bin-release/web/${ENVIRONMENT}/swipeup.png
 ADD config.${ENVIRONMENT}.json bin-release/web/${ENVIRONMENT}/config.${ENVIRONMENT}.json
 RUN sed -i "s/\"target\":.*/\"target\": \"${ENVIRONMENT}\",/g" bin-release/web/${ENVIRONMENT}/config.json
 
+RUN apt-get install -y zip
+RUN zip -r bin-release/web/${ENVIRONMENT}/js.zip bin-release/web/${ENVIRONMENT}/js
+RUN rm -r bin-release/web/${ENVIRONMENT}/resource/assets/images
+RUN for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;
+
 FROM pgpg/infra-nginx:latest as production
 
 ARG ENVIRONMENT
