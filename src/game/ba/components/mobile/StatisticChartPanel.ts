@@ -125,53 +125,43 @@ namespace we {
         this._pairChart.blueAngle = playerPairPercentage * 3.6;
         this._pairChart.drawChart();
 
+        // Count
         if (bankerCount || Math.round(bankerCount) === 0) {
-          console.log('1a');
           this.totalBankerCount && (this.totalBankerCount.text = bankerCount.toString());
         }
         if (playerCount || Math.round(playerCount) === 0) {
-          console.log('1b');
           this.totalPlayerCount && (this.totalPlayerCount.text = playerCount.toString());
         }
         if (tieCount || Math.round(tieCount) === 0) {
-          console.log('1c');
           this.totalTieCount && (this.totalTieCount.text = tieCount.toString());
         }
         if (bankerPairCount || Math.round(bankerPairCount) === 0) {
-          console.log('1d');
           this.bankerPairCount && (this.bankerPairCount.text = bankerPairCount.toString());
         }
         if (playerPairCount || Math.round(playerPairCount) === 0) {
-          console.log('1e');
           this.playerPairCount && (this.playerPairCount.text = playerPairCount.toString());
         }
         if (remainingCount || Math.round(remainingCount) === 0) {
-          console.log('1f');
           this.tiePairCount && (this.tiePairCount.text = remainingCount.toString());
         }
 
+        // Percentage
         if (bankerPercentage || Math.round(bankerPercentage) === 0) {
-          console.log('1g');
           this.totalBankerCountPer && (this.totalBankerCountPer.text = bankerPercentage.toString());
         }
         if (playerPercentage || Math.round(playerPercentage) === 0) {
-          console.log('1h');
           this.totalPlayerCountPer && (this.totalPlayerCountPer.text = playerPercentage.toString());
         }
         if (tiePercentage || Math.round(tiePercentage) === 0) {
-          console.log('1i');
           this.totalTieCountPer && (this.totalTieCountPer.text = tiePercentage.toString());
         }
         if (bankerPairPercentage || Math.round(bankerPairPercentage) === 0) {
-          console.log('1j');
           this.bankerPairCountPer && (this.bankerPairCountPer.text = bankerPairPercentage.toString());
         }
         if (playerPairPercentage || Math.round(playerPairPercentage) === 0) {
-          console.log('1k');
           this.playerPairCountPer && (this.playerPairCountPer.text = playerPairPercentage.toString());
         }
         if (remainingPercentage || Math.round(remainingPercentage) === 0) {
-          console.log('1l');
           this.tiePairCountPer && (this.tiePairCountPer.text = remainingPercentage.toString());
         }
       }
