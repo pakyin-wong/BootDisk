@@ -1,0 +1,119 @@
+[
+    {
+        "dir": "common/general",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "common/menu",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "common/game_panel",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "common/chips",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.8
+        }
+    },
+    {
+        "dir": "common/cards/big",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "common/cards/small",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 1
+        }
+    },
+    {
+        "dir": "lobby",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "loading",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 1
+        }
+    },
+    {
+        "dir": "ba",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "dt",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "di",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "ro",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    },
+    {
+        "dir": "lw",
+        "d":{
+            "scale": 1
+        },
+        "m":{
+            "scale": 0.5
+        }
+    }
+]

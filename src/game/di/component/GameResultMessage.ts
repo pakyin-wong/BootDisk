@@ -21,8 +21,10 @@ namespace we {
           this
         );
 
-        const { dice1, dice2, dice3, size, odd, total } = <di.GameData> gameData;
-        logger.l(dice1, dice2, dice3, size, odd, total);
+        const { dice1, dice2, dice3, size, odd } = <di.GameData>gameData;
+        logger.l(dice1, dice2, dice3, size, odd);
+
+        const total = isNaN((gameData as di.GameData).total) ? dice1 + dice2 + dice3 : (gameData as di.GameData).total;
 
         let anim = 'ani_result_';
         let txtSlot = null;
@@ -49,14 +51,18 @@ namespace we {
           slot.display = img;
         }
 
-        const array = [[isWin ? '15' : '16', 60, total.toString()], [isWin ? 'red_txt2' : 'red_txt3', 40, size === 1 ? '小' : '大'], [isWin ? 'blue_txt2' : 'blue_txt3', 40, odd === 1 ? '單' : '雙']];
+        const array = [
+          [isWin ? '15' : '16', 60, total.toString()],
+          [isWin ? 'red_txt2' : 'red_txt3', 40, size === 1 ? '小' : '大'],
+          [isWin ? 'blue_txt2' : 'blue_txt3', 40, odd === 1 ? '單' : '雙'],
+        ];
 
         for (const [slotName, fontSize, text] of array) {
-          const slot = this._display.armature.getSlot(<string> slotName);
+          const slot = this._display.armature.getSlot(<string>slotName);
           const r = new eui.Label();
           r.fontFamily = 'Barlow';
-          r.size = <number> fontSize;
-          r.text = <string> text;
+          r.size = <number>fontSize;
+          r.text = <string>text;
           if (fontSize === 60) {
             const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
             r.filters = [shadowFilter];

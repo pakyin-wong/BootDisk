@@ -26,7 +26,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData) {
         // TODO: update card using the gameData
-        this.gameData = <dt.GameData> gameData;
+        this.gameData = <dt.GameData>gameData;
         const cardArr = [this.gameData.d, this.gameData.t];
         const cardHolderArr = [this.cardDragon, this.cardTiger];
 
@@ -35,18 +35,18 @@ namespace we {
 
         cardArr.forEach(function (value, index) {
           if (value) {
-            cardHolderArr[index].setCard(utils.formatCard(value), (index + 1) % 3 !== 0);
+            cardHolderArr[index].setCard(utils.formatCard(value));
           } else {
             if ((index + 1) % 3 !== 0) {
-              cardHolderArr[index].setCard('back', true);
+              cardHolderArr[index].setCard('back');
             }
           }
         });
       }
 
       public reset() {
-        this.cardDragon.setCard('back', true);
-        this.cardTiger.setCard('back', true);
+        this.cardDragon.setCard('back');
+        this.cardTiger.setCard('back');
       }
     }
   }
