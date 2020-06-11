@@ -43,7 +43,7 @@ namespace we {
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
         const randNo = Math.round(Math.random() * 4) + 1;
-        this._dealerImage.texture = RES.getRes('temp_baccarat_dealer_' + randNo);
+        this._dealerImage.texture = RES.getRes('baccarat_dealer_' + randNo + '_jpg');
       }
 
       get dealerImage() {

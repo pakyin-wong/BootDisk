@@ -27,6 +27,9 @@ namespace we {
       protected _leftTitleTie: ui.RunTimeLabel;
 
       protected roundCount: ui.RunTimeLabel;
+      protected tableInfo: data.TableInfo;
+
+      protected _normalChart: ui.SimpleChart;
       // protected roundPairCountPer: ui.RunTimeLabel;
 
       protected roundCounter: number = 99;
@@ -41,17 +44,6 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
-        let _x: number;
-        let _y: number;
-        if (env.orientation === 'portrait') {
-          _x = 500;
-          _y = 340;
-        } else {
-          _x = 515;
-          _y = 130;
-        }
-
-        this.drawChartArc(10, 20, 30, _x, _y);
 
         this.roundCount.text = this.roundCounter.toString();
         if (this.roundCounter === 1) {
@@ -59,47 +51,53 @@ namespace we {
         }
       }
 
-      protected drawChartArc(a: number, b: number, c: number, x: number, y: number) {
-        const totalAmount = a + b + c;
-        const angleA = 360 * (a / totalAmount);
-        const angleB = 360 * (b / totalAmount);
-        const angleC = 360 * (c / totalAmount);
+      public setValue(tableInfo: data.TableInfo) {
+        this.tableInfo = tableInfo;
 
-        const shapeRed: egret.Shape = new egret.Shape();
-        shapeRed.graphics.lineStyle(15, 0xff6651);
-        shapeRed.graphics.drawArc(x, y, 100, 0, angleA * (Math.PI / 180), false);
-        shapeRed.graphics.endFill();
-        this.addChild(shapeRed);
+        const bankerCount = this.tableInfo.gamestatistic.bankerCount;
+        const playerCount = this.tableInfo.gamestatistic.playerCount;
+        const tieCount = this.tableInfo.gamestatistic.tieCount;
 
-        const shapeBlue: egret.Shape = new egret.Shape();
-        shapeBlue.graphics.lineStyle(15, 0x3c38ff);
-        shapeBlue.graphics.drawArc(x, y, 100, angleA * (Math.PI / 180), (angleA + angleB) * (Math.PI / 180), false);
-        shapeBlue.graphics.endFill();
-        this.addChild(shapeBlue);
+        const totalCount = this.tableInfo.gamestatistic.totalCount;
+        const bankerPairCount = this.tableInfo.gamestatistic.bankerPairCount;
+        const playerPairCount = this.tableInfo.gamestatistic.playerPairCount;
+        const remainingCount = totalCount - bankerPairCount - playerPairCount;
 
-        const shapeGreen: egret.Shape = new egret.Shape();
-        shapeGreen.graphics.lineStyle(15, 0x1f86c);
-        shapeGreen.graphics.drawArc(x, y, 100, (angleA + angleB) * (Math.PI / 180), (angleA + angleB + angleC) * (Math.PI / 180), false);
-        shapeGreen.graphics.endFill();
-        this.addChild(shapeGreen);
+        const bankerPercentage = Math.round((bankerCount / totalCount) * 100);
+        const playerPercentage = Math.round((playerCount / totalCount) * 100);
+        const tiePercentage = Math.round((tieCount / totalCount) * 100);
+
+        if (bankerCount || bankerCount === 0) {
+          this.totalBankerCount.text = bankerCount.toString();
+        }
+        if (playerCount || playerCount === 0) {
+          this.totalPlayerCount.text = playerCount.toString();
+        }
+        if (tieCount || tieCount === 0) {
+          this.totalTieCount.text = tieCount.toString();
+        }
+
+        if (bankerPercentage || Math.round(bankerPercentage) === 0) {
+          this.totalBankerCountPer && (this.totalBankerCountPer.text = bankerPercentage.toString());
+        }
+        if (playerPercentage || Math.round(playerPercentage) === 0) {
+          this.totalPlayerCountPer && (this.totalPlayerCountPer.text = playerPercentage.toString());
+        }
+        if (tiePercentage || Math.round(tiePercentage) === 0) {
+          this.totalTieCountPer && (this.totalTieCountPer.text = tiePercentage.toString());
+        }
+
+        this._normalChart.redAngle = bankerPercentage * 3.6;
+        this._normalChart.blueAngle = playerPercentage * 3.6;
+        this._normalChart.drawChart();
+
+        // this._normalChart;
       }
 
-      public setValue(tableInfo: data.TableInfo) {
-        if (tableInfo.gamestatistic.bankerCount) {
-          this.totalBankerCount.text = tableInfo.gamestatistic.bankerCount.toString();
+      public update() {
+        if (this.tableInfo) {
+          this.setValue(this.tableInfo);
         }
-        if (tableInfo.gamestatistic.playerCount) {
-          this.totalPlayerCount.text = tableInfo.gamestatistic.playerCount.toString();
-        }
-        if (tableInfo.gamestatistic.tieCount) {
-          this.totalTieCount.text = tableInfo.gamestatistic.tieCount.toString();
-        }
-        // if (tableInfo.gamestatistic.bankerPairCount) {
-        //   this.bankerPairCount.text = tableInfo.gamestatistic.bankerPairCount.toString();
-        // }
-        // if (tableInfo.gamestatistic.playerPairCount) {
-        //   this.playerPairCountPer.text = tableInfo.gamestatistic.playerPairCount.toString();
-        // }
       }
     }
   }

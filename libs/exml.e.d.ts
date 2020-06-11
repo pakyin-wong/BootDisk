@@ -281,6 +281,10 @@ declare module skin_desktop.di{
 	}
 }
 declare module skin_desktop.di{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.di{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
@@ -496,6 +500,10 @@ declare module skin_desktop.lw{
 }
 declare module skin_desktop.lw{
 	class SideListTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.lw{
+	class TableInfoPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop.lw{
@@ -1482,6 +1490,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait.lw{
 	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.lw{
+	class SideBetResultMessage extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

@@ -8,11 +8,11 @@ namespace we {
       // public chipsList: [{ chipid?: string; value: number }];
       public chips: number[];
       public limits?: {
-        ba: BABetFieldBetLimit;
-        dt: DTBetFieldBetLimit;
-        ro: ROBetFieldBetLimit;
-        di: DIBetFieldBetLimit;
-        lw: LWBetFieldBetLimit;
+        ba?: BABetFieldBetLimit;
+        dt?: DTBetFieldBetLimit;
+        ro?: ROBetFieldBetLimit;
+        di?: DIBetFieldBetLimit;
+        lw?: LWBetFieldBetLimit;
       };
     }
 

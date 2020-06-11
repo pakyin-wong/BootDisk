@@ -1,0 +1,875 @@
+{
+  "file": "ro.png",
+  "frames": {
+    "m_ro_h_betborad_outline_png": {
+      "x": 1,
+      "y": 1,
+      "w": 1030.5,
+      "h": 332,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1030.5,
+      "sourceH": 332
+    },
+    "m_ro_h_betborad_hover_png": {
+      "x": 1,
+      "y": 335,
+      "w": 1030,
+      "h": 332,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1030,
+      "sourceH": 332
+    },
+    "m_ro_h_betborad_inactive_png": {
+      "x": 1,
+      "y": 669,
+      "w": 1030,
+      "h": 332,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 1030,
+      "sourceH": 332
+    },
+    "m_ro_h_reatrack_hover_png": {
+      "x": 1,
+      "y": 1003,
+      "w": 966,
+      "h": 290,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 966,
+      "sourceH": 290
+    },
+    "m_ro_h_reatrack_inactive_png": {
+      "x": 969,
+      "y": 1003,
+      "w": 966,
+      "h": 290,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 966,
+      "sourceH": 290
+    },
+    "m_ro_h_reatrack_outline_png": {
+      "x": 1033.5,
+      "y": 1,
+      "w": 966,
+      "h": 290,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 966,
+      "sourceH": 290
+    },
+    "m_ro_v_reatrack_outline_png": {
+      "x": 1,
+      "y": 1295,
+      "w": 390.5,
+      "h": 923,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 390.5,
+      "sourceH": 923
+    },
+    "m_v_ro_reatrack_dim_png": {
+      "x": 393.5,
+      "y": 1295,
+      "w": 390,
+      "h": 923,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 390,
+      "sourceH": 923
+    },
+    "m_ro_v_reatrack_hover_png": {
+      "x": 785.5,
+      "y": 1295,
+      "w": 390,
+      "h": 922.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 390,
+      "sourceH": 922.5
+    },
+    "m_ro_v_reatrack_inactive_png": {
+      "x": 1177.5,
+      "y": 1295,
+      "w": 390,
+      "h": 922.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 390,
+      "sourceH": 922.5
+    },
+    "m_ro_v_betborad_hover_png": {
+      "x": 2001.5,
+      "y": 1,
+      "w": 439.5,
+      "h": 884.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 439.5,
+      "sourceH": 884.5
+    },
+    "m_ro_v_betborad_inactive_png": {
+      "x": 1569.5,
+      "y": 1295,
+      "w": 439.5,
+      "h": 884.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 439.5,
+      "sourceH": 884.5
+    },
+    "m_ro_v_betborad_outline_png": {
+      "x": 1,
+      "y": 2220,
+      "w": 439.5,
+      "h": 884.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 439.5,
+      "sourceH": 884.5
+    },
+    "h_Tires_png": {
+      "x": 2011,
+      "y": 887.5,
+      "w": 283,
+      "h": 150,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 283,
+      "sourceH": 150
+    },
+    "v_Tires_png": {
+      "x": 2011,
+      "y": 1039.5,
+      "w": 190,
+      "h": 278.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 190,
+      "sourceH": 278.5
+    },
+    "h_Orphelins_png": {
+      "x": 2011,
+      "y": 1320,
+      "w": 260,
+      "h": 150,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 260,
+      "sourceH": 150
+    },
+    "h_Voisins_png": {
+      "x": 2011,
+      "y": 1472,
+      "w": 258,
+      "h": 150,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 258,
+      "sourceH": 150
+    },
+    "v_Orphelins_png": {
+      "x": 2203,
+      "y": 1039.5,
+      "w": 190,
+      "h": 222,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 190,
+      "sourceH": 222
+    },
+    "v_Zero_png": {
+      "x": 2011,
+      "y": 1624,
+      "w": 190,
+      "h": 212.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 190,
+      "sourceH": 212.5
+    },
+    "v_Voisins_png": {
+      "x": 2203,
+      "y": 1624,
+      "w": 190,
+      "h": 210,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 190,
+      "sourceH": 210
+    },
+    "h_Zero_png": {
+      "x": 2203,
+      "y": 1836,
+      "w": 204,
+      "h": 150,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 204,
+      "sourceH": 150
+    },
+    "m_ro_h_cold_bar_png": {
+      "x": 2203,
+      "y": 1263.5,
+      "w": 204,
+      "h": 34,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 204,
+      "sourceH": 34
+    },
+    "m_ro_h_hot_bar_png": {
+      "x": 1033,
+      "y": 887.5,
+      "w": 204,
+      "h": 34,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 204,
+      "sourceH": 34
+    },
+    "m_ro_spread_bg_png": {
+      "x": 2395,
+      "y": 887.5,
+      "w": 45.5,
+      "h": 138.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 45.5,
+      "sourceH": 138.5
+    },
+    "v_5_png": {
+      "x": 2271,
+      "y": 1472,
+      "w": 119,
+      "h": 120,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 119,
+      "sourceH": 120
+    },
+    "v_8_png": {
+      "x": 2273,
+      "y": 1299.5,
+      "w": 119,
+      "h": 120,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 119,
+      "sourceH": 120
+    },
+    "m_ro_v_cold_bar_png": {
+      "x": 2395,
+      "y": 1299.5,
+      "w": 34,
+      "h": 119,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 34,
+      "sourceH": 119
+    },
+    "m_ro_v_hot_bar_png": {
+      "x": 2395,
+      "y": 1028,
+      "w": 34,
+      "h": 119,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 34,
+      "sourceH": 119
+    },
+    "v_32_png": {
+      "x": 1239,
+      "y": 887.5,
+      "w": 114,
+      "h": 112.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 114,
+      "sourceH": 112.5
+    },
+    "v_35_png": {
+      "x": 1355,
+      "y": 887.5,
+      "w": 113.5,
+      "h": 108,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 113.5,
+      "sourceH": 108
+    },
+    "v_3_png": {
+      "x": 1470.5,
+      "y": 887.5,
+      "w": 99,
+      "h": 113,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 99,
+      "sourceH": 113
+    },
+    "v_24_png": {
+      "x": 1571.5,
+      "y": 887.5,
+      "w": 112,
+      "h": 96.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 112,
+      "sourceH": 96.5
+    },
+    "v_30_png": {
+      "x": 1685.5,
+      "y": 887.5,
+      "w": 112,
+      "h": 96.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 112,
+      "sourceH": 96.5
+    },
+    "v_0_png": {
+      "x": 1799.5,
+      "y": 887.5,
+      "w": 93.5,
+      "h": 111,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 93.5,
+      "sourceH": 111
+    },
+    "v_15_png": {
+      "x": 1895,
+      "y": 887.5,
+      "w": 111,
+      "h": 93.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 111,
+      "sourceH": 93.5
+    },
+    "v_10_png": {
+      "x": 2296,
+      "y": 887.5,
+      "w": 97,
+      "h": 109.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 97,
+      "sourceH": 109.5
+    },
+    "v_23_png": {
+      "x": 2011,
+      "y": 1838.5,
+      "w": 96.5,
+      "h": 109.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 96.5,
+      "sourceH": 109.5
+    },
+    "v_12_png": {
+      "x": 2011,
+      "y": 1950,
+      "w": 108.5,
+      "h": 81.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 108.5,
+      "sourceH": 81.5
+    },
+    "v_Rectangle_png": {
+      "x": 2273,
+      "y": 1421.5,
+      "w": 100,
+      "h": 45,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 100,
+      "sourceH": 45
+    },
+    "v_26_png": {
+      "x": 2109.5,
+      "y": 1838.5,
+      "w": 83.5,
+      "h": 99,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 83.5,
+      "sourceH": 99
+    },
+    "h_0_png": {
+      "x": 2121.5,
+      "y": 1988,
+      "w": 94,
+      "h": 94.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 94,
+      "sourceH": 94.5
+    },
+    "h_3_png": {
+      "x": 2011,
+      "y": 2033.5,
+      "w": 94,
+      "h": 94.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 94,
+      "sourceH": 94.5
+    },
+    "h_26_png": {
+      "x": 2217.5,
+      "y": 1988,
+      "w": 74,
+      "h": 89,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 74,
+      "sourceH": 89
+    },
+    "h_5_png": {
+      "x": 2293.5,
+      "y": 1988,
+      "w": 88.5,
+      "h": 88,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 88.5,
+      "sourceH": 88
+    },
+    "h_8_png": {
+      "x": 2293.5,
+      "y": 2078,
+      "w": 88.5,
+      "h": 88,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 88.5,
+      "sourceH": 88
+    },
+    "h_32_png": {
+      "x": 2107,
+      "y": 2084.5,
+      "w": 85.5,
+      "h": 84.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 85.5,
+      "sourceH": 84.5
+    },
+    "h_35_png": {
+      "x": 2011,
+      "y": 2130,
+      "w": 85.5,
+      "h": 84.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 85.5,
+      "sourceH": 84.5
+    },
+    "h_10_png": {
+      "x": 1033,
+      "y": 923.5,
+      "w": 80,
+      "h": 72.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 80,
+      "sourceH": 72.5
+    },
+    "h_23_png": {
+      "x": 1115,
+      "y": 923.5,
+      "w": 80,
+      "h": 72.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 80,
+      "sourceH": 72.5
+    },
+    "h_24_png": {
+      "x": 2217.5,
+      "y": 2079,
+      "w": 72.5,
+      "h": 80,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 72.5,
+      "sourceH": 80
+    },
+    "h_30_png": {
+      "x": 2194.5,
+      "y": 2161,
+      "w": 72.5,
+      "h": 80,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 72.5,
+      "sourceH": 80
+    },
+    "h_Rectangle_png": {
+      "x": 2384,
+      "y": 1988,
+      "w": 52,
+      "h": 70,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 52,
+      "sourceH": 70
+    },
+    "m_ro_savelayout_active_bg_png": {
+      "x": 1937,
+      "y": 983,
+      "w": 60,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 60,
+      "sourceH": 50
+    },
+    "m_ro_savelayout_confirm_bg_png": {
+      "x": 1937,
+      "y": 1035,
+      "w": 60,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 60,
+      "sourceH": 50
+    },
+    "m_ro_savelayout_hover_bg_png": {
+      "x": 1937,
+      "y": 1087,
+      "w": 60,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 60,
+      "sourceH": 50
+    },
+    "m_ro_savelayout_inactive_bg_png": {
+      "x": 1937,
+      "y": 1139,
+      "w": 60,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 60,
+      "sourceH": 50
+    },
+    "m_ro_v_hot_icon_png": {
+      "x": 1197,
+      "y": 923.5,
+      "w": 34.5,
+      "h": 51,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 34.5,
+      "sourceH": 51
+    },
+    "m_ro_v_cold_icon_png": {
+      "x": 2121.5,
+      "y": 1939.5,
+      "w": 43.5,
+      "h": 46.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 43.5,
+      "sourceH": 46.5
+    },
+    "m_ro_roadmap_red_ball_png": {
+      "x": 2395,
+      "y": 1420.5,
+      "w": 46,
+      "h": 46,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 46
+    },
+    "m_ro_roadmap_black_ball_png": {
+      "x": 2395,
+      "y": 1149,
+      "w": 45,
+      "h": 45,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 45,
+      "sourceH": 45
+    },
+    "m_ro_roadmap_dark_ball_png": {
+      "x": 2395,
+      "y": 1468.5,
+      "w": 45,
+      "h": 45,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 45,
+      "sourceH": 45
+    },
+    "m_ro_roadmap_green_ball_png": {
+      "x": 2395,
+      "y": 1196,
+      "w": 45,
+      "h": 45,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 45,
+      "sourceH": 45
+    },
+    "m_ro_add_icon_Inactive_png": {
+      "x": 2395,
+      "y": 1515.5,
+      "w": 38.5,
+      "h": 39,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 38.5,
+      "sourceH": 39
+    },
+    "m_ro_add_icon_hover_png": {
+      "x": 2395,
+      "y": 1556.5,
+      "w": 38.5,
+      "h": 39,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 38.5,
+      "sourceH": 39
+    },
+    "m_ro_less_icon_Inactive_png": {
+      "x": 2296,
+      "y": 999,
+      "w": 38,
+      "h": 37.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 38,
+      "sourceH": 37.5
+    },
+    "m_ro_less_icon_hover_png": {
+      "x": 2336,
+      "y": 999,
+      "w": 38,
+      "h": 37.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 38,
+      "sourceH": 37.5
+    },
+    "m_ro_btn_reactack_png": {
+      "x": 2409,
+      "y": 1243,
+      "w": 23,
+      "h": 35.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 23,
+      "sourceH": 35.5
+    },
+    "m_ro_btn_savelayout_png": {
+      "x": 2271,
+      "y": 1594,
+      "w": 29,
+      "h": 28,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 29,
+      "sourceH": 28
+    },
+    "m_ro_active_add_icon_png": {
+      "x": 1197,
+      "y": 976.5,
+      "w": 24,
+      "h": 24.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 24,
+      "sourceH": 24.5
+    },
+    "m_ro_inactive_add_icon_png": {
+      "x": 2302,
+      "y": 1597.5,
+      "w": 24,
+      "h": 24.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 24,
+      "sourceH": 24.5
+    },
+    "m_ro_active_detele_icon_png": {
+      "x": 2194.5,
+      "y": 2084.5,
+      "w": 21,
+      "h": 21,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 21,
+      "sourceH": 21
+    },
+    "d_ro_chips_small_not_confirm_png": {
+      "x": 1895,
+      "y": 983,
+      "w": 18,
+      "h": 18,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 18,
+      "sourceH": 18
+    },
+    "d_ro_chips_small_png": {
+      "x": 2375,
+      "y": 1421.5,
+      "w": 18,
+      "h": 18,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 18,
+      "sourceH": 18
+    },
+    "m_ro_roadmap_black_box_png": {
+      "x": 2376,
+      "y": 999,
+      "w": 17,
+      "h": 17,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 17,
+      "sourceH": 17
+    },
+    "m_ro_roadmap_green_box_png": {
+      "x": 2409,
+      "y": 1280.5,
+      "w": 17,
+      "h": 17,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 17,
+      "sourceH": 17
+    },
+    "m_ro_roadmap_light_blue_box_png": {
+      "x": 2376,
+      "y": 1018,
+      "w": 17,
+      "h": 17,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 17,
+      "sourceH": 17
+    },
+    "m_ro_roadmap_light_green_box_png": {
+      "x": 1915,
+      "y": 983,
+      "w": 17,
+      "h": 17,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 17,
+      "sourceH": 17
+    },
+    "m_ro_roadmap_light_red_box_png": {
+      "x": 2375,
+      "y": 1441.5,
+      "w": 17,
+      "h": 17,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 17,
+      "sourceH": 17
+    },
+    "m_ro_roadmap_red_box_png": {
+      "x": 2203,
+      "y": 1299.5,
+      "w": 17,
+      "h": 17,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 17,
+      "sourceH": 17
+    },
+    "m_ro_history_black_bar_png": {
+      "x": 2375,
+      "y": 1460.5,
+      "w": 16,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 16,
+      "sourceH": 8
+    },
+    "m_ro_history_green_bar_png": {
+      "x": 2194.5,
+      "y": 2107.5,
+      "w": 16,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 16,
+      "sourceH": 8
+    },
+    "m_ro_history_hight_blue_bar_png": {
+      "x": 2194.5,
+      "y": 2117.5,
+      "w": 16,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 16,
+      "sourceH": 8
+    },
+    "m_ro_history_gray_bar_bg_png": {
+      "x": 1571.5,
+      "y": 986,
+      "w": 15.5,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15.5,
+      "sourceH": 11
+    },
+    "m_lobby_ro_history_black_Rectangle_png": {
+      "x": 1589,
+      "y": 986,
+      "w": 15,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 11
+    },
+    "m_lobby_ro_history_green_Rectangle_png": {
+      "x": 1606,
+      "y": 986,
+      "w": 15,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 11
+    },
+    "m_lobby_ro_history_red_Rectangle_png": {
+      "x": 1623,
+      "y": 986,
+      "w": 15,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 11
+    },
+    "m_ro_history_red_bar_png": {
+      "x": 1223,
+      "y": 976.5,
+      "w": 14,
+      "h": 8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 14,
+      "sourceH": 8
+    }
+  }
+}
