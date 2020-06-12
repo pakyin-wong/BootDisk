@@ -15,7 +15,7 @@ namespace we {
       public cornerBR: number = 8;
 
       // state - default
-      public fillColor: number = 0xff0000;
+      public fillColor: string = '0xff0000';
       public fillAlpha: number = 1;
       public stroke: number = 1;
       public strokeColor: number = 0x00ff00;
@@ -23,7 +23,7 @@ namespace we {
       public labelColor: number = 0xffffff;
 
       // state - idle (all values = -2 will refer to the values in state - default)
-      public fillColor_idle: number = -2;
+      public fillColor_idle: string = '-2';
       public fillAlpha_idle: number = -2;
       public stroke_idle: number = -2;
       public strokeColor_idle: number = -2;
@@ -31,7 +31,7 @@ namespace we {
       public labelColor_idle: number = -2;
 
       // state - active (all values = -2 will refer to the values in state - default)
-      public fillColor_active: number = -2;
+      public fillColor_active: string = '-2';
       public fillAlpha_active: number = -2;
       public stroke_active: number = -2;
       public strokeColor_active: number = -2;
@@ -39,7 +39,7 @@ namespace we {
       public labelColor_active: number = -2;
 
       // state - disabled (all values = -2 will refer to the values in state - default)
-      public fillColor_disabled: number = -2;
+      public fillColor_disabled: string = '-2';
       public fillAlpha_disabled: number = -2;
       public stroke_disabled: number = -2;
       public strokeColor_disabled: number = -2;
@@ -47,7 +47,7 @@ namespace we {
       public labelColor_disabled: number = -2;
 
       // state - click (all values = -2 will refer to the values in state - default)
-      public fillColor_click: number = -2;
+      public fillColor_click: string = '-2';
       public fillAlpha_click: number = -2;
       public stroke_click: number = -2;
       public strokeColor_click: number = -2;
@@ -55,7 +55,7 @@ namespace we {
       public labelColor_click: number = -2;
 
       // state - hover (all values = -2 will refer to the values in state - default)
-      public fillColor_hover: number = -2;
+      public fillColor_hover: string = '-2';
       public fillAlpha_hover: number = -2;
       public stroke_hover: number = -2;
       public strokeColor_hover: number = -2;
@@ -180,7 +180,7 @@ namespace we {
           this.currentState = 'idle';
         }
 
-        const fillColor = this['fillColor_' + this.currentState] === -2 ? this.fillColor : this['fillColor_' + this.currentState];
+        const fillColor = this['fillColor_' + this.currentState] === '-2' ? this.fillColor : this['fillColor_' + this.currentState];
         const fillAlpha = this['fillAlpha_' + this.currentState] === -2 ? this.fillAlpha : this['fillAlpha_' + this.currentState];
         const stroke = this['stroke_' + this.currentState] === -2 ? this.stroke : this['stroke_' + this.currentState];
         const strokeColor = this['strokeColor_' + this.currentState] === -2 ? this.strokeColor : this['strokeColor_' + this.currentState];
