@@ -9,7 +9,7 @@ namespace we {
       public cornerTR: number = 8;
       public cornerBL: number = 8;
       public cornerBR: number = 8;
-      public fillColor: number = 0xff0000;
+      public fillColor: string = '0xff0000'; // support graident by a string: "0xff0000,0x00ff00,90" will create a gradient from red to green at angle 90 (from right to left)
       public fillAlpha: number = 1;
       public stroke: number = 1;
       public strokeColor: number = 0x00ff00;
@@ -47,7 +47,7 @@ namespace we {
         width: number,
         height: number,
         cornerRadius: any,
-        fillColor: number = 0xff0000,
+        fillColor: any = 0xff0000,
         fillAlpha: number = 1,
         stroke: number = 1,
         strokeColor: number = 0x00ff00,
@@ -55,7 +55,20 @@ namespace we {
       ) {
         this._gr.clear();
         if (fillAlpha >= 0) {
-          this._gr.beginFill(fillColor, fillAlpha);
+          fillColor = fillColor.toString();
+          if (fillColor.indexOf(',') > 0) {
+            const parms = fillColor
+              .split(' ')
+              .join('')
+              .split(',');
+            if (parms.length === 2) {
+              GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]]);
+            } else if (parms.length === 3) {
+              GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]], parseInt(parms[2], 10));
+            }
+          } else {
+            this._gr.beginFill(parseInt(fillColor, 16), fillAlpha);
+          }
         }
         if (stroke > 0) {
           this._gr.lineStyle(stroke, strokeColor, strokeAlpha, true);
