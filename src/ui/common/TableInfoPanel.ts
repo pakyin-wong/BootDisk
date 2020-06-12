@@ -44,6 +44,11 @@ namespace we {
         this.changeLang();
       }
 
+      protected destroy(): void {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
+
       public onExit() {
         this.destroy();
       }
