@@ -39,11 +39,15 @@ namespace we {
       }
       protected destroy() {
         super.destroy();
+        this.content.removeChildren();
+        this.removeChildren();
+        this.removeSelf();
+
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
 
       protected get list(): TableList {
-        return <TableList> this.parent;
+        return <TableList>this.parent;
       }
 
       public changeState(state: number): boolean {

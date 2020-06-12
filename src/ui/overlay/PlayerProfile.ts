@@ -194,6 +194,7 @@ namespace we {
       private onChangeIcon() {
         this._playerIcon.source = env.icon = env.icons[this._iconList.selectedIndex];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
+        this.slideToMainSection();
       }
 
       protected initOrientationDependentComponent() {
