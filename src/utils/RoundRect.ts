@@ -17,7 +17,9 @@ class RoundRect {
     // draw the top & top-right corner
     if (cornerRadius.tr) {
       // top
-      graphics.lineTo(x + width - cornerRadius.tr, y);
+      if (cornerRadius.tl + cornerRadius.tr < width) {
+        graphics.lineTo(x + width - cornerRadius.tr, y);
+      }
 
       // top-right corner
       startAngle = -0.5 * Math.PI;
@@ -30,7 +32,9 @@ class RoundRect {
     // draw the right & bottom-right corner
     if (cornerRadius.br) {
       // right
-      graphics.lineTo(x + width, y + height - cornerRadius.br);
+      if (cornerRadius.tr + cornerRadius.br < height) {
+        graphics.lineTo(x + width, y + height - cornerRadius.br);
+      }
 
       // bottom-right corner
       startAngle = 0;
@@ -43,7 +47,9 @@ class RoundRect {
     // draw the bottom & bottom-left corner
     if (cornerRadius.bl) {
       // bottom
-      graphics.lineTo(x + cornerRadius.bl, y + height);
+      if (cornerRadius.br + cornerRadius.bl < width) {
+        graphics.lineTo(x + cornerRadius.bl, y + height);
+      }
 
       // bottom-left corner
       startAngle = 0.5 * Math.PI;
@@ -55,7 +61,9 @@ class RoundRect {
 
     // draw the left
     if (cornerRadius.tl) {
-      graphics.lineTo(x, y + cornerRadius.tl);
+      if (cornerRadius.bl + cornerRadius.tl < height) {
+        graphics.lineTo(x, y + cornerRadius.tl);
+      }
     } else {
       graphics.lineTo(x, y);
     }
