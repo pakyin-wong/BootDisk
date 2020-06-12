@@ -18,7 +18,7 @@ namespace we {
           // console.log(resName);
           const texName: string = '';
           if (!env.isMobile) {
-            this.texName = `d_common_poker_${vertical ? 'vertical' : 'horizontal'}_${resName}_png`;
+            this.texName = `d_common_poker_vertical_${resName}_png`;
           } else {
             this.texName = `m_sq_bac_small_poker_${resName}_vertical_png`;
             if (resName === 'back') this.texName = `m_sq_bac_small_poker_backside`;

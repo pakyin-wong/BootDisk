@@ -17,7 +17,7 @@ namespace we {
       }
 
       protected moveCard() {
-        // egret.Tween.get(next).to(
+        // egret.Tween.get(this._flipCard).to(
         //   {
         //     x: this.slideWidth,
         //   },
@@ -35,7 +35,7 @@ namespace we {
 
       public setCardImage(index: number, value: string) {
         console.log('flipcardpath', `d_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
-        this._flipCard.setCardImage('d_sq_ba_card_back_png', `d_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`, `d_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
+        this._flipCard.setCardImage('m_sq_ba_large_poker_backside', `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`, `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
       }
     }
   }
