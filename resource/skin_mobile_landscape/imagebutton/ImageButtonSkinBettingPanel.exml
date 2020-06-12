@@ -7,7 +7,7 @@
 	         anchorOffsetY.b_undo="-10" source.b_double="m_ba_betcontrol_btn_double_png" anchorOffsetY.b_double="-10"
 	         source.b_repeat="m_ba_betcontrol_btn_rebet_png" horizontalCenter.b_repeat="0" anchorOffsetY.b_repeat="-10"
 	         source.b_cancel="m_ba_betcontrol_btn_clear_png" source.b_add="m_ro_add_icon_hover_png"
-	         source.b_less="m_ro_less_icon_hover_png" />
+	         source.b_less="m_ro_less_icon_hover_png"  width.b_cancel="64" height.b_cancel="64" width.b_undo="64" height.b_undo="64" width.b_double="64" height.b_double="64" width.b_repeat="64" height.b_repeat="64" width.b_add="78" height.b_add="78" width.b_less="76" height.b_less="76"/>
 	<e:Group id="_group" y.b_cancel="50" y.b_undo="50" anchorOffsetY.b_cancel="-10" anchorOffsetY.b_undo="-10"
 	         y.b_double="50" anchorOffsetY.b_double="-10" anchorOffsetY.b_repeat="-10" y.b_repeat="50">
 		<ui:RunTimeLabel id="_label" textAlign="center" verticalAlign="justify" scaleX="1" scaleY="1" left="0" right="0"

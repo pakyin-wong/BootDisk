@@ -1,0 +1,545 @@
+{
+  "file": "common_cards_big.png",
+  "frames": {
+    "d_sq_ba_card_back_png": {
+      "x": 2,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_ba_large_poker_card_mask_png": {
+      "x": 195,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover10_png": {
+      "x": 2,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover2_png": {
+      "x": 195,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover3_png": {
+      "x": 388,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover4_png": {
+      "x": 388,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover5_png": {
+      "x": 581,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover6_png": {
+      "x": 581,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover7_png": {
+      "x": 2,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover8_png": {
+      "x": 195,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_clover9_png": {
+      "x": 388,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_cloverA_png": {
+      "x": 581,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_cloverJ_png": {
+      "x": 774,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_cloverK_png": {
+      "x": 774,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_cloverQ_png": {
+      "x": 774,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond10_png": {
+      "x": 2,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond2_png": {
+      "x": 195,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond3_png": {
+      "x": 388,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond4_png": {
+      "x": 581,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond5_png": {
+      "x": 774,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond6_png": {
+      "x": 967,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond7_png": {
+      "x": 967,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond8_png": {
+      "x": 967,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamond9_png": {
+      "x": 967,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamondA_png": {
+      "x": 1160,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamondJ_png": {
+      "x": 1160,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamondK_png": {
+      "x": 1160,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_diamondQ_png": {
+      "x": 1160,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart10_png": {
+      "x": 2,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart2_png": {
+      "x": 195,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart3_png": {
+      "x": 388,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart4_png": {
+      "x": 581,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart5_png": {
+      "x": 774,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart6_png": {
+      "x": 967,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart7_png": {
+      "x": 1160,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart8_png": {
+      "x": 1353,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heart9_png": {
+      "x": 1353,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heartA_png": {
+      "x": 1353,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heartJ_png": {
+      "x": 1353,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heartK_png": {
+      "x": 1353,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_heartQ_png": {
+      "x": 2,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade10_png": {
+      "x": 195,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade2_png": {
+      "x": 388,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade3_png": {
+      "x": 581,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade4_png": {
+      "x": 774,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade5_png": {
+      "x": 967,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade6_png": {
+      "x": 1160,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade7_png": {
+      "x": 1353,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade8_png": {
+      "x": 1546,
+      "y": 2,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spade9_png": {
+      "x": 1546,
+      "y": 295,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spadeA_png": {
+      "x": 1546,
+      "y": 588,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spadeJ_png": {
+      "x": 1546,
+      "y": 881,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spadeK_png": {
+      "x": 1546,
+      "y": 1174,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    },
+    "d_sq_bac_large_poker_spadeQ_png": {
+      "x": 1546,
+      "y": 1467,
+      "w": 189,
+      "h": 289,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 189,
+      "sourceH": 289
+    }
+  }
+}

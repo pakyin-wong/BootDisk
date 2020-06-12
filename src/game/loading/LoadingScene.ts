@@ -29,7 +29,9 @@ namespace we {
 
       /** Step 1: Preload Loading Scene Resource */
       private async preloadRes() {
+        console.log('start preload');
         await RES.loadGroup(core.res.Loading);
+        console.log('preload finish');
         this.next();
       }
 

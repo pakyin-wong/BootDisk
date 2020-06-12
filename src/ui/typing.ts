@@ -4,7 +4,7 @@ namespace we {
     // Components
     export interface ILobbyRoad {
       // updateRoadData(roadmapData: any);
-
+      drawGridBg(width: number, height: number);
       updateLobbyRoadData(roadmapData: any);
       updateSideBarRoadData(roadmapData: any);
       setTableInfo?(tableInfo: data.TableInfo);

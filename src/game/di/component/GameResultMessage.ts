@@ -21,8 +21,10 @@ namespace we {
           this
         );
 
-        const { dice1, dice2, dice3, size, odd, total } = <di.GameData> gameData;
-        logger.l(dice1, dice2, dice3, size, odd, total);
+        const { dice1, dice2, dice3, size, odd } = <di.GameData> gameData;
+        logger.l(dice1, dice2, dice3, size, odd);
+
+        const total = isNaN((gameData as di.GameData).total) ? dice1 + dice2 + dice3 : (gameData as di.GameData).total;
 
         let anim = 'ani_result_';
         let txtSlot = null;

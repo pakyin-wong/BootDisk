@@ -42,10 +42,10 @@ namespace we {
       }
 
       private initStage(stage: egret.Stage) {
-        // this._nav = new ui.Nav();
+        this._nav = new ui.Nav();
         this._overlay = new ui.Overlay();
 
-        // dir.layerCtr.nav.addChild(this._nav);
+        dir.layerCtr.nav.addChild(this._nav);
 
         if (env.isMobile) {
           this._sideGameList = new ui.MobileSideGameList();
@@ -66,7 +66,6 @@ namespace we {
           this._notificationController.y = 0;
           dir.layerCtr.notification.addChild(this._notificationController);
         } else {
-          /*
           this._liveSidePanel = new ui.LiveSidePanel();
           this._liveSidePanel.right = 20;
           this._liveSidePanel.y = 80;
@@ -77,7 +76,6 @@ namespace we {
             idx = this._nav.getChildIndex(child) + 1;
           }
           this._nav.addChildAt(this._liveSidePanel, idx);
-          */
           dir.layerCtr.overlay.addChild(this._overlay);
 
           this._notificationController = new ui.NotificationController();

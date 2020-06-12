@@ -73,10 +73,10 @@ namespace we {
       }
 
       private loadPage(name: string, data: any = null) {
-        // this._page.removeChildren();
-        // const page: core.BasePage = new we[name].Page(data);
-        // this._page.addChild(page);
-        // page.onEnter();
+        this._page.removeChildren();
+        const page: core.BasePage = new we[name].Page(data);
+        this._page.addChild(page);
+        page.onEnter();
       }
     }
 

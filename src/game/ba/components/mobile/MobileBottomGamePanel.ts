@@ -47,6 +47,11 @@ namespace we {
         this.chartBtn.label = i18n.t('mobile_game_panel_statistic_chart');
         this.tableInfoBtn.label = i18n.t('mobile_game_panel_table_info');
       }
+
+      protected updateStat() {
+        super.updateStat();
+        this._statisticChartPanel.update();
+      }
     }
   }
 }

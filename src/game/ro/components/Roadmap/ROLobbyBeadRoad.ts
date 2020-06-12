@@ -14,6 +14,8 @@ namespace we {
       public roadEmptyAlpha: number = 1;
       public roadScale: number = 1;
 
+      protected beadRoadGrid: egret.Shape;
+
       public constructor() {
         super();
         this.cacheAsBitmap = true;
@@ -31,8 +33,19 @@ namespace we {
         this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;
         // const rdata: any = [];
         // this.beadRoad.parseRoadData(rdata);
+
+        // grid bg rectangle
+        this.beadRoadGrid = new egret.Shape();
+        this.addChild(this.beadRoadGrid);
         this.addChild(this.beadRoad);
         this.beadRoad.initRoadData();
+      }
+
+      public drawGridBg(width: number, height: number) {
+        this.beadRoadGrid.graphics.beginFill(0xffffff, 1);
+        this.beadRoadGrid.graphics.lineStyle(1, 0xafafaf, 1, true);
+        RoundRect.drawRoundRect(this.beadRoadGrid.graphics, 0, 0, width, height, { tl: 0, tr: 0, bl: 8, br: 8 });
+        this.beadRoadGrid.graphics.endFill();
       }
 
       public updateRoadData(roadmapData: data.RoadmapData) {
