@@ -35,18 +35,18 @@ namespace we {
 
         cardArr.forEach(function (value, index) {
           if (value) {
-            cardHolderArr[index].setCard(utils.formatCard(value), (index + 1) % 3 !== 0);
+            cardHolderArr[index].setCard(utils.formatCard(value));
           } else {
             if ((index + 1) % 3 !== 0) {
-              cardHolderArr[index].setCard('back', true);
+              cardHolderArr[index].setCard('back');
             }
           }
         });
       }
 
       public reset() {
-        this.cardDragon.setCard('back', true);
-        this.cardTiger.setCard('back', true);
+        this.cardDragon.setCard('back');
+        this.cardTiger.setCard('back');
       }
     }
   }

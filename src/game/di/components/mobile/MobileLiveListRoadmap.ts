@@ -15,6 +15,8 @@ namespace we {
       public roadIconItemColors: any = [0xe4493a, 0x6dd400, 0x2da1fe, 0x184077, 1];
       public roadScale: number = 1;
 
+      protected beadRoadGrid: egret.Shape;
+
       public constructor() {
         super();
         this.cacheAsBitmap = true;
@@ -33,7 +35,18 @@ namespace we {
 
         const rdata: any = [];
         this.bigRoad.parseRoadData(rdata);
+
+        // grid bg rectangle
+        this.beadRoadGrid = new egret.Shape();
+        this.addChild(this.beadRoadGrid);
         this.addChild(this.bigRoad);
+      }
+
+      public drawGridBg(width: number, height: number) {
+        this.beadRoadGrid.graphics.beginFill(0xffffff, 1);
+        this.beadRoadGrid.graphics.lineStyle(1, 0xafafaf, 1, true);
+        RoundRect.drawRoundRect(this.beadRoadGrid.graphics, 0, 0, width, height, { tl: 0, tr: 0, bl: 8, br: 8 });
+        this.beadRoadGrid.graphics.endFill();
       }
 
       public updateRoadData(roadmapData: data.RoadmapData) {

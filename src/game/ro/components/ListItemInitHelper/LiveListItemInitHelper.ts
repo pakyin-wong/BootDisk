@@ -39,6 +39,7 @@ namespace we {
         bigRoad.roadEmptyAlpha = 0.2;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
+        bigRoad.drawGridBg(576, 139);
         return bigRoad;
       }
 

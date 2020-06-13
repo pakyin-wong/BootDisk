@@ -41,6 +41,7 @@ namespace we {
         road.roadScale = 578 / 572;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(road, idx);
+        road.drawGridBg(576, 139);
         return road;
       }
 

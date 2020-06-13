@@ -18,13 +18,8 @@ namespace we {
         this._data = data;
         this.sceneHeaderPlacement = core.BaseScene.HEADER_PLACEMENT_LOBBY;
         this._skinKey = 'LobbyScene';
-        // this.skinName = utils.getSkinByClassname('LobbyScene');
         this.skinName = utils.getSkinByClassname(this._skinKey);
       }
-
-      // protected mount() {
-      //   super.mount();
-      // }
 
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
@@ -49,10 +44,7 @@ namespace we {
       }
 
       public onEnter() {
-        // After pressing the Filter
         dir.socket.getTableList();
-        // dir.socket.getTableList(enums.TableFilter.BACCARAT);
-        // dir.socket.getTableHistory();
         let itemIdx = 0;
         if (this._data) {
           const initPage = this._data ? this._data.page : null;

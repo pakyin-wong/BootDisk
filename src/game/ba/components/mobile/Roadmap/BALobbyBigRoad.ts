@@ -4,7 +4,7 @@ namespace we {
       protected bigRoad: BABigRoad;
       protected parser: BARoadParser;
       protected useParser: boolean = false;
-
+      protected beadRoadGrid: egret.Shape;
       public constructor() {
         super();
         this.cacheAsBitmap = true;
@@ -21,7 +21,18 @@ namespace we {
 
         this.bigRoad = new BABigRoad(17, 32);
         this.bigRoad.scaleX = this.bigRoad.scaleY = 578 / 575;
+
+        // grid bg rectangle
+        this.beadRoadGrid = new egret.Shape();
+        this.addChild(this.beadRoadGrid);
         this.addChild(this.bigRoad);
+      }
+
+      public drawGridBg(width: number, height: number) {
+        this.beadRoadGrid.graphics.beginFill(0xffffff, 1);
+        this.beadRoadGrid.graphics.lineStyle(1, 0xafafaf, 1, true);
+        RoundRect.drawRoundRect(this.beadRoadGrid.graphics, 0, 0, width, height, { tl: 0, tr: 0, bl: 8, br: 8 });
+        this.beadRoadGrid.graphics.endFill();
       }
 
       protected onParserUpdate(e: egret.Event) {
