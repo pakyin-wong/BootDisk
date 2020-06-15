@@ -52,11 +52,11 @@ if (list has new goodroad) we send out Notification.
 4. Install npm
 5. Install the following programs
 ```
-npm install -g tslint prettier typescript
-npm install -g cross-zip cross-zip-cli
-npm install -g optipng pngquant
+npm i -g tslint prettier typescript
+npm i -g cross-zip cross-zip-cli
+npm i -g optipng-bin pngquant-bin
 npm i -g @ffflorian/jszip-cli
-npm install -g jpegoptim-bin
+npm i -g jpegoptim-bin
 ```
 
 ### Windows
@@ -68,11 +68,11 @@ npm install -g jpegoptim-bin
 5. Install npm
 6. Install the following programs
 ```
-npm install -g tslint prettier typescript
-npm install -g cross-zip cross-zip-cli
-npm install -g optipng pngquant
+npm i -g tslint prettier typescript
+npm i -g cross-zip cross-zip-cli
+npm i -g optipng-bin pngquant-bin
 npm i -g @ffflorian/jszip-cli
-npm install -g jpegoptim-bin
+npm i -g jpegoptim-bin
 ```
 
 ### SpriteSheet 
