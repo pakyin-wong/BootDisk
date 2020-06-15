@@ -19,6 +19,10 @@ namespace we {
         super.partAdded(partName, instance);
       }
 
+      public set orientationDependent(value: boolean) {
+        this._orientationDependent = value;
+      }
+
       protected childrenCreated(): void {
         super.childrenCreated();
 
