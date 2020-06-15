@@ -255,6 +255,9 @@ namespace we {
           this._goodRoadLabel.visible = false;
         }
       }
+      protected destroy() {
+        super.destroy();
+      }
     }
   }
 }
