@@ -2,10 +2,10 @@
 This is the game client for World Entertainment.
 
 ## content
-[Live Game Resources](#live-game-resource)
-[Live Game Asset](#live-game-asset)
-[Lottery Resources](#lottery-resource)
-[Lottery Asset](#lottery-asset)
+- [Live Game Resources](#live-game-resource)
+- [Live Game Asset](#live-game-asset)
+- [Lottery Resources](#lottery-resource)
+- [Lottery Asset](#lottery-asset)
 
 ## Roadmap
 
@@ -223,6 +223,9 @@ There are few steps needed to be taken before publish
 - [Lottery Algorithm (swift)](https://github.com/biostome/BTLotteryAlgorithm/blob/master/LotteryAlgorithm.playground/Contents.swift)
 - [Lottery Demo (yunjicp)](https://yunjicp.com/)
 - [Lottery bet type and backend field definition (by felix)](https://docs.google.com/spreadsheets/d/1NiRO7jKdO441-Ja9IuCCuDb_ib_pxLKA/edit#gid=1362459178)
+- [時時彩 玩法說明](https://drive.google.com/drive/folders/1NKNYbvCVuGMT8cMEHgkUo5RmIpBoRCWu?usp=sharing)
+- [時時彩 Requirement](https://drive.google.com/file/d/1XjppI7cKDkCOOVcRWSQrAXX_mAjjzD53/view?usp=sharing)
+- [Lottery pending and unclearness](https://docs.google.com/document/d/1dkb1aqSjAEqK9TL4wf4UtGk7YeSDjzz0atUuCAjBjec/edit?usp=sharing)
 
 ## Lottery Asset
 - [Lobby + 時時彩 Desktop](https://drive.google.com/open?id=19TTHY9c2-hLl-HWt-q2dLFsl_uFc79GO)
