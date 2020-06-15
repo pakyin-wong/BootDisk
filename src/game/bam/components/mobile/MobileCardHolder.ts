@@ -29,6 +29,12 @@ namespace we {
 
       protected _resultCard: MobileFlipCardHolder;
 
+      protected colorMatrix = [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0];
+      protected grayMatrix = [0.62, 0, 0, 0, 0, 0, 0.62, 0, 0, 0, 0, 0, 0.62, 0, 0, 0, 0, 0, 1, 0];
+
+      protected disableFilter: egret.ColorMatrixFilter;
+      protected enableFilter: egret.ColorMatrixFilter;
+
       constructor() {
         super();
       }
@@ -42,6 +48,8 @@ namespace we {
         super.childrenCreated();
         this.reset();
 
+        this.disableFilter = new egret.ColorMatrixFilter(this.grayMatrix);
+        this.enableFilter = new egret.ColorMatrixFilter(this.colorMatrix);
         this.updateCardArr();
       }
 
@@ -129,6 +137,7 @@ namespace we {
         this.cardHolderArr = new Array<ui.Card>();
         this.cardHolderArr = [this.card1Banker, this.card2Banker, this.card3Banker, this.card1Player, this.card2Player, this.card3Player];
         if (this.gameData) {
+          this.cardArr = new Array<string>();
           this.cardArr = [this.gameData.a1, this.gameData.a2, this.gameData.a3, this.gameData.b1, this.gameData.b2, this.gameData.b3];
         }
       }
@@ -159,18 +168,25 @@ namespace we {
             this.card1Player.setCard(utils.formatCard(this.cardArr[3]));
             this.card2Player.setCard(utils.formatCard(this.cardArr[4]));
             break;
-          case core.GameState.PEEK_BANKER:
+          case core.GameState.PEEK_PLAYER:
             this.card3Player.setCard(utils.formatCard(this.cardArr[5]));
             break;
         }
       }
 
+      protected updateResultCard(){
+          this.card1Player.filters = [this.enableFilter];
+          this.card2Player.filters = [this.enableFilter];
+          this.card3Player.filters = [this.enableFilter];
+          this.card1Banker.filters = [this.enableFilter];
+          this.card2Banker.filters = [this.enableFilter];
+          this.card3Banker.filters = [this.enableFilter];
+      }
+
       protected disableCard(type: string) {
-        const colorMatrix = [0, 0, 0, 0, 0, 
-                             0, 0, 0, 0, 255,
-                             0, 0, 0, 0, 0, 
-                             0, 0, 0, 1, 0];
-        const disableFilter = new egret.ColorMatrixFilter(colorMatrix);
+        const grayMatrix = [0.62, 0, 0, 0, 0, 0, 0.62, 0, 0, 0, 0, 0, 0.62, 0, 0, 0, 0, 0, 1, 0];
+        const disableFilter = new egret.ColorMatrixFilter(grayMatrix);
+
         if (type === 'player') {
           this.card1Player.touchEnabled = false;
           this.card2Player.touchEnabled = false;
@@ -185,19 +201,6 @@ namespace we {
           this.card1Banker.filters = [disableFilter];
           this.card2Banker.filters = [disableFilter];
           this.card3Banker.filters = [disableFilter];
-        } else {
-          this.card1Player.touchEnabled = false;
-          this.card2Player.touchEnabled = false;
-          this.card3Player.touchEnabled = false;
-          this.card1Banker.touchEnabled = false;
-          this.card2Banker.touchEnabled = false;
-          this.card3Banker.touchEnabled = false;
-          this.card1Banker.filters = [disableFilter];
-          this.card2Banker.filters = [disableFilter];
-          this.card3Banker.filters = [disableFilter];
-          this.card1Player.filters = [disableFilter];
-          this.card2Player.filters = [disableFilter];
-          this.card3Player.filters = [disableFilter];
         }
       }
 
@@ -250,9 +253,6 @@ namespace we {
       }
 
       public setPeekPlayerState() {
-        if (!this._prevState) {
-          this.reset();
-        }
         if (this._timer) {
           this._timer.visible = true;
           this._timer.countdownValue = this.gameData.countdownB * 1000;
@@ -260,20 +260,17 @@ namespace we {
           this._timer.start();
         }
 
+        this.updateResultCard();
         this.card1Banker.setCard(utils.formatCard(this.cardArr[0]));
         this.card2Banker.setCard(utils.formatCard(this.cardArr[1]));
         this.card1Player.setCard(utils.formatCard(this.cardArr[3]));
         this.card2Player.setCard(utils.formatCard(this.cardArr[4]));
 
-        this.setCardsFlipAllowed();
         this.card3Player.visible = true;
+        this.setCardsFlipAllowed();
       }
 
       public setPeekBankerState() {
-        if (!this._prevState) {
-          this.reset();
-        }
-
         if (this._timer) {
           this._timer.visible = true;
           this._timer.countdownValue = this.gameData.countdownB * 1000;
@@ -281,17 +278,18 @@ namespace we {
           this._timer.start();
         }
 
+        this.updateResultCard();
         this.card1Banker.setCard(utils.formatCard(this.cardArr[0]));
         this.card2Banker.setCard(utils.formatCard(this.cardArr[1]));
         this.card1Player.setCard(utils.formatCard(this.cardArr[3]));
         this.card2Player.setCard(utils.formatCard(this.cardArr[4]));
 
-        this.setCardsFlipAllowed();
         this.card3Banker.visible = true;
         if (this.cardArr[5]) {
           this.card3Player.visible = true;
           this.card3Player.setCard(utils.formatCard(this.cardArr[5]));
         }
+        this.setCardsFlipAllowed();
       }
 
       public setFinishState() {
@@ -326,18 +324,18 @@ namespace we {
       protected setCardsFlipAllowed() {
         if (this.isPlayerFlipAllowed()) {
           this.disableCard('banker');
-          // for (let i = 3; i <= 5; i++) {
-          //   this.cardBlockArr[i].visible = false;
-          // }
           this.card1Player.touchEnabled = true;
           this.card2Player.touchEnabled = true;
           this.card3Player.touchEnabled = true;
+          this.card1Player.filters = [this.enableFilter];
+          this.card2Player.filters = [this.enableFilter];
+          this.card3Player.filters = [this.enableFilter];
+
+          this._openAllPlayer.visible = true;
           this._openAllPlayer.touchEnabled = true;
         } else {
           this.disableCard('player');
-          // for (let i = 3; i <= 5; i++) {
-          //   this.cardBlockArr[i].visible = true;
-          // }
+          this._openAllPlayer.visible = false;
           this._openAllPlayer.touchEnabled = false;
         }
         if (this.isBankerFlipAllowed()) {
@@ -345,9 +343,15 @@ namespace we {
           this.card1Banker.touchEnabled = true;
           this.card2Banker.touchEnabled = true;
           this.card3Banker.touchEnabled = true;
+          this.card1Banker.filters = [this.enableFilter];
+          this.card2Banker.filters = [this.enableFilter];
+          this.card3Banker.filters = [this.enableFilter];
+
+          this._openAllBanker.visible = true;
           this._openAllBanker.touchEnabled = true;
         } else {
           this.disableCard('banker');
+          this._openAllBanker.visible = false;
           this._openAllBanker.touchEnabled = false;
         }
       }

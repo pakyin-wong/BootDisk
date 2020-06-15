@@ -2,6 +2,7 @@ namespace we {
   export namespace bam {
     export class MobileFlipCardHolder extends core.BaseEUI {
       public _flipCard: ba.FlipCard;
+
       public showCardIndex: number = 0;
 
       public constructor() {
