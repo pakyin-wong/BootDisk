@@ -58,8 +58,7 @@
 				<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="64" anchorOffsetY="0" height="120"
 				                    skinName="skin_mobile_portrait.ImageButtonSkinBettingPanel" currentState="b_undo"  x="351" x.right_hand_mode="588"/>
 			</e:Group>
-			<bam:MobileCardHolder id="_resultDisplay" width="1242" height="380" y="40" horizontalCenter="0" anchorOffsetX="0"
-			               anchorOffsetY="0" x="415" scaleX="1" scaleY="1"  y.left_hand_mode="-150" horizontalCenter.right_hand_mode="0" y.right_hand_mode="-150"/>
+
 		</e:Group>
 		<ba:MobileBottomGamePanel skinName="skin_mobile_portrait.ba.MobileBottomGamePanel" id="_bottomGamePanel" width="1242"
 		                          x="0" scaleY="1" y="783" scaleX="1" />
@@ -113,9 +112,10 @@
 
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
+	<bam:MobileCardHolder id="_resultDisplay" width="1242" height="380" y="710" horizontalCenter="0" anchorOffsetX="0" anchorOffsetY="0" x="415" scaleX="1" scaleY="1" y.left_hand_mode="550" horizontalCenter.right_hand_mode="0" y.right_hand_mode="550"/>
 
 	<bam:MobileFlipCardHolder id="_resultCard" width="1094" height="1472" y="595" anchorOffsetX="0"
-			               anchorOffsetY="0" x="75" scaleX="1" scaleY="1"  y.left_hand_mode="595"/>
+			               anchorOffsetY="0" x="75" scaleX="1" scaleY="1"  y.left_hand_mode="750" y.right_hand_mode="745"/>
 
 	<e:Group bottom="0" left="0" width="700" left.left_hand_mode="18" bottom.left_hand_mode="118">
 		<ui:RunTimeLabel id="_baGameIDText" text="Game ID :" bottom="0" left="0" left.left_hand_mode="15" bottom.left_hand_mode="94"/>

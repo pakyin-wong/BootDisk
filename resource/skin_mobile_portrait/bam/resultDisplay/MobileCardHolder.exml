@@ -27,12 +27,12 @@
                                          touchEnabled="false"  size="48"/>
         </e:Group>
 
-        <ui:Card id="card3Banker" width="96" height="140" horizontalCenter="450" y="265"  rotation="90"/>
-        <ui:Card id="card2Banker" width="96" height="140" horizontalCenter="300" y="225" />
-        <ui:Card id="card1Banker" width="96" height="140" horizontalCenter="170" y="225" />
-        <ui:Card id="card3Player" width="96" height="140" horizontalCenter="-450" y="265"  rotation="90"/>
-        <ui:Card id="card2Player" width="96" height="140" horizontalCenter="-300" y="225" />
-        <ui:Card id="card1Player" width="96" height="140" horizontalCenter="-170" y="225" />
+        <ui:Card id="card3Banker" name="card3Banker" width="96" height="140" horizontalCenter="450" y="265"  rotation="90"/>
+        <ui:Card id="card2Banker" name="card2Banker" width="96" height="140" horizontalCenter="300" y="225" />
+        <ui:Card id="card1Banker" name="card1Banker" width="96" height="140" horizontalCenter="170" y="225" />
+        <ui:Card id="card3Player" name="card3Player" width="96" height="140" horizontalCenter="-450" y="265"  rotation="90"/>
+        <ui:Card id="card2Player" name="card2Player" width="96" height="140" horizontalCenter="-300" y="225" />
+        <ui:Card id="card1Player" name="card1Player" width="96" height="140" horizontalCenter="-170" y="225" />
 
         <e:Group width="50%" height="83%" bottom="0" visible="false">
                 <e:Image id="_playerWinningField" width="100%" height="100%" source="d-sq-ba-p-win-hl-copy_png" visible="false"/>

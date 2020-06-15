@@ -137,13 +137,21 @@ namespace we {
         */
 
         this._fingerLeft = new eui.Image();
-        this._fingerLeft.source = 'd_sq_ba_thumb_up_png';
+        if (!env.isMobile) {
+          this._fingerLeft.source = 'd_sq_ba_thumb_up_png';
+        } else {
+          this._fingerLeft.source = 'm_sq_ba_thumb_up_png';
+        }
         this._fingerLeft.width = this._cardWidth / this._fingerToCardRatio;
         this._fingerLeft.height = this._cardHeight / this._fingerToCardRatio;
         this._fingerLayer.addChild(this._fingerLeft);
 
         this._fingerRight = new eui.Image();
-        this._fingerRight.source = 'd_sq_ba_thumb_up_png';
+        if (!env.isMobile) {
+          this._fingerRight.source = 'd_sq_ba_thumb_up_png';
+        } else {
+          this._fingerRight.source = 'm_sq_ba_thumb_up_png';
+        }
         this._fingerRight.width = this._cardWidth / this._fingerToCardRatio;
         this._fingerRight.height = this._cardHeight / this._fingerToCardRatio;
         this._fingerLayer.addChild(this._fingerRight);

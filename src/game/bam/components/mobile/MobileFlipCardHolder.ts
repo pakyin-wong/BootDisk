@@ -2,6 +2,7 @@ namespace we {
   export namespace bam {
     export class MobileFlipCardHolder extends core.BaseEUI {
       public _flipCard: ba.FlipCard;
+      public showCardIndex: number = 0;
 
       public constructor() {
         super();
@@ -35,8 +36,10 @@ namespace we {
 
       public setCardImage(index: number, value: string) {
         console.log('flipcardpath', `d_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
-        this._flipCard.setCardImage('m_sq_ba_large_poker_backside', `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`, `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
+        this._flipCard.setCardImage('m_sq_ba_large_poker_backside_png', `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`, `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
       }
+
+      public closeFlipPanel() {}
     }
   }
 }
