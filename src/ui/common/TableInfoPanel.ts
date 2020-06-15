@@ -48,6 +48,10 @@ namespace we {
         this.destroy();
       }
 
+      protected destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
       public changeLang() {
         this.lblTableInfo.text = i18n.t('tableInfo.tableInfo');
 

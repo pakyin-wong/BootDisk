@@ -41,20 +41,19 @@ namespace we {
         if (this._opt) {
           this._selectedIdx = this._list.selectedIndex;
         }
+        this.removeListeners();
       }
 
       protected initOrientationDependentComponent() {
+        // protected initComponents() {
         (<RunTimeLabel>this.close).renderText = () => `${i18n.t('mobile_dropdown_confirm')}`;
-
         this._scroller.bounces = false;
         this._list.dataProvider = this._dataCollection = new eui.ArrayCollection(['']);
         this._list.itemRenderer = MobileDropdownItemRender;
         this._list.requireSelection = true;
         this._scroller.viewport = this._list;
-
         this.poppableAddon.onOrientationChange();
         this.addListeners();
-
         if (this._selectedIdx >= 0 && this._opt) {
           this._title.renderText = this._opt.title;
           this._dataCollection.replaceAll([].concat(this._opt.arrCol.source));
@@ -68,6 +67,7 @@ namespace we {
 
       protected destroy() {
         super.destroy();
+        this.removeListeners();
       }
       protected addListeners() {
         // dir.evtHandler.addEventListener(core.Event.TOGGLE_MOBILE_DROPDOWN, this.toggleDropdown, this);
@@ -79,7 +79,14 @@ namespace we {
         this._list.addEventListener(egret.Event.CHANGE, this.onChange, this);
         this._list.addEventListener(egret.Event.RENDER, this.onRender, this);
       }
-      protected removeListeners() {}
+      protected removeListeners() {
+        this._scroller.removeEventListener(eui.UIEvent.CHANGE_START, this.onScrollStart, this);
+        this._scroller.removeEventListener(egret.Event.CHANGE, this.onScroll, this);
+        this._scroller.removeEventListener(eui.UIEvent.CHANGE_END, this.onScrollEnd, this);
+        this._list.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.handleTap, this);
+        this._list.removeEventListener(egret.Event.CHANGE, this.onChange, this);
+        this._list.removeEventListener(egret.Event.RENDER, this.onRender, this);
+      }
       protected async toggleDropdown(e) {
         if (this._opt && this.isActivated) {
           return;
