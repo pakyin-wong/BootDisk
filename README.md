@@ -150,6 +150,9 @@ There are few steps needed to be taken before publish
 
 ## Live Game Asset
 
+- [God of Wealth Roulette Desktop Animation](https://drive.google.com/open?id=1AogJc0OACzfhH69ON0fyt2uznZlwKi5o)
+- [God of Wealth Roulette Mobile Animation](https://drive.google.com/open?id=13SNhuemmGrRZ_yWi5XcCeYFPXb-3ucCA)
+
 - [Lucky Wheel 結果通知 Asset](https://drive.google.com/open?id=1C-jERs8Ixsdw3E2gKbYCROna_SuEa5n7)
 - [Lucky Wheel 結果通知 Asset mobile](https://drive.google.com/open?id=1IO_lTsvor9o_dSryBiRPuYKLPn28drGu)
 
