@@ -36,6 +36,10 @@ namespace we {
         this._betChipSet.alpha = 1;
       }
 
+      public get closeButton() {
+        return this._closeButton;
+      }
+
       protected initComponents() {
         this.generateRoadmap();
         this.generateTableLayer();

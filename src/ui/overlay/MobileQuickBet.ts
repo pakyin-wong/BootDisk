@@ -47,6 +47,7 @@ namespace we {
         if (we[generalGameType].LargeListItemInitHelper) {
           displayItem.itemInitHelper = new we[generalGameType].LargeListItemInitHelper();
         }
+        this.close = displayItem.closeButton;
 
         this._controlGroup.addChild(displayItem);
         displayItem.setData(tableInfo);
