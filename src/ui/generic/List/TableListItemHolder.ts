@@ -39,10 +39,6 @@ namespace we {
       }
       protected destroy() {
         super.destroy();
-        this.content.removeChildren();
-        this.removeChildren();
-        this.removeSelf();
-
         this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
       }
 
