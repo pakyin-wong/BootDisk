@@ -2,15 +2,18 @@
 namespace we {
   export namespace ssc {
       export const ImageMapping ={
+          BIGTAG_ACTIVE:"",
           BIGTAG_NORMAL:"",
           BIGTAG_HOVER:"",
-          SMALLTAG_NORMAL:"",
-          SMALLTAG_HOVER:""
+        //   SMALLTAG_ACTIVE:"",
+        //   SMALLTAG_NORMAL:"",
+        //   SMALLTAG_HOVER:""
       }
 
       export const SelectionMapping : any = {
             FiveStar:{      //bigTag
                 name:"FiveStar",
+                seperateLine:[2], // small tag index for if there is a seprate line to seperate the next item
                 type:{
                     DirectionSelection:{    //smallTag
                         name:"DirectionSelection",
