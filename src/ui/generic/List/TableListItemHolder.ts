@@ -35,11 +35,15 @@ namespace we {
         this.mount();
       }
       protected async mount() {
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        if (!env.isMobile) {
+          this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        }
       }
       protected destroy() {
         super.destroy();
-        this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        if (!env.isMobile) {
+          this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTapWhole, this);
+        }
       }
 
       protected get list(): TableList {

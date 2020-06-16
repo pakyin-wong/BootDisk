@@ -1,6 +1,12 @@
 # fe-game-client-egret
 This is the game client for World Entertainment.
 
+## content
+- [Live Game Resources](#live-game-resource)
+- [Live Game Asset](#live-game-asset)
+- [Lottery Resources](#lottery-resource)
+- [Lottery Asset](#lottery-asset)
+
 ## Roadmap
 
 ### Tasks
@@ -46,10 +52,11 @@ if (list has new goodroad) we send out Notification.
 4. Install npm
 5. Install the following programs
 ```
-npm install -g tslint prettier typescript
-npm install -g cross-zip cross-zip-cli
+npm i -g tslint prettier typescript
+npm i -g cross-zip cross-zip-cli
+npm i -g optipng-bin pngquant-bin
 npm i -g @ffflorian/jszip-cli
-npm install -g jpegoptim-bin
+npm i -g jpegoptim-bin
 ```
 
 ### Windows
@@ -61,7 +68,11 @@ npm install -g jpegoptim-bin
 5. Install npm
 6. Install the following programs
 ```
-npm install -g tslint prettier typescript
+npm i -g tslint prettier typescript
+npm i -g cross-zip cross-zip-cli
+npm i -g optipng-bin pngquant-bin
+npm i -g @ffflorian/jszip-cli
+npm i -g jpegoptim-bin
 ```
 
 ### SpriteSheet 
@@ -90,10 +101,10 @@ There are few steps needed to be taken before publish
 
 2. [Staging](http://18.139.237.86:8901/?checked=true&uid=H003)
 
-## External Resource
+## Live Game Resource
 - [Slack for whole team](https://perfectgaming.slack.com/)
 - [Trello Task List](https://trello.com/b/ulT0EbaT/pg-live-game-frontend-tasks)
-- [Frondend Documents](https://drive.google.com/drive/u/0/folders/1HHHJ0gJwfynMjYndl5te1XN4agXu-vn6)
+- [Frontend Documents](https://drive.google.com/drive/u/0/folders/1HHHJ0gJwfynMjYndl5te1XN4agXu-vn6)
 - [Auto Dealer](http://18.139.237.86:8901/?checked=true)
 - [Invision Template](https://projects.invisionapp.com/prototype/Quick-Bet-ck3dwku8c00f0el01k01o5kam/)
 - [Zeplin Template](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard)
@@ -137,7 +148,7 @@ There are few steps needed to be taken before publish
 
 
 
-## Asset Link from Design Team (Copied from whatsapp group)
+## Live Game Asset
 
 - [Lucky Wheel 結果通知 Asset](https://drive.google.com/open?id=1C-jERs8Ixsdw3E2gKbYCROna_SuEa5n7)
 - [Lucky Wheel 結果通知 Asset mobile](https://drive.google.com/open?id=1IO_lTsvor9o_dSryBiRPuYKLPn28drGu)
@@ -205,3 +216,16 @@ There are few steps needed to be taken before publish
 - [28/11/2019 Lobby](https://drive.google.com/drive/folders/1lF1IKI3giYKNOTiGjZ7fp2r1WvNSoK-q?usp=sharing)
 
 - [28/11/2019 Baccarat](https://drive.google.com/drive/folders/1u_gLYYdSB8OUm6g95WgEZ7zhtNs3GXB3?usp=sharing)
+
+## Lottery Resource
+- [Lobby + 時時彩 Desktop Zeplin](https://app.zeplin.io/project/5d8d9c1ec2f4dd026286ee4e/dashboard?seid=5edf231d1fa6889938219d7a)
+- CP原型地址：https://xqh5ls.axshare.com/  CP访问密码：teF#LMvy&Kc4qNOx
+- [Lottery Algorithm (swift)](https://github.com/biostome/BTLotteryAlgorithm/blob/master/LotteryAlgorithm.playground/Contents.swift)
+- [Lottery Demo (yunjicp)](https://yunjicp.com/)
+- [Lottery bet type and backend field definition (by felix)](https://docs.google.com/spreadsheets/d/1NiRO7jKdO441-Ja9IuCCuDb_ib_pxLKA/edit#gid=1362459178)
+- [時時彩 玩法說明](https://drive.google.com/drive/folders/1NKNYbvCVuGMT8cMEHgkUo5RmIpBoRCWu?usp=sharing)
+- [時時彩 Requirement](https://drive.google.com/file/d/1XjppI7cKDkCOOVcRWSQrAXX_mAjjzD53/view?usp=sharing)
+- [Lottery pending and unclearness](https://docs.google.com/document/d/1dkb1aqSjAEqK9TL4wf4UtGk7YeSDjzz0atUuCAjBjec/edit?usp=sharing)
+
+## Lottery Asset
+- [Lobby + 時時彩 Desktop](https://drive.google.com/open?id=19TTHY9c2-hLl-HWt-q2dLFsl_uFc79GO)

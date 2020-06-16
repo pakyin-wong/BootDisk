@@ -80,12 +80,14 @@ namespace we {
 
       public onRollover(fieldName: string) {
         if (this._imageSourceMapping) {
-          this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][1];
+          const colorMatrix = [1, 0, 0, 0, 100, 0, 1, 0, 0, 100, 0, 0, 1, 0, 100, 0, 0, 0, 1, 0];
+          const colorFilter = new egret.ColorMatrixFilter(colorMatrix);
+          this._imageMapping[fieldName].filters = [colorFilter];
         }
       }
 
       public onRollout(fieldName: string) {
-        this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][0];
+        this._imageMapping[fieldName].filters = [];
       }
 
       public clearAllHighlights() {
@@ -115,6 +117,13 @@ namespace we {
             break;
           }
         }
+
+        const colorMatrix = [1, 0, 0, 0, 100, 0, 1, 0, 0, 100, 0, 0, 1, 0, 100, 0, 0, 0, 1, 0];
+        const brightnessFilter = new we.ui.BrightnessFilter(colorMatrix);
+        this._imageMapping[fieldOpen].filters = [brightnessFilter];
+
+        egret.Tween.get(brightnessFilter).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125);
+        /*
 
         // prepare anim
         const initRectPromises = [];
@@ -178,6 +187,7 @@ namespace we {
           setTimeout(tick, 300);
         };
         setTimeout(tick, 300);
+        */
       }
     }
   }

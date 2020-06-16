@@ -46,10 +46,12 @@ namespace we {
         betCombination.gametype = we.core.GameType.RO;
         betCombination.id = 'f1';
         betCombination.playerid = '12321';
+
         betCombination.optionsList = [
           { amount: 1000, betcode: we.ro.BetField.BIG },
           { amount: 1000, betcode: we.ro.BetField.BLACK },
         ];
+
         this.betCombinations.push(betCombination);
 
         /*
