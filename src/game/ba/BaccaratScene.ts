@@ -108,6 +108,12 @@ namespace we {
           }
         }
       }
+      public checkResultMessage() {
+        if (this._gameData.wintype == 0) {
+          return;
+        }
+        super.checkResultMessage();
+      }
 
       protected playResultSoundEffect(totalWin) {
         let subject;

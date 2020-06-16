@@ -536,7 +536,7 @@ namespace we {
       public checkResultMessage() {
         const totalWin: number = this._tableInfo.totalWin;
 
-        if (!(this._gameData && this._gameData.wintype != 0)) {
+        if (!this._gameData) {
           return;
         }
 

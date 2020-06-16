@@ -249,28 +249,9 @@ namespace we {
           totalWin = this._tableInfo.totalWin;
         }
 
-        if (!this._gameData) {
-          return;
-        }
         (this._tableLayer as di.TableLayer).flashFields(this._gameData);
 
-        if (this.hasBet()) {
-          if (this._gameData && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              gameData: this._gameData,
-              winAmount: this._tableInfo.totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        } else {
-          if (this._gameData) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              gameData: this._gameData,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        }
+        super.checkResultMessage();
       }
 
       protected initBottomBetLimitSelector() {

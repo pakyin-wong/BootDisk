@@ -51,7 +51,8 @@ namespace we {
         this._dbClass = 'roulette';
         this.removeChildren();
         const image = new eui.Image();
-        switch (resultData.value) {
+        const gameData = resultData.gameData;
+        switch (gameData.value) {
           case '01':
             image.source = this.eastSource;
             break;

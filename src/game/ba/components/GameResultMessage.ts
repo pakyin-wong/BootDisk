@@ -1,28 +1,12 @@
 namespace we {
   export namespace ba {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
-      protected _display: dragonBones.EgretArmatureDisplay = null;
       protected _dbClass = 'baccarat';
 
       public constructor() {
         super();
         this.touchEnabled = false;
         this.visible = false;
-      }
-
-      protected destroy() {
-        super.destroy();
-        if (this._display) {
-          this._display.dispose();
-        }
-      }
-
-      public showResult(gameType: core.GameType, resultData: any) {
-        if (!this._display) {
-          this.createAniamtionObject();
-        }
-
-        this.startAnim(gameType, resultData);
       }
 
       protected getBackground(gameType: core.GameType, winType: number) {
