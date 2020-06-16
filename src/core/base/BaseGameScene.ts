@@ -405,24 +405,24 @@ namespace we {
           this.setResultRelatedComponentsEnabled(false);
           this._undoStack.clearStack();
           this._resultMessage.clearMessage();
-        }
 
-        if (this._previousState !== we.core.GameState.BET) {
           if (this._chipLayer) {
             this._chipLayer.resetUnconfirmedBet();
             this._chipLayer.resetConfirmedBet();
           }
 
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+
+        if (this._previousState !== we.core.GameState.BET) {
           if (this._resultMessage) {
             this._resultMessage.clearMessage();
           }
 
           if (this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
-          }
-
-          if (this._betDetails && this._chipLayer) {
-            this._chipLayer.updateBetFields(this._betDetails);
           }
 
           this._undoStack.clearStack();
