@@ -28,6 +28,14 @@
             {
                 "configPath": "resource/mobile.prod.res.json",
                 "relativePath": "resource/"
+            },
+            {
+                "configPath": "resource/desktop.prod.res.json",
+                "relativePath": "resource/"
+            },
+            {
+                "configPath": "resource/mobile.prod.res.json",
+                "relativePath": "resource/"
             }
         ]
     },
