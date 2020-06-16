@@ -1,19 +1,19 @@
 {
 	"groups": [
 		{
-			"keys": "common_ui_tex_png,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,dbjson_zip,common_cards_big_json,common_cards_small_json",
+			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip,common_ui_tex_png",
 			"name": "common"
 		},
 		{
-			"keys": "lobby_ui_tex_png,lobby_json",
+			"keys": "lobby_json,lobby_ui_tex_png",
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "baccarat_game_result_tex_png,baccarat_ui_tex_png,ba_json",
+			"keys": "ba_json,baccarat_game_result_tex_png,baccarat_ui_tex_png",
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "roulette_game_result_tex_png,roulette_ui_tex_png,ro_json",
+			"keys": "ro_json,roulette_game_result_tex_png,roulette_ui_tex_png,roulette_w_game_result_tex_png",
 			"name": "scene_roulette"
 		},
 		{
@@ -25,11 +25,11 @@
 			"name": "scene_loading"
 		},
 		{
-			"keys": "dragon_tiger_game_result_tex_png,dt_json",
+			"keys": "dt_json,dragon_tiger_game_result_tex_png",
 			"name": "scene_dragontiger"
 		},
 		{
-			"keys": "sicbo_game_result_tex_png,di_json",
+			"keys": "di_json,sicbo_game_result_tex_png",
 			"name": "scene_dice"
 		},
 		{
@@ -117,46 +117,6 @@
 			"url": "assets/fonts/roadmapfont.fnt",
 			"type": "font",
 			"name": "roadmapfont_fnt"
-		},
-		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
-			"type": "image",
-			"name": "common_ui_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/ba/baccarat_game_result/baccarat_game_result_tex.png",
-			"type": "image",
-			"name": "baccarat_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/ba/baccarat_ui/baccarat_ui_tex.png",
-			"type": "image",
-			"name": "baccarat_ui_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/dt/dragon_tiger_game_result/dragon_tiger_game_result_tex.png",
-			"type": "image",
-			"name": "dragon_tiger_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/lobby/lobby_ui/lobby_ui_tex.png",
-			"type": "image",
-			"name": "lobby_ui_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/di/sicbo_game_result/sicbo_game_result_tex.png",
-			"type": "image",
-			"name": "sicbo_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/ro/roulette_game_result/roulette_game_result_tex.png",
-			"type": "image",
-			"name": "roulette_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/ro/roulette_ui/roulette_ui_tex.png",
-			"type": "image",
-			"name": "roulette_ui_tex_png"
 		},
 		{
 			"url": "assets/nmimages/m/lw/m_lw_hor_bg.jpg",
@@ -439,11 +399,6 @@
 			"subkeys": "d-lobby-button-close-none_png,d_ba_betarea_icon_bet_png,d_ba_betarea_icon_person_png,d_ba_betcontrol_button_confirm_png,d_ba_gamerecord_bankerelement_png,d_ba_gamerecord_chipvalue_png,d_ba_gamerecord_playerelement_png,d_ba_gamerecord_tieelement_png,d_ba_goodroad_info_state_total_png,d_ba_navbar_chevron_png,d_ba_navbar_icon_dropdown_png,d_ba_navbar_icon_info_png,d_ba_roadmap_record_result_banker_png,d_ba_roadmap_record_result_player_png,d_ba_roadmap_record_result_tie_png,d_ba_roadmap_topbar_textbg_banker_png,d_ba_roadmap_topbar_textbg_player_png,d_ba_swaproadmap_button_element_png,d_common_chips_betting_png,d_common_panel_systemsetting_pressed_select_png,d_common_scrollbar_png,d_lobby_button_down_normal_png,d_lobby_button_search_normal_png,d_lobby_goodroadsetting_normal_png,d_lobby_panel_betcontrol_chips_select_png,d_lobby_panel_button_play_hover_png,d_lobby_panel_button_play_normal_png,d_lobby_quick_bet_circle_png,d_sic_history_grid_png,d_sic_lobby_chart_bg_left_png,d_sic_lobby_chart_bg_right_png,m_ba_betarea_chipsbg_round_png,m_ba_betarea_chipsbg_triangle_png,m_ba_betcontrol_btn_betconfirm_png,m_ba_betcontrol_btn_clear_png,m_ba_betcontrol_btn_double_png,m_ba_betcontrol_btn_rebet_png,m_ba_betcontrol_btn_undo_png,m_ba_bg_offvideo_png,m_ba_btn_bg_hover_png,m_ba_btn_bg_png,m_ba_btn_chatroom_png,m_ba_btn_video_png,m_ba_setting_btn_liveverification_png,m_ba_tab_bottom_png,m_ba_tab_btn_dropdown_png,m_ba_tab_roadmap_active_png,m_ba_tag_btn_detail_png,m_ba_tag_redlimit_bg_png,m_ba_tag_redlimit_btn_dropdown_png,m_common_btn_disabled_png,m_common_btn_menu_png,m_common_btn_panel_quickbet_png,m_common_btn_png,m_common_btn_previous_png,m_common_btn_red_png,m_common_chartroom_emoji_icon_10_png,m_common_chartroom_emoji_icon_11_png,m_common_chartroom_emoji_icon_12_png,m_common_chartroom_emoji_icon_13_png,m_common_chartroom_emoji_icon_14_png,m_common_chartroom_emoji_icon_15_png,m_common_chartroom_emoji_icon_16_png,m_common_chartroom_emoji_icon_17_png,m_common_chartroom_emoji_icon_18_png,m_common_chartroom_emoji_icon_19_png,m_common_chartroom_emoji_icon_1_png,m_common_chartroom_emoji_icon_20_png,m_common_chartroom_emoji_icon_21_png,m_common_chartroom_emoji_icon_2_png,m_common_chartroom_emoji_icon_3_png,m_common_chartroom_emoji_icon_4_png,m_common_chartroom_emoji_icon_5_png,m_common_chartroom_emoji_icon_6_png,m_common_chartroom_emoji_icon_7_png,m_common_chartroom_emoji_icon_8_png,m_common_chartroom_emoji_icon_9_png,m_common_chatroom_btnbg_png,m_common_chatroom_chatbg_line_png,m_common_chatroom_chatbg_other_png,m_common_chatroom_chatbg_png,m_common_chatroom_chatbg_scrollbar_png,m_common_chatroom_chatbg_self_png,m_common_header_bg_dim_png,m_common_header_bg_png,m_common_header_goodroad_icon_star_png,m_common_header_icon_logo_png,m_common_header_icon_menu_png,m_common_header_icon_refresh_png,m_common_icon_close_png,m_common_listpanel_betted_bg_png,m_common_listpanel_bg_png,m_common_listpanel_goodroad_bg_png,m_common_notification_bg_png,m_common_notification_close_bg_png,m_common_notification_close_icon_png,m_common_notification_quickbet_bg_png,m_common_notification_quickbet_icon_png,m_common_notify_result_lw_east_png,m_common_notify_result_lw_green_png,m_common_notify_result_lw_north_png,m_common_notify_result_lw_red_png,m_common_notify_result_lw_south_png,m_common_notify_result_lw_western_png,m_common_notify_result_lw_white_png,m_common_panel_icon_dropdown_active_png,m_common_panel_icon_dropdown_png,m_common_panel_setting_bg_png,m_common_panel_setting_btn_bg_png,m_common_panel_setting_btn_select_dim_png,m_common_panel_setting_btn_select_png,m_lobby_banner_bullet_active_png,m_lobby_banner_bullet_png,m_lobby_header_submenu_hl_png,m_lobby_panel_betcontrol_btn_confirm_bg_png,m_lobby_panel_gamelist_goodroad_remark_bg_png"
 		},
 		{
-			"url": "assets/zip/dbjson.zip",
-			"type": "zip",
-			"name": "dbjson_zip"
-		},
-		{
 			"url": "assets/spritesheet/m/common/common_cards_big.json",
 			"type": "sheet",
 			"name": "common_cards_big_json",
@@ -454,6 +409,56 @@
 			"type": "sheet",
 			"name": "common_cards_small_json",
 			"subkeys": "d_common_poker_horizontal_club_10_png,d_common_poker_horizontal_club_2_png,d_common_poker_horizontal_club_3_png,d_common_poker_horizontal_club_4_png,d_common_poker_horizontal_club_5_png,d_common_poker_horizontal_club_6_png,d_common_poker_horizontal_club_7_png,d_common_poker_horizontal_club_8_png,d_common_poker_horizontal_club_9_png,d_common_poker_horizontal_club_a_png,d_common_poker_horizontal_club_j_png,d_common_poker_horizontal_club_k_png,d_common_poker_horizontal_club_q_png,d_common_poker_horizontal_diamonds_10_png,d_common_poker_horizontal_diamonds_2_png,d_common_poker_horizontal_diamonds_3_png,d_common_poker_horizontal_diamonds_4_png,d_common_poker_horizontal_diamonds_5_png,d_common_poker_horizontal_diamonds_6_png,d_common_poker_horizontal_diamonds_7_png,d_common_poker_horizontal_diamonds_8_png,d_common_poker_horizontal_diamonds_9_png,d_common_poker_horizontal_diamonds_a_png,d_common_poker_horizontal_diamonds_j_png,d_common_poker_horizontal_diamonds_k_png,d_common_poker_horizontal_diamonds_q_png,d_common_poker_horizontal_hearts_10_png,d_common_poker_horizontal_hearts_2_png,d_common_poker_horizontal_hearts_3_png,d_common_poker_horizontal_hearts_4_png,d_common_poker_horizontal_hearts_5_png,d_common_poker_horizontal_hearts_6_png,d_common_poker_horizontal_hearts_7_png,d_common_poker_horizontal_hearts_8_png,d_common_poker_horizontal_hearts_9_png,d_common_poker_horizontal_hearts_a_png,d_common_poker_horizontal_hearts_j_png,d_common_poker_horizontal_hearts_k_png,d_common_poker_horizontal_hearts_q_png,d_common_poker_horizontal_spade_10_png,d_common_poker_horizontal_spade_2_png,d_common_poker_horizontal_spade_3_png,d_common_poker_horizontal_spade_4_png,d_common_poker_horizontal_spade_5_png,d_common_poker_horizontal_spade_6_png,d_common_poker_horizontal_spade_7_png,d_common_poker_horizontal_spade_8_png,d_common_poker_horizontal_spade_9_png,d_common_poker_horizontal_spade_a_png,d_common_poker_horizontal_spade_j_png,d_common_poker_horizontal_spade_k_png,d_common_poker_horizontal_spade_q_png,d_common_poker_vertical_back_png,d_common_poker_vertical_club_10_png,d_common_poker_vertical_club_2_png,d_common_poker_vertical_club_3_png,d_common_poker_vertical_club_4_png,d_common_poker_vertical_club_5_png,d_common_poker_vertical_club_6_png,d_common_poker_vertical_club_7_png,d_common_poker_vertical_club_8_png,d_common_poker_vertical_club_9_png,d_common_poker_vertical_club_a_png,d_common_poker_vertical_club_j_png,d_common_poker_vertical_club_k_png,d_common_poker_vertical_club_q_png,d_common_poker_vertical_diamonds_10_png,d_common_poker_vertical_diamonds_2_png,d_common_poker_vertical_diamonds_3_png,d_common_poker_vertical_diamonds_4_png,d_common_poker_vertical_diamonds_5_png,d_common_poker_vertical_diamonds_6_png,d_common_poker_vertical_diamonds_7_png,d_common_poker_vertical_diamonds_8_png,d_common_poker_vertical_diamonds_9_png,d_common_poker_vertical_diamonds_a_png,d_common_poker_vertical_diamonds_j_png,d_common_poker_vertical_diamonds_k_png,d_common_poker_vertical_diamonds_q_png,d_common_poker_vertical_hearts_10_png,d_common_poker_vertical_hearts_2_png,d_common_poker_vertical_hearts_3_png,d_common_poker_vertical_hearts_4_png,d_common_poker_vertical_hearts_5_png,d_common_poker_vertical_hearts_6_png,d_common_poker_vertical_hearts_7_png,d_common_poker_vertical_hearts_8_png,d_common_poker_vertical_hearts_9_png,d_common_poker_vertical_hearts_a_png,d_common_poker_vertical_hearts_j_png,d_common_poker_vertical_hearts_k_png,d_common_poker_vertical_hearts_q_png,d_common_poker_vertical_spade_10_png,d_common_poker_vertical_spade_2_png,d_common_poker_vertical_spade_3_png,d_common_poker_vertical_spade_4_png,d_common_poker_vertical_spade_5_png,d_common_poker_vertical_spade_6_png,d_common_poker_vertical_spade_7_png,d_common_poker_vertical_spade_8_png,d_common_poker_vertical_spade_9_png,d_common_poker_vertical_spade_a_png,d_common_poker_vertical_spade_j_png,d_common_poker_vertical_spade_k_png,d_common_poker_vertical_spade_q_png,d_sq_ba_small_card_back_png"
+		},
+		{
+			"url": "assets/zip/m/dbjson.zip",
+			"type": "zip",
+			"name": "dbjson_zip"
+		},
+		{
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
+			"type": "image",
+			"name": "common_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/di/sicbo_game_result/sicbo_game_result_tex.png",
+			"type": "image",
+			"name": "sicbo_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/dt/dragon_tiger_game_result/dragon_tiger_game_result_tex.png",
+			"type": "image",
+			"name": "dragon_tiger_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ba/baccarat_game_result/baccarat_game_result_tex.png",
+			"type": "image",
+			"name": "baccarat_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ba/baccarat_ui/baccarat_ui_tex.png",
+			"type": "image",
+			"name": "baccarat_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/lobby/lobby_ui/lobby_ui_tex.png",
+			"type": "image",
+			"name": "lobby_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/roulette_game_result/roulette_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/roulette_ui/roulette_ui_tex.png",
+			"type": "image",
+			"name": "roulette_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/m/rol/roulette_w_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_w_game_result_tex_png"
 		}
 	]
 }

@@ -1,15 +1,15 @@
 {
 	"groups": [
 		{
-			"keys": "roadmapfont_fnt,common_ui_tex_png,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,popover_png,common_chips_json,common_game_panel_json,common_general_json,common_menu_json,preload_json,baccarat_dealer_4_jpg,baccarat_dealer_1_jpg,baccarat_dealer_3_jpg,advanced_dealer_sicbo_png,advanced_dealer_2_png,advanced_dealer_1_png,baccarat_dealer_2_jpg,baccarat_dealer_5_jpg,dbjson_zip,common_cards_big_json,common_cards_small_json",
+			"keys": "roadmapfont_fnt,d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,popover_png,common_chips_json,common_game_panel_json,common_general_json,common_menu_json,preload_json,baccarat_dealer_4_jpg,baccarat_dealer_1_jpg,baccarat_dealer_3_jpg,advanced_dealer_sicbo_png,advanced_dealer_2_png,advanced_dealer_1_png,baccarat_dealer_2_jpg,baccarat_dealer_5_jpg,common_cards_big_json,common_cards_small_json,dbjson_zip,common_ui_tex_png",
 			"name": "common"
 		},
 		{
-			"keys": "font_fnt,lobby_ui_tex_png,d_common_quickbet_bg_png,d_common_quickbet_btn_confirm_active_png,d_common_quickbet_btn_confirm_png,d_common_quickbet_confirm_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_quick_bet_notification_follow_normal_png,lobby_json",
+			"keys": "font_fnt,d_common_quickbet_bg_png,d_common_quickbet_btn_confirm_active_png,d_common_quickbet_btn_confirm_png,d_common_quickbet_confirm_png,d_lobby_quick_bet_notification_follow_hover_png,d_lobby_quick_bet_notification_follow_normal_png,lobby_json,lobby_ui_tex_png",
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "baccarat_game_result_tex_png,baccarat_ui_tex_png,frame-3_jpg,ba_json",
+			"keys": "frame-3_jpg,ba_json,baccarat_game_result_tex_png,baccarat_ui_tex_png",
 			"name": "scene_baccarat"
 		},
 		{
@@ -21,15 +21,15 @@
 			"name": "scene_loading"
 		},
 		{
-			"keys": "dragon_tiger_game_result_tex_png,dt_json",
+			"keys": "dt_json,dragon_tiger_game_result_tex_png",
 			"name": "scene_dragontiger"
 		},
 		{
-			"keys": "roulette_game_result_tex_png,roulette_ui_tex_png,ro_json,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png",
+			"keys": "ro_json,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,roulette_game_result_tex_png,roulette_ui_tex_png,roulette_w_game_result_tex_png",
 			"name": "scene_roulette"
 		},
 		{
-			"keys": "sicbo_game_result_tex_png,di_json",
+			"keys": "di_json,sicbo_game_result_tex_png",
 			"name": "scene_dice"
 		},
 		{
@@ -52,46 +52,6 @@
 			"url": "assets/fonts/roadmapfont.fnt",
 			"type": "font",
 			"name": "roadmapfont_fnt"
-		},
-		{
-			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
-			"type": "image",
-			"name": "common_ui_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/dt/dragon_tiger_game_result/dragon_tiger_game_result_tex.png",
-			"type": "image",
-			"name": "dragon_tiger_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/di/sicbo_game_result/sicbo_game_result_tex.png",
-			"type": "image",
-			"name": "sicbo_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/lobby/lobby_ui/lobby_ui_tex.png",
-			"type": "image",
-			"name": "lobby_ui_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/ba/baccarat_ui/baccarat_ui_tex.png",
-			"type": "image",
-			"name": "baccarat_ui_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/ba/baccarat_game_result/baccarat_game_result_tex.png",
-			"type": "image",
-			"name": "baccarat_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/ro/roulette_ui/roulette_ui_tex.png",
-			"type": "image",
-			"name": "roulette_ui_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/ro/roulette_game_result/roulette_game_result_tex.png",
-			"type": "image",
-			"name": "roulette_game_result_tex_png"
 		},
 		{
 			"url": "assets/sounds/sn_banker_en.mp3",
@@ -494,11 +454,6 @@
 			"scale9grid": "18,18,4,2"
 		},
 		{
-			"url": "assets/zip/dbjson.zip",
-			"type": "zip",
-			"name": "dbjson_zip"
-		},
-		{
 			"url": "assets/spritesheet/d/common/common_cards_big.json",
 			"type": "sheet",
 			"name": "common_cards_big_json",
@@ -519,6 +474,56 @@
 			"url": "assets/fonts/BarlowCondensed-SemiBold.otf",
 			"type": "bin",
 			"name": "BarlowCondensed-SemiBold_otf"
+		},
+		{
+			"url": "assets/zip/d/dbjson.zip",
+			"type": "zip",
+			"name": "dbjson_zip"
+		},
+		{
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
+			"type": "image",
+			"name": "common_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ba/baccarat_game_result/baccarat_game_result_tex.png",
+			"type": "image",
+			"name": "baccarat_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ba/baccarat_ui/baccarat_ui_tex.png",
+			"type": "image",
+			"name": "baccarat_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/di/sicbo_game_result/sicbo_game_result_tex.png",
+			"type": "image",
+			"name": "sicbo_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/dt/dragon_tiger_game_result/dragon_tiger_game_result_tex.png",
+			"type": "image",
+			"name": "dragon_tiger_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/lobby/lobby_ui/lobby_ui_tex.png",
+			"type": "image",
+			"name": "lobby_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/roulette_game_result/roulette_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/roulette_ui/roulette_ui_tex.png",
+			"type": "image",
+			"name": "roulette_ui_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/d/rol/roulette_w_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_w_game_result_tex_png"
 		}
 	]
 }
