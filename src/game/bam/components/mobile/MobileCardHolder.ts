@@ -70,7 +70,7 @@ namespace we {
         this.card2Banker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
         this.card3Banker.addEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
 
-        this._resultCard._flipCard.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
+        this._resultCard._flipCard1.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
       }
 
       protected removeEventListeners() {
@@ -85,7 +85,7 @@ namespace we {
         this.card2Banker.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
         this.card3Banker.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.openFlipCard, this);
 
-        this._resultCard._flipCard.removeEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
+        this._resultCard._flipCard1.removeEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
       }
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
@@ -124,7 +124,7 @@ namespace we {
           this.cardArr.map((value, index) => {
             // console.log('point: ', index, value, this._cardHolderArr[index].flipped);
             let point: number;
-            point = this._resultCard._flipCard.flipped ? (value ? +utils.cardToNumber(value) : 0) : 0;
+            point = this._resultCard._flipCard1.flipped ? (value ? +utils.cardToNumber(value) : 0) : 0;
             points.push(point);
           });
         }
@@ -247,7 +247,7 @@ namespace we {
 
         this._resultCard.setCardImage(this._flipIndex, this.cardArr[this._flipIndex]);
 
-        this._resultCard._flipCard.visible = true;
+        this._resultCard._flipCard1.visible = true;
       }
 
       public setPeekState() {
