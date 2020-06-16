@@ -533,7 +533,29 @@ namespace we {
         return false;
       }
 
-      public checkResultMessage() {}
+      public checkResultMessage() {
+        const totalWin: number = this._tableInfo.totalWin;
+
+        if (!(this._gameData && this._gameData.wintype != 0)) {
+          return;
+        }
+
+        if (this.hasBet() && !isNaN(totalWin)) {
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            gameData: this._gameData,
+            winAmount: totalWin,
+          });
+        } else {
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            gameData: this._gameData,
+            winAmount: NaN,
+          });
+        }
+
+        this.playResultSoundEffect(totalWin);
+      }
+
+      protected playResultSoundEffect(totalWin) {}
 
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
