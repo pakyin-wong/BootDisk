@@ -223,8 +223,14 @@ namespace we {
       private playPromise(anim, count) {
         console.log('BaseAnimationButton', anim);
 
+        if (!this._display) {
+          logger.l('Missing display: ' + this._dbClass + ', ' + this._dbDisplay + ',' + anim);
+          return;
+          // throw new Error('Missing display: ' + this._dbClass + ', ' + this._dbDisplay + ',' + anim);
+        }
+
         if (!this._display.armature) {
-          throw new Error('Animation missing armature');
+          throw new Error('Animation missing armature: ' + this._dbClass);
         }
 
         return new Promise(resolve => {
