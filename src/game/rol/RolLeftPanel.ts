@@ -3,7 +3,6 @@ namespace we {
     export class RolLeftPanel extends ro.RoLeftPanel {
       protected pageRadioBtn4: eui.RadioButton;
       protected _coinGroup: eui.Group;
-      protected _coinGroupLayout: eui.HorizontalLayout;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RolLeftPanel');
@@ -23,33 +22,41 @@ namespace we {
         this.pageRadioBtn4.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
       }
 
+      protected createLuckyCoinAnim() {
+        const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
+        const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
+        const texture = RES.getRes(`roulette_w_game_result_tex_png`);
+        const factory = new dragonBones.EgretFactory();
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        return factory.buildArmatureDisplay('Draw_Number_Effect');
+      }
+
       public updateLuckyNumbers() {
         this._coinGroup.removeChildren();
 
-        if (this.tableInfo.data.luckynumber) {
+        if (this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber) {
+          let x = 60 * (5 - Object.keys(this.tableInfo.data.luckynumber).length) + 10;
           Object.keys(this.tableInfo.data.luckynumber).map((key, index) => {
             const imgCoin = new LuckyCoin();
             imgCoin.odd = this.tableInfo.data.luckynumber[key];
             imgCoin.value = +key;
-            switch (Object.keys(this.tableInfo.data.luckynumber).length) {
-              case 3:
-                imgCoin.width = 170;
-                imgCoin.height = 200;
-                this._coinGroupLayout.gap = 45;
-                break;
-              case 4:
-                imgCoin.width = 130;
-                imgCoin.height = 152;
-                this._coinGroupLayout.gap = 20;
-                break;
-              case 5:
-              default:
-                imgCoin.width = 118;
-                imgCoin.height = 138;
-                this._coinGroupLayout.gap = 10;
-                break;
-            }
-            this._coinGroup.addChild(imgCoin);
+            imgCoin.anchorOffsetX = 80;
+            imgCoin.anchorOffsetY = 80;
+
+            const chipSlotGroup = new eui.Group();
+            chipSlotGroup.addChild(imgCoin);
+
+            const coinAnim = this.createLuckyCoinAnim();
+            coinAnim.x = x;
+            coinAnim.y = 10;
+            coinAnim.width = 125;
+            coinAnim.height = 230;
+            x += 130;
+
+            const chipSlot = coinAnim.armature.getSlot('chips');
+            chipSlot.display = chipSlotGroup;
+
             if (this._chipLayer) {
               const betDetails = this._chipLayer.getConfirmedBetDetails();
               if (betDetails) {
@@ -63,6 +70,22 @@ namespace we {
                 });
               }
             }
+
+            let color = 'Green';
+
+            switch (we.ro.RACETRACK_COLOR[imgCoin.value]) {
+              case we.ro.Color.GREEN:
+                color = 'Green';
+                break;
+              case we.ro.Color.RED:
+                color = 'Red';
+                break;
+              case we.ro.Color.BLACK:
+              default:
+                color = 'Black';
+            }
+            this._coinGroup.addChild(coinAnim);
+            coinAnim.animation.play(`Draw_Number_${color}_in`, 1);
           });
         }
       }

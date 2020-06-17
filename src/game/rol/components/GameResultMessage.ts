@@ -1,7 +1,7 @@
 namespace we {
   export namespace rol {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
-      protected _dbClass = 'roulette_w';
+      protected _dbClass = 'roulette';
 
       public constructor() {
         super();

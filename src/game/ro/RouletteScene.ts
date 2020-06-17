@@ -42,6 +42,9 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
+        if (this._leftGamePanel) {
+          this._leftGamePanel.setTableInfo(this._tableInfo);
+        }
         if (this._leftGamePanel && this._rightGamePanel) {
           // for testing
           this._roadmapControl.setTableInfo(this._tableInfo);
