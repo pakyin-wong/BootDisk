@@ -21,12 +21,15 @@ namespace we {
                         row:"5",
                         rowName:["TenThousand","Thousand","Hundred","Ten","Unit"],
                         option:"1",
-                        numberMin:"0",
-                        numberMax:"9"
+                        showValue:["0","1","2","3","4","5","6","7","8","9"],
+                        input:["0","1","2","3","4","5","6","7","8","9"],
+                        checkBox:[],
+                        betCode:"12345OPTIONAL"
                     },
                     DirectMenu:{
                         name:"DirectMenu",				
                         inputType:"1",		// 0 = number Button, 1 = Text Field, 2 = Big/Small/Odd/Even, 3 = Dragon/Tiger/Tie
+                        betCode:"12345OPTIONINPUT"
                     },
                     DirectCombination:{
                         name:"DirectCombination",
@@ -35,7 +38,8 @@ namespace we {
                         rowName:["TenThousand","Thousand","Hundred","Ten","Unit"],
                         option:"1",
                         numberMin:"0",
-                        numberMax:"9"
+                        numberMax:"9",
+                        betCode:"12345OPTIONALCOM"
                     },
                 }
             },

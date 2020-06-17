@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace ssc {
-    export class SSCBallSelectButtonPanel extends we.ui.Panel {
+    export class SSCTraditionalBettingPanel extends we.ui.Panel {
         
       protected _buttonGroup : eui.Group;
 
@@ -15,6 +15,21 @@ namespace we {
       protected currentSmallTagIndex : number = 0;
       
       protected _buttons;
+
+      private _multipleGroup : eui.Group;
+      private _imgMultiple : ui.RoundRectShape;
+      private _multipleValue : number;
+      private _lblMultipleValue : ui.RunTimeLabel;
+      private _lblMultipleTitle : ui.RunTimeLabel;
+      private _buttonAdd;
+      private _buttonMinus;
+
+      private _dollarGroup : eui.Group;
+      private _dollarValue : number;
+      private _lblDollar : ui.RunTimeLabel;
+
+      private _winInstructGroup : eui.Group;
+      private _lblwinInstruct : ui.RunTimeLabel;
 
       constructor(skin: string = null) {
         super(skin);
@@ -181,11 +196,15 @@ namespace we {
             lbl.alpha = 1;
             lbl.textFlow = <Array<egret.ITextElement>>[{ 
               text:lbl.text, style:{"bold":true,"underline":true}
-            }] ;          
+            }];
           }
         }
+        this.createBetPanel();
       }
       
+      protected createBetPanel(){
+
+      }
     }
   }
 }
