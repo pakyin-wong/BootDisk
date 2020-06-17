@@ -11,12 +11,24 @@ namespace we {
         }
       }
 
+      protected createLuckyCoinAnim() {
+        const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
+        const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
+        const texture = RES.getRes(`roulette_w_game_result_tex_png`);
+        const factory = new dragonBones.EgretFactory();
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        return factory.buildArmatureDisplay('Bet_Effect_Destop');
+      }
+
       public showLuckyNumber() {
         if (this._tableId && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].data && env.tableInfos[this._tableId].data.luckynumber) {
           Object.keys(env.tableInfos[this._tableId].data.luckynumber).map((key, index) => {
             if (this._mouseAreaMapping[ro.BetField['DIRECT_' + key]]) {
               this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].removeChildren();
 
+              const coinAnim = this.createLuckyCoinAnim();
+              /*
               const img = new eui.Image();
 
               img.verticalCenter = 0;
@@ -38,9 +50,10 @@ namespace we {
               label.size = 25;
               label.textColor = 0x83f3af;
               label.text = env.tableInfos[this._tableId].data.luckynumber[key] + 'x';
+              */
 
-              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(img);
-              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(label);
+              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(coinAnim);
+              coinAnim.animation.play('win_in', 1);
             }
           });
         }
