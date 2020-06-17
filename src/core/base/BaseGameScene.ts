@@ -550,6 +550,7 @@ namespace we {
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
+          this._undoStack.clearStack();
         }
       }
 
