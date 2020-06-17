@@ -41,6 +41,8 @@ namespace we {
 
       protected destroy() {
         dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        // console.log('GameTableList :::::', dir.evtHandler.hasEventListener(core.Event.ORIENTATION_UPDATE));
+        dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         // dir.evtHandler.removeEventListener(core.Event.LIVE_PAGE_LOCK, this.onLivePageLock, this);
         dir.evtHandler.removeEventListener(core.Event.LIVE_DISPLAY_MODE, this.onDisplayMode, this);
         this.roomList.removeChild(this.slider);

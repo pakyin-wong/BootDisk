@@ -44,7 +44,7 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+        // this.init();
       }
 
       protected init() {
@@ -172,11 +172,9 @@ namespace we {
           this.iconBankerBigEye.setByObject(b1);
           this.iconBankerSmall.setByObject(b2);
           this.iconBankerCockroach.setByObject(b3);
-
           this.iconPlayerBigEye.setByObject(p1);
           this.iconPlayerSmall.setByObject(p2);
           this.iconPlayerCockroach.setByObject(p3);
-
           this.update();
         }
       }
@@ -212,12 +210,14 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        // this.roadsContainer.removeChildren();
+        // this.removeChildren();
         this.beadRoad.dispose();
         this.bigRoad.dispose();
         this.bigEyeRoad.dispose();
         this.smallRoad.dispose();
         this.cockroachRoad.dispose();
-        // this.removeChild(this.roadsContainer);
+        // this.parent.removeChildren();
 
         if (this.switchModeButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
           this.switchModeButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);

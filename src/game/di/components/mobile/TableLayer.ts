@@ -38,6 +38,11 @@ namespace we {
         this.changeLang();
       }
 
+      protected destroy() {
+        super.destroy();
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
+
       public updateText(tableInfo: data.TableInfo) {
         if (tableInfo.gamestatistic.diSize) {
           this._small_percent.text = tableInfo.gamestatistic.diSize.small + '%';
@@ -131,9 +136,7 @@ namespace we {
             }
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 1 : 0;
-              egret.Tween.get(image)
-                .to({ alpha }, 125)
-                .call(resolve);
+              egret.Tween.get(image).to({ alpha }, 125).call(resolve);
             });
             tickFlashPromises.push(prom);
           }

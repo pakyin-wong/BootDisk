@@ -89,6 +89,8 @@ namespace we {
         dir.audioCtr.video = null;
         this._video.stop();
         dir.videoPool.release(this._video);
+        this._chipLayer.getSelectedChipIndex = null;
+        this._timer.stop();
         this.removeEventListeners();
         this.removeChildren();
       }
@@ -265,7 +267,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -305,7 +307,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -405,24 +407,24 @@ namespace we {
           this.setResultRelatedComponentsEnabled(false);
           this._undoStack.clearStack();
           this._resultMessage.clearMessage();
+        }
 
+        if (this._previousState !== we.core.GameState.BET) {
           if (this._chipLayer) {
             this._chipLayer.resetUnconfirmedBet();
             this._chipLayer.resetConfirmedBet();
           }
 
-          if (this._betDetails && this._chipLayer) {
-            this._chipLayer.updateBetFields(this._betDetails);
-          }
-        }
-
-        if (this._previousState !== we.core.GameState.BET) {
           if (this._resultMessage) {
             this._resultMessage.clearMessage();
           }
 
           if (this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+          }
+
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
           }
 
           this._undoStack.clearStack();
@@ -548,6 +550,7 @@ namespace we {
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
+          this._undoStack.clearStack();
         }
       }
 

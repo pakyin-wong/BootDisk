@@ -815,10 +815,6 @@ declare module skin_mobile_landscape{
 	}
 }
 declare module skin_mobile_landscape{
-	class LiveGameTableList extends eui.Skin{
-	}
-}
-declare module skin_mobile_landscape{
 	class LiveOverlayItemSkin extends eui.Skin{
 	}
 }
@@ -940,6 +936,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class LiveGameTabbar extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LiveGameTableList extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{

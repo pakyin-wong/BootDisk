@@ -9,6 +9,8 @@ namespace we {
       protected _resultMessageNode: eui.Component;
       protected _resultDisplayNode: eui.Component;
 
+      protected _timer: ui.CountdownTimer;
+
       public constructor(skinName: string = null) {
         super(skinName);
       }
@@ -24,6 +26,11 @@ namespace we {
         this.generateResultMessage();
         this.generateResultDisplay();
         super.initComponents();
+        console.log('MobileSideListBetItem ::', this._timer.parent);
+      }
+
+      protected destroy() {
+        super.destroy();
       }
 
       protected generateTableLayer() {
@@ -120,13 +127,13 @@ namespace we {
         }
       }
 
-      // protected setStateDeal(isInit: boolean = false) {
-      //   super.setStateDeal(isInit);
-      //   if (this._previousState !== we.core.GameState.DEAL) {
-      //     env.tableInfos[this._tableId].prevbets = env.tableInfos[this._tableId].bets;
-      //     env.tableInfos[this._tableId].prevbetsroundid = env.tableInfos[this._tableId].roundid;
-      //   }
-      // }
+      protected setStateDeal(isInit: boolean = false) {
+        super.setStateDeal(isInit);
+        if (this._previousState !== we.core.GameState.DEAL) {
+          env.tableInfos[this._tableId].prevbets = env.tableInfos[this._tableId].bets;
+          env.tableInfos[this._tableId].prevbetsroundid = env.tableInfos[this._tableId].roundid;
+        }
+      }
     }
   }
 }

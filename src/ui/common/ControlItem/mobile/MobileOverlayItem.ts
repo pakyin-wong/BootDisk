@@ -31,6 +31,7 @@ namespace we {
       // skinName = LiveOverlayItemSkin in quickbet
       public constructor(skinName: string = null) {
         super(skinName);
+        // this._skinKey = skinName;
         this._betChipSetPanel.visible = false;
 
         this._betChipSet.alpha = 1;
@@ -46,6 +47,13 @@ namespace we {
         this.generateChipLayer();
         super.initComponents();
       }
+
+      // protected initOrientationDependentComponent() {
+      //   super.initOrientationDependentComponent();
+      //   // this.generateRoadmap();
+      //   // this.generateTableLayer();
+      //   // this.generateChipLayer();
+      // }
 
       protected generateTableLayer() {
         if (this.itemInitHelper) {

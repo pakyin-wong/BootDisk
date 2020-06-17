@@ -42,28 +42,26 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        if (this._leftGamePanel && this._rightGamePanel) {
-          // for testing
-          this._roadmapControl.setTableInfo(this._tableInfo);
-        } // for testing
+        // if (this._leftGamePanel && this._rightGamePanel) {// for testing
+        this._roadmapControl.setTableInfo(this._tableInfo);
+        // }// for testing
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
 
       protected initRoadMap() {
         this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
-        if (this._leftGamePanel) {
-          // for testing
-          this._roadmapControl.setRoads(
-            this._leftGamePanel.beadRoad,
-            this._leftGamePanel.colorBigRoad,
-            this._leftGamePanel.sizeBigRoad,
-            this._leftGamePanel.oddBigRoad,
-            this._leftGamePanel,
-            this._rightGamePanel,
-            this._bigRoadResultPanel
-          );
-        } // for testing
+        // if (this._leftGamePanel) {// for testing
+        this._roadmapControl.setRoads(
+          this._leftGamePanel.beadRoad,
+          this._leftGamePanel.colorBigRoad,
+          this._leftGamePanel.sizeBigRoad,
+          this._leftGamePanel.oddBigRoad,
+          this._leftGamePanel,
+          this._rightGamePanel,
+          this._bigRoadResultPanel
+        );
+        // }// for testing
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
@@ -72,17 +70,16 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
-        if (this._rightGamePanel) {
-          // for testing
-          if (this._rightGamePanel.raceTrackChipLayer) {
-            this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
-            this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
-          }
-          if (this._rightGamePanel.betCombination) {
-            this._rightGamePanel.betCombination.touchEnabled = enable;
-            this._rightGamePanel.betCombination.touchChildren = enable;
-          }
-        } // for testing
+        // if (this._rightGamePanel) {// for testing
+        if (this._rightGamePanel.raceTrackChipLayer) {
+          this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
+          this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
+        }
+        if (this._rightGamePanel.betCombination) {
+          this._rightGamePanel.betCombination.touchEnabled = enable;
+          this._rightGamePanel.betCombination.touchChildren = enable;
+        }
+        // }// for testing
       }
 
       public checkResultMessage() {
@@ -95,7 +92,7 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         if (this.hasBet() && !isNaN(totalWin)) {

@@ -52,7 +52,6 @@ namespace we {
       public onExit() {
         this.destroy();
       }
-
       public changeLang() {
         this.lblTableInfo.text = i18n.t('tableInfo.tableInfo');
 

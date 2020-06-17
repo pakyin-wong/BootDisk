@@ -26,6 +26,7 @@ namespace we {
 
       public set orientationDependent(value: boolean) {
         this._orientationDependent = value;
+        // /*
         if (env.isMobile && this.$hasAddToStage) {
           if (value) {
             dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
@@ -33,6 +34,7 @@ namespace we {
             dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
           }
         }
+        // */
       }
 
       public get orientationDependent(): boolean {
@@ -52,9 +54,11 @@ namespace we {
       }
 
       protected destroy() {
+        // /*
         if (env.isMobile && this._orientationDependent) {
           dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
         }
+        // */
       }
 
       protected onOrientationChange() {

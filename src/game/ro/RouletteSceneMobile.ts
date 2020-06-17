@@ -9,6 +9,26 @@
 namespace we {
   export namespace ro {
     export class MobileScene extends core.MobileBaseGameScene {
+      // constructor(data) {
+      //   super(data);
+      // }
+
+      // public onEnter() {}
+
+      // public onExit() {}
+
+      // protected mount() {
+      //   this.skinName = utils.getSkinByClassname('RouletteScene');
+      //   mouse.setButtonMode(this._btnBack, true);
+      //   this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+      // }
+
+      // protected initComponents() {}
+      // protected destroy() {}
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+      // }
+
       protected _roadmapControl: we.ro.RORoadmapControl;
       protected _bottomGamePanel: MobileBottomGamePanel;
       protected _settingPanel: MobileSettingPanel;
@@ -347,7 +367,7 @@ namespace we {
           return;
         }
 
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         if (this.hasBet() && !isNaN(totalWin)) {

@@ -11,6 +11,7 @@ namespace we {
 
       public constructor() {
         super();
+        // this.once(eui.UIEvent.REMOVED_FROM_STAGE, () => this.stop(), this);
       }
 
       protected partAdded(partName: string, instance: any): void {

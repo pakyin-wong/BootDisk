@@ -55,7 +55,7 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
 
-    if (type === 'mobile') {
+    if (true || type === 'mobile') {
       // if (true) {
       env.isMobile = true;
       this.updateMobileHitTest();
@@ -88,24 +88,25 @@ class Main extends eui.UILayer {
     we.i18n.setLang('sc');
     await this.initRes();
     env.initialized = true;
-
-    const opt = {
-      ba: 8,
-      dt: 8,
-      ro: 8,
-      di: 8,
-      lw: 8,
-    };
-    dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
-    dir.analysisPool = new we.ui.AnalysisPool(opt);
-    const opt2 = {
-      ba: 16,
-      dt: 16,
-      ro: 16,
-      di: 16,
-      lw: 16,
-    };
-    dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
+    if (type !== 'mobile') {
+      const opt = {
+        ba: 8,
+        dt: 8,
+        ro: 8,
+        di: 8,
+        lw: 8,
+      };
+      dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
+      dir.analysisPool = new we.ui.AnalysisPool(opt);
+      const opt2 = {
+        ba: 16,
+        dt: 16,
+        ro: 16,
+        di: 16,
+        lw: 16,
+      };
+      dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
+    }
 
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
@@ -144,7 +145,9 @@ class Main extends eui.UILayer {
       }
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
+
       fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }]);
+
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
       logger.e(err);

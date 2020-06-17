@@ -40,6 +40,8 @@ namespace we {
 
       public destroy() {
         super.destroy();
+        this._gameScene = null;
+
         this.removeListeners();
       }
 

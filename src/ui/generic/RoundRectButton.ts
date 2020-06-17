@@ -66,10 +66,7 @@ namespace we {
         this._roundRectShape = new RoundRectShape();
         this.addChild(this._roundRectShape);
         if (this.cornerTL_TR_BL_BR !== '') {
-          const corners = this.cornerTL_TR_BL_BR
-            .split(' ')
-            .join('')
-            .split(',');
+          const corners = this.cornerTL_TR_BL_BR.split(' ').join('').split(',');
           this.cornerTL = parseInt(corners[0], 10);
           this.cornerTR = parseInt(corners[1], 10);
           this.cornerBL = parseInt(corners[2], 10);

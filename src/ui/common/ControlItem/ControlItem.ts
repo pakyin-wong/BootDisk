@@ -43,6 +43,7 @@ namespace we {
       //   super.mount();
       // }
 
+      // clearComponents hvn't been called
       protected clearComponents() {
         this.removeEventListeners();
         this.removeChildren();
@@ -157,7 +158,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -213,7 +214,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -277,24 +278,24 @@ namespace we {
         if (this._previousState !== we.core.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);
           this.setResultRelatedComponentsEnabled(false);
+        }
 
+        if (this._previousState !== we.core.GameState.BET) {
           if (this._chipLayer) {
             this._chipLayer.resetUnconfirmedBet();
             this._chipLayer.resetConfirmedBet();
           }
 
-          if (this._betDetails && this._chipLayer) {
-            this._chipLayer.updateBetFields(this._betDetails);
-          }
-        }
-
-        if (this._previousState !== we.core.GameState.BET) {
           if (this._resultMessage) {
             this._resultMessage.clearMessage();
           }
 
           if (this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
+          }
+
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
           }
 
           this._undoStack.clearStack();

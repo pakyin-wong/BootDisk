@@ -152,6 +152,16 @@ namespace we {
         }
       }
 
+      protected destroy() {
+        super.destroy();
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+        dir.meterCtr.drop('balance', this._balance);
+        dir.meterCtr.drop('balance', this._balanceGame);
+      }
+
       protected onOrientationChange() {
         // dir.layerCtr.overlay.removeChild(this._sideGameList);
         // dir.layerCtr.overlay.removeChild(this._navMobileSilder);

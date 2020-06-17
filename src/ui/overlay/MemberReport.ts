@@ -183,44 +183,24 @@ namespace we {
 
       protected searchToday() {
         // this._page = 1;
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('day').unix();
+        this._endtime = moment().utcOffset(8).endOf('day').unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
         this._btn_today.active = true;
         this.search();
       }
 
       protected searchYesterday() {
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .subtract(1, 'day')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .subtract(1, 'day')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('day').subtract(1, 'day').unix();
+        this._endtime = moment().utcOffset(8).endOf('day').subtract(1, 'day').unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
         // this._btn_today.active = true;
         this.search();
       }
 
       protected searchWeek() {
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('week')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('week')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('week').unix();
+        this._endtime = moment().utcOffset(8).endOf('week').unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
         this._btn_week.active = true;
         this.search();
