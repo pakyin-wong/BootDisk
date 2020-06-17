@@ -127,13 +127,13 @@ namespace we {
         }
       }
 
-      // protected setStateDeal(isInit: boolean = false) {
-      //   super.setStateDeal(isInit);
-      //   if (this._previousState !== we.core.GameState.DEAL) {
-      //     env.tableInfos[this._tableId].prevbets = env.tableInfos[this._tableId].bets;
-      //     env.tableInfos[this._tableId].prevbetsroundid = env.tableInfos[this._tableId].roundid;
-      //   }
-      // }
+      protected setStateDeal(isInit: boolean = false) {
+        super.setStateDeal(isInit);
+        if (this._previousState !== we.core.GameState.DEAL) {
+          env.tableInfos[this._tableId].prevbets = env.tableInfos[this._tableId].bets;
+          env.tableInfos[this._tableId].prevbetsroundid = env.tableInfos[this._tableId].roundid;
+        }
+      }
     }
   }
 }
