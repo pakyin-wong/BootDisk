@@ -25,12 +25,12 @@ namespace we {
       }
 
       private switchMode(evt: egret.Event) {
-        logger.l('LiveListHolder::switchMode', evt.data);
+        logger.l(utils.LoggerTarget.DEBUG, 'LiveListHolder::switchMode', evt.data);
         this.mode = evt.data;
       }
 
       protected initDisplayItem() {
-        logger.l(this.tableInfo);
+        logger.l(utils.LoggerTarget.DEBUG, this.tableInfo);
 
         if (!this.tableInfo || this._displayItem) {
           return;
@@ -86,7 +86,7 @@ namespace we {
             itemName = 'LiveListSimpleItem';
             break;
           default:
-            logger.e('LiveListHolder::initDisplayItem() - no "mode" can be read');
+            logger.e(utils.LoggerTarget.DEBUG, 'LiveListHolder::initDisplayItem() - no "mode" can be read');
         }
 
         const listItem = new we.ui[itemName](`${itemName}Skin`);
@@ -100,7 +100,7 @@ namespace we {
       }
 
       public itemDataChanged() {
-        logger.l('LiveListHolder::itemDataChanged::this.itemData ', this.itemData);
+        logger.l(utils.LoggerTarget.DEBUG, 'LiveListHolder::itemDataChanged::this.itemData ', this.itemData);
         const prevTableid = '';
         if (this.itemData) {
           if (env && env.tableInfos && env.tableInfos[this.itemData]) {

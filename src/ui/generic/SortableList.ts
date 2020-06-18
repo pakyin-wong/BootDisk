@@ -180,7 +180,7 @@ namespace we {
 
             // const [swapChild] = this.$children.filter((tab: egret.DisplayObject) => {
             //   const globalCoord2 = this.localToGlobal(tab.x, tab.y);
-            //   logger.l(tab.name, tab.x, tab.y, tab.width, tab.height, globalCoord2.x, globalCoord2.y);
+            //   logger.l(utils.LoggerTarget.DEBUG, tab.name, tab.x, tab.y, tab.width, tab.height, globalCoord2.x, globalCoord2.y);
             //   if (tab instanceof we.live.SegmentedControlTabItem && tab.$hitTest(globalCoord.x, globalCoord.y)) {
             //     return true;
             //   }
@@ -195,7 +195,7 @@ namespace we {
 
             if (remIndex !== addIndex) {
               collection.removeItemAt(remIndex);
-              logger.l(`addIndex maybe out of range: ${addIndex}`);
+              logger.l(utils.LoggerTarget.DEBUG, `addIndex maybe out of range: ${addIndex}`);
               collection.addItemAt(remData, addIndex);
               this.dispatchEvent(new egret.Event('REORDER', false, false, { prevIdx: remIndex, newIdx: addIndex }));
             }
@@ -203,10 +203,10 @@ namespace we {
             // TODO: update selected index
             if (remIndex === selectedIndex) {
               // the dragged item is the currently selected item
-              logger.l('previous selected index: ', this.selectedIndex);
+              logger.l(utils.LoggerTarget.DEBUG, 'previous selected index: ', this.selectedIndex);
               this.setSelectedIndex(addIndex, false);
               //   eui.UIEvent.dispatchEvent(this, eui.UIEvent.CHANGE);
-              logger.l('new selected index: ', this.selectedIndex);
+              logger.l(utils.LoggerTarget.DEBUG, 'new selected index: ', this.selectedIndex);
             }
 
             this.targetChildren = null;
@@ -271,7 +271,7 @@ namespace we {
       protected onTouchMove(event: egret.TouchEvent) {
         const diffX = event.stageX - this.startX;
         const diffY = event.stageY - this.startY;
-        // logger.l(diffX, diffY);
+        // logger.l(utils.LoggerTarget.DEBUG, diffX, diffY);
         if (Math.max(Math.abs(diffX), Math.abs(diffY)) > this.dragThreshold) {
           // cancel the tap check and do the sorting
           this.onTouchEnd(event);

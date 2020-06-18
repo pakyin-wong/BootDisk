@@ -240,7 +240,7 @@ namespace we {
           innerGroup.layout = collapsed ? new eui.HorizontalLayout() : new eui.VerticalLayout();
           innerGroup.scaleX = collapsed ? 0.75 : 1;
           innerGroup.scaleY = collapsed ? 0.75 : 1;
-          logger.l(innerGroup);
+          logger.l(utils.LoggerTarget.DEBUG, innerGroup);
         });
         // transform last row
         (() => {
@@ -339,7 +339,7 @@ namespace we {
           tweenPromises.push(promise);
         })();
         // draw border corner radius
-        let shape: egret.Shape = <egret.Shape>this.getChildByName('corner');
+        let shape: egret.Shape = <egret.Shape> this.getChildByName('corner');
         if (shape) {
           this.removeChild(shape);
         }
@@ -410,7 +410,9 @@ namespace we {
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
-              egret.Tween.get(rect).to({ alpha }, 125).call(resolve);
+              egret.Tween.get(rect)
+                .to({ alpha }, 125)
+                .call(resolve);
             });
             tickFlashPromises.push(prom);
           }

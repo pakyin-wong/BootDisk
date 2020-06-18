@@ -44,21 +44,21 @@ namespace we {
           class: 'PlayerProfile',
           args: ['PlayerProfile'],
         });
-        logger.l(`NavSideMenu::onClickInfo`);
+        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickInfo`);
       }
 
       protected onClickRoad() {
         dir.evtHandler.createOverlay({
           class: 'CustomRoadMobile',
         });
-        logger.l(`NavSideMenu::onClickRoad`);
+        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickRoad`);
       }
 
       protected onClickHistory() {
         dir.evtHandler.createOverlay({
           class: 'BetHistoryMobile',
         });
-        logger.l(`NavSideMenu::onClickHistory`);
+        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickHistory`);
       }
 
       protected onSwitchLeftHandMode(e) {

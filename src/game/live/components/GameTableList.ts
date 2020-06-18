@@ -75,7 +75,7 @@ namespace we {
       private onSelectedIndexSorted(evt: any) {
         const prevIdx = evt.data.prevIdx;
         const newIdx = evt.data.newIdx;
-        logger.l(prevIdx, newIdx);
+        logger.l(utils.LoggerTarget.DEBUG, prevIdx, newIdx);
         const removed = this.tabItems.splice(prevIdx, 1);
         this.tabItems.splice(newIdx, 0, removed[0]);
       }

@@ -222,16 +222,16 @@ namespace we {
             dir.sceneCtr.goto('rol', { tableid: tableId });
             break;
           default:
-            logger.e(`Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            logger.e(utils.LoggerTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             break;
         }
       }
 
       /*
       public onTableListUpdate(evt: egret.Event) {
-        logger.l('env.onTableListUpdate');
+        logger.l(utils.LoggerTarget.DEBUG, 'env.onTableListUpdate');
         const list = <number[]>evt.data;
-        logger.l(list);
+        logger.l(utils.LoggerTarget.DEBUG, list);
         if (!this.tableInfo) {
           this.tableInfo = new Array<TableInfo>();
         }

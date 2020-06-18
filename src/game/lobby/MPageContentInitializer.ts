@@ -31,7 +31,7 @@ namespace we {
       }
 
       protected bannerClicked(e: egret.Event) {
-        logger.l('psoter click', e.currentTarget['link']);
+        logger.l(utils.LoggerTarget.DEBUG, 'psoter click', e.currentTarget['link']);
       }
     }
   }

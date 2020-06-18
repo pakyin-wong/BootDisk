@@ -49,7 +49,7 @@ namespace we {
 
       public configSlides() {
         this.slides = [this.content, this.contentTwo];
-        logger.l(this.width, this.height, this.slides);
+        logger.l(utils.LoggerTarget.DEBUG, this.width, this.height, this.slides);
 
         if (!this.slides.length) {
           return;

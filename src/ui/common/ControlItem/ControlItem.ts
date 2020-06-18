@@ -158,8 +158,8 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
-        // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
+        const tableInfo = <data.TableInfo> evt.data;
+        // logger.l(utils.LoggerTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -177,7 +177,7 @@ namespace we {
       protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
+        // logger.l(utils.LoggerTarget.DEBUG, 'LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
@@ -214,7 +214,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -449,7 +449,7 @@ namespace we {
             pass2 = !!this._gameData;
             break;
           default:
-            logger.e('No gametype found in ControlItem::checkResultMessage');
+            logger.e(utils.LoggerTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');
             break;
         }
 
