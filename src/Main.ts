@@ -81,6 +81,8 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
+    this.updateBitmapNode();
+
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
@@ -170,5 +172,10 @@ class Main extends eui.UILayer {
       const rs = $hitTest.call(this, stageX, stageY);
       return rs;
     };
+  }
+
+  private updateBitmapNode() {
+    egret.sys.BitmapNodeExtend.super = egret.sys.BitmapNode;
+    egret.sys.BitmapNode = egret.sys.BitmapNodeExtend;
   }
 }

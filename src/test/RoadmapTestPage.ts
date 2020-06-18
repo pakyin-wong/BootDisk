@@ -30,6 +30,30 @@ namespace we {
           this.addChild(face);
         }
 
+        let image = new eui.Image(RES.getRes('d_sq_bac_large_poker_diamond6_png'));
+        this.addChild(image);
+        image.x = 200;
+        image.y = 600;
+        image.width = image.texture.textureWidth * 2;
+        image.height = image.texture.textureWidth * 2;
+        image.fillMode = 'cover';
+
+        image = new eui.Image(RES.getRes('d_sq_bac_large_poker_diamond6_png'));
+        this.addChild(image);
+        image.x = 800;
+        image.y = 600;
+        image.width = image.texture.textureWidth * 2;
+        image.height = image.texture.textureWidth;
+        image.fillMode = 'cover';
+
+        image = new eui.Image(RES.getRes('d_sq_bac_large_poker_diamond6_png'));
+        this.addChild(image);
+        image.x = 1400;
+        image.y = 600;
+        image.width = image.texture.textureWidth;
+        image.height = image.texture.textureWidth * 2;
+        image.fillMode = 'cover';
+
         // step 3: connect socket
         // this.socketConnect();
         // dir.sceneCtr.goto('LobbyScene');
