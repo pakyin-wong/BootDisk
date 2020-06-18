@@ -2,81 +2,79 @@
 namespace we {
   export namespace ssc {
     export class SSCTraditionalBettingPanel extends we.ui.Panel {
-        
-      protected _buttonGroup : eui.Group;
+      protected _buttonGroup: eui.Group;
 
-      protected _bigTagsGroup : eui.Group;
-      protected _smallTagsGroup : eui.Group;
+      protected _bigTagsGroup: eui.Group;
+      protected _smallTagsGroup: eui.Group;
 
-      protected bigTagsArray : any[];
-      protected smallTagsArray : any[];
+      protected bigTagsArray: any[];
+      protected smallTagsArray: any[];
 
-      protected currentBigTagIndex : number = 0;
-      protected currentSmallTagIndex : number = 0;
-      
+      protected currentBigTagIndex: number = 0;
+      protected currentSmallTagIndex: number = 0;
+
       protected _buttons;
 
-      private _multipleGroup : eui.Group;
-      private _imgMultiple : ui.RoundRectShape;
-      private _multipleValue : number;
-      private _lblMultipleValue : ui.RunTimeLabel;
-      private _lblMultipleTitle : ui.RunTimeLabel;
+      private _multipleGroup: eui.Group;
+      private _imgMultiple: ui.RoundRectShape;
+      private _multipleValue: number;
+      private _lblMultipleValue: ui.RunTimeLabel;
+      private _lblMultipleTitle: ui.RunTimeLabel;
       private _buttonAdd;
       private _buttonMinus;
 
-      private _dollarGroup : eui.Group;
-      private _dollarValue : number;
-      private _lblDollar : ui.RunTimeLabel;
+      private _dollarGroup: eui.Group;
+      private _dollarValue: number;
+      private _lblDollar: ui.RunTimeLabel;
 
-      private _winInstructGroup : eui.Group;
-      private _lblwinInstruct : ui.RunTimeLabel;
+      private _winInstructGroup: eui.Group;
+      private _lblwinInstruct: ui.RunTimeLabel;
 
       constructor(skin: string = null) {
         super(skin);
+        this.skinName = 'skin_desktop.ssc.SSCTraditionalBettingPanel';
       }
 
-      protected childrenCreated(){
+      protected childrenCreated() {
         super.childrenCreated();
+        this.init();
       }
 
-      protected mount(){
+      protected mount() {}
 
-      }
-
-      protected initComponents(){
+      protected init() {
         this.createBigTags();
-        //this.createSmallTags();
+        // this.createSmallTags();
         // this.initCurrentButtonPanel();
-
-
       }
 
       // Big Tags Related
-      protected createBigTags(){
+      protected createBigTags() {
         this.bigTagsArray = [];
         this.currentBigTagIndex = 0;
 
-        for(let i = 0;i < SelectionMapping.length;i++)
-        {
-          let bigTag : eui.Group = new eui.Group();
+        for (let i = 0; i < Object.keys(SelectionMapping).length; i++) {
+          const obj = SelectionMapping[Object.keys(SelectionMapping)[i]];
+
+          const bigTag: eui.Group = new eui.Group();
           bigTag.width = 117;
           bigTag.height = 60;
-          bigTag.name = SelectionMapping[i].name;
+          bigTag.name = obj['name'];
           bigTag.touchEnabled = true;
           bigTag.touchChildren = false;
 
-          let img : eui.Image = new eui.Image();
+          const img: eui.Image = new eui.Image();
           img.width = 117;
           img.height = 60;
           img.source = ImageMapping.BIGTAG_NORMAL;
           bigTag.addChild(img);
 
-          let lbl : ui.RunTimeLabel = new ui.RunTimeLabel();
-          //lbl.text = i18n.t(SelectionMapping[i].name);
-          lbl.text = SelectionMapping[i].name;
+          const lbl: ui.RunTimeLabel = new ui.RunTimeLabel();
+          // lbl.text = i18n.t(SelectionMapping[i].name);
+          lbl.text = obj['name'];
           lbl.size = 20;
           lbl.textAlign = 'center';
-          lbl.verticalAlign = 'middle'
+          lbl.verticalAlign = 'middle';
           lbl.width = 117;
           lbl.height = 60;
           bigTag.addChild(lbl);
@@ -86,27 +84,28 @@ namespace we {
           this._bigTagsGroup.touchChildren = true;
           bigTag.x = i * bigTag.width;
           bigTag.y = 0;
-          bigTag.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onBigTagClicked,this);
+          bigTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBigTagClicked, this);
         }
 
         this.setActiveBigTag();
         this.createSmallTags();
       }
 
-      protected setActiveBigTag(){
-        for(let i = 0;i < this.bigTagsArray.length;i++){
-          let img = this.bigTagsArray[i].getChildAt(0) as eui.Image;
+      protected setActiveBigTag() {
+        this.clearSmallTags();
+        for (let i = 0; i < this.bigTagsArray.length; i++) {
+          const img = this.bigTagsArray[i].getChildAt(0) as eui.Image;
           img.source = ImageMapping.BIGTAG_NORMAL;
-          if(i === this.currentBigTagIndex){
+          if (i === this.currentBigTagIndex) {
             img.source = ImageMapping.BIGTAG_ACTIVE;
           }
         }
       }
 
-      protected onBigTagClicked(e : egret.TouchEvent){
-        for(let i = 0;i < this.bigTagsArray.length;i++){
-          if(e.target === this.bigTagsArray[i]){
-            if(i === this.currentBigTagIndex){
+      protected onBigTagClicked(e: egret.TouchEvent) {
+        for (let i = 0; i < this.bigTagsArray.length; i++) {
+          if (e.target === this.bigTagsArray[i]) {
+            if (i === this.currentBigTagIndex) {
               return;
             }
             this.currentBigTagIndex = i;
@@ -116,48 +115,52 @@ namespace we {
         this.setActiveBigTag();
         this.createSmallTags();
       }
-      //End of Big Tags related
-      
-      //Small Tags related
-      protected createSmallTags(){
-        //this.clearSmallTags();
+      // End of Big Tags related
+
+      // Small Tags related
+      protected createSmallTags() {
+        // this.clearSmallTags();
         this.smallTagsArray = [];
-        const currentBigTag = SelectionMapping[this.currentBigTagIndex];
-        let smallTagsHeight = 57;
-        let lastRowItemIndex = -1;
+        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
+        const smallTagsHeight = 57;
+        const lastRowItemIndex = -1;
         let offset = 0;
-        for(let i = 0; i < currentBigTag.length; i++)
-        {
-          let smallTag = new eui.Group();
-          smallTag.width = 120;
+        for (let i = 0; i < Object.keys(currentBigTag['type']).length; i++) {
+          const currentSmallTag = currentBigTag['type'][Object.keys(currentBigTag['type'])[i]];
+          const smallTag = new eui.Group();
+          // smallTag.width = env.language === 'en'? SmallTags.LABELWIDTH_EN + 40 : SmallTags.LABELWIDTH_CN + 40;
+          smallTag.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN + 40 : SmallTags.LABELWIDTH_EN + 40;
           smallTag.height = 57;
           smallTag.touchEnabled = true;
           smallTag.touchChildren = false;
 
-          let lbl = new ui.RunTimeLabel();
-          // lbl.text = i18n.t(currentBigTag[i].name);
-          lbl.text = currentBigTag[i].name;
+          const lbl = new ui.RunTimeLabel();
+          // lbl.text = i18n.t(currentSmallTag["name"]);
+          lbl.text = currentSmallTag['name'];
           lbl.alpha = 0.7;
-          lbl.width = 80;
+          // lbl.width = env.language === 'en'? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_CN;
+          lbl.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_EN;
           lbl.height = 57;
+          lbl.size = 18;
 
           smallTag.addChild(lbl);
           this._smallTagsGroup.addChild(smallTag);
           this.smallTagsArray.push(smallTag);
           smallTag.x = 24 + offset + i * smallTag.width;
           smallTag.y = 0;
-          smallTag.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onSmallTagClicked,this);
-          
-          if(currentBigTag.seperateLine){
-            for(let k = 0;k < currentBigTag.seperateLine.length;k++){
-              if(currentBigTag.seperateLine[k] === i){
-                let shape = new egret.Shape();
-                shape.graphics.beginFill(0xffffff, 1);
-                shape.graphics.drawRect(24 + offset + 50 + i * smallTag.width, 0, 1, 20);
-                shape.graphics.endFill();  
-                this._smallTagsGroup.addChild(shape);       
+          smallTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSmallTagClicked, this);
 
-                offset += 100;
+          if (currentBigTag['seperateLine']) {
+            for (let k = 0; k < currentBigTag['seperateLine'].length; k++) {
+              if (currentBigTag.seperateLine[k] === i) {
+                const shape = new egret.Shape();
+                shape.x = offset + 40 + (i + 1) * smallTag.width;
+                shape.graphics.beginFill(0xffffff, 0.7);
+                shape.graphics.drawRect(0, 0, 1, 30);
+                shape.graphics.endFill();
+                this._smallTagsGroup.addChild(shape);
+
+                offset += 80;
               }
             }
           }
@@ -173,10 +176,10 @@ namespace we {
         this.setActiveSmallTag();
       }
 
-      protected onSmallTagClicked(e : egret.TouchEvent){
-        for(let i = 0;i < this.smallTagsArray.length;i++){
-          if(e.target === this.smallTagsArray[i]){
-            if(i === this.currentSmallTagIndex){
+      protected onSmallTagClicked(e: egret.TouchEvent) {
+        for (let i = 0; i < this.smallTagsArray.length; i++) {
+          if (e.target === this.smallTagsArray[i]) {
+            if (i === this.currentSmallTagIndex) {
               return;
             }
             this.currentSmallTagIndex = i;
@@ -185,25 +188,44 @@ namespace we {
         this.setActiveSmallTag();
       }
 
-      protected setActiveSmallTag(){
-        for(let i = 0;i < this.smallTagsArray.length;i++){
-          let lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
+      protected setActiveSmallTag() {
+        for (let i = 0; i < this.smallTagsArray.length; i++) {
+          const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <Array<egret.ITextElement>>[{ 
-            text:lbl.text, style:{"bold":false,"underline":false}
-          }] ;
-          if(i === this.currentSmallTagIndex){
+          lbl.textFlow = <egret.ITextElement[]>[
+            {
+              text: lbl.text,
+              style: { bold: false, underline: false },
+            },
+          ];
+          if (i === this.currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <Array<egret.ITextElement>>[{ 
-              text:lbl.text, style:{"bold":true,"underline":true}
-            }];
+            lbl.textFlow = <egret.ITextElement[]>[
+              {
+                text: lbl.text,
+                style: { bold: true, underline: true },
+              },
+            ];
           }
         }
-        this.createBetPanel();
+        this.createBetTable();
       }
-      
-      protected createBetPanel(){
 
+      protected createBetTable() {
+        this.clearBetTable();
+        const betTable = new SSCTraditionalBettingTable(this.currentBigTagIndex, this.currentSmallTagIndex);
+        this._buttonGroup.addChild(betTable);
+        betTable.x = betTable.y = 0;
+        this._buttonGroup.touchChildren = true;
+      }
+
+      protected clearBetTable() {
+        this._buttonGroup.removeChildren();
+      }
+
+      protected clearSmallTags() {
+        this.currentSmallTagIndex = 0;
+        this._smallTagsGroup.removeChildren();
       }
     }
   }

@@ -1,102 +1,154 @@
 // TypeScript file
 namespace we {
-    export namespace ssc {
-        export class SSCTraditionalBettingTable extends we.ui.Panel {
-      
-            private _inputType : number;
-            private _name : string;
-            private _rowCount : number;
-            private _rowName : string[];
-            private _isOption : number;
-            private _inputArray : string[];
-            private _showValueArray : string[];
-            private _betCode : string;
-            private _checkBoxArray : string[];
-            // inputType = 0,2,3
-            private _buttonRowsArray : eui.Group[];
+  export namespace ssc {
+    export class SSCTraditionalBettingTable extends we.ui.Panel {
+      private _inputType: number;
+      private _name: string;
+      private _rowCount: number;
+      private _rowName: string[];
+      private _isOption: number;
+      private _inputArray: string[];
+      private _showValueArray: string[];
+      private _betCode: string;
 
-            private bigTagIndex : number = -1;
-            private smallTagIndex : number = -1;
+      // not done
+      private _checkBoxArray: string[];
+      private _inputField;
 
-            private _betAction : string;
+      private bigTagIndex: number = -1;
+      private smallTagIndex: number = -1;
 
-            constructor(currentBigTagIndex : number, currentSmallTagIndex : number){
-                super();
-                this.bigTagIndex = currentBigTagIndex;
-                this.smallTagIndex = currentSmallTagIndex;
-                this.init();
-                //this.initComponents();
-            }
+      private _ballBetCode: string;
+      private _ballsArray: eui.Group[];
 
-            protected init(){
-                const betTypeMapping = SelectionMapping[this.bigTagIndex][this.smallTagIndex];
-                
-                this._inputType = betTypeMapping.inputType;
-                this._name = betTypeMapping.name;
-                this._rowCount = parseInt(betTypeMapping.row);
-                this._rowName = betTypeMapping.rowName;
-                this._isOption = parseInt(betTypeMapping.option);
-                this._inputArray =  betTypeMapping.input;
-                this._showValueArray = betTypeMapping.showValue;
-                this._betCode = betTypeMapping.betCode;
-                this.width = 1509;
-                this.height = 478;
-            }
-            
-            protected clear(){
-                this.removeChildren();
-            }
+      constructor(currentBigTagIndex: number, currentSmallTagIndex: number) {
+        super();
+        this.bigTagIndex = currentBigTagIndex;
+        this.smallTagIndex = currentSmallTagIndex;
+        this.init();
+        // this.initComponents();
+      }
 
-            protected createComponents(){
-                // check inputtype 
-                // Five Star ball selection test
-                const rowHeight = 80;
-                const rowWidth = this.width;
+      protected init() {
+        const currentBetMode = SelectionMapping[Object.keys(SelectionMapping)[this.bigTagIndex]];
+        const betTypeMapping = currentBetMode['type'][Object.keys(currentBetMode['type'])[this.smallTagIndex]];
 
-                this._buttonRowsArray = [];
-                let btnGrp;
-                for(let i = 0;i < this._rowCount;i++){
-                    btnGrp = new eui.Group();
-                    btnGrp.width = rowWidth;
-                    btnGrp.height = rowHeight;
-                    btnGrp.x = 0;
-                    btnGrp.y = i * rowHeight;
+        this._inputType = betTypeMapping.inputType;
+        this._name = betTypeMapping.name;
+        this._rowCount = parseInt(betTypeMapping.row, 0);
+        this._rowName = betTypeMapping.rowName;
+        this._isOption = parseInt(betTypeMapping.option, 0);
+        this._inputArray = betTypeMapping.input;
+        this._showValueArray = betTypeMapping.showValue;
+        this._betCode = betTypeMapping.betCode;
+        this.width = 1509;
+        this.height = 478;
+        this.createComponents();
+      }
 
-                    let lblTitle = new ui.RunTimeLabel();
-                    lblTitle.x = 33;
-                    lblTitle.width = 154;
-                    lblTitle.height = 25;
-                    lblTitle.verticalAlign ='middle';
-                    lblTitle.textAlign ='left';
-                    lblTitle.fontFamily = 'Barlow';
-                    lblTitle.size = 18;
-                    lblTitle.textColor = 0x00b8c3;
-                    //lblTitle.text = i18n.t(this._rowName[i]);
-                    lblTitle.text = this._rowName[i];
-                    btnGrp.addChild(lblTitle);
+      protected clear() {
+        this._inputType = null;
+        this._name = null;
+        this._rowCount = null;
+        this._rowName = null;
+        this._isOption = null;
+        this._inputArray = null;
+        this._showValueArray = null;
+        this._betCode = null;
 
-                    let ballsGroup = new eui.Group();
-                    ballsGroup.width = 768;
-                    ballsGroup.height = rowHeight;
-                    ballsGroup.x = 187;
+        this.removeChildren();
+      }
 
-                    for(let k = 0; k < this._inputArray.length;k++){
-                        let ball = new SSCBallButton(this._showValueArray[k],this._inputArray[k],i);
-                        ball.width = 50;
-                        ball.height = 50;
-                        ballsGroup.addChild(ball);
-                    }
+      protected createComponents() {
+        // check inputtype
+        // Five Star ball selection test
+        const rowHeight = 80;
+        const rowWidth = this.width;
 
-                    let layout = new eui.HorizontalLayout();
-                    layout.paddingLeft = layout.paddingRight = 44;
-                    layout.verticalAlign = 'middle';
-                    layout.gap = 20;
+        this._ballsArray = [];
+        let btnGrp;
 
-                    ballsGroup.layout =  layout;
-                    btnGrp.addChild(ballsGroup);
-                }
-            }
+        // '';
+        for (let i = 0; i < this._rowCount; i++) {
+          btnGrp = new eui.Group();
+          btnGrp.width = rowWidth;
+          btnGrp.height = rowHeight;
+          btnGrp.x = 0;
+          btnGrp.y = i * rowHeight;
 
+          const lblTitle = new ui.RunTimeLabel();
+          lblTitle.x = 33;
+          lblTitle.width = 154;
+          lblTitle.height = 25;
+          lblTitle.verticalAlign = 'middle';
+          lblTitle.textAlign = 'left';
+          lblTitle.fontFamily = 'Barlow';
+          lblTitle.size = 18;
+          lblTitle.textColor = 0x00b8c3;
+          // lblTitle.text = i18n.t(this._rowName[i]);
+          lblTitle.text = this._rowName[i];
+          btnGrp.addChild(lblTitle);
+
+          const ballsGroup = new eui.Group();
+          ballsGroup.width = 768;
+          ballsGroup.height = rowHeight;
+          ballsGroup.x = 187;
+          ballsGroup.touchEnabled = true;
+          ballsGroup.touchChildren = true;
+
+          for (let k = 0; k < this._inputArray.length; k++) {
+            const ball = new SSCBallButton(this._showValueArray[k], this._inputArray[k], k);
+            ball.width = 50;
+            ball.height = 50;
+            ballsGroup.addChild(ball);
+            ball.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBallClicked, this);
+          }
+
+          let layout = new eui.HorizontalLayout();
+          layout.paddingLeft = layout.paddingRight = 44;
+          layout.verticalAlign = 'middle';
+          layout.gap = 20;
+          ballsGroup.layout = layout;
+
+          btnGrp.addChild(ballsGroup);
+          this._ballsArray.push(ballsGroup);
+
+          if (this._isOption) {
+            const option = new SSCTradtionalBettingOptionButtonRow(i);
+            btnGrp.addChild(option);
+          }
+
+          layout = new eui.HorizontalLayout();
+          layout.verticalAlign = 'middle';
+          btnGrp.layout = layout;
+          btnGrp.touchChildren = true;
+
+          this.addChild(btnGrp);
         }
+      }
+
+      protected onBallClicked(e: egret.TouchEvent) {
+        console.log(e.target);
+        const ball: SSCBallButton = e.target as SSCBallButton;
+        console.log('balls row : ' + ball.rowIndex + 'value : ' + ball.value);
+        ball.toggleActive();
+        this.generateBetCode(true);
+      }
+
+      protected generateBetCode(isUpdate: boolean = false) {
+        this._ballBetCode = '';
+
+        for (let i = 0; i < this._ballsArray.length; i++) {
+          if (i > 0) this._ballBetCode += '_';
+
+          const ballsRow: eui.Group = this._ballsArray[i];
+          for (let k = 0; k < ballsRow.numChildren; k++) {
+            this._ballBetCode += (ballsRow.getChildAt(k) as SSCBallButton).isActive ? (ballsRow.getChildAt(k) as SSCBallButton).betValue : '';
+          }
+        }
+        if (isUpdate) this.dispatchEventWith('SSC_UPDATE_BETACTION', false, this._ballBetCode);
+        console.log(this._ballBetCode);
+      }
     }
+  }
 }

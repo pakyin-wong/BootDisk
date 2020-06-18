@@ -18,6 +18,10 @@ namespace we {
       protected mount() {
         this.removeEventListener(eui.UIEvent.COMPLETE, this.mount, this);
 
+        const temp = new we.ssc.SSCTraditionalBettingPanel();
+        temp.x = 100;
+        temp.y = 300;
+        this.addChild(temp);
         // draw the icon faces
         // for (let i = 0; i < 2; i++) {
         //   const face = new egret.DisplayObjectContainer();
@@ -30,14 +34,14 @@ namespace we {
         //   this.addChild(face);
         // }
 
-        const face = new egret.DisplayObjectContainer();
-        const temp = new we.bam.SqueezeTutorial('SqueezeTutorial');
-        // const slider = new
-        // temp.skinName = 'TestHorizontalHolderSkin';
-        face.addChild(temp);
-        this.addChild(face);
-        face.x = 200;
-        face.y = 200;
+        // const face = new egret.DisplayObjectContainer();
+        // const temp = new we.bam.SqueezeTutorial('SqueezeTutorial');
+        // // const slider = new
+        // // temp.skinName = 'TestHorizontalHolderSkin';
+        // face.addChild(temp);
+        // this.addChild(face);
+        // face.x = 200;
+        // face.y = 200;
         // step 3: connect socket
         // this.socketConnect();
         // dir.sceneCtr.goto('LobbyScene');
