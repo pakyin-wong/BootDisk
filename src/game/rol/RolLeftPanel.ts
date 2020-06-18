@@ -32,34 +32,37 @@ namespace we {
         return factory.buildArmatureDisplay('Draw_Number_Effect');
       }
 
-      public getOddSlotGroup(odd: number) {
-        const group = new eui.Group();
+      protected getOddSlotGroup(odd: number) {
         const label = new eui.Label();
-        label.text = odd.toString();
+        label.text = odd.toString() + 'x';
+
+        const group = new eui.Group();
         group.addChild(label);
 
         return group;
       }
 
-      public getNumberSlotGroup(num: number) {
-        const group = new eui.Group();
+      protected getNumberSlotGroup(num: number) {
         const label = new eui.Label();
         label.text = num.toString();
+
+        const group = new eui.Group();
         group.addChild(label);
 
         return group;
       }
 
-      protected getChipSlotGroup(odd, num, amount) {
-        const imgCoin = new LuckyCoin();
-        imgCoin.odd = odd;
-        imgCoin.value = num;
-        imgCoin.anchorOffsetX = 80;
-        imgCoin.anchorOffsetY = 80;
+      protected getChipSlotGroup(amount) {
+        const coin = new LuckyCoin();
+        coin.anchorOffsetX = 80;
+        coin.anchorOffsetY = 80;
+        coin.amount = amount;
+        coin.height = 100;
+        coin.width = 100;
 
         const group = new eui.Group();
-        group.addChild(imgCoin);
-
+        group.addChild(coin);
+        
         return group;
       }
 
@@ -86,19 +89,18 @@ namespace we {
               const betDetails = this._chipLayer.getConfirmedBetDetails();
               if (betDetails) {
                 betDetails.map((detail, index) => {
-                  if (detail && detail.field) {
+                  if (detail && detail.field && detail.amount) {
                     const f = this.fieldToValue(detail.field);
                     if (key === f) {
-                      // imgCoin.amount = detail.amount / 100;
                       const chipSlot = coinAnim.armature.getSlot('chips');
-                      chipSlot.display = this.getChipSlotGroup(this.tableInfo.data.luckynumber[key], +key, detail.amount / 100);
+                      chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
                     }
                   }
                 });
               }
             }
 
-            let color = 'Green';
+            let color: string;
 
             switch (we.ro.RACETRACK_COLOR[+key]) {
               case we.ro.Color.GREEN:
