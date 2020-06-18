@@ -1,19 +1,19 @@
 {
 	"groups": [
 		{
-			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip,common_ui_tex_png",
+			"keys": "d_common_listpanel_bg_png,d_common_notify_bg_png,d_common_panel_btn_active_png,d_common_panel_btn_hover_png,d_common_panel_btn_png,d_common_panel_gamelist_bg_png,d_common_panel_systemsetting_pressedbg_png,d_common_popup_bg_png,d_common_popup_btn_hover_png,d_common_popup_btn_pressed_png,d_common_popup_btn_png,d_common_popup_panel_btn_hover_png,d_common_popup_panel_btn_pressed_png,d_common_popup_panel_btn_png,d_common_popup_warnbtn_hover_png,d_common_popup_warnbtn_png,d_lobby_goodroad_bg_png,d_lobby_goodroad_btn_bg_active_png,d_lobby_goodroad_btn_bg_hover_png,d_lobby_goodroad_btn_bg_png,d_lobby_goodroad_btn_confirm_hover_png,d_lobby_goodroad_btn_confirm_png,d_lobby_goodroad_textbox_png,d_lobby_restart_btn_png,d_lobby_send_btn_hover_png,d_lobby_send_btn_normal_png,m_lobby_header_submenu_bg_png,m_lobby_roadmap_1column_btn_png,m_lobby_roadmap_2column_btn_png,popover_png,common_chips_json,common_game_panel_json,common_menu_json,preload_json,m_lobby_panel_gamelist_tag_bg_allgame_png,m_lobby_panel_gamelist_tag_bg_betted_png,m_lobby_panel_gamelist_tag_bg_goodroad_png,common_general_json,common_cards_big_json,common_cards_small_json,dbjson_zip",
 			"name": "common"
 		},
 		{
-			"keys": "lobby_json,lobby_ui_tex_png",
+			"keys": "lobby_json",
 			"name": "scene_lobby"
 		},
 		{
-			"keys": "ba_json,baccarat_game_result_tex_png,baccarat_ui_tex_png",
+			"keys": "ba_json",
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "ro_json,roulette_game_result_tex_png,roulette_ui_tex_png,roulette_w_game_result_tex_png",
+			"keys": "ro_json,roulette_w_game_result_tex_png",
 			"name": "scene_roulette"
 		},
 		{
@@ -25,11 +25,11 @@
 			"name": "scene_loading"
 		},
 		{
-			"keys": "dt_json,dragon_tiger_game_result_tex_png",
+			"keys": "dt_json",
 			"name": "scene_dragontiger"
 		},
 		{
-			"keys": "di_json,sicbo_game_result_tex_png",
+			"keys": "di_json",
 			"name": "scene_dice"
 		},
 		{
@@ -416,49 +416,144 @@
 			"name": "dbjson_zip"
 		},
 		{
+			"url": "assets/dragonbones/m/rol/roulette_w_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_w_game_result_tex_png"
+		},
+		{
 			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
 			"type": "image",
 			"name": "common_ui_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/common/di/sicbo_game_result/sicbo_game_result_tex.png",
-			"type": "image",
-			"name": "sicbo_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/common/dt/dragon_tiger_game_result/dragon_tiger_game_result_tex.png",
-			"type": "image",
-			"name": "dragon_tiger_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/common/ba/baccarat_game_result/baccarat_game_result_tex.png",
+			"url": "assets/dragonbones/common/ba/gameresult/baccarat_game_result_tex.png",
 			"type": "image",
 			"name": "baccarat_game_result_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/common/ba/baccarat_ui/baccarat_ui_tex.png",
+			"url": "assets/dragonbones/common/ba/ui/baccarat_ui_tex.png",
 			"type": "image",
 			"name": "baccarat_ui_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/common/lobby/lobby_ui/lobby_ui_tex.png",
+			"url": "assets/dragonbones/common/di/gameresult/sicbo_game_result_tex.png",
+			"type": "image",
+			"name": "sicbo_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/dt/gameresult/dragon_tiger_game_result_tex.png",
+			"type": "image",
+			"name": "dragon_tiger_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/lobby/ui/lobby_ui_tex.png",
 			"type": "image",
 			"name": "lobby_ui_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/common/ro/roulette_game_result/roulette_game_result_tex.png",
-			"type": "image",
-			"name": "roulette_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/common/ro/roulette_ui/roulette_ui_tex.png",
+			"url": "assets/dragonbones/common/ro/ui/roulette_ui_tex.png",
 			"type": "image",
 			"name": "roulette_ui_tex_png"
 		},
 		{
-			"url": "assets/dragonbones/m/rol/roulette_w_game_result_tex.png",
+			"url": "assets/dragonbones/common/lw/gameresult/lucky_wheel_game_result_tex.png",
 			"type": "image",
-			"name": "roulette_w_game_result_tex_png"
+			"name": "lucky_wheel_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/gameresult/roulette_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/common/common_ui/common_ui_tex.json",
+			"type": "json",
+			"name": "common_ui_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/common_ui/common_ui_ske.json",
+			"type": "json",
+			"name": "common_ui_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/ba/gameresult/baccarat_game_result_ske.json",
+			"type": "json",
+			"name": "baccarat_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/di/gameresult/sicbo_game_result_ske.json",
+			"type": "json",
+			"name": "sicbo_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/ba/gameresult/baccarat_game_result_tex.json",
+			"type": "json",
+			"name": "baccarat_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/ba/ui/baccarat_ui_ske.json",
+			"type": "json",
+			"name": "baccarat_ui_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/di/gameresult/sicbo_game_result_tex.json",
+			"type": "json",
+			"name": "sicbo_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/dt/gameresult/dragon_tiger_game_result_tex.json",
+			"type": "json",
+			"name": "dragon_tiger_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/ba/ui/baccarat_ui_tex.json",
+			"type": "json",
+			"name": "baccarat_ui_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/dt/gameresult/dragon_tiger_game_result_ske.json",
+			"type": "json",
+			"name": "dragon_tiger_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/lobby/ui/lobby_ui_ske.json",
+			"type": "json",
+			"name": "lobby_ui_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/ui/roulette_ui_tex.json",
+			"type": "json",
+			"name": "roulette_ui_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/lobby/ui/lobby_ui_tex.json",
+			"type": "json",
+			"name": "lobby_ui_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/lw/gameresult/lucky_wheel_game_result_tex.json",
+			"type": "json",
+			"name": "lucky_wheel_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/lw/gameresult/lucky_wheel_game_result_ske.json",
+			"type": "json",
+			"name": "lucky_wheel_game_result_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/ui/roulette_ui_ske.json",
+			"type": "json",
+			"name": "roulette_ui_ske_json"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/gameresult/roulette_game_result_tex.json",
+			"type": "json",
+			"name": "roulette_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/common/ro/gameresult/roulette_game_result_ske.json",
+			"type": "json",
+			"name": "roulette_game_result_ske_json"
 		}
 	]
 }
