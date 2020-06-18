@@ -28,21 +28,36 @@ namespace we {
               this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].removeChildren();
 
               const coinAnim = this.createLuckyCoinAnim();
-              /*
-              const img = new eui.Image();
-
-              img.verticalCenter = 0;
-              img.horizontalCenter = 0;
-
-              if (+key === 0) {
-                img.source = 'd_gow_rou_betborad_hl_big_png';
-                img.width = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].width;
-                img.height = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].height;
-              } else {
-                img.source = 'd_gow_rou_betborad_hl_png';
-                img.width = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].width * 0.97;
-                img.height = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].height * 0.97;
+              let color: string;
+              switch (we.ro.RACETRACK_COLOR[+key]) {
+                case we.ro.Color.GREEN:
+                  color = '_Green';
+                  break;
+                case we.ro.Color.RED:
+                  color = '_Red';
+                  break;
+                case we.ro.Color.BLACK:
+                default:
+                  color = '_Black';
               }
+
+              const betDetails = this.getConfirmedBetDetails();
+              if (betDetails) {
+                betDetails.map((detail, index) => {
+                  if (detail && detail.field && detail.amount) {
+                    const f = this.fieldToValue(detail.field);
+                    if (key === f) {
+                      if (we.ro.RACETRACK_COLOR[+key] !== we.ro.Color.GREEN) {
+                        color = '';
+                      }
+                    }
+                  }
+                });
+              }
+
+              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(coinAnim);
+
+              let state = 0;
 
               const label = new eui.Label();
               label.verticalCenter = -23;
@@ -50,13 +65,53 @@ namespace we {
               label.size = 25;
               label.textColor = 0x83f3af;
               label.text = env.tableInfos[this._tableId].data.luckynumber[key] + 'x';
-              */
 
-              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(coinAnim);
-              coinAnim.animation.play('win_in', 1);
+              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(label);
+              egret.Tween.get(label)
+                .to({ alpha: 0 }, 500)
+                .to({ alpha: 1 }, 500)
+                .to({ alpha: 0 }, 500)
+                .to({ alpha: 1 }, 500)
+                .to({ alpha: 0 }, 500)
+                .to({ alpha: 1 }, 500);
+
+              coinAnim.armature.eventDispatcher.addDBEventListener(
+                dragonBones.EventObject.COMPLETE,
+                () => {
+                  state++;
+                  switch (state) {
+                    case 1:
+                      coinAnim.animation.play(`Bet${color}_loop`, 3);
+                      break;
+                    case 2:
+                      coinAnim.animation.play(`Bet${color}_out`, 1);
+                      break;
+                    default:
+                      coinAnim.animation.stop();
+                      egret.Tween.removeTweens(label);
+                      this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].removeChild(label);
+                  }
+                },
+                this
+              );
+              coinAnim.animation.play(`Bet${color}_in`, 1);
             }
           });
         }
+      }
+
+      protected fieldToValue(fieldName: string) {
+        if (!fieldName) {
+          return null;
+        }
+        if (fieldName.indexOf('DIRECT_') === -1) {
+          return null;
+        }
+        const result = fieldName.split('DIRECT_');
+        if (result && result[1]) {
+          return result[1];
+        }
+        return null;
       }
     }
   }

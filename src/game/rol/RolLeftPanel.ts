@@ -62,7 +62,7 @@ namespace we {
 
         const group = new eui.Group();
         group.addChild(coin);
-        
+
         return group;
       }
 
@@ -85,6 +85,8 @@ namespace we {
             const numberSlot = coinAnim.armature.getSlot('Number');
             numberSlot.display = this.getNumberSlotGroup(+key);
 
+            let noBet = '_nobet';
+
             if (this._chipLayer) {
               const betDetails = this._chipLayer.getConfirmedBetDetails();
               if (betDetails) {
@@ -94,6 +96,7 @@ namespace we {
                     if (key === f) {
                       const chipSlot = coinAnim.armature.getSlot('chips');
                       chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
+                      noBet = '';
                     }
                   }
                 });
@@ -113,8 +116,29 @@ namespace we {
               default:
                 color = 'Black';
             }
+
             this._coinGroup.addChild(coinAnim);
-            coinAnim.animation.play(`Draw_Number_${color}_in`, 1);
+            coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
+
+            let state = 0;
+
+            coinAnim.armature.eventDispatcher.addDBEventListener(
+              dragonBones.EventObject.COMPLETE,
+              () => {
+                state++;
+                switch (state) {
+                  case 1:
+                    coinAnim.animation.play(`Draw_Number_${color}${noBet}_loop`, 4);
+                    break;
+                  case 2:
+                    coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
+                    break;
+                  default:
+                    coinAnim.animation.stop();
+                }
+              },
+              this
+            );
           });
         }
       }
