@@ -29,6 +29,8 @@ namespace we {
       protected pPlayerPairMax: eui.Label;
       protected pPlayerPairOdd: eui.Label;
 
+      protected _mask: egret.Shape;
+
       protected childrenCreated(): void {
         super.childrenCreated();
         this._initY = this.y;
@@ -41,7 +43,9 @@ namespace we {
         //   },
         //   this
         // );
-
+        if (env.orientation === 'landscape') {
+          this.addGradentMask();
+        }
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
         mouse.setButtonMode(this.close, true);
       }
@@ -59,6 +63,20 @@ namespace we {
         this.bankerPairLabel.text = i18n.t('baccarat.bankerPair');
         this.playerPairLabel.text = i18n.t('baccarat.playerPair');
         this.superSixLabel.text = i18n.t('baccarat.superSix') + ' (' + i18n.t('baccarat.noCommission') + ')';
+      }
+
+      private addGradentMask() {
+        this._mask = new egret.Shape();
+        const gr = this._mask.graphics;
+        const matrix = new egret.Matrix();
+        matrix.createGradientBox(40, 532);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x212425, 0x212425], [1, 0], [0, 255], matrix);
+        gr.drawRect(0, 0, 40, 532); //
+        gr.endFill();
+        this.addChild(this._mask);
+        this._mask.x = -1;
+        this._mask.y = 0;
+        this._mask.visible = true;
       }
 
       public getConfig() {

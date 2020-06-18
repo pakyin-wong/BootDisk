@@ -7,7 +7,6 @@ namespace we {
       }
 
       protected updateResult(gameType, tabledata) {
-        console.log('asdasdasdadadasdad', tabledata);
         const { value, winType } = tabledata;
         const allResult = we.ro.getNeighbour(value, 1);
         this._ROlblResult.text = allResult[1].toString();

@@ -69,6 +69,14 @@ namespace we {
         return this._isAnimating;
       }
 
+      public get bulletGapValue() {
+        return this.bulletGap;
+      }
+
+      public set bulletGapValue(val: number) {
+        this.bulletGap = val;
+      }
+
       public initSlider() {
         this.width = this.slideWidth;
         this.height = this.slideHeight;
