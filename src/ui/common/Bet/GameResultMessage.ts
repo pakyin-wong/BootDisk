@@ -8,6 +8,7 @@ namespace we {
     export class GameResultMessage extends core.BaseEUI implements IGameResultMessage {
       protected _display: dragonBones.EgretArmatureDisplay = null;
       protected _dbClass;
+      protected _armatureName = 'armatureName';
 
       public constructor() {
         super();
@@ -37,7 +38,7 @@ namespace we {
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
-        this._display = factory.buildArmatureDisplay('armatureName');
+        this._display = factory.buildArmatureDisplay(this._armatureName);
         this._display.x = this.width / 2;
         this._display.y = this.height / 2;
         this.addChild(this._display);

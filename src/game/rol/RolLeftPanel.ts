@@ -32,21 +32,43 @@ namespace we {
         return factory.buildArmatureDisplay('Draw_Number_Effect');
       }
 
+      public getOddSlotGroup(odd: number) {
+        const group = new eui.Group();
+        const label = new eui.Label();
+        label.text = odd.toString();
+        group.addChild(label);
+
+        return group;
+      }
+
+      public getNumberSlotGroup(num: number) {
+        const group = new eui.Group();
+        const label = new eui.Label();
+        label.text = num.toString();
+        group.addChild(label);
+
+        return group;
+      }
+
+      protected getChipSlotGroup(odd, num, amount) {
+        const imgCoin = new LuckyCoin();
+        imgCoin.odd = odd;
+        imgCoin.value = num;
+        imgCoin.anchorOffsetX = 80;
+        imgCoin.anchorOffsetY = 80;
+
+        const group = new eui.Group();
+        group.addChild(imgCoin);
+
+        return group;
+      }
+
       public updateLuckyNumbers() {
         this._coinGroup.removeChildren();
 
         if (this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber) {
           let x = 60 * (5 - Object.keys(this.tableInfo.data.luckynumber).length) + 10;
           Object.keys(this.tableInfo.data.luckynumber).map((key, index) => {
-            const imgCoin = new LuckyCoin();
-            imgCoin.odd = this.tableInfo.data.luckynumber[key];
-            imgCoin.value = +key;
-            imgCoin.anchorOffsetX = 80;
-            imgCoin.anchorOffsetY = 80;
-
-            const chipSlotGroup = new eui.Group();
-            chipSlotGroup.addChild(imgCoin);
-
             const coinAnim = this.createLuckyCoinAnim();
             coinAnim.x = x;
             coinAnim.y = 10;
@@ -54,8 +76,11 @@ namespace we {
             coinAnim.height = 230;
             x += 130;
 
-            const chipSlot = coinAnim.armature.getSlot('chips');
-            chipSlot.display = chipSlotGroup;
+            const oddSlot = coinAnim.armature.getSlot('Odd');
+            oddSlot.display = this.getOddSlotGroup(this.tableInfo.data.luckynumber[key]);
+
+            const numberSlot = coinAnim.armature.getSlot('Number');
+            numberSlot.display = this.getNumberSlotGroup(+key);
 
             if (this._chipLayer) {
               const betDetails = this._chipLayer.getConfirmedBetDetails();
@@ -64,7 +89,9 @@ namespace we {
                   if (detail && detail.field) {
                     const f = this.fieldToValue(detail.field);
                     if (key === f) {
-                      imgCoin.amount = detail.amount / 100;
+                      // imgCoin.amount = detail.amount / 100;
+                      const chipSlot = coinAnim.armature.getSlot('chips');
+                      chipSlot.display = this.getChipSlotGroup(this.tableInfo.data.luckynumber[key], +key, detail.amount / 100);
                     }
                   }
                 });
@@ -73,7 +100,7 @@ namespace we {
 
             let color = 'Green';
 
-            switch (we.ro.RACETRACK_COLOR[imgCoin.value]) {
+            switch (we.ro.RACETRACK_COLOR[+key]) {
               case we.ro.Color.GREEN:
                 color = 'Green';
                 break;
