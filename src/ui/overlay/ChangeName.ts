@@ -39,16 +39,17 @@ namespace we {
 
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.system.changeName')}`;
-        this._txt_Cartoon.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
-        this._txt_Myth.renderText = () => `${i18n.t('nav.userName.category.myth')}`;
-        this._txt_Movie.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
+        this._txt_Cartoon.renderText = () => '卡通人物角色';
+        this._txt_Myth.renderText = () => '神話人物角色';
+        this._txt_Movie.renderText = () => '電影人物角色';
+        // this._txt_Cartoon.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
+        // this._txt_Myth.renderText = () => `${i18n.t('nav.userName.category.myth')}`;
+        // this._txt_Movie.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
 
         const _arrCol_Cartoon = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames.nickname_group1[0]),
-          ui.NewDropdownItem(1, () => env.nicknames.nickname_group1[1]),
-          ui.NewDropdownItem(2, () => env.nicknames.nickname_group1[2]),
-          ui.NewDropdownItem(3, () => env.nicknames.nickname_group1[3]),
-          ui.NewDropdownItem(4, () => env.nicknames.nickname_group1[4]),
+          ui.NewDropdownItem(0, () => env.nicknames['nickname001']['value']),
+          ui.NewDropdownItem(1, () => env.nicknames['nickname002']['value']),
+          ui.NewDropdownItem(2, () => env.nicknames['nickname003']['value']),
         ]);
 
         if (this._ddm_Cartoon) {
@@ -69,11 +70,9 @@ namespace we {
         });
 
         const _arrCol_Myth = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames.nickname_group2[0]),
-          ui.NewDropdownItem(1, () => env.nicknames.nickname_group2[1]),
-          ui.NewDropdownItem(2, () => env.nicknames.nickname_group2[2]),
-          ui.NewDropdownItem(3, () => env.nicknames.nickname_group2[3]),
-          ui.NewDropdownItem(4, () => env.nicknames.nickname_group2[4]),
+          ui.NewDropdownItem(0, () => env.nicknames['nickname_group2']['name1']),
+          ui.NewDropdownItem(1, () => env.nicknames['nickname_group2']['name2']),
+          ui.NewDropdownItem(2, () => env.nicknames['nickname_group2']['name3']),
         ]);
         if (this._ddm_Myth) {
           this._ddm_Myth.isDropdown = true;
@@ -93,11 +92,9 @@ namespace we {
         });
 
         const _arrCol_Movie = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames.nickname_group3[0]),
-          ui.NewDropdownItem(1, () => env.nicknames.nickname_group3[1]),
-          ui.NewDropdownItem(2, () => env.nicknames.nickname_group3[2]),
-          ui.NewDropdownItem(3, () => env.nicknames.nickname_group3[3]),
-          ui.NewDropdownItem(4, () => env.nicknames.nickname_group3[4]),
+          ui.NewDropdownItem(0, () => env.nicknames['nickname_group3']['name1']),
+          ui.NewDropdownItem(1, () => env.nicknames['nickname_group3']['name2']),
+          ui.NewDropdownItem(2, () => env.nicknames['nickname_group3']['name3']),
         ]);
         if (this._ddm_Movie) {
           this._ddm_Movie.isDropdown = true;
@@ -172,7 +169,12 @@ namespace we {
         if (env.orientation === 'portrait') {
           this._arrow_Myth.rotation = 180;
         }
-        env.nickname = env.nicknames.nickname_group1[e.data];
+        // to be fixed
+        let keys = Object.keys(env.nicknames['nickname_group1']);
+        let nicknames = keys.map(key => env.nicknames['nickname_group1'][key]);
+        //
+        // env.nickname = (<any>Object).values(env.nicknames['nickname_group2'][0]);
+        // (Object.values(group1)[0]);
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
         this.previousPage();
       }
@@ -181,7 +183,7 @@ namespace we {
         if (env.orientation === 'portrait') {
           this._arrow_Myth.rotation = 180;
         }
-        env.nickname = env.nicknames.nickname_group2[e.data];
+        env.nickname = env.nicknames['nickname_group2'][e.data];
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
         this.previousPage();
       }
@@ -190,7 +192,7 @@ namespace we {
         if (env.orientation === 'portrait') {
           this._arrow_Movie.rotation = 180;
         }
-        env.nickname = env.nicknames.nickname_group3[e.data];
+        env.nickname = env.nicknames['nickname_group3'][e.data];
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
         this.previousPage();
       }

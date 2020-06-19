@@ -399,9 +399,20 @@ namespace we {
         env.currency = Currency.RMB;
         env.nickname = 'Jonathan';
         env.nicknames = {
-          nickname_group1: ['海綿寶寶', '哆啦A夢 (小叮噹)', '蠟筆小新', '巴斯光年', '米奇老鼠 (米老鼠)'],
-          nickname_group2: ['天使', '獨角獸', '外星人', '鳳凰', '二重身'],
-          nickname_group3: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+          nickname001: { value: '海綿寶寶', group: 'group001' },
+          nickname002: { value: '天使', group: 'group001' },
+          nickname003: { value: '黑豹', group: 'group001' },
+          nickname004: { value: '外星人', group: 'group002' },
+          nickname005: { value: '刀鋒戰士', group: 'group002' },
+          nickname006: { value: '獨角獸', group: 'group002' },
+          nickname007: { value: '黑寡婦', group: 'group003' },
+          nickname008: { value: '蠟筆小新', group: 'group003' },
+          nickname009: { value: '哆啦A夢', group: 'group003' },
+        };
+        env.groups = {
+          groupKey01: '卡通人物角色',
+          groupKey02: '神話人物角色',
+          groupKey03: '電影人物角色',
         };
         env.icons = [
           'd_lobby_profile_pic_01_png',

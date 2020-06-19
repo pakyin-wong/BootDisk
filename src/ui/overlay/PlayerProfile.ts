@@ -55,7 +55,7 @@ namespace we {
           this._txt_name.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
           console.log(this._txt_name.text);
 
-          // this.dropdownSource = env.nicknames.nickname_group1.map((data, index) => {
+          // this.dropdownSource = env.nicknames.nickname_group1.map(index => {
           //   return ui.NewDropdownItem(index, () => env.nicknames.nickname_group1[index]);
           // });
           this.dropdownSource = [];

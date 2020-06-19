@@ -21,9 +21,21 @@ namespace we {
       public currency: Currency;
       public playerID: string;
       public nickname: string;
-      public nicknames: { nickname_group1: string[]; nickname_group2: string[]; nickname_group3: string[] };
+      public fallbacknicknames: { [groupName: string]: { [itemName: string]: string } };
+      //      icons:[imageurl1: string,imageurl2: string,...]
+      public nicknames: { [nicknameKey: string]: { value: string, group: string } };
+      public groups: { [groupKey: string]: string }; // nicknameGroup
+      public nicknameSet: { nicknames; nameGroups };
+      public settings: {
+        mode: number;
+        categoryorders: string;
+        panelpositions: string;
+        nicknamegroupid: string;
+        nicknameitemid: string;
+        icon: string;
+      };
       public icon: string;
-      public icons: string[];
+      public icons: string[]; // to be modified
       public profileImageURL: string;
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
