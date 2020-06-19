@@ -623,6 +623,9 @@ namespace we {
           if (data.w !== undefined) {
             roadCell.w = data.w;
           }
+          if (data.t !== undefined) {
+            roadCell.t = data.t;
+          }
 
           // di
           if (data.dice !== undefined) {
