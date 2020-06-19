@@ -21,6 +21,9 @@ namespace we {
       private _ballBetCode: string;
       private _ballsArray: eui.Group[];
 
+      // check combination
+      private _ballResults: string[];
+      private _combinationArray: string[];
       constructor(currentBigTagIndex: number, currentSmallTagIndex: number) {
         super();
         this.bigTagIndex = currentBigTagIndex;
@@ -136,19 +139,66 @@ namespace we {
       }
 
       protected generateBetCode(isUpdate: boolean = false) {
-        this._ballBetCode = '';
+        // this._ballBetCode = '';
 
+        // for (let i = 0; i < this._ballsArray.length; i++) {
+        //   if (i > 0) this._ballBetCode += '_';
+
+        //   const ballsRow: eui.Group = this._ballsArray[i];
+        //   for (let k = 0; k < ballsRow.numChildren; k++) {
+        //     this._ballBetCode += (ballsRow.getChildAt(k) as SSCBallButton).isActive ? (ballsRow.getChildAt(k) as SSCBallButton).betValue : '';
+        //   }
+        // }
+        // //[0,1] [0,1,2] = 0,1|0,1,2;
+        // //[0,1] [0,1,2] [0,4] = 0,1|0,1,2 0,1|0,4 0,1,2|0,4
+        // if (isUpdate) this.dispatchEventWith('SSC_UPDATE_BETACTION', false, this._ballBetCode);
+        // console.log(this._ballBetCode);
+
+        this._ballResults = [];
         for (let i = 0; i < this._ballsArray.length; i++) {
-          if (i > 0) this._ballBetCode += '_';
-
           const ballsRow: eui.Group = this._ballsArray[i];
+          let temp = '';
           for (let k = 0; k < ballsRow.numChildren; k++) {
-            this._ballBetCode += (ballsRow.getChildAt(k) as SSCBallButton).isActive ? (ballsRow.getChildAt(k) as SSCBallButton).betValue : '';
+            temp += (ballsRow.getChildAt(k) as SSCBallButton).isActive ? (ballsRow.getChildAt(k) as SSCBallButton).betValue : '';
+          }
+          this._ballResults.push(temp);
+        }
+        const currentBetMode = SelectionMapping[Object.keys(SelectionMapping)[this.bigTagIndex]];
+        const betTypeMapping = currentBetMode['type'][Object.keys(currentBetMode['type'])[this.smallTagIndex]];
+
+        this.generateCombination(this._ballResults, parseInt(betTypeMapping['unit'], 0));
+      }
+
+      protected generateCombination(results: string[], numberOfChosen: number) {
+
+        let combinationArray = [];
+        
+        for (let i = 0; i < results.length - 1; i++) {
+          // This is where you'll capture that last value
+          for (let j = i + 1; j < results.length; j++) {
+            combinationArray.push(`${results[i]}+'_'+ ${results[j]}`);
           }
         }
-        if (isUpdate) this.dispatchEventWith('SSC_UPDATE_BETACTION', false, this._ballBetCode);
-        console.log(this._ballBetCode);
+        // for(let i = 0;i < numberOfInputField; i++){
+        //   let temp = '';
+        //   combinationArray.push(temp);
+        //   for(let k = 0; k < numberOfChosen; k++){
+        //     temp += 
+        //   }
+        // }
+
+        // let ballsSelection = [];
+        // for (let i = 0; i < this._ballsArray.length; i++) {
+        //   const ballsRow: eui.Group = this._ballsArray[i];
+        //   let temp = '';
+        //   for (let k = 0; k < ballsRow.numChildren; k++) {
+        //     temp +=  (ballsRow.getChildAt(k) as SSCBallButton).isActive ?(ballsRow.getChildAt(k)as SSCBallButton).betValue : '' ;
+        //   }
+        //   ballsSelection.push(temp);
+        // }
       }
+
+      protected;
     }
   }
 }
