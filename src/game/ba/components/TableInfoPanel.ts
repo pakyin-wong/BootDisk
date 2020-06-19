@@ -43,7 +43,7 @@ namespace we {
         //   },
         //   this
         // );
-        if (env.orientation === 'landscape') {
+        if (env.isMobile && env.orientation === 'landscape') {
           this.addGradentMask();
         }
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);

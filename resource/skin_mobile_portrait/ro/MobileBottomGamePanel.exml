@@ -6,7 +6,9 @@
 	<e:VerticalLayout gap="0" horizontalAlign="center"/>
 	</e:layout>
 		<e:Group id="_topPart" width="100%" x="0" y="0" scaleX="1" scaleY="1">
-			<e:Rect width="100%" height="100" x="0" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" locked="true"/>
+			<!--<e:Rect width="100%" height="100" x="0" y="0" strokeWeight="0" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" fillColor="0x212425" strokeColor="0x212425" locked="true"/>-->
+			<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,0,0" width="1242" height="100" x="0" y="0" stroke="0"
+		                   strokeColor="0x212425" fillColor="0x212425" />			
 			<e:RadioButton id="historyRoadBtn" label="歷史記錄" x="16" y="20" width="270" height="80" visible="false">
 				<e:skinName>
 				<e:Skin states="up,down,disabled">
