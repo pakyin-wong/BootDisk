@@ -472,7 +472,7 @@ namespace we {
           this.setBetRelatedComponentsTouchEnabled(false);
 
           // TODO: show effect on each winning bet field
-          logger.l(`this.gameData.winType ${this._gameData.wintype} ${utils.EnumHelpers.getKeyByValue(WinType, this._gameData.wintype)}`);
+          logger.l(utils.LoggerTarget.DEBUG, `this.gameData.winType ${this._gameData.wintype} ${utils.EnumHelpers.getKeyByValue(WinType, this._gameData.wintype)}`);
           // this.stateLabel.text = `Finish, ${utils.EnumHelpers.getKeyByValue(WinType, this.gameData.wintype)}`;
 
           // TODO: show win message and the total win ammount to the client for few seconds

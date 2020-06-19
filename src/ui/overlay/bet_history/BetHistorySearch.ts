@@ -52,8 +52,14 @@ namespace we {
           this._datagroup.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onClickResult, this);
           this._datagroup.dataProvider = this._dataColl;
           this._datagroup.itemRenderer = betHistory.BetHistoryItem;
-          this._starttime = moment().utcOffset(8).startOf('day').unix();
-          this._endtime = moment().utcOffset(8).endOf('day').unix();
+          this._starttime = moment()
+            .utcOffset(8)
+            .startOf('day')
+            .unix();
+          this._endtime = moment()
+            .utcOffset(8)
+            .endOf('day')
+            .unix();
           this.search();
         }
 
@@ -104,7 +110,7 @@ namespace we {
         }
 
         protected update(res: any) {
-          logger.l('getBetHistory', res);
+          logger.l(utils.LogTarget.DEBUG, 'getBetHistory', res);
           if (res.error) {
             // TODO: handle error if bet history is not available
           } else {

@@ -22,7 +22,7 @@ class Main extends eui.UILayer {
     this.stage['inFocusItems'] = [];
 
     this.init().catch(err => {
-      logger.e(err);
+      logger.e(we.utils.LogTarget.DEBUG, err);
     });
   }
 
@@ -41,8 +41,8 @@ class Main extends eui.UILayer {
     dir.uaParser = new UAParser();
     env.UAInfo = dir.uaParser.getResult();
 
-    logger.l(env.UAInfo);
-    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
+    logger.l(we.utils.LogTarget.DEBUG, env.UAInfo);
+    logger.l(we.utils.LogTarget.DEBUG, egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
 
     const cn = [];
     cn.push('MainWindow');
@@ -81,6 +81,8 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
+    this.updateBitmapNode();
+
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
@@ -114,7 +116,7 @@ class Main extends eui.UILayer {
     // egret.updateAllScreens();
     egret.updateAllScreens = () => {
       this.updateAllScreens();
-      logger.l('*******************************updateAllScreens***********************************');
+      logger.l(we.utils.LogTarget.DEBUG, '*******************************updateAllScreens***********************************');
     };
   }
 
@@ -153,7 +155,7 @@ class Main extends eui.UILayer {
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
-      logger.e(err);
+      logger.e(we.utils.LogTarget.DEBUG, err);
     }
   }
 
@@ -173,5 +175,10 @@ class Main extends eui.UILayer {
       const rs = $hitTest.call(this, stageX, stageY);
       return rs;
     };
+  }
+
+  private updateBitmapNode() {
+    egret.sys.BitmapNodeExtend.super = egret.sys.BitmapNode;
+    egret.sys.BitmapNode = egret.sys.BitmapNodeExtend;
   }
 }

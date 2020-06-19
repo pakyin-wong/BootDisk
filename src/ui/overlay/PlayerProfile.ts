@@ -182,7 +182,7 @@ namespace we {
           dir.evtHandler.createOverlay({
             class: 'ChangeName',
           });
-          logger.l(`NavSideMenu::ChangeName`);
+          logger.l(utils.LogTarget.DEBUG, `NavSideMenu::ChangeName`);
         } else {
           this._username.text = env.nickname = env.nicknames.nickname_group1[e.data];
           dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);

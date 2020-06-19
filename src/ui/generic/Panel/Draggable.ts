@@ -68,7 +68,7 @@ namespace we {
       protected updateStoredPosition() {
         const pos = { x: this.target.x, y: this.target.y };
         env.storedPositions[this.target.panelName] = pos;
-        logger.l(env.storedPositions);
+        logger.l(utils.LogTarget.DEBUG, env.storedPositions);
         // TODO: upload to server
       }
     }
