@@ -225,7 +225,7 @@ namespace we {
             dir.sceneCtr.goto('lo', { tableid: tableId });
 
           default:
-            logger.e(utils.LoggerTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             break;
         }
       }

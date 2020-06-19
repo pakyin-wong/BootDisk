@@ -45,7 +45,7 @@ namespace we {
           const opt: IOverlayOpt = e.data;
           panel = new we.overlay[opt.class](...opt.args);
         } catch (err) {
-          logger.l(utils.LoggerTarget.DEBUG, `panel ${e.data} defined error`, e.data, err);
+          logger.l(utils.LogTarget.DEBUG, `panel ${e.data} defined error`, e.data, err);
           return;
         }
 

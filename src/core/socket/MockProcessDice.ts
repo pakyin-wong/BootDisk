@@ -42,7 +42,7 @@ namespace we {
         const gameResult1 = Math.floor(Math.random() * 6) + 1;
         const gameResult2 = Math.floor(Math.random() * 6) + 1;
         const gameResult3 = Math.floor(Math.random() * 6) + 1;
-        logger.l(utils.LoggerTarget.DEBUG, 'GameResult: ', gameResult1, gameResult2, gameResult3);
+        logger.l(utils.LogTarget.DEBUG, 'GameResult: ', gameResult1, gameResult2, gameResult3);
 
         await this.setResults(data, [gameResult1.toString(), gameResult2.toString(), gameResult3.toString()], [gameResult1, gameResult2, gameResult3]);
 
@@ -55,7 +55,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l(utils.LoggerTarget.DEBUG, 'Round Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Round Completed');
       }
 
       public async shuffle(data: data.TableInfo) {
@@ -69,7 +69,7 @@ namespace we {
         await this.sleep(this.shuffleStateInterval);
 
         // done
-        logger.l(utils.LoggerTarget.DEBUG, 'Shuffle Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Shuffle Completed');
       }
     }
   }

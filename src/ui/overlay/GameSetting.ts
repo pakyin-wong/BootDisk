@@ -71,7 +71,7 @@ namespace we {
         dir.evtHandler.createOverlay({
           class: 'LiveVerification',
         });
-        logger.l(utils.LoggerTarget.DEBUG, `GameSetting::LiveVerification`);
+        logger.l(utils.LogTarget.DEBUG, `GameSetting::LiveVerification`);
       }
 
       protected initOrientationDependentComponent() {

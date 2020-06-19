@@ -449,7 +449,7 @@ namespace we {
             pass2 = !!this._gameData;
             break;
           default:
-            logger.e(utils.LoggerTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');
+            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');
             break;
         }
 

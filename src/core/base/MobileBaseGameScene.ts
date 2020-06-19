@@ -242,7 +242,7 @@ namespace we {
         dir.evtHandler.createOverlay({
           class: 'VideoSetting',
         });
-        logger.l(utils.LoggerTarget.DEBUG, `onClickVideo`);
+        logger.l(utils.LogTarget.DEBUG, `onClickVideo`);
       }
 
       protected onOrientationChange(gameModeExist?: boolean) {
