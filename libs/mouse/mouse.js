@@ -49,6 +49,10 @@ var mouse;
                 if(!displayObject["isRollOver"]) {
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OVER, false, false, x, y, null);
                     displayObject["isRollOver"] = true;
+                    if (egret.getQualifiedClassName(displayObject).indexOf('TooltipMessageWrapper') > 0) {
+                        const event = new egret.Event('SHOW_TOOLTIP', false, false, { displayObject, x, y })
+                        stageObj.dispatchEvent(event);
+                    }
                 }
                 if (displayObject["buttonModeForMouse"]) {
                     pointer = true;
