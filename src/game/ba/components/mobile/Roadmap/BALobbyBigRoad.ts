@@ -74,6 +74,10 @@ namespace we {
           this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
         }
       }
+      public destroy() {
+        super.destroy();
+        this.bigRoad.dispose();
+      }
     }
   }
 }

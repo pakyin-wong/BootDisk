@@ -24,6 +24,14 @@ namespace we {
         super.initChildren();
       }
 
+      protected destroy() {
+        super.destroy();
+        console.log('aaa dir.evtHandler.hasEventListener(core.Event.ORIENTATION_UPDATE)', dir.evtHandler.hasEventListener(core.Event.ORIENTATION_UPDATE));
+        // if (dir.evtHandler.hasEventListener(core.Event.ORIENTATION_UPDATE)) {
+        // dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
+        // }
+      }
+
       public setData(tableInfo: data.TableInfo) {
         super.setData(tableInfo);
         if (tableInfo.roadmap) {

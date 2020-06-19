@@ -115,28 +115,28 @@ namespace we {
       private addListeners() {
         this._sectionBackIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
         this._changeIcon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
-        // if (env.isMobile) {
-        //   this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
-        // }
-        // if (!env.isMobile) {
-        //   // if desktop
-        //   this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
-        //   this._ddm_name.addEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
-        // }
+        if (env.isMobile) {
+          this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
+        }
+        if (!env.isMobile) {
+          // if desktop
+          this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
+          this._ddm_name.addEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
+        }
         this._iconList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
       }
 
       private removeListeners() {
         this._sectionBackIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToMainSection, this);
         this._changeIcon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToIconSelectSection, this);
-        // if (env.isMobile) {
-        //   this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
-        // }
-        // if (!env.isMobile) {
-        //   // if desktop
-        //   this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
-        //   this._ddm_name.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
-        // }
+        if (env.isMobile) {
+          this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
+        }
+        if (!env.isMobile) {
+          // if desktop
+          this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
+          this._ddm_name.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
+        }
         this._iconList.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
       }
 
@@ -182,7 +182,7 @@ namespace we {
           dir.evtHandler.createOverlay({
             class: 'ChangeName',
           });
-          logger.l(`NavSideMenu::ChangeName`);
+          logger.l(utils.LogTarget.DEBUG, `NavSideMenu::ChangeName`);
         } else {
           this._username.text = env.nickname = env.nicknames.nickname_group1[e.data];
           dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
@@ -194,6 +194,7 @@ namespace we {
       private onChangeIcon() {
         this._playerIcon.source = env.icon = env.icons[this._iconList.selectedIndex];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
+        this.slideToMainSection();
       }
 
       protected initOrientationDependentComponent() {

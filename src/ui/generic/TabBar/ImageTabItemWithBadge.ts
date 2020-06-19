@@ -25,6 +25,7 @@ namespace we {
           this._image = new we.ui.BaseAnimationButton();
           this._image.dbClass = 'lobby_ui';
           this._image.dbDisplay = `d_lobby_panel_gamelist_${this.data}`;
+          this._image.isSwitch = true;
           this.addChildAt(this._image, 0);
         }
         // this._image.active = false;

@@ -50,7 +50,7 @@ namespace we {
     }
 
     export function register(item: ui.IRunTimeComponent) {
-      dir.evtHandler.$addListener(core.Event.SWITCH_LANGUAGE, item.render, item);
+      dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, item.render, item);
     }
 
     export function drop(item: ui.IRunTimeComponent) {

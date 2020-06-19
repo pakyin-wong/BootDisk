@@ -42,8 +42,8 @@ namespace we {
         for (let i = 0; i < 7; i += 1) {
           this._rightGamePanel[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
         }
-        logger.l(JSON.stringify(evt.data.count));
-        logger.l(JSON.stringify(evt.data.amount));
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.count));
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.amount));
       }
 
       protected initChildren() {

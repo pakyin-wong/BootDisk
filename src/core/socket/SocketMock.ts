@@ -16,15 +16,16 @@ namespace we {
       protected betCombinations: we.data.BetCombination[];
 
       protected totalTableCount = {
-        [we.core.GameType.BAC]: 5,
+        [we.core.GameType.BAC]: 1,
         // [we.core.GameType.BAI]: 1,
         // [we.core.GameType.BAS]: 1,
-        [we.core.GameType.DT]: 5,
-        [we.core.GameType.RO]: 5,
-        [we.core.GameType.DI]: 5,
-        [we.core.GameType.LW]: 5,
+        [we.core.GameType.DT]: 1,
+        [we.core.GameType.RO]: 1,
+        [we.core.GameType.DI]: 1,
+        [we.core.GameType.LW]: 1,
         [we.core.GameType.BAM]: 1,
         [we.core.GameType.ROL]: 1,
+        [we.core.GameType.LO]: 1,
       };
 
       constructor() {
@@ -46,7 +47,9 @@ namespace we {
         betCombination.gametype = we.core.GameType.RO;
         betCombination.id = 'f1';
         betCombination.playerid = '12321';
+
         betCombination.optionsList = [{ amount: 1000, betcode: we.ro.BetField.BIG }, { amount: 1000, betcode: we.ro.BetField.BLACK }];
+
         this.betCombinations.push(betCombination);
 
         /*
@@ -62,7 +65,7 @@ namespace we {
         }, 6000);
       }
 
-      public getBalance() { }
+      public getBalance() {}
 
       public getPlayerStatistic(filter: any, callback: (data: any) => void) {
         const data = new we.data.PlayerStatistic();
@@ -364,6 +367,39 @@ namespace we {
             break;
           }
 
+          case we.core.GameType.LO: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockRORoadData);
+              data.gametype = core.GameType.LO;
+
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
+          }
+
           default:
             break;
         }
@@ -371,7 +407,7 @@ namespace we {
         return tables;
       }
 
-      public updateSetting(key: string, value: string) { }
+      public updateSetting(key: string, value: string) {}
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
@@ -453,7 +489,7 @@ namespace we {
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
-        logger.l(env.storedPositions);
+        logger.l(utils.LogTarget.DEBUG, env.storedPositions);
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
       }
 
@@ -482,7 +518,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) { }
+      public leaveTable(tableID: string) {}
 
       public getTableList(filter: string) {
         /*
@@ -511,7 +547,7 @@ namespace we {
       }
 
       public retryPlayerClient(functionName: string, args: any[]) {
-        logger.l('retryPlayerClient', functionName, args);
+        logger.l(utils.LogTarget.DEBUG, 'retryPlayerClient', functionName, args);
       }
 
       public updateCustomGoodRoad(id: string, data: any) {
@@ -597,7 +633,7 @@ namespace we {
 
       public dispatchBetInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
-        logger.l('SocketMock::dispatchBetInfoUpdateEvent', data);
+        logger.l(utils.LogTarget.DEBUG, 'SocketMock::dispatchBetInfoUpdateEvent', data);
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, data);
       }
 
@@ -679,7 +715,7 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 1, p: 1, w: 7 }],
+          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
           bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
@@ -688,7 +724,7 @@ namespace we {
 
         inGameB: {
           bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 0 }],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
           bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
           roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
@@ -911,7 +947,7 @@ namespace we {
           let isMatch = false;
           for (const cfmBetDetail of data.bets) {
             if (betDetail.field === cfmBetDetail.field) {
-              logger.l('SocketMock::bet() matched');
+              logger.l(utils.LogTarget.DEBUG, 'SocketMock::bet() matched');
 
               isMatch = true;
               cfmBetDetail.amount += betDetail.amount;
@@ -927,7 +963,7 @@ namespace we {
             }
           }
           if (!isMatch) {
-            logger.l('SocketMock::bet() not matched');
+            logger.l(utils.LogTarget.DEBUG, 'SocketMock::bet() not matched');
 
             data.bets.push({
               field: betDetail.field,
@@ -1001,7 +1037,7 @@ namespace we {
       }
 
       private onReceivedMsg(res) {
-        logger.l(res);
+        logger.l(utils.LogTarget.DEBUG, res);
 
         // switch res event / error to handler
 
@@ -1102,7 +1138,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
 
-      public sendVerifyInfo(id: string, pattern: string[]) { }
+      public sendVerifyInfo(id: string, pattern: string[]) {}
 
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);

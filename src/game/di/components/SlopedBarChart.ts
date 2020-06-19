@@ -32,7 +32,7 @@ namespace we {
 
       public setRanksAndAnimate(ranks: number[], duration: number = 1000) {
         if (this.colorSettings.length < ranks.length) {
-          logger.e('Error in RankedPieChart: the length of colorSettings doesnt match the length of the ranks');
+          logger.e(utils.LogTarget.DEBUG, 'Error in SlopedBarChart: the length of colorSettings doesnt match the length of the ranks');
           return;
         }
         if (!this.firstStarted) {
