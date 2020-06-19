@@ -78,6 +78,16 @@ namespace we {
           this._nav.addChildAt(this._liveSidePanel, idx);
           dir.layerCtr.overlay.addChild(this._overlay);
 
+          // global tooltip
+          let activeTooltip
+          this._initStage.addEventListener(
+            'SHOW_TOOLTIP',
+            ({ data }) => {
+              console.log(data, dir.layerCtr.tooltip.addChild);
+            },
+            false
+          );
+
           this._notificationController = new ui.NotificationController();
           this._notificationController.x = stage.stageWidth - 410;
           this._notificationController.y = 180;
