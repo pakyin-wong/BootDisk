@@ -71,75 +71,73 @@ namespace we {
 
         if (this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber) {
           let x = 60 * (5 - Object.keys(this.tableInfo.data.luckynumber).length) + 10;
-          Object.keys(this.tableInfo.data.luckynumber).map((key, index) => {
-            const coinAnim = this.createLuckyCoinAnim();
-            coinAnim.x = x;
-            coinAnim.y = 10;
-            coinAnim.width = 125;
-            coinAnim.height = 230;
-            x += 130;
+          setTimeout(async () => {
+            // for(let i = 0,key = Object.keys(this.tableInfo.data.luckynumber)[i]; i < Object.keys(this.tableInfo.data.luckynumber).length;i++) {
+            for (const key of Object.keys(this.tableInfo.data.luckynumber)) {
+              const coinAnim = this.createLuckyCoinAnim();
+              coinAnim.x = x;
+              coinAnim.y = 10;
+              coinAnim.width = 125;
+              coinAnim.height = 230;
+              x += 130;
 
-            const oddSlot = coinAnim.armature.getSlot('Odd');
-            oddSlot.display = this.getOddSlotGroup(this.tableInfo.data.luckynumber[key]);
+              const oddSlot = coinAnim.armature.getSlot('Odd');
+              oddSlot.display = this.getOddSlotGroup(this.tableInfo.data.luckynumber[key]);
 
-            const numberSlot = coinAnim.armature.getSlot('Number');
-            numberSlot.display = this.getNumberSlotGroup(+key);
+              const numberSlot = coinAnim.armature.getSlot('Number');
+              numberSlot.display = this.getNumberSlotGroup(+key);
 
-            let noBet = '_nobet';
+              let noBet = '_nobet';
 
-            if (this._chipLayer) {
-              const betDetails = this._chipLayer.getConfirmedBetDetails();
-              if (betDetails) {
-                betDetails.map((detail, index) => {
-                  if (detail && detail.field && detail.amount) {
-                    const f = this.fieldToValue(detail.field);
-                    if (key === f) {
-                      const chipSlot = coinAnim.armature.getSlot('chips');
-                      chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
-                      noBet = '';
+              if (this._chipLayer) {
+                const betDetails = this._chipLayer.getConfirmedBetDetails();
+                if (betDetails) {
+                  betDetails.map((detail, index) => {
+                    if (detail && detail.field && detail.amount) {
+                      const f = this.fieldToValue(detail.field);
+                      if (key === f) {
+                        const chipSlot = coinAnim.armature.getSlot('chips');
+                        chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
+                        noBet = '';
+                      }
                     }
-                  }
-                });
-              }
-            }
-
-            let color: string;
-
-            switch (we.ro.RACETRACK_COLOR[+key]) {
-              case we.ro.Color.GREEN:
-                color = 'Green';
-                break;
-              case we.ro.Color.RED:
-                color = 'Red';
-                break;
-              case we.ro.Color.BLACK:
-              default:
-                color = 'Black';
-            }
-
-            this._coinGroup.addChild(coinAnim);
-            coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
-
-            let state = 0;
-
-            coinAnim.armature.eventDispatcher.addDBEventListener(
-              dragonBones.EventObject.COMPLETE,
-              () => {
-                state++;
-                switch (state) {
-                  case 1:
-                    coinAnim.animation.play(`Draw_Number_${color}${noBet}_loop`, 4);
-                    break;
-                  case 2:
-                    coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
-                    break;
-                  default:
-                    coinAnim.animation.stop();
+                  });
                 }
-              },
-              this
-            );
-          });
+              }
+
+              let color: string;
+
+              switch (we.ro.RACETRACK_COLOR[+key]) {
+                case we.ro.Color.GREEN:
+                  color = 'Green';
+                  break;
+                case we.ro.Color.RED:
+                  color = 'Red';
+                  break;
+                case we.ro.Color.BLACK:
+                default:
+                  color = 'Black';
+              }
+
+              this._coinGroup.addChild(coinAnim);
+
+              (async () => {
+                let p = we.utils.waitDragonBone(coinAnim);
+                coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
+                await p;
+
+                p = we.utils.waitDragonBone(coinAnim);
+                coinAnim.animation.play(`Draw_Number_${color}${noBet}_loop`, 4);
+                await p;
+
+                p = we.utils.waitDragonBone(coinAnim);
+                coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
+                await p;
+              })();
+
+              await utils.sleep(250);
+            }
+          }, 0);
         }
       }
 
