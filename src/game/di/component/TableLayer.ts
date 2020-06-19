@@ -240,7 +240,7 @@ namespace we {
           innerGroup.layout = collapsed ? new eui.HorizontalLayout() : new eui.VerticalLayout();
           innerGroup.scaleX = collapsed ? 0.75 : 1;
           innerGroup.scaleY = collapsed ? 0.75 : 1;
-          logger.l(innerGroup);
+          logger.l(utils.LogTarget.DEBUG, innerGroup);
         });
         // transform last row
         (() => {

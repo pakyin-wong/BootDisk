@@ -231,6 +231,6 @@ There are few steps needed to be taken before publish
 - [時時彩 玩法說明](https://drive.google.com/drive/folders/1NKNYbvCVuGMT8cMEHgkUo5RmIpBoRCWu?usp=sharing)
 - [時時彩 Requirement](https://drive.google.com/file/d/1XjppI7cKDkCOOVcRWSQrAXX_mAjjzD53/view?usp=sharing)
 - [Lottery pending and unclearness](https://docs.google.com/document/d/1dkb1aqSjAEqK9TL4wf4UtGk7YeSDjzz0atUuCAjBjec/edit?usp=sharing)
-
+- [排列組合公式大全](https://drive.google.com/file/d/1CbhA5uHBFwjyH2LA6NG5IuyLSkUsmj2D/view?usp=sharing)
 ## Lottery Asset
 - [Lobby + 時時彩 Desktop](https://drive.google.com/open?id=19TTHY9c2-hLl-HWt-q2dLFsl_uFc79GO)

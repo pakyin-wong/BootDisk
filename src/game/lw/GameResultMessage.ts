@@ -140,6 +140,7 @@ namespace we {
             anim += 'Gold_Green';
             break;
         }
+
         if (isNaN(winAmount)) {
           anim += '_NoBet';
         }

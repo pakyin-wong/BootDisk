@@ -89,6 +89,8 @@ namespace we {
         dir.audioCtr.video = null;
         this._video.stop();
         dir.videoPool.release(this._video);
+        this._chipLayer.getSelectedChipIndex = null;
+        this._timer.stop();
         this.removeEventListeners();
         this.removeChildren();
       }
@@ -266,7 +268,7 @@ namespace we {
 
       protected onBetDetailUpdate(evt: egret.Event) {
         const tableInfo = <data.TableInfo> evt.data;
-        logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
+        logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -570,6 +572,7 @@ namespace we {
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
+          this._undoStack.clearStack();
         }
       }
 

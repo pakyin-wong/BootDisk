@@ -5,5 +5,6 @@
     "secret": "JWT_TOKEN_HERE",
     "endpoint": "http://18.139.237.86:8080",
     "connectTimeout": 1000000,
-    "resource": "local"
+    "resource": "local",
+    "logtap": true
 }

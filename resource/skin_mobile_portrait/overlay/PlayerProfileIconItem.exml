@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.PlayerProfileIconItem" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="normal,hover,selected,selected-hover" >
 	<e:Image id="_icon" width="290" height="290" source="" horizontalCenter="0" verticalCenter="0"/>
-		<e:Image id="_iconFrame" width="290" height="339" source="d_lobby_profile_selected_png" horizontalCenter="0" verticalCenter="14.5" anchorOffsetY="0" includeIn="selected"/>
+		<!--<e:Image id="_iconFrame" width="290" height="339" source="d_lobby_profile_selected_png" horizontalCenter="0" verticalCenter="14.5" anchorOffsetY="0" includeIn="selected"/>-->
+				<e:Image id="_iconFrame" width="290" height="339" source="" horizontalCenter="0" verticalCenter="14.5" anchorOffsetY="0" includeIn="selected"/>
 </e:Skin>

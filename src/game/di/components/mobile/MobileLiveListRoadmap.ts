@@ -73,7 +73,11 @@ namespace we {
         }
       }
 
-      public dispose() {}
+      protected destroy() {
+        super.destroy();
+        this.bigRoad.dispose();
+      }
+      // public dispose() {}
     }
   }
 }

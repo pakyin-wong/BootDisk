@@ -136,7 +136,7 @@ namespace we {
         await RES.loadGroup('firstRun');
         await new Promise(resolve => {
           dir.socket.getLobbyMaterial(async res => {
-            logger.l(res);
+            logger.l(utils.LogTarget.DEBUG, res);
             if (res.error) {
               // TODO: show default lobby banners
             } else {
