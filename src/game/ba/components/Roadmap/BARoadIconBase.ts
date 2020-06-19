@@ -54,7 +54,16 @@ namespace we {
 
       public animate() {
         egret.Tween.removeTweens(this);
-        egret.Tween.get(this).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400);
+        egret.Tween.get(this)
+          .to({ alpha: 0.2 }, 300)
+          .to({ alpha: 1 }, 300)
+          .wait(400)
+          .to({ alpha: 0.2 }, 300)
+          .to({ alpha: 1 }, 300)
+          .wait(400)
+          .to({ alpha: 0.2 }, 300)
+          .to({ alpha: 1 }, 300)
+          .wait(400);
 
         if (this._iconShape) {
           egret.Tween.removeTweens(this._iconShape);
@@ -67,7 +76,16 @@ namespace we {
       }
 
       protected tweenObj(tweener: egret.Tween) {
-        tweener.to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400).to({ alpha: 0.2 }, 300).to({ alpha: 1 }, 300).wait(400);
+        tweener
+          .to({ alpha: 0.2 }, 300)
+          .to({ alpha: 1 }, 300)
+          .wait(400)
+          .to({ alpha: 0.2 }, 300)
+          .to({ alpha: 1 }, 300)
+          .wait(400)
+          .to({ alpha: 0.2 }, 300)
+          .to({ alpha: 1 }, 300)
+          .wait(400);
       }
 
       public stopAnimate() {

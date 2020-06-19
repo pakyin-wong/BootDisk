@@ -221,6 +221,9 @@ namespace we {
           case core.GameType.ROL:
             dir.sceneCtr.goto('rol', { tableid: tableId });
             break;
+          case core.GameType.LO:
+            dir.sceneCtr.goto('lo', { tableid: tableId });
+
           default:
             logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             break;
