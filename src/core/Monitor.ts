@@ -98,7 +98,7 @@ namespace we {
       }
 
       private arrangeStage(stage) {
-        logger.l(utils.LoggerTarget.DEBUG, 'arrangeStage');
+        logger.l(utils.LogTarget.DEBUG, 'arrangeStage');
       }
 
       private updateBalance() {

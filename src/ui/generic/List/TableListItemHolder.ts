@@ -74,7 +74,7 @@ namespace we {
 
       public itemDataChanged() {
         super.itemDataChanged();
-        logger.l(utils.LoggerTarget.DEBUG, 'TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
+        logger.l(utils.LogTarget.DEBUG, 'TableListItemHolder::itemDataChanged::this.itemData ', this.itemData);
         let prevTableid = '';
         if (this.itemData) {
           if (env && env.tableInfos && env.tableInfos[this.itemData]) {

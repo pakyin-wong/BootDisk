@@ -20,11 +20,7 @@ namespace we {
         this.shape = new egret.Shape();
         this.graphic = this.shape.graphics;
         this.addChild(this.shape);
-        this.setChartStyles([
-          [[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0],
-          [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0],
-          [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0],
-        ]);
+        this.setChartStyles([[[0x2552fc, 0x5ad9ff], [1, 1], [0, 255], 0], [[0xe4e85c, 0x1fe479], [1, 1], [0, 255], 0], [[0xfc2424, 0xfa936e], [1, 1], [0, 255], 0]]);
       }
 
       public set maxChartSize(value: number) {
@@ -45,7 +41,7 @@ namespace we {
 
       public setRanksAndAnimate(ranks: number[], duration: number = 1000) {
         if (this.colorSettings.length - 1 !== ranks.length) {
-          logger.e(utils.LoggerTarget.DEBUG, 'Error in RankedPieChart: the length of colorSettings doesnt match the length of the ranks');
+          logger.e(utils.LogTarget.DEBUG, 'Error in RankedPieChart: the length of colorSettings doesnt match the length of the ranks');
           return;
         }
         if (!this.firstStarted) {

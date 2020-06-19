@@ -191,7 +191,7 @@ namespace we {
             // this.roomList.layout = this.roomLayout;
             break;
           default:
-            logger.e(utils.LoggerTarget.DEBUG, 'DLiveContentInitializer::onDisplayMode() no "mode" can be read');
+            logger.e(utils.LogTarget.DEBUG, 'DLiveContentInitializer::onDisplayMode() no "mode" can be read');
             break;
         }
 

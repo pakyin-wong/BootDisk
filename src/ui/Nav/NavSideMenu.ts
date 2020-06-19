@@ -93,14 +93,14 @@ namespace we {
       }
 
       protected onClickLightMode() {
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickLightMode`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickLightMode`);
         env.mode = 0;
         dir.socket.updateSetting('mode', '0');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 0 });
       }
 
       protected onClickDarkMode() {
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickDarkMode`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickDarkMode`);
         env.mode = 1;
         dir.socket.updateSetting('mode', '1');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 1 });
@@ -110,35 +110,35 @@ namespace we {
         dir.evtHandler.createOverlay({
           class: 'BetHistory',
         });
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickHistory`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickHistory`);
       }
 
       protected onClickMember() {
         dir.evtHandler.createOverlay({
           class: 'MemberReport',
         });
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickMember`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickMember`);
       }
 
       protected onClickRoad() {
         dir.evtHandler.createOverlay({
           class: 'CustomRoad',
         });
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickRoad`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickRoad`);
       }
 
       private onClickSystem() {
         dir.evtHandler.createOverlay({
           class: 'SystemSetting',
         });
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickSystem`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickSystem`);
       }
 
       private onClickGameSet() {
         dir.evtHandler.createOverlay({
           class: 'GameSetting',
         });
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickGameSet`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickGameSet`);
       }
 
       protected onClickLogout() {
@@ -152,7 +152,7 @@ namespace we {
             },
           ],
         });
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickLogout`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickLogout`);
       }
     }
   }

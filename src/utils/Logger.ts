@@ -1,6 +1,6 @@
 namespace we {
   export namespace utils {
-    export enum LoggerTarget {
+    export enum LogTarget {
       DEBUG = 0,
       DEV = 1,
       STAGING = 2,
@@ -42,14 +42,14 @@ namespace we {
         });
       }
 
-      public l(targetLevel: LoggerTarget, ...args) {
+      public l(targetLevel: LogTarget, ...args) {
         const id = this.getTargetID(dir.config.target);
         if (targetLevel >= id) {
           this.log('log', ...args);
         }
       }
 
-      public e(targetLevel: LoggerTarget, ...args) {
+      public e(targetLevel: LogTarget, ...args) {
         const id = this.getTargetID(dir.config.target);
         if (targetLevel >= id) {
           this.log('error', ...args);

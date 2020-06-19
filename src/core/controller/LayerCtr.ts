@@ -22,7 +22,7 @@ namespace we {
         this._stage.addChild(this.overlay);
         this._stage.addChild(this.msg);
 
-        logger.l(utils.LoggerTarget.DEBUG, 'LayerCtr is created');
+        logger.l(utils.LogTarget.DEBUG, 'LayerCtr is created');
 
         dir.evtHandler.addEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this, false, 0);
       }

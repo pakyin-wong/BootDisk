@@ -102,7 +102,7 @@ namespace we {
           BaseEUI.tapHistory.shift();
         }
         BaseEUI.tapHistory.push(e.target);
-        logger.l(utils.LoggerTarget.DEBUG, BaseEUI.tapHistory);
+        logger.l(utils.LogTarget.DEBUG, BaseEUI.tapHistory);
       }
     }
   }
