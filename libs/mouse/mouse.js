@@ -37,6 +37,8 @@ var mouse;
      * @version Egret 3.1.0
      * @platform Web
      */
+    egret.DisplayObject.prototype.tooltipText = '';
+    egret.DisplayObject.prototype.tooltipPosition = 'below';
     mouse.enable = function (stage) {
         isPC = egret.Capabilities.os == "Windows PC" || egret.Capabilities.os == "Mac OS";
         stageObj = stage;
@@ -49,8 +51,9 @@ var mouse;
                 if(!displayObject["isRollOver"]) {
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OVER, false, false, x, y, null);
                     displayObject["isRollOver"] = true;
-                    if (egret.getQualifiedClassName(displayObject).indexOf('TooltipMessageWrapper') > 0) {
-                        const event = new egret.Event('SHOW_TOOLTIP', false, false, { displayObject, x, y })
+                    // if (egret.getQualifiedClassName(displayObject).indexOf('TooltipMessageWrapper') > 0) {
+                    if (displayObject.tooltipText.length > 0) {
+                        const event = new egret.Event('TOOLTIP_SHOW', false, false, { displayObject, x, y });
                         stageObj.dispatchEvent(event);
                     }
                 }
@@ -62,6 +65,10 @@ var mouse;
                 if (displayObject["isRollOver"]) {
                     egret.TouchEvent.dispatchTouchEvent(displayObject, mouse.MouseEvent.ROLL_OUT, false, false, x, y, null);
                     delete displayObject["isRollOver"];
+                    if (displayObject.tooltipText.length > 0) {
+                        const event = new egret.Event('TOOLTIP_HIDE', false, false, { displayObject, x, y });
+                        stageObj.dispatchEvent(event);
+                    }
                 }
             }
             var $hitTest = egret.DisplayObjectContainer.prototype.$hitTest;
@@ -140,7 +147,7 @@ var mouse;
             }
         };
 
-        document.querySelector('canvas').addEventListener('mouseleave', ()=>{
+        document.querySelector('canvas').addEventListener('mouseleave', function() {
             check(NaN,NaN);
         });
     };
