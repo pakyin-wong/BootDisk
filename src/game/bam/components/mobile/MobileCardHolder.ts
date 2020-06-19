@@ -245,9 +245,7 @@ namespace we {
             break;
         }
 
-        this._resultCard.setCardImage(this._flipIndex, this.cardArr[this._flipIndex]);
-
-        this._resultCard._flipCard1.visible = true;
+        this._resultCard.showAndMoveCard(this._flipIndex, this.cardArr[this._flipIndex]);
       }
 
       public setPeekState() {
@@ -326,6 +324,7 @@ namespace we {
           this.card3Player.setCard(utils.formatCard(this.cardArr[5]));
         }
         this.updateResultCard();
+        this._resultCard.closeFlipPanel();
       }
 
       public reset() {
