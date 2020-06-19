@@ -388,7 +388,7 @@ namespace we {
           this.predictBankerIcons = [predictResults[0], predictResults[1], predictResults[2]];
           this.predictPlayerIcons = [predictResults[3], predictResults[4], predictResults[5]];
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LoggerTarget.DEBUG, err);
         }
         return {
           predictBankerIcons: this.predictBankerIcons,
@@ -411,7 +411,7 @@ namespace we {
             }
           });
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LoggerTarget.DEBUG, err);
         }
       }
 

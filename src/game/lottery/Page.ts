@@ -1,41 +1,65 @@
 namespace we {
   export namespace lottery {
     export class Page extends core.BasePage {
-    //   private video: egret.FlvVideo;
+      //   private video: egret.FlvVideo;
 
-    //   private _gameTableList: GameTableList;
+      //   private _gameTableList: GameTableList;
+
+      public roomIds: string[] = [];
+
       private _roomList: ui.TableList;
+      private roomLayout: eui.TileLayout;
 
       public constructor(data: any = null) {
         super();
+
+        if (env.allTableList) {
+          this.roomIds = env.allTableList.filter(tableid => {
+            const tableInfo = env.tableInfos[tableid];
+            return tableInfo && tableInfo.displayReady;
+          });
+        }
+
         this._roomList = new ui.TableList();
+        this._roomList.isFreezeScrolling = true;
+        this._roomList.isGlobalLock = true;
+        this.roomLayout = new eui.TileLayout();
+        this._roomList.itemRenderer = live.LiveListHolder;
+        this._roomList.itemRendererFunction = item => {
+          const tableInfo = env.tableInfos[item];
+          switch (tableInfo.gametype) {
+            case we.core.GameType.LO:
+              return ro.LiveListHolder;
+            default:
+              throw new Error('Invalid Game Type');
+          }
+        };
+        this.addChild(this._roomList);
+
+        this._roomList.setGameFilters(core.LotteryTab.all);
+        this._roomList.setTableList(this.roomIds);
       }
 
       public onEnter() {
         super.onEnter();
-        // After pressing the Filter
-        // dir.socket.getTableList();
-        // // dir.socket.getTableList(enums.TableFilter.BACCARAT);
-        // dir.socket.getTableHistory();
+        dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+      }
 
-        // if (this._data && this._data.tab) {
-        //   this._gameTableList.selectGameType(this._data.tab);
-        // } else {
-        //   this._gameTableList.selectGameType();
-        // }
+      private handleTableList(event: egret.Event) {
+        // if (!env.livepageLocked) {
+        const roomIds = event.data as string[];
+        this.roomIds = roomIds;
+        this._roomList.setTableList(roomIds);
       }
 
       public destroy() {
         super.destroy();
-        // this.removeChildren();
+        dir.evtHandler.removeEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
+        this.removeChildren();
       }
 
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
-        // this._gameTableList = new GameTableList(this._roomList);
-        // this._gameTableList.percentWidth = 100;
-        // this._gameTableList.percentHeight = 100;
-        // this.addChild(this._gameTableList);
       }
 
       protected clearOrientationDependentComponent() {

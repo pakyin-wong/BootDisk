@@ -110,7 +110,7 @@ namespace we {
         }
 
         protected update(res: any) {
-          logger.l('getBetHistory', res);
+          logger.l(utils.LoggerTarget.DEBUG, 'getBetHistory', res);
           if (res.error) {
             // TODO: handle error if bet history is not available
           } else {

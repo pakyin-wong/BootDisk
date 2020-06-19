@@ -8,7 +8,7 @@ namespace we {
         super();
         this.errorPool = [];
         this.errorDisplaying = null;
-        logger.l('ErrorHandler is created');
+        logger.l(utils.LoggerTarget.DEBUG, 'ErrorHandler is created');
       }
 
       public async handleError(error: IErrorKind) {

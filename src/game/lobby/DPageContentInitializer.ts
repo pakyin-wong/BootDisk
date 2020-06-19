@@ -46,7 +46,7 @@ namespace we {
           poster.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {
-              logger.l('psoter click', i, link);
+              logger.l(utils.LoggerTarget.DEBUG, 'psoter click', i, link);
               if (i === 0) {
                 dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
               } else if (i === 3) {
@@ -82,7 +82,7 @@ namespace we {
           image.addEventListener(
             egret.TouchEvent.TOUCH_TAP,
             () => {
-              logger.l('banner click', banner.link);
+              logger.l(utils.LoggerTarget.DEBUG, 'banner click', banner.link);
             },
             this
           );

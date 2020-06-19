@@ -14,7 +14,7 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+        // this.init();
       }
 
       protected init() {
@@ -35,7 +35,6 @@ namespace we {
 
       public destroy() {
         super.destroy();
-
         this.beadRoad.dispose();
       }
     }

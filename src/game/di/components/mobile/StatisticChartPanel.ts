@@ -40,9 +40,16 @@ namespace we {
         this.configSlides();
       }
 
+      protected destroy() {
+        super.destroy();
+        if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
+          dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+      }
+
       public configSlides() {
         this.slides = [this.content, this.contentTwo];
-        logger.l(this.width, this.height, this.slides);
+        logger.l(utils.LoggerTarget.DEBUG, this.width, this.height, this.slides);
 
         if (!this.slides.length) {
           return;

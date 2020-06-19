@@ -47,7 +47,9 @@ namespace we {
         betCombination.gametype = we.core.GameType.RO;
         betCombination.id = 'f1';
         betCombination.playerid = '12321';
+
         betCombination.optionsList = [{ amount: 1000, betcode: we.ro.BetField.BIG }, { amount: 1000, betcode: we.ro.BetField.BLACK }];
+
         this.betCombinations.push(betCombination);
 
         /*
@@ -487,7 +489,7 @@ namespace we {
         env.mode = null || -1;
         env.categorySortOrder = '{}';
         env.storedPositions = JSON.parse('{"TableInfoPanel":{"x":200,"y":400}}');
-        logger.l(env.storedPositions);
+        logger.l(utils.LoggerTarget.DEBUG, env.storedPositions);
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
       }
 
@@ -545,7 +547,7 @@ namespace we {
       }
 
       public retryPlayerClient(functionName: string, args: any[]) {
-        logger.l('retryPlayerClient', functionName, args);
+        logger.l(utils.LoggerTarget.DEBUG, 'retryPlayerClient', functionName, args);
       }
 
       public updateCustomGoodRoad(id: string, data: any) {
@@ -631,7 +633,7 @@ namespace we {
 
       public dispatchBetInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
-        logger.l('SocketMock::dispatchBetInfoUpdateEvent', data);
+        logger.l(utils.LoggerTarget.DEBUG, 'SocketMock::dispatchBetInfoUpdateEvent', data);
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, data);
       }
 
@@ -858,7 +860,7 @@ namespace we {
           let isMatch = false;
           for (const cfmBetDetail of data.bets) {
             if (betDetail.field === cfmBetDetail.field) {
-              logger.l('SocketMock::bet() matched');
+              logger.l(utils.LoggerTarget.DEBUG, 'SocketMock::bet() matched');
 
               isMatch = true;
               cfmBetDetail.amount += betDetail.amount;
@@ -874,7 +876,7 @@ namespace we {
             }
           }
           if (!isMatch) {
-            logger.l('SocketMock::bet() not matched');
+            logger.l(utils.LoggerTarget.DEBUG, 'SocketMock::bet() not matched');
 
             data.bets.push({
               field: betDetail.field,
@@ -948,7 +950,7 @@ namespace we {
       }
 
       private onReceivedMsg(res) {
-        logger.l(res);
+        logger.l(utils.LoggerTarget.DEBUG, res);
 
         // switch res event / error to handler
 

@@ -95,7 +95,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LoggerTarget.DEBUG, 'Round Completed');
       }
 
       public async bankerWin(data: data.TableInfo) {
@@ -122,7 +122,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LoggerTarget.DEBUG, 'Round Completed');
       }
 
       public async bankerPairWin(data: data.TableInfo) {
@@ -149,7 +149,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LoggerTarget.DEBUG, 'Round Completed');
       }
 
       public async bankerWinPlayerPair(data: data.TableInfo) {
@@ -176,7 +176,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LoggerTarget.DEBUG, 'Round Completed');
       }
 
       public async tie(data: data.TableInfo) {
@@ -203,7 +203,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LoggerTarget.DEBUG, 'Round Completed');
       }
 
       public async shuffle(data: data.TableInfo) {
@@ -217,7 +217,7 @@ namespace we {
         await this.sleep(this.shuffleStateInterval);
 
         // done
-        logger.l('Shuffle Completed');
+        logger.l(utils.LoggerTarget.DEBUG, 'Shuffle Completed');
       }
     }
   }

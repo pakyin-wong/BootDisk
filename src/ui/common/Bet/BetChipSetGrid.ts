@@ -55,7 +55,7 @@ namespace we {
 
       public setSelectedChip(index: number) {
         if (this._setSelectedChip) {
-          logger.l('oldindex', this._selectedChipIndex, 'newindex', index);
+          logger.l(utils.LoggerTarget.DEBUG, 'oldindex', this._selectedChipIndex, 'newindex', index);
           // this._setSelectedChip(this._denomList[index], index);
           this._selectedChipIndex = index;
 

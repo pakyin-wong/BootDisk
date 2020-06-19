@@ -58,14 +58,14 @@ namespace we {
       }
 
       private onClickLightMode() {
-        logger.l(`NavSideMenu::onClickLightMode`);
+        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickLightMode`);
         env.mode = 0;
         dir.socket.updateSetting('mode', '0');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 0 });
       }
 
       private onClickDarkMode() {
-        logger.l(`NavSideMenu::onClickDarkMode`);
+        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::onClickDarkMode`);
         env.mode = 1;
         dir.socket.updateSetting('mode', '1');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 1 });

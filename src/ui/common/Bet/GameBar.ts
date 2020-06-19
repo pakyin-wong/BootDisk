@@ -83,21 +83,21 @@ namespace we {
         dir.evtHandler.createOverlay({
           class: 'VideoSetting',
         });
-        logger.l(`onClickVideo`);
+        logger.l(utils.LoggerTarget.DEBUG, `onClickVideo`);
       }
 
       protected onClickSound() {
         dir.evtHandler.createOverlay({
           class: 'SoundSetting',
         });
-        logger.l(`onClickSound`);
+        logger.l(utils.LoggerTarget.DEBUG, `onClickSound`);
       }
 
       protected onClickGame() {
         dir.evtHandler.createOverlay({
           class: 'GameSetting',
         });
-        logger.l(`onClickGame`);
+        logger.l(utils.LoggerTarget.DEBUG, `onClickGame`);
       }
     }
   }

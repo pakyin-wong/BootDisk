@@ -22,7 +22,7 @@ namespace we {
         );
 
         const { dice1, dice2, dice3, size, odd } = <di.GameData> gameData;
-        logger.l(dice1, dice2, dice3, size, odd);
+        logger.l(utils.LoggerTarget.DEBUG, dice1, dice2, dice3, size, odd);
 
         const total = isNaN((gameData as di.GameData).total) ? dice1 + dice2 + dice3 : (gameData as di.GameData).total;
 

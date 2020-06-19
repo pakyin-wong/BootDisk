@@ -89,6 +89,16 @@ namespace we {
       public updateSideBarRoadData(roadmapData: any) {
         this._roadmapControl.updateRoadData();
       }
+
+      protected destroy() {
+        super.destroy();
+        console.log('MobileLiveListRoadmap ::', dir.evtHandler.hasEventListener(core.Event.ORIENTATION_UPDATE)); // T
+        dir.evtHandler.removeEventListener(core.Event.ORIENTATION_UPDATE, this.onOrientationChange, this);
+        this._bigRoadMap.dispose();
+        this._bigEyeRoad.dispose();
+        this._smallRoad.dispose();
+        this._cockroachRoad.dispose();
+      }
     }
   }
 }

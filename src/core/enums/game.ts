@@ -50,6 +50,10 @@ namespace we {
       // goodroad = 'goodroad',
     }
 
+    export enum LotteryTab {
+      all = 'lottery',
+    }
+
     export const TableFilter = {
       FEATURED_TABLE: 1,
       BACCARAT: '123213',

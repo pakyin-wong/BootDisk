@@ -37,8 +37,8 @@ namespace we {
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
         const gameResult = Math.floor(Math.random() * 7);
-        logger.l('GameResult: ', gameResult);
-        logger.l('GameResult.toString(): ', gameResult.toString());
+        logger.l(utils.LoggerTarget.DEBUG, 'GameResult: ', gameResult);
+        logger.l(utils.LoggerTarget.DEBUG, 'GameResult.toString(): ', gameResult.toString());
 
         await this.setResults(data, [gameResult.toString()], [gameResult]);
 
@@ -51,7 +51,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LoggerTarget.DEBUG, 'Round Completed');
       }
 
       public async shuffle(data: data.TableInfo) {
@@ -65,7 +65,7 @@ namespace we {
         await this.sleep(this.shuffleStateInterval);
 
         // done
-        logger.l('Shuffle Completed');
+        logger.l(utils.LoggerTarget.DEBUG, 'Shuffle Completed');
       }
     }
   }

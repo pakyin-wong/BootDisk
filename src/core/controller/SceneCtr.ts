@@ -8,7 +8,7 @@ namespace we {
         this._currScene = new BaseScene();
         dir.layerCtr.scene.addChild(this._currScene);
         dir.layerCtr.nav.addChild(this._currScene.sceneHeader);
-        logger.l('SceneCtr is created');
+        logger.l(utils.LoggerTarget.DEBUG, 'SceneCtr is created');
       }
 
       /** switch scene immediately */
@@ -23,13 +23,13 @@ namespace we {
             _next = new we[id].Scene(data);
           }
         } catch (e) {
-          logger.l(`scene ${id} defined error`);
+          logger.l(utils.LoggerTarget.DEBUG, `scene ${id} defined error`);
           return;
         }
         dir.layerCtr.scene.addChild(_next);
         dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
-        logger.l(`enter ${id}`);
+        logger.l(utils.LoggerTarget.DEBUG, `enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         _next.onEnter();
@@ -49,13 +49,13 @@ namespace we {
             _next = new we[id].Scene(data);
           }
         } catch (e) {
-          logger.l(`scene ${id} defined error`);
+          logger.l(utils.LoggerTarget.DEBUG, `scene ${id} defined error`);
           return;
         }
         dir.layerCtr.scene.addChild(_next);
         dir.layerCtr.nav.addChild(_next.sceneHeader);
         this._currScene = _next;
-        logger.l(`enter ${id}`);
+        logger.l(utils.LoggerTarget.DEBUG, `enter ${id}`);
         dir.evtHandler.dispatch(core.Event.ENTER_SCENE, id);
         dir.layerCtr.nav.removeChild(_prev.sceneHeader);
         await _prev.onFadeExit();

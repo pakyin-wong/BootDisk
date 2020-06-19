@@ -43,7 +43,7 @@ namespace we {
 
         this.client = new PlayerClient(options);
 
-        logger.l('MQTTSocketComm is created', this.client);
+        logger.l(utils.LoggerTarget.DEBUG, 'MQTTSocketComm is created', this.client);
       }
 
       public getPlayerProfileSummary(callback: (data: any) => void) {
@@ -69,7 +69,7 @@ namespace we {
       }
 
       public onError(value: any) {
-        logger.l('PlayerClient::onError ', value);
+        logger.l(utils.LoggerTarget.DEBUG, 'PlayerClient::onError ', value);
         if (value.action !== 'retry' || value.method === 'getBalance' || value.method === 'getTableList' || value.method === 'updateSetting') {
           dir.errHandler.handleError(value);
         }
@@ -145,7 +145,7 @@ namespace we {
       }
 
       protected onConnectError(err) {
-        logger.e(err);
+        logger.e(utils.LoggerTarget.DEBUG, err);
       }
 
       // Handler for Ready event
@@ -173,7 +173,7 @@ namespace we {
         env.icon = player.profile.settings.icon ? player.profile.settings.icon : 'd_lobby_profile_pic_01_png';
 
         env.profileImageURL = player.profile.profileimage;
-        logger.l('PlayerClient::handleReady() ' + player.profile.betlimits);
+        logger.l(utils.LoggerTarget.DEBUG, 'PlayerClient::handleReady() ' + player.profile.betlimits);
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
@@ -211,7 +211,7 @@ namespace we {
           env.storedPositions = JSON.parse(player.profile.panelpositions);
         }
 
-        logger.l(`${timestamp}: READY`, player);
+        logger.l(utils.LoggerTarget.DEBUG, `${timestamp}: READY`, player);
 
         dir.evtHandler.dispatch(core.MQTT.CONNECT_SUCCESS);
 
@@ -337,7 +337,7 @@ namespace we {
         }
         tableInfo.data = gameStatus;
 
-        logger.l(`Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);
+        logger.l(utils.LoggerTarget.DEBUG, `Table ${gameStatus.tableid} change state from ${gameStatus.previousstate} to ${tableInfo.data.state}`);
 
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
@@ -641,12 +641,12 @@ namespace we {
         // }
         // const tableInfo: data.TableInfo = env.tableInfos[betInfo.tableid];
         // // tableInfo.bets = betInfo.bets;
-        // logger.l('BetInfoUpdate:', betInfo);
+        // logger.l(utils.LoggerTarget.DEBUG, 'BetInfoUpdate:', betInfo);
         // tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
         //   const betDetail: data.BetDetail = (<any>Object).assign({}, value);
         //   return betDetail;
         // });
-        // logger.l('BetInfoUpdate:', tableInfo.bets);
+        // logger.l(utils.LoggerTarget.DEBUG, 'BetInfoUpdate:', tableInfo.bets);
 
         // dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
       }
@@ -731,11 +731,11 @@ namespace we {
             }
           })
         );
-        logger.l('Placed bet');
+        logger.l(utils.LoggerTarget.DEBUG, 'Placed bet');
       }
 
       public betResultCallback(result: data.PlayerBetResult) {
-        logger.l('Bet Result Received');
+        logger.l(utils.LoggerTarget.DEBUG, 'Bet Result Received');
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_RESULT, result);
       }
 
