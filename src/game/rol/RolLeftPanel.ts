@@ -3,7 +3,6 @@ namespace we {
     export class RolLeftPanel extends ro.RoLeftPanel {
       protected pageRadioBtn4: eui.RadioButton;
       protected _coinGroup: eui.Group;
-      protected _coinGroupLayout: eui.HorizontalLayout;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RolLeftPanel');
@@ -23,47 +22,122 @@ namespace we {
         this.pageRadioBtn4.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
       }
 
+      protected createLuckyCoinAnim() {
+        const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
+        const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
+        const texture = RES.getRes(`roulette_w_game_result_tex_png`);
+        const factory = new dragonBones.EgretFactory();
+        factory.parseDragonBonesData(skeletonData);
+        factory.parseTextureAtlasData(textureData, texture);
+        return factory.buildArmatureDisplay('Draw_Number_Effect');
+      }
+
+      protected getOddSlotGroup(odd: number) {
+        const label = new eui.Label();
+        label.text = odd.toString() + 'x';
+
+        const group = new eui.Group();
+        group.addChild(label);
+
+        return group;
+      }
+
+      protected getNumberSlotGroup(num: number) {
+        const label = new eui.Label();
+        label.text = num.toString();
+
+        const group = new eui.Group();
+        group.addChild(label);
+
+        return group;
+      }
+
+      protected getChipSlotGroup(amount) {
+        const coin = new LuckyCoin();
+        coin.anchorOffsetX = 80;
+        coin.anchorOffsetY = 80;
+        coin.amount = amount;
+        coin.height = 100;
+        coin.width = 100;
+
+        const group = new eui.Group();
+        group.addChild(coin);
+
+        return group;
+      }
+
       public updateLuckyNumbers() {
         this._coinGroup.removeChildren();
 
-        if (this.tableInfo.data.luckynumber) {
-          Object.keys(this.tableInfo.data.luckynumber).map((key, index) => {
-            const imgCoin = new LuckyCoin();
-            imgCoin.odd = this.tableInfo.data.luckynumber[key];
-            imgCoin.value = +key;
-            switch (Object.keys(this.tableInfo.data.luckynumber).length) {
-              case 3:
-                imgCoin.width = 170;
-                imgCoin.height = 200;
-                this._coinGroupLayout.gap = 45;
-                break;
-              case 4:
-                imgCoin.width = 130;
-                imgCoin.height = 152;
-                this._coinGroupLayout.gap = 20;
-                break;
-              case 5:
-              default:
-                imgCoin.width = 118;
-                imgCoin.height = 138;
-                this._coinGroupLayout.gap = 10;
-                break;
-            }
-            this._coinGroup.addChild(imgCoin);
-            if (this._chipLayer) {
-              const betDetails = this._chipLayer.getConfirmedBetDetails();
-              if (betDetails) {
-                betDetails.map((detail, index) => {
-                  if (detail && detail.field) {
-                    const f = this.fieldToValue(detail.field);
-                    if (key === f) {
-                      imgCoin.amount = detail.amount / 100;
+        if (this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber) {
+          let x = 60 * (5 - Object.keys(this.tableInfo.data.luckynumber).length) + 10;
+          setTimeout(async () => {
+            // for(let i = 0,key = Object.keys(this.tableInfo.data.luckynumber)[i]; i < Object.keys(this.tableInfo.data.luckynumber).length;i++) {
+            for (const key of Object.keys(this.tableInfo.data.luckynumber)) {
+              const coinAnim = this.createLuckyCoinAnim();
+              coinAnim.x = x;
+              coinAnim.y = 10;
+              coinAnim.width = 125;
+              coinAnim.height = 230;
+              x += 130;
+
+              const oddSlot = coinAnim.armature.getSlot('Odd');
+              oddSlot.display = this.getOddSlotGroup(this.tableInfo.data.luckynumber[key]);
+
+              const numberSlot = coinAnim.armature.getSlot('Number');
+              numberSlot.display = this.getNumberSlotGroup(+key);
+
+              let noBet = '_nobet';
+
+              if (this._chipLayer) {
+                const betDetails = this._chipLayer.getConfirmedBetDetails();
+                if (betDetails) {
+                  betDetails.map((detail, index) => {
+                    if (detail && detail.field && detail.amount) {
+                      const f = this.fieldToValue(detail.field);
+                      if (key === f) {
+                        const chipSlot = coinAnim.armature.getSlot('chips');
+                        chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
+                        noBet = '';
+                      }
                     }
-                  }
-                });
+                  });
+                }
               }
+
+              let color: string;
+
+              switch (we.ro.RACETRACK_COLOR[+key]) {
+                case we.ro.Color.GREEN:
+                  color = 'Green';
+                  break;
+                case we.ro.Color.RED:
+                  color = 'Red';
+                  break;
+                case we.ro.Color.BLACK:
+                default:
+                  color = 'Black';
+              }
+
+              this._coinGroup.addChild(coinAnim);
+
+              (async () => {
+                let p = we.utils.waitDragonBone(coinAnim);
+                coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
+                await p;
+
+                p = we.utils.waitDragonBone(coinAnim);
+                coinAnim.animation.play(`Draw_Number_${color}${noBet}_loop`, 4);
+                await p;
+
+                p = we.utils.waitDragonBone(coinAnim);
+                coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
+                await p;
+              })();
+
+              await utils.sleep(250);
             }
-          });
+          }, 0);
         }
       }
 

@@ -68,7 +68,7 @@ namespace we {
         // this._video.height = this.stage.stageHeight;
         // this._video.load('//h5.weinfra247.com:8090/live/720.flv');
         // this._video.load('//210.61.148.50:8000/live/test.flv');
-        this._video.load('wss://www.webflv.com:8443/live/test.flv');
+        this._video.load('https://www.webflv.com:8443/live/test.flv');
 
         dir.audioCtr.video = this._video;
         this.touchEnabled = true;
@@ -535,7 +535,29 @@ namespace we {
         return false;
       }
 
-      public checkResultMessage() {}
+      public checkResultMessage() {
+        const totalWin: number = this._tableInfo.totalWin;
+
+        if (!this._gameData) {
+          return;
+        }
+
+        if (this.hasBet() && !isNaN(totalWin)) {
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            gameData: this._gameData,
+            winAmount: totalWin,
+          });
+        } else {
+          this._resultMessage.showResult(this._tableInfo.gametype, {
+            gameData: this._gameData,
+            winAmount: NaN,
+          });
+        }
+
+        this.playResultSoundEffect(totalWin);
+      }
+
+      protected playResultSoundEffect(totalWin) {}
 
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
