@@ -47,9 +47,20 @@ namespace we {
         // this._txt_Movie.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
 
         const _arrCol_Cartoon = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames['nickname001']['value']),
-          ui.NewDropdownItem(1, () => env.nicknames['nickname002']['value']),
-          ui.NewDropdownItem(2, () => env.nicknames['nickname003']['value']),
+          ui.NewDropdownItem(0, () => env.nicknames['nickname_group2']['name1']),
+          ui.NewDropdownItem(1, () => env.nicknames['nickname_group2']['name2']),
+          ui.NewDropdownItem(2, () => env.nicknames['nickname_group2']['name3']),
+        ]);
+
+        const _arrCol_Myth = new eui.ArrayCollection([
+          ui.NewDropdownItem(0, () => env.nicknames['nickname_group2']['name1']),
+          ui.NewDropdownItem(1, () => env.nicknames['nickname_group2']['name2']),
+          ui.NewDropdownItem(2, () => env.nicknames['nickname_group2']['name3']),
+        ]);
+        const _arrCol_Movie = new eui.ArrayCollection([
+          ui.NewDropdownItem(0, () => env.nicknames['nickname_group3']['name1']),
+          ui.NewDropdownItem(1, () => env.nicknames['nickname_group3']['name2']),
+          ui.NewDropdownItem(2, () => env.nicknames['nickname_group3']['name3']),
         ]);
 
         if (this._ddm_Cartoon) {
@@ -69,11 +80,6 @@ namespace we {
           selected: this._txt_Cartoon,
         });
 
-        const _arrCol_Myth = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames['nickname_group2']['name1']),
-          ui.NewDropdownItem(1, () => env.nicknames['nickname_group2']['name2']),
-          ui.NewDropdownItem(2, () => env.nicknames['nickname_group2']['name3']),
-        ]);
         if (this._ddm_Myth) {
           this._ddm_Myth.isDropdown = true;
           this._ddm_Myth.isPoppable = true;
@@ -91,11 +97,6 @@ namespace we {
           selected: this._txt_Myth,
         });
 
-        const _arrCol_Movie = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames['nickname_group3']['name1']),
-          ui.NewDropdownItem(1, () => env.nicknames['nickname_group3']['name2']),
-          ui.NewDropdownItem(2, () => env.nicknames['nickname_group3']['name3']),
-        ]);
         if (this._ddm_Movie) {
           this._ddm_Movie.isDropdown = true;
           this._ddm_Movie.isPoppable = true;

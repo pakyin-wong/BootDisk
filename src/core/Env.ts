@@ -20,12 +20,16 @@ namespace we {
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
-      public nickname: string;
-      public fallbacknicknames: { [groupName: string]: { [itemName: string]: string } };
+
       //      icons:[imageurl1: string,imageurl2: string,...]
-      public nicknames: { [nicknameKey: string]: { value: string, group: string } };
-      public groups: { [groupKey: string]: string }; // nicknameGroup
-      public nicknameSet: { nicknames; nameGroups };
+
+      public nickname: string;
+      public nicknames: { [nicknameKey: string]: { value: string; group: string } };
+      public groups: { [groupKey: string]: string }; // nicknameGroupKey
+      public nicknameSet: { nicknames; groups };
+      public fallbacknicknames: { nicknameSet };
+      public nameList: {};
+
       public settings: {
         mode: number;
         categoryorders: string;
