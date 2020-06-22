@@ -17,7 +17,7 @@ namespace we {
           dir.evtHandler.createOverlay({
             class: 'SqueezeTutorialOverlay',
           });
-          logger.l(`bam::SqueezeTutorial`);
+
           env.isFirstTimeBam = true;
         }
       }
