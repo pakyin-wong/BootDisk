@@ -1,0 +1,46 @@
+BettingTable
+action
+    Dispatch CHANGE Event
+
+param:
+    inputData: array
+    combinations: string[]
+    noteCount: number[]
+    totalNoteCount: number
+    betFields: string[]
+
+init 
+    - generate input component based on input config
+    - listen CHANGE Event of each InputComponent => onInputChange(id,data)
+    
+
+onInputChange
+    - update inputData
+    - generate combinations if necessary, null if no combinationDataId and dataSelect in config: genreateCombinations
+    - validate data: onValidate
+    - generate bet fields: generateBetFields
+    - compute number of notes and total note count: computeNoteCount => save to noteCount and totaLNoteCount
+    - Dispatch CHANGE Event with totalNoteCount
+
+onValidate
+    - validate each InputComponent: inputComponent.validate
+    - validate overall data: table.validateData
+
+genreateCombinations
+    - check if combinationDataId exist in config, use the corresponding data
+    - else if dataSelect exist in config, generate combination array base on dataSelect and input count
+    - else set null to combinations
+
+generateBetFields
+    // %n: index of nth input, $n: data of nth input
+    // ^n: nth index of combination, &n: data of the nth index of combination, 
+    - generate betfield array base on pattern
+
+computeNoteCount
+
+
+    
+
+InputComponent
+action
+    Dispatch CHANGE Event
