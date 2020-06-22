@@ -24,9 +24,9 @@ namespace we {
       public nickname: string;
       public profileimage: string;
 
-      public nicknames: { [nicknameKey: string]: { value: string; group: string } };
-      public groups: { [groupKey: string]: string }; // nicknameGroupKey
-      public nicknameSet: { nicknames; groups };
+      public _nicknames: { [nicknameKey: string]: { value: string; group: string } };
+      public _groups: { [groupKey: string]: string }; // nicknameGroupKey
+      protected _nicknameSet: {}; // {nicknames; groups}
       public nameList: {}; // to sort nickname in local
 
       public settings: {
@@ -240,6 +240,27 @@ namespace we {
           default:
             logger.e(utils.LoggerTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             break;
+        }
+      }
+
+      public set nicknameSet(val) {
+        env.nameList = {};
+        this._nicknameSet = val;
+        this.nicknameSorting();
+      }
+
+      public nicknameSorting() {
+        const nicknames = env._nicknameSet['nicknames'];
+        const groups = env._nicknameSet['groups'];
+
+        const list = Object.keys(nicknames).map(key => [key, nicknames[key]['value'], nicknames[key]['group']]);
+        list.sort(function (a, b) {
+          return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;
+        }); // returned data structure: [nameKey, nameValue, groupKey]
+
+        for (const item of list) {
+          // sorting by groupKey
+          env.nameList[item[2]] = env.nameList[item[2]] ? [...env.nameList[item[2]], [...item]] : [item];
         }
       }
 

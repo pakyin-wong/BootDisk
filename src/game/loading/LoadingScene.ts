@@ -67,6 +67,10 @@ namespace we {
             let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
             images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
             this._bannerImages = images;
+
+            if (res.nicknames) {
+              env.nicknameSet = res.nicknames;
+            }
           }
           this.next();
         }, this);

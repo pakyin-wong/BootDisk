@@ -184,7 +184,8 @@ namespace we {
           });
           logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::ChangeName`);
         } else {
-          this._username.text = env.nickname = env.nicknames.nickname_group1[e.data];
+          // to be done
+          // this._username.text = env.nickname = env.nicknames.nickname_group1[e.data];
           dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
           this.slideToMainSection();
           this.mount();

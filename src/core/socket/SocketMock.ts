@@ -377,8 +377,10 @@ namespace we {
       }
 
       public updateSetting(key: string, value: string) {
-        if (env.nicknames) {
-          this.nicknameOrdering();
+        if (env.nicknameSet) {
+          env.nicknameSet = env.nicknameSet;
+          console.log(env.nicknameSet);
+          // this.nicknameSorting();
         }
       }
 
@@ -402,24 +404,24 @@ namespace we {
         env.playerID = 'PID001';
         env.currency = Currency.RMB;
         env.nickname = 'Jonathan';
-        env.nicknames = {
-          nickname001: { value: '海綿寶寶', group: 'groupKey03' },
-          nickname002: { value: '天使', group: 'groupKey03' },
-          nickname003: { value: '黑豹', group: 'groupKey03' },
-          nickname004: { value: '外星人', group: 'groupKey02' },
-          nickname005: { value: '刀鋒戰士', group: 'groupKey01' },
-          nickname006: { value: '獨角獸', group: 'groupKey02' },
-          nickname007: { value: '黑寡婦', group: 'groupKey01' },
-          nickname008: { value: '蠟筆小新', group: 'groupKey02' },
-          nickname009: { value: '哆啦A夢', group: 'groupKey01' },
+        env.nicknameSet = {
+          nicknames: {
+            nicknamekey001: { value: '海綿寶寶', group: 'groupKey03' },
+            nicknamekey002: { value: '天使', group: 'groupKey03' },
+            nicknamekey003: { value: '黑豹', group: 'groupKey03' },
+            nicknamekey004: { value: '外星人', group: 'groupKey02' },
+            nicknamekey005: { value: '刀鋒戰士', group: 'groupKey01' },
+            nicknamekey006: { value: '獨角獸', group: 'groupKey02' },
+            nicknamekey007: { value: '黑寡婦', group: 'groupKey01' },
+            nicknamekey008: { value: '蠟筆小新', group: 'groupKey02' },
+            nicknamekey009: { value: '哆啦A夢', group: 'groupKey01' },
+          },
+          groups: {
+            groupKey01: '卡通人物角色',
+            groupKey02: '神話人物角色',
+            groupKey03: '電影人物角色',
+          },
         };
-        env.groups = {
-          groupKey01: '卡通人物角色',
-          groupKey02: '神話人物角色',
-          groupKey03: '電影人物角色',
-        };
-        // env.nicknameSet=  { env.nicknames ; env,groups };
-        env.nameList = {};
 
         env.icons = [
           'd_lobby_profile_pic_01_png',
@@ -1136,18 +1138,6 @@ namespace we {
         if (i !== -1) {
           this.betCombinations.splice(i, 1);
           dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
-        }
-      }
-
-      public nicknameOrdering() {
-        const list = Object.keys(env.nicknames).map(key => [key, env.nicknames[key]['value'], env.nicknames[key]['group']]);
-        list.sort(function (a, b) {
-          return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;
-        }); // returned data structure: [key, value, groupKey]
-        env.nameList = {};
-        for (const item of list) {
-          // sorting by groupKey
-          env.nameList[item[2]] = env.nameList[item[2]] ? [...env.nameList[item[2]], [...item]] : [item];
         }
       }
     }

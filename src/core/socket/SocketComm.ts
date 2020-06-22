@@ -157,7 +157,7 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-        env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
+        // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
         env.icons = [
