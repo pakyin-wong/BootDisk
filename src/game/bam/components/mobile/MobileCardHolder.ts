@@ -52,12 +52,12 @@ namespace we {
         this.disableFilter = new egret.ColorMatrixFilter(this.grayMatrix);
         this.enableFilter = new egret.ColorMatrixFilter(this.colorMatrix);
         this.updateCardArr();
-        this.disableCard('all');
       }
 
       public passFlipCard(m: MobileFlipCardHolder) {
         this._resultCard = m;
         this.addEventListeners();
+        this.disableCard('all');
       }
 
       protected addEventListeners() {

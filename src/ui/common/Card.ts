@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class Card extends eui.Component {
-      public isOpen: boolean;
+      public isOpen: boolean = false;
       protected texName: string;
 
       constructor() {
@@ -9,7 +9,6 @@ namespace we {
       }
       protected childrenCreated() {
         super.childrenCreated();
-        this.isOpen = false;
       }
       public setCard(resName: string, vertical: boolean = true) {
         this.removeChildren();

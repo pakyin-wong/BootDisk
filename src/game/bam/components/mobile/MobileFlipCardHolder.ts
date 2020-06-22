@@ -63,8 +63,6 @@ namespace we {
       public showAndMoveCard(moveIndex: number, value: string) {
         this._flipCard1.visible = true;
         this._flipCard2.visible = true;
-        this.currentCard.visible = true;
-        this.nextCard.visible = true;
         if (!this.isOpen) {
           this.changeCurrentCard();
           this.updateCardPos();
@@ -74,11 +72,11 @@ namespace we {
           if (this.moveCardIndex === moveIndex) {
             return;
           }
+          this.changeCurrentCard();
 
           if (this.moveCardIndex < moveIndex) {
-            this.changeCurrentCard();
-            this.updateCardPos('right');
             this.setCardImage(moveIndex, value, this.currentCard);
+            this.updateCardPos('right');
             egret.Tween.get(this.currentCard).to(
               {
                 x: this.middlePosition,
@@ -95,9 +93,8 @@ namespace we {
           }
 
           if (this.moveCardIndex > moveIndex) {
-            this.changeCurrentCard();
-            this.updateCardPos('left');
             this.setCardImage(moveIndex, value, this.currentCard);
+            this.updateCardPos('left');
             egret.Tween.get(this.currentCard).to(
               {
                 x: this.middlePosition,
@@ -118,15 +115,21 @@ namespace we {
       public setCardImage(index: number, value: string, card: ba.FlipCard) {
         this.moveCardIndex = index;
 
+        console.log('Card state: ' + card.x + ' and ' + card.visible);
+
         card.setCardImage('m_sq_ba_large_poker_backside_png', `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`, `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
       }
 
       public closeFlipPanel() {
         this.isOpen = false;
-        this.currentCard.visible = false;
-        this.nextCard.visible = false;
-        this._flipCard1.x = 189;
-        this._flipCard2.x = 1289;
+        // this.currentCard.visible = false;
+        // this.nextCard.visible = false;
+        this._flipCard1.visible = false;
+        this._flipCard2.visible = false;
+
+        this.nextCard = new ba.FlipCard;
+        this.currentCard = new ba.FlipCard;
+
         this.moveCardIndex = 0;
       }
     }
