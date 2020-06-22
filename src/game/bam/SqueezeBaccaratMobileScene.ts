@@ -13,14 +13,13 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this._resultDisplay.passFlipCard(this._resultCard);
-        // if (!env.isFirstTimeBam) {
-        //   const tutorial = new SqueezeTutorial('SqueezeTutorial');
-        //   tutorial.x = 0;
-        //   tutorial.y = 0;
-        //   tutorial.isDraggable = true;
-        //   this.addChild(tutorial);
-        //   env.isFirstTimeBam = true;
-        // }
+        if (!env.isFirstTimeBam) {
+          dir.evtHandler.createOverlay({
+            class: 'SqueezeTutorialOverlay',
+          });
+          logger.l(`bam::SqueezeTutorial`);
+          env.isFirstTimeBam = true;
+        }
       }
 
       protected setSkinName() {

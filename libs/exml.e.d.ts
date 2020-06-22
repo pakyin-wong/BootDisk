@@ -810,6 +810,18 @@ declare module skin_mobile_landscape.ba{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.bam{
+	class FlipCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bam{
+	class MobileCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class SqueezeBaccaratScene extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape{
 	class BetConfirmButtonSkin extends eui.Skin{
 	}

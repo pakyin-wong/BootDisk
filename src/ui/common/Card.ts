@@ -1,6 +1,7 @@
 namespace we {
   export namespace ui {
     export class Card extends eui.Component {
+      public isOpen: boolean;
       protected texName: string;
 
       constructor() {
@@ -8,6 +9,7 @@ namespace we {
       }
       protected childrenCreated() {
         super.childrenCreated();
+        this.isOpen = false;
       }
       public setCard(resName: string, vertical: boolean = true) {
         this.removeChildren();
@@ -18,8 +20,10 @@ namespace we {
           } else {
             if (resName === 'back') {
               this.texName = 'm_sq_bac_small_poker_backside_png';
+              this.isOpen = false;
             } else {
               this.texName = `m_sq_bac_small_poker_${resName}_vertical_png`;
+              this.isOpen = true;
             }
           }
 
