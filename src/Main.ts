@@ -22,7 +22,7 @@ class Main extends eui.UILayer {
     this.stage['inFocusItems'] = [];
 
     this.init().catch(err => {
-      logger.e(err);
+      logger.e(we.utils.LogTarget.DEBUG, err);
     });
   }
 
@@ -41,8 +41,8 @@ class Main extends eui.UILayer {
     dir.uaParser = new UAParser();
     env.UAInfo = dir.uaParser.getResult();
 
-    logger.l(env.UAInfo);
-    logger.l(egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
+    logger.l(we.utils.LogTarget.DEBUG, env.UAInfo);
+    logger.l(we.utils.LogTarget.DEBUG, egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
 
     const cn = [];
     cn.push('MainWindow');
@@ -55,31 +55,34 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
 
-    // if (type === 'mobile') {
-    // if (true) {
-    env.isMobile = true;
-    this.updateMobileHitTest();
-    // use these when there is portrait mode only
-    // this.stage.setContentSize(1242, 2155);
-    // this.stage.orientation = egret.OrientationMode.PORTRAIT;
-    // env.orientation = egret.OrientationMode.PORTRAIT;
-    // this.stage.setContentSize(2155, 1242);
-    // this.stage.orientation = egret.OrientationMode.LANDSCAPE;
-    // env.orientation = egret.OrientationMode.LANDSCAPE;
+    if (type === 'mobile') {
+      // if (true) {
+      env.isMobile = true;
+      this.updateMobileHitTest();
+      // use these when there is portrait mode only
+      // this.stage.setContentSize(1242, 2155);
+      // this.stage.orientation = egret.OrientationMode.PORTRAIT;
+      // env.orientation = egret.OrientationMode.PORTRAIT;
+      // this.stage.setContentSize(2155, 1242);
+      // this.stage.orientation = egret.OrientationMode.LANDSCAPE;
+      // env.orientation = egret.OrientationMode.LANDSCAPE;
 
-    // uncomment below when there are both portrait and landscape layout
-    this.orientationManager = new we.utils.OrientationManager(this.stage);
-    // }
+      // uncomment below when there are both portrait and landscape layout
+      this.orientationManager = new we.utils.OrientationManager(this.stage);
+    }
 
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
     dir.audioCtr = new we.core.AudioCtr(this.stage);
+    dir.tooltipCtr = new we.core.TooltipCtr(this.stage);
     dir.layerCtr = new we.core.LayerCtr(this.stage);
     dir.sceneCtr = new we.core.SceneCtr();
     dir.meterCtr = new we.core.MeterCtr();
     dir.monitor = new we.core.Monitor();
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
+
+    this.updateBitmapNode();
 
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
@@ -88,24 +91,25 @@ class Main extends eui.UILayer {
     we.i18n.setLang('sc');
     await this.initRes();
     env.initialized = true;
-
-    const opt = {
-      ba: 8,
-      dt: 8,
-      ro: 8,
-      di: 8,
-      lw: 8,
-    };
-    dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
-    dir.analysisPool = new we.ui.AnalysisPool(opt);
-    const opt2 = {
-      ba: 16,
-      dt: 16,
-      ro: 16,
-      di: 16,
-      lw: 16,
-    };
-    dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
+    if (type !== 'mobile') {
+      const opt = {
+        ba: 8,
+        dt: 8,
+        ro: 8,
+        di: 8,
+        lw: 8,
+      };
+      dir.advancedRoadPool = new we.ui.AdvancedRoadPool(opt);
+      dir.analysisPool = new we.ui.AnalysisPool(opt);
+      const opt2 = {
+        ba: 16,
+        dt: 16,
+        ro: 16,
+        di: 16,
+        lw: 16,
+      };
+      dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
+    }
 
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
@@ -113,7 +117,7 @@ class Main extends eui.UILayer {
     // egret.updateAllScreens();
     egret.updateAllScreens = () => {
       this.updateAllScreens();
-      logger.l('*******************************updateAllScreens***********************************');
+      logger.l(we.utils.LogTarget.DEBUG, '*******************************updateAllScreens***********************************');
     };
   }
 
@@ -144,13 +148,15 @@ class Main extends eui.UILayer {
       }
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
+
       fontMgr.loadFonts([
-        { res: 'Barlow-Regular', name: 'Barlow' },
-        { res: 'BarlowCondensed-SemiBold', name: 'BarlowCondensed' },
+        { res: 'Barlow-Regular_otf', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
       ]);
+
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
-      logger.e(err);
+      logger.e(we.utils.LogTarget.DEBUG, err);
     }
   }
 
@@ -170,5 +176,10 @@ class Main extends eui.UILayer {
       const rs = $hitTest.call(this, stageX, stageY);
       return rs;
     };
+  }
+
+  private updateBitmapNode() {
+    egret.sys.BitmapNodeExtend.super = egret.sys.BitmapNode;
+    egret.sys.BitmapNode = egret.sys.BitmapNodeExtend;
   }
 }

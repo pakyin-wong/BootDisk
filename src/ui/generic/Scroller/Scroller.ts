@@ -261,7 +261,7 @@ namespace we {
           });
           */
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LogTarget.DEBUG, err);
         }
       }, 1);
 

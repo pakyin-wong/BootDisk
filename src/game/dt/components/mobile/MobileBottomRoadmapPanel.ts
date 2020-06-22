@@ -44,7 +44,7 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+        // this.init();
       }
 
       protected init() {

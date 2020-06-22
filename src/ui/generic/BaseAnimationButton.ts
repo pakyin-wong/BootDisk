@@ -32,8 +32,11 @@ namespace we {
       // button states
       protected _buttonState: BaseAnimationButtonState = BaseAnimationButtonState.normal;
       protected _enabled: boolean = false;
+      protected _hover: boolean = false;
       protected _active: boolean = false;
+      protected _down: boolean = false;
 
+      public isSwitch: boolean = false;
       public useColorFilter: boolean = false;
       public pressScaleOffset: number = 0.9;
       public downColorOffset: number = -30;
@@ -85,7 +88,8 @@ namespace we {
         console.log('BaseAnim first', this.active, this._active);
         console.log('BaseAnim first', this._enabled);
 
-        this.update();
+        const oldState = [this._down, this._hover];
+        this.update(oldState);
       }
 
       public destroy() {
@@ -129,7 +133,8 @@ namespace we {
           mouse.setButtonMode(this, false);
         }
         this._enabled = enabled;
-        this.update();
+        const oldState = [this._down, this._hover];
+        this.update(oldState);
       }
 
       public get active() {
@@ -138,7 +143,8 @@ namespace we {
 
       public set active(active) {
         this._active = active;
-        this.update();
+        const oldState = [this._down, this._hover];
+        this.update(oldState);
       }
 
       protected updateColorFilter(buttonState) {
@@ -162,27 +168,52 @@ namespace we {
       }
 
       private onRollover() {
-        if (this.useColorFilter) {
-          this.updateColorFilter(BaseAnimationButtonState.hover);
+        if (this.isSwitch) {
+          if (this.useColorFilter) {
+            this.updateColorFilter(BaseAnimationButtonState.hover);
+          }
+        } else {
+          const oldState = [this._down, this._hover];
+          this._hover = true;
+          this.update(oldState);
         }
       }
 
       private onRollout() {
-        if (this.useColorFilter) {
-          this.updateColorFilter(BaseAnimationButtonState.normal);
+        if (this.isSwitch) {
+          if (this.useColorFilter) {
+            this.updateColorFilter(BaseAnimationButtonState.normal);
+          }
+        } else {
+          const oldState = [this._down, this._hover];
+          this._down = false;
+          this._hover = false;
+          this.update(oldState);
         }
       }
 
       private onTouchDown() {
-        egret.Tween.removeTweens(this);
-        egret.Tween.get(this._group).to({ scaleX: this.pressScaleOffset, scaleY: this.pressScaleOffset }, 150);
+        if (this.isSwitch) {
+          egret.Tween.removeTweens(this);
+          egret.Tween.get(this._group).to({ scaleX: this.pressScaleOffset, scaleY: this.pressScaleOffset }, 150);
+        } else {
+          const oldState = [this._down, this._hover];
+          this._down = true;
+          this.update(oldState);
+        }
       }
 
       private async onTouchUp() {
-        egret.Tween.removeTweens(this);
-        egret.Tween.get(this._group).to({ scaleX: 1.0, scaleY: 1.0 }, 150);
-        // play release
-        this.playPromise('release', 1);
+        if (this.isSwitch) {
+          egret.Tween.removeTweens(this);
+          egret.Tween.get(this._group).to({ scaleX: 1.0, scaleY: 1.0 }, 150);
+          // play release
+          this.playPromise('release', 1);
+        } else {
+          const oldState = [this._down, this._hover];
+          this._down = false;
+          this.update(oldState);
+        }
       }
 
       private onClick() {
@@ -192,8 +223,14 @@ namespace we {
       private playPromise(anim, count) {
         console.log('BaseAnimationButton', anim);
 
+        if (!this._display) {
+          logger.l(utils.LogTarget.DEBUG, 'Missing display: ' + this._dbClass + ', ' + this._dbDisplay + ',' + anim);
+          return;
+          // throw new Error('Missing display: ' + this._dbClass + ', ' + this._dbDisplay + ',' + anim);
+        }
+
         if (!this._display.armature) {
-          throw new Error('Animation missing armature');
+          throw new Error('Animation missing armature: ' + this._dbClass);
         }
 
         return new Promise(resolve => {
@@ -207,7 +244,7 @@ namespace we {
       }
 
       private prevProm: Promise<any> = Promise.resolve();
-      private async update() {
+      private async update([oldDown, oldHover]: boolean[]) {
         if (!this._display) {
           return;
         }
@@ -216,10 +253,27 @@ namespace we {
 
         if (!this._enabled) {
           this.playPromise('disable', 0);
-        } else if (this._active) {
-          this.playPromise('active', 0);
+        } else if (this._hover && !oldDown && this._down) {
+          this.playPromise('press', 1);
+        } else if (this._hover && oldDown && !this._down) {
+          this.prevProm = this.playPromise('release', 1);
+        } else if (!oldHover && this._hover) {
+          this.playPromise('mouse_in', 1);
+        } else if (oldHover && !this._hover) {
+          //   if (oldDown) {
+          //     await this.playPromise('release', 1);
+          //   }
+          this.playPromise('mouse_out', 1);
         } else {
-          this.playPromise('inactive', 0);
+          if (this.isSwitch) {
+            if (this._active) {
+              this.playPromise('active', 0);
+            } else {
+              this.playPromise('inactive', 0);
+            }
+          } else {
+            this.playPromise('idle', 0);
+          }
         }
       }
 

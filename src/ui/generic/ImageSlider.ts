@@ -31,7 +31,7 @@ namespace we {
 
       public configSlides(slides: core.IRemoteResourceItem[]) {
         this.slides = slides;
-        logger.l(this.width, this.height, slides);
+        logger.l(utils.LogTarget.DEBUG, this.width, this.height, slides);
 
         if (!this.slides.length) {
           return;
@@ -178,7 +178,7 @@ namespace we {
         if (!this.slides.length) {
           return;
         }
-        logger.l('carousel', this.slides[this.currentIndex].link);
+        logger.l(utils.LogTarget.DEBUG, 'carousel', this.slides[this.currentIndex].link);
         dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
       }
     }

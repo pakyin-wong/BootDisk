@@ -9,12 +9,6 @@ namespace we {
 
       constructor(skinName?: string) {
         super(skinName);
-        this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
-      }
-
-      protected destroy() {
-        super.destroy();
-        // dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, function () {}, this);
       }
 
       public onTableListUpdate() {}

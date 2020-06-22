@@ -93,14 +93,14 @@ namespace we {
       }
 
       protected onClickLightMode() {
-        logger.l(`NavSideMenu::onClickLightMode`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickLightMode`);
         env.mode = 0;
         dir.socket.updateSetting('mode', '0');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 0 });
       }
 
       protected onClickDarkMode() {
-        logger.l(`NavSideMenu::onClickDarkMode`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickDarkMode`);
         env.mode = 1;
         dir.socket.updateSetting('mode', '1');
         dir.evtHandler.dispatch(core.Event.MODE_UPDATE, { mode: 1 });
@@ -110,35 +110,35 @@ namespace we {
         dir.evtHandler.createOverlay({
           class: 'BetHistory',
         });
-        logger.l(`NavSideMenu::onClickHistory`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickHistory`);
       }
 
       protected onClickMember() {
         dir.evtHandler.createOverlay({
           class: 'MemberReport',
         });
-        logger.l(`NavSideMenu::onClickMember`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickMember`);
       }
 
       protected onClickRoad() {
         dir.evtHandler.createOverlay({
           class: 'CustomRoad',
         });
-        logger.l(`NavSideMenu::onClickRoad`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickRoad`);
       }
 
       private onClickSystem() {
         dir.evtHandler.createOverlay({
           class: 'SystemSetting',
         });
-        logger.l(`NavSideMenu::onClickSystem`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickSystem`);
       }
 
       private onClickGameSet() {
         dir.evtHandler.createOverlay({
           class: 'GameSetting',
         });
-        logger.l(`NavSideMenu::onClickGameSet`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickGameSet`);
       }
 
       protected onClickLogout() {
@@ -152,7 +152,7 @@ namespace we {
             },
           ],
         });
-        logger.l(`NavSideMenu::onClickLogout`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickLogout`);
       }
     }
   }

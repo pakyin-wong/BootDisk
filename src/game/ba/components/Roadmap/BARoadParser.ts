@@ -388,7 +388,7 @@ namespace we {
           this.predictBankerIcons = [predictResults[0], predictResults[1], predictResults[2]];
           this.predictPlayerIcons = [predictResults[3], predictResults[4], predictResults[5]];
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LogTarget.DEBUG, err);
         }
         return {
           predictBankerIcons: this.predictBankerIcons,
@@ -411,7 +411,7 @@ namespace we {
             }
           });
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LogTarget.DEBUG, err);
         }
       }
 
@@ -622,6 +622,9 @@ namespace we {
           }
           if (data.w !== undefined) {
             roadCell.w = data.w;
+          }
+          if (data.t !== undefined) {
+            roadCell.t = data.t;
           }
 
           // di
