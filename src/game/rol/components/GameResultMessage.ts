@@ -50,7 +50,7 @@ namespace we {
 
       protected fillSlotLuckyNumberOdd(luckyNumber, resultNo: number) {
         let luckyStatus = '';
-        if (luckyNumber[resultNo] === null) {
+        if (luckyNumber[resultNo] === undefined) {
           return luckyStatus;
         }
         const oddSlot = this._display.armature.getSlot('Base_Odd');
