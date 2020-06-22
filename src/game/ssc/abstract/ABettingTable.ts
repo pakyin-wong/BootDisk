@@ -24,6 +24,7 @@ namespace we {
           for (var i=0;i<inputConfigs.length;i++) {
             const inputComponent = InputComponentFactory.generateInputComponent(i,inputConfigs[i]);
             inputComponent.addEventListener(egret.Event.CHANGE, this.onInputChange, this);
+            this._inputs.push(inputComponent);
             // init empty inputData
             this.inputData.push('');
           } 
@@ -37,29 +38,38 @@ namespace we {
 
         this.generateCombination();
         this.validateInput();
+        this.dataMapping();
         this.generateBetFields();
-        this.computeNodeCount();
+        this.computeNoteCount();
       }
 
       protected generateCombination() {
 
       }
 
-      protected validateInput() {
+      protected validateInput(): boolean {
+        for (const input of this._inputs) {
+          if (!input.validate()) return false;
+        }
+        if (this._config.validateData) {
+          if (!this._config.validateData(data)) return false;
+        }
+        return true;
+      }
 
+      protected dataMapping() {
+        if (this._config.mapping) {
+          this._config.mapping(this.inputData, this.combinations);
+        }
       }
 
       protected generateBetFields() {
 
       }
 
-      public computeNodeCount() {
+      public computeNoteCount() {
 
       }
-
-      // public validate() {
-
-      // }
     }
   }
 }

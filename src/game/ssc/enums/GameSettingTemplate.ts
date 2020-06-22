@@ -55,6 +55,12 @@ namespace we {
 
     }
 
+    export namespace NoteCountFunc {
+      export function DirectionSelection(data, combinations) {
+        return 1;
+      }
+    }
+
     export namespace Validator {
 
       // check the number of different items inside two data
@@ -91,7 +97,8 @@ namespace we {
               InputComponentDefinition.ballRange('Ten',0,9,1),
               InputComponentDefinition.ballRange('Unit',0,9,1)
             ],
-            pattern:"12345OPTIONAL_$1_$2_$3_$4_$5"
+            pattern:"12345OPTIONAL_$1_$2_$3_$4_$5",
+            noteCountFunc:NoteCountFunc.DirectionSelection
           },
           Five30: {
             name: 'Five30',
@@ -126,7 +133,7 @@ namespace we {
               InputComponentDefinition.ballRange('Unit',0,9,0)
             ],
             dataSelect: 2, // 5 data choose 2, if not set, use input.length, generate combinationData, example: ['1_2', '2_3', '1_3']
-            pattern:'^1^2OptionalFree_&1_&2'  
+            pattern:'^1^2OptionalFree_&1_&2'
             // ^n: nth index of combination, &n: data of the nth index of combination, 
           },
           DT12: {
@@ -134,6 +141,7 @@ namespace we {
             input: [
               InputComponentDefinition.ballData('',['DRAGON','TIGER','TIE'],1,InputDataType.ARRAY)
             ],
+            mapping:(data, combinationData)=>{},
             pattern:'12DT_$1'
           },
           Front2SizeParity: {

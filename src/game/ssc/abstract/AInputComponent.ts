@@ -29,7 +29,7 @@ namespace we {
 
     export class InputComponentFactory {
       //TODO
-      static generateInputComponent(index,config): core.BaseEUI & IInputComponent {
+      static generateInputComponent(index,config): AInputComponent {
         const {type} = config;
         switch (type) {
           case InputComponentType.BALLS:

@@ -44,3 +44,30 @@ computeNoteCount
 InputComponent
 action
     Dispatch CHANGE Event
+
+    ['1|2|3|4|5|6|7|8|9|10|11|12|14',012345789,'2','1','4']
+    ['1_2','1_4','2_4']
+
+    [
+        12OptionalFree_0123456789_012345789,
+        14OptionalFree_0123456789_1,
+        24OptionalFree_012345789_1
+    ]
+
+
+12345OPTIONAL_
+
+    ['DRAGON|TIGER|TIE']
+    null
+
+    dataMappingFunc
+    ['DRAGON','TIGER','TIE']
+    ['1','2','3']
+
+    12DT_&1
+
+    [
+        12DT_DRAGON,
+        12DT_TIGER,
+        12DT_TIE
+    ]
