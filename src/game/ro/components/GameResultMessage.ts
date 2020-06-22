@@ -1,17 +1,15 @@
 namespace we {
   export namespace ro {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
+      protected _dbClass = 'roulette';
+
       public constructor() {
         super();
       }
 
-      public showResult(gameType: core.GameType, resultData: any) {
-        this._dbClass = 'roulette';
-        super.showResult(gameType, resultData);
-      }
-
       protected startAnim(gameType: core.GameType, resultData: any) {
-        const { resultNo, winAmount } = resultData;
+        const { gameData, winAmount } = resultData;
+        const resultNo = gameData.value;
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,

@@ -74,6 +74,7 @@ class Main extends eui.UILayer {
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
     dir.audioCtr = new we.core.AudioCtr(this.stage);
+    dir.tooltipCtr = new we.core.TooltipCtr(this.stage);
     dir.layerCtr = new we.core.LayerCtr(this.stage);
     dir.sceneCtr = new we.core.SceneCtr();
     dir.meterCtr = new we.core.MeterCtr();
@@ -148,7 +149,10 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
-      fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }]);
+      fontMgr.loadFonts([
+        { res: 'Barlow-Regular_otf', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
+      ]);
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {

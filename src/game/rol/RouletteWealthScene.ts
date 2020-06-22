@@ -9,17 +9,6 @@
 namespace we {
   export namespace rol {
     export class Scene extends ro.Scene {
-      protected _dealRelatedGroup: eui.Group;
-      protected _lucky1: eui.Image;
-      protected _lucky1No: eui.Label;
-      protected _lucky1Odd: eui.Label;
-      protected _lucky2: eui.Image;
-      protected _lucky2No: eui.Label;
-      protected _lucky2Odd: eui.Label;
-      protected _lucky3: eui.Image;
-      protected _lucky3No: eui.Label;
-      protected _lucky3Odd: eui.Label;
-
       protected mount() {
         super.mount();
         this._leftGamePanel.chipLayer = this._chipLayer;
@@ -28,6 +17,7 @@ namespace we {
       public backToLobby() {
         dir.sceneCtr.goto('lobby', { page: 'live', tab: 'rol' });
       }
+
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
@@ -40,9 +30,11 @@ namespace we {
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
-        if (this._previousState !== we.core.GameState.FINISH || isInit) {
+        if (isInit && this._previousState !== we.core.GameState.FINISH) {
           (<we.rol.RolLeftPanel> this._leftGamePanel).updateLuckyNumbers();
         }
+        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<rol.ChipLayer> this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
@@ -72,6 +64,11 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('RouletteWealthScene');
+      }
+
+      public checkResultMessage(resultData = null) {
+        (<any> this._gameData).hasBet = this.hasBet();
+        super.checkResultMessage(resultData);
       }
     }
   }
