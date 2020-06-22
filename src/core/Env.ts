@@ -21,26 +21,26 @@ namespace we {
       public currency: Currency;
       public playerID: string;
 
-      //      icons:[imageurl1: string,imageurl2: string,...]
-
       public nickname: string;
+      public profileimage: string;
+
       public nicknames: { [nicknameKey: string]: { value: string; group: string } };
       public groups: { [groupKey: string]: string }; // nicknameGroupKey
       public nicknameSet: { nicknames; groups };
-      public fallbacknicknames: { nicknameSet };
-      public nameList: {};
+      public nameList: {}; // to sort nickname in local
 
       public settings: {
         mode: number;
         categoryorders: string;
         panelpositions: string;
-        nicknamegroupid: string;
-        nicknameitemid: string;
-        icon: string;
+        langcode: string;
+        nicknamekey: string;
+        iconkey: string;
       };
-      public icon: string;
+
+      public fallbacknicknames: { nicknameSet };
       public icons: string[]; // to be modified
-      public profileImageURL: string;
+
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;

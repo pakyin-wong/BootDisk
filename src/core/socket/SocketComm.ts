@@ -170,9 +170,9 @@ namespace we {
           'd_lobby_profile_pic_07_png',
           'd_lobby_profile_pic_08_png',
         ];
-        env.icon = player.profile.settings.icon ? player.profile.settings.icon : 'd_lobby_profile_pic_01_png';
+        env.profileimage = player.profile.settings.profileimage ? player.profile.settings.profileimage : 'd_lobby_profile_pic_01_png';
 
-        env.profileImageURL = player.profile.profileimage;
+        env.profileimage = player.profile.profileimage;
         logger.l(utils.LoggerTarget.DEBUG, 'PlayerClient::handleReady() ' + player.profile.betlimits);
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
@@ -621,7 +621,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 

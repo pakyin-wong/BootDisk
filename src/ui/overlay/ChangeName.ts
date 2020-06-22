@@ -171,8 +171,8 @@ namespace we {
           this._arrow_Myth.rotation = 180;
         }
         // to be fixed
-        let keys = Object.keys(env.nicknames['nickname_group1']);
-        let nicknames = keys.map(key => env.nicknames['nickname_group1'][key]);
+        const keys = Object.keys(env.nicknames['nickname_group1']);
+        const nicknames = keys.map(key => env.nicknames['nickname_group1'][key]);
         //
         // env.nickname = (<any>Object).values(env.nicknames['nickname_group2'][0]);
         // (Object.values(group1)[0]);

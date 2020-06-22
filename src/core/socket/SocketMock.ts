@@ -418,6 +418,9 @@ namespace we {
           groupKey02: '神話人物角色',
           groupKey03: '電影人物角色',
         };
+        // env.nicknameSet=  { env.nicknames ; env,groups };
+        env.nameList = {};
+
         env.icons = [
           'd_lobby_profile_pic_01_png',
           'd_lobby_profile_pic_02_png',
@@ -428,8 +431,7 @@ namespace we {
           'd_lobby_profile_pic_07_png',
           'd_lobby_profile_pic_08_png',
         ];
-        env.icon = 'd_lobby_profile_pic_01_png';
-        env.profileImageURL = 'https://url';
+        env.profileimage = 'd_lobby_profile_pic_01_png';
         env.betLimits = [
           {
             currency: Currency.RMB,
@@ -1142,7 +1144,9 @@ namespace we {
         list.sort(function (a, b) {
           return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;
         }); // returned data structure: [key, value, groupKey]
-        for (const item of list) {// re-order namelist by groupkey
+        env.nameList = {};
+        for (const item of list) {
+          // sorting by groupKey
           env.nameList[item[2]] = env.nameList[item[2]] ? [...env.nameList[item[2]], [...item]] : [item];
         }
       }

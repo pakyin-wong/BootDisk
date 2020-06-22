@@ -87,7 +87,7 @@ namespace we {
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
         this._username.renderText = () => env.nickname;
-        this._playerIcon.source = env.icon;
+        this._playerIcon.source = env.profileimage;
         if (env.isMobile) {
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
         }
@@ -192,7 +192,7 @@ namespace we {
       }
 
       private onChangeIcon() {
-        this._playerIcon.source = env.icon = env.icons[this._iconList.selectedIndex];
+        this._playerIcon.source = env.profileimage = env.icons[this._iconList.selectedIndex];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
         this.slideToMainSection();
       }

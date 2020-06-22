@@ -130,7 +130,7 @@ namespace we {
       }
 
       protected updateIconImage() {
-        this._profilePrc.source = env.icon;
+        this._profilePrc.source = env.profileimage;
       }
 
       protected updateNickname() {
