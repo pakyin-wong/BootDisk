@@ -150,7 +150,7 @@ namespace we {
         bet_balance: '余额',
         menu: {
           title: '设定',
-          selectMode: '介面色调',
+          selectMode: '路纸色调',
           whiteMode: '亮色',
           darkMode: '暗色',
           info: '账户资讯',
