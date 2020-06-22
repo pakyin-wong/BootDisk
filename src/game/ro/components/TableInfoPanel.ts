@@ -1,63 +1,99 @@
 namespace we {
   export namespace ro {
     export class TableInfoPanel extends ui.TableInfoPanel {
-      protected contentTwo: eui.Group;
+      // <<<<<<< HEAD
+      protected directLabel: eui.Label;
+      // =======
+      //       protected contentTwo: eui.Group;
 
-      protected gameIdLabel: ui.RunTimeLabel;
-      protected colorLabel: ui.RunTimeLabel;
-      protected oddevenLabel: ui.RunTimeLabel;
-      protected sizeLabel: ui.RunTimeLabel;
-      protected columnbetLabel: ui.RunTimeLabel;
-      protected rowbetLabel: ui.RunTimeLabel;
-      protected betLimitLabel: ui.RunTimeLabel;
+      //       protected gameIdLabel: ui.RunTimeLabel;
+      //       protected colorLabel: ui.RunTimeLabel;
+      //       protected oddevenLabel: ui.RunTimeLabel;
+      //       protected sizeLabel: ui.RunTimeLabel;
+      //       protected columnbetLabel: ui.RunTimeLabel;
+      //       protected rowbetLabel: ui.RunTimeLabel;
+      //       protected betLimitLabel: ui.RunTimeLabel;
 
-      public pBetLimit: ui.RunTimeLabel;
-      protected pGameID: eui.Label;
-      protected pColor: eui.Label;
-      protected pOddeven: eui.Label;
-      protected pSize: eui.Label;
-      protected pColumnbet: eui.Label;
-      protected pRowbet: eui.Label;
+      //       public pBetLimit: ui.RunTimeLabel;
+      //       protected pGameID: eui.Label;
+      //       protected pColor: eui.Label;
+      //       protected pOddeven: eui.Label;
+      //       protected pSize: eui.Label;
+      //       protected pColumnbet: eui.Label;
+      //       protected pRowbet: eui.Label;
 
-      protected directNoteLabel: eui.Label;
-      protected pDirectNote: eui.Label;
-      protected pDirectNoteRatio: eui.Label;
+      //       protected directNoteLabel: eui.Label;
+      //       protected pDirectNote: eui.Label;
+      //       protected pDirectNoteRatio: eui.Label;
 
+      // >>>>>>> develop
       protected separateLabel: eui.Label;
-      protected pSeparate: eui.Label;
-      protected pSeparateRatio: eui.Label;
-
       protected streetLabel: eui.Label;
-      protected pStreet: eui.Label;
-      protected pStreetRatio: eui.Label;
-
       protected cornerLabel: eui.Label;
-      protected pCorner: eui.Label;
-      protected pCornerRatio: eui.Label;
+      // <<<<<<< HEAD
+      protected lineLabel: eui.Label;
+      protected rowLabel: eui.Label;
+      protected columnbetLabel: eui.Label;
+      protected colorLabel: eui.Label;
+      protected oddevenLabel: eui.Label;
+      protected sizeLabel: eui.Label;
 
-      protected lineBetLabel: eui.Label;
-      protected pLineBet: eui.Label;
-      protected pLineBetRatio: eui.Label;
+      protected pDirectMax: eui.Label;
+      protected pDirectOdd: eui.Label;
 
-      protected rowLabel: ui.RunTimeLabel;
-      protected pRow: eui.Label;
-      protected pRowRatio: eui.Label;
+      protected pSeparateMax: eui.Label;
+      protected pSeparateOdd: eui.Label;
 
-      protected dozenLabel: ui.RunTimeLabel;
-      protected pDozen: eui.Label;
-      protected pDozenRatio: eui.Label;
+      protected pStreetMax: eui.Label;
+      protected pStreetOdd: eui.Label;
 
-      protected colorTwoLabel: ui.RunTimeLabel;
-      protected pColorTwo: eui.Label;
-      protected pColorTwoRatio: eui.Label;
+      protected pCornerMax: eui.Label;
+      protected pCornerOdd: eui.Label;
 
-      protected oddevenTwoLabel: ui.RunTimeLabel;
-      protected pOddevenTwo: eui.Label;
-      protected pOddevenTwoRatio: eui.Label;
+      protected pLineMax: eui.Label;
+      protected pLineOdd: eui.Label;
 
-      protected sizeTwoLabel: ui.RunTimeLabel;
-      protected pSizeTwo: eui.Label;
-      protected pSizeTwoRatio: eui.Label;
+      protected pRowMax: eui.Label;
+      protected pRowOdd: eui.Label;
+
+      protected pDozenMax: eui.Label;
+      protected pDozenOdd: eui.Label;
+
+      protected pRedBlackMax: eui.Label;
+      protected pRedBlackOdd: eui.Label;
+
+      protected pOddEvenMax: eui.Label;
+      protected pOddEvenOdd: eui.Label;
+
+      protected pBigSmallMax: eui.Label;
+      protected pBigSmallOdd: eui.Label;
+      // =======
+      // protected pCorner: eui.Label;
+      // protected pCornerRatio: eui.Label;
+
+      // protected lineBetLabel: eui.Label;
+      // protected pLineBet: eui.Label;
+      // protected pLineBetRatio: eui.Label;
+
+      // protected rowLabel: ui.RunTimeLabel;
+      // protected pRow: eui.Label;
+      // protected pRowRatio: eui.Label;
+
+      // protected dozenLabel: ui.RunTimeLabel;
+      // protected pDozen: eui.Label;
+      // protected pDozenRatio: eui.Label;
+
+      // protected colorTwoLabel: ui.RunTimeLabel;
+      // protected pColorTwo: eui.Label;
+      // protected pColorTwoRatio: eui.Label;
+
+      // protected oddevenTwoLabel: ui.RunTimeLabel;
+      // protected pOddevenTwo: eui.Label;
+      // protected pOddevenTwoRatio: eui.Label;
+
+      // protected sizeTwoLabel: ui.RunTimeLabel;
+      // protected pSizeTwo: eui.Label;
+      // protected pSizeTwoRatio: eui.Label;
 
       private slides = [];
       private duration = 1.0;
@@ -168,21 +204,40 @@ namespace we {
       //   TweenLite.to(this.content, this.duration, {
       //     x: this.direction === 'next' ? -2484 : 2484,
       //   });
+      // >>>>>>> develop
 
       //   setTimeout(() => {
       //     this.isAnimating = false;
       //   }, this.duration * 1000 + 50);
       // }
 
-      // public changeLang() {
-      //   super.changeLang();
-      // this.directNoteLabel.text = i18n.t('roulette.XXX');
-      // this.separateLabel.text = i18n.t('roulette.XXX');
-      // this.streetLabel.text = i18n.t('roulette.XXX');
-      // this.cornerLabel.text = i18n.t('roulette.XXX');
-      // this.lineBetLabel.text = i18n.t('roulette.XXX');
-      // this.betLimitLabel.text = i18n.t('rouletteXXX');
+      // <<<<<<< HEAD
+      //   this.directLabel.text = i18n.t('roulette.betGroup.direct');
+      //   this.separateLabel.text = i18n.t('roulette.betGroup.separate');
+      //   this.streetLabel.text = i18n.t('roulette.betGroup.street');
+      //   this.cornerLabel.text = i18n.t('roulette.betGroup.corner');
+      //   this.lineLabel.text = i18n.t('roulette.betGroup.line');
+      //   this.rowbetLabel.text = i18n.t('roulette.betGroup.row');
+      //   this.columnbetLabel.text = i18n.t('roulette.betGroup.column');
+      //   this.colorLabel.text = i18n.t('roulette.betGroup.color');
+      //   this.oddevenLabel.text = i18n.t('roulette.betGroup.oddeven');
+      //   this.sizeLabel.text = i18n.t('roulette.betGroup.size');
       // }
+      // =======
+      public changeLang() {
+        super.changeLang();
+        this.directLabel.text = i18n.t('roulette.betGroup.direct');
+        this.separateLabel.text = i18n.t('roulette.betGroup.separate');
+        this.streetLabel.text = i18n.t('roulette.betGroup.street');
+        this.cornerLabel.text = i18n.t('roulette.betGroup.corner');
+        this.lineLabel.text = i18n.t('roulette.betGroup.line');
+        this.rowLabel.text = i18n.t('roulette.betGroup.row');
+        this.columnbetLabel.text = i18n.t('roulette.betGroup.column');
+        this.colorLabel.text = i18n.t('roulette.betGroup.color');
+        this.oddevenLabel.text = i18n.t('roulette.betGroup.oddeven');
+        this.sizeLabel.text = i18n.t('roulette.betGroup.size');
+      }
+      // >>>>>>> develop
 
       public setValue(tableInfo: data.TableInfo) {
         super.setValue(tableInfo);
@@ -191,46 +246,38 @@ namespace we {
         if (betLimitSet.limits && betLimitSet.limits.ro) {
           const limits = betLimitSet.limits.ro;
           const list = [
-            { target: this.pDirectNote, value: limits.DIRECT.maxlimit },
-            { target: this.pDirectNoteRatio, value: limits.DIRECT.odd },
-            { target: this.pSeparate, value: limits.SEPARATE.maxlimit },
-            { target: this.pSeparateRatio, value: limits.SEPARATE.odd },
-            { target: this.pStreet, value: limits.STREET.maxlimit },
-            { target: this.pStreetRatio, value: limits.STREET.odd },
-            { target: this.pCorner, value: limits.CORNER.maxlimit },
-            { target: this.pCornerRatio, value: limits.CORNER.odd },
-            { target: this.pLineBet, value: limits.LINE.maxlimit },
-            { target: this.pLineBetRatio, value: limits.LINE.odd },
-            { target: this.pRow, value: limits.ROW.maxlimit },
-            { target: this.pRowRatio, value: limits.ROW.odd },
-            { target: this.pDozen, value: limits.DOZEN.maxlimit },
-            { target: this.pDozenRatio, value: limits.DOZEN.odd },
-            { target: this.pColorTwo, value: limits.RED_BLACK.maxlimit },
-            { target: this.pColorTwoRatio, value: limits.RED_BLACK.odd },
-            { target: this.pOddevenTwo, value: limits.ODD_EVEN.maxlimit },
-            { target: this.pOddevenTwoRatio, value: limits.ODD_EVEN.odd },
-            { target: this.pSizeTwo, value: limits.BIG_SMALL.maxlimit },
-            { target: this.pSizeTwoRatio, value: limits.BIG_SMALL.odd },
+            { target: this.pDirectMax, value: utils.numberToFaceValue(limits.DIRECT.maxlimit) },
+            { target: this.pDirectOdd, value: limits.DIRECT.odd },
+            { target: this.pSeparateMax, value: utils.numberToFaceValue(limits.SEPARATE.maxlimit) },
+            { target: this.pSeparateOdd, value: limits.SEPARATE.odd },
+            { target: this.pStreetMax, value: utils.numberToFaceValue(limits.STREET.maxlimit) },
+            { target: this.pStreetOdd, value: limits.STREET.odd },
+            { target: this.pCornerMax, value: utils.numberToFaceValue(limits.CORNER.maxlimit) },
+            { target: this.pCornerOdd, value: limits.CORNER.odd },
+            { target: this.pLineMax, value: utils.numberToFaceValue(limits.LINE.maxlimit) },
+            { target: this.pLineOdd, value: limits.LINE.odd },
+            { target: this.pRowMax, value: utils.numberToFaceValue(limits.ROW.maxlimit) },
+            { target: this.pRowOdd, value: limits.ROW.odd },
+            { target: this.pDozenMax, value: utils.numberToFaceValue(limits.DOZEN.maxlimit) },
+            { target: this.pDozenOdd, value: limits.DOZEN.odd },
+            { target: this.pRedBlackMax, value: utils.numberToFaceValue(limits.RED_BLACK.maxlimit) },
+            { target: this.pRedBlackOdd, value: limits.RED_BLACK.odd },
+            { target: this.pOddEvenMax, value: utils.numberToFaceValue(limits.ODD_EVEN.maxlimit) },
+            { target: this.pOddEvenOdd, value: limits.ODD_EVEN.odd },
+            { target: this.pBigSmallMax, value: utils.numberToFaceValue(limits.BIG_SMALL.maxlimit) },
+            { target: this.pBigSmallOdd, value: limits.BIG_SMALL.odd },
           ];
           for (const { target, value } of list) {
-            target.text = value.toString();
+            if (target) {
+              if (value) {
+                target.text = value.toString();
+              } else {
+                target.text = '-';
+              }
+            }
           }
         }
       }
-
-      // public setValue(tableInfo: data.TableInfo) {
-      //   this.pBanker.text = tableInfo.gamestatistic.bankerCount.toString();
-      //   this.pPlayer.text = tableInfo.gamestatistic.playerCount.toString();
-      //   this.pTie.text = tableInfo.gamestatistic.tieCount.toString();
-      //   this.pBankerPair.text = tableInfo.gamestatistic.bankerPairCount.toString();
-      //   this.pPlayerPair.text = tableInfo.gamestatistic.playerPairCount.toString();
-      //   if (this.pGameID) {
-      //     this.pGameID.text = tableInfo.betInfo.gameroundid.toString();
-      //   }
-      //   if (this.pGameID) {
-      //     this.pGameID.text = data.BetLimit.toString();
-      //   }
-      // }
     }
   }
 }

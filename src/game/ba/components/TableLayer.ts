@@ -90,12 +90,15 @@ namespace we {
 
       public onRollover(fieldName: string) {
         if (this._imageSourceMapping) {
-          this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][1];
+          // const colorMatrix = [1, 0, 0, 0, 100, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0]; // Red for testing
+          const colorMatrix = [1, 0, 0, 0, 100, 0, 1, 0, 0, 100, 0, 0, 1, 0, 100, 0, 0, 0, 1, 0];
+          const colorFilter = new egret.ColorMatrixFilter(colorMatrix);
+          this._imageMapping[fieldName].filters = [colorFilter];
         }
       }
 
       public onRollout(fieldName: string) {
-        this._imageMapping[fieldName].source = this._imageSourceMapping[fieldName][0];
+        this._imageMapping[fieldName].filters = [];
       }
 
       public clearAllHighlights() {
@@ -170,72 +173,19 @@ namespace we {
           }
         }
 
-        const initRectPromises = [];
-        // init dim rects
-        for (const field of Object.keys(ba.BetField)) {
-          const group: any = this._imageMapping[field].parent;
-          const isWin = winningFields.indexOf(field) >= 0;
-          // try remove existing
-          let rect = group.getChildByName('dim');
-          if (rect) {
-            group.removeChild(rect);
-          }
-          rect = new eui.Rect();
-          rect.name = 'dim';
-          rect.alpha = 0;
-          rect.fillColor = isWin ? 0xffffff : 0x000000;
-          rect.percentWidth = 100;
-          rect.percentHeight = 100;
-          group.addChildAt(rect, 1);
-          const promise = new Promise(resolve => {
-            egret.Tween.get(rect)
-              .to({ alpha: isWin ? 0 : 0.25 }, 125)
-              .call(resolve);
-          });
-          initRectPromises.push(promise);
-        }
-        await Promise.all(initRectPromises);
-        // start flashing
-        let run = 1;
-        const tick = async () => {
-          // end flashing
-          if (run >= 6) {
-            const fadeOutPromises = [];
-            for (const field of Object.keys(ba.BetField)) {
-              const group = this._imageMapping[field].parent;
-              const rect = group.getChildByName('dim');
-              const promise = new Promise(resolve => {
-                egret.Tween.get(rect)
-                  .to({ alpha: 0 }, 125)
-                  .call(() => {
-                    if (rect.parent) {
-                      rect.parent.removeChild(rect);
-                    }
-                    resolve();
-                  });
-              });
-              fadeOutPromises.push(promise);
-            }
-            await Promise.all(fadeOutPromises);
-            return;
-          }
-          const tickFlashPromises = [];
-          for (const field of winningFields) {
-            const group = this._imageMapping[field].parent;
-            const rect = group.getChildByName('dim');
-            const prom = new Promise(resolve => {
-              const alpha = run % 2 === 1 ? 0.25 : 0;
-              egret.Tween.get(rect)
-                .to({ alpha }, 125)
-                .call(resolve);
-            });
-            tickFlashPromises.push(prom);
-          }
-          await Promise.all(tickFlashPromises);
-          run += 1;
-          setTimeout(tick, 300);
-        };
-        setTimeout(tick, 300);
+        winningFields.map(fieldName => {
+          const colorMatrix = [1, 0, 0, 0, 100, 0, 1, 0, 0, 100, 0, 0, 1, 0, 100, 0, 0, 0, 1, 0];
+          const brightnessFilter = new we.ui.BrightnessFilter(colorMatrix);
+          this._imageMapping[fieldName].filters = [brightnessFilter];
+
+          egret.Tween.get(brightnessFilter)
+            .to({ alpha: 0 }, 125)
+            .to({ alpha: 100 }, 125)
+            .to({ alpha: 0 }, 125)
+            .to({ alpha: 100 }, 125)
+            .to({ alpha: 0 }, 125)
+            .to({ alpha: 100 }, 125);
+        });
       }
     }
   }

@@ -9,3 +9,7 @@ manifest.json
 config.local.json
 config.self.json
 config.selfs.json
+binpacker/node_modules
+package-lock.json
+texturepacker/node_modules
+postpublish/node_modules/

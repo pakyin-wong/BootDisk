@@ -37,7 +37,6 @@ cp -f $path/style.css $target
 cp -f $path/swipeup.png $target
 cp -rf $path/jslib $target
 cp $path/config.$1.json $target
-
 case "${arch}" in
   Linux*|Darwin*)
     sed -i "" "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
@@ -46,3 +45,10 @@ case "${arch}" in
     sed -i "s/\"target\":.*/\"target\": \"$1\",/g" "$target/config.json"
   ;;
 esac
+
+#zip /js 
+jszip-cli add $target/js > $target/js.zip
+# cd $target
+# cross-zip js js.zip
+# cd ../../..
+for i in $(ls $target/js | grep -v jszip); do rm "$target/js/$i"; done;

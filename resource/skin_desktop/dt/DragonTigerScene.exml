@@ -3,7 +3,7 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:dt="we.dt.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
-	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_png" x="0" locked="true" />
+	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
 	<dt:TableLayer id="_tableLayer" width="1146" height="304" y="1020" isEdgeDismissable="true"
 	               skinName="skin_desktop.dt.TableLayerSkin" x="723" />
 	<dt:ChipLayer id="_chipLayer" width="1146" height="304" y="1020" isEdgeDismissable="true"
@@ -44,7 +44,7 @@
 	<ui:InGameMessage id="_message" x="1300.5" y="911.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
-	<dt:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
+	<dt:TableInfoPanel width="324" height="436" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.dt.TableInfoPanel" />
 	<dt:DTBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"

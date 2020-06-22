@@ -1,0 +1,235 @@
+{
+  "file": "common_chips.png",
+  "frames": {
+    "m_lobby_panel_betcontrol_chip08_active_png": {
+      "x": 1.6,
+      "y": 1.6,
+      "w": 193.60000000000002,
+      "h": 193.60000000000002,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 193.60000000000002,
+      "sourceH": 193.60000000000002
+    },
+    "m_lobby_panel_betcontrol_chip01_png": {
+      "x": 198.4,
+      "y": 1.6,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip02_png": {
+      "x": 198.4,
+      "y": 134.4,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip03_png": {
+      "x": 1.6,
+      "y": 198.4,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip04_png": {
+      "x": 1.6,
+      "y": 331.20000000000005,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip05_png": {
+      "x": 188.8,
+      "y": 267.2,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip06_png": {
+      "x": 385.6,
+      "y": 1.6,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip07_png": {
+      "x": 385.6,
+      "y": 134.4,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip08_png": {
+      "x": 376,
+      "y": 267.2,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip09_png": {
+      "x": 1.6,
+      "y": 464,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip10_png": {
+      "x": 188.8,
+      "y": 400,
+      "w": 184,
+      "h": 128.8,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 128.8
+    },
+    "m_lobby_panel_betcontrol_chip11_png": {
+      "x": 376,
+      "y": 400,
+      "w": 184,
+      "h": 129.6,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 184,
+      "sourceH": 129.6
+    },
+    "m_lobby_panel_betcontrol_chip01_active_png": {
+      "x": 572.8000000000001,
+      "y": 1.6,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip02_active_png": {
+      "x": 572.8000000000001,
+      "y": 187.20000000000002,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip03_active_png": {
+      "x": 563.2,
+      "y": 372.8,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip04_active_png": {
+      "x": 1.6,
+      "y": 596.8000000000001,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip05_active_png": {
+      "x": 187.20000000000002,
+      "y": 596.8000000000001,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip06_active_png": {
+      "x": 372.8,
+      "y": 532.8000000000001,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip07_active_png": {
+      "x": 558.4,
+      "y": 558.4,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip09_active_png": {
+      "x": 758.4000000000001,
+      "y": 1.6,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip10_active_png": {
+      "x": 758.4000000000001,
+      "y": 187.20000000000002,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chip11_active_png": {
+      "x": 748.8000000000001,
+      "y": 372.8,
+      "w": 182.4,
+      "h": 182.4,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 182.4,
+      "sourceH": 182.4
+    },
+    "m_lobby_panel_betcontrol_chips_select_png": {
+      "x": 744,
+      "y": 558.4,
+      "w": 69.60000000000001,
+      "h": 69.60000000000001,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 69.60000000000001,
+      "sourceH": 69.60000000000001
+    }
+  }
+}

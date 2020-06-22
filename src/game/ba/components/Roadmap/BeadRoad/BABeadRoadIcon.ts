@@ -210,15 +210,15 @@ namespace we {
             // BPT mode
             switch (value.v) {
               case 'b':
-                colorIdx = 0 + useDarkMode * 2;
+                colorIdx = 0 + useDarkMode;
                 textIdx = 0;
                 break;
               case 'p':
-                colorIdx = 1 + useDarkMode * 2;
+                colorIdx = 1 + useDarkMode;
                 textIdx = 1;
                 break;
               case 't':
-                colorIdx = 2 + useDarkMode * 2;
+                colorIdx = 2 + useDarkMode;
                 textIdx = 2;
                 break;
             }
@@ -248,13 +248,13 @@ namespace we {
           } else {
             switch (value.v) {
               case 'b':
-                colorIdx = 3 + useDarkMode * 2;
+                colorIdx = 0 + useDarkMode;
                 break;
               case 'p':
-                colorIdx = 4 + useDarkMode * 2;
+                colorIdx = 1 + useDarkMode;
                 break;
               case 't':
-                colorIdx = 5 + useDarkMode * 2;
+                colorIdx = 2 + useDarkMode;
                 break;
             }
             this._iconText.visible = !value.isPredict;

@@ -36,8 +36,7 @@ namespace we {
       }
 
       public generateResultMessage(node: eui.Component) {
-        const gameResultMessage = new lw.GameResultMessage();
-        gameResultMessage.type = 'side';
+        const gameResultMessage = new lw.MobileSideBetResultMessage();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(gameResultMessage, idx);
         return gameResultMessage;

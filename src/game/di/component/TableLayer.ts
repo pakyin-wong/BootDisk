@@ -69,6 +69,14 @@ namespace we {
       protected _specific_row_bg: eui.Image;
       protected _specific_row_bg_odd: eui.Image;
 
+      protected _small_label: ui.RunTimeLabel;
+      protected _odd_label: ui.RunTimeLabel;
+      protected _even_label: ui.RunTimeLabel;
+      protected _big_label: ui.RunTimeLabel;
+      protected _single_label: ui.RunTimeLabel;
+      protected _double_label: ui.RunTimeLabel;
+      protected _triple_label: ui.RunTimeLabel;
+
       constructor() {
         super();
         this._betField = ro.BetField;
@@ -134,6 +142,20 @@ namespace we {
         Object.keys(we.di.BETFIELD_IMAGE_MAPPING).map(value => {
           this._groupHoverImageMapping[value] = we.di.BETFIELD_IMAGE_MAPPING[value];
         });
+
+        this._small_label.renderText = () => i18n.t('dice.small');
+        this._odd_label.renderText = () => i18n.t('dice.odd');
+        this._even_label.renderText = () => i18n.t('dice.even');
+        this._big_label.renderText = () => i18n.t('dice.big');
+        if (this._single_label) {
+          this._single_label.renderText = () => i18n.t('dice.single');
+        }
+        if (this._double_label) {
+          this._double_label.renderText = () => i18n.t('dice.double');
+        }
+        if (this._triple_label) {
+          this._triple_label.renderText = () => i18n.t('dice.triple');
+        }
       }
 
       public onRollover(fieldName: string) {

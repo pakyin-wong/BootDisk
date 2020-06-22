@@ -88,6 +88,9 @@ namespace we {
         resNameSeq.forEach(name => {
           const soundFx = RES.getRes(`sn_${name}_${env.voice}_mp3`);
           chain = chain.then(() => {
+            if (!soundFx) {
+              return;
+            }
             this._channelFX = soundFx.play(0, 1);
             // set initial volume to current fx volume
             this._channelFX.volume = this._volumeFX;
