@@ -34,7 +34,15 @@ namespace we {
 
       protected getOddSlotGroup(odd: number) {
         const label = new eui.Label();
+        label.fontFamily = 'Barlow';
         label.text = odd.toString() + 'x';
+        label.size = 50;
+        label.textColor = 0x2ab9c6;
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        label.width = 112;
+        label.anchorOffsetX = 56;
+        label.anchorOffsetY = 15;
 
         const group = new eui.Group();
         group.addChild(label);
@@ -44,7 +52,26 @@ namespace we {
 
       protected getNumberSlotGroup(num: number) {
         const label = new eui.Label();
+        label.fontFamily = 'Barlow';
         label.text = num.toString();
+        label.size = 120;
+        label.textColor = 0x2ab9c6;
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        label.width = 300;
+        label.anchorOffsetX = 150;
+        label.anchorOffsetY = 40;
+        label.bold = true;
+        const color: number = 0x33ccff;
+        const alpha: number = 0.8;
+        const blurX: number = 35;
+        const blurY: number = 35;
+        const strength: number = 2;
+        const quality: number = egret.BitmapFilterQuality.HIGH;
+        const inner: boolean = false;
+        const knockout: boolean = false;
+        const glowFilter: egret.GlowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
+        label.filters = [glowFilter];
 
         const group = new eui.Group();
         group.addChild(label);
@@ -54,11 +81,12 @@ namespace we {
 
       protected getChipSlotGroup(amount) {
         const coin = new LuckyCoin();
-        coin.anchorOffsetX = 80;
-        coin.anchorOffsetY = 80;
+
+        coin.anchorOffsetX = 90;
+        coin.anchorOffsetY = 90;
         coin.amount = amount;
-        coin.height = 100;
-        coin.width = 100;
+        coin.height = 180;
+        coin.width = 180;
 
         const group = new eui.Group();
         group.addChild(coin);
@@ -69,75 +97,79 @@ namespace we {
       public updateLuckyNumbers() {
         this._coinGroup.removeChildren();
 
-        if (this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber) {
-          let x = 60 * (5 - Object.keys(this.tableInfo.data.luckynumber).length) + 10;
-          setTimeout(async () => {
-            // for(let i = 0,key = Object.keys(this.tableInfo.data.luckynumber)[i]; i < Object.keys(this.tableInfo.data.luckynumber).length;i++) {
-            for (const key of Object.keys(this.tableInfo.data.luckynumber)) {
-              const coinAnim = this.createLuckyCoinAnim();
-              coinAnim.x = x;
-              coinAnim.y = 10;
-              coinAnim.width = 125;
-              coinAnim.height = 230;
-              x += 130;
+        if (!(this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber)) {
+          return;
+        }
 
-              const oddSlot = coinAnim.armature.getSlot('Odd');
-              oddSlot.display = this.getOddSlotGroup(this.tableInfo.data.luckynumber[key]);
+        const luckyNumbers = this.tableInfo.data.luckynumber;
+        const noOfLuckNum = Object.keys(luckyNumbers).length;
 
-              const numberSlot = coinAnim.armature.getSlot('Number');
-              numberSlot.display = this.getNumberSlotGroup(+key);
+        // 18 = 668 - 5 * 112
+        let x = (668 - (noOfLuckNum - 1) * 18 - noOfLuckNum * 112) / 2;
 
-              let noBet = '_nobet';
+        for (const key of Object.keys(luckyNumbers)) {
+          const coinAnim = this.createLuckyCoinAnim();
+          coinAnim.x = x;
+          coinAnim.y = 10;
+          coinAnim.width = 112;
+          coinAnim.height = 226;
+          x += 130; // 112 + 18
 
-              if (this._chipLayer) {
-                const betDetails = this._chipLayer.getConfirmedBetDetails();
-                if (betDetails) {
-                  betDetails.map((detail, index) => {
-                    if (detail && detail.field && detail.amount) {
-                      const f = this.fieldToValue(detail.field);
-                      if (key === f) {
-                        const chipSlot = coinAnim.armature.getSlot('chips');
-                        chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
-                        noBet = '';
-                      }
-                    }
-                  });
+          const oddSlot = coinAnim.armature.getSlot('Odd');
+          oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
+
+          const numberSlot = coinAnim.armature.getSlot('Number');
+          numberSlot.display = this.getNumberSlotGroup(+key);
+
+          let noBet = '_nobet';
+
+          if (this._chipLayer) {
+            const betDetails = this._chipLayer.getConfirmedBetDetails();
+            if (betDetails) {
+              betDetails.map((detail, index) => {
+                if (detail && detail.field && detail.amount) {
+                  const f = this.fieldToValue(detail.field);
+                  if (key === f) {
+                    const chipSlot = coinAnim.armature.getSlot('chips');
+                    chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
+                    noBet = '';
+                  }
                 }
-              }
-
-              let color: string;
-
-              switch (we.ro.RACETRACK_COLOR[+key]) {
-                case we.ro.Color.GREEN:
-                  color = 'Green';
-                  break;
-                case we.ro.Color.RED:
-                  color = 'Red';
-                  break;
-                case we.ro.Color.BLACK:
-                default:
-                  color = 'Black';
-              }
-
-              this._coinGroup.addChild(coinAnim);
-
-              (async () => {
-                let p = we.utils.waitDragonBone(coinAnim);
-                coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
-                await p;
-
-                p = we.utils.waitDragonBone(coinAnim);
-                coinAnim.animation.play(`Draw_Number_${color}${noBet}_loop`, 4);
-                await p;
-
-                p = we.utils.waitDragonBone(coinAnim);
-                coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
-                await p;
-              })();
-
-              await utils.sleep(250);
+              });
             }
-          }, 0);
+          }
+
+          let color: string;
+
+          switch (we.ro.RACETRACK_COLOR[+key]) {
+            case we.ro.Color.GREEN:
+              color = 'Green';
+              break;
+            case we.ro.Color.RED:
+              color = 'Red';
+              break;
+            case we.ro.Color.BLACK:
+            default:
+              color = 'Black';
+          }
+
+          this._coinGroup.addChild(coinAnim);
+
+          (async () => {
+            let p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
+            await p;
+
+            p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Draw_Number_${color}${noBet}_loop`, 4);
+            await p;
+
+            p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
+            await p;
+          })();
+
+          we.utils.sleep(250);
         }
       }
 

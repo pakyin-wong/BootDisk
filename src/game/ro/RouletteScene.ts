@@ -88,10 +88,10 @@ namespace we {
         // }// for testing
       }
 
-      public checkResultMessage() {
+      public checkResultMessage(resultData = null) {
         const resultNo = (<ro.GameData> this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
-        super.checkResultMessage();
+        super.checkResultMessage(resultData);
       }
 
       protected playResultSoundEffect(totalWin) {
