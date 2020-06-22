@@ -271,6 +271,8 @@ namespace we {
         // dispatch TABLE_LIST_UPDATE
         this.filterAndDispatch(allTableList, core.Event.TABLE_LIST_UPDATE);
 
+        console.log(allTableList);
+
         // console.log('PlayerClient::onTableListUpdate');
         // console.log(tableList.tablesList);
         // const tableInfos: data.TableInfo[] = tableList.tablesList;

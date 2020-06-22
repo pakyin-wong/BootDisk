@@ -195,14 +195,7 @@ namespace we {
         const value = this.value;
 
         const colors = [0xee2e2e, 0x3531ec, 0x10b04b, 0xaa0000, 0x0000aa, 0x009900];
-        const gradientColors = [
-          [0xee2e2e, 0xee2e2e],
-          [0x3531ec, 0x3531ec],
-          [0x10b04b, 0x10b04b],
-          [0xdd6666, 0xaa0000],
-          [0x6666dd, 0x000066],
-          [0x66aa66, 0x003300],
-        ];
+        const gradientColors = [[0xee2e2e, 0xee2e2e], [0x3531ec, 0x3531ec], [0x10b04b, 0x10b04b], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066], [0x66aa66, 0x003300]];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const offset = (iconSize - circleRadius * 2) / 2;

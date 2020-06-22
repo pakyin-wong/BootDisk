@@ -40,8 +40,11 @@ namespace we {
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
-        if (this._previousState !== we.core.GameState.FINISH || isInit) {
+        (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
+        (<rol.ChipLayer> this._chipLayer).showWinningNumber();
+        if (this._previousState !== we.core.GameState.FINISH && isInit) {
           (<we.rol.RolLeftPanel> this._leftGamePanel).updateLuckyNumbers();
+          // (<we.rol.ChipLayer> this._chipLayer).showLuckyNumber();
         }
       }
 

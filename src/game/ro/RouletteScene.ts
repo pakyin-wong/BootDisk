@@ -42,9 +42,15 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
-        // if (this._leftGamePanel && this._rightGamePanel) {// for testing
-        this._roadmapControl.setTableInfo(this._tableInfo);
-        // }// for testing
+
+        if (this._leftGamePanel) {
+          this._leftGamePanel.setTableInfo(this._tableInfo);
+        }
+        if (this._leftGamePanel && this._rightGamePanel) {
+          // for testing
+          this._roadmapControl.setTableInfo(this._tableInfo);
+        } // for testing
+
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
         this._tableLayer.type = we.core.BettingTableType.NORMAL;
       }
@@ -83,29 +89,15 @@ namespace we {
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        if (!this._gameData) {
-          return;
-        }
-
         const resultNo = (<ro.GameData> this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
+        super.checkResultMessage();
+      }
 
+      protected playResultSoundEffect(totalWin) {
         if (this.hasBet() && !isNaN(totalWin)) {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: this._tableInfo.totalWin,
-          });
           dir.audioCtr.playSequence(['player', 'win']);
         } else {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: NaN,
-          });
           dir.audioCtr.playSequence(['player', 'win']);
         }
       }

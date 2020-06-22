@@ -13,6 +13,7 @@ namespace we {
       public evtHandler: EventHandler;
       public errHandler: ErrorHandler;
       public audioCtr: AudioCtr;
+      public tooltipCtr: TooltipCtr;
       public layerCtr: LayerCtr;
       public sceneCtr: SceneCtr;
       public meterCtr: MeterCtr;

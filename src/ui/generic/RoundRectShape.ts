@@ -9,7 +9,7 @@ namespace we {
       public cornerTR: number = 8;
       public cornerBL: number = 8;
       public cornerBR: number = 8;
-      public fillColor: string = '0xff0000'; // support graident by a string: "0xff0000,0x00ff00,90" will create a gradient from red to green at angle 90 (from right to left)
+      public fillColor: string = '0xff0000'; // support graident by a string: "0xff0000,0x00ff0080,90" will create a gradient from red to green with 80% alpha at angle 90 (from right to left)
       public fillAlpha: number = 1;
       public stroke: number = 1;
       public strokeColor: number = 0x00ff00;
