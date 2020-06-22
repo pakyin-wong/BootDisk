@@ -2,13 +2,12 @@ namespace we {
   export namespace lottery {
     export class Page extends core.BasePage {
       //   private video: egret.FlvVideo;
-
       //   private _gameTableList: GameTableList;
 
       public roomIds: string[] = [];
 
       private _roomList: ui.TableList;
-      private roomLayout: eui.TileLayout;
+      private _roomLayout: eui.TileLayout;
 
       public constructor(data: any = null) {
         super();
@@ -21,9 +20,7 @@ namespace we {
         }
 
         this._roomList = new ui.TableList();
-        this._roomList.isFreezeScrolling = true;
-        this._roomList.isGlobalLock = true;
-        this.roomLayout = new eui.TileLayout();
+        this._roomLayout = new eui.TileLayout();
         this._roomList.itemRenderer = live.LiveListHolder;
         this._roomList.itemRendererFunction = item => {
           const tableInfo = env.tableInfos[item];
@@ -46,7 +43,6 @@ namespace we {
       }
 
       private handleTableList(event: egret.Event) {
-        // if (!env.livepageLocked) {
         const roomIds = event.data as string[];
         this.roomIds = roomIds;
         this._roomList.setTableList(roomIds);
