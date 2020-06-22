@@ -5,6 +5,8 @@ namespace we {
       public readonly chipImageLimit = 11;
 
       private static _env: Env;
+      protected mobileValidGameType = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
+      protected desktopValidGameType = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO, core.GameType.ROL];
 
       public static get Instance(): Env {
         const env = this._env ? this._env : new Env();
@@ -135,6 +137,14 @@ namespace we {
           }
         }
       }
+
+      public gameTypeFilter(gameType: number, validGameTypes: number[]) {
+        if (validGameTypes.indexOf(gameType) < 0) {
+          return false;
+        }
+        return true;
+      }
+
       public validateTableInfoDisplayReady(tableid: string): boolean {
         // check if the tableInfo is displayReady
         const tableInfo = this.tableInfos[tableid];
@@ -144,15 +154,18 @@ namespace we {
             return false;
           }
 
-          const gameType = tableInfo.gametype;
-          const validGameTypes = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
-          if (validGameTypes.indexOf(gameType) < 0) {
+          if (!this.gameTypeFilter(tableInfo.gametype, this.mobileValidGameType)) {
             tableInfo.displayReady = false;
             return false;
           }
         }
 
         if (tableInfo && !tableInfo.displayReady) {
+          if (!this.gameTypeFilter(tableInfo.gametype, this.desktopValidGameType)) {
+            tableInfo.displayReady = false;
+            return false;
+          }
+
           if (tableInfo.data != null /* && tableInfo.roadmap != null*/) {
             tableInfo.displayReady = true;
             return true;

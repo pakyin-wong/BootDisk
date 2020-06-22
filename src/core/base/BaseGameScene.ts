@@ -535,24 +535,28 @@ namespace we {
         return false;
       }
 
-      public checkResultMessage() {
+      public checkResultMessage(resultData = null) {
         const totalWin: number = this._tableInfo.totalWin;
 
         if (!this._gameData) {
           return;
         }
 
-        if (this.hasBet() && !isNaN(totalWin)) {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            gameData: this._gameData,
-            winAmount: totalWin,
-          });
-        } else {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            gameData: this._gameData,
-            winAmount: NaN,
-          });
+        if (resultData === null) {
+          // default resultData
+          if (this.hasBet() && !isNaN(totalWin)) {
+            resultData = {
+              gameData: this._gameData,
+              winAmount: totalWin,
+            };
+          } else {
+            resultData = {
+              gameData: this._gameData,
+              winAmount: NaN,
+            };
+          }
         }
+        this._resultMessage.showResult(this._tableInfo.gametype, resultData);
 
         this.playResultSoundEffect(totalWin);
       }

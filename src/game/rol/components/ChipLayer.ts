@@ -22,128 +22,122 @@ namespace we {
       }
 
       public showWinningNumber() {
-        if (this._tableId && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].data && env.tableInfos[this._tableId].data.luckynumber) {
-          Object.keys(env.tableInfos[this._tableId].data.luckynumber).map((key, index) => {
-            if (this._mouseAreaMapping[ro.BetField['DIRECT_' + key]]) {
-              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].removeChildren();
-
-              const coinAnim = this.createLuckyCoinAnim();
-              let color: string;
-              switch (we.ro.RACETRACK_COLOR[+key]) {
-                case we.ro.Color.GREEN:
-                  color = '_Green';
-                  break;
-                case we.ro.Color.RED:
-                case we.ro.Color.BLACK:
-                default:
-                  color = '';
-              }
-
-              const betDetails = this.getConfirmedBetDetails();
-              if (betDetails) {
-                betDetails.map((detail, index) => {
-                  if (detail && detail.field && detail.amount) {
-                    const f = this.fieldToValue(detail.field);
-                    if (key === f) {
-                      if (we.ro.RACETRACK_COLOR[+key] !== we.ro.Color.GREEN) {
-                        this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(coinAnim);
-
-                        let state = 0;
-
-                        coinAnim.armature.eventDispatcher.addDBEventListener(
-                          dragonBones.EventObject.COMPLETE,
-                          () => {
-                            state++;
-                            switch (state) {
-                              case 1:
-                                coinAnim.animation.play(`win${color}_loop`, 3);
-                                break;
-                              case 2:
-                                coinAnim.animation.play(`win${color}_out`, 1);
-                                break;
-                              default:
-                                coinAnim.animation.stop();
-                            }
-                          },
-                          this
-                        );
-                      }
-                    }
-                  }
-                });
-              }
-
-              coinAnim.animation.play(`win${color}_in`, 1);
-            }
-          });
+        if (!(this._tableId && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].data && env.tableInfos[this._tableId].data.value)) {
+          return;
         }
+
+        const key = env.tableInfos[this._tableId].data.value;
+
+        if (!this._mouseAreaMapping[ro.BetField['DIRECT_' + key]]) {
+          return;
+        }
+
+        const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]];
+
+        const coinAnim = this.createLuckyCoinAnim();
+
+        grid.removeChildren();
+        grid.addChild(coinAnim);
+        coinAnim.anchorOffsetX = 3;
+        coinAnim.anchorOffsetY = 2;
+
+        let color: string;
+        switch (we.ro.RACETRACK_COLOR[+key]) {
+          case we.ro.Color.GREEN:
+            color = '_Green';
+            break;
+          case we.ro.Color.RED:
+          case we.ro.Color.BLACK:
+          default:
+            color = '';
+        }
+
+        (async () => {
+          let p = we.utils.waitDragonBone(coinAnim);
+          coinAnim.animation.play(`win${color}_in`, 1);
+          await p;
+
+          p = we.utils.waitDragonBone(coinAnim);
+          coinAnim.animation.play(`win${color}_loop`, 3);
+          await p;
+
+          p = we.utils.waitDragonBone(coinAnim);
+          coinAnim.animation.play(`win${color}_out`, 1);
+          await p;
+
+          coinAnim.animation.stop();
+        })();
       }
 
       public showLuckyNumber() {
-        if (this._tableId && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].data && env.tableInfos[this._tableId].data.luckynumber) {
-          Object.keys(env.tableInfos[this._tableId].data.luckynumber).map((key, index) => {
-            if (this._mouseAreaMapping[ro.BetField['DIRECT_' + key]]) {
-              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].removeChildren();
-
-              const coinAnim = this.createLuckyCoinAnim();
-              let color: string;
-              switch (we.ro.RACETRACK_COLOR[+key]) {
-                case we.ro.Color.GREEN:
-                  color = '_Green';
-                  break;
-                case we.ro.Color.RED:
-                  color = '_Red';
-                  break;
-                case we.ro.Color.BLACK:
-                default:
-                  color = '_Black';
-              }
-
-              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(coinAnim);
-
-              let state = 0;
-
-              const label = new eui.Label();
-              label.verticalCenter = -23;
-              label.horizontalCenter = 0;
-              label.size = 25;
-              label.textColor = 0x83f3af;
-              label.text = env.tableInfos[this._tableId].data.luckynumber[key] + 'x';
-
-              this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].addChild(label);
-              egret.Tween.get(label)
-                .to({ alpha: 0 }, 500)
-                .to({ alpha: 1 }, 500)
-                .to({ alpha: 0 }, 500)
-                .to({ alpha: 1 }, 500)
-                .to({ alpha: 0 }, 500)
-                .to({ alpha: 1 }, 500);
-
-              coinAnim.armature.eventDispatcher.addDBEventListener(
-                dragonBones.EventObject.COMPLETE,
-                () => {
-                  state++;
-                  switch (state) {
-                    case 1:
-                      coinAnim.animation.play(`Bet${color}_loop`, 3);
-                      break;
-                    case 2:
-                      coinAnim.animation.play(`Bet${color}_out`, 1);
-                      break;
-                    default:
-                      coinAnim.animation.stop();
-                      egret.Tween.removeTweens(label);
-                      if (this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].contains(label)) {
-                        this._mouseAreaMapping[ro.BetField['DIRECT_' + key]].removeChild(label);
-                      }
-                  }
-                },
-                this
-              );
-              coinAnim.animation.play(`Bet${color}_in`, 1);
-            }
-          });
+        if (!(this._tableId && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].data && env.tableInfos[this._tableId].data.luckynumber)) {
+          return;
         }
+
+        const luckyNumbers = env.tableInfos[this._tableId].data.luckynumber;
+
+        Object.keys(luckyNumbers).map((key, index) => {
+          if (!this._mouseAreaMapping[ro.BetField['DIRECT_' + key]]) {
+            return;
+          }
+
+          const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]];
+          grid.removeChildren();
+
+          const coinAnim = this.createLuckyCoinAnim();
+          let color: string;
+          switch (we.ro.RACETRACK_COLOR[+key]) {
+            case we.ro.Color.GREEN:
+              color = '_Green';
+              break;
+            case we.ro.Color.RED:
+              color = '_Red';
+              break;
+            case we.ro.Color.BLACK:
+            default:
+              color = '_Black';
+          }
+
+          grid.addChild(coinAnim);
+          coinAnim.anchorOffsetX = 3;
+          coinAnim.anchorOffsetY = 2;
+
+          const label = new eui.Label();
+          label.verticalCenter = -23;
+          label.horizontalCenter = 0;
+          label.size = 25;
+          label.textColor = 0x83f3af;
+          label.text = luckyNumbers[key] + 'x';
+
+          grid.addChild(label);
+          egret.Tween.get(label)
+            .to({ alpha: 0 }, 500)
+            .to({ alpha: 1 }, 500)
+            .to({ alpha: 0 }, 500)
+            .to({ alpha: 1 }, 500)
+            .to({ alpha: 0 }, 500)
+            .to({ alpha: 1 }, 500);
+
+          (async () => {
+            let p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Bet${color}_in`, 1);
+            await p;
+
+            p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Bet${color}_loop`, 3);
+            await p;
+
+            p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Bet${color}_loop`, 3);
+            await p;
+
+            coinAnim.animation.stop();
+            egret.Tween.removeTweens(label);
+            if (grid.contains(label)) {
+              grid.removeChild(label);
+            }
+          })();
+        });
       }
 
       protected fieldToValue(fieldName: string) {
