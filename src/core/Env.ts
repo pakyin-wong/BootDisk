@@ -5,8 +5,8 @@ namespace we {
       public readonly chipImageLimit = 11;
 
       private static _env: Env;
-      protected mobileValidGameType = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
-      protected desktopValidGameType = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO, core.GameType.ROL];
+      protected mobileValidGameType = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
+      protected desktopValidGameType = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO, core.GameType.ROL];
 
       public static get Instance(): Env {
         const env = this._env ? this._env : new Env();
