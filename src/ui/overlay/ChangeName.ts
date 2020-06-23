@@ -7,15 +7,8 @@ namespace we {
       protected _editRoadPanel: ba.GoodRoadEditItem;
       protected _changeName: ui.BaseImageButton;
       protected _dropDownMenu: egret.DisplayObject;
-
       protected _group_nickname: eui.Group;
-      private _arrCol_nickname: eui.ArrayCollection;
-      private _txt_nickname: ui.RunTimeLabel;
-      protected _btn_nickname: eui.Group;
       private _ddm_nickname: ui.Panel;
-      private _arrow_nickname: eui.Image;
-      private _mask_nickname: eui.Rect;
-
       private _mask: eui.Rect;
 
       constructor() {
@@ -29,110 +22,98 @@ namespace we {
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.system.changeName')}`;
 
-        let idx = 0;
+        // let idx = 0;
         for (const item of Object.keys(env.nameList)) {
           // for each groupKey
 
-          // create nameGroup
-          // const nameGroup: eui.Group = this.createNameGroup();
+          const _btn_nickname: eui.Group = new eui.Group();
+          const _mask_nickname: eui.Rect = new eui.Rect();
+          const _arrow_nickname: eui.Image = new eui.Image();
+          const _txt_nickname: ui.RunTimeLabel = new ui.RunTimeLabel();
 
-          this.addNameGroup();
-          this._txt_nickname.text = item;
-          this._arrCol_nickname = new eui.ArrayCollection();
+          _txt_nickname.text = env._nicknameSet['groups'][item];
+          _txt_nickname.verticalAlign = 'middle';
+          _txt_nickname.textAlign = 'center';
+          _txt_nickname.scaleX = 1;
+
+          _mask_nickname.fillAlpha = 0.2;
+          _mask_nickname.fillColor = 0x4b535b;
+          _mask_nickname.ellipseWidth = _mask_nickname.ellipseHeight = 130;
+          _mask_nickname.scaleX = _mask_nickname.scaleY = 1;
+          _mask_nickname.left = _mask_nickname.right = _mask_nickname.top = _mask_nickname.bottom = 0;
+
+          _txt_nickname.size = 60;
+          _txt_nickname.alpha = 0.7;
+          _txt_nickname.height = 89;
+          _txt_nickname.width = 450;
+          _txt_nickname.horizontalCenter = _txt_nickname.verticalCenter = 0;
+
+          switch (env.orientation) {
+            case 'landscape':
+              _btn_nickname.width = 1146;
+              _btn_nickname.height = 120;
+              _btn_nickname.x = 1128;
+              _btn_nickname.y = 5;
+              _btn_nickname.horizontalCenter = 0;
+
+              _mask_nickname.width = 609;
+              _mask_nickname.height = 120;
+
+              _txt_nickname.y = 20;
+
+              break;
+
+            case 'portrait':
+              _btn_nickname.width = 1050;
+              _btn_nickname.height = 130;
+              _btn_nickname.x = 97;
+              _btn_nickname.y = 431;
+
+              _arrow_nickname.source = 'd_lobby_button_down_normal_png';
+              _arrow_nickname.width = _arrow_nickname.height = 80;
+              _arrow_nickname.right = 30;
+              _arrow_nickname.verticalCenter = 0;
+
+              break;
+          }
+
+          this._group_nickname.addChild(_btn_nickname);
+          _btn_nickname.addChild(_mask_nickname);
+          _btn_nickname.addChild(_txt_nickname);
+          _btn_nickname.addChild(_arrow_nickname);
+
+          // _btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', bindFunc, this);
+          _btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', this.onNicknameChange, this);
+          _btn_nickname.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onNicknameSelect, this);
+
+          const _arrCol_nickname: eui.ArrayCollection = new eui.ArrayCollection();
 
           env.nameList[item].forEach((_item, index) => {
-            this._arrCol_nickname.source.push(ui.NewDropdownItem(index, () => _item[1]));
-            console.log(_item, index);
+            _arrCol_nickname.source.push(ui.NewDropdownItem(index, () => _item[1]));
           });
 
-          if (this._ddm_nickname) {
-            this._ddm_nickname.isDropdown = true;
-            this._ddm_nickname.isPoppable = true;
-            this._ddm_nickname.dismissOnClickOutside = true;
-            this._ddm_nickname.setToggler(this._btn_nickname);
-            this._ddm_nickname.dropdown.review = this._txt_nickname;
-            this._ddm_nickname.dropdown.data.replaceAll(this._arrCol_nickname.source);
-            this._ddm_nickname.dropdown.select(env.nickname);
-          }
           utils.DropdownCreator.new({
-            toggler: this._btn_nickname,
-            review: this._txt_nickname,
-            arrCol: this._arrCol_nickname,
+            toggler: _btn_nickname,
+            review: _txt_nickname,
+            arrCol: _arrCol_nickname,
             title: () => ``,
-            selected: this._txt_nickname,
+            selected: _txt_nickname,
           });
-          const bindFunc = this.onNicknameChange.bind(this, idx);
-          this.addListeners(bindFunc);
-          idx++;
+          // const bindFunc = this.onNicknameChange.bind(this, idx);
+          // idx++;
         }
-      }
-
-      protected addNameGroup() {
-        this._arrow_nickname = new eui.Image();
-        this._arrow_nickname.source = 'd_lobby_button_down_normal_png';
-        this._arrow_nickname.width = 80;
-        this._arrow_nickname.height = 80;
-        this._arrow_nickname.right = 30;
-        this._arrow_nickname.verticalCenter = 0;
-
-        this._txt_nickname = new ui.RunTimeLabel();
-        this._txt_nickname.width = 453;
-        this._txt_nickname.height = 89;
-        this._txt_nickname.verticalAlign = 'middle';
-        this._txt_nickname.textAlign = 'center';
-        this._txt_nickname.size = 60;
-        this._txt_nickname.alpha = 0.7;
-        this._txt_nickname.scaleX = 1;
-        this._txt_nickname.horizontalCenter = 0;
-        this._txt_nickname.verticalCenter = 0;
-
-        this._mask_nickname = new eui.Rect();
-        this._mask_nickname.fillAlpha = 0.2;
-        this._mask_nickname.fillColor = 0x4b535b;
-        this._mask_nickname.ellipseWidth = this._mask_nickname.ellipseHeight = 130;
-        this._mask_nickname.scaleX = this._mask_nickname.scaleY = 1;
-        this._mask_nickname.left = this._mask_nickname.right = this._mask_nickname.top = this._mask_nickname.bottom = 0;
-
-        this._btn_nickname = new eui.Group();
-        this._btn_nickname.width = 1050;
-        this._btn_nickname.height = 130;
-        this._btn_nickname.x = 97;
-        this._btn_nickname.y = 431;
-
-        this._group_nickname.addChild(this._btn_nickname);
-        this._btn_nickname.addChild(this._mask_nickname);
-        this._btn_nickname.addChild(this._txt_nickname);
-        this._btn_nickname.addChild(this._arrow_nickname);
       }
 
       protected destroy() {
         super.destroy();
-        this.removeListeners();
-      }
-
-      protected addListeners(bindFunc) {
-        this._btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', bindFunc, this);
-        this._btn_nickname.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onNicknameSelect, this);
-      }
-
-      protected removeListeners() {
-        this._btn_nickname.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onNicknameChange, this);
-        this._btn_nickname.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onNicknameSelect, this);
       }
 
       private onNicknameSelect(item) {
-        if (env.orientation === 'portrait') {
-          this._mask_nickname.fillColor = 0x1b416e;
-          this._arrow_nickname.rotation += 180;
-        }
         this._mask.visible = !this._mask.visible;
         dir.monitor._mDropdown._title.renderText = () => item + '     ' + env.nickname;
       }
 
-      private onNicknameChange(e, idx) {
-        if (env.orientation === 'portrait') {
-          this._arrow_nickname.rotation = 180;
-        }
+      private onNicknameChange(e) {
         env.nickname = env.nameList['groupKey01'][e.data][1];
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
         this.previousPage();

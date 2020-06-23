@@ -5,11 +5,13 @@
         <e:Image source="popover_png" width="516" height="789" />
         <e:Group id="_maskContainer" width="490" height="764" x="13" y="13">
             <e:Group id="_section_main" x="0" y="0" width="490" height="764">
-				<e:Image id="_playerIcon" width="114" height="114" y="63" anchorOffsetX="0" anchorOffsetY="0" source="d_lobby_profile_pic_03_png" horizontalCenter="0"/>
-                <ui:BaseAnimationButton id="_changeIcon" width="132" height="132" x="179" y="54" dbClass="lobby_ui" dbDisplay="d_lobby_avatar_selection" />
+                <e:Image id="_playerIcon" width="114" height="114" y="63" anchorOffsetX="0" anchorOffsetY="0"
+                         source="d_lobby_profile_pic_03_png" horizontalCenter="0" />
+                <ui:BaseAnimationButton id="_changeIcon" width="132" height="132" x="179" y="54" dbClass="lobby_ui"
+                                        dbDisplay="d_lobby_avatar_selection" />
                 <ui:RunTimeLabel id="_username" text="Johathan" y="195" textColor="0xc59466" size="30" anchorOffsetY="0"
-                         height="36" fontFamily="Barlow" textAlign="center" width="280" horizontalCenter="0"
-                         verticalAlign="middle" />
+                                 height="36" fontFamily="Barlow" textAlign="center" width="280" horizontalCenter="0"
+                                 verticalAlign="middle" />
                 <e:Label id="_balance" text="RMB 120,889,200" y="245" size="22" height="36" width="280"
                          horizontalCenter="0" verticalAlign="middle" textAlign="center" />
                 <ui:RunTimeLabel id="_txt_maxWinAmount" text="Label" x="47" y="404" size="24" fontFamily="Barlow"
@@ -34,8 +36,10 @@
                          width="99" textAlign="right" verticalAlign="middle" />
                 <e:Label id="_favouriteDealer" text="Label" y="691" height="29" right="48" size="24" fontFamily="Barlow"
                          width="99" textAlign="right" verticalAlign="middle" />
-                <ui:BaseAnimationButton id="_editName" width="30" height="30" x="412" y="196" dbClass="lobby_ui" dbDisplay="d_lobby_setting_playinfo_icon_edit" />
-                <ui:BaseAnimationButton id="_btn_reload_player_profile" width="30" height="30" x="412" y="248" dbClass="lobby_ui" dbDisplay="d_lobby_setting_playinfo_icon_refresh" />
+                <ui:BaseAnimationButton id="_editName" width="30" height="30" x="412" y="196" dbClass="lobby_ui"
+                                        dbDisplay="d_lobby_setting_playinfo_icon_edit" />
+                <ui:BaseAnimationButton id="_btn_reload_player_profile" width="30" height="30" x="412" y="248"
+                                        dbClass="lobby_ui" dbDisplay="d_lobby_setting_playinfo_icon_refresh" />
             </e:Group>
             <e:Group id="_section_iconSelect" x="490" width="490" height="764" y="0">
                 <e:Image id="_sectionBackIcon" width="48" height="48" x="19" y="18"
@@ -51,26 +55,13 @@
                     </e:List>
                 </ui:Scroller>
                 <ui:Scroller id="_nameScroller" width="420" x="35" anchorOffsetY="0" height="578" y="186">
-                    <e:Group y="100%" x="100%">
-                        <e:Group id="_btn_name" width="330" height="50" x="3" y="0" scaleX="1" scaleY="1">
-                            <e:Rect fillAlpha="1" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0"
-                                    top="0" bottom="0" fillColor="0x1b416e" width="100%" />
-                            <ui:RunTimeLabel id="_txt_name" text="Label" x="48" y="7" width="155" height="36"
-                                             verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc"
-                                             size="24" scaleX="1" scaleY="1" />
-                                             <e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="40" height="40"
-				         verticalCenter="0"  x="286"/>
+                    <e:Group>
+                        <e:Group id="_group_ddm" y="0" x="0"></e:Group>
+                        <e:Group id="_group_nickname" y="0" x="0">
+                            <e:layout>
+                                <e:VerticalLayout gap="30" />
+                            </e:layout>
                         </e:Group>
-                        <ui:Panel id="_ddm_name" width="330" x="0" skinName="skin_desktop.NavDropdown" anchorOffsetY="0"
-                                  bottom="0" height="504" />
-
-
-
-
-
-                        <e:layout>
-                            <e:VerticalLayout gap="30" />
-                        </e:layout>
                     </e:Group>
                 </ui:Scroller>
             </e:Group>

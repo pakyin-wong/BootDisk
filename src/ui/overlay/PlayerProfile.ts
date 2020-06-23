@@ -19,7 +19,7 @@ namespace we {
       private _txt_follower: ui.RunTimeLabel;
       private _txt_following: ui.RunTimeLabel;
       private _txt_favouriteDealer: ui.RunTimeLabel;
-      // new add
+
       private _txt_title: ui.RunTimeLabel;
       private _txt_setting: ui.RunTimeLabel;
       private _section_iconSelect: eui.Group;
@@ -28,20 +28,17 @@ namespace we {
 
       private _iconScroller: we.ui.Scroller;
       private _iconListData: eui.ArrayCollection;
-      private _nameListData: eui.ArrayCollection;
-      protected dropdownSource: any[];
+      // protected dropdownSource: any[];
       private _iconList: eui.List;
       private _iconGaySize = 10;
 
       private _nameScroller: we.ui.Scroller;
-      private _nameList: eui.List;
       private _arrow: eui.Image;
 
-      protected _btn_name: egret.DisplayObject;
-      protected _ddm_name: ui.Panel;
-      protected _txt_name: ui.RunTimeLabel;
-
       private _editName: ui.BaseImageButton;
+      protected _group_nickname: eui.Group;
+      protected _group_ddm: eui.Group;
+      protected _ddm_nickname: ui.Panel;
 
       public constructor(skin = null) {
         // super('PlayerProfile');
@@ -52,31 +49,86 @@ namespace we {
         super.mount();
 
         if (!env.isMobile) {
-          this._txt_name.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
-          console.log(this._txt_name.text);
+          let i = 0; // to calculate y value of ddm_nickname
+          for (const item of Object.keys(env.nameList)) {
+            // for each groupKey
 
-          // this.dropdownSource = env.nicknames.nickname_group1.map(index => {
-          //   return ui.NewDropdownItem(index, () => env.nicknames.nickname_group1[index]);
-          // });
-          this.dropdownSource = [];
-          this._nameListData = new eui.ArrayCollection(this.dropdownSource);
+            const _btn_nickname: eui.Group = new eui.Group();
+            const _mask_nickname: eui.Rect = new eui.Rect();
+            const _arrow_nickname: eui.Image = new eui.Image();
+            const _txt_nickname: ui.RunTimeLabel = new ui.RunTimeLabel();
+            this._ddm_nickname = new ui.Panel();
 
-          if (this._ddm_name) {
-            this._ddm_name.isDropdown = true;
-            this._ddm_name.isPoppable = true;
-            this._ddm_name.dismissOnClickOutside = true;
-            this._ddm_name.setToggler(this._btn_name);
-            this._ddm_name.dropdown.review = this._txt_name;
-            this._ddm_name.dropdown.data.replaceAll(this._nameListData.source);
-            this._ddm_name.dropdown.select(env.voice);
+            _mask_nickname.fillAlpha = 0;
+            _mask_nickname.strokeColor = 0x3b4f6c;
+            _mask_nickname.strokeAlpha = 1;
+            _mask_nickname.strokeWeight = 2;
+            _mask_nickname.ellipseWidth = _mask_nickname.ellipseHeight = 50;
+            _mask_nickname.scaleX = _mask_nickname.scaleY = 1;
+            _mask_nickname.left = _mask_nickname.top = _mask_nickname.bottom = 0;
+            _mask_nickname.width = this._group_nickname.width;
+
+            _txt_nickname.text = env._nicknameSet['groups'][item];
+            _txt_nickname.verticalAlign = 'middle';
+            _txt_nickname.textAlign = 'center';
+            _txt_nickname.scaleX = 1;
+            _txt_nickname.x = 48;
+            _txt_nickname.y = 7;
+            _txt_nickname.width = 155;
+            _txt_nickname.height = 36;
+            _txt_nickname.fontFamily = 'NotoSansCJKtc';
+            _txt_nickname.size = 24;
+            _txt_nickname.scaleY = 1;
+
+            _btn_nickname.width = 330;
+            _btn_nickname.height = 50;
+            _btn_nickname.x = 5;
+            _btn_nickname.y = 0;
+            _btn_nickname.scaleX = _btn_nickname.scaleY = 1;
+
+            _arrow_nickname.source = 'd_lobby_button_down_normal_png';
+            _arrow_nickname.width = _arrow_nickname.height = 30;
+            _arrow_nickname.right = 20;
+            _arrow_nickname.verticalCenter = 0;
+
+            this._ddm_nickname.x = 10;
+            this._ddm_nickname.y = _btn_nickname.y + _btn_nickname.height * (i + 1) + 10 + 30 * i;
+            this._ddm_nickname.width = 300;
+            this._ddm_nickname.skinName = 'skin_desktop.NavDropdown';
+
+            this._group_nickname.addChild(_btn_nickname);
+            this._group_ddm.addChild(this._ddm_nickname);
+            _btn_nickname.addChild(_mask_nickname);
+            _btn_nickname.addChild(_txt_nickname);
+            _btn_nickname.addChild(_arrow_nickname);
+
+            const _arrCol_nickname: eui.ArrayCollection = new eui.ArrayCollection();
+
+            env.nameList[item].forEach((_item, index) => {
+              // data inside each name group
+              _arrCol_nickname.source.push(ui.NewDropdownItem(index, () => _item[1]));
+            });
+
+            if (this._ddm_nickname) {
+              this._ddm_nickname.isDropdown = true;
+              this._ddm_nickname.isPoppable = true;
+              this._ddm_nickname.dismissOnClickOutside = true;
+              this._ddm_nickname.setToggler(_btn_nickname);
+              this._ddm_nickname.dropdown.review = _txt_nickname;
+              this._ddm_nickname.dropdown.data.replaceAll(_arrCol_nickname.source);
+              this._ddm_nickname.dropdown.select(env.voice);
+            }
+            utils.DropdownCreator.new({
+              toggler: _btn_nickname,
+              review: _txt_nickname,
+              arrCol: _arrCol_nickname,
+              title: () => ``,
+              selected: env.nickname,
+            });
+
+            this._ddm_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', this.onSelectNickname, this);
+            i++;
           }
-          utils.DropdownCreator.new({
-            toggler: this._btn_name,
-            review: this._txt_name,
-            arrCol: this._nameListData,
-            title: () => ``,
-            selected: env.nickname,
-          });
         }
       }
 
@@ -121,7 +173,7 @@ namespace we {
         if (!env.isMobile) {
           // if desktop
           this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
-          this._ddm_name.addEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
+          // this._ddm_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
         }
         this._iconList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
       }
@@ -135,7 +187,7 @@ namespace we {
         if (!env.isMobile) {
           // if desktop
           this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
-          this._ddm_name.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
+          // this._ddm_nickname.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
         }
         this._iconList.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
       }
@@ -196,6 +248,12 @@ namespace we {
         this._playerIcon.source = env.profileimage = env.icons[this._iconList.selectedIndex];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
         this.slideToMainSection();
+      }
+
+      private onSelectNickname(e) {
+        env.nickname = env.nameList['groupKey01'][e.data][1];
+        this._ddm_nickname && this._ddm_nickname.dropdown.select(env.nickname);
+        dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
       }
 
       protected initOrientationDependentComponent() {

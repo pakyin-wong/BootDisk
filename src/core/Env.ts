@@ -26,7 +26,7 @@ namespace we {
 
       public _nicknames: { [nicknameKey: string]: { value: string; group: string } };
       public _groups: { [groupKey: string]: string }; // nicknameGroupKey
-      protected _nicknameSet: {}; // {nicknames; groups}
+      public _nicknameSet: {}; // {nicknames; groups}
       public nameList: {}; // to sort nickname in local
 
       public settings: {
@@ -251,7 +251,7 @@ namespace we {
 
       public nicknameSorting() {
         const nicknames = env._nicknameSet['nicknames'];
-        const groups = env._nicknameSet['groups'];
+        // const groups = env._nicknameSet['groups'];
 
         const list = Object.keys(nicknames).map(key => [key, nicknames[key]['value'], nicknames[key]['group']]);
         list.sort(function (a, b) {
