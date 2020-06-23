@@ -439,6 +439,14 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class LotterySceneFun extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LotterySceneTraditional extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class LoadingProgressBar extends eui.Skin{
 	}
 }
