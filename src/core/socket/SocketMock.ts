@@ -386,7 +386,7 @@ namespace we {
               data.betInfo.ranking = [];
 
               data.bets = [];
-              const mockProcess = new MockProcessRoulette(this, core.GameType.RO);
+              const mockProcess = new MockProcessRoulette(this, core.GameType.LO);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;

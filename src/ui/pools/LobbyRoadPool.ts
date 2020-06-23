@@ -17,6 +17,8 @@ namespace we {
             return di.DiLobbyBeadRoad;
           case 'lw':
             return lw.LwLobbyBeadRoad;
+          case 'lo':
+            return ro.ROLobbyBeadRoad;
           default:
             throw new Error('invalid game type');
         }
