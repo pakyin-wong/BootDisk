@@ -26,6 +26,8 @@ namespace we {
         for (const item of Object.keys(env.nameList)) {
           // for each groupKey
 
+          const bindFunc = this.onNicknameChange.bind(item);
+
           const _btn_nickname: eui.Group = new eui.Group();
           const _mask_nickname: eui.Rect = new eui.Rect();
           const _arrow_nickname: eui.Image = new eui.Image();
@@ -82,8 +84,7 @@ namespace we {
           _btn_nickname.addChild(_txt_nickname);
           _btn_nickname.addChild(_arrow_nickname);
 
-          // _btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', bindFunc, this);
-          _btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', this.onNicknameChange, this);
+          _btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', bindFunc, this);
           _btn_nickname.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onNicknameSelect, this);
 
           const _arrCol_nickname: eui.ArrayCollection = new eui.ArrayCollection();
@@ -99,8 +100,6 @@ namespace we {
             title: () => ``,
             selected: _txt_nickname,
           });
-          // const bindFunc = this.onNicknameChange.bind(this, idx);
-          // idx++;
         }
       }
 
@@ -114,12 +113,9 @@ namespace we {
       }
 
       private onNicknameChange(e) {
-        env.nickname = env.nameList['groupKey01'][e.data][1];
+        const _data = this as any;
+        env.nickname = env.nameList[_data][e.data][1];
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
-        this.previousPage();
-      }
-
-      private previousPage() {
         dir.evtHandler.createOverlay({
           class: 'PlayerProfile',
           args: ['PlayerProfile'],

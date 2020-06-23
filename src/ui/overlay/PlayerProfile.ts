@@ -53,6 +53,8 @@ namespace we {
           for (const item of Object.keys(env.nameList)) {
             // for each groupKey
 
+            const bindFunc = this.onSelectNickname.bind([this, item]);
+
             const _btn_nickname: eui.Group = new eui.Group();
             const _mask_nickname: eui.Rect = new eui.Rect();
             const _arrow_nickname: eui.Image = new eui.Image();
@@ -126,7 +128,7 @@ namespace we {
               selected: env.nickname,
             });
 
-            this._ddm_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', this.onSelectNickname, this);
+            this._ddm_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', bindFunc, this);
             i++;
           }
         }
@@ -251,8 +253,9 @@ namespace we {
       }
 
       private onSelectNickname(e) {
-        env.nickname = env.nameList['groupKey01'][e.data][1];
-        this._ddm_nickname && this._ddm_nickname.dropdown.select(env.nickname);
+        const _data = this as any;
+        env.nickname = env.nameList[_data[1]][e.data][1];
+        _data[0]._ddm_nickname && _data[0]._ddm_nickname.dropdown.select(env.nickname);
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
       }
 
