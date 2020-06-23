@@ -360,6 +360,8 @@ namespace we {
         this.card2Banker.setCard('back');
         this.card3Banker.setCard('back');
 
+        this.addEventListeners();
+
         this._bankerSum.text = '0';
         this._playerSum.text = '0';
       }
