@@ -208,6 +208,10 @@ declare module skin_desktop{
 	class CountdownTimerRoundSqueezeBaccaratSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class DefaultLoadingUISkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.di{
 	class Analysis extends eui.Skin{
 	}
@@ -1840,6 +1844,10 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class DefaultLoadingUISkin extends eui.Skin{
 	}
 }
 declare module skin_mobile{

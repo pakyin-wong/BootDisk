@@ -19,6 +19,7 @@ namespace we {
       public getTargetID(target) {
         switch (target) {
           case 'local':
+          case 'test':
             return 0;
           case 'development':
             return 1;
