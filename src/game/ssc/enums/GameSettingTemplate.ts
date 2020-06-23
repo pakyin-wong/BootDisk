@@ -1,88 +1,89 @@
 // TypeScript file
 namespace we {
-  export namespace ssc {
-    export enum InputComponentType {
-      BALLS,
-      TEXTAREA,
-      CHECKBOXES
-    }
-    export enum InputDataType {
-      STRING, // i.e. '123456789'
-      SEPARATOR, // i.e. '1|2|3|4|5|6|7|8|9|10|11|12|14'
-      ARRAY   // i.e. '['1','2','3','4','5','6','7','8','9']'
-    }
+  export namespace lo {
+    // export enum InputComponentType {
+    //   BALLS,
+    //   TEXTAREA,
+    //   CHECKBOXES
+    // }
+    // export enum InputDataType {
+    //   STRING, // i.e. '123456789'
+    //   SEPARATOR, // i.e. '1|2|3|4|5|6|7|8|9|10|11|12|14'
+    //   ARRAY   // i.e. '['1','2','3','4','5','6','7','8','9']'
+    // }
 
-    export namespace InputComponentDefinition {
-      export function ballRange(title, start, end , minSelect=0, maxSelect=100, dataType:InputDataType=InputDataType.STRING) {
-        return {
-          type: InputComponentType.BALLS,
-          title: title,
-          data: Array.apply(null, {length: (end - start + 1)}).map((data,idx)=>start+idx),
-          dataType: dataType,
-          validate: (data: string|any[])=>(data.length>=minSelect && data.length<=maxSelect)  // use to validate the output data of this component
-        }
-      }
+    // export namespace InputComponentDefinition {
+    //   export function ballRange(title, theme, start, end , minSelect=0, maxSelect=100, dataType:InputDataType=InputDataType.STRING) {
+    //     return {
+    //       type: InputComponentType.BALLS,
+    //       title: title,
+    //       theme: theme,
+    //       data: Array.apply(null, {length: (end - start + 1)}).map((data,idx)=>start+idx),
+    //       dataType: dataType,
+    //       validate: (data: string|any[])=>(data.length>=minSelect && data.length<=maxSelect)  // use to validate the output data of this component
+    //     }
+    //   }
 
-      export function ballData(title, data, minSelect=0, dataType:InputDataType=InputDataType.STRING, maxSelect=100) {
-        return {
-          type: InputComponentType.BALLS,
-          title: title,
-          data: data,
-          dataType: dataType,
-          validate: (data: string|any[])=>(data.length>=minSelect && data.length<=maxSelect)
-        }
-      }
+    //   export function ballData(title, data, minSelect=0, dataType:InputDataType=InputDataType.STRING, maxSelect=100) {
+    //     return {
+    //       type: InputComponentType.BALLS,
+    //       title: title,
+    //       data: data,
+    //       dataType: dataType,
+    //       validate: (data: string|any[])=>(data.length>=minSelect && data.length<=maxSelect)
+    //     }
+    //   }
 
-      export function textArea(title, numberPerGroup) {
-        return {
-          type: InputComponentType.TEXTAREA,
-          numberPerGroup: numberPerGroup,
-          title: title
-          // data example (numberPerGroup=5): 12345|12346|14573|17764|09663|...
-          // data example (numberPerGroup=2): 12|23|49|64|85|26|...
-        }
-      }
+    //   export function textArea(title, numberPerGroup) {
+    //     return {
+    //       type: InputComponentType.TEXTAREA,
+    //       numberPerGroup: numberPerGroup,
+    //       title: title
+    //       // data example (numberPerGroup=5): 12345|12346|14573|17764|09663|...
+    //       // data example (numberPerGroup=2): 12|23|49|64|85|26|...
+    //     }
+    //   }
 
-      export function checkboxes(title, data, minSelect=0) {
-        return {
-          type: InputComponentType.CHECKBOXES,
-          title: title,
-          minSelect: minSelect
-          // data example: ['1_2', '2_3', '1_3']
-          // this data may use directly as the combination array
-        }
-      }
+    //   export function checkboxes(title, data, minSelect=0) {
+    //     return {
+    //       type: InputComponentType.CHECKBOXES,
+    //       title: title,
+    //       minSelect: minSelect
+    //       // data example: ['1_2', '2_3', '1_3']
+    //       // this data may use directly as the combination array
+    //     }
+    //   }
 
-    }
+    // }
 
-    export namespace NoteCountFunc {
-      export function DirectionSelection(data, combinations) {
-        return 1;
-      }
-    }
+    // export namespace NoteCountFunc {
+    //   export function DirectionSelection(data, combinations) {
+    //     return 1;
+    //   }
+    // }
 
-    export namespace Validator {
+    // export namespace Validator {
 
-      // check the number of different items inside two data
-      export function countDifferent(data1, data2, minDifferentCount) {
-        var a = [], diff = [];
-        for (var i = 0; i < data1.length; i++) {
-            a[data1[i]] = true;
-        }
-        for (var i = 0; i < data2.length; i++) {
-            if (a[data2[i]]) {
-                delete a[data2[i]];
-            } else {
-                a[data2[i]] = true;
-            }
-        }
-        for (var k in a) {
-            diff.push(k);
-        }
-        return diff.length >= minDifferentCount;
+    //   // check the number of different items inside two data
+    //   export function countDifferent(data1, data2, minDifferentCount) {
+    //     var a = [], diff = [];
+    //     for (var i = 0; i < data1.length; i++) {
+    //         a[data1[i]] = true;
+    //     }
+    //     for (var i = 0; i < data2.length; i++) {
+    //         if (a[data2[i]]) {
+    //             delete a[data2[i]];
+    //         } else {
+    //             a[data2[i]] = true;
+    //         }
+    //     }
+    //     for (var k in a) {
+    //         diff.push(k);
+    //     }
+    //     return diff.length >= minDifferentCount;
 
-      }
-    }
+    //   }
+    // }
 
     export const template = {
       template: {

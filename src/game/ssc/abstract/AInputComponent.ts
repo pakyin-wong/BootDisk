@@ -1,6 +1,6 @@
 // TypeScript file
 namespace we {
-  export namespace ssc {
+  export namespace lo {
     export abstract class AInputComponent extends core.BaseEUI implements IInputComponent {
       protected _config: any;
       protected _data: any;
@@ -10,6 +10,10 @@ namespace we {
         super();
         this._index = index;
         this._config = config;
+      }
+
+      protected isNumeric(num){
+        return !isNaN(num);
       }
 
       public validate() {
@@ -33,6 +37,7 @@ namespace we {
         const {type} = config;
         switch (type) {
           case InputComponentType.BALLS:
+          // return new SSCInputComponent(index, config);
           throw new Error('No Ball Component');
           case InputComponentType.TEXTAREA:
           throw new Error('No TextArea Component');

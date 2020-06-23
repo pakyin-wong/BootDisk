@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
-  export namespace ssc {
-    export class SSCTraditionalBettingPanel extends we.ui.Panel {
+  export namespace lo {
+    export class SSCTraditionalBettingPanel extends ABettingPanel {
       protected _buttonGroup: eui.Group;
 
       protected _bigTagsGroup: eui.Group;
@@ -12,6 +12,7 @@ namespace we {
 
       protected currentBigTagIndex: number = 0;
       protected currentSmallTagIndex: number = 0;
+      private currentBetTable;
 
       protected _buttons;
 
@@ -212,10 +213,15 @@ namespace we {
       }
 
       protected createBetTable() {
-        this.clearBetTable();
-        const betTable = new SSCTraditionalBettingTable(this.currentBigTagIndex, this.currentSmallTagIndex);
-        this._buttonGroup.addChild(betTable);
-        betTable.x = betTable.y = 0;
+        if(this.currentBetTable){
+          this.clearBetTable();
+        }
+        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
+        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
+
+        this.currentBetTable = new SSCTraditionalBettingTable(config);
+        this._buttonGroup.addChild(this.currentBetTable);
+        this.currentBetTable.x = this.currentBetTable.y = 0;
         this._buttonGroup.touchChildren = true;
       }
 

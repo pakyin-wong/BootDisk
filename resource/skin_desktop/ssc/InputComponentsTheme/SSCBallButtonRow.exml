@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCBallButtonRow" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1500" height="80">
+    <e:Group id="_content" width="1500" height="80">
+        <ui:RunTimeLabel width="154" height="25" id="_title" text="Title" verticalAlign="middle" textAlign="left" size="18"/>
+        <e:Group id="_ballsGroup" width="768" height="80">
+            <e:layout>
+                <e:TileLayout paddingLeft="44" paddingRight="44" verticalAlign="middle" horizontalGap="20" columnAlign="justifyUsingWidth" rowAlign="justifyUsingHeight"/>
+            </e:layout>
+        </e:Group>
+        <e:layout>
+            <e:HorizontalLayout verticalAlign="middle" paddingLeft="33"/>
+        </e:layout>
+    </e:Group>
+</e:Skin>

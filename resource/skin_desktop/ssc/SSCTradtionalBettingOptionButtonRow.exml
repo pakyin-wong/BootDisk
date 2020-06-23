@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop_ssc_SSCTradtionalBettingOptionButtonRow" width="598" height="80" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*">
+<e:Skin class="skin_desktop.lo.SSCTradtionalBettingOptionButtonRow" width="598" height="80" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*">
     <e:Group id="_buttonGroup" width="598" height="80">
 		<ui:RoundRectButton id="_allButton" cornerTL_TR_BL_BR="4,4,4,4" width="75" height="34" stroke="0.8"
                     fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x00ff00,0xff0000,-90"

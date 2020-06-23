@@ -1,8 +1,8 @@
 // TypeScript file
 namespace we {
-  export namespace ssc {
+  export namespace lo {
     export class SSCBallButton extends eui.Group {
-      private _value: string = '';
+      // private _value: string = '';
       private _betValue: string = '';
       private _image: eui.Image;
       private _lblValue: ui.RunTimeLabel;
@@ -10,11 +10,10 @@ namespace we {
 
       private _rowIndex: number;
 
-      constructor(value: string, betValue: string, rowIndex: number = -1) {
+      constructor(betValue: string) {
         super();
-        this._value = value;
         this._betValue = betValue;
-        this._rowIndex = rowIndex;
+
         this.initComponents();
         this.touchChildren = false;
       }
@@ -40,9 +39,9 @@ namespace we {
         //   this._image.source =
       }
 
-      public get value() {
-        return this._value;
-      }
+      // public get value() {
+      //   return this._value;
+      // }
 
       public get betValue() {
         return this._betValue;
@@ -56,13 +55,9 @@ namespace we {
         return this._isActive;
       }
 
-      public toggleActive() {
+      public toggleActive(isActive: boolean = !this.isActive) {
         // image update
-        if (this._isActive) {
-          this._isActive = false;
-        } else {
-          this._isActive = true;
-        }
+        this._isActive = isActive;
       }
 
       public onHover() {}

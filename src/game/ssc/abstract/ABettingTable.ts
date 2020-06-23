@@ -1,6 +1,6 @@
 // TypeScript file
 namespace we {
-  export namespace ssc {
+  export namespace lo {
     export abstract class ABettingTable extends core.BaseEUI implements IBettingTable {
       protected _config: any;
       protected _inputs: AInputComponent[] = [];

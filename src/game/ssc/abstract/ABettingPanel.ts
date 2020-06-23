@@ -1,6 +1,6 @@
 // TypeScript file
 namespace we {
-  export namespace ssc {
+  export namespace lo {
     export abstract class ABettingPanel extends core.BaseEUI implements IBettingPanel {
       protected betFields: string[];
       protected unitBet: number;  // bet ammount per note

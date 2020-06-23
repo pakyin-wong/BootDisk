@@ -1,15 +1,17 @@
 // TypeScript file
 namespace we {
-  export namespace ssc {
+  export namespace lo {
     export class SSCTradtionalBettingOptionButtonRow extends eui.Component {
       private _rowIndex: number;
 
-      private _allButton;
-      private _bigButton;
-      private _smallButton;
-      private _oddButton;
-      private _evenButton;
-      private _clearButton;
+      public _buttonGroup : eui.Group;
+
+      public _allButton;
+      public _bigButton;
+      public _smallButton;
+      public _oddButton;
+      public _evenButton;
+      public _clearButton;
 
       private _lblAll;
       private _lblBig;
@@ -18,15 +20,10 @@ namespace we {
       private _lblEven;
       private _lblClear;
 
-      constructor(index: number) {
+      constructor() {
         super();
         this.skinName = 'skin_desktop_ssc_SSCTradtionalBettingOptionButtonRow';
-        this._rowIndex = index;
         this.init();
-      }
-
-      public get rowIndex() {
-        return this._rowIndex;
       }
 
       private init() {
@@ -40,45 +37,45 @@ namespace we {
       }
 
       private addEventListeners() {
-        this._allButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._bigButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._smallButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._oddButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._evenButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._clearButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._allButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._bigButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._smallButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._oddButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._evenButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._clearButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
       }
 
       private removeEventListeners() {
-        this._allButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._bigButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._smallButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._oddButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._evenButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
-        this._clearButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._allButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._bigButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._smallButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._oddButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._evenButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
+        // this._clearButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClicked, this);
       }
 
-      private onButtonClicked(e: egret.TouchEvent) {
-        switch (e.target) {
-          case this._allButton:
-            this.dispatchEventWith('SSC_BET_OPTION_ALL_PRESSED', false, this._rowIndex);
-            break;
-          case this._bigButton:
-            this.dispatchEventWith('SSC_BET_OPTION_BIG_PRESSED', false, this._rowIndex);
-            break;
-          case this._smallButton:
-            this.dispatchEventWith('SSC_BET_OPTION_SMALL_PRESSED', false, this._rowIndex);
-            break;
-          case this._oddButton:
-            this.dispatchEventWith('SSC_BET_OPTION_ODD_PRESSED', false, this._rowIndex);
-            break;
-          case this._evenButton:
-            this.dispatchEventWith('SSC_BET_OPTION_EVEN_PRESSED', false, this._rowIndex);
-            break;
-          case this._clearButton:
-            this.dispatchEventWith('SSC_BET_OPTION_CLEAR_PRESSED', false, this._rowIndex);
-            break;
-        }
-      }
+      // private onButtonClicked(e: egret.TouchEvent) {
+      //   switch (e.target) {
+      //     case this._allButton:
+      //       this.dispatchEventWith('SSC_BET_OPTION_ALL_PRESSED', false, this._rowIndex);
+      //       break;
+      //     case this._bigButton:
+      //       this.dispatchEventWith('SSC_BET_OPTION_BIG_PRESSED', false, this._rowIndex);
+      //       break;
+      //     case this._smallButton:
+      //       this.dispatchEventWith('SSC_BET_OPTION_SMALL_PRESSED', false, this._rowIndex);
+      //       break;
+      //     case this._oddButton:
+      //       this.dispatchEventWith('SSC_BET_OPTION_ODD_PRESSED', false, this._rowIndex);
+      //       break;
+      //     case this._evenButton:
+      //       this.dispatchEventWith('SSC_BET_OPTION_EVEN_PRESSED', false, this._rowIndex);
+      //       break;
+      //     case this._clearButton:
+      //       this.dispatchEventWith('SSC_BET_OPTION_CLEAR_PRESSED', false, this._rowIndex);
+      //       break;
+      //   }
+      // }
     }
   }
 }

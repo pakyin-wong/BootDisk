@@ -1,6 +1,6 @@
 // TypeScript file
 namespace we {
-  export namespace ssc {
+  export namespace lo {
     export class GameData extends ro.GameData {
 
     }
