@@ -67,7 +67,7 @@ namespace we {
             _mask_nickname.ellipseWidth = _mask_nickname.ellipseHeight = 50;
             _mask_nickname.scaleX = _mask_nickname.scaleY = 1;
             _mask_nickname.left = _mask_nickname.top = _mask_nickname.bottom = 0;
-            _mask_nickname.width = this._group_nickname.width;
+            _mask_nickname.width = _btn_nickname.width;
 
             _txt_nickname.text = env._nicknameSet['groups'][item];
             _txt_nickname.verticalAlign = 'middle';
