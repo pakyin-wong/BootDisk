@@ -60,6 +60,12 @@ namespace we {
             const _txt_nickname: ui.RunTimeLabel = new ui.RunTimeLabel();
             this._ddm_nickname = new ui.Panel();
 
+            _btn_nickname.width = 330;
+            _btn_nickname.height = 50;
+            _btn_nickname.x = 5;
+            _btn_nickname.y = 0;
+            _btn_nickname.scaleX = _btn_nickname.scaleY = 1;
+
             _mask_nickname.fillAlpha = 0;
             _mask_nickname.strokeColor = 0x3b4f6c;
             _mask_nickname.strokeAlpha = 1;
@@ -80,12 +86,6 @@ namespace we {
             _txt_nickname.fontFamily = 'NotoSansCJKtc';
             _txt_nickname.size = 24;
             _txt_nickname.scaleY = 1;
-
-            _btn_nickname.width = 330;
-            _btn_nickname.height = 50;
-            _btn_nickname.x = 5;
-            _btn_nickname.y = 0;
-            _btn_nickname.scaleX = _btn_nickname.scaleY = 1;
 
             _arrow_nickname.source = 'd_lobby_button_down_normal_png';
             _arrow_nickname.width = _arrow_nickname.height = 30;
