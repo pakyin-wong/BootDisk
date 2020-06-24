@@ -116,6 +116,8 @@ namespace we {
               this._ddm_nickname.dismissOnClickOutside = true;
               this._ddm_nickname.setToggler(_btn_nickname);
               this._ddm_nickname.dropdown.review = _txt_nickname;
+              // this._ddm_nickname.dropdown.reviewRenderText = renderText => () => `Nickname: ${renderText()}`;
+              this._ddm_nickname.dropdown.reviewRenderText = renderText => () => _txt_nickname.text;
               this._ddm_nickname.dropdown.data.replaceAll(_arrCol_nickname.source);
               this._ddm_nickname.dropdown.select(env.voice);
             }
