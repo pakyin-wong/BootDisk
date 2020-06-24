@@ -69,7 +69,7 @@ namespace we {
       }
 
       public updateBetFields(betDetails: data.BetDetail[]) {
-        logger.l(utils.LoggerTarget.DEBUG, betDetails);
+        logger.l(utils.LogTarget.DEBUG, betDetails);
 
         if (!this._isRace) {
           super.updateBetFields(betDetails);

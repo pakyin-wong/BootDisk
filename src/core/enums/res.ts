@@ -11,6 +11,7 @@ namespace we {
       Dice: 'scene_dice',
       Roulette: 'scene_roulette',
       LuckyWheel: 'scene_luckywheel',
+      Lottery: 'scene_lottery',
     };
   }
 }

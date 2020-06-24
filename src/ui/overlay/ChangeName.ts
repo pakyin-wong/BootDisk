@@ -114,7 +114,7 @@ namespace we {
           class: 'PlayerProfile',
           args: ['PlayerProfile'],
         });
-        logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::PlayerProfile`);
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::PlayerProfile`);
       }
 
       protected initOrientationDependentComponent() {

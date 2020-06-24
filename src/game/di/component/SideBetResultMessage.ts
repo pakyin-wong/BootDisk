@@ -46,7 +46,7 @@ namespace we {
 
         const { dice1, dice2, dice3, size, odd, total } = <di.GameData> gameData;
 
-        logger.l(utils.LoggerTarget.DEBUG, 'di.SideBetResultMessage::showResult().resultData ', resultData);
+        logger.l(utils.LogTarget.DEBUG, 'di.SideBetResultMessage::showResult().resultData ', resultData);
         this.visible = true;
         this._diceGroup.visible = true;
         this._winAmountGroup.visible = false;

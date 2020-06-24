@@ -181,6 +181,7 @@ namespace we {
       }
 
       public checkResultMessage() {
+        /*
         let totalWin: number = NaN;
         if (this._tableInfo.totalWin) {
           totalWin = this._tableInfo.totalWin;
@@ -189,14 +190,16 @@ namespace we {
         if (!this._gameData) {
           return;
         }
+        */
 
         console.log('checkResultMessage', this._gameData);
 
-        const resultNo = (<lw.GameData>this._gameData).value; // a string type
+        const resultNo = (<lw.GameData> this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
-        const lwGameResultMessage = new lw.GameResultMessage();
-        lwGameResultMessage.type = null;
-        this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
+        // const lwGameResultMessage = new lw.GameResultMessage();
+        // lwGameResultMessage.type = null;
+        super.checkResultMessage();
+        // this._resultMessage.showResult(this._tableInfo.gametype, resultNo);
       }
 
       protected checkBetChipPanel() {

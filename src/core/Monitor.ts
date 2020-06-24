@@ -46,6 +46,7 @@ namespace we {
         this._overlay = new ui.Overlay();
 
         dir.layerCtr.nav.addChild(this._nav);
+        dir.tooltipCtr.addListeners();
 
         if (env.isMobile) {
           this._sideGameList = new ui.MobileSideGameList();
@@ -98,7 +99,7 @@ namespace we {
       }
 
       private arrangeStage(stage) {
-        logger.l(utils.LoggerTarget.DEBUG, 'arrangeStage');
+        logger.l(utils.LogTarget.DEBUG, 'arrangeStage');
       }
 
       private updateBalance() {

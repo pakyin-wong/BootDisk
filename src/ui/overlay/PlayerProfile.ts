@@ -235,7 +235,7 @@ namespace we {
           dir.evtHandler.createOverlay({
             class: 'ChangeName',
           });
-          logger.l(utils.LoggerTarget.DEBUG, `NavSideMenu::ChangeName`);
+          logger.l(utils.LogTarget.DEBUG, `NavSideMenu::ChangeName`);
         } else {
           // to be done
           // this._username.text = env.nickname = env.nicknames.nickname_group1[e.data];

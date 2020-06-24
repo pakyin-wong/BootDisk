@@ -42,8 +42,8 @@ namespace we {
         for (let i = 0; i < 7; i += 1) {
           this._rightGamePanel[`_lbl_lwValue${i}`].text = evt.data.amount[`LW_${i}`] || 0;
         }
-        logger.l(utils.LoggerTarget.DEBUG, JSON.stringify(evt.data.count));
-        logger.l(utils.LoggerTarget.DEBUG, JSON.stringify(evt.data.amount));
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.count));
+        logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.amount));
       }
 
       protected initChildren() {
@@ -64,22 +64,9 @@ namespace we {
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        if (!this._gameData) {
-          return;
-        }
-
-        console.log('checkResultMessage', this._gameData);
-
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData> this._gameData).value;
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
-        // const lwGameResultMessage = new lw.GameResultMessage();
-        // lwGameResultMessage.type = null;
-        this._resultMessage.showResult(this._tableInfo.gametype, { value: resultNo, totalWin });
+        super.checkResultMessage();
       }
     }
   }

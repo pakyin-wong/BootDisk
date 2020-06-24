@@ -3,7 +3,7 @@ namespace we {
     export class Scene extends core.BaseScene {
       private _page: eui.Group;
       private _pageIndex: number;
-      private _items: string[] = ['RoadmapTest', 'BetChipStackTest', 'ListItemTest', 'ListTest', 'ScrollerTest', 'RoadmapControlTest'];
+      private _items: string[] = ['RoadmapTest', 'LoadingManagerTest', 'BetChipStackTest', 'ListItemTest', 'ListTest', 'ScrollerTest', 'RoadmapControlTest'];
 
       constructor(data: any = null) {
         super(data);

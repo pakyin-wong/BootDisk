@@ -27,7 +27,7 @@ namespace we {
       }
 
       private switchMode(evt: egret.Event) {
-        logger.l(utils.LoggerTarget.DEBUG, 'LiveListHolder::switchMode', evt.data);
+        logger.l(utils.LogTarget.DEBUG, 'LiveListHolder::switchMode', evt.data);
         this.mode = evt.data;
       }
 

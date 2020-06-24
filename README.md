@@ -150,6 +150,11 @@ There are few steps needed to be taken before publish
 
 ## Live Game Asset
 
+- [God of Wealth Sicbo Animation](https://drive.google.com/file/d/1KYSgMXHM3rQ51-ZBCsppP75Z2DHO3ojR/view?usp=sharing)
+
+- [23/6 God of Wealth Roulette Desktop Animation](https://drive.google.com/file/d/1yqC6Kzc-c1rFPw2gbSswoJLOIFC3oRkL/view?usp=sharing)
+- [23/6 God of Wealth Roulette Mobile Animation](https://drive.google.com/file/d/1Rp9jo6FD-EyuZZEeAG6hRNAxgJowNtNS/view?usp=sharing)
+
 - [God of Wealth Roulette Desktop Animation](https://drive.google.com/open?id=1AogJc0OACzfhH69ON0fyt2uznZlwKi5o)
 - [God of Wealth Roulette Mobile Animation](https://drive.google.com/open?id=13SNhuemmGrRZ_yWi5XcCeYFPXb-3ucCA)
 
@@ -231,6 +236,6 @@ There are few steps needed to be taken before publish
 - [時時彩 玩法說明](https://drive.google.com/drive/folders/1NKNYbvCVuGMT8cMEHgkUo5RmIpBoRCWu?usp=sharing)
 - [時時彩 Requirement](https://drive.google.com/file/d/1XjppI7cKDkCOOVcRWSQrAXX_mAjjzD53/view?usp=sharing)
 - [Lottery pending and unclearness](https://docs.google.com/document/d/1dkb1aqSjAEqK9TL4wf4UtGk7YeSDjzz0atUuCAjBjec/edit?usp=sharing)
-
+- [排列組合公式大全](https://drive.google.com/file/d/1CbhA5uHBFwjyH2LA6NG5IuyLSkUsmj2D/view?usp=sharing)
 ## Lottery Asset
 - [Lobby + 時時彩 Desktop](https://drive.google.com/open?id=19TTHY9c2-hLl-HWt-q2dLFsl_uFc79GO)

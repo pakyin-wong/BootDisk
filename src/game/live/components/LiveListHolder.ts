@@ -28,14 +28,14 @@ namespace we {
       }
 
       private switchMode(evt: egret.Event) {
-        logger.l(utils.LoggerTarget.DEBUG, 'LiveListHolder::switchMode', evt.data);
+        logger.l(utils.LogTarget.DEBUG, 'LiveListHolder::switchMode', evt.data);
         this.mode = evt.data;
       }
 
       protected initDisplayItem() {
         let generalGameType: string;
 
-        logger.l(utils.LoggerTarget.DEBUG, this.tableInfo);
+        logger.l(utils.LogTarget.DEBUG, this.tableInfo);
 
         if (!this.tableInfo) {
           return;
@@ -91,7 +91,7 @@ namespace we {
             itemName = 'LiveListSimpleItem';
             break;
           default:
-            logger.e(utils.LoggerTarget.DEBUG, 'LiveListHolder::initDisplayItem() - no "mode" can be read');
+            logger.e(utils.LogTarget.DEBUG, 'LiveListHolder::initDisplayItem() - no "mode" can be read');
         }
 
         this.assertSkinExists(generalGameType, `${itemName}Skin`);

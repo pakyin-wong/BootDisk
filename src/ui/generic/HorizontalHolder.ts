@@ -409,12 +409,12 @@ namespace we {
         this._previousPosition = this._startPosition;
 
         if (env.isMobile) {
-          (<any>canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any>canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any> canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any> canvas).addEventListener('touchend', this.onTouchEnd, { passive: false });
           console.log('mobile :' + this._startPosition);
         } else {
-          (<any>window).addEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any>window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any> window).addEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any> window).addEventListener('mouseup', this.onTouchEnd, { passive: false });
           console.log('desktop :' + this._startPosition);
         }
 
@@ -640,11 +640,11 @@ namespace we {
         const canvas = document.getElementsByTagName('canvas')[0];
 
         if (env.isMobile) {
-          (<any>canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
-          (<any>canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
+          (<any> canvas).removeEventListener('touchmove', this.onTouchMove, { passive: false });
+          (<any> canvas).removeEventListener('touchend', this.onTouchEnd, { passive: false });
         } else {
-          (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
-          (<any>window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
+          (<any> window).removeEventListener('mousemove', this.onTouchMove, { passive: false });
+          (<any> window).removeEventListener('mouseup', this.onTouchEnd, { passive: false });
         }
 
         // (<any>window).removeEventListener('mousemove', this.onTouchMove, { passive: false });

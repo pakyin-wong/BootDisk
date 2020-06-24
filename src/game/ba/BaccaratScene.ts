@@ -31,8 +31,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
       }
@@ -100,22 +100,22 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
+          const betInfo = <data.GameTableBetInfo> evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }
-
       public checkResultMessage() {
-        const totalWin: number = this._tableInfo.totalWin;
-
-        if (!(this._gameData && this._gameData.wintype != 0)) {
+        if (this._gameData.wintype == 0) {
           return;
         }
+        super.checkResultMessage();
+      }
 
+      protected playResultSoundEffect(totalWin) {
         let subject;
 
         switch (this._tableInfo.gametype) {
@@ -167,24 +167,11 @@ namespace we {
         }
 
         if (this.hasBet() && !isNaN(totalWin)) {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            winType: this._gameData.wintype,
-            winAmount: totalWin,
-          });
           dir.audioCtr.playSequence([subject, 'win']);
         } else {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            winType: this._gameData.wintype,
-            winAmount: NaN,
-          });
           dir.audioCtr.playSequence([subject, 'win']);
         }
       }
-
-      // protected onOrientationChange() {
-      //   super.onOrientationChange();
-      //   this.updateSkin('BaccaratScene', true);
-      // }
     }
   }
 }

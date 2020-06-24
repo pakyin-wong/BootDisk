@@ -3,7 +3,7 @@ namespace we {
     export class EventHandler extends egret.EventDispatcher {
       constructor() {
         super();
-        logger.l(utils.LoggerTarget.DEBUG, 'EventHandler is created');
+        logger.l(utils.LogTarget.DEBUG, 'EventHandler is created');
       }
 
       public dispatch(type: string, data: any = null) {

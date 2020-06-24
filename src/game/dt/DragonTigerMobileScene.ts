@@ -226,58 +226,6 @@ namespace we {
         }
       }
 
-      public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        let subject;
-
-        switch (this._tableInfo.gametype) {
-          case core.GameType.DT: {
-            (this._tableLayer as dt.TableLayer).flashFields(this._gameData);
-            switch (this._gameData.wintype) {
-              case dt.WinType.DRAGON: {
-                subject = 'player';
-                break;
-              }
-              case dt.WinType.TIGER: {
-                subject = 'banker';
-                break;
-              }
-              case dt.WinType.TIE: {
-                subject = 'banker';
-                break;
-              }
-              default:
-                break;
-            }
-            break;
-          }
-          default:
-            break;
-        }
-
-        if (this.hasBet()) {
-          if (this._gameData && this._gameData.wintype != 0 && !isNaN(totalWin)) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: totalWin,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        } else {
-          if (this._gameData && this._gameData.wintype != 0) {
-            this._resultMessage.showResult(this._tableInfo.gametype, {
-              winType: this._gameData.wintype,
-              winAmount: NaN,
-            });
-            dir.audioCtr.playSequence(['player', 'win']);
-          }
-        }
-      }
-
       // protected onOrientationChange() {
       //   this.onExit();
       //   super.onOrientationChange();

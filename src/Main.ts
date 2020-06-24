@@ -22,7 +22,7 @@ class Main extends eui.UILayer {
     this.stage['inFocusItems'] = [];
 
     this.init().catch(err => {
-      logger.e(we.utils.LoggerTarget.DEBUG, err);
+      logger.e(we.utils.LogTarget.DEBUG, err);
     });
   }
 
@@ -41,8 +41,8 @@ class Main extends eui.UILayer {
     dir.uaParser = new UAParser();
     env.UAInfo = dir.uaParser.getResult();
 
-    logger.l(we.utils.LoggerTarget.DEBUG, env.UAInfo);
-    logger.l(we.utils.LoggerTarget.DEBUG, egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
+    logger.l(we.utils.LogTarget.DEBUG, env.UAInfo);
+    logger.l(we.utils.LogTarget.DEBUG, egret.Capabilities.runtimeType, egret.Capabilities.isMobile, egret.Capabilities.os);
 
     const cn = [];
     cn.push('MainWindow');
@@ -74,6 +74,7 @@ class Main extends eui.UILayer {
     dir.evtHandler = new we.core.EventHandler();
     dir.errHandler = new we.core.ErrorHandler();
     dir.audioCtr = new we.core.AudioCtr(this.stage);
+    dir.tooltipCtr = new we.core.TooltipCtr(this.stage);
     dir.layerCtr = new we.core.LayerCtr(this.stage);
     dir.sceneCtr = new we.core.SceneCtr();
     dir.meterCtr = new we.core.MeterCtr();
@@ -81,7 +82,7 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
-    this.updateBitmapNode();
+    we.utils.updateEgretSys();
 
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
@@ -116,7 +117,7 @@ class Main extends eui.UILayer {
     // egret.updateAllScreens();
     egret.updateAllScreens = () => {
       this.updateAllScreens();
-      logger.l(we.utils.LoggerTarget.DEBUG, '*******************************updateAllScreens***********************************');
+      logger.l(we.utils.LogTarget.DEBUG, '*******************************updateAllScreens***********************************');
     };
   }
 
@@ -148,14 +149,11 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
-      fontMgr.loadFonts([
-        { res: 'Barlow-Regular_otf', name: 'Barlow' },
-        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
-      ]);
+      fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }]);
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
-      logger.e(we.utils.LoggerTarget.DEBUG, err);
+      logger.e(we.utils.LogTarget.DEBUG, err);
     }
   }
 
@@ -175,10 +173,5 @@ class Main extends eui.UILayer {
       const rs = $hitTest.call(this, stageX, stageY);
       return rs;
     };
-  }
-
-  private updateBitmapNode() {
-    egret.sys.BitmapNodeExtend.super = egret.sys.BitmapNode;
-    egret.sys.BitmapNode = egret.sys.BitmapNodeExtend;
   }
 }

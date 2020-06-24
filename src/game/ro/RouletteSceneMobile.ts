@@ -354,35 +354,13 @@ namespace we {
       }
 
       public checkResultMessage() {
-        let totalWin: number = NaN;
-
         this._betArea.mask = null;
         this._mask.visible = false;
 
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        if (!this._gameData) {
-          return;
-        }
-
-        const resultNo = (<ro.GameData>this._gameData).value;
+        const resultNo = (<ro.GameData> this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
-        if (this.hasBet() && !isNaN(totalWin)) {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: this._tableInfo.totalWin,
-          });
-          dir.audioCtr.playSequence(['player', 'win']);
-        } else {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: NaN,
-          });
-          dir.audioCtr.playSequence(['player', 'win']);
-        }
+        super.checkResultMessage();
       }
 
       protected initBottomBetLimitSelector() {

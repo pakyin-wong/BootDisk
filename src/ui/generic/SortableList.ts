@@ -195,7 +195,7 @@ namespace we {
 
             if (remIndex !== addIndex) {
               collection.removeItemAt(remIndex);
-              logger.l(utils.LoggerTarget.DEBUG, `addIndex maybe out of range: ${addIndex}`);
+              logger.l(utils.LogTarget.DEBUG, `addIndex maybe out of range: ${addIndex}`);
               collection.addItemAt(remData, addIndex);
               this.dispatchEvent(new egret.Event('REORDER', false, false, { prevIdx: remIndex, newIdx: addIndex }));
             }
@@ -203,10 +203,10 @@ namespace we {
             // TODO: update selected index
             if (remIndex === selectedIndex) {
               // the dragged item is the currently selected item
-              logger.l(utils.LoggerTarget.DEBUG, 'previous selected index: ', this.selectedIndex);
+              logger.l(utils.LogTarget.DEBUG, 'previous selected index: ', this.selectedIndex);
               this.setSelectedIndex(addIndex, false);
               //   eui.UIEvent.dispatchEvent(this, eui.UIEvent.CHANGE);
-              logger.l(utils.LoggerTarget.DEBUG, 'new selected index: ', this.selectedIndex);
+              logger.l(utils.LogTarget.DEBUG, 'new selected index: ', this.selectedIndex);
             }
 
             this.targetChildren = null;
