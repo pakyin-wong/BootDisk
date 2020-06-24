@@ -31,21 +31,138 @@ namespace we {
       }
 
       protected clear() {
-        // this._inputType = null;
-        // this._name = null;
-        // this._rowCount = null;
-        // this._rowName = null;
-        // this._isOption = null;
-        // this._inputArray = null;
-        // this._showValueArray = null;
-        // this._betCode = null;
-
         this.removeChildren();
       }
 
       protected createComponents() {
+        let offsetY = 0;
 
+        for (let i = 0; i < this._inputs.length; i++) {
+          this.addChild(this._inputs[i]);
+          this._inputs[i].y = offsetY;
+          offsetY += this._inputs[i].height + 1;
+        }
       }
+
+      protected generateCombination() {
+        if (!this._config.dataSelect && !this._config.combinationDataId) {
+          this.combinations = null;
+          return;
+        }
+
+        this.combinations = [];
+
+        let sample = 1;
+        // if (this._config.dataSelect) {
+        if(this._config.dataSelect){
+            sample = this._config.dataSelect;
+
+          // if (this._config.combinationDataId) {
+          //   sample = this._config.combinationDataId;
+          // }
+
+          for (let i = 0; i < this.inputData.length; i++) {
+            if (this.inputData[i] !== '') {
+              this.findNextCombination(sample, i, 1, (i + 1).toString());
+            }
+          }
+
+          return;
+        }
+
+        if(this._config.combinationDataId){
+          let selectedId  : string = this._config.input[this._config.combinationDataId - 1];
+          this.combinations = selectedId.split('');
+
+          return;
+        }
+
+        
+      }
+
+      private findNextCombination(sample: number, i: number, depth: number, itemString: string) {
+        if (depth === sample) {
+          if (this.validateCombination(itemString, sample)) {
+            this.combinations.push(itemString);
+          }
+          return;
+        }
+
+        for (let j = i + 1; j < this.inputData.length; j++) {
+          if (this.inputData[j] !== '') {
+            this.findNextCombination(sample, j, depth + 1, itemString + '_' + (j + 1).toString());
+          } else {
+            this.findNextCombination(sample, j, depth + 1, itemString);
+          }
+        }
+      }
+      
+      private validateCombination(itemStr: string, sampleSize: number): boolean {
+        const items = itemStr.split('_');
+        if (items.length === sampleSize) {
+          return true;
+        }
+        return false;
+      }
+
+
+
+      protected generateBetFields() {
+        this.betFields = [];
+        let pattern : string = this._config.pattern;
+        //$n = data of nth input eg: inputData[n]
+        for(let i = 0;i < this.inputData.length;i++){
+          pattern.replace(this.inputData[i],'$'+(i+1).toString());
+        }
+        this.betFields.push(pattern);
+
+        //%n = index of nth input 
+        for(let i = 0;i < this.inputData.length;i++){
+          pattern.replace(i.toString(),'%'+(i+1).toString());
+        }
+
+        //^n = nth index of combination [] eg: ['1_2','4_1'] result[0] = 1, result[1] = 2, result[2] = 4, result[3] = 1
+        if(this.combinations.length > 0){
+          
+        }else{
+          return;      
+        }
+    }
+
+      // protected generateCombination(results: string[], numberOfChosen: number) {
+
+      //   let combinationArray = [];
+
+      //   // let inputData = ['DRAGON','TIGER'];
+
+      //   // ['12DT_DRAGON|12DT_TIGER|12DT_TIE'];
+      //   // [{field:'OPTION2_123@200',amount:600}];
+      //   // [{field:'12DT_DRAGON@100',amount:100},{field:'12DT_TIGER@100',amount:100}];
+
+      //   // for (let i = 0; i < results.length - 1; i++) {
+      //   //   // This is where you'll capture that last value
+      //   //   for (let j = i + 1; j < results.length; j++) {
+      //   //     combinationArray.push(`${results[i]}+'_'+ ${results[j]}`);
+      //   //   }
+      //   // }
+      //   // for(let i = 0;i < numberOfInputField; i++){
+      //   //   let temp = '';
+      //   //   combinationArray.push(temp);
+      //   //   for(let k = 0; k < numberOfChosen; k++){
+      //   //     temp +=
+      //   //   }
+      //   // }
+
+      //   // let ballsSelection = [];
+      //   // for (let i = 0; i < this._ballsArray.length; i++) {
+      //   //   const ballsRow: eui.Group = this._ballsArray[i];
+      //   //   let temp = '';
+      //   //   for (let k = 0; k < ballsRow.numChildren; k++) {
+      //   //     temp +=  (ballsRow.getChildAt(k) as SSCBallButton).isActive ?(ballsRow.getChildAt(k)as SSCBallButton).betValue : '' ;
+      //   //   }
+      //   //   ballsSelection.push(temp);
+      //   // }
+      // }
 
       // protected createBallsRow(currentIndex : number){
       //   const rowHeight = 80;
@@ -82,7 +199,7 @@ namespace we {
       //   ballsGroup.x = 187;
       //   ballsGroup.touchEnabled = true;
       //   ballsGroup.touchChildren = true;
-      
+
       //   for (let k = 0; k < currentRow.data.length; k++) {
       //     const ball = new SSCBallButton(typeof(currentRow.data[k]) === 'number' ? currentRow.data[k] : i18n.t(currentRow.data[k]), currentRow.data[k], k);
       //     ball.width = 50;
@@ -112,74 +229,6 @@ namespace we {
 
       //   this.addChild(btnGrp);
       // }
-
-      protected generateBetCode(isUpdate: boolean = false) {
-        // this._ballBetCode = '';
-
-        // for (let i = 0; i < this._ballsArray.length; i++) {
-        //   if (i > 0) this._ballBetCode += '_';
-
-        //   const ballsRow: eui.Group = this._ballsArray[i];
-        //   for (let k = 0; k < ballsRow.numChildren; k++) {
-        //     this._ballBetCode += (ballsRow.getChildAt(k) as SSCBallButton).isActive ? (ballsRow.getChildAt(k) as SSCBallButton).betValue : '';
-        //   }
-        // }
-        // //[0,1] [0,1,2] = 0,1|0,1,2;
-        // //[0,1] [0,1,2] [0,4] = 0,1|0,1,2 0,1|0,4 0,1,2|0,4
-        // if (isUpdate) this.dispatchEventWith('SSC_UPDATE_BETACTION', false, this._ballBetCode);
-        // console.log(this._ballBetCode);
-
-        // this._ballResults = [];
-        // for (let i = 0; i < this._ballsArray.length; i++) {
-        //   const ballsRow: eui.Group = this._ballsArray[i];
-        //   let temp = '';
-        //   for (let k = 0; k < ballsRow.numChildren; k++) {
-        //     temp += (ballsRow.getChildAt(k) as SSCBallButton).isActive ? (ballsRow.getChildAt(k) as SSCBallButton).betValue : '';
-        //   }
-        //   this._ballResults.push(temp);
-        // }
-        // const currentBetMode = SelectionMapping[Object.keys(SelectionMapping)[this.bigTagIndex]];
-        // const betTypeMapping = currentBetMode['type'][Object.keys(currentBetMode['type'])[this.smallTagIndex]];
-
-        //this.generateCombination(this._ballResults, parseInt(this._betTypeMapping['unit'], 0));
-      }
-
-      // protected generateCombination(results: string[], numberOfChosen: number) {
-
-      //   let combinationArray = [];
-        
-      //   // let inputData = ['DRAGON','TIGER'];
-
-      //   // ['12DT_DRAGON|12DT_TIGER|12DT_TIE'];
-      //   // [{field:'OPTION2_123@200',amount:600}];
-      //   // [{field:'12DT_DRAGON@100',amount:100},{field:'12DT_TIGER@100',amount:100}];
-
-
-      //   // for (let i = 0; i < results.length - 1; i++) {
-      //   //   // This is where you'll capture that last value
-      //   //   for (let j = i + 1; j < results.length; j++) {
-      //   //     combinationArray.push(`${results[i]}+'_'+ ${results[j]}`);
-      //   //   }
-      //   // }
-      //   // for(let i = 0;i < numberOfInputField; i++){
-      //   //   let temp = '';
-      //   //   combinationArray.push(temp);
-      //   //   for(let k = 0; k < numberOfChosen; k++){
-      //   //     temp += 
-      //   //   }
-      //   // }
-
-      //   // let ballsSelection = [];
-      //   // for (let i = 0; i < this._ballsArray.length; i++) {
-      //   //   const ballsRow: eui.Group = this._ballsArray[i];
-      //   //   let temp = '';
-      //   //   for (let k = 0; k < ballsRow.numChildren; k++) {
-      //   //     temp +=  (ballsRow.getChildAt(k) as SSCBallButton).isActive ?(ballsRow.getChildAt(k)as SSCBallButton).betValue : '' ;
-      //   //   }
-      //   //   ballsSelection.push(temp);
-      //   // }
-      // }
-
       protected;
     }
   }

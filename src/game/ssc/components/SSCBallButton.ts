@@ -10,6 +10,10 @@ namespace we {
 
       private _rowIndex: number;
 
+      protected isNumeric(num) {
+        return !isNaN(num);
+      }
+
       constructor(betValue: string) {
         super();
         this._betValue = betValue;
@@ -31,7 +35,7 @@ namespace we {
         this._lblValue.width = this._lblValue.height = 50;
         this._lblValue.size = 34;
         this._lblValue.alpha = 0.7;
-        this._lblValue.text = this._value;
+        this._lblValue.text = this.isNumeric(this._betValue) ? this._betValue : i18n.t(this._betValue);
         this._lblValue.textAlign = 'center';
         this._lblValue.verticalAlign = 'middle';
         this.addChild(this._lblValue);
