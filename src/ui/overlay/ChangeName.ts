@@ -2,13 +2,7 @@ namespace we {
   export namespace overlay {
     export class ChangeName extends ui.Panel {
       protected _txt_title: ui.RunTimeLabel;
-      protected scroller: ui.Scroller;
-      protected collection: eui.ArrayCollection;
-      protected _editRoadPanel: ba.GoodRoadEditItem;
-      protected _changeName: ui.BaseImageButton;
-      protected _dropDownMenu: egret.DisplayObject;
       protected _group_nickname: eui.Group;
-      private _ddm_nickname: ui.Panel;
       private _mask: eui.Rect;
 
       constructor() {

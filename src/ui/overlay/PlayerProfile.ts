@@ -28,7 +28,6 @@ namespace we {
 
       private _iconScroller: we.ui.Scroller;
       private _iconListData: eui.ArrayCollection;
-      // protected dropdownSource: any[];
       private _iconList: eui.List;
       private _iconGaySize = 10;
 
@@ -93,7 +92,7 @@ namespace we {
             _arrow_nickname.right = 20;
             _arrow_nickname.verticalCenter = 0;
 
-            this._ddm_nickname.x = 10;
+            this._group_ddm.touchEnabled = false;
             this._ddm_nickname.y = _btn_nickname.y + _btn_nickname.height * (i + 1) + 10 + 30 * i;
             this._ddm_nickname.width = 300;
             this._ddm_nickname.skinName = 'skin_desktop.NavDropdown';
@@ -255,7 +254,8 @@ namespace we {
       private onSelectNickname(e) {
         const _data = this as any;
         env.nickname = env.nameList[_data[1]][e.data][1];
-        _data[0]._ddm_nickname && _data[0]._ddm_nickname.dropdown.select(env.nickname);
+        // _txt_nickname.text = env._nicknameSet['groups'][item];
+        // _data[0]._ddm_nickname && _data[0]._ddm_nickname.dropdown.select(env.nickname);
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
       }
 
