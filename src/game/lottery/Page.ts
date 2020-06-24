@@ -4,6 +4,8 @@ namespace we {
       //   private video: egret.FlvVideo;
       //   private _gameTableList: GameTableList;
 
+      public static resGroups = [core.res.Lottery];
+
       public roomIds: string[] = [];
 
       private _roomList: ui.TableList;

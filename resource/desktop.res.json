@@ -39,6 +39,10 @@
 		{
 			"keys": "sn_win_tc_mp3,sn_win_sc_mp3,sn_win_en_mp3,sn_player_tc_mp3,sn_player_sc_mp3,sn_player_en_mp3,sn_bgm002_mp3,sn_banker_tc_mp3,sn_banker_sc_mp3,sn_banker_en_mp3",
 			"name": "audio"
+		},
+		{
+			"keys": "d_lottery_btn_checkbox_selected_hover_png,d_lottery_btn_checkbox_selected_png,d_lottery_btn_checkbox_uncheck_hover_png,d_lottery_btn_checkbox_uncheck_png,d_lottery_ent_btn_wininfo_bg_active_png,d_lottery_ent_btn_wininfo_bg_enable_png,d_lottery_ent_btn_wininfo_bg_hover_png,d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png,d_lottery_ent_penal_betarea_betpenal_bg_blue_png,d_lottery_ent_penal_betarea_betpenal_bg_green_title_png,d_lottery_ent_penal_betarea_betpenal_bg_green_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png,d_lottery_ent_penal_betarea_betpenal_bg_purple_png,d_lottery_ent_penal_betarea_betpenal_dt_bet_active_png,d_lottery_ent_penal_betarea_betpenal_dt_bet_hover_png,d_lottery_ent_penal_betarea_betpenal_ent_bet_active_blue_png,d_lottery_ent_penal_betarea_betpenal_ent_bet_active_green_png,d_lottery_ent_penal_betarea_betpenal_ent_bet_active_purple_png,d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_blue_png,d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_green_png,d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_purple_png,d_lottery_ent_penal_betarea_betpenal_five_bet_active_png,d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png,d_lottery_ent_penal_betarea_betpenal_number_bet_active_png,d_lottery_ent_penal_betarea_betpenal_number_bet_hover_png,d_lottery_ent_penal_betarea_bg_png,d_lottery_ent_penal_betarea_tag_btn_active_png,d_lottery_ent_penal_betarea_tag_btn_hover_png,d_lottery_ent_penal_betarea_tag_btn_left_active_png,d_lottery_ent_penal_betarea_tag_btn_left_hover_png,d_lottery_ent_penal_betarea_tag_line_png,d_lottery_ent_penal_infopenal_analysis_penal_bg_png,d_lottery_ent_penal_infopenal_analysis_penal_tag_bg_png,d_lottery_ent_penal_infopenal_bg_png,d_lottery_ent_penal_infopenal_btn_bg_mini_png,d_lottery_ent_penal_infopenal_btn_bg_tag_active_png,d_lottery_ent_penal_infopenal_btn_bg_tag_hover_png,d_lottery_ent_penal_infopenal_btn_mini_png,d_lottery_ent_penal_infopenal_chart_gamemode_bar_bg_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_1_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_10_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_2_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_3_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_4_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_5_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_6_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_7_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_8_png,d_lottery_ent_penal_infopenal_chart_luckytimengame_color_9_png,d_lottery_ent_penal_infopenal_info_bg_png,d_lottery_ent_penal_infopenal_mini_bg_png,d_lottery_ent_penal_infopenal_roadmap_grid_png,d_lottery_ent_penal_infopenal_subtag_bg_png,d_lottery_ent_penal_infopenal_subtag_btn_left_png,d_lottery_ent_penal_infopenal_subtag_btn_right_png,d_lottery_ent_wininfo_bg_png,d_lottery_navbar_btn_bg_active_png,d_lottery_navbar_btn_bg_png,d_lottery_navbar_icon_history_png,d_lottery_navbar_icon_record_png,d_lottery_navbar_icon_trend_png,d_lottery_penal_betarea_betpenal_bet_box_blue_png,d_lottery_penal_betarea_betpenal_bet_box_green_png,d_lottery_penal_betarea_betpenal_bet_box_purple_png,d_lottery_penal_gamelist_gamepenal_gamelogo_png,d_lottery_penal_gamelist_gamepenal_roadmap_element_blue_png,d_lottery_penal_gamelist_gamepenal_roadmap_element_green_png,d_lottery_penal_gamelist_gamepenal_roadmap_element_red_png,d_lottery_penal_gamelist_gamepenal_roadmap_grid_jpg,d_lottery_penal_gamelist_gamepenal_time_bg_png,d_lottery_penal_infobar_bg_png,d_lottery_penal_infobar_gamelogo_png,d_lottery_penal_infobar_lastdraw_bg_png,d_lottery_penal_infobar_lastdraw_icon_png,d_lottery_penal_infobar_line_png,d_lottery_penal_infobar_number_bg_png,d_lottery_penal_infobar_time_bg_png,d_lottery_penal_infopenal_chart_gamemode_bar_1_png,d_lottery_penal_infopenal_chart_gamemode_bar_2_png,d_lottery_penal_infopenal_chart_gamemode_bar_3_png,d_lottery_penal_infopenal_chart_gamemode_bar_4_png,d_lottery_penal_infopenal_chart_gamemode_bar_5_png,d_lottery_penal_infopenal_chart_gamemode_bar_6_png,d_lottery_penal_infopenal_line copy_png,d_lottery_penal_result_money_png,d_lottery_penal_trend_grid_dim_jpg,d_lottery_penal_trend_grid_normal_jpg,d_lottery_penal_trend_icon_info_png,d_lottery_penal_trend_number_bg_png,d_lottery_penal_trend_temperature_blue_png,d_lottery_penal_trend_temperature_red_png,d_lottery_penal_trend_temperature_yellow_png,d_lottery_result_number_bg_png,d_lottery_result_number_draw_bg_png,d_lottery_result_number_enable_bg_png,d_lottery_trad_bg_jpg,d_lottery_trad_penal_analysis_bg_png,d_lottery_trad_penal_analysis_penal_bg_png,d_lottery_trad_penal_analysis_tag_bg_png,d_lottery_trad_penal_betarea_bet_bg_png,d_lottery_trad_penal_betarea_bet_btn_blue_active_png,d_lottery_trad_penal_betarea_bet_btn_blue_enable_png,d_lottery_trad_penal_betarea_bet_btn_blue_hover_png,d_lottery_trad_penal_betarea_bet_btn_green_active_png,d_lottery_trad_penal_betarea_bet_btn_green_enable_png,d_lottery_trad_penal_betarea_bet_btn_green_hover_png,d_lottery_trad_penal_betarea_bet_btn_greenline_active_png,d_lottery_trad_penal_betarea_bet_btn_greenline_enable_png,d_lottery_trad_penal_betarea_bet_btn_greenline_hover_png,d_lottery_trad_penal_betarea_bet_btn_inactive_png,d_lottery_trad_penal_betarea_bet_btn_number_active_png,d_lottery_trad_penal_betarea_bet_btn_number_enable_png,d_lottery_trad_penal_betarea_bet_btn_number_hover_png,d_lottery_trad_penal_betarea_bet_btn_number_select_active_png,d_lottery_trad_penal_betarea_bet_btn_number_select_enable_png,d_lottery_trad_penal_betarea_bet_btn_number_select_hover_png,d_lottery_trad_penal_betarea_bet_line_png,d_lottery_trad_penal_betarea_bet_textbox_png,d_lottery_trad_penal_betarea_border_png,d_lottery_trad_penal_betarea_btn_dropdown_bg_png,d_lottery_trad_penal_betarea_btn_gamemode_active_png,d_lottery_trad_penal_betarea_btn_gamemode_enable_png,d_lottery_trad_penal_betarea_btn_gamemode_hover_png,d_lottery_trad_penal_betarea_btn_rate_bg_center_png,d_lottery_trad_penal_betarea_btn_rate_bg_left_png,d_lottery_trad_penal_betarea_btn_rate_bg_right_png,d_lottery_trad_penal_betarea_btn_rate_icon_add_png,d_lottery_trad_penal_betarea_btn_rate_icon_reduce_png,d_lottery_trad_penal_betarea_btn_subgamemode_bg_png,d_lottery_trad_penal_betarea_btn_subgamemode_icon_rule_png,d_lottery_trad_penal_betarea_btn_subgamemode_line_png,d_lottery_trad_penal_betarea_btn_wininfo_active_png,d_lottery_trad_penal_betarea_btn_wininfo_bg_png,d_lottery_trad_penal_betarea_btn_wininfo_enable_png,d_lottery_trad_penal_betarea_btn_wininfo_hover_png,d_lottery_trad_penal_betarea_history_number_bg_png,d_lottery_trad_penal_betarea_top_bg_png,d_lottery_trad_penal_cart_btn_cencal_png,d_lottery_trad_penal_cart_btn_cencalall_enable_png,d_lottery_trad_penal_cart_btn_cencalall_hover_png,d_lottery_trad_penal_cart_hl_png,d_lottery_trad_penal_chart_bg_png,d_lottery_trad_penal_chart_gamemode_bar_1_png,d_lottery_trad_penal_chart_gamemode_bar_2_png,d_lottery_trad_penal_chart_gamemode_bar_3_png,d_lottery_trad_penal_chart_gamemode_bar_4_png,d_lottery_trad_penal_chart_gamemode_bar_5_png,d_lottery_trad_penal_chart_gamemode_bar_6_png,d_lottery_trad_penal_chart_gamemode_bar_bg_png,d_lottery_trad_penal_chart_luckytimengame_color_1_png,d_lottery_trad_penal_chart_luckytimengame_color_10_png,d_lottery_trad_penal_chart_luckytimengame_color_2_png,d_lottery_trad_penal_chart_luckytimengame_color_3_png,d_lottery_trad_penal_chart_luckytimengame_color_4_png,d_lottery_trad_penal_chart_luckytimengame_color_5_png,d_lottery_trad_penal_chart_luckytimengame_color_6_png,d_lottery_trad_penal_chart_luckytimengame_color_7_png,d_lottery_trad_penal_chart_luckytimengame_color_8_png,d_lottery_trad_penal_chart_luckytimengame_color_9_png,d_lottery_trad_penal_chart_top_bg_png,d_lottery_trad_penal_raodmap_border_png,d_lottery_trad_penal_raodmap_btn_bg_acvtive_png,d_lottery_trad_penal_raodmap_btn_bg_png,d_lottery_trad_penal_raodmap_btn_dropdown_png,d_lottery_trad_penal_raodmap_btn_icon_dropdown_png,d_lottery_trad_penal_raodmap_element_blue copy_png,d_lottery_trad_penal_raodmap_element_green_png,d_lottery_trad_penal_raodmap_element_red_png,d_lottery_trad_penal_raodmap_grid_normal_png,d_lottery_trad_penal_raodmap_grid_underleft_png,d_lottery_trad_penal_raodmap_grid_underright_png,d_lottery_trad_penal_raodmap_top_bg_png,d_lottery_trad_penal_video_border_png,d_lottery_trad_penal_video_btn_fullscreen_enable_png,d_lottery_trad_penal_video_btn_fullscreen_hover_png,d_lottery_trad_penal_video_btn_refresh_enable_png,d_lottery_trad_penal_video_btn_refresh_hover_png,d_lottery_trad_penal_video_gamelogo_png,d_lottery_trad_penal_video_icon_live_png,d_lottery_trad_penal_video_redline_png,d_lottery_trad_penal_video_top_dim_png,d_lottery_trad_penal_video_under_dim_png,d_lottery_trad_penal_video_png",
+			"name": "scene_lottery"
 		}
 	],
 	"resources": [
@@ -4359,6 +4363,921 @@
 			"url": "assets/dragonbones/common/lw/gameresult/lucky_wheel_game_result_tex.json",
 			"type": "json",
 			"name": "lucky_wheel_game_result_tex_json"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_btn_checkbox_selected.png",
+			"type": "image",
+			"name": "d_lottery_btn_checkbox_selected_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_btn_checkbox_selected_hover.png",
+			"type": "image",
+			"name": "d_lottery_btn_checkbox_selected_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_btn_checkbox_uncheck.png",
+			"type": "image",
+			"name": "d_lottery_btn_checkbox_uncheck_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_btn_checkbox_uncheck_hover.png",
+			"type": "image",
+			"name": "d_lottery_btn_checkbox_uncheck_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_btn_wininfo_bg_active.png",
+			"type": "image",
+			"name": "d_lottery_ent_btn_wininfo_bg_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_btn_wininfo_bg_enable.png",
+			"type": "image",
+			"name": "d_lottery_ent_btn_wininfo_bg_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_btn_wininfo_bg_hover.png",
+			"type": "image",
+			"name": "d_lottery_ent_btn_wininfo_bg_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_blue.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_blue_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_blue_title.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_blue_title_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_green.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_green_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_green_title.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_green_title_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_purple.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_bg_purple_title.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_bg_purple_title_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_dt_bet_active.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_dt_bet_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_dt_bet_hover.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_dt_bet_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_ent_bet_active_blue.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_ent_bet_active_blue_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_ent_bet_active_green.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_ent_bet_active_green_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_ent_bet_active_purple.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_ent_bet_active_purple_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_blue.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_blue_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_green.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_green_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_purple.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_ent_bet_hover_purple_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_five_bet_active.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_five_bet_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_five_bet_hover.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_five_bet_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_number_bet_active.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_number_bet_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_betpenal_number_bet_hover.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_betpenal_number_bet_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_tag_btn_active.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_tag_btn_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_tag_btn_hover.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_tag_btn_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_tag_btn_left_active.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_tag_btn_left_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_tag_btn_left_hover.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_tag_btn_left_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_betarea_tag_line.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_betarea_tag_line_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_analysis_penal_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_analysis_penal_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_analysis_penal_tag_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_analysis_penal_tag_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_btn_bg_mini.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_btn_bg_mini_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_btn_bg_tag_active.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_btn_bg_tag_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_btn_bg_tag_hover.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_btn_bg_tag_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_btn_mini.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_btn_mini_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_gamemode_bar_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_gamemode_bar_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_1.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_1_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_10.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_10_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_2.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_2_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_3.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_3_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_4.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_4_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_5.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_5_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_6.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_6_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_7.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_7_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_8.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_8_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_chart_luckytimengame_color_9.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_chart_luckytimengame_color_9_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_info_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_info_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_mini_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_mini_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_roadmap_grid.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_roadmap_grid_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_subtag_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_subtag_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_subtag_btn_left.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_subtag_btn_left_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_penal_infopenal_subtag_btn_right.png",
+			"type": "image",
+			"name": "d_lottery_ent_penal_infopenal_subtag_btn_right_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_ent_wininfo_bg.png",
+			"type": "image",
+			"name": "d_lottery_ent_wininfo_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_navbar_btn_bg.png",
+			"type": "image",
+			"name": "d_lottery_navbar_btn_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_navbar_btn_bg_active.png",
+			"type": "image",
+			"name": "d_lottery_navbar_btn_bg_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_navbar_icon_history.png",
+			"type": "image",
+			"name": "d_lottery_navbar_icon_history_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_navbar_icon_record.png",
+			"type": "image",
+			"name": "d_lottery_navbar_icon_record_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_navbar_icon_trend.png",
+			"type": "image",
+			"name": "d_lottery_navbar_icon_trend_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_betarea_betpenal_bet_box_blue.png",
+			"type": "image",
+			"name": "d_lottery_penal_betarea_betpenal_bet_box_blue_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_betarea_betpenal_bet_box_green.png",
+			"type": "image",
+			"name": "d_lottery_penal_betarea_betpenal_bet_box_green_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_betarea_betpenal_bet_box_purple.png",
+			"type": "image",
+			"name": "d_lottery_penal_betarea_betpenal_bet_box_purple_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_gamelist_gamepenal_gamelogo.png",
+			"type": "image",
+			"name": "d_lottery_penal_gamelist_gamepenal_gamelogo_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_gamelist_gamepenal_roadmap_element_blue.png",
+			"type": "image",
+			"name": "d_lottery_penal_gamelist_gamepenal_roadmap_element_blue_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_gamelist_gamepenal_roadmap_element_green.png",
+			"type": "image",
+			"name": "d_lottery_penal_gamelist_gamepenal_roadmap_element_green_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_gamelist_gamepenal_roadmap_element_red.png",
+			"type": "image",
+			"name": "d_lottery_penal_gamelist_gamepenal_roadmap_element_red_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_gamelist_gamepenal_roadmap_grid.jpg",
+			"type": "image",
+			"name": "d_lottery_penal_gamelist_gamepenal_roadmap_grid_jpg"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_gamelist_gamepenal_time_bg.png",
+			"type": "image",
+			"name": "d_lottery_penal_gamelist_gamepenal_time_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infobar_bg.png",
+			"type": "image",
+			"name": "d_lottery_penal_infobar_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infobar_gamelogo.png",
+			"type": "image",
+			"name": "d_lottery_penal_infobar_gamelogo_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infobar_lastdraw_bg.png",
+			"type": "image",
+			"name": "d_lottery_penal_infobar_lastdraw_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infobar_lastdraw_icon.png",
+			"type": "image",
+			"name": "d_lottery_penal_infobar_lastdraw_icon_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infobar_line.png",
+			"type": "image",
+			"name": "d_lottery_penal_infobar_line_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infobar_number_bg.png",
+			"type": "image",
+			"name": "d_lottery_penal_infobar_number_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infobar_time_bg.png",
+			"type": "image",
+			"name": "d_lottery_penal_infobar_time_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infopenal_chart_gamemode_bar_1.png",
+			"type": "image",
+			"name": "d_lottery_penal_infopenal_chart_gamemode_bar_1_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infopenal_chart_gamemode_bar_2.png",
+			"type": "image",
+			"name": "d_lottery_penal_infopenal_chart_gamemode_bar_2_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infopenal_chart_gamemode_bar_3.png",
+			"type": "image",
+			"name": "d_lottery_penal_infopenal_chart_gamemode_bar_3_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infopenal_chart_gamemode_bar_4.png",
+			"type": "image",
+			"name": "d_lottery_penal_infopenal_chart_gamemode_bar_4_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infopenal_chart_gamemode_bar_5.png",
+			"type": "image",
+			"name": "d_lottery_penal_infopenal_chart_gamemode_bar_5_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infopenal_chart_gamemode_bar_6.png",
+			"type": "image",
+			"name": "d_lottery_penal_infopenal_chart_gamemode_bar_6_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_infopenal_line copy.png",
+			"type": "image",
+			"name": "d_lottery_penal_infopenal_line copy_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_result_money.png",
+			"type": "image",
+			"name": "d_lottery_penal_result_money_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_trend_grid_dim.jpg",
+			"type": "image",
+			"name": "d_lottery_penal_trend_grid_dim_jpg"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_trend_grid_normal.jpg",
+			"type": "image",
+			"name": "d_lottery_penal_trend_grid_normal_jpg"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_trend_icon_info.png",
+			"type": "image",
+			"name": "d_lottery_penal_trend_icon_info_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_trend_number_bg.png",
+			"type": "image",
+			"name": "d_lottery_penal_trend_number_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_trend_temperature_blue.png",
+			"type": "image",
+			"name": "d_lottery_penal_trend_temperature_blue_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_trend_temperature_red.png",
+			"type": "image",
+			"name": "d_lottery_penal_trend_temperature_red_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_penal_trend_temperature_yellow.png",
+			"type": "image",
+			"name": "d_lottery_penal_trend_temperature_yellow_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_result_number_bg.png",
+			"type": "image",
+			"name": "d_lottery_result_number_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_result_number_draw_bg.png",
+			"type": "image",
+			"name": "d_lottery_result_number_draw_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_result_number_enable_bg.png",
+			"type": "image",
+			"name": "d_lottery_result_number_enable_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_bg.jpg",
+			"type": "image",
+			"name": "d_lottery_trad_bg_jpg"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_analysis_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_analysis_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_analysis_penal_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_analysis_penal_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_analysis_tag_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_analysis_tag_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_blue_active.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_blue_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_blue_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_blue_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_blue_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_blue_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_green_active.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_green_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_green_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_green_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_green_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_green_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_greenline_active.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_greenline_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_greenline_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_greenline_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_greenline_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_greenline_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_inactive.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_inactive_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_number_active.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_number_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_number_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_number_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_number_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_number_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_number_select_active.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_number_select_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_number_select_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_number_select_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_btn_number_select_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_btn_number_select_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_line.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_line_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_bet_textbox.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_bet_textbox_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_border.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_border_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_dropdown_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_dropdown_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_gamemode_active.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_gamemode_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_gamemode_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_gamemode_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_gamemode_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_gamemode_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_rate_bg_center.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_rate_bg_center_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_rate_bg_left.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_rate_bg_left_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_rate_bg_right.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_rate_bg_right_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_rate_icon_add.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_rate_icon_add_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_rate_icon_reduce.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_rate_icon_reduce_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_subgamemode_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_subgamemode_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_subgamemode_icon_rule.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_subgamemode_icon_rule_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_subgamemode_line.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_subgamemode_line_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_wininfo_active.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_wininfo_active_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_wininfo_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_wininfo_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_wininfo_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_wininfo_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_btn_wininfo_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_btn_wininfo_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_history_number_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_history_number_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_betarea_top_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_betarea_top_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_cart_btn_cencal.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_cart_btn_cencal_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_cart_btn_cencalall_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_cart_btn_cencalall_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_cart_btn_cencalall_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_cart_btn_cencalall_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_cart_hl.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_cart_hl_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_gamemode_bar_1.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_gamemode_bar_1_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_gamemode_bar_2.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_gamemode_bar_2_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_gamemode_bar_3.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_gamemode_bar_3_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_gamemode_bar_4.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_gamemode_bar_4_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_gamemode_bar_5.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_gamemode_bar_5_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_gamemode_bar_6.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_gamemode_bar_6_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_gamemode_bar_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_gamemode_bar_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_1.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_1_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_10.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_10_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_2.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_2_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_3.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_3_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_4.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_4_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_5.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_5_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_6.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_6_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_7.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_7_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_8.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_8_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_luckytimengame_color_9.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_luckytimengame_color_9_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_chart_top_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_chart_top_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_border.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_border_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_btn_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_btn_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_btn_bg_acvtive.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_btn_bg_acvtive_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_btn_dropdown.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_btn_dropdown_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_btn_icon_dropdown.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_btn_icon_dropdown_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_element_blue copy.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_element_blue copy_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_element_green.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_element_green_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_element_red.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_element_red_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_grid_normal.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_grid_normal_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_grid_underleft.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_grid_underleft_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_grid_underright.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_grid_underright_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_raodmap_top_bg.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_raodmap_top_bg_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_border.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_border_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_btn_fullscreen_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_btn_fullscreen_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_btn_fullscreen_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_btn_fullscreen_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_btn_refresh_enable.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_btn_refresh_enable_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_btn_refresh_hover.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_btn_refresh_hover_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_gamelogo.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_gamelogo_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_icon_live.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_icon_live_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_redline.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_redline_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_top_dim.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_top_dim_png"
+		},
+		{
+			"url": "assets/images/d/lo/d_lottery_trad_penal_video_under_dim.png",
+			"type": "image",
+			"name": "d_lottery_trad_penal_video_under_dim_png"
 		}
 	]
 }
