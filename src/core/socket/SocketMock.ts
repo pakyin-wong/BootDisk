@@ -419,6 +419,12 @@ namespace we {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
       }
 
+      public async getStaticInitDataAsync(callback: (res: any) => void, thisArg: any) {
+        await utils.sleep(2000);
+        callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
+        return Promise.resolve();
+      }
+
       public connect() {
         // this.client.subscribe(enums.mqtt.subscribe.CONNECT, this.onReceivedMsg);
         /// this.client.connect();

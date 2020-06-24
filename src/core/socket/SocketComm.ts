@@ -113,6 +113,16 @@ namespace we {
         this.client.init(env.language, this.warpServerCallback(callback.bind(thisArg)));
       }
 
+      public async getStaticInitDataAsync(callback, thisArg) {
+        return new Promise((resolve, reject) => {
+          const resolveFunc = async (res: any) => {
+            await callback.bind(thisArg)(res);
+            resolve();
+          };
+          this.client.init(env.language, this.warpServerCallback(resolveFunc));
+        });
+      }
+
       public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
         if (dir.config.resource && dir.config.resource === 'local') {
           callback({
@@ -160,6 +170,8 @@ namespace we {
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
+        env.fallbacknicknames = player.fallbacknicknames;
+        // env.icons = player.icons;
         env.icons = [
           'd_lobby_profile_pic_01_png',
           'd_lobby_profile_pic_02_png',
@@ -177,14 +189,14 @@ namespace we {
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [
-            {
-              currency: Currency.RMB,
-              maxlimit: 1000,
-              minlimit: 10,
-              chips: [1, 5, 20, 100, 500],
-              // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
-            },
-          ];
+              {
+                currency: Currency.RMB,
+                maxlimit: 1000,
+                minlimit: 10,
+                chips: [1, 5, 20, 100, 500],
+                // chipsList: [{ value: 1 }, { value: 5 }, { value: 20 }, { value: 100 }, { value: 500 }],
+              },
+            ];
 
         if (!Array.isArray(env.betLimits)) {
           env.betLimits = [env.betLimits];
@@ -627,7 +639,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
           return betDetail;
         });
 
@@ -811,7 +823,7 @@ namespace we {
         );
       }
 
-      public getTableHistory() { }
+      public getTableHistory() {}
 
       protected onBetTableListUpdate(tableList: data.GameTableList, timestamp: string) {
         this.updateTimestamp(timestamp);
