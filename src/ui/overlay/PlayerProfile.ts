@@ -52,7 +52,7 @@ namespace we {
           for (const item of Object.keys(env.nameList)) {
             // for each groupKey
 
-            const bindFunc = this.onSelectNickname.bind([this, item]);
+            const bindFunc = this.onSelectNickname.bind(item);
 
             const _btn_nickname: eui.Group = new eui.Group();
             const _mask_nickname: eui.Rect = new eui.Rect();
@@ -253,9 +253,7 @@ namespace we {
 
       private onSelectNickname(e) {
         const _data = this as any;
-        env.nickname = env.nameList[_data[1]][e.data][1];
-        // _txt_nickname.text = env._nicknameSet['groups'][item];
-        // _data[0]._ddm_nickname && _data[0]._ddm_nickname.dropdown.select(env.nickname);
+        env.nickname = env.nameList[_data][e.data][1];
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
       }
 
