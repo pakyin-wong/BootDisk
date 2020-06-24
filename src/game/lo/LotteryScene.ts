@@ -8,101 +8,80 @@
  */
 namespace we {
   export namespace lo {
-    export class Scene extends core.DesktopBaseGameScene {
-      protected _roadmapControl: we.ro.RORoadmapControl;
-      protected _leftGamePanel: we.ro.RoLeftPanel;
-      protected _rightGamePanel: we.ro.RoRightPanel;
-      protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
+    export enum Mode {
+      Traditional,
+      Fun,
+    }
+
+    export class Scene extends core.BaseScene {
+      protected _mode: Mode;
+      protected _subScene: core.BaseScene;
+      protected _data;
+
+      protected _btn_trad: ui.RoundRectButton;
+      protected _btn_fun: ui.RoundRectButton;
 
       constructor(data: any) {
-        super(data);
+        super();
+        this.skinName = utils.getSkinByClassname('LotteryScene');
+        this._data = data;
+
+        /* create dummy sub scene */
+        this._subScene = new core.BaseScene();
+        this.addChild(this._subScene);
+        this.sceneHeader.addChild(this._subScene.sceneHeader);
       }
 
       protected mount() {
         super.mount();
+        this.setMode(Mode.Traditional);
+        utils.addButtonListener(this._btn_trad, this.onClickedTrad, this);
+        utils.addButtonListener(this._btn_fun, this.onClickedFun, this);
       }
 
-      protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('LotteryScene');
+      protected destroy() {
+        super.destroy();
+        utils.removeButtonListener(this._btn_trad, this.onClickedTrad, this);
+        utils.removeButtonListener(this._btn_fun, this.onClickedFun, this);
+      }
+      protected onClickedTrad() {
+        this.setMode(Mode.Traditional);
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'lottery', tab: 'lo' });
+      protected onClickedFun() {
+        this.setMode(Mode.Fun);
       }
 
-      public getTableLayer() {
-        return this._tableLayer;
-      }
-
-      protected initChildren() {
-        super.initChildren();
-        this.initRoadMap();
-        // if (this._leftGamePanel && this._rightGamePanel) {// for testing
-        this._roadmapControl.setTableInfo(this._tableInfo);
-        // }// for testing
-        this._chipLayer.type = we.core.BettingTableType.NORMAL;
-        this._tableLayer.type = we.core.BettingTableType.NORMAL;
-      }
-
-      protected initRoadMap() {
-        this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
-        // if (this._leftGamePanel) {// for testing
-        this._roadmapControl.setRoads(
-          this._leftGamePanel.beadRoad,
-          this._leftGamePanel.colorBigRoad,
-          this._leftGamePanel.sizeBigRoad,
-          this._leftGamePanel.oddBigRoad,
-          this._leftGamePanel,
-          this._rightGamePanel,
-          this._bigRoadResultPanel
-        );
-        // }// for testing
-      }
-
-      protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
-      }
-
-      protected setBetRelatedComponentsEnabled(enable: boolean) {
-        super.setBetRelatedComponentsEnabled(enable);
-        // if (this._rightGamePanel) {// for testing
-        if (this._rightGamePanel.raceTrackChipLayer) {
-          this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
-          this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
-        }
-        if (this._rightGamePanel.betCombination) {
-          this._rightGamePanel.betCombination.touchEnabled = enable;
-          this._rightGamePanel.betCombination.touchChildren = enable;
-        }
-        // }// for testing
-      }
-
-      public checkResultMessage() {
-        let totalWin: number = NaN;
-        if (this._tableInfo.totalWin) {
-          totalWin = this._tableInfo.totalWin;
-        }
-
-        if (!this._gameData) {
+      protected setMode(mode: Mode) {
+        if (this._mode === mode) {
           return;
         }
 
-        const resultNo = (<ro.GameData> this._gameData).value;
-        (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
+        const _prev: core.BaseScene = this._subScene;
+        let _next: core.BaseScene;
 
-        if (this.hasBet() && !isNaN(totalWin)) {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: this._tableInfo.totalWin,
-          });
-          dir.audioCtr.playSequence(['player', 'win']);
+        if (mode === Mode.Traditional) {
+          _next = new LotterySceneTraditional(this._data);
         } else {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            resultNo,
-            winAmount: NaN,
-          });
-          dir.audioCtr.playSequence(['player', 'win']);
+          _next = new LotterySceneFun(this._data);
         }
+        this.addChild(_next);
+        this.sceneHeader.addChild(_next.sceneHeader);
+        _next.onEnter();
+
+        _prev.onExit();
+        this.sceneHeader.removeChild(_prev.sceneHeader);
+        this.removeChild(_prev);
+
+        this._subScene = _next;
+        this._mode = mode;
+        this._btn_fun.active = mode === Mode.Fun;
+        this._btn_trad.active = mode === Mode.Traditional;
+      }
+
+      public onEnter() {}
+      public onExit() {
+        this._subScene.onExit();
       }
     }
   }

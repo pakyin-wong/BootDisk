@@ -16,6 +16,7 @@ namespace we {
         core.GameType.LW,
         core.GameType.RO,
         core.GameType.ROL,
+        core.GameType.LO,
       ];
 
       public static get Instance(): Env {
