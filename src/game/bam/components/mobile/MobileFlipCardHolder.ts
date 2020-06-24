@@ -22,9 +22,7 @@ namespace we {
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('bam.FlipCardHolderSkin');
-        this.leftStartPosition = -1289;
-        this.rightStartPosition = 1289;
-        this.middlePosition = 189;
+        this.updatePosition();
         this.isOpen = false;
         this.moveCardIndex = 0;
         this.currentCard = this._flipCard1;
@@ -33,6 +31,18 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
+      }
+
+      protected updatePosition() {
+        if (env.orientation === 'landscape') {
+          this.leftStartPosition = -3600;
+          this.rightStartPosition = 3600;
+          this.middlePosition = 1759;
+        } else {
+          this.leftStartPosition = -1289;
+          this.rightStartPosition = 1289;
+          this.middlePosition = 189;
+        }
       }
 
       protected changeCurrentCard() {
@@ -53,6 +63,7 @@ namespace we {
       protected updateCardPos(startPos: string = null) {
         if (!this.isOpen) {
           this.currentCard.x = this.middlePosition;
+          this.nextCard.x = this.leftStartPosition;
         } else if (startPos === 'left') {
           this.currentCard.x = this.leftStartPosition;
         } else if (startPos === 'right') {
@@ -63,10 +74,11 @@ namespace we {
       public showAndMoveCard(moveIndex: number, value: string) {
         this._flipCard1.visible = true;
         this._flipCard2.visible = true;
+        this.updatePosition();
         if (!this.isOpen) {
           this.changeCurrentCard();
-          this.updateCardPos();
           this.setCardImage(moveIndex, value, this.currentCard);
+          this.updateCardPos();
           this.isOpen = true;
         } else {
           if (this.moveCardIndex === moveIndex) {
@@ -114,23 +126,22 @@ namespace we {
 
       public setCardImage(index: number, value: string, card: ba.FlipCard) {
         this.moveCardIndex = index;
-
-        console.log('Card state: ' + card.x + ' and ' + card.visible);
-
         card.setCardImage('m_sq_ba_large_poker_backside_png', `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`, `m_sq_bac_large_poker_${utils.formatCardForFlip(value)}_png`);
       }
 
       public closeFlipPanel() {
         this.isOpen = false;
-        // this.currentCard.visible = false;
-        // this.nextCard.visible = false;
-        this._flipCard1.visible = false;
-        this._flipCard2.visible = false;
-
-        this.nextCard = new ba.FlipCard;
-        this.currentCard = new ba.FlipCard;
-
         this.moveCardIndex = 0;
+
+        // this._flipCard1.reset();
+        // this._flipCard2.reset();
+        this.currentCard.reset();
+        this.nextCard.reset();
+
+        // this._flipCard1.visible = false;
+        // this._flipCard2.visible = false;
+        this.currentCard.visible = false;
+        this.nextCard.visible = false;
       }
     }
   }
