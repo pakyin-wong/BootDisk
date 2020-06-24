@@ -7,23 +7,21 @@ namespace we {
     }
 
     export class ResProgressReporter implements RES.PromiseTaskReporter {
-      protected loadingManager: LoadingManager;
       protected index: number;
 
-      constructor(loadingManager: LoadingManager, index: number) {
-        this.loadingManager = loadingManager;
+      constructor(index: number) {
         this.index = index;
       }
 
       public onProgress(current, total, resItem) {
         const subprogress = current / total;
-        this.loadingManager.onRESTaskUpdate(subprogress, this.index);
+        loadingMgr.onRESTaskUpdate(subprogress, this.index);
       }
     }
 
     export class LoadingManager extends eui.Label {
       public static _instance: LoadingManager;
-      public static defaultLoadingUI: eui.Component;
+      public static defaultLoadingUI = ui.DefaultLoadingUI;
 
       static get Instance() {
         if (!this._instance) {
@@ -57,8 +55,9 @@ namespace we {
 
       public async load(tasks: Array<() => Promise<any>>, options: any) {
         if (this.isLoading) {
-          logger.e(utils.LogTarget.PROD, 'Loading is already started');
-          return;
+          throw new Error('LoadingManager.load is not designed to call multiple time at once.');
+          // logger.e(utils.LogTarget.PROD, 'Loading is already started');
+          // return;
         }
         this.progress = 0;
         this._subprogresses = new Array(tasks.length).map(v => 0);
@@ -91,9 +90,12 @@ namespace we {
         try {
           this.onUpdate();
           if (!options.isSequence) {
-            await this.progressPromise(tasks.map(t => t()), () => {
-              this.onUpdate();
-            });
+            await this.progressPromise(
+              tasks.map(t => t()),
+              () => {
+                this.onUpdate();
+              }
+            );
           } else {
             this._currentIdx = 0;
             for (const task of tasks) {

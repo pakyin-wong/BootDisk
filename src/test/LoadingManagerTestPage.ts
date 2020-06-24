@@ -20,27 +20,49 @@ namespace we {
 
         const tasks = [
           () => this.singletask(1000),
-          () => RES.loadGroup('audio', 0, new ui.ResProgressReporter(loadingMgr, 1)),
+          () => RES.loadGroup('audio', 0, new ui.ResProgressReporter(1)),
           () => this.singletask(2000),
           () => this.singletask(6000),
           () => this.singletask(1000),
         ];
+        this.loadTasks(tasks);
+        // loadingMgr
+        //   .load(tasks, {
+        //     isSequence: true,
+        //     showProgress: true,
+        //     progressMap: [1, 5, 2, 3, 1],
+        //     loadingUI: ui.DefaultLoadingUI,
+        //   })
+        //   .then(value => {
+        //     console.log('sync done');
+        //   })
+        //   .catch(err => {
+        //     console.log(err);
+        //   });
+      }
 
-        loadingMgr
-          .load(tasks, {
+      public async loadTasks(tasks) {
+        try {
+          await loadingMgr.load(tasks, {
             isSequence: false,
             showProgress: true,
             progressMap: [1, 5, 2, 3, 1],
             loadingUI: ui.DefaultLoadingUI,
-          })
-          .then(value => {
-            console.log('sync done');
           });
+          console.log('sync done');
+        } catch (err) {
+          console.log(err);
+        }
       }
 
       public async singletask(ms) {
         logger.l(utils.LogTarget.DEBUG, 'start task', Date.now());
         return utils.sleep(ms);
+      }
+      public async failTask(ms) {
+        logger.l(utils.LogTarget.DEBUG, 'fail start task', Date.now());
+        await utils.sleep(ms);
+        return Promise.reject('fail');
       }
 
       protected socketConnect() {
