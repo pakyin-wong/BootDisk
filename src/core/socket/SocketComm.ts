@@ -172,16 +172,16 @@ namespace we {
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
         env.fallbacknicknames = player.fallbacknicknames;
         // env.icons = player.icons;
-        env.icons = [
-          'd_lobby_profile_pic_01_png',
-          'd_lobby_profile_pic_02_png',
-          'd_lobby_profile_pic_03_png',
-          'd_lobby_profile_pic_04_png',
-          'd_lobby_profile_pic_05_png',
-          'd_lobby_profile_pic_06_png',
-          'd_lobby_profile_pic_07_png',
-          'd_lobby_profile_pic_08_png',
-        ];
+        env.icons = {
+          iconKey01: 'd_lobby_profile_pic_01_png',
+          iconKey02: 'd_lobby_profile_pic_02_png',
+          iconKey03: 'd_lobby_profile_pic_03_png',
+          iconKey04: 'd_lobby_profile_pic_04_png',
+          iconKey05: 'd_lobby_profile_pic_05_png',
+          iconKey06: 'd_lobby_profile_pic_06_png',
+          iconKey07: 'd_lobby_profile_pic_07_png',
+          iconKey08: 'd_lobby_profile_pic_08_png',
+        };
         env.profileimage = player.profile.settings.profileimage ? player.profile.settings.profileimage : 'd_lobby_profile_pic_01_png';
         env.profileimage = player.profile.profileimage;
         logger.l(utils.LogTarget.DEBUG, 'PlayerClient::handleReady() ' + player.profile.betlimits);
@@ -639,7 +639,7 @@ namespace we {
         // update gameStatus of corresponding tableInfo object in env.tableInfoArray
         const tableInfo = env.getOrCreateTableInfo(betInfo.tableid);
         tableInfo.bets = utils.EnumHelpers.values(betInfo.bets).map(value => {
-          const betDetail: data.BetDetail = (<any> Object).assign({}, value);
+          const betDetail: data.BetDetail = (<any>Object).assign({}, value);
           return betDetail;
         });
 

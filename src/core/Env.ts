@@ -52,7 +52,7 @@ namespace we {
       };
 
       public fallbacknicknames: { nicknameSet };
-      public icons: string[]; // to be modified
+      public icons: { [iconKey: string]: string };
 
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions

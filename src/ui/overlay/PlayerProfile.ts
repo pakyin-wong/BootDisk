@@ -29,6 +29,7 @@ namespace we {
       private _iconScroller: we.ui.Scroller;
       private _iconListData: eui.ArrayCollection;
       private _iconList: eui.List;
+      private iconList: string[];
       private _iconGaySize = 10;
 
       private _nameScroller: we.ui.Scroller;
@@ -40,10 +41,11 @@ namespace we {
       protected _ddm_nickname: ui.Panel;
 
       public constructor(skin = null) {
-        // super('PlayerProfile');
-        super(skin);
-        this._iconListData = new eui.ArrayCollection(env.icons);
+        super('PlayerProfile');
+        // super(skin);
+        this.createIconList();
       }
+
       protected mount() {
         super.mount();
 
@@ -174,9 +176,7 @@ namespace we {
           this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
         }
         if (!env.isMobile) {
-          // if desktop
           this._editName.addEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
-          // this._ddm_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
         }
         this._iconList.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
       }
@@ -188,9 +188,7 @@ namespace we {
           this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeName, this);
         }
         if (!env.isMobile) {
-          // if desktop
           this._editName.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.slideToNameSelectSection, this);
-          // this._ddm_nickname.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onChangeName, this);
         }
         this._iconList.removeEventListener(eui.ItemTapEvent.ITEM_TAP, this.onChangeIcon, this);
       }
@@ -233,22 +231,14 @@ namespace we {
       }
 
       private onChangeName(e) {
-        if (env.isMobile) {
-          dir.evtHandler.createOverlay({
-            class: 'ChangeName',
-          });
-          logger.l(utils.LogTarget.DEBUG, `NavSideMenu::ChangeName`);
-        } else {
-          // to be done
-          // this._username.text = env.nickname = env.nicknames.nickname_group1[e.data];
-          dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
-          this.slideToMainSection();
-          this.mount();
-        }
+        dir.evtHandler.createOverlay({
+          class: 'ChangeName',
+        });
+        logger.l(utils.LogTarget.DEBUG, `NavSideMenu::ChangeName`);
       }
 
       private onChangeIcon() {
-        this._playerIcon.source = env.profileimage = env.icons[this._iconList.selectedIndex];
+        this._playerIcon.source = env.profileimage = this.iconList[this._iconList.selectedIndex];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
         this.slideToMainSection();
       }
@@ -257,6 +247,16 @@ namespace we {
         const _data = this as any;
         env.nickname = env.nameList[_data][e.data][1];
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
+      }
+
+      protected createIconList() {
+        if (env.icons) {
+          this.iconList = [];
+          for (const item of Object.keys(env.icons)) {
+            this.iconList.push(env.icons[item]); // array of icons
+          }
+          this._iconListData = new eui.ArrayCollection(this.iconList);
+        }
       }
 
       protected initOrientationDependentComponent() {

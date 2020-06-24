@@ -506,17 +506,17 @@ namespace we {
           },
         };
 
-        env.icons = [
-          'd_lobby_profile_pic_01_png',
-          'd_lobby_profile_pic_02_png',
-          'd_lobby_profile_pic_03_png',
-          'd_lobby_profile_pic_04_png',
-          'd_lobby_profile_pic_05_png',
-          'd_lobby_profile_pic_06_png',
-          'd_lobby_profile_pic_07_png',
-          'd_lobby_profile_pic_08_png',
-        ];
-        env.profileimage = 'd_lobby_profile_pic_01_png';
+        env.icons = {
+          iconKey01: 'd_lobby_profile_pic_01_png',
+          iconKey02: 'd_lobby_profile_pic_02_png',
+          iconKey03: 'd_lobby_profile_pic_03_png',
+          iconKey04: 'd_lobby_profile_pic_04_png',
+          iconKey05: 'd_lobby_profile_pic_05_png',
+          iconKey06: 'd_lobby_profile_pic_06_png',
+          iconKey07: 'd_lobby_profile_pic_07_png',
+          iconKey08: 'd_lobby_profile_pic_08_png',
+        };
+        env.profileimage = env.icons['iconKey01'];
         env.betLimits = [
           {
             currency: Currency.RMB,
