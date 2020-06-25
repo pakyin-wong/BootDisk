@@ -54,8 +54,8 @@ namespace we {
 
         let sample = 1;
         // if (this._config.dataSelect) {
-        if(this._config.dataSelect){
-            sample = this._config.dataSelect;
+        if (this._config.dataSelect) {
+          sample = this._config.dataSelect;
 
           // if (this._config.combinationDataId) {
           //   sample = this._config.combinationDataId;
@@ -70,14 +70,12 @@ namespace we {
           return;
         }
 
-        if(this._config.combinationDataId){
-          let selectedId  : string = this._config.input[this._config.combinationDataId - 1];
+        if (this._config.combinationDataId) {
+          const selectedId: string = this._config.input[this._config.combinationDataId - 1];
           this.combinations = selectedId.split('');
 
           return;
         }
-
-        
       }
 
       private findNextCombination(sample: number, i: number, depth: number, itemString: string) {
@@ -96,7 +94,7 @@ namespace we {
           }
         }
       }
-      
+
       private validateCombination(itemStr: string, sampleSize: number): boolean {
         const items = itemStr.split('_');
         if (items.length === sampleSize) {
@@ -105,29 +103,121 @@ namespace we {
         return false;
       }
 
-
-
       protected generateBetFields() {
         this.betFields = [];
-        let pattern : string = this._config.pattern;
-        //$n = data of nth input eg: inputData[n]
-        for(let i = 0;i < this.inputData.length;i++){
-          pattern.replace(this.inputData[i],'$'+(i+1).toString());
-        }
-        this.betFields.push(pattern);
 
-        //%n = index of nth input 
-        for(let i = 0;i < this.inputData.length;i++){
-          pattern.replace(i.toString(),'%'+(i+1).toString());
+        let patterns = [];
+        let pattern = this._config.pattern;
+        // let pattern = '^1^2OPTIONAL$1';
+        // let pattern = ^1^2OptionalFree_&1_&2';
+
+        let value = pattern;
+
+        const inputData = this.inputData;
+        const combination = this.combinations;
+        // const combination = ['1_2','1_3','1_4','1_5'];
+        let datas = [];
+
+        for(let i = 0;i < combination.length;i++){
+          datas.push(pattern);
         }
 
-        //^n = nth index of combination [] eg: ['1_2','4_1'] result[0] = 1, result[1] = 2, result[2] = 4, result[3] = 1
-        if(this.combinations.length > 0){
-          
-        }else{
-          return;      
+        let re = /\^/gi;
+        // for()
+        if(pattern.search(re) > -1 && datas.length > 0){
+          for (let i = 0; i < combination.length; i++) {
+              const cIndex = combination[i].split('_');
+              for (let j = 0; j < cIndex.length; j++) {
+                  let n = cIndex[j];
+                  datas[i] = datas[i].replace('^'+ (j + 1).toString(), n);
+            }
+          }
         }
-    }
+
+        re = /\&/gi;
+
+        if(pattern.search(re) > -1 && datas.length > 0){
+          for (let i = 0; i < combination.length; i++) {
+              const cIndex = combination[i].split('_');
+              for (let j = 0; j < cIndex.length; j++) {
+                let n = inputData[parseInt(cIndex[j], 10)];
+                datas[i] = datas[i].replace('&'+ (j + 1).toString(), n);
+            }
+          }
+        }
+
+        re = /\%/gi;
+
+        if(pattern.search(re) > -1){
+          if(datas.length > 0){
+            for(let i = 0; i <datas.length; i++){
+              for (let k = 0; k < inputData.length; k++) {
+                let n = k.toString();
+                datas[i] = datas[i].replace('%'+ (k + 1).toString(), n);
+              }
+            }
+          }else{
+            for (let k = 0; k < inputData.length; k++) {
+              let n = k.toString();
+              value = value.replace('%'+ (k + 1).toString(), n);
+            }
+          }
+        }
+
+        re = /\$/gi;
+
+        if(pattern.search(re) > -1){
+          if( datas.length > 0){
+            for(let i = 0; i <datas.length; i++){
+              for (let k = 0; k < inputData.length; k++) {
+                let n = inputData[k];
+                datas[i] = datas[i].replace('$'+ (k + 1).toString(), n);
+              }
+            }
+          }else{
+            for (let k = 0; k < inputData.length; k++) {
+              let n = inputData[k];
+              value = value.replace('$'+ (k + 1).toString(), n);
+            }
+          }
+        }
+
+        if(datas.length > 0){
+          for(let i = 0; i<datas.length; i++){
+            patterns.push(datas[i]);
+          }
+        }else
+          patterns.push(value);
+
+        let output = [];
+
+        for(let i = 0; i< patterns.length;i++){
+          if (patterns[i].search(/\$\%\^\&/gi) === -1) {
+            console.log('pattern :'+ patterns[i])
+            this.betFields.push(patterns[i]);
+          }
+        }
+        
+        // const pattern: string = this._config.pattern;
+        // // $n = data of nth input eg: inputData[n]
+
+        // for (let i = 0; i < this.inputData.length; i++) {
+        //   pattern.replace(this.inputData[i], '$' + (i + 1).toString());
+        // }
+        // // if(pattern.i
+        // // this.betFields.push(pattern);
+
+        // // %n = index of nth input
+        // for (let i = 0; i < this.inputData.length; i++) {
+        //   pattern.replace(i.toString(), '%' + (i + 1).toString());
+        // }
+
+        // // ^n = nth index of combination [] eg: ['1_2','4_1'] result[0] = 1, result[1] = 2, result[2] = 4, result[3] = 1
+        // if (this.combinations.length > 0) {
+        // } else {
+        //   return;
+        // }
+      }
 
       // protected generateCombination(results: string[], numberOfChosen: number) {
 

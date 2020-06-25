@@ -20,32 +20,32 @@ namespace we {
 
       protected init() {
         const inputConfigs = this._config.input;
-        if (inputConfigs && inputConfigs.length>0) {
-          for (var i=0;i<inputConfigs.length;i++) {
-            const inputComponent = InputComponentFactory.generateInputComponent(i,inputConfigs[i]);
+        if (inputConfigs && inputConfigs.length > 0) {
+          for (let i = 0; i < inputConfigs.length; i++) {
+            const inputComponent = InputComponentFactory.generateInputComponent(i, inputConfigs[i]);
             inputComponent.addEventListener(egret.Event.CHANGE, this.onInputChange, this);
             this._inputs.push(inputComponent);
             // init empty inputData
             this.inputData.push('');
-          } 
+          }
         }
       }
 
       protected onInputChange(evt: egret.Event) {
-        const {index, data} = evt.data;
+        const { index, data } = evt.data;
         // update inputData
         this.inputData[index] = data;
 
         this.generateCombination();
-        this.validateInput();
+        if (!this.validateInput()) {
+          return;
+        }
         this.dataMapping();
         this.generateBetFields();
         this.computeNoteCount();
       }
 
-      protected generateCombination() {
-
-      }
+      protected generateCombination() {}
 
       protected validateInput(): boolean {
         for (const input of this._inputs) {
@@ -63,13 +63,9 @@ namespace we {
         }
       }
 
-      protected generateBetFields() {
+      protected generateBetFields() {}
 
-      }
-
-      public computeNoteCount() {
-
-      }
+      public computeNoteCount() {}
     }
   }
 }
