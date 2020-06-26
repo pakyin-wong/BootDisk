@@ -71,3 +71,9 @@ action
         12DT_TIGER,
         12DT_TIE
     ]
+
+    TODO_06_26
+    - logic - 80%
+    - checkboxes AInputComponent
+    - Integration
+    - 

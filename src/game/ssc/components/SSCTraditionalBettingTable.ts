@@ -57,24 +57,15 @@ namespace we {
         if (this._config.dataSelect) {
           sample = this._config.dataSelect;
 
-          // if (this._config.combinationDataId) {
-          //   sample = this._config.combinationDataId;
-          // }
-
           for (let i = 0; i < this.inputData.length; i++) {
             if (this.inputData[i] !== '') {
               this.findNextCombination(sample, i, 1, (i + 1).toString());
             }
           }
-
-          return;
         }
 
         if (this._config.combinationDataId) {
-          const selectedId: string = this._config.input[this._config.combinationDataId - 1];
-          this.combinations = selectedId.split('');
-
-          return;
+          this.combinations = this.inputData[this._config.combinationDataId - 1];
         }
       }
 
@@ -106,8 +97,8 @@ namespace we {
       protected generateBetFields() {
         this.betFields = [];
 
-        let patterns = [];
-        let pattern = this._config.pattern;
+        const patterns = [];
+        const pattern = this._config.pattern;
         // let pattern = '^1^2OPTIONAL$1';
         // let pattern = ^1^2OptionalFree_&1_&2';
 
@@ -116,88 +107,87 @@ namespace we {
         const inputData = this.inputData;
         const combination = this.combinations;
         // const combination = ['1_2','1_3','1_4','1_5'];
-        let datas = [];
+        const datas = [];
 
-        for(let i = 0;i < combination.length;i++){
+        for (let i = 0; i < combination.length; i++) {
           datas.push(pattern);
         }
 
         let re = /\^/gi;
         // for()
-        if(pattern.search(re) > -1 && datas.length > 0){
+        if (pattern.search(re) > -1 && datas.length > 0) {
           for (let i = 0; i < combination.length; i++) {
-              const cIndex = combination[i].split('_');
-              for (let j = 0; j < cIndex.length; j++) {
-                  let n = cIndex[j];
-                  datas[i] = datas[i].replace('^'+ (j + 1).toString(), n);
+            const cIndex = combination[i].split('_');
+            for (let j = 0; j < cIndex.length; j++) {
+              const n = parseInt(cIndex[j], 10);
+              datas[i] = datas[i].replace('^' + (j + 1).toString(), n);
             }
           }
         }
 
         re = /\&/gi;
 
-        if(pattern.search(re) > -1 && datas.length > 0){
+        if (pattern.search(re) > -1 && datas.length > 0) {
           for (let i = 0; i < combination.length; i++) {
-              const cIndex = combination[i].split('_');
-              for (let j = 0; j < cIndex.length; j++) {
-                let n = inputData[parseInt(cIndex[j], 10)];
-                datas[i] = datas[i].replace('&'+ (j + 1).toString(), n);
+            const cIndex = combination[i].split('_');
+            for (let j = 0; j < cIndex.length; j++) {
+              const n = inputData[parseInt(cIndex[j], 10) - 1];
+              datas[i] = datas[i].replace('&' + (j + 1).toString(), n);
             }
           }
         }
 
         re = /\%/gi;
 
-        if(pattern.search(re) > -1){
-          if(datas.length > 0){
-            for(let i = 0; i <datas.length; i++){
+        if (pattern.search(re) > -1) {
+          if (datas.length > 0) {
+            for (let i = 0; i < datas.length; i++) {
               for (let k = 0; k < inputData.length; k++) {
-                let n = k.toString();
-                datas[i] = datas[i].replace('%'+ (k + 1).toString(), n);
+                const n = k.toString();
+                datas[i] = datas[i].replace('%' + (k + 1).toString(), n);
               }
             }
-          }else{
+          } else {
             for (let k = 0; k < inputData.length; k++) {
-              let n = k.toString();
-              value = value.replace('%'+ (k + 1).toString(), n);
+              const n = k.toString();
+              value = value.replace('%' + (k + 1).toString(), n);
             }
           }
         }
 
         re = /\$/gi;
 
-        if(pattern.search(re) > -1){
-          if( datas.length > 0){
-            for(let i = 0; i <datas.length; i++){
+        if (pattern.search(re) > -1) {
+          if (datas.length > 0) {
+            for (let i = 0; i < datas.length; i++) {
               for (let k = 0; k < inputData.length; k++) {
-                let n = inputData[k];
-                datas[i] = datas[i].replace('$'+ (k + 1).toString(), n);
+                const n = inputData[k];
+                datas[i] = datas[i].replace('$' + (k + 1).toString(), n);
               }
             }
-          }else{
+          } else {
             for (let k = 0; k < inputData.length; k++) {
-              let n = inputData[k];
-              value = value.replace('$'+ (k + 1).toString(), n);
+              const n = inputData[k];
+              value = value.replace('$' + (k + 1).toString(), n);
             }
           }
         }
 
-        if(datas.length > 0){
-          for(let i = 0; i<datas.length; i++){
+        if (datas.length > 0) {
+          for (let i = 0; i < datas.length; i++) {
             patterns.push(datas[i]);
           }
-        }else
-          patterns.push(value);
+        } else patterns.push(value);
 
-        let output = [];
+        const output = [];
 
-        for(let i = 0; i< patterns.length;i++){
-          if (patterns[i].search(/\$\%\^\&/gi) === -1) {
-            console.log('pattern :'+ patterns[i])
+        for (let i = 0; i < patterns.length; i++) {
+          if (patterns[i].search(/\$\%\^\&\b(\w*undefined\w*)\b/gi) === -1) {
+            console.log('pattern :' + patterns[i]);
             this.betFields.push(patterns[i]);
           }
         }
-        
+
         // const pattern: string = this._config.pattern;
         // // $n = data of nth input eg: inputData[n]
 

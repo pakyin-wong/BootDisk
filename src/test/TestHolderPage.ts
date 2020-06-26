@@ -2,8 +2,6 @@ namespace we {
   export namespace test {
     export class TestHolderPage extends core.BasePage {
       private progressbar: eui.ProgressBar;
-      private _inputs = ['0123', '23', '', '0234', '123'];
-      private combinations;
 
       public onEnter() {
         this.addEventListener(eui.UIEvent.COMPLETE, this.mount, this);
@@ -51,6 +49,9 @@ namespace we {
         // dir.sceneCtr.goto('LobbyScene');
       }
 
+      private _inputs = ['0123', '23', '', '0234', '123'];
+      private combinations;
+
       protected generateCombination() {
         // if(!this._config.dataSelect && !this._config.combinationDataId){
         //   this.combinations = null;
@@ -58,7 +59,7 @@ namespace we {
         // }
         this.combinations = [];
 
-        const sample = 3;
+        const sample = 2;
 
         for (let i = 0; i < this._inputs.length; i++) {
           if (this._inputs[i] !== '') {
@@ -76,105 +77,125 @@ namespace we {
       }
       // }
 
+      private findNextCombination(sample: number, i: number, depth: number, itemString: string) {
+        if (depth === sample) {
+          if (this.validateCombination(itemString, sample)) {
+            this.combinations.push(itemString);
+          }
+          return;
+        }
+
+        for (let j = i + 1; j < this._inputs.length; j++) {
+          if (this._inputs[j] !== '') {
+            this.findNextCombination(sample, j, depth + 1, itemString + '_' + (j + 1).toString());
+          } else {
+            this.findNextCombination(sample, j, depth + 1, itemString);
+          }
+        }
+      }
+
+      private validateCombination(itemStr: string, sampleSize: number): boolean {
+        const items = itemStr.split('_');
+        if (items.length !== sampleSize) {
+          return false;
+        }
+        return true;
+      }
+
       private generateBetFields() {
         // const re = [/\$/gi, /\%/gi, /\^/gi, /\&/gi];
         // const sign = ['$', '%', '^', '&'];
 
-
-        let patterns = [];
-        let pattern = '12345OPTIONAL_$1_$2_$3_$4_$5';
+        const patterns = [];
+        // let pattern = '12345OPTIONAL_$1_$2_$3_$4_$5';
         // let pattern = '^1^2OPTIONAL$1';
-        // let pattern = ^1^2OptionalFree_&1_&2';
+        const pattern = '^1^2OptionalFree_&1_&2';
 
         let value = pattern;
 
         const inputData = ['01', '0123', '0234', '056', '56'];
-        const combination = [];
-        // const combination = ['1_2','1_3','1_4','1_5'];
-        let data = [];
+        // const combination = [];
+        const combination = ['1_2', '1_3', '1_4', '1_5', '2_3', '2_4', '2_5', '3_4', '3_5', '4_5'];
+        const data = [];
 
-        for(let i = 0;i < combination.length;i++){
+        for (let i = 0; i < combination.length; i++) {
           data.push(pattern);
         }
 
         let re = /\^/gi;
         // for()
-        if(pattern.search(re) > -1 && data.length > 0){
+        if (pattern.search(re) > -1 && data.length > 0) {
           for (let i = 0; i < combination.length; i++) {
-              const cIndex = combination[i].split('_');
-              for (let j = 0; j < cIndex.length; j++) {
-                  let n = cIndex[j];
-                  data[i] = data[i].replace('^'+ (j + 1).toString(), n);
+            const cIndex = combination[i].split('_');
+            for (let j = 0; j < cIndex.length; j++) {
+              const n = parseInt(cIndex[j], 10);
+              data[i] = data[i].replace('^' + (j + 1).toString(), n);
             }
           }
         }
 
         re = /\&/gi;
 
-        if(pattern.search(re) > -1 && data.length > 0){
+        if (pattern.search(re) > -1 && data.length > 0) {
           for (let i = 0; i < combination.length; i++) {
-              const cIndex = combination[i].split('_');
-              for (let j = 0; j < cIndex.length; j++) {
-                let n = inputData[parseInt(cIndex[j], 10)];
-                data[i] = data[i].replace('&'+ (j + 1).toString(), n);
+            const cIndex = combination[i].split('_');
+            for (let j = 0; j < cIndex.length; j++) {
+              const n = inputData[parseInt(cIndex[j], 10) - 1];
+              data[i] = data[i].replace('&' + (j + 1).toString(), n);
             }
           }
         }
 
         re = /\%/gi;
 
-        if(pattern.search(re) > -1){
-          if(data.length > 0){
-            for(let i = 0; i <data.length; i++){
+        if (pattern.search(re) > -1) {
+          if (data.length > 0) {
+            for (let i = 0; i < data.length; i++) {
               for (let k = 0; k < inputData.length; k++) {
-                let n = k.toString();
-                data[i] = data[i].replace('%'+ (k + 1).toString(), n);
+                const n = k.toString();
+                data[i] = data[i].replace('%' + (k + 1).toString(), n);
               }
             }
-          }else{
+          } else {
             for (let k = 0; k < inputData.length; k++) {
-              let n = k.toString();
-              value = value.replace('%'+ (k + 1).toString(), n);
+              const n = k.toString();
+              value = value.replace('%' + (k + 1).toString(), n);
             }
           }
         }
 
         re = /\$/gi;
 
-        if(pattern.search(re) > -1){
-          if( data.length > 0){
-            for(let i = 0; i <data.length; i++){
+        if (pattern.search(re) > -1) {
+          if (data.length > 0) {
+            for (let i = 0; i < data.length; i++) {
               for (let k = 0; k < inputData.length; k++) {
-                let n = inputData[k];
-                data[i] = data[i].replace('$'+ (k + 1).toString(), n);
+                const n = inputData[k];
+                data[i] = data[i].replace('$' + (k + 1).toString(), n);
               }
             }
-          }else{
+          } else {
             for (let k = 0; k < inputData.length; k++) {
-              let n = inputData[k];
-              value = value.replace('$'+ (k + 1).toString(), n);
+              const n = inputData[k];
+              value = value.replace('$' + (k + 1).toString(), n);
             }
           }
         }
 
-        if(data.length > 0){
-          for(let i = 0; i<data.length; i++){
+        if (data.length > 0) {
+          for (let i = 0; i < data.length; i++) {
             patterns.push(data[i]);
           }
-        }else
-          patterns.push(value);
-        let output = [];
-        for(let i = 0; i< patterns.length;i++){
-          if (patterns[i].search(/\$\%\^\&/gi) === -1) {
-            console.log('pattern :'+ patterns[i])
+        } else patterns.push(value);
+        const output = [];
+        for (let i = 0; i < patterns.length; i++) {
+          if (patterns[i].search(/\$\%\^\&\b(\w*undefined\w*)\b/gi) === -1) {
+            console.log('pattern :' + patterns[i]);
             output.push(patterns[i]);
+          } else {
+            console.log('invalid pattern included: ' + patterns[i]);
           }
         }
-
-        for(const o in output){
-          console.log('output :'+ o)
-        }
-
       }
 
       // for (let k = 0; k < re.length; k++) {
@@ -221,31 +242,6 @@ namespace we {
       //   }
       // }
       // }
-
-      private findNextCombination(sample: number, i: number, depth: number, itemString: string) {
-        if (depth === sample) {
-          if (this.validateCombination(itemString, sample)) {
-            this.combinations.push(itemString);
-          }
-          return;
-        }
-
-        for (let j = i + 1; j < this._inputs.length; j++) {
-          if (this._inputs[j] !== '') {
-            this.findNextCombination(sample, j, depth + 1, itemString + '_' + (j + 1).toString());
-          } else {
-            this.findNextCombination(sample, j, depth + 1, itemString);
-          }
-        }
-      }
-
-      private validateCombination(itemStr: string, sampleSize: number): boolean {
-        const items = itemStr.split('_');
-        if (items.length !== sampleSize) {
-          return false;
-        }
-        return true;
-      }
 
       protected socketConnect() {
         dir.evtHandler.addEventListener(core.MQTT.CONNECT_SUCCESS, this.socketConnectSuccess, this);

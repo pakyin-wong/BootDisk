@@ -230,6 +230,15 @@ namespace we {
           },
         },
       },
+      FirstThree: {
+        name: 'First Three',
+        type: {
+          DirectionSum: {
+            name: 'DirectionSum',
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR)],
+          },
+        },
+      },
       // FourStar: {
       //   // bigTag
       //   name: 'FourStar',
