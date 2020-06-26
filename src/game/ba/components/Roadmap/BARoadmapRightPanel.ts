@@ -44,7 +44,7 @@ namespace we {
       }
 
       protected init() {
-        const gridSize = 22;
+        const gridSize = 21;
         this.totalCount = 0;
 
         this.iconPlayerBigEye = new BABigEyeRoadIcon(16);
@@ -86,7 +86,7 @@ namespace we {
         this.roadsContainer = new egret.DisplayObjectContainer();
         this.roadsContainer.x = 2;
         this.roadsContainer.y = 47;
-        this.roadsContainer.scaleX = 671 / 672;
+        this.roadsContainer.scaleX = 675 / 672;
         this.roadsContainer.scaleY = 260 / 257;
         // this.roadsContainer.alpha = 0.5;
         this.addChild(this.roadsContainer);

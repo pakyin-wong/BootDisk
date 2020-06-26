@@ -3,9 +3,9 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
-	<ba:TableLayer id="_tableLayer" width="1146" height="304" x="734" y="1020" isEdgeDismissable="true"
+	<ba:TableLayer id="_tableLayer" width="1170" height="304" x="724" y="1020" isEdgeDismissable="true"
 	               skinName="skin_desktop.ba.TableLayerSkin" touchEnabled="false" />
-	<ba:ChipLayer id="_chipLayer" width="1146" height="304" x="734" y="1024" isEdgeDismissable="true"
+	<ba:ChipLayer id="_chipLayer" width="1170" height="304" x="724" y="1024" isEdgeDismissable="true"
 	              skinName="skin_desktop.ba.ChipLayerSkin" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="939.13">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
@@ -25,8 +25,8 @@
 	</e:Group>
 	<ba:CardHolder id="_resultDisplay" width="412" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"
 	               anchorOffsetY="0" />
-	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="21" y="1024" anchorOffsetX="0" anchorOffsetY="0" />
-	<ba:BARoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1901" y="1024" anchorOffsetX="0"
+	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="16" y="1024" anchorOffsetX="0" anchorOffsetY="0" />
+	<ba:BARoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1910" y="1024" anchorOffsetX="0"
 	                        anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
