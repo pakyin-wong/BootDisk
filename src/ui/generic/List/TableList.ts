@@ -35,7 +35,9 @@ namespace we {
           this.nextTableList = tableList;
           return;
         }
+
         const filteredList = this.invalidateTableList(tableList);
+
         if (!this.tableList || isOverride) {
           // this.tableList = tableList;
           this.tableList = filteredList;
@@ -63,7 +65,7 @@ namespace we {
         }
       }
 
-      public setGameFilters(tab: core.LiveGameTab) {
+      public setGameFilters(tab) {
         switch (tab) {
           case core.LiveGameTab.ba:
             this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM];
@@ -82,6 +84,10 @@ namespace we {
             break;
           case core.LiveGameTab.other:
             this.gameFilters = [10000000];
+            break;
+
+          case core.LotteryTab.all:
+            this.gameFilters = [core.GameType.LO];
             break;
         }
       }

@@ -72,7 +72,7 @@
                 document.body.appendChild(s);
             };
 
-            loadSingleScript('jslib/vendor-player/WFPlayer.min.js', function() {
+            var cb = function() {
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', './manifest.json?v=' + Math.random(), true);
                 xhr.addEventListener("load", function () {
@@ -119,7 +119,9 @@
                     });
                 });
                 xhr.send(null);
-            });
+            };
+            if (typeof window.WebAssembly === 'undefined') cb();
+            else loadSingleScript('jslib/vendor-player/WFPlayer.min.js', cb);
 
         </script>
 </body>

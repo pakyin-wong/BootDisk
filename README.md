@@ -150,6 +150,11 @@ There are few steps needed to be taken before publish
 
 ## Live Game Asset
 
+- [God of Wealth Sicbo Animation](https://drive.google.com/file/d/1KYSgMXHM3rQ51-ZBCsppP75Z2DHO3ojR/view?usp=sharing)
+
+- [23/6 God of Wealth Roulette Desktop Animation](https://drive.google.com/file/d/1yqC6Kzc-c1rFPw2gbSswoJLOIFC3oRkL/view?usp=sharing)
+- [23/6 God of Wealth Roulette Mobile Animation](https://drive.google.com/file/d/1Rp9jo6FD-EyuZZEeAG6hRNAxgJowNtNS/view?usp=sharing)
+
 - [God of Wealth Roulette Desktop Animation](https://drive.google.com/open?id=1AogJc0OACzfhH69ON0fyt2uznZlwKi5o)
 - [God of Wealth Roulette Mobile Animation](https://drive.google.com/open?id=13SNhuemmGrRZ_yWi5XcCeYFPXb-3ucCA)
 

@@ -40,7 +40,7 @@ namespace we {
       }
 
       public setRanksAndAnimate(ranks: number[], duration: number = 1000) {
-        if (this.colorSettings.length - 1 !== ranks.length) {
+        if (this.colorSettings.length - 1 < ranks.length) {
           logger.e(utils.LogTarget.DEBUG, 'Error in RankedPieChart: the length of colorSettings doesnt match the length of the ranks');
           return;
         }
