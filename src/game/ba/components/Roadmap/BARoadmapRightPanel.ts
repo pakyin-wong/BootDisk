@@ -86,8 +86,8 @@ namespace we {
         this.roadsContainer = new egret.DisplayObjectContainer();
         this.roadsContainer.x = 2;
         this.roadsContainer.y = 47;
-        this.roadsContainer.scaleX = 675 / 672;
-        this.roadsContainer.scaleY = 260 / 257;
+        // this.roadsContainer.scaleX = 675 / 672;
+        // this.roadsContainer.scaleY = 260 / 257;
         // this.roadsContainer.alpha = 0.5;
         this.addChild(this.roadsContainer);
 
