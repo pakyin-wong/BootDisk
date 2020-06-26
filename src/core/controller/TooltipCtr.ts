@@ -35,7 +35,7 @@ namespace we {
         this.activeTooltip.alpha = 0;
         this.activeTooltip.touchEnabled = false;
         dir.layerCtr.tooltip.addChild(this.activeTooltip);
-        const coord = (<egret.DisplayObject>displayObject).localToGlobal(0, 0);
+        const coord = (<egret.DisplayObject> displayObject).localToGlobal(0, 0);
         switch (displayObject.tooltipPosition) {
           case 'below': {
             this.activeTooltip.x = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;

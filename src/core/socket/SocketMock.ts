@@ -494,6 +494,11 @@ namespace we {
       }
 
       public enterTable(tableID: string) {
+        setTimeout(() => {
+          this.dispatchInfoUpdateEvent(this.tables[parseInt(tableID, 10) - 1]);
+          this.dispatchBetInfoUpdateEvent(this.tables[parseInt(tableID, 10) - 1]);
+        }, 500);
+
         /*
         //Canceling the event
 
@@ -644,6 +649,7 @@ namespace we {
       public dispatchInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
         data.complete = 1;
+        env.tableInfos[data.tableid] = data;
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, data);
 
         const isJustReady: boolean = env.validateTableInfoDisplayReady(data.tableid);

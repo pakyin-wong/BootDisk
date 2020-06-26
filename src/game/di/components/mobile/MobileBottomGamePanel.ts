@@ -37,12 +37,12 @@ namespace we {
 
       public destroy() {
         super.destroy();
-        if (env.orientation === 'portrait') {
-          this._historyGroup.removeChildren();
-          this._roadmapGroup.removeChildren();
-        } else {
-          this._roadmapGroup.removeChildren();
-        }
+        // if (env.orientation === 'portrait') {
+        this._historyGroup && this._historyGroup.removeChildren();
+        this._roadmapGroup && this._roadmapGroup.removeChildren();
+        // } else {
+        this._roadmapGroup && this._roadmapGroup.removeChildren();
+        // }
 
         // this._chartGroup.removeChildren();
         // this._infoGroup.removeChildren();

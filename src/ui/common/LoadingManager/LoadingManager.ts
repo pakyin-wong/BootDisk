@@ -90,12 +90,9 @@ namespace we {
         try {
           this.onUpdate();
           if (!options.isSequence) {
-            await this.progressPromise(
-              tasks.map(t => t()),
-              () => {
-                this.onUpdate();
-              }
-            );
+            await this.progressPromise(tasks.map(t => t()), () => {
+              this.onUpdate();
+            });
           } else {
             this._currentIdx = 0;
             for (const task of tasks) {
