@@ -35,7 +35,9 @@ namespace we {
           this.nextTableList = tableList;
           return;
         }
+
         const filteredList = this.invalidateTableList(tableList);
+
         if (!this.tableList || isOverride) {
           // this.tableList = tableList;
           this.tableList = filteredList;

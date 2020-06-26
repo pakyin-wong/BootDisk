@@ -82,7 +82,7 @@ class Main extends eui.UILayer {
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
 
-    this.updateBitmapNode();
+    we.utils.updateEgretSys();
 
     FullScreenManager.OnLoad(this.stage);
     IPhoneChromeFullscreen.OnLoad(this.stage);
@@ -149,10 +149,7 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
-      fontMgr.loadFonts([
-        { res: 'Barlow-Regular_otf', name: 'Barlow' },
-        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
-      ]);
+      fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }, { res: 'NeonOne_otf', name: 'NeonOne' }]);
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {
@@ -176,10 +173,5 @@ class Main extends eui.UILayer {
       const rs = $hitTest.call(this, stageX, stageY);
       return rs;
     };
-  }
-
-  private updateBitmapNode() {
-    egret.sys.BitmapNodeExtend.super = egret.sys.BitmapNode;
-    egret.sys.BitmapNode = egret.sys.BitmapNodeExtend;
   }
 }

@@ -133,6 +133,10 @@ namespace we {
         return this._label;
       }
 
+      public set label(l: ui.RunTimeLabel) {
+        this._label = l;
+      }
+
       public set active(b) {
         this._active = b;
         this.update();

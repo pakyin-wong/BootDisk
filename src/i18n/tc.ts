@@ -167,7 +167,7 @@ namespace we {
         system: {
           title: '系統設定',
           lang: '語言',
-          liveRecord: '玩場收音',
+          liveRecord: '現場收音',
           soundfx: '遊戲音效',
           bgm: '背景音樂',
           term: '服務條款',

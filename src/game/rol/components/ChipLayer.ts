@@ -103,20 +103,20 @@ namespace we {
           coinAnim.anchorOffsetY = 2;
 
           const label = new eui.Label();
-          label.verticalCenter = -23;
+          label.verticalCenter = 0;
           label.horizontalCenter = 0;
-          label.size = 25;
+          label.fontFamily = 'Barlow';
+          label.size = 30;
           label.textColor = 0x83f3af;
           label.text = luckyNumbers[key] + 'x';
 
           grid.addChild(label);
           egret.Tween.get(label)
-            .to({ alpha: 0 }, 500)
-            .to({ alpha: 1 }, 500)
-            .to({ alpha: 0 }, 500)
-            .to({ alpha: 1 }, 500)
-            .to({ alpha: 0 }, 500)
-            .to({ alpha: 1 }, 500);
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000);
 
           (async () => {
             let p = we.utils.waitDragonBone(coinAnim);

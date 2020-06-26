@@ -12,9 +12,27 @@ namespace we {
       }
 
       /** switch scene immediately */
-      public goto(id: string, data: any = null) {
+      public async goto(id: string, data: any = null) {
         let _prev: BaseScene;
         let _next: BaseScene;
+
+        try {
+          let groups = [];
+          if (env.isMobile && typeof we[id].MobileScene === 'function') {
+            groups = we[id].MobileScene.resGroups;
+          } else {
+            groups = we[id].Scene.resGroups;
+          }
+          if (groups) {
+            const tasks = groups.filter(group => !RES.isGroupLoaded(group)).map((group, idx) => () => RES.loadGroup(group, 0, new ui.ResProgressReporter(idx)));
+            if (tasks.length > 0) {
+              await loadingMgr.load(tasks);
+            }
+          }
+        } catch (error) {
+          logger.e(utils.LogTarget.DEBUG, `scene ${id} resource load error`, error);
+        }
+
         try {
           _prev = this._currScene;
           if (env.isMobile && typeof we[id].MobileScene === 'function') {

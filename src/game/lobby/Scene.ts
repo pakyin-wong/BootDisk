@@ -72,7 +72,14 @@ namespace we {
         this.loadPage(this._list.selectedItem);
       }
 
-      private loadPage(name: string, data: any = null) {
+      private async loadPage(name: string, data: any = null) {
+        const groups = we[name].Page.resGroups;
+        if (groups) {
+          const tasks = groups.filter(group => !RES.isGroupLoaded(group)).map((group, idx) => () => RES.loadGroup(group, 0, new ui.ResProgressReporter(idx)));
+          if (tasks.length > 0) {
+            await loadingMgr.load(tasks);
+          }
+        }
         this._page.removeChildren();
         const page: core.BasePage = new we[name].Page(data);
         this._page.addChild(page);

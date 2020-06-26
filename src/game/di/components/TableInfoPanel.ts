@@ -62,6 +62,30 @@ namespace we {
       protected pSpecificTripleMax: eui.Label;
       protected pSpecificTripleOdd: eui.Label;
 
+      protected _mask: egret.Shape;
+
+      protected childrenCreated(): void {
+        super.childrenCreated();
+
+        if (env.isMobile && env.orientation === 'landscape') {
+          this.addGradentMask();
+        }
+      }
+
+      private addGradentMask() {
+        this._mask = new egret.Shape();
+        const gr = this._mask.graphics;
+        const matrix = new egret.Matrix();
+        matrix.createGradientBox(30, 304);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x212425, 0x212425], [1, 0], [0, 255], matrix);
+        gr.drawRect(0, 0, 30, 532); //
+        gr.endFill();
+        this.addChild(this._mask);
+        this._mask.x = -1;
+        this._mask.y = 0;
+        this._mask.visible = true;
+      }
+
       public changeLang() {
         super.changeLang();
 

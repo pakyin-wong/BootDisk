@@ -23,7 +23,7 @@ namespace we {
       DI = 12, // Dice
       LW = 16, // Lucky Wheel
       // MJ = 13, // MaJong
-      LO = 19,
+      LO = 15,
     }
 
     export enum ChipType {

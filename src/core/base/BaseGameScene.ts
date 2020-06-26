@@ -193,7 +193,6 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         }
-
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
@@ -209,8 +208,9 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         }
-
-        this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+        if (this._btnBack) {
+          this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+        }
       }
 
       public insufficientBalance() {
@@ -434,6 +434,8 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
+        // console.log('this._tableId', this._tableId);
+        // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
