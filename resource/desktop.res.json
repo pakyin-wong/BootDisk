@@ -4215,6 +4215,21 @@
 			"name": "BarlowCondensed-SemiBold_otf"
 		},
 		{
+			"url": "assets/fonts/Barlow-SemiBold.ttf",
+			"type": "bin",
+			"name": "Barlow-SemiBold_ttf"
+		},
+		{
+			"url": "assets/fonts/Barlow-Medium.ttf",
+			"type": "bin",
+			"name": "Barlow-Medium_ttf"
+		},
+		{
+			"url": "assets/fonts/NeonOne.otf",
+			"type": "bin",
+			"name": "NeonOne_otf"
+		},
+		{
 			"url": "assets/dragonbones/d/rol/roulette_w_game_result_tex.png",
 			"type": "image",
 			"name": "roulette_w_game_result_tex_png"
