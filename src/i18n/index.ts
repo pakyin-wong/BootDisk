@@ -57,6 +57,7 @@ namespace we {
                 // this._bannerImages = [placeholderImg];
               } else {
                 if (res.Nicknames) {
+                  // res.nicknames?
                   env.nicknameSet = res.Nicknames;
                 }
               }

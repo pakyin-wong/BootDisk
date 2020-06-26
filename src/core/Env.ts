@@ -37,8 +37,21 @@ namespace we {
       public nickname: string;
       public profileimage: string;
 
-      public _nicknames: { [nicknameKey: string]: { value: string; group: string } };
-      public _groups: { [groupKey: string]: string }; // nicknameGroupKey
+      // TODO: update _nicknames and _groups
+      public _nicknames: { [langcode: string]: any };
+      public _groups: { [groupKey: string]: string[] };
+      /**
+       * {
+       *  groupKey1:[
+       *    'nicknameKey1',
+       *    'nicknameKey2',
+       *  ],
+       *  groupKey2:[
+       *    ...
+       *  ],
+       *  ...
+       * }
+       */
       public _nicknameSet: {}; // {nicknames; groups}
       public nameList: {}; // to sort nickname in local
 
@@ -51,7 +64,7 @@ namespace we {
         iconkey: string;
       };
 
-      public fallbacknicknames: { nicknameSet };
+      // public _fallbacknicknames: {};
       public icons: { [iconKey: string]: string };
 
       public mode: number = NaN;
@@ -272,14 +285,28 @@ namespace we {
 
       public set nicknameSet(val) {
         env.nameList = {};
+        env._nicknames = {};
+        env._groups = {};
+
         this._nicknameSet = val;
+        // TODO: store val.nicknames to this._nicknames[currentLangCode]
+        this._nicknames[env.language] = val.nicknames;
         this.nicknameSorting();
+        // TODO: grouping the nicknameKey into arrays and stores at this._groups
+        for (const item of Object.keys(val.groups)) {
+          //////////// to do
+        }
+        console.log(`.........${JSON.stringify(this._groups)}`);
+      }
+
+      public set fallbacknicknames(val) {
+        //   TODO
+        //   this._nicknames['en'] = val.nicknames;
+        env._nicknames['en'] = val.nicknames;
       }
 
       public nicknameSorting() {
         const nicknames = env._nicknameSet['nicknames'];
-        // const groups = env._nicknameSet['groups'];
-
         const list = Object.keys(nicknames).map(key => [key, nicknames[key]['value'], nicknames[key]['group']]);
         list.sort(function (a, b) {
           return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;

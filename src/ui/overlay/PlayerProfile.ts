@@ -51,7 +51,9 @@ namespace we {
 
         if (!env.isMobile) {
           let i = 0; // to calculate y value of ddm_nickname
-          for (const item of Object.keys(env.nameList)) {
+          // for (const item of Object.keys(env.nameList)) {
+          for (const item of Object.keys(env._groups)) {
+            // TODO: use eng._groups
             // for each groupKey
 
             const bindFunc = this.onSelectNickname.bind(item);
@@ -77,7 +79,7 @@ namespace we {
             _mask_nickname.left = _mask_nickname.top = _mask_nickname.bottom = 0;
             _mask_nickname.width = _btn_nickname.width;
 
-            _txt_nickname.text = env._nicknameSet['groups'][item];
+            _txt_nickname.text = env._nicknameSet['groups'][item]; // groupKey
             _txt_nickname.verticalAlign = 'middle';
             _txt_nickname.textAlign = 'center';
             _txt_nickname.scaleX = 1;
@@ -107,9 +109,27 @@ namespace we {
 
             const _arrCol_nickname: eui.ArrayCollection = new eui.ArrayCollection();
 
-            env.nameList[item].forEach((_item, index) => {
-              // data inside each name group
-              _arrCol_nickname.source.push(ui.NewDropdownItem(index, () => _item[1]));
+            // env.nameList[item].forEach((_item, index) => {
+            //   // data inside each name group
+            //   _arrCol_nickname.source.push(
+            //     ui.NewDropdownItem(index, () => {
+            //       // const nickName = env.nameList[nicknameKey][env.language] || env.nameList[nicknameKey]['en'];
+            //       console.log(env.language, env.nameList[item][index][1]);
+            //       // return _item[1];
+            //       return env.nameList[item][index][1];
+            //     })
+            //   );
+            // })
+            // console.log(`.........${JSON.stringify(env._groups[item])}`);
+            // console.log(`.........${JSON.stringify(env._groups)}`);
+            env._groups[item].forEach((nicknameKey, index) => {
+              _arrCol_nickname.source.push(
+                ui.NewDropdownItem(index, () => {
+                  const langCode = env.language;
+                  const nickname = env._nicknames[langCode][nicknameKey]['value'] || env._nicknames['en'][nicknameKey]['value'];
+                  return nickname;
+                })
+              );
             });
 
             if (this._ddm_nickname) {

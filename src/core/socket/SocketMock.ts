@@ -413,8 +413,9 @@ namespace we {
       public updateSetting(key: string, value: string) {
         if (env.nicknameSet) {
           env.nicknameSet = env.nicknameSet;
-          console.log(env.nicknameSet);
-          // this.nicknameSorting();
+        }
+        if (env.fallbacknicknames) {
+          env.fallbacknicknames = env.fallbacknicknames;
         }
       }
 
@@ -450,14 +451,34 @@ namespace we {
             Nicknames = {
               nicknames: {
                 nicknamekey001: { value: '海綿寶寶tc', group: 'groupKey03' },
-                nicknamekey002: { value: '天使tc', group: 'groupKey03' },
-                nicknamekey003: { value: '黑豹tc', group: 'groupKey03' },
+                // nicknamekey002: { value: '天使tc', group: 'groupKey03' }, //commented to test fallback nicknameSet
+                // nicknamekey003: { value: '黑豹tc', group: 'groupKey03' },
                 nicknamekey004: { value: '外星人tc', group: 'groupKey02' },
                 nicknamekey005: { value: '刀鋒戰士tc', group: 'groupKey01' },
                 nicknamekey006: { value: '獨角獸tc', group: 'groupKey02' },
                 nicknamekey007: { value: '黑寡婦tc', group: 'groupKey01' },
                 nicknamekey008: { value: '蠟筆小新tc', group: 'groupKey02' },
                 nicknamekey009: { value: '哆啦A夢tc', group: 'groupKey01' },
+              },
+              groups: {
+                groupKey01: '卡通人物角色',
+                groupKey02: '神話人物角色',
+                groupKey03: '電影人物角色',
+              },
+            };
+            break;
+          case 'en':
+            Nicknames = {
+              nicknames: {
+                nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
+                nicknamekey002: { value: '天使en', group: 'groupKey03' },
+                nicknamekey003: { value: '黑豹en', group: 'groupKey03' },
+                nicknamekey004: { value: '外星人en', group: 'groupKey02' },
+                nicknamekey005: { value: '刀鋒戰士en', group: 'groupKey01' },
+                nicknamekey006: { value: '獨角獸en', group: 'groupKey02' },
+                nicknamekey007: { value: '黑寡婦en', group: 'groupKey01' },
+                nicknamekey008: { value: '蠟筆小新en', group: 'groupKey02' },
+                nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
               },
               groups: {
                 groupKey01: '卡通人物角色',
@@ -505,7 +526,24 @@ namespace we {
             groupKey03: '電影人物角色',
           },
         };
-
+        env.fallbacknicknames = {
+          nicknames: {
+            nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
+            nicknamekey002: { value: '天使en', group: 'groupKey03' },
+            nicknamekey003: { value: '黑豹en', group: 'groupKey03' },
+            nicknamekey004: { value: '外星人en', group: 'groupKey02' },
+            nicknamekey005: { value: '刀鋒戰士en', group: 'groupKey01' },
+            nicknamekey006: { value: '獨角獸en', group: 'groupKey02' },
+            nicknamekey007: { value: '黑寡婦en', group: 'groupKey01' },
+            nicknamekey008: { value: '蠟筆小新en', group: 'groupKey02' },
+            nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
+          },
+          groups: {
+            groupKey01: 'Cartoon',
+            groupKey02: 'Legend',
+            groupKey03: 'Movie',
+          },
+        };
         env.icons = {
           iconKey01: 'd_lobby_profile_pic_01_png',
           iconKey02: 'd_lobby_profile_pic_02_png',
