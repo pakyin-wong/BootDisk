@@ -300,7 +300,8 @@ namespace we {
         // update the already bet amount of each bet field
         this._cfmBetDetails.map((value, index) => {
           if (this._betChipStackMapping[value.field]) {
-            this._betChipStackMapping[value.field].cfmBet = value.amount * this.getRate(value.field);            this._betChipStackMapping[value.field].draw();
+            this._betChipStackMapping[value.field].cfmBet = value.amount * this.getRate(value.field);
+            this._betChipStackMapping[value.field].draw();
           }
         });
       }
