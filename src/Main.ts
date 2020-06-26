@@ -55,7 +55,7 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
 
-    if (true || type === 'mobile') {
+    if (type === 'mobile') {
       // if (true) {
       env.isMobile = true;
       this.updateMobileHitTest();
