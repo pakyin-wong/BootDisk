@@ -6,7 +6,7 @@
         <e:Group id="_maskContainer" width="490" height="764" x="13" y="13">
             <e:Group id="_section_main" x="0" y="0" width="490" height="764">
 				<e:Image id="_playerIcon" width="114" height="114" y="63" anchorOffsetX="0" anchorOffsetY="0" source="d_lobby_profile_pic_03_png" horizontalCenter="0"/>
-                <ui:BaseAnimationButton id="_changeIcon" width="132" height="132" x="179" y="54" dbClass="lobby_ui" dbDisplay="d_lobby_avatar_selection" />
+                <ui:BaseAnimationButton id="_changeIcon" width="132" height="132" x="180" y="54" dbClass="lobby_ui" dbDisplay="d_lobby_avatar_selection" />
                 <ui:RunTimeLabel id="_username" text="Johathan" y="195" textColor="0xc59466" size="30" anchorOffsetY="0"
                          height="36" fontFamily="Barlow" textAlign="center" width="280" horizontalCenter="0"
                          verticalAlign="middle" />
@@ -62,7 +62,7 @@
 				         verticalCenter="0"  x="286"/>
                         </e:Group>
                         <ui:Panel id="_ddm_name" width="330" x="0" skinName="skin_desktop.NavDropdown" anchorOffsetY="0"
-                                  bottom="0" height="504" />
+                                  bottom="-3" height="504" />
 
 
 

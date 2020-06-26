@@ -193,8 +193,9 @@ namespace we {
 
       private onChangeIcon() {
         this._playerIcon.source = env.icon = env.icons[this._iconList.selectedIndex];
+        console.log('this._playerIcon.source', this._playerIcon.source);
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
-        this.slideToMainSection();
+        // this.slideToMainSection();
       }
 
       protected initOrientationDependentComponent() {
