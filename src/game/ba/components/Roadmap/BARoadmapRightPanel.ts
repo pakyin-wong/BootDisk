@@ -44,7 +44,7 @@ namespace we {
       }
 
       protected init() {
-        const gridSize = 21;
+        const gridSize = 22;
         this.totalCount = 0;
 
         this.iconPlayerBigEye = new BABigEyeRoadIcon(16);
