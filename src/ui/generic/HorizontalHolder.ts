@@ -409,12 +409,12 @@ namespace we {
         egret.Tween.removeTweens(previous);
         egret.Tween.removeTweens(next);
 
-        this._startPosition = e.$stageX;
+        // this._startPosition = e.$stageX;
         this._startTime = egret.getTimer();
 
         const canvas = document.getElementsByTagName('canvas')[0];
-
-        this._previousPosition = this._startPosition;
+        console.log(canvas);
+        // this._previousPosition = this._startPosition;
 
         if (env.isMobile) {
           (<any> canvas).addEventListener('touchmove', this.onTouchMove, { passive: false });
@@ -454,6 +454,7 @@ namespace we {
         // const touchPos = e.$stageX;
         if (!this._previousPosition) {
           // this._previousPosition = e.$stageX;
+          this._startPosition = touchPos;
           this._previousPosition = touchPos;
           return;
         }
@@ -601,7 +602,7 @@ namespace we {
         // const currentPosition = e.$stageX;
         const currentPosition = touchPos;
 
-        const positionOffset = this._startPosition - Math.ceil(currentPosition);
+        const positionOffset = currentPosition ? this._startPosition - Math.ceil(currentPosition) : 0;
         const timeOffset = this._currentTime - this._startTime;
 
         if (timeOffset < 150) {
