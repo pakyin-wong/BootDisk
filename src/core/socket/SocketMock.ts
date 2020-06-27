@@ -603,6 +603,11 @@ namespace we {
       }
 
       public enterTable(tableID: string) {
+        setTimeout(() => {
+          this.dispatchInfoUpdateEvent(this.tables[parseInt(tableID, 10) - 1]);
+          this.dispatchBetInfoUpdateEvent(this.tables[parseInt(tableID, 10) - 1]);
+        }, 500);
+
         /*
         //Canceling the event
 
@@ -753,6 +758,7 @@ namespace we {
       public dispatchInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
         data.complete = 1;
+        env.tableInfos[data.tableid] = data;
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, data);
 
         const isJustReady: boolean = env.validateTableInfoDisplayReady(data.tableid);
@@ -976,6 +982,84 @@ namespace we {
           { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
           { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
         ],
+      };
+
+      // new BA roadmap data
+      private mockBARoadData_new: any = {
+        tableid: '1',
+        shoeid: '1',
+        playerwincount: 3,
+        bankerwincount: 3,
+        tiewincount: 3,
+        playerpairwincount: 3,
+        bankerpairwincount: 3,
+
+        inGame: {
+          bead: [
+            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 12 },
+            { gameRoundID: '34345', v: 'p', b: 0, p: 0, w: 4 },
+            { gameRoundID: '45454', v: 'b', b: 0, p: 1, w: 7 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
+          bigEye: [{ v: 'p' }],
+          small: [{ v: 'b' }],
+          roach: [{ v: 'p' }],
+        },
+
+        inGameB: {
+          bead: [
+            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
+            { gameRoundID: '34345', v: 'p', b: 0, p: 0, w: 4 },
+            { gameRoundID: '45454', v: 'b', b: 0, p: 1, w: 7 },
+            { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { v: '', t: 0 },
+            { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b', t: 5 },
+          ],
+          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b' }],
+          small: [{ v: 'b' }, { v: 'b' }],
+          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b' }],
+        },
+
+        inGameP: {},
+
+        lobbyPro: {},
+
+        lobbyProB: {},
+
+        lobbyProP: {},
+
+        sideBar: {
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
+        },
+
+        lobbyUnPro: {
+          bigRoad: [
+            { v: 'p', t: 0 },
+            { v: 'p', t: 0 },
+            { v: 'p', t: 4 },
+          ],
+        },
+
+        gameInfo: {
+          cde345: { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
+          g34345: { gameRoundID: 'g34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
+          g45454: { gameRoundID: 'g45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
+        },
       };
 
       // mock ro road data

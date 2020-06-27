@@ -17,7 +17,7 @@ namespace we {
         const winAmountSlot = this._display.armature.getSlot('800');
         const winAmountLabel = new eui.Label();
         winAmountLabel.fontFamily = 'Barlow';
-        winAmountLabel.size = 60;
+        winAmountLabel.size = 55;
         if (winAmount < 0) {
           winStatus = 'Loss';
           winAmountLabel.text = utils.formatNumber(winAmount, false);
@@ -56,10 +56,11 @@ namespace we {
         const oddSlot = this._display.armature.getSlot('Base_Odd');
 
         const oddLabel = new eui.Label();
-        oddLabel.fontFamily = 'Barlow';
+        oddLabel.fontFamily = 'NeonOne';
         oddLabel.size = 60;
         oddLabel.text = luckyNumber[resultNo].toString() + 'X';
 
+        /*
         const color: number = 0x33ccff;
         const alpha: number = 0.8;
         const blurX: number = 35;
@@ -70,8 +71,9 @@ namespace we {
         const knockout: boolean = false;
         const glowFilter: egret.GlowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
         oddLabel.filters = [glowFilter];
-        oddLabel.bold = true;
-        oddLabel.textColor = 0xffffff;
+        */
+        // oddLabel.bold = true;
+        oddLabel.textColor = 0x2ab9c6;
 
         const layer = new eui.Group();
         layer.addChild(oddLabel);
@@ -87,14 +89,16 @@ namespace we {
         const resultSlot = this._display.armature.getSlot('Base_Number');
 
         const resultLabel = new eui.Label();
-        resultLabel.fontFamily = 'Barlow';
+        resultLabel.fontFamily = 'NeonOne';
         resultLabel.size = 140;
         resultLabel.text = resultNo.toString();
 
+        /*
         const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
         resultLabel.filters = [shadowFilter];
-        resultLabel.bold = true;
-        resultLabel.textColor = 0xffffff;
+        */
+        // resultLabel.bold = true;
+        resultLabel.textColor = 0x2ab9c6;
 
         const layer = new eui.Group();
         layer.addChild(resultLabel);

@@ -54,7 +54,7 @@ namespace we {
         const winAmount = resultData.winAmount;
         const background = this.getBackground(gameType, winType);
 
-        logger.l(we.utils.LogTarget.DEBUG,background, gameType, winType, winAmount);
+        logger.l(we.utils.LogTarget.DEBUG, background, gameType, winType, winAmount);
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,

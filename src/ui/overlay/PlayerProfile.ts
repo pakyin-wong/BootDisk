@@ -260,7 +260,7 @@ namespace we {
       private onChangeIcon() {
         this._playerIcon.source = env.profileimage = this.iconList[this._iconList.selectedIndex];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
-        this.slideToMainSection();
+        // this.slideToMainSection();
       }
 
       private onSelectNickname(e) {
