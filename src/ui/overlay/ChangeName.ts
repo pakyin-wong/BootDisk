@@ -17,17 +17,15 @@ namespace we {
         this._txt_title.renderText = () => `${i18n.t('nav.system.changeName')}`;
 
         // let idx = 0;
-        for (const item of Object.keys(env.nameList)) {
+        for (const item of Object.keys(env._groups)) {
           // for each groupKey
-
-          const bindFunc = this.onNicknameChange.bind(item);
 
           const _btn_nickname: eui.Group = new eui.Group();
           const _mask_nickname: eui.Rect = new eui.Rect();
           const _arrow_nickname: eui.Image = new eui.Image();
           const _txt_nickname: ui.RunTimeLabel = new ui.RunTimeLabel();
 
-          _txt_nickname.text = env._nicknameSet['groups'][item];
+          _txt_nickname.text = env.groupName[item];
           _txt_nickname.verticalAlign = 'middle';
           _txt_nickname.textAlign = 'center';
           _txt_nickname.scaleX = 1;
@@ -78,14 +76,16 @@ namespace we {
           _btn_nickname.addChild(_txt_nickname);
           _btn_nickname.addChild(_arrow_nickname);
 
-          _btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', bindFunc, this);
-          _btn_nickname.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onNicknameSelect, this);
-
           const _arrCol_nickname: eui.ArrayCollection = new eui.ArrayCollection();
+          const bindFunc = this.onNicknameChange.bind(_arrCol_nickname);
 
-          env.nameList[item].forEach((_item, index) => {
-            _arrCol_nickname.source.push(ui.NewDropdownItem(index, () => _item[1]));
+          // env.nameList[item].forEach((_item, index) => {
+          // _arrCol_nickname.source.push(ui.NewDropdownItem(index, () => _item[1]));
+          env._groups[item].forEach((_item, index) => {
+            const nickName = env._nicknames[env.language][_item] || env._nicknames['en'][_item];
+            _arrCol_nickname.source.push(ui.NewDropdownItem(_item, () => nickName['value']));
           });
+          console.log(`.....arrCol ....${JSON.stringify(_arrCol_nickname.source)}`);
 
           utils.DropdownCreator.new({
             toggler: _btn_nickname,
@@ -94,6 +94,9 @@ namespace we {
             title: () => ``,
             selected: _txt_nickname,
           });
+
+          _btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', bindFunc, this);
+          _btn_nickname.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onNicknameSelect, this);
         }
       }
 
@@ -103,12 +106,15 @@ namespace we {
 
       private onNicknameSelect(item) {
         this._mask.visible = !this._mask.visible;
+        // todo : missing title
         dir.monitor._mDropdown._title.renderText = () => item + '     ' + env.nickname;
       }
 
       private onNicknameChange(e) {
         const _data = this as any;
-        env.nickname = env.nameList[_data][e.data][1];
+        //todo: can't return en nickname
+        env.nickname = env._nicknames[env.language][e.data]['value'];
+        // env.nickname = env.nameList[_data][e.data][1];
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
         dir.evtHandler.createOverlay({
           class: 'PlayerProfile',

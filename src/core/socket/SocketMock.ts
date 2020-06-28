@@ -508,24 +508,6 @@ namespace we {
         env.playerID = 'PID001';
         env.currency = Currency.RMB;
         env.nickname = 'Jonathan';
-        env.nicknameSet = {
-          nicknames: {
-            nicknamekey001: { value: '海綿寶寶', group: 'groupKey03' },
-            nicknamekey002: { value: '天使', group: 'groupKey03' },
-            nicknamekey003: { value: '黑豹', group: 'groupKey03' },
-            nicknamekey004: { value: '外星人', group: 'groupKey02' },
-            nicknamekey005: { value: '刀鋒戰士', group: 'groupKey01' },
-            nicknamekey006: { value: '獨角獸', group: 'groupKey02' },
-            nicknamekey007: { value: '黑寡婦', group: 'groupKey01' },
-            nicknamekey008: { value: '蠟筆小新', group: 'groupKey02' },
-            nicknamekey009: { value: '哆啦A夢', group: 'groupKey01' },
-          },
-          groups: {
-            groupKey01: '卡通人物角色',
-            groupKey02: '神話人物角色',
-            groupKey03: '電影人物角色',
-          },
-        };
         env.fallbacknicknames = {
           nicknames: {
             nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
@@ -542,6 +524,24 @@ namespace we {
             groupKey01: 'Cartoon',
             groupKey02: 'Legend',
             groupKey03: 'Movie',
+          },
+        };
+        env.nicknameSet = {
+          nicknames: {
+            nicknamekey001: { value: '海綿寶寶', group: 'groupKey03' },
+            nicknamekey002: { value: '天使', group: 'groupKey03' },
+            nicknamekey003: { value: '黑豹', group: 'groupKey03' },
+            nicknamekey004: { value: '外星人', group: 'groupKey02' },
+            nicknamekey005: { value: '刀鋒戰士', group: 'groupKey01' },
+            nicknamekey006: { value: '獨角獸', group: 'groupKey02' },
+            nicknamekey007: { value: '黑寡婦', group: 'groupKey01' },
+            nicknamekey008: { value: '蠟筆小新', group: 'groupKey02' },
+            nicknamekey009: { value: '哆啦A夢', group: 'groupKey01' },
+          },
+          groups: {
+            groupKey01: '卡通人物角色',
+            groupKey02: '神話人物角色',
+            groupKey03: '電影人物角色',
           },
         };
         env.icons = {

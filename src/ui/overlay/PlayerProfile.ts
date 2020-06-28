@@ -79,7 +79,7 @@ namespace we {
             _mask_nickname.left = _mask_nickname.top = _mask_nickname.bottom = 0;
             _mask_nickname.width = _btn_nickname.width;
 
-            _txt_nickname.text = env._nicknameSet['groups'][item]; // groupKey
+            _txt_nickname.text = env._nicknames['groups'][item]; // groupKey
             _txt_nickname.verticalAlign = 'middle';
             _txt_nickname.textAlign = 'center';
             _txt_nickname.scaleX = 1;

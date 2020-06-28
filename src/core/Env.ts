@@ -38,8 +38,10 @@ namespace we {
       public profileimage: string;
 
       // TODO: update _nicknames and _groups
-      public _nicknames: { [langcode: string]: any };
-      public _groups: { [groupKey: string]: string[] };
+      public _nicknames: { [langcode: string]: any } = {};
+      public _groups: {};
+      public groupName: { [groupKey: string]: string };
+      // public _groups: { [groupKey: string]: string[] };
       /**
        * {
        *  groupKey1:[
@@ -52,7 +54,6 @@ namespace we {
        *  ...
        * }
        */
-      public _nicknameSet: {}; // {nicknames; groups}
       public nameList: {}; // to sort nickname in local
 
       public settings: {
@@ -285,30 +286,34 @@ namespace we {
 
       public set nicknameSet(val) {
         env.nameList = {};
-        env._nicknames = {};
-        env._groups = {};
+        env._groups = val.groups;
+        env.groupName = { ...val.groups };
+        env._nicknames[env.language] = val.nicknames;
 
-        this._nicknameSet = val;
-        // TODO: store val.nicknames to this._nicknames[currentLangCode]
-        this._nicknames[env.language] = val.nicknames;
-        this.nicknameSorting();
-        // TODO: grouping the nicknameKey into arrays and stores at this._groups
+        // grouping the nicknameKey into arrays and stores at this._groups
         for (const item of Object.keys(val.groups)) {
-          //////////// to do
+          env._groups[item] = [];
         }
-        console.log(`.........${JSON.stringify(this._groups)}`);
+
+        const langcode = env._nicknames['en'] ? 'en' : env.language;
+        console.log(langcode);
+        this.nicknameSorting();
+        this.groupKeySorting(langcode);
       }
 
-      public set fallbacknicknames(val) {
-        //   TODO
-        //   this._nicknames['en'] = val.nicknames;
-        env._nicknames['en'] = val.nicknames;
+      protected groupKeySorting(langcode: string) {
+        const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
+        for (const item of list) {
+          // sorting by groupKey
+          const _item = env._nicknames[langcode][item]['group'];
+          env._groups[_item].push(item);
+        }
       }
 
-      public nicknameSorting() {
-        const nicknames = env._nicknameSet['nicknames'];
-        const list = Object.keys(nicknames).map(key => [key, nicknames[key]['value'], nicknames[key]['group']]);
+      protected nicknameSorting() {
+        const list = Object.keys(env._nicknames[env.language]).map(key => [key, env._nicknames[env.language][key]['value'], env._nicknames[env.language][key]['group']]);
         list.sort(function (a, b) {
+          // re-ordering by groupKey
           return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;
         }); // returned data structure: [nameKey, nameValue, groupKey]
 
@@ -316,6 +321,10 @@ namespace we {
           // sorting by groupKey
           env.nameList[item[2]] = env.nameList[item[2]] ? [...env.nameList[item[2]], [...item]] : [item];
         }
+      }
+
+      public set fallbacknicknames(val) {
+        env._nicknames['en'] = val.nicknames;
       }
 
       /*
