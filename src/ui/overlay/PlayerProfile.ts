@@ -161,7 +161,7 @@ namespace we {
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
         this._username.renderText = () => env.nickname;
-        this._playerIcon.source = env.profileimage;
+        this._playerIcon.source = env.icons[env.profileimage];
         if (env.isMobile) {
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
         }
@@ -255,7 +255,8 @@ namespace we {
       }
 
       private onChangeIcon() {
-        this._playerIcon.source = env.profileimage = this.iconList[this._iconList.selectedIndex];
+        env.profileimage = this.iconList[this._iconList.selectedIndex];
+        this._playerIcon.source = env.icons[env.profileimage];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
       }
 
@@ -271,7 +272,7 @@ namespace we {
         if (env.icons) {
           this.iconList = [];
           for (const item of Object.keys(env.icons)) {
-            this.iconList.push(env.icons[item]); // array of icons
+            this.iconList.push(item); // array of icons
           }
           this._iconListData = new eui.ArrayCollection(this.iconList);
         }
