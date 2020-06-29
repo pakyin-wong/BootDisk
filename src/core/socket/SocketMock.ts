@@ -430,20 +430,20 @@ namespace we {
           case 'sc':
             Nicknames = {
               nicknames: {
-                nicknamekey001: { value: '海綿寶寶', group: 'groupKey03' },
-                nicknamekey002: { value: '天使', group: 'groupKey03' },
-                nicknamekey003: { value: '黑豹', group: 'groupKey03' },
-                nicknamekey004: { value: '外星人', group: 'groupKey02' },
-                nicknamekey005: { value: '刀鋒戰士', group: 'groupKey01' },
-                nicknamekey006: { value: '獨角獸', group: 'groupKey02' },
-                nicknamekey007: { value: '黑寡婦', group: 'groupKey01' },
-                nicknamekey008: { value: '蠟筆小新', group: 'groupKey02' },
-                nicknamekey009: { value: '哆啦A夢', group: 'groupKey01' },
+                nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
+                nicknamekey002: { value: '天使sc', group: 'groupKey03' },
+                nicknamekey003: { value: '黑豹sc', group: 'groupKey03' },
+                nicknamekey004: { value: '外星人sc', group: 'groupKey02' },
+                nicknamekey005: { value: '刀鋒戰士sc', group: 'groupKey01' },
+                nicknamekey006: { value: '獨角獸sc', group: 'groupKey02' },
+                nicknamekey007: { value: '黑寡婦sc', group: 'groupKey01' },
+                nicknamekey008: { value: '蠟筆小新sc', group: 'groupKey02' },
+                nicknamekey009: { value: '哆啦A夢sc', group: 'groupKey01' },
               },
               groups: {
-                groupKey01: '卡通人物角色',
-                groupKey02: '神話人物角色',
-                groupKey03: '電影人物角色',
+                groupKey01: '卡通人物角色sc',
+                groupKey02: '神話人物角色sc',
+                groupKey03: '電影人物角色sc',
               },
             };
             break;
@@ -461,9 +461,9 @@ namespace we {
                 nicknamekey009: { value: '哆啦A夢tc', group: 'groupKey01' },
               },
               groups: {
-                groupKey01: '卡通人物角色',
-                groupKey02: '神話人物角色',
-                groupKey03: '電影人物角色',
+                groupKey01: '卡通人物角色tc',
+                groupKey02: '神話人物角色tc',
+                groupKey03: '電影人物角色tc',
               },
             };
             break;
@@ -481,9 +481,9 @@ namespace we {
                 nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
               },
               groups: {
-                groupKey01: '卡通人物角色',
-                groupKey02: '神話人物角色',
-                groupKey03: '電影人物角色',
+                groupKey01: '卡通人物角色en',
+                groupKey02: '神話人物角色en',
+                groupKey03: '電影人物角色en',
               },
             };
             break;
@@ -528,20 +528,20 @@ namespace we {
         };
         env.nicknameSet = {
           nicknames: {
-            nicknamekey001: { value: '海綿寶寶', group: 'groupKey03' },
-            nicknamekey002: { value: '天使', group: 'groupKey03' },
-            nicknamekey003: { value: '黑豹', group: 'groupKey03' },
-            nicknamekey004: { value: '外星人', group: 'groupKey02' },
-            nicknamekey005: { value: '刀鋒戰士', group: 'groupKey01' },
-            nicknamekey006: { value: '獨角獸', group: 'groupKey02' },
-            nicknamekey007: { value: '黑寡婦', group: 'groupKey01' },
-            nicknamekey008: { value: '蠟筆小新', group: 'groupKey02' },
-            nicknamekey009: { value: '哆啦A夢', group: 'groupKey01' },
+            nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
+            nicknamekey002: { value: '天使sc', group: 'groupKey03' },
+            nicknamekey003: { value: '黑豹sc', group: 'groupKey03' },
+            nicknamekey004: { value: '外星人sc', group: 'groupKey02' },
+            nicknamekey005: { value: '刀鋒戰士sc', group: 'groupKey01' },
+            nicknamekey006: { value: '獨角獸sc', group: 'groupKey02' },
+            nicknamekey007: { value: '黑寡婦sc', group: 'groupKey01' },
+            nicknamekey008: { value: '蠟筆小新sc', group: 'groupKey02' },
+            nicknamekey009: { value: '哆啦A夢sc', group: 'groupKey01' },
           },
           groups: {
-            groupKey01: '卡通人物角色',
-            groupKey02: '神話人物角色',
-            groupKey03: '電影人物角色',
+            groupKey01: '卡通人物角色sc',
+            groupKey02: '神話人物角色sc',
+            groupKey03: '電影人物角色sc',
           },
         };
         env.icons = {

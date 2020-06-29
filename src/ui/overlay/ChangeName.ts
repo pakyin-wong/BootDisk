@@ -16,7 +16,6 @@ namespace we {
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.system.changeName')}`;
 
-        // let idx = 0;
         for (const item of Object.keys(env._groups)) {
           // for each groupKey
 
@@ -25,7 +24,7 @@ namespace we {
           const _arrow_nickname: eui.Image = new eui.Image();
           const _txt_nickname: ui.RunTimeLabel = new ui.RunTimeLabel();
 
-          _txt_nickname.text = env.groupName[item];
+          _txt_nickname.text = env.groupName[env.language][item];
           _txt_nickname.verticalAlign = 'middle';
           _txt_nickname.textAlign = 'center';
           _txt_nickname.scaleX = 1;
@@ -85,8 +84,8 @@ namespace we {
             const nickName = env._nicknames[env.language][_item] || env._nicknames['en'][_item];
             _arrCol_nickname.source.push(ui.NewDropdownItem(_item, () => nickName['value']));
           });
-          console.log(`.....arrCol ....${JSON.stringify(_arrCol_nickname.source)}`);
 
+          _btn_nickname.name = item;
           utils.DropdownCreator.new({
             toggler: _btn_nickname,
             review: _txt_nickname,
@@ -104,17 +103,17 @@ namespace we {
         super.destroy();
       }
 
-      private onNicknameSelect(item) {
+      private onNicknameSelect(evt: egret.TouchEvent) {
         this._mask.visible = !this._mask.visible;
-        // todo : missing title
-        dir.monitor._mDropdown._title.renderText = () => item + '     ' + env.nickname;
+        const key = evt.currentTarget.name;
+        dir.monitor._mDropdown._title.renderText = () => env.groupName[env.language][key] + '     ' + env.nickname;
       }
 
       private onNicknameChange(e) {
         const _data = this as any;
-        //todo: can't return en nickname
-        env.nickname = env._nicknames[env.language][e.data]['value'];
-        // env.nickname = env.nameList[_data][e.data][1];
+        const nickName = env._nicknames[env.language][e.data] || env._nicknames['en'][e.data];
+        env.nickname = nickName['value'];
+        env.nicknameKey = e.data;
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
         dir.evtHandler.createOverlay({
           class: 'PlayerProfile',

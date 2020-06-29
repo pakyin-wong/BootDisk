@@ -46,8 +46,9 @@ namespace we {
 
     export async function setLang(s, isInit: boolean = false) {
       env.language = i18n.lang = s;
+      dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
 
-      if (!isInit) {
+      if (!isInit && !env._nicknames[env.language]) {
         const tasks = [
           () =>
             dir.socket.getStaticInitDataAsync(async res => {
@@ -57,7 +58,6 @@ namespace we {
                 // this._bannerImages = [placeholderImg];
               } else {
                 if (res.Nicknames) {
-                  // res.nicknames?
                   env.nicknameSet = res.Nicknames;
                 }
               }

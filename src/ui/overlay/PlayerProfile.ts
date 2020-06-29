@@ -56,8 +56,6 @@ namespace we {
             // TODO: use eng._groups
             // for each groupKey
 
-            const bindFunc = this.onSelectNickname.bind(item);
-
             const _btn_nickname: eui.Group = new eui.Group();
             const _mask_nickname: eui.Rect = new eui.Rect();
             const _arrow_nickname: eui.Image = new eui.Image();
@@ -79,7 +77,7 @@ namespace we {
             _mask_nickname.left = _mask_nickname.top = _mask_nickname.bottom = 0;
             _mask_nickname.width = _btn_nickname.width;
 
-            _txt_nickname.text = env._nicknames['groups'][item]; // groupKey
+            _txt_nickname.renderText = () => env.groupName[env.language][item];
             _txt_nickname.verticalAlign = 'middle';
             _txt_nickname.textAlign = 'center';
             _txt_nickname.scaleX = 1;
@@ -108,6 +106,7 @@ namespace we {
             _btn_nickname.addChild(_arrow_nickname);
 
             const _arrCol_nickname: eui.ArrayCollection = new eui.ArrayCollection();
+            const bindFunc = this.onSelectNickname.bind(_arrCol_nickname);
 
             // env.nameList[item].forEach((_item, index) => {
             //   // data inside each name group
@@ -120,14 +119,12 @@ namespace we {
             //     })
             //   );
             // })
-            // console.log(`.........${JSON.stringify(env._groups[item])}`);
-            // console.log(`.........${JSON.stringify(env._groups)}`);
-            env._groups[item].forEach((nicknameKey, index) => {
+
+            env._groups[item].forEach((_item, index) => {
               _arrCol_nickname.source.push(
-                ui.NewDropdownItem(index, () => {
-                  const langCode = env.language;
-                  const nickname = env._nicknames[langCode][nicknameKey]['value'] || env._nicknames['en'][nicknameKey]['value'];
-                  return nickname;
+                ui.NewDropdownItem(_item, () => {
+                  const nickName = env._nicknames[env.language][_item] || env._nicknames['en'][_item];
+                  return nickName['value'];
                 })
               );
             });
@@ -139,7 +136,7 @@ namespace we {
               this._ddm_nickname.setToggler(_btn_nickname);
               this._ddm_nickname.dropdown.review = _txt_nickname;
               // this._ddm_nickname.dropdown.reviewRenderText = renderText => () => `Nickname: ${renderText()}`;
-              this._ddm_nickname.dropdown.reviewRenderText = renderText => () => _txt_nickname.text;
+              this._ddm_nickname.dropdown.reviewRenderText = renderText => () => env.groupName[env.language][item];
               this._ddm_nickname.dropdown.data.replaceAll(_arrCol_nickname.source);
               this._ddm_nickname.dropdown.select(env.voice);
             }
@@ -260,12 +257,13 @@ namespace we {
       private onChangeIcon() {
         this._playerIcon.source = env.profileimage = this.iconList[this._iconList.selectedIndex];
         dir.evtHandler.dispatch(core.Event.ICON_UPDATE);
-        // this.slideToMainSection();
       }
 
       private onSelectNickname(e) {
         const _data = this as any;
-        env.nickname = env.nameList[_data][e.data][1];
+        const nickName = env._nicknames[env.language][e.data] || env._nicknames['en'][e.data];
+        env.nickname = nickName['value'];
+        env.nicknameKey = e.data;
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
       }
 

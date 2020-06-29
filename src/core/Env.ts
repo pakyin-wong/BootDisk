@@ -35,13 +35,12 @@ namespace we {
       public playerID: string;
 
       public nickname: string;
+      public nicknameKey: string;
       public profileimage: string;
 
-      // TODO: update _nicknames and _groups
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
-      public groupName: { [groupKey: string]: string };
-      // public _groups: { [groupKey: string]: string[] };
+      public groupName: { [groupKey: string]: string } = {};
       /**
        * {
        *  groupKey1:[
@@ -54,7 +53,6 @@ namespace we {
        *  ...
        * }
        */
-      public nameList: {}; // to sort nickname in local
 
       public settings: {
         mode: number;
@@ -285,48 +283,43 @@ namespace we {
       }
 
       public set nicknameSet(val) {
-        env.nameList = {};
         env._groups = val.groups;
-        env.groupName = { ...val.groups };
+        env.groupName[env.language] = { ...val.groups };
         env._nicknames[env.language] = val.nicknames;
-
-        // grouping the nicknameKey into arrays and stores at this._groups
         for (const item of Object.keys(val.groups)) {
           env._groups[item] = [];
         }
-
         const langcode = env._nicknames['en'] ? 'en' : env.language;
-        console.log(langcode);
-        this.nicknameSorting();
         this.groupKeySorting(langcode);
       }
 
       protected groupKeySorting(langcode: string) {
         const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
         for (const item of list) {
-          // sorting by groupKey
           const _item = env._nicknames[langcode][item]['group'];
           env._groups[_item].push(item);
         }
       }
 
-      protected nicknameSorting() {
-        const list = Object.keys(env._nicknames[env.language]).map(key => [key, env._nicknames[env.language][key]['value'], env._nicknames[env.language][key]['group']]);
-        list.sort(function (a, b) {
-          // re-ordering by groupKey
-          return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;
-        }); // returned data structure: [nameKey, nameValue, groupKey]
-
-        for (const item of list) {
-          // sorting by groupKey
-          env.nameList[item[2]] = env.nameList[item[2]] ? [...env.nameList[item[2]], [...item]] : [item];
-        }
-      }
-
       public set fallbacknicknames(val) {
         env._nicknames['en'] = val.nicknames;
+        env.groupName['en'] = { ...val.groups };
       }
 
+      /*
+            protected nicknameSorting() {
+              const list = Object.keys(env._nicknames[env.language]).map(key => [key, env._nicknames[env.language][key]['value'], env._nicknames[env.language][key]['group']]);
+              list.sort(function (a, b) {
+                // re-ordering by groupKey
+                return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;
+              }); // returned data structure: [nameKey, nameValue, groupKey]
+
+              for (const item of list) {
+                // sorting by groupKey
+                env.nameList[item[2]] = env.nameList[item[2]] ? [...env.nameList[item[2]], [...item]] : [item];
+              }
+            }
+      */
       /*
       public onTableListUpdate(evt: egret.Event) {
         logger.l(utils.LoggerTarget.DEBUG, 'env.onTableListUpdate');

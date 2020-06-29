@@ -134,6 +134,14 @@ namespace we {
       }
 
       protected updateNickname() {
+        if (env.nicknameKey) {
+          const langcode = env._nicknames[env.language] ? env.language : 'en';
+          if (env._nicknames[langcode][env.nicknameKey]) {
+            env.nickname = env._nicknames[langcode][env.nicknameKey]['value'];
+          } else {
+            env.nickname = env._nicknames['en'][env.nicknameKey]['value'];
+          }
+        }
         this._user.text = env.nickname;
       }
 
