@@ -69,10 +69,10 @@ namespace we {
         let iconIndex = 0;
         this.roadMapIconList = new Array<BARoadIconBase>();
         for (let i = 0; i < n; i++) {
-          const icon = this.createIcon(this.gridSize / this.gridUnit);
+          const icon = this.createIcon(this.gridSize / this.gridUnit - 1);
           icon.setByObject({});
-          icon.x = (this.gridSize / this.gridUnit) * Math.floor(iconIndex / 6);
-          icon.y = (this.gridSize / this.gridUnit) * (iconIndex % 6);
+          icon.x = (this.gridSize / this.gridUnit) * Math.floor(iconIndex / 6) + 1;
+          icon.y = (this.gridSize / this.gridUnit) * (iconIndex % 6) + 1;
           // this._iconGroup.addChild(icon);
           icon.addToLayer(this._shapeLayer, this._textLayer);
           this.roadMapIconList.push(icon);
