@@ -24,6 +24,7 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('SqueezeBaccaratScene');
+        this._skinKey = 'SqueezeBaccaratScene';
       }
 
       protected setStateDeal(isInit: boolean = false) {}
