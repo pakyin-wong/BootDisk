@@ -130,6 +130,23 @@ namespace we {
         this.cardHolderArr[this._flipIndex].touchEnabled = false;
         this.cardHolderArr[this._flipIndex].setCard(utils.formatCard(this.cardArr[this._flipIndex]));
 
+        if (this._currState === core.GameState.PEEK) {
+          if (this._openAllPlayer.visible && this.cardHolderArr[3].isOpen && this.cardHolderArr[4].isOpen) {
+            this._openAllPlayer.visible = false;
+          }
+          if (this._openAllBanker.visible && this.cardHolderArr[0].isOpen && this.cardHolderArr[1].isOpen) {
+            this._openAllBanker.visible = false;
+          }
+        } else if (this._currState === core.GameState.PEEK_BANKER) {
+          if (this._openAllBanker.visible && this.cardHolderArr[2].isOpen) {
+            this._openAllBanker.visible = false;
+          }
+        } else if (this._currState === core.GameState.PEEK_PLAYER) {
+          if (this._openAllPlayer.visible && this.cardHolderArr[5].isOpen) {
+            this._openAllPlayer.visible = false;
+          }
+        }
+
         this.calculatePoint();
       }
 

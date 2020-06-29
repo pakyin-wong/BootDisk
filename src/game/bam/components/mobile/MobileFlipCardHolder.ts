@@ -31,6 +31,8 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
+
+        this.addEventListener(core.Event.ORIENTATION_UPDATE, this.updatePosition, this);
       }
 
       protected updatePosition() {
