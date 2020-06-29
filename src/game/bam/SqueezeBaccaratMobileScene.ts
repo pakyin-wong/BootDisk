@@ -27,6 +27,14 @@ namespace we {
         this._skinKey = 'SqueezeBaccaratScene';
       }
 
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+      }
+
+      protected initOrientationDependentComponent() {
+        super.initOrientationDependentComponent();
+      }
+
       protected setStateDeal(isInit: boolean = false) {}
 
       protected setStatePeek(isInit: boolean = false) {
