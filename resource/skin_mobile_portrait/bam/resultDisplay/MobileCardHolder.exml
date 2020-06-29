@@ -37,5 +37,5 @@
 
 
         <ui:CountdownTimer id="_timer" width="182" height="182"  y="0" horizontalCenter="0" skinName="skin_desktop.CountdownTimerRoundSqueezeBaccaratSkin" />
-	<e:Image id="_highlightCard" width="115" height="168" x="91" y="152" source="m_sq_ba_small_card_HL_png"/>
+	<e:Image id="_highlightCard" width="115" height="168" x="91" y="152" source="m_sq_ba_small_card_HL_png" visible="false"/>
 </e:Skin>

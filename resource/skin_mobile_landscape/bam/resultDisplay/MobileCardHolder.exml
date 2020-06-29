@@ -35,6 +35,6 @@
         <ui:Card id="card1Player" name="card1Player" width="101" height="154"  verticalCenter="0" horizontalCenter="-340"/>
 
 
-        <e:Image id="_highlightCard" width="101" height="154" x="19" y="86" source="m_sq_ba_small_card_HL_png"/>
+        <e:Image id="_highlightCard" width="101" height="154" x="19" y="86" source="m_sq_ba_small_card_HL_png" visible="false"/>
         <ui:CountdownTimer id="_timer" width="182" height="182"  horizontalCenter="0" skinName="skin_desktop.CountdownTimerRoundSqueezeBaccaratSkin"  verticalCenter="0"/>
 </e:Skin>
