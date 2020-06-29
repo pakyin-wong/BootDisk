@@ -3,6 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:o="we.overlay.*">
 	<e:Image height="150" left="0" right="0" top="0" source="d-lobby-header-dim_png" touchEnabled="false" />
 	<e:Rect id="_background" height="101.39" fillColor="0x121312" left="0" right="0" x="0" y="0" alpha="0" anchorOffsetY="0" name="background"/>
+		<!--<e:Rect id="_background" height="101.39" fillColor="0xffffff" left="0" right="0" x="0" y="0" alpha="0" anchorOffsetY="0" name="background"/>-->
 	<e:Rect width="1" height="60" x="2152" y="16.4" fillColor="0x4c4c4c"  x.Game="2158"/>
 	<!--<e:Image id="_logo" width="246" height="71" x="7" y="12" fillMode="clip" source="" />
 	-->
