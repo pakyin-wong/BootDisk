@@ -130,16 +130,20 @@ namespace we {
       }
 
       protected updateIconImage() {
-        this._profilePrc.source = env.profileimage;
+        this._profilePrc.source = env.icons[env.profileimage];
       }
 
       protected updateNickname() {
         if (env.nicknameKey) {
-          const langcode = env._nicknames[env.language] ? env.language : 'en';
-          if (env._nicknames[langcode][env.nicknameKey]) {
-            env.nickname = env._nicknames[langcode][env.nicknameKey]['value'];
-          } else {
-            env.nickname = env._nicknames['en'][env.nicknameKey]['value'];
+          try {
+            const langcode = env._nicknames[env.language] ? env.language : 'en';
+            if (env._nicknames[langcode][env.nicknameKey]) {
+              env.nickname = env._nicknames[langcode][env.nicknameKey]['value'];
+            } else {
+              env.nickname = env._nicknames['en'][env.nicknameKey]['value'];
+            }
+          } catch (err) {
+            env.nickname = env.nicknameKey;
           }
         }
         this._user.text = env.nickname;
