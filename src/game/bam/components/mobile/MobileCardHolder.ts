@@ -18,6 +18,8 @@ namespace we {
       protected _openAllBanker: eui.Group;
       protected _openAllPlayer: eui.Group;
 
+      protected _highlightCard: eui.Image;
+
       protected cardArr;
       protected cardHolderArr;
 
@@ -47,7 +49,6 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        // this.reset();
 
         this.disableFilter = new egret.ColorMatrixFilter(this.grayMatrix);
         this.enableFilter = new egret.ColorMatrixFilter(this.colorMatrix);
@@ -265,9 +266,13 @@ namespace we {
       }
 
       protected openFlipCard(evt: eui.UIEvent) {
-        const cardName: eui.Component = evt.target;
+        const selectedCard: eui.Component = evt.target;
+        this._highlightCard.x = selectedCard.x;
+        this._highlightCard.y = selectedCard.y;
+        this._highlightCard.rotation = selectedCard.rotation;
+        this._highlightCard.visible = true;
 
-        switch (cardName.name) {
+        switch (selectedCard.name) {
           case 'card1Banker':
             this._flipIndex = 0;
             this._moveIndex = 3;
@@ -330,6 +335,7 @@ namespace we {
         this.cardHolderArr[4].setCard(utils.formatCard(this.cardArr[4]));
 
         this.cardHolderArr[5].visible = true;
+        this._highlightCard.visible = false;
         this._resultCard.closeFlipPanel();
         this.setCardsFlipAllowed();
       }
@@ -352,6 +358,7 @@ namespace we {
           this.cardHolderArr[5].visible = true;
           this.cardHolderArr[5].setCard(utils.formatCard(this.cardArr[5]));
         }
+        this._highlightCard.visible = false;
         this._resultCard.closeFlipPanel();
         this.setCardsFlipAllowed();
       }
@@ -377,6 +384,7 @@ namespace we {
 
         this.disableCard('all');
         this.updateResultCard();
+        this._highlightCard.visible = false;
         this._resultCard.closeFlipPanel();
       }
 
@@ -384,6 +392,8 @@ namespace we {
         for (let i: number = 0; i <= 5; i++) {
           this.cardHolderArr[i].setCard('back');
         }
+
+        this._highlightCard.visible = false;
         this.disableCard('all');
         this._bankerSum.text = '0';
         this._playerSum.text = '0';

@@ -32,7 +32,12 @@ namespace we {
       protected childrenCreated() {
         super.childrenCreated();
 
-        this.addEventListener(core.Event.ORIENTATION_UPDATE, this.updatePosition, this);
+        this.addEventListener(core.Event.ORIENTATION_UPDATE, this.orientationUpdate, this);
+      }
+
+      protected orientationUpdate() {
+        this.updatePosition();
+        this.currentCard.x = this.middlePosition;
       }
 
       protected updatePosition() {
