@@ -37,7 +37,7 @@ namespace we {
       }
 
       public onSkinChanged() {
-        console.log(this.skinName);
+        // console.log(this.skinName);
       }
 
       protected createMapping() {

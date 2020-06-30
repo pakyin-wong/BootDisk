@@ -254,6 +254,10 @@ namespace we {
         this.onEnter();
       }
 
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
+      }
+
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         this._betChipSetPanel.alpha = 0;

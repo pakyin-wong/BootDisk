@@ -1,6 +1,6 @@
 <e:Skin class="skin_mobile.LobbyTabListItemRenderer" xmlns:e="http://ns.egret.com/eui" states="up,down" xmlns:ui="we.ui.*" height="78">
 	<e:Group y="14" horizontalCenter="0">
 		<ui:RunTimeLabel id="label" text="{data}" textColor="0xffffff" alpha.up="0.7" bold.up="false" bold="true" size="34" textAlign="center" height="50" verticalAlign="middle" y="0" x="0"/>
-		<e:Image height="8" visible.up="false" y="56" left="0" right="0" source="m_lobby_header_submenu_hl_png" scale9Grid="5,1,130,6"/>
+		<e:Image height="8" visible.up="false" y="56" left="0" right="0" source="m_lobby_header_submenu_hl_png"/>
 	</e:Group>
 </e:Skin>
