@@ -1,8 +1,18 @@
 {
   "file": "common_cards_small.png",
   "frames": {
-    "m_sq_bac_small_poker_backside_png": {
+    "m_sq_ba_small_card_HL_png": {
       "x": 2,
+      "y": 2,
+      "w": 136,
+      "h": 190,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 136,
+      "sourceH": 190
+    },
+    "m_sq_bac_small_poker_backside_png": {
+      "x": 142,
       "y": 2,
       "w": 117,
       "h": 170,
@@ -12,8 +22,8 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_club_10_vertical_png": {
-      "x": 123,
-      "y": 2,
+      "x": 142,
+      "y": 176,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -23,7 +33,7 @@
     },
     "m_sq_bac_small_poker_club_2_vertical_png": {
       "x": 2,
-      "y": 176,
+      "y": 196,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -32,17 +42,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_club_3_vertical_png": {
-      "x": 123,
-      "y": 176,
-      "w": 117,
-      "h": 170,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 117,
-      "sourceH": 170
-    },
-    "m_sq_bac_small_poker_club_4_vertical_png": {
-      "x": 244,
+      "x": 263,
       "y": 2,
       "w": 117,
       "h": 170,
@@ -51,8 +51,8 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_club_5_vertical_png": {
-      "x": 244,
+    "m_sq_bac_small_poker_club_4_vertical_png": {
+      "x": 263,
       "y": 176,
       "w": 117,
       "h": 170,
@@ -61,8 +61,18 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_club_6_vertical_png": {
+    "m_sq_bac_small_poker_club_5_vertical_png": {
       "x": 2,
+      "y": 370,
+      "w": 117,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 117,
+      "sourceH": 170
+    },
+    "m_sq_bac_small_poker_club_6_vertical_png": {
+      "x": 123,
       "y": 350,
       "w": 117,
       "h": 170,
@@ -72,7 +82,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_club_7_vertical_png": {
-      "x": 123,
+      "x": 244,
       "y": 350,
       "w": 117,
       "h": 170,
@@ -82,8 +92,8 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_club_8_vertical_png": {
-      "x": 244,
-      "y": 350,
+      "x": 384,
+      "y": 2,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -92,17 +102,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_club_9_vertical_png": {
-      "x": 365,
-      "y": 2,
-      "w": 117,
-      "h": 170,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 117,
-      "sourceH": 170
-    },
-    "m_sq_bac_small_poker_club_A_vertical_png": {
-      "x": 365,
+      "x": 384,
       "y": 176,
       "w": 117,
       "h": 170,
@@ -111,7 +111,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_club_J_vertical_png": {
+    "m_sq_bac_small_poker_club_a_vertical_png": {
       "x": 365,
       "y": 350,
       "w": 117,
@@ -121,8 +121,8 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_club_K_vertical_png": {
-      "x": 486,
+    "m_sq_bac_small_poker_club_j_vertical_png": {
+      "x": 505,
       "y": 2,
       "w": 117,
       "h": 170,
@@ -131,9 +131,19 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_club_Q_vertical_png": {
-      "x": 486,
+    "m_sq_bac_small_poker_club_k_vertical_png": {
+      "x": 505,
       "y": 176,
+      "w": 117,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 117,
+      "sourceH": 170
+    },
+    "m_sq_bac_small_poker_club_q_vertical_png": {
+      "x": 486,
+      "y": 350,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -142,8 +152,8 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_diamonds_10_vertical_png": {
-      "x": 486,
-      "y": 350,
+      "x": 2,
+      "y": 544,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -152,7 +162,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_diamonds_2_vertical_png": {
-      "x": 2,
+      "x": 123,
       "y": 524,
       "w": 117,
       "h": 170,
@@ -162,7 +172,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_diamonds_3_vertical_png": {
-      "x": 123,
+      "x": 244,
       "y": 524,
       "w": 117,
       "h": 170,
@@ -172,7 +182,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_diamonds_4_vertical_png": {
-      "x": 244,
+      "x": 365,
       "y": 524,
       "w": 117,
       "h": 170,
@@ -182,7 +192,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_diamonds_5_vertical_png": {
-      "x": 365,
+      "x": 486,
       "y": 524,
       "w": 117,
       "h": 170,
@@ -192,8 +202,8 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_diamonds_6_vertical_png": {
-      "x": 486,
-      "y": 524,
+      "x": 626,
+      "y": 2,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -202,8 +212,8 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_diamonds_7_vertical_png": {
-      "x": 607,
-      "y": 2,
+      "x": 626,
+      "y": 176,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -213,7 +223,7 @@
     },
     "m_sq_bac_small_poker_diamonds_8_vertical_png": {
       "x": 607,
-      "y": 176,
+      "y": 350,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -223,16 +233,6 @@
     },
     "m_sq_bac_small_poker_diamonds_9_vertical_png": {
       "x": 607,
-      "y": 350,
-      "w": 117,
-      "h": 170,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 117,
-      "sourceH": 170
-    },
-    "m_sq_bac_small_poker_diamonds_A_vertical_png": {
-      "x": 607,
       "y": 524,
       "w": 117,
       "h": 170,
@@ -241,9 +241,9 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_diamonds_J_vertical_png": {
+    "m_sq_bac_small_poker_diamonds_a_vertical_png": {
       "x": 2,
-      "y": 698,
+      "y": 718,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -251,7 +251,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_diamonds_K_vertical_png": {
+    "m_sq_bac_small_poker_diamonds_j_vertical_png": {
       "x": 123,
       "y": 698,
       "w": 117,
@@ -261,8 +261,18 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_diamonds_Q_vertical_png": {
+    "m_sq_bac_small_poker_diamonds_k_vertical_png": {
       "x": 244,
+      "y": 698,
+      "w": 117,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 117,
+      "sourceH": 170
+    },
+    "m_sq_bac_small_poker_diamonds_q_vertical_png": {
+      "x": 365,
       "y": 698,
       "w": 117,
       "h": 170,
@@ -272,7 +282,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_hearts_10_vertical_png": {
-      "x": 365,
+      "x": 486,
       "y": 698,
       "w": 117,
       "h": 170,
@@ -282,7 +292,7 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_hearts_2_vertical_png": {
-      "x": 486,
+      "x": 607,
       "y": 698,
       "w": 117,
       "h": 170,
@@ -292,8 +302,8 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_hearts_3_vertical_png": {
-      "x": 607,
-      "y": 698,
+      "x": 747,
+      "y": 2,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -302,8 +312,8 @@
       "sourceH": 170
     },
     "m_sq_bac_small_poker_hearts_4_vertical_png": {
-      "x": 728,
-      "y": 2,
+      "x": 747,
+      "y": 176,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -313,7 +323,7 @@
     },
     "m_sq_bac_small_poker_hearts_5_vertical_png": {
       "x": 728,
-      "y": 176,
+      "y": 350,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -323,7 +333,7 @@
     },
     "m_sq_bac_small_poker_hearts_6_vertical_png": {
       "x": 728,
-      "y": 350,
+      "y": 524,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -333,16 +343,6 @@
     },
     "m_sq_bac_small_poker_hearts_7_vertical_png": {
       "x": 728,
-      "y": 524,
-      "w": 117,
-      "h": 170,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 117,
-      "sourceH": 170
-    },
-    "m_sq_bac_small_poker_hearts_8_vertical_png": {
-      "x": 728,
       "y": 698,
       "w": 117,
       "h": 170,
@@ -351,8 +351,8 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_hearts_9_vertical_png": {
-      "x": 849,
+    "m_sq_bac_small_poker_hearts_8_vertical_png": {
+      "x": 868,
       "y": 2,
       "w": 117,
       "h": 170,
@@ -361,8 +361,8 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_hearts_A_vertical_png": {
-      "x": 849,
+    "m_sq_bac_small_poker_hearts_9_vertical_png": {
+      "x": 868,
       "y": 176,
       "w": 117,
       "h": 170,
@@ -371,7 +371,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_hearts_J_vertical_png": {
+    "m_sq_bac_small_poker_hearts_a_vertical_png": {
       "x": 849,
       "y": 350,
       "w": 117,
@@ -381,7 +381,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_hearts_K_vertical_png": {
+    "m_sq_bac_small_poker_hearts_j_vertical_png": {
       "x": 849,
       "y": 524,
       "w": 117,
@@ -391,7 +391,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_hearts_Q_vertical_png": {
+    "m_sq_bac_small_poker_hearts_k_vertical_png": {
       "x": 849,
       "y": 698,
       "w": 117,
@@ -401,9 +401,9 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_10_vertical_png": {
+    "m_sq_bac_small_poker_hearts_q_vertical_png": {
       "x": 2,
-      "y": 872,
+      "y": 892,
       "w": 117,
       "h": 170,
       "offX": 0,
@@ -411,7 +411,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_2_vertical_png": {
+    "m_sq_bac_small_poker_spade_10_vertical_png": {
       "x": 123,
       "y": 872,
       "w": 117,
@@ -421,7 +421,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_3_vertical_png": {
+    "m_sq_bac_small_poker_spade_2_vertical_png": {
       "x": 244,
       "y": 872,
       "w": 117,
@@ -431,7 +431,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_4_vertical_png": {
+    "m_sq_bac_small_poker_spade_3_vertical_png": {
       "x": 365,
       "y": 872,
       "w": 117,
@@ -441,7 +441,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_5_vertical_png": {
+    "m_sq_bac_small_poker_spade_4_vertical_png": {
       "x": 486,
       "y": 872,
       "w": 117,
@@ -451,7 +451,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_6_vertical_png": {
+    "m_sq_bac_small_poker_spade_5_vertical_png": {
       "x": 607,
       "y": 872,
       "w": 117,
@@ -461,7 +461,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_7_vertical_png": {
+    "m_sq_bac_small_poker_spade_6_vertical_png": {
       "x": 728,
       "y": 872,
       "w": 117,
@@ -471,7 +471,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_8_vertical_png": {
+    "m_sq_bac_small_poker_spade_7_vertical_png": {
       "x": 849,
       "y": 872,
       "w": 117,
@@ -481,8 +481,8 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_9_vertical_png": {
-      "x": 970,
+    "m_sq_bac_small_poker_spade_8_vertical_png": {
+      "x": 989,
       "y": 2,
       "w": 117,
       "h": 170,
@@ -491,8 +491,8 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_A_vertical_png": {
-      "x": 970,
+    "m_sq_bac_small_poker_spade_9_vertical_png": {
+      "x": 989,
       "y": 176,
       "w": 117,
       "h": 170,
@@ -501,7 +501,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_J_vertical_png": {
+    "m_sq_bac_small_poker_spade_a_vertical_png": {
       "x": 970,
       "y": 350,
       "w": 117,
@@ -511,7 +511,7 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_K_vertical_png": {
+    "m_sq_bac_small_poker_spade_j_vertical_png": {
       "x": 970,
       "y": 524,
       "w": 117,
@@ -521,9 +521,19 @@
       "sourceW": 117,
       "sourceH": 170
     },
-    "m_sq_bac_small_poker_spade_Q_vertical_png": {
+    "m_sq_bac_small_poker_spade_k_vertical_png": {
       "x": 970,
       "y": 698,
+      "w": 117,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 117,
+      "sourceH": 170
+    },
+    "m_sq_bac_small_poker_spade_q_vertical_png": {
+      "x": 970,
+      "y": 872,
       "w": 117,
       "h": 170,
       "offX": 0,
