@@ -2814,9 +2814,10 @@
 			"name": "m_lobby_header_submenu_hl_png"
 		},
 		{
-			"url": "assets/images/m/common/general/notification/m_common_notification_bg.png",
+			"url": "assets/nmimages/m/common/ninegrids/m_common_notification_bg.png",
 			"type": "image",
-			"name": "m_common_notification_bg_png"
+			"name": "m_common_notification_bg_png",
+			"scale9grid": "25,25,1,1"
 		},
 		{
 			"url": "assets/images/m/common/general/notification/m_common_notification_close_bg.png",
