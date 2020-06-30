@@ -8,7 +8,7 @@ namespace we {
       private _bannerImages: core.IRemoteResourceItem[];
 
       private step: number = 0;
-      private flow = [this.preloadRes, this.initSkin, this.preload, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
+      private flow = [this.preloadRes, this.initSkin, this.preload, this.socketConnect, this.getStaticData, this.idle, this.loadGeneralRes, this.loadingComplete];
 
       public onEnter() {
         this.init();

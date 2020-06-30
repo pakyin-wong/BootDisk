@@ -427,60 +427,60 @@ namespace we {
           case 'sc':
             Nicknames = {
               nicknames: {
-                nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
-                nicknamekey002: { value: '天使sc', group: 'groupKey03' },
-                nicknamekey003: { value: '黑豹sc', group: 'groupKey03' },
-                nicknamekey004: { value: '外星人sc', group: 'groupKey02' },
-                nicknamekey005: { value: '刀鋒戰士sc', group: 'groupKey01' },
-                nicknamekey006: { value: '獨角獸sc', group: 'groupKey02' },
-                nicknamekey007: { value: '黑寡婦sc', group: 'groupKey01' },
-                nicknamekey008: { value: '蠟筆小新sc', group: 'groupKey02' },
-                nicknamekey009: { value: '哆啦A夢sc', group: 'groupKey01' },
+                // nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
+                // nicknamekey002: { value: '天使sc', group: 'groupKey03' },
+                // nicknamekey003: { value: '黑豹sc', group: 'groupKey03' },
+                // nicknamekey004: { value: '外星人sc', group: 'groupKey02' },
+                // nicknamekey005: { value: '刀鋒戰士sc', group: 'groupKey01' },
+                // nicknamekey006: { value: '獨角獸sc', group: 'groupKey02' },
+                // nicknamekey007: { value: '黑寡婦sc', group: 'groupKey01' },
+                // nicknamekey008: { value: '蠟筆小新sc', group: 'groupKey02' },
+                // nicknamekey009: { value: '哆啦A夢sc', group: 'groupKey01' },
               },
               groups: {
-                groupKey01: '卡通人物角色sc',
-                groupKey02: '神話人物角色sc',
-                groupKey03: '電影人物角色sc',
+                // groupKey01: '卡通人物角色sc',
+                // groupKey02: '神話人物角色sc',
+                // groupKey03: '電影人物角色sc',
               },
             };
             break;
           case 'tc':
             Nicknames = {
               nicknames: {
-                nicknamekey001: { value: '海綿寶寶tc', group: 'groupKey03' },
-                // nicknamekey002: { value: '天使tc', group: 'groupKey03' }, //commented to test fallback nicknameSet
-                // nicknamekey003: { value: '黑豹tc', group: 'groupKey03' },
-                nicknamekey004: { value: '外星人tc', group: 'groupKey02' },
-                nicknamekey005: { value: '刀鋒戰士tc', group: 'groupKey01' },
-                nicknamekey006: { value: '獨角獸tc', group: 'groupKey02' },
-                nicknamekey007: { value: '黑寡婦tc', group: 'groupKey01' },
-                nicknamekey008: { value: '蠟筆小新tc', group: 'groupKey02' },
-                nicknamekey009: { value: '哆啦A夢tc', group: 'groupKey01' },
+                // nicknamekey001: { value: '海綿寶寶tc', group: 'groupKey03' },
+                // // nicknamekey002: { value: '天使tc', group: 'groupKey03' }, //commented to test fallback nicknameSet
+                // // nicknamekey003: { value: '黑豹tc', group: 'groupKey03' },
+                // nicknamekey004: { value: '外星人tc', group: 'groupKey02' },
+                // nicknamekey005: { value: '刀鋒戰士tc', group: 'groupKey01' },
+                // nicknamekey006: { value: '獨角獸tc', group: 'groupKey02' },
+                // nicknamekey007: { value: '黑寡婦tc', group: 'groupKey01' },
+                // nicknamekey008: { value: '蠟筆小新tc', group: 'groupKey02' },
+                // nicknamekey009: { value: '哆啦A夢tc', group: 'groupKey01' },
               },
               groups: {
-                groupKey01: '卡通人物角色tc',
-                groupKey02: '神話人物角色tc',
-                groupKey03: '電影人物角色tc',
+                // groupKey01: '卡通人物角色tc',
+                // groupKey02: '神話人物角色tc',
+                // groupKey03: '電影人物角色tc',
               },
             };
             break;
           case 'en':
             Nicknames = {
               nicknames: {
-                nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
-                nicknamekey002: { value: '天使en', group: 'groupKey03' },
-                nicknamekey003: { value: '黑豹en', group: 'groupKey03' },
-                nicknamekey004: { value: '外星人en', group: 'groupKey02' },
-                nicknamekey005: { value: '刀鋒戰士en', group: 'groupKey01' },
-                nicknamekey006: { value: '獨角獸en', group: 'groupKey02' },
-                nicknamekey007: { value: '黑寡婦en', group: 'groupKey01' },
-                nicknamekey008: { value: '蠟筆小新en', group: 'groupKey02' },
-                nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
+                // nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
+                // nicknamekey002: { value: '天使en', group: 'groupKey03' },
+                // nicknamekey003: { value: '黑豹en', group: 'groupKey03' },
+                // nicknamekey004: { value: '外星人en', group: 'groupKey02' },
+                // nicknamekey005: { value: '刀鋒戰士en', group: 'groupKey01' },
+                // nicknamekey006: { value: '獨角獸en', group: 'groupKey02' },
+                // nicknamekey007: { value: '黑寡婦en', group: 'groupKey01' },
+                // nicknamekey008: { value: '蠟筆小新en', group: 'groupKey02' },
+                // nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
               },
               groups: {
-                groupKey01: '卡通人物角色en',
-                groupKey02: '神話人物角色en',
-                groupKey03: '電影人物角色en',
+                // groupKey01: '卡通人物角色en',
+                // groupKey02: '神話人物角色en',
+                // groupKey03: '電影人物角色en',
               },
             };
             break;
@@ -507,51 +507,51 @@ namespace we {
         env.nickname = 'Jonathan';
         env.fallbacknicknames = {
           nicknames: {
-            nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
-            nicknamekey002: { value: '天使en', group: 'groupKey03' },
-            nicknamekey003: { value: '黑豹en', group: 'groupKey03' },
-            nicknamekey004: { value: '外星人en', group: 'groupKey02' },
-            nicknamekey005: { value: '刀鋒戰士en', group: 'groupKey01' },
-            nicknamekey006: { value: '獨角獸en', group: 'groupKey02' },
-            nicknamekey007: { value: '黑寡婦en', group: 'groupKey01' },
-            nicknamekey008: { value: '蠟筆小新en', group: 'groupKey02' },
-            nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
+            // nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
+            // nicknamekey002: { value: '天使en', group: 'groupKey03' },
+            // nicknamekey003: { value: '黑豹en', group: 'groupKey03' },
+            // nicknamekey004: { value: '外星人en', group: 'groupKey02' },
+            // nicknamekey005: { value: '刀鋒戰士en', group: 'groupKey01' },
+            // nicknamekey006: { value: '獨角獸en', group: 'groupKey02' },
+            // nicknamekey007: { value: '黑寡婦en', group: 'groupKey01' },
+            // nicknamekey008: { value: '蠟筆小新en', group: 'groupKey02' },
+            // nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
           },
           groups: {
-            groupKey01: 'Cartoon',
-            groupKey02: 'Legend',
-            groupKey03: 'Movie',
+            // groupKey01: 'Cartoon',
+            // groupKey02: 'Legend',
+            // groupKey03: 'Movie',
           },
         };
         env.nicknameSet = {
           nicknames: {
-            nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
-            nicknamekey002: { value: '天使sc', group: 'groupKey03' },
-            nicknamekey003: { value: '黑豹sc', group: 'groupKey03' },
-            nicknamekey004: { value: '外星人sc', group: 'groupKey02' },
-            nicknamekey005: { value: '刀鋒戰士sc', group: 'groupKey01' },
-            nicknamekey006: { value: '獨角獸sc', group: 'groupKey02' },
-            nicknamekey007: { value: '黑寡婦sc', group: 'groupKey01' },
-            nicknamekey008: { value: '蠟筆小新sc', group: 'groupKey02' },
-            nicknamekey009: { value: '哆啦A夢sc', group: 'groupKey01' },
+            // nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
+            // nicknamekey002: { value: '天使sc', group: 'groupKey03' },
+            // nicknamekey003: { value: '黑豹sc', group: 'groupKey03' },
+            // nicknamekey004: { value: '外星人sc', group: 'groupKey02' },
+            // nicknamekey005: { value: '刀鋒戰士sc', group: 'groupKey01' },
+            // nicknamekey006: { value: '獨角獸sc', group: 'groupKey02' },
+            // nicknamekey007: { value: '黑寡婦sc', group: 'groupKey01' },
+            // nicknamekey008: { value: '蠟筆小新sc', group: 'groupKey02' },
+            // nicknamekey009: { value: '哆啦A夢sc', group: 'groupKey01' },
           },
           groups: {
-            groupKey01: '卡通人物角色sc',
-            groupKey02: '神話人物角色sc',
-            groupKey03: '電影人物角色sc',
+            // groupKey01: '卡通人物角色sc',
+            // groupKey02: '神話人物角色sc',
+            // groupKey03: '電影人物角色sc',
           },
         };
         env.icons = {
-          iconKey01: 'd_lobby_profile_pic_01_png',
-          iconKey02: 'd_lobby_profile_pic_02_png',
-          iconKey03: 'd_lobby_profile_pic_03_png',
-          iconKey04: 'd_lobby_profile_pic_04_png',
-          iconKey05: 'd_lobby_profile_pic_05_png',
-          iconKey06: 'd_lobby_profile_pic_06_png',
-          iconKey07: 'd_lobby_profile_pic_07_png',
-          iconKey08: 'd_lobby_profile_pic_08_png',
+          // iconKey01: 'd_lobby_profile_pic_01_png',
+          // iconKey02: 'd_lobby_profile_pic_02_png',
+          // iconKey03: 'd_lobby_profile_pic_03_png',
+          // iconKey04: 'd_lobby_profile_pic_04_png',
+          // iconKey05: 'd_lobby_profile_pic_05_png',
+          // iconKey06: 'd_lobby_profile_pic_06_png',
+          // iconKey07: 'd_lobby_profile_pic_07_png',
+          // iconKey08: 'd_lobby_profile_pic_08_png',
         };
-        env.profileimage = 'iconKey01';
+        env.profileimage = ''; // 'iconKey01';
         env.betLimits = [
           {
             currency: Currency.RMB,

@@ -170,8 +170,13 @@ namespace we {
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
-        env.fallbacknicknames = player.fallbacknicknames;
-        env.icons = player.icons;
+        // env.fallbacknicknames = player.fallbacknicknames;
+        // env.icons = player.icons;
+        env.fallbacknicknames = {
+          nicknames: {},
+          groups: {},
+        };
+        env.icons = {};
         env.nicknameKey = player.profile.nickname;
 
         // env.icons = {
@@ -184,10 +189,11 @@ namespace we {
         //   iconKey07: 'd_lobby_profile_pic_07_png',
         //   iconKey08: 'd_lobby_profile_pic_08_png',
         // };
+
         env.profileimage = player.profile.settings.profileimage
           ? player.profile.settings.profileimage
           : player.profile.profileimageurl === ''
-          ? Object.keys(player.icons)[0]
+          ? Object.keys(env.icons)[0]
           : player.profile.profileimageurl;
         logger.l(utils.LogTarget.DEBUG, 'PlayerClient::handleReady() ' + player.profile.betlimits);
 

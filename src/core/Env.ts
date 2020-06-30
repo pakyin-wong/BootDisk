@@ -64,7 +64,7 @@ namespace we {
       };
 
       // public _fallbacknicknames: {};
-      public icons: { [iconKey: string]: string };
+      public _icons: { [iconKey: string]: string };
 
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
@@ -283,14 +283,30 @@ namespace we {
       }
 
       public set nicknameSet(val) {
-        env._groups = val.groups;
+        if (Object.keys(val.groups).length === 0) {
+          // no group, set a default value to it
+          val.groups['default'] = 'default';
+          val.nicknames = { nicknamekey009: { value: 'Guest', group: 'default' } };
+        }
+        // env._groups = val.groups;
         env.groupName[env.language] = { ...val.groups };
         env._nicknames[env.language] = val.nicknames;
-        for (const item of Object.keys(val.groups)) {
-          env._groups[item] = [];
+        // for (const item of Object.keys(val.groups)) {
+        //   env._groups[item] = [];
+        // }
+        // const langcode = env._nicknames['en'] ? 'en' : env.language;
+        // this.groupKeySorting(langcode);
+      }
+
+      public set icons(val) {
+        if (Object.keys(val).length === 0) {
+          val = { iconKey01: 'd_lobby_profile_pic_01_png' };
         }
-        const langcode = env._nicknames['en'] ? 'en' : env.language;
-        this.groupKeySorting(langcode);
+        this._icons = val;
+      }
+
+      public get icons() {
+        return this._icons;
       }
 
       protected groupKeySorting(langcode: string) {
@@ -302,8 +318,21 @@ namespace we {
       }
 
       public set fallbacknicknames(val) {
-        env._nicknames['en'] = val.nicknames;
+        if (Object.keys(val.groups).length === 0) {
+          // no group, set a default value to it
+          val.groups['default'] = 'default';
+          val.nicknames = { nicknamekey009: { value: 'Guest', group: 'default' } };
+        }
+        env._groups = val.groups;
         env.groupName['en'] = { ...val.groups };
+        env._nicknames['en'] = val.nicknames;
+        for (const item of Object.keys(val.groups)) {
+          env._groups[item] = [];
+        }
+        this.groupKeySorting('en');
+
+        // env._nicknames['en'] = val.nicknames;
+        // env.groupName['en'] = { ...val.group };
       }
 
       /*
