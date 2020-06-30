@@ -1,6 +1,6 @@
 namespace we {
   export namespace ui {
-    export class RunTimeLabel extends ui.Label implements ui.IRunTimeComponent {
+    export class RunTimeLabel extends eui.Label implements ui.IRunTimeComponent {
       private _renderer: () => string;
       private _isReg: boolean = false;
 
@@ -20,9 +20,11 @@ namespace we {
       }
 
       protected initRenderText() {
-        if (this._renderer) {
+        if (!this._isReg && this._renderer) {
           i18n.register(this);
+          this._isReg = true;
           this.once(eui.UIEvent.REMOVED_FROM_STAGE, this.destroy, this);
+          this.render();
         } else if (this._textKey) {
           this.renderText = () => i18n.t(this._textKey);
         }

@@ -68,7 +68,7 @@ namespace we {
         // this._video.height = this.stage.stageHeight;
         // this._video.load('//h5.weinfra247.com:8090/live/720.flv');
         // this._video.load('//210.61.148.50:8000/live/test.flv');
-        this._video.load('wss://www.webflv.com:8443/live/test.flv');
+        this._video.load('https://www.webflv.com:8443/live/test.flv');
 
         dir.audioCtr.video = this._video;
         this.touchEnabled = true;
@@ -89,6 +89,8 @@ namespace we {
         dir.audioCtr.video = null;
         this._video.stop();
         dir.videoPool.release(this._video);
+        this._chipLayer.getSelectedChipIndex = null;
+        this._timer.stop();
         this.removeEventListeners();
         this.removeChildren();
       }
@@ -191,7 +193,6 @@ namespace we {
         if (this._chipLayer) {
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
         }
-
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
         }
@@ -207,8 +208,9 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
         }
-
-        this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+        if (this._btnBack) {
+          this._btnBack.addEventListener(egret.TouchEvent.TOUCH_TAP, this.backToLobby, this);
+        }
       }
 
       public insufficientBalance() {
@@ -265,8 +267,8 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
-        logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
+        const tableInfo = <data.TableInfo>evt.data;
+        logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -305,7 +307,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -393,11 +395,37 @@ namespace we {
         }
       }
 
-      protected setStatePeek(isInit: boolean = false) {}
+      protected setStatePeek(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
 
-      protected setStatePeekPlayer(isInit: boolean = false) {}
+      protected setStatePeekPlayer(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
 
-      protected setStatePeekBanker(isInit: boolean = false) {}
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
+
+      protected setStatePeekBanker(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
 
       protected setStateBet(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.BET || isInit) {
@@ -405,6 +433,10 @@ namespace we {
           this.setResultRelatedComponentsEnabled(false);
           this._undoStack.clearStack();
           this._resultMessage.clearMessage();
+
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
         }
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -421,10 +453,6 @@ namespace we {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
 
-          if (this._betDetails && this._chipLayer) {
-            this._chipLayer.updateBetFields(this._betDetails);
-          }
-
           this._undoStack.clearStack();
         }
         // update the countdownTimer
@@ -432,9 +460,15 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
+        // console.log('this._tableId', this._tableId);
+        // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
+
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
         }
 
         if (this._previousState !== we.core.GameState.DEAL) {
@@ -444,10 +478,6 @@ namespace we {
 
           if (this._previousState === core.GameState.BET && this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
-          }
-
-          if (this._betDetails) {
-            this._chipLayer.updateBetFields(this._betDetails);
           }
         }
         if (this._resultDisplay) {
@@ -533,7 +563,33 @@ namespace we {
         return false;
       }
 
-      public checkResultMessage() {}
+      public checkResultMessage(resultData = null) {
+        const totalWin: number = this._tableInfo.totalWin;
+
+        if (!this._gameData) {
+          return;
+        }
+
+        if (resultData === null) {
+          // default resultData
+          if (this.hasBet() && !isNaN(totalWin)) {
+            resultData = {
+              gameData: this._gameData,
+              winAmount: totalWin,
+            };
+          } else {
+            resultData = {
+              gameData: this._gameData,
+              winAmount: NaN,
+            };
+          }
+        }
+        this._resultMessage.showResult(this._tableInfo.gametype, resultData);
+
+        this.playResultSoundEffect(totalWin);
+      }
+
+      protected playResultSoundEffect(totalWin) {}
 
       protected onConfirmPressed(evt: egret.Event) {
         if (this._chipLayer) {
@@ -548,6 +604,7 @@ namespace we {
       protected onCancelPressed(evt: egret.Event) {
         if (this._chipLayer) {
           this._chipLayer.cancelBet();
+          this._undoStack.clearStack();
         }
       }
 

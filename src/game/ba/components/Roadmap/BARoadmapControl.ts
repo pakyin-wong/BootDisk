@@ -127,10 +127,6 @@ namespace we {
           if (this.tableInfo) {
             if (this.tableInfo.roadmap) {
               const data = this.tableInfo.roadmap;
-
-              // merge the animation index into the road data
-              this.parser.mergePredictAnimationData(data.inGameB, data.inGameP);
-
               if (v === 0) {
                 // banker
                 this.beadRoad.parseRoadData(data.inGameB.bead, 1);
@@ -274,6 +270,9 @@ namespace we {
               // update the gamestatistic
               if (this.tableInfo) {
                 if (this.tableInfo.gamestatistic) {
+                  // mark the isPredict to icon
+                  this.parser.mergePredictAnimationData(roadmapData.inGameB, roadmapData.inGameP);
+
                   const prediction = this.parser.getIconsFromRoadPredictData(roadmapData.inGameB, roadmapData.inGameP);
                   const stat = this.tableInfo.gamestatistic;
                   if (this.targetPanel) {

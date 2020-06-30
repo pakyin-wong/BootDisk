@@ -1,8 +1,8 @@
 namespace we {
   export namespace core {
     export class MockProcessBaccaratSqueeze extends MockProcess {
-      public countdownA: number = 8;
-      public countdownB: number = 4;
+      public countdownA: number = 12;
+      public countdownB: number = 8;
 
       constructor(socket: SocketMock, gameType = core.GameType.BAC) {
         super(socket, gameType);
@@ -102,7 +102,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Round Completed');
       }
 
       public async bankerWin(data: data.TableInfo) {
@@ -129,7 +129,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Round Completed');
       }
 
       public async bankerPairWin(data: data.TableInfo) {
@@ -156,7 +156,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Round Completed');
       }
 
       public async bankerWinPlayerPair(data: data.TableInfo) {
@@ -183,7 +183,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Round Completed');
       }
 
       public async tie(data: data.TableInfo) {
@@ -210,7 +210,7 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Round Completed');
       }
 
       public async shuffle(data: data.TableInfo) {
@@ -224,7 +224,7 @@ namespace we {
         await this.sleep(this.shuffleStateInterval);
 
         // done
-        logger.l('Shuffle Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Shuffle Completed');
       }
     }
   }

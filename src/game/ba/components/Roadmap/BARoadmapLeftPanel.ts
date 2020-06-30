@@ -3,7 +3,9 @@ namespace we {
     export class BARoadmapLeftPanel extends core.BaseGamePanel {
       public beadRoad: BABeadRoad;
       protected gameIdLabel: ui.RunTimeLabel;
+      protected gameIdText: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
+      protected totalBetText: ui.RunTimeLabel;
       protected gameId: string;
       protected totalBet: number;
       protected switchModeButton: eui.Component;
@@ -12,20 +14,26 @@ namespace we {
         super(skin ? skin : env.isMobile ? '' : 'BARoadmapLeftPanel');
       }
       public changeLang() {
-        this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        // this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
+        // this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.gameIdText.text = i18n.t('baccarat.gameroundid') + ' ';
+        this.gameIdLabel.text = this.gameId;
+        this.totalBetText.text = i18n.t('baccarat.totalbet') + ' ';
+        this.totalBetLabel.text = this.totalBet.toString(10);
       }
 
       protected init() {
         this.gameId = '';
         this.totalBet = 0;
+        this.totalBetText.alpha = 0.7;
+        this.gameIdText.alpha = 0.7;
 
         const gridSize = 43;
         const numColumn = 16;
 
         this.beadRoad = new BABeadRoad(numColumn, gridSize, 1, true);
         this.beadRoad.x = 0;
-        this.beadRoad.y = 44;
+        this.beadRoad.y = 43;
         this.beadRoad.scaleX = 690 / 689;
         // this.beadRoad.scaleY = 690 / 689;
         this.addChild(this.beadRoad);

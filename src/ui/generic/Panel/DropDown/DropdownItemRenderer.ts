@@ -27,7 +27,7 @@ namespace we {
       protected dataChanged() {
         const key = this.data.key ? this.data.key : this.data;
         this._key = key;
-        this.review.renderText = this.data.renderText ? this.data.renderText : () => key;
+        this.review.renderText = this.data.renderText ? this.data.renderText : () => i18n.t(key);
       }
 
       protected onRollover() {

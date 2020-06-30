@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_landscape.bam.FlipCardHolderSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing"
+        width="2424" height="1094">
+	<ba:FlipCard id="_flipCard1" cardWidth="716" cardHeight="1094" y="189" rotation="90" x="1759"/>
+	<ba:FlipCard id="_flipCard2" cardWidth="716" cardHeight="1094" x="3600" y="189" rotation="90"/>
+</e:Skin>

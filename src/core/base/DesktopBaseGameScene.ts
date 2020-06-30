@@ -14,14 +14,9 @@ namespace we {
 
       protected initChildren() {
         super.initChildren();
-        if (core.GameType.RO) {
-          // for testing
-          console.log('removed left and right panel'); // for testing
-        } else {
-          // for testing
-          this._leftGamePanel.setTableInfo(this._tableInfo);
-          this._rightGamePanel.setTableInfo(this._tableInfo);
-        } // for testing
+
+        this._leftGamePanel.setTableInfo(this._tableInfo);
+        this._rightGamePanel.setTableInfo(this._tableInfo);
 
         if (this._tableInfoWindow) {
           this._tableInfoWindow.setToggler(this._lblRoomInfo);

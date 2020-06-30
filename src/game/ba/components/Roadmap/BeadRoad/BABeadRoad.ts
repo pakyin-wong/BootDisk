@@ -68,6 +68,12 @@ namespace we {
 
           // dispatch the result rolled over by the user
           this.dispatchEvent(new egret.Event('RollOverResult', false, false, { index, mouseX: event.stageX, mouseY: event.stageY }));
+
+          const iconValue = this.roadMapIconList[index].value;
+          if (iconValue.v !== undefined) {
+            // dispatch the result click by the user
+            // this.dispatchEvent(new egret.Event('RollOverResult', false, false, { index, mouseX: event.stageX, mouseY: event.stageY, gameRoundID: iconValue['gameRoundID'] }));
+          }
         } else {
           // dispatch rolled out result
           this.dispatchEvent(new egret.Event('RollOutResult'));

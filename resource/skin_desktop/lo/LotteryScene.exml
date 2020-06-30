@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.LotteryScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:w="http://ns.egret.com/wing"
+        xmlns:live="we.live.*">
+	<!--<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
+	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
+	<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.TableLayerSkin"
+	               isEdgeDismissable="true" />
+	<ro:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.ChipLayerSkin"
+	              isEdgeDismissable="true" />
+	<e:Group id="_betRelatedGroup" x="768.64" y="895.13">
+		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
+		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
+		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
+		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
+		<ui:CountdownTimer id="_timer" width="180" height="60" y="6" horizontalCenter="115"
+		                   skinName="skin_desktop.CountdownTimerSkin" />
+		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
+                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true" />
+		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
+                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true" />
+		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
+                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true" />
+		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
+                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
+	</e:Group>
+	<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />
+	<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />-->
+	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
+	         touchChildren="true" touchThrough="true">
+		<ui:RoundRectShape width="190" height="50" x="1944" y="24" fillColor="0x124072" fillAlpha="0.4" cornerTL_TR_BL_BR="25,25,25,25" stroke="0"/>
+		<ui:RoundRectButton id="_btn_trad" width="92" height="40" x="2034" y="29" fillColor="0x1b416e" cornerTL_TR_BL_BR="20,20,20,20" fillAlpha_active="1" fillAlpha="0" stroke="0"/>
+		<ui:RoundRectButton id="_btn_fun" width="92" height="40" x="1952" y="29" fillColor="0x1b416e" cornerTL_TR_BL_BR="20,20,20,20" fillAlpha="0" fillAlpha_active="1" stroke="0"/>
+		<!--<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
+		<ui:RunTimeLabel id="_lblRoomNo" x="74.98" y="9.4" size="28" height="40" verticalAlign="middle" width="191"
+		                 textAlign="right" anchorOffsetX="0" />
+		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />
+		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35" y="17" />
+		<e:Image id="_lblRoomInfo" width="24" height="24" x="271.98" y="19" source="d_ba_navbar_icon_info_png" />
+		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
+		            skinName="skin_desktop.GameBar" />-->
+
+					
+	</e:Group>
+	<!--<ro:GameResultMessage id="_resultMessage" x="1300" y="640" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" />
+	<ui:InGameMessage id="_message" x="1300.5" y="865.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
+	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
+	<ro:TableInfoPanel width="324" height="672" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
+	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
+	                   anchorOffsetY="0" skinName="skin_desktop.ro.TableInfoPanel" />
+	<ro:ROBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
+	                         anchorOffsetY="0" visible="false" />-->
+</e:Skin>
+

@@ -1,11 +1,36 @@
 namespace we {
   export namespace utils {
+    export enum LogTarget {
+      DEBUG = 0,
+      DEV = 1,
+      STAGING = 2,
+      UAT = 3,
+      PROD = 4,
+    }
+
     export class Logger {
       private static _logger: Logger;
-      private _whitelist: string[] = ['socketcomm']; // white list file and function ['socketcomm.ongamestatusupdate'], white list nothing[''], white list everything []
+      private _whitelist: string[] = []; // white list file and function ['socketcomm.ongamestatusupdate'], white list nothing[''], white list everything []
 
       public static get Instance(): Logger {
         return this._logger ? this._logger : new Logger();
+      }
+
+      public getTargetID(target) {
+        switch (target) {
+          case 'local':
+          case 'test':
+            return 0;
+          case 'development':
+            return 1;
+          case 'staging':
+            return 2;
+          case 'uat':
+            return 3;
+          case 'prod':
+          default:
+            return 4;
+        }
       }
 
       private _logmsgmeasurer;
@@ -18,12 +43,18 @@ namespace we {
         });
       }
 
-      public l(...args) {
-        // this.log('log', ...args);
+      public l(targetLevel: LogTarget, ...args) {
+        const id = this.getTargetID(dir.config.target);
+        if (targetLevel >= id) {
+          this.log('log', ...args);
+        }
       }
 
-      public e(...args) {
-        this.log('error', ...args);
+      public e(targetLevel: LogTarget, ...args) {
+        const id = this.getTargetID(dir.config.target);
+        if (targetLevel >= id) {
+          this.log('error', ...args);
+        }
       }
 
       private log(type, ...args) {

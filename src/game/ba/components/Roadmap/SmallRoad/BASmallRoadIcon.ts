@@ -59,7 +59,9 @@ namespace we {
         super.updateDisplay();
         const value = this.value;
 
-        const gradientColors = [[0xee2e2e, 0xee2e2e], [0x3531ec, 0x3531ec], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066]];
+        // const gradientColors = [[0xee2e2e, 0xee2e2e], [0x3531ec, 0x3531ec], [0xdd6666, 0xaa0000], [0x6666dd, 0x000066]];
+
+        const colors = [0xee2e2e, 0x3531ec, 0xaa0000, 0x000066];
 
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.8;
@@ -77,9 +79,10 @@ namespace we {
               colorIdx = 1 + useDarkMode;
               break;
           }
-          const fillMatrix = new egret.Matrix();
-          fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);
-          this._iconShape.graphics.beginGradientFill(egret.GradientType.LINEAR, gradientColors[colorIdx], [1, 1], [0, 255], fillMatrix);
+          // const fillMatrix = new egret.Matrix();
+          // fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);
+          // this._iconShape.graphics.beginGradientFill(egret.GradientType.LINEAR, gradientColors[colorIdx], [1, 1], [0, 255], fillMatrix);
+          this._iconShape.graphics.beginFill(colors[colorIdx], 1);
           this._iconShape.graphics.drawCircle(circleRadius + offset, circleRadius + offset, circleRadius);
           this._iconShape.graphics.endFill();
         }

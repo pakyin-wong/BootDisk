@@ -44,13 +44,34 @@ namespace we {
       return output;
     }
 
-    export function setLang(s) {
+    export async function setLang(s, isInit: boolean = false) {
       env.language = i18n.lang = s;
+      dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
+
+      if (!isInit && !env._nicknames[env.language]) {
+        const tasks = [
+          () =>
+            dir.socket.getStaticInitDataAsync(async res => {
+              if (res.error) {
+                // TODO: show default hero banner image
+                // const placeholderImg = new Image();
+                // this._bannerImages = [placeholderImg];
+              } else {
+                if (res.Nicknames) {
+                  env.nicknameSet = res.Nicknames;
+                }
+              }
+            }, this),
+        ];
+
+        await loadingMgr.load(tasks);
+      }
+
       dir.evtHandler.dispatch(core.Event.SWITCH_LANGUAGE, s);
     }
 
     export function register(item: ui.IRunTimeComponent) {
-      dir.evtHandler.$addListener(core.Event.SWITCH_LANGUAGE, item.render, item);
+      dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, item.render, item);
     }
 
     export function drop(item: ui.IRunTimeComponent) {

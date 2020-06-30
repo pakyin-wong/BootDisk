@@ -43,6 +43,7 @@ namespace we {
       //   super.mount();
       // }
 
+      // clearComponents hvn't been called
       protected clearComponents() {
         this.removeEventListeners();
         this.removeChildren();
@@ -111,15 +112,9 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         dir.evtHandler.addEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
 
-        if (this._chipLayer) {
-          this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
-        }
-        if (this._confirmButton) {
-          this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
-        }
-        if (this._cancelButton) {
-          this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
-        }
+        this._chipLayer && this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        this._confirmButton && this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+        this._cancelButton && this._cancelButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
       }
 
       public insufficientBalance() {
@@ -140,6 +135,11 @@ namespace we {
         dir.evtHandler.removeEventListener(core.Event.PLAYER_BET_INFO_UPDATE, this.onBetDetailUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitUpdate, this);
         dir.evtHandler.removeEventListener(core.Event.MATCH_GOOD_ROAD_DATA_UPDATE, this.onMatchGoodRoadUpdate, this);
+
+        this._chipLayer && this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+        this._confirmButton && this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
+        this._cancelButton && this._cancelButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelPressed, this, true);
+        this._timer && this._timer.stop();
       }
 
       protected destroy() {
@@ -159,7 +159,7 @@ namespace we {
 
       protected onBetDetailUpdate(evt: egret.Event) {
         const tableInfo = <data.TableInfo> evt.data;
-        // logger.l(we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
+        // logger.l(utils.LoggerTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
           switch (this._gameData.state) {
@@ -177,7 +177,7 @@ namespace we {
       protected onMatchGoodRoadUpdate() {}
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
-        // logger.l('LiveBaListSimpleItem::onTableBetInfoUpdate');
+        // logger.l(utils.LoggerTarget.DEBUG, 'LiveBaListSimpleItem::onTableBetInfoUpdate');
       }
 
       // item clicked
@@ -195,6 +195,7 @@ namespace we {
             this.checkResultMessage();
           }
         }
+        this._undoStack.clearStack();
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -448,7 +449,7 @@ namespace we {
             pass2 = !!this._gameData;
             break;
           default:
-            logger.e('No gametype found in ControlItem::checkResultMessage');
+            logger.e(utils.LogTarget.DEBUG, 'No gametype found in ControlItem::checkResultMessage');
             break;
         }
 
@@ -484,6 +485,7 @@ namespace we {
           if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
             const bets = this._chipLayer.getUnconfirmedBetDetails();
             this._chipLayer.resetUnconfirmedBet();
+            this._undoStack = null;
             // Not yet decided: any blocking or a new waitingConfirmedBet should be used here.
             dir.socket.bet(this._tableId, bets);
           }
