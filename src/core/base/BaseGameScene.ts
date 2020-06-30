@@ -460,6 +460,8 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
+        // console.log('this._tableId', this._tableId);
+        // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);

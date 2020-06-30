@@ -59,12 +59,17 @@ namespace we {
 
       public destroy() {
         super.destroy();
-        if (env.orientation === 'portrait') {
-          this._roadmapGroup.removeChildren();
-          this._historyGroup.removeChildren();
-        } else {
-          this._historyRoadGroup.removeChildren();
-        }
+        // if (env.orientation === 'portrait') {
+
+        this._roadmapGroup && this._roadmapGroup.removeChildren();
+        // this._historyGroup.removeChildren();
+
+        this._historyGroup && this._historyGroup.removeChildren();
+        // } else {
+        // this._historyRoadGroup.removeChildren();
+        // this._historyGroup.removeChildren();
+        // }
+        this._historyRoadGroup && this._historyRoadGroup.removeChildren();
         this.beadRoad.dispose();
 
         this.removeListeners();
