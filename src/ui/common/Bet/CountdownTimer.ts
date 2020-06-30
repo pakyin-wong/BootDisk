@@ -8,6 +8,7 @@ namespace we {
       private _remainingTime: number = 30000;
 
       private _previousFrameTime: number;
+      private _colorChange: boolean = false;
 
       public constructor() {
         super();
@@ -30,9 +31,18 @@ namespace we {
         this._countdownValue = value;
       }
 
+      get colorChange(): boolean {
+        return this._colorChange;
+      }
+
+      set colorChange(val: boolean) {
+        this._colorChange = val;
+      }
+
       get remainingTime(): number {
         return this._remainingTime;
       }
+
       set remainingTime(second: number) {
         if (this._countdownValue <= 0) {
           this.progressIndicator.progress = 1;
@@ -46,6 +56,7 @@ namespace we {
       }
 
       private updateRemainingTime() {
+        console.log('progressIndicator.progresds', this.progressIndicator.progress);
         const timeDiff = egret.getTimer() - this._previousFrameTime;
         this._previousFrameTime = egret.getTimer();
         let remainingTime = this._remainingTime - timeDiff;
@@ -54,6 +65,9 @@ namespace we {
           remainingTime = 0;
         }
         this.remainingTime = remainingTime;
+        if (this._colorChange && this.progressIndicator.progress < 0.5) {
+          this.countdownLabel.textColor = 0xff0000;
+        }
       }
 
       public start() {
