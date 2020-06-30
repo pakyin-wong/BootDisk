@@ -77,7 +77,7 @@ namespace we {
             _mask_nickname.left = _mask_nickname.top = _mask_nickname.bottom = 0;
             _mask_nickname.width = _btn_nickname.width;
 
-            _txt_nickname.renderText = () => env.groupName[env.language][item];
+            _txt_nickname.renderText = () => (env.groupName[env.language] ? env.groupName[env.language][item] : env.groupName['en'][item]);
             _txt_nickname.verticalAlign = 'middle';
             _txt_nickname.textAlign = 'center';
             _txt_nickname.scaleX = 1;
@@ -123,7 +123,7 @@ namespace we {
             env._groups[item].forEach((_item, index) => {
               _arrCol_nickname.source.push(
                 ui.NewDropdownItem(_item, () => {
-                  const nickName = env._nicknames[env.language][_item] || env._nicknames['en'][_item];
+                  const nickName = env._nicknames[env.language] ? env._nicknames[env.language][_item] || env._nicknames['en'][_item] : env._nicknames['en'][_item];
                   return nickName['value'];
                 })
               );
@@ -161,7 +161,7 @@ namespace we {
         this._txt_following.renderText = () => `${i18n.t('playerprofile_following')}`;
         this._txt_favouriteDealer.renderText = () => `${i18n.t('playerprofile_favouriteDealer')}`;
         this._username.renderText = () => env.nickname;
-        this._playerIcon.source = env.icons[env.profileimage];
+        this._playerIcon.source = env.icons && env.icons[env.profileimage] ? env.icons[env.profileimage] : 'd_lobby_profile_pic_01_png';
         if (env.isMobile) {
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
         }
