@@ -37,12 +37,29 @@ namespace we {
         }
       }
 
+      private hideTooltipTimeout;
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._chipLayer.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          ({ stageX, stageY }) => {
+            if (this._gameData.state !== we.core.GameState.BET) {
+              // remove existing tooltip
+              dir.tooltipCtr.removeTooltips();
+              dir.tooltipCtr.displayTooltip(stageX, stageY, 'hello');
+              clearTimeout(this.hideTooltipTimeout);
+              this.hideTooltipTimeout = setTimeout(() => {
+                dir.tooltipCtr.removeTooltips();
+              }, 2000);
+            }
+          },
+          false
+        );
 
         if (this._switchBaMode) {
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
@@ -58,6 +75,14 @@ namespace we {
         // }
         if (this._goodRoadLabel) {
           this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected onTableInfoUpdate(evt: egret.Event) {
+        super.onTableInfoUpdate(evt);
+        if (this._gameData.state === we.core.GameState.BET && this._gameData.state !== this._previousState) {
+          // clear tooltip when enter BET again
+          dir.tooltipCtr.removeTooltips();
         }
       }
 
