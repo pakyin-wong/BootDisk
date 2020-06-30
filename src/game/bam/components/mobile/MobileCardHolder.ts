@@ -97,7 +97,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
         // TODO: update card using the gameData
-        this.gameData = <bam.GameData>gameData;
+        this.gameData = <bam.GameData> gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -335,6 +335,7 @@ namespace we {
         this.cardHolderArr[4].setCard(utils.formatCard(this.cardArr[4]));
 
         this.cardHolderArr[5].visible = true;
+        this.cardHolderArr[2].visible = false;
         this._highlightCard.visible = false;
         this._resultCard.closeFlipPanel();
         this.setCardsFlipAllowed();
@@ -357,6 +358,8 @@ namespace we {
         if (this.cardArr[5]) {
           this.cardHolderArr[5].visible = true;
           this.cardHolderArr[5].setCard(utils.formatCard(this.cardArr[5]));
+        } else {
+          this.cardHolderArr[5].visible = false;
         }
         this._highlightCard.visible = false;
         this._resultCard.closeFlipPanel();
@@ -376,10 +379,14 @@ namespace we {
         if (this.cardArr && this.cardArr[2]) {
           this.cardHolderArr[2].visible = true;
           this.cardHolderArr[2].setCard(utils.formatCard(this.cardArr[2]));
+        } else {
+          this.cardHolderArr[2].visible = false;
         }
         if (this.cardArr && this.cardArr[5]) {
           this.cardHolderArr[5].visible = true;
           this.cardHolderArr[5].setCard(utils.formatCard(this.cardArr[5]));
+        } else {
+          this.cardHolderArr[5].visible = false;
         }
 
         this.disableCard('all');
