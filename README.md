@@ -8,6 +8,7 @@ This is the game client for World Entertainment.
 - [Lottery Asset](#lottery-asset)
 
 ## Roadmap
+v0.6.0
 
 ### Tasks
 - Disconnect handling
