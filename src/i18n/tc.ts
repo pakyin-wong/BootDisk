@@ -149,7 +149,7 @@ namespace we {
         bet_balance: '餘額',
         menu: {
           title: '設定',
-          selectMode: '介面色調',
+          selectMode: '路紙色調',
           whiteMode: '亮色',
           darkMode: '暗色',
           info: '賬戶資訊',
@@ -167,7 +167,7 @@ namespace we {
         system: {
           title: '系統設定',
           lang: '語言',
-          liveRecord: '玩場收音',
+          liveRecord: '現場收音',
           soundfx: '遊戲音效',
           bgm: '背景音樂',
           term: '服務條款',

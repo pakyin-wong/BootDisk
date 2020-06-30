@@ -104,6 +104,8 @@ namespace we {
           return 'di';
         case core.GameType.LW:
           return 'lw';
+        case core.GameType.LO:
+          return 'lo';
       }
     }
   }

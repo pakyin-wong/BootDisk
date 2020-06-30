@@ -7,7 +7,8 @@ namespace we {
       protected dataChanged() {
         // this._key = this.data.key;
         // this._icon.source = this.data.url;
-        this._icon.source = this.data;
+        console.log('this.data', this.data);
+        this._icon.source = env.icons[this.data];
       }
     }
   }

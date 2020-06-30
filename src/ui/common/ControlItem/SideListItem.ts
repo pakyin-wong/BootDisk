@@ -21,6 +21,8 @@ namespace we {
       protected _closeButton: ui.BaseImageButton;
       protected _prevButton: ui.BaseImageButton;
 
+      protected _headerBg: egret.Shape;
+
       public constructor(skinName: string = null) {
         super(skinName);
         this._betChipSet.setUpdateChipSetSelectedChipFunc(this._betChipSetGridSelected.setSelectedChip.bind(this._betChipSetGridSelected));
@@ -82,6 +84,24 @@ namespace we {
         super.initChildren();
         this._betChipSet.resetFormat(1);
         this._goodRoadLabel.visible = false;
+
+        // header
+        this._headerBg = new egret.Shape();
+        this.addChildAt(this._headerBg, 0);
+
+        this.drawHeaderBg(337, 46);
+        this.drawBorder(337, 174);
+      }
+
+      public drawHeaderBg(width: number, height: number) {
+        this._headerBg.graphics.beginFill(0x23282e, 1);
+        RoundRect.drawRoundRect(this._headerBg.graphics, 0, 0, width, height, { tl: 8, tr: 8, bl: 0, br: 0 });
+        this._headerBg.graphics.endFill();
+      }
+
+      public drawBorder(width: number, height: number) {
+        this._headerBg.graphics.lineStyle(2, 0x3a3f48);
+        RoundRect.drawRoundRect(this._headerBg.graphics, 0, 0, width, height, { tl: 8, tr: 8, bl: 8, br: 8 });
       }
 
       public setData(tableInfo: data.TableInfo) {

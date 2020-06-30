@@ -38,7 +38,6 @@ namespace we {
       }
 
       private onOrientationChange() {
-        // this.initOrientationDependentStage(this.initStage);
         this.arrangeStage(this._initStage);
       }
 
@@ -47,23 +46,11 @@ namespace we {
         this._overlay = new ui.Overlay();
 
         dir.layerCtr.nav.addChild(this._nav);
+        dir.tooltipCtr.addListeners();
 
         if (env.isMobile) {
-          // gameListButton
-          // const gameListButton = new ui.GameListButton();
-          // this._gameListButton = gameListButton;
-          // dir.layerCtr.notification.addChild(this._gameListButton);
-          // gameListButton.right = 50;
-          // if (env.orientation === egret.OrientationMode.PORTRAIT) {
-          //   this._gameListButton.y = 419;
-          // } else {
-          //   this._gameListButton.y = 809;
-          // }
-          // gameListButton.y = 241;
-
           this._sideGameList = new ui.MobileSideGameList();
           this._sideGameList.bottom = 0;
-          // this._sideGameList.setToggler(this._gameListButton);
           this._sideGameList.isPoppable = true;
           this._sideGameList.dismissOnClickOutside = true;
 
@@ -80,7 +67,6 @@ namespace we {
           this._notificationController.y = 0;
           dir.layerCtr.notification.addChild(this._notificationController);
         } else {
-          // this._overlay = new ui.Overlay();
           this._liveSidePanel = new ui.LiveSidePanel();
           this._liveSidePanel.right = 20;
           this._liveSidePanel.y = 80;
@@ -91,7 +77,6 @@ namespace we {
             idx = this._nav.getChildIndex(child) + 1;
           }
           this._nav.addChildAt(this._liveSidePanel, idx);
-          // dir.layerCtr.notification.addChild(this._liveSidePanel);
           dir.layerCtr.overlay.addChild(this._overlay);
 
           this._notificationController = new ui.NotificationController();
@@ -100,7 +85,7 @@ namespace we {
           dir.layerCtr.notification.addChild(this._notificationController);
         }
 
-        this._nav.touchEnabled = false;
+        // this._nav.touchEnabled = false;
 
         if (env.mode < 0) {
           dir.evtHandler.createOverlay({
@@ -114,12 +99,7 @@ namespace we {
       }
 
       private arrangeStage(stage) {
-        logger.l('arrangeStage');
-        // if (env.orientation === egret.OrientationMode.PORTRAIT) {
-        //   this._gameListButton.y = 419;
-        // } else {
-        //   this._gameListButton.y = 809;
-        // }
+        logger.l(utils.LogTarget.DEBUG, 'arrangeStage');
       }
 
       private updateBalance() {

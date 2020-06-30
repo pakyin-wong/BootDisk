@@ -22,9 +22,9 @@ namespace we {
         gameData.state = core.GameState.DEAL;
         this.dispatchEvent(data);
         await this.sleep(this.startCardInterval);
-        const gameResult = Math.floor(Math.random() * 37);
-        logger.l('GameResult: ', gameResult);
-        logger.l('GameResult.toString(): ', gameResult.toString());
+        const gameResult = 2; // Math.floor(Math.random() * 37);
+        logger.l(utils.LogTarget.DEBUG, 'GameResult: ', gameResult);
+        logger.l(utils.LogTarget.DEBUG, 'GameResult.toString(): ', gameResult.toString());
 
         await this.setResults(data, [gameResult.toString()], [gameResult]);
 
@@ -37,7 +37,33 @@ namespace we {
         await this.sleep(this.finishStateInterval);
 
         // done
-        logger.l('Round Completed');
+        logger.l(utils.LogTarget.DEBUG, 'Round Completed');
+      }
+
+      protected updateBetResult(data: data.TableInfo, winningFields: string[]) {
+        let totalWin = 0;
+        for (const betDetail of data.bets) {
+          let isMatch = false;
+          for (const winningField of winningFields) {
+            if (betDetail.field === winningField) {
+              betDetail.iswin = 1;
+              betDetail.winamount = betDetail.amount * 2;
+              totalWin += betDetail.amount * 2;
+              isMatch = true;
+              break;
+            }
+          }
+          if (!isMatch) {
+            if (betDetail.amount) {
+              betDetail.winamount = -betDetail.amount;
+              totalWin -= betDetail.amount;
+            }
+          }
+        }
+        data.totalWin = -22200; // totalWin; // this.computeTotalWin(tableInfo.bets);
+        this.checkResultNotificationReady(data);
+
+        this.socket.dispatchBetInfoUpdateEvent(data);
       }
     }
   }

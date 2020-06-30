@@ -75,7 +75,10 @@ namespace we {
         }
       }
 
-      public dispose() {}
+      protected destroy() {
+        super.destroy();
+        this.beadRoad.dispose();
+      }
     }
   }
 }

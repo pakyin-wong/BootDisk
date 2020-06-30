@@ -208,6 +208,10 @@ declare module skin_desktop{
 	class CountdownTimerRoundSqueezeBaccaratSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class DefaultLoadingUISkin extends eui.Skin{
+	}
+}
 declare module skin_desktop.di{
 	class Analysis extends eui.Skin{
 	}
@@ -429,6 +433,18 @@ declare class SidePanelSkin extends eui.Skin{
 declare class TabItemWithBadgeSkin extends eui.Skin{
 }
 declare class TestItemSkin extends eui.Skin{
+}
+declare module skin_desktop{
+	class LotteryScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LotterySceneFun extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LotterySceneTraditional extends eui.Skin{
+	}
 }
 declare module skin_desktop{
 	class LoadingProgressBar extends eui.Skin{
@@ -810,12 +826,20 @@ declare module skin_mobile_landscape.ba{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_landscape{
-	class BetConfirmButtonSkin extends eui.Skin{
+declare module skin_mobile_landscape.bam{
+	class FlipCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bam{
+	class MobileCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
-	class LiveGameTableList extends eui.Skin{
+	class SqueezeBaccaratScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class BetConfirmButtonSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -940,6 +964,10 @@ declare module skin_mobile_landscape{
 }
 declare module skin_mobile_landscape{
 	class LiveGameTabbar extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LiveGameTableList extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1237,7 +1265,11 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait.bam{
-	class CardHolderSkin extends eui.Skin{
+	class FlipCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bam{
+	class MobileCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -1836,6 +1868,10 @@ declare module skin_mobile{
 }
 declare module skin_mobile{
 	class CountdownTimerRoundSmallSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile{
+	class DefaultLoadingUISkin extends eui.Skin{
 	}
 }
 declare module skin_mobile{

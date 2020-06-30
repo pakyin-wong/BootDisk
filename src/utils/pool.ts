@@ -12,7 +12,7 @@ namespace we {
 
       public get(): T {
         if (this.pool.length) {
-          return this.pool.splice(0, 1)[0];
+          return this.pool.pop();
         }
         return new this.Func();
       }

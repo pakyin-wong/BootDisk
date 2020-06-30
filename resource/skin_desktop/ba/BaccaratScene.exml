@@ -3,16 +3,16 @@
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
-	<ba:TableLayer id="_tableLayer" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
+	<ba:TableLayer id="_tableLayer" width="1170" height="304" x="724" y="1020" isEdgeDismissable="true"
 	               skinName="skin_desktop.ba.TableLayerSkin" touchEnabled="false" />
-	<ba:ChipLayer id="_chipLayer" width="1146" height="304" x="723" y="1020" isEdgeDismissable="true"
+	<ba:ChipLayer id="_chipLayer" width="1170" height="304" x="724" y="1024" isEdgeDismissable="true"
 	              skinName="skin_desktop.ba.ChipLayerSkin" />
 	<e:Group id="_betRelatedGroup" x="768.64" y="939.13">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
-		<e:Button id="_confirmButton" label="" y="5" anchorOffsetX="0" width="174" anchorOffsetY="0" height="60"
+		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
 		          horizontalCenter="114" skinName="skins_desktop.BetConfirmButtonSkin" />
-		<ui:CountdownTimer id="_timer" width="180" height="60" y="6" horizontalCenter="115"
+		<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115"
 		                   skinName="skin_desktop.CountdownTimerSkin" />
 		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
                             dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true" />
@@ -25,8 +25,8 @@
 	</e:Group>
 	<ba:CardHolder id="_resultDisplay" width="412" height="152" y="1031" horizontalCenter="1" anchorOffsetX="0"
 	               anchorOffsetY="0" />
-	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="14" y="1020" anchorOffsetX="0" anchorOffsetY="0" />
-	<ba:BARoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1878.39" y="1016.51" anchorOffsetX="0"
+	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="16" y="1024" anchorOffsetX="0" anchorOffsetY="0" />
+	<ba:BARoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1910" y="1024" anchorOffsetX="0"
 	                        anchorOffsetY="0" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
@@ -39,14 +39,14 @@
 		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
-	<ui:GameResultMessage id="_resultMessage" x="0" y="676.26" width="1" height="1" horizontalCenter="0" />
+	<ba:GameResultMessage id="_resultMessage" x="0" y="676.26" width="1" height="1" horizontalCenter="0" />
 	<ui:InGameMessage id="_message" x="1300.5" y="911.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
 	<ba:TableInfoPanel width="324" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel" />
-	<e:Group x="1878.39" y="949" anchorOffsetX="0" width="596">
+	<e:Group x="1913" y="949" anchorOffsetX="0" width="596">
 		<e:Group height="50" x="0" anchorOffsetX="0" anchorOffsetY="0" y="0">
 			<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
 			<e:ToggleSwitch id="_switchBaMode" label="免佣" x="88.32999999999993" y="28.83000000000004" scaleX="1" scaleY="1"

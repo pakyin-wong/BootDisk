@@ -28,7 +28,6 @@ namespace we {
 
       protected updateResult(gameType, tabledata) {
         const { wintype } = tabledata;
-        console.log('tbdata in ba', tabledata);
         // need to be abstract calss
         // switch (gameType) {
         //   case we.core.GameType.BAC:

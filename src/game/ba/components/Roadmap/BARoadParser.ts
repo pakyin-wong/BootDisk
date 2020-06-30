@@ -388,7 +388,46 @@ namespace we {
           this.predictBankerIcons = [predictResults[0], predictResults[1], predictResults[2]];
           this.predictPlayerIcons = [predictResults[3], predictResults[4], predictResults[5]];
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LogTarget.DEBUG, err);
+        }
+        return {
+          predictBankerIcons: this.predictBankerIcons,
+          predictPlayerIcons: this.predictPlayerIcons,
+        };
+      }
+
+      public getIconsFromRoadPredictData_new(bankerPredictData: any, playerPredictData: any) {
+        this.resetIcons();
+
+        const predictDataArr = [bankerPredictData, playerPredictData];
+        const roadIndexArr = ['bigEye', 'small', 'roach'];
+        const predictResults = [];
+        try {
+          predictDataArr.forEach(predictData => {
+            if (!predictData) {
+              return;
+            }
+            for (let i = 0; i < roadIndexArr.length; i++) {
+              const roadData = predictData[roadIndexArr[i]];
+              let predictValue = null;
+              roadData.forEach(e => {
+                if (e.gameRoundID === '_--ASK_ROAD_PREDICTED_GAME--_') {
+                  predictValue = e.v;
+                }
+              });
+              if (predictValue === 'b') {
+                predictResults.push({ v: 'b' });
+              } else if (predictValue === 'p') {
+                predictResults.push({ v: 'p' });
+              } else {
+                predictResults.push({});
+              }
+            }
+          });
+          this.predictBankerIcons = [predictResults[0], predictResults[1], predictResults[2]];
+          this.predictPlayerIcons = [predictResults[3], predictResults[4], predictResults[5]];
+        } catch (err) {
+          logger.e(utils.LogTarget.DEBUG, err);
         }
         return {
           predictBankerIcons: this.predictBankerIcons,
@@ -411,7 +450,29 @@ namespace we {
             }
           });
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LogTarget.DEBUG, err);
+        }
+      }
+
+      public mergePredictAnimationData_new(bankerPredictData: any, playerPredictData: any) {
+        // merge the isPredict to the correct cell
+
+        const predictDataArr = [bankerPredictData, playerPredictData];
+        const roadIndexArr = ['bead', 'bigRoad', 'bigEye', 'small', 'roach'];
+        try {
+          predictDataArr.forEach(predictData => {
+            for (let i = 0; i < roadIndexArr.length; i++) {
+              const roadData = predictData[roadIndexArr[i]];
+              const predictValue = null;
+              roadData.forEach(e => {
+                if (e.gameRoundID === '_--ASK_ROAD_PREDICTED_GAME--_') {
+                  e.isPredict = 1;
+                }
+              });
+            }
+          });
+        } catch (err) {
+          logger.e(utils.LogTarget.DEBUG, err);
         }
       }
 
@@ -622,6 +683,9 @@ namespace we {
           }
           if (data.w !== undefined) {
             roadCell.w = data.w;
+          }
+          if (data.t !== undefined) {
+            roadCell.t = data.t;
           }
 
           // di

@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.BARoadmapLeftPanel" width="692" height="304" xmlns:e="http://ns.egret.com/eui"
         xmlns:ba="we.ba.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect id="mask" width="688" height="301" x="2" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
+        <e:Rect id="mask" width="688" height="301" x="2" y="0" strokeWeight="0" ellipseHeight="14" ellipseWidth="14"
                 fillColor="0x7c7c7c" />
-        <e:Rect id="topBar" width="694" height="47" x="0" y="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
-                ellipseWidth="0" />
-        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="17" y="10" textAlign="left" anchorOffsetX="0"
-                         width="514" size="25" />
-        <ui:RunTimeLabel id="totalBetLabel" text="0" x="409.69" y="10" textAlign="right" anchorOffsetX="0" width="260"
-                         size="25" />
+        <e:Rect id="topBar" width="694" height="43" x="0" y="0" strokeWeight="0" ellipseHeight="0"
+                ellipseWidth="0"  fillColor="0x1d242c"/>
+	<e:Group id="gameIdLabelGroup" x="17" y="10">
+                <ui:RunTimeLabel id="gameIdText" text="ID" x="0" y="0" textAlign="left" anchorOffsetX="0" size="25" scaleX="1" scaleY="1"/>
+		<ui:RunTimeLabel id="gameIdLabel" text="00000000000000" x="0" y="0" textAlign="left" anchorOffsetX="0" size="25" scaleX="1" scaleY="1"/>
+		<e:layout>
+			<e:HorizontalLayout horizontalAlign="left"/>
+		</e:layout>
+	</e:Group>
+
+	<e:Group id="totalBetGroup" y="10" width="260" x="410">
+		<ui:RunTimeLabel id="totalBetText" text="TEXT" y="0" textAlign="right" anchorOffsetX="0" size="25" scaleX="1" scaleY="1" right="0"/>
+		<ui:RunTimeLabel id="totalBetLabel" text="0" y="0" textAlign="right" anchorOffsetX="0" size="25" scaleX="1" scaleY="1" right="55"/>
+		<e:layout>
+			<e:HorizontalLayout horizontalAlign="right"/>
+		</e:layout>                
+
+
+	</e:Group>
+
         <ui:BaseAnimationButton id="switchModeButton" width="58" height="58" x="626" y="238"
                  dbClass="baccarat_ui" dbDisplay="d_ba_roadmap_btn_swap" />
 </e:Skin>

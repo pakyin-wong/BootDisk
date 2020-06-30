@@ -1,0 +1,16 @@
+{
+  "compressionLevel": 5,
+  "dereferenceLinks": true,
+  "entries": [
+    "resource/assets/dragonbones/common",
+    "resource/assets/dragonbones/d"
+  ],
+  "force": true,
+  "ignoreEntries": [
+    "*.png"
+  ],
+  "mode": "add",
+  "outputEntry": "resource/assets/zip/d/dbjson.zip",
+  "quiet": false,
+  "verbose": false
+}

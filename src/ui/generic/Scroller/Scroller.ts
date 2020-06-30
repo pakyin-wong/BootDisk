@@ -134,6 +134,8 @@ namespace we {
           // remove scroll bar listeners
           this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onThumbBegin, this);
           this.verticalScrollBar.removeEventListener(egret.TouchEvent.TOUCH_END, this.onThumbEnd, this);
+
+          this.disableWheel();
         }
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onMount, this);
@@ -259,7 +261,7 @@ namespace we {
           });
           */
         } catch (err) {
-          logger.e(err);
+          logger.e(utils.LogTarget.DEBUG, err);
         }
       }, 1);
 

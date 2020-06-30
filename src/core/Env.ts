@@ -5,6 +5,19 @@ namespace we {
       public readonly chipImageLimit = 11;
 
       private static _env: Env;
+      protected mobileValidGameType = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
+      protected desktopValidGameType = [
+        core.GameType.BAC,
+        core.GameType.BAI,
+        core.GameType.BAS,
+        core.GameType.BAM,
+        core.GameType.DI,
+        core.GameType.DT,
+        core.GameType.LW,
+        core.GameType.RO,
+        core.GameType.ROL,
+        core.GameType.LO,
+      ];
 
       public static get Instance(): Env {
         const env = this._env ? this._env : new Env();
@@ -14,17 +27,45 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.5.7';
+      public version: string = '0.6.0';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
+
       public nickname: string;
-      public nicknames: { nickname_group1: string[]; nickname_group2: string[]; nickname_group3: string[] };
-      public icon: string;
-      public icons: string[];
-      public profileImageURL: string;
+      public nicknameKey: string;
+      public profileimage: string;
+
+      public _nicknames: { [langcode: string]: any } = {};
+      public _groups: {};
+      public groupName: { [groupKey: string]: string } = {};
+      /**
+       * {
+       *  groupKey1:[
+       *    'nicknameKey1',
+       *    'nicknameKey2',
+       *  ],
+       *  groupKey2:[
+       *    ...
+       *  ],
+       *  ...
+       * }
+       */
+
+      public settings: {
+        mode: number;
+        categoryorders: string;
+        panelpositions: string;
+        langcode: string;
+        nicknamekey: string;
+        iconkey: string;
+      };
+
+      // public _fallbacknicknames: {};
+      public icons: { [iconKey: string]: string };
+
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
@@ -135,6 +176,14 @@ namespace we {
           }
         }
       }
+
+      public gameTypeFilter(gameType: number, validGameTypes: number[]) {
+        if (validGameTypes.indexOf(gameType) < 0) {
+          return false;
+        }
+        return true;
+      }
+
       public validateTableInfoDisplayReady(tableid: string): boolean {
         // check if the tableInfo is displayReady
         const tableInfo = this.tableInfos[tableid];
@@ -144,15 +193,18 @@ namespace we {
             return false;
           }
 
-          const gameType = tableInfo.gametype;
-          const validGameTypes = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.DI, core.GameType.DT, core.GameType.LW, core.GameType.RO];
-          if (validGameTypes.indexOf(gameType) < 0) {
+          if (!this.gameTypeFilter(tableInfo.gametype, this.mobileValidGameType)) {
             tableInfo.displayReady = false;
             return false;
           }
         }
 
         if (tableInfo && !tableInfo.displayReady) {
+          if (!this.gameTypeFilter(tableInfo.gametype, this.desktopValidGameType)) {
+            tableInfo.displayReady = false;
+            return false;
+          }
+
           if (tableInfo.data != null /* && tableInfo.roadmap != null*/) {
             tableInfo.displayReady = true;
             return true;
@@ -221,17 +273,58 @@ namespace we {
           case core.GameType.ROL:
             dir.sceneCtr.goto('rol', { tableid: tableId });
             break;
+          case core.GameType.LO:
+            dir.sceneCtr.goto('lo', { tableid: tableId });
+
           default:
-            logger.e(`Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
+            logger.e(utils.LogTarget.DEBUG, `Scene for GameType.${utils.EnumHelpers.getKeyByValue(core.GameType, gameType)} does not exists!`);
             break;
         }
       }
 
+      public set nicknameSet(val) {
+        env._groups = val.groups;
+        env.groupName[env.language] = { ...val.groups };
+        env._nicknames[env.language] = val.nicknames;
+        for (const item of Object.keys(val.groups)) {
+          env._groups[item] = [];
+        }
+        const langcode = env._nicknames['en'] ? 'en' : env.language;
+        this.groupKeySorting(langcode);
+      }
+
+      protected groupKeySorting(langcode: string) {
+        const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
+        for (const item of list) {
+          const _item = env._nicknames[langcode][item]['group'];
+          env._groups[_item].push(item);
+        }
+      }
+
+      public set fallbacknicknames(val) {
+        env._nicknames['en'] = val.nicknames;
+        env.groupName['en'] = { ...val.groups };
+      }
+
+      /*
+            protected nicknameSorting() {
+              const list = Object.keys(env._nicknames[env.language]).map(key => [key, env._nicknames[env.language][key]['value'], env._nicknames[env.language][key]['group']]);
+              list.sort(function (a, b) {
+                // re-ordering by groupKey
+                return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;
+              }); // returned data structure: [nameKey, nameValue, groupKey]
+
+              for (const item of list) {
+                // sorting by groupKey
+                env.nameList[item[2]] = env.nameList[item[2]] ? [...env.nameList[item[2]], [...item]] : [item];
+              }
+            }
+      */
       /*
       public onTableListUpdate(evt: egret.Event) {
-        logger.l('env.onTableListUpdate');
+        logger.l(utils.LoggerTarget.DEBUG, 'env.onTableListUpdate');
         const list = <number[]>evt.data;
-        logger.l(list);
+        logger.l(utils.LoggerTarget.DEBUG, list);
         if (!this.tableInfo) {
           this.tableInfo = new Array<TableInfo>();
         }

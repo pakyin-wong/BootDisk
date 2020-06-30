@@ -37,12 +37,29 @@ namespace we {
         }
       }
 
+      private hideTooltipTimeout;
+
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
+        this._chipLayer.addEventListener(
+          egret.TouchEvent.TOUCH_TAP,
+          ({ stageX, stageY }) => {
+            if (this._gameData.state !== we.core.GameState.BET) {
+              // remove existing tooltip
+              dir.tooltipCtr.removeTooltips();
+              dir.tooltipCtr.displayTooltip(stageX, stageY, 'hello');
+              clearTimeout(this.hideTooltipTimeout);
+              this.hideTooltipTimeout = setTimeout(() => {
+                dir.tooltipCtr.removeTooltips();
+              }, 2000);
+            }
+          },
+          false
+        );
 
         if (this._switchBaMode) {
           this._chipLayer.currentState = this._switchBaMode.selected ? 'SuperSix' : 'Normal';
@@ -58,6 +75,14 @@ namespace we {
         // }
         if (this._goodRoadLabel) {
           this._goodRoadLabel.visible = false;
+        }
+      }
+
+      protected onTableInfoUpdate(evt: egret.Event) {
+        super.onTableInfoUpdate(evt);
+        if (this._gameData.state === we.core.GameState.BET && this._gameData.state !== this._previousState) {
+          // clear tooltip when enter BET again
+          dir.tooltipCtr.removeTooltips();
         }
       }
 
@@ -108,14 +133,14 @@ namespace we {
           }
         }
       }
-
       public checkResultMessage() {
-        const totalWin: number = this._tableInfo.totalWin;
-
-        if (!(this._gameData && this._gameData.wintype != 0)) {
+        if (this._gameData.wintype == 0) {
           return;
         }
+        super.checkResultMessage();
+      }
 
+      protected playResultSoundEffect(totalWin) {
         let subject;
 
         switch (this._tableInfo.gametype) {
@@ -167,24 +192,11 @@ namespace we {
         }
 
         if (this.hasBet() && !isNaN(totalWin)) {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            winType: this._gameData.wintype,
-            winAmount: totalWin,
-          });
           dir.audioCtr.playSequence([subject, 'win']);
         } else {
-          this._resultMessage.showResult(this._tableInfo.gametype, {
-            winType: this._gameData.wintype,
-            winAmount: NaN,
-          });
           dir.audioCtr.playSequence([subject, 'win']);
         }
       }
-
-      // protected onOrientationChange() {
-      //   super.onOrientationChange();
-      //   this.updateSkin('BaccaratScene', true);
-      // }
     }
   }
 }

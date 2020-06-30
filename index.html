@@ -41,7 +41,7 @@
         data-multi-fingered="2" data-show-fps="true" data-show-log="false"
         data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
     </div>
-    <div class='fullscreen-overlay'>
+    <div class="fullscreen-overlay">
         <img src='swipeup.png'/>
     </div>
         <script>
@@ -72,7 +72,7 @@
                 document.body.appendChild(s);
             };
 
-            loadSingleScript('jslib/vendor-player/WFPlayer.min.js', function() {
+            var cb = function() {
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', './manifest.json?v=' + Math.random(), true);
                 xhr.addEventListener("load", function () {
@@ -119,7 +119,9 @@
                     });
                 });
                 xhr.send(null);
-            });
+            };
+            if (typeof window.WebAssembly === 'undefined') cb();
+            else loadSingleScript('jslib/vendor-player/WFPlayer.min.js', cb);
 
         </script>
 </body>
