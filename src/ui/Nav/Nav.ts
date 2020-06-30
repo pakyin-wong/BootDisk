@@ -130,7 +130,7 @@ namespace we {
       }
 
       protected updateIconImage() {
-        this._profilePrc.source = env.icons[env.profileimage];
+        this._profilePrc.source = env.icons && env.icons[env.profileimage] ? env.icons[env.profileimage] : 'd_lobby_profile_pic_01_png';
       }
 
       protected updateNickname() {
