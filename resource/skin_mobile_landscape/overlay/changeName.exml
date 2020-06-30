@@ -7,25 +7,13 @@
 		<e:Image id="close" width="80" height="80" source="d-lobby-button-close-none_png" y="40" x="2321" />
 		<ui:RunTimeLabel id="_txt_title" text="Label" x="114" y="50" width="577.58" height="119" verticalAlign="middle"
 		                 textColor="0xc59466" size="80" anchorOffsetX="0" />
-		<e:Group horizontalCenter="0" y="331">
-			<e:Group id="_btn_Cartoon" width="1146" height="120" x="1128" y="5" horizontalCenter="0">
+		<e:Group id="_group_nickname" horizontalCenter="0" y="331">
+			<!--<e:Group id="_btn_nickname" width="1146" height="120" x="1128" y="5" horizontalCenter="0">
 				<e:Rect fillColor="0x4b535b" fillAlpha="0.2" strokeWeight="3" strokeColor="0x4b535b" ellipseWidth="130"
 				        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" width="609" height="120" verticalCenter="0" />
-				<ui:RunTimeLabel id="_txt_Cartoon" text="Label" y="20.5" width="500" height="89" verticalAlign="middle"
+				<ui:RunTimeLabel id="_txt_nickname" text="Label" y="20.5" width="500" height="89" verticalAlign="middle"
 				                 textAlign="center" size="60" alpha="1" scaleX="1" scaleY="1" left="73" />
-			</e:Group>
-			<e:Group id="_btn_Myth" width="1146" height="120" x="1128" y="658" horizontalCenter="0">
-				<e:Rect fillColor="0x4b535b" fillAlpha="0.2" strokeWeight="3" strokeColor="0x4B535B" ellipseWidth="130"
-				        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
-				<ui:RunTimeLabel id="_txt_Myth" text="Label" y="15.5" width="500" height="89" verticalAlign="middle"
-				                 textAlign="center" size="60" alpha="1" scaleX="1" scaleY="1" left="73" />
-			</e:Group>
-			<e:Group id="_btn_Movie" width="1146" height="120" x="1138" y="668" horizontalCenter="0">
-				<e:Rect fillColor="0x4b535b" fillAlpha="0.2" strokeWeight="3" strokeColor="0x4B535B" ellipseWidth="130"
-				        ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
-				<ui:RunTimeLabel id="_txt_Movie" text="Label" y="15.5" width="500" height="89" verticalAlign="middle"
-				                 textAlign="center" size="60" alpha="1" scaleX="1" scaleY="1" left="73" />
-			</e:Group>
+			</e:Group>-->
 			<e:layout>
 				<e:VerticalLayout gap="38" />
 			</e:layout>

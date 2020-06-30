@@ -27,17 +27,45 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.5.7';
+      public version: string = '0.6.0';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
       public currency: Currency;
       public playerID: string;
+
       public nickname: string;
-      public nicknames: { nickname_group1: string[]; nickname_group2: string[]; nickname_group3: string[] };
-      public icon: string;
-      public icons: string[];
-      public profileImageURL: string;
+      public nicknameKey: string;
+      public profileimage: string;
+
+      public _nicknames: { [langcode: string]: any } = {};
+      public _groups: {};
+      public groupName: { [groupKey: string]: string } = {};
+      /**
+       * {
+       *  groupKey1:[
+       *    'nicknameKey1',
+       *    'nicknameKey2',
+       *  ],
+       *  groupKey2:[
+       *    ...
+       *  ],
+       *  ...
+       * }
+       */
+
+      public settings: {
+        mode: number;
+        categoryorders: string;
+        panelpositions: string;
+        langcode: string;
+        nicknamekey: string;
+        iconkey: string;
+      };
+
+      // public _fallbacknicknames: {};
+      public icons: { [iconKey: string]: string };
+
       public mode: number = NaN;
       public storedPositions: { [key: string]: { x: number; y: number } } = {}; // Stored Panel positions
       public categorySortOrder: string;
@@ -254,6 +282,44 @@ namespace we {
         }
       }
 
+      public set nicknameSet(val) {
+        env._groups = val.groups;
+        env.groupName[env.language] = { ...val.groups };
+        env._nicknames[env.language] = val.nicknames;
+        for (const item of Object.keys(val.groups)) {
+          env._groups[item] = [];
+        }
+        const langcode = env._nicknames['en'] ? 'en' : env.language;
+        this.groupKeySorting(langcode);
+      }
+
+      protected groupKeySorting(langcode: string) {
+        const list = Object.keys(env._nicknames[langcode]); // [namekey001,namekey002...]
+        for (const item of list) {
+          const _item = env._nicknames[langcode][item]['group'];
+          env._groups[_item].push(item);
+        }
+      }
+
+      public set fallbacknicknames(val) {
+        env._nicknames['en'] = val.nicknames;
+        env.groupName['en'] = { ...val.groups };
+      }
+
+      /*
+            protected nicknameSorting() {
+              const list = Object.keys(env._nicknames[env.language]).map(key => [key, env._nicknames[env.language][key]['value'], env._nicknames[env.language][key]['group']]);
+              list.sort(function (a, b) {
+                // re-ordering by groupKey
+                return a[2] === b[2] ? 0 : a[2] > b[2] ? 1 : -1;
+              }); // returned data structure: [nameKey, nameValue, groupKey]
+
+              for (const item of list) {
+                // sorting by groupKey
+                env.nameList[item[2]] = env.nameList[item[2]] ? [...env.nameList[item[2]], [...item]] : [item];
+              }
+            }
+      */
       /*
       public onTableListUpdate(evt: egret.Event) {
         logger.l(utils.LoggerTarget.DEBUG, 'env.onTableListUpdate');

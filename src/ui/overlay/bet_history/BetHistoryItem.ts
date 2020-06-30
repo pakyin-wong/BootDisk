@@ -39,6 +39,8 @@ namespace we {
             this._txt_hover_color.visible = false;
             this._txt_record_bgcolor.fillColor = 0x4b535b;
             this._txt_record_bgcolor.fillAlpha = this.data.colorIndex === 1 ? 0.3 : 0.5;
+          } else {
+            this._txt_record_bgcolor.fillColor = this.data.colorIndex === 1 ? 0x14181e : 0x1a1f26;
           }
           this._txt_record_round.text = this.data.gameroundid;
           this._txt_record_remark.text = this.formatRemark(this.data.remark);
