@@ -1,6 +1,6 @@
 namespace we {
   export namespace bam {
-    export class MobileCardHolder extends eui.Component implements ui.IResultDisplay {
+    export class MobileCardHolder extends core.BaseEUI implements ui.IResultDisplay {
       protected gameData: we.bam.GameData;
       protected _chipLayer: ui.ChipLayer;
 
@@ -38,6 +38,8 @@ namespace we {
       protected disableFilter: egret.ColorMatrixFilter;
       protected enableFilter: egret.ColorMatrixFilter;
 
+      protected _data;
+
       constructor() {
         super();
       }
@@ -61,6 +63,7 @@ namespace we {
         this.updateCardArr();
         this.addEventListeners();
         this.reset();
+        this.init(this._data);
       }
 
       protected addEventListeners() {
@@ -406,6 +409,16 @@ namespace we {
         this._playerSum.text = '0';
       }
 
+      protected init(data) {
+        if (!data) return;
+      }
+
+      protected destroy() {
+        super.destroy();
+
+        // TODO: destroy Component
+      }
+
       protected setCardsFlipAllowed() {
         if (this.isPlayerFlipAllowed()) {
           for (let i: number = 3; i <= 5; i++) {
@@ -475,6 +488,19 @@ namespace we {
         }
         return allowed;
       }
+
+        public exportData() {
+          const data: any = {};
+          data.flipAllowed = false;
+
+          return data;
+        }
+
+        public importData(data) {
+          this._data = data;
+        }
+
     }
+
   }
 }

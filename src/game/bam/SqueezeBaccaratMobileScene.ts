@@ -10,6 +10,8 @@ namespace we {
       protected _resultCard: MobileFlipCardHolder;
       protected _resultDisplay: MobileCardHolder;
 
+      protected _cardHolderData: any;
+
       protected initChildren() {
         super.initChildren();
         this._resultDisplay.passFlipCard(this._resultCard);
@@ -29,9 +31,11 @@ namespace we {
 
       protected clearOrientationDependentComponent() {
         super.clearOrientationDependentComponent();
+        this._cardHolderData = this._resultDisplay.exportData()
       }
 
       protected initOrientationDependentComponent() {
+        this._resultDisplay.importData(this._cardHolderData);
         super.initOrientationDependentComponent();
       }
 
