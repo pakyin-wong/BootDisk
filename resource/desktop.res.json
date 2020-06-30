@@ -46,7 +46,7 @@
 		},
 		{
 			"name": "preload",
-			"keys": "d_common_panel_setting_uicolour_png,d_common_panel_setting_uicolour_active_png"
+			"keys": "d_common_panel_setting_uicolour_png,d_common_panel_setting_uicolour_active_png,d_common_panel_setting_uicolour2_png,d_common_panel_setting_uicolour_active2_png,d_common_scrollbar2_png"
 		}
 	],
 	"resources": [
@@ -5307,6 +5307,21 @@
 			"name": "d_common_panel_setting_uicolour_active_png",
 			"type": "image",
 			"url": "assets/images/d/common/menu/d_common_panel_setting_uicolour_active.png"
+		},
+		{
+			"name": "d_common_panel_setting_uicolour2_png",
+			"type": "image",
+			"url": "assets/images/d/common/menu/d_common_panel_setting_uicolour.png"
+		},
+		{
+			"name": "d_common_panel_setting_uicolour_active2_png",
+			"type": "image",
+			"url": "assets/images/d/common/menu/d_common_panel_setting_uicolour_active.png"
+		},
+		{
+			"name": "d_common_scrollbar2_png",
+			"type": "image",
+			"url": "assets/images/m/common/general/common/d_common_scrollbar.png"
 		}
 	]
 }
