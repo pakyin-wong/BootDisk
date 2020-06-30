@@ -29,44 +29,47 @@ namespace we {
         this._skinKey = 'SqueezeBaccaratScene';
       }
 
-      protected clearOrientationDependentComponent() {
-        super.clearOrientationDependentComponent();
-        this._cardHolderData = this._resultDisplay.exportData()
+      protected onOrientationChange() {
+        this._cardHolderData = this._resultDisplay.exportData();
+        super.onOrientationChange();
       }
 
       protected initOrientationDependentComponent() {
-        this._resultDisplay.importData(this._cardHolderData);
         super.initOrientationDependentComponent();
+        this._resultDisplay.importData(this._cardHolderData);
       }
 
       protected setStateDeal(isInit: boolean = false) {}
 
       protected setStatePeek(isInit: boolean = false) {
         // console.log('PEEK ' + new Date(Date.now()).toString());
+        super.setStatePeek(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer);
-        if (this._previousState !== we.core.GameState.PEEK || isInit) {
-          this.setBetRelatedComponentsEnabled(false);
-          this.setResultRelatedComponentsEnabled(true);
-        }
+        // if (this._previousState !== we.core.GameState.PEEK || isInit) {
+        //   this.setBetRelatedComponentsEnabled(false);
+        //   this.setResultRelatedComponentsEnabled(true);
+        // }
       }
 
       protected setStatePeekPlayer(isInit: boolean = false) {
         // console.log('PEEK_PLAYER ' + new Date(Date.now()).toString());
+        super.setStatePeekPlayer(isInit);
         this._resultDisplay.updateResult(this._gameData, this._chipLayer);
 
-        if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
-          this.setBetRelatedComponentsEnabled(false);
-          this.setResultRelatedComponentsEnabled(true);
-        }
+        // if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
+        //   this.setBetRelatedComponentsEnabled(false);
+        //   this.setResultRelatedComponentsEnabled(true);
+        // }
       }
 
       protected setStatePeekBanker(isInit: boolean = false) {
+        super.setStatePeekBanker(isInit);
         // console.log('PEEK_BANKER ' + new Date(Date.now()).toString());
         this._resultDisplay.updateResult(this._gameData, this._chipLayer);
-        if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
-          this.setBetRelatedComponentsEnabled(false);
-          this.setResultRelatedComponentsEnabled(true);
-        }
+        // if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
+        //   this.setBetRelatedComponentsEnabled(false);
+        //   this.setResultRelatedComponentsEnabled(true);
+        // }
       }
 
       protected setStateFinish(isInit: boolean = false) {

@@ -23,6 +23,7 @@ namespace we {
             } else {
               this.texName = `m_sq_bac_small_poker_${resName}_vertical_png`;
               this.isOpen = true;
+              this.touchEnabled = false;
             }
           }
 
