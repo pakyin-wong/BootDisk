@@ -56,7 +56,6 @@ namespace we {
       }
 
       private updateRemainingTime() {
-        console.log('progressIndicator.progresds', this.progressIndicator.progress);
         const timeDiff = egret.getTimer() - this._previousFrameTime;
         this._previousFrameTime = egret.getTimer();
         let remainingTime = this._remainingTime - timeDiff;
@@ -65,7 +64,9 @@ namespace we {
           remainingTime = 0;
         }
         this.remainingTime = remainingTime;
-        if (this._colorChange && this.progressIndicator.progress < 0.5) {
+        console.log('5000/this.countdownValue', 5000 / this.countdownValue);
+        console.log('progressIndicator.progresds', this.progressIndicator.progress);
+        if (this._colorChange && this.progressIndicator.progress < 5000 / this.countdownValue) {
           this.countdownLabel.textColor = 0xff0000;
         }
       }
