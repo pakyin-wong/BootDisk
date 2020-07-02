@@ -149,7 +149,7 @@ namespace we {
         bet_balance: '餘額',
         menu: {
           title: '設定',
-          selectMode: '介面色調',
+          selectMode: '路紙色調',
           whiteMode: '亮色',
           darkMode: '暗色',
           info: '賬戶資訊',
@@ -372,6 +372,9 @@ namespace we {
         r10: '逢庄唔黐',
       },
       game: {
+        insufficientBalance: '餘額不足',
+        exceedBetUpperLimit: '超過投注上限',
+        exceedBetLowerLimit: '超過投注下限',
         startBet: '開始下注',
         stopBet: '停止下注',
       },

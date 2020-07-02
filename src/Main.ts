@@ -27,6 +27,8 @@ class Main extends eui.UILayer {
   }
 
   private async init() {
+    egret.ImageLoader.crossOrigin = 'anonymous';
+
     eui.Label.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
     egret.TextField.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
     we.ui.RunTimeLabel.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
@@ -88,7 +90,7 @@ class Main extends eui.UILayer {
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
     // step 2: init Egrets Asset / onResume
-    we.i18n.setLang('sc');
+    we.i18n.setLang('sc', true);
     await this.initRes();
     env.initialized = true;
     if (type !== 'mobile') {

@@ -192,6 +192,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+          this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -215,7 +216,17 @@ namespace we {
 
       public insufficientBalance() {
         if (this._message) {
-          this._message.showMessage(ui.InGameMessage.ERROR, 'Insufficient Balance');
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
+        }
+      }
+
+      public exceedBetLimit(evt: egret.Event) {
+        if (this._message) {
+          if (evt && evt.data && evt.data.exceedLower) {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetLowerLimit'));
+          } else {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetUpperLimit'));
+          }
         }
       }
 
@@ -232,6 +243,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+          this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -395,11 +407,37 @@ namespace we {
         }
       }
 
-      protected setStatePeek(isInit: boolean = false) {}
+      protected setStatePeek(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
 
-      protected setStatePeekPlayer(isInit: boolean = false) {}
+      protected setStatePeekPlayer(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
 
-      protected setStatePeekBanker(isInit: boolean = false) {}
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
+
+      protected setStatePeekBanker(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
 
       protected setStateBet(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.BET || isInit) {
@@ -407,6 +445,10 @@ namespace we {
           this.setResultRelatedComponentsEnabled(false);
           this._undoStack.clearStack();
           this._resultMessage.clearMessage();
+
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
         }
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -423,10 +465,6 @@ namespace we {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
 
-          if (this._betDetails && this._chipLayer) {
-            this._chipLayer.updateBetFields(this._betDetails);
-          }
-
           this._undoStack.clearStack();
         }
         // update the countdownTimer
@@ -439,6 +477,10 @@ namespace we {
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
+
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
         }
 
         if (this._previousState !== we.core.GameState.DEAL) {
@@ -448,10 +490,6 @@ namespace we {
 
           if (this._previousState === core.GameState.BET && this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
-          }
-
-          if (this._betDetails) {
-            this._chipLayer.updateBetFields(this._betDetails);
           }
         }
         if (this._resultDisplay) {

@@ -3,6 +3,7 @@ namespace we {
   export namespace core {
     export interface ISocket {
       getStaticInitData(callback: (res: any) => void, thisArg: any);
+      getStaticInitDataAsync?(callback: (res: any) => void, thisArg: any);
       connect();
       enterTable(tableID: string);
       leaveTable(tableID: string);

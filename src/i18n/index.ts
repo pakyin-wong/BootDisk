@@ -44,8 +44,33 @@ namespace we {
       return output;
     }
 
-    export function setLang(s) {
+    export async function setLang(s, isInit: boolean = false) {
       env.language = i18n.lang = s;
+      dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
+
+      if (!isInit && !env._nicknames[env.language]) {
+        const tasks = [
+          () =>
+            dir.socket.getStaticInitDataAsync(async res => {
+              if (res.error) {
+                // TODO: show default hero banner image
+                // const placeholderImg = new Image();
+                // this._bannerImages = [placeholderImg];
+              } else {
+                env.nicknameSet = {
+                  nicknames: {},
+                  groups: {},
+                }; // res.Nicknames;
+                // if (res.Nicknames) {
+                //   env.nicknameSet = res.Nicknames;
+                // }
+              }
+            }, this),
+        ];
+
+        await loadingMgr.load(tasks);
+      }
+
       dir.evtHandler.dispatch(core.Event.SWITCH_LANGUAGE, s);
     }
 

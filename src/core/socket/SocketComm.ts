@@ -113,6 +113,16 @@ namespace we {
         this.client.init(env.language, this.warpServerCallback(callback.bind(thisArg)));
       }
 
+      public async getStaticInitDataAsync(callback, thisArg) {
+        return new Promise((resolve, reject) => {
+          const resolveFunc = async (res: any) => {
+            await callback.bind(thisArg)(res);
+            resolve();
+          };
+          this.client.init(env.language, this.warpServerCallback(resolveFunc));
+        });
+      }
+
       public getLobbyMaterial(callback: (res: LobbyMaterial) => void) {
         if (dir.config.resource && dir.config.resource === 'local') {
           callback({
@@ -157,23 +167,36 @@ namespace we {
         env.currency = player.profile.currency;
         // env.nickname = player.profile.nickname;
         env.nickname = player.profile.settings.nickname ? player.profile.settings.nickname : player.profile.nickname;
-        env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
+        // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
-        env.icons = [
-          'd_lobby_profile_pic_01_png',
-          'd_lobby_profile_pic_02_png',
-          'd_lobby_profile_pic_03_png',
-          'd_lobby_profile_pic_04_png',
-          'd_lobby_profile_pic_05_png',
-          'd_lobby_profile_pic_06_png',
-          'd_lobby_profile_pic_07_png',
-          'd_lobby_profile_pic_08_png',
-        ];
-        env.icon = player.profile.settings.icon ? player.profile.settings.icon : 'd_lobby_profile_pic_01_png';
+        // env.fallbacknicknames = player.fallbacknicknames;
+        // env.icons = player.icons;
+        env.fallbacknicknames = {
+          nicknames: {},
+          groups: {},
+        };
+        env.icons = {};
+        env.nicknameKey = player.profile.nickname;
 
-        env.profileImageURL = player.profile.profileimage;
+        // env.icons = {
+        //   iconKey01: 'd_lobby_profile_pic_01_png',
+        //   iconKey02: 'd_lobby_profile_pic_02_png',
+        //   iconKey03: 'd_lobby_profile_pic_03_png',
+        //   iconKey04: 'd_lobby_profile_pic_04_png',
+        //   iconKey05: 'd_lobby_profile_pic_05_png',
+        //   iconKey06: 'd_lobby_profile_pic_06_png',
+        //   iconKey07: 'd_lobby_profile_pic_07_png',
+        //   iconKey08: 'd_lobby_profile_pic_08_png',
+        // };
+
+        env.profileimage = player.profile.settings.profileimage
+          ? player.profile.settings.profileimage
+          : player.profile.profileimageurl === ''
+          ? Object.keys(env.icons)[0]
+          : player.profile.profileimageurl;
         logger.l(utils.LogTarget.DEBUG, 'PlayerClient::handleReady() ' + player.profile.betlimits);
+
         env.betLimits = player.profile.betlimits
           ? player.profile.betlimits
           : [

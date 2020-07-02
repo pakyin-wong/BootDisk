@@ -505,7 +505,8 @@ namespace we {
         const exceedBetLimit = this.isExceedBetLimit(fieldAmounts, betLimit);
 
         if (exceedBetLimit) {
-          dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
+          const data = { exceedLower: false };
+          this.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT, false, false, data));
           return false;
         }
         return true;
