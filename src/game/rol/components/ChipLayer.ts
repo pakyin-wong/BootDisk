@@ -69,6 +69,33 @@ namespace we {
         })();
       }
 
+      protected addGridBg(grid: any, num: number) {
+        return (evt: dragonBones.EgretEvent) => {
+          if (!evt && !evt.eventObject && evt.eventObject.name !== 'INSERT_GRID_BG') {
+            return;
+          }
+          let source = '';
+          switch (we.ro.RACETRACK_COLOR[num]) {
+            case we.ro.Color.GREEN:
+              source = 'Disc_Green_103x214_png';
+              break;
+            case we.ro.Color.RED:
+              source = 'Disc_Red_84x72_png';
+            case we.ro.Color.BLACK:
+            default:
+              source = 'Disc_Black_84x72_png';
+          }
+          const img = new eui.Image();
+          img.source = source;
+          img.verticalCenter = 0;
+          img.horizontalCenter = 0;
+          img.width = grid.width - 2;
+          img.height = grid.height - 2;
+          img.alpha = 0.5;
+          grid.addChild(img);
+        };
+      }
+
       public showLuckyNumber() {
         if (!(this._tableId && env.tableInfos[this._tableId] && env.tableInfos[this._tableId].data && env.tableInfos[this._tableId].data.luckynumber)) {
           return;
@@ -98,6 +125,8 @@ namespace we {
               color = '_Black';
           }
 
+          coinAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), coinAnim);
+
           grid.addChild(coinAnim);
           coinAnim.anchorOffsetX = 3;
           coinAnim.anchorOffsetY = 2;
@@ -111,7 +140,12 @@ namespace we {
           label.text = luckyNumbers[key] + 'x';
 
           grid.addChild(label);
-          egret.Tween.get(label).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000);
+          egret.Tween.get(label)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000);
 
           (async () => {
             let p = we.utils.waitDragonBone(coinAnim);
@@ -131,6 +165,8 @@ namespace we {
             if (grid.contains(label)) {
               grid.removeChild(label);
             }
+
+            coinAnim.removeDBEventListener('INSERT_GRID_BG', this.addGridBg(grid, +key), this);
           })();
         });
       }
