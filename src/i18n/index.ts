@@ -57,13 +57,13 @@ namespace we {
                 // const placeholderImg = new Image();
                 // this._bannerImages = [placeholderImg];
               } else {
-                env.nicknameSet = {
-                  nicknames: {},
-                  groups: {},
-                }; // res.Nicknames;
-                // if (res.Nicknames) {
-                //   env.nicknameSet = res.Nicknames;
-                // }
+                // env.nicknameSet = {
+                //   nicknames: {},
+                //   groups: {},
+                // }; // res.Nicknames;
+                if (res.Nicknames) {
+                  env.nicknameSet = res.Nicknames;
+                }
               }
             }, this),
         ];

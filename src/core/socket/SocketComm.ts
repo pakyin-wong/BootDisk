@@ -170,13 +170,13 @@ namespace we {
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
-        // env.fallbacknicknames = player.fallbacknicknames;
-        // env.icons = player.icons;
-        env.fallbacknicknames = {
-          nicknames: {},
-          groups: {},
-        };
-        env.icons = {};
+        env.fallbacknicknames = player.fallbacknicknames;
+        env.icons = player.icons;
+        // env.fallbacknicknames = {
+        //   nicknames: {},
+        //   groups: {},
+        // };
+        // env.icons = {};
         env.nicknameKey = player.profile.nickname;
 
         // env.icons = {
