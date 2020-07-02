@@ -374,6 +374,9 @@ namespace we {
         bankerPair: '庄对',
       },
       game: {
+        insufficientBalance: '余额不足',
+        exceedBetUpperLimit: '超过投注上限',
+        exceedBetLowerLimit: '超过投注下限',
         startBet: '开始下注',
         stopBet: '停止下注',
       },

@@ -372,6 +372,9 @@ namespace we {
         r10: 'Not Stick on Banker',
       },
       game: {
+        insufficientBalance: 'Insufficient Balance',
+        exceedBetLowerLimit: 'Exceed Bet Lower Limit',
+        exceedBetUpperLimit: 'Exceed Bet Upper Limit',
         startBet: 'Start Bet',
         stopBet: 'Stop Bet',
       },

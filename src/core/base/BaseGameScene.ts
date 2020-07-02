@@ -192,6 +192,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+          this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -215,7 +216,17 @@ namespace we {
 
       public insufficientBalance() {
         if (this._message) {
-          this._message.showMessage(ui.InGameMessage.ERROR, 'Insufficient Balance');
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
+        }
+      }
+
+      public exceedBetLimit(evt: egret.Event) {
+        if (this._message) {
+          if (evt && evt.data && evt.data.exceedLower) {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetLowerLimit'));
+          } else {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetUpperLimit'));
+          }
         }
       }
 
@@ -232,6 +243,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+          this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
