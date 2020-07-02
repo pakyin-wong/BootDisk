@@ -27,6 +27,8 @@ class Main extends eui.UILayer {
   }
 
   private async init() {
+    egret.ImageLoader.crossOrigin = 'anonymous';
+
     eui.Label.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
     egret.TextField.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
     we.ui.RunTimeLabel.default_fontFamily = 'Microsoft JhengHei,Sans-Serif';
@@ -88,7 +90,7 @@ class Main extends eui.UILayer {
     IPhoneChromeFullscreen.OnLoad(this.stage);
 
     // step 2: init Egrets Asset / onResume
-    we.i18n.setLang('sc');
+    we.i18n.setLang('sc', true);
     await this.initRes();
     env.initialized = true;
     if (type !== 'mobile') {
@@ -149,7 +151,11 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
-      fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }, { res: 'NeonOne_otf', name: 'NeonOne' }]);
+      fontMgr.loadFonts([
+        { res: 'Barlow-Regular_otf', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
+        { res: 'NeonOne_otf', name: 'NeonOne' },
+      ]);
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {

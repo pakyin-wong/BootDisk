@@ -130,10 +130,22 @@ namespace we {
       }
 
       protected updateIconImage() {
-        this._profilePrc.source = env.icon;
+        this._profilePrc.source = env.icons && env.icons[env.profileimage] ? env.icons[env.profileimage] : 'd_lobby_profile_pic_01_png';
       }
 
       protected updateNickname() {
+        if (env.nicknameKey) {
+          try {
+            const langcode = env._nicknames[env.language] ? env.language : 'en';
+            if (env._nicknames[langcode][env.nicknameKey]) {
+              env.nickname = env._nicknames[langcode][env.nicknameKey]['value'];
+            } else {
+              env.nickname = env._nicknames['en'][env.nicknameKey]['value'];
+            }
+          } catch (err) {
+            env.nickname = env.nicknameKey;
+          }
+        }
         this._user.text = env.nickname;
       }
 

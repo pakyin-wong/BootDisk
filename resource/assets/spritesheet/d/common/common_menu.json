@@ -11,8 +11,28 @@
       "sourceW": 396,
       "sourceH": 36
     },
-    "d_lobby_button_search_hover_png": {
+    "d_common_panel_setting_uicolour_active_png": {
       "x": 2,
+      "y": 42,
+      "w": 156,
+      "h": 116,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 156,
+      "sourceH": 116
+    },
+    "d_common_panel_setting_uicolour_png": {
+      "x": 162,
+      "y": 42,
+      "w": 156,
+      "h": 116,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 156,
+      "sourceH": 116
+    },
+    "d_lobby_button_search_hover_png": {
+      "x": 322,
       "y": 42,
       "w": 48,
       "h": 48,
@@ -22,8 +42,8 @@
       "sourceH": 48
     },
     "d_lobby_button_search_normal_png": {
-      "x": 54,
-      "y": 42,
+      "x": 322,
+      "y": 94,
       "w": 48,
       "h": 48,
       "offX": 0,
@@ -32,8 +52,8 @@
       "sourceH": 48
     },
     "d_lobby_button_add_road_banker_png": {
-      "x": 106,
-      "y": 42,
+      "x": 2,
+      "y": 162,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -42,8 +62,8 @@
       "sourceH": 46
     },
     "d_lobby_button_add_road_player_png": {
-      "x": 156,
-      "y": 42,
+      "x": 52,
+      "y": 162,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -52,8 +72,8 @@
       "sourceH": 46
     },
     "d_lobby_button_clear_road_png": {
-      "x": 206,
-      "y": 42,
+      "x": 102,
+      "y": 162,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -62,8 +82,8 @@
       "sourceH": 46
     },
     "d_lobby_button_deduct_png": {
-      "x": 256,
-      "y": 42,
+      "x": 152,
+      "y": 162,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -72,8 +92,8 @@
       "sourceH": 46
     },
     "d_lobby_button_down_hover_png": {
-      "x": 306,
-      "y": 42,
+      "x": 202,
+      "y": 162,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -82,8 +102,8 @@
       "sourceH": 46
     },
     "d_lobby_button_down_normal_png": {
-      "x": 2,
-      "y": 94,
+      "x": 252,
+      "y": 162,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -92,8 +112,8 @@
       "sourceH": 46
     },
     "d_lobby_button_next_hover_png": {
-      "x": 52,
-      "y": 94,
+      "x": 302,
+      "y": 162,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -102,8 +122,8 @@
       "sourceH": 46
     },
     "d_lobby_button_next_normal_png": {
-      "x": 102,
-      "y": 94,
+      "x": 352,
+      "y": 146,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -112,8 +132,8 @@
       "sourceH": 46
     },
     "d_lobby_button_prev_hover_png": {
-      "x": 152,
-      "y": 92,
+      "x": 352,
+      "y": 196,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -122,8 +142,8 @@
       "sourceH": 46
     },
     "d_lobby_button_prev_normal_png": {
-      "x": 202,
-      "y": 92,
+      "x": 2,
+      "y": 212,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -132,8 +152,8 @@
       "sourceH": 46
     },
     "d_lobby_panel_button_page_next_normal_png": {
-      "x": 252,
-      "y": 92,
+      "x": 52,
+      "y": 212,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -142,8 +162,8 @@
       "sourceH": 46
     },
     "d_lobby_panel_button_page_prev_normal_png": {
-      "x": 302,
-      "y": 92,
+      "x": 102,
+      "y": 212,
       "w": 46,
       "h": 46,
       "offX": 0,
@@ -152,8 +172,8 @@
       "sourceH": 46
     },
     "d_lobby_goodroadsetting_hover_png": {
-      "x": 352,
-      "y": 92,
+      "x": 152,
+      "y": 212,
       "w": 44,
       "h": 44,
       "offX": 0,
@@ -162,8 +182,8 @@
       "sourceH": 44
     },
     "d_lobby_goodroadsetting_normal_png": {
-      "x": 2,
-      "y": 144,
+      "x": 200,
+      "y": 212,
       "w": 44,
       "h": 44,
       "offX": 0,
@@ -172,8 +192,8 @@
       "sourceH": 44
     },
     "d_lobby_Icon_chart_hover_png": {
-      "x": 356,
-      "y": 42,
+      "x": 248,
+      "y": 212,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -182,8 +202,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_chart_normal_png": {
-      "x": 50,
-      "y": 144,
+      "x": 292,
+      "y": 212,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -192,8 +212,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_edit_hover_png": {
-      "x": 94,
-      "y": 144,
+      "x": 2,
+      "y": 262,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -202,8 +222,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_edit_normal_png": {
-      "x": 138,
-      "y": 144,
+      "x": 46,
+      "y": 262,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -212,8 +232,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_record_hover_png": {
-      "x": 352,
-      "y": 140,
+      "x": 90,
+      "y": 262,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -222,8 +242,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_record_normal_png": {
-      "x": 182,
-      "y": 142,
+      "x": 134,
+      "y": 262,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -232,8 +252,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_setting_hover_png": {
-      "x": 226,
-      "y": 142,
+      "x": 178,
+      "y": 260,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -242,8 +262,8 @@
       "sourceH": 40
     },
     "d_lobby_Icon_setting_normal_png": {
-      "x": 270,
-      "y": 142,
+      "x": 222,
+      "y": 260,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -252,8 +272,8 @@
       "sourceH": 40
     },
     "d_lobby_goodroad_select_active_png": {
-      "x": 2,
-      "y": 192,
+      "x": 266,
+      "y": 256,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -262,8 +282,8 @@
       "sourceH": 40
     },
     "d_lobby_goodroad_select_hover_png": {
-      "x": 46,
-      "y": 192,
+      "x": 310,
+      "y": 256,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -272,8 +292,8 @@
       "sourceH": 40
     },
     "d_lobby_goodroad_select_png": {
-      "x": 90,
-      "y": 188,
+      "x": 354,
+      "y": 246,
       "w": 40,
       "h": 40,
       "offX": 0,
@@ -282,8 +302,8 @@
       "sourceH": 40
     },
     "d_lobby_panel_button_play_hover_png": {
-      "x": 134,
-      "y": 188,
+      "x": 2,
+      "y": 306,
       "w": 37,
       "h": 37,
       "offX": 0,
@@ -292,8 +312,8 @@
       "sourceH": 37
     },
     "d_lobby_panel_button_play_normal_png": {
-      "x": 175,
-      "y": 188,
+      "x": 43,
+      "y": 306,
       "w": 37,
       "h": 37,
       "offX": 0,
@@ -302,8 +322,8 @@
       "sourceH": 37
     },
     "d_lobby_goodroad_icon_previous_png": {
-      "x": 314,
-      "y": 142,
+      "x": 84,
+      "y": 306,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -312,8 +332,8 @@
       "sourceH": 32
     },
     "d_common_panel_systemsetting_pressed_select_png": {
-      "x": 314,
-      "y": 178,
+      "x": 120,
+      "y": 306,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -322,8 +342,8 @@
       "sourceH": 30
     },
     "d_lobby_profile_edit_hover_png": {
-      "x": 216,
-      "y": 186,
+      "x": 154,
+      "y": 306,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -332,8 +352,8 @@
       "sourceH": 30
     },
     "d_lobby_profile_edit_normal_png": {
-      "x": 250,
-      "y": 186,
+      "x": 188,
+      "y": 304,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -342,8 +362,8 @@
       "sourceH": 30
     },
     "d_lobby_profile_reload_hover_png": {
-      "x": 348,
-      "y": 184,
+      "x": 222,
+      "y": 304,
       "w": 30,
       "h": 30,
       "offX": 0,
@@ -352,8 +372,8 @@
       "sourceH": 30
     },
     "d_lobby_Icon_logout_hover_png": {
-      "x": 2,
-      "y": 236,
+      "x": 256,
+      "y": 304,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -362,8 +382,8 @@
       "sourceH": 27
     },
     "d_lobby_Icon_logout_normal_png": {
-      "x": 33,
-      "y": 236,
+      "x": 287,
+      "y": 300,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -372,8 +392,8 @@
       "sourceH": 27
     },
     "d_lobby_goodroadsetting_icon_trash_png": {
-      "x": 64,
-      "y": 236,
+      "x": 374,
+      "y": 42,
       "w": 21,
       "h": 24,
       "offX": 0,
@@ -382,8 +402,8 @@
       "sourceH": 24
     },
     "d_lobby_button_pagenav_png": {
-      "x": 382,
-      "y": 184,
+      "x": 374,
+      "y": 70,
       "w": 13,
       "h": 22,
       "offX": 0,
@@ -392,8 +412,8 @@
       "sourceH": 22
     },
     "d_lobby_panel_button_checkboxes_active_png": {
-      "x": 284,
-      "y": 186,
+      "x": 374,
+      "y": 96,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -402,8 +422,8 @@
       "sourceH": 22
     },
     "d_lobby_panel_button_checkboxes_normal_png": {
-      "x": 89,
-      "y": 236,
+      "x": 318,
+      "y": 300,
       "w": 22,
       "h": 22,
       "offX": 0,
@@ -412,8 +432,8 @@
       "sourceH": 22
     },
     "d_lobby_goodroad_textbox_btn_clear_png": {
-      "x": 115,
-      "y": 232,
+      "x": 374,
+      "y": 122,
       "w": 19,
       "h": 19,
       "offX": 0,
@@ -422,8 +442,8 @@
       "sourceH": 19
     },
     "d_lobby_btn_bet_icon_close_png": {
-      "x": 138,
-      "y": 229,
+      "x": 344,
+      "y": 300,
       "w": 18,
       "h": 18,
       "offX": 0,
@@ -432,8 +452,8 @@
       "sourceH": 18
     },
     "d_lobby_form_textclear_png": {
-      "x": 160,
-      "y": 229,
+      "x": 344,
+      "y": 322,
       "w": 17,
       "h": 18,
       "offX": 0,
@@ -442,8 +462,8 @@
       "sourceH": 18
     },
     "d_lobby_button_triangle_next_png": {
-      "x": 382,
-      "y": 210,
+      "x": 318,
+      "y": 326,
       "w": 10,
       "h": 17,
       "offX": 0,
@@ -452,8 +472,8 @@
       "sourceH": 17
     },
     "d_lobby_button_triangle_prev_png": {
-      "x": 181,
-      "y": 231,
+      "x": 336,
+      "y": 212,
       "w": 10,
       "h": 17,
       "offX": 0,
@@ -462,8 +482,8 @@
       "sourceH": 17
     },
     "d_lobby_btn_dropdown_png": {
-      "x": 138,
-      "y": 252,
+      "x": 322,
+      "y": 146,
       "w": 16,
       "h": 10,
       "offX": 0,
@@ -472,8 +492,8 @@
       "sourceH": 10
     },
     "d_lobby_btn_dropup_popover_png": {
-      "x": 158,
-      "y": 252,
+      "x": 287,
+      "y": 331,
       "w": 16,
       "h": 10,
       "offX": 0,
@@ -482,8 +502,8 @@
       "sourceH": 10
     },
     "d_lobby_profile_reload_normal_png": {
-      "x": 348,
-      "y": 184,
+      "x": 222,
+      "y": 304,
       "w": 30,
       "h": 30,
       "offX": 0,

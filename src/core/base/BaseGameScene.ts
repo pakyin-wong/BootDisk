@@ -267,7 +267,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -307,7 +307,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -395,11 +395,37 @@ namespace we {
         }
       }
 
-      protected setStatePeek(isInit: boolean = false) {}
+      protected setStatePeek(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
 
-      protected setStatePeekPlayer(isInit: boolean = false) {}
+      protected setStatePeekPlayer(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK_PLAYER || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
 
-      protected setStatePeekBanker(isInit: boolean = false) {}
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
+
+      protected setStatePeekBanker(isInit: boolean = false) {
+        if (this._previousState !== we.core.GameState.PEEK_BANKER || isInit) {
+          this.setBetRelatedComponentsEnabled(false);
+          this.setResultRelatedComponentsEnabled(true);
+
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
+        }
+      }
 
       protected setStateBet(isInit: boolean = false) {
         if (this._previousState !== we.core.GameState.BET || isInit) {
@@ -407,6 +433,10 @@ namespace we {
           this.setResultRelatedComponentsEnabled(false);
           this._undoStack.clearStack();
           this._resultMessage.clearMessage();
+
+          if (this._betDetails && this._chipLayer) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
         }
 
         if (this._previousState !== we.core.GameState.BET) {
@@ -423,10 +453,6 @@ namespace we {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
 
-          if (this._betDetails && this._chipLayer) {
-            this._chipLayer.updateBetFields(this._betDetails);
-          }
-
           this._undoStack.clearStack();
         }
         // update the countdownTimer
@@ -439,6 +465,10 @@ namespace we {
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           this.setBetRelatedComponentsEnabled(false);
           this.setResultRelatedComponentsEnabled(true);
+
+          if (this._betDetails) {
+            this._chipLayer.updateBetFields(this._betDetails);
+          }
         }
 
         if (this._previousState !== we.core.GameState.DEAL) {
@@ -448,10 +478,6 @@ namespace we {
 
           if (this._previousState === core.GameState.BET && this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
-          }
-
-          if (this._betDetails) {
-            this._chipLayer.updateBetFields(this._betDetails);
           }
         }
         if (this._resultDisplay) {

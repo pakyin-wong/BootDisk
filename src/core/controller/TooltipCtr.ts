@@ -12,11 +12,11 @@ namespace we {
         this.stage = stage;
       }
 
-      private onShowTooltip({ data: { displayObject, x, y } }) {
+      public displayTooltip(showX, showY, message) {
         this.activeTooltip = new eui.Group();
         // add text
         const text = new we.ui.RunTimeLabel();
-        text.renderText = () => i18n.t(displayObject.tooltipText);
+        text.renderText = () => i18n.t(message);
         text.size = 16;
         text.textColor = 0xffffff;
         text.x = this.paddingHorizontal;
@@ -32,10 +32,26 @@ namespace we {
         bg.height = text.height + this.paddingVertical * 2;
         this.activeTooltip.addChildAt(bg, 0);
         // show tooltip
+        this.activeTooltip.x = showX;
+        this.activeTooltip.y = showY;
         this.activeTooltip.alpha = 0;
         this.activeTooltip.touchEnabled = false;
         dir.layerCtr.tooltip.addChild(this.activeTooltip);
-        const coord = (<egret.DisplayObject> displayObject).localToGlobal(0, 0);
+        egret.Tween.get(this.activeTooltip).to({ alpha: 1 }, 200, egret.Ease.sineIn);
+      }
+
+      public removeTooltips() {
+        if (this.activeTooltip) {
+          egret.Tween.removeTweens(this.activeTooltip);
+        }
+        dir.layerCtr.tooltip.removeChildren();
+        this.activeTooltip = null;
+      }
+
+      private onShowTooltip({ data: { displayObject, x, y } }) {
+        const coord = (<egret.DisplayObject>displayObject).localToGlobal(0, 0);
+        // init first to get tooltip width
+        this.displayTooltip(0, 0, displayObject.tooltipText);
         switch (displayObject.tooltipPosition) {
           case 'below': {
             this.activeTooltip.x = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;
@@ -45,12 +61,10 @@ namespace we {
           default:
             break;
         }
-        egret.Tween.get(this.activeTooltip).to({ alpha: 1 }, 200, egret.Ease.sineIn);
       }
 
       private onHideTooltip() {
-        egret.Tween.removeTweens(this.activeTooltip);
-        dir.layerCtr.tooltip.removeChildren();
+        this.removeTooltips();
       }
 
       public addListeners() {

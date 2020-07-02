@@ -51,9 +51,19 @@
       "sourceW": 396,
       "sourceH": 113
     },
+    "d_common_scrollbar_png": {
+      "x": 2,
+      "y": 307,
+      "w": 14,
+      "h": 279,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 14,
+      "sourceH": 279
+    },
     "m_lobby_loading_progress_bar_base_png": {
-      "x": 402,
-      "y": 190,
+      "x": 20,
+      "y": 307,
       "w": 31,
       "h": 25,
       "offX": 0,
