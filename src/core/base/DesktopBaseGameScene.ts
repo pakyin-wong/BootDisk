@@ -32,6 +32,10 @@ namespace we {
         this._leftGamePanel.update();
         this._rightGamePanel.update();
       }
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        super.setBetRelatedComponentsEnabled(enable)
+        egret.Tween.get(this._betRelatedGroup).to({ y: enable ? 940 : 1050, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
+      }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);

@@ -517,8 +517,6 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.touchEnabled = enable;
         }
-
-        egret.Tween.get(this._betRelatedGroup).to({ y: enable ? 940 : 1050, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
