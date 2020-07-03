@@ -470,6 +470,12 @@
 			"type": "image",
 			"name": "m_common_notification_bg_png",
 			"scale9grid": "25,25,1,1"
+		},
+		{
+			"url": "assets/nmimages/m/common/ninegrids/m_ba_betarea_chipsbg_round.png",
+			"type": "image",
+			"name": "m_ba_betarea_chipsbg_round2_png",
+			"scale9grid": "33,33,1,1"
 		}
 	]
 }

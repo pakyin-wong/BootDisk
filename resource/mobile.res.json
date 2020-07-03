@@ -4656,6 +4656,12 @@
 			"url": "assets/images/m/common/cards/small/vertical/m_sq_bac_small_poker_spade_q_vertical.png",
 			"type": "image",
 			"name": "m_sq_bac_small_poker_spade_q_vertical_png"
+		},
+		{
+			"url": "assets/nmimages/m/common/ninegrids/m_ba_betarea_chipsbg_round.png",
+			"type": "image",
+			"name": "m_ba_betarea_chipsbg_round2_png",
+			"scale9grid": "33,33,1,1"
 		}
 	]
 }
