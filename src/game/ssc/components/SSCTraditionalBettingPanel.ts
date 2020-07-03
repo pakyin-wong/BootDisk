@@ -33,7 +33,7 @@ namespace we {
 
       constructor(skin: string = null) {
         super(skin);
-        this.skinName = 'skin_desktop.ssc.SSCTraditionalBettingPanel';
+        this.skinName = 'skin_desktop.lo.SSCTraditionalBettingPanel';
       }
 
       protected childrenCreated() {
@@ -60,7 +60,7 @@ namespace we {
           const bigTag: eui.Group = new eui.Group();
           bigTag.width = 117;
           bigTag.height = 60;
-          bigTag.name = obj['name'];
+          bigTag.name = obj.name;
           bigTag.touchEnabled = true;
           bigTag.touchChildren = false;
 
@@ -213,16 +213,16 @@ namespace we {
       }
 
       protected createBetTable() {
-        if(this.currentBetTable){
+        if (this.currentBetTable) {
           this.clearBetTable();
         }
-        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
-        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
+        // const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
+        // const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
 
-        this.currentBetTable = new SSCTraditionalBettingTable(config);
-        this._buttonGroup.addChild(this.currentBetTable);
-        this.currentBetTable.x = this.currentBetTable.y = 0;
-        this._buttonGroup.touchChildren = true;
+        // this.currentBetTable = new SSCTraditionalBettingTable(config);
+        // this._buttonGroup.addChild(this.currentBetTable);
+        // this.currentBetTable.x = this.currentBetTable.y = 0;
+        // this._buttonGroup.touchChildren = true;
       }
 
       protected clearBetTable() {

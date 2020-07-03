@@ -59,7 +59,7 @@ namespace we {
 
           for (let i = 0; i < this.inputData.length; i++) {
             if (this.inputData[i] !== '') {
-              this.findNextCombination(sample, i, 1, (i + 1).toString());
+              InputComponentFactory.findNextCombination(this.inputData, this.combinations, sample, i, 1, (i + 1).toString());
             }
           }
         }
@@ -69,30 +69,30 @@ namespace we {
         }
       }
 
-      private findNextCombination(sample: number, i: number, depth: number, itemString: string) {
-        if (depth === sample) {
-          if (this.validateCombination(itemString, sample)) {
-            this.combinations.push(itemString);
-          }
-          return;
-        }
+      // private findNextCombination(sample: number, i: number, depth: number, itemString: string) {
+      //   if (depth === sample) {
+      //     if (this.validateCombination(itemString, sample)) {
+      //       this.combinations.push(itemString);
+      //     }
+      //     return;
+      //   }
 
-        for (let j = i + 1; j < this.inputData.length; j++) {
-          if (this.inputData[j] !== '') {
-            this.findNextCombination(sample, j, depth + 1, itemString + '_' + (j + 1).toString());
-          } else {
-            this.findNextCombination(sample, j, depth + 1, itemString);
-          }
-        }
-      }
+      //   for (let j = i + 1; j < this.inputData.length; j++) {
+      //     if (this.inputData[j] !== '') {
+      //       this.findNextCombination(sample, j, depth + 1, itemString + '_' + (j + 1).toString());
+      //     } else {
+      //       this.findNextCombination(sample, j, depth + 1, itemString);
+      //     }
+      //   }
+      // }
 
-      private validateCombination(itemStr: string, sampleSize: number): boolean {
-        const items = itemStr.split('_');
-        if (items.length === sampleSize) {
-          return true;
-        }
-        return false;
-      }
+      // private validateCombination(itemStr: string, sampleSize: number): boolean {
+      //   const items = itemStr.split('_');
+      //   if (items.length === sampleSize) {
+      //     return true;
+      //   }
+      //   return false;
+      // }
 
       protected generateBetFields() {
         this.betFields = [];
@@ -309,7 +309,7 @@ namespace we {
 
       //   this.addChild(btnGrp);
       // }
-      protected;
+      // protected;
     }
   }
 }

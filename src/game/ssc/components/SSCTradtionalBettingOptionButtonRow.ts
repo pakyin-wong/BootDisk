@@ -4,7 +4,7 @@ namespace we {
     export class SSCTradtionalBettingOptionButtonRow extends eui.Component {
       private _rowIndex: number;
 
-      public _buttonGroup : eui.Group;
+      public _buttonGroup: eui.Group;
 
       public _allButton;
       public _bigButton;
@@ -22,7 +22,7 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = 'skin_desktop_ssc_SSCTradtionalBettingOptionButtonRow';
+        this.skinName = 'skin_desktop_lo_SSCTradtionalBettingOptionButtonRow';
         this.init();
       }
 

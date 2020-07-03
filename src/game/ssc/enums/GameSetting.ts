@@ -237,6 +237,21 @@ namespace we {
             name: 'DirectionSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR)],
           },
+          pattern: '123SUMOPTIONALSUM_$1',
+        },
+      },
+      AnyTwo: {
+        name: 'Any Two',
+        type: {
+          GroupSum: {
+            name: 'GroupSum',
+            input: [
+              InputComponentDefinition.checkboxes('', ['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
+              InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.SEPARATOR),
+            ],
+            combinationDataId: 1,
+            pattern: '&1&2&3SUMOPTIONALFREE_$1',
+          },
         },
       },
       // FourStar: {

@@ -12,11 +12,35 @@ namespace we {
           case InputComponentType.TEXTAREA:
             throw new Error('No TextArea Component');
           case InputComponentType.CHECKBOXES:
-            throw new Error('No Checkboxes Component');
+            return new SSCCheckBoxInput(index, config);
           // default:
           // throw new Error('Input type not defined.')
         }
         return null;
+      }
+
+      static findNextCombination(inputData: string[], combinations: string[], sample: number, i: number, depth: number, itemString: string) {
+        if (depth === sample) {
+          if (InputComponentFactory.validateCombination(itemString, sample)) {
+            combinations.push(itemString);
+          }
+        }
+
+        for (let j = i + 1; j < inputData.length; j++) {
+          if (inputData[j] !== '') {
+            InputComponentFactory.findNextCombination(inputData, combinations, sample, j, depth + 1, itemString + '_' + (j + 1).toString());
+          } else {
+            InputComponentFactory.findNextCombination(inputData, combinations, sample, j, depth + 1, itemString);
+          }
+        }
+      }
+
+      static validateCombination(itemStr: string, sampleSize: number): boolean {
+        const items = itemStr.split('_');
+        if (items.length === sampleSize) {
+          return true;
+        }
+        return false;
       }
     }
   }
