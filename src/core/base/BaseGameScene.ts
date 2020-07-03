@@ -555,7 +555,6 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.touchEnabled = enable;
         }
-        this._betRelatedGroup.visible = enable;
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
