@@ -38,7 +38,7 @@ namespace we {
           const lbl = new ui.RunTimeLabel();
           lbl.size = 22;
           lbl.textColor = 0xb7b9bc;
-          lbl.text = 'TEST';
+          lbl.text = this._config.title[i];
           item.addChild(lbl);
 
           const layout = new eui.HorizontalLayout();
@@ -48,6 +48,8 @@ namespace we {
 
           this._checkBoxGroup.addChild(item);
           item.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchCheckBox, this);
+        }
+        if (this._description && this._config.minSelect) {
         }
       }
 

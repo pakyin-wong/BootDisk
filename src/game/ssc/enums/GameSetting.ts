@@ -69,7 +69,8 @@ namespace we {
         };
       }
 
-      export function checkboxes(title, data, minSelect = 0) {
+      // export function checkboxes(title, data, minSelect = 0) {
+      export function checkboxes(title, minSelect = 0) {
         return {
           type: InputComponentType.CHECKBOXES,
           title,
@@ -246,7 +247,7 @@ namespace we {
           GroupSum: {
             name: 'GroupSum',
             input: [
-              InputComponentDefinition.checkboxes('', ['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
               InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.SEPARATOR),
             ],
             combinationDataId: 1,

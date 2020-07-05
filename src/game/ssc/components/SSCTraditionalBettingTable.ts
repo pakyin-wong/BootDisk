@@ -18,7 +18,7 @@ namespace we {
         super(config);
         // this.bigTagIndex = currentBigTagIndex;
         // this.smallTagIndex = currentSmallTagIndex;
-        this.init();
+        // this.init();
         // this.initComponents();
       }
 
@@ -46,7 +46,7 @@ namespace we {
 
       protected generateCombination() {
         if (!this._config.dataSelect && !this._config.combinationDataId) {
-          this.combinations = null;
+          this.combinations = [];
           return;
         }
 
@@ -183,11 +183,13 @@ namespace we {
 
         for (let i = 0; i < patterns.length; i++) {
           if (patterns[i].search(/\$\%\^\&\b(\w*undefined\w*)\b/gi) === -1) {
-            console.log('pattern :' + patterns[i]);
             this.betFields.push(patterns[i]);
           }
         }
 
+        for (let i = 0; i < this.betFields.length; i++) {
+          console.log('pattern :' + this.betFields[i]);
+        }
         // const pattern: string = this._config.pattern;
         // // $n = data of nth input eg: inputData[n]
 

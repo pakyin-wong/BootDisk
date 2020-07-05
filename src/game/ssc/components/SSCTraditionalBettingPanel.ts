@@ -125,11 +125,11 @@ namespace we {
         const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
         const smallTagsHeight = 57;
         const lastRowItemIndex = -1;
-        let offset = 0;
+        const offset = 0;
         for (let i = 0; i < Object.keys(currentBigTag['type']).length; i++) {
           const currentSmallTag = currentBigTag['type'][Object.keys(currentBigTag['type'])[i]];
           const smallTag = new eui.Group();
-          // smallTag.width = env.language === 'en'? SmallTags.LABELWIDTH_EN + 40 : SmallTags.LABELWIDTH_CN + 40;
+          //  smallTag.width = env.language === 'en'? SmallTags.LABELWIDTH_EN + 40 : SmallTags.LABELWIDTH_CN + 40;
           smallTag.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN + 40 : SmallTags.LABELWIDTH_EN + 40;
           smallTag.height = 57;
           smallTag.touchEnabled = true;
@@ -139,6 +139,7 @@ namespace we {
           // lbl.text = i18n.t(currentSmallTag["name"]);
           lbl.text = currentSmallTag['name'];
           lbl.alpha = 0.7;
+
           // lbl.width = env.language === 'en'? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_CN;
           lbl.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_EN;
           lbl.height = 57;
@@ -160,11 +161,10 @@ namespace we {
                 shape.graphics.drawRect(0, 0, 1, 30);
                 shape.graphics.endFill();
                 this._smallTagsGroup.addChild(shape);
-
-                offset += 80;
               }
             }
           }
+
           // if(smallTag.x > this._smallTagsGroup.width)
           // {
           //   if(lastRowItemIndex < 0)
@@ -174,6 +174,11 @@ namespace we {
           //   smallTag.y = smallTagsHeight;
           // }
         }
+
+        // let layout = new eui.HorizontalLayout();
+        // layout.gap = 3;
+        // layout.paddingLeft = 24;
+        // this._smallTagsGroup.layout = layout;
         this.setActiveSmallTag();
       }
 
@@ -216,16 +221,17 @@ namespace we {
         if (this.currentBetTable) {
           this.clearBetTable();
         }
-        // const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
-        // const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
+        const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
+        const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
 
-        // this.currentBetTable = new SSCTraditionalBettingTable(config);
-        // this._buttonGroup.addChild(this.currentBetTable);
-        // this.currentBetTable.x = this.currentBetTable.y = 0;
-        // this._buttonGroup.touchChildren = true;
+        this.currentBetTable = new SSCTraditionalBettingTable(config);
+        this._buttonGroup.addChild(this.currentBetTable);
+        this.currentBetTable.x = this.currentBetTable.y = 0;
+        this._buttonGroup.touchChildren = true;
       }
 
       protected clearBetTable() {
+        this.currentBetTable.clear();
         this._buttonGroup.removeChildren();
       }
 

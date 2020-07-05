@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.lo.SSCCheckBoxInput" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1500" height="80">
     <e:Group id="_content" width="100%" height="100%">
         <e:Group id="_checkBoxGroup" height="100%">
-            <e:Group id="_checkBox_0" height="40">
+            <!--<e:Group id="_checkBox_0" height="40">
                 <e:Image source="checkbox_unselect_png" width="28" height="28"/>
                 <e:Label text="FIRST" size="22" textColor="0xb7b9bc"/>
                 <e:layout>
@@ -36,7 +36,7 @@
                 <e:layout>
                     <e:HorizontalLayout verticalAlign='middle' gap="5"/>
                 </e:layout>
-            </e:Group>
+            </e:Group>-->
             <e:layout>
                 <e:HorizontalLayout verticalAlign='bottom' paddingRight="44" paddingLeft="44" gap='44'/>
             </e:layout>

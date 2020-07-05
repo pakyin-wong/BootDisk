@@ -16,6 +16,7 @@ namespace we {
           case InputComponentTheme.ROW:
           case InputComponentTheme.ROW_WITH_OPTION:
             this.skinName = 'skin_desktop.lo.SSCBallButtonRow';
+            break;
           case InputComponentTheme.ROWS:
             this.skinName = 'skin_desktop.lo.SSCBallButtonRows';
             break;
@@ -25,6 +26,9 @@ namespace we {
       }
 
       protected init() {
+        this._data = '';
+        this._balls = [];
+
         if (this._config.title && this._title) {
           this._title.text = this._config.title;
         }
@@ -39,7 +43,7 @@ namespace we {
         if (this._config.theme === InputComponentTheme.ROW_WITH_OPTION) {
           this._optionPanel = new SSCTradtionalBettingOptionButtonRow();
           for (let i = 0; i < this._optionPanel._buttonGroup.numChildren; i++) {
-            this._optionPanel._buttonGroup[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onOptionMenuClicked, this);
+            this._optionPanel._buttonGroup.getChildAt(i).addEventListener(egret.TouchEvent.TOUCH_TAP, this.onOptionMenuClicked, this);
           }
           this._content.addChild(this._optionPanel);
         }

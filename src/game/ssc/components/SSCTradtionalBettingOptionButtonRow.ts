@@ -22,7 +22,7 @@ namespace we {
 
       constructor() {
         super();
-        this.skinName = 'skin_desktop_lo_SSCTradtionalBettingOptionButtonRow';
+        this.skinName = 'skin_desktop.lo.SSCTradtionalBettingOptionButtonRow';
         this.init();
       }
 
