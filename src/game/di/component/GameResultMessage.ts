@@ -48,6 +48,8 @@ namespace we {
           // cannot use image.width
           img.anchorOffsetX = 27;
           img.anchorOffsetY = 27;
+          img.width = 54;
+          img.height = 54;
           slot.display = img;
         }
 
