@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.ro.MobileBetCombinationItem"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="620" height="100" states="normal,edit" >
-	<e:Image id="_bg" left="0" right="0" top="0" bottom="0" source="m_ro_savelayout_confirm_bg_png" scale9Grid="63,0,1,100" source.edit="m_ro_savelayout_hover_bg_png"/>
-	<e:Image id="_btn_star" width="50" height="48" x="25" y="27" source="m_ro_btn_savelayout_png" visible="false" visible.normal="true"/>
-	<e:Image id="_btn_delete" width="31" height="31" x="34" y="36" source="m_ro_active_detele_icon_png" visible="false" visible.edit="true"/>
+	<!--<e:Image id="_bg" left="0" right="0" top="0" bottom="0" source="m_ro_savelayout_confirm_bg_png" scale9Grid="63,0,1,100" source.edit="m_ro_savelayout_hover_bg_png" width="640" height="100"/>-->
+	<ui:RoundRectShape id="_bg" cornerTL_TR_BL_BR="40,40,40,40" width="620" height="100" stroke="0"
+		           fillColor="0x000000" fillAlpha="0.2" fillAlpha.edit="1" fillColor.edit="0x072b4f" stroke.edit="1" strokeColor.edit="0x00a4ff"/>
+	<e:Image id="_btn_star" width="50" height="48" x="25" y="27" source="m_ro_btn_savelayout_png" visible.normal="true" visible="false"/>
+	<e:Image id="_btn_delete" width="31" height="31" x="34" y="36" source="m_ro_active_detele_icon_png" visible.edit="true" visible="false"/>
 	<e:Label id="_txt_title" text="自選組合" x="97" y="23" height="56" verticalAlign="middle" width="340" size="38" touchEnabled="false"/>
 	<e:Label id="_txt_amount" text="$5" y="22" right="22" height="58" verticalAlign="middle" textAlign="right" touchEnabled="false"/>
 	<e:Image id="_btn_confirm" width="41" height="27" y="37" right="27" source="m_common_setting_goodroad_panel_addroad_btn_confirm_icon_png" visible="false"/>
