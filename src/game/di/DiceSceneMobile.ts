@@ -297,7 +297,6 @@ namespace we {
         });
 
         this.updateBetLimit(selectedIndex);
-
         this._bottomGamePanel._betLimitDropDownBtn.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBetLimitSelected, this);
       }
 
