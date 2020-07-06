@@ -75,6 +75,7 @@ namespace we {
           type: InputComponentType.CHECKBOXES,
           title,
           minSelect,
+          validate: (data: string | any[]) => data.length >= minSelect,
           // data example: ['1_2', '2_3', '1_3']
           // this data may use directly as the combination array
         };
@@ -246,12 +247,9 @@ namespace we {
         type: {
           GroupSum: {
             name: 'GroupSum',
-            input: [
-              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
-              InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.SEPARATOR),
-            ],
+            input: [InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2), InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1)],
             combinationDataId: 1,
-            pattern: '&1&2&3SUMOPTIONALFREE_$1',
+            pattern: '^1^2SUMOPTIONALFREE_$1',
           },
         },
       },

@@ -26,28 +26,30 @@ namespace we {
 
       public init() {
         for (let i = 0; i < this.checkBoxArray.length; i++) {
-          let item = this.checkBoxArray[i];
-          item = new eui.Group();
-          item.height = 40;
+          this.checkBoxArray[i] = new eui.Group();
+          this.checkBoxArray[i].height = 40;
 
           const img = new eui.Image();
           img.width = img.height = 28;
           img.source = 'checkbox_unselect_png';
-          item.addChild(img);
+          this.checkBoxArray[i].addChild(img);
 
           const lbl = new ui.RunTimeLabel();
           lbl.size = 22;
           lbl.textColor = 0xb7b9bc;
           lbl.text = this._config.title[i];
-          item.addChild(lbl);
+          this.checkBoxArray[i].addChild(lbl);
 
           const layout = new eui.HorizontalLayout();
           layout.verticalAlign = egret.VerticalAlign.MIDDLE;
           layout.gap = 5;
-          item.layout = layout;
+          this.checkBoxArray[i].layout = layout;
+          this.checkBoxArray[i].touchChildren = this.checkBoxArray[i].touchThrough = false;
 
-          this._checkBoxGroup.addChild(item);
-          item.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchCheckBox, this);
+          this._checkBoxGroup.addChild(this.checkBoxArray[i]);
+          this._checkBoxGroup.touchChildren = true;
+
+          this.checkBoxArray[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchCheckBox, this);
         }
         if (this._description && this._config.minSelect) {
         }
@@ -56,10 +58,10 @@ namespace we {
       public onTouchCheckBox(e: egret.TouchEvent) {
         for (let i = 0; i < this.checkBoxArray.length; i++) {
           if (e.target === this.checkBoxArray[i]) {
-            this.checkBoxValueArray[i] = !(this.checkBoxValueArray[i] as boolean);
+            this.checkBoxValueArray[i] = !this.checkBoxValueArray[i];
           }
-          this.updateData();
         }
+        this.updateData();
       }
 
       public updateData() {
@@ -81,6 +83,7 @@ namespace we {
             we.lo.InputComponentFactory.findNextCombination(inputs, this._data, sample, i, 1, (i + 1).toString());
           }
         }
+
         this.dispatchEventWith(egret.Event.CHANGE, false, { index: this._index, data: this._data });
       }
     }

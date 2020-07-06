@@ -65,7 +65,12 @@ namespace we {
         }
 
         if (this._config.combinationDataId) {
-          this.combinations = this.inputData[this._config.combinationDataId - 1];
+          const combinationdDataArray = this.inputData.slice(this._config.combinationDataId - 1, this._config.combinationDataId);
+          if (combinationdDataArray.length > 0) {
+            for (let i = 0; i < combinationdDataArray[0].length; i++) {
+              this.combinations.push(combinationdDataArray[0][i]);
+            }
+          }
         }
       }
 
@@ -103,11 +108,25 @@ namespace we {
         // let pattern = ^1^2OptionalFree_&1_&2';
 
         let value = pattern;
+        let inputData = [];
 
-        const inputData = this.inputData;
+        if (this._config.combinationDataId) {
+          switch (this._config.combinationDataId) {
+            case 1:
+              inputData.push(this.inputData[1]);
+              break;
+            case 2:
+              inputData.push(this.inputData[0]);
+              break;
+          }
+        } else {
+          inputData = this.inputData;
+        }
+
         const combination = this.combinations;
         // const combination = ['1_2','1_3','1_4','1_5'];
         const datas = [];
+        let replace = '';
 
         for (let i = 0; i < combination.length; i++) {
           datas.push(pattern);
@@ -119,8 +138,8 @@ namespace we {
           for (let i = 0; i < combination.length; i++) {
             const cIndex = combination[i].split('_');
             for (let j = 0; j < cIndex.length; j++) {
-              const n = parseInt(cIndex[j], 10);
-              datas[i] = datas[i].replace('^' + (j + 1).toString(), n);
+              replace = parseInt(cIndex[j], 10).toString();
+              datas[i] = datas[i].replace('^' + (j + 1).toString(), replace);
             }
           }
         }
@@ -131,8 +150,8 @@ namespace we {
           for (let i = 0; i < combination.length; i++) {
             const cIndex = combination[i].split('_');
             for (let j = 0; j < cIndex.length; j++) {
-              const n = inputData[parseInt(cIndex[j], 10) - 1];
-              datas[i] = datas[i].replace('&' + (j + 1).toString(), n);
+              replace = inputData[parseInt(cIndex[j], 10) - 1];
+              datas[i] = datas[i].replace('&' + (j + 1).toString(), replace);
             }
           }
         }
@@ -143,14 +162,14 @@ namespace we {
           if (datas.length > 0) {
             for (let i = 0; i < datas.length; i++) {
               for (let k = 0; k < inputData.length; k++) {
-                const n = k.toString();
-                datas[i] = datas[i].replace('%' + (k + 1).toString(), n);
+                replace = k.toString();
+                datas[i] = datas[i].replace('%' + (k + 1).toString(), replace);
               }
             }
           } else {
             for (let k = 0; k < inputData.length; k++) {
-              const n = k.toString();
-              value = value.replace('%' + (k + 1).toString(), n);
+              replace = k.toString();
+              value = value.replace('%' + (k + 1).toString(), replace);
             }
           }
         }
@@ -161,14 +180,14 @@ namespace we {
           if (datas.length > 0) {
             for (let i = 0; i < datas.length; i++) {
               for (let k = 0; k < inputData.length; k++) {
-                const n = inputData[k];
-                datas[i] = datas[i].replace('$' + (k + 1).toString(), n);
+                replace = inputData[k];
+                datas[i] = datas[i].replace('$' + (k + 1).toString(), replace);
               }
             }
           } else {
             for (let k = 0; k < inputData.length; k++) {
-              const n = inputData[k];
-              value = value.replace('$' + (k + 1).toString(), n);
+              replace = inputData[k];
+              value = value.replace('$' + (k + 1).toString(), replace);
             }
           }
         }
@@ -190,6 +209,8 @@ namespace we {
         for (let i = 0; i < this.betFields.length; i++) {
           console.log('pattern :' + this.betFields[i]);
         }
+
+        this.dispatchEventWith('BETFIELDUPDATE',false,{data:this.betFields});
         // const pattern: string = this._config.pattern;
         // // $n = data of nth input eg: inputData[n]
 
