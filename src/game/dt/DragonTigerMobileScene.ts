@@ -152,6 +152,7 @@ namespace we {
         } else {
           this.currentState = 'right_hand_mode';
         }
+        this.invalidateState();
       }
 
       // protected createVerticalLayout() {

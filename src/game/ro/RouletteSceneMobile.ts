@@ -133,6 +133,7 @@ namespace we {
         } else {
           this.currentState = 'right';
         }
+        this.invalidateState();
       }
 
       protected setSkinName() {
