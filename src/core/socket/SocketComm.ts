@@ -460,7 +460,8 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.DT: {
-            const roadmapData = parseAscString(gameStatistic.roadmapdata);
+            // const roadmapData = parseAscString(gameStatistic.roadmapdata);
+            const roadmapData = gameStatistic.roadmapdata;
             const bankerCount: number = getStatistic('bankerwincount');
             const playerCount: number = getStatistic('playerwincount');
             const tieCount: number = getStatistic('tiewincount');

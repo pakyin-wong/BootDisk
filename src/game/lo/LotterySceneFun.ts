@@ -10,9 +10,11 @@ namespace we {
   export namespace lo {
     export class LotterySceneFun extends core.DesktopBaseGameScene {
       protected _roadmapControl: we.ro.RORoadmapControl;
-      protected _leftGamePanel: we.ro.RoLeftPanel;
+      protected _leftGamePanel: we.lo.LoLeftPanel;
       protected _rightGamePanel: we.ro.RoRightPanel;
       protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
+
+      protected _bigRoad: we.lo.LoOddBigRoad;
 
       constructor(data: any) {
         super(data);
@@ -25,6 +27,8 @@ namespace we {
           this._rightGamePanel.initBetCombination(this._chipLayer);
           this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
         } // for testing
+        this._bigRoad = new we.lo.LoOddBigRoad(20, 20);
+        this.addChild(this._bigRoad);
       }
 
       protected setSkinName() {
@@ -48,7 +52,7 @@ namespace we {
         }
         if (this._leftGamePanel && this._rightGamePanel) {
           // for testing
-          this._roadmapControl.setTableInfo(this._tableInfo);
+          // this._roadmapControl.setTableInfo(this._tableInfo);
         } // for testing
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -56,7 +60,7 @@ namespace we {
       }
 
       protected initRoadMap() {
-        this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
+        /*this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
         // if (this._leftGamePanel) {// for testing
         this._roadmapControl.setRoads(
           this._leftGamePanel.beadRoad,
@@ -68,10 +72,13 @@ namespace we {
           this._bigRoadResultPanel
         );
         // }// for testing
+*/
+
+        this._bigRoad.parseRoadData(this._tableInfo.roadmap.inGame.odd1);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
+        // this._roadmapControl.updateRoadData();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
