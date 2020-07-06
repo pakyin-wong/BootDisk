@@ -52,5 +52,12 @@ namespace we {
       }
       egret.sys._createTexture = _createTexture;
     }
+
+    const touchScrollFinish = eui.sys.TouchScroll.prototype.finish;
+    function finish(currentScrollPos, maxScrollPos) {
+      this.currentScrollPos = currentScrollPos;
+      touchScrollFinish.bind(this)(currentScrollPos, maxScrollPos);
+    }
+    eui.sys.TouchScroll.prototype.finish = finish;
   }
 }
