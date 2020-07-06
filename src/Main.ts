@@ -57,7 +57,7 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
 
-    if (true || type === 'mobile') {
+    if (type === 'mobile') {
       // if (true) {
       env.isMobile = true;
       this.updateMobileHitTest();
@@ -144,10 +144,10 @@ class Main extends eui.UILayer {
     RES.processor.map('zip', new ZipProcessor());
 
     try {
-      const prodStr = '.prod';
-      // if (DEBUG) {
-      //   prodStr = '';
-      // }
+      let prodStr = '.prod';
+      if (DEBUG) {
+        prodStr = '';
+      }
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
