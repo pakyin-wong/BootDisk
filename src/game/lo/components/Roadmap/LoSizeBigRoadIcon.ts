@@ -1,7 +1,6 @@
 namespace we {
   export namespace lo {
     export class LoSizeBigRoadIcon extends ro.ROBigRoadIconBase {
-
       public constructor(size: number = 30) {
         super(size);
       }
@@ -48,7 +47,7 @@ namespace we {
             colorIdx = 0 + useDarkMode;
           }
           if (colorIdx >= 0) {
-            //this._iconShape.graphics.lineStyle(lineWidth, 0x6d7278, 0.5, true);
+            // this._iconShape.graphics.lineStyle(lineWidth, 0x6d7278, 0.5, true);
             this._iconShape.graphics.beginFill(colors[colorIdx]);
             this._iconShape.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius);
             this._iconShape.graphics.endFill();

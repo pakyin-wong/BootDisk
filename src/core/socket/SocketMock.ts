@@ -65,7 +65,7 @@ namespace we {
         }, 6000);
       }
 
-      public getBalance() {}
+      public getBalance() { }
 
       public getPlayerStatistic(filter: any, callback: (data: any) => void) {
         const data = new we.data.PlayerStatistic();
@@ -629,7 +629,7 @@ namespace we {
         */
       }
 
-      public leaveTable(tableID: string) {}
+      public leaveTable(tableID: string) { }
 
       public getTableList(filter: string) {
         /*
@@ -827,7 +827,7 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bead: [{ gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 12 }, { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 }, { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 }],
           bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
@@ -835,29 +835,29 @@ namespace we {
         },
 
         inGameB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
-          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
+          bead: [
+            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
+            { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 },
+            { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 },
+            { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b', t: 5 }],
+          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
-          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
-          beadAni: 3,
-          bigRoadAni: 6,
-          bigEyeAni: 6,
-          smallAni: 1,
-          roachAni: 6,
+          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b' }],
         },
 
         inGameP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
-          bigEye: [{ v: 'p' }, { v: 'p' }],
-          small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
-          roach: [{ v: 'p' }, { v: 'p' }],
-          beadAni: 3,
-          bigRoadAni: 3,
-          bigEyeAni: 1,
-          smallAni: 6,
-          roachAni: 1,
+          bead: [
+            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
+            { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 },
+            { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 },
+            { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p', t: 0 }],
+          bigEye: [{ v: 'p' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
+          small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
+          roach: [{ v: 'p' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
         },
 
         lobbyPro: {
@@ -903,60 +903,6 @@ namespace we {
         },
 
         inGameInfoStart: 0,
-
-        gameInfo: [
-          { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
-          { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
-          { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
-        ],
-      };
-
-      // new BA roadmap data
-      private mockBARoadData_new: any = {
-        tableid: '1',
-        shoeid: '1',
-        playerwincount: 3,
-        bankerwincount: 3,
-        tiewincount: 3,
-        playerpairwincount: 3,
-        bankerpairwincount: 3,
-
-        inGame: {
-          bead: [{ gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 12 }, { gameRoundID: '34345', v: 'p', b: 0, p: 0, w: 4 }, { gameRoundID: '45454', v: 'b', b: 0, p: 1, w: 7 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
-          bigEye: [{ v: 'p' }],
-          small: [{ v: 'b' }],
-          roach: [{ v: 'p' }],
-        },
-
-        inGameB: {
-          bead: [
-            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
-            { gameRoundID: '34345', v: 'p', b: 0, p: 0, w: 4 },
-            { gameRoundID: '45454', v: 'b', b: 0, p: 1, w: 7 },
-            { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b', b: 0, p: 0, w: 0 },
-          ],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b', t: 5 }],
-          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b' }],
-          small: [{ v: 'b' }, { v: 'b' }],
-          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b' }],
-        },
-
-        inGameP: {},
-
-        lobbyPro: {},
-
-        lobbyProB: {},
-
-        lobbyProP: {},
-
-        sideBar: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
-        },
-
-        lobbyUnPro: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
-        },
 
         gameInfo: {
           cde345: { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
@@ -1304,7 +1250,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
 
-      public sendVerifyInfo(id: string, pattern: string[]) {}
+      public sendVerifyInfo(id: string, pattern: string[]) { }
 
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
