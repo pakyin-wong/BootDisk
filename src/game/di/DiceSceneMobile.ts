@@ -311,6 +311,13 @@ namespace we {
         }
       }
 
+      protected setStateIdle(isInit: boolean = false) {
+        super.setStateIdle(isInit);
+        this._betAreaLock = true;
+        this._bottomGamePanel.manualClose();
+        this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
+        this.diState = 'small';        
+      }
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         this._betAreaLock = true;

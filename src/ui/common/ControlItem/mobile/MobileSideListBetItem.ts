@@ -26,7 +26,6 @@ namespace we {
         this.generateResultMessage();
         this.generateResultDisplay();
         super.initComponents();
-        console.log('MobileSideListBetItem ::', this._timer.parent);
       }
 
       protected destroy() {

@@ -56,6 +56,14 @@ namespace we {
         // this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
       }
 
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+        }
+      }
+
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
@@ -66,8 +74,8 @@ namespace we {
         this._totalBet.renderText = () => `${this._tableInfo.totalBet}`;
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0 };
           }
         }
       }
@@ -255,10 +263,10 @@ namespace we {
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
           }
         }
       }

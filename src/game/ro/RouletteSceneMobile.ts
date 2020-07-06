@@ -400,6 +400,13 @@ namespace we {
         }
       }
 
+      protected setStateIdle(isInit: boolean = false) {
+        super.setStateIdle(isInit);
+        this._betAreaLock = false;
+        this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
+        this.roState = 'normal';
+      }
+
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         this._betAreaLock = true;
