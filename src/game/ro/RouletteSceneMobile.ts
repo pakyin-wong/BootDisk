@@ -404,7 +404,9 @@ namespace we {
         this._betAreaLock = true;
         this._bottomGamePanel.manualClose();
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
-        this.hideBetCombination();
+        if (this._betCombination.isActivated) {
+          this.hideBetCombination();
+        }
         this.roState = 'small';
       }
 
@@ -420,7 +422,9 @@ namespace we {
         this._betAreaLock = true;
         this._bottomGamePanel.manualClose();
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
-        this.hideBetCombination();
+        if (this._betCombination.isActivated) {
+          this.hideBetCombination();
+        }
         this.roState = 'small';
       }
 
