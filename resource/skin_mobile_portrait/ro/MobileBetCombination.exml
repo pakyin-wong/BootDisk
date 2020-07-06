@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile_portrait.ro.MobileBetCombination"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="681" states="normal,large" >
 	<e:Group id="content" left="0" right="0" height.normal="860" height.large="1592" minHeight="860">
-		<e:Image left="0" right="0" top="0" bottom="0" scale9Grid="33,33,1,1" source="m_ba_betarea_chipsbg_round2_png"/>
+		<e:Image left="0" right="0" top="0" bottom="0" scale9Grid="33,33,1,1" source="m_ba_betarea_chipsbg_round_png"/>
 		<e:Group left="0" right="0" scaleX="1" scaleY="1" top="0" bottom="0">
 			<ui:RunTimeLabel id="_txt_betCombination" text="自選投注組合" x="24" y="26" height="59" size="40" verticalAlign="middle" scaleX="1" scaleY="1"/>
 			<ui:RunTimeLabel id="_txt_edit" text="編輯" y="26" right="58" size="40" height="59" verticalAlign="middle" textColor="0x2da1fe" x="543" scaleX="1" scaleY="1"/>
