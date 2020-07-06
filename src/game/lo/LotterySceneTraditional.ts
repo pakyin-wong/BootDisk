@@ -14,10 +14,6 @@ namespace we {
       protected _rightGamePanel: we.ro.RoRightPanel;
       protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
 
-      protected _oddBigRoad: we.lo.LoOddBigRoad;
-      protected _sizeBigRoad: we.lo.LoSizeBigRoad;
-      protected _dtBigRoad: we.lo.LoDtBigRoad;
-
       constructor(data: any) {
         super(data);
       }
@@ -29,20 +25,6 @@ namespace we {
           this._rightGamePanel.initBetCombination(this._chipLayer);
           this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
         } // for testing
-
-        this._oddBigRoad = new we.lo.LoOddBigRoad(29, 35);
-        this._oddBigRoad.setGridCorners({ tl: 0, tr: 0, br: 12, bl: 12 });
-        this.addChild(this._oddBigRoad);
-
-        this._sizeBigRoad = new we.lo.LoSizeBigRoad(29, 35);
-        this._sizeBigRoad.setGridCorners({ tl: 0, tr: 0, br: 12, bl: 12 });
-        this.addChild(this._sizeBigRoad);
-        this._sizeBigRoad.y = 212;
-
-        this._dtBigRoad = new we.lo.LoDtBigRoad(29, 35);
-        this._dtBigRoad.setGridCorners({ tl: 0, tr: 0, br: 12, bl: 12 });
-        this.addChild(this._dtBigRoad);
-        this._dtBigRoad.y = 424;
       }
 
       protected setSkinName() {
@@ -87,9 +69,6 @@ namespace we {
         );
         // }// for testing
 */
-        this._oddBigRoad.parseRoadData(this._tableInfo.roadmap.inGame.odd);
-        this._sizeBigRoad.parseRoadData(this._tableInfo.roadmap.inGame.size);
-        this._dtBigRoad.parseRoadData(this._tableInfo.roadmap.inGame.color);
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

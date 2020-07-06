@@ -8,6 +8,10 @@ namespace we {
       protected _btn_roadmap: ui.RoundRectButton;
       protected _btn_analysis: ui.RoundRectButton;
 
+      protected panelRoadSelect: ui.Panel;
+      protected btnRoadSelect: egret.DisplayObject;
+      protected txtRoadSelect: ui.RunTimeLabel;
+
       protected _border: ui.RoundRectShape;
 
       protected _chipLayer: ui.ChipLayer;
@@ -54,13 +58,15 @@ namespace we {
       }
 
       public changeLang() {
-        this._btn_roadmap.label.renderText = () => `${i18n.t('overlaypanel_bethistory_today')}`;
-        this._btn_analysis.label.renderText = () => `${i18n.t('overlaypanel_bethistory_today')}`;
+        this._btn_roadmap.label.text = 'Road';
+        this._btn_analysis.label.text = 'Ay';
 
-        //this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
+        // this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
 
-        //this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('roulette.hotColdNumber');
-        //this.updateActiveLine(false);
+        this.road1Btn1['labelDisplayDown']['text'] = this.road1Btn1['labelDisplayUp']['text'] = 'First';
+        this.road1Btn2['labelDisplayDown']['text'] = this.road1Btn2['labelDisplayUp']['text'] = 'Second';
+        this.road1Btn3['labelDisplayDown']['text'] = this.road1Btn3['labelDisplayUp']['text'] = 'Third';
+        // this.updateActiveLine(false);
       }
 
       public set chipLayer(value: ui.ChipLayer) {
@@ -68,17 +74,25 @@ namespace we {
       }
 
       protected setRadioButtons() {
-        //this._radioButtons = [this.pageRadioBtn1, this.pageRadioBtn2, this.pageRadioBtn3];
+        // this._radioButtons = [this.pageRadioBtn1, this.pageRadioBtn2, this.pageRadioBtn3];
         this._radioButtons = [];
       }
 
       protected init() {
         this.setRadioButtons();
 
-
-        // add bead road to page stack 2
+        const page1Group = this.pageStack.getChildAt(0) as eui.Group;
         const page2Group = this.pageStack.getChildAt(1) as eui.Group;
-        //page2Group.addChild(this.beadRoad);
+
+        const arrColRoadTypes = new eui.ArrayCollection([ui.NewDropdownItem(0, () => `Size`), ui.NewDropdownItem(1, () => `Odd`), ui.NewDropdownItem(2, () => `Dragon/Tiger`)]);
+        this.panelRoadSelect.isDropdown = true;
+        this.panelRoadSelect.isPoppable = true;
+        this.panelRoadSelect.dismissOnClickOutside = true;
+        this.panelRoadSelect.setToggler(this.btnRoadSelect);
+        this.panelRoadSelect.dropdown.review = this.txtRoadSelect;
+        this.panelRoadSelect.dropdown.data.replaceAll(arrColRoadTypes.source);
+        this.panelRoadSelect.dropdown.select(0);
+        this.panelRoadSelect.addEventListener('DROPDOWN_ITEM_CHANGE', this.onRoadTypesSelect, this);
 
         this.dtBigRoad = new LoDtBigRoad(29, 35);
         this.dtBigRoad.y = 60;
@@ -86,57 +100,36 @@ namespace we {
         this.dtBigRoad.scaleX = 1024 / 1015;
         this.dtBigRoad.scaleY = 212 / 210;
 
+        this.sizeBigRoad = new LoSizeBigRoad(28, 35);
+        this.sizeBigRoad.y = 60;
+        this.sizeBigRoad.setGridCorners({ tl: 0, tr: 0, br: 12, bl: 12 });
+        this.sizeBigRoad.scaleX = 1024 / 1015;
+        this.sizeBigRoad.scaleY = 212 / 210;
+
+        this.oddBigRoad = new LoOddBigRoad(29, 30);
+        this.oddBigRoad.y = 60;
+        this.oddBigRoad.setGridCorners({ tl: 0, tr: 0, br: 12, bl: 12 });
+        this.oddBigRoad.scaleX = 1024 / 1015;
+        this.oddBigRoad.scaleY = 212 / 210;
+
         // add road to road stack 1
         const road1Group = this.roadStack.getChildAt(0) as eui.Group;
         road1Group.addChild(this.dtBigRoad);
-
-        this.sizeBigRoad = new LoSizeBigRoad(19, 35);
-        this.sizeBigRoad.scaleX = 668 / 666;
 
         // add road to road stack 2
         const road2Group = this.roadStack.getChildAt(1) as eui.Group;
         road2Group.addChild(this.sizeBigRoad);
 
-        this.oddBigRoad = new LoOddBigRoad(19, 35);
-        this.oddBigRoad.scaleX = 668 / 666;
-
         // add road to road stack 3
         const road3Group = this.roadStack.getChildAt(2) as eui.Group;
         road3Group.addChild(this.oddBigRoad);
 
-        // this.beadRoad.x = 0;
-        // this.beadRoad.y = 44;
-        // this.beadRoad.scaleX = 690 / 689;
-        // this.beadRoad.scaleY = 690 / 689;
-        // this.addChild(this.beadRoad);
-
-        // this.switchModeButton.touchEnabled = true;
-        // this.switchModeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSwitchModeClick, this);
-        // this.addChild(this.switchModeButton);
-
-        this.activeLine = new egret.Shape();
-        const gr = this.activeLine.graphics;
-        const matrix = new egret.Matrix();
-        matrix.createGradientBox(100, 3);
-
-        gr.beginGradientFill(egret.GradientType.LINEAR, [0x52d7ff, 0x5273ef], [1, 1], [0, 255], matrix);
-        gr.drawRect(0, 0, 100, 3);
-        gr.endFill();
-        this.addChild(this.activeLine);
-        this.activeLine.y = 332;
-
-
-        const page1Group = this.pageStack.getChildAt(0) as eui.Group;
-
-
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        //this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        // this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
-
-        //this.roadRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
+        this.road1Btn1.addEventListener(eui.UIEvent.CHANGE, this.onRoadIndexChange, this);
 
         // (this.radioBtn1 as any).buttonImage.width = (this.radioBtn1 as any).labelDisplay.textWidth + 10;
-
 
         this._btn_roadmap.active = true;
         this._btn_roadmap.label.top = 0;
@@ -152,46 +145,35 @@ namespace we {
         this._btn_analysis.label.bottom = 0;
         this._btn_analysis.label.size = 20;
 
-        this._btn_roadmap.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this._btn_roadmap.addEventListener('CLICKED', this.onPageChangeRoadmap, this);
+        this._btn_analysis.addEventListener('CLICKED', this.onPageChangeAnalysis, this);
 
         this._border.touchEnabled = false;
+
         this.changeLang();
       }
 
-
-      protected onRoadChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
-        this.roadStack.selectedIndex = radio.value;
+      private onRoadTypesSelect(e) {
+        const roadTypeIndex = e.data;
+        this.panelRoadSelect && this.panelRoadSelect.dropdown.select(roadTypeIndex);
+        this.roadStack.selectedIndex = roadTypeIndex;
       }
 
-      protected onViewChange(e: eui.UIEvent) {
-        const radio: eui.RadioButton = e.target;
-        this.pageStack.selectedIndex = radio.value;
-
-        this.updateActiveLine(true);
+      protected onPageChangeRoadmap() {
+        this.pageStack.selectedIndex = 0;
+        this._btn_roadmap.active = true;
+        this._btn_analysis.active = false;
       }
 
-      protected updateActiveLine(useEasing: boolean) {
-        const btn = this._radioButtons[this.pageStack.selectedIndex];
+      protected onPageChangeAnalysis() {
+        this.pageStack.selectedIndex = 1;
+        this._btn_roadmap.active = false;
+        this._btn_analysis.active = true;
+      }
 
-        this._radioButtons.forEach(element => {
-          if (element === btn) {
-            element.currentState = 'upAndSelected';
-          } else {
-            element.currentState = 'up';
-          }
-        });
-        btn.validateNow();
-        const w = btn['labelDisplayDown']['textWidth'];
-        const x = btn.x + (btn.width - w) * 0.5;
-
-        egret.Tween.removeTweens(this.activeLine);
-        if (useEasing) {
-          egret.Tween.get(this.activeLine).to({ x, scaleX: w / 100 }, 300, egret.Ease.quartOut);
-        } else {
-          this.activeLine.x = x;
-          this.activeLine.scaleX = w / 100;
-        }
+      protected onRoadIndexChange(e: eui.UIEvent) {
+        const radio: eui.RadioButton = e.target;
+        // this.roadStack.selectedIndex = radio.value;
       }
 
       public update() {
@@ -205,8 +187,7 @@ namespace we {
       public destroy() {
         super.destroy();
 
-        //this.pageRadioBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-
+        // this.pageRadioBtn1.removeEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
 
         this.dtBigRoad.dispose();
         this.sizeBigRoad.dispose();
