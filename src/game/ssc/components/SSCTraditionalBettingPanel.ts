@@ -12,7 +12,7 @@ namespace we {
 
       protected currentBigTagIndex: number = 0;
       protected currentSmallTagIndex: number = 0;
-      private currentBetTable;
+      // private currentBetTable;
 
       protected _buttons;
 
@@ -198,7 +198,7 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]>[
+          lbl.textFlow = <egret.ITextElement[]> [
             {
               text: lbl.text,
               style: { bold: false, underline: false },
@@ -206,7 +206,7 @@ namespace we {
           ];
           if (i === this.currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]>[
+            lbl.textFlow = <egret.ITextElement[]> [
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },
@@ -218,21 +218,26 @@ namespace we {
       }
 
       protected createBetTable() {
-        if (this.currentBetTable) {
-          this.clearBetTable();
-        }
+        this.clearCurrentBettingTable();
+
         const currentBigTag = SelectionMapping[Object.keys(SelectionMapping)[this.currentBigTagIndex]];
         const config = currentBigTag['type'][Object.keys(currentBigTag['type'])[this.currentSmallTagIndex]];
 
-        this.currentBetTable = new SSCTraditionalBettingTable(config);
-        this._buttonGroup.addChild(this.currentBetTable);
-        this.currentBetTable.x = this.currentBetTable.y = 0;
-        this._buttonGroup.touchChildren = true;
+        const bettingTable = new SSCTraditionalBettingTable(config);
+        this._currentBettingTable = bettingTable;
+        this.initCurrentBettingTable();
       }
 
-      protected clearBetTable() {
-        this.currentBetTable.clear();
+      protected clearCurrentBettingTable() {
+        super.clearCurrentBettingTable();
         this._buttonGroup.removeChildren();
+      }
+
+      protected initCurrentBettingTable() {
+        super.initCurrentBettingTable();
+        this._buttonGroup.addChild(this._currentBettingTable);
+        this._currentBettingTable.x = this._currentBettingTable.y = 0;
+        this._buttonGroup.touchChildren = true;
       }
 
       protected clearSmallTags() {

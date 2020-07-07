@@ -2,23 +2,63 @@
 namespace we {
   export namespace lo {
     export abstract class ABettingPanel extends core.BaseEUI implements IBettingPanel {
-      protected _unitBet: number; // bet ammount per note
-      protected _multiplier: number; // bet ammount per note
-
-      protected _bettingTable: ABettingTable;
+      protected _currentBettingTable: ABettingTable;
       protected _bettingControl: ABettingControlBar;
       protected _noteControl: ANoteControlPanel;
 
-      protected init() {}
+      protected init() {
+        if (this._bettingControl) {
+          this._bettingControl.bettingPanel = this;
+        }
+        if (this._noteControl) {
+          this._noteControl.bettingPanel = this;
+        }
+      }
+
+      protected initComponents() {
+        this.init();
+        super.initComponents();
+        this.addEventListeners();
+      }
+
+      protected destroy() {
+        super.destroy();
+        this.removeEventListeners();
+      }
+
+      protected addEventListeners() {}
+
+      protected removeEventListeners() {}
+
+      protected clearCurrentBettingTable() {
+        if (this._currentBettingTable) {
+          this._currentBettingTable.bettingPanel = null;
+          this._currentBettingTable.dispose();
+        }
+      }
+
+      protected initCurrentBettingTable() {
+        this._currentBettingTable.bettingPanel = this;
+      }
+
+      public onInputChanged() {
+        console.log('Lottery input changed');
+        // update current input note count and current bet amount in _bettingControl
+        if (!this._bettingControl) {
+          return;
+        }
+        this._bettingControl.noteCount = this._currentBettingTable.totalNoteCount;
+      }
 
       protected betFieldMapping(betFields: string[]) {
-        return betFields.map(betField => `${betField}@${this._unitBet}`);
+        const unitBet = this._bettingControl ? this._bettingControl.unitBet : 10; // temp workaround when bettingControl not exist
+        return betFields.map(betField => `${betField}@${unitBet}`);
       }
 
       protected generateNoteData(): TradNoteData[] {
-        const rawBetFields = this._bettingTable.betFields;
+        const rawBetFields = this._currentBettingTable.betFields;
         const finalbetFields = this.betFieldMapping(rawBetFields);
-        // TODO: generateNoteData using _unitBet, _multiplier and the betField and noteCount of ABettingTable and store at _notes
+        // TODO: generateNoteData using unitBet, multiplier of ABettingControlBar and the betField and noteCount of ABettingTable and store at _notes
 
         return [];
       }

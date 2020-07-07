@@ -69,6 +69,10 @@ namespace we {
       // Check if playing bam first time
       public isFirstTimeBam = false;
 
+      // Lottery
+      public loDenominationList = [2, 20, 200];
+      public loDeniminationIdx = 0;
+
       public init() {
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
       }
