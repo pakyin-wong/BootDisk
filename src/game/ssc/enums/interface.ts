@@ -14,7 +14,19 @@ namespace we {
     }
 
     export interface IBettingPanel {
+      confirmBet();
+      instantBet();
+      addNotes();
+      chaseBet();
+    }
 
+    export interface IBettingControl {
+      unitBet: number;
+    }
+
+    export interface INoteControl {
+      notes: TradNoteData[];
+      addNotes(notes: TradNoteData[]);
     }
   }
 }
