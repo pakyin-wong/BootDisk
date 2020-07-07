@@ -30,7 +30,8 @@ namespace we {
         this.createComponents();
       }
 
-      protected clear() {
+      public dispose() {
+        super.dispose();
         this.removeChildren();
       }
 
@@ -196,7 +197,9 @@ namespace we {
           for (let i = 0; i < datas.length; i++) {
             patterns.push(datas[i]);
           }
-        } else patterns.push(value);
+        } else {
+          patterns.push(value);
+        }
 
         const output = [];
 
@@ -210,7 +213,7 @@ namespace we {
           console.log('pattern :' + this.betFields[i]);
         }
 
-        this.dispatchEventWith('BETFIELDUPDATE',false,{data:this.betFields});
+        this.dispatchEventWith('BETFIELDUPDATE', false, { data: this.betFields });
         // const pattern: string = this._config.pattern;
         // // $n = data of nth input eg: inputData[n]
 

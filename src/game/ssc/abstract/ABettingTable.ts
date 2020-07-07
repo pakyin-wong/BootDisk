@@ -5,11 +5,13 @@ namespace we {
       protected _config: any;
       protected _inputs: AInputComponent[] = [];
 
-      inputData: any[];
-      combinations: string[];
-      noteCount: number[];
-      totalNoteCount: number;
-      betFields: string[];
+      public inputData: any[];
+      public combinations: string[];
+      public noteCount: number[];
+      public totalNoteCount: number;
+      public betFields: string[];
+
+      public bettingPanel: ABettingPanel;
 
       constructor(config) {
         super();
@@ -43,16 +45,22 @@ namespace we {
         this.dataMapping();
         this.generateBetFields();
         this.computeNoteCount();
+
+        this.bettingPanel.onInputChanged();
       }
 
       protected generateCombination() {}
 
       protected validateInput(): boolean {
         for (const input of this._inputs) {
-          if (!input.validate()) return false;
+          if (!input.validate()) {
+            return false;
+          }
         }
         if (this._config.validateData) {
-          if (!this._config.validateData(data)) return false;
+          if (!this._config.validateData(data)) {
+            return false;
+          }
         }
         return true;
       }
@@ -66,6 +74,8 @@ namespace we {
       protected generateBetFields() {}
 
       public computeNoteCount() {}
+
+      public dispose() {}
     }
   }
 }
