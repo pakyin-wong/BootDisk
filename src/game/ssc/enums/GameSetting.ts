@@ -132,7 +132,7 @@ namespace we {
             input: [
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
             ],
-            pattern: '12345OPTIONALINPUT_$1_$2_$3_$4_$5',
+            pattern: '12345OPTIONALINPUT_$1',
           },
           DirectCombination: {
             name: 'DirectCombination',
@@ -188,7 +188,7 @@ namespace we {
               InputComponentDefinition.ballRange('Triple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
             ],
-            pattern: 'Group20_$1_$2',
+            pattern: 'FIVE20_$1_$2',
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -204,7 +204,7 @@ namespace we {
               InputComponentDefinition.ballRange('Triple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
-            pattern: 'Group10_$1_$2',
+            pattern: 'FIVE10_$1_$2',
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -220,7 +220,7 @@ namespace we {
               InputComponentDefinition.ballRange('Quadruple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
               InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
-            pattern: 'Group5_$1_$2',
+            pattern: 'FIVE5_$1_$2',
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -232,14 +232,263 @@ namespace we {
           },
         },
       },
+      FourStar:{
+        name: 'FiveStar',
+        seperateLine: [1], // small tag index for if there is a seprate line to seperate the next item
+        type: {
+          DirectionSelection: {
+            name: 'DirectionSelection',
+            input: [
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '2345OPTIONAL_$1_$2_$3_$4',
+            noteCountFunc: NoteCountFunc.DirectionSelection,
+          },
+          DirectMenu: {
+            name: 'DirectMenu',
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '2345OPTIONALINPUT_$1',
+          },
+          DirectCombination: {
+            name: 'DirectCombination',
+            input: [
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '2345OPTIONALCOM_$1_$2_$3_$4',
+          },
+          Group24: {
+            name: 'Group24',
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 4)],
+            pattern: '2345FOUR24_$1',
+          },
+          Group12: {
+            name: 'Group12',
+            input: [
+              InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+            ],
+            pattern: '2345FOUR12_$1_$2',
+            validateData: (data: any[]) => {
+              if (data[0].length === 2) {
+                // e.g. invalid: 01_1, 01_0, 09_9, 09_0
+                // e.g. valid: 012_0
+                // i.e. check number of different item in data1 and data2 and it must be >= 2
+                Validator.countDifferent(data[0], data[1], 2);
+              }
+            }
+          },
+          Group6: {
+            name: 'Group6',
+            input: [InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
+            pattern: '2345FOUR6_$1',
+          },
+          Group4: {
+            name: 'Group4',
+            input: [
+              InputComponentDefinition.ballRange('Triple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '2345FOUR4_$1_$2',
+          },
+      },
       FirstThree: {
         name: 'First Three',
         type: {
+          DirectionSelection: {
+            name: 'DirectionSelection',
+            input: [
+              InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '123OPTIONAL_$1_$2_$3',
+            noteCountFunc: NoteCountFunc.DirectionSelection,
+          },
+          DirectMenu: {
+            name: 'DirectMenu',
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '123OPTIONALINPUT_$1',
+          },
           DirectionSum: {
             name: 'DirectionSum',
             input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR)],
+            pattern: '123SUMOPTIONAL_$1',
           },
-          pattern: '123SUMOPTIONALSUM_$1',
+          Group3: {
+            name: 'Group3',
+            input: [InputComponentDefinition.ballRange('Group3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
+            pattern: '123THREE3_$1',
+          },
+          Group6: {
+            name: 'Group6',
+            input: [InputComponentDefinition.ballRange('Group6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
+            pattern: '123THREE6_$1',
+          },
+          Group3Tow: {
+            name: 'Group3Tow',
+            input: [
+              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '123THREEBRAVERYTOW3_$1_$2',
+          },
+          Group6Tow: {
+            name: 'Group6Tow',
+            input: [
+              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+            ],
+            pattern: '123THREEBRAVERYTOW3_$1_$2',
+          },
+          GroupCombine:{
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '123THREECOMBINE_$1',
+          },
+          SumGroup: {
+            name: 'SumGroup',
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR)],
+            pattern: '123SUMGROUP_$1',
+          },
+        },
+      },
+      MidThree: {
+        name: 'Mid Three',
+        type: {
+          DirectionSelection: {
+            name: 'DirectionSelection',
+            input: [
+              InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '234OPTIONAL_$1_$2_$3',
+            noteCountFunc: NoteCountFunc.DirectionSelection,
+          },
+          DirectMenu: {
+            name: 'DirectMenu',
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '234OPTIONALINPUT_$1',
+          },
+          DirectionSum: {
+            name: 'DirectionSum',
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR)],
+            pattern: '234SUMOPTIONAL_$1',
+          },
+          Group3: {
+            name: 'Group3',
+            input: [InputComponentDefinition.ballRange('Group3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
+            pattern: '234THREE3_$1',
+          },
+          Group6: {
+            name: 'Group6',
+            input: [InputComponentDefinition.ballRange('Group6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
+            pattern: '234THREE6_$1',
+          },
+          Group3Tow: {
+            name: 'Group3Tow',
+            input: [
+              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '234THREEBRAVERYTOW3_$1_$2',
+          },
+          Group6Tow: {
+            name: 'Group6Tow',
+            input: [
+              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+            ],
+            pattern: '234THREEBRAVERYTOW3_$1_$2',
+          },
+          GroupCombine:{
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '234THREECOMBINE_$1',
+          },
+          SumGroup: {
+            name: 'SumGroup',
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR)],
+            pattern: '234SUMGROUP_$1',
+          },
+        },
+      },
+      LastThree: {
+        name: 'Last Three',
+        type: {
+          DirectionSelection: {
+            name: 'DirectionSelection',
+            input: [
+              InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '345OPTIONAL_$1_$2_$3',
+            noteCountFunc: NoteCountFunc.DirectionSelection,
+          },
+          DirectMenu: {
+            name: 'DirectMenu',
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '345OPTIONALINPUT_$1',
+          },
+          DirectionSum: {
+            name: 'DirectionSum',
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR)],
+            pattern: '345SUMOPTIONAL_$1',
+          },
+          Group3: {
+            name: 'Group3',
+            input: [InputComponentDefinition.ballRange('Group3', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
+            pattern: '345THREE3_$1',
+          },
+          Group6: {
+            name: 'Group6',
+            input: [InputComponentDefinition.ballRange('Group6', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
+            pattern: '345THREE6_$1',
+          },
+          Group3Tow: {
+            name: 'Group3Tow',
+            input: [
+              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '345THREEBRAVERYTOW3_$1_$2',
+          },
+          Group6Tow: {
+            name: 'Group6Tow',
+            input: [
+              InputComponentDefinition.ballRange('Bravery', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Tow', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+            ],
+            pattern: '345THREEBRAVERYTOW3_$1_$2',
+          },
+          GroupCombine:{
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '345THREECOMBINE_$1',
+          },
+          SumGroup: {
+            name: 'SumGroup',
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR)],
+            pattern: '345SUMGROUP_$1',
+          },
         },
       },
       AnyTwo: {
@@ -297,6 +546,8 @@ namespace we {
       //       },
       //     },
       //   },
-    };
+
+      }
+    }
   }
 }
