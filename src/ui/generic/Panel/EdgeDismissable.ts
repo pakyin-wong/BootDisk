@@ -84,11 +84,11 @@ namespace we {
           // change alpha instead of position
           this.target.dismissVisible = true;
           await new Promise((resolve, reject) => {
-            egret.Tween.get(this.target).to({ dismissAlpha: 1 }, 500).call(resolve);
+            egret.Tween.get(this.target).to({ dismissAlpha: 1 }, 300).call(resolve);
           });
         } else {
           await new Promise((resolve, reject) => {
-            egret.Tween.get(this.target).to({ $x: this.objPos.x, $y: this.objPos.y }, 500).call(resolve);
+            egret.Tween.get(this.target).to({ $x: this.objPos.x, $y: this.objPos.y }, 300).call(resolve);
           });
         }
 
@@ -109,7 +109,7 @@ namespace we {
           // destination = this.objPos.add(dir);
           await new Promise((resolve, reject) => {
             egret.Tween.get(this.target)
-              .to({ dismissAlpha: 0 }, 500)
+              .to({ dismissAlpha: 0 }, 300)
               .call(() => {
                 this.target.dismissVisible = false;
                 resolve();
@@ -118,7 +118,7 @@ namespace we {
         } else {
           destination = new egret.Point(this.target.dismissPosX, this.target.dismissPosY);
           await new Promise((resolve, reject) => {
-            egret.Tween.get(this.target).to({ $x: destination.x, $y: destination.y }, 500).call(resolve);
+            egret.Tween.get(this.target).to({ $x: destination.x, $y: destination.y }, 300).call(resolve);
           });
         }
 

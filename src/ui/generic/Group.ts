@@ -43,17 +43,13 @@ namespace we {
 
       public set dismissVisible(val) {
         this._dismissVisible = val;
-        this.$setVisible(val && this._visible);
+        super.$setVisible(val && this._visible);
       }
 
-      public get visible(): boolean {
-        return this._visible;
-      }
-
-      public set visible(val) {
+      public $setVisible(val: boolean) {
         this._visible = val;
-        console.log(val, this._dismissVisible);
-        this.$setVisible(val && this._dismissVisible);
+        const visible = val && this._dismissVisible;
+        super.$setVisible(visible);
       }
 
       constructor() {

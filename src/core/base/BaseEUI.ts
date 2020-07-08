@@ -152,18 +152,15 @@ namespace we {
         return this._dismissVisible;
       }
 
-      public set dismissVisible(val) {
+      public set dismissVisible(val: boolean) {
         this._dismissVisible = val;
-        this.$setVisible(val && this._visible);
+        super.$setVisible(val && this._visible);
       }
 
-      public get visible(): boolean {
-        return this._visible;
-      }
-
-      public set visible(val) {
+      public $setVisible(val: boolean) {
         this._visible = val;
-        this.$setVisible(val && this._dismissVisible);
+        const visible = val && this._dismissVisible;
+        super.$setVisible(visible);
       }
     }
   }
