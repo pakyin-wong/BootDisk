@@ -5,6 +5,8 @@ namespace we {
       public static dismissableList: EdgeDismissableAddon[] = [];
       private static isAnimating: boolean = false;
 
+      protected target: eui.Component & IDismissable;
+
       public static toggle() {
         if (this.isAnimating) {
           return;
@@ -78,11 +80,18 @@ namespace we {
         if (!this.target || !this.target.stage) {
           return Promise.resolve();
         }
-        await new Promise((resolve, reject) => {
-          egret.Tween.get(this.target)
-            .to({ $x: this.objPos.x, $y: this.objPos.y }, 200)
-            .call(resolve);
-        });
+        if (isNaN(this.target.dismissPosX) || isNaN(this.target.dismissPosX)) {
+          // change alpha instead of position
+          this.target.dismissVisible = true;
+          await new Promise((resolve, reject) => {
+            egret.Tween.get(this.target).to({ dismissAlpha: 1 }, 500).call(resolve);
+          });
+        } else {
+          await new Promise((resolve, reject) => {
+            egret.Tween.get(this.target).to({ $x: this.objPos.x, $y: this.objPos.y }, 500).call(resolve);
+          });
+        }
+
         return Promise.resolve();
       }
 
@@ -92,16 +101,27 @@ namespace we {
           return Promise.resolve();
         }
         this.objPos = new egret.Point(this.target.x, this.target.y);
-        const centerPoint: egret.Point = new egret.Point(this.target.stage.stageWidth * 0.5 - this.target.width * 0.5, this.target.stage.stageHeight * 0.5 - this.target.height * 0.5);
-        const dir: egret.Point = this.objPos.subtract(centerPoint);
-        dir.normalize(Math.max(this.target.stage.stageWidth, this.target.stage.stageHeight));
-        const destination: egret.Point = this.objPos.add(dir);
+        let destination: egret.Point;
+        if (isNaN(this.target.dismissPosX) || isNaN(this.target.dismissPosX)) {
+          // const centerPoint: egret.Point = new egret.Point(this.target.stage.stageWidth * 0.5 - this.target.width * 0.5, this.target.stage.stageHeight * 0.5 - this.target.height * 0.5);
+          // const dir: egret.Point = this.objPos.subtract(centerPoint);
+          // dir.normalize(Math.max(this.target.stage.stageWidth, this.target.stage.stageHeight));
+          // destination = this.objPos.add(dir);
+          await new Promise((resolve, reject) => {
+            egret.Tween.get(this.target)
+              .to({ dismissAlpha: 0 }, 500)
+              .call(() => {
+                this.target.dismissVisible = false;
+                resolve();
+              });
+          });
+        } else {
+          destination = new egret.Point(this.target.dismissPosX, this.target.dismissPosY);
+          await new Promise((resolve, reject) => {
+            egret.Tween.get(this.target).to({ $x: destination.x, $y: destination.y }, 500).call(resolve);
+          });
+        }
 
-        await new Promise((resolve, reject) => {
-          egret.Tween.get(this.target)
-            .to({ $x: destination.x, $y: destination.y }, 200)
-            .call(resolve);
-        });
         return Promise.resolve();
       }
     }

@@ -8,6 +8,8 @@ namespace we {
       protected _tableInfoWindow: ui.TableInfoPanel;
       protected _originBetRelatedGroupY: number;
 
+      protected _panelDismissToggleBtn: ui.BaseAnimationButton;
+
       constructor(data: any) {
         super(data);
       }
@@ -23,6 +25,14 @@ namespace we {
           this._tableInfoWindow.setToggler(this._lblRoomInfo);
           this._tableInfoWindow.setValue(this._tableInfo);
         }
+
+        if (this._panelDismissToggleBtn) {
+          this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+        }
+      }
+
+      protected onPanelToggle(evt: egret.TouchEvent) {
+        ui.EdgeDismissableAddon.toggle();
       }
 
       protected updateTableInfoRelatedComponents() {
