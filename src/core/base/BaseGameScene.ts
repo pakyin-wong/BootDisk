@@ -47,6 +47,10 @@ namespace we {
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
 
+      public get tableInfo() {
+        return this._tableInfo;
+      }
+
       constructor(data: any) {
         super(data);
         this._tableId = data.tableid;
