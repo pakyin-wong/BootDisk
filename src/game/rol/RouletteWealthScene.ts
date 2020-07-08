@@ -42,6 +42,7 @@ namespace we {
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();
         (<we.rol.RolLeftPanel> this._leftGamePanel).clearLuckyNumbers();
       }
+      
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
         (<we.rol.ChipLayer> this._chipLayer).clearLuckyNumber();

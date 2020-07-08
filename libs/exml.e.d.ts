@@ -1809,6 +1809,10 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait{
+	class GodOfFortuneRouletteScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class ScrollBarVertical extends eui.Skin{
 	}
 }
