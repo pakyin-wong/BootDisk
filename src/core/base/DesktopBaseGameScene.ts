@@ -29,6 +29,8 @@ namespace we {
         if (this._panelDismissToggleBtn) {
           this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
         }
+
+        ui.EdgeDismissableAddon.isDismiss = false;
       }
 
       protected onPanelToggle(evt: egret.TouchEvent) {

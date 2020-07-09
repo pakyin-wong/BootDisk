@@ -260,9 +260,8 @@ namespace we {
         const tweenPromises = [];
 
         egret.Tween.removeTweens(this);
-
         Object.keys(this).map(value => {
-          if (this[value] instanceof egret.DisplayObject && this[value] !== this._tableLayer) {
+          if (this[value] instanceof egret.DisplayObject && this[value] !== this._tableLayer && this[value] !== this.parent) {
             egret.Tween.removeTweens(this[value]);
           }
         });
