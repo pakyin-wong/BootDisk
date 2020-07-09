@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCBettingControlBar" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1509" height="103">
+    <e:Group id="_content" width="1508" height="103">
+        <e:Group id="_leftPart" width="754" height="103">
+            <ui:RunTimeLabel id="_lblTitleMultiplier" text="Multiplier"/>
+            <e:Group id="_btnMultiplierGroup" width="165" height="50" touchChildren="true">
+                <e:Group id="_btnMinusMultiplier" width="50" height="50">
+                    <ui:RunTimeLabel id="_lblMultiplierMinus" text="-" horizontalCenter="0" verticalCenter="0" size="48"/>
+                </e:Group>
+                <e:Group id="_multiplierGroup" width="65" height="50" touchEnabled="false">
+                    <ui:RunTimeLabel id="_lblMultiplier" text="9999" horizontalCenter="0" verticalCenter="0" size="24"/>
+                </e:Group>
+                <e:Group id="_btnAddMultiplier" width="50" height="50">
+                    <ui:RunTimeLabel id="_lblMultiplierAdd" text="+" horizontalCenter="0" verticalCenter="0" size="48"/>
+                </e:Group>
+                <e:layout>
+                    <e:HorizontalLayout verticalAlign="middle" gap="0"/>
+                </e:layout>
+            </e:Group>
+            <e:Group id="_btnNoteDropDown" width="175" height="50">
+                <ui:RunTimeLabel id="_lblNote" text="$2" horizontalCenter="0" verticalCenter="0"/>
+            </e:Group>
+            <e:Group id="_btnBetDescription" width="170" height="50">
+                <e:Image id="_imgDescription" source="" width="25" height="25"/>
+                <ui:RunTimeLabel id="_lblDescription" text="DES"/>
+                <e:layout>
+                    <e:HorizontalLayout verticalAlign="middle" paddingLeft="15" paddingRight="15" gap="5"/>
+                </e:layout>
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout verticalAlign="middle" paddingLeft="34" gap="25"/>
+            </e:layout>
+        </e:Group>
+        <e:Group id="_rightPart" width="754" height="103" right="0">
+            <e:Group id="_lblNoteGroup" >
+                <e:Group id="_lblUpPart" y="0">
+                    <ui:RunTimeLabel id="_lblHighestWin" text="單倍最高金額：0元" size="20"/>
+                </e:Group>
+                <e:Group id="_lblDownPart" y="20">
+                    <ui:RunTimeLabel id="_lblTitleNoteChosen" text="已選：" size="20"/>
+                    <ui:RunTimeLabel id="_lblNoteChosen" text="0注" size="20"/>
+                    <ui:RunTimeLabel id="_lblTitleTotalBetChosen" text="，共計：" size="20"/>
+                    <ui:RunTimeLabel id="_lblTotalBet" text="0元" size="20"/>
+                    <e:layout>
+                        <e:HorizontalLayout horizontalAlign="center" verticalAlign="middle" gap="0"/>
+                    </e:layout>
+                </e:Group>
+            </e:Group>
+            <e:Group id="_btnAddBetFields" width="118" height="50">
+                <ui:RunTimeLabel id="_lblAdd" text="添加" size="20" horizontalCenter="0" verticalCenter="0"/>
+            </e:Group>
+            <e:Group id="_btnInstantBet" width="166" height="50">
+                <ui:RunTimeLabel id="_lblInstantBet" text="立即購買" size="20" horizontalCenter="0" verticalCenter="0"/>
+            </e:Group>
+            <e:layout>
+                <e:HorizontalLayout horizontalAlign="right" verticalAlign="middle" paddingRight="43" gap="25"/>
+            </e:layout>
+        </e:Group>
+    </e:Group>
+</e:Skin>

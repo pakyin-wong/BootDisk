@@ -73,7 +73,10 @@ namespace we {
 
       protected generateBetFields() {}
 
-      public computeNoteCount() {}
+      public computeNoteCount() {
+        //Input : BallsType & CheckBox + BallsType
+        this.totalNoteCount = this.betFields.length;
+      }
 
       public dispose() {}
     }
