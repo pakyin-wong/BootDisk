@@ -101,6 +101,7 @@ namespace we {
         case core.GameType.ROL:
           return 'ro';
         case core.GameType.DI:
+        case core.GameType.DIL:
           return 'di';
         case core.GameType.LW:
           return 'lw';

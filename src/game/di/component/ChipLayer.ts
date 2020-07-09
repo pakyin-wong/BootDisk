@@ -233,9 +233,6 @@ namespace we {
         this._betChipStackMapping[di.BetField.SPECIFIC_6] = this._specific_6_betChipStack;
 
         this._groupHoverMapping = {};
-        Object.keys(we.ro.BETFIELD_MAPPING).map(value => {
-          this._groupHoverMapping[value] = we.ro.BETFIELD_MAPPING[value];
-        });
       }
 
       protected isExceedBetLimit(fieldAmounts: {}, betLimit: data.BetLimitSet) {

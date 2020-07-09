@@ -292,6 +292,26 @@ declare module skin_desktop.di{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.dil{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiceWealthScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
 }
 declare class BaBetLimitDropdownSkin extends eui.Skin{
