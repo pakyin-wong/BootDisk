@@ -17,6 +17,11 @@ namespace we {
       private _btnAddBetFields;
       private _btnInstantBet;
 
+      private _lblNote;
+      private _btnNote;
+      private _lblInstantBet;
+      private _lblAddBetFields;
+
       constructor(skin: string = null) {
         super(skin);
         this.skinName = 'skin_desktop.lo.SSCTraditionalActionButtonPanel';
@@ -27,7 +32,14 @@ namespace we {
         this.init();
       }
 
-      protected init() {}
+      protected init() {
+        if (this._noteDropDown) {
+          this._noteDropDown.isDropdown = true;
+          this._noteDropDown.isPoppable = true;
+          this._noteDropDown.dismissOnClickOutside = true;
+          this._noteDropDown.setToggler(this._btnNote);
+        }
+      }
     }
   }
 }
