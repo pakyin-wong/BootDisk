@@ -48,5 +48,6 @@
 	                   anchorOffsetY="0" skinName="skin_desktop.lw.TableInfoPanel" />
 	<lw:LwBeadRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
+	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30" height="30" x="2526" y="949"  dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"/>
 </e:Skin>
 
