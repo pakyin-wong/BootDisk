@@ -22,9 +22,6 @@ namespace we {
       protected _doubleButton: ui.BaseImageButton;
       protected _undoButton: ui.BaseImageButton;
 
-      // table name label
-      // protected _label: ui.RunTimeLabel;
-
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
       protected _betDetails: data.BetDetail[];
@@ -33,19 +30,12 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
-      // protected _btnBack: eui.Image;
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
 
       protected _gameBar: ui.GameBar;
       protected _bgImg: eui.Image;
       protected _video: egret.FlvVideo;
-
-      // this for desktop
-      // protected _tableInfoWindow: ui.TableInfoPanel;
-
-      // protected _leftGamePanel: BaseGamePanel;
-      // protected _rightGamePanel: BaseGamePanel;
 
       constructor(data: any) {
         super(data);
@@ -137,6 +127,8 @@ namespace we {
 
       protected initDenom() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+        console.log(denominationList);
+
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
         }
