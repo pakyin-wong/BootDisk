@@ -4,7 +4,7 @@ namespace we {
       private _page: eui.Group;
       private _pageIndex: number;
       // private _items: string[] = ['BetChipStackTest', 'ListItemTest', 'ListTest', 'ScrollerTest', 'RoadmapTest', 'RoadmapControlTest'];
-      private _items: string[] = ['TestHolder'];
+      private _items: string[] = ['TestHolder', 'TestSSCTraditionalActionButtonPanel'];
 
       constructor(data: any = null) {
         super(data);

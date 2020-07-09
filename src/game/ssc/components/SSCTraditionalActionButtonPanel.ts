@@ -1,21 +1,33 @@
 // TypeScript file
 namespace we {
   export namespace lo {
-    export class SSCTraditionalActionButtonPanel extends core.BaseEUI{
-        private _btnConfirm;
-        private _btnAddMultiplier;
-        private _btnMinusMultiplier;
-        private _lblMultiplier;
-        
-        private _noteDropDown;
-        private _btnInfo;
+    export class SSCTraditionalActionButtonPanel extends ABettingControlBar {
+      private _btnConfirm;
+      private _btnAddMultiplier;
+      private _btnMinusMultiplier;
+      private _lblMultiplier;
 
-        private _lblTitleHighestWin;
-        private _lblTitleNoteChosen;
-        private _lblTitleTotalBet;
+      private _noteDropDown;
+      private _btnInfo;
 
-        private _btnAddBetFields;
-        private _btnInstantBet;
+      private _lblTitleHighestWin;
+      private _lblTitleNoteChosen;
+      private _lblTitleTotalBet;
+
+      private _btnAddBetFields;
+      private _btnInstantBet;
+
+      constructor(skin: string = null) {
+        super(skin);
+        this.skinName = 'skin_desktop.lo.SSCTraditionalActionButtonPanel';
+      }
+
+      protected childrenCreated() {
+        super.childrenCreated();
+        this.init();
+      }
+
+      protected init() {}
     }
   }
 }
