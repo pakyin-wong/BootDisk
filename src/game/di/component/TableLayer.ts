@@ -191,7 +191,7 @@ namespace we {
 
         egret.Tween.removeTweens(this);
         Object.keys(this).map(value => {
-          if (this[value] instanceof egret.DisplayObject) {
+          if (this[value] instanceof egret.DisplayObject && this[value] !== this.parent) {
             egret.Tween.removeTweens(this[value]);
           }
         });
