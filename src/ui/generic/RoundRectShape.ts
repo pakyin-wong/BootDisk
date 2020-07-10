@@ -14,6 +14,9 @@ namespace we {
       public stroke: number = 1;
       public strokeColor: number = 0x00ff00;
       public strokeAlpha: number = 1;
+      public strokeIn: number = 1;
+      public strokeInColor: number = 0x0000ff;
+      public strokeInAlpha: number = 1;
 
       protected mount() {
         this._shape = new egret.Shape();
@@ -21,7 +24,10 @@ namespace we {
         this._gr = this._shape.graphics;
 
         if (this.cornerTL_TR_BL_BR !== '') {
-          const corners = this.cornerTL_TR_BL_BR.split(' ').join('').split(',');
+          const corners = this.cornerTL_TR_BL_BR
+            .split(' ')
+            .join('')
+            .split(',');
           this.cornerTL = parseInt(corners[0], 10);
           this.cornerTR = parseInt(corners[1], 10);
           this.cornerBL = parseInt(corners[2], 10);
@@ -36,7 +42,10 @@ namespace we {
           this.fillAlpha,
           this.stroke,
           this.strokeColor,
-          this.strokeAlpha
+          this.strokeAlpha,
+          this.strokeIn,
+          this.strokeInColor,
+          this.strokeInAlpha
         );
       }
 
@@ -48,13 +57,19 @@ namespace we {
         fillAlpha: number = 1,
         stroke: number = 1,
         strokeColor: number = 0x00ff00,
-        strokeAlpha: number = 1
+        strokeAlpha: number = 1,
+        strokeIn: number = 0,
+        strokeInColor: number = 0x0000ff,
+        strokeInAlpha: number = 1
       ) {
         this._gr.clear();
         if (fillAlpha >= 0) {
           fillColor = fillColor.toString();
           if (fillColor.indexOf(',') > 0) {
-            const parms = fillColor.split(' ').join('').split(',');
+            const parms = fillColor
+              .split(' ')
+              .join('')
+              .split(',');
             if (parms.length === 2) {
               GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]]);
             } else if (parms.length === 3) {
@@ -65,12 +80,36 @@ namespace we {
           }
         }
         if (stroke > 0) {
-          this._gr.lineStyle(stroke, strokeColor, strokeAlpha, true);
+          this._gr.lineStyle(stroke, strokeColor, strokeAlpha);
         }
 
         RoundRect.drawRoundRect(this._gr, 0, 0, width, height, cornerRadius);
         if (fillAlpha >= 0) {
           this._gr.endFill();
+        }
+
+        // stroke Inside
+        if (strokeIn > 0) {
+          this._gr.lineStyle(strokeIn, strokeInColor, strokeInAlpha);
+          const strokeSum = strokeIn + stroke;
+          /*
+          const cRadius = {
+            tl: cornerRadius.tl > 0 ? cornerRadius.tl - strokeSum * 0.5 : 0,
+            tr: cornerRadius.tr > 0 ? cornerRadius.tr - strokeSum * 0.5 : 0,
+            bl: cornerRadius.bl > 0 ? cornerRadius.bl - strokeSum * 0.5 : 0,
+            br: cornerRadius.br > 0 ? cornerRadius.br - strokeSum * 0.5 : 0,
+          };
+          RoundRect.drawRoundRect(this._gr, strokeSum * 0.5, strokeSum * 0.5, width - strokeSum, height - strokeSum, cRadius);
+          */
+
+          const cRadius = {
+            tl: cornerRadius.tl > 0 ? cornerRadius.tl - strokeIn * 0.5 : 0,
+            tr: cornerRadius.tr > 0 ? cornerRadius.tr - strokeIn * 0.5 : 0,
+            bl: cornerRadius.bl > 0 ? cornerRadius.bl - strokeIn * 0.5 : 0,
+            br: cornerRadius.br > 0 ? cornerRadius.br - strokeIn * 0.5 : 0,
+          };
+          RoundRect.drawRoundRect(this._gr, strokeIn * 0.5, strokeIn * 0.5, width - strokeIn, height - strokeIn, cRadius);
+          // RoundRect.drawRoundRect(this._gr, strokeIn * 0.5, strokeIn * 0.5, width - strokeSum, height - strokeIn, cRadius);
         }
       }
     }
