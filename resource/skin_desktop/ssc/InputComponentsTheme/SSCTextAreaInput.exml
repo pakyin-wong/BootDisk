@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTextAreaInput" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1508" height="478">
+    <e:TextInput id="_textArea" x="44" width="1420" height="180" restrict="0-9 \\;\\," enabled="true" text=""/>
+
+    <!--<e:Group id="_textAreaGroup" x="44" y="33" width="1420" height="180" touchEnabled="true" touchChildren="true">
+    </e:Group>-->
+    <ui:RunTimeLabel id="_instruction" x="44" y="230" text="說明\n1. 每一注號碼之間的間隔符支持回車 空格[] 逗號[,] 分號[;]\n2. 文件格式必須是.txt格式，大小不超過200KB。\n3. 將文件拖入文本框即可快速實現文件上傳，大文件拖拽上傳效果更佳。\n4. 導入文本內容後將覆蓋文本框中現有的內容。" 
+    lineSpacing="0" size="18" alpha="0.7" fontFamily="PMingLiU"/>
+    
+    <e:Group id="_btnGroup" x="44" bottom="0" width="1420" height="100">
+        <e:Group x="44" verticalCenter="0" id="_btnUpload" width="149" height="50">
+            <ui:RunTimeLabel id="_lblBtnUpload" text="Upload" size="20" horizontalCenter="0" verticalCenter="0"/>
+        </e:Group>
+        <e:Group x="961" verticalCenter="0" id="_btnRemoveError" width="245" height="50">
+            <ui:RunTimeLabel id="_lblRemoveError" text="Remove Error" size="20" horizontalCenter="0" verticalCenter="0"/>
+        </e:Group>
+        <e:Group x="1246" verticalCenter="0" id="_btnClear" width="118" height="50">
+            <ui:RunTimeLabel id="_lblClear" text="Clear" size="20" horizontalCenter="0" verticalCenter="0"/>
+        </e:Group>
+    </e:Group>
+    <!--<e:TextInput id="_textInput" x="44" width="1420" height="180" restrict="0-9 \\;\\,"/>-->
+</e:Skin>

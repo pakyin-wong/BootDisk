@@ -10,7 +10,7 @@ namespace we {
             return new SSCBallRowInput(index, config);
           // throw new Error('No Ball Component');
           case InputComponentType.TEXTAREA:
-            throw new Error('No TextArea Component');
+            return new SSCTextAreaInput(index, config);
           case InputComponentType.CHECKBOXES:
             return new SSCCheckBoxInput(index, config);
           // default:
