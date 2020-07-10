@@ -9,15 +9,19 @@
 		                 textColor="0xc59466" size="48" bold="true" />
 		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" size="24" alpha="0.7"
 		                 verticalAlign="middle" />
-		<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="137" height="60" x="1512" y="147" stroke="2"
-		                   strokeColor="0x5f6973" fillColor="0x0000ff,0xff0000" />
-		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="60" height="60" x="1712" y="147" stroke="2"
-		                   strokeColor="0x5f6973" fillColor="0x00ff00,0xffff00" />
+		<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,0,0" width="137" height="60" x="1512" y="147" stroke="2"
+		                   strokeColor="0x00ff00" fillColor="0x0000ff" strokeIn="2" strokeInColor="0xff0000" />
+		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="300" height="60" x="1712" y="147" stroke="2"
+		                   strokeColor="0x000000" fillColor="0x23282e" strokeIn="2" strokeInColor="0x3a3f48" />
 		<ui:RoundRectButton id="_btn_today" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1512" y="47" stroke="2"
-		                    fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x00ff00,0xff0000,-90"
+		                    fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
 		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
-		<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47" skinName="skin_desktop.OverlayPanelButton" />
-		<ui:BaseButton id="_btn_custom" width="137" height="60" x="1826.5" y="47" skinName="skin_desktop.OverlayPanelButton" />
+		<ui:RoundRectButton id="_btn_week" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1669" y="47" stroke="2"
+		                    fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
+		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
+		<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1826" y="47"
+		                    stroke="2" fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
+		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
 		<ui:RunTimeLabel id="_txt_record_id" text="Label" x="95" y="168" width="191" height="29" size="20"
 		                 verticalAlign="middle" />
 		<ui:RunTimeLabel id="_txt_record_date" text="Label" x="286" y="168" width="248" size="20" verticalAlign="middle"
