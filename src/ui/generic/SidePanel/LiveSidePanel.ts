@@ -13,7 +13,7 @@ namespace we {
 
       protected filter: core.GameType;
 
-      protected _bg: eui.Image;
+      protected _bg: eui.Rect;
 
       constructor() {
         super();
@@ -27,7 +27,7 @@ namespace we {
       }
 
       protected initTabs() {
-        const group = <eui.Group> this._scroller.viewport;
+        const group = <eui.Group>this._scroller.viewport;
 
         this._viewStack = new eui.ViewStack();
         this._viewStack.width = group.width;
@@ -168,20 +168,19 @@ namespace we {
 
         this._tabbar.dataProvider = this._viewStack;
         this._tabbar.validateNow();
-        let tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        let tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_green_png';
 
-        tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_png';
-
-        this._bg.alpha = 0;
       }
 
       protected getLayout() {
         const layout = new eui.VerticalLayout();
-        layout.paddingTop = 20;
+        layout.paddingTop = 30;
+        layout.paddingLeft = 20;
         layout.paddingBottom = 20;
-        layout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        layout.gap = 18;
         layout.useVirtualLayout = true;
         return layout;
       }
@@ -259,7 +258,7 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate(count);
         }
@@ -269,7 +268,7 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate(count);
         }
@@ -291,16 +290,17 @@ namespace we {
         }
         super.onClearSelection();
         egret.Tween.removeTweens(this._bg);
-        egret.Tween.get(this._bg).to({ alpha: 0 }, 200);
+        egret.Tween.get(this._bg).to({ width: 140, height: 40, ellipseHeight: 100, ellipseWidth: 100 }, 200);
+        // egret.Tween.get(this._bg).to({ alpha: 0 }, 200);
       }
 
       protected onSelected() {
         super.onSelected();
         this.width = 397;
-        if (this._bg.alpha < 1) {
-          egret.Tween.removeTweens(this._bg);
-          egret.Tween.get(this._bg).to({ alpha: 1 }, 200);
-        }
+        // if (this._bg.alpha < 1) {
+        egret.Tween.removeTweens(this._bg);
+        egret.Tween.get(this._bg).to({ width: this._scroller.width, height: this.height, ellipseHeight: 20, ellipseWidth: 20 }, 200);
+        // }
         switch (this._viewStack.selectedIndex) {
           case 0:
           case 1:
