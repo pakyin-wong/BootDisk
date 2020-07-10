@@ -149,6 +149,8 @@ namespace we {
               return ro.SideListItemHolder;
             case we.core.GameType.DI:
               return di.SideListItemHolder;
+            case we.core.GameType.DIL:
+              return dil.SideListItemHolder;
             case we.core.GameType.LW:
               return lw.SideListItemHolder;
             case we.core.GameType.DT:

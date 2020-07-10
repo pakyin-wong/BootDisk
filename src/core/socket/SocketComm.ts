@@ -821,18 +821,8 @@ namespace we {
         );
       }
 
-      public sendVerifyInfo(id: string, pattern: string[]) {
-        this.client.sendVerifyInfo(
-          id,
-          pattern,
-          this.warpServerCallback((data: any) => {
-            if (data.error) {
-              // TODO:  handle error on cancel
-            } else {
-              // dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-            }
-          })
-        );
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {
+        this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
       }
 
       public getTableHistory() {}

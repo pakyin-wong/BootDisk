@@ -5,12 +5,12 @@
 	<w:Config id="172ff22b3ca"/>
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="d_mw_bg_a_jpg" x="0" locked="true" />
-	<lw:TableLayerBg id="_tableLayerBg" x="749" y="1024" width="1162" height="304"/>
-	<lw:TableLayer id="_tableLayer" width="1170" height="304" y="1020" isEdgeDismissable="true"
-	               skinName="skin_desktop.lw.TableLayerSkin" x="735" />
-	<lw:ChipLayer id="_chipLayer" width="1170" height="304" y="1020" isEdgeDismissable="true"
-	              skinName="skin_desktop.lw.ChipLayerSkin" x="735" />
-	<e:Group id="_betRelatedGroup" x="768.64" y="895.13">
+	<ui:Group x="735" y="1020" isEdgeDismissable="true" dismissPosX="735" dismissPosY="1297">
+		<lw:TableLayerBg id="_tableLayerBg" x="14" y="4" width="1162" height="304"/>
+		<lw:TableLayer id="_tableLayer" width="1170" height="304" skinName="skin_desktop.lw.TableLayerSkin" />
+		<lw:ChipLayer id="_chipLayer" width="1170" height="304" skinName="skin_desktop.lw.ChipLayerSkin" />
+	</ui:Group>
+	<ui:Group id="_betRelatedGroup" x="769" y="895" isEdgeDismissable="true">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
 		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
@@ -25,28 +25,29 @@
                             dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true" />
 		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
                             dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
-	</e:Group>
-	<lw:LwLeftPanel id="_leftGamePanel" width="717" height="304" x="16" y="1024" anchorOffsetX="0" anchorOffsetY="0" />
-	<lw:LwRightPanel id="_rightGamePanel" width="657" height="304" bottom="12" right="16" />
+	</ui:Group>
+	<lw:LwLeftPanel id="_leftGamePanel" width="717" height="304" x="16" y="1024" anchorOffsetX="0" anchorOffsetY="0" dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true" />
+	<lw:LwRightPanel id="_rightGamePanel" width="657" height="304" dismissPosX="1927" dismissPosY="1298" isEdgeDismissable="true"  x="1927" y="1024"/>
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
-		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
-		<ui:RunTimeLabel id="_lblRoomNo" x="74.98" y="9.4" size="28" height="40" verticalAlign="middle" width="191"
+		<e:Rect width="1" height="60" x="308" y="18" fillAlpha="0.3" />
+		<ui:RunTimeLabel id="_lblRoomNo" x="75" y="9" size="28" height="40" verticalAlign="middle" width="191"
 		                 textAlign="right" anchorOffsetX="0" />
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />
 		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35" y="17" />
-		<e:Image id="_lblRoomInfo" width="24" height="24" x="271.98" y="19" source="d_ba_navbar_icon_info_png" />
+		<e:Image id="_lblRoomInfo" width="24" height="24" x="272" y="19" source="d_ba_navbar_icon_info_png" />
 		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
 	</e:Group>
 	<lw:GameResultMessage id="_resultMessage" width="0" height="0" horizontalCenter="0" verticalCenter="0" />
-	<ui:InGameMessage id="_message" x="1300.5" y="865.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	<ui:InGameMessage id="_message" x="1300" y="866" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
 	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />
 	<lw:TableInfoPanel width="324" height="570" x="0" y="91" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.lw.TableInfoPanel" />
-	<lw:LwBeadRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
+	<lw:LwBeadRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
+	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30" height="30" x="2526" y="950"  dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"/>
 </e:Skin>
 

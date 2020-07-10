@@ -455,7 +455,9 @@ namespace we {
             pass2 = this._gameData && this._gameData.wintype != 0;
             break;
           case core.GameType.RO:
+          case core.GameType.ROL:
           case core.GameType.DI:
+          case core.GameType.DIL:
           case core.GameType.LW:
             pass1 = this._gameData && !isNaN(totalWin);
             pass2 = !!this._gameData;

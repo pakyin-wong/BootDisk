@@ -77,7 +77,7 @@ namespace we {
             this.gameFilters = [core.GameType.RO, core.GameType.ROL];
             break;
           case core.LiveGameTab.di:
-            this.gameFilters = [core.GameType.DI];
+            this.gameFilters = [core.GameType.DI, core.GameType.DIL];
             break;
           case core.LiveGameTab.lw:
             this.gameFilters = [core.GameType.LW];

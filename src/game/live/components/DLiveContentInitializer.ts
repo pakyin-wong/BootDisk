@@ -102,6 +102,8 @@ namespace we {
               return ro.LiveListHolder;
             case we.core.GameType.DI:
               return di.LiveListHolder;
+            case we.core.GameType.DIL:
+              return dil.LiveListHolder;
             case we.core.GameType.LW:
               return lw.LiveListHolder;
             case we.core.GameType.DT:

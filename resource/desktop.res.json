@@ -29,7 +29,7 @@
 			"name": "scene_roulette"
 		},
 		{
-			"keys": "d_di_betboard_inactive_png,d_sic_panel_normal_png,d_sic_panel_open_png,d_di_betboard_hover_combine_png,d_di_betboard_hover_double_png,d_di_betboard_hover_large_group_png,d_di_betboard_hover_specific_png,d_di_betboard_hover_sum_png,d_di_betboard_hover_triple_all_png,d_di_betboard_hover_triple_png,d_sic_panel_open-a_1_hover_png,d_sic_panel_open-a_1_pressed_png,d_sic_panel_open-a_2_hover_png,d_sic_panel_open-a_2_pressed_png,d_sic_panel_open-a_3_hover_png,d_sic_panel_open-a_3_pressed_png,d_sic_panel_open-a_4_hover_png,d_sic_panel_open-a_4_pressed_png,d_sic_panel_open-a_5_hover_png,d_sic_panel_open-a_5_pressed_png,d_sic_panel_open-a_9_hover_png,d_sic_panel_open-a_9_pressed_png,d_sic_panel_open-b_1_hover_png,d_sic_panel_open-b_1_pressed_png,d_sic_panel_open-b_14_hover_png,d_sic_panel_open-b_14_pressed_png,d_sic_panel_open-b_2_hover_png,d_sic_panel_open-b_2_pressed_png,d_sic_panel_open-c_1_hover_png,d_sic_panel_open-c_1_pressed_png,d_sic_panel_open-c_10_hover_png,d_sic_panel_open-c_10_pressed_png,d_sic_panel_open-c_11_hover_png,d_sic_panel_open-c_11_pressed_png,d_sic_panel_open-c_12_hover_png,d_sic_panel_open-c_12_pressed_png,d_sic_panel_open-c_13_hover_png,d_sic_panel_open-c_13_pressed_png,d_sic_panel_open-c_14_hover_png,d_sic_panel_open-c_14_pressed_png,d_sic_panel_open-c_15_hover_png,d_sic_panel_open-c_15_pressed_png,d_sic_panel_open-c_2_hover_png,d_sic_panel_open-c_2_pressed_png,d_sic_panel_open-c_3_hover_png,d_sic_panel_open-c_3_pressed_png,d_sic_panel_open-c_4_hover_png,d_sic_panel_open-c_4_pressed_png,d_sic_panel_open-c_5_hover_png,d_sic_panel_open-c_5_pressed_png,d_sic_panel_open-c_6_hover_png,d_sic_panel_open-c_6_pressed_png,d_sic_panel_open-c_7_hover_png,d_sic_panel_open-c_7_pressed_png,d_sic_panel_open-c_8_hover_png,d_sic_panel_open-c_8_pressed_png,d_sic_panel_open-c_9_hover_png,d_sic_panel_open-c_9_pressed_png,d_sic_panel_open-d_6_hover_png,d_sic_panel_open-d_6_pressed_png,d_sic_panel_open-d_7_hover_png,d_sic_panel_open-d_7_pressed_png,d_sic_history_btn_hide_hover_png,d_sic_history_btn_hide_png,d_sic_history_btn_showall_hover_png,d_sic_history_btn_showall_png,d_sic_history_chart_line-2_png,d_sic_history_grid_png,d_sic_history_lv2_dice-1_png,d_sic_history_lv2_dice-2_png,d_sic_history_lv2_dice-3_png,d_sic_history_lv2_dice-4_png,d_sic_history_lv2_dice-5_png,d_sic_history_lv2_dice-6_png,d_sic_history_lv3_dice-1_png,d_sic_history_lv3_dice-2_png,d_sic_history_lv3_dice-3_png,d_sic_history_lv3_dice-4_png,d_sic_history_lv3_dice-5_png,d_sic_history_lv3_dice-6_png,d_sic_lobby_bg_2_png,d_sic_lobby_chart_bg_left_png,d_sic_lobby_chart_bg_right_png,sicbo_game_result_tex_png,sicbo_game_result_tex_json,sicbo_game_result_ske_json",
+			"keys": "d_di_betboard_inactive_png,d_sic_panel_normal_png,d_sic_panel_open_png,d_di_betboard_hover_combine_png,d_di_betboard_hover_double_png,d_di_betboard_hover_large_group_png,d_di_betboard_hover_specific_png,d_di_betboard_hover_sum_png,d_di_betboard_hover_triple_all_png,d_di_betboard_hover_triple_png,d_sic_panel_open-a_1_hover_png,d_sic_panel_open-a_1_pressed_png,d_sic_panel_open-a_2_hover_png,d_sic_panel_open-a_2_pressed_png,d_sic_panel_open-a_3_hover_png,d_sic_panel_open-a_3_pressed_png,d_sic_panel_open-a_4_hover_png,d_sic_panel_open-a_4_pressed_png,d_sic_panel_open-a_5_hover_png,d_sic_panel_open-a_5_pressed_png,d_sic_panel_open-a_9_hover_png,d_sic_panel_open-a_9_pressed_png,d_sic_panel_open-b_1_hover_png,d_sic_panel_open-b_1_pressed_png,d_sic_panel_open-b_14_hover_png,d_sic_panel_open-b_14_pressed_png,d_sic_panel_open-b_2_hover_png,d_sic_panel_open-b_2_pressed_png,d_sic_panel_open-c_1_hover_png,d_sic_panel_open-c_1_pressed_png,d_sic_panel_open-c_10_hover_png,d_sic_panel_open-c_10_pressed_png,d_sic_panel_open-c_11_hover_png,d_sic_panel_open-c_11_pressed_png,d_sic_panel_open-c_12_hover_png,d_sic_panel_open-c_12_pressed_png,d_sic_panel_open-c_13_hover_png,d_sic_panel_open-c_13_pressed_png,d_sic_panel_open-c_14_hover_png,d_sic_panel_open-c_14_pressed_png,d_sic_panel_open-c_15_hover_png,d_sic_panel_open-c_15_pressed_png,d_sic_panel_open-c_2_hover_png,d_sic_panel_open-c_2_pressed_png,d_sic_panel_open-c_3_hover_png,d_sic_panel_open-c_3_pressed_png,d_sic_panel_open-c_4_hover_png,d_sic_panel_open-c_4_pressed_png,d_sic_panel_open-c_5_hover_png,d_sic_panel_open-c_5_pressed_png,d_sic_panel_open-c_6_hover_png,d_sic_panel_open-c_6_pressed_png,d_sic_panel_open-c_7_hover_png,d_sic_panel_open-c_7_pressed_png,d_sic_panel_open-c_8_hover_png,d_sic_panel_open-c_8_pressed_png,d_sic_panel_open-c_9_hover_png,d_sic_panel_open-c_9_pressed_png,d_sic_panel_open-d_6_hover_png,d_sic_panel_open-d_6_pressed_png,d_sic_panel_open-d_7_hover_png,d_sic_panel_open-d_7_pressed_png,d_sic_history_btn_hide_hover_png,d_sic_history_btn_hide_png,d_sic_history_btn_showall_hover_png,d_sic_history_btn_showall_png,d_sic_history_chart_line-2_png,d_sic_history_grid_png,d_sic_history_lv2_dice-1_png,d_sic_history_lv2_dice-2_png,d_sic_history_lv2_dice-3_png,d_sic_history_lv2_dice-4_png,d_sic_history_lv2_dice-5_png,d_sic_history_lv2_dice-6_png,d_sic_history_lv3_dice-1_png,d_sic_history_lv3_dice-2_png,d_sic_history_lv3_dice-3_png,d_sic_history_lv3_dice-4_png,d_sic_history_lv3_dice-5_png,d_sic_history_lv3_dice-6_png,d_sic_lobby_bg_2_png,d_sic_lobby_chart_bg_left_png,d_sic_lobby_chart_bg_right_png,sicbo_game_result_tex_png,sicbo_game_result_tex_json,sicbo_game_result_ske_json,d_gfsb_panel_gamelist_roadmap_record_multiple_pink_png,d_gfsb_panel_gamelist_roadmap_record_multiple_purple_png,d_gfsb_panel_gamelist_roadmap_record_multiple_yellow_png,d_gfsb_panel_gamelist_roadmap_record_multiple_red_png,d_gfsb_panel_gamelist_roadmap_record_new_bg_png,d_gfsb_panel_gamelist_roadmap_record_old_bg_png,d_gfsb_panel_info_bar_bg_png,d_gfsb_panel_info_bar_blue_png,d_gfsb_panel_info_bar_green_png,d_gfsb_panel_info_bar_indigo_png,d_gfsb_panel_info_bar_orange_png,d_gfsb_panel_info_bar_pink_png,d_gfsb_panel_info_bar_purple_png,d_gfsb_panel_info_bar_red_png,d_gfsb_panel_info_bar_yeloow_png,d_gfsb_panel_info_bg_png,d_gfsb_panel_info_bg_stroke_png,d_gfsb_panel_roadmap_record_multiple_blue_png,d_gfsb_panel_roadmap_record_multiple_green_png,d_gfsb_panel_info_gfsb_bg_botbar_png,d_gfsb_panel_roadmap_record_multiple_indigo_png,d_gfsb_panel_roadmap_record_multiple_orange_png,d_gfsb_panel_roadmap_record_multiple_pink_png,d_gfsb_panel_roadmap_record_multiple_purple_png,d_gfsb_panel_roadmap_record_multiple_red_png,d_gfsb_panel_roadmap_record_multiple_yellow_png,d_gfsb_panel_roadmap_record_new_bg_png,d_gfsb_panel_roadmap_record_old_bg_png,d_gfsb_panel_betarea_blue_png,d_gfsb_panel_betarea_blue_hover_png,d_gfsb_panel_betarea_green_png,d_gfsb_panel_betarea_green_hover_png,d_gfsb_panel_betarea_green_pink_png,d_gfsb_panel_betarea_green_pink_hover_png,d_gfsb_panel_betarea_green_yellow_png,d_gfsb_panel_betarea_green_yellow_hover_png,d_gfsb_panel_betarea_indigo_png,d_gfsb_panel_betarea_indigo_hover_png,d_gfsb_panel_betarea_orange_png,d_gfsb_panel_betarea_orange_hover_png,d_gfsb_panel_betarea_purple_png,d_gfsb_panel_betarea_purple_hover_png,d_gfsb_panel_betarea_red_png,d_gfsb_panel_betarea_red_hover_png,d_gfsb_panel_chart_bar_bg_png,d_gfsb_panel_chart_bar_blue_png,d_gfsb_panel_chart_bar_green_png,d_gfsb_panel_chart_bar_indigo_png,d_gfsb_panel_chart_bar_orange_png,d_gfsb_panel_chart_bar_pink_png,d_gfsb_panel_chart_bar_purple_png,d_gfsb_panel_chart_bar_red_png,d_gfsb_panel_chart_bar_yeloow_png,d_gfsb_panel_gamelist_betarea_blue_hover_png,d_gfsb_panel_gamelist_betarea_green_hover_png,d_gfsb_panel_gamelist_betarea_indigo_hover_png,d_gfsb_panel_gamelist_betarea_orange_hover_png,d_gfsb_panel_gamelist_betarea_pink_hover_png,d_gfsb_panel_gamelist_betarea_purple_hover_png,d_gfsb_panel_gamelist_betarea_red_hover_png,d_gfsb_panel_gamelist_betarea_yellow_blue_png,d_gfsb_panel_gamelist_betarea_yellow_green_png,d_gfsb_panel_gamelist_betarea_yellow_hover_png,d_gfsb_panel_gamelist_betarea_yellow_indigo_png,d_gfsb_panel_gamelist_betarea_yellow_orange_png,d_gfsb_panel_gamelist_betarea_yellow_pink_png,d_gfsb_panel_gamelist_betarea_yellow_purple_png,d_gfsb_panel_gamelist_betarea_yellow_red_png,d_gfsb_panel_gamelist_betarea_yellow_yellow_png,d_gfsb_panel_gamelist_roadmap_record_multiple_blue_png,d_gfsb_panel_gamelist_roadmap_record_multiple_green_png,d_gfsb_panel_gamelist_roadmap_record_multiple_indigo_png,d_gfsb_panel_gamelist_roadmap_record_multiple_orange_png",
 			"name": "scene_dice"
 		},
 		{
@@ -5333,6 +5333,371 @@
 			"url": "assets/images/d/ro/row/Disc_Green_103x214.png",
 			"type": "image",
 			"name": "Disc_Green_103x214_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_multiple_pink.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_pink_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_multiple_purple.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_purple_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_multiple_yellow.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_yellow_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_multiple_red.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_red_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_new_bg.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_new_bg_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_old_bg.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_old_bg_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_bg.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_bg_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_blue.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_blue_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_green.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_green_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_indigo.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_indigo_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_orange.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_orange_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_pink.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_pink_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_purple.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_purple_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_red.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_red_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bar_yeloow.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bar_yeloow_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bg.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bg_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_bg_stroke.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_bg_stroke_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_multiple_blue.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_multiple_blue_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_multiple_green.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_multiple_green_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_info_gfsb_bg_botbar.png",
+			"type": "image",
+			"name": "d_gfsb_panel_info_gfsb_bg_botbar_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_multiple_indigo.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_multiple_indigo_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_multiple_orange.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_multiple_orange_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_multiple_pink.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_multiple_pink_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_multiple_purple.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_multiple_purple_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_multiple_red.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_multiple_red_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_multiple_yellow.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_multiple_yellow_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_new_bg.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_new_bg_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_roadmap_record_old_bg.png",
+			"type": "image",
+			"name": "d_gfsb_panel_roadmap_record_old_bg_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_blue.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_blue_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_blue_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_blue_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_green.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_green_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_green_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_green_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_green_pink.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_green_pink_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_green_pink_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_green_pink_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_green_yellow.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_green_yellow_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_green_yellow_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_green_yellow_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_indigo.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_indigo_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_indigo_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_indigo_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_orange.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_orange_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_orange_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_orange_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_purple.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_purple_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_purple_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_purple_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_red.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_red_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_betarea_red_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_betarea_red_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_bg.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_bg_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_blue.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_blue_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_green.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_green_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_indigo.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_indigo_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_orange.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_orange_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_pink.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_pink_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_purple.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_purple_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_red.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_red_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_chart_bar_yeloow.png",
+			"type": "image",
+			"name": "d_gfsb_panel_chart_bar_yeloow_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_blue_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_blue_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_green_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_green_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_indigo_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_indigo_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_orange_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_orange_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_pink_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_pink_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_purple_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_purple_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_red_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_red_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_blue.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_blue_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_green.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_green_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_hover.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_hover_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_indigo.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_indigo_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_orange.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_orange_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_pink.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_pink_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_purple.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_purple_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_red.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_red_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_betarea_yellow_yellow.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_betarea_yellow_yellow_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_multiple_blue.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_blue_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_multiple_green.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_green_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_multiple_indigo.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_indigo_png"
+		},
+		{
+			"url": "assets/images/d/dil/gfsb/d_gfsb_panel_gamelist_roadmap_record_multiple_orange.png",
+			"type": "image",
+			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_orange_png"
 		}
 	]
 }
