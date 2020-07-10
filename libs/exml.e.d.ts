@@ -1808,8 +1808,20 @@ declare module skin_mobile_portrait.ro{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.rol{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.rol{
+	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class GodOfFortuneRouletteScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.rol{
+	class TableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

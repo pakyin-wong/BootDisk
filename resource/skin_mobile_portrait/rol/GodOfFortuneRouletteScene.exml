@@ -104,8 +104,6 @@
     x="311"
     y="474"
     skinName="skin_mobile_portrait.InGameMessageSkin"
-   
-   
     infoBg="d_ba_gamerecord_playerelement_png"
     successBg="d_ba_gamerecord_tieelement_png"
     errorBg="d_ba_gamerecord_bankerelement_png" touchEnabled="false"/>
