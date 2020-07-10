@@ -3,7 +3,7 @@
 	<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0" locked="true">
 	<e:skinName>
 		<e:Skin states="normal,zip,small">
-			<e:Component id="checker" width="878" height="1969" x="172" y="67" scaleX="1" scaleY="1" height.zip="1404" scaleX.small="0.673120728929385" scaleY.small="0.6721311475409836" x.small="326" y.small="748"/>
+			<e:Component id="checker" width="878" height="1969" x="172" y="67" scaleX="1" scaleY="1" height.zip="1404" scaleX.small="0.673120728929385" scaleY.small="0.6721311475409836" x.small="205" y.small="748"/>
 		</e:Skin>
 	</e:skinName>
 	</ui:TweenConfig>
@@ -56,12 +56,12 @@
 			<e:Group x="0" y="100">
 				<e:Group id="_bATransition" x="0" height="1869">
 					<e:Group id="_bANormal" x="0" width="879">
-						<ro:TableLayer id="_tableLayer" width="879" height="1769" skinName="skin_mobile_portrait.ro.TableLayerSkin" isEdgeDismissable="true"/>
+						<ro:TableLayer id="_tableLayer" width="879" height="1769" skinName="skin_mobile_portrait.rol.TableLayerSkin" isEdgeDismissable="true"/>
 					</e:Group>
 					<e:Group id="_bARace" width="879" x="890" height="1769">
 						<ro:RaceTrackTableLayer id="_raceTrackTableLayer" horizontalCenter="0"/>
 					</e:Group>
-					<ro:MobileChipLayer id="_chipLayer" width="879" height="1769" isEdgeDismissable="true" skinName="skin_mobile_portrait.ro.ChipLayerRaceSkin" x="0" y="0" scaleX="1" scaleY="1"/>
+					<ro:MobileChipLayer id="_chipLayer" width="879" height="1769" isEdgeDismissable="true" skinName="skin_mobile_portrait.rol.ChipLayerRaceSkin" x="0" y="0" scaleX="1" scaleY="1"/>
 				</e:Group>
 				<ro:RaceTrackChipLayer id="_raceTrackChipLayer" horizontalCenter="0" visible="false"/>
 			</e:Group>
