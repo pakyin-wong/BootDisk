@@ -4,7 +4,7 @@ namespace we {
     // manage lottery bet multiplier, denomination and bet buttons
     export abstract class ABettingControlBar extends core.BaseEUI implements IBettingControl {
       protected _unitBet: number; // bet ammount per note
-      protected _multiplier: number; // bet ammount per note
+      protected _multiplier: number = 1; // bet ammount per note
       protected _noteCount: number; // sum of all note.count
       protected _totalBetAmount: number;
 
@@ -44,6 +44,7 @@ namespace we {
 
       protected onMultiplierUpdate(value) {
         this._multiplier = value;
+        console.log('this._multiplier', this._multiplier);
         this.updateTotalBetAmount();
       }
 

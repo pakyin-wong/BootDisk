@@ -1,6 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace lo {
+    // delect all
     export class SSCTraditionalActionButtonPanel extends ABettingControlBar {
       private _btnConfirm: eui.Group;
       private _btnAddMultiplier: ui.RoundRectButton;
