@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.dil.TableLayerSkin" width="1312" height="340" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*" xmlns:tween="egret.tween.*"
+        xmlns:di="we.di.*">
+	<e:Group id="_row1" x="16" y="16">
+		<e:Group id="_sum_3_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_green_yellow_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="150x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="3" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_4_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_orange_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="50x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="4" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_5_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_red_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="25x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="5" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_6_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_green_pink_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="15x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="6" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_7_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_purple_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="10x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="7" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_8_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_blue_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="7x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="8" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_9_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_indigo_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="6x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="9" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_10_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_green_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="5x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="10" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="8" horizontalAlign="center" />
+		</e:layout>
+	</e:Group>
+	<e:Group id="_row2" y="178" x="16">
+		<e:Group id="_sum_11_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_green_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="5x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="11" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_12_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_indigo_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="6x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="12" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_13_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_blue_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="7x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="13" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_14_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_purple_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="10x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="14" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_15_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_green_pink_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="15x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="15" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_16_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_red_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="25x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="16" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_17_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_orange_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="50x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="17" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:Group id="_sum_18_group" width="146" height="146">
+			<e:Image name='image' source="d_gfsb_panel_betarea_green_yellow_png" horizontalCenter="0" verticalCenter="0" />
+			<e:Label fontFamily="Barlow" text="150x" size="28" horizontalCenter="0" y="4" />
+			<e:Label fontFamily="Barlow" text="18" size="80" horizontalCenter="0" y="46" />
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="8" horizontalAlign="center" />
+		</e:layout>
+	</e:Group>
+</e:Skin>

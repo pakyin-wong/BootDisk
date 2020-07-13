@@ -8,7 +8,7 @@ namespace we {
       private _bannerImages: core.IRemoteResourceItem[];
 
       private step: number = 0;
-      private flow = [this.preloadRes, this.initSkin, this.preload, this.getStaticData, this.socketConnect, this.idle, this.loadGeneralRes, this.loadingComplete];
+      private flow = [this.preloadRes, this.initSkin, this.preload, this.getBanner, this.idle, this.socketConnect, this.getStaticData, this.idle, this.loadGeneralRes, this.loadingComplete];
 
       public onEnter() {
         this.init();
@@ -47,8 +47,7 @@ namespace we {
         this.next();
       }
 
-      /** Step 2.5: Get Static Server Init Data */
-      private getStaticData() {
+      private async getBanner() {
         this._progressMsg.renderText = () => `${i18n.t('loading.socket.connecting')}`;
         this._progressbar.minimum = 0;
         this._progressbar.maximum = 1;
@@ -56,7 +55,8 @@ namespace we {
 
         this._tip.alignToCenter();
         this._tip.messages = [];
-        dir.socket.getStaticInitData(async res => {
+
+        await dir.socket.getStaticInitDataAsync(async res => {
           if (res.error) {
             // TODO: show default hero banner image
             // const placeholderImg = new Image();
@@ -67,9 +67,60 @@ namespace we {
             let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
             images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
             this._bannerImages = images;
+
+            if (res.Nicknames) {
+              env.nicknameSet = res.Nicknames;
+            }
           }
-          this.next();
         }, this);
+        this.next();
+      }
+
+      /** Step 2.5: Get Static Server Init Data */
+      private async getStaticData() {
+        this._progressMsg.renderText = () => `${i18n.t('loading.socket.connecting')}`;
+        this._progressbar.minimum = 0;
+        this._progressbar.maximum = 1;
+        this._progressbar.value = 0;
+
+        this._tip.alignToCenter();
+        this._tip.messages = [];
+        // dir.socket.getStaticInitData(async res => {
+        //   if (res.error) {
+        //     // TODO: show default hero banner image
+        //     // const placeholderImg = new Image();
+        //     // this._bannerImages = [placeholderImg];
+        //   } else {
+        //     this._tip.messages = res.Tips;
+        //     // preload loading scene banner images
+        //     let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
+        //     images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
+        //     this._bannerImages = images;
+
+        //     if (res.nicknames) {
+        //       env.nicknameSet = res.nicknames;
+        //     }
+        //   }
+        //   this.next();
+        // }, this);
+        await dir.socket.getStaticInitDataAsync(async res => {
+          if (res.error) {
+            // TODO: show default hero banner image
+            // const placeholderImg = new Image();
+            // this._bannerImages = [placeholderImg];
+          } else {
+            this._tip.messages = res.Tips;
+            // preload loading scene banner images
+            let images: egret.Texture[] | core.IRemoteResourceItem[] = await Promise.all<egret.Texture>(res.Bannerurls.map(this._loadRemoteImage));
+            images = images.map(image => ({ image, link: null, imageUrl: null, loaded: true }));
+            this._bannerImages = images;
+
+            if (res.Nicknames) {
+              env.nicknameSet = res.Nicknames;
+            }
+          }
+        }, this);
+        this.next();
       }
 
       /** Step 3: Socket Connect */

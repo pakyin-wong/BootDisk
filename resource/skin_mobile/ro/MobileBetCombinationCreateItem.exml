@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile.ro.MobileBetCombinationCreateItem"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:egret="egret.*" width="620" height="100"  states="normal,edit" >
-	<e:Image id="_bg" left="0" right="0" top="0" bottom="0" scale9Grid="63,0,1,100" source="m_ro_savelayout_inactive_bg_png" source.edit="m_ro_savelayout_active_bg_png"/>
-	<e:Image x="25" source="m_ro_inactive_add_icon_png" touchEnabled="false" verticalCenter="0" source.edit="m_ro_active_add_icon_png"/>
+	<ui:RoundRectShape cornerTL_TR_BL_BR="40,40,40,40" width="620" height="100" stroke="1"
+		           fillColor="0x001123" fillAlpha="1" strokeColor="0x393f49" strokeColor.edit="0x00a4ff"/>
+	<e:Image x="25" source="m_ro_inactive_add_icon_png" touchEnabled="false" verticalCenter="0" source.edit="m_ro_active_add_icon_png" width="48" height="49"/>
 
 	<ui:RunTimeLabel id="_txt_bgtxt" text="加入新的投注組合" x="97" y="23" height="56" verticalAlign="middle" width="340" size="38" touchEnabled="false" textColor="0x818890" visible.edit="false"/>
 	<e:EditableText id="_txt_input" text="投注組合" x="97" y="23" height="56" verticalAlign="middle" width="340" size="38" visible.normal="false" textColor="0xffffff" promptColor="0xffffff"/>
 	<e:Label id="_txt_amount" text="$0" y="22" right="22" height="58" verticalAlign="middle" textAlign="right" touchEnabled="false" textColor="0x818890" right.edit="99" textColor.edit="0xffffff"/>
-	<e:Image id="_btn_confirm" width="41" height="27" y="37" right="27" source="m_common_setting_goodroad_panel_addroad_btn_confirm_icon_png" visible="false" visible.edit="true"/>
+	<e:Image id="_btn_confirm" width="41" height="27" y="37" right="27" source="m_common_setting_goodroad_panel_addroad_btn_confirm_icon_png" visible.edit="true" visible="false"/>
 </e:Skin>

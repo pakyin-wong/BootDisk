@@ -12,6 +12,7 @@ namespace we {
       private _dataCollection: eui.ArrayCollection;
       private _list: eui.List;
       private _review: ui.RunTimeLabel;
+      private _reviewRenderText: (renderText) => () => string;
 
       constructor(displayObject: egret.DisplayObject & IDropdown) {
         super(displayObject);
@@ -19,7 +20,7 @@ namespace we {
         this._list = new eui.List();
         this._list.dataProvider = this._dataCollection;
         this._list.itemRenderer = DropdownItemRenderer;
-        this._list.requireSelection = true;
+        this._list.requireSelection = false;
         this.itemSkin = 'DropdownItem';
       }
 
@@ -50,6 +51,10 @@ namespace we {
         this._review = label;
       }
 
+      public set reviewRenderText(func: (renderText) => () => string) {
+        this._reviewRenderText = func;
+      }
+
       public set itemSkin(s) {
         this._list.itemRendererSkinName = utils.getSkinByClassname(s);
       }
@@ -59,11 +64,16 @@ namespace we {
         for (let i = 0; i < source.length; i++) {
           if (source[i].key === key || source === key) {
             this._list.selectedIndex = i;
-            this._review.renderText = this._list.selectedItem.renderText;
+            this._review.renderText = this._reviewRenderText ? this._reviewRenderText(this._list.selectedItem.renderText) : this._list.selectedItem.renderText;
             // this.onChange();
             return;
           }
         }
+      }
+
+      public clearSelection() {
+        this._list.selectedIndex = -1;
+        this._review.renderText = this._reviewRenderText ? this._reviewRenderText(() => '-') : () => '-';
       }
 
       public get data(): eui.ArrayCollection {
@@ -71,7 +81,7 @@ namespace we {
       }
 
       protected onChange() {
-        this._review.renderText = this._list.selectedItem.renderText;
+        this._review.renderText = this._reviewRenderText ? this._reviewRenderText(this._list.selectedItem.renderText) : this._list.selectedItem.renderText;
         this.target.dispatchEvent(new egret.Event('DROPDOWN_ITEM_CHANGE', false, false, this._list.selectedItem.key));
       }
 

@@ -30,6 +30,8 @@ async function generateSpriteSheet(textureName, srcDir, outDir, scale) {
     }
   })
 
+  if (entries.length==0) return;
+
   let exporter = {
     fileExt: "json",
     template: "./Egret.mst"

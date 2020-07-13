@@ -7,23 +7,21 @@ namespace we {
     }
 
     export class ResProgressReporter implements RES.PromiseTaskReporter {
-      protected loadingManager: LoadingManager;
       protected index: number;
 
-      constructor(loadingManager: LoadingManager, index: number) {
-        this.loadingManager = loadingManager;
+      constructor(index: number) {
         this.index = index;
       }
 
       public onProgress(current, total, resItem) {
         const subprogress = current / total;
-        this.loadingManager.onRESTaskUpdate(subprogress, this.index);
+        loadingMgr.onRESTaskUpdate(subprogress, this.index);
       }
     }
 
     export class LoadingManager extends eui.Label {
       public static _instance: LoadingManager;
-      public static defaultLoadingUI: eui.Component;
+      public static defaultLoadingUI = ui.DefaultLoadingUI;
 
       static get Instance() {
         if (!this._instance) {
@@ -38,7 +36,7 @@ namespace we {
        * progressMap: number[]
        * loadingUI: eui.Component & IProgress
        */
-      public static async load(tasks: Array<() => Promise<any>>, options: any) {
+      public static async load(tasks: Array<() => Promise<any>>, options: any = {}) {
         // get manager instance
         if (!this._instance) {
           this._instance = new LoadingManager();
@@ -55,10 +53,11 @@ namespace we {
       protected loadingInstance: ILoadingUI & eui.Component;
       protected isLoading: boolean = false;
 
-      public async load(tasks: Array<() => Promise<any>>, options: any) {
+      public async load(tasks: Array<() => Promise<any>>, options: any = {}) {
         if (this.isLoading) {
-          logger.e(utils.LogTarget.PROD, 'Loading is already started');
-          return;
+          throw new Error('LoadingManager.load is not designed to call multiple time at once.');
+          // logger.e(utils.LogTarget.PROD, 'Loading is already started');
+          // return;
         }
         this.progress = 0;
         this._subprogresses = new Array(tasks.length).map(v => 0);

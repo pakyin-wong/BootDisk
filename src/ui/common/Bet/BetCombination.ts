@@ -113,7 +113,6 @@ namespace we {
 
           if (this._chipLayer) {
             const hashKey = Date.now().toString();
-            console.log('onClickBetCombination(betCombination)', betCombination);
             if (betCombination) {
               this._chipLayer.betFieldsUpdate(
                 betCombination.optionsList.map(value => {

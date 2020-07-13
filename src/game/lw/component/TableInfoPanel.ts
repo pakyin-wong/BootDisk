@@ -30,6 +30,8 @@ namespace we {
       protected pGreenMax: eui.Label;
       protected pGreenOdd: eui.Label;
 
+      protected _mask: egret.Shape;
+
       public changeLang() {
         super.changeLang();
 
@@ -88,6 +90,9 @@ namespace we {
         //   },
         //   this
         // );
+        if (env.isMobile && env.orientation === 'landscape') {
+          this.addGradentMask();
+        }
         this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onExit, this);
         mouse.setButtonMode(this.close, true);
       }
@@ -96,6 +101,19 @@ namespace we {
         this.destroy();
       }
 
+      private addGradentMask() {
+        this._mask = new egret.Shape();
+        const gr = this._mask.graphics;
+        const matrix = new egret.Matrix();
+        matrix.createGradientBox(10, 304);
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x212425, 0x212425], [1, 0], [0, 255], matrix);
+        gr.drawRect(0, 0, 10, 532); //
+        gr.endFill();
+        this.addChild(this._mask);
+        this._mask.x = -1;
+        this._mask.y = 0;
+        this._mask.visible = true;
+      }
       //       public setValue(tableInfo: data.TableInfo) {
       //         super.setValue(tableInfo);
       //         if (tableInfo.gamestatistic.bankerCount) {

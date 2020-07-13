@@ -191,7 +191,7 @@ namespace we {
 
         egret.Tween.removeTweens(this);
         Object.keys(this).map(value => {
-          if (this[value] instanceof egret.DisplayObject) {
+          if (this[value] instanceof egret.DisplayObject && this[value] !== this.parent) {
             egret.Tween.removeTweens(this[value]);
           }
         });
@@ -372,9 +372,11 @@ namespace we {
           rect.percentHeight = 100;
           group.addChildAt(rect, 0);
           const promise = new Promise(resolve => {
-            egret.Tween.get(rect)
-              .to({ alpha: isWin ? 0 : 0.25 }, 125)
-              .call(resolve);
+            if (rect) {
+              egret.Tween.get(rect)
+                .to({ alpha: isWin ? 0 : 0.25 }, 125)
+                .call(resolve);
+            }
           });
           initRectPromises.push(promise);
         }
@@ -390,14 +392,16 @@ namespace we {
               const isWin = winningFields.indexOf(field) >= 0;
               const rect = group.getChildByName('dim');
               const promise = new Promise(resolve => {
-                egret.Tween.get(rect)
-                  .to({ alpha: 0 }, 125)
-                  .call(() => {
-                    if (rect && group.contains(rect)) {
-                      group.removeChild(rect);
-                    }
-                    resolve();
-                  });
+                if (rect) {
+                  egret.Tween.get(rect)
+                    .to({ alpha: 0 }, 125)
+                    .call(() => {
+                      if (rect && group.contains(rect)) {
+                        group.removeChild(rect);
+                      }
+                      resolve();
+                    });
+                }
               });
               fadeOutPromises.push(promise);
             }
@@ -410,9 +414,11 @@ namespace we {
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
-              egret.Tween.get(rect)
-                .to({ alpha }, 125)
-                .call(resolve);
+              if (rect) {
+                egret.Tween.get(rect)
+                  .to({ alpha }, 125)
+                  .call(resolve);
+              }
             });
             tickFlashPromises.push(prom);
           }

@@ -28,6 +28,7 @@ namespace we {
 
       public constructor() {
         super();
+        this.isEdgeDismissable = true;
       }
 
       protected partAdded(partName: string, instance: any): void {

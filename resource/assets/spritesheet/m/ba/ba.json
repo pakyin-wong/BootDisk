@@ -111,7 +111,27 @@
       "sourceW": 192,
       "sourceH": 100
     },
+    "m_sq_ba_thumb_up_png": {
+      "x": 389,
+      "y": 441,
+      "w": 104,
+      "h": 167.5,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 104,
+      "sourceH": 167.5
+    },
     "m_ba_betarea_tie_horizontal_hover_png": {
+      "x": 394,
+      "y": 339,
+      "w": 160,
+      "h": 100,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 160,
+      "sourceH": 100
+    },
+    "m_ba_betarea_tie_horizontal_png": {
       "x": 195,
       "y": 559,
       "w": 160,
@@ -121,37 +141,7 @@
       "sourceW": 160,
       "sourceH": 100
     },
-    "m_ba_betarea_tie_horizontal_png": {
-      "x": 357,
-      "y": 559,
-      "w": 160,
-      "h": 100,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 160,
-      "sourceH": 100
-    },
     "m_ba_betarea_bankerpair_horizontal_hover_png": {
-      "x": 389,
-      "y": 441,
-      "w": 128,
-      "h": 100,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 128,
-      "sourceH": 100
-    },
-    "m_ba_betarea_bankerpair_horizontal_png": {
-      "x": 394,
-      "y": 339,
-      "w": 128,
-      "h": 100,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 128,
-      "sourceH": 100
-    },
-    "m_ba_betarea_playerpair_horizontal_hover_png": {
       "x": 565,
       "y": 1,
       "w": 128,
@@ -161,7 +151,7 @@
       "sourceW": 128,
       "sourceH": 100
     },
-    "m_ba_betarea_playerpair_horizontal_png": {
+    "m_ba_betarea_bankerpair_horizontal_png": {
       "x": 565,
       "y": 103,
       "w": 128,
@@ -171,9 +161,29 @@
       "sourceW": 128,
       "sourceH": 100
     },
+    "m_ba_betarea_playerpair_horizontal_hover_png": {
+      "x": 565,
+      "y": 205,
+      "w": 128,
+      "h": 100,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 128,
+      "sourceH": 100
+    },
+    "m_ba_betarea_playerpair_horizontal_png": {
+      "x": 565,
+      "y": 307,
+      "w": 128,
+      "h": 100,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 128,
+      "sourceH": 100
+    },
     "m_ba_goodroad_infobg_banker_png": {
       "x": 497.5,
-      "y": 205,
+      "y": 1,
       "w": 58,
       "h": 26,
       "offX": 0,
@@ -182,8 +192,8 @@
       "sourceH": 26
     },
     "m_ba_goodroad_infobg_player_png": {
-      "x": 557.5,
-      "y": 205,
+      "x": 497.5,
+      "y": 29,
       "w": 58,
       "h": 26,
       "offX": 0,
@@ -192,8 +202,8 @@
       "sourceH": 26
     },
     "m_ba_result_poker_banker_png": {
-      "x": 497.5,
-      "y": 1,
+      "x": 357,
+      "y": 559,
       "w": 29,
       "h": 37,
       "offX": 0,
@@ -202,8 +212,8 @@
       "sourceH": 37
     },
     "m_ba_result_poker_player_png": {
-      "x": 528.5,
-      "y": 1,
+      "x": 357,
+      "y": 598,
       "w": 29,
       "h": 37,
       "offX": 0,
@@ -212,8 +222,8 @@
       "sourceH": 37
     },
     "d_ba_navbar_icon_hoverelement_png": {
-      "x": 497.5,
-      "y": 40,
+      "x": 388,
+      "y": 610.5,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -232,8 +242,8 @@
       "sourceH": 14
     },
     "m_ba_goodroad_info_state_banker_png": {
-      "x": 525.5,
-      "y": 40,
+      "x": 357,
+      "y": 638.5,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -242,8 +252,8 @@
       "sourceH": 17
     },
     "m_ba_goodroad_info_state_player_png": {
-      "x": 544.5,
-      "y": 40,
+      "x": 376,
+      "y": 638.5,
       "w": 17,
       "h": 17,
       "offX": 0,
@@ -252,8 +262,8 @@
       "sourceH": 17
     },
     "m_common_betarea_icon_totalbet_png": {
-      "x": 525.5,
-      "y": 59,
+      "x": 395,
+      "y": 638.5,
       "w": 16,
       "h": 16,
       "offX": 0,
@@ -262,8 +272,8 @@
       "sourceH": 16
     },
     "m_common_betarea_icon_totalperson_png": {
-      "x": 543.5,
-      "y": 59,
+      "x": 413,
+      "y": 638.5,
       "w": 16,
       "h": 16,
       "offX": 0,
@@ -272,16 +282,6 @@
       "sourceH": 16
     },
     "d_ba_navbar_icon_setting_png": {
-      "x": 389,
-      "y": 543,
-      "w": 14,
-      "h": 14,
-      "offX": 0,
-      "offY": 0,
-      "sourceW": 14,
-      "sourceH": 14
-    },
-    "d_ba_navbar_icon_sound_png": {
       "x": 220,
       "y": 441,
       "w": 14,
@@ -291,9 +291,19 @@
       "sourceW": 14,
       "sourceH": 14
     },
+    "d_ba_navbar_icon_sound_png": {
+      "x": 236,
+      "y": 441,
+      "w": 14,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 14,
+      "sourceH": 14
+    },
     "d_ba_navbar_icon_stat_png": {
-      "x": 405,
-      "y": 543,
+      "x": 252,
+      "y": 441,
       "w": 14,
       "h": 14,
       "offX": 0,

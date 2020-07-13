@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.LotterySceneFun" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*"  xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*">
+	<ui:TweenConfig id="_betLayerTween" left="0" right="0" top="0" bottom="0">
+		<ui:skinName>
+		<e:Skin states="open,close" >
+			<e:Component id="checker" height="533" y="795" scaleX="1" scaleY="1" width="2568" x="16" y.close="1284"/>
+		</e:Skin>
+		</ui:skinName>
+	</ui:TweenConfig>
+
 	<lo:FunBetLayer id="_betLayer" width="2568" height="533" x="16" y="795"/>
 	<!--<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />-->
 	<!--<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />-->

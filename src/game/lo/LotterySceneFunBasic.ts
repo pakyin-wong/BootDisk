@@ -162,6 +162,8 @@ namespace we {
       protected setResultRelatedComponentsEnabled(enable: boolean) {}
 
       public updateGame() {
+        console.log(this._gameData);
+
         if (!this._gameData) {
           return;
         }
@@ -175,15 +177,15 @@ namespace we {
           case core.GameState.DEAL:
             this.setStateDeal();
             break;
-          case core.GameState.PEEK:
-            this.setStatePeek();
-            break;
-          case core.GameState.PEEK_BANKER:
-            this.setStatePeekBanker();
-            break;
-          case core.GameState.PEEK_PLAYER:
-            this.setStatePeekPlayer();
-            break;
+          // case core.GameState.PEEK:
+          //   this.setStatePeek();
+          //   break;
+          // case core.GameState.PEEK_BANKER:
+          //   this.setStatePeekBanker();
+          //   break;
+          // case core.GameState.PEEK_PLAYER:
+          //   this.setStatePeekPlayer();
+          //   break;
           case core.GameState.FINISH:
             this.setStateFinish();
             break;
@@ -210,10 +212,6 @@ namespace we {
         this.setResultRelatedComponentsEnabled(false);
         // }
       }
-
-      protected setStatePeek() {}
-      protected setStatePeekPlayer() {}
-      protected setStatePeekBanker() {}
 
       protected setStateBet() {
         // if (this._previousState !== we.core.GameState.BET || isInit) {

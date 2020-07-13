@@ -2,7 +2,7 @@
 <e:Skin class="skin_mobile_portrait.ro.TableLayerSkin" width="879" height="1769" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*">
 	<e:Image
-	         fillMode="scale"  source="m_ro_v_betborad_inactive_png" locked="true"/>
+	         fillMode="scale"  source="m_ro_v_betborad_inactive_png" width="879" height="1769" locked="true"/>
 	<e:Group id="_direct_0_group" width="434" height="122" x="229">
 		<e:Label id="_direct_0_label" text="0" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
 	</e:Group>
@@ -475,5 +475,5 @@
 		<ui:RunTimeLabel id="_big_label" verticalCenter="0" horizontalCenter="0"  size="46" fontFamily="Barlow" text="19 - 36" rotation="90"/>
 	</e:Group>
 	<e:Image
-	         fillMode="scale"  source="m_ro_v_betborad_outline_png" locked="true"/>
+	         fillMode="scale"  source="m_ro_v_betborad_outline_png" width="879" height="1769" locked="true"/>
 </e:Skin>

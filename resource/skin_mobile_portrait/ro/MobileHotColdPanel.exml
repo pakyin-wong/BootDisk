@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ro.MobileHotColdPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="normal,race" >
 	<e:Group id="_hotCold" horizontalCenter="0" verticalCenter="0">
-		<e:Image source="m_ro_v_hot_icon_png" y="0" horizontalCenter="0"/>
-		<e:Image source="m_ro_v_hot_bar_png" y="110" horizontalCenter="0"/>
-		<e:Image source="m_ro_v_cold_icon_png" y="380" horizontalCenter="0"/>
-		<e:Image source="m_ro_v_cold_bar_png" y="490" horizontalCenter="0"/>
+		<e:Image source="m_ro_v_hot_icon_png" y="0" horizontalCenter="0" width="69" height="102"/>
+		<!--<e:Image source="m_ro_v_hot_bar_png" y="110" horizontalCenter="0"/>-->
+		<ui:RoundRectShape cornerTL_TR_BL_BR="32,32,32,32" width="64" height="238" y="110" stroke="0"
+		                   fillColor="0xeb4a2c, 0xfdc071"  horizontalCenter="0"/>
+		<e:Image source="m_ro_v_cold_icon_png" y="380" horizontalCenter="0" width="87" height="93"/>
+		<ui:RoundRectShape cornerTL_TR_BL_BR="32,32,32,32" width="64" height="238" y="490" stroke="0"
+		                   fillColor="0x115dfa, 0x4fd4fb"  horizontalCenter="0"/>
+		<!--<e:Image source="m_ro_v_cold_bar_png" y="490" horizontalCenter="0"/>-->
 		<e:Group id="_hotnum" horizontalCenter="0" width="68" height="238" y="110">
 			<e:Component width="64" height="64" x="2" y="1"/>
 			<e:Component width="64" height="64" x="2" y="87"/>

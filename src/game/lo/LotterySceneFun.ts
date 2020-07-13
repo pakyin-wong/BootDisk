@@ -2,9 +2,11 @@ namespace we {
   export namespace lo {
     export class LotterySceneFun extends LotterySceneFunBasic {
       protected _denominationList = [500, 1000, 2000, 5000, 10000];
+      protected _betLayerTween: ui.TweenConfig;
       protected _betLayer: FunBetLayer;
 
       protected _betChipSet: ui.BetChipSet;
+      protected _betRelatedGroup: egret.DisplayObject;
       protected _confirmButton: eui.Button;
       protected _cancelButton: ui.BaseImageButton;
 
@@ -41,11 +43,31 @@ namespace we {
       protected onConfirmPressed() {
         dir.evtHandler.createOverlay({
           class: 'FunBetOverlay',
+          args: [this._tableInfo],
         });
       }
 
       protected onCancelPressed() {
         FunBet.reset();
+      }
+
+      protected setBetRelatedComponentsEnabled(enable: boolean) {
+        this.betClipEnabled = enable;
+        this.betLayerEnabled = enable;
+      }
+
+      protected set betLayerEnabled(enabled: boolean) {
+        if (enabled) {
+          this._betLayerTween.currentState = 'open';
+        } else {
+          this._betLayerTween.currentState = 'close';
+        }
+        egret.Tween.removeTweens(this._betLayer);
+        egret.Tween.get(this._betLayer).to(this._betLayerTween.getTweenPackage(), 250);
+      }
+
+      protected set betClipEnabled(enabled: boolean) {
+        this._betRelatedGroup.visible = enabled;
       }
     }
   }

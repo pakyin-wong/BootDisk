@@ -125,6 +125,7 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
+        this._betRelatedGroup.visible = enable;
         this._betChipSetGridSelected.visible = enable;
 
         const isEnable = enable;
@@ -252,6 +253,10 @@ namespace we {
           this.checkGameMode(gameModeExist);
         }
         this.onEnter();
+      }
+
+      protected clearOrientationDependentComponent() {
+        super.clearOrientationDependentComponent();
       }
 
       protected initOrientationDependentComponent() {

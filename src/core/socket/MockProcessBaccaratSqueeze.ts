@@ -1,8 +1,8 @@
 namespace we {
   export namespace core {
     export class MockProcessBaccaratSqueeze extends MockProcess {
-      public countdownA: number = 8;
-      public countdownB: number = 4;
+      public countdownA: number = 12;
+      public countdownB: number = 8;
 
       constructor(socket: SocketMock, gameType = core.GameType.BAC) {
         super(socket, gameType);

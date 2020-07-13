@@ -301,7 +301,6 @@ namespace we {
         this._cfmBetDetails.map((value, index) => {
           if (this._betChipStackMapping[value.field]) {
             this._betChipStackMapping[value.field].cfmBet = value.amount * this.getRate(value.field);
-            console.log('-----------------------------', [value, value.field]);
             this._betChipStackMapping[value.field].draw();
           }
         });
@@ -506,7 +505,8 @@ namespace we {
         const exceedBetLimit = this.isExceedBetLimit(fieldAmounts, betLimit);
 
         if (exceedBetLimit) {
-          dir.evtHandler.dispatch(core.Event.EXCEED_BET_LIMIT);
+          const data = { exceedLower: false };
+          this.dispatchEvent(new egret.Event(core.Event.EXCEED_BET_LIMIT, false, false, data));
           return false;
         }
         return true;

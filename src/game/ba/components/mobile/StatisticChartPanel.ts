@@ -103,7 +103,6 @@ namespace we {
         const totalCount = this.tableInfo.gamestatistic.totalCount;
         const bankerPairCount = this.tableInfo.gamestatistic.bankerPairCount;
         const playerPairCount = this.tableInfo.gamestatistic.playerPairCount;
-        console.log('playerPairCount: ', playerPairCount);
         const remainingCount = totalCount - bankerPairCount - playerPairCount;
 
         const bankerPercentage = Math.round((bankerCount / totalCount) * 100);

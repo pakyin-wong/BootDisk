@@ -41,6 +41,7 @@ namespace we {
               .split(' ')
               .join('')
               .split(',');
+
             if (parms.length === 2) {
               GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]]);
             } else if (parms.length === 3) {

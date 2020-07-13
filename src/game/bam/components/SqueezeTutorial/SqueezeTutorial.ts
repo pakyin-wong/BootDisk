@@ -4,7 +4,7 @@ namespace we {
     export class SqueezeTutorial extends we.ui.Panel {
       private _nextButton;
       private _prevButton;
-      private _close;
+      public _close;
       private _holder: we.ui.HorizontalHolder;
 
       private _allOpenOne;

@@ -2,31 +2,7 @@ namespace we {
   export namespace overlay {
     export class ChangeName extends ui.Panel {
       protected _txt_title: ui.RunTimeLabel;
-      protected scroller: ui.Scroller;
-      protected collection: eui.ArrayCollection;
-      protected _editRoadPanel: ba.GoodRoadEditItem;
-      protected _changeName: ui.BaseImageButton;
-      protected _dropDownMenu: egret.DisplayObject;
-
-      private _txt_Cartoon: ui.RunTimeLabel;
-      private _txt_Myth: ui.RunTimeLabel;
-      private _txt_Movie: ui.RunTimeLabel;
-
-      protected _btn_Cartoon: egret.DisplayObject;
-      protected _btn_Myth: egret.DisplayObject;
-      protected _btn_Movie: egret.DisplayObject;
-
-      private _ddm_Cartoon: ui.Panel;
-      private _ddm_Myth: ui.Panel;
-      private _ddm_Movie: ui.Panel;
-
-      private _arrow_Cartoon: eui.Image;
-      private _arrow_Myth: eui.Image;
-      private _arrow_Movie: eui.Image;
-
-      private _mask_Cartoon: eui.Rect;
-      private _mask_Myth: eui.Rect;
-      private _mask_Movie: eui.Rect;
+      protected _group_nickname: eui.Group;
       private _mask: eui.Rect;
 
       constructor() {
@@ -39,162 +15,106 @@ namespace we {
 
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.system.changeName')}`;
-        this._txt_Cartoon.renderText = () => `${i18n.t('nav.userName.category.cartoon')}`;
-        this._txt_Myth.renderText = () => `${i18n.t('nav.userName.category.myth')}`;
-        this._txt_Movie.renderText = () => `${i18n.t('nav.userName.category.movie')}`;
 
-        const _arrCol_Cartoon = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames.nickname_group1[0]),
-          ui.NewDropdownItem(1, () => env.nicknames.nickname_group1[1]),
-          ui.NewDropdownItem(2, () => env.nicknames.nickname_group1[2]),
-          ui.NewDropdownItem(3, () => env.nicknames.nickname_group1[3]),
-          ui.NewDropdownItem(4, () => env.nicknames.nickname_group1[4]),
-        ]);
+        for (const item of Object.keys(env._groups)) {
+          // for each groupKey
 
-        if (this._ddm_Cartoon) {
-          this._ddm_Cartoon.isDropdown = true;
-          this._ddm_Cartoon.isPoppable = true;
-          this._ddm_Cartoon.dismissOnClickOutside = true;
-          this._ddm_Cartoon.setToggler(this._btn_Cartoon);
-          this._ddm_Cartoon.dropdown.review = this._txt_Cartoon;
-          this._ddm_Cartoon.dropdown.data.replaceAll(_arrCol_Cartoon.source);
-          this._ddm_Cartoon.dropdown.select(env.nickname);
+          const _btn_nickname: eui.Group = new eui.Group();
+          const _mask_nickname: eui.Rect = new eui.Rect();
+          const _arrow_nickname: eui.Image = new eui.Image();
+          const _txt_nickname: ui.RunTimeLabel = new ui.RunTimeLabel();
+
+          _txt_nickname.text = env.groupName[env.language][item];
+          _txt_nickname.verticalAlign = 'middle';
+          _txt_nickname.textAlign = 'center';
+          _txt_nickname.scaleX = 1;
+
+          _mask_nickname.fillAlpha = 0.2;
+          _mask_nickname.fillColor = 0x4b535b;
+          _mask_nickname.ellipseWidth = _mask_nickname.ellipseHeight = 130;
+          _mask_nickname.scaleX = _mask_nickname.scaleY = 1;
+          _mask_nickname.left = _mask_nickname.right = _mask_nickname.top = _mask_nickname.bottom = 0;
+
+          _txt_nickname.size = 60;
+          _txt_nickname.alpha = 0.7;
+          _txt_nickname.height = 89;
+          _txt_nickname.width = 450;
+          _txt_nickname.horizontalCenter = _txt_nickname.verticalCenter = 0;
+
+          switch (env.orientation) {
+            case 'landscape':
+              _btn_nickname.width = 1146;
+              _btn_nickname.height = 120;
+              _btn_nickname.x = 1128;
+              _btn_nickname.y = 5;
+              _btn_nickname.horizontalCenter = 0;
+
+              _mask_nickname.width = 609;
+              _mask_nickname.height = 120;
+
+              _txt_nickname.y = 20;
+
+              break;
+
+            case 'portrait':
+              _btn_nickname.width = 1050;
+              _btn_nickname.height = 130;
+              _btn_nickname.x = 97;
+              _btn_nickname.y = 431;
+
+              _arrow_nickname.source = 'd_lobby_button_down_normal_png';
+              _arrow_nickname.width = _arrow_nickname.height = 80;
+              _arrow_nickname.right = 30;
+              _arrow_nickname.verticalCenter = 0;
+
+              break;
+          }
+
+          this._group_nickname.addChild(_btn_nickname);
+          _btn_nickname.addChild(_mask_nickname);
+          _btn_nickname.addChild(_txt_nickname);
+          _btn_nickname.addChild(_arrow_nickname);
+
+          const _arrCol_nickname: eui.ArrayCollection = new eui.ArrayCollection();
+          const bindFunc = this.onNicknameChange.bind(_arrCol_nickname);
+
+          // env.nameList[item].forEach((_item, index) => {
+          // _arrCol_nickname.source.push(ui.NewDropdownItem(index, () => _item[1]));
+          env._groups[item].forEach((_item, index) => {
+            const nickName = env._nicknames[env.language][_item] || env._nicknames['en'][_item];
+            _arrCol_nickname.source.push(ui.NewDropdownItem(_item, () => nickName['value']));
+          });
+
+          _btn_nickname.name = item;
+          utils.DropdownCreator.new({
+            toggler: _btn_nickname,
+            review: _txt_nickname,
+            arrCol: _arrCol_nickname,
+            title: () => ``,
+            selected: _txt_nickname,
+          });
+
+          _btn_nickname.addEventListener('DROPDOWN_ITEM_CHANGE', bindFunc, this);
+          _btn_nickname.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onNicknameSelect, this);
         }
-        utils.DropdownCreator.new({
-          toggler: this._btn_Cartoon,
-          review: this._txt_Cartoon,
-          arrCol: _arrCol_Cartoon,
-          title: () => ``,
-          selected: this._txt_Cartoon,
-        });
-
-        const _arrCol_Myth = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames.nickname_group2[0]),
-          ui.NewDropdownItem(1, () => env.nicknames.nickname_group2[1]),
-          ui.NewDropdownItem(2, () => env.nicknames.nickname_group2[2]),
-          ui.NewDropdownItem(3, () => env.nicknames.nickname_group2[3]),
-          ui.NewDropdownItem(4, () => env.nicknames.nickname_group2[4]),
-        ]);
-        if (this._ddm_Myth) {
-          this._ddm_Myth.isDropdown = true;
-          this._ddm_Myth.isPoppable = true;
-          this._ddm_Myth.dismissOnClickOutside = true;
-          this._ddm_Myth.setToggler(this._btn_Myth);
-          this._ddm_Myth.dropdown.review = this._txt_Myth;
-          this._ddm_Myth.dropdown.data.replaceAll(_arrCol_Myth.source);
-          this._ddm_Myth.dropdown.select(env.nickname);
-        }
-        utils.DropdownCreator.new({
-          toggler: this._btn_Myth,
-          review: this._txt_Myth,
-          arrCol: _arrCol_Myth,
-          title: () => ``,
-          selected: this._txt_Myth,
-        });
-
-        const _arrCol_Movie = new eui.ArrayCollection([
-          ui.NewDropdownItem(0, () => env.nicknames.nickname_group3[0]),
-          ui.NewDropdownItem(1, () => env.nicknames.nickname_group3[1]),
-          ui.NewDropdownItem(2, () => env.nicknames.nickname_group3[2]),
-          ui.NewDropdownItem(3, () => env.nicknames.nickname_group3[3]),
-          ui.NewDropdownItem(4, () => env.nicknames.nickname_group3[4]),
-        ]);
-        if (this._ddm_Movie) {
-          this._ddm_Movie.isDropdown = true;
-          this._ddm_Movie.isPoppable = true;
-          this._ddm_Movie.dismissOnClickOutside = true;
-          this._ddm_Movie.setToggler(this._btn_Movie);
-          this._ddm_Movie.dropdown.review = this._txt_Movie;
-          this._ddm_Movie.dropdown.data.replaceAll(_arrCol_Movie.source);
-        }
-        utils.DropdownCreator.new({
-          toggler: this._btn_Movie,
-          review: this._txt_Movie,
-          arrCol: _arrCol_Movie,
-          title: () => ``,
-          selected: this._txt_Movie,
-        });
-
-        this.addListeners();
       }
 
       protected destroy() {
         super.destroy();
-        this.removeListeners();
       }
 
-      protected addListeners() {
-        this._btn_Cartoon.addEventListener('DROPDOWN_ITEM_CHANGE', this.onCartoonChange, this);
-        this._btn_Myth.addEventListener('DROPDOWN_ITEM_CHANGE', this.onMythChange, this);
-        this._btn_Movie.addEventListener('DROPDOWN_ITEM_CHANGE', this.onMovieChange, this);
-        this._btn_Cartoon.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCartoonSelect, this);
-        this._btn_Myth.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onMythSelect, this);
-        this._btn_Movie.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onMovieSelect, this);
-      }
-
-      protected removeListeners() {
-        this._btn_Cartoon.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onCartoonChange, this);
-        this._btn_Myth.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onMythChange, this);
-        this._btn_Movie.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onMovieChange, this);
-        this._btn_Cartoon.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onCartoonSelect, this);
-        this._btn_Myth.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onMythSelect, this);
-        this._btn_Movie.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onMovieSelect, this);
-      }
-
-      private onCartoonSelect() {
-        if (env.orientation === 'portrait') {
-          this._mask_Cartoon.fillColor = 0x1b416e;
-          this._arrow_Cartoon.rotation += 180;
-        }
+      private onNicknameSelect(evt: egret.TouchEvent) {
         this._mask.visible = !this._mask.visible;
-        dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.cartoon') + '  ' + env.nickname}`;
+        const key = evt.currentTarget.name;
+        dir.monitor._mDropdown._title.renderText = () => env.groupName[env.language][key] + '     ' + env.nickname;
       }
 
-      private onMythSelect() {
-        if (env.orientation === 'portrait') {
-          this._mask_Myth.fillColor = 0x1b416e;
-          this._arrow_Myth.rotation += 180;
-        }
-        this._mask.visible = !this._mask.visible;
-        dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.myth') + '  ' + env.nickname}`;
-      }
-
-      private onMovieSelect() {
-        if (env.orientation === 'portrait') {
-          this._mask_Movie.fillColor = 0x1b416e;
-          this._arrow_Movie.rotation += 180;
-        }
-        this._mask.visible = !this._mask.visible;
-        dir.monitor._mDropdown._title.renderText = () => `${i18n.t('nav.userName.category.movie') + '  ' + env.nickname}`;
-      }
-
-      private onCartoonChange(e) {
-        if (env.orientation === 'portrait') {
-          this._arrow_Myth.rotation = 180;
-        }
-        env.nickname = env.nicknames.nickname_group1[e.data];
+      private onNicknameChange(e) {
+        const _data = this as any;
+        const nickName = env._nicknames[env.language][e.data] || env._nicknames['en'][e.data];
+        env.nickname = nickName['value'];
+        env.nicknameKey = e.data;
         dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
-        this.previousPage();
-      }
-
-      private onMythChange(e) {
-        if (env.orientation === 'portrait') {
-          this._arrow_Myth.rotation = 180;
-        }
-        env.nickname = env.nicknames.nickname_group2[e.data];
-        dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
-        this.previousPage();
-      }
-
-      private onMovieChange(e) {
-        if (env.orientation === 'portrait') {
-          this._arrow_Movie.rotation = 180;
-        }
-        env.nickname = env.nicknames.nickname_group3[e.data];
-        dir.evtHandler.dispatch(core.Event.NICKNAME_UPDATE);
-        this.previousPage();
-      }
-      private previousPage() {
         dir.evtHandler.createOverlay({
           class: 'PlayerProfile',
           args: ['PlayerProfile'],

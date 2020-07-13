@@ -23,6 +23,8 @@ namespace we {
 
       protected _slopedBarChart: we.di.SlopedBarChart;
 
+      protected _horizontalBarChart: we.di.HorizontalBarChart;
+
       protected mount() {
         // this.pieSize = new we.di.RankedPieChart();
         // this.pieSize.x = 476;
@@ -48,6 +50,12 @@ namespace we {
         this._slopedBarChart.y = 50;
         this._slopedBarChart.setRanksAndAnimate([80, 50, 30]);
         this.addChild(this._slopedBarChart);
+
+        this._horizontalBarChart = new we.di.HorizontalBarChart();
+        this._horizontalBarChart.x = 0;
+        this._horizontalBarChart.y = 100;
+        this._horizontalBarChart.setRanksAndAnimate([8.2, 18.4, 14.5, 9.5, 6.9, 7]);
+        this.addChild(this._horizontalBarChart);
       }
 
       public setPieSize(value: number[]) {

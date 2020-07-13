@@ -292,6 +292,26 @@ declare module skin_desktop.di{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.dil{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiceWealthScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
 }
 declare class BaBetLimitDropdownSkin extends eui.Skin{
@@ -492,6 +512,10 @@ declare module skin_desktop.lo{
 }
 declare module skin_desktop.lo{
 	class FunBetTabItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoLeftPanel extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -884,6 +908,18 @@ declare module skin_mobile_landscape.ba{
 }
 declare module skin_mobile_landscape.ba{
 	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bam{
+	class FlipCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.bam{
+	class MobileCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class SqueezeBaccaratScene extends eui.Skin{
 	}
 }
 declare module skin_mobile_landscape{
@@ -1313,7 +1349,11 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait.bam{
-	class CardHolderSkin extends eui.Skin{
+	class FlipCardHolderSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.bam{
+	class MobileCardHolderSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

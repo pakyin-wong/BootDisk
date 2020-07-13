@@ -22,6 +22,7 @@ namespace we {
         [we.core.GameType.DT]: 1,
         [we.core.GameType.RO]: 1,
         [we.core.GameType.DI]: 1,
+        [we.core.GameType.DIL]: 1,
         [we.core.GameType.LW]: 1,
         [we.core.GameType.BAM]: 1,
         [we.core.GameType.ROL]: 1,
@@ -302,6 +303,38 @@ namespace we {
             });
             break;
           }
+          case we.core.GameType.DIL: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockDiRoadData);
+              data.gametype = core.GameType.DIL;
+
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessDiceWealth(this, core.GameType.DIL);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
+          }
           case we.core.GameType.DT: {
             tables = Array.apply(null, { length: count }).map((value, idx) => {
               const data = new we.data.TableInfo();
@@ -407,10 +440,86 @@ namespace we {
         return tables;
       }
 
-      public updateSetting(key: string, value: string) {}
+      public updateSetting(key: string, value: string) {
+        if (env.nicknameSet) {
+          env.nicknameSet = env.nicknameSet;
+        }
+        if (env.fallbacknicknames) {
+          env.fallbacknicknames = env.fallbacknicknames;
+        }
+      }
 
       public getStaticInitData(callback: (res: any) => void, thisArg: any) {
         callback.call(thisArg, { Tips: ['mock'], Bannerurls: [] });
+      }
+
+      public async getStaticInitDataAsync(callback: (res: any) => void, thisArg: any) {
+        await utils.sleep(2000);
+        let Nicknames;
+        switch (env.language) {
+          case 'sc':
+            Nicknames = {
+              nicknames: {
+                // nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
+                // nicknamekey002: { value: '天使sc', group: 'groupKey03' },
+                // nicknamekey003: { value: '黑豹sc', group: 'groupKey03' },
+                // nicknamekey004: { value: '外星人sc', group: 'groupKey02' },
+                // nicknamekey005: { value: '刀鋒戰士sc', group: 'groupKey01' },
+                // nicknamekey006: { value: '獨角獸sc', group: 'groupKey02' },
+                // nicknamekey007: { value: '黑寡婦sc', group: 'groupKey01' },
+                // nicknamekey008: { value: '蠟筆小新sc', group: 'groupKey02' },
+                // nicknamekey009: { value: '哆啦A夢sc', group: 'groupKey01' },
+              },
+              groups: {
+                // groupKey01: '卡通人物角色sc',
+                // groupKey02: '神話人物角色sc',
+                // groupKey03: '電影人物角色sc',
+              },
+            };
+            break;
+          case 'tc':
+            Nicknames = {
+              nicknames: {
+                // nicknamekey001: { value: '海綿寶寶tc', group: 'groupKey03' },
+                // // nicknamekey002: { value: '天使tc', group: 'groupKey03' }, //commented to test fallback nicknameSet
+                // // nicknamekey003: { value: '黑豹tc', group: 'groupKey03' },
+                // nicknamekey004: { value: '外星人tc', group: 'groupKey02' },
+                // nicknamekey005: { value: '刀鋒戰士tc', group: 'groupKey01' },
+                // nicknamekey006: { value: '獨角獸tc', group: 'groupKey02' },
+                // nicknamekey007: { value: '黑寡婦tc', group: 'groupKey01' },
+                // nicknamekey008: { value: '蠟筆小新tc', group: 'groupKey02' },
+                // nicknamekey009: { value: '哆啦A夢tc', group: 'groupKey01' },
+              },
+              groups: {
+                // groupKey01: '卡通人物角色tc',
+                // groupKey02: '神話人物角色tc',
+                // groupKey03: '電影人物角色tc',
+              },
+            };
+            break;
+          case 'en':
+            Nicknames = {
+              nicknames: {
+                // nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
+                // nicknamekey002: { value: '天使en', group: 'groupKey03' },
+                // nicknamekey003: { value: '黑豹en', group: 'groupKey03' },
+                // nicknamekey004: { value: '外星人en', group: 'groupKey02' },
+                // nicknamekey005: { value: '刀鋒戰士en', group: 'groupKey01' },
+                // nicknamekey006: { value: '獨角獸en', group: 'groupKey02' },
+                // nicknamekey007: { value: '黑寡婦en', group: 'groupKey01' },
+                // nicknamekey008: { value: '蠟筆小新en', group: 'groupKey02' },
+                // nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
+              },
+              groups: {
+                // groupKey01: '卡通人物角色en',
+                // groupKey02: '神話人物角色en',
+                // groupKey03: '電影人物角色en',
+              },
+            };
+            break;
+        }
+        callback.call(thisArg, { Tips: ['mock'], Bannerurls: [], Nicknames });
+        return Promise.resolve();
       }
 
       public connect() {
@@ -429,23 +538,53 @@ namespace we {
         env.playerID = 'PID001';
         env.currency = Currency.RMB;
         env.nickname = 'Jonathan';
-        env.nicknames = {
-          nickname_group1: ['海綿寶寶', '哆啦A夢 (小叮噹)', '蠟筆小新', '巴斯光年', '米奇老鼠 (米老鼠)'],
-          nickname_group2: ['天使', '獨角獸', '外星人', '鳳凰', '二重身'],
-          nickname_group3: ['黑豹', '黑寡婦', '刀鋒戰士', '酷寒戰士', '美國隊長'],
+        env.fallbacknicknames = {
+          nicknames: {
+            // nicknamekey001: { value: '海綿寶寶en', group: 'groupKey03' },
+            // nicknamekey002: { value: '天使en', group: 'groupKey03' },
+            // nicknamekey003: { value: '黑豹en', group: 'groupKey03' },
+            // nicknamekey004: { value: '外星人en', group: 'groupKey02' },
+            // nicknamekey005: { value: '刀鋒戰士en', group: 'groupKey01' },
+            // nicknamekey006: { value: '獨角獸en', group: 'groupKey02' },
+            // nicknamekey007: { value: '黑寡婦en', group: 'groupKey01' },
+            // nicknamekey008: { value: '蠟筆小新en', group: 'groupKey02' },
+            // nicknamekey009: { value: '哆啦A夢en', group: 'groupKey01' },
+          },
+          groups: {
+            // groupKey01: 'Cartoon',
+            // groupKey02: 'Legend',
+            // groupKey03: 'Movie',
+          },
         };
-        env.icons = [
-          'd_lobby_profile_pic_01_png',
-          'd_lobby_profile_pic_02_png',
-          'd_lobby_profile_pic_03_png',
-          'd_lobby_profile_pic_04_png',
-          'd_lobby_profile_pic_05_png',
-          'd_lobby_profile_pic_06_png',
-          'd_lobby_profile_pic_07_png',
-          'd_lobby_profile_pic_08_png',
-        ];
-        env.icon = 'd_lobby_profile_pic_01_png';
-        env.profileImageURL = 'https://url';
+        env.nicknameSet = {
+          nicknames: {
+            // nicknamekey001: { value: '海綿寶寶sc', group: 'groupKey03' },
+            // nicknamekey002: { value: '天使sc', group: 'groupKey03' },
+            // nicknamekey003: { value: '黑豹sc', group: 'groupKey03' },
+            // nicknamekey004: { value: '外星人sc', group: 'groupKey02' },
+            // nicknamekey005: { value: '刀鋒戰士sc', group: 'groupKey01' },
+            // nicknamekey006: { value: '獨角獸sc', group: 'groupKey02' },
+            // nicknamekey007: { value: '黑寡婦sc', group: 'groupKey01' },
+            // nicknamekey008: { value: '蠟筆小新sc', group: 'groupKey02' },
+            // nicknamekey009: { value: '哆啦A夢sc', group: 'groupKey01' },
+          },
+          groups: {
+            // groupKey01: '卡通人物角色sc',
+            // groupKey02: '神話人物角色sc',
+            // groupKey03: '電影人物角色sc',
+          },
+        };
+        env.icons = {
+          // iconKey01: 'd_lobby_profile_pic_01_png',
+          // iconKey02: 'd_lobby_profile_pic_02_png',
+          // iconKey03: 'd_lobby_profile_pic_03_png',
+          // iconKey04: 'd_lobby_profile_pic_04_png',
+          // iconKey05: 'd_lobby_profile_pic_05_png',
+          // iconKey06: 'd_lobby_profile_pic_06_png',
+          // iconKey07: 'd_lobby_profile_pic_07_png',
+          // iconKey08: 'd_lobby_profile_pic_08_png',
+        };
+        env.profileimage = ''; // 'iconKey01';
         env.betLimits = [
           {
             currency: Currency.RMB,
@@ -494,6 +633,11 @@ namespace we {
       }
 
       public enterTable(tableID: string) {
+        setTimeout(() => {
+          this.dispatchInfoUpdateEvent(this.tables[parseInt(tableID, 10) - 1]);
+          this.dispatchBetInfoUpdateEvent(this.tables[parseInt(tableID, 10) - 1]);
+        }, 500);
+
         /*
         //Canceling the event
 
@@ -644,6 +788,7 @@ namespace we {
       public dispatchInfoUpdateEvent(data: data.TableInfo) {
         env.currTime = Date.now();
         data.complete = 1;
+        env.tableInfos[data.tableid] = data;
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, data);
 
         const isJustReady: boolean = env.validateTableInfoDisplayReady(data.tableid);
@@ -715,7 +860,7 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bead: [{ gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 12 }, { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 }, { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 }],
           bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
@@ -723,29 +868,29 @@ namespace we {
         },
 
         inGameB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
-          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
+          bead: [
+            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
+            { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 },
+            { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 },
+            { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b', t: 5 }],
+          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
-          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
-          beadAni: 3,
-          bigRoadAni: 6,
-          bigEyeAni: 6,
-          smallAni: 1,
-          roachAni: 6,
+          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b' }],
         },
 
         inGameP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
-          bigEye: [{ v: 'p' }, { v: 'p' }],
-          small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
-          roach: [{ v: 'p' }, { v: 'p' }],
-          beadAni: 3,
-          bigRoadAni: 3,
-          bigEyeAni: 1,
-          smallAni: 6,
-          roachAni: 1,
+          bead: [
+            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
+            { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 },
+            { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 },
+            { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p', t: 0 }],
+          bigEye: [{ v: 'p' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
+          small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
+          roach: [{ v: 'p' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
         },
 
         lobbyPro: {
@@ -792,11 +937,11 @@ namespace we {
 
         inGameInfoStart: 0,
 
-        gameInfo: [
-          { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
-          { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
-          { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
-        ],
+        gameInfo: {
+          cde345: { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
+          g34345: { gameRoundID: 'g34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
+          g45454: { gameRoundID: 'g45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
+        },
       };
 
       // mock ro road data
@@ -1138,7 +1283,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
 
-      public sendVerifyInfo(id: string, pattern: string[]) {}
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {}
 
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
