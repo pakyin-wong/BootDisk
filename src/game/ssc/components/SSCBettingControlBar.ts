@@ -14,7 +14,7 @@ namespace we {
       private _lblNoteDropDown;
       private _noteDropDown;
 
-      private _btnBetDescription;
+      private _btnBetDescription; // need tooltips????
       private _lblBetDescription;
 
       private _lblHighestWin;
@@ -43,6 +43,10 @@ namespace we {
       protected init() {
         // runtimelabel rendertext
         this.addListeners();
+        if (this._noteDropDown) {
+          this.initNoteDropDown();
+        }
+        this.validateBet();
       }
 
       protected addListeners() {
@@ -59,26 +63,45 @@ namespace we {
         if (this._btnMinusMultiplier) {
           this._btnMinusMultiplier.addEventListener(egret.TouchEvent.TOUCH_TAP, this.minusMultiplier, this);
         }
+        if (this._noteDropDown) {
+          this._noteDropDown.addEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
+        }
+      }
+
+      protected initNoteDropDown() {
+        const _arrCol_note = new eui.ArrayCollection([ui.NewDropdownItem(2, () => `2元`), ui.NewDropdownItem(0.2, () => `2角`), ui.NewDropdownItem(0.02, () => `2分`)]);
+        this._noteDropDown.isDropdown = true;
+        this._noteDropDown.isPoppable = true;
+        this._noteDropDown.dismissOnClickOutside = true;
+        this._noteDropDown.setToggler(this._btnNoteDropDown);
+        this._noteDropDown.dropdown.review = this._lblNoteDropDown;
+        this._noteDropDown.dropdown.data.replaceAll(_arrCol_note.source);
+        this._noteDropDown.dropdown.select(this._unitBet);
+      }
+
+      protected onUnitSelect(e) {
+        this.onUnitBetUpdate(e.data);
+        this.updateTotalBetAmount();
       }
 
       protected updateTotalBetAmount() {
         super.updateTotalBetAmount();
-
         if (this._lblHighestWin) {
         }
 
         if (this._lblNoteChosen) {
-          this._lblNoteChosen = this._noteCount;
+          this._lblNoteChosen.text = this._noteCount;
         }
 
         if (this._lblTotalBet) {
-          this._lblTotalBet = this._totalBetAmount;
+          this._lblTotalBet.text = `${this._totalBetAmount} 元`;
         }
       }
 
       protected addMultiplier() {
         this.onMultiplierUpdate(this._multiplier + 1);
         this._lblMultiplier.text = this._multiplier;
+        this.updateTotalBetAmount();
       }
 
       protected minusMultiplier() {
@@ -87,6 +110,7 @@ namespace we {
         }
         this.onMultiplierUpdate(this._multiplier - 1);
         this._lblMultiplier.text = this._multiplier;
+        this.updateTotalBetAmount();
       }
 
       protected validateBet() {
