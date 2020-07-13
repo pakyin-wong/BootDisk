@@ -726,10 +726,6 @@ declare module skin_desktop{
 	class RouletteScene extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class RouletteWealthScene extends eui.Skin{
-	}
-}
 declare module skin_desktop.ro{
 	class SideListChipLayerSkin extends eui.Skin{
 	}
@@ -752,6 +748,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class RolLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class RouletteWealthScene extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1817,7 +1817,11 @@ declare module skin_mobile_portrait.rol{
 	}
 }
 declare module skin_mobile_portrait{
-	class GodOfFortuneRouletteScene extends eui.Skin{
+	class LuckyCoin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RouletteWealthScene extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait.rol{
