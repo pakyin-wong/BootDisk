@@ -23,30 +23,7 @@ namespace we {
         this.addChild(this._shape);
         this._gr = this._shape.graphics;
 
-        if (this.cornerTL_TR_BL_BR !== '') {
-          const corners = this.cornerTL_TR_BL_BR
-            .split(' ')
-            .join('')
-            .split(',');
-          this.cornerTL = parseInt(corners[0], 10);
-          this.cornerTR = parseInt(corners[1], 10);
-          this.cornerBL = parseInt(corners[2], 10);
-          this.cornerBR = parseInt(corners[3], 10);
-        }
-
-        this.setRoundRectStyle(
-          this.width,
-          this.height,
-          { tl: this.cornerTL, tr: this.cornerTR, bl: this.cornerBL, br: this.cornerBR },
-          this.fillColor,
-          this.fillAlpha,
-          this.stroke,
-          this.strokeColor,
-          this.strokeAlpha,
-          this.strokeIn,
-          this.strokeInColor,
-          this.strokeInAlpha
-        );
+        this.refresh();
       }
 
       public setRoundRectStyle(
@@ -70,6 +47,7 @@ namespace we {
               .split(' ')
               .join('')
               .split(',');
+
             if (parms.length === 2) {
               GradientFill.beginGradientFill(this._gr, width, height, [parms[0], parms[1]]);
             } else if (parms.length === 3) {
@@ -111,6 +89,33 @@ namespace we {
           RoundRect.drawRoundRect(this._gr, strokeIn * 0.5, strokeIn * 0.5, width - strokeIn, height - strokeIn, cRadius);
           // RoundRect.drawRoundRect(this._gr, strokeIn * 0.5, strokeIn * 0.5, width - strokeSum, height - strokeIn, cRadius);
         }
+      }
+
+      public refresh() {
+        if (this.cornerTL_TR_BL_BR !== '') {
+          const corners = this.cornerTL_TR_BL_BR
+            .split(' ')
+            .join('')
+            .split(',');
+          this.cornerTL = parseInt(corners[0], 10);
+          this.cornerTR = parseInt(corners[1], 10);
+          this.cornerBL = parseInt(corners[2], 10);
+          this.cornerBR = parseInt(corners[3], 10);
+        }
+
+        this.setRoundRectStyle(
+          this.width,
+          this.height,
+          { tl: this.cornerTL, tr: this.cornerTR, bl: this.cornerBL, br: this.cornerBR },
+          this.fillColor,
+          this.fillAlpha,
+          this.stroke,
+          this.strokeColor,
+          this.strokeAlpha,
+          this.strokeIn,
+          this.strokeInColor,
+          this.strokeInAlpha
+        );
       }
     }
   }
