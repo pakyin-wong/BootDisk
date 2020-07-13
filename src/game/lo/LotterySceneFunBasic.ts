@@ -20,6 +20,12 @@ namespace we {
       protected _previousState: number;
       protected _gameData: we.data.GameData;
 
+      protected _message: ui.InGameMessage;
+
+      protected _counter: eui.Label;
+      protected _targetTime;
+      protected _counterInterval;
+
       constructor(data: any) {
         super(data);
         this._tableId = data.tableid;
@@ -54,6 +60,7 @@ namespace we {
         this._video.stop();
         dir.videoPool.release(this._video);
 
+        this.resetTimer();
         this.removeListeners();
         this.removeChildren();
       }
@@ -122,12 +129,18 @@ namespace we {
       protected onBetResultReceived(evt: egret.Event) {
         const result: data.PlayerBetResult = evt.data;
         if (result.success) {
-          // this.onBetConfirmed();
+          this.onBetConfirmed();
+        } else {
+          this.onBetFail();
         }
       }
 
-      public onBetConfirmed() {
-        // this._chipLayer.resetUnconfirmedBet();
+      protected onBetConfirmed() {
+        this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
+      }
+
+      protected onBetFail() {
+        this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('baccarat.betFail'));
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {}
@@ -149,9 +162,7 @@ namespace we {
         }
       }
 
-      protected onBetDetailUpdateInBetState() {
-        // this._message.showMessage(ui.InGameMessage.SUCCESS, i18n.t('baccarat.betSuccess'));
-      }
+      protected onBetDetailUpdateInBetState() {}
 
       protected onBetDetailUpdateInFinishState() {
         // this.checkResultMessage();
@@ -177,15 +188,6 @@ namespace we {
           case core.GameState.DEAL:
             this.setStateDeal();
             break;
-          // case core.GameState.PEEK:
-          //   this.setStatePeek();
-          //   break;
-          // case core.GameState.PEEK_BANKER:
-          //   this.setStatePeekBanker();
-          //   break;
-          // case core.GameState.PEEK_PLAYER:
-          //   this.setStatePeekPlayer();
-          //   break;
           case core.GameState.FINISH:
             this.setStateFinish();
             break;
@@ -207,48 +209,31 @@ namespace we {
       }
 
       protected setStateIdle() {
-        // if (this._previousState !== we.core.GameState.IDLE || isInit) {
         this.setBetRelatedComponentsEnabled(false);
         this.setResultRelatedComponentsEnabled(false);
-        // }
       }
 
       protected setStateBet() {
-        // if (this._previousState !== we.core.GameState.BET || isInit) {
         this.setBetRelatedComponentsEnabled(true);
         this.setResultRelatedComponentsEnabled(false);
-        //   this._undoStack.clearStack();
-        //   this._resultMessage.clearMessage();
-        // }
+        this.updateTimer();
 
-        // if (this._previousState !== we.core.GameState.BET) {
-        //   if (this._chipLayer) {
-        //     this._chipLayer.resetUnconfirmedBet();
-        //     this._chipLayer.resetConfirmedBet();
-        //   }
+        if (this._previousState !== we.core.GameState.BET) {
+          //     this._resultMessage.clearMessage();
 
-        //   if (this._resultMessage) {
-        //     this._resultMessage.clearMessage();
-        //   }
+          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
 
-        //   if (this._message && !isInit) {
-        //     this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
-        //   }
-
-        //   if (this._betDetails && this._chipLayer) {
-        //     this._chipLayer.updateBetFields(this._betDetails);
-        //   }
-
-        //   this._undoStack.clearStack();
-        // }
-        // // update the countdownTimer
-        // this.updateCountdownTimer();
+          //   if (this._betDetails && this._chipLayer) {
+          //     this._chipLayer.updateBetFields(this._betDetails);
+          //   }
+        }
       }
 
       protected setStateDeal() {
         // if (this._previousState !== we.core.GameState.DEAL || isInit) {
         this.setBetRelatedComponentsEnabled(false);
         this.setResultRelatedComponentsEnabled(true);
+        this.resetTimer();
         // }
 
         // if (this._previousState !== we.core.GameState.DEAL) {
@@ -256,9 +241,9 @@ namespace we {
         //     this._resultDisplay.reset();
         //   }
 
-        //   if (this._previousState === core.GameState.BET && this._message && !isInit) {
-        //     this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
-        //   }
+        if (this._previousState === core.GameState.BET) {
+          this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.stopBet'));
+        }
 
         //   if (this._betDetails) {
         //     this._chipLayer.updateBetFields(this._betDetails);
@@ -299,12 +284,27 @@ namespace we {
         // }
       }
 
-      protected updateCountdownTimer() {
-        // if (this._timer) {
-        //   this._timer.countdownValue = this._gameData.countdown * 1000;
-        //   this._timer.remainingTime = this._gameData.countdown * 1000 - (env.currTime - this._gameData.starttime);
-        //   this._timer.start();
-        // }
+      protected updateTimer() {
+        clearInterval(this._counterInterval);
+        this._targetTime = this._gameData.starttime + this._gameData.countdown * 1000;
+
+        this._counterInterval = setInterval(this.update.bind(this), 500);
+        this.update();
+      }
+
+      protected update() {
+        const diff = this._targetTime - env.currTime;
+
+        if (diff > 0) {
+          this._counter.text = moment.utc(diff).format('HH:mm:ss');
+        } else {
+          this.resetTimer();
+        }
+      }
+
+      protected resetTimer() {
+        this._counter.text = '00:00:00';
+        clearInterval(this._counterInterval);
       }
     }
   }

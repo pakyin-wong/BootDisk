@@ -8,15 +8,17 @@
 		</e:Skin>
 		</ui:skinName>
 	</ui:TweenConfig>
+	<lo:FunBetRoundInfo id="_roundInfo" x="775" y="94" skinName="skin_desktop.lo.FunBetRoundInfo"/>
+	<e:Label id="_counter" text="00:00:00" y="98" horizontalCenter="0" height="96" verticalAlign="middle" size="80" textColor="0x4adc84" bold="true" fontFamily="Barlow"/>
 
-	<lo:FunBetLayer id="_betLayer" width="2568" height="533" x="16" y="795"/>
+	<lo:FunBetLayer id="_betLayer" width="2568" height="533" x="16" y="1284"/>
 	<!--<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />-->
 	<!--<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />-->
 	<!--<ro:TableLayer id="_tableLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.TableLayerSkin"
 	               isEdgeDismissable="true" />-->
 	<!--<ro:ChipLayer id="_chipLayer" width="1208" height="340" x="692" y="986" skinName="skin_desktop.ro.ChipLayerSkin"
 	              isEdgeDismissable="true" />-->
-	<e:Group id="_betRelatedGroup" x="820" y="705">
+	<e:Group id="_betRelatedGroup" x="820" y="705" visible="false">
 		<ui:RoundRectShape width="961" height="70" cornerTL_TR_BL_BR="35,35,35,35" stroke="0" fillColor="0x000000" alpha="0.2"/>
 
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
@@ -47,9 +49,9 @@
 		            skinName="skin_desktop.GameBar" />-->
 	</e:Group>
 	<!--<ro:GameResultMessage id="_resultMessage" width="0" height="0" horizontalCenter="0" verticalCenter="0" />-->
-	<!--<ui:InGameMessage id="_message" x="1300.5" y="865.86" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
+	<ui:InGameMessage id="_message" y="650" skinName="skin_desktop.InGameMessageSkin" anchorOffsetX="152"
 	                  anchorOffsetY="16" infoBg="d_ba_gamerecord_playerelement_png"
-	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png" />-->
+	                  successBg="d_ba_gamerecord_tieelement_png" errorBg="d_ba_gamerecord_bankerelement_png"  x="1300.5"/>
 	<!--<ro:TableInfoPanel width="324" height="672" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.ro.TableInfoPanel" />-->

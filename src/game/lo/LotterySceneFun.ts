@@ -19,7 +19,7 @@ namespace we {
       protected initDenom() {
         this._betChipSet.init(5, this._denominationList);
         this._betChipSet.selectedChipIndex = 0;
-        FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex];
+        this.onBetChipChanged();
       }
 
       protected addListeners() {
@@ -37,7 +37,7 @@ namespace we {
       }
 
       protected onBetChipChanged() {
-        FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex];
+        FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex] * 0.01;
       }
 
       protected onConfirmPressed() {
@@ -51,9 +51,24 @@ namespace we {
         FunBet.reset();
       }
 
+      protected onBetResultReceived(evt: egret.Event) {
+        super.onBetResultReceived(evt);
+        dir.evtHandler.dispatch('LOTTERY_FUNBET_CLEANSCREEN');
+      }
+
+      protected onBetConfirmed() {
+        super.onBetConfirmed();
+        FunBet.reset();
+      }
+
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         this.betClipEnabled = enable;
         this.betLayerEnabled = enable;
+
+        if (!enable) {
+          dir.evtHandler.dispatch('LOTTERY_FUNBET_CLEANSCREEN');
+          FunBet.reset();
+        }
       }
 
       protected set betLayerEnabled(enabled: boolean) {

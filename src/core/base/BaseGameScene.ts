@@ -137,7 +137,6 @@ namespace we {
 
       protected initDenom() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
-        console.log(denominationList);
 
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);

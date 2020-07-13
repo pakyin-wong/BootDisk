@@ -58,18 +58,21 @@ namespace we {
         this._tf_total.text = `$${total.toFixed(2)}`;
 
         utils.addButtonListener(this._btnConfirm, this.onClickConfirm, this);
+        dir.evtHandler.addEventListener('LOTTERY_FUNBET_CLEANSCREEN', this.onClosed, this);
       }
 
       protected destroy() {
         super.destroy();
         utils.removeButtonListener(this._btnConfirm, this.onClickConfirm, this);
+        dir.evtHandler.removeEventListener('LOTTERY_FUNBET_CLEANSCREEN', this.onClosed, this);
       }
 
       protected onClickConfirm() {
-        console.log(this._tableInfo);
-        console.log(this._betDetail);
-
         dir.socket.bet(this._tableInfo.tableid, this._betDetail);
+      }
+
+      protected onClosed() {
+        this.foreclosed();
       }
     }
   }
