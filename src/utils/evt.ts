@@ -6,7 +6,7 @@ namespace we {
       });
     }
     export function waitDragonBone(target) {
-      return we.utils.waitDragonBoneEvent(target, dragonBones.Event.COMPLETE);
+      return we.utils.waitDragonBoneEvent(target, dragonBones.EventObject.COMPLETE);
     }
     export function waitDragonBoneEvent(target: dragonBones.IEventDispatcher, ev: string) {
       const r = resolve => () => {

@@ -292,6 +292,26 @@ declare module skin_desktop.di{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.dil{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiceWealthScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare class BaBetLimitDropdownItemSkin extends eui.Skin{
 }
 declare class BaBetLimitDropdownSkin extends eui.Skin{
@@ -433,6 +453,74 @@ declare class SidePanelSkin extends eui.Skin{
 declare class TabItemWithBadgeSkin extends eui.Skin{
 }
 declare class TestItemSkin extends eui.Skin{
+}
+declare module skin_desktop.lo{
+	class FunBetGroup5 extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupDT extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupN extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupN3 extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupNum extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupTotal extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItem5 extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItemDT extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItemN extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItemNum extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItemTotal extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetLayer extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetOverlay extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetOverlayIR extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetRoundInfo extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetTabItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoLeftPanel extends eui.Skin{
+	}
 }
 declare module skin_desktop{
 	class LotteryScene extends eui.Skin{

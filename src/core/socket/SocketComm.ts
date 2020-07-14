@@ -170,13 +170,13 @@ namespace we {
         // env.nicknames = player.profile.settings.nicknames ? player.profile.settings.nicknames : player.profile.nicknames;
         // env.icon = player.profile.settings.icon ? player.profile.settings.icon : player.profile.profileimage;
         // env.icons = player.profile.settings.icons ? player.profile.settings.icons : player.profile.icons;
-        // env.fallbacknicknames = player.fallbacknicknames;
-        // env.icons = player.icons;
-        env.fallbacknicknames = {
-          nicknames: {},
-          groups: {},
-        };
-        env.icons = {};
+        env.fallbacknicknames = player.fallbacknicknames;
+        env.icons = player.icons;
+        // env.fallbacknicknames = {
+        //   nicknames: {},
+        //   groups: {},
+        // };
+        // env.icons = {};
         env.nicknameKey = player.profile.nickname;
 
         // env.icons = {
@@ -361,7 +361,7 @@ namespace we {
         }
         tableInfo.data = gameStatus;
 
-        logger.l(utils.LogTarget.STAGING, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
+        logger.l(utils.LogTarget.DEBUG, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
 
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
@@ -460,7 +460,8 @@ namespace we {
           case core.GameType.BAI:
           case core.GameType.BAS:
           case core.GameType.DT: {
-            const roadmapData = parseAscString(gameStatistic.roadmapdata);
+            // const roadmapData = parseAscString(gameStatistic.roadmapdata);
+            const roadmapData = gameStatistic.roadmapdata;
             const bankerCount: number = getStatistic('bankerwincount');
             const playerCount: number = getStatistic('playerwincount');
             const tieCount: number = getStatistic('tiewincount');
@@ -550,7 +551,7 @@ namespace we {
             break;
           }
         }
-        logger.l(utils.LogTarget.STAGING, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
+        logger.l(utils.LogTarget.DEBUG, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
 
         dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
 
@@ -661,7 +662,7 @@ namespace we {
           this.checkResultNotificationReady(tableInfo);
         }
 
-        logger.l(utils.LogTarget.STAGING, `Table ${tableInfo.tableid} on bet info update`, betInfo);
+        logger.l(utils.LogTarget.DEBUG, `Table ${tableInfo.tableid} on bet info update`, betInfo);
 
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
 
@@ -820,18 +821,8 @@ namespace we {
         );
       }
 
-      public sendVerifyInfo(id: string, pattern: string[]) {
-        this.client.sendVerifyInfo(
-          id,
-          pattern,
-          this.warpServerCallback((data: any) => {
-            if (data.error) {
-              // TODO:  handle error on cancel
-            } else {
-              // dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, data);
-            }
-          })
-        );
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {
+        this.client.sendVerifyInfo(id, pattern, this.warpServerCallback(callback.bind(thisArg)));
       }
 
       public getTableHistory() {}

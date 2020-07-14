@@ -201,6 +201,14 @@ namespace we {
         this._selectedChipIndex = index;
       }
 
+      public set selectedChipIndex(index) {
+        this.setChip(index);
+      }
+
+      public get selectedChipIndex() {
+        return this._selectedChipIndex;
+      }
+
       public setTouchEnabled(enabled: boolean) {
         if (this._chipList) {
           this._chipList.forEach(value => {

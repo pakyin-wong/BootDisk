@@ -3,8 +3,11 @@
         xmlns:w="http://ns.egret.com/wing" width="320" height="105">
         <w:Config id="16f6ac4ee12" />
         <e:Image width="152" height="100%" x="0" y="0" source="d_ba_roadmap_record_cardresult_player_png" />
+        <e:Image width="152" height="100%" y="0" source="d_ba_roadmap_record_cardresult_banker_png" right="0" />
         <e:Label id="playerSum" text="6" y="0" fontFamily="Barlow" textAlign="right" anchorOffsetX="0" width="64"
                  size="24" right="182" />
+        <e:Label id="bankerSum" text="8" x="182" y="0" fontFamily="Barlow" textAlign="left" anchorOffsetX="0" width="38"
+                 size="24" />
         <ui:RunTimeLabel id="lblPlayerName" text="閒" y="7" textAlign="left" x="11" anchorOffsetX="0" width="105"
                          size="18" />
         <e:Group id="playerSumGroup" width="152" height="100%" anchorOffsetY="0" x="0" y="0">
@@ -12,9 +15,6 @@
                 <ui:Card id="card2Player" width="36" height="52" top="42" left="66" />
                 <ui:Card id="card1Player" width="36" height="52" top="42" left="106" />
         </e:Group>
-        <e:Label id="bankerSum" text="8" x="182" y="0" fontFamily="Barlow" textAlign="left" anchorOffsetX="0" width="38"
-                 size="24" />
-        <e:Image width="152" height="100%" y="0" source="d_ba_roadmap_record_cardresult_banker_png" right="0" />
         <ui:RunTimeLabel id="lblBankerName" text="莊" y="7" textAlign="right" anchorOffsetX="0" width="79" size="18"
                          x="230" />
         <e:Group id="bankerSumGroup" width="152" height="100%" anchorOffsetY="0" x="168" y="0">

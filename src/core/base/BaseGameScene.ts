@@ -22,9 +22,6 @@ namespace we {
       protected _doubleButton: ui.BaseImageButton;
       protected _undoButton: ui.BaseImageButton;
 
-      // table name label
-      // protected _label: ui.RunTimeLabel;
-
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
       protected _betDetails: data.BetDetail[];
@@ -33,7 +30,6 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
-      // protected _btnBack: eui.Image;
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
 
@@ -46,6 +42,10 @@ namespace we {
 
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
+
+      public get tableInfo() {
+        return this._tableInfo;
+      }
 
       constructor(data: any) {
         super(data);
@@ -86,6 +86,7 @@ namespace we {
 
       public onExit() {
         super.onExit();
+        this.stage.frameRate = env.frameRate;
         dir.audioCtr.video = null;
         this._video.stop();
         dir.videoPool.release(this._video);
@@ -114,6 +115,7 @@ namespace we {
         this._video.$anchorOffsetX = this._video.width * 0.5;
         this._video.$anchorOffsetY = this._video.height * 0.5;
         this._video.play();
+        this.stage.frameRate = 60;
         this._bgImg.visible = false;
 
         this._gameBar.setPlayFunc(this.playVideo(this));
@@ -137,6 +139,7 @@ namespace we {
 
       protected initDenom() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
         }
@@ -192,6 +195,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+          this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -215,7 +219,17 @@ namespace we {
 
       public insufficientBalance() {
         if (this._message) {
-          this._message.showMessage(ui.InGameMessage.ERROR, 'Insufficient Balance');
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
+        }
+      }
+
+      public exceedBetLimit(evt: egret.Event) {
+        if (this._message) {
+          if (evt && evt.data && evt.data.exceedLower) {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetLowerLimit'));
+          } else {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetUpperLimit'));
+          }
         }
       }
 
@@ -232,6 +246,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+          this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -543,7 +558,6 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.touchEnabled = enable;
         }
-        this._betRelatedGroup.visible = enable;
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
@@ -630,6 +644,7 @@ namespace we {
         return () => {
           try {
             scene._video.play();
+            scene.stage.frameRate = 60;
           } catch (e) {
             console.log('Video play Error');
           }
@@ -641,6 +656,7 @@ namespace we {
         return () => {
           try {
             scene._video.stop();
+            scene.stage.frameRate = env.frameRate;
           } catch (e) {
             console.log('Video play Error');
           }

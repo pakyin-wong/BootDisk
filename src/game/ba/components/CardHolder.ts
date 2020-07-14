@@ -1,6 +1,6 @@
 namespace we {
   export namespace ba {
-    export class CardHolder extends eui.Component implements ui.IResultDisplay {
+    export class CardHolder extends core.BaseEUI implements ui.IResultDisplay {
       private gameData: GameData;
 
       protected card1Player: ui.Card;

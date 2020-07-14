@@ -1,11 +1,13 @@
 namespace we {
   export namespace core {
-    export class BaseEUI extends eui.Component {
+    export class BaseEUI extends eui.Component implements ui.IDismissable {
       public static tapHistory: any[] = [];
       protected _skinKey: string;
       protected _orientationDependent: boolean;
       constructor(skin: string = null, orientationDependent: boolean = true) {
         super();
+        this.edgeDismissableAddon = new ui.EdgeDismissableAddon(this);
+
         this.orientationDependent = orientationDependent;
         if (skin) {
           this._skinKey = skin;
@@ -108,6 +110,58 @@ namespace we {
       //   });
       //   logger.l(utils.LogTarget.DEBUG, BaseEUI.tapHistory);
       // }
+
+      protected _isEdgeDismissable: boolean = false;
+      protected edgeDismissableAddon: ui.EdgeDismissableAddon;
+
+      public dismissPosX: number = NaN;
+      public dismissPosY: number = NaN;
+
+      public set isEdgeDismissable(value: boolean) {
+        this._isEdgeDismissable = value;
+        this.edgeDismissableAddon.active = value;
+      }
+      public get isEdgeDismissable(): boolean {
+        return this._isEdgeDismissable;
+      }
+
+      protected _visible: boolean = true;
+      protected _dismissVisible: boolean = true;
+      protected _alpha: number = 1;
+      protected _dismissAlpha: number = 1;
+
+      public get dismissAlpha() {
+        return this._dismissAlpha;
+      }
+
+      public set dismissAlpha(val) {
+        this._dismissAlpha = val;
+        this.$setAlpha(val * this._alpha);
+      }
+
+      public get alpha() {
+        return this._alpha;
+      }
+
+      public set alpha(val) {
+        this._alpha = val;
+        this.$setAlpha(val * this._dismissAlpha);
+      }
+
+      public get dismissVisible(): boolean {
+        return this._dismissVisible;
+      }
+
+      public set dismissVisible(val: boolean) {
+        this._dismissVisible = val;
+        super.$setVisible(val && this._visible);
+      }
+
+      public $setVisible(val: boolean) {
+        this._visible = val;
+        const visible = val && this._dismissVisible;
+        super.$setVisible(visible);
+      }
     }
   }
 }

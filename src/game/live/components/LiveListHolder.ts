@@ -68,6 +68,9 @@ namespace we {
           case we.core.GameType.ROL:
             generalGameType = 'rol';
             break;
+          case we.core.GameType.DIL:
+            generalGameType = 'dil';
+            break;
           default:
             throw new Error('Invalid Game Type');
         }

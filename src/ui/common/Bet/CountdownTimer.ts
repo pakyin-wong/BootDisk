@@ -8,6 +8,7 @@ namespace we {
       private _remainingTime: number = 30000;
 
       private _previousFrameTime: number;
+      private _colorChange: boolean = false;
 
       public constructor() {
         super();
@@ -30,9 +31,18 @@ namespace we {
         this._countdownValue = value;
       }
 
+      get colorChange(): boolean {
+        return this._colorChange;
+      }
+
+      set colorChange(val: boolean) {
+        this._colorChange = val;
+      }
+
       get remainingTime(): number {
         return this._remainingTime;
       }
+
       set remainingTime(second: number) {
         if (this._countdownValue <= 0) {
           this.progressIndicator.progress = 1;
@@ -54,6 +64,13 @@ namespace we {
           remainingTime = 0;
         }
         this.remainingTime = remainingTime;
+        // console.log('5000/this.countdownValue', 5000 / this.countdownValue);
+        // console.log('progressIndicator.progresds', this.progressIndicator.progress);
+        if (this._colorChange && this.progressIndicator.progress < 5000 / this.countdownValue) {
+          this.countdownLabel.textColor = 0xff0000;
+        } else if (this._colorChange && this.progressIndicator.progress >= 5000 / this.countdownValue) {
+          this.countdownLabel.textColor = 0xffffff;
+        }
       }
 
       public start() {

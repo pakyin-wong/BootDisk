@@ -20,7 +20,7 @@ namespace we {
         this._list = new eui.List();
         this._list.dataProvider = this._dataCollection;
         this._list.itemRenderer = DropdownItemRenderer;
-        this._list.requireSelection = true;
+        this._list.requireSelection = false;
         this.itemSkin = 'DropdownItem';
       }
 
@@ -64,11 +64,16 @@ namespace we {
         for (let i = 0; i < source.length; i++) {
           if (source[i].key === key || source === key) {
             this._list.selectedIndex = i;
-            this._review.renderText = this._list.selectedItem.renderText;
+            this._review.renderText = this._reviewRenderText ? this._reviewRenderText(this._list.selectedItem.renderText) : this._list.selectedItem.renderText;
             // this.onChange();
             return;
           }
         }
+      }
+
+      public clearSelection() {
+        this._list.selectedIndex = -1;
+        this._review.renderText = this._reviewRenderText ? this._reviewRenderText(() => '-') : () => '-';
       }
 
       public get data(): eui.ArrayCollection {
