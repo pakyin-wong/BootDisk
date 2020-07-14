@@ -178,13 +178,7 @@ namespace we {
           const brightnessFilter = new we.ui.BrightnessFilter(colorMatrix);
           this._imageMapping[fieldName].filters = [brightnessFilter];
 
-          egret.Tween.get(brightnessFilter)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 100 }, 125)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 100 }, 125)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 100 }, 125);
+          egret.Tween.get(brightnessFilter).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125);
         });
       }
     }
