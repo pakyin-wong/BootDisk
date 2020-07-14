@@ -104,6 +104,7 @@ namespace we {
         this._mask.x = this._betArea.x;
         this._mask.y = this._betArea.y;
         this._mask.visible = false;
+        // this.betAreaState(this._betAreaTween.currentState);
       }
 
       protected addEventListeners() {
@@ -132,6 +133,7 @@ namespace we {
         } else {
           this.currentState = 'right';
         }
+        this.invalidateState();
       }
 
       protected setSkinName() {
@@ -357,7 +359,7 @@ namespace we {
         this._betArea.mask = null;
         this._mask.visible = false;
 
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
 
         super.checkResultMessage();
@@ -398,12 +400,21 @@ namespace we {
         }
       }
 
+      protected setStateIdle(isInit: boolean = false) {
+        super.setStateIdle(isInit);
+        this._betAreaLock = false;
+        this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
+        this.roState = 'normal';
+      }
+
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         this._betAreaLock = true;
         this._bottomGamePanel.manualClose();
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
-        this.hideBetCombination();
+        if (this._betCombination.isActivated) {
+          this.hideBetCombination();
+        }
         this.roState = 'small';
       }
 
@@ -412,6 +423,17 @@ namespace we {
         this._betAreaLock = false;
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = true;
         this.roState = 'normal';
+      }
+
+      protected setStateFinish(isInit: boolean = false) {
+        super.setStateFinish(isInit);
+        this._betAreaLock = true;
+        this._bottomGamePanel.manualClose();
+        this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
+        if (this._betCombination.isActivated) {
+          this.hideBetCombination();
+        }
+        this.roState = 'small';
       }
 
       protected updateTableInfoRelatedComponents() {
