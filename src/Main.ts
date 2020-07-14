@@ -83,6 +83,7 @@ class Main extends eui.UILayer {
     dir.monitor = new we.core.Monitor();
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
+    env.frameRate = this.stage.frameRate;
 
     we.utils.updateEgretSys();
 

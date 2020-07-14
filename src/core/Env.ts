@@ -39,6 +39,8 @@ namespace we {
       public nicknameKey: string;
       public profileimage: string;
 
+      public frameRate: number = 30;
+
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
       public groupName: { [groupKey: string]: string } = {};
