@@ -36,10 +36,7 @@ namespace we {
     }
 
     export function formatTime(timestamp) {
-      return moment
-        .unix(timestamp)
-        .utcOffset(8)
-        .format('YYYY/MM/DD HH:mm:ss');
+      return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {
@@ -101,6 +98,7 @@ namespace we {
         case core.GameType.ROL:
           return 'ro';
         case core.GameType.DI:
+        case core.GameType.DIL:
           return 'di';
         case core.GameType.LW:
           return 'lw';

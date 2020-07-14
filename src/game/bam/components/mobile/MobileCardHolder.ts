@@ -99,7 +99,7 @@ namespace we {
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
         // TODO: update card using the gameData
-        this.gameData = <bam.GameData>gameData;
+        this.gameData = <bam.GameData> gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
@@ -408,7 +408,9 @@ namespace we {
       }
 
       protected init(data) {
-        if (!data) return;
+        if (!data) {
+          return;
+        }
 
         this.gameData = data.gameData;
 

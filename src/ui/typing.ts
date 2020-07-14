@@ -99,6 +99,13 @@ namespace we {
       panelName: string;
     }
 
+    export interface IDismissable {
+      dismissPosX: number;
+      dismissPosY: number;
+      dismissVisible: boolean;
+      dismissAlpha: number;
+    }
+
     export interface IAutoRemove {
       content: egret.DisplayObject;
       removeSelf: (isAnimate?: boolean) => void;

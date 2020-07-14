@@ -106,7 +106,7 @@ namespace we {
             _btn_nickname.addChild(_arrow_nickname);
 
             const _arrCol_nickname: eui.ArrayCollection = new eui.ArrayCollection();
-            const bindFunc = this.onSelectNickname.bind(_arrCol_nickname);
+            const bindFunc = this.onSelectNickname.bind(this);
 
             // env.nameList[item].forEach((_item, index) => {
             //   // data inside each name group
@@ -261,7 +261,12 @@ namespace we {
       }
 
       private onSelectNickname(e) {
-        const _data = this as any;
+        for (const panel of this._group_ddm.$children as ui.Panel[]) {
+          if (panel !== e.currentTarget) {
+            panel.dropdown.clearSelection();
+          }
+        }
+        // const _data = this as any;
         const nickName = env._nicknames[env.language][e.data] || env._nicknames['en'][e.data];
         env.nickname = nickName['value'];
         env.nicknameKey = e.data;

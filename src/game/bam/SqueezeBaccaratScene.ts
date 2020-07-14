@@ -16,6 +16,7 @@ namespace we {
           tutorial.x = 106;
           tutorial.y = 171;
           tutorial.isDraggable = true;
+          tutorial.isEdgeDismissable = true;
           this.addChild(tutorial);
           env.isFirstTimeBam = true;
         }

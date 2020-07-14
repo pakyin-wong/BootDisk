@@ -64,8 +64,8 @@ namespace we {
           remainingTime = 0;
         }
         this.remainingTime = remainingTime;
-        console.log('5000/this.countdownValue', 5000 / this.countdownValue);
-        console.log('progressIndicator.progresds', this.progressIndicator.progress);
+        // console.log('5000/this.countdownValue', 5000 / this.countdownValue);
+        // console.log('progressIndicator.progresds', this.progressIndicator.progress);
         if (this._colorChange && this.progressIndicator.progress < 5000 / this.countdownValue) {
           this.countdownLabel.textColor = 0xff0000;
         } else if (this._colorChange && this.progressIndicator.progress >= 5000 / this.countdownValue) {

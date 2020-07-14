@@ -2,9 +2,11 @@
 namespace we {
   export namespace utils {
     export function updateEgretSys() {
+      // add 'cover' fillmode to Bitmap
       egret.sys.BitmapNodeExtend.super = egret.sys.BitmapNode;
       egret.sys.BitmapNode = egret.sys.BitmapNodeExtend;
 
+      // capture the createTexture function for later enhancement, e.g. use mipmap
       function createTexture(renderContext, bitmapData) {
         const webglrendercontext = renderContext;
         const gl = webglrendercontext.context;
@@ -52,5 +54,14 @@ namespace we {
       }
       egret.sys._createTexture = _createTexture;
     }
+
+    // modify TouchScroll finish function to set this.currentScrollPos when scroll finish
+    // this will affect the scroller animation if user set the scrollPos elsewhere outside TouchScroll. e.g. change viewport.scrollV while scroller is moving
+    const touchScrollFinish = eui.sys.TouchScroll.prototype.finish;
+    function finish(currentScrollPos, maxScrollPos) {
+      this.currentScrollPos = currentScrollPos;
+      touchScrollFinish.bind(this)(currentScrollPos, maxScrollPos);
+    }
+    eui.sys.TouchScroll.prototype.finish = finish;
   }
 }
