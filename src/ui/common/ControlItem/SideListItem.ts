@@ -159,18 +159,28 @@ namespace we {
         }
       }
 
-      // protected animateQuickBetButton(show: boolean) {
-      //   egret.Tween.removeTweens(this._quickbetButton);
-      //   if (show) {
-      //     egret.Tween.get(this._quickbetButton)
-      //       .set({ visible: true })
-      //       .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
-      //   } else {
-      //     egret.Tween.get(this._quickbetButton)
-      //       .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
-      //       .set({ visible: false });
-      //   }
-      // }
+      protected animateQuickBetButton(show: boolean) {
+        super.animateQuickBetButton(show);
+        if (!this._quickbetButton) {
+          return;
+        }
+        egret.Tween.removeTweens(this._quickbetButton);
+        if (show) {
+          egret.Tween.get(this._quickbetButton).set({ visible: true }).to({ y: 120, alpha: 1 }, this._tweenInterval1);
+        } else {
+          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
+        }
+        //   egret.Tween.removeTweens(this._quickbetButton);
+        //   if (show) {
+        //     egret.Tween.get(this._quickbetButton)
+        //       .set({ visible: true })
+        //       .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+        //   } else {
+        //     egret.Tween.get(this._quickbetButton)
+        //       .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+        //       .set({ visible: false });
+        //   }
+      }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         // when rm need update
@@ -192,6 +202,11 @@ namespace we {
         }
         dir.socket.enterTable(this.tableId);
         env.gotoScene(this.tableId);
+      }
+
+      protected setBetRelatedComponentsEnabled(enable) {
+        super.setBetRelatedComponentsEnabled(enable);
+        this.timer.visible = true;
       }
     }
   }

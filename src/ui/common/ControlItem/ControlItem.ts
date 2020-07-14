@@ -402,7 +402,7 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         if (this._timer) {
-          this._timer.visible = true;
+          this._timer.visible = enable;
         }
 
         if (this._chipLayer) {
@@ -492,6 +492,9 @@ namespace we {
 
       public onRollout(evt: egret.Event) {
         this._mouseOutside = true;
+      }
+      public get timer() {
+        return this._timer;
       }
 
       protected onConfirmPressed(evt: egret.Event) {
