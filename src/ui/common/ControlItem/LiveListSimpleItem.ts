@@ -255,7 +255,10 @@ namespace we {
       protected generateQuickBetButton() {
         if (this._quickbetButtonNode) {
           const button = new ui.LobbyQuickBetAnimButton();
-          button.label1text = '快速投注';
+          // if (true) {
+          //   button.label1text = '加注';
+          // }
+          button.label1text = i18n.t('mobile_quick_bet_button_label');
           button.label2text = 'X';
           button.resName = 'd_lobby_quick_bet_notification_follow_normal_png';
           button.hoverResName = 'd_lobby_quick_bet_notification_follow_hover_png';
