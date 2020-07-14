@@ -762,6 +762,18 @@ declare module skin_desktop.lo{
 	class SSCCheckBoxInput extends eui.Skin{
 	}
 }
+declare module skin_desktop{
+	class SSCBetNoteItem extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCBettingControlBar extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCNoteControlPanel extends eui.Skin{
+	}
+}
 declare module skin_desktop.lo{
 	class SSCTraditionalActionButtonPanel extends eui.Skin{
 	}

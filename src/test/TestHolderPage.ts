@@ -186,7 +186,9 @@ namespace we {
           for (let i = 0; i < data.length; i++) {
             patterns.push(data[i]);
           }
-        } else { patterns.push(value); }
+        } else {
+          patterns.push(value);
+        }
         const output = [];
         for (let i = 0; i < patterns.length; i++) {
           if (patterns[i].search(/\$\%\^\&\b(\w*undefined\w*)\b/gi) === -1) {
