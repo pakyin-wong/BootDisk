@@ -43,6 +43,8 @@ namespace we {
       protected _datagroup: eui.DataGroup;
       protected _dataColl: eui.ArrayCollection;
 
+      protected _btnDelectAll: eui.Image;
+
       private _balance: number = 1;
 
       private _outputData: any = [];
@@ -99,19 +101,38 @@ namespace we {
         ];
 
         this.notes = tempNotes;
+        console.log('this.notes', this.notes);
+        // const itemArray = this.generateStringFromNote(this.notes);
+        // this._dataColl = new eui.ArrayCollection();
+        // this._dataColl.source = itemArray;
+        // this._datagroup.dataProvider = this._dataColl;
+        // this._datagroup.itemRenderer = lo.SSCBetNoteItem;
+        this.updateNoteControlPanel();
+      }
+
+      protected addListeners() {
+        this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
+      }
+
+      protected removeListeners() {
+        this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
+      }
+
+      public updateNoteControlPanel() {
+        super.updateNoteControlPanel();
         const itemArray = this.generateStringFromNote(this.notes);
         this._dataColl = new eui.ArrayCollection();
         this._dataColl.source = itemArray;
-        console.log('this._dataColl', this._dataColl);
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = lo.SSCBetNoteItem;
       }
 
-      protected addListeners() {}
-
-      protected removeListeners() {}
-
-      protected update() {}
+      public clearAllNotes() {
+        super.clearAllNotes();
+        this.resetTotalBetCount();
+        this.resetTotalBetAmount();
+        this.updateNoteControlPanel();
+      }
 
       protected generateStringFromNote(notes) {
         if (notes.length === 0) {
@@ -154,6 +175,16 @@ namespace we {
         this._lbltotalBetAmount.renderText = () => `total amount${this._totalBetAmount}`;
       }
 
+      protected resetTotalBetCount() {
+        this._totalBetCount = 0;
+        this._lbltotalBetCount.renderText = () => `total count ${this._totalBetCount}`;
+      }
+
+      protected resetTotalBetAmount() {
+        this._totalBetAmount = 0;
+        this._lbltotalBetAmount.renderText = () => `total amount${this._totalBetAmount}`;
+      }
+
       protected generateStringFromField(field: string) {
         // example:^1^2OptionalFree_&1_&2@200
         const RESULT: any = field.split(/(?=@)/g);
@@ -190,7 +221,6 @@ namespace we {
             console.log('not yet finish');
           }
         });
-        console.log('result', result);
         return result;
       }
 

@@ -25,7 +25,9 @@ namespace we {
 
       public clearNotes() {}
 
-      public clearAllNotes() {}
+      public clearAllNotes() {
+        this._notes = [];
+      }
 
       public updateNoteControlPanel() {}
     }
