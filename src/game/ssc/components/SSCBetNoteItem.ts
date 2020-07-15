@@ -41,8 +41,6 @@ namespace we {
         this._txtNoteCount.text = this.data.count;
         this._txtMultiplier.text = this.data.multiplier;
         this._txtTotalBet.text = `$ ${Math.round(this.data.multiplier * parseInt(this.data.betmode, 10) * this.data.count * 100) / 100}`;
-
-        console.log('datacollsource',lo.SSCNoteControlPanel.dataCollSource)
       }
 
       protected addListeners() {

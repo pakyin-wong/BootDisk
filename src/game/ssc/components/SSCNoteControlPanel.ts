@@ -36,6 +36,9 @@ namespace we {
       protected _lblControl: ui.RunTimeLabel;
       protected _lblBalance: ui.RunTimeLabel;
 
+      protected _lbltotalBetAmount: ui.RunTimeLabel;
+      protected _lbltotalBetCount: ui.RunTimeLabel;
+
       protected _scroller: eui.Scroller;
       protected _datagroup: eui.DataGroup;
       protected _dataColl: eui.ArrayCollection;
@@ -45,7 +48,6 @@ namespace we {
       private _outputData: any = [];
       private _totalBetAmount: any = 0;
       private _totalBetCount: any = 0;
-
 
       // constructor(skin, orientationDependent) {
       //   super(skin, orientationDependent);
@@ -64,14 +66,6 @@ namespace we {
         this.init();
       }
 
-      public get dataCollSource():any {
-        return this._dataColl.source;
-      }
-
-      public set dataCollSource(val:any) {
-        this._dataColl.source = val;
-      }
-
       protected init() {
         // runtimelabel rendertext
         this._lblGameMode.renderText = () => `玩法`;
@@ -83,32 +77,32 @@ namespace we {
         this._lblControl.renderText = () => `操作`;
         this._lblBalance.renderText = () => `餘額 $${this._balance}`;
 
+        this._lbltotalBetCount.renderText = () => `${this._totalBetCount}`;
+        this._lbltotalBetAmount.renderText = () => `${this._totalBetAmount}`;
         this.addListeners();
-        // const tempNotes = [
-        //   {
-        //     field: '^1^2OptionalFree_&1_&2@200',
-        //     count: 1,
-        //     multiplier: 1,
-        //   },
-        //   {
-        //     field: '^1^3OptionalFree_&1_&12@200',
-        //     count: 2,
-        //     multiplier: 1,
-        //   },
-        //   {
-        //     field: '^2^3OptionalFree_&2_&12@200',
-        //     count: 2,
-        //     multiplier: 1,
-        //   },
-        // ];
+        const tempNotes = [
+          {
+            field: '^1^2OptionalFree_&1_&2@200',
+            count: 1,
+            multiplier: 1,
+          },
+          {
+            field: '^1^3OptionalFree_&1_&12@200',
+            count: 2,
+            multiplier: 1,
+          },
+          {
+            field: '^2^3OptionalFree_&2_&12@200',
+            count: 2,
+            multiplier: 1,
+          },
+        ];
 
-        // this.notes = tempNotes;
-        let allNotes = this.notes;
+        this.notes = tempNotes;
         const itemArray = this.generateStringFromNote(this.notes);
         this._dataColl = new eui.ArrayCollection();
         this._dataColl.source = itemArray;
         console.log('this._dataColl', this._dataColl);
-        console.log('this._dataColl.source', this._dataColl.source);
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = lo.SSCBetNoteItem;
       }
@@ -134,16 +128,30 @@ namespace we {
             // return FieldStringObject = ["萬千", "OptionalFree", "1|2","2元"]
           */
             StringObject.count = data.count;
+            this.addTotalBetCount(StringObject.count);
             StringObject.multiplier = data.multiplier;
             const FieldStringObject: any = this.generateStringFromField(data.field);
             StringObject.betmode = FieldStringObject[3];
             StringObject.betitem = FieldStringObject[2];
             StringObject.gamemode = `${FieldStringObject[0]} ${FieldStringObject[1]}`;
+            console.log('StringObject', StringObject);
+            this.addTotalBetAmount(StringObject.betmode, StringObject.multiplier, StringObject.count);
             StringArray.push(StringObject);
             StringObject = {};
           });
+          console.log('StringArray', StringArray);
           return StringArray;
         }
+      }
+
+      protected addTotalBetCount(count: number) {
+        this._totalBetCount += count;
+        this._lbltotalBetCount.renderText = () => `total count ${this._totalBetCount}`;
+      }
+
+      protected addTotalBetAmount(betmode: string, multiplier: number, count: number) {
+        this._totalBetAmount += Math.round(multiplier * parseInt(betmode, 10) * count * 100) / 100;
+        this._lbltotalBetAmount.renderText = () => `total amount${this._totalBetAmount}`;
       }
 
       protected generateStringFromField(field: string) {
@@ -152,6 +160,7 @@ namespace we {
         // RESULT = ["^1^2OptionalFree_&1_&2", "@200"]
         RESULT[0] = RESULT[0].split(/([a-zA-Z]+)/);
         // RESULT = [["^1^2", "OptionalFree", "_&1_&2"],"@200"]
+        console.log('RESULT', RESULT);
         // ???? egret cannot use .flat() RESULT.flat();
         const result = [...RESULT[0], RESULT[1]];
         // result = ["^1^2", "OptionalFree", "_&1_&2","@200"]
@@ -181,6 +190,7 @@ namespace we {
             console.log('not yet finish');
           }
         });
+        console.log('result', result);
         return result;
       }
 

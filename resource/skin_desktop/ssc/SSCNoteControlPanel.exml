@@ -17,6 +17,10 @@
 			<e:Scroller id="_scroller" width="1124" height="337" x="0" y="40">
 				<e:List id="_datagroup"/>
 			</e:Scroller>
+			<e:Group x="1126" y="40" width="383" height="337">
+				<ui:RunTimeLabel id="_lbltotalBetAmount" text="Label" x="0" y="0" width="477" size="60" verticalAlign="middle" height="74" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>              
+				<ui:RunTimeLabel id="_lbltotalBetCount" text="Label" x="0" y="131" width="477" size="50" verticalAlign="middle" height="92" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>                  
+			</e:Group>
     </e:Group>
  
 </e:Skin>
