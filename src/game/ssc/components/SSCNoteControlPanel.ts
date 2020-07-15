@@ -46,6 +46,7 @@ namespace we {
       private _totalBetAmount: any = 0;
       private _totalBetCount: any = 0;
 
+
       // constructor(skin, orientationDependent) {
       //   super(skin, orientationDependent);
       constructor() {
@@ -63,6 +64,14 @@ namespace we {
         this.init();
       }
 
+      public get dataCollSource():any {
+        return this._dataColl.source;
+      }
+
+      public set dataCollSource(val:any) {
+        this._dataColl.source = val;
+      }
+
       protected init() {
         // runtimelabel rendertext
         this._lblGameMode.renderText = () => `玩法`;
@@ -75,29 +84,31 @@ namespace we {
         this._lblBalance.renderText = () => `餘額 $${this._balance}`;
 
         this.addListeners();
-        const tempNotes = [
-          {
-            field: '^1^2OptionalFree_&1_&2@200',
-            count: 1,
-            multiplier: 1,
-          },
-          {
-            field: '^1^3OptionalFree_&1_&12@200',
-            count: 2,
-            multiplier: 1,
-          },
-          {
-            field: '^2^3OptionalFree_&2_&12@200',
-            count: 2,
-            multiplier: 1,
-          },
-        ];
+        // const tempNotes = [
+        //   {
+        //     field: '^1^2OptionalFree_&1_&2@200',
+        //     count: 1,
+        //     multiplier: 1,
+        //   },
+        //   {
+        //     field: '^1^3OptionalFree_&1_&12@200',
+        //     count: 2,
+        //     multiplier: 1,
+        //   },
+        //   {
+        //     field: '^2^3OptionalFree_&2_&12@200',
+        //     count: 2,
+        //     multiplier: 1,
+        //   },
+        // ];
 
-        this.notes = tempNotes;
+        // this.notes = tempNotes;
+        let allNotes = this.notes;
         const itemArray = this.generateStringFromNote(this.notes);
         this._dataColl = new eui.ArrayCollection();
-        this._dataColl = itemArray;
+        this._dataColl.source = itemArray;
         console.log('this._dataColl', this._dataColl);
+        console.log('this._dataColl.source', this._dataColl.source);
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = lo.SSCBetNoteItem;
       }
@@ -128,11 +139,9 @@ namespace we {
             StringObject.betmode = FieldStringObject[3];
             StringObject.betitem = FieldStringObject[2];
             StringObject.gamemode = `${FieldStringObject[0]} ${FieldStringObject[1]}`;
-            console.log('StringObject', StringObject);
             StringArray.push(StringObject);
             StringObject = {};
           });
-          console.log('StringArray', StringArray);
           return StringArray;
         }
       }
@@ -143,7 +152,6 @@ namespace we {
         // RESULT = ["^1^2OptionalFree_&1_&2", "@200"]
         RESULT[0] = RESULT[0].split(/([a-zA-Z]+)/);
         // RESULT = [["^1^2", "OptionalFree", "_&1_&2"],"@200"]
-        console.log('RESULT', RESULT);
         // ???? egret cannot use .flat() RESULT.flat();
         const result = [...RESULT[0], RESULT[1]];
         // result = ["^1^2", "OptionalFree", "_&1_&2","@200"]
@@ -173,7 +181,6 @@ namespace we {
             console.log('not yet finish');
           }
         });
-        console.log('result', result);
         return result;
       }
 
