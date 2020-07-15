@@ -128,6 +128,11 @@ namespace we {
         this.poppableAddon.active && (await this.poppableAddon.hide());
       }
 
+      public async foreclosed() {
+        this.dispatchEvent(new egret.Event('close'));
+        this.poppableAddon.active && (await this.poppableAddon.hide());
+      }
+
       public get dropdown(): DropdownAddon {
         return this.dropdownAddon;
       }

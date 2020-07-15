@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.FunBetGroup5" xmlns:e="http://ns.egret.com/eui"
+        xmlns:ui="we.ui.*" xmlns:lo="we.lo.*" xmlns:w="http://ns.egret.com/wing" >
+	<e:Image width="150" height="214"/>
+	<e:Group id="items" left="0" right="0" top="0" bottom="0">
+		<lo:FunBetItem verticalCenter="0" horizontalCenter="0" skinName="skin_desktop.lo.FunBetItem5"/>
+
+
+
+
+
+	</e:Group>
+
+        
+</e:Skin>

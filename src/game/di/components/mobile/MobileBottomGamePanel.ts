@@ -111,8 +111,6 @@ namespace we {
         super.onViewChange(e);
         switch (env.orientation) {
           case 'landscape':
-            console.log(this.viewStack.selectedIndex);
-            console.log(e.target.value);
             if (e.target.value === '3') {
               e.target.value = 0;
             }
@@ -145,7 +143,6 @@ namespace we {
       protected onPanelToggle() {
         super.onPanelToggle();
         this.viewStack.selectedIndex = 0;
-        console.log(this.viewStack.selectedIndex);
         if (this.isPanelOpen) {
           this._roadmapPanel.visible = true;
           this._beadroadPanel.visible = true;
