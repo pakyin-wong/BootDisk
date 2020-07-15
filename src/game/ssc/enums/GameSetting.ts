@@ -59,11 +59,12 @@ namespace we {
         };
       }
 
-      export function textArea(title, numberPerGroup) {
+      export function textArea(title, numberPerGroup, isDuplicate = false) {
         return {
           type: InputComponentType.TEXTAREA,
           numberPerGroup,
           title,
+          isDuplicate,
           // data example (numberPerGroup=5): 12345|12346|14573|17764|09663|...
           // data example (numberPerGroup=2): 12|23|49|64|85|26|...
         };
@@ -130,7 +131,7 @@ namespace we {
           DirectMenu: {
             name: 'DirectMenu',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 5), // 12|23|54|67|...
             ],
             pattern: '12345OPTIONALINPUT_$1',
           },
@@ -232,7 +233,7 @@ namespace we {
           },
         },
       },
-      FourStar:{
+      FourStar: {
         name: 'FiveStar',
         seperateLine: [1], // small tag index for if there is a seprate line to seperate the next item
         type: {
@@ -250,7 +251,7 @@ namespace we {
           DirectMenu: {
             name: 'DirectMenu',
             input: [
-              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+              InputComponentDefinition.textArea('', 4), // 12|23|54|67|...
             ],
             pattern: '2345OPTIONALINPUT_$1',
           },
@@ -283,7 +284,7 @@ namespace we {
                 // i.e. check number of different item in data1 and data2 and it must be >= 2
                 Validator.countDifferent(data[0], data[1], 2);
               }
-            }
+            },
           },
           Group6: {
             name: 'Group6',
@@ -298,6 +299,7 @@ namespace we {
             ],
             pattern: '2345FOUR4_$1_$2',
           },
+        },
       },
       FirstThree: {
         name: 'First Three',
@@ -350,7 +352,7 @@ namespace we {
             ],
             pattern: '123THREEBRAVERYTOW3_$1_$2',
           },
-          GroupCombine:{
+          GroupCombine: {
             input: [
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
             ],
@@ -414,7 +416,7 @@ namespace we {
             ],
             pattern: '234THREEBRAVERYTOW3_$1_$2',
           },
-          GroupCombine:{
+          GroupCombine: {
             input: [
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
             ],
@@ -478,7 +480,7 @@ namespace we {
             ],
             pattern: '345THREEBRAVERYTOW3_$1_$2',
           },
-          GroupCombine:{
+          GroupCombine: {
             input: [
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
             ],
@@ -546,8 +548,6 @@ namespace we {
       //       },
       //     },
       //   },
-
-      }
-    }
+    };
   }
 }

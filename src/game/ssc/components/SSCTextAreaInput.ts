@@ -9,31 +9,53 @@ namespace we {
 
       protected _btnUpload;
       protected _btnFix;
+      protected _btnClear;
+
       constructor(index: number, config: any) {
         super(index, config);
         this.skinName = 'skin_desktop.lo.SSCTextAreaInput';
       }
 
       protected initComponents() {
+        this.addListeners();
+      }
+
+      public addListeners() {
         this._btnUpload.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchUpload, this);
         this._btnFix.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchFix, this);
-
+        this._btnClear.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchClear, this);
+        this._textArea.addEventListener(egret.Event.CHANGE, this.onTextAreaChange, this);
       }
 
-      protected onTextAreaChange(){
-        
+      public removeListeners() {
+        this._btnUpload.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchUpload, this);
+        this._btnFix.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchFix, this);
+        this._btnClear.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchClear, this);
       }
+
+      protected onTouchClear(e) {
+        this._textArea.text = '';
+        this._data = '';
+      }
+
+      protected onTextAreaChange() {
+        this.updateData();
+      }
+
       // update the data when user interact with the component
       protected updateData() {
+        const inputText = this._textArea.text;
+        this.validateTextArea(inputText);
 
-        //this._data = '';
-
-        // this.dispatchEventWith(egret.Event.CHANGE, false, { index: this._index, data: this._data });
+        if (this._data !== [] && this._data !== '' && this._data !== null) {
+          this.dispatchEventWith(egret.Event.CHANGE, false, { index: this._index, data: this._data });
+        }
       }
-      
+
       protected onTouchUpload(e: egret.TouchEvent) {
-        const uploadText: any = document.getElementById('uploadText');
+        const uploadText = document.getElementById('uploadText');
         uploadText.onchange = this.onUploadChange.bind(this);
+
         uploadText.click();
       }
 
@@ -42,16 +64,29 @@ namespace we {
         this.validateTextArea(inputText);
       }
 
+      private loadFileAbort() {
+        console.log('abort');
+      }
+
+      private loadFileError() {
+        console.log('error');
+      }
+
       private onUploadChange() {
         // 获取选择图片
         const uploadText: any = document.getElementById('uploadText');
         const file = uploadText.files[0];
+
+        if (!file) {
+          alert('Same file uploaded/unknown error, please try to upload again!');
+          return;
+        }
         // 判断图片类型
-         const type = /[^text/plain]/;
-         if(type.test(file.type)) {
-             alert("请选择TXT类型上传");
-             return;
-         }
+        const type: RegExp = /[^text/plain]/;
+        if (type.test(file.type)) {
+          alert('请选择TXT类型上传');
+          return;
+        }
         // 加载图片
         const reader = new FileReader();
 
@@ -59,6 +94,14 @@ namespace we {
 
         reader.onload = function (event) {
           this.loadFileComplete(event.target.result);
+        }.bind(this);
+
+        reader.onabort = function () {
+          this.loadFileAbort();
+        }.bind(this);
+
+        reader.onerror = function (event) {
+          this.loadFileError();
         }.bind(this);
 
         reader.readAsDataURL(file);
@@ -70,11 +113,6 @@ namespace we {
         this._textArea.text = '';
         this._textArea.text = atob(result.split(',')[1]);
       }
-
-      // protected onTextInputUpdate(e: egret.Event) {
-      //   this._data = this.validateTextArea(this._textArea.text);
-
-      // }
 
       protected validateTextArea(text: string) {
         // remove except numbers
@@ -105,25 +143,58 @@ namespace we {
         this._data = '';
         this._textArea.text = '';
         let count = 0;
-        
+
         for (let i = 0; i < datas.length; i++) {
           temp += datas[i];
-          count ++;
+          count++;
           if (count % numberPerGroup === 0) {
             tempDatas.push(temp);
             temp = '';
           }
         }
 
-        for (let i = 0; i < tempDatas.length; i++) {
-          if (i === tempDatas.length - 1) {
-            this._textArea.text += tempDatas[i];
-            this._data += tempDatas[i];
+        // duplication checking for data ARRAY
+        const uniqueTempDatas = tempDatas.filter((v, i, a) => a.indexOf(v) === i);
+
+        let finalDatas = [];
+
+        // duplication checking inside single data
+        if (this._config.isDuplicate) {
+          for (let i = 0; i < uniqueTempDatas.length; i++) {
+            let k = 1;
+            let isDuplicate = 0;
+
+            while (k < uniqueTempDatas[i].length) {
+              if (uniqueTempDatas[i][k] === uniqueTempDatas[i][k - 1]) {
+                isDuplicate++;
+              } else {
+                break;
+              }
+              k++;
+            }
+
+            if (isDuplicate !== numberPerGroup - 1) {
+              finalDatas.push(uniqueTempDatas[i]);
+            }
+          }
+        } else {
+          finalDatas = uniqueTempDatas;
+        }
+
+        // set textArea & set _data
+        for (let i = 0; i < finalDatas.length; i++) {
+          if (i === finalDatas.length - 1) {
+            this._textArea.text += finalDatas[i];
+            this._data += finalDatas[i];
           } else {
-            this._textArea.text += tempDatas[i]  + '|';
-            this._data += tempDatas[i]  + ', ';
+            this._textArea.text += finalDatas[i] + '|';
+            this._data += finalDatas[i] + ', ';
           }
         }
+      }
+
+      protected hasDuplicates(arr) {
+        return arr.some(x => arr.indexOf(x) !== arr.lastIndexOf(x));
       }
     }
   }
