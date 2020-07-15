@@ -207,7 +207,9 @@ namespace we {
             this.checkResultMessage();
           }
         }
-        this._undoStack.clearStack();
+        if (this._undoStack) {
+          this._undoStack.clearStack();
+        }
       }
 
       public setData(tableInfo: data.TableInfo) {
@@ -309,8 +311,9 @@ namespace we {
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
-
-          this._undoStack.clearStack();
+          if (this._undoStack) {
+            this._undoStack.clearStack();
+          }
         }
         // update the countdownTimer
         this.updateCountdownTimer();
