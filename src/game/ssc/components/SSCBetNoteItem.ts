@@ -34,7 +34,9 @@ namespace we {
       //   public multiplier: number;
       // }
       protected dataChanged(): void {
-        this.generateStringFromField(this.data.field);
+        super.dataChanged();
+        // this.generateStringFromField(this.data.field);
+        console.log('this.data', this.data);
       }
 
       protected addListeners() {
@@ -45,41 +47,41 @@ namespace we {
         this._btnDelect.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDelect, this);
       }
 
-      protected generateStringFromField(field: string) {
-        // example:^1^2OptionalFree_&1_&2@200
-        const result: any = field.split(/(?=@)/g);
-        // result = ["^1^2OptionalFree_&1_&2", "@200"]
-        result[0] = result[0].split(/([a-zA-Z]+)/);
-        // result = [["^1^2", "OptionalFree", "_&1_&2"],"@200"]
-        result.flat();
-        // result = ["^1^2", "OptionalFree", "_&1_&2","@200"]
-        const re1 = /\^/g;
-        const re2 = /\&/g;
-        const re3 = /\@/g;
-        const re4 = /\([a-zA-Z]+)/g;
+      // protected generateStringFromField(field: string) {
+      //   // example:^1^2OptionalFree_&1_&2@200
+      //   const result: any = field.split(/(?=@)/g);
+      //   // result = ["^1^2OptionalFree_&1_&2", "@200"]
+      //   result[0] = result[0].split(/([a-zA-Z]+)/);
+      //   // result = [["^1^2", "OptionalFree", "_&1_&2"],"@200"]
+      //   result.flat();
+      //   // result = ["^1^2", "OptionalFree", "_&1_&2","@200"]
+      //   const re1 = /\^/g;
+      //   const re2 = /\&/g;
+      //   const re3 = /\@/g;
+      //   const re4 = /\([a-zA-Z]+)/g;
 
-        result.forEach(string => {
-          if (string.search(re1) > -1 && string.length > 0) {
-            this.generateIndexFromField(string);
-          } else if (string.search(re2) > -1 && string.length > 0) {
-            this.generateDataFromField(string);
-          } else if (string.search(re3) > -1 && string.length > 0) {
-            this.generateAmountFromField(string);
-          } else if (string.search(re4) > -1 && string.length > 0) {
-            this.generateGameTypeFromField(string);
-          } else {
-            console.log('not yet finish');
-          }
-        });
-      }
+      //   result.forEach(string => {
+      //     if (string.search(re1) > -1 && string.length > 0) {
+      //       this.generateIndexFromField(string);
+      //     } else if (string.search(re2) > -1 && string.length > 0) {
+      //       this.generateDataFromField(string);
+      //     } else if (string.search(re3) > -1 && string.length > 0) {
+      //       this.generateAmountFromField(string);
+      //     } else if (string.search(re4) > -1 && string.length > 0) {
+      //       this.generateGameTypeFromField(string);
+      //     } else {
+      //       console.log('not yet finish');
+      //     }
+      //   });
+      // }
 
-      protected generateIndexFromField(IndexString: string) {}
+      // protected generateIndexFromField(IndexString: string) {}
 
-      protected generateDataFromField(DataString: string) {}
+      // protected generateDataFromField(DataString: string) {}
 
-      protected generateAmountFromField(AmountString: string) {}
+      // protected generateAmountFromField(AmountString: string) {}
 
-      protected generateGameTypeFromField(TypeString: string) {}
+      // protected generateGameTypeFromField(TypeString: string) {}
 
       protected onClickDelect() {
         console.log('SSCBETNOTEITEM :: onClickDelect');

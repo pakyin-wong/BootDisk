@@ -42,6 +42,10 @@ namespace we {
 
       private _balance: number = 1;
 
+      private _outputData: any = [];
+      private _totalBetAmount: any = 0;
+      private _totalBetCount: any = 0;
+
       // constructor(skin, orientationDependent) {
       //   super(skin, orientationDependent);
       constructor() {
@@ -90,8 +94,10 @@ namespace we {
         ];
 
         this.notes = tempNotes;
-
+        const itemArray = this.generateStringFromNote(this.notes);
         this._dataColl = new eui.ArrayCollection();
+        this._dataColl = itemArray;
+        console.log('this._dataColl', this._dataColl);
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = lo.SSCBetNoteItem;
       }
@@ -101,6 +107,127 @@ namespace we {
       protected removeListeners() {}
 
       protected update() {}
+
+      protected generateStringFromNote(notes) {
+        if (notes.length === 0) {
+          return;
+        } else {
+          const StringArray: any = [];
+          let StringObject: any = {};
+          notes.forEach(data => {
+            /* {
+            field: '^1^2OptionalFree_&1_&2@200',
+            count: 1,
+            multiplier: 1,
+          }
+            // return FieldStringObject = ["萬千", "OptionalFree", "1|2","2元"]
+          */
+            StringObject.count = data.count;
+            StringObject.multiplier = data.multiplier;
+            const FieldStringObject: any = this.generateStringFromField(data.field);
+            StringObject.betmode = FieldStringObject[3];
+            StringObject.betitem = FieldStringObject[2];
+            StringObject.gamemode = `${FieldStringObject[0]} ${FieldStringObject[1]}`;
+            console.log('StringObject', StringObject);
+            StringArray.push(StringObject);
+            StringObject = {};
+          });
+          console.log('StringArray', StringArray);
+          return StringArray;
+        }
+      }
+
+      protected generateStringFromField(field: string) {
+        // example:^1^2OptionalFree_&1_&2@200
+        const RESULT: any = field.split(/(?=@)/g);
+        // RESULT = ["^1^2OptionalFree_&1_&2", "@200"]
+        RESULT[0] = RESULT[0].split(/([a-zA-Z]+)/);
+        // RESULT = [["^1^2", "OptionalFree", "_&1_&2"],"@200"]
+        console.log('RESULT', RESULT);
+        // ???? egret cannot use .flat() RESULT.flat();
+        const result = [...RESULT[0], RESULT[1]];
+        // result = ["^1^2", "OptionalFree", "_&1_&2","@200"]
+        const re1 = /\^/g;
+        const re2 = /\&/g;
+        const re3 = /\@/g;
+        const re4 = /[a-zA-Z]/g;
+        // want convert into result = ["萬千", "OptionalFree", "1|2","2元"]
+        result.forEach(e => {
+          if (e.search(re1) > -1 && e.length > 0) {
+            const index = this.generateIndexFromField(e);
+            // return "萬千"
+            result[0] = index;
+          } else if (e.search(re2) > -1 && e.length > 0) {
+            const Data = this.generateDataFromField(e);
+            // return "1|2"
+            result[2] = Data;
+          } else if (e.search(re3) > -1 && e.length > 0) {
+            const amount = this.generateAmountFromField(e);
+            // return "2元"
+            result[3] = amount;
+          } else if (e.search(re4) > -1 && e.length > 0) {
+            const type = this.generateGameTypeFromField(e);
+            // return "OptionalFree"
+            result[1] = type;
+          } else {
+            console.log('not yet finish');
+          }
+        });
+        console.log('result', result);
+        return result;
+      }
+
+      protected generateIndexFromField(IndexString: string) {
+        const IndexStringArray = IndexString.split(/(?=\^)/g);
+        // IndexStringArray = ['^1','^2']
+        let OutputIndexString = '';
+        IndexStringArray.forEach(indexelement => {
+          switch (indexelement) {
+            case '^1':
+              // replace i18n later
+              OutputIndexString = OutputIndexString + '萬';
+              break;
+            case '^2':
+              OutputIndexString = OutputIndexString + '千';
+              break;
+            case '^3':
+              OutputIndexString = OutputIndexString + '百';
+              break;
+            case '^4':
+              OutputIndexString = OutputIndexString + '十';
+              break;
+            case '^5':
+              OutputIndexString = OutputIndexString + '個';
+              break;
+            default:
+              console.log('We dont have this pattern');
+              break;
+          }
+        });
+        return OutputIndexString;
+      }
+
+      protected generateDataFromField(DataString: string) {
+        const DataStringArray = DataString.split('_&');
+        // DataStringArray = ['','1','2']
+        let OutputDataSting = '';
+        for (let i = 1; i < DataStringArray.length; i++) {
+          OutputDataSting = OutputDataSting + ` | ${DataStringArray[i]}`;
+        }
+        // TODO:check string length
+        return OutputDataSting;
+      }
+
+      protected generateAmountFromField(AmountString: string) {
+        const AmountStringArray = AmountString.split('@');
+        // AmountStringArray = ['','200']
+        const OutputAmountSting = `${parseInt(AmountStringArray[1], 10) / 100} 元`;
+        return OutputAmountSting;
+      }
+
+      protected generateGameTypeFromField(TypeString: string) {
+        return TypeString;
+      }
     }
   }
 }
