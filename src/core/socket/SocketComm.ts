@@ -695,13 +695,7 @@ namespace we {
       public checkResultNotificationReady(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
           if (this.hasBet(tableInfo)) {
-            if (
-              tableInfo.data &&
-              tableInfo.data.previousstate !== core.GameState.FINISH &&
-              tableInfo.data.state === core.GameState.FINISH &&
-              tableInfo.data.wintype !== 0 &&
-              !isNaN(tableInfo.totalWin)
-            ) {
+            if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
               const data = {
                 tableid: tableInfo.tableid,
               };
