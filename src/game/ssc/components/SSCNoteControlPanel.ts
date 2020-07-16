@@ -115,6 +115,7 @@ namespace we {
       }
 
       protected addListeners() {
+        dir.evtHandler.addEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
         this._btnAddDataTEMP.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addTempData, this);
       }
@@ -123,6 +124,16 @@ namespace we {
         this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
       }
 
+      protected deleteOneNote(evt: egret.Event) {
+        const deletednote = evt.data;
+        console.log('evt', evt);
+        console.log('evt.data', evt.data);
+        this.clearNotes(deletednote);
+        this.updateNoteControlPanel();
+        this.computeTotalNoteAmount();
+        this.computeTotalCount();
+      }
+      
       protected addTempData() {
         this.addTempNotes();
         this.updateNoteControlPanel();

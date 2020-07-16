@@ -33,7 +33,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('SSCBetNoteItem');
         this.addListeners();
         console.log('this', this);
-        console.log('this.parent', this.parent);
+        if (this.parent) {
+          console.log('this.parent', this.parent);
+        }
         // console.log('this.parent', this.parent);
         // console.log('this.parent.parent', this.parent.parent);
       }
@@ -64,6 +66,7 @@ namespace we {
       protected onClickDelect() {
         console.log('SSCBETNOTEITEM :: onClickDelect', this.data);
         // TODO: call parent to clear the data , delect this.notes ,update total
+        dir.evtHandler.dispatch(we.core.Event.SSC_DELETE_ONE_NOTE, this.data);
       }
 
       protected generateStringFromField(field: string) {

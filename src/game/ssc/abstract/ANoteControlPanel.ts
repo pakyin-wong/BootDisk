@@ -32,10 +32,19 @@ namespace we {
           },
         ];
         this.notes = this._notes.concat(temp);
-        console.log('this.notes', this.notes);
       }
 
-      public clearNotes() {}
+      public clearNotes(note: TradNoteData) {
+        if (this.notes.length === 0) {
+          return;
+        } else {
+          this.notes.forEach((e, i) => {
+            if (e === note) {
+              this.notes.splice(i, 1);
+            }
+          });
+        }
+      }
 
       public clearAllNotes() {
         this._notes = [];
