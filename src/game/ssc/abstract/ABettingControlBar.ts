@@ -10,6 +10,10 @@ namespace we {
 
       public bettingPanel: ABettingPanel;
 
+      protected init() {
+        console.log('ssssssssss');
+      }
+
       public get unitBet(): number {
         return this._unitBet;
       }

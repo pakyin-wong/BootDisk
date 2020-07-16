@@ -23,6 +23,18 @@ namespace we {
         this._notes.concat(notes);
       }
 
+      public addTempNotes() {
+        const temp = [
+          {
+            field: '^3^4OptionalFree_&564_&708@200',
+            count: 9,
+            multiplier: 1,
+          },
+        ];
+        this.notes = this._notes.concat(temp);
+        console.log('this.notes', this.notes);
+      }
+
       public clearNotes() {}
 
       public clearAllNotes() {

@@ -9,6 +9,7 @@ namespace we {
       protected init() {
         if (this._bettingControl) {
           this._bettingControl.bettingPanel = this;
+          console.log('init');
         }
         if (this._noteControl) {
           this._noteControl.bettingPanel = this;
@@ -65,6 +66,7 @@ namespace we {
 
       protected placeBet(notes: TradNoteData[]) {
         const betdetails = this.generateBetDetail(notes);
+
         // TODO: send out betdetails
       }
 
@@ -85,8 +87,18 @@ namespace we {
 
       public addNotes() {
         // add notes to _noteControl
-        const notes = this.generateNoteData();
-        this._noteControl.addNotes(notes);
+        // const notes = this.generateNoteData();
+        const tempbetdails = [
+          {
+            field: '^3^4OptionalFree_&564_&708@200',
+            count: 9,
+            multiplier: 1,
+          },
+        ];
+
+        // this._noteControl.addNotes(notes);
+        this._noteControl.addNotes(tempbetdails);
+        console.log('this._noteControl.notes', this._noteControl.notes);
       }
 
       public chaseBet() {

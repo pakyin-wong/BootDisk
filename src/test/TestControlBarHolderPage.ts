@@ -22,6 +22,16 @@ namespace we {
         temp.x = 100;
         temp.y = 300;
         this.addChild(temp);
+
+        const temp2 = new we.lo.SSCNoteControlPanel();
+        temp2.x = 100;
+        temp2.y = 700;
+        this.addChild(temp2);
+
+        const temp3 = new we.lo.SSCTraditionalBettingPanel();
+        temp3.x = 100;
+        temp3.y = 1100;
+        this.addChild(temp3);
       }
 
       protected socketConnect() {
