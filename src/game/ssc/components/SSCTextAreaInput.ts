@@ -11,6 +11,8 @@ namespace we {
       protected _btnFix;
       protected _btnClear;
 
+      private isValidate = false;
+
       constructor(index: number, config: any) {
         super(index, config);
         this.skinName = 'skin_desktop.lo.SSCTextAreaInput';
@@ -39,15 +41,16 @@ namespace we {
       }
 
       protected onTextAreaChange() {
-        this.updateData();
+        this.isValidate = false;
+        // this.updateData();
       }
 
       // update the data when user interact with the component
       protected updateData() {
         const inputText = this._textArea.text;
-        this.validateTextArea(inputText);
+        // this.validateTextArea(inputText);
 
-        if (this._data !== [] && this._data !== '' && this._data !== null) {
+        if (this._data !== [] && this._data !== '' && this._data !== null && this.isValidate) {
           this.dispatchEventWith(egret.Event.CHANGE, false, { index: this._index, data: this._data });
         }
       }
@@ -78,7 +81,7 @@ namespace we {
         const file = uploadText.files[0];
 
         if (!file) {
-          alert('Same file uploaded/unknown error, please try to upload again!');
+          alert('Same file uploaded / Unknown error, please try to upload again!');
           return;
         }
         // 判断图片类型
@@ -110,6 +113,7 @@ namespace we {
       public loadFileComplete(result): any {
         // 将加载图片的数据赋值给myImg
         // this._textArea.addEventListener(egret.Event.COMPLETE, this.onMyImgComplete, this);
+        this.isValidate = false;
         this._textArea.text = '';
         this._textArea.text = atob(result.split(',')[1]);
       }
@@ -187,10 +191,12 @@ namespace we {
             this._textArea.text += finalDatas[i];
             this._data += finalDatas[i];
           } else {
-            this._textArea.text += finalDatas[i] + '|';
-            this._data += finalDatas[i] + ', ';
+            this._textArea.text += finalDatas[i] + ', ';
+            this._data += finalDatas[i] + '|';
           }
         }
+
+        this.isValidate = true;
       }
 
       protected hasDuplicates(arr) {
