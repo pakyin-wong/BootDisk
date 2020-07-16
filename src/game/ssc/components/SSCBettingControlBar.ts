@@ -37,10 +37,10 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+        // this.init();
       }
 
-      protected init() {
+      public init() {
         super.init();
         console.log('this.bettingPanel', this.bettingPanel);
         // runtimelabel rendertext

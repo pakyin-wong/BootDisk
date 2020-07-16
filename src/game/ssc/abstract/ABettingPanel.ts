@@ -9,10 +9,11 @@ namespace we {
       protected init() {
         if (this._bettingControl) {
           this._bettingControl.bettingPanel = this;
-          console.log('init');
+          this._bettingControl.init();
         }
         if (this._noteControl) {
           this._noteControl.bettingPanel = this;
+          this._noteControl.init();
         }
       }
 

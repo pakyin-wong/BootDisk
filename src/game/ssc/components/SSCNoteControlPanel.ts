@@ -67,10 +67,10 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+        // this.init();
       }
 
-      protected init() {
+      public init() {
         // runtimelabel rendertext
         this._lblGameMode.renderText = () => `玩法`;
         this._lblBetItem.renderText = () => `投注項目`;

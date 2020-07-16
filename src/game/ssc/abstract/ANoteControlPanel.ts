@@ -11,6 +11,8 @@ namespace we {
       // }
       public bettingPanel: ABettingPanel;
 
+      public init() {}
+
       public get notes() {
         return this._notes;
       }

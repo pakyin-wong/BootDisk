@@ -10,7 +10,7 @@ namespace we {
 
       public bettingPanel: ABettingPanel;
 
-      protected init() {}
+      public init() {}
 
       // public get _bettingPanel() {
       //   return this.bettingPanel;

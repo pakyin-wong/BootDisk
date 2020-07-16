@@ -31,10 +31,10 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+        // this.init();
       }
 
-      protected init() {
+      public init() {
         // this._lblMultiplier.renderText = () => `${}`;
         // this._lblInfo.renderText = () => `${}`;
         // this._lblTitleHighestWin.renderText = () => `${}`;
