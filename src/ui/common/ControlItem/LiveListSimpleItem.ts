@@ -10,6 +10,7 @@ namespace we {
       protected _roadmapNode: eui.Component;
       protected _quickbetButtonNode: eui.Component;
       protected _betChipSetNode: eui.Component;
+      protected _button: ui.LobbyQuickBetAnimButton;
 
       protected _arrangeProperties = [
         'x',
@@ -119,8 +120,10 @@ namespace we {
         }
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
+          this._button.label1text = '加注';
         } else {
           this._alreadyBetSign.visible = false;
+          this._button.label1text = i18n.t('mobile_quick_bet_button_label');
         }
       }
 
@@ -131,8 +134,10 @@ namespace we {
         }
         if (this._chipLayer.isAlreadyBet()) {
           this._alreadyBetSign.visible = true;
+          this._button.label1text = '加注';
         } else {
           this._alreadyBetSign.visible = false;
+          this._button.label1text = i18n.t('mobile_quick_bet_button_label');
         }
       }
 
@@ -254,24 +259,21 @@ namespace we {
 
       protected generateQuickBetButton() {
         if (this._quickbetButtonNode) {
-          const button = new ui.LobbyQuickBetAnimButton();
-          // if (true) {
-          //   button.label1text = '加注';
-          // }
-          button.label1text = i18n.t('mobile_quick_bet_button_label');
-          button.label2text = 'X';
-          button.resName = 'd_lobby_quick_bet_notification_follow_normal_png';
-          button.hoverResName = 'd_lobby_quick_bet_notification_follow_hover_png';
+          this._button = new ui.LobbyQuickBetAnimButton();
+          this._button.label1text = i18n.t('mobile_quick_bet_button_label');
+          this._button.label2text = 'X';
+          this._button.resName = 'd_lobby_quick_bet_notification_follow_normal_png';
+          this._button.hoverResName = 'd_lobby_quick_bet_notification_follow_hover_png';
 
           const idx = this._quickbetButtonNode.parent.getChildIndex(this._quickbetButtonNode);
-          this._quickbetButtonNode.parent.addChildAt(button, idx);
-          this._quickbetButton = button;
+          this._quickbetButtonNode.parent.addChildAt(this._button, idx);
+          this._quickbetButton = this._button;
 
           this._quickbetButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickButton, this);
 
           for (const att of this._arrangeProperties) {
-            if (button) {
-              button[att] = this._quickbetButtonNode[att];
+            if (this._button) {
+              this._button[att] = this._quickbetButtonNode[att];
             }
           }
         }
@@ -284,20 +286,16 @@ namespace we {
         }
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
-          egret.Tween.get(this._quickbetButton)
-            .set({ visible: true })
-            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._quickbetButton).set({ visible: true }).to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton)
-            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
-            .set({ visible: false });
+          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
         }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
         super.onRoadDataUpdate(evt);
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             if (this._bigRoad) {
               this._bigRoad.updateLobbyRoadData(tableInfo.roadmap);
