@@ -7,6 +7,8 @@ namespace we {
       protected lblPlayerName: ui.RunTimeLabel;
       protected lblBankerName: ui.RunTimeLabel;
 
+      protected bamGroup: eui.Group;
+
       protected createChildren() {
         super.createChildren();
         this.skinName = utils.getSkinByClassname('ba.BetItemCardHolderSkin');
@@ -15,8 +17,12 @@ namespace we {
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;
       }
 
-      constructor() {
+      constructor(gametype?: string) {
         super();
+        if (gametype === 'bam')
+          if (this.bamGroup) {
+            this.bamGroup.visible = true;
+          }
       }
 
       public updateResult(gameData: GameData) {
