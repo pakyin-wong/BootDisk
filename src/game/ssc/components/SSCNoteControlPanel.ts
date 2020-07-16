@@ -112,6 +112,7 @@ namespace we {
         this.updateNoteControlPanel();
         this.computeTotalNoteAmount();
         this.computeTotalCount();
+        // SSCBetNoteItem.PANEL = this;
       }
 
       protected addListeners() {
@@ -133,7 +134,7 @@ namespace we {
         this.computeTotalNoteAmount();
         this.computeTotalCount();
       }
-      
+
       protected addTempData() {
         this.addTempNotes();
         this.updateNoteControlPanel();

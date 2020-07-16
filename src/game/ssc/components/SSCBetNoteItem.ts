@@ -28,16 +28,13 @@ namespace we {
       private betmode;
       private totalbet;
 
+      // public static PANEL: SSCNoteControlPanel;
+
       constructor() {
         super();
         this.skinName = utils.getSkinByClassname('SSCBetNoteItem');
         this.addListeners();
-        console.log('this', this);
-        if (this.parent) {
-          console.log('this.parent', this.parent);
-        }
-        // console.log('this.parent', this.parent);
-        // console.log('this.parent.parent', this.parent.parent);
+        // console.log('PANEL', SSCBetNoteItem.PANEL);
       }
       // TradNoteData {
       //   public field: string; // field consist of several information: Bet type, bet per note and bet detail

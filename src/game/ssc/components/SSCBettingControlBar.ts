@@ -33,7 +33,6 @@ namespace we {
       constructor() {
         super();
         this.skinName = 'skin_desktop.lo.SSCBettingControlBar';
-        console.log('this.bettingPanel', this.bettingPanel);
       }
 
       protected childrenCreated() {
@@ -42,12 +41,15 @@ namespace we {
       }
 
       protected init() {
+        super.init();
+        console.log('this.bettingPanel', this.bettingPanel);
         // runtimelabel rendertext
         this.addListeners();
         if (this._noteDropDown) {
           this.initNoteDropDown();
         }
         this.validateBet();
+        // console.log('this.bettingPanel.addNotes0', this.bettingPanel.addNotes);
       }
 
       protected addListeners() {
@@ -56,7 +58,7 @@ namespace we {
         //   // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.confirmBet, this);
         // }
         if (this._btnAddBetFields) {
-          this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, () => console.log('aaa', this.bettingPanel.addNotes), this);
+          // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this);
         }
         if (this._btnAddMultiplier) {
           this._btnAddMultiplier.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addMultiplier, this);

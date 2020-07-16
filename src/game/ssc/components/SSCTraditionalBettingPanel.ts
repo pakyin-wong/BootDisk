@@ -44,6 +44,7 @@ namespace we {
       protected mount() {}
 
       protected init() {
+        super.init();
         this.createBigTags();
         // this.createSmallTags();
         // this.initCurrentButtonPanel();
@@ -198,7 +199,7 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]> [
+          lbl.textFlow = <egret.ITextElement[]>[
             {
               text: lbl.text,
               style: { bold: false, underline: false },
@@ -206,7 +207,7 @@ namespace we {
           ];
           if (i === this.currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]> [
+            lbl.textFlow = <egret.ITextElement[]>[
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },

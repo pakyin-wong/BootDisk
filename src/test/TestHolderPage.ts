@@ -21,7 +21,7 @@ namespace we {
         this.generateCombination();
         this.generateBetFields();
         const temp = new we.lo.SSCTraditionalBettingPanel();
-        temp.x = 100;
+        temp.x = 0;
         temp.y = 300;
         this.addChild(temp);
         // draw the icon faces

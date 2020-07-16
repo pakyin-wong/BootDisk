@@ -10,9 +10,17 @@ namespace we {
 
       public bettingPanel: ABettingPanel;
 
-      protected init() {
-        console.log('ssssssssss');
-      }
+      protected init() {}
+
+      // public get _bettingPanel() {
+      //   return this.bettingPanel;
+      // }
+
+      // public set _bettingPanel(val: any) {
+      //   this.bettingPanel = val;
+
+      //   console.log('_bettingPanel', this.bettingPanel);
+      // }
 
       public get unitBet(): number {
         return this._unitBet;
