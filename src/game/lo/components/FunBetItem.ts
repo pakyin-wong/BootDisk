@@ -23,28 +23,28 @@ namespace we {
 
         protected destroy() {
             super.destroy();
-            utils.removeButtonListener(this.betArea,this.onBet, this);
+            utils.removeButtonListener(this.betArea, this.onBet, this);
             FunBet.evtHandler.removeEventListener(FunBet.EVT_RESET, this.reset, this);
         }
 
         public setupBetId (type, group) {
             this.betInfo = {
-                id: FunBet.getBetId(type,group,this.field),
-                type: type,
-                group: group,
+                id: FunBet.getBetId(type, group, this.field),
+                type,
+                group,
                 field: this.field,
-                rate: FunBet.getBetRate(type,group, this.field)
-            }
-            
+                rate: FunBet.getBetRate(type, group, this.field),
+            };
+
             this.rate.text = this.betInfo.rate;
-            if(this.label) {
-                this.label.renderText = FunBet.getBetLabel(type,group, this.field);
+            if (this.label) {
+                this.label.renderText = FunBet.getBetLabel(type, group, this.field);
             }
         }
 
         protected onBet() {
-            let r = FunBet.add(this.betInfo);
-            if(r) {
+            const r = FunBet.add(this.betInfo);
+            if (r) {
                 this.amount = r;
             }
         }
@@ -53,13 +53,13 @@ namespace we {
             this.amount = 0;
         }
 
-        protected set amount(n:number) {
+        protected set amount(n: number) {
             this.highlight && (this.highlight.visible = n > 0);
-            
-            if(n > 0) {
+
+            if (n > 0) {
                 this.betAmt.text = n.toString(10);
-            }else {
-                this.betAmt.text = "";
+            } else {
+                this.betAmt.text = '';
             }
         }
     }

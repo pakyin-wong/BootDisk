@@ -4,24 +4,24 @@ namespace we {
 
       public static evtHandler: egret.EventDispatcher = new egret.EventDispatcher();
       public static EVT_RESET = 'LOTTERY_FUNBET_RESET';
-      
+
         private static GROUP_TYPE = {
-            SIZEPARITY2: "%id%SIZEPARITY2",
-            THREESPECIAL: "%id%THREESPECIAL",
-            SUMSIZEPARITY: "SUMSIZEPARITY",
-            NUM: "%id%NUM",
-            DT2: "%id%DT2",
-            INTEREST1SPECIAL: "INTEREST1SPECIAL_%id%",
-        }
+            SIZEPARITY2: '%id%SIZEPARITY2',
+            THREESPECIAL: '%id%THREESPECIAL',
+            SUMSIZEPARITY: 'SUMSIZEPARITY',
+            NUM: '%id%NUM',
+            DT2: '%id%DT2',
+            INTEREST1SPECIAL: 'INTEREST1SPECIAL_%id%',
+        };
 
       public static bet: number = 0;
       public static betDetails = FunBet.createBetDetails();
 
         public static add(betInfo) {
             FunBet.betDetails[betInfo.id] = {
-                id:betInfo.id,
+                id: betInfo.id,
                 rate: betInfo.rate,
-                amt: FunBet.bet
+                amt: FunBet.bet,
             };
             return FunBet.bet;
         }
@@ -35,20 +35,20 @@ namespace we {
             return {};
         }
 
-    public static getBetId(type:string,group:string,field:string):string {
-        var key = type.replace("%id%", group);
-        if(field) {
+    public static getBetId(type: string, group: string, field: string): string {
+        let key = type.replace('%id%', group);
+        if (field) {
             key += `_${field}`;
         }
         return key;
     }
 
-    public static getBetRate(type:string,group:string,field:string):string {
+    public static getBetRate(type: string, group: string, field: string): string {
         return '1.8';
     }
 
-    public static getBetLabel(type:string,group:string,field:string) {
-        switch(type) {
+    public static getBetLabel(type: string, group: string, field: string) {
+        switch (type) {
             case FunBet.GROUP_TYPE.NUM:
             return () => `${field}`;
 
@@ -68,8 +68,6 @@ namespace we {
             return () => `${i18n.t('lo_fun_betfield_total_' + field)}`;
         }
     }
-
-
 
     }
   }
