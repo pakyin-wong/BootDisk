@@ -282,6 +282,7 @@ namespace we {
         tripleShort: 'T',
         history: 'History',
         roadmap: 'Roadmap',
+        luckyNumber: 'Lucky Numbers',
         total: 'Total',
         gameStats: 'Game Stats.',
         livePool: 'Live Pool',
