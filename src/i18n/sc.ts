@@ -269,6 +269,7 @@ namespace we {
         tripleShort: '围',
         history: '历史记录',
         roadmap: '路纸',
+        luckyNumber: '幸运数字',
         total: '和值',
         gameStats: '结果统计',
         livePool: '即时彩池',

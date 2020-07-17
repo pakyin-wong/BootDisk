@@ -6,13 +6,14 @@ namespace we {
       protected _winningAnim: dragonBones.EgretArmatureDisplay;
 
       public clearLuckyNumber() {
-        if (this._mouseAreaMapping) {
-          Object.keys(this._mouseAreaMapping).map(key => {
-            if (this._mouseAreaMapping[key]) {
-              this._mouseAreaMapping[key].removeChildren();
-            }
-          });
+        if (!this._mouseAreaMapping) {
+          return;
         }
+        Object.keys(this._mouseAreaMapping).map(key => {
+          if (this._mouseAreaMapping[key]) {
+            this._mouseAreaMapping[key].removeChildren();
+          }
+        });
       }
 
       protected createAnim() {
@@ -154,7 +155,12 @@ namespace we {
           this._flashingOdd.text = luckyNumbers[key] + 'x';
 
           grid.addChild(this._flashingOdd);
-          egret.Tween.get(this._flashingOdd).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000);
+          egret.Tween.get(this._flashingOdd)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000)
+            .to({ alpha: 1 }, 1000)
+            .to({ alpha: 0 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
 
