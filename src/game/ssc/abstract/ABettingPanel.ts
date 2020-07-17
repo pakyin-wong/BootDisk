@@ -2,9 +2,9 @@
 namespace we {
   export namespace lo {
     export abstract class ABettingPanel extends core.BaseEUI implements IBettingPanel {
-      protected _currentBettingTable: ABettingTable;
+      public _currentBettingTable: ABettingTable;
       protected _bettingControl: ABettingControlBar;
-      protected _noteControl: ANoteControlPanel;
+      public _noteControl: ANoteControlPanel;
 
       protected init() {
         if (this._bettingControl) {
@@ -91,15 +91,15 @@ namespace we {
         // const notes = this.generateNoteData();
         const tempbetdails = [
           {
-            field: '^3^4OptionalFree_&564_&708@200',
+            field: '34OptionalFree_564_708@200',
             count: 9,
             multiplier: 1,
           },
         ];
+      }
 
-        // this._noteControl.addNotes(notes);
-        this._noteControl.addNotes(tempbetdails);
-        console.log('this._noteControl.notes', this._noteControl.notes);
+      public onBettingControlBarUnitBetUpdate(betFields: string[]) {
+        this.betFieldMapping(betFields);
       }
 
       public chaseBet() {

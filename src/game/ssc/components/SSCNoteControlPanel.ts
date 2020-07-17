@@ -110,37 +110,36 @@ namespace we {
         // this._datagroup.dataProvider = this._dataColl;
         // this._datagroup.itemRenderer = lo.SSCBetNoteItem;
         this.updateNoteControlPanel();
-        this.computeTotalNoteAmount();
-        this.computeTotalCount();
+        // this.computeTotalNoteAmount();
+
         // SSCBetNoteItem.PANEL = this;
       }
 
       protected addListeners() {
         dir.evtHandler.addEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
         this._btnDelectAll.addEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
-        this._btnAddDataTEMP.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addTempData, this);
+        // this._btnAddDataTEMP.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addTempData, this);
       }
 
       protected removeListeners() {
         this._btnDelectAll.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.clearAllNotes, this);
+        dir.evtHandler.removeEventListener(we.core.Event.SSC_DELETE_ONE_NOTE, this.deleteOneNote, this);
       }
 
       protected deleteOneNote(evt: egret.Event) {
         const deletednote = evt.data;
-        console.log('evt', evt);
-        console.log('evt.data', evt.data);
         this.clearNotes(deletednote);
         this.updateNoteControlPanel();
-        this.computeTotalNoteAmount();
-        this.computeTotalCount();
+        // this.computeTotalNoteAmount();
+        // this.computeTotalCount();
       }
 
-      protected addTempData() {
-        this.addTempNotes();
-        this.updateNoteControlPanel();
-        this.computeTotalNoteAmount();
-        this.computeTotalCount();
-      }
+      // protected addTempData() {
+      // this.addTempNotes();
+      //   this.updateNoteControlPanel();
+      //   // this.computeTotalNoteAmount();
+      //   // this.computeTotalCount();
+      // }
 
       public updateNoteControlPanel() {
         super.updateNoteControlPanel();
@@ -149,14 +148,16 @@ namespace we {
         this._dataColl.source = this.notes;
         this._datagroup.dataProvider = this._dataColl;
         this._datagroup.itemRenderer = lo.SSCBetNoteItem;
+        this.computeTotalNoteAmount();
+        this.computeTotalCount();
       }
 
       public clearAllNotes() {
         super.clearAllNotes();
         // this.resetTotalBetCount();
         // this.resetTotalBetAmount();
-        this.computeTotalNoteAmount();
-        this.computeTotalCount();
+        // this.computeTotalNoteAmount();
+        // this.computeTotalCount();
         this.updateNoteControlPanel();
       }
 
@@ -195,7 +196,7 @@ namespace we {
         let totalamount = 0;
         if (this.notes.length === 0) {
           this._totalBetAmount = totalamount;
-          this._lbltotalBetAmount.renderText = () => `total amount${this._totalBetAmount}`;
+          this._lbltotalBetAmount.renderText = () => `$ ${this._totalBetAmount}`;
         } else {
           const betmodearray = this.getBetModeArray(this.notes);
           console.log('betmodearray', betmodearray);
@@ -204,7 +205,7 @@ namespace we {
             // console.log('betmodearray[i];', betmodearray[i]);
           });
           this._totalBetAmount = totalamount;
-          this._lbltotalBetAmount.renderText = () => `total amount${this._totalBetAmount}`;
+          this._lbltotalBetAmount.renderText = () => `$ ${this._totalBetAmount}`;
         }
       }
 
@@ -222,11 +223,11 @@ namespace we {
         let totalcount = 0;
         if (this.notes.length === 0) {
           this._totalBetCount = totalcount;
-          this._lbltotalBetCount.renderText = () => `total count ${this._totalBetCount}`;
+          this._lbltotalBetCount.renderText = () => `${this._totalBetCount} 注`;
         } else {
           this.notes.map(obj => (totalcount += obj.count));
           this._totalBetCount = totalcount;
-          this._lbltotalBetCount.renderText = () => `total count ${this._totalBetCount}`;
+          this._lbltotalBetCount.renderText = () => `${this._totalBetCount} 注`;
         }
       }
 

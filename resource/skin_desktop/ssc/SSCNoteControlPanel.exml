@@ -19,9 +19,11 @@
 			</e:Scroller>
 			<e:Group x="1126" y="40" width="383" height="337">
 				<e:Image id="_btnDelectAll" width="52" height="56" x="319" scaleX="1" scaleY="1" source="d_lobby_panel_button_play_normal_png"/>
-				<ui:RunTimeLabel id="_lbltotalBetAmount" text="Label" x="0" y="58" width="372" size="45" verticalAlign="middle" height="74" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>              
-				<ui:RunTimeLabel id="_lbltotalBetCount" text="Label" x="0" y="131" width="477" size="50" verticalAlign="middle" height="92" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>    
-				<e:Image id="_btnAddDataTEMP" width="52" height="56" x="319" scaleX="1" scaleY="1" source="d_lobby_panel_button_play_normal_png" y="281"/>              
+				<ui:RunTimeLabel id="_lbltotalBetAmountText" text="總注數" x="2" y="0" width="314" size="45" verticalAlign="middle" height="74" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>              
+				<ui:RunTimeLabel id="_lbltotalBetAmount" text="Label" x="-2" y="213" width="372" size="45" verticalAlign="middle" height="74" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>    
+				<ui:RunTimeLabel id="_lbltotalBetCountText" text="總投注額" x="0" y="131" width="477" size="50" verticalAlign="middle" height="92" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>          
+				<ui:RunTimeLabel id="_lbltotalBetCount" text="Label" x="2" y="74" width="477" size="50" verticalAlign="middle" height="92" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>    
+				<e:Image id="_btnAddDataTEMP" width="52" height="56" x="319" scaleX="1" scaleY="1" source="d_lobby_panel_button_play_normal_png" y="281" visible="false"/>              
 			</e:Group>
     </e:Group>
  

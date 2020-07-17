@@ -42,7 +42,6 @@ namespace we {
 
       public init() {
         super.init();
-        console.log('this.bettingPanel', this.bettingPanel);
         // runtimelabel rendertext
         this.addListeners();
         if (this._noteDropDown) {
@@ -59,6 +58,7 @@ namespace we {
         // }
         if (this._btnAddBetFields) {
           // this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.bettingPanel.addNotes, this);
+          this._btnAddBetFields.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addBetfield, this);
         }
         if (this._btnAddMultiplier) {
           this._btnAddMultiplier.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addMultiplier, this);
@@ -69,6 +69,10 @@ namespace we {
         if (this._noteDropDown) {
           this._noteDropDown.addEventListener('DROPDOWN_ITEM_CHANGE', this.onUnitSelect, this);
         }
+      }
+
+      protected addBetfield() {
+        this.bettingPanel._noteControl.addTempNotes();
       }
 
       protected initNoteDropDown() {

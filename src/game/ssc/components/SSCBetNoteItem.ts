@@ -54,12 +54,23 @@ namespace we {
 
       protected addListeners() {
         this._btnDelect.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDelect, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
+        this.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
       }
 
       protected removeListeners() {
         this._btnDelect.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickDelect, this);
+        this.removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onHover, this);
+        this.removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onRollOut, this);
       }
 
+      protected onHover() {
+        this.currentState = 'hover';
+      }
+
+      protected onRollOut() {
+        this.currentState = 'normal';
+      }
       protected onClickDelect() {
         console.log('SSCBETNOTEITEM :: onClickDelect', this.data);
         // TODO: call parent to clear the data , delect this.notes ,update total
@@ -82,12 +93,26 @@ namespace we {
       protected generateBetitemFromField(DataString: string) {
         const DataStringArray = DataString.split('_');
         // DataStringArray = ['','1','2']
-        let OutputDataSting = '';
-        for (let i = 1; i < DataStringArray.length; i++) {
-          OutputDataSting = OutputDataSting + ` | ${DataStringArray[i]}`;
+        let OutputDataString:string = '';
+        OutputDataString += `${DataStringArray[1]}`;
+        for (let i = 2; i < DataStringArray.length; i++) {
+          OutputDataString = OutputDataString + ` | ${DataStringArray[i]}`;
         }
         // TODO:check string length
-        return OutputDataSting;
+        if (OutputDataString.length <= 20) {
+          OutputDataString = this.regenerateBetitemFromField(OutputDataString);
+        }
+        return OutputDataString;
+      }
+
+      protected regenerateBetitemFromField(DataString:string) {
+        let newdatastring = '';
+        let spliteddatastring = DataString.split('');
+        for ( let i = 0 ; i < 16 ; i++) {
+          newdatastring += spliteddatastring[i];
+        }
+        newdatastring += '...'
+        return newdatastring
       }
 
       protected generateGameModeFromField(index: string, mode: string) {

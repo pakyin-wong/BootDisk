@@ -22,7 +22,7 @@ namespace we {
         this.generateBetFields();
         const temp = new we.lo.SSCTraditionalBettingPanel();
         temp.x = 0;
-        temp.y = 300;
+        temp.y = 0;
         this.addChild(temp);
         // draw the icon faces
         // for (let i = 0; i < 2; i++) {

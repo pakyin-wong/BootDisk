@@ -25,15 +25,20 @@ namespace we {
         this._notes.concat(notes);
       }
 
-      public addTempNotes() {
-        const temp = [
-          {
-            field: '^3^4OptionalFree_&564_&708@200',
-            count: 9,
-            multiplier: 1,
-          },
-        ];
-        this.notes = this._notes.concat(temp);
+      public addTempNotes(tempbetdails?: any) {
+        if (tempbetdails) {
+          this.notes = this._notes.concat(tempbetdails);
+        } else {
+          const temp = [
+            {
+              field: '15OptionalFree_349_089@200',
+              count: 9,
+              multiplier: 1,
+            },
+          ];
+          this.notes = this._notes.concat(temp);
+        }
+        this.updateNoteControlPanel();
       }
 
       public clearNotes(note: TradNoteData) {

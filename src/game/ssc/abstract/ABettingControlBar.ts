@@ -61,6 +61,7 @@ namespace we {
 
       protected onUnitBetUpdate(value) {
         this._unitBet = value;
+        this.bettingPanel.onBettingControlBarUnitBetUpdate(this.bettingPanel._currentBettingTable.betFields);
         this.updateTotalBetAmount();
       }
 

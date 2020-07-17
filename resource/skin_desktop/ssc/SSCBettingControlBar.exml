@@ -68,18 +68,18 @@
                 </e:Group>
             </e:Group>
             <e:Group id="_btnAddBetFields" width="118" height="50">
-				<e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x302121"/>
+				<e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x151c26"/>
                 <ui:RunTimeLabel id="_lblAdd" text="添加" size="20" horizontalCenter="0" verticalCenter="0"/>
             </e:Group>
             <e:Group id="_btnInstantBet" width="166" height="50">
-            	<e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x302121"/>
+            	<e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x151c26"/>
                 <ui:RunTimeLabel id="_lblInstantBet" text="立即購買" size="20" horizontalCenter="0" verticalCenter="0"/>
             </e:Group>
             <e:layout>
                 <e:HorizontalLayout horizontalAlign="right" verticalAlign="middle" paddingRight="43" gap="25"/>
             </e:layout>
         </e:Group>
-                    <ui:Panel id="_noteDropDown" width="170" x="380" y="90" skinName="skin_desktop.NavDropdown" maxHeight="200" />
+                    <ui:Panel id="_noteDropDown" width="170" x="380" y="80" skinName="skin_desktop.NavDropdown" maxHeight="200"  height="40"/>
     </e:Group>
  
 </e:Skin>

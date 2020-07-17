@@ -27,10 +27,11 @@
                 </e:layout>
             </e:Group>-->
         </e:Group>
-        <e:Group id="_bottomGroup" width="1509" height="103">
-            <lo:SSCBettingControlBar id="_bettingControl"/>
-        </e:Group>
-        <lo:SSCNoteControlPanel id="_noteControl"/>
+
+			<e:Group id="_bottomGroup" width="1509" height="127">
+				<lo:SSCBettingControlBar id="_bettingControl"/>
+			</e:Group>
+			<lo:SSCNoteControlPanel id="_noteControl"/>
         <e:layout>
             <e:VerticalLayout gap="0"/>
         </e:layout>
