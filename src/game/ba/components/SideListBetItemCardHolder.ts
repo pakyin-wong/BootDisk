@@ -9,7 +9,7 @@ namespace we {
 
       protected _gameType: string;
 
-      constructor(gameType: string = 'bam') {
+      constructor(gameType?: string) {
         super();
         if (gameType) {
           this._gameType = gameType;
@@ -18,8 +18,12 @@ namespace we {
 
       protected createChildren() {
         super.createChildren();
-        console.log(`...........${this._gameType}`);
-        this.skinName = utils.getSkinByClassname(`${this._gameType}.BetItemCardHolderSkin`);
+        // console.log(`...........${this._gameType}`);
+        if (this._gameType) {
+          this.skinName = utils.getSkinByClassname(`ba.BetItemCardHolderSkin`);
+        } else {
+          this.skinName = utils.getSkinByClassname(`bam.BetItemCardHolderSkin`);
+        }
         this.lblPlayerName.renderText = () => `${i18n.t('baccarat.player')}`;
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;
       }
