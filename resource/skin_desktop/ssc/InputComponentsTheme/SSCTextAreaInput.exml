@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lo.SSCTextAreaInput" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1508" height="478">
+<e:Skin class="skin_desktop.lo.SSCTextAreaInput" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1509" height="478">
     <!--<e:TextInput id="_textArea" x="44" width="1420" height="180" restrict="0-9 \\;\\," enabled="true" text=""/>-->
-
     <e:Group id="_textAreaGroup" x="44" y="33" width="1420" height="180" touchEnabled="true" touchChildren="true">
         <!--<e:Image/>-->
-        <e:Rect id="_textBg" fillColor="0x1b232c" top="0" left="0" right="0" bottom="0"/>
-        <e:EditableText id="_textArea" top="5" left="5" right="5" bottom="5" restrict="0-9 \\;\\,\\\n" multiline="true" text="" textAlign="left" verticalAlign="top" size="24"/>
+        <ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" x="0" width="1420" height="180" stroke="2"
+                        strokeColor="0xffffff" strokeAlpha="0.5" fillColor="0x1b232c" />
+        <e:EditableText id="_textArea" top="25" left="25" right="25" bottom="25" restrict="0-9 \\;\\,\\\n" multiline="true" text="" textAlign="left" verticalAlign="top" size="24"/>
     </e:Group>
     <ui:RunTimeLabel id="_instruction" x="44" y="230" text="說明\n1. 每一注號碼之間的間隔符支持回車 空格[] 逗號[,] 分號[;]\n2. 文件格式必須是.txt格式，大小不超過200KB。\n3. 將文件拖入文本框即可快速實現文件上傳，大文件拖拽上傳效果更佳。\n4. 導入文本內容後將覆蓋文本框中現有的內容。" 
     lineSpacing="0" size="18" alpha="0.7" fontFamily="PMingLiU"/>
     
     <e:Group id="_btnGroup" x="44" bottom="0" width="1420" height="100">
-        <e:Group x="44" verticalCenter="0" id="_btnUpload" width="149" height="50">
-            <ui:RunTimeLabel id="_lblBtnUpload" text="Upload" size="20" horizontalCenter="0" verticalCenter="0"/>
+        <e:Group x="44" verticalCenter="0" id="_btnUploadGroup" width="149" height="50">
+		    <ui:RoundRectButton id="_btnUpload" cornerTL_TR_BL_BR="25,25,25,25" width="149" height="50" verticalCenter="0" 
+                                stroke="1" fillAlpha="0" strokeColor="0x1b416e"
+                                fillAlpha_click="0.5" fillColor_click="0x303749"  stroke_click="2" strokeColor_click="0x5f6973" strokeAlpha_click="1"
+                                strokeColor_active="0x1b416e" stroke_active="2" fillColor_active="0x1B416E" fillAlpha_active="0.7"
+                                fillAlpha_hover="1" fillColor_hover="0x303749"  stroke_hover="2" strokeColor_hover="0x5f6973" strokeAlpha_hover="1"/>
+            <ui:RunTimeLabel id="_lblBtnUpload" text="Upload" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
         </e:Group>
-        <e:Group x="961" verticalCenter="0" id="_btnFix" width="245" height="50">
-            <ui:RunTimeLabel id="_lblRemoveError" text="Remove Error" size="20" horizontalCenter="0" verticalCenter="0"/>
+        <e:Group x="961" verticalCenter="0" id="_btnFixGroup" width="245" height="50">
+		    <ui:RoundRectButton id="_btnFix" cornerTL_TR_BL_BR="25,25,25,25" width="245" height="50" verticalCenter="0" 
+                                stroke="1" fillAlpha="0" strokeColor="0x1b416e"
+                                fillAlpha_click="0.5" fillColor_click="0x303749"  stroke_click="2" strokeColor_click="0x5f6973" strokeAlpha_click="1"
+                                strokeColor_active="0x1b416e" stroke_active="2" fillColor_active="0x1B416E" fillAlpha_active="0.7"
+                                fillAlpha_hover="1" fillColor_hover="0x303749"  stroke_hover="2" strokeColor_hover="0x5f6973" strokeAlpha_hover="1"/>
+            <ui:RunTimeLabel id="_lblFix" text="Remove Error" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
         </e:Group>
-        <e:Group x="1246" verticalCenter="0" id="_btnClear" width="118" height="50">
-            <ui:RunTimeLabel id="_lblClear" text="Clear" size="20" horizontalCenter="0" verticalCenter="0"/>
+        <e:Group x="1246" verticalCenter="0" id="_btnClearGroup" width="118" height="50">
+		    <ui:RoundRectButton id="_btnClear" cornerTL_TR_BL_BR="25,25,25,25" width="118" height="50" verticalCenter="0" 
+                                stroke="1" fillAlpha="0" strokeColor="0x1b416e"
+                                fillAlpha_click="0.5" fillColor_click="0x303749"  stroke_click="2" strokeColor_click="0x5f6973" strokeAlpha_click="1"
+                                strokeColor_active="0x1b416e" stroke_active="2" fillColor_active="0x1B416E" fillAlpha_active="0.7"
+                                fillAlpha_hover="1" fillColor_hover="0x303749"  stroke_hover="2" strokeColor_hover="0x5f6973" strokeAlpha_hover="1"/>
+            <ui:RunTimeLabel id="_lblClear" text="Clear" size="20" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
         </e:Group>
     </e:Group>
     <!--<e:TextInput id="_textInput" x="44" width="1420" height="180" restrict="0-9 \\;\\,"/>-->

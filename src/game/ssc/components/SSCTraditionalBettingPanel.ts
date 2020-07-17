@@ -57,18 +57,43 @@ namespace we {
         for (let i = 0; i < Object.keys(SelectionMapping).length; i++) {
           const obj = SelectionMapping[Object.keys(SelectionMapping)[i]];
 
-          const bigTag: eui.Group = new eui.Group();
+          const bigTagGroup: eui.Group = new eui.Group();
+          bigTagGroup.width = 117;
+          bigTagGroup.height = 60;
+          // bigTagGroup.name = obj.name;
+          bigTagGroup.touchEnabled = true;
+          bigTagGroup.touchChildren = true;
+
+          const bigTag: ui.RoundRectButton = new ui.RoundRectButton();
           bigTag.width = 117;
           bigTag.height = 60;
+          bigTag.cornerTL_TR_BL_BR = '0,0,0,0';
+          bigTag.stroke = 1;
+          bigTag.fillAlpha = 0;
+          bigTag.strokeColor = 0x303749;
+
+          bigTag.strokeAlpha_click = 1;
+          bigTag.strokeColor_click = 0x303749;
+          bigTag.stroke_click = 2;
+          bigTag.fillAlpha_click = 0.4;
+          bigTag.fillColor_click = '0x4C586E';
+
+          bigTag.stroke_active = 1;
+          bigTag.strokeColor_active = 0x214a72;
+          bigTag.strokeAlpha_active = 1;
+          bigTag.fillAlpha_active = 1;
+          bigTag.fillColor_active = '0x1b416e';
+
+          bigTag.strokeAlpha_hover = 1;
+          bigTag.strokeColor_hover = 0x303749;
+          bigTag.stroke_hover = 2;
+          bigTag.fillAlpha_hover = 0.2;
+          bigTag.fillColor_hover = '0x4C586E';
+
           bigTag.name = obj.name;
           bigTag.touchEnabled = true;
           bigTag.touchChildren = false;
-
-          const img: eui.Image = new eui.Image();
-          img.width = 117;
-          img.height = 60;
-          img.source = ImageMapping.BIGTAG_NORMAL;
-          bigTag.addChild(img);
+          bigTagGroup.addChild(bigTag);
 
           const lbl: ui.RunTimeLabel = new ui.RunTimeLabel();
           // lbl.text = i18n.t(SelectionMapping[i].name);
@@ -78,13 +103,14 @@ namespace we {
           lbl.verticalAlign = 'middle';
           lbl.width = 117;
           lbl.height = 60;
-          bigTag.addChild(lbl);
+          lbl.touchEnabled = false;
+          bigTagGroup.addChild(lbl);
 
           this.bigTagsArray.push(bigTag);
-          this._bigTagsGroup.addChild(bigTag);
+          this._bigTagsGroup.addChild(bigTagGroup);
           this._bigTagsGroup.touchChildren = true;
-          bigTag.x = i * bigTag.width;
-          bigTag.y = 0;
+          bigTagGroup.x = i * bigTagGroup.width;
+          bigTagGroup.y = 0;
           bigTag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBigTagClicked, this);
         }
 
@@ -95,10 +121,13 @@ namespace we {
       protected setActiveBigTag() {
         this.clearSmallTags();
         for (let i = 0; i < this.bigTagsArray.length; i++) {
-          const img = this.bigTagsArray[i].getChildAt(0) as eui.Image;
-          img.source = ImageMapping.BIGTAG_NORMAL;
+          // const img = this.bigTagsArray[i].getChildAt(0) as eui.Image;
+          // img.source = ImageMapping.BIGTAG_NORMAL;
+          this.bigTagsArray[i].active = false;
+
           if (i === this.currentBigTagIndex) {
-            img.source = ImageMapping.BIGTAG_ACTIVE;
+            this.bigTagsArray[i].active = true;
+            // img.source = ImageMapping.BIGTAG_ACTIVE;
           }
         }
       }
@@ -130,7 +159,7 @@ namespace we {
           const currentSmallTag = currentBigTag['type'][Object.keys(currentBigTag['type'])[i]];
           const smallTag = new eui.Group();
           //  smallTag.width = env.language === 'en'? SmallTags.LABELWIDTH_EN + 40 : SmallTags.LABELWIDTH_CN + 40;
-          smallTag.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN + 40 : SmallTags.LABELWIDTH_EN + 40;
+          smallTag.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_EN;
           smallTag.height = 57;
           smallTag.touchEnabled = true;
           smallTag.touchChildren = false;
@@ -139,6 +168,8 @@ namespace we {
           // lbl.text = i18n.t(currentSmallTag["name"]);
           lbl.text = currentSmallTag['name'];
           lbl.alpha = 0.7;
+          lbl.textAlign = 'center';
+          lbl.verticalAlign = 'middle';
 
           // lbl.width = env.language === 'en'? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_CN;
           lbl.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_EN;
@@ -198,7 +229,7 @@ namespace we {
         for (let i = 0; i < this.smallTagsArray.length; i++) {
           const lbl = this.smallTagsArray[i].getChildAt(0) as ui.RunTimeLabel;
           lbl.alpha = 0.7;
-          lbl.textFlow = <egret.ITextElement[]> [
+          lbl.textFlow = <egret.ITextElement[]>[
             {
               text: lbl.text,
               style: { bold: false, underline: false },
@@ -206,7 +237,7 @@ namespace we {
           ];
           if (i === this.currentSmallTagIndex) {
             lbl.alpha = 1;
-            lbl.textFlow = <egret.ITextElement[]> [
+            lbl.textFlow = <egret.ITextElement[]>[
               {
                 text: lbl.text,
                 style: { bold: true, underline: true },
