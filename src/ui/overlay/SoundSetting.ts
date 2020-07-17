@@ -2,16 +2,21 @@ namespace we {
   export namespace overlay {
     export class SoundSetting extends ui.Panel {
       private _txt_title: ui.RunTimeLabel;
+
+      private _txt_liveRecord: ui.RunTimeLabel;
+      private _slider_liveRecord: ui.Slider;
+
       private _txt_soundfx: ui.RunTimeLabel;
-      private _txt_bgm: ui.RunTimeLabel;
-      private _txt_currLang: ui.RunTimeLabel;
-
       private _slider_soundfx: ui.Slider;
-      private _slider_bgm: ui.Slider;
-
       private _btn_currLang: egret.DisplayObject;
-
+      private _txt_currLang: ui.RunTimeLabel;
       private _ddm_currLang: ui.Panel;
+
+      private _txt_bgm: ui.RunTimeLabel;
+      private _slider_bgm: ui.Slider;
+      private _btn_presetBgm: egret.DisplayObject;
+      private _txt_presetBgm: ui.RunTimeLabel;
+      private _ddm_presetBgm: ui.Panel;
 
       constructor() {
         super('SoundSetting');
@@ -22,11 +27,14 @@ namespace we {
       }
 
       protected init_menu() {
-        this._txt_title.renderText = () => `${i18n.t('nav.system.title')}`;
+        this._txt_title.renderText = () => `${i18n.t('nav.menu.soundSet')}`;
+        this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
         this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
         this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
 
         const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
+        const _arrCol_presetBgm = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('nav.system.bgm')} 01`)]);
+
         if (this._ddm_currLang) {
           this._ddm_currLang.isDropdown = true;
           this._ddm_currLang.isPoppable = true;
@@ -36,6 +44,15 @@ namespace we {
           this._ddm_currLang.dropdown.data.replaceAll(_arrCol_currLang.source);
           this._ddm_currLang.dropdown.select(env.language);
         }
+        if (this._ddm_presetBgm) {
+          this._ddm_presetBgm.isDropdown = true;
+          this._ddm_presetBgm.isPoppable = true;
+          this._ddm_presetBgm.dismissOnClickOutside = true;
+          this._ddm_presetBgm.setToggler(this._btn_presetBgm);
+          this._ddm_presetBgm.dropdown.review = this._txt_presetBgm;
+          this._ddm_presetBgm.dropdown.data.replaceAll(_arrCol_presetBgm.source);
+          this._ddm_presetBgm.dropdown.select('01');
+        }
         utils.DropdownCreator.new({
           toggler: this._btn_currLang,
           review: this._txt_currLang,
@@ -43,18 +60,13 @@ namespace we {
           title: () => ``,
           selected: env.language,
         });
-
-        const _arrCol_currFx = new eui.ArrayCollection([
-          ui.NewDropdownItem('cantonese', () => `${i18n.t('voice_cantonese')}`),
-          ui.NewDropdownItem('mandarin', () => `${i18n.t('voice_mandarin')}`),
-          ui.NewDropdownItem('english', () => `${i18n.t('voice_english')}`),
-        ]);
-
-        const _arrCol_currBgm = new eui.ArrayCollection([
-          ui.NewDropdownItem(1, () => `${i18n.t('nav.system.bgm')} 01`),
-          ui.NewDropdownItem(2, () => `${i18n.t('nav.system.bgm')} 02`),
-          ui.NewDropdownItem(3, () => `${i18n.t('nav.system.bgm')} 03`),
-        ]);
+        utils.DropdownCreator.new({
+          toggler: this._btn_presetBgm,
+          review: this._txt_presetBgm,
+          arrCol: _arrCol_presetBgm,
+          title: () => ``,
+          selected: '01',
+        });
 
         this._slider_bgm.value = dir.audioCtr.volumeBGM;
         this._slider_soundfx.value = dir.audioCtr.volumeFX;

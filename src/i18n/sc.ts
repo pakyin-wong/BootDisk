@@ -165,6 +165,8 @@ namespace we {
           confirm: '确定',
           cancel: '取消',
           gameSet: '游戏设定',
+          soundSet: '声音设定',
+          videoSet: '视频设定',
         },
         system: {
           title: '系统设定',

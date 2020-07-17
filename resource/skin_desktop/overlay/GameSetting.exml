@@ -1,40 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.GameSetting" width="980" height="780" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.GameSetting" width="490" height="327" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect left="0" top="0" bottom="0" right="0" ellipseWidth="130" ellipseHeight="130" fillColor="0x0f1721"/>
-		<e:Image id="close" width="80" height="80" source="d-lobby-button-close-none_png"  x="850" y="50"/>
-		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="44"
-		                 width="750" height="120"  verticalAlign="middle" textColor="0xc59466" size="76" anchorOffsetX="0" bold="true"/>
+		<e:Image source="popover_png" left="0" top="0" right="0" bottom="0" />
+		<e:Image id="close" width="0" height="0" />
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="26" fontFamily="NotoSansCJKtc" textColor="0xce925e"
+		                 width="360" height="45"  verticalAlign="middle" textAlign="left" bold="true"/>
+
 		<e:Group id="_btn_autoBet" x="96" y="260" height="96" touchChildren="false">
 			<ui:RunTimeLabel id="_txt_autoBet" text="Label" x="0" y="3" anchorOffsetX="0" width="620" height="89" size="60" textColor="0xFFFFFF" fontFamily="NotoSansCJKtc" verticalAlign="middle"/>
 			<ui:BaseButton id="switch_autoBet" width="153" height="93" x="629" y="0.5" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
 		</e:Group>
+
 		<e:Group id="_btn_showHint" x="96" y="430" height="96" touchChildren="false">
 			<ui:RunTimeLabel id="_txt_showHint" text="Label" x="0" y="3" anchorOffsetX="0" width="620" height="89" size="60" textColor="0xFFFFFF" fontFamily="NotoSansCJKtc" verticalAlign="middle"/>
 			<ui:BaseButton id="switch_showHint" width="153" height="93" x="629" y="0.5" skinName="skin_mobile_portrait.NavLeftHandModeBtn"/>
 		</e:Group>
+		
 		<e:Group id="_btn_sendLiveVer" width="792" height="150" x="94" y="590">
 			<e:Rect fillColor="0xffffff" fillAlpha="0" strokeWeight="3" strokeColor="0x4b535b" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" bottom="0" top="0" left="0" right="0"/>
 			<ui:RunTimeLabel id="_txt_sendLiveVer" text="Label" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1" left="0" top="0" width="100%" height="100%"/>
 		</e:Group>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</e:Group>
 </e:Skin>

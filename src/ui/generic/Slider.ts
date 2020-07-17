@@ -27,18 +27,20 @@ namespace we {
         this._mask.$y = this._bar.$y;
         this._bar.mask = this._mask;
 
-        this._toggle.$addListener(egret.TouchEvent.TOUCH_BEGIN, this.onToggleClick, this);
+        this.$addListener(egret.TouchEvent.TOUCH_BEGIN, this.onToggleClick, this);
 
         this.render();
       }
 
       protected destroy() {
         super.destroy();
-        this._toggle.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onToggleClick, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onToggleClick, this);
       }
 
-      protected onToggleClick() {
+      protected onToggleClick(e: egret.TouchEvent) {
         this._stageX = this.localToGlobal(0, 0).x;
+        // trigger change on click on slider
+        this.onToggleMove(e);
         this.stage.$addListener(egret.TouchEvent.TOUCH_MOVE, this.onToggleMove, this);
         this.stage.$addListener(egret.TouchEvent.TOUCH_END, this.onToggleRelease, this);
       }

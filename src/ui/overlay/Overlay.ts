@@ -55,10 +55,12 @@ namespace we {
       private async toggle(item: Panel, opt: IOverlayOpt) {
         if (opt.replace) {
           this.removeChildren();
-          this.addChild(this._overlayMask);
-          this._overlayMask.alpha = 0;
-          egret.Tween.removeTweens(this._overlayMask);
-          egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
+          if (!opt.noDimmer) {
+            this.addChild(this._overlayMask);
+            this._overlayMask.alpha = 0;
+            egret.Tween.removeTweens(this._overlayMask);
+            egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
+          }
           this.addItem(item, opt);
           return;
         }
@@ -72,11 +74,14 @@ namespace we {
         if (this._onShowItem) {
           this.removeItem();
         } else {
+          item.dismissOnClickOutside = true;
           this.removeChildren();
-          this.addChild(this._overlayMask);
-          this._overlayMask.alpha = 0;
-          egret.Tween.removeTweens(this._overlayMask);
-          egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
+          if (!opt.noDimmer) {
+            this.addChild(this._overlayMask);
+            this._overlayMask.alpha = 0;
+            egret.Tween.removeTweens(this._overlayMask);
+            egret.Tween.get(this._overlayMask).to({ alpha: 1 }, 250);
+          }
         }
 
         this.addItem(item, opt);
@@ -100,12 +105,16 @@ namespace we {
         this._onShowItem = item;
         this._onShowItemClass = opt.class;
         this._onShowItem.isPoppable = true;
-        this._onShowItem.dismissOnClickOutside = false;
+        this._onShowItem.dismissOnClickOutside = opt.dismissOnClickOutside || false;
         this._onShowItem.isFocusItem = true;
-        this._onShowItem.horizontalCenter = 0;
-        this._onShowItem.verticalCenter = 0;
-        // this._onShowItem.x = (this._overlayMask.width - this._onShowItem.width) * 0.5;
-        // this._onShowItem.y = (this._overlayMask.height - this._onShowItem.height) * 0.5;
+        if (opt.showOptions) {
+          const { originX, originY, originW, originH } = opt.showOptions;
+          this._onShowItem.x = originX - this._onShowItem.width / 2 + originW / 2;
+          this._onShowItem.y = originY + originH;
+        } else {
+          this._onShowItem.horizontalCenter = 0;
+          this._onShowItem.verticalCenter = 0;
+        }
         this._onShowItem.once('close', this.onItemClose, this);
         this.addChild(this._onShowItem);
         this._onShowItem.show();

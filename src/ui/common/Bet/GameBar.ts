@@ -20,29 +20,31 @@ namespace we {
       }
 
       protected childrenCreated(): void {
-        mouse.setButtonMode(this.videoButton, true);
+        // mouse.setButtonMode(this.videoButton, true);
         this.played = true;
         super.childrenCreated();
-        // this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        if (this.videoButton) {
+          this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        }
         if (this.soundBtn) {
           this.soundBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
         }
         if (this.gameButton) {
           this.gameButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
         }
-        this.videoButton.addEventListener(
-          egret.TouchEvent.TOUCH_TAP,
-          () => {
-            if (this.played) {
-              this.stopFunc();
-            } else {
-              this.playFunc();
-            }
-            this.played = !this.played;
-            console.log('BAR  ' + this.played);
-          },
-          this
-        );
+        // this.videoButton.addEventListener(
+        //   egret.TouchEvent.TOUCH_TAP,
+        //   () => {
+        //     if (this.played) {
+        //       this.stopFunc();
+        //     } else {
+        //       this.playFunc();
+        //     }
+        //     this.played = !this.played;
+        //     console.log('BAR  ' + this.played);
+        //   },
+        //   this
+        // );
       }
 
       public setPlayFunc(func: () => void) {
@@ -82,6 +84,14 @@ namespace we {
       protected onClickVideo() {
         dir.evtHandler.createOverlay({
           class: 'VideoSetting',
+          dismissOnClickOutside: true,
+          noDimmer: true,
+          showOptions: {
+            originW: this.videoButton.width,
+            originH: this.videoButton.height,
+            originX: this.videoButton.localToGlobal(0, 0).x,
+            originY: this.videoButton.localToGlobal(0, 0).y,
+          },
         });
         logger.l(utils.LogTarget.DEBUG, `onClickVideo`);
       }
@@ -89,6 +99,14 @@ namespace we {
       protected onClickSound() {
         dir.evtHandler.createOverlay({
           class: 'SoundSetting',
+          dismissOnClickOutside: true,
+          noDimmer: true,
+          showOptions: {
+            originW: this.soundBtn.width,
+            originH: this.soundBtn.height,
+            originX: this.soundBtn.localToGlobal(0, 0).x,
+            originY: this.soundBtn.localToGlobal(0, 0).y,
+          },
         });
         logger.l(utils.LogTarget.DEBUG, `onClickSound`);
       }
@@ -96,6 +114,14 @@ namespace we {
       protected onClickGame() {
         dir.evtHandler.createOverlay({
           class: 'GameSetting',
+          dismissOnClickOutside: true,
+          noDimmer: true,
+          showOptions: {
+            originW: this.gameButton.width,
+            originH: this.gameButton.height,
+            originX: this.gameButton.localToGlobal(0, 0).x,
+            originY: this.gameButton.localToGlobal(0, 0).y,
+          },
         });
         logger.l(utils.LogTarget.DEBUG, `onClickGame`);
       }
