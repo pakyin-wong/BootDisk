@@ -7,22 +7,21 @@ namespace we {
       protected lblPlayerName: ui.RunTimeLabel;
       protected lblBankerName: ui.RunTimeLabel;
 
-      protected bamGroup: eui.Group;
+      protected _gameType: string;
+
+      constructor(gameType: string = 'bam') {
+        super();
+        if (gameType) {
+          this._gameType = gameType;
+        }
+      }
 
       protected createChildren() {
         super.createChildren();
-        this.skinName = utils.getSkinByClassname('ba.BetItemCardHolderSkin');
-
+        console.log(`...........${this._gameType}`);
+        this.skinName = utils.getSkinByClassname(`${this._gameType}.BetItemCardHolderSkin`);
         this.lblPlayerName.renderText = () => `${i18n.t('baccarat.player')}`;
         this.lblBankerName.renderText = () => `${i18n.t('baccarat.banker')}`;
-      }
-
-      constructor(gametype?: string) {
-        super();
-        if (gametype === 'bam')
-          if (this.bamGroup) {
-            this.bamGroup.visible = true;
-          }
       }
 
       public updateResult(gameData: GameData) {

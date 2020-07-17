@@ -23,14 +23,4 @@
                          anchorOffsetY="0" />
                 <ui:Card id="card1Banker" width="30" height="40" verticalCenter="0" x="44" />
         </e:Group>
-        <e:Group id="bamGroup" right="0" width="339" height="41" bottom="0" visible="false">
-                <e:Rect width="100%" height="100%" strokeAlpha="0"></e:Rect>
-                <e:Group verticalCenter="0" horizontalCenter="0">
-                        <e:Label id="bamLabelDisplay" text="咪牌中" size="25" textColor="0xFFFFFF" textAlign="center"  bold="true"/>
-                        <e:Label id="bamCountdown" text="8" size="25" textColor="0x00aa5e" textAlign="center"  bold="true"/>
-									<e:layout>
-										<e:HorizontalLayout/>
-									</e:layout>
-                </e:Group>
-        </e:Group>
 </e:Skin>
