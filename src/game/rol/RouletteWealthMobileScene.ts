@@ -13,6 +13,7 @@ namespace we {
 
       protected mount() {
         super.mount();
+        this._chipLayer = new we.rol.MobileChipLayer();
       }
 
       public backToLobby() {
@@ -21,12 +22,12 @@ namespace we {
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
-        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
       protected setStateBet(isInit: boolean = false) {
         super.setStateBet(isInit);
-        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
       protected setStateFinish(isInit: boolean = false) {
@@ -34,32 +35,32 @@ namespace we {
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
           this.luckyCoinGroup.updateLuckyNumbers();
         }
-        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
-        (<rol.ChipLayer>this._chipLayer).showWinningNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
+        (<rol.MobileChipLayer>this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
         super.setStateRefund(isInit);
-        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
 
       protected setStateShuffle(isInit: boolean = false) {
         super.setStateShuffle(isInit);
-        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
 
       protected setStateUnknown(isInit: boolean = false) {
         super.setStateUnknown(isInit);
-        (<we.rol.ChipLayer>this._chipLayer).clearLuckyNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          (<we.rol.ChipLayer>this._chipLayer).showLuckyNumber();
+          (<we.rol.MobileChipLayer>this._chipLayer).showLuckyNumber();
           this.luckyCoinGroup.updateLuckyNumbers();
         }
       }

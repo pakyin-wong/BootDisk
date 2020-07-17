@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.RouletteWealthScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:rol="we.rol.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:rol="we.rol.*" states="left,right">
+<e:Skin class="skin_mobile_portrait.RouletteWealthScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:rol="we.rol.*" states="left,right">
 	<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0" locked="true">
 	<e:skinName>
 		<e:Skin states="normal,zip,small">
@@ -94,7 +94,7 @@
 	<ro:RaceTrackControl id="_raceTrackControl" width="91" height="417" skinName="skin_mobile_portrait.ro.RaceTrackControlSkin" y="1504" x.right="1097" x.left="45" x="1090"/>
 	<ro:MobileBetCombination id="_betCombination" skinName="skin_mobile_portrait.ro.MobileBetCombination" bottom="450" x="168" x.left="393"/>
 	<ro:MobileBottomGamePanel skinName="skin_mobile_portrait.ro.MobileBottomGamePanel" id="_bottomGamePanel" width="1242" x="0" scaleY="1" scaleX="1" bottom="0"/>
-	<rol:LuckyCoinGroup id="luckyCoinGroup" x="" y=""  x.right="831" y.right="989"/>
+	<rol:LuckyCoinGroup id="luckyCoinGroup" x.right="831" y.right="989" x.left="831" y.left="989"/>
   <!--<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right"/>-->
@@ -107,8 +107,6 @@
     infoBg="d_ba_gamerecord_playerelement_png"
     successBg="d_ba_gamerecord_tieelement_png"
     errorBg="d_ba_gamerecord_bankerelement_png" touchEnabled="false"/>
-
-
   <!--<ro:TableInfoPanel width="600" height="319.7" x="0" y="91" id="_tableInfoWindow" isPoppable="true" isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true" anchorOffsetY="0"
   skinName="skin_mobile_portrait.ro.TableInfoPanel" />-->
   <!--<ro:ROBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0" anchorOffsetY="0" visible="false"/>-->

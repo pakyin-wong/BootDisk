@@ -3,13 +3,13 @@ namespace we {
     export class LuckyCoinGroup extends core.BaseEUI {
       protected gameData: we.rol.GameData;
       protected tableInfo: data.TableInfo;
-      protected _chipLayer: ui.ChipLayer;
+      protected _chipLayer: we.rol.MobileChipLayer;
 
-      public constructor(skin?: string) {
-        super(skin ? skin : env.isMobile ? '' : 'LuckyCoinGroup');
+      public constructor() {
+        super();
       }
 
-      protected childrenCreated(){
+      protected childrenCreated() {
         super.childrenCreated();
       }
 
