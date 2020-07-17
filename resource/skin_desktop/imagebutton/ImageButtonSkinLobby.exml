@@ -6,14 +6,17 @@
              source.lobby_mode_01="d_lobby_icon_view_01_normal_png"
              source.lobby_mode_02="d_lobby_icon_view_02_normal_png"
              source.lobby_mode_03="d_lobby_icon_view_03_normal_png"
-             source.lobby_confirm_button="d_lobby_confirm_btn_normal_png"
              source.lobby_betcontrol_close="d_lobby_panel_betcontrol_btn_close_normal_png"
              source.lobby_betcontrol_previous="d_lobby_panel_betcontrol_btn_previous_normal_png"
              source.lobby_quick_bet_notification="d_lobby_quick_bet_notification_follow_normal_png"
              source.lobby_notify_btn_action="d_lobby_notify_btn_action_png"
              source.lobby_notify_btn_hide="d_lobby_notify_btn_hide_png" />
+    <ui:RoundRectShape left="0" right="0" top="0" bottom="0" cornerTL_TR_BL_BR="20,20,20,20" width="28" height="28"
+                       stroke="0" fillColor="00aa5e" includeIn="lobby_confirm_button" />
     <e:Group id="_group" left="0" right="0" top="0" bottom="0">
-        <ui:RunTimeLabel id="_label" text="" size="24" verticalCenter="0"
-                         horizontalCenter="0" size.lobby_notify_btn_hide="20" size.lobby_notify_btn_action="20" />
+        <ui:RunTimeLabel id="_label" text="" size="24" verticalCenter="0" horizontalCenter="0"
+                         size.lobby_notify_btn_hide="20" size.lobby_notify_btn_action="20" />
     </e:Group>
 </e:Skin>
+<!-- source.lobby_confirm_button="d_lobby_confirm_btn_normal_png" -->
+<!-- source.lobby_confirm_button="d_lobby_panel_betcontrol_btn_confirm_bg_png" -->
