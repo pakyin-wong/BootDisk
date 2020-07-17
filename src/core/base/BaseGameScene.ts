@@ -118,8 +118,7 @@ namespace we {
         this.stage.frameRate = 60;
         this._bgImg.visible = false;
 
-        this._gameBar.setPlayFunc(this.playVideo(this));
-        this._gameBar.setStopFunc(this.stopVideo(this));
+        this._gameBar.targetScene = this;
 
         if (env.betLimits) {
           this.initDenom();
@@ -282,7 +281,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -322,7 +321,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -638,6 +637,10 @@ namespace we {
         if (this._chipLayer) {
           this._undoStack.popAndUndo();
         }
+      }
+
+      public get isVideoStopped() {
+        return this._video.paused;
       }
 
       public playVideo(scene: any) {

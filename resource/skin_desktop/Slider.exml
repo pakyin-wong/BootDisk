@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.Slider" minWidth="36" minHeight="35" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_desktop.Slider" minWidth="36" minHeight="35" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Rect id="_bg" height="8" verticalCenter="0" left="0" right="0"/>
 	<e:Image id="_bar" height="36" verticalCenter="0" horizontalCenter="0" source="d_lobby_panel_button_slide_select_png"/>
-	<e:Rect id="_toggle" left="0" top="0" fillColor="0x646464" ellipseHeight="50" ellipseWidth="50" width="36" height="35"/>
+	<ui:RoundRectShape id="_toggle" width="36" height="36" cornerTL_TR_BL_BR="18,18,18,18" fillColor="0x4874f7,0x00dbff,90" stroke="0" strokeIn="0" />
 </e:Skin>

@@ -3,9 +3,8 @@ namespace we {
     export class Slider extends core.BaseEUI {
       public static PROGRESS = 'sliderProgress';
 
-      //   public customSkin:string = "baseSlider";
       private _mask: egret.Shape;
-      private _toggle: egret.DisplayObject;
+      private _toggle: ui.RoundRectShape;
       private _bg: egret.DisplayObject;
       private _bar: egret.DisplayObject;
       private _max: number = 1;
@@ -14,7 +13,7 @@ namespace we {
 
       constructor() {
         super();
-        //  this.skinName = utils.getSkinByClassname(this.customSkin);
+        //  this.skinName = utils.getSkinByClassname('baseSlider');
       }
 
       protected mount() {
@@ -64,8 +63,20 @@ namespace we {
         this.render();
       }
 
+      private _updateToggleColor(color) {
+        if (color !== this._toggle.fillColor) {
+          this._toggle.fillColor = color;
+          this._toggle.refresh();
+        }
+      }
+
       public set value(v: number) {
         this._v = v;
+        if (v === 0) {
+          this._updateToggleColor('0x646464');
+        } else {
+          this._updateToggleColor('0x4874f7,0x00dbff,90');
+        }
         this.render();
       }
 

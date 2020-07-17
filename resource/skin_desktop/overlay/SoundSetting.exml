@@ -23,13 +23,13 @@
 		<e:Group id="_btn_currLang" width="251" height="50" x="197" y="236">
 			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
 			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
-			<ui:RunTimeLabel id="_txt_currLang" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
+			<ui:RunTimeLabel id="_txt_currLang" text="Label" width="155" height="36" verticalAlign="middle" horizontalCenter="0" verticalCenter="0"
 			        textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
 		</e:Group>
 		<e:Group id="_btn_presetBgm" width="251" height="50" x="197" y="376">
 			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
 			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
-			<ui:RunTimeLabel id="_txt_presetBgm" text="Label" x="48" y="7" width="155" height="36" verticalAlign="middle"
+			<ui:RunTimeLabel id="_txt_presetBgm" text="Label" width="155" height="36" verticalAlign="middle" horizontalCenter="0" verticalCenter="0"
 			        textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
 		</e:Group>
 

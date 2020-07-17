@@ -855,6 +855,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class SwitchBtn extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ListTestPageSkin extends eui.Skin{
 	}
 }

@@ -28,12 +28,12 @@ namespace we {
 
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.menu.soundSet')}`;
-        this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
-        this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
-        this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
+        this._txt_liveRecord.renderText = () => `${i18n.t('nav.audio.liveRecord')}`;
+        this._txt_soundfx.renderText = () => `${i18n.t('nav.audio.soundFx')}`;
+        this._txt_bgm.renderText = () => `${i18n.t('nav.audio.bgm')}`;
 
         const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
-        const _arrCol_presetBgm = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('nav.system.bgm')} 01`)]);
+        const _arrCol_presetBgm = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('nav.audio.bgm')} 01`)]);
 
         if (this._ddm_currLang) {
           this._ddm_currLang.isDropdown = true;
@@ -68,8 +68,9 @@ namespace we {
           selected: '01',
         });
 
-        this._slider_bgm.value = dir.audioCtr.volumeBGM;
+        this._slider_liveRecord.value = dir.audioCtr.volumeLive;
         this._slider_soundfx.value = dir.audioCtr.volumeFX;
+        this._slider_bgm.value = dir.audioCtr.volumeBGM;
 
         this.addListeners();
       }
@@ -80,29 +81,36 @@ namespace we {
       }
 
       protected addListeners() {
+        this._slider_liveRecord.addEventListener(ui.Slider.PROGRESS, this.onLiveRecordAdjust, this);
         this._slider_soundfx.addEventListener(ui.Slider.PROGRESS, this.onSoundFxAdjust, this);
         this._slider_bgm.addEventListener(ui.Slider.PROGRESS, this.onBGMAdjust, this);
 
         if (env.isMobile) {
           this._btn_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+          this._btn_presetBgm.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
         } else {
           this._ddm_currLang.addEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+          this._ddm_presetBgm.addEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
         }
       }
 
       protected removeListeners() {
+        this._slider_liveRecord.removeEventListener(ui.Slider.PROGRESS, this.onLiveRecordAdjust, this);
         this._slider_soundfx.removeEventListener(ui.Slider.PROGRESS, this.onSoundFxAdjust, this);
         this._slider_bgm.removeEventListener(ui.Slider.PROGRESS, this.onBGMAdjust, this);
 
         if (env.isMobile) {
           this._btn_currLang.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+          this._btn_presetBgm.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
         } else {
           this._ddm_currLang.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onLangSelect, this);
+          this._ddm_presetBgm.removeEventListener('DROPDOWN_ITEM_CHANGE', this.onBgmSelect, this);
         }
       }
 
       private onLiveRecordAdjust(e) {
         dir.audioCtr.volumeLive = e.data;
+        this._slider_liveRecord.value = dir.audioCtr.volumeLive;
       }
 
       private onSoundFxAdjust(e) {
@@ -120,14 +128,10 @@ namespace we {
         this._ddm_currLang && this._ddm_currLang.dropdown.select(env.language);
       }
 
-      private onFxSelect(e) {
-        env.voice = e.data;
-        dir.evtHandler.dispatch(core.Event.VOICE_UPDATE, e.data);
-      }
-
       private onBgmSelect(e) {
         env.bgm = e.data;
         dir.evtHandler.dispatch(core.Event.BGM_UPDATE, e.data);
+        this._ddm_presetBgm && this._ddm_presetBgm.dropdown.select(env.bgm);
       }
 
       protected initOrientationDependentComponent() {

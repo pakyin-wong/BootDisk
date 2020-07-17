@@ -5,14 +5,15 @@ namespace we {
       private soundBtn: egret.DisplayObject;
       private gameButton: egret.DisplayObject;
 
-      private played: boolean;
-      private playFunc: () => void;
-      private stopFunc: () => void;
+      private _targetScene: core.BaseGameScene;
+
+      public set targetScene(scene) {
+        this._targetScene = scene;
+      }
 
       public constructor() {
         super();
         // this.skinName = utils.getSkinByClassname('GameBar');
-        this.played = false;
       }
 
       protected partAdded(partName: string, instance: any): void {
@@ -21,7 +22,6 @@ namespace we {
 
       protected childrenCreated(): void {
         // mouse.setButtonMode(this.videoButton, true);
-        this.played = true;
         super.childrenCreated();
         if (this.videoButton) {
           this.videoButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
@@ -32,49 +32,18 @@ namespace we {
         if (this.gameButton) {
           this.gameButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
         }
-        // this.videoButton.addEventListener(
-        //   egret.TouchEvent.TOUCH_TAP,
-        //   () => {
-        //     if (this.played) {
-        //       this.stopFunc();
-        //     } else {
-        //       this.playFunc();
-        //     }
-        //     this.played = !this.played;
-        //     console.log('BAR  ' + this.played);
-        //   },
-        //   this
-        // );
-      }
-
-      public setPlayFunc(func: () => void) {
-        this.playFunc = func;
-      }
-
-      public setStopFunc(func: () => void) {
-        this.stopFunc = func;
       }
 
       protected removeEventListeners() {
-        // this.videoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        if (this.videoButton) {
+          this.videoButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickVideo, this);
+        }
         if (this.soundBtn) {
           this.soundBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickSound, this);
         }
         if (this.gameButton) {
           this.gameButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClickGame, this);
         }
-        this.videoButton.removeEventListener(
-          egret.TouchEvent.TOUCH_TAP,
-          () => {
-            if (this.played) {
-              this.stopFunc();
-            } else {
-              this.playFunc();
-            }
-            this.played = !this.played;
-          },
-          this
-        );
       }
 
       protected destroy() {
@@ -92,6 +61,7 @@ namespace we {
             originX: this.videoButton.localToGlobal(0, 0).x,
             originY: this.videoButton.localToGlobal(0, 0).y,
           },
+          args: [this._targetScene],
         });
         logger.l(utils.LogTarget.DEBUG, `onClickVideo`);
       }
