@@ -61,7 +61,7 @@
 					<e:Group id="_bARace" width="879" x="890" height="1769">
 						<ro:RaceTrackTableLayer id="_raceTrackTableLayer" horizontalCenter="0"/>
 					</e:Group>
-					<ro:MobileChipLayer id="_chipLayer" width="879" height="1769" isEdgeDismissable="true" skinName="skin_mobile_portrait.rol.ChipLayerRaceSkin" x="0" y="0" scaleX="1" scaleY="1"/>
+					<rol:MobileChipLayer id="_chipLayer" width="879" height="1769" isEdgeDismissable="true" skinName="skin_mobile_portrait.rol.ChipLayerRaceSkin" x="0" y="0" scaleX="1" scaleY="1"/>
 				</e:Group>
 				<ro:RaceTrackChipLayer id="_raceTrackChipLayer" horizontalCenter="0" visible="false"/>
 			</e:Group>

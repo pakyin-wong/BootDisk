@@ -1809,10 +1809,6 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.rol{
-	class ChipLayerSkin extends eui.Skin{
-	}
-}
-declare module skin_mobile_portrait.rol{
 	class ChipLayerRaceSkin extends eui.Skin{
 	}
 }
