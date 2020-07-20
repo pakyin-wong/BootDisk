@@ -1,7 +1,7 @@
 // TypeScript file
 namespace we {
   export namespace lo {
-    export class SSCBallButton extends eui.Group {
+    export class SSCBallButton extends ui.RoundRectButton {
       // private _value: string = '';
       private _betValue: string = '';
       private _image: eui.Image;
@@ -9,8 +9,6 @@ namespace we {
       private _isActive: boolean;
 
       private _rowIndex: number;
-
-      private _roundRectButton: ui.RoundRectButton;
 
       protected isNumeric(num) {
         return !isNaN(num);
@@ -23,40 +21,34 @@ namespace we {
         this.initComponents();
       }
 
-      public get roundRectButton(): ui.RoundRectButton {
-        return this._roundRectButton;
-      }
-
       public initComponents() {
         this.touchEnabled = true;
         this.touchChildren = true;
 
-        const roundRectButton = new ui.RoundRectButton();
-        roundRectButton.width = roundRectButton.height = 50;
-        roundRectButton.cornerTL_TR_BL_BR = '25,25,25,25';
+        // const roundRectButton = new ui.RoundRectButton();
+        this.width = this.height = 50;
+        this.cornerTL_TR_BL_BR = '25,25,25,25';
 
-        roundRectButton.fillAlpha = 0;
-        roundRectButton.stroke = 1;
-        roundRectButton.strokeColor = 0xffffff;
-        roundRectButton.strokeAlpha = 1;
+        this.fillAlpha = 0;
+        this.stroke = 1;
+        this.strokeColor = 0xffffff;
+        this.strokeAlpha = 1;
 
-        roundRectButton.strokeAlpha_click = 0;
-        roundRectButton.stroke_click = 0;
-        roundRectButton.fillColor_click = '0x1B416E';
-        roundRectButton.fillAlpha_click = 0.56;
+        this.strokeAlpha_click = 0;
+        this.stroke_click = 0;
+        this.fillColor_click = '0x1B416E';
+        this.fillAlpha_click = 0.56;
 
-        roundRectButton.strokeAlpha_hover = 0;
-        roundRectButton.stroke_hover = 0;
-        roundRectButton.fillColor_hover = '0x1B416E';
-        roundRectButton.fillAlpha_hover = 0.76;
+        this.strokeAlpha_hover = 0;
+        this.stroke_hover = 0;
+        this.fillColor_hover = '0x1B416E';
+        this.fillAlpha_hover = 0.76;
 
-        roundRectButton.stroke_active = 0;
-        roundRectButton.strokeAlpha_active = 0;
-        roundRectButton.fillColor_active = '0x00244e,0x034a94,-180';
-        roundRectButton.fillAlpha_active = 1;
+        this.stroke_active = 0;
+        this.strokeAlpha_active = 0;
+        this.fillColor_active = '0x00244e,0x034a94,-180';
+        this.fillAlpha_active = 1;
 
-        this._roundRectButton = roundRectButton;
-        this.addChild(this._roundRectButton);
         // const shape = new egret.Shape();
         // shape.graphics.beginFill(0x214a72, 1);
         // shape.graphics.drawCircle(25, 25, 25);
@@ -73,7 +65,7 @@ namespace we {
         this._lblValue.textAlign = 'center';
         this._lblValue.verticalAlign = 'middle';
         this._lblValue.touchEnabled = false;
-        this.addChild(this._lblValue);
+        this.addChildAt(this._lblValue, 1);
         // this._image = new eui.Image();
         //   this._image.source =
       }
@@ -83,7 +75,7 @@ namespace we {
       // }
 
       // public setButtonCallback(func) {
-      //   this.roundRectButton.addEventListener(egret.TouchEvent.TOUCH_TAP, func, this);
+      //   this.this.addEventListener(egret.TouchEvent.TOUCH_TAP, func, this);
       // }
 
       public get betValue() {
@@ -102,13 +94,15 @@ namespace we {
         // image update
         this._isActive = isActive;
         if (this._isActive) {
-          this._roundRectButton.active = true;
+          this.active = true;
           this._lblValue.textColor = 0xc59466;
           this._lblValue.bold = true;
+          this.addChild(this._lblValue);
         } else {
-          this._roundRectButton.active = false;
+          this.active = false;
           this._lblValue.textColor = 0xffffff;
           this._lblValue.bold = true;
+          this.addChild(this._lblValue);
         }
       }
     }

@@ -77,3 +77,13 @@ action
     - checkboxes AInputComponent
     - Integration
     - 
+
+    tradLotteryBet :   
+
+    bet(tableID: string, betArray: BetValueCommand[], callback: Function): void;
+    tradLotteryBet(tableID: string, betArray: BetValueCommand[], roundArray: RoundBetDetail[], callback: Function): void;
+
+    export class LotteryBetCommand {
+      public roundid: number;
+      public multiplier: string;
+    }

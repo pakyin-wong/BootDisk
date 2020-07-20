@@ -2,6 +2,7 @@
 namespace we {
   export namespace lo {
     export class SSCBallRowInput extends AInputComponent {
+      private _bg: eui.Rect;
       private _title: ui.RunTimeLabel;
       private _ballsGroup: eui.Group;
       private _content: eui.Group;

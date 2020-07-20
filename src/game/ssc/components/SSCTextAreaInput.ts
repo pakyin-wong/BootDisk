@@ -158,7 +158,13 @@ namespace we {
         }
 
         // duplication checking for data ARRAY
-        const uniqueTempDatas = tempDatas.filter((v, i, a) => a.indexOf(v) === i);
+        const uniqueTempDatas = tempDatas.filter((v, i, a) => {
+          const check = a.indexOf(v) === i;
+          if (check) {
+            // TODO
+          }
+          return check;
+        });
 
         let finalDatas = [];
 

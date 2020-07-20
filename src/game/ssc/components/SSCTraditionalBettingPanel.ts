@@ -261,7 +261,9 @@ namespace we {
 
       protected clearCurrentBettingTable() {
         super.clearCurrentBettingTable();
-        this._buttonGroup.removeChildren();
+        if (this._currentBettingTable) {
+          this._currentBettingTable.parent.removeChild(this._currentBettingTable);
+        }
       }
 
       protected initCurrentBettingTable() {

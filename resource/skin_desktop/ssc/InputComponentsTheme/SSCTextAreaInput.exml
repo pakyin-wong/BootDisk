@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.lo.SSCTextAreaInput" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1509" height="478">
-    <!--<e:TextInput id="_textArea" x="44" width="1420" height="180" restrict="0-9 \\;\\," enabled="true" text=""/>-->
     <e:Group id="_textAreaGroup" x="44" y="33" width="1420" height="180" touchEnabled="true" touchChildren="true">
         <!--<e:Image/>-->
         <ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" x="0" width="1420" height="180" stroke="2"
