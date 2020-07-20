@@ -81,13 +81,13 @@ namespace we {
           let source = '';
           switch (we.ro.RACETRACK_COLOR[num]) {
             case we.ro.Color.GREEN:
-              source = 'Disc_Green_103x214_png';
+              source = 'Disc_Green_650x123_png';
               break;
             case we.ro.Color.RED:
-              source = 'Disc_Red_84x72_png';
+              source = 'Disc_Red_218x128_png';
             case we.ro.Color.BLACK:
             default:
-              source = 'Disc_Black_84x72_png';
+              source = 'Disc_Black_218x128_png';
           }
           const img = new eui.Image();
           img.source = source;

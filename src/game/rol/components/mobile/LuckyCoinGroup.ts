@@ -1,9 +1,6 @@
 namespace we {
   export namespace rol {
-    export class LuckyCoinGroup extends core.BaseEUI {
-      protected gameData: we.rol.GameData;
-      protected tableInfo: data.TableInfo;
-
+    export class LuckyCoinGroup extends core.BaseGamePanel {
       protected _chipLayer: we.rol.MobileChipLayer;
 
       public constructor() {
@@ -33,7 +30,7 @@ namespace we {
         label.fontFamily = 'Barlow';
         label.text = odd.toString() + 'x';
         label.size = 50;
-        label.textColor = 0x2ab9c6;
+        label.textColor = 0x80fbfd;
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
         label.width = 112;
@@ -51,7 +48,7 @@ namespace we {
         label.fontFamily = 'Barlow';
         label.text = num.toString();
         label.size = 120;
-        label.textColor = 0x2ab9c6;
+        label.textColor = 0x80fbfd;
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
         label.width = 300;
@@ -101,7 +98,8 @@ namespace we {
         const noOfLuckNum = Object.keys(luckyNumbers).length;
 
         // 18 = 668 - 5 * 112
-        let x = (668 - (noOfLuckNum - 1) * 18 - noOfLuckNum * 112) / 2;
+        // let x = (668 - (noOfLuckNum - 1) * 18 - noOfLuckNum * 112) / 2;
+        let x = 0;
 
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();

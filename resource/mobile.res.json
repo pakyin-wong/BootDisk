@@ -13,7 +13,7 @@
 			"name": "scene_baccarat"
 		},
 		{
-			"keys": "h_0_png,h_10_png,h_23_png,h_24_png,h_26_png,h_3_png,h_30_png,h_32_png,h_35_png,h_5_png,h_8_png,h_Orphelins_png,h_Rectangle_png,h_Tires_png,h_Voisins_png,h_Zero_png,m_ro_h_betborad_hover_png,m_ro_h_betborad_inactive_png,m_ro_h_betborad_outline_png,m_ro_h_reatrack_hover_png,m_ro_h_reatrack_inactive_png,m_ro_h_reatrack_outline_png,m_ro_v_betborad_hover_png,m_ro_v_betborad_inactive_png,m_ro_v_betborad_outline_png,m_ro_v_reatrack_hover_png,m_ro_v_reatrack_inactive_png,m_ro_v_reatrack_outline_png,m_v_ro_reatrack_dim_png,v_0_png,v_10_png,v_12_png,v_15_png,v_23_png,v_24_png,v_26_png,v_3_png,v_30_png,v_32_png,v_35_png,v_5_png,v_8_png,v_Orphelins_png,v_Rectangle_png,v_Tires_png,v_Voisins_png,v_Zero_png,m_ro_add_icon_hover_png,m_ro_add_icon_Inactive_png,m_ro_btn_reactack_png,m_ro_less_icon_hover_png,m_ro_less_icon_Inactive_png,m_ro_spread_bg_png,d_ro_chips_small_not_confirm_png,d_ro_chips_small_png,m_lobby_ro_history_black_Rectangle_png,m_lobby_ro_history_green_Rectangle_png,m_lobby_ro_history_red_Rectangle_png,m_ro_history_black_bar_png,m_ro_history_gray_bar_bg_png,m_ro_history_green_bar_png,m_ro_history_hight_blue_bar_png,m_ro_history_red_bar_png,m_ro_h_cold_bar_png,m_ro_h_hot_bar_png,m_ro_v_cold_bar_png,m_ro_v_cold_icon_png,m_ro_v_hot_bar_png,m_ro_v_hot_icon_png,m_ro_roadmap_black_ball_png,m_ro_roadmap_black_box_png,m_ro_roadmap_dark_ball_png,m_ro_roadmap_green_ball_png,m_ro_roadmap_green_box_png,m_ro_roadmap_light_blue_box_png,m_ro_roadmap_light_green_box_png,m_ro_roadmap_light_red_box_png,m_ro_roadmap_red_ball_png,m_ro_roadmap_red_box_png,m_ro_active_add_icon_png,m_ro_active_detele_icon_png,m_ro_btn_savelayout_png,m_ro_inactive_add_icon_png,m_ro_savelayout_active_bg_png,m_ro_savelayout_confirm_bg_png,m_ro_savelayout_hover_bg_png,m_ro_savelayout_inactive_bg_png,roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,roulette_ui_tex_png,roulette_ui_tex_json,roulette_ui_ske_json,roulette_w_game_result_ske_json,roulette_w_game_result_tex_json,roulette_w_game_result_tex_png",
+			"keys": "h_0_png,h_10_png,h_23_png,h_24_png,h_26_png,h_3_png,h_30_png,h_32_png,h_35_png,h_5_png,h_8_png,h_Orphelins_png,h_Rectangle_png,h_Tires_png,h_Voisins_png,h_Zero_png,m_ro_h_betborad_hover_png,m_ro_h_betborad_inactive_png,m_ro_h_betborad_outline_png,m_ro_h_reatrack_hover_png,m_ro_h_reatrack_inactive_png,m_ro_h_reatrack_outline_png,m_ro_v_betborad_hover_png,m_ro_v_betborad_inactive_png,m_ro_v_betborad_outline_png,m_ro_v_reatrack_hover_png,m_ro_v_reatrack_inactive_png,m_ro_v_reatrack_outline_png,m_v_ro_reatrack_dim_png,v_0_png,v_10_png,v_12_png,v_15_png,v_23_png,v_24_png,v_26_png,v_3_png,v_30_png,v_32_png,v_35_png,v_5_png,v_8_png,v_Orphelins_png,v_Rectangle_png,v_Tires_png,v_Voisins_png,v_Zero_png,m_ro_add_icon_hover_png,m_ro_add_icon_Inactive_png,m_ro_btn_reactack_png,m_ro_less_icon_hover_png,m_ro_less_icon_Inactive_png,m_ro_spread_bg_png,d_ro_chips_small_not_confirm_png,d_ro_chips_small_png,m_lobby_ro_history_black_Rectangle_png,m_lobby_ro_history_green_Rectangle_png,m_lobby_ro_history_red_Rectangle_png,m_ro_history_black_bar_png,m_ro_history_gray_bar_bg_png,m_ro_history_green_bar_png,m_ro_history_hight_blue_bar_png,m_ro_history_red_bar_png,m_ro_h_cold_bar_png,m_ro_h_hot_bar_png,m_ro_v_cold_bar_png,m_ro_v_cold_icon_png,m_ro_v_hot_bar_png,m_ro_v_hot_icon_png,m_ro_roadmap_black_ball_png,m_ro_roadmap_black_box_png,m_ro_roadmap_dark_ball_png,m_ro_roadmap_green_ball_png,m_ro_roadmap_green_box_png,m_ro_roadmap_light_blue_box_png,m_ro_roadmap_light_green_box_png,m_ro_roadmap_light_red_box_png,m_ro_roadmap_red_ball_png,m_ro_roadmap_red_box_png,m_ro_active_add_icon_png,m_ro_active_detele_icon_png,m_ro_btn_savelayout_png,m_ro_inactive_add_icon_png,m_ro_savelayout_active_bg_png,m_ro_savelayout_confirm_bg_png,m_ro_savelayout_hover_bg_png,m_ro_savelayout_inactive_bg_png,roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,roulette_ui_tex_png,roulette_ui_tex_json,roulette_ui_ske_json,roulette_w_game_result_ske_json,roulette_w_game_result_tex_json,roulette_w_game_result_tex_png,Disc_Black_218x128_png,Disc_Green_650x123_png,Disc_Red_218x128_png,Disc_Red_148x148_png,Disc_Green_140x444_png,Disc_Black_148x148_png",
 			"name": "scene_roulette"
 		},
 		{
@@ -4656,6 +4656,36 @@
 			"url": "assets/dragonbones/m/rol/roulette_w_game_result_ske.json",
 			"type": "json",
 			"name": "roulette_w_game_result_ske_json"
+		},
+		{
+			"url": "assets/images/m/ro/row/Mobile_BG_V/Disc_Black_218x128.png",
+			"type": "image",
+			"name": "Disc_Black_218x128_png"
+		},
+		{
+			"url": "assets/images/m/ro/row/Mobile_BG_V/Disc_Green_650x123.png",
+			"type": "image",
+			"name": "Disc_Green_650x123_png"
+		},
+		{
+			"url": "assets/images/m/ro/row/Mobile_BG_V/Disc_Red_218x128.png",
+			"type": "image",
+			"name": "Disc_Red_218x128_png"
+		},
+		{
+			"url": "assets/images/m/ro/row/Mobile_BG_H/Disc_Green_140x444.png",
+			"type": "image",
+			"name": "Disc_Green_140x444_png"
+		},
+		{
+			"url": "assets/images/m/ro/row/Mobile_BG_H/Disc_Red_148x148.png",
+			"type": "image",
+			"name": "Disc_Red_148x148_png"
+		},
+		{
+			"url": "assets/images/m/ro/row/Mobile_BG_H/Disc_Black_148x148.png",
+			"type": "image",
+			"name": "Disc_Black_148x148_png"
 		}
 	]
 }
