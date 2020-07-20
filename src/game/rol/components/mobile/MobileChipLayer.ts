@@ -18,7 +18,11 @@ namespace we {
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('Bet_Effect_Destop');
+        if (env.orientation === 'portrait') {
+          return factory.buildArmatureDisplay('Bet_Effect_Vertical');
+        } else {
+          return factory.buildArmatureDisplay('Bet_Effect_Horizontal');
+        }
       }
 
       public showWinningNumber() {
@@ -135,8 +139,8 @@ namespace we {
           label.verticalCenter = 0;
           label.horizontalCenter = 0;
           label.fontFamily = 'Barlow';
-          label.size = 30;
-          label.textColor = 0x83f3af;
+          label.size = 60;
+          label.textColor = 0x80fbfd;
           label.text = luckyNumbers[key] + 'x';
 
           grid.addChild(label);

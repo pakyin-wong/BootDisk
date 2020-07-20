@@ -13,7 +13,6 @@ namespace we {
 
       protected mount() {
         super.mount();
-        this._chipLayer = new we.rol.MobileChipLayer();
       }
 
       public backToLobby() {
@@ -36,7 +35,7 @@ namespace we {
           this.luckyCoinGroup.updateLuckyNumbers();
         }
         (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
-        (<rol.MobileChipLayer>this._chipLayer).showWinningNumber();
+        (<we.rol.MobileChipLayer>this._chipLayer).showWinningNumber();
       }
 
       protected setStateRefund(isInit: boolean = false) {
@@ -71,7 +70,7 @@ namespace we {
 
       public checkResultMessage(resultData = null) {
         (<any>this._gameData).hasBet = this.hasBet();
-        // super.checkResultMessage(resultData);
+        super.checkResultMessage(resultData);
       }
     }
   }

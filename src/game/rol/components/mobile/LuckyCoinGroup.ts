@@ -3,6 +3,7 @@ namespace we {
     export class LuckyCoinGroup extends core.BaseEUI {
       protected gameData: we.rol.GameData;
       protected tableInfo: data.TableInfo;
+
       protected _chipLayer: we.rol.MobileChipLayer;
 
       public constructor() {
@@ -20,7 +21,11 @@ namespace we {
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('Draw_Number_Effect');
+        if (env.orientation === 'portrait') {
+          return factory.buildArmatureDisplay('Draw_Number_Effect_Vertical');
+        } else {
+          return factory.buildArmatureDisplay('Draw_Number_Effect_Horizontal');
+        }
       }
 
       protected getOddSlotGroup(odd: number) {

@@ -98,7 +98,7 @@
   <!--<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right"/>-->
-  <ro:GameResultMessage id="_resultMessage" y="264" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0" touchEnabled="false"/>
+  <rol:GameResultMessage id="_resultMessage" y="264" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" horizontalCenter="0" touchEnabled="false"/>
   <ui:InGameMessage
     id="_message"
     x="311"
