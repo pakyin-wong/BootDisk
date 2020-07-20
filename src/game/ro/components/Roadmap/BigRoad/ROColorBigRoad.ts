@@ -5,7 +5,7 @@ namespace we {
         super(_numCol, _gridSize, _scale, _showResult);
       }
 
-      protected createIcon(size: number): ROColorBigRoadIcon {
+      protected createIcon(size: number): ba.BARoadIconBase {
         return new ROColorBigRoadIcon(size);
       }
     }

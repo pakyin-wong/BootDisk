@@ -27,7 +27,7 @@ namespace we {
         this._iconText.textAlign = egret.HorizontalAlign.CENTER;
         this._iconText.verticalAlign = egret.VerticalAlign.MIDDLE;
         this._iconText.anchorOffsetX = this._iconText.width * 0.5;
-        this._iconText.anchorOffsetY = this._iconText.height * 0.5;
+        this._iconText.anchorOffsetY = this._iconText.height * 0.55;
         this._offsetX = this._iconText.width * 0.5;
         this._offsetY = this._iconText.height * 0.5;
         this.addChild(this._iconText);

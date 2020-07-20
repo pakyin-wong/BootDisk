@@ -23,7 +23,7 @@ namespace we {
           this._iconText.width = this.size / scale;
           this._iconText.height = this.size / scale;
           this._iconText.anchorOffsetX = this._iconText.width * 0.5;
-          this._iconText.anchorOffsetY = this._iconText.height * 0.5;
+          this._iconText.anchorOffsetY = this._iconText.height * 0.55;
           this._iconText.scaleX = scale;
           this._iconText.scaleY = scale;
         }

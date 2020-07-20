@@ -2,15 +2,15 @@
 <e:Skin class="skin_desktop.LuckyWheelScene" width="2600" height="1340" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:lw="we.lw.*" xmlns:w="http://ns.egret.com/wing"
         xmlns:live="we.live.*">
-	<w:Config id="172ff22b3ca"/>
+	<w:Config id="172ff22b3ca" />
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="d_mw_bg_a_jpg" x="0" locked="true" />
 	<ui:Group x="735" y="1020" isEdgeDismissable="true" dismissPosX="735" dismissPosY="1297">
-		<lw:TableLayerBg id="_tableLayerBg" x="14" y="4" width="1162" height="304"/>
+		<lw:TableLayerBg id="_tableLayerBg" x="14" y="4" width="1162" height="304" />
 		<lw:TableLayer id="_tableLayer" width="1170" height="304" skinName="skin_desktop.lw.TableLayerSkin" />
 		<lw:ChipLayer id="_chipLayer" width="1170" height="304" skinName="skin_desktop.lw.ChipLayerSkin" />
 	</ui:Group>
-	<ui:Group id="_betRelatedGroup" x="769" y="895" isEdgeDismissable="true">
+	<ui:Group id="_betRelatedGroup" x="804" y="942" isEdgeDismissable="true">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
 		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
@@ -18,23 +18,26 @@
 		<ui:CountdownTimer id="_timer" width="160" height="64" y="3" horizontalCenter="115"
 		                   skinName="skin_desktop.CountdownTimerSkin" />
 		<ui:BaseAnimationButton id="_cancelButton" width="55" height="55" verticalCenter="0" horizontalCenter="318"
-                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true" />
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_clear" useColorFilter="true" />
 		<ui:BaseAnimationButton id="_repeatButton" width="55" height="55" verticalCenter="0" horizontalCenter="243"
-                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true" />
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_rebet" useColorFilter="true" />
 		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
-                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true" />
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true" />
 		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
-                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
 	</ui:Group>
-	<lw:LwLeftPanel id="_leftGamePanel" width="717" height="304" x="16" y="1024" anchorOffsetX="0" anchorOffsetY="0" dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true" />
-	<lw:LwRightPanel id="_rightGamePanel" width="657" height="304" dismissPosX="1927" dismissPosY="1298" isEdgeDismissable="true"  x="1927" y="1024"/>
+	<lw:LwLeftPanel id="_leftGamePanel" width="717" height="304" x="16" y="1024" anchorOffsetX="0" anchorOffsetY="0"
+	                dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true" />
+	<lw:LwRightPanel id="_rightGamePanel" width="657" height="304" dismissPosX="1927" dismissPosY="1298"
+	                 isEdgeDismissable="true" x="1927" y="1024" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18" fillAlpha="0.3" />
 		<ui:RunTimeLabel id="_lblRoomNo" x="75" y="9" size="28" height="40" verticalAlign="middle" width="191"
 		                 textAlign="right" anchorOffsetX="0" />
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />
-		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35" y="17" />
+		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35"
+		                        y="17" />
 		<e:Image id="_lblRoomInfo" width="24" height="24" x="272" y="19" source="d_ba_navbar_icon_info_png" />
 		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
@@ -48,6 +51,7 @@
 	                   anchorOffsetY="0" skinName="skin_desktop.lw.TableInfoPanel" />
 	<lw:LwBeadRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30" height="30" x="2526" y="950"  dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"/>
+	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30"
+	                        height="30" x="2526" y="950" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true" />
 </e:Skin>
 
