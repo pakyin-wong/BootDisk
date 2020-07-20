@@ -8,8 +8,8 @@ namespace we {
     }
 
     export const BetField = {
-      SUM_3:  'SUM_3',
-      SUM_4:  'SUM_4',
+      SUM_3: 'SUM_3',
+      SUM_4: 'SUM_4',
       SUM_5: 'SUM_5',
       SUM_6: 'SUM_6',
       SUM_7: 'SUM_7',

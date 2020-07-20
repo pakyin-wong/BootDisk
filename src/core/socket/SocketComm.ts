@@ -361,7 +361,7 @@ namespace we {
         }
         tableInfo.data = gameStatus;
 
-        logger.l(utils.LogTarget.STAGING, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
+        logger.l(utils.LogTarget.DEBUG, `Table ${gameStatus.tableid} data updated`, tableInfo.data);
 
         this.localActions(tableInfo);
         dir.evtHandler.dispatch(core.Event.TABLE_INFO_UPDATE, tableInfo);
@@ -551,7 +551,7 @@ namespace we {
             break;
           }
         }
-        logger.l(utils.LogTarget.STAGING, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
+        logger.l(utils.LogTarget.DEBUG, `Table ${tableid} statistic and roadmap data updated`, tableInfo.gamestatistic, tableInfo.roadmap);
 
         dir.evtHandler.dispatch(core.Event.ROADMAP_UPDATE, tableInfo);
 
@@ -662,7 +662,7 @@ namespace we {
           this.checkResultNotificationReady(tableInfo);
         }
 
-        logger.l(utils.LogTarget.STAGING, `Table ${tableInfo.tableid} on bet info update`, betInfo);
+        logger.l(utils.LogTarget.DEBUG, `Table ${tableInfo.tableid} on bet info update`, betInfo);
 
         dir.evtHandler.dispatch(core.Event.PLAYER_BET_INFO_UPDATE, tableInfo);
 
@@ -695,13 +695,7 @@ namespace we {
       public checkResultNotificationReady(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
           if (this.hasBet(tableInfo)) {
-            if (
-              tableInfo.data &&
-              tableInfo.data.previousstate !== core.GameState.FINISH &&
-              tableInfo.data.state === core.GameState.FINISH &&
-              tableInfo.data.wintype !== 0 &&
-              !isNaN(tableInfo.totalWin)
-            ) {
+            if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
               const data = {
                 tableid: tableInfo.tableid,
               };

@@ -499,7 +499,7 @@ namespace we {
           if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
             const bets = this._chipLayer.getUnconfirmedBetDetails();
             this._chipLayer.resetUnconfirmedBet();
-            this._undoStack = null;
+            this._undoStack.clearStack();
             // Not yet decided: any blocking or a new waitingConfirmedBet should be used here.
             dir.socket.bet(this._tableId, bets);
           }
