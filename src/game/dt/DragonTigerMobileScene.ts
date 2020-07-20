@@ -51,6 +51,14 @@ namespace we {
         this._skinKey = 'DragonTigerScene';
       }
 
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.72, scaleY: 0.75 }, 250);
+        }
+      }
+
       protected setStateBet() {
         super.setStateBet();
         if (env.orientation === 'landscape') {
@@ -152,6 +160,7 @@ namespace we {
         } else {
           this.currentState = 'right_hand_mode';
         }
+        this.invalidateState();
       }
 
       // protected createVerticalLayout() {

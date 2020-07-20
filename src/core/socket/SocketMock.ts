@@ -126,7 +126,7 @@ namespace we {
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
           return stats;
-        } else if (data.gametype === core.GameType.DI) {
+        } else if (data.gametype === core.GameType.DI || data.gametype === core.GameType.DIL) {
           const stats = new we.data.GameStatistic();
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];

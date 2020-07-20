@@ -71,6 +71,12 @@ namespace we {
         this.initTxt();
         this.addListeners();
       }
+
+      protected onOrientationChange() {
+        super.onOrientationChange();
+        this.switch_leftHandMode.active = env.leftHandMode;
+        this.invalidateState();
+      }
     }
   }
 }

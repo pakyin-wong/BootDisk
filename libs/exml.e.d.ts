@@ -511,6 +511,10 @@ declare module skin_desktop.lo{
 	}
 }
 declare module skin_desktop.lo{
+	class FunBetResult extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
 	class FunBetRoundInfo extends eui.Skin{
 	}
 }

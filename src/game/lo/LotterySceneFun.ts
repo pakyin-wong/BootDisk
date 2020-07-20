@@ -5,6 +5,9 @@ namespace we {
       protected _betLayerTween: ui.TweenConfig;
       protected _betLayer: FunBetLayer;
 
+      protected _betResult: FunBetResult;
+      protected _roundInfo: FunBetRoundInfo;
+
       protected _betChipSet: ui.BetChipSet;
       protected _betRelatedGroup: egret.DisplayObject;
       protected _confirmButton: eui.Button;
@@ -69,6 +72,12 @@ namespace we {
           dir.evtHandler.dispatch('LOTTERY_FUNBET_CLEANSCREEN');
           FunBet.reset();
         }
+      }
+
+      protected setResultRelatedComponentsEnabled(enable: boolean) {
+        this._betResult.visible = enable;
+        this._betResult.update(this._gameData);
+        this._roundInfo.update(this._gameData);
       }
 
       protected set betLayerEnabled(enabled: boolean) {

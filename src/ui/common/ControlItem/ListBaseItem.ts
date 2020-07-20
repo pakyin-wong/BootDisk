@@ -110,7 +110,6 @@ namespace we {
         }
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
-        console.log(this._quickBetGroup.contentHeight);
 
         this._quickBetGroup.height = this._quickBetGroup.contentHeight;
 
