@@ -27,11 +27,13 @@ namespace we {
       protected roadStack: eui.ViewStack;
 
       // new for di
-      protected topBar: eui.Rect;
       protected beadRadioBtn1: eui.RadioButton;
       protected beadRadioBtn2: eui.RadioButton;
       protected isExpanded: boolean;
       protected toggleUpDownButton: eui.ToggleSwitch;
+
+      protected bg: ui.RoundRectShape;
+      protected border: ui.RoundRectShape;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'DiLeftPanel');
@@ -99,12 +101,7 @@ namespace we {
         this.sizeBigRoad = new DiSizeBigRoad(17, 34, 1, true);
         this.sizeBigRoad.scaleX = 580 / 578;
 
-        const data2 = [
-          { v: 0, gameRoundID: 'cde345' },
-          { v: 1, gameRoundID: 'cde345' },
-          { v: 2, gameRoundID: 'cde345' },
-          { v: 12, gameRoundID: 'cde345' },
-        ];
+        const data2 = [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'cde345' }, { v: 12, gameRoundID: 'cde345' }];
         this.sizeBigRoad.parseRoadData(data2);
 
         // add road to road stack 1
@@ -160,13 +157,13 @@ namespace we {
 
       public expandPanel(expand: boolean) {
         if (!this.isExpanded && expand) {
-          this.mask.height += 202;
-          this.mask.y -= 202;
+          this.bg.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
+          this.bg.y -= 202;
+          this.border.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y -= 202;
 
           (this.pageStack.getChildAt(0) as eui.Group).height += 202;
           (this.pageStack.getChildAt(0) as eui.Group).y -= 202;
-
-          this.topBar.y -= 202;
 
           this.gameIdLabel.y -= 202;
           this.totalBetLabel.y -= 202;
@@ -178,13 +175,13 @@ namespace we {
           this.toggleUpDownButton.currentState = 'b_down';
           this.beadRoad.expandRoad(true);
         } else if (this.isExpanded && !expand) {
-          this.mask.height -= 202;
-          this.mask.y += 202;
+          this.bg.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
+          this.bg.y += 202;
+          this.border.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y += 202;
 
           (this.pageStack.getChildAt(0) as eui.Group).height -= 202;
           (this.pageStack.getChildAt(0) as eui.Group).y += 202;
-
-          this.topBar.y += 202;
 
           this.gameIdLabel.y += 202;
           this.totalBetLabel.y += 202;

@@ -22,8 +22,8 @@ namespace we {
         this._iconText.y = this._offsetY;
 
         const iconSize = this.size;
-        const circleRadius = (this.size / 2) * 0.9;
         const lineWidth = 1;
+        const circleRadius = this.size / 2 + 2;
         this.iconHightLight = new egret.Shape();
         this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
         this.iconHightLight.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);

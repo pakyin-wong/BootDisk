@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.RoRightPanel" width="668" height="340" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
-        <e:Rect id="mask" width="100%" height="100%" x="0" y="0" strokeWeight="0" ellipseHeight="16" ellipseWidth="16"
-                fillColor="0x7c7c7c" />
-        <e:Rect id="bottomBar" width="100%" height="50" x="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
-                ellipseWidth="0" bottom="0" />
-        <e:Rect width="100%" height="290" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x061323"
-                fillAlpha="0.8" />
+        <ui:RoundRectShape id="bottomBar" cornerTL_TR_BL_BR="0,0,14,14" width="666" height="50" stroke="0" x="1"
+                           bottom="0" fillColor="0x1F242B" fillAlpha="0.8" />
+        <ui:RoundRectShape id="topBar" cornerTL_TR_BL_BR="14,14,0,0" width="666" height="290" stroke="0" x="1" y="1"
+                           fillColor="0x061323" fillAlpha="0.8" />
         <e:RadioButton id="pageRadioBtn1" x="80" y="290" width="254" height="50" value="0" selected="true"
                        groupName="pageRadioBtnGroup" label="abc">
                 <e:skinName>
@@ -40,4 +38,6 @@
                         <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" />
                 </e:Group>
         </e:ViewStack>
+        <ui:RoundRectShape id="border" cornerTL_TR_BL_BR="14,14,14,14" width="666" height="338" stroke="2" x="1" y="1"
+                           strokeColor="0x3a3f48" fillAlpha="-1" />
 </e:Skin>
