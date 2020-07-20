@@ -260,7 +260,7 @@ namespace we {
         const count = tableList.length;
         const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
         if (tabItem) {
-          tabItem.onBadgeUpdate(count);
+          tabItem.onBadgeUpdate('goodroad', count);
         }
       }
 
@@ -270,7 +270,7 @@ namespace we {
         const count = tableList.length;
         const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
         if (tabItem) {
-          tabItem.onBadgeUpdate(count);
+          tabItem.onBadgeUpdate('bet', count);
         }
       }
 
