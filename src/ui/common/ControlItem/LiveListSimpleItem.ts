@@ -229,14 +229,13 @@ namespace we {
         super.hideQuickBetGroup();
         if (this._chipLayer) {
           egret.Tween.removeTweens(this._chipLayer);
-          egret.Tween.get(this._chipLayer)
-            .to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1)
-            .set({ visible: false });
+          egret.Tween.get(this._chipLayer).to({ y: this._originalQuickBetPanelY, alpha: 0 }, this._tweenInterval1).set({ visible: false });
         }
       }
 
       protected setBetRelatedComponentsEnabled(enable) {
         super.setBetRelatedComponentsEnabled(enable);
+        this.timer.visible = true;
         if (!this._mouseOutside && enable) {
           if (this._quickbetButton) {
             this._quickbetButton.tween(false, false);

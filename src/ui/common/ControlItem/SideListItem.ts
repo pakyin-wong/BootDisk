@@ -203,11 +203,6 @@ namespace we {
         dir.socket.enterTable(this.tableId);
         env.gotoScene(this.tableId);
       }
-
-      protected setBetRelatedComponentsEnabled(enable) {
-        super.setBetRelatedComponentsEnabled(enable);
-        this.timer.visible = true;
-      }
     }
   }
 }
