@@ -3,12 +3,63 @@ namespace we {
     export class LuckyCoinGroup extends core.BaseGamePanel {
       protected _chipLayer: we.rol.MobileChipLayer;
 
+      protected coinAnim1;
+      protected coinAnim2;
+      protected coinAnim3;
+      protected coinAnim4;
+      protected coinAnim5;
+
       public constructor() {
         super();
       }
 
       protected childrenCreated() {
         super.childrenCreated();
+      }
+
+      protected setAnimPositionVer(no: number) {
+        switch (no) {
+          case 1:
+            this.coinAnim1.x = 930;
+            this.coinAnim1.y = 1177;
+            break;
+          case 2:
+            this.coinAnim1.x = 831;
+            this.coinAnim1.y = 1177;
+            this.coinAnim2.x = 1027;
+            this.coinAnim2.y = 1177;
+            break;
+          case 3:
+            this.coinAnim1.x = 831;
+            this.coinAnim1.y = 989;
+            this.coinAnim2.x = 1027;
+            this.coinAnim2.y = 989;
+            this.coinAnim3.x = 917;
+            this.coinAnim3.y = 1363;
+            break;
+          case 4:
+            this.coinAnim1.x = 831;
+            this.coinAnim1.y = 989;
+            this.coinAnim2.x = 1027;
+            this.coinAnim2.y = 989;
+            this.coinAnim3.x = 831;
+            this.coinAnim3.y = 1363;
+            this.coinAnim4.x = 1027;
+            this.coinAnim4.y = 1363;
+            break;
+          case 5:
+            this.coinAnim1.x = 831;
+            this.coinAnim1.y = 796;
+            this.coinAnim2.x = 1027;
+            this.coinAnim2.y = 796;
+            this.coinAnim3.x = 831;
+            this.coinAnim3.y = 1170;
+            this.coinAnim4.x = 1027;
+            this.coinAnim4.y = 1170;
+            this.coinAnim5.x = 917;
+            this.coinAnim5.y = 1544;
+            break;
+        }
       }
 
       protected createLuckyCoinAnim() {
