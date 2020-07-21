@@ -12,8 +12,12 @@
 		                    skinName="skin_desktop.ImageButtonSkinLobby" />
 		<ui:BaseImageButton id="_prevButton" x="68" y="20" width="56" height="60" currentState="lobby_betcontrol_previous"
 		                    skinName="skin_desktop.ImageButtonSkinLobby" />
-		<ui:BaseImageButton id="_confirmButton" right="10" top="30" width="80" height="40" currentState="lobby_confirm_button"
-		                    skinName="skin_desktop.ImageButtonSkinLobby" />
+		<!--<ui:BaseImageButton id="_confirmButton" right="10" top="30" width="80" height="40"
+		                        currentState="lobby_confirm_button" skinName="skin_desktop.ImageButtonSkinLobby" />
+		-->
+		<ui:RoundRectButton id="_confirmButton" right="10" top="30" cornerTL_TR_BL_BR="25,25,25,25" width="90" height="50"
+		                    stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0"
+		                    fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" />
 	</e:Group>
 	<e:Group id="_contentContainer" x="0" height="158" width="100%">
 		<e:Rect width="339" height="47" x="0" y="0" fillColor="0x202020" />
@@ -32,10 +36,10 @@
 			                    skinName="skin_desktop.ImageButtonSkinLobby" alpha="0" horizontalCenter="0" width="148" y="168"
 			                    height="42" text="加注" />
 		</e:Group>
-		<e:Rect id="_dimmer" left="0" top="46" bottom="0" right="0" fillAlpha="0.7"/>
+		<e:Rect id="_dimmer" left="0" top="46" bottom="0" right="0" fillAlpha="0.7" />
 		<e:Group id="_resultGroup" x="0" y="47" width="100%" height="158" touchEnabled="false" touchThrough="true">
-			<e:Component id="_resultDisplayNode" width="100%" anchorOffsetY="0" height="139" left="0" visible="false"/>
-			<e:Component id="_resultMessageNode" horizontalCenter="0" verticalCenter="-25" visible="false"/>
+			<e:Component id="_resultDisplayNode" width="100%" anchorOffsetY="0" height="139" left="0" visible="false" />
+			<e:Component id="_resultMessageNode" horizontalCenter="0" verticalCenter="-25" visible="false" />
 		</e:Group>
 	</e:Group>
 </e:Skin>
