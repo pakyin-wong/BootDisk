@@ -6,13 +6,13 @@ namespace we {
 
       private _playerIcon: eui.Image;
       private _changeIcon: eui.Component;
-      private _balance: eui.Label;
       private _maxWinAmount: eui.Label;
       private _maxWinCount: eui.Label;
       private _follower: eui.Label;
       private _following: eui.Label;
       private _favouriteDealer: eui.Label;
 
+      private _balance: ui.RunTimeLabel;
       private _username: ui.RunTimeLabel;
       private _txt_maxWinAmount: ui.RunTimeLabel;
       private _txt_maxWinCount: ui.RunTimeLabel;
@@ -155,6 +155,11 @@ namespace we {
       }
 
       protected initPlayerProfile() {
+        this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+        dir.meterCtr.register('balance', this._balance);
+        if (!isNaN(env.balance)) {
+          dir.meterCtr.rackTo('balance', env.balance, 0);
+        }
         this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
         this._txt_maxWinCount.renderText = () => `${i18n.t('playerprofile_maxWinCount')}`;
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
@@ -183,6 +188,7 @@ namespace we {
 
       protected destroy() {
         super.destroy();
+        dir.meterCtr.drop('balance', this._balance);
         this.removeListeners();
       }
 

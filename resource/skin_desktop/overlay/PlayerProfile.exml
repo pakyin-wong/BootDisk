@@ -12,8 +12,10 @@
                 <ui:RunTimeLabel id="_username" text="Johathan" y="195" textColor="0xc59466" size="30" anchorOffsetY="0"
                                  height="36" fontFamily="Barlow" textAlign="center" width="280" horizontalCenter="0"
                                  verticalAlign="middle" />
-                <e:Label id="_balance" text="RMB 120,889,200" y="245" size="22" height="36" width="280"
-                         horizontalCenter="0" verticalAlign="middle" textAlign="center" />
+                <!--<e:Label id="_balance" text="RMB 120,889,200" y="245" size="22" height="36" width="280"
+                         horizontalCenter="0" verticalAlign="middle" textAlign="center" />-->
+                <ui:RunTimeLabel id="_balance" text="123,456,789" x="137" y="241" width="220" height="34" fontFamily="Barlow" size="28"
+		                 textColor="0xffffff" scaleX="1" scaleY="1" anchorOffsetX="0"  textAlign="center"/>    
                 <ui:RunTimeLabel id="_txt_maxWinAmount" text="Label" x="47" y="404" size="24" fontFamily="Barlow"
                                  alpha="0.7" width="144" height="36" verticalAlign="middle" />
                 <ui:RunTimeLabel id="_txt_maxWinCount" text="Label" x="47" y="458" height="36" width="144"
