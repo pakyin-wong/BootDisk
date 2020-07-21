@@ -46,7 +46,7 @@
 		},
 		{
 			"name": "preload",
-			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png"
+			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png"
 		}
 	],
 	"resources": [
@@ -5707,6 +5707,11 @@
 			"name": "d_lobby_panel_betcontrol_btn_confirm_bg_png",
 			"type": "image",
 			"url": "assets/images/d/lobby/quickbet/common/d_lobby_panel_betcontrol_btn_confirm_bg.png"
+		},
+		{
+			"name": "d_lobby_panel_betcontrol_btn_confirm_icon_png",
+			"type": "image",
+			"url": "assets/images/d/lobby/quickbet/common/d_lobby_panel_betcontrol_btn_confirm_icon.png"
 		}
 	]
 }

@@ -21,7 +21,7 @@
         <ui:RoundRectButton id="_confirmButton" x="235" y="130" cornerTL_TR_BL_BR="25,25,25,25" width="90" height="52"
                             stroke="0" strokeIn="0" fillColor="00aa5e" fillAlpha="1" fillAlpha_hover="0.7"
                             fillColor_hover="0x0f9d5d" currentState="lobby_confirm_button" />
-        <e:Image x="235" y="130" source="d_lobby_panel_betcontrol_btn_confirm_icon_png"  touchEnabled="false"/>
+        <e:Image x="265" y="145" width="30" height="20" source="d_lobby_panel_betcontrol_btn_confirm_icon_png"  touchEnabled="false"/>
     </e:Group>
     <e:Group id="_contentContainer" width="339" height="174" x="0" y="0">
         <ui:CountdownTimer id="_timer" width="34" height="34" x="7" y="7" anchorOffsetX="0" anchorOffsetY="0"
