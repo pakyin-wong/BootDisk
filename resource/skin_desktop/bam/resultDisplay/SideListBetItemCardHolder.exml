@@ -28,8 +28,10 @@
                 <e:Group verticalCenter="0" horizontalCenter="0">
                         <e:Label id="bamLabelDisplay" text="咪牌中" size="25" textColor="0xFFFFFF" textAlign="center"
                                  bold="true" />
-                        <e:Label id="bamCountdown" text="8" size="25" textColor="0x00aa5e" textAlign="center"
-                                 bold="true" />
+                        <!--<e:Label id="bamCountdown" text="8" size="25" textColor="0x00aa5e" textAlign="center"
+                                 bold="true" />-->
+                        <ui:CountdownTimer id="_timer" width="30" height="27" y="0" horizontalCenter="0"
+                                skinName="skin_desktop.CountdownTextSkin" progressVisible="false" />
                         <e:layout>
                                 <e:HorizontalLayout/>
                         </e:layout>
