@@ -16,14 +16,21 @@ namespace we {
         return result;
       }
 
-      public set targetWidth(val) {
+      public $setTargetWidth(val) {
         this._targetWidth = val;
         this.width = val;
         this.updateTargetScaleX();
       }
+      public $getTargetWidth() {
+        return this._targetWidth;
+      }
+
+      public set targetWidth(val) {
+        this.$setTargetWidth(val);
+      }
 
       public get targetWidth() {
-        return this._targetWidth;
+        return this.$getTargetWidth();
       }
 
       protected updateTargetScaleX() {
