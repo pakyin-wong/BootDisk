@@ -1,90 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.VideoSetting" width="1962" height="658" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.VideoSetting" width="490" height="475" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<e:Rect left="0" top="0" bottom="0" right="0" ellipseWidth="130" ellipseHeight="130" fillColor="0x0f1721"/>
-		<ui:RunTimeLabel id="cam_title" text="Label" x="96" y="44" width="750" height="112" verticalAlign="middle" textColor="0xc59466" size="76" anchorOffsetX="0" bold="true"/>
-			<e:RadioButton id="autoCamBtn" label="自動" x="92" y="212" width="128" height="101" value="0" selected="true" scaleX="1" scaleY="1" groupName="cam">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
-				</e:Skin>
-			</e:skinName>
-			</e:RadioButton>
-			<e:RadioButton id="closerCamBtn" label="近鏡" x="315" y="212" width="128" height="101" value="1" selected="true" scaleX="1" scaleY="1" groupName="cam">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
-				</e:Skin>
-			</e:skinName>
-			</e:RadioButton>			
-			<e:RadioButton id="farCamBtn" label="遠鏡" x="537" y="212" width="128" height="101" value="2" selected="true" scaleX="1" scaleY="1" groupName="cam">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
-				</e:Skin>
-			</e:skinName>
-			</e:RadioButton>
-			<e:RadioButton id="closeCamBtn" label="關閉" x="760" y="212" width="128" height="101" value="3" selected="true" scaleX="1" scaleY="1" groupName="cam">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
-				</e:Skin>
-			</e:skinName>
-			</e:RadioButton>
+		<e:Image source="popover_png" left="0" top="0" right="0" bottom="0" />
+		<e:Image id="close" width="0" height="0" />
+		<ui:RunTimeLabel id="_txt_title" text="Label" x="48" y="26" fontFamily="NotoSansCJKtc" textColor="0xce925e"
+		                 width="360" height="45"  verticalAlign="middle" textAlign="left" bold="true"/>
 
-			<ui:RunTimeLabel id="qua_title" text="Label" x="1078" y="44" width="750" height="112" verticalAlign="middle" textColor="0xc59466" size="76" anchorOffsetX="0" bold="true"/>
-			<e:RadioButton id="autoQuaBtn" label="自動" x="1078" y="212" width="128" height="101" value="0" selected="true" scaleX="1" scaleY="1" groupName="qua">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
-				</e:Skin>
-			</e:skinName>
-			</e:RadioButton>
-			<e:RadioButton id="bluRayBtn" label="藍光" x="1301" y="212" width="128" height="101" value="1" selected="true" scaleX="1" scaleY="1" groupName="qua">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
-				</e:Skin>
-			</e:skinName>
-			</e:RadioButton>			
-			<e:RadioButton id="highQuaBtn" label="超清" x="1523" y="212" width="128" height="101" value="2" selected="true" scaleX="1" scaleY="1" groupName="qua">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
-				</e:Skin>
-			</e:skinName>
-			</e:RadioButton>
-			<e:RadioButton id="standQuaBtn" label="標清" x="1746" y="212" width="128" height="101" value="3" selected="true" scaleX="1" scaleY="1" groupName="qua">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="down" alpha="1" y="93"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="60" bold="true"/>
-				<e:Image width="128" height="8" source="d_lobby_panel_button_slide_select_png" includeIn="up" alpha="0" y="93"/>
-				</e:Skin>
-			</e:skinName>
-			</e:RadioButton>
+		<!-- Video on/off row -->
+		<ui:RunTimeLabel id="_txt_videoSec" text="Label" x="48" y="107" size="24" fontFamily="NotoSansCJKtc" width="360" height="36" verticalAlign="middle" textAlign="left"/>
+		<ui:BaseButton id="switch_video" width="51" height="31" x="397" y="112" skinName="skin_desktop.SwitchBtn"/>
 
-		<e:Group id="confirmBtn" width="499" height="150" x="732" y="441">
-			<e:Rect strokeWeight="3" ellipseWidth="130" ellipseHeight="130" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" strokeColor="0x1b416e" fillColor="0x1b416e"/>
-			<ui:RunTimeLabel id="confirmLabel" text="Label" x="0" y="0" width="499" height="150" verticalAlign="middle" textAlign="center" size="60" alpha="0.7" scaleX="1" scaleY="1"/>
+		<!-- Quality row -->
+		<ui:RunTimeLabel id="_txt_qualitySec" text="Label" x="48" y="183" size="24" fontFamily="NotoSansCJKtc" width="360" height="36" verticalAlign="middle" textAlign="left"/>
+
+		<!-- Camera row -->
+		<ui:RunTimeLabel id="_txt_cameraSec" text="Label" x="48" y="325" size="24" fontFamily="NotoSansCJKtc" width="360" height="36" verticalAlign="middle" textAlign="left"/>
+
+		<!-- Dropdowns -->
+		<e:Group id="_btn_quality" width="396" height="50" x="48" y="235">
+			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
+			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+			<ui:RunTimeLabel id="_txt_quality" text="Label" width="155" height="36" verticalAlign="middle" horizontalCenter="0" verticalCenter="0"
+			        textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
 		</e:Group>
-		
-		<e:Image id="close" width="80" height="80" source="d-lobby-button-close-none_png"  x="1836" y="50"/>
+		<e:Group id="_btn_camera" width="396" height="50" x="48" y="377">
+			<e:Rect fillColor="0xFFFFFF" fillAlpha="0" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50"
+			        ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" />
+			<ui:RunTimeLabel id="_txt_camera" text="Label" width="155" height="36" verticalAlign="middle" horizontalCenter="0" verticalCenter="0"
+			        textAlign="center" fontFamily="NotoSansCJKtc" size="24" alpha="0.7" scaleX="1" scaleY="1" />
+		</e:Group>
 
+		<ui:Panel id="_ddm_quality" width="396" x="48" y="285" skinName="skin_desktop.NavDropdown" maxHeight="200" />
+		<ui:Panel id="_ddm_camera" width="396" x="48" y="427" skinName="skin_desktop.NavDropdown" maxHeight="200" />
 	</e:Group>
 </e:Skin>

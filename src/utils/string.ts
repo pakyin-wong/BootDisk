@@ -106,5 +106,14 @@ namespace we {
           return 'lo';
       }
     }
+
+    export function measureTextWidth(text, values, style) {
+      style = style || {};
+      const italic = style.italic == null ? values.italic : style.italic;
+      const bold = style.bold == null ? values.bold : style.bold;
+      const size = style.size == null ? values.size : style.size;
+      const fontFamily = style.fontFamily || values.fontFamily || egret.TextField.default_fontFamily;
+      return egret.sys.measureText(text, fontFamily, size, bold, italic);
+    }
   }
 }

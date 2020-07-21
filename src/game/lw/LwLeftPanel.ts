@@ -20,7 +20,7 @@ namespace we {
         this.gameId = '';
         this.totalBet = 0;
 
-        this.beadRoad = new LwBeadRoad(4, 11, 65, 65, 40, 53, 1, 0x000000, 0.85, 0x3a3f48, true); // in game
+        this.beadRoad = new LwBeadRoad(4, 11, 65, 65, 44, 44, 1, 0x000000, 0.85, 0x3a3f48, true); // in game
         this.beadRoad.x = 1;
         this.beadRoad.y = 43;
         this.beadRoad.scaleX = 689 / 689;

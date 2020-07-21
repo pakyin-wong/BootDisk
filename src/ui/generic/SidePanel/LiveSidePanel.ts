@@ -27,7 +27,7 @@ namespace we {
       }
 
       protected initTabs() {
-        const group = <eui.Group>this._scroller.viewport;
+        const group = <eui.Group> this._scroller.viewport;
 
         this._viewStack = new eui.ViewStack();
         this._viewStack.width = group.width;
@@ -62,6 +62,7 @@ namespace we {
             case we.core.GameType.ROL:
               return ro.SideListBetItemHolder;
             case we.core.GameType.DI:
+            case we.core.GameType.DIL:
               return di.SideListBetItemHolder;
             case we.core.GameType.LW:
               return lw.SideListBetItemHolder;
@@ -168,10 +169,10 @@ namespace we {
 
         this._tabbar.dataProvider = this._viewStack;
         this._tabbar.validateNow();
-        let tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
+        let tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
         // tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_green_png';
 
-        tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
+        tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
         // tabItem.badgeBg.source = 'd_common_panel_gamelist_notifydot_png';
       }
 
@@ -258,7 +259,7 @@ namespace we {
         const tableList = evt.data;
         this.goodRoadTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(1);
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(1);
         if (tabItem) {
           tabItem.onBadgeUpdate('goodroad', count);
         }
@@ -268,7 +269,7 @@ namespace we {
         const tableList = evt.data;
         this.betTableList.setTableList(tableList);
         const count = tableList.length;
-        const tabItem = <ImageTabItemWithBadge>this._tabbar.getElementAt(0);
+        const tabItem = <ImageTabItemWithBadge> this._tabbar.getElementAt(0);
         if (tabItem) {
           tabItem.onBadgeUpdate('bet', count);
         }

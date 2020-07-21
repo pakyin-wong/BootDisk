@@ -4,11 +4,11 @@
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
-	<ui:Group isEdgeDismissable="true" x="600" y="851" dismissPosX="600" dismissPosY="1297" >
+	<ui:Group isEdgeDismissable="true" x="607" dismissPosX="600" dismissPosY="1297" bottom="12">
 		<di:TableLayer id="_tableLayer" width="1386" height="482" skinName="skin_desktop.di.TableLayerSkin" />
 		<di:ChipLayer id="_chipLayer" width="1386" height="482" skinName="skin_desktop.di.ChipLayerSkin" touchEnabled="false" />
 	</ui:Group>
-	<ui:Group id="_betRelatedGroup" x="768.64" y="769.37" isEdgeDismissable="true" >
+	<ui:Group id="_betRelatedGroup" x="768.64" y="769.37" isEdgeDismissable="true">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
 		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
@@ -22,10 +22,12 @@
 		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true" />
 		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
-                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
 	</ui:Group>
-	<di:DiLeftPanel id="_leftGamePanel" width="580" height="341" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true" dismissPosX="16" dismissPosY="1297" />
-	<di:DiRightPanel id="_rightGamePanel" width="580" height="341" x="2004" y="988" anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true" dismissPosX="2004" dismissPosY="1297" />
+	<di:DiLeftPanel id="_leftGamePanel" width="580" height="341" x="16" y="987" anchorOffsetX="0" anchorOffsetY="0"
+	                isEdgeDismissable="true" dismissPosX="16" dismissPosY="1297" />
+	<di:DiRightPanel id="_rightGamePanel" width="580" height="341" x="2004" y="987" anchorOffsetX="0" anchorOffsetY="0"
+	                 isEdgeDismissable="true" dismissPosX="2004" dismissPosY="1297" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
@@ -47,6 +49,7 @@
 	                   skinName="skin_desktop.di.TableInfoPanel" />
 	<di:DiBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18.49" y="644" anchorOffsetX="0"
 	                         anchorOffsetY="0" visible="false" />
-	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30" height="30" x="2526" y="925"  dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"/>
+	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30"
+	                        height="30" x="2526" y="925" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true" />
 </e:Skin>
 

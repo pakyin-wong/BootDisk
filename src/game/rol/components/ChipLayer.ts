@@ -6,13 +6,14 @@ namespace we {
       protected _winningAnim: dragonBones.EgretArmatureDisplay;
 
       public clearLuckyNumber() {
-        if (this._mouseAreaMapping) {
-          Object.keys(this._mouseAreaMapping).map(key => {
-            if (this._mouseAreaMapping[key]) {
-              this._mouseAreaMapping[key].removeChildren();
-            }
-          });
+        if (!this._mouseAreaMapping) {
+          return;
         }
+        Object.keys(this._mouseAreaMapping).map(key => {
+          if (this._mouseAreaMapping[key]) {
+            this._mouseAreaMapping[key].removeChildren();
+          }
+        });
       }
 
       protected createAnim() {
