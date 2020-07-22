@@ -5,10 +5,10 @@ namespace we {
       private _txt_date: ui.RunTimeLabel;
 
       private _btn_date: ui.BaseButton;
-      private _btn_today: ui.BaseButton;
-      private _btn_yesterday: ui.BaseButton;
-      private _btn_week: ui.BaseButton;
-      private _btn_custom: ui.BaseButton;
+      private _btn_today: ui.RoundRectButton;
+      private _btn_yesterday: ui.RoundRectButton;
+      private _btn_week: ui.RoundRectButton;
+      private _btn_custom: ui.RoundRectButton;
       private _btn_searchType: ui.BaseButton;
 
       private _txt_betAmount: ui.RunTimeLabel;
@@ -183,45 +183,25 @@ namespace we {
 
       protected searchToday() {
         // this._page = 1;
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .unix();
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        this._starttime = moment().utcOffset(8).startOf('day').unix();
+        this._endtime = moment().utcOffset(8).endOf('day').unix();
+        this._btn_yesterday.active = this._btn_week.active = this._btn_custom.active = false;
         this._btn_today.active = true;
         this.search();
       }
 
       protected searchYesterday() {
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('day')
-          .subtract(1, 'day')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('day')
-          .subtract(1, 'day')
-          .unix();
+        this._starttime = moment().utcOffset(8).startOf('day').subtract(1, 'day').unix();
+        this._endtime = moment().utcOffset(8).endOf('day').subtract(1, 'day').unix();
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
-        // this._btn_today.active = true;
+        this._btn_yesterday.active = true;
         this.search();
       }
 
       protected searchWeek() {
-        this._starttime = moment()
-          .utcOffset(8)
-          .startOf('week')
-          .unix();
-        this._endtime = moment()
-          .utcOffset(8)
-          .endOf('week')
-          .unix();
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        this._starttime = moment().utcOffset(8).startOf('week').unix();
+        this._endtime = moment().utcOffset(8).endOf('week').unix();
+        this._btn_today.active = this._btn_yesterday.active = this._btn_custom.active = false;
         this._btn_week.active = true;
         this.search();
       }
@@ -233,7 +213,7 @@ namespace we {
 
         this._starttime = e.data.starttime;
         this._endtime = e.data.endtime;
-        this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
+        this._btn_today.active = this._btn_week.active = this._btn_yesterday.active = false;
         this._btn_custom.active = true;
         this.search();
       }

@@ -9,10 +9,10 @@
 		                 textColor="0xc59466" size="48" bold="true"  targetWidth="220"/>
 		<ui:RunTimeLabel id="_txt_date" text="d" y="58" height="36" size="24" alpha="0.7"
 		                 verticalAlign="middle"  right="664"/>
-		<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,0,0" width="137" height="60" x="1512" y="147" stroke="2"
+		<!--<ui:RoundRectShape cornerTL_TR_BL_BR="10,10,0,0" width="137" height="60" x="1512" y="147" stroke="2"
 		                   strokeColor="0x00ff00" fillColor="0x0000ff" strokeIn="2" strokeInColor="0xff0000" />
 		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="300" height="60" x="1712" y="147" stroke="2"
-		                   strokeColor="0x000000" fillColor="0x23282e" strokeIn="2" strokeInColor="0x3a3f48" />
+		                   strokeColor="0x000000" fillColor="0x23282e" strokeIn="2" strokeInColor="0x3a3f48" />-->
 		<ui:RoundRectButton id="_btn_today" cornerTL_TR_BL_BR="30,30,30,30" width="137" height="60" x="1512" y="47" stroke="2"
 		                    fillAlpha="0" strokeColor="0x5f6973" stroke_click="0" fillColor_click="0x1B416E"
 		                    fillAlpha_click="1" stroke_active="0" fillColor_active="0x1B416E" fillAlpha_active="1" />
@@ -44,7 +44,7 @@
 		                 verticalAlign="middle" scaleX="1" scaleY="1" targetWidth="176" />
 		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1562" y="168" width="155" size="20" verticalAlign="middle"
 		                 height="29" scaleX="1" scaleY="1" targetWidth="188"  anchorOffsetX="0"/>
-		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1718" y="168" width="220.33" height="29" size="20"
+		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1718" y="168" width="201.66" height="29" size="20"
 		                 verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" targetWidth="390"  anchorOffsetX="0"/>
 		<e:DataGroup id="_datagroup" width="2140" height="837" y="221" />
 		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" size="24" width="96"
