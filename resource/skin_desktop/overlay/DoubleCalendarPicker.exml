@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.DoubleCalendarPicker" width="1207" height="795" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:overlay="we.overlay.*" >
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-	<ui:RoundRectShape cornerTL_TR_BL_BR="2,2,2,2" width="1207" height="795" x="0" y="0" 
-		                fillColor="0x253343,0x101720,330" />
+	<ui:RoundRectShape cornerTL_TR_BL_BR="40,40,40,40" width="1207" height="795" x="0" y="0" fillColor="0x253343,0x101720,330" stroke="2" strokeColor="0x000000" strokeIn="2" strokeInColor="0x3a3f48" />
 		<!--<e:Rect strokeColor="0x3b4f6c" ellipseHeight="80" ellipseWidth="80" fillColor="0x253343" strokeWeight="2" left="2" top="0" bottom="0" right="-2"/>-->
 		<overlay:DatepickerCalendar id="_calender_prev" width="490" height="490" x="39" y="262"/>
 		<overlay:DatepickerCalendar id="_calender_next" width="490" height="490" y="262" x="678"/>
@@ -11,7 +10,7 @@
 		<e:Label id="_txt_prev" text="Label" x="132" y="202" height="45" textAlign="left" verticalAlign="middle" width="200"/>
 		<e:Label id="_txt_next" text="Label" y="202" height="45" textAlign="right" verticalAlign="middle" width="200" x="875"/>
 		<ui:BaseButton id="_btn_confirm" width="200" height="60" x="945" y="67" skinName="skin_desktop.OverlayPanelButton"/>
-		<ui:BaseImageButton id="_btn_clean" width="48" height="36" x="528" y="78"/>
+		<ui:BaseImageButton id="_btn_clean" width="133" height="36" x="529" y="79" anchorOffsetX="0"/>
 		<e:Rect width="418" height="60" x="64" y="67" fillColor="0x1b416e" ellipseHeight="60" ellipseWidth="60"/>
 		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle" fontFamily="Barlow" size="28"/>
 	</e:Group>
