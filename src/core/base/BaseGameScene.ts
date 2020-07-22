@@ -37,6 +37,8 @@ namespace we {
       protected _bgImg: eui.Image;
       protected _video: egret.FlvVideo;
 
+      protected _gameRoundCountWithoutBet: number = 0;
+
       // this for desktop
       // protected _tableInfoWindow: ui.TableInfoPanel;
 
@@ -281,7 +283,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -321,7 +323,7 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
@@ -466,7 +468,7 @@ namespace we {
           if (this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
-
+          this._gameRoundCountWithoutBet += 1;
           this._undoStack.clearStack();
         }
         // update the countdownTimer
@@ -482,6 +484,11 @@ namespace we {
 
           if (this._betDetails) {
             this._chipLayer.updateBetFields(this._betDetails);
+            this._gameRoundCountWithoutBet = 0;
+          }
+
+          if (this._gameRoundCountWithoutBet === 5) {
+            this.backToLobby();
           }
         }
 
