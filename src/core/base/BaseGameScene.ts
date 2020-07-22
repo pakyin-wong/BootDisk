@@ -444,6 +444,19 @@ namespace we {
       }
 
       protected setStateBet(isInit: boolean = false) {
+        if (this._gameRoundCountWithoutBet === 3) {
+          dir.evtHandler.showMessage({
+            class: 'MessageDialog',
+            args: [
+              // i18n.t(''),
+              '您已3局未下注，2局后踢出',
+              {
+                // dismiss: { text: i18n.t('') },
+                dismiss: { text: 'cancelBet' },
+              },
+            ],
+          });
+        }
         if (this._previousState !== we.core.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);
           this.setResultRelatedComponentsEnabled(false);
