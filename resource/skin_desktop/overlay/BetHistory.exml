@@ -60,10 +60,10 @@
 		<ui:BaseAnimationButton id="_btn_next" width="46" height="46" x="1135" y="1077" dbClass="lobby_ui"
 		                        dbDisplay="d_lobby_betrecord_icon_next" />
 		<e:Group id="_btn_page" width="90" height="46" x="1029" y="1077">
-			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" right="20" top="0" bottom="0"
-			                 fontFamily="Barlow" size="28"  verticalAlign="middle" textAlign="center"/>
+			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" top="0" bottom="0"
+			                 fontFamily="Barlow" size="28"  verticalAlign="middle" width="100%" textAlign="center"/>
 		</e:Group>
-		<ui:Panel id="_ddm_page" width="123" x="1009" bottom="65" maxHeight="300" skinName="skin_desktop.NavDropdown" />
+		<ui:Panel id="_ddm_page" width="174" x="943.5" maxHeight="300" skinName="skin_desktop.NavDropdown"  y="996"/>
 		<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="718"
 		                              horizontalCenter="0" verticalCenter="0" />
 	</e:Group>
