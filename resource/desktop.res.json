@@ -46,7 +46,7 @@
 		},
 		{
 			"name": "preload",
-			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png"
+			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png"
 		}
 	],
 	"resources": [
@@ -5757,6 +5757,11 @@
 			"url": "assets/images/d/dil/gfsb/Dice/Base_Dice_5.png",
 			"type": "image",
 			"name": "Base_Dice_5_png"
+		},
+		{
+			"name": "d_lobby_button_down_normal2_png",
+			"type": "image",
+			"url": "assets/images/d/lobby/quickbet/common/d_lobby_button_down_normal.png"
 		}
 	]
 }

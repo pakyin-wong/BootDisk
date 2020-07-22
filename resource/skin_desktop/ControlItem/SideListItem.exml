@@ -29,7 +29,8 @@
     <e:Group id="_contentContainer" width="339" height="174" x="0" y="0">
         <ui:CountdownTimer id="_timer" width="34" height="34" x="7" y="7" anchorOffsetX="0" anchorOffsetY="0"
                            skinName="skin_desktop.CountdownTimerRoundSmallSkin" />
-        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="12" text="" size="26" x="48" />
+        <ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" y="12" text="" size="23.4"  x="48" />
+        <e:Image source="d_lobby_button_down_normal_png" x="290" y="45" rotation="270" />
         <e:Component id="_roadmapNode" width="339" height="127" bottom="1" x="1" scaleX="335/337" scaleY="126/127"
                      visible="false" />
         <ui:GoodRoadLabel id="_goodRoadLabel" skinName="skin_desktop.GoodRoadLabelSkin" right="13" bottom="10" />

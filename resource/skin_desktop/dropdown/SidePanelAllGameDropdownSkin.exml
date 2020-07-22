@@ -7,7 +7,7 @@
     <e:Group x="0" y="0">
         <e:Group id="_toggler" x="6" y="5" touchEnabled="true" touchThrough="false" touchChildren="false" height="46"
                  width="100%">
-            <e:Label id="_label" text="全部遊戲" top="0" bottom="0" textAlign="right" verticalAlign="middle" size="30"
+            <e:Label id="_label" text="全部遊戲" top="0" bottom="0" textAlign="right" verticalAlign="middle" size="23.7"
                      left="0" />
             <e:Image id="_toggleArrow" source="d_ba_navbar_icon_dropdown_png" x="110" y="12" />
             <e:layout>
