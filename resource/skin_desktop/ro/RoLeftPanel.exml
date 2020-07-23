@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.RoLeftPanel" width="668" height="340" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <ui:RoundRectShape id="bg" cornerTL_TR_BL_BR="14,14,14,14" width="668" height="340" x="0" y="0" stroke="0"
+                           fillColor="0x061323" fillAlpha="0.88" />
         <ui:RoundRectShape id="bottomBar" cornerTL_TR_BL_BR="0,0,14,14" width="668" height="50" stroke="0" x="1" y="290"
                            fillColor="0x1f242b" />
         <ui:RoundRectShape id="topBar" cornerTL_TR_BL_BR="14,14,0,0" width="668" height="41" stroke="0" x="1" y="1"
@@ -48,8 +50,6 @@
         <e:ViewStack id="pageStack" width="100%" height="249" x="0" y="41" selectedIndex="0" anchorOffsetX="0"
                      anchorOffsetY="0">
                 <e:Group id="page1" width="100%" height="100%" name="Group" anchorOffsetX="0">
-                        <e:Rect width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0"
-                                fillColor="0x061323" fillAlpha="0.8" />
                         <e:Image width="57" height="86" x="30" y="24" anchorOffsetX="0" anchorOffsetY="0"
                                  source="d_ro_history_hot_icon_png" />
                         <e:Image width="200" height="64" x="105" y="42" source="d_ro_history_hot_bg_png"
@@ -62,9 +62,7 @@
                                          width="122" size="42" />
                         <e:Image width="1" height="233" x="332" y="8" source="d_ro_history_hotclod_bg_png" />
                 </e:Group>
-                <e:Group id="page2" width="100%" height="100%" name="View">
-                        <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" />
-                </e:Group>
+                <e:Group id="page2" width="100%" height="100%" name="View"></e:Group>
                 <e:Group id="page3" width="100%" height="100%" name="View">
                         <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xffffff" />
                         <e:ViewStack id="roadStack" width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1"
@@ -132,6 +130,8 @@
                         </e:RadioButton>
                 </e:Group>
         </e:ViewStack>
+        <ui:BaseImageButton id="toggleUpDownButton" x="625" y="314" skinName="skin_desktop.ImageButtonSkinGoodRoad"
+                            currentState="b_up" visible="false" />
         <ui:RoundRectShape id="border" cornerTL_TR_BL_BR="14,14,14,14" width="666" height="338" stroke="2" x="1" y="1"
                            strokeColor="0x3a3f48" fillAlpha="-1" locked="true" />
 </e:Skin>
