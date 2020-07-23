@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.ro.SideBetResultMessage" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" width="400"
         height="190">
-        <e:Image id="_resultImage" verticalCenter="0" horizontalCenter="0" width="100" height="100" />
-        <e:Label id="_resultLabel" size="60" text="0" verticalCenter="0" horizontalCenter="0" />
-        <e:Label id="_resultLeftLabel" size="60" text="0" verticalCenter="0" horizontalCenter="-80" />
-        <e:Label id="_resultRightLabel" size="60" text="0" verticalCenter="0" horizontalCenter="80" />
+        <e:Image id="_resultImage" verticalCenter="10" horizontalCenter="0" height="140"  width="286"/>
+        <e:Label id="_resultLabel" size="36" text="0" verticalCenter="0" horizontalCenter="-2"  fontFamily="Barlow" textAlign="center" width="40"/>
+        <e:Label id="_resultLeftLabel" size="28" text="0" verticalCenter="10" horizontalCenter="-60"  fontFamily="Barlow" rotation="-18" alpha=".5" textAlign="center" width="40"/>
+        <e:Label id="_resultRightLabel" size="28" text="0" verticalCenter="10" horizontalCenter="60"  fontFamily="Barlow" rotation="18" alpha=".5" textAlign="center" width="40"/>
 </e:Skin>

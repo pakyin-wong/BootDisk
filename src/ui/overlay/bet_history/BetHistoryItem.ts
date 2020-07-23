@@ -131,6 +131,7 @@ namespace we {
             case we.core.GameType.RO:
               p = new RoResultItem(gameResult);
               break;
+            case we.core.GameType.DIL:
             case we.core.GameType.DI:
               p = new DiResultItem(gameResult);
               break;
