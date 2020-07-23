@@ -3,6 +3,8 @@ namespace we {
     export class LuckyCoinGroup extends core.BaseGamePanel {
       protected _chipLayer: we.rol.MobileChipLayer;
 
+      protected animArr;
+
       protected coinAnim1;
       protected coinAnim2;
       protected coinAnim3;
@@ -15,50 +17,96 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
+        this.animArr = [this.coinAnim1, this.coinAnim2, this.coinAnim3, this.coinAnim4, this.coinAnim5];
       }
 
       protected setAnimPositionVer(no: number) {
-        switch (no) {
-          case 1:
-            this.coinAnim1.x = 930;
-            this.coinAnim1.y = 1177;
-            break;
-          case 2:
-            this.coinAnim1.x = 831;
-            this.coinAnim1.y = 1177;
-            this.coinAnim2.x = 1027;
-            this.coinAnim2.y = 1177;
-            break;
-          case 3:
-            this.coinAnim1.x = 831;
-            this.coinAnim1.y = 989;
-            this.coinAnim2.x = 1027;
-            this.coinAnim2.y = 989;
-            this.coinAnim3.x = 917;
-            this.coinAnim3.y = 1363;
-            break;
-          case 4:
-            this.coinAnim1.x = 831;
-            this.coinAnim1.y = 989;
-            this.coinAnim2.x = 1027;
-            this.coinAnim2.y = 989;
-            this.coinAnim3.x = 831;
-            this.coinAnim3.y = 1363;
-            this.coinAnim4.x = 1027;
-            this.coinAnim4.y = 1363;
-            break;
-          case 5:
-            this.coinAnim1.x = 831;
-            this.coinAnim1.y = 796;
-            this.coinAnim2.x = 1027;
-            this.coinAnim2.y = 796;
-            this.coinAnim3.x = 831;
-            this.coinAnim3.y = 1170;
-            this.coinAnim4.x = 1027;
-            this.coinAnim4.y = 1170;
-            this.coinAnim5.x = 917;
-            this.coinAnim5.y = 1544;
-            break;
+        if (env.orientation === 'portrait') {
+          switch (no) {
+            case 1:
+              this.coinAnim1.x = 930;
+              this.coinAnim1.y = 1177;
+              break;
+            case 2:
+              this.coinAnim1.x = 831;
+              this.coinAnim1.y = 1177;
+              this.coinAnim2.x = 1027;
+              this.coinAnim2.y = 1177;
+              break;
+            case 3:
+              this.coinAnim1.x = 831;
+              this.coinAnim1.y = 989;
+              this.coinAnim2.x = 1027;
+              this.coinAnim2.y = 989;
+              this.coinAnim3.x = 917;
+              this.coinAnim3.y = 1363;
+              break;
+            case 4:
+              this.coinAnim1.x = 831;
+              this.coinAnim1.y = 989;
+              this.coinAnim2.x = 1027;
+              this.coinAnim2.y = 989;
+              this.coinAnim3.x = 831;
+              this.coinAnim3.y = 1363;
+              this.coinAnim4.x = 1027;
+              this.coinAnim4.y = 1363;
+              break;
+            case 5:
+              this.coinAnim1.x = 831;
+              this.coinAnim1.y = 796;
+              this.coinAnim2.x = 1027;
+              this.coinAnim2.y = 796;
+              this.coinAnim3.x = 831;
+              this.coinAnim3.y = 1170;
+              this.coinAnim4.x = 1027;
+              this.coinAnim4.y = 1170;
+              this.coinAnim5.x = 917;
+              this.coinAnim5.y = 1544;
+              break;
+          }
+        } else {
+          switch (no) {
+            case 1:
+              this.coinAnim1.x = 1841;
+              this.coinAnim1.y = 779;
+              break;
+            case 2:
+              this.coinAnim1.x = 1741;
+              this.coinAnim1.y = 779;
+              this.coinAnim2.x = 1942;
+              this.coinAnim2.y = 779;
+              break;
+            case 3:
+              this.coinAnim1.x = 1640;
+              this.coinAnim1.y = 779;
+              this.coinAnim2.x = 1841;
+              this.coinAnim2.y = 779;
+              this.coinAnim3.x = 2042;
+              this.coinAnim3.y = 779;
+              break;
+            case 4:
+              this.coinAnim1.x = 1738;
+              this.coinAnim1.y = 471;
+              this.coinAnim2.x = 1939;
+              this.coinAnim2.y = 471;
+              this.coinAnim3.x = 1738;
+              this.coinAnim3.y = 837;
+              this.coinAnim4.x = 1939;
+              this.coinAnim4.y = 837;
+              break;
+            case 5:
+              this.coinAnim1.x = 1640;
+              this.coinAnim1.y = 471;
+              this.coinAnim2.x = 1841;
+              this.coinAnim2.y = 471;
+              this.coinAnim3.x = 2042;
+              this.coinAnim3.y = 471;
+              this.coinAnim4.x = 1738;
+              this.coinAnim4.y = 837;
+              this.coinAnim5.x = 1939;
+              this.coinAnim5.y = 837;
+              break;
+          }
         }
       }
 
@@ -150,15 +198,16 @@ namespace we {
 
         // 18 = 668 - 5 * 112
         // let x = (668 - (noOfLuckNum - 1) * 18 - noOfLuckNum * 112) / 2;
-        let x = 0;
+        const x = 0;
+        const y = 0;
 
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();
           coinAnim.x = x;
-          coinAnim.y = 10;
-          coinAnim.width = 112;
-          coinAnim.height = 226;
-          x += 130; // 112 + 18
+          coinAnim.y = y;
+          coinAnim.width = 171;
+          coinAnim.height = 344;
+          // x += 130; // 112 + 18
 
           const oddSlot = coinAnim.armature.getSlot('Odd');
           oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);

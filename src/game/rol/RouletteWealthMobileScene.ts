@@ -28,6 +28,7 @@ namespace we {
         super.setStateBet(isInit);
         (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
+        
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
