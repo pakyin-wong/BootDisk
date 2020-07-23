@@ -81,7 +81,10 @@ namespace we {
         }
 
         protected onClickReplay(e: egret.Event) {
-          window.open('https://www.facebook.com/', '_blank');
+          if (this.data && this.data.replayurl) {
+            window.open(this.data.replayurl, '_blank');
+          }
+          // window.open('https://www.facebook.com/', '_blank');
         }
 
         private formatRemark(remark) {
@@ -131,6 +134,7 @@ namespace we {
             case we.core.GameType.RO:
               p = new RoResultItem(gameResult);
               break;
+            case we.core.GameType.DIL:
             case we.core.GameType.DI:
               p = new DiResultItem(gameResult);
               break;
