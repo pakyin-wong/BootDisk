@@ -22,6 +22,7 @@ namespace we {
         this.addEventListener(eui.UIEvent.CHANGE, this.onChanged, this);
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onLanguageChanged, this);
+        this._label.size = 24;
       }
 
       protected destroy() {

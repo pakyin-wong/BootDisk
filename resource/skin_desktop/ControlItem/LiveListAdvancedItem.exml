@@ -7,7 +7,7 @@
 	<e:Group id="_contentContainer" width="1204" height="450" x="0" y="0">
 		<e:Group id="_contentContainerStatic" left="0" right="0" top="0" bottom="0">
 			<e:Image id="_dealerImage" width="350" height="450" x="0" y="0" />
-			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" fontFamily="Barlow" x="22" y="362" />
+			<ui:RunTimeLabel id="_label" anchorOffsetY="0" textAlign="left" size="24" fontFamily="Barlow" x="22" y="362" />
 			<e:Group id="_alreadyBetSign" right="5" bottom="40" visible="false">
 				<e:Image source="d_lobby_quick_bet_notification_follow_normal_png" horizontalCenter="0" verticalCenter="0"
 				         width="100" height="30" />
@@ -32,7 +32,8 @@
 	<e:Group id="_quickBetGroup" width="350" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0" touchEnabled="false"
 	         touchChildren="false">
 		<e:Group width="100%" x="0" y="110" scaleX="1" scaleY="1">
-			<e:Rect width="100%" height="103" x="0" alpha="0.6" y="0" scaleX="1" scaleY="1" />
+			<ui:RoundRectShape cornerTL_TR_BL_BR="15,15,15,15" width="350" height="103" x="0" y="0" stroke="0"
+                           fillColor="0x000000" fillAlpha="0.8" />
 			<ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="20"
 			                           skinName="skin_desktop.BetChipSkin" />
 			<ui:BaseImageButton id="_closeButton" x="12" y="28" width="56" height="60" currentState="lobby_betcontrol_close"
