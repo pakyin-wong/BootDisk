@@ -8,6 +8,10 @@ namespace we {
       return (sign < 0 ? '-' : '') + Array(+(zero > 0 && zero)).join('0') + val;
     }
 
+    export function trunc(str: string, n: number) {
+      return str.substr(0, n - 1) + (str.length > n ? '...' : '');
+    }
+
     export function numberToFaceValue(value: number) {
       value = Math.floor(value / 100);
       if (!value) {
@@ -36,10 +40,7 @@ namespace we {
     }
 
     export function formatTime(timestamp) {
-      return moment
-        .unix(timestamp)
-        .utcOffset(8)
-        .format('YYYY/MM/DD HH:mm:ss');
+      return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {
