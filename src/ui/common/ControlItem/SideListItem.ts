@@ -153,24 +153,6 @@ namespace we {
         this.hideBetChipPanel();
       }
 
-      protected setStateBet(isInit: boolean = false) {
-        super.setStateBet(isInit);
-        if (this.tableInfo.totalBet > 0) {
-          this._alreadyBetSign.visible = true;
-        } else {
-          this._alreadyBetSign.visible = false;
-        }
-      }
-
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        super.onTableBetInfoUpdate(evt);
-        if (this.tableInfo.totalBet > 0) {
-          this._alreadyBetSign.visible = true;
-        } else {
-          this._alreadyBetSign.visible = false;
-        }
-      }
-
       protected onMatchGoodRoadUpdate() {
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
