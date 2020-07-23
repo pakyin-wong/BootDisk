@@ -17,22 +17,22 @@
                         <ui:RunTimeLabel id="_lblResultBall0" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
                     </e:Group>
                     <e:Group width="50" height="50">
-                        <ui:RoundRectButton id="_resultBall1" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                        <ui:RoundRectShape id="_resultBall1" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                         <ui:RunTimeLabel id="lblResultBall1" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
                     </e:Group>
                     <e:Group width="50" height="50">
-                        <ui:RoundRectButton id="_resultBall2" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                        <ui:RoundRectShape id="_resultBall2" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                         <ui:RunTimeLabel id="lblResultBall2" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
                     </e:Group>
                     <e:Group width="50" height="50">
-                        <ui:RoundRectButton id="_resultBall3" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                        <ui:RoundRectShape id="_resultBall3" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                         <ui:RunTimeLabel id="lblResultBall3" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
                     </e:Group>
                     <e:Group width="50" height="50">
-                        <ui:RoundRectButton id="_resultBall4" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
+                        <ui:RoundRectShape id="_resultBall4" width="50" height="50" cornerTL_TR_BL_BR="25,25,25,25" 
                                            strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                         <ui:RunTimeLabel id="lblResultBall4" horizontalCenter="0" verticalCenter="0" size="34" text="-" textColor="0xc59466"/>
                     </e:Group>
@@ -51,22 +51,22 @@
                             <ui:RunTimeLabel id="lblLastBall0" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
                         <e:Group width="30" height="30">
-                            <ui:RoundRectButton id="_lastBall1" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                            <ui:RoundRectShape id="_lastBall1" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
                                             strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                             <ui:RunTimeLabel id="lblLastBall1" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
                         <e:Group width="30" height="30">
-                            <ui:RoundRectButton id="_lastBall2" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                            <ui:RoundRectShape id="_lastBall2" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
                                             strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                             <ui:RunTimeLabel id="lblLastBall2" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
                         <e:Group width="30" height="30">
-                            <ui:RoundRectButton id="_lastBall3" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                            <ui:RoundRectShape id="_lastBall3" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
                                             strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                             <ui:RunTimeLabel id="lblLastBall3" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
                         <e:Group width="30" height="30">
-                            <ui:RoundRectButton id="_lastBall4" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                            <ui:RoundRectShape id="_lastBall4" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
                                             strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                             <ui:RunTimeLabel id="lblLastBall4" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
@@ -87,22 +87,22 @@
                             <ui:RunTimeLabel id="lblPrevBall0" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
                         <e:Group width="30" height="30">
-                            <ui:RoundRectButton id="_prevBall1" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                            <ui:RoundRectShape id="_prevBall1" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
                                             strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                             <ui:RunTimeLabel id="lblPrevBall1" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
                         <e:Group width="30" height="30">
-                            <ui:RoundRectButton id="_prevBall2" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                            <ui:RoundRectShape id="_prevBall2" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
                                             strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                             <ui:RunTimeLabel id="lblPrevBall2" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
                         <e:Group width="30" height="30">
-                            <ui:RoundRectButton id="_prevBall3" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                            <ui:RoundRectShape id="_prevBall3" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
                                             strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                             <ui:RunTimeLabel id="lblPrevBall3" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>
                         <e:Group width="30" height="30">
-                            <ui:RoundRectButton id="_prevBall4" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
+                            <ui:RoundRectShape id="_prevBall4" width="30" height="30" cornerTL_TR_BL_BR="15,15,15,15" 
                                             strokeColor="0x214a72" strokeAlpha="1" fillAlpha="1" fillColor="0x00244e,0x034a94,-180"/>
                             <ui:RunTimeLabel id="lblPrevBall4" horizontalCenter="0" verticalCenter="0" size="18" text="-" textColor="0xc59466"/>
                         </e:Group>

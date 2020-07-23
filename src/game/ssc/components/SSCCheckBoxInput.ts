@@ -12,7 +12,8 @@ namespace we {
       private _checkBox_4: eui.Group;
 
       private checkBoxArray = [this._checkBox_0, this._checkBox_1, this._checkBox_2, this._checkBox_3, this._checkBox_4];
-      private checkBoxValueArray: boolean[] = [false, false, false, false, false];
+      private checkBoxImg = [];
+      private checkBoxValueArray: boolean[] = [true, true, true, true, true];
 
       constructor(index: number, config: any) {
         super(index, config);
@@ -31,8 +32,9 @@ namespace we {
 
           const img = new eui.Image();
           img.width = img.height = 28;
-          img.source = 'checkbox_unselect_png';
+          img.source = this.checkBoxValueArray[i] ? 'checkbox_unselect_png' : 'checkbox_select_up_png';
           this.checkBoxArray[i].addChild(img);
+          this.checkBoxImg.push(img);
 
           const lbl = new ui.RunTimeLabel();
           lbl.size = 22;
@@ -51,6 +53,7 @@ namespace we {
 
           this.checkBoxArray[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchCheckBox, this);
         }
+
         if (this._description && this._config.minSelect) {
         }
       }
@@ -60,6 +63,7 @@ namespace we {
           if (e.target === this.checkBoxArray[i]) {
             this.checkBoxValueArray[i] = !this.checkBoxValueArray[i];
           }
+          this.checkBoxImg[i].source = this.checkBoxValueArray[i] ? 'checkbox_unselect_png' : 'checkbox_select_up_png';
         }
         this.updateData();
       }

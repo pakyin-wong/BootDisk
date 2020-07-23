@@ -64,7 +64,7 @@ namespace we {
           type: InputComponentType.TEXTAREA,
           numberPerGroup,
           title,
-          isDuplicate,
+          isDuplicate, // to check if single data allow duplicated number
           // data example (numberPerGroup=5): 12345|12346|14573|17764|09663|...
           // data example (numberPerGroup=2): 12|23|49|64|85|26|...
         };
@@ -493,17 +493,476 @@ namespace we {
           },
         },
       },
-      AnyTwo: {
-        name: 'Any Two',
+      TwoStar: {
+        name: 'TwoStar',
         type: {
-          GroupSum: {
-            name: 'GroupSum',
-            input: [InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2), InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1)],
-            combinationDataId: 1,
-            pattern: '^1^2SUMOPTIONALFREE_$1',
+          DirectionSelectionLastTwo: {
+            name: 'DirectionSelectionLastTwo',
+            input: [InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1), InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1)],
+            pattern: '45OPTIONAL_$1_$2',
+          },
+          DirectMenuLastTwo: {
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '45OPTIONALINPUT_$1',
+          },
+          DirectionalSumLastTwo: {
+            input: [InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROWS, 0, 18, 1, InputDataType.SEPARATOR)],
+            pattern: '45OPTIONALSUM_$1',
+          },
+          DirectionSelectionFirstTwo: {
+            name: 'DirectionSelectionFirstTwo',
+            input: [
+              InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+            ],
+            pattern: '12OPTIONAL_$1_$2',
+          },
+          DirectMenuFirstTwo: {
+            name: 'DirectMenuFirstTwo',
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '12OPTIONALINPUT_$1',
+          },
+          DirectionalSumFirstTwo: {
+            name: 'DirectionalSumFirstTwo',
+            input: [InputComponentDefinition.ballRange('Sum', InputComponentTheme.ROWS, 0, 18, 1, InputDataType.SEPARATOR)],
+            pattern: '12OPTIONALSUM_$1',
+          },
+          GroupDirectionalSelectionLastTwo: {
+            name: 'GroupDirectionalSelectionLastTwo',
+            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 0, 9, 2, InputDataType.STRING)],
+            pattern: '45TWOINPUT_$1',
+          },
+          GroupDirectionalMenuLastTwo: {
+            name: 'GroupDirectionalMenuLastTwo',
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '45GROUPINPUT_$1',
+          },
+          GroupSumLastTwo: {
+            name: 'GroupSumLastTwo',
+            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.STRING)],
+            pattern: '45SUMGROUP_$1',
+          },
+          GroupDirectionalSelectionFirstTwo: {
+            name: 'GroupDirectionalSelectionFirstTwo',
+            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 0, 9, 2, InputDataType.STRING)],
+            pattern: '12TWOINPUT_$1',
+          },
+          GroupDirectionalMenuFirstTwo: {
+            name: 'GroupDirectionalMenuFirstTwo',
+            input: [
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            pattern: '12GROUPINPUT_$1',
+          },
+          GroupSumFirstTwo: {
+            name: 'GroupSumFirstTwo',
+            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.STRING)],
+            pattern: '12SUMGROUP_$1',
           },
         },
       },
+      StaticTow: {
+        name: 'StaticTow',
+        type: {
+          name: 'StaticTow',
+          input: [
+            InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+            InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+            InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+            InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+            InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+          ],
+          dataSelect: 1,
+          pattern: '^1POSITION_%1',
+        },
+      }, // ??????
+      Any: {
+        name: 'Any',
+        type: {
+          AnyLastThreeOne: {
+            name: 'AnyLastThreeOne',
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            pattern: '345NOTPOS1_$1',
+          },
+          AnyLastThreeTwo: {
+            name: 'AnyLastThreeTwo',
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING)],
+            pattern: '345NOTPOS2_$1',
+          },
+          AnyFirstThreeOne: {
+            name: 'AnyFirstThreeOne',
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            pattern: '123NOTPOS1_$1',
+          },
+          AnyFirstThreeTwo: {
+            name: 'AnyFirstThreeTwo',
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING)],
+            pattern: '123NOTPOS2_$1',
+          },
+          AnyFiveOne: {
+            name: 'AnyFiveOne',
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            pattern: '12345NOTPOS1_$1',
+          },
+          AnyFiveTwo: {
+            name: 'AnyFiveTwo',
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING)],
+            pattern: '12345NOTPOS2_$1',
+          },
+          AnyFiveThree: {
+            name: 'AnyFiveThree',
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3, InputDataType.STRING)],
+            pattern: '12345NOTPOS2_$1',
+          },
+        },
+      },
+      SizeParity: {
+        name: 'SizeParity',
+        type: {
+          LastSizeParity: {
+            name: 'LastSizeParity',
+            input: [
+              InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
+              InputComponentDefinition.ballData('Unit', ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR),
+            ],
+            pattern: 'LAST2SIZEPARITY_$1_$2',
+          },
+          FrontSizeParity: {
+            name: 'LastSizeParity',
+            input: [
+              InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
+              InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR),
+            ],
+            pattern: 'FRONT2SIZEPARITY_$1_$2',
+          },
+          TenThousandSizeParity: {
+            name: 'TenThousandSizeParity',
+            input: [InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            pattern: 'MILSIZEPARITY_$1',
+          },
+          ThousandSizeParity: {
+            name: 'ThousandSizeParity',
+            input: [InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            pattern: 'THOUSIZEPARITY_$1',
+          },
+          HundredSizeParity: {
+            name: 'HundredSizeParity',
+            input: [InputComponentDefinition.ballData('Hundred', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            pattern: 'HUNSIZEPARITY_$1',
+          },
+          TenSizeParity: {
+            name: 'TenSizeParity',
+            input: [InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            pattern: 'TENSIZEPARITY_$1',
+          },
+          SingleSizeParity: {
+            name: 'SingleSizeParity',
+            input: [InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            pattern: 'SINSIZEPARITY_$1',
+          },
+        },
+      },
+      Interest: {
+        name: 'Interest',
+        type: {
+          Interest1: {
+            name: 'Interest1',
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            pattern: 'INTEREST1_$1',
+          },
+          Interest2: {
+            name: 'Interest2',
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            pattern: 'INTEREST2_$1',
+          },
+          Interest3: {
+            name: 'Interest3',
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            pattern: 'INTEREST3_$1',
+          },
+          Interest4: {
+            name: 'Interest4',
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            pattern: 'INTEREST4_$1',
+          },
+        },
+      },
+      DragonTiger: {
+        name: 'DragonTiger',
+        type: {
+          TenThosandThosand: {
+            name: 'TenThousandThousand',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '12DT_$1',
+          },
+          TenThousandHundred: {
+            name: 'TenThousandHundred',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '13DT_$1',
+          },
+          TenThousandTen: {
+            name: 'TenThousandTen',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '14DT_$1',
+          },
+          TenThousandUnit: {
+            name: 'TenThousandUnit',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '15DT_$1',
+          },
+          ThousandHundred: {
+            name: 'ThousandHundred',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '23DT_$1',
+          },
+          ThousandTen: {
+            name: 'ThousandTen',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '24DT_$1',
+          },
+          ThousandUnit: {
+            name: 'ThousandUnit',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '25DT_$1',
+          },
+          HundredTen: {
+            name: 'HundredTen',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '34DT_$1',
+          },
+          HundredUnit: {
+            name: 'HundredUnit',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '35DT_$1',
+          },
+          TenUnit: {
+            name: 'TenUnit',
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            dataSelect: '1',
+            mapping: (data, combinationData) => {},
+            pattern: '45DT_$1',
+          },
+        },
+      },
+      AnyTwo: {
+        name: 'Any Two',
+        type: {
+          DirectionalSelection: {
+            name: 'DirectionalSelection',
+            input: [
+              InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+            ],
+            dataSelect: 2,
+            pattern: '^1^2OPTIONALFREE_%1_%2',
+          },
+          DirectionalMenu: {
+            name: 'DirectionalMenu',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2OPTIONALINPUTFREE_$1',
+          },
+          DirectionalSum: {
+            name: 'DirectionalSum',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 18, 1, InputDataType.SEPARATOR),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2OPTIONALINPUTFREE_$1',
+          },
+          GroupSelection: {
+            name: 'GroupSelection',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
+              InputComponentDefinition.ballRange('Group', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2TWOGROUPFREE_$1',
+          },
+          GroupMenu: {
+            name: 'GroupMenu',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
+              InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2TWOGROUPFREEINPUT_$1',
+          },
+          GroupSum: {
+            name: 'GroupSum',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.SEPARATOR),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2SUMGROUPFREE_$1',
+          },
+        },
+        AnyThree: {
+          name: 'AnyThree',
+          type: {
+            DirectionalSelection: {
+              name: 'DirectionalSelection',
+              input: [
+                InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+                InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+                InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+                InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+                InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              ],
+              dataSelect: 3,
+              pattern: '^1^2^3OPTIONALFREE_%1_%2_%3',
+            },
+            DirectionalMenu: {
+              name: 'DirectionalMenu',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+                InputComponentDefinition.textArea('', 3), // 12|23|54|67|...
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3OPTIONALINPUTFREE_$1',
+            },
+            DirectionalSum: {
+              name: 'DirectionalSum',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+                InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR),
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3OPTIONALINPUTFREE_$1',
+            },
+            GroupThree: {
+              name: 'GroupThree',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+                InputComponentDefinition.ballRange('Group', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3THREE3FREE_$1',
+            },
+            GroupSix: {
+              name: 'GroupSix',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+                InputComponentDefinition.ballRange('Group', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3),
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3THREE6FREE_$1',
+            },
+            MixGroup: {
+              name: 'MixGroup',
+              input: [InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3), InputComponentDefinition.textArea('', 3)],
+              combinationDataId: 1,
+              pattern: '^1^2^3THREECOMBINEFREE_$1',
+            },
+            GroupSum: {
+              name: 'GroupSum',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+                InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR),
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3SUMGROUPFREE_$1',
+            },
+          },
+        },
+        AnyFour: {
+          name: 'AnyFour',
+          type: {
+            DirectionalSelection: {
+              name: 'DirectionalSelection',
+              input: [
+                InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+                InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+                InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+                InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+                InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              ],
+              dataSelect: 4,
+              pattern: '^1^2^3^4OPTIONALFREE_%1_%2_%3_%4',
+            },
+            DirectionalMenu: {
+              name: 'DirectionalMenu',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+                InputComponentDefinition.textArea('', 4), // 12|23|54|67|...
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3^4OPTIONALFREEINPUT_$1',
+            },
+            Group24: {
+              name: 'Group24',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+                InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 4, InputDataType.STRING),
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3^4FOUR24FREE_$1',
+            },
+            Group12: {
+              name: 'Group12',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+                InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
+                InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING),
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3^4FOUR12FREE_$1_$2',
+            },
+            Group6: {
+              name: 'Group6',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+                InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING),
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3^4FOUR6FREE_$1',
+            },
+            Group4: {
+              name: 'Group4',
+              input: [
+                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+                InputComponentDefinition.ballRange('Triple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
+                InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
+              ],
+              combinationDataId: 1,
+              pattern: '^1^2^3^4FOUR6FREE_$1_$2',
+            },
+          },
+        },
+      },
+
       // FourStar: {
       //   // bigTag
       //   name: 'FourStar',

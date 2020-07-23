@@ -11,6 +11,8 @@ namespace we {
       protected _btnFix;
       protected _btnClear;
 
+      protected duplicatedDatas; // for display
+
       private isValidate = false;
 
       constructor(index: number, config: any) {
@@ -120,6 +122,8 @@ namespace we {
 
       protected validateTextArea(text: string) {
         // remove except numbers
+        this.duplicatedDatas = [];
+
         const numberPerGroup = this._config.numberPerGroup;
         const punctuationRegex = /[^0-9]/gi;
         let validateText = text.trim();
@@ -158,10 +162,12 @@ namespace we {
         }
 
         // duplication checking for data ARRAY
+
         const uniqueTempDatas = tempDatas.filter((v, i, a) => {
           const check = a.indexOf(v) === i;
           if (check) {
             // TODO
+            this.duplicatedDatas.push(a[i]);
           }
           return check;
         });
