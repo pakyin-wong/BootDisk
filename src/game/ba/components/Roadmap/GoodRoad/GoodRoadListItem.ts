@@ -123,6 +123,7 @@ namespace we {
           // custom road
           this._titleLabel.text = this.roadName;
         }
+        this._titleLabel.text = utils.trunc(this._titleLabel.text, 12);
       }
 
       public setRoadType(t: number) {

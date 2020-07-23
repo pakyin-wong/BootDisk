@@ -64,10 +64,10 @@ namespace we {
         this._txt_winAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amountwin')}`;
         this._txt_totalAmount.renderText = () => `${i18n.t('overlaypanel_memberreport_amounttotal')}`;
 
-        this._txt_betAmount_value.renderText = () => `1234`;
-        this._txt_washAmount_value.renderText = () => `1234`;
-        this._txt_winAmount_value.renderText = () => `1234`;
-        this._txt_totalAmount_value.renderText = () => `1234`;
+        this._txt_betAmount_value.renderText = () => `-`;
+        this._txt_washAmount_value.renderText = () => `-`;
+        this._txt_winAmount_value.renderText = () => `-`;
+        this._txt_totalAmount_value.renderText = () => `-`;
 
         const _arrCol_date = new eui.ArrayCollection([
           ui.NewDropdownItem('today', () => `${i18n.t('overlaypanel_memberreport_today')}`),
@@ -201,6 +201,8 @@ namespace we {
       protected searchWeek() {
         this._starttime = moment().utcOffset(8).startOf('week').unix();
         this._endtime = moment().utcOffset(8).endOf('week').unix();
+        const today = moment().utcOffset(8).endOf('day').unix();
+        this._endtime = Math.min(this._endtime, today);
         this._btn_today.active = this._btn_yesterday.active = this._btn_custom.active = false;
         this._btn_week.active = true;
         this.search();
