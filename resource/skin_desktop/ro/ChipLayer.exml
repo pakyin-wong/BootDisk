@@ -270,7 +270,7 @@
 		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_separate_0_3_group" width="40" height="35" x="83" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ro:BetChipStack id="_separate_0_1_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30"
+		<ro:BetChipStack id="_separate_0_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30"
 		                 chipHeight="30" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes=""
 		                 chipType="2" />
 	</e:Group>
@@ -280,7 +280,7 @@
 		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_separate_0_1_group" width="40" height="35" x="83" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ro:BetChipStack id="_separate_0_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30"
+		<ro:BetChipStack id="_separate_0_1_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30"
 		                 chipHeight="30" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes=""
 		                 chipType="2" />
 	</e:Group>
