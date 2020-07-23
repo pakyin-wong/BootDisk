@@ -81,7 +81,10 @@ namespace we {
         }
 
         protected onClickReplay(e: egret.Event) {
-          window.open('https://www.facebook.com/', '_blank');
+          if (this.data && this.data.replayurl) {
+            window.open(this.data.replayurl, '_blank');
+          }
+          // window.open('https://www.facebook.com/', '_blank');
         }
 
         private formatRemark(remark) {
