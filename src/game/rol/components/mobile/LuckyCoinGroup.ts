@@ -2,14 +2,10 @@ namespace we {
   export namespace rol {
     export class LuckyCoinGroup extends core.BaseGamePanel {
       protected _chipLayer: we.rol.MobileChipLayer;
+      protected gameData: we.rol.GameData;
 
-      protected animArr;
-
-      protected coinAnim1;
-      protected coinAnim2;
-      protected coinAnim3;
-      protected coinAnim4;
-      protected coinAnim5;
+      protected animXArr;
+      protected animYArr;
 
       public constructor() {
         super();
@@ -17,94 +13,53 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.animArr = [this.coinAnim1, this.coinAnim2, this.coinAnim3, this.coinAnim4, this.coinAnim5];
       }
 
       protected setAnimPositionVer(no: number) {
         if (env.orientation === 'portrait') {
           switch (no) {
             case 1:
-              this.coinAnim1.x = 930;
-              this.coinAnim1.y = 1177;
+              this.animXArr = [930];
+              this.animYArr = [1177];
               break;
             case 2:
-              this.coinAnim1.x = 831;
-              this.coinAnim1.y = 1177;
-              this.coinAnim2.x = 1027;
-              this.coinAnim2.y = 1177;
+              this.animXArr = [831, 1027];
+              this.animYArr = [1177, 1177];
               break;
             case 3:
-              this.coinAnim1.x = 831;
-              this.coinAnim1.y = 989;
-              this.coinAnim2.x = 1027;
-              this.coinAnim2.y = 989;
-              this.coinAnim3.x = 917;
-              this.coinAnim3.y = 1363;
+              this.animXArr = [831, 1027, 917];
+              this.animYArr = [989, 989, 1363];
               break;
             case 4:
-              this.coinAnim1.x = 831;
-              this.coinAnim1.y = 989;
-              this.coinAnim2.x = 1027;
-              this.coinAnim2.y = 989;
-              this.coinAnim3.x = 831;
-              this.coinAnim3.y = 1363;
-              this.coinAnim4.x = 1027;
-              this.coinAnim4.y = 1363;
+              this.animXArr = [831, 1027, 831, 1027];
+              this.animYArr = [989, 989, 1363, 1363];
               break;
             case 5:
-              this.coinAnim1.x = 831;
-              this.coinAnim1.y = 796;
-              this.coinAnim2.x = 1027;
-              this.coinAnim2.y = 796;
-              this.coinAnim3.x = 831;
-              this.coinAnim3.y = 1170;
-              this.coinAnim4.x = 1027;
-              this.coinAnim4.y = 1170;
-              this.coinAnim5.x = 917;
-              this.coinAnim5.y = 1544;
+              this.animXArr = [831, 1027, 831, 1027, 917];
+              this.animYArr = [796, 796, 1170, 1170, 1544];
               break;
           }
         } else {
           switch (no) {
             case 1:
-              this.coinAnim1.x = 1841;
-              this.coinAnim1.y = 779;
+              this.animXArr = [1841];
+              this.animYArr = [779];
               break;
             case 2:
-              this.coinAnim1.x = 1741;
-              this.coinAnim1.y = 779;
-              this.coinAnim2.x = 1942;
-              this.coinAnim2.y = 779;
+              this.animXArr = [1741, 1942];
+              this.animYArr = [779, 779];
               break;
             case 3:
-              this.coinAnim1.x = 1640;
-              this.coinAnim1.y = 779;
-              this.coinAnim2.x = 1841;
-              this.coinAnim2.y = 779;
-              this.coinAnim3.x = 2042;
-              this.coinAnim3.y = 779;
+              this.animXArr = [1640, 1841, 2042];
+              this.animYArr = [779, 779, 779];
               break;
             case 4:
-              this.coinAnim1.x = 1738;
-              this.coinAnim1.y = 471;
-              this.coinAnim2.x = 1939;
-              this.coinAnim2.y = 471;
-              this.coinAnim3.x = 1738;
-              this.coinAnim3.y = 837;
-              this.coinAnim4.x = 1939;
-              this.coinAnim4.y = 837;
+              this.animXArr = [1738, 1939, 1738, 1939];
+              this.animYArr = [471, 471, 837, 837];
               break;
             case 5:
-              this.coinAnim1.x = 1640;
-              this.coinAnim1.y = 471;
-              this.coinAnim2.x = 1841;
-              this.coinAnim2.y = 471;
-              this.coinAnim3.x = 2042;
-              this.coinAnim3.y = 471;
-              this.coinAnim4.x = 1738;
-              this.coinAnim4.y = 837;
-              this.coinAnim5.x = 1939;
-              this.coinAnim5.y = 837;
+              this.animXArr = [1640, 1841, 2042, 1738, 1939];
+              this.animYArr = [471, 471, 471, 837, 837];
               break;
           }
         }
@@ -132,9 +87,9 @@ namespace we {
         label.textColor = 0x80fbfd;
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
-        label.width = 112;
-        label.anchorOffsetX = 56;
-        label.anchorOffsetY = 15;
+        // label.width = 112;
+        // label.anchorOffsetX = 56;
+        // label.anchorOffsetY = 15;
 
         const group = new eui.Group();
         group.addChild(label);
@@ -150,9 +105,9 @@ namespace we {
         label.textColor = 0x80fbfd;
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
-        label.width = 300;
-        label.anchorOffsetX = 150;
-        label.anchorOffsetY = 40;
+        // label.width = 300;
+        // label.anchorOffsetX = 150;
+        // label.anchorOffsetY = 40;
         label.bold = true;
         const color: number = 0x33ccff;
         const alpha: number = 0.8;
@@ -186,28 +141,27 @@ namespace we {
         return group;
       }
 
-      public updateLuckyNumbers() {
+      public updateLuckyNumbers(gameData: data.GameData) {
+        this.gameData = <rol.GameData>gameData;
         this.removeChildren();
 
-        if (!(this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber)) {
+        if (!(this.gameData && this.gameData.luckynumber)) {
           return;
         }
 
-        const luckyNumbers = this.tableInfo.data.luckynumber;
+        const luckyNumbers = this.gameData.luckynumber;
         const noOfLuckNum = Object.keys(luckyNumbers).length;
+        this.setAnimPositionVer(noOfLuckNum);
 
-        // 18 = 668 - 5 * 112
-        // let x = (668 - (noOfLuckNum - 1) * 18 - noOfLuckNum * 112) / 2;
-        const x = 0;
-        const y = 0;
+        let no = 0;
 
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();
-          coinAnim.x = x;
-          coinAnim.y = y;
-          coinAnim.width = 171;
-          coinAnim.height = 344;
-          // x += 130; // 112 + 18
+          coinAnim.x = this.animXArr[no];
+          coinAnim.y = this.animYArr[no];
+          coinAnim.scaleX = 0.8;
+          coinAnim.scaleY = 0.8;
+          no += 1;
 
           const oddSlot = coinAnim.armature.getSlot('Odd');
           oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);

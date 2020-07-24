@@ -28,12 +28,11 @@ namespace we {
         super.setStateBet(isInit);
         (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         this.luckyCoinGroup.clearLuckyNumbers();
-        
       }
       protected setStateFinish(isInit: boolean = false) {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
-          this.luckyCoinGroup.updateLuckyNumbers();
+          this.luckyCoinGroup.updateLuckyNumbers(this._gameData);
         }
         (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.rol.MobileChipLayer>this._chipLayer).showWinningNumber();
@@ -61,7 +60,7 @@ namespace we {
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           (<we.rol.MobileChipLayer>this._chipLayer).showLuckyNumber();
-          this.luckyCoinGroup.updateLuckyNumbers();
+          this.luckyCoinGroup.updateLuckyNumbers(this._gameData);
         }
       }
 

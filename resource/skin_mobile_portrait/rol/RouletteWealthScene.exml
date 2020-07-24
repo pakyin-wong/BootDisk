@@ -94,7 +94,7 @@
 	<ro:RaceTrackControl id="_raceTrackControl" width="91" height="417" skinName="skin_mobile_portrait.ro.RaceTrackControlSkin" y="1504" x.right="1097" x.left="45" x="1090"/>
 	<ro:MobileBetCombination id="_betCombination" skinName="skin_mobile_portrait.ro.MobileBetCombination" bottom="450" x="168" x.left="393"/>
 	<ro:MobileBottomGamePanel skinName="skin_mobile_portrait.ro.MobileBottomGamePanel" id="_bottomGamePanel" width="1242" x="0" scaleY="1" scaleX="1" bottom="0"/>
-	<rol:LuckyCoinGroup id="luckyCoinGroup" x.right="831" y.right="989" x.left="831" y.left="989"/>
+	<rol:LuckyCoinGroup id="luckyCoinGroup"/>
   <!--<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" />-->
   <!--<e:Image id="_btnBack" width="30" height="30" x="35" y="17" source="d_ba_navbar_chevron_png" includeIn="right"/>-->

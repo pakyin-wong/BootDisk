@@ -1170,6 +1170,22 @@ declare module skin_mobile_landscape.ro{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.rol{
+	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LuckyCoin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class RouletteWealthScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.rol{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape{
 	class GamePanelSkinBak extends eui.Skin{
 	}
@@ -1812,7 +1828,7 @@ declare module skin_mobile_portrait.rol{
 	class ChipLayerRaceSkin extends eui.Skin{
 	}
 }
-declare module skin_mobile_portrait{
+declare module skin_mobile_landscape{
 	class LuckyCoin extends eui.Skin{
 	}
 }
