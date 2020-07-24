@@ -98,6 +98,7 @@ namespace we {
         await this.sleep(3000 + Math.random() * 5000);
         data.data = gameData;
         data.bets = [];
+        data.totalBet = 0;
         gameData.previousstate = gameData.state ? gameData.state : null;
         gameData.state = core.GameState.BET;
         gameData.starttime = Date.now();

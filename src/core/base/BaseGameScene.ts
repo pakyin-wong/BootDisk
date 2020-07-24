@@ -481,7 +481,6 @@ namespace we {
           if (this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
-          this._gameRoundCountWithoutBet += 1;
           this._undoStack.clearStack();
         }
         // update the countdownTimer
@@ -497,15 +496,20 @@ namespace we {
 
           if (this._betDetails) {
             this._chipLayer.updateBetFields(this._betDetails);
-            this._gameRoundCountWithoutBet = 0;
-          }
-
-          if (this._gameRoundCountWithoutBet === 5) {
-            this.backToLobby();
           }
         }
 
         if (this._previousState !== we.core.GameState.DEAL) {
+          if (this.tableInfo.totalBet > 0) {
+            this._gameRoundCountWithoutBet = 0;
+          } else {
+            this._gameRoundCountWithoutBet += 1;
+          }
+
+          if (this._gameRoundCountWithoutBet >= 5) {
+            this.backToLobby();
+          }
+
           if (this._resultDisplay) {
             this._resultDisplay.reset();
           }
