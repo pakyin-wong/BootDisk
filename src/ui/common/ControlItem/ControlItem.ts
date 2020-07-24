@@ -401,10 +401,6 @@ namespace we {
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
-        if (this._timer) {
-          this._timer.visible = enable;
-        }
-
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
