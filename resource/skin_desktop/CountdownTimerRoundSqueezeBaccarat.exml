@@ -5,6 +5,6 @@
 	<e:Image source="d_lobby_quick_bet_circle_png" left="0" right="0" top="0" bottom="0" />
 	<ui:RadialProgressIndicator id="progressIndicator" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0"
 	                            right="0" thickness="4" touchEnabled="false" touchChildren="false" />
-	<e:Label id="countdownLabel" text="25" verticalCenter="-22" horizontalCenter="0" textAlign="center" verticalAlign="middle" width="90" height="80" fontFamily="Barlow" size="76"/>
+	<e:Label id="countdownLabel" text="0" verticalCenter="-22" horizontalCenter="0" textAlign="center" verticalAlign="middle" width="90" height="80" fontFamily="Barlow" size="76"/>
 	<ui:RunTimeLabel i18n="baccarat.playersqueeze" size="20" verticalCenter="32" horizontalCenter="0" textAlign="center"/>
 </e:Skin>

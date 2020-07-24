@@ -2,24 +2,40 @@
 <e:Skin class="skin_mobile_portrait.ModeSelect" states="light,dark" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" currentState="light">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
-		<!--<e:Image left="0" right="0" top="0" bottom="0" source="popover_png" width="916" height="921"/>-->
-		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="916" height="921" x="0" y="0" 
-		                fillColor="0x253343,0x101720" strokeColor="0x000000"/>
-		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="94" anchorOffsetX="0"  anchorOffsetY="0"  textAlign="center" verticalAlign="middle" horizontalCenter="0" height="119" size="80" textColor="0xcf952e" width="418"/>
+		<!--<e:Image left="0" right="0" top="0" bottom="0" source="popover_png" width="916" height="921" />
+		-->
+		<ui:RoundRectShape cornerTL_TR_BL_BR="30,30,30,30" width="916" height="921" x="0" y="0" fillColor="0x253343,0x101720"
+		                   strokeColor="0x000000" />
+		<ui:RunTimeLabel id="txt_selectMode" text="Label" y="94" anchorOffsetX="0" anchorOffsetY="0" textAlign="center"
+		                 verticalAlign="middle" horizontalCenter="0" height="119" size="80" width="418" textColor="0xcf925e" />
 		<e:Group id="btn_lightMode" x="196" y="312">
-			<e:Image source="m_lobby_setting_panel_setting_uicolour_light_png" width="150" height="105" x="14" y="11"/>
-			<ui:RunTimeLabel id="txt_lightMode" text="l" textAlign="center" verticalAlign="middle" left="0" right="0" y="145" size="56" height="56"/>
-			<e:Image width="35" height="35" source.dark="d_lobby_select_round_no_png" source.light="d_lobby_select_round_yes_png" horizontalCenter="0" y="230"/>
-			<!--<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1"/>-->
-			<e:Image y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_png" source.light="m_common_panel_setting_uicolour_active_png" right="0" width="177" height="126"/>
+			<e:Image source="m_lobby_setting_panel_setting_uicolour_light_png" width="150" height="105" x="14" y="11" />
+			<ui:RunTimeLabel id="txt_lightMode" text="l" textAlign="center" verticalAlign="middle" left="0" right="0" y="145"
+			                 size="56" height="56" />
+			<e:Image width="35" height="35" source.dark="d_lobby_select_round_no_png" source.light="d_lobby_select_round_yes_png"
+			         horizontalCenter="0" y="230" />
+			<!--<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1" />
+			-->
+			<e:Image y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_png"
+			         source.light="m_common_panel_setting_uicolour_active_png" right="0" width="177" height="126" />
 		</e:Group>
 		<e:Group id="btn_darkMode" x="554" y="312">
-			<e:Image width="150" height="105" x="14" y="11" source="m_lobby_setting_panel_setting_uicolour_black_png"/>
-			<ui:RunTimeLabel id="txt_darkMode" text="l" y="145" height="56" size="56" textAlign="center" verticalAlign="middle" left="0" right="0"/>
-			<e:Image width="35" height="35" horizontalCenter="0" y="230" source.light="d_lobby_select_round_no_png" source.dark="d_lobby_select_round_yes_png"/>
-			<!--<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1"/>-->
-			<e:Image width="177" height="126" y="0" scaleX="1" scaleY="1" source.dark="m_lobby_setting_panel_setting_uicolour_active_png" source.light="m_common_panel_setting_uicolour_png" right="0"/>
+			<e:Image width="150" height="105" x="14" y="11" source="m_lobby_setting_panel_setting_uicolour_black_png" />
+			<ui:RunTimeLabel id="txt_darkMode" text="l" y="145" height="56" size="56" textAlign="center" verticalAlign="middle"
+			                 left="0" right="0" />
+			<e:Image width="35" height="35" horizontalCenter="0" y="230" source.light="d_lobby_select_round_no_png"
+			         source.dark="d_lobby_select_round_yes_png" />
+			<!--<e:Image width="56" height="41" x="0" y="0" scaleX="1" scaleY="1" />
+			-->
+			<e:Image width="177" height="126" y="0" scaleX="1" scaleY="1"
+			         source.dark="m_lobby_setting_panel_setting_uicolour_active_png"
+			         source.light="m_common_panel_setting_uicolour_png" right="0" />
 		</e:Group>
-		<ui:BaseImageButton id="close" y="694" skinName="ImageButtonSkinDialog" horizontalCenter="0" width="764" height="130" />
+		<!--<ui:BaseImageButton id="close" y="694" skinName="ImageButtonSkinDialog" horizontalCenter="0" width="764"
+		                        height="130" />
+		-->
+		<ui:RoundRectButton id="close" cornerTL_TR_BL_BR="50,50,50,50" width="764" height="130" y="694" stroke="2"
+		                    strokeIn="0" strokeColor="0x5f6973" horizontalCenter="0" fillAlpha="0" fillAlpha_hover="1" strokeAlpha_hover="0"
+		                    fillColor="0x1b416e" />
 	</e:Group>
 </e:Skin>
