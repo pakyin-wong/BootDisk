@@ -21,8 +21,8 @@ namespace we {
         this.generateCombination();
         this.generateBetFields();
         const temp = new we.lo.SSCTraditionalBettingPanel();
-        temp.x = 100;
-        temp.y = 300;
+        temp.x = 0;
+        temp.y = 0;
         this.addChild(temp);
         // draw the icon faces
         // for (let i = 0; i < 2; i++) {
@@ -186,7 +186,9 @@ namespace we {
           for (let i = 0; i < data.length; i++) {
             patterns.push(data[i]);
           }
-        } else { patterns.push(value); }
+        } else {
+          patterns.push(value);
+        }
         const output = [];
         for (let i = 0; i < patterns.length; i++) {
           if (patterns[i].search(/\$\%\^\&\b(\w*undefined\w*)\b/gi) === -1) {

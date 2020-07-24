@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCNoteControlPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1508" height="377">
+    <ui:RoundRectShape cornerTL_TR_BL_BR="14,14,14,14" width="1509" height="377" x="0" y="0" stroke="1" strokeColor="0x214a72" fillColor="0x151c26"/>
+    <e:Group id="_content" width="1508" height="377">
+			<e:Group width="1500" height="40" x="0" y="0">
+				<ui:RoundRectShape cornerTL_TR_BL_BR="14,14,0,0" width="1509" height="40" x="0" y="0" stroke="0" fillColor="0x112c4c" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_lblGameMode" text="Label" x="34" y="0" width="477" size="20" verticalAlign="middle" height="40" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_lblBetItem" text="Label" x="316" y="0" width="477" size="20" verticalAlign="middle" height="40" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_lblBetMode" text="Label" x="511" y="0" width="477" size="20" verticalAlign="middle" height="40" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_lblNoteCount" text="Label" x="623" y="0" width="477" size="20" verticalAlign="middle" height="40" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_lblMultiplier" text="Label" x="736" y="0" width="477" size="20" verticalAlign="middle" height="40" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_lblTotalBet" text="Label" x="869" y="0" width="477" size="20" verticalAlign="middle" height="40" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_lblControl" text="Label" x="1025" y="0" width="477" size="20" verticalAlign="middle" height="40" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>
+				<ui:RunTimeLabel id="_lblBalance" text="Label" x="1351" y="0" width="477" size="20" verticalAlign="middle" height="40" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>                
+			</e:Group>
+			<e:Rect width="1" height="377" x="1125" y="0" fillColor="0x202934"/>
+			<e:Scroller id="_scroller" width="1124" height="337" x="0" y="40">
+				<e:List id="_datagroup"/>
+			</e:Scroller>
+			<e:Group x="1126" y="40" width="383" height="337">
+				<e:Image id="_btnDelectAll" width="52" height="56" x="319" scaleX="1" scaleY="1" source="d_lobby_panel_button_play_normal_png"/>
+				<ui:RunTimeLabel id="_lbltotalBetAmountText" text="總注數" x="2" y="0" width="314" size="45" verticalAlign="middle" height="74" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>              
+				<ui:RunTimeLabel id="_lbltotalBetAmount" text="Label" x="-2" y="213" width="372" size="45" verticalAlign="middle" height="74" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>    
+				<ui:RunTimeLabel id="_lbltotalBetCountText" text="總投注額" x="0" y="131" width="477" size="50" verticalAlign="middle" height="92" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>          
+				<ui:RunTimeLabel id="_lbltotalBetCount" text="Label" x="2" y="74" width="477" size="50" verticalAlign="middle" height="92" textColor="0xd5d5d5" scaleX="1" scaleY="1"/>    
+				<e:Image id="_btnAddDataTEMP" width="52" height="56" x="319" scaleX="1" scaleY="1" source="d_lobby_panel_button_play_normal_png" y="281" visible="false"/>              
+			</e:Group>
+    </e:Group>
+ 
+</e:Skin>

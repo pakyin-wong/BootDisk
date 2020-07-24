@@ -38,12 +38,13 @@ namespace we {
 
       protected childrenCreated() {
         super.childrenCreated();
-        this.init();
+        this.initComponents();
       }
 
       protected mount() {}
 
-      protected init() {
+      protected initComponents() {
+        super.initComponents();
         this.createBigTags();
         // this.createSmallTags();
         // this.initCurrentButtonPanel();

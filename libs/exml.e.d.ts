@@ -750,6 +750,42 @@ declare module skin_desktop{
 	class Slider extends eui.Skin{
 	}
 }
+declare module skin_desktop.lo{
+	class SSCBallButtonRow extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCBallButtonRows extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCCheckBoxInput extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SSCBetNoteItem extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCBettingControlBar extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCNoteControlPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCTraditionalActionButtonPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCTraditionalBettingPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class SSCTradtionalBettingOptionButtonRow extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class ListTestPageSkin extends eui.Skin{
 	}

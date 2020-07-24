@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.lo.SSCTraditionalActionButtonPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" width="1509" height="103">
+    <e:Group id="_content" width="1508" height="103">
+        <ui:RunTimeLabel id="_lblTitleMultiplier" text="倍數" x="24" y="39"/>
+            <e:Group id="_btnMultiplierGroup" width="165" height="50" x="108" y="28.">
+
+                <ui:RoundRectButton cornerTL_TR_BL_BR="25,0,25,0" width="60" height="50" 
+                    fillAlpha="1"  fillColor="0x0000FF"
+                    fillAlpha_click="1"  fillColor_active="0x0000FF" fillAlpha_active="1"/>   
+                <ui:RunTimeLabel id="_lblMultiplier" text="--" height="50" verticalAlign="middle" width="45" horizontalCenter="0" verticalCenter="0" textAlign="center"/>
+                <ui:RoundRectButton id="_btnMinusMultiplier" cornerTL_TR_BL_BR="0,25,0,25" width="60" height="50" 
+                    fillAlpha="1"  fillColor="0x0000FF"
+                    fillAlpha_click="1"  fillColor_active="0x0000FF" fillAlpha_active="1" x="105"/>
+
+							<ui:RunTimeLabel text="-" verticalAlign="middle" textAlign="center" x="24" height="24" y="10"/>
+							<ui:RunTimeLabel text="+" verticalAlign="middle" textAlign="center" x="125" y="12"/>
+							<e:layout>
+								<e:BasicLayout/>
+							</e:layout>
+            </e:Group>
+            <e:Group id="_btnNote" width="165" height="50" x="301" y="28">
+							<e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x302121"/>
+							<e:Image id="_arrow" source="d_lobby_button_down_normal_png" width="40" height="40" verticalCenter="0" x="114"/>
+							<ui:RunTimeLabel id="_lblNote" text="2 元" width="88" height="36" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="24" scaleX="1" scaleY="1" verticalCenter="-1" x="16"/>
+            </e:Group>
+            <e:Group id="_btnInfo" width="165" height="50" x="493" y="28">
+							<e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x302121"/>
+							<e:Image source="d_lobby_button_down_normal_png" width="40" height="40" verticalCenter="0" x="8"/>
+							<ui:RunTimeLabel id="_lblInfo" text="中獎說明" width="88" height="36" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="16" scaleX="1" scaleY="1" verticalCenter="0" x="44"/>
+            </e:Group>
+            <e:Group id="_btnAddBetFields" width="118" height="50" x="1123" y="28">
+							<e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x302121"/>							
+                            <ui:RunTimeLabel id="_lblAddBetFields" text="添加" width="88" height="36" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="16" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0"/>
+            </e:Group>
+            <e:Group id="_btnInstantBet" width="165" height="50" x="1286" y="28">
+							<e:Rect fillAlpha="1" strokeWeight="2" strokeColor="0x4B535B" ellipseWidth="50" ellipseHeight="50" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" fillColor="0x302121"/>
+							<ui:RunTimeLabel id="_lblInstantBet" text="立即購買" width="88" height="36" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="16" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+            </e:Group>
+            <ui:RunTimeLabel id="_lblTitleHighestWin" text="單倍最高金額 : xxx" width="137" height="36" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="14" scaleX="1" scaleY="1" x="926" y="17"/>
+            <ui:RunTimeLabel id="_lblTitleNoteChosen" text="已選 : xxx" width="88" height="36" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="14" scaleX="1" scaleY="1" x="1019" y="47"/>
+            <ui:RunTimeLabel id="_lblTitleTotalBet" text="共計xxx" width="88" height="36" verticalAlign="middle" textAlign="center" fontFamily="NotoSansCJKtc" size="14" scaleX="1" scaleY="1" x="917" y="44"/>
+            <ui:Panel id="_noteDropDown" width="251" x="301" y="90" skinName="skin_desktop.NavDropdown" maxHeight="200" />
+    </e:Group>
+</e:Skin>

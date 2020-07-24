@@ -2,16 +2,18 @@
 namespace we {
   export namespace lo {
     export abstract class ABettingPanel extends core.BaseEUI implements IBettingPanel {
-      protected _currentBettingTable: ABettingTable;
+      public _currentBettingTable: ABettingTable;
       protected _bettingControl: ABettingControlBar;
-      protected _noteControl: ANoteControlPanel;
+      public _noteControl: ANoteControlPanel;
 
       protected init() {
         if (this._bettingControl) {
           this._bettingControl.bettingPanel = this;
+          this._bettingControl.init();
         }
         if (this._noteControl) {
           this._noteControl.bettingPanel = this;
+          this._noteControl.init();
         }
       }
 
@@ -65,6 +67,7 @@ namespace we {
 
       protected placeBet(notes: TradNoteData[]) {
         const betdetails = this.generateBetDetail(notes);
+
         // TODO: send out betdetails
       }
 
@@ -85,8 +88,18 @@ namespace we {
 
       public addNotes() {
         // add notes to _noteControl
-        const notes = this.generateNoteData();
-        this._noteControl.addNotes(notes);
+        // const notes = this.generateNoteData();
+        const tempbetdails = [
+          {
+            field: '34OptionalFree_564_708@200',
+            count: 9,
+            multiplier: 1,
+          },
+        ];
+      }
+
+      public onBettingControlBarUnitBetUpdate(betFields: string[]) {
+        this.betFieldMapping(betFields);
       }
 
       public chaseBet() {
