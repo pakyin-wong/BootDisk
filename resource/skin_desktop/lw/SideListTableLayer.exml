@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lw.SideListTableLayerSkin" currentState="Normal" width="339" height="110"
+<e:Skin class="skin_desktop.lw.SideListTableLayerSkin" currentState="Normal" width="333" height="120"
         xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ba="we.ba.*" xmlns:ui="we.ui.*"
         states="Normal">
 	<e:Group id="_oneCircleGroup" x="10" y="20" width="40" height="66">
