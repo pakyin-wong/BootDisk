@@ -81,13 +81,16 @@ namespace we {
           let source = '';
           switch (we.ro.RACETRACK_COLOR[num]) {
             case we.ro.Color.GREEN:
-              source = 'Disc_Green_650x123_png';
+              if (env.orientation === 'portrait') source = 'Disc_Green_650x123_png';
+              else source = 'Disc_Green_140x444_png';
               break;
             case we.ro.Color.RED:
-              source = 'Disc_Red_218x128_png';
+              if (env.orientation === 'portrait') source = 'Disc_Red_218x128_png';
+              else source = 'Disc_Red_148x148_png';
             case we.ro.Color.BLACK:
             default:
-              source = 'Disc_Black_218x128_png';
+              if (env.orientation === 'portrait') source = 'Disc_Black_218x128_png';
+              else source = 'Disc_Black_148x148_png';
           }
           const img = new eui.Image();
           img.source = source;
