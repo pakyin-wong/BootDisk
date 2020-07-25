@@ -100,6 +100,7 @@ namespace we {
         }
       }
       public async show(skipAnimation: boolean = false) {
+        // if (this.isShow) return Promise.resolve();
         if (!skipAnimation && this.isAnimating) {
           return;
         }
@@ -112,6 +113,7 @@ namespace we {
         }
       }
       public async hide(skipAnimation: boolean = false) {
+        // if (!this.isShow) return Promise.resolve();
         if (!skipAnimation && this.isAnimating) {
           return;
         }

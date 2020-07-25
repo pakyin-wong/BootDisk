@@ -22,6 +22,7 @@ namespace we {
         [we.core.GameType.DT]: 1,
         [we.core.GameType.RO]: 1,
         [we.core.GameType.DI]: 1,
+        [we.core.GameType.DIL]: 1,
         [we.core.GameType.LW]: 1,
         [we.core.GameType.BAM]: 1,
         [we.core.GameType.ROL]: 1,
@@ -125,7 +126,7 @@ namespace we {
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
           return stats;
-        } else if (data.gametype === core.GameType.DI) {
+        } else if (data.gametype === core.GameType.DI || data.gametype === core.GameType.DIL) {
           const stats = new we.data.GameStatistic();
           stats.hotNumbers = [1, 2, 3, 4, 5];
           stats.coldNumbers = [6, 7, 8, 9, 10];
@@ -290,6 +291,38 @@ namespace we {
 
               data.bets = [];
               const mockProcess = new MockProcessDice(this, core.GameType.DI);
+              if (idx !== count - 1) {
+                mockProcess.startRand = idx;
+                mockProcess.endRand = idx + 1;
+              }
+              mockProcess.start(data);
+              this.mockProcesses.push(mockProcess);
+
+              idx++;
+              return data;
+            });
+            break;
+          }
+          case we.core.GameType.DIL: {
+            tables = Array.apply(null, { length: count }).map((value, idx) => {
+              const data = new we.data.TableInfo();
+              data.tableid = (++this._tempIdx).toString();
+              data.tablename = data.tableid;
+              data.state = TableState.ONLINE;
+              data.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(this.mockDiRoadData);
+              data.gametype = core.GameType.DIL;
+
+              data.gamestatistic = this.generateDummyStatistic(data);
+
+              data.betInfo = new we.data.GameTableBetInfo();
+              data.betInfo.tableid = data.tableid; // Unique table id
+              data.betInfo.gameroundid = 'mock-game-01'; // Unique gameround id
+              data.betInfo.total = 10000; // Total bet amount for this gameround
+              data.betInfo.amount = []; // Amount for each bet field e.g. BANKER, PLAYER,etc // Rankings for this round, from High > Low, null if gameround on going
+              data.betInfo.ranking = [];
+
+              data.bets = [];
+              const mockProcess = new MockProcessDiceWealth(this, core.GameType.DIL);
               if (idx !== count - 1) {
                 mockProcess.startRand = idx;
                 mockProcess.endRand = idx + 1;
@@ -827,7 +860,7 @@ namespace we {
         bankerpairwincount: 3,
 
         inGame: {
-          bead: [{ v: 't', b: 0, p: 0, w: 12 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }],
+          bead: [{ gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 12 }, { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 }, { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 }],
           bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
           bigEye: [{ v: 'p' }],
           small: [{ v: 'b' }],
@@ -835,29 +868,29 @@ namespace we {
         },
 
         inGameB: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'b', b: 0, p: 0, w: 0 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: 'b', t: 5 }],
-          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
+          bead: [
+            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
+            { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 },
+            { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 },
+            { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b', b: 0, p: 0, w: 0 },
+          ],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b', t: 5 }],
+          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b' }],
           small: [{ v: 'b' }, { v: 'b' }],
-          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'b' }],
-          beadAni: 3,
-          bigRoadAni: 6,
-          bigEyeAni: 6,
-          smallAni: 1,
-          roachAni: 6,
+          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'b' }],
         },
 
         inGameP: {
-          bead: [{ v: 't', b: 0, p: 0, w: 2 }, { v: 'p', b: 0, p: 0, w: 4 }, { v: 'b', b: 0, p: 1, w: 7 }, { v: 'p', b: 0, p: 0, w: 6 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: 'p', t: 0 }],
-          bigEye: [{ v: 'p' }, { v: 'p' }],
-          small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: 'p' }],
-          roach: [{ v: 'p' }, { v: 'p' }],
-          beadAni: 3,
-          bigRoadAni: 3,
-          bigEyeAni: 1,
-          smallAni: 6,
-          roachAni: 1,
+          bead: [
+            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
+            { gameRoundID: 'g34345', v: 'p', b: 0, p: 0, w: 4 },
+            { gameRoundID: 'g45454', v: 'b', b: 0, p: 1, w: 7 },
+            { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p', b: 0, p: 0, w: 6 },
+          ],
+          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p', t: 0 }],
+          bigEye: [{ v: 'p' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
+          small: [{ v: 'b' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
+          roach: [{ v: 'p' }, { gameRoundID: '__--ASK_ROAD_PREDICTED_GAME--__', v: 'p' }],
         },
 
         lobbyPro: {
@@ -903,60 +936,6 @@ namespace we {
         },
 
         inGameInfoStart: 0,
-
-        gameInfo: [
-          { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
-          { gameRoundID: '34345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 2 },
-          { gameRoundID: '45454', a1: 'club8', a2: 'heart4', a3: 'heart3', b1: 'diamond4', b2: 'heart8', b3: 'diamond5', bv: 3, pv: 1, result: 3 },
-        ],
-      };
-
-      // new BA roadmap data
-      private mockBARoadData_new: any = {
-        tableid: '1',
-        shoeid: '1',
-        playerwincount: 3,
-        bankerwincount: 3,
-        tiewincount: 3,
-        playerpairwincount: 3,
-        bankerpairwincount: 3,
-
-        inGame: {
-          bead: [{ gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 12 }, { gameRoundID: '34345', v: 'p', b: 0, p: 0, w: 4 }, { gameRoundID: '45454', v: 'b', b: 0, p: 1, w: 7 }],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
-          bigEye: [{ v: 'p' }],
-          small: [{ v: 'b' }],
-          roach: [{ v: 'p' }],
-        },
-
-        inGameB: {
-          bead: [
-            { gameRoundID: 'cde345', v: 't', b: 0, p: 0, w: 2 },
-            { gameRoundID: '34345', v: 'p', b: 0, p: 0, w: 4 },
-            { gameRoundID: '45454', v: 'b', b: 0, p: 1, w: 7 },
-            { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b', b: 0, p: 0, w: 0 },
-          ],
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }, { v: '', t: 0 }, { v: '', t: 0 }, { v: '', t: 0 }, { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b', t: 5 }],
-          bigEye: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b' }],
-          small: [{ v: 'b' }, { v: 'b' }],
-          roach: [{ v: 'p' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { v: '' }, { gameRoundID: '_--ASK_ROAD_PREDICTED_GAME--_', v: 'b' }],
-        },
-
-        inGameP: {},
-
-        lobbyPro: {},
-
-        lobbyProB: {},
-
-        lobbyProP: {},
-
-        sideBar: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
-        },
-
-        lobbyUnPro: {
-          bigRoad: [{ v: 'p', t: 0 }, { v: 'p', t: 0 }, { v: 'p', t: 4 }],
-        },
 
         gameInfo: {
           cde345: { gameRoundID: 'cde345', a1: 'club5', a2: 'heart7', a3: '', b1: 'diamond4', b2: 'heart8', b3: '', bv: 3, pv: 1, result: 1 },
@@ -1212,10 +1191,87 @@ namespace we {
 
       public getBetHistory(filter, callback: (res: any) => void, thisArg) {
         const tempData = [];
+        /*
+        for (let i = 0; i < 20; i++) {
+
+          tempData.push({
+            id: 'XXXXXXXXXX',
+            datetime: 1594978242, // timestamp
+            gametype: 1, // type of the Game, GameType
+            tablename: '132', // name of the table (i.e. table number)
+            roundid: '2132131',
+            replayurl: '1232131',
+            remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+            field: 'BANKER',
+            betAmount: 200,
+            winAmount: 400,
+            prevremaining: 1231232, // balance before bet
+            endremaining: 21321321, // balance after result
+            result: {
+              a1: 'spade1', // banker 1st card
+              a2: 'spade2',
+              a3: 'spade3',
+              b1: 'spade4', // player 1st card
+              b2: 'spade5',
+              b3: '',
+              playerpoint: 6,
+              bankerpoint: 7,
+            },
+          });
+        }
+        */
+        tempData.push({
+          id: 'XXXXXXXXXX',
+          datetime: 1594978242, // timestamp
+          gametype: core.GameType.DIL, // type of the Game, GameType
+          tablename: 'DI-132', // name of the table (i.e. table number)
+          roundid: '2132131',
+          replayurl: '1232131',
+          remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          field: 'SMALL',
+          betAmount: 200,
+          winAmount: 400,
+          prevremaining: 1231232, // balance before bet
+          endremaining: 21321321, // balance after result
+          result: {
+            a1: 1, // banker 1st card
+            a2: 2,
+            a3: 3,
+            b1: 'spade4', // player 1st card
+            b2: 'spade5',
+            b3: '',
+            playerpoint: 6,
+            bankerpoint: 7,
+          },
+        });
+        tempData.push({
+          id: 'XXXXXXXXXX',
+          datetime: 1594978242, // timestamp
+          gametype: core.GameType.RO, // type of the Game, GameType
+          tablename: 'ROL-132', // name of the table (i.e. table number)
+          roundid: '2132131',
+          replayurl: '1232131',
+          remark: 1, // win(1)/ lose(-1)/ tie(0) (see Reference: Game Lobby Requirement)
+          field: 'SMALL',
+          betAmount: 200,
+          winAmount: 400,
+          prevremaining: 1231232, // balance before bet
+          endremaining: 21321321, // balance after result
+          result: {
+            a1: 1, // banker 1st card
+            a2: 2,
+            a3: 3,
+            b1: 'spade4', // player 1st card
+            b2: 'spade5',
+            b3: '',
+            playerpoint: 6,
+            bankerpoint: 7,
+          },
+        });
         for (let i = 0; i < 20; i++) {
           tempData.push({
             id: 'XXXXXXXXXX',
-            datetime: 1576242221, // timestamp
+            datetime: 1594978242, // timestamp
             gametype: 1, // type of the Game, GameType
             tablename: '132', // name of the table (i.e. table number)
             roundid: '2132131',
@@ -1289,7 +1345,7 @@ namespace we {
           //     },
           //   },
           // ],
-          total: 20,
+          total: 22,
           history: tempData,
         });
       }
@@ -1304,7 +1360,7 @@ namespace we {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);
       }
 
-      public sendVerifyInfo(id: string, pattern: string[]) {}
+      public sendVerifyInfo(id: string, pattern: string[], callback: (data: any) => void, thisArg) {}
 
       public getBetCombination() {
         dir.evtHandler.dispatch(core.Event.BET_COMBINATION_UPDATE, this.betCombinations);

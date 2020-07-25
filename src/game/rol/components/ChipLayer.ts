@@ -1,17 +1,22 @@
 namespace we {
   export namespace rol {
     export class ChipLayer extends we.ro.ChipLayer {
+      protected _flashingOdd: eui.Label;
+      protected _luckyAnims: dragonBones.EgretArmatureDisplay[];
+      protected _winningAnim: dragonBones.EgretArmatureDisplay;
+
       public clearLuckyNumber() {
-        if (this._mouseAreaMapping) {
-          Object.keys(this._mouseAreaMapping).map(key => {
-            if (this._mouseAreaMapping[key]) {
-              this._mouseAreaMapping[key].removeChildren();
-            }
-          });
+        if (!this._mouseAreaMapping) {
+          return;
         }
+        Object.keys(this._mouseAreaMapping).map(key => {
+          if (this._mouseAreaMapping[key]) {
+            this._mouseAreaMapping[key].removeChildren();
+          }
+        });
       }
 
-      protected createLuckyCoinAnim() {
+      protected createAnim() {
         const skeletonData = RES.getRes(`roulette_w_game_result_ske_json`);
         const textureData = RES.getRes(`roulette_w_game_result_tex_json`);
         const texture = RES.getRes(`roulette_w_game_result_tex_png`);
@@ -34,12 +39,20 @@ namespace we {
 
         const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]];
 
-        const coinAnim = this.createLuckyCoinAnim();
+        this._winningAnim = this.createAnim();
 
+        if (this._luckyAnims) {
+          for (const luckyAnim of this._luckyAnims) {
+            luckyAnim.animation.stop();
+          }
+        }
+        if (this._flashingOdd) {
+          egret.Tween.removeTweens(this._flashingOdd);
+        }
         grid.removeChildren();
-        grid.addChild(coinAnim);
-        coinAnim.anchorOffsetX = 3;
-        coinAnim.anchorOffsetY = 2;
+        grid.addChild(this._winningAnim);
+        this._winningAnim.anchorOffsetX = 3;
+        this._winningAnim.anchorOffsetY = 2;
 
         let color: string;
         switch (we.ro.RACETRACK_COLOR[+key]) {
@@ -53,19 +66,19 @@ namespace we {
         }
 
         (async () => {
-          let p = we.utils.waitDragonBone(coinAnim);
-          coinAnim.animation.play(`win${color}_in`, 1);
+          let p = we.utils.waitDragonBone(this._winningAnim);
+          this._winningAnim.animation.play(`win${color}_in`, 1);
           await p;
 
-          p = we.utils.waitDragonBone(coinAnim);
-          coinAnim.animation.play(`win${color}_loop`, 3);
+          p = we.utils.waitDragonBone(this._winningAnim);
+          this._winningAnim.animation.play(`win${color}_loop`, 6);
           await p;
 
-          p = we.utils.waitDragonBone(coinAnim);
-          coinAnim.animation.play(`win${color}_out`, 1);
+          p = we.utils.waitDragonBone(this._winningAnim);
+          this._winningAnim.animation.play(`win${color}_out`, 1);
           await p;
 
-          coinAnim.animation.stop();
+          this._winningAnim.animation.stop();
         })();
       }
 
@@ -103,6 +116,8 @@ namespace we {
 
         const luckyNumbers = env.tableInfos[this._tableId].data.luckynumber;
 
+        this._luckyAnims = new Array<dragonBones.EgretArmatureDisplay>();
+
         Object.keys(luckyNumbers).map((key, index) => {
           if (!this._mouseAreaMapping[ro.BetField['DIRECT_' + key]]) {
             return;
@@ -111,7 +126,7 @@ namespace we {
           const grid = this._mouseAreaMapping[ro.BetField['DIRECT_' + key]];
           grid.removeChildren();
 
-          const coinAnim = this.createLuckyCoinAnim();
+          const luckyAnim = this.createAnim();
           let color: string;
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
@@ -125,48 +140,46 @@ namespace we {
               color = '_Black';
           }
 
-          coinAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), coinAnim);
+          luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
-          grid.addChild(coinAnim);
-          coinAnim.anchorOffsetX = 3;
-          coinAnim.anchorOffsetY = 2;
+          grid.addChild(luckyAnim);
+          luckyAnim.anchorOffsetX = 3;
+          luckyAnim.anchorOffsetY = 2;
 
-          const label = new eui.Label();
-          label.verticalCenter = 0;
-          label.horizontalCenter = 0;
-          label.fontFamily = 'Barlow';
-          label.size = 30;
-          label.textColor = 0x83f3af;
-          label.text = luckyNumbers[key] + 'x';
+          this._flashingOdd = new eui.Label();
+          this._flashingOdd.verticalCenter = 0;
+          this._flashingOdd.horizontalCenter = 0;
+          this._flashingOdd.fontFamily = 'Barlow';
+          this._flashingOdd.size = 30;
+          this._flashingOdd.textColor = 0x83f3af;
+          this._flashingOdd.text = luckyNumbers[key] + 'x';
 
-          grid.addChild(label);
-          egret.Tween.get(label)
+          grid.addChild(this._flashingOdd);
+          egret.Tween.get(this._flashingOdd)
             .to({ alpha: 0 }, 1000)
             .to({ alpha: 1 }, 1000)
             .to({ alpha: 0 }, 1000)
             .to({ alpha: 1 }, 1000)
             .to({ alpha: 0 }, 1000);
 
+          this._luckyAnims.push(luckyAnim);
+
           (async () => {
-            let p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Bet${color}_in`, 1);
+            let p = we.utils.waitDragonBone(luckyAnim);
+            luckyAnim.animation.play(`Bet${color}_in`, 1);
             await p;
 
-            p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Bet${color}_loop`, 3);
+            luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
+
+            p = we.utils.waitDragonBone(luckyAnim);
+            luckyAnim.animation.play(`Bet${color}_loop`, 0);
             await p;
 
-            p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Bet${color}_loop`, 3);
+            /*
+            p = we.utils.waitDragonBone(this._luckyAnim);
+            this._luckyAnim.animation.play(`Bet${color}_loop`, 3);
             await p;
-
-            coinAnim.animation.stop();
-            egret.Tween.removeTweens(label);
-            if (grid.contains(label)) {
-              grid.removeChild(label);
-            }
-
-            coinAnim.removeDBEventListener('INSERT_GRID_BG', this.addGridBg(grid, +key), this);
+            */
           })();
         });
       }

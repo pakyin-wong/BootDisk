@@ -8,6 +8,7 @@ This is the game client for World Entertainment.
 - [Lottery Asset](#lottery-asset)
 
 ## Roadmap
+v0.6.0
 
 ### Tasks
 - Disconnect handling
@@ -48,7 +49,7 @@ if (list has new goodroad) we send out Notification.
 ### MacOS
 1. Install Egret Launcher. (Don't install Egret Wing solely.)
 2. Install Egret Wing and Egret Engine(5.2.29).
-3. Install optipng and pngquant for image compression
+3. Install jpegoptim, optipng and pngquant for image compression
 4. Install npm
 5. Install the following programs
 ```
@@ -146,9 +147,14 @@ There are few steps needed to be taken before publish
 - [Baccarat Requirement](https://docs.google.com/document/d/1vjd9PBGGMaTAzS12U4EoiQ-daw8yi-vkYh7-XDRwkuw/edit)
 - [Squeezed Baccarat Mobile Requirement (Portrait)](https://docs.google.com/document/d/1MmLHwUiXZQiW7N5u73z9Ej02oTBvUwS5esCrPSS-k80/edit)
 
-
+- [GOW Sicbo Desktop Requirement](https://docs.google.com/document/u/1/d/1A-H_QTX6NlgbiEQRVfVMERfuytIxxMnMZ_fgCviLv8k/mobilebasic)
 
 ## Live Game Asset
+- [22/7 lobby icon dragonbones](https://drive.google.com/file/d/1hNu8nOQOhl1ce6IF36V9_bvCKTNeCxen/view?usp=sharing)
+- [22/7 common icon dragonbones](https://drive.google.com/file/d/1f2cXQTwD5lSjyd6RfJIZMLMB-_1gbUqQ/view?usp=sharing)
+- [22/7 baccarat icon dragonbones](https://drive.google.com/file/d/1VHjrALtDJaOQr_lf6oEPHbzyH-7KCfBb/view?usp=sharing)
+- [22/7 roulette icon dragonbones](https://drive.google.com/file/d/1HlBBA1Y1Ji6ll9OiEqjHm9mNNyr-Yr9W/view?usp=sharing)
+
 - [3/7 God of Wealth Sicbo desktop Assets](https://drive.google.com/file/d/18B5IwK0BgRBUfxn1AK1AvQrNJ3POLcqf/view?usp=sharing)
 - [3/7 God of Wealth Sicbo mobile Assets](https://drive.google.com/drive/folders/10MG0EFUScuyShearr9KnE5O7HYLMTAfW?usp=sharing)
 - [3/7 God of Wealth Sicbo animation Assets](https://drive.google.com/file/d/15_cVXgRdVqzK2D-qLoONG5Y620SlHEsU/view?usp=sharing)

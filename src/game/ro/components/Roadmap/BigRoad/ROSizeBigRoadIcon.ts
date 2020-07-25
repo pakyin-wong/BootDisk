@@ -117,34 +117,28 @@ namespace we {
         super.updateDisplay();
         const value = this.value;
 
-        const colors = [0xee2e2e, 0x333333, 0x00ff00, 0x990909, 0x000000, 0x00dd00];
-        const gradientColors = [[0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b], [0xff0000, 0xff0000], [0x000000, 0x000000], [0x00ff00, 0x10662b]];
+        const colors = [0xee2e2e, 0x3e60f8, 0x10b04b];
         const iconSize = this.size;
         const circleRadius = (this.size / 2) * 0.9;
         const lineWidth = 1;
         const offset = (iconSize - circleRadius * 2) / 2;
 
-        const useDarkMode = this.darkModeNumber === 0 ? 0 : 3;
         let colorIdx = -1;
 
         if (value.v != null) {
           if (value.v === 0) {
             // green
-            colorIdx = 2 + useDarkMode;
+            colorIdx = 2;
           } else if (value.v === 1) {
             // blue for even
-            colorIdx = 1 + useDarkMode;
+            colorIdx = 1;
           } else {
             // red for odd
-            colorIdx = 0 + useDarkMode;
+            colorIdx = 0;
           }
           if (colorIdx >= 0) {
             this._iconShape.graphics.lineStyle(lineWidth, 0x6d7278, 0.5, true);
             this._iconShape.graphics.beginFill(colors[colorIdx]);
-
-            const fillMatrix = new egret.Matrix();
-            fillMatrix.createGradientBox(this.size, this.size, Math.PI / 2, 0, 0);
-            this._iconShape.graphics.beginGradientFill(egret.GradientType.LINEAR, gradientColors[colorIdx], [1, 1], [0, 255], fillMatrix);
             this._iconShape.graphics.drawRoundRect(lineWidth, lineWidth, iconSize - lineWidth * 2, iconSize - lineWidth * 2, 12, 12);
             this._iconShape.graphics.endFill();
             this.changeLang();

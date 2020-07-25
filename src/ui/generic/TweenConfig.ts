@@ -10,6 +10,7 @@ namespace we {
       // }
 
       public getTweenPackage() {
+        this.validateNow();
         return {
           x: this.checker.x,
           y: this.checker.y,

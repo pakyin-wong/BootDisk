@@ -11,6 +11,11 @@ namespace we {
       private redNumbers: number[] = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
       protected _iconTopText: egret.TextField;
 
+      protected _shapeLayer: egret.DisplayObjectContainer;
+      protected _textLayer: egret.DisplayObjectContainer;
+      protected _topTextLayer: egret.DisplayObjectContainer;
+      protected _layerVisible: boolean;
+
       public constructor(size: number = 30, emptyColor: number = 0xc1c1c1, emptyAlpha: number = 0.2) {
         super(size);
         this.emptyColor = emptyColor;
@@ -22,8 +27,8 @@ namespace we {
         this._iconText.y = this._offsetY;
 
         const iconSize = this.size;
-        const circleRadius = (this.size / 2) * 0.9;
         const lineWidth = 1;
+        const circleRadius = this.size / 2 + 2;
         this.iconHightLight = new egret.Shape();
         this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
         this.iconHightLight.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
@@ -46,6 +51,8 @@ namespace we {
         this._iconTopText.x = this._iconTopText.width * 0.5;
         this._iconTopText.y = this._iconTopText.height * -0.2;
         this._iconTopText.visible = false;
+
+        this._layerVisible = true;
 
         // this.initGraphics();
         this.setByObject({});
@@ -213,6 +220,7 @@ namespace we {
         // this.value = null;
       }
       public addToTopTextLayer(topTextLayer: egret.DisplayObjectContainer) {
+        this._topTextLayer = topTextLayer;
         if (this._iconTopText) {
           topTextLayer.addChild(this._iconTopText);
           this._iconTopText.x = this.x + this._offsetX;
@@ -222,6 +230,8 @@ namespace we {
 
       public addToLayer(shapeLayer: egret.DisplayObjectContainer, textLayer: egret.DisplayObjectContainer) {
         this.isAtAnimateLayer = false;
+        this._shapeLayer = shapeLayer;
+        this._textLayer = textLayer;
         if (this.iconHightLight) {
           shapeLayer.addChild(this.iconHightLight);
           this.iconHightLight.x = this.x;
@@ -237,6 +247,41 @@ namespace we {
           this._iconText.x = this.x + this._offsetX;
           this._iconText.y = this.y + this._offsetY;
         }
+      }
+
+      public set layerVisible(v: boolean) {
+        this._layerVisible = v;
+        if (v) {
+          if (this._shapeLayer) {
+            this._shapeLayer.addChild(this.iconHightLight);
+          }
+          if (this._shapeLayer) {
+            this._shapeLayer.addChild(this._iconShape);
+          }
+          if (this._textLayer) {
+            this._textLayer.addChild(this._iconText);
+          }
+          if (this._topTextLayer) {
+            this._topTextLayer.addChild(this._iconTopText);
+          }
+        } else {
+          if (this._shapeLayer) {
+            this._shapeLayer.removeChild(this.iconHightLight);
+          }
+          if (this._shapeLayer) {
+            this._shapeLayer.removeChild(this._iconShape);
+          }
+          if (this._textLayer) {
+            this._textLayer.removeChild(this._iconText);
+          }
+          if (this._topTextLayer) {
+            this._topTextLayer.removeChild(this._iconTopText);
+          }
+        }
+      }
+
+      public get layerVisible() {
+        return this._layerVisible;
       }
     }
   }

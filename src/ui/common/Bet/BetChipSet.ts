@@ -19,6 +19,10 @@ namespace we {
         this._selectedChipIndex = index;
       }
 
+      // public get selectedChip() {
+      //   return this._denomList[this._selectedChipIndex];
+      // }
+
       public setTouchEnabled(enable: boolean) {}
 
       public setUpdateChipSetSelectedChipFunc(value: (value: number, index: number) => void) {}

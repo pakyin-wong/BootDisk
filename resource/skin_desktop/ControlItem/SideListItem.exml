@@ -6,11 +6,14 @@
         <ui:BetChipSetGrid id="_betChipSet" width="339" anchorOffsetX="0" x="0" anchorOffsetY="0" y="0" alpha="0" />
     </e:Group>
     <e:Group id="_quickBetGroup" width="339" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" alpha="0">
-        <e:Rect width="100%" height="100" x="0" alpha="0.6" y="100" />
-        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="118"
+        <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="337" height="110" x="0" y="110" stroke="0"
+                           fillColor="0x000000" fillAlpha="0.5" />
+        <ui:RoundRectShape cornerTL_TR_BL_BR="0,0,8,8" width="337" height="122" x="0" y="0" stroke="2"
+                           strokeColor="0x000000" fillColor="0x282828" strokeIn="4" strokeInColor="0x3a3f48" />
+        <ui:BetChipSetGridSelected id="_betChipSetGridSelected" width="80" height="80" x="136" y="128"
                                    skinName="skin_desktop.BetChipSkin" />
-        <e:Component id="_tableLayerNode" width="339" skinName="skin_desktop.ba.SideListTableLayerSkin"
-                     anchorOffsetY="0" height="110" left="0" top="0" name="sidebettingtable" visible="false" />
+        <e:Component id="_tableLayerNode"
+                     anchorOffsetY="0" height="120" left="2" top="0" name="sidebettingtable" visible="false" />
         <ui:BaseImageButton id="_closeButton" x="12" y="125" width="56" height="60"
                             currentState="lobby_betcontrol_close" skinName="skin_desktop.ImageButtonSkinLobby" />
         <ui:BaseImageButton id="_prevButton" x="68" y="125" width="56" height="60"

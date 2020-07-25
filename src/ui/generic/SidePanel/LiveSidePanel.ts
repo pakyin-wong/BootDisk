@@ -62,6 +62,7 @@ namespace we {
             case we.core.GameType.ROL:
               return ro.SideListBetItemHolder;
             case we.core.GameType.DI:
+            case we.core.GameType.DIL:
               return di.SideListBetItemHolder;
             case we.core.GameType.LW:
               return lw.SideListBetItemHolder;
@@ -104,6 +105,7 @@ namespace we {
             case we.core.GameType.ROL:
               return ro.SideListItemHolder;
             case we.core.GameType.DI:
+            case we.core.GameType.DIL:
               return di.SideListItemHolder;
             case we.core.GameType.LW:
               return lw.SideListItemHolder;
@@ -149,6 +151,8 @@ namespace we {
               return ro.SideListItemHolder;
             case we.core.GameType.DI:
               return di.SideListItemHolder;
+            case we.core.GameType.DIL:
+              return dil.SideListItemHolder;
             case we.core.GameType.LW:
               return lw.SideListItemHolder;
             case we.core.GameType.DT:
@@ -179,6 +183,7 @@ namespace we {
         const layout = new eui.VerticalLayout();
         layout.paddingTop = 20;
         layout.paddingBottom = 20;
+        layout.gap = 20;
         layout.horizontalAlign = egret.HorizontalAlign.CENTER;
         layout.useVirtualLayout = true;
         return layout;

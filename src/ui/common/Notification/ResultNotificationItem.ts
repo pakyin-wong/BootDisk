@@ -35,7 +35,6 @@ namespace we {
             this._content = new DIResultNotificationContent(); // DI
             break;
           default:
-            console.log('not yet done');
             break;
         }
         // this._content = new ResultNotificationContent();

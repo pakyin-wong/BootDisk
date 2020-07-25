@@ -8,6 +8,8 @@ namespace we {
       protected _tableInfoWindow: ui.TableInfoPanel;
       protected _originBetRelatedGroupY: number;
 
+      protected _panelDismissToggleBtn: ui.BaseAnimationButton;
+
       constructor(data: any) {
         super(data);
       }
@@ -23,6 +25,16 @@ namespace we {
           this._tableInfoWindow.setToggler(this._lblRoomInfo);
           this._tableInfoWindow.setValue(this._tableInfo);
         }
+
+        if (this._panelDismissToggleBtn) {
+          this._panelDismissToggleBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelToggle, this);
+        }
+
+        ui.EdgeDismissableAddon.isDismiss = false;
+      }
+
+      protected onPanelToggle(evt: egret.TouchEvent) {
+        ui.EdgeDismissableAddon.toggle();
       }
 
       protected updateTableInfoRelatedComponents() {
@@ -36,6 +48,7 @@ namespace we {
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
         if (this._betRelatedGroup) {
+          egret.Tween.removeTweens(this._betRelatedGroup);
           egret.Tween.get(this._betRelatedGroup).to({ y: enable ? this._originBetRelatedGroupY : this._originBetRelatedGroupY + 120, alpha: enable ? 1 : 0 }, 400, egret.Ease.getElasticInOut(1, 400));
         }
       }

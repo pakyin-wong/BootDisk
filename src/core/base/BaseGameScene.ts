@@ -22,9 +22,6 @@ namespace we {
       protected _doubleButton: ui.BaseImageButton;
       protected _undoButton: ui.BaseImageButton;
 
-      // table name label
-      // protected _label: ui.RunTimeLabel;
-
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
       protected _betDetails: data.BetDetail[];
@@ -33,7 +30,6 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
-      // protected _btnBack: eui.Image;
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
 
@@ -46,6 +42,10 @@ namespace we {
 
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
+
+      public get tableInfo() {
+        return this._tableInfo;
+      }
 
       constructor(data: any) {
         super(data);
@@ -86,6 +86,7 @@ namespace we {
 
       public onExit() {
         super.onExit();
+        this.stage.frameRate = env.frameRate;
         dir.audioCtr.video = null;
         this._video.stop();
         dir.videoPool.release(this._video);
@@ -114,10 +115,10 @@ namespace we {
         this._video.$anchorOffsetX = this._video.width * 0.5;
         this._video.$anchorOffsetY = this._video.height * 0.5;
         this._video.play();
+        this.stage.frameRate = 60;
         this._bgImg.visible = false;
 
-        this._gameBar.setPlayFunc(this.playVideo(this));
-        this._gameBar.setStopFunc(this.stopVideo(this));
+        this._gameBar.targetScene = this;
 
         if (env.betLimits) {
           this.initDenom();
@@ -137,6 +138,7 @@ namespace we {
 
       protected initDenom() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
         }
@@ -637,10 +639,15 @@ namespace we {
         }
       }
 
+      public get isVideoStopped() {
+        return this._video.paused;
+      }
+
       public playVideo(scene: any) {
         return () => {
           try {
             scene._video.play();
+            scene.stage.frameRate = 60;
           } catch (e) {
             console.log('Video play Error');
           }
@@ -652,6 +659,7 @@ namespace we {
         return () => {
           try {
             scene._video.stop();
+            scene.stage.frameRate = env.frameRate;
           } catch (e) {
             console.log('Video play Error');
           }

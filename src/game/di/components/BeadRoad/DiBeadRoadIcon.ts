@@ -85,7 +85,7 @@ namespace we {
         // draw the hightlight
         // this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
         this.iconHightLight.graphics.beginFill(this.itemColors[3], this.itemColors[4]);
-        this.iconHightLight.graphics.drawRoundRect(0, 0, iconSize, spacing * 4 + displaySize, iconSize / 4, iconSize / 4);
+        this.iconHightLight.graphics.drawRoundRect(0, 0, iconSize, spacing * 4 + displaySize, 8, 8);
         this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
 

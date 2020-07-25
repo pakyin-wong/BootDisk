@@ -73,7 +73,7 @@ namespace we {
       protected initCustomPos() {
         this._targetQuickBetButtonY = 199;
         this._originalQuickBetButtonY = 85;
-        this._targetQuickbetPanelY = 170;
+        this._targetQuickbetPanelY = 160;
         this._originalQuickBetPanelY = 0;
         this._offsetLimit = 10000;
         this._offsetMovement = 0;
@@ -100,8 +100,32 @@ namespace we {
       }
 
       public drawBorder(width: number, height: number) {
-        this._headerBg.graphics.lineStyle(2, 0x3a3f48);
-        RoundRect.drawRoundRect(this._headerBg.graphics, 0, 0, width, height, { tl: 8, tr: 8, bl: 8, br: 8 });
+        const cornerRadius = { tl: 8, tr: 8, bl: 8, br: 8 };
+        const strokeIn = 2;
+        const stroke = 2;
+
+        this._headerBg.graphics.lineStyle(stroke, 0x000000);
+        RoundRect.drawRoundRect(this._headerBg.graphics, 0, 0, width, height, cornerRadius);
+        /*
+        const strokeSum = strokeIn + stroke;
+        const cRadius = {
+          tl: cornerRadius.tl > 0 ? cornerRadius.tl - strokeSum * 0.5 : 0,
+          tr: cornerRadius.tr > 0 ? cornerRadius.tr - strokeSum * 0.5 : 0,
+          bl: cornerRadius.bl > 0 ? cornerRadius.bl - strokeSum * 0.5 : 0,
+          br: cornerRadius.br > 0 ? cornerRadius.br - strokeSum * 0.5 : 0,
+        };
+        RoundRect.drawRoundRect(this._gr, strokeSum * 0.5, strokeSum * 0.5, width - strokeSum, height - strokeSum, cRadius);
+        */
+
+        const cRadius = {
+          tl: cornerRadius.tl > 0 ? cornerRadius.tl - strokeIn * 0.5 : 0,
+          tr: cornerRadius.tr > 0 ? cornerRadius.tr - strokeIn * 0.5 : 0,
+          bl: cornerRadius.bl > 0 ? cornerRadius.bl - strokeIn * 0.5 : 0,
+          br: cornerRadius.br > 0 ? cornerRadius.br - strokeIn * 0.5 : 0,
+        };
+
+        this._headerBg.graphics.lineStyle(strokeIn, 0x3a3f48);
+        RoundRect.drawRoundRect(this._headerBg.graphics, strokeIn * 0.5, strokeIn * 0.5, width - strokeIn, height - strokeIn, cRadius);
       }
 
       public setData(tableInfo: data.TableInfo) {

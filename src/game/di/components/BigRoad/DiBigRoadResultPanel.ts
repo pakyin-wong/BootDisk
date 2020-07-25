@@ -7,9 +7,9 @@ namespace we {
       protected dice1: eui.Image;
       protected dice2: eui.Image;
       protected dice3: eui.Image;
-      protected sizeBg: eui.Image;
-      protected oddBg: eui.Image;
-      protected tripleBg: eui.Image;
+      protected sizeBg: ui.RoundRectShape;
+      protected oddBg: ui.RoundRectShape;
+      protected tripleBg: ui.RoundRectShape;
       protected sizeLabel: ui.RunTimeLabel;
       protected oddLabel: ui.RunTimeLabel;
       protected tripleLabel: ui.RunTimeLabel;
@@ -24,7 +24,7 @@ namespace we {
         this._gameInfoLabel.renderText = () => `${i18n.t('baccarat.clickToSeeVideo')}`;
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
 
-        this._gameInfoLabel.visible = false;
+        // this._gameInfoLabel.visible = false;
       }
 
       public changeLang() {
@@ -85,18 +85,18 @@ namespace we {
 
           if (this.diceSize === 1) {
             // small
-            this.sizeBg.source = 'd_ba_betarea_player_hover_png';
+            this.sizeBg.setRoundRectStyle(152, 42, { tl: 21, tr: 21, br: 21, bl: 21 }, '0x2e95ff,0x305acc,270', 1, 0);
           } else {
             // big
-            this.sizeBg.source = 'd_ba_betarea_bankerpair_hover_png';
+            this.sizeBg.setRoundRectStyle(152, 42, { tl: 21, tr: 21, br: 21, bl: 21 }, '0xff5b67,0xad3737,270', 1, 0);
           }
 
           if (this.diceOdd === 1) {
             // odd
-            this.oddBg.source = 'd_ba_betarea_player_hover_png';
+            this.oddBg.setRoundRectStyle(152, 42, { tl: 21, tr: 21, br: 21, bl: 21 }, '0x2e95ff,0x305acc,270', 1, 0);
           } else {
             // even
-            this.oddBg.source = 'd_ba_betarea_bankerpair_hover_png';
+            this.oddBg.setRoundRectStyle(152, 42, { tl: 21, tr: 21, br: 21, bl: 21 }, '0xff5b67,0xad3737,270', 1, 0);
           }
         }
 

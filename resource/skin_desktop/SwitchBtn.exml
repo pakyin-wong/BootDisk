@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.SwitchBtn" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="active,idle"  width="51" height="31">
+	<e:Image source.active="d_lobby_switch_png" source="d_lobby_switch_dark_png" width="51" height="31"/>
+</e:Skin>

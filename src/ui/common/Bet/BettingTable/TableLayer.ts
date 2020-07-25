@@ -3,7 +3,7 @@ namespace we {
     export class TableLayer extends ui.Panel {
       protected _tableId: string;
       protected _type: we.core.BettingTableType;
-      protected _imageMapping: { [s: string]: eui.Image };
+      protected _imageMapping: { [s: string]: any };
       protected _totalMapping: { [s: string]: eui.Label };
       protected _betField: any;
 

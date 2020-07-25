@@ -322,9 +322,7 @@ namespace we {
 
       protected getBetOptions() {
         const uncfmBets = this._chipLayer.getUnconfirmedBetDetails();
-        console.log(uncfmBets);
         const cfmBets = this._chipLayer.getConfirmedBetDetails();
-        console.log(cfmBets);
         const betOptions = this.mergeBets(uncfmBets, cfmBets);
         return betOptions;
       }

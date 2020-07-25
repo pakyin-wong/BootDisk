@@ -401,10 +401,6 @@ namespace we {
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
-        if (this._timer) {
-          this._timer.visible = enable;
-        }
-
         if (this._chipLayer) {
           this._chipLayer.setTouchEnabled(enable);
         }
@@ -455,7 +451,9 @@ namespace we {
             pass2 = this._gameData && this._gameData.wintype != 0;
             break;
           case core.GameType.RO:
+          case core.GameType.ROL:
           case core.GameType.DI:
+          case core.GameType.DIL:
           case core.GameType.LW:
             pass1 = this._gameData && !isNaN(totalWin);
             pass2 = !!this._gameData;
@@ -497,7 +495,7 @@ namespace we {
           if (this._chipLayer.getTotalUncfmBetAmount() > 0) {
             const bets = this._chipLayer.getUnconfirmedBetDetails();
             this._chipLayer.resetUnconfirmedBet();
-            this._undoStack = null;
+            this._undoStack.clearStack();
             // Not yet decided: any blocking or a new waitingConfirmedBet should be used here.
             dir.socket.bet(this._tableId, bets);
           }

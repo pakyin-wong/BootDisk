@@ -59,8 +59,8 @@ namespace we {
           if (this.tableInfo.roadmap) {
             const roadData = this.tableInfo.roadmap;
             if (roadData.gameInfo) {
-              if (e.data.index >= 0 && e.data.index + roadData.inGameInfoStart < roadData.gameInfo.length) {
-                const rslt = roadData.gameInfo[e.data.index + roadData.inGameInfoStart];
+              if (e.data.index >= 0 && e.data.gameRoundID !== undefined && e.data.gameRoundID !== '__--ASK_ROAD_PREDICTED_GAME--__') {
+                const rslt = roadData.gameInfo[e.data.gameRoundID];
 
                 const gameData: GameData = new GameData();
                 gameData.a1 = rslt.a1;

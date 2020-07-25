@@ -1,0 +1,23 @@
+namespace we {
+  export namespace lo {
+    export class FunBetTabItemRenderer extends eui.ItemRenderer {
+      private bg: ui.RoundRectShape;
+      private label: ui.RunTimeLabel;
+
+      public constructor() {
+        super();
+        this.skinName = utils.getSkinByClassname('lo.FunBetTabItemRenderer');
+        mouse.setButtonMode(this, true);
+      }
+
+      public dataChanged() {
+        super.dataChanged();
+        this.label.renderText = () => `${i18n.t(`lo_fun_betlayer_tab_${this.data}`)}`;
+        if (this.itemIndex !== 0) {
+          this.bg.cornerTL_TR_BL_BR = '0,0,0,0';
+          this.bg.refresh();
+        }
+      }
+    }
+  }
+}

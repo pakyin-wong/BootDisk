@@ -22,6 +22,7 @@ namespace we {
         core.GameType.BAS,
         core.GameType.BAM,
         core.GameType.DI,
+        core.GameType.DIL,
         core.GameType.DT,
         core.GameType.LW,
         core.GameType.RO,
@@ -37,7 +38,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.6.1';
+      public version: string = '0.7.0';
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
@@ -47,6 +48,8 @@ namespace we {
       public nickname: string;
       public nicknameKey: string;
       public profileimage: string;
+
+      public frameRate: number = 30;
 
       public _nicknames: { [langcode: string]: any } = {};
       public _groups: {};
@@ -276,6 +279,9 @@ namespace we {
             break;
           case core.GameType.DI:
             dir.sceneCtr.goto('di', { tableid: tableId });
+            break;
+          case core.GameType.DIL:
+            dir.sceneCtr.goto('dil', { tableid: tableId });
             break;
           case core.GameType.LW:
             dir.sceneCtr.goto('lw', { tableid: tableId });

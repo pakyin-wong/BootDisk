@@ -5,7 +5,7 @@ namespace we {
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
 
-      protected _tweenInterval1: number = 250;
+      protected _tweenInterval1: number = 300;
       protected _hoverScale: number = 1.1;
 
       // protected _originalyhover: number;
@@ -110,7 +110,6 @@ namespace we {
         }
         egret.Tween.removeTweens(this);
         egret.Tween.removeTweens(this._quickBetGroup);
-        console.log(this._quickBetGroup.contentHeight);
 
         this._quickBetGroup.height = this._quickBetGroup.contentHeight;
 
@@ -192,7 +191,7 @@ namespace we {
         if (this.list && !this.list.isLocked) {
           // this.setChildIndex(this._timer, 25000);
           egret.Tween.removeTweens(this);
-          egret.Tween.get(this).to({ scaleX: this._hoverScale, scaleY: this._hoverScale, y: this._originaly }, this._tweenInterval1);
+          egret.Tween.get(this).to({ scaleX: this._hoverScale, scaleY: this._hoverScale, y: this._originaly }, this._tweenInterval1, egret.Ease.cubicOut);
           if (this._quickbetEnable) {
             this.showQuickBetButton(true);
           }
@@ -205,7 +204,7 @@ namespace we {
           // this.setChildIndex(this._timer, 2500);
 
           egret.Tween.removeTweens(this);
-          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 250);
+          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1, egret.Ease.cubicIn);
           this.showQuickBetButton(false);
         }
       }

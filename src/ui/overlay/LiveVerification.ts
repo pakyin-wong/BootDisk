@@ -110,9 +110,25 @@ namespace we {
         if (this.inputIndex < 3) {
           return;
         }
-        this.alert_group.visible = true;
-        const id = new we.data.TableInfo();
-        dir.socket.sendVerifyInfo(id.tableid, this.pattern);
+        // TODO: use current tableinfo instead of new
+        const gameScene = dir.sceneCtr.currScene as core.BaseGameScene;
+        if (gameScene) {
+          const id = gameScene.tableInfo.tableid;
+          dir.socket.sendVerifyInfo(id, this.pattern, this.verificationCallback, this);
+        }
+      }
+
+      protected verificationCallback(data) {
+        if (data.error) {
+          // TODO:  handle error on cancel
+        } else {
+          this.alert_group.visible = true;
+          setTimeout(() => {
+            if (this.alert_group) {
+              this.alert_group.visible = false;
+            }
+          }, 2500);
+        }
       }
 
       protected addListeners() {
