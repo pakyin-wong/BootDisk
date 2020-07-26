@@ -237,6 +237,8 @@ namespace we {
           coinGroup.addChild(coinAnim);
           coinGroup.addChild(oddLabel);
           coinGroup.addChild(numberLabel);
+          coinGroup.visible = false;
+
           this._coinGroup.addChild(coinGroup);
 
           // const oddSlot = coinAnim.armature.getSlot('Odd');
@@ -276,6 +278,9 @@ namespace we {
           const animName = this.getAnimName(+key);
 
           (async () => {
+            await we.utils.sleep(1000);
+            coinGroup.visible = true;
+
             let p = we.utils.waitDragonBone(coinAnim);
             coinAnim.animation.play(`${animName}_in`, 1);
             await p;
@@ -288,10 +293,10 @@ namespace we {
             coinAnim.animation.play(`${animName}_out`, 1);
             await p;
 
+            coinAnim.animation.stop();
+
             this._coinGroup.removeChildren();
           })();
-
-          we.utils.sleep(250);
         }
       }
 
