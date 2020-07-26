@@ -279,10 +279,10 @@ namespace we {
 
           (async () => {
             await we.utils.sleep(1000);
-            coinGroup.visible = true;
 
             let p = we.utils.waitDragonBone(coinAnim);
             coinAnim.animation.play(`${animName}_in`, 1);
+            coinGroup.visible = true;
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
