@@ -60,6 +60,11 @@ namespace we {
         }
       }
 
+      set _totalBet(total: number) {
+        this.totalBet = total;
+        this.totalBetLabel.text = this.totalBet.toString(10);
+      }
+
       public destroy() {
         super.destroy();
 

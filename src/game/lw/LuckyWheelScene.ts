@@ -44,6 +44,11 @@ namespace we {
         }
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.count));
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.amount));
+
+        const betInfo = <data.GameTableBetInfo>evt.data;
+        if (betInfo.tableid === this._tableId) {
+          this._leftGamePanel._totalBet = evt.data.total;
+        }
       }
 
       protected initChildren() {
