@@ -5,10 +5,23 @@ namespace we {
       protected _scroller: ui.Scroller;
       protected _list: ui.List;
 
+      protected _horizontalAlign: any = null;
+
       protected _toggleArrow: eui.Image;
 
       constructor() {
         super();
+      }
+
+      public set horizontalAlign(val) {
+        this._horizontalAlign = val;
+        if (this._toggler) {
+          ((this._toggler as any).layout as eui.HorizontalLayout).horizontalAlign = val;
+        }
+      }
+
+      public get horizontalAlign(): string {
+        return this._horizontalAlign;
       }
 
       public mount() {
@@ -23,6 +36,10 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.BET_LIMIT_CHANGE, this.onBetLimitChanged, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.onLanguageChanged, this);
         this._label.size = 24;
+
+        if (this._horizontalAlign && this._toggler) {
+          this.horizontalAlign = this._horizontalAlign;
+        }
       }
 
       protected destroy() {
