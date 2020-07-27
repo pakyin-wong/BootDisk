@@ -56,7 +56,7 @@ namespace we {
 
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
 
         this.labelHot.text = i18n.t('roulette.hot');
         this.labelCold.text = i18n.t('roulette.cold');
@@ -267,7 +267,7 @@ namespace we {
           console.log(`............${betInfo.tableid}`);
           if (betInfo.tableid === this.tableInfo.tableid) {
             this.totalBet = evt.data.total;
-            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
           }
         }
       }

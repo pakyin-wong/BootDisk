@@ -19,7 +19,7 @@ namespace we {
         this.gameIdText.text = i18n.t('baccarat.gameroundid') + ' ';
         this.gameIdLabel.text = this.gameId;
         this.totalBetText.text = i18n.t('baccarat.totalbet') + ' ';
-        this.totalBetLabel.text = this.totalBet.toString(10);
+        this.totalBetLabel.text = utils.numberToFaceValue(this.totalBet);
       }
 
       protected init() {
@@ -62,7 +62,7 @@ namespace we {
 
       set _totalBet(total: number) {
         this.totalBet = total;
-        this.totalBetLabel.text = this.totalBet.toString(10);
+        this.totalBetLabel.text = utils.numberToFaceValue(this.totalBet);
       }
 
       public destroy() {
