@@ -506,6 +506,7 @@
 		"resource/skin_mobile_portrait/overlay/ModeSelect.exml",
 		"resource/skin_mobile_portrait/overlay/PlayerProfile.exml",
 		"resource/skin_mobile_portrait/overlay/PlayerProfileIconItem.exml",
+		"resource/skin_mobile_portrait/overlay/RolResultItem.exml",
 		"resource/skin_mobile_portrait/overlay/RoResultItem.exml",
 		"resource/skin_mobile_portrait/overlay/SystemSetting.exml",
 		"resource/skin_mobile_portrait/overlay/VideoSetting.exml",

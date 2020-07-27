@@ -1789,6 +1789,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class RolResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class RoResultItem extends eui.Skin{
 	}
 }

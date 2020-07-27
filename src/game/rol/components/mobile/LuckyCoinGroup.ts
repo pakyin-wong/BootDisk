@@ -149,11 +149,20 @@ namespace we {
           return;
         }
 
+        // this.luckyNo = this.gameData.luckynumber;
+        // const noOfLuckNum = Object.keys(this.luckyNo).length;
+
         const luckyNumbers = this.gameData.luckynumber;
         const noOfLuckNum = Object.keys(luckyNumbers).length;
         this.setAnimPositionVer(noOfLuckNum);
 
         let no = 0;
+
+        // for (const key of Object.keys(luckyNumbers)) {
+        //   const coinAnim = this.createLuckyCoinAnim();
+
+        //   this.createCoinAnim(key, no, luckyNumbers, coinAnim);
+        // }
 
         for (const key of Object.keys(luckyNumbers)) {
           const coinAnim = this.createLuckyCoinAnim();
@@ -217,8 +226,73 @@ namespace we {
             await p;
           })();
 
-          we.utils.sleep(250);
+          // we.utils.sleep(250);
         }
+      }
+
+      protected createCoinAnim(key, num: number, luckyNumbers, coinAnim) {
+        setTimeout(function () {
+          // const coinAnim = this.createLuckyCoinAnim();
+          coinAnim.x = this.animXArr[num];
+          coinAnim.y = this.animYArr[num];
+          coinAnim.scaleX = 0.8;
+          coinAnim.scaleY = 0.8;
+          num += 1;
+
+          const oddSlot = coinAnim.armature.getSlot('Odd');
+          oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
+
+          const numberSlot = coinAnim.armature.getSlot('Number');
+          numberSlot.display = this.getNumberSlotGroup(+key);
+
+          let noBet = '_nobet';
+
+          if (this._chipLayer) {
+            const betDetails = this._chipLayer.getConfirmedBetDetails();
+            if (betDetails) {
+              betDetails.map((detail, index) => {
+                if (detail && detail.field && detail.amount) {
+                  const f = this.fieldToValue(detail.field);
+                  if (key === f) {
+                    const chipSlot = coinAnim.armature.getSlot('chips');
+                    chipSlot.display = this.getChipSlotGroup(detail.amount / 100);
+                    noBet = '';
+                  }
+                }
+              });
+            }
+          }
+
+          let color: string;
+
+          switch (we.ro.RACETRACK_COLOR[+key]) {
+            case we.ro.Color.GREEN:
+              color = 'Green';
+              break;
+            case we.ro.Color.RED:
+              color = 'Red';
+              break;
+            case we.ro.Color.BLACK:
+            default:
+              color = 'Black';
+          }
+
+          this.addChild(coinAnim);
+
+          (async () => {
+            let p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
+            await p;
+
+            p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Draw_Number_${color}${noBet}_loop`, 4);
+            await p;
+
+            p = we.utils.waitDragonBone(coinAnim);
+            coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
+            await p;
+          })();
+        }, 2500);
       }
 
       public clearLuckyNumbers() {
