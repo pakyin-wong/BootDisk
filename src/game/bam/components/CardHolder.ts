@@ -113,6 +113,16 @@ namespace we {
         this.setCardImage(4);
       }
 
+      protected setDealState() {
+        console.log('bam cardholder deal state');
+        this._bankerCard1.visible = false;
+        this._playerCard1.visible = false;
+        this._bankerCard2.visible = false;
+        this._playerCard2.visible = false;
+        this._bankerCard3.visible = false;
+        this._playerCard3.visible = false;
+      }
+
       protected setPeekState() {
         this._playerWinningField.visible = false;
         this._bankerWinningField.visible = false;
@@ -260,6 +270,9 @@ namespace we {
         this.calculatePoint();
 
         switch (gameData.state) {
+          case core.GameState.DEAL:
+            this.setDealState();
+            break;
           case core.GameState.PEEK:
             this.setPeekState();
             break;

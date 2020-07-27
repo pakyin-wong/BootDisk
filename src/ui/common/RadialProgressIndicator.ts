@@ -1,7 +1,7 @@
 namespace we {
   export namespace ui {
     export class RadialProgressIndicator extends eui.Component implements eui.UIComponent {
-      private progressShape: egret.Shape;
+      public progressShape: egret.Shape;
 
       private _progress: number = 0;
 
