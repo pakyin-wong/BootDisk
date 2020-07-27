@@ -194,6 +194,7 @@ namespace we {
         page1Group.addChild(this.coldIcon4);
         page1Group.addChild(this.coldIcon5);
 
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -259,6 +260,18 @@ namespace we {
           }
         }
       }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt.data) {
+          const betInfo = evt.data;
+          console.log(`............${betInfo.tableid}`);
+          if (betInfo.tableid === this.tableInfo.tableid) {
+            this.totalBet = evt.data.total;
+            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+          }
+        }
+      }
+
       public setHotCold(hotNumbers: number[], coldNumbers: number[]) {
         const hots = [this.hotIcon1, this.hotIcon2, this.hotIcon3, this.hotIcon4, this.hotIcon5];
         const colds = [this.coldIcon1, this.coldIcon2, this.coldIcon3, this.coldIcon4, this.coldIcon5];
@@ -353,6 +366,7 @@ namespace we {
         this.sizeBigRoad.dispose();
         this.oddBigRoad.dispose();
         egret.Tween.removeTweens(this.activeLine);
+        dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }

@@ -9,6 +9,8 @@
                 anchorOffsetY="0" fillAlpha="0.7" fillColor="0x131313" />
         <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="17" y="10" textAlign="left" anchorOffsetX="0"
                          width="514" size="24" />
-        <ui:RunTimeLabel id="totalBetLabel" text="0" x="392.69" y="10" textAlign="right" anchorOffsetX="0" width="260"
+        <ui:RunTimeLabel id="totalBetText" text="TEXT" y="10" textAlign="right" anchorOffsetX="0" size="25" scaleX="1"
+                         scaleY="1"  x="549"/>
+        <ui:RunTimeLabel id="totalBetLabel" text="0" x="574.69" y="10" textAlign="right" anchorOffsetX="0" width="125"
                          size="25" />
 </e:Skin>
