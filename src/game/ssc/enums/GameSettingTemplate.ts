@@ -99,7 +99,7 @@ namespace we {
               InputComponentDefinition.ballRange('Unit', 0, 9, 1),
             ],
             pattern: '12345OPTIONAL_$1_$2_$3_$4_$5',
-            noteCountFunc: NoteCountFunc.DirectionSelection,
+            noteCountFunc: NoteCountFunc.StringNoteCount,
           },
           Five30: {
             name: 'Five30',

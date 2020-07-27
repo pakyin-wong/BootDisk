@@ -188,7 +188,7 @@ namespace we {
           console.log('pattern :' + this.betFields[i]);
         }
 
-        this.dispatchEventWith('BETFIELDUPDATE', false, { data: this.betFields });
+        this.dispatchEventWith('LOBETFIELDUPDATE', false, { data: this.betFields });
       }
     }
   }

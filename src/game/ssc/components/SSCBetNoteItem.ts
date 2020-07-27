@@ -108,10 +108,14 @@ namespace we {
       protected regenerateBetitemFromField(DataString: string) {
         let newdatastring = '';
         const spliteddatastring = DataString.split('');
-        for (let i = 0; i < 16; i++) {
-          newdatastring += spliteddatastring[i];
+        if (spliteddatastring.length < 16) {
+          newdatastring = DataString;
+        } else {
+          for (let i = 0; i < 16; i++) {
+            newdatastring += spliteddatastring[i];
+          }
+          newdatastring += '...';
         }
-        newdatastring += '...';
         return newdatastring;
       }
 

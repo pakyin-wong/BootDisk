@@ -30,12 +30,6 @@ namespace we {
       ROWS = 2,
     }
 
-    export namespace NoteCountFunc {
-      export function DirectionSelection(data, combinations) {
-        return 1;
-      }
-    }
-
     export namespace InputComponentDefinition {
       export function ballRange(title, theme, start, end, minSelect = 0, maxSelect = 100, dataType: InputDataType = InputDataType.STRING) {
         return {
@@ -126,7 +120,7 @@ namespace we {
               InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '12345OPTIONAL_$1_$2_$3_$4_$5',
-            noteCountFunc: NoteCountFunc.DirectionSelection,
+            noteCountFunc: NoteCountFunc.StringNoteCount,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -134,6 +128,7 @@ namespace we {
               InputComponentDefinition.textArea('', 5), // 12|23|54|67|...
             ],
             pattern: '12345OPTIONALINPUT_$1',
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           DirectCombination: {
             name: 'DirectCombination',
@@ -145,11 +140,13 @@ namespace we {
               InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '12345OPTIONALCOM_$1_$2_$3_$4_$5',
+            noteCountFunc: NoteCountFunc.DirectionalGroup,
           },
           Group120: {
             name: 'Group120',
             input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 5)],
             pattern: 'FIVE120_$1',
+            noteCountFunc: NoteCountFunc.FiveStar.FiveStarGroup120,
           },
           Group60: {
             name: 'Group60',
@@ -158,6 +155,7 @@ namespace we {
               InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3),
             ],
             pattern: 'FIVE60_$1_$2',
+            noteCountFunc: NoteCountFunc.FiveStar.FiveStarGroup60,
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -174,13 +172,15 @@ namespace we {
               InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: 'FIVE30_$1_$2',
+            noteCountFunc: NoteCountFunc.FiveStar.FiveStarGroup30,
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
                 // e.g. valid: 012_0
                 // i.e. check number of different item in data1 and data2 and it must be >= 2
-                Validator.countDifferent(data[0], data[1], 2);
+                return Validator.countDifferent(data[0], data[1], 2);
               }
+              return false;
             },
           },
           Group20: {
@@ -190,6 +190,7 @@ namespace we {
               InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
             ],
             pattern: 'FIVE20_$1_$2',
+            noteCountFunc: NoteCountFunc.FiveStar.FiveStarGroup20,
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -206,6 +207,7 @@ namespace we {
               InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: 'FIVE10_$1_$2',
+            noteCountFunc: NoteCountFunc.FiveStar.FiveStarGroup10,
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -222,6 +224,7 @@ namespace we {
               InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: 'FIVE5_$1_$2',
+            noteCountFunc: NoteCountFunc.FiveStar.FiveStarGroup5,
             validateData: (data: any[]) => {
               if (data[0].length === 2) {
                 // e.g. invalid: 01_1, 01_0, 09_9, 09_0
@@ -234,7 +237,7 @@ namespace we {
         },
       },
       FourStar: {
-        name: 'FiveStar',
+        name: 'FourStar',
         seperateLine: [1], // small tag index for if there is a seprate line to seperate the next item
         type: {
           DirectionSelection: {
@@ -246,7 +249,7 @@ namespace we {
               InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '2345OPTIONAL_$1_$2_$3_$4',
-            noteCountFunc: NoteCountFunc.DirectionSelection,
+            noteCountFunc: NoteCountFunc.StringNoteCount,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -312,7 +315,7 @@ namespace we {
               InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '123OPTIONAL_$1_$2_$3',
-            noteCountFunc: NoteCountFunc.DirectionSelection,
+            noteCountFunc: NoteCountFunc.StringNoteCount,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -376,7 +379,7 @@ namespace we {
               InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '234OPTIONAL_$1_$2_$3',
-            noteCountFunc: NoteCountFunc.DirectionSelection,
+            noteCountFunc: NoteCountFunc.StringNoteCount,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -440,7 +443,7 @@ namespace we {
               InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             pattern: '345OPTIONAL_$1_$2_$3',
-            noteCountFunc: NoteCountFunc.DirectionSelection,
+            noteCountFunc: NoteCountFunc.StringNoteCount,
           },
           DirectMenu: {
             name: 'DirectMenu',
@@ -829,136 +832,136 @@ namespace we {
             pattern: '^1^2SUMGROUPFREE_$1',
           },
         },
-        AnyThree: {
-          name: 'AnyThree',
-          type: {
-            DirectionalSelection: {
-              name: 'DirectionalSelection',
-              input: [
-                InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-                InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-                InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-                InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-                InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-              ],
-              dataSelect: 3,
-              pattern: '^1^2^3OPTIONALFREE_%1_%2_%3',
-            },
-            DirectionalMenu: {
-              name: 'DirectionalMenu',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
-                InputComponentDefinition.textArea('', 3), // 12|23|54|67|...
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3OPTIONALINPUTFREE_$1',
-            },
-            DirectionalSum: {
-              name: 'DirectionalSum',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
-                InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR),
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3OPTIONALINPUTFREE_$1',
-            },
-            GroupThree: {
-              name: 'GroupThree',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
-                InputComponentDefinition.ballRange('Group', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3THREE3FREE_$1',
-            },
-            GroupSix: {
-              name: 'GroupSix',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
-                InputComponentDefinition.ballRange('Group', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3),
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3THREE6FREE_$1',
-            },
-            MixGroup: {
-              name: 'MixGroup',
-              input: [InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3), InputComponentDefinition.textArea('', 3)],
-              combinationDataId: 1,
-              pattern: '^1^2^3THREECOMBINEFREE_$1',
-            },
-            GroupSum: {
-              name: 'GroupSum',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
-                InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR),
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3SUMGROUPFREE_$1',
-            },
+      },
+      AnyThree: {
+        name: 'AnyThree',
+        type: {
+          DirectionalSelection: {
+            name: 'DirectionalSelection',
+            input: [
+              InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+            ],
+            dataSelect: 3,
+            pattern: '^1^2^3OPTIONALFREE_%1_%2_%3',
+          },
+          DirectionalMenu: {
+            name: 'DirectionalMenu',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+              InputComponentDefinition.textArea('', 3), // 12|23|54|67|...
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3OPTIONALINPUTFREE_$1',
+          },
+          DirectionalSum: {
+            name: 'DirectionalSum',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3OPTIONALINPUTFREE_$1',
+          },
+          GroupThree: {
+            name: 'GroupThree',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+              InputComponentDefinition.ballRange('Group', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3THREE3FREE_$1',
+          },
+          GroupSix: {
+            name: 'GroupSix',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+              InputComponentDefinition.ballRange('Group', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3THREE6FREE_$1',
+          },
+          MixGroup: {
+            name: 'MixGroup',
+            input: [InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3), InputComponentDefinition.textArea('', 3)],
+            combinationDataId: 1,
+            pattern: '^1^2^3THREECOMBINEFREE_$1',
+          },
+          GroupSum: {
+            name: 'GroupSum',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3SUMGROUPFREE_$1',
           },
         },
-        AnyFour: {
-          name: 'AnyFour',
-          type: {
-            DirectionalSelection: {
-              name: 'DirectionalSelection',
-              input: [
-                InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-                InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-                InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-                InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-                InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-              ],
-              dataSelect: 4,
-              pattern: '^1^2^3^4OPTIONALFREE_%1_%2_%3_%4',
-            },
-            DirectionalMenu: {
-              name: 'DirectionalMenu',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-                InputComponentDefinition.textArea('', 4), // 12|23|54|67|...
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3^4OPTIONALFREEINPUT_$1',
-            },
-            Group24: {
-              name: 'Group24',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-                InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 4, InputDataType.STRING),
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3^4FOUR24FREE_$1',
-            },
-            Group12: {
-              name: 'Group12',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-                InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
-                InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING),
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3^4FOUR12FREE_$1_$2',
-            },
-            Group6: {
-              name: 'Group6',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-                InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING),
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3^4FOUR6FREE_$1',
-            },
-            Group4: {
-              name: 'Group4',
-              input: [
-                InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-                InputComponentDefinition.ballRange('Triple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
-                InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
-              ],
-              combinationDataId: 1,
-              pattern: '^1^2^3^4FOUR6FREE_$1_$2',
-            },
+      },
+      AnyFour: {
+        name: 'AnyFour',
+        type: {
+          DirectionalSelection: {
+            name: 'DirectionalSelection',
+            input: [
+              InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+            ],
+            dataSelect: 4,
+            pattern: '^1^2^3^4OPTIONALFREE_%1_%2_%3_%4',
+          },
+          DirectionalMenu: {
+            name: 'DirectionalMenu',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+              InputComponentDefinition.textArea('', 4), // 12|23|54|67|...
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3^4OPTIONALFREEINPUT_$1',
+          },
+          Group24: {
+            name: 'Group24',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 4, InputDataType.STRING),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3^4FOUR24FREE_$1',
+          },
+          Group12: {
+            name: 'Group12',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+              InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
+              InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3^4FOUR12FREE_$1_$2',
+          },
+          Group6: {
+            name: 'Group6',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+              InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3^4FOUR6FREE_$1',
+          },
+          Group4: {
+            name: 'Group4',
+            input: [
+              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
+              InputComponentDefinition.ballRange('Triple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
+              InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
+            ],
+            combinationDataId: 1,
+            pattern: '^1^2^3^4FOUR6FREE_$1_$2',
           },
         },
       },

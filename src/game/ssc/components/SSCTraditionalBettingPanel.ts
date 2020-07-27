@@ -50,6 +50,10 @@ namespace we {
         // this.initCurrentButtonPanel();
       }
 
+      public onInputChanged() {
+        super.onInputChanged();
+      }
+
       // Big Tags Related
       protected createBigTags() {
         this.bigTagsArray = [];
@@ -59,14 +63,14 @@ namespace we {
           const obj = SelectionMapping[Object.keys(SelectionMapping)[i]];
 
           const bigTagGroup: eui.Group = new eui.Group();
-          bigTagGroup.width = 117;
+          bigTagGroup.width = 107;
           bigTagGroup.height = 60;
           // bigTagGroup.name = obj.name;
           bigTagGroup.touchEnabled = true;
           bigTagGroup.touchChildren = true;
 
           const bigTag: ui.RoundRectButton = new ui.RoundRectButton();
-          bigTag.width = 117;
+          bigTag.width = 107;
           bigTag.height = 60;
           bigTag.cornerTL_TR_BL_BR = '0,0,0,0';
           bigTag.stroke = 1;
@@ -160,7 +164,7 @@ namespace we {
           const currentSmallTag = currentBigTag['type'][Object.keys(currentBigTag['type'])[i]];
           const smallTag = new eui.Group();
           //  smallTag.width = env.language === 'en'? SmallTags.LABELWIDTH_EN + 40 : SmallTags.LABELWIDTH_CN + 40;
-          smallTag.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_EN;
+          // smallTag.width = env.language === 'en' ? SmallTags.LABELWIDTH_EN : SmallTags.LABELWIDTH_EN;
           smallTag.height = 57;
           smallTag.touchEnabled = true;
           smallTag.touchChildren = false;
@@ -278,6 +282,8 @@ namespace we {
         this.currentSmallTagIndex = 0;
         this._smallTagsGroup.removeChildren();
       }
+
+      protected onBetFieldUpdate(e) {}
     }
   }
 }
