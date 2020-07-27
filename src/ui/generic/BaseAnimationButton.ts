@@ -1,12 +1,5 @@
 namespace we {
   export namespace ui {
-    enum BaseAnimationButtonState {
-      normal = 'normal',
-      down = 'pressed',
-      disabled = 'disabled',
-      hover = 'hover',
-    }
-
     export class BaseAnimationButton extends we.core.BaseEUI implements IButton {
       public static FACTORIES: any = {};
 
@@ -23,24 +16,26 @@ namespace we {
         return BaseAnimationButton.FACTORIES[dbClass];
       }
 
+      // determine button is a single choice switch button
+      public isSwitch: boolean = false;
+
       // components
       protected _dbClass: string = null;
       protected _dbDisplay: string = null;
       protected _group: eui.Group;
       protected _display: dragonBones.EgretArmatureDisplay = null;
 
+      // class attributes
+      public pressScaleOffset: number = 0.9;
+      public useColorFilter: boolean = false;
+      public downColorOffset: number = -30;
+      public hoverColorOffset: number = 30;
+
       // button states
-      protected _buttonState: BaseAnimationButtonState = BaseAnimationButtonState.normal;
       protected _enabled: boolean = false;
       protected _hover: boolean = false;
       protected _active: boolean = false;
       protected _down: boolean = false;
-
-      public isSwitch: boolean = false;
-      public useColorFilter: boolean = false;
-      public pressScaleOffset: number = 0.9;
-      public downColorOffset: number = -30;
-      public hoverColorOffset: number = 30;
 
       public get dbClass() {
         return this._dbClass;
@@ -84,10 +79,8 @@ namespace we {
           this._group.addChild(this._display);
           this.addChild(this._group);
         }
-        console.log('BaseAnim first', this._dbClass, this._dbDisplay);
-        console.log('BaseAnim first', this.active, this._active);
-        console.log('BaseAnim first', this._enabled);
 
+        // call update on mount to set initial button state
         const oldState = [this._down, this._hover];
         this.update(oldState);
       }
@@ -132,9 +125,11 @@ namespace we {
           this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
           mouse.setButtonMode(this, false);
         }
-        this._enabled = enabled;
         const oldState = [this._down, this._hover];
-        this.update(oldState);
+        this._enabled = enabled;
+        window.requestAnimationFrame(() => {
+          this.update(oldState);
+        });
       }
 
       public get active() {
@@ -142,23 +137,23 @@ namespace we {
       }
 
       public set active(active) {
-        this._active = active;
         const oldState = [this._down, this._hover];
-        this.update(oldState);
+        this._active = active;
+        // must add async to play animation on some case (isSwitch)
+        window.requestAnimationFrame(() => {
+          this.update(oldState);
+        });
       }
 
-      protected updateColorFilter(buttonState) {
+      protected updateColorFilter() {
         let colorMatrix;
         let offset = 0;
-        switch (buttonState) {
-          case BaseAnimationButtonState.hover:
-            offset = this.hoverColorOffset;
-            break;
-          case BaseAnimationButtonState.down:
-            offset = this.downColorOffset;
-            break;
+        if (this._hover) {
+          offset = this.hoverColorOffset;
+        } else if (this._down) {
+          offset = this.downColorOffset;
         }
-        if (buttonState === BaseAnimationButtonState.disabled) {
+        if (!this._enabled) {
           colorMatrix = [0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0.3, 0.6, 0, 0, 0, 0, 0, 0, 1, 0];
         } else {
           colorMatrix = [1, 0, 0, 0, offset, 0, 1, 0, 0, offset, 0, 0, 1, 0, offset, 0, 0, 0, 1, 0];
@@ -167,53 +162,30 @@ namespace we {
         this.filters = [colorFilter];
       }
 
+      /* internal button lifecycle methods */
       private onRollover() {
-        if (this.isSwitch) {
-          if (this.useColorFilter) {
-            this.updateColorFilter(BaseAnimationButtonState.hover);
-          }
-        } else {
-          const oldState = [this._down, this._hover];
-          this._hover = true;
-          this.update(oldState);
-        }
+        const oldState = [this._down, this._hover];
+        this._hover = true;
+        this.update(oldState);
       }
 
       private onRollout() {
-        if (this.isSwitch) {
-          if (this.useColorFilter) {
-            this.updateColorFilter(BaseAnimationButtonState.normal);
-          }
-        } else {
-          const oldState = [this._down, this._hover];
-          this._down = false;
-          this._hover = false;
-          this.update(oldState);
-        }
+        const oldState = [this._down, this._hover];
+        this._down = false;
+        this._hover = false;
+        this.update(oldState);
       }
 
       private onTouchDown() {
-        if (this.isSwitch) {
-          egret.Tween.removeTweens(this);
-          egret.Tween.get(this._group).to({ scaleX: this.pressScaleOffset, scaleY: this.pressScaleOffset }, 150);
-        } else {
-          const oldState = [this._down, this._hover];
-          this._down = true;
-          this.update(oldState);
-        }
+        const oldState = [this._down, this._hover];
+        this._down = true;
+        this.update(oldState);
       }
 
-      private async onTouchUp() {
-        if (this.isSwitch) {
-          egret.Tween.removeTweens(this);
-          egret.Tween.get(this._group).to({ scaleX: 1.0, scaleY: 1.0 }, 150);
-          // play release
-          this.playPromise('release', 1);
-        } else {
-          const oldState = [this._down, this._hover];
-          this._down = false;
-          this.update(oldState);
-        }
+      private onTouchUp() {
+        const oldState = [this._down, this._hover];
+        this._down = false;
+        this.update(oldState);
       }
 
       private onClick() {
@@ -251,6 +223,32 @@ namespace we {
 
         await this.prevProm;
 
+        // handle switch button
+        if (this.isSwitch) {
+          // console.log('oldDown ', oldDown);
+          // console.log('this._down ', this._down);
+          // console.log('this._active ', this._active);
+          // console.log('this._hover ', this._hover);
+          // console.log('========= ');
+
+          if (this._hover && !oldDown && this._down) {
+            egret.Tween.removeTweens(this);
+            egret.Tween.get(this._group).to({ scaleX: this.pressScaleOffset, scaleY: this.pressScaleOffset }, 150);
+          } else if (this._hover && oldDown && !this._down) {
+            egret.Tween.removeTweens(this);
+            egret.Tween.get(this._group).to({ scaleX: 1.0, scaleY: 1.0 }, 150);
+            // play release
+            this.prevProm = this.playPromise('release', 1);
+          } else if (!this._hover) {
+            if (this._active) {
+              this.playPromise('idle', 0);
+            } else {
+              this.playPromise('disable', 0);
+            }
+          }
+          return;
+        }
+
         if (!this._enabled) {
           this.playPromise('disable', 0);
         } else if (this._hover && !oldDown && this._down) {
@@ -265,20 +263,8 @@ namespace we {
           //   }
           this.playPromise('mouse_out', 1);
         } else {
-          if (this.isSwitch) {
-            if (this._active) {
-              this.playPromise('active', 0);
-            } else {
-              this.playPromise('inactive', 0);
-            }
-          } else {
-            this.playPromise('idle', 0);
-          }
+          this.playPromise('idle', 0);
         }
-      }
-
-      public playAnimation(anim, count) {
-        this.playPromise(anim, count);
       }
     }
   }

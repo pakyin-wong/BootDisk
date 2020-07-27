@@ -43,6 +43,12 @@ namespace we {
       protected roadStack: eui.ViewStack;
 
       protected _radioButtons: eui.RadioButton[];
+      protected toggleUpDownButton: eui.ToggleSwitch;
+      protected isExpanded: boolean;
+
+      protected bg: ui.RoundRectShape;
+      protected topBar: ui.RoundRectShape;
+      protected border: ui.RoundRectShape;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'RoLeftPanel');
@@ -80,12 +86,14 @@ namespace we {
         this.gameId = '';
         this.totalBet = 0;
 
-        this.beadRoad = new ROBeadRoad(3, 10, 56, 1, 10, 20, 0x262a2b, 1); // in game
+        this.beadRoad = new ROBeadRoad(6, 10, 56, 1, 10, 20, 0x262a2b, 1); // in game
         // this.beadRoad = new ROBeadRoad(3, 12, 40, 1, 8, 5, 0xc1c1c1, 0.2); // lobby
         this.beadRoad.x = 10;
         this.beadRoad.y = 20;
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
+
+        this.beadRoad.expandRoad(false);
 
         // add bead road to page stack 2
         const page2Group = this.pageStack.getChildAt(1) as eui.Group;
@@ -195,6 +203,9 @@ namespace we {
         this.roadRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
         this.roadRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
 
+        if (this.toggleUpDownButton) {
+          this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
+        }
         // (this.radioBtn1 as any).buttonImage.width = (this.radioBtn1 as any).labelDisplay.textWidth + 10;
         this.changeLang();
       }
@@ -207,7 +218,12 @@ namespace we {
       protected onViewChange(e: eui.UIEvent) {
         const radio: eui.RadioButton = e.target;
         this.pageStack.selectedIndex = radio.value;
-
+        if (radio.value === '1') {
+          this.toggleUpDownButton && (this.toggleUpDownButton.visible = true);
+        } else {
+          this.expandPanel(false);
+          this.toggleUpDownButton && (this.toggleUpDownButton.visible = false);
+        }
         this.updateActiveLine(true);
       }
 
@@ -254,6 +270,48 @@ namespace we {
           colds[index].setByObject({ v: element });
         });
       }
+      public onToggleUpDown(evt: egret.TouchEvent) {
+        this.expandPanel(!this.isExpanded);
+      }
+      public expandPanel(expand: boolean) {
+        const offset = 203;
+        if (!this.isExpanded && expand) {
+          this.bg.setRoundRectStyle(666, 338 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x061323', 0.88, 0);
+          this.bg.y -= offset;
+          this.topBar.y -= offset;
+          this.border.setRoundRectStyle(666, 338 + offset, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y -= offset;
+
+          (this.pageStack.getChildAt(1) as eui.Group).height += offset;
+          (this.pageStack.getChildAt(1) as eui.Group).y -= offset + 13;
+
+          this.gameIdLabel.y -= offset;
+          this.totalBetLabel.y -= offset;
+
+          this.isExpanded = true;
+
+          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_down');
+          this.beadRoad.expandRoad(true);
+        } else if (this.isExpanded && !expand) {
+          this.bg.setRoundRectStyle(666, 338, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x061323', 0.88, 0);
+          this.bg.y += offset;
+          this.topBar.y += offset;
+          this.border.setRoundRectStyle(666, 338, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y += offset;
+
+          (this.pageStack.getChildAt(1) as eui.Group).height -= offset;
+          (this.pageStack.getChildAt(1) as eui.Group).y += offset + 13;
+
+          this.gameIdLabel.y += offset;
+          this.totalBetLabel.y += offset;
+
+          this.isExpanded = false;
+
+          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_up');
+          this.beadRoad.expandRoad(false);
+        }
+      }
+
       public destroy() {
         super.destroy();
         /*
@@ -297,6 +355,10 @@ namespace we {
         egret.Tween.removeTweens(this.activeLine);
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        }
+
+        if (this.toggleUpDownButton && this.toggleUpDownButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+          this.toggleUpDownButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
         }
       }
     }

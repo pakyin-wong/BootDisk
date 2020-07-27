@@ -4,11 +4,14 @@
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
+	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
+	                   fillColor="0x00000000,0x00000050" />
 	<ui:Group x="724" y="1020" isEdgeDismissable="true" dismissPosX="724" dismissPosY="1297">
-		<ba:TableLayer id="_tableLayer" width="1146" height="304" skinName="skin_desktop.ba.TableLayerSkin" touchEnabled="false" />
+		<ba:TableLayer id="_tableLayer" width="1146" height="304" skinName="skin_desktop.ba.TableLayerSkin"
+		               touchEnabled="false" />
 		<ba:ChipLayer id="_chipLayer" width="1146" height="304" skinName="skin_desktop.ba.ChipLayerSkin" />
 	</ui:Group>
-	<ui:Group id="_betRelatedGroup" x="769" y="939" isEdgeDismissable="true" >
+	<ui:Group id="_betRelatedGroup" x="769" y="939" isEdgeDismissable="true">
 		<e:Rect id="_roundPanel" width="1045" height="70" fillAlpha="0.3" ellipseHeight="90" ellipseWidth="90" />
 		<ui:BetChipSetHorizontal id="_betChipSet" width="496" height="58" y="6" anchorOffsetX="0" anchorOffsetY="0" x="31" />
 		<e:Button id="_confirmButton" label="" y="3" anchorOffsetX="0" width="155" anchorOffsetY="0" height="64"
@@ -24,9 +27,10 @@
 		<ui:BaseImageButton id="_undoButton" y="0" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"
 		                    horizontalCenter="467" skinName="skin_desktop.ImageButtonSkinBettingPanel" currentState="b_undo" />
 	</ui:Group>
-	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="16" y="1024" dismissPosX="16" dismissPosY="1298" anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true" />
-	<ba:BARoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1910" y="1024" dismissPosX="1910" dismissPosY="1297" anchorOffsetX="0"
-	                        anchorOffsetY="0" isEdgeDismissable="true" />
+	<ba:BARoadmapLeftPanel id="_leftGamePanel" width="692" height="304" x="16" y="1024" dismissPosX="16" dismissPosY="1298"
+	                       anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true" />
+	<ba:BARoadmapRightPanel id="_rightGamePanel" width="698" height="304" x="1910" y="1024" dismissPosX="1910"
+	                        dismissPosY="1297" anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18.4" fillAlpha="0.3" />
@@ -45,7 +49,8 @@
 	<ba:TableInfoPanel width="324" height="566" x="0" y="90" id="_tableInfoWindow" isPoppable="true"
 	                   isEdgeDismissable="true" dismissOnClickOutside="false" isDraggable="true" hideOnStart="true"
 	                   anchorOffsetY="0" skinName="skin_desktop.ba.TableInfoPanel" />
-	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30" height="30" x="2526" y="949"  dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"/>
+	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30"
+	                        height="30" x="2526" y="949" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true" />
 	<ui:Group x="1913" y="949" anchorOffsetX="0" width="596" dismissPosY="1222" dismissPosX="1913" isEdgeDismissable="true">
 		<e:Group height="50" x="0" anchorOffsetX="0" anchorOffsetY="0" y="0">
 			<ui:RunTimeLabel id="_lblBaMode" x="13.329999999999927" y="26.389999999999986" scaleX="1" scaleY="1" />
@@ -62,5 +67,6 @@
 	</ui:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<bam:CardHolder id="_resultDisplay" width="1606" height="500" x="497" y="820" anchorOffsetX="0" anchorOffsetY="0" isEdgeDismissable="true"/>
+	<bam:CardHolder id="_resultDisplay" width="1606" height="500" x="497" y="820" anchorOffsetX="0" anchorOffsetY="0"
+	                isEdgeDismissable="true" />
 </e:Skin>

@@ -4,7 +4,9 @@
         xmlns:live="we.live.*">
 	<e:Rect width="2600" height="1340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x0e6030" visible="false" />
 	<e:Image id="_bgImg" top="0" bottom="0" source="frame-3_jpg" x="0" locked="true" />
-	<ui:Group x="692" y="986" isEdgeDismissable="true" dismissPosX="692" dismissPosY="1297" >
+	<ui:RoundRectShape cornerTL_TR_BL_BR="0,0,0,0" width="2600" height="294" x="0" bottom="0" stroke="0"
+	                   fillColor="0x00000000,0x00000050" />
+	<ui:Group x="692" y="986" isEdgeDismissable="true" dismissPosX="692" dismissPosY="1297">
 		<ro:TableLayer id="_tableLayer" width="1208" height="340" skinName="skin_desktop.ro.TableLayerSkin" />
 		<ro:ChipLayer id="_chipLayer" width="1208" height="340" skinName="skin_desktop.ro.ChipLayerSkin" />
 	</ui:Group>
@@ -22,17 +24,20 @@
 		<ui:BaseAnimationButton id="_doubleButton" width="55" height="55" verticalCenter="0" horizontalCenter="393"
 		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_double" useColorFilter="true" />
 		<ui:BaseAnimationButton id="_undoButton" width="55" height="55" verticalCenter="0" horizontalCenter="467"
-                            dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
+		                        dbClass="common_ui" dbDisplay="d_common_betcontrol_btn_undo" useColorFilter="true" />
 	</ui:Group>
-	<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0" dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true" />
-	<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0" dismissPosX="1916" dismissPosY="1298" isEdgeDismissable="true" />
+	<ro:RoLeftPanel id="_leftGamePanel" width="668" height="340" x="16" y="988" anchorOffsetX="0" anchorOffsetY="0"
+	                dismissPosX="16" dismissPosY="1298" isEdgeDismissable="true" />
+	<ro:RoRightPanel id="_rightGamePanel" width="668" height="340" x="1916" y="980" anchorOffsetX="0" anchorOffsetY="0"
+	                 dismissPosX="1916" dismissPosY="1298" isEdgeDismissable="true" />
 	<e:Group id="_header" height="91" y="0" anchorOffsetX="0" anchorOffsetY="0" left="0" width="2600" touchEnabled="false"
 	         touchChildren="true" touchThrough="true">
 		<e:Rect width="1" height="60" x="308" y="18" fillAlpha="0.3" />
 		<ui:RunTimeLabel id="_lblRoomNo" x="75" y="9" size="28" height="40" verticalAlign="middle" width="191"
 		                 textAlign="right" anchorOffsetX="0" />
 		<live:BetLimitDropdown y="45" skinName="BaBetLimitDropdownSkin" anchorOffsetX="0" anchorOffsetY="0" right="2294" />
-		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35" y="17" />
+		<ui:BaseAnimationButton id="_btnBack" dbClass="common_ui" dbDisplay="d_common_icon_back" width="30" height="30" x="35"
+		                        y="17" />
 		<e:Image id="_lblRoomInfo" width="24" height="24" x="272" y="19" source="d_ba_navbar_icon_info_png" />
 		<ui:GameBar width="251" height="52" x="1894" y="25" id="_gameBar" anchorOffsetY="0" scaleX="1" scaleY="1"
 		            skinName="skin_desktop.GameBar" />
@@ -46,6 +51,7 @@
 	                   anchorOffsetY="0" skinName="skin_desktop.ro.TableInfoPanel" />
 	<ro:ROBigRoadResultPanel id="_bigRoadResultPanel" width="368" height="242" x="18" y="644" anchorOffsetX="0"
 	                         anchorOffsetY="0" visible="false" />
-	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30" height="30" x="2526" y="915"  dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true"/>
+	<ui:BaseAnimationButton id="_panelDismissToggleBtn" dbClass="common_ui" dbDisplay="d_common_showui" width="30"
+	                        height="30" x="2526" y="915" dismissPosY="1222" dismissPosX="2526" isEdgeDismissable="true" />
 </e:Skin>
 

@@ -4,6 +4,26 @@ namespace we {
     export function varToString(varObj) {
       return Object.keys(varObj)[0];
     }
+    export function stringToNumberArray(value: string): number[] {
+      const strArray = stringToStringArray(value);
+      const numArray = new Array<number>();
+      if (!strArray || strArray.length === 0) {
+        return [];
+      }
+      for (let i = 0; i < strArray.length; i++) {
+        numArray.push(+strArray[i].trim());
+      }
+      return numArray;
+    }
+
+    export function stringToStringArray(value: string): string[] {
+      if (!value || value.length === 0 || value.length <= 2) {
+        return [];
+      }
+      const trimmedStr = value.substring(1, value.length - 1);
+      const strArray = trimmedStr.split(',');
+      return strArray;
+    }
 
     export function arrayToKeyValue(array: any[], keyField: string, valueField: string = null) {
       const kvpair = {};

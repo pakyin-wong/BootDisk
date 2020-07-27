@@ -2,6 +2,8 @@ namespace we {
   export namespace ui {
     export class BrightnessFilter extends egret.ColorMatrixFilter {
       protected _alpha: number = 100;
+      protected _rgbBright: number[];
+      protected _rgbDim: number[];
 
       public constructor(matrix?: number[]) {
         super(matrix);
@@ -16,6 +18,14 @@ namespace we {
           matrix[14] = this._alpha;
           this.matrix = matrix;
         }
+      }
+
+      public set rgbDim(value: string) {
+        this._rgbDim = we.utils.stringToNumberArray(value);
+      }
+
+      public set rgbBright(value: string) {
+        this._rgbBright = we.utils.stringToNumberArray(value);
       }
     }
   }

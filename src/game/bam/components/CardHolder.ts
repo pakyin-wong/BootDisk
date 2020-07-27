@@ -27,8 +27,10 @@ namespace we {
       protected _playerWinningField: eui.Image;
       protected _bankerWinningField: eui.Image;
 
-      protected _openAllBanker: eui.Image;
-      protected _openAllPlayer: eui.Image;
+      protected _openAllBanker: we.ui.RoundRectButton;
+      protected _openAllPlayer: we.ui.RoundRectButton;
+      protected _openAllBankerGroup: eui.Group;
+      protected _openAllPlayerGroup: eui.Group;
 
       public constructor() {
         super();
@@ -317,12 +319,14 @@ namespace we {
           this._playerCard2.touchEnabled = true;
           this._playerCard3.touchEnabled = true;
           this._openAllPlayer.touchEnabled = true;
+          this._openAllPlayerGroup.visible = true;
         } else {
           this._disabledPlayerRect.visible = true;
           this._playerCard1.touchEnabled = false;
           this._playerCard2.touchEnabled = false;
           this._playerCard3.touchEnabled = false;
           this._openAllPlayer.touchEnabled = false;
+          this._openAllPlayerGroup.visible = false;
         }
         if (this.isBankerFlipAllowed()) {
           this._disabledBankerRect.visible = false;
@@ -330,12 +334,14 @@ namespace we {
           this._bankerCard2.touchEnabled = true;
           this._bankerCard3.touchEnabled = true;
           this._openAllBanker.touchEnabled = true;
+          this._openAllBankerGroup.visible = true;
         } else {
           this._disabledBankerRect.visible = true;
           this._bankerCard1.touchEnabled = false;
           this._bankerCard2.touchEnabled = false;
           this._bankerCard3.touchEnabled = false;
           this._openAllBanker.touchEnabled = false;
+          this._openAllBankerGroup.visible = false;
         }
       }
 
@@ -344,7 +350,9 @@ namespace we {
         if (this._chipLayer && this._chipLayer.getConfirmedBetDetails()) {
           this._chipLayer.getConfirmedBetDetails().map(value => {
             if (value.field === we.ba.BetField.PLAYER || value.field === we.ba.BetField.PLAYER_PAIR || value.field === we.ba.BetField.TIE || value.field === we.ba.BetField.SUPER_SIX) {
-              allowed = true;
+              if (value.amount > 0) {
+                allowed = true;
+              }
             }
           });
         }
@@ -362,7 +370,9 @@ namespace we {
               value.field === we.ba.BetField.SUPER_SIX ||
               value.field === we.ba.BetField.SUPER_SIX_BANKER
             ) {
-              allowed = true;
+              if (value.amount > 0) {
+                allowed = true;
+              }
             }
           });
         }
