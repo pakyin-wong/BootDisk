@@ -74,16 +74,15 @@ namespace we {
         this._roadmapControl.updateRoadData();
       }
 
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        super.onTableBetInfoUpdate(evt);
-        if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo>evt.data;
-          if (betInfo.tableid === this._tableId) {
-            // todo
-            // this._leftGamePanel._totalBet = evt.data.total;
-          }
-        }
-      }
+      // protected onTableBetInfoUpdate(evt: egret.Event) {
+      //   super.onTableBetInfoUpdate(evt);
+      //   if (evt && evt.data) {
+      //     const betInfo = <data.GameTableBetInfo>evt.data;
+      //     if (betInfo.tableid === this._tableId) {
+      //       this._leftGamePanel._totalBet = evt.data.total;
+      //     }
+      //   }
+      // }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
