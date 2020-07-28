@@ -63,8 +63,11 @@
 			<ui:RunTimeLabel id="_txt_page" text="00/00" left="0" top="0" bottom="0"
 			                 fontFamily="Barlow" size="28"  verticalAlign="middle" width="100%" textAlign="center"/>
 		</e:Group>
-		<ui:Panel id="_ddm_page" width="174" x="942" skinName="skin_desktop.NavDropdown"  y="997" maxHeight="100"/>
+
 		<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="718"
 		                              horizontalCenter="0" verticalCenter="0" />
+		<e:Group width="174" height="230" x="946" y="827">
+			<ui:Panel id="_ddm_page" width="174" x="0" skinName="skin_desktop.NavDropdown" maxHeight="200" scaleX="1" scaleY="1" bottom="0"/>
+		</e:Group>
 	</e:Group>
 </e:Skin>
