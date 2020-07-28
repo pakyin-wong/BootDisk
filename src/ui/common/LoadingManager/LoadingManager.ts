@@ -36,7 +36,7 @@ namespace we {
        * progressMap: number[]
        * loadingUI: eui.Component & IProgress
        */
-      public static async load(tasks: Array<() => Promise<any>>, options: any = {}) {
+      public static async load(tasks: (() => Promise<any>)[], options: any = {}) {
         // get manager instance
         if (!this._instance) {
           this._instance = new LoadingManager();
@@ -53,7 +53,7 @@ namespace we {
       protected loadingInstance: ILoadingUI & eui.Component;
       protected isLoading: boolean = false;
 
-      public async load(tasks: Array<() => Promise<any>>, options: any = {}) {
+      public async load(tasks: (() => Promise<any>)[], options: any = {}) {
         if (this.isLoading) {
           throw new Error('LoadingManager.load is not designed to call multiple time at once.');
           // logger.e(utils.LogTarget.PROD, 'Loading is already started');
