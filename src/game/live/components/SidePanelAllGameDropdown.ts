@@ -13,7 +13,8 @@ namespace we {
 
       public mount() {
         super.mount();
-        const gameList = ['allGame', ...utils.EnumHelpers.values(core.LiveGameTab)];
+        // const gameList = ['allGame', ...utils.EnumHelpers.values(core.LiveGameTab)];
+        const gameList = utils.EnumHelpers.values(core.LiveGameTab);
         const gameListItems = gameList.map(game => {
           return i18n.t(`live.gametype.${game}`);
         });
