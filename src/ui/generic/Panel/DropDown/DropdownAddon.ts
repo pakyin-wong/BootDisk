@@ -21,7 +21,32 @@ namespace we {
         this._list.dataProvider = this._dataCollection;
         this._list.itemRenderer = DropdownItemRenderer;
         this._list.requireSelection = false;
+        const layout = new eui.VerticalLayout();
+        layout.horizontalAlign = 'left';
+        this._list.layout = layout;
         this.itemSkin = 'DropdownItem';
+
+        if (this.target.$hasAddToStage) {
+          this.target.once(egret.Event.REMOVED_FROM_STAGE, this.removedFromStage, this);
+          dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this, false, -101);
+        } else {
+          this.target.once(egret.Event.ADDED_TO_STAGE, this.addedToStage, this);
+        }
+      }
+
+      protected addedToStage() {
+        this.target.once(egret.Event.REMOVED_FROM_STAGE, this.removedFromStage, this);
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this, false, -101);
+      }
+
+      protected removedFromStage() {
+        this.target.once(egret.Event.ADDED_TO_STAGE, this.addedToStage, this);
+        dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+      }
+
+      protected changeLang() {
+        this._list.validateNow();
+        this._list.width = this._list.contentWidth;
       }
 
       public init() {
