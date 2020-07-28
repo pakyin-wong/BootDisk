@@ -264,7 +264,6 @@ namespace we {
       protected onTableBetInfoUpdate(evt: egret.Event) {
         if (evt.data) {
           const betInfo = evt.data;
-          console.log(`............${betInfo.tableid}`);
           if (betInfo.tableid === this.tableInfo.tableid) {
             this.totalBet = evt.data.total;
             this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
@@ -366,11 +365,12 @@ namespace we {
         this.sizeBigRoad.dispose();
         this.oddBigRoad.dispose();
         egret.Tween.removeTweens(this.activeLine);
-        dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        if (dir.evtHandler.hasEventListener(core.Event.TABLE_BET_INFO_UPDATE)) {
+          dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        }
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
-
         if (this.toggleUpDownButton && this.toggleUpDownButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
           this.toggleUpDownButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
         }
