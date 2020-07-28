@@ -211,7 +211,8 @@ namespace we {
       }
 
       protected onFilterChanged(evt: egret.Event) {
-        const selectedIdx = this._dropdown.selectedIndex - 1;
+        // const selectedIdx = this._dropdown.selectedIndex - 1;
+
         // if (selectedIdx < 0) {
         //   this.filter = null;
         // } else {
@@ -219,7 +220,7 @@ namespace we {
         // }
         // this.setAllTableList(this.filter);
 
-        this.allTableList.setGameFiltersByTabIndex(selectedIdx);
+        this.allTableList.setGameFiltersByTabIndex(this._dropdown.selectedIndex);
         this.allTableList.setTableList(this.allGameList, true);
 
         // const count = this.allTableList.tableCount;
