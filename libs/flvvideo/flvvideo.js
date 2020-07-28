@@ -91,8 +91,8 @@ var egret;
                 if (!this.videoCanvas || !this.player) {
                     videoCanvas = document.createElement('canvas');
                     videoCanvas.id = videoCanvasId;
-                    videoCanvas.width = 1366;
-                    videoCanvas.height = 768;
+                    videoCanvas.width = 720;//1366;
+                    videoCanvas.height = 480;//768;
                     videoCanvas.style.display = 'none';
                     this.videoCanvas = videoCanvas;
                     this.videoCanvasId = videoCanvasId;
@@ -103,8 +103,8 @@ var egret;
                     if(this.browserName && this.browserName === 'Edge'){
                         const tempCanvas = document.createElement('canvas');
                         tempCanvas.id = 'tempCanvas' + this.videoCanvas.id 
-                        tempCanvas.width = 1366;
-                        tempCanvas.height = 768;
+                        tempCanvas.width = 720;//1366;
+                        tempCanvas.height = 480;//768;
                         tempCanvas.style.display = 'none';
                         document.body.appendChild(tempCanvas);
                         this.tempCanvas = tempCanvas

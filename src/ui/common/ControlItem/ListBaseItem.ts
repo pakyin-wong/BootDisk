@@ -35,8 +35,8 @@ namespace we {
 
       protected initCustomPos() {
         this._targetQuickBetButtonY = 180;
-        this._originalQuickBetButtonY = 150;
-        this._targetQuickbetPanelY = 200;
+        this._originalQuickBetButtonY = 140;
+        this._targetQuickbetPanelY = 190;
         this._originalQuickBetPanelY = 0;
         this._offsetLimit = 1000;
         this._offsetMovement = 264;
@@ -118,11 +118,7 @@ namespace we {
             .to({ y: this._originaly - this._offsetY, scaleX: this._hoverScale, scaleY: this._hoverScale }, this._tweenInterval1)
             .call(resolve)
         );
-        const p2 = new Promise(resolve =>
-          egret.Tween.get(this._quickBetGroup)
-            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
-            .call(resolve)
-        );
+        const p2 = new Promise(resolve => egret.Tween.get(this._quickBetGroup).to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1).call(resolve));
       }
 
       protected hideQuickBetGroup() {

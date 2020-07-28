@@ -1,13 +1,13 @@
 namespace we {
   export namespace ba {
     export class TableLayer extends ui.TableLayer {
-      protected _playerPairImage: eui.Image;
-      protected _bankerPairImage: eui.Image;
-      protected _playerImage: eui.Image;
-      protected _tieImage: eui.Image;
-      protected _bankerImage: eui.Image;
-      protected _superSixImage: eui.Image;
-      protected _superSixBankerImage: eui.Image;
+      protected _playerPairImage: ui.BettingGrid;
+      protected _bankerPairImage: ui.BettingGrid;
+      protected _playerImage: ui.BettingGrid;
+      protected _tieImage: ui.BettingGrid;
+      protected _bankerImage: ui.BettingGrid;
+      protected _superSixImage: ui.BettingGrid;
+      protected _superSixBankerImage: ui.BettingGrid;
 
       protected _playerPairLabel: ui.RunTimeLabel;
       protected _bankerPairLabel: ui.RunTimeLabel;
@@ -28,7 +28,7 @@ namespace we {
       protected _totalPersonMapping: any; // Total Person for each grid
       protected _totalAmountMapping: any; // Total amount for each grid
 
-      protected _imageSourceMapping: {};
+      // protected _imageSourceMapping: {};
 
       constructor() {
         super();
@@ -42,9 +42,9 @@ namespace we {
 
       protected createMapping() {
         super.createMapping();
-        let image;
+        // let image;
         this._imageMapping = {};
-        this._imageSourceMapping = {};
+        // this._imageSourceMapping = {};
 
         this._imageMapping[ba.BetField.PLAYER] = this._playerImage;
         this._imageMapping[ba.BetField.BANKER] = this._bankerImage;
@@ -54,6 +54,7 @@ namespace we {
         this._imageMapping[ba.BetField.SUPER_SIX_BANKER] = this._superSixBankerImage;
         this._imageMapping[ba.BetField.SUPER_SIX] = this._superSixImage;
 
+        /*
         image = this._imageMapping[ba.BetField.PLAYER];
         this._imageSourceMapping[ba.BetField.PLAYER] = [image.source, image.name ? image.name : image.source];
         image = this._imageMapping[ba.BetField.BANKER];
@@ -68,6 +69,7 @@ namespace we {
         this._imageSourceMapping[ba.BetField.SUPER_SIX_BANKER] = [image.source, image.name ? image.name : image.source];
         image = this._imageMapping[ba.BetField.SUPER_SIX];
         this._imageSourceMapping[ba.BetField.SUPER_SIX] = [image.source, image.name ? image.name : image.source];
+*/
 
         this._totalPersonMapping = {};
         this._totalPersonMapping[ba.BetField.PLAYER] = this._playerTotalPerson;
@@ -89,7 +91,7 @@ namespace we {
       }
 
       public onRollover(fieldName: string) {
-        if (this._imageSourceMapping) {
+        if (this._imageMapping) {
           // const colorMatrix = [1, 0, 0, 0, 100, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0]; // Red for testing
           const colorMatrix = [1, 0, 0, 0, 100, 0, 1, 0, 0, 100, 0, 0, 1, 0, 100, 0, 0, 0, 1, 0];
           const colorFilter = new egret.ColorMatrixFilter(colorMatrix);
@@ -178,13 +180,7 @@ namespace we {
           const brightnessFilter = new we.ui.BrightnessFilter(colorMatrix);
           this._imageMapping[fieldName].filters = [brightnessFilter];
 
-          egret.Tween.get(brightnessFilter)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 100 }, 125)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 100 }, 125)
-            .to({ alpha: 0 }, 125)
-            .to({ alpha: 100 }, 125);
+          egret.Tween.get(brightnessFilter).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125).to({ alpha: 0 }, 125).to({ alpha: 100 }, 125);
         });
       }
     }

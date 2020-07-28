@@ -198,9 +198,7 @@ class IPhone8Helper extends IPhone7Helper {
   }
 
   public UpdateStyle(visible) {
-    const c = String(document.documentElement.className)
-      .replace('fullscreen-visible', '')
-      .split(' ');
+    const c = String(document.documentElement.className).replace('fullscreen-visible', '').split(' ');
     const cn = [];
     for (const str of c) {
       if (str !== '') {
@@ -517,9 +515,7 @@ class IPhoneChromeFullscreen {
   }
 
   public UpdateStyle(visible) {
-    const c = String(document.documentElement.className)
-      .replace('fullscreen-visible', '')
-      .split(' ');
+    const c = String(document.documentElement.className).replace('fullscreen-visible', '').split(' ');
     const cn = [];
     for (const str of c) {
       if (str !== '') {

@@ -168,11 +168,6 @@ namespace we {
           soundSet: '声音设定',
           videoSet: '视频设定',
         },
-        audio: {
-          liveRecord: '现场收音',
-          soundFx: '游戏音效',
-          bgm: '背景音乐',
-        },
         video: {
           toggle: '视频开关',
           quality: '画質',
@@ -181,6 +176,9 @@ namespace we {
         system: {
           title: '系统设定',
           lang: '语言',
+          liveRecord: '现场收音',
+          soundfx: '游戏音效',
+          bgm: '背景音乐',
           term: '服务条款',
           changeName: '设定暱称',
         },
@@ -394,7 +392,7 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
-        betted: '已下注',
+        betted: '已下注项目',
         goodroad: '好路',
         allgames: '全部游戏',
       },

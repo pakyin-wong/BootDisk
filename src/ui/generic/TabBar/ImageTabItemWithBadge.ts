@@ -28,14 +28,14 @@ namespace we {
           this._image.isSwitch = true;
           this.addChildAt(this._image, 0);
         }
-        // this._image.active = false;
-        // switch (state) {
-        //   case 'down':
-        //   case 'upAndSelected':
-        //   case 'downAndSelected':
-        //     this._image.active = true;
-        //     break;
-        // }
+        this._image.active = false;
+        switch (state) {
+          case 'down':
+          case 'upAndSelected':
+          case 'downAndSelected':
+            this._image.active = true;
+            break;
+        }
       }
     }
   }

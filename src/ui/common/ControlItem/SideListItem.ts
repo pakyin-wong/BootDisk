@@ -73,7 +73,7 @@ namespace we {
       protected initCustomPos() {
         this._targetQuickBetButtonY = 199;
         this._originalQuickBetButtonY = 85;
-        this._targetQuickbetPanelY = 170;
+        this._targetQuickbetPanelY = 160;
         this._originalQuickBetPanelY = 0;
         this._offsetLimit = 10000;
         this._offsetMovement = 0;
@@ -153,24 +153,6 @@ namespace we {
         this.hideBetChipPanel();
       }
 
-      protected setStateBet(isInit: boolean = false) {
-        super.setStateBet(isInit);
-        if (this.tableInfo.totalBet > 0) {
-          this._alreadyBetSign.visible = true;
-        } else {
-          this._alreadyBetSign.visible = false;
-        }
-      }
-
-      protected onTableBetInfoUpdate(evt: egret.Event) {
-        super.onTableBetInfoUpdate(evt);
-        if (this.tableInfo.totalBet > 0) {
-          this._alreadyBetSign.visible = true;
-        } else {
-          this._alreadyBetSign.visible = false;
-        }
-      }
-
       protected onMatchGoodRoadUpdate() {
         if (this.tableInfo.goodRoad) {
           this._goodRoadLabel.visible = true;
@@ -184,16 +166,26 @@ namespace we {
       }
 
       protected animateQuickBetButton(show: boolean) {
+        super.animateQuickBetButton(show);
+        if (!this._quickbetButton) {
+          return;
+        }
         egret.Tween.removeTweens(this._quickbetButton);
         if (show) {
-          egret.Tween.get(this._quickbetButton)
-            .set({ visible: true })
-            .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+          egret.Tween.get(this._quickbetButton).set({ visible: true }).to({ y: 120, alpha: 1 }, this._tweenInterval1);
         } else {
-          egret.Tween.get(this._quickbetButton)
-            .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
-            .set({ visible: false });
+          egret.Tween.get(this._quickbetButton).to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250).set({ visible: false });
         }
+        //   egret.Tween.removeTweens(this._quickbetButton);
+        //   if (show) {
+        //     egret.Tween.get(this._quickbetButton)
+        //       .set({ visible: true })
+        //       .to({ y: this._originalQuickBetButtonY, alpha: 1 }, this._tweenInterval1);
+        //   } else {
+        //     egret.Tween.get(this._quickbetButton)
+        //       .to({ y: this._targetQuickBetButtonY, alpha: 0 }, 250)
+        //       .set({ visible: false });
+        //   }
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {

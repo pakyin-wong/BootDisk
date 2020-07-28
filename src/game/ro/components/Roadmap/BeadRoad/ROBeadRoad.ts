@@ -7,6 +7,7 @@ namespace we {
       private xOffset: number;
       private yOffset: number;
 
+      private isExpanded: boolean;
       protected _topTextLayer: egret.DisplayObjectContainer;
 
       public constructor(
@@ -29,6 +30,7 @@ namespace we {
 
         this._topTextLayer = new egret.DisplayObjectContainer();
         this._staticLayer.addChild(this._topTextLayer);
+        this.isExpanded = true;
       }
 
       protected createIcon(size: number): ROBeadRoadIcon {
@@ -56,6 +58,7 @@ namespace we {
           iconIndex++;
         }
         (this.roadMapIconList[0] as ROBeadRoadIcon).showHighLight();
+        this.expandRoad(this.isExpanded);
       }
 
       // override for base class
@@ -85,7 +88,25 @@ namespace we {
             icon.setByObject(roadDataCopy[i]);
           }
           (this.roadMapIconList[0] as ROBeadRoadIcon).showHighLight();
+          this.expandRoad(this.isExpanded);
         }
+      }
+
+      public expandRoad(expand: boolean) {
+        if (this.roadMapIconList && this.roadData) {
+          // const min = Math.min(this.roadData.length, this.roadMapIconList.length);
+          const numPage = Math.ceil(this.numCol * this.numRow * 0.5); // number of icon in each page when not expand
+          if (expand) {
+            for (let i = numPage; i < this.roadMapIconList.length; i++) {
+              (this.roadMapIconList[i] as ROBeadRoadIcon).layerVisible = true;
+            }
+          } else {
+            for (let i = numPage; i < this.roadMapIconList.length; i++) {
+              (this.roadMapIconList[i] as ROBeadRoadIcon).layerVisible = false;
+            }
+          }
+        }
+        this.isExpanded = expand;
       }
     }
   }

@@ -9,6 +9,7 @@ namespace we {
 
       private _previousFrameTime: number;
       private _colorChange: boolean = false;
+      private _progressIndicatorVisible = true;
 
       public constructor() {
         super();
@@ -21,6 +22,9 @@ namespace we {
 
       protected childrenCreated(): void {
         super.childrenCreated();
+        if (this.progressIndicator) {
+          this.progressIndicator.visible = this._progressIndicatorVisible;
+        }
       }
 
       get countdownValue(): number {
@@ -37,6 +41,14 @@ namespace we {
 
       set colorChange(val: boolean) {
         this._colorChange = val;
+      }
+
+      get progressVisible() {
+        return this._progressIndicatorVisible;
+      }
+
+      set progressVisible(val: boolean) {
+        this._progressIndicatorVisible = val;
       }
 
       get remainingTime(): number {
