@@ -153,11 +153,15 @@ namespace we {
               color = 'Black';
           }
 
+          coinAnim.visible = false;
           this._coinGroup.addChild(coinAnim);
 
           (async () => {
+            await we.utils.sleep(1000);
+
             let p = we.utils.waitDragonBone(coinAnim);
             coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
+            coinAnim.visible = true;
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
@@ -167,9 +171,9 @@ namespace we {
             p = we.utils.waitDragonBone(coinAnim);
             coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
             await p;
-          })();
 
-          we.utils.sleep(250);
+            coinAnim.animation.stop();
+          })();
         }
       }
 

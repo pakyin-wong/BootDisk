@@ -26,7 +26,11 @@ namespace we {
         this.beadRoad.scaleX = 689 / 689;
         this.beadRoad.scaleY = 689 / 689;
 
-        this.beadRoad.parseRoadData([{ v: '01', gameRoundID: 'cde345' }, { v: '02', gameRoundID: 'g34345' }, { v: '03', gameRoundID: 'g45454' }]);
+        this.beadRoad.parseRoadData([
+          { v: '01', gameRoundID: 'cde345' },
+          { v: '02', gameRoundID: 'g34345' },
+          { v: '03', gameRoundID: 'g45454' },
+        ]);
         this.addChild(this.beadRoad);
         this.changeLang();
       }

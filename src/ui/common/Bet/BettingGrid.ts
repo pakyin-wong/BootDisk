@@ -58,6 +58,11 @@ namespace we {
             this._matrix.createGradientBox(this.width, this.width, 0, -this.width / 2, -this.width / 2);
             this._gradientRatio = [0, 200];
             break;
+          case 'topToBottom':
+            this._matrix = new egret.Matrix();
+            this._matrix.createGradientBox(this.width, this.height, 90, 0, 0);
+            this._gradientRatio = [0, 255];
+            break;
         }
       }
 

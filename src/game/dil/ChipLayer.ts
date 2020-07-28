@@ -133,37 +133,31 @@ namespace we {
       }
 
       public clearWinningAnim() {
-        console.log('clearWinningAnim 1', this._winningAnim);
-
         if (!this._winningAnim || !this._winningAnim.parent) {
           return;
         }
-        console.log('clearWinningAnim 2');
         this._winningAnim.parent.removeChild(this._winningAnim);
       }
 
       public clearLuckyAnim() {
-        console.log('clearLuckyAnim 1');
         if (!this._luckyAnims) {
           return;
         }
-        console.log('clearLuckyAnim 2');
         this._luckyAnims.map(luckyAnim => {
           if (!luckyAnim || !luckyAnim.parent) {
             return;
           }
-          console.log('clearLuckyAnim 3');
 
           luckyAnim.animation.stop();
           if (luckyAnim.parent.contains(luckyAnim)) {
-            console.log('clearLuckyAnim 4');
             luckyAnim.dispose();
             luckyAnim.parent.removeChild(luckyAnim);
           }
         });
-        // this._luckyAnims = new Array();
-        if (this._flashingOdd) {
+
+        if (this._flashingOdd && this._flashingOdd.parent) {
           egret.Tween.removeTweens(this._flashingOdd);
+          this._flashingOdd.parent.removeChild(this._flashingOdd);
         }
       }
 
@@ -259,12 +253,7 @@ namespace we {
           this._flashingOdd.text = luckyNumbers[key] + 'x';
 
           grid.addChild(this._flashingOdd);
-          egret.Tween.get(this._flashingOdd)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000);
+          egret.Tween.get(this._flashingOdd).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000);
 
           this._luckyAnims.push(luckyAnim);
 
