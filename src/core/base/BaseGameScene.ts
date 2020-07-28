@@ -450,17 +450,17 @@ namespace we {
           this._undoStack.clearStack();
           this._resultMessage.clearMessage();
 
+          if (this._chipLayer) {
+            this._chipLayer.resetUnconfirmedBet();
+            this._chipLayer.resetConfirmedBet();
+          }
+
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
         }
 
         if (this._previousState !== we.core.GameState.BET) {
-          if (this._chipLayer) {
-            this._chipLayer.resetUnconfirmedBet();
-            this._chipLayer.resetConfirmedBet();
-          }
-
           if (this._resultMessage) {
             this._resultMessage.clearMessage();
           }
