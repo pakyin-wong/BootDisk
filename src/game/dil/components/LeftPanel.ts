@@ -180,13 +180,12 @@ namespace we {
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('Draw_Number_Effect_Destop');
+        return factory.buildArmatureDisplay('draw_number');
       }
 
       public updateLuckyNumbers() {
         this._coinGroup.removeChildren();
 
-        console.log(this.tableInfo.data);
         if (!(this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber)) {
           return;
         }
@@ -196,6 +195,7 @@ namespace we {
 
         // 18 = 668 - 5 * 112
         let x = (580 - (noOfLuckNum - 1) * 13 - noOfLuckNum * 175) / 2;
+        let firstCoin = true;
 
         for (const key of Object.keys(luckyNumbers)) {
           const animName = this.getAnimName(+key);
@@ -211,10 +211,10 @@ namespace we {
           coinAnim.height = 213;
           // 112 + 18
 
-          const oddSlot = coinAnim.armature.getSlot(`${animName}_Odd`);
+          const oddSlot = coinAnim.armature.getSlot(`${animName}_odds`);
           oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
 
-          const numberSlot = coinAnim.armature.getSlot(`${animName}_Number`);
+          const numberSlot = coinAnim.armature.getSlot(`${animName}_number`);
           numberSlot.display = this.getNumberSlotGroup(+key);
 
           x += 188;
@@ -247,7 +247,9 @@ namespace we {
           }
 
           (async () => {
-            await we.utils.sleep(1000);
+            if (!firstCoin) {
+              await we.utils.sleep(400);
+            }
 
             let p = we.utils.waitDragonBone(coinAnim);
             coinAnim.animation.play(`${animName}_in`, 1);
@@ -266,6 +268,7 @@ namespace we {
 
             this._coinGroup.removeChildren();
           })();
+          firstCoin = false;
         }
       }
 
