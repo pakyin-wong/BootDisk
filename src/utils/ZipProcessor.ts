@@ -108,7 +108,10 @@ class ZipProcessor implements RES.processor.Processor {
   }
 
   public async createResource(blobUrls: any, blob: Blob, file: any) {
-    const name = file.name.split('/').pop().replace(/\./gi, '_');
+    const name = file.name
+      .split('/')
+      .pop()
+      .replace(/\./gi, '_');
     let url;
     const ext = file.name.split('.').pop();
     let type = RES.ResourceItem.TYPE_IMAGE;
