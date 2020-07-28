@@ -539,7 +539,7 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         if (this._timer) {
-          this._timer.visible = enable;
+          this._timer.visible = true;
         }
 
         if (this._chipLayer) {

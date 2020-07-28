@@ -3,7 +3,8 @@ namespace we {
     export class TabItemWithBadge extends eui.ItemRenderer {
       protected _badge: eui.Group;
       protected _badgeLabel: eui.Label;
-      public badgeBg: eui.Image;
+      protected badgeBg_bet: ui.RoundRectShape;
+      protected badgeBg_goodroad: ui.RoundRectShape;
 
       constructor() {
         super();
@@ -28,7 +29,20 @@ namespace we {
         list.dispatchEvent(new eui.UIEvent('CLEAR_SELECTION'));
       }
 
-      public onBadgeUpdate(value: number) {
+      public onBadgeUpdate(status: string, value: number) {
+        switch (status) {
+          case 'goodroad': {
+            this.badgeBg_goodroad.visible = true;
+            this.badgeBg_bet.visible = false;
+            break;
+          }
+          case 'bet': {
+            this.badgeBg_goodroad.visible = false;
+            this.badgeBg_bet.visible = true;
+            break;
+          }
+        }
+
         if (!this._badge.visible && value > 0) {
           egret.Tween.removeTweens(this._badge);
           this._badge.visible = true;

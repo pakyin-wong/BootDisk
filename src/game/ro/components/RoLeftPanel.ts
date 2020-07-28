@@ -203,7 +203,9 @@ namespace we {
         this.roadRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
         this.roadRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
 
-        this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
+        if (this.toggleUpDownButton) {
+          this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
+        }
         // (this.radioBtn1 as any).buttonImage.width = (this.radioBtn1 as any).labelDisplay.textWidth + 10;
         this.changeLang();
       }
@@ -217,10 +219,10 @@ namespace we {
         const radio: eui.RadioButton = e.target;
         this.pageStack.selectedIndex = radio.value;
         if (radio.value === '1') {
-          this.toggleUpDownButton.visible = true;
+          this.toggleUpDownButton && (this.toggleUpDownButton.visible = true);
         } else {
           this.expandPanel(false);
-          this.toggleUpDownButton.visible = false;
+          this.toggleUpDownButton && (this.toggleUpDownButton.visible = false);
         }
         this.updateActiveLine(true);
       }
@@ -288,7 +290,7 @@ namespace we {
 
           this.isExpanded = true;
 
-          this.toggleUpDownButton.currentState = 'b_down';
+          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_down');
           this.beadRoad.expandRoad(true);
         } else if (this.isExpanded && !expand) {
           this.bg.setRoundRectStyle(666, 338, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x061323', 0.88, 0);
@@ -305,7 +307,7 @@ namespace we {
 
           this.isExpanded = false;
 
-          this.toggleUpDownButton.currentState = 'b_up';
+          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_up');
           this.beadRoad.expandRoad(false);
         }
       }
@@ -355,7 +357,7 @@ namespace we {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
 
-        if (this.toggleUpDownButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+        if (this.toggleUpDownButton && this.toggleUpDownButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
           this.toggleUpDownButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
         }
       }

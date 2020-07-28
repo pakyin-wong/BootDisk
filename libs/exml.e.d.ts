@@ -152,6 +152,10 @@ declare module skin_desktop.bam{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.bam{
+	class BetItemCardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class SqueezeBaccaratScene extends eui.Skin{
 	}
@@ -190,6 +194,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class SideListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class CountdownTextSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{

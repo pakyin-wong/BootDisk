@@ -17,7 +17,7 @@ namespace we {
 
         root.roomList.layout = root.roomListRefer.layout;
         root.roomList.itemRenderer = MobileLiveListHolder;
-        root.roomList.setGameFilters(core.LiveGameTab.ba);
+        root.roomList.setGameFilters(core.LiveGameTab.all);
         root.roomList.setTableList(root.roomIds);
         root.roomList.useVirtualLayout = true;
 

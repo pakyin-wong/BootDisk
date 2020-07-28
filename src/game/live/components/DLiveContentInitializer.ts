@@ -112,7 +112,7 @@ namespace we {
               throw new Error('Invalid Game Type');
           }
         };
-        root.roomList.setGameFilters(core.LiveGameTab.ba);
+        root.roomList.setGameFilters(core.LiveGameTab.all);
         root.roomList.setTableList(root.roomIds);
 
         root.slider = new we.ui.ImageSlider();
