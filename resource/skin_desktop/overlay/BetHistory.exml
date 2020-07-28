@@ -67,7 +67,7 @@
 		<overlay:DoubleCalendarPicker skinName="skin_desktop.DoubleCalendarPicker" id="_datepicker" width="1207" height="718"
 		                              horizontalCenter="0" verticalCenter="0" />
 		<e:Group width="174" x="986" bottom="90">
-			<ui:Panel id="_ddm_page" width="174" x="0" skinName="skin_desktop.NavDropdown" maxHeight="400" scaleX="1" scaleY="1" bottom="0"/>
+			<ui:Panel id="_ddm_page" width="174" x="0" skinName="skin_desktop.NavDropdown" maxHeight="400" scaleX="1" scaleY="1" bottom="0" isDropdownFullWidth="true"/>
 		</e:Group>
 	</e:Group>
 </e:Skin>
