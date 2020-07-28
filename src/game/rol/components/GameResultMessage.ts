@@ -44,7 +44,7 @@ namespace we {
         layer.anchorOffsetX = winAmountLabel.width * 0.5;
         layer.anchorOffsetY = winAmountLabel.height * 0.5;
         layer.touchThrough = true;
-        layer.touchEnabled = true;
+        layer.touchEnabled = false;
         winAmountSlot.display = layer;
 
         return winStatus;
