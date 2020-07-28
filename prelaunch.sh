@@ -30,11 +30,11 @@ echo $now > /tmp/egretlastrun.tmp
     flist="$(git status --porcelain | awk '{ if ( (substr($0,1,1) ~ /^[[:space:]]$/ || substr($0,1,1) !~ /^[[:space:]]$/) && $2 ~ /\.ts$/ && $2 !~ /\.d\.ts$/ ) print $2 }')"
     echo -e "[prelaunch] file list:\n$flist"
     flist="$(echo $flist | tr '\r\n' ' ' | awk '{$1=$1};1')"
-    if [ ! "$flist" ]; then
+    # if [ ! "$flist" ]; then
         sleep 1 && prettier --write src/**/*.ts && sleep 0.5 && tslint -c tslint.json --fix 'src/**/*.ts' && sleep 0.5 && $bin $@
-    else
-        sleep 1 && prettier --write $flist && sleep 0.5 && tslint -c tslint.json --fix $flist && sleep 0.5 && $bin $@
-    fi
+    # else
+    #     sleep 1 && prettier --write $flist && sleep 0.5 && tslint -c tslint.json --fix $flist && sleep 0.5 && $bin $@
+    # fi
 # else
 #     # skip linting
 #     echo "[prelaunch] skipped linting for this run (${lastrun}s)"
