@@ -7,16 +7,13 @@ namespace we {
 
       protected gameIdLabel: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
-      protected totalBetText: ui.RunTimeLabel;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'LwLeftPanel');
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetText.text = i18n.t('baccarat.totalbet') + ' ';
-        this.totalBetLabel.text = utils.numberToFaceValue(this.totalBet);
-        // this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text =  i18n.t('baccarat.totalbet') + ' '  + utils.numberToFaceValue(this.totalBet);
       }
 
       protected init() {
@@ -40,7 +37,7 @@ namespace we {
 
       set _totalBet(total: number) {
         this.totalBet = total;
-        this.totalBetLabel.text = utils.numberToFaceValue(this.totalBet);
+        this.totalBetLabel.text =  i18n.t('baccarat.totalbet') + ' '  + utils.numberToFaceValue(this.totalBet);
       }
 
       public update() {

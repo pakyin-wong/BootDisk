@@ -7,10 +7,8 @@
                 ellipseWidth="0" />
         <e:Rect id="topBar0" width="100%" height="261" x="0" y="43" strokeWeight="0" ellipseHeight="0" ellipseWidth="0"
                 anchorOffsetY="0" fillAlpha="0.7" fillColor="0x131313" />
-        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" x="17" y="10" textAlign="left" anchorOffsetX="0"
-                         width="514" size="24" />
-        <ui:RunTimeLabel id="totalBetText" text="TEXT" y="10" textAlign="right" anchorOffsetX="0" size="25" scaleX="1"
-                         scaleY="1"  x="549"/>
-        <ui:RunTimeLabel id="totalBetLabel" text="0" x="574.69" y="10" textAlign="right" anchorOffsetX="0" width="125"
-                         size="25" />
+        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" y="10" textAlign="left" anchorOffsetX="0"
+                         width="520" size="24"  left="17" targetWidth="520"/>
+        <ui:RunTimeLabel id="totalBetLabel" text="0" y="10" textAlign="right" anchorOffsetX="0" width="160"
+                         size="25"  right="17" targetWidth="160"/>
 </e:Skin>

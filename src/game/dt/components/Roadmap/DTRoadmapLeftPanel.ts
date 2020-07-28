@@ -8,9 +8,7 @@ namespace we {
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetText.text = i18n.t('baccarat.totalbet') + ' ';
-        this.totalBetLabel.text = utils.numberToFaceValue(this.totalBet);
-        // this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
       }
 
       protected init() {

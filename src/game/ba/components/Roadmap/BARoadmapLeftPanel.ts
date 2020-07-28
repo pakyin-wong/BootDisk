@@ -3,9 +3,7 @@ namespace we {
     export class BARoadmapLeftPanel extends core.BaseGamePanel {
       public beadRoad: BABeadRoad;
       protected gameIdLabel: ui.RunTimeLabel;
-      protected gameIdText: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
-      protected totalBetText: ui.RunTimeLabel;
       protected gameId: string;
       protected totalBet: number;
       protected switchModeButton: eui.Component;
@@ -14,19 +12,16 @@ namespace we {
         super(skin ? skin : env.isMobile ? '' : 'BARoadmapLeftPanel');
       }
       public changeLang() {
-        // this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        // this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
-        this.gameIdText.text = i18n.t('baccarat.gameroundid') + ' ';
-        this.gameIdLabel.text = this.gameId;
-        this.totalBetText.text = i18n.t('baccarat.totalbet') + ' ';
-        this.totalBetLabel.text = utils.numberToFaceValue(this.totalBet);
+        // this.gameIdText.text = i18n.t('baccarat.gameroundid') + ' ';
+        this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
       }
 
       protected init() {
         this.gameId = '';
         this.totalBet = 0;
-        this.totalBetText.alpha = 0.7;
-        this.gameIdText.alpha = 0.7;
+        // this.gameIdText.alpha = 0.7;
+        // this.gameIdLabel.alpha = 0.7;
 
         const gridSize = 43;
         const numColumn = 16;
@@ -62,7 +57,7 @@ namespace we {
 
       set _totalBet(total: number) {
         this.totalBet = total;
-        this.totalBetLabel.text = utils.numberToFaceValue(this.totalBet);
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
       }
 
       public destroy() {
