@@ -283,7 +283,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo>evt.data;
+        const tableInfo = <data.TableInfo> evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -323,13 +323,13 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo>evt.data;
+          const tableInfo = <data.TableInfo> evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
-            this._previousState = this._gameData ? this._gameData.previousstate : null;
             this._gameData = this._tableInfo.data;
+            this._previousState = this._gameData ? this._gameData.previousstate : null;
             this.updateTableInfoRelatedComponents();
 
             this.updateGame();
@@ -444,19 +444,6 @@ namespace we {
       }
 
       protected setStateBet(isInit: boolean = false) {
-        if (this._gameRoundCountWithoutBet === 3) {
-          dir.evtHandler.showMessage({
-            class: 'MessageDialog',
-            args: [
-              // i18n.t(''),
-              '您已3局未下注，2局后踢出',
-              {
-                // dismiss: { text: i18n.t('') },
-                dismiss: { text: 'cancelBet' },
-              },
-            ],
-          });
-        }
         if (this._previousState !== we.core.GameState.BET || isInit) {
           this.setBetRelatedComponentsEnabled(true);
           this.setResultRelatedComponentsEnabled(false);
@@ -487,6 +474,32 @@ namespace we {
         this.updateCountdownTimer();
       }
 
+      protected checkRoundCountWithoutBet() {
+        if (this.tableInfo.totalBet > 0) {
+          this._gameRoundCountWithoutBet = 0;
+        } else {
+          this._gameRoundCountWithoutBet += 1;
+        }
+
+        if (this._gameRoundCountWithoutBet === 3) {
+          dir.evtHandler.showMessage({
+            class: 'MessageDialog',
+            args: [
+              // i18n.t(''),
+              '您已3局未下注，2局后踢出',
+              {
+                // dismiss: { text: i18n.t('') },
+                dismiss: { text: 'cancelBet' },
+              },
+            ],
+          });
+        }
+
+        if (this._gameRoundCountWithoutBet >= 5) {
+          this.backToLobby();
+        }
+      }
+
       protected setStateDeal(isInit: boolean = false) {
         // console.log('this._tableId', this._tableId);
         // console.log('env.tableinfo[this._tableid]', env.tableInfos[this._tableId]);
@@ -500,15 +513,7 @@ namespace we {
         }
 
         if (this._previousState !== we.core.GameState.DEAL) {
-          if (this.tableInfo.totalBet > 0) {
-            this._gameRoundCountWithoutBet = 0;
-          } else {
-            this._gameRoundCountWithoutBet += 1;
-          }
-
-          if (this._gameRoundCountWithoutBet >= 5) {
-            this.backToLobby();
-          }
+          this.checkRoundCountWithoutBet();
 
           if (this._resultDisplay) {
             this._resultDisplay.reset();
