@@ -415,7 +415,9 @@ namespace we {
         if (this._betCombination.isActivated) {
           this.hideBetCombination();
         }
-        this.roState = 'small';
+        if(this.tableInfo.gametype == we.core.GameType.RO){
+          this.roState = 'small';
+        }
       }
 
       protected setStateBet(isInit: boolean = false) {
@@ -433,7 +435,9 @@ namespace we {
         if (this._betCombination.isActivated) {
           this.hideBetCombination();
         }
-        this.roState = 'small';
+        if(this.tableInfo.gametype == we.core.GameType.RO){
+          this.roState = 'small';
+        }
       }
 
       protected updateTableInfoRelatedComponents() {

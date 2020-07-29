@@ -8,7 +8,7 @@
 	<ui:TweenConfig id="_betAreaTween" left="-3" right="3" top="0" bottom="0" locked="true">
 	<e:skinName>
 		<e:Skin states="normal,zip,small,result">
-			<e:Component id="checker" width="2061" height="664" x="181" y="501" scaleX="1" scaleY="1" height.zip="664" scaleX.small="0.6859039836567926" scaleY.small="0.7321711568938193" x.small="166" y.small="720" x.zip="233" y.zip="296" scaleY.zip="0.9503012048192772" scaleX.zip="0.9500242600679282" x.result="494" y.result="720" scaleY.result="0.7369255150554675" scaleX.result="0.7334014300306435"/>
+			<e:Component id="checker" width="2061" height="664" x="181" y="501" scaleX="1" scaleY="1" height.zip="664" scaleX.result="0.6859039836567926" scaleY.result="0.7321711568938193" x.result="166" y.result="720" x.zip="233" y.zip="296" scaleY.zip="0.9503012048192772" scaleX.zip="0.9500242600679282" x.small="494" y.small="720" scaleY.small="0.7369255150554675" scaleX.small="0.7334014300306435"/>
 		</e:Skin>
 	</e:skinName>
 	</ui:TweenConfig>

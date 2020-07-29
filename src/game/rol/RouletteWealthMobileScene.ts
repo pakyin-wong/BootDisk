@@ -33,6 +33,11 @@ namespace we {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
           this.luckyCoinGroup.updateLuckyNumbers(this._gameData);
+          if(this.luckyCoinGroup.isLuckyNo){
+            this.roState = 'result';
+          }else{
+            this.roState = 'small';
+          }
         }
         (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
         (<we.rol.MobileChipLayer>this._chipLayer).showWinningNumber();
@@ -61,6 +66,11 @@ namespace we {
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           (<we.rol.MobileChipLayer>this._chipLayer).showLuckyNumber();
           this.luckyCoinGroup.updateLuckyNumbers(this._gameData);
+          if(this.luckyCoinGroup.isLuckyNo){
+            this.roState = 'result';
+          }else{
+            this.roState = 'small';
+          }
         }
       }
 

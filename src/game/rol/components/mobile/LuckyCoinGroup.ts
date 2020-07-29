@@ -4,6 +4,8 @@ namespace we {
       protected _chipLayer: we.rol.MobileChipLayer;
       protected gameData: we.rol.GameData;
 
+      public isLuckyNo: boolean = false;
+
       protected animXArr;
       protected animYArr;
 
@@ -146,9 +148,11 @@ namespace we {
         this.removeChildren();
 
         if (!(this.gameData && this.gameData.luckynumber)) {
+          this.isLuckyNo = false;
           return;
         }
 
+        this.isLuckyNo = true;
         const luckyNumbers = this.gameData.luckynumber;
         const noOfLuckNum = Object.keys(luckyNumbers).length;
         this.setAnimPositionVer(noOfLuckNum);

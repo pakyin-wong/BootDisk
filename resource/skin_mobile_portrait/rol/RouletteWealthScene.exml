@@ -2,8 +2,8 @@
 <e:Skin class="skin_mobile_portrait.RouletteWealthScene" width="1242" height="2155" xmlns:e="http://ns.egret.com/eui" xmlns:ui="we.ui.*" xmlns:ba="we.ba.*" xmlns:ro="we.ro.*" xmlns:w="http://ns.egret.com/wing" xmlns:live="we.live.*" xmlns:rol="we.rol.*" states="left,right">
 	<ui:TweenConfig id="_betAreaTween" left="0" right="0" top="0" bottom="0" locked="true">
 	<e:skinName>
-		<e:Skin states="normal,zip,small">
-			<e:Component id="checker" width="878" height="1969" x="172" y="67" scaleX="1" scaleY="1" height.zip="1404" scaleX.small="0.673120728929385" scaleY.small="0.6721311475409836" x.small="205" y.small="748"/>
+		<e:Skin states="normal,zip,small,result">
+			<e:Component id="checker" width="878" height="1969" x="172" y="67" scaleX="1" scaleY="1" height.zip="1404" scaleX.result="0.6723549488054608" scaleY.result="0.6721311475409836" x.result="205" y.result="748" scaleX.small="0.6723549488054608" scaleY.small="0.6721311475409836" x.small="326" y.small="748"/>
 		</e:Skin>
 	</e:skinName>
 	</ui:TweenConfig>

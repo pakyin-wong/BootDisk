@@ -131,7 +131,9 @@ namespace we {
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
               color = '_green';
+              if(env.orientation === 'landscape'){
               coinAnim.scaleY = 1.5;
+              }
               break;
             case we.ro.Color.RED:
               color = '_red';
