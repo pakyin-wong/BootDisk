@@ -5,7 +5,8 @@ namespace we {
       private _time: eui.Label;
       private _user: eui.Label;
       private _profile_toggle: eui.Group;
-      private _profile: Panel;
+      private _profile: overlay.PlayerProfile;
+      // private _playerProfile: overlay.PlayerProfile;
       private _menu_toggle: eui.Image;
       private _menu: Panel;
       private _slider_toggle: ui.BaseImageButton;
@@ -17,6 +18,8 @@ namespace we {
 
       private _profilePrc: eui.Image;
       private _refreshButton: eui.Image;
+
+      private isPlayerProfileOpened: boolean = false;
       // from Monitor.ts
       // private _liveSidePanel: ui.LiveSidePanel;
       // private _sideGameList: ui.MobileSideGameList;
@@ -29,7 +32,15 @@ namespace we {
       private _background: eui.Rect;
 
       private _timeInterval: number;
+        ///////////////////////
+      // public get playerProfile() {
+      //   return this._playerProfile;
+      // }
 
+      // public set playerProfile(val: any){
+      //   this._playerProfile = val;
+      // }
+        ///////////////////////
       public constructor() {
         super('Nav');
       }
@@ -39,6 +50,11 @@ namespace we {
       }
 
       protected initNav() {
+        /////////////////////
+        // if (!env.isMobile) {
+        //   // this._profile.Nav = this;
+        // }
+        /////////////////////
         if (this._profile) {
           this._profile.setToggler(this._profile_toggle);
           this._profile.dismissOnClickOutside = true;
@@ -59,6 +75,7 @@ namespace we {
         }
         this._timeInterval = setInterval(this.onUpdateTimer.bind(this), 1000);
 
+        this.getPlayerProfileSummary();
         this.updateIconImage();
         this.updateNickname();
         this.addListeners();
@@ -71,6 +88,9 @@ namespace we {
           // dir.evtHandler.addEventListener(core.Event.BA_POPDOWN, this.gameListPopDown, this);
           // this._lantern.alignToLeft();
         }
+        if ( !env.isMobile ) {
+          this._profile_toggle.addEventListener(egret.TouchEvent.TOUCH_TAP,this.updatePlayerProfileSummary,this);
+        }
         dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
         this._refreshButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
@@ -80,7 +100,8 @@ namespace we {
       }
 
       private removeListeners() {
-        if (env.isMobile) {
+        if (!env.isMobile) {
+          this._profile_toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary,this);
         }
         dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
@@ -92,6 +113,29 @@ namespace we {
 
       private updateBalance() {
         dir.socket.getBalance();
+      }
+
+      private updatePlayerProfileSummary(){
+        this.getPlayerProfileSummary();
+        this._profile.winAmount = env.maxWinAmount;
+        this._profile.winStreak = env.maxWinCount;
+        this._profile.updateProfileText();
+      }
+
+      private getPlayerProfileSummary(){
+        dir.socket.getPlayerProfileSummary(this.updateMaxWinAmountAndCount);
+      }
+
+      private updateMaxWinAmountAndCount(data){
+        if (data.error){
+          return;
+        }
+        const { maxwin , winningstreak } = data;
+
+        env.maxWinCount = winningstreak;
+        env.maxWinAmount = maxwin;
+        // this._profile.maxWinAmountText(env.maxWinAmount);
+        // this._profile.maxWinCountText(env.maxWinCount);
       }
 
       private onSceneChange(e = null) {
