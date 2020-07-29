@@ -26,9 +26,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('LuckyWheelScene');
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'lw' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'lw' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;

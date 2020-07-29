@@ -19,9 +19,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('DragonTigerScene');
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'dt' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'dt' });
+      // }
 
       protected initRoadMap() {
         this._roadmapControl = new DTRoadmapControl(this._tableId);
