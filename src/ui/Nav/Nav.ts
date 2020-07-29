@@ -88,7 +88,9 @@ namespace we {
           // dir.evtHandler.addEventListener(core.Event.BA_POPDOWN, this.gameListPopDown, this);
           // this._lantern.alignToLeft();
         }
-        this._profile_toggle.addEventListener(egret.TouchEvent.TOUCH_TAP,this.updatePlayerProfileSummary,this);
+        if ( !env.isMobile ) {
+          this._profile_toggle.addEventListener(egret.TouchEvent.TOUCH_TAP,this.updatePlayerProfileSummary,this);
+        }
         dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
         this._refreshButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
@@ -98,9 +100,9 @@ namespace we {
       }
 
       private removeListeners() {
-        if (env.isMobile) {
+        if (!env.isMobile) {
+          this._profile_toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary,this);
         }
-        this._profile_toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary,this);
         dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
         this._refreshButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updateBalance, this);
@@ -119,6 +121,7 @@ namespace we {
         this._profile.winStreak = env.maxWinCount;
         this._profile.updateProfileText();
       }
+
       private getPlayerProfileSummary(){
         dir.socket.getPlayerProfileSummary(this.updateMaxWinAmountAndCount);
       }

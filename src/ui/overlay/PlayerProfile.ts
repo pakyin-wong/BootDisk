@@ -182,12 +182,18 @@ namespace we {
         this._maxWinAmount.text = this.winAmount;
         this._maxWinCount.text = this.winStreak;
       }
+
       protected initPlayerProfile() {
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
         if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
+        if (env.isMobile){
+          this.MobileGetPlayerProfileSummary();
+          this.updateProfileText();
+        }
+
         this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
         this._txt_maxWinCount.renderText = () => `${i18n.t('playerprofile_maxWinCount')}`;
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
@@ -214,6 +220,19 @@ namespace we {
         this._iconList.dataProvider = this._iconListData;
         this._iconScroller.useMiniScrollBar = true;
         this.addListeners();
+      }
+
+      private MobileGetPlayerProfileSummary(){
+        dir.socket.getPlayerProfileSummary(this.MobileUpdateMaxWinAmountAndCount);
+      }
+
+      protected MobileUpdateMaxWinAmountAndCount(data){
+        if (data.error){
+          return;
+        }
+        const { maxwin , winningstreak } = data;
+        env.maxWinCount = winningstreak;
+        env.maxWinAmount = maxwin;
       }
 
       protected destroy() {
