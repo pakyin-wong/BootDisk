@@ -140,11 +140,14 @@ namespace we {
           // TODO:  handle error on cancel
         } else {
           this.alert_group.visible = true;
+          const parent = (this.parent as we.ui.Overlay);
+
           setTimeout(() => {
-            if (this.alert_group) {
-              this.alert_group.visible = false;
+            if (parent.onShowItemString === 'LiveVerification') {
+              // close self after 3s if visible overlay still this
+              parent.hide();
             }
-          }, 2500);
+          }, 3000);
         }
       }
 

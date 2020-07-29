@@ -88,7 +88,7 @@ namespace we {
       //   } else {
       //     this.targetGameScene.playVideo(this.targetGameScene);
       //   }
-      //   this.dispatchEvent(new egret.Event('close'));
+      //   (this.parent as we.ui.Overlay).hide();
       // }
 
       protected addListeners() {
