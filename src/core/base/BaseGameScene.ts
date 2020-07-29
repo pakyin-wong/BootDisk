@@ -673,28 +673,32 @@ namespace we {
         return this._video.paused;
       }
 
-      public playVideo(scene: any) {
-        return () => {
-          try {
-            scene._video.play();
-            scene.stage.frameRate = 60;
-          } catch (e) {
-            console.log('Video play Error');
-          }
-          scene._bgImg.visible = false;
-        };
+      public playVideoFunc(scene: any) {
+        return () => scene.playVideo();
       }
 
-      public stopVideo(scene: any) {
-        return () => {
+      public playVideo() {
           try {
-            scene._video.stop();
-            scene.stage.frameRate = env.frameRate;
+            this._video.play();
+            this.stage.frameRate = 60;
           } catch (e) {
             console.log('Video play Error');
           }
-          scene._bgImg.visible = true;
-        };
+          this._bgImg.visible = false;
+      }
+
+      public stopVideoFunc(scene: any) {
+        return () => scene.stopVideo;
+      }
+
+      public stopVideo() {
+        try {
+          this._video.stop();
+          this.stage.frameRate = env.frameRate;
+        } catch (e) {
+          console.log('Video play Error');
+        }
+        this._bgImg.visible = true;
       }
     }
   }
