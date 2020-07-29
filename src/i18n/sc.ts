@@ -250,7 +250,7 @@ namespace we {
       },
       dice: {
         big: '大',
-        small: '细',
+        small: '小',
         even: '双',
         odd: '单',
         bigFull: '大',

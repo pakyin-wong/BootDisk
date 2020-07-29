@@ -258,7 +258,7 @@ namespace we {
       },
       dice: {
         big: '大',
-        small: '細',
+        small: '小',
         even: '雙',
         odd: '單',
         bigFull: '大',
