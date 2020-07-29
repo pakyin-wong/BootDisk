@@ -43,36 +43,45 @@ namespace we {
         const gridSize = 26;
         this.totalCount = 0;
 
+        const bgShape = new ui.RoundRectShape();
+        bgShape.setRoundRectStyle(584, 441, { tl: 0, tr: 10, bl: 0, br: 10 }, '0xffffff', 1, 0);
+        this.addChild(bgShape);
+
         this.roadsContainer = new egret.DisplayObjectContainer();
-        this.roadsContainer.x = 0;
-        this.roadsContainer.y = 0;
-        this.roadsContainer.scaleX = 584 / 520;
-        this.roadsContainer.scaleY = 450 / 396;
+        this.roadsContainer.x = 4;
+        this.roadsContainer.y = 4;
+        // this.roadsContainer.scaleX = 584 / 520;
+        // this.roadsContainer.scaleY = 450 / 396;
         this.addChild(this.roadsContainer);
 
-        this.beadRoad = new ROBeadRoad(3, 12, 43, 1, 0, 0, 0x262a2b, 1);
-        this.beadRoad.x = 2;
-        this.beadRoad.y = 0;
+        const beadBorder = new ui.RoundRectShape();
+        beadBorder.setRoundRectStyle(576, 157, { tl: 0, tr: 10, bl: 0, br: 0 }, '0xffffff', 1, 1, 0xdfdfdf);
+        this.roadsContainer.addChild(beadBorder);
+
+        this.beadRoad = new ROBeadRoad(3, 12, 38, 1, 10, 10, 0xc1c1c1, 0.2);
+        this.beadRoad.x = 5;
+        this.beadRoad.y = 10;
         // this.beadRoad.scaleX = 690 / 689;
         // this.beadRoad.scaleY = 690 / 689;
         this.beadRoad.initRoadData();
         this.roadsContainer.addChild(this.beadRoad);
 
-        this.colorBigRoad = new ROColorBigRoad(26, 20, 1, false);
+        this.colorBigRoad = new ROColorBigRoad(25, 23, 1, false);
         this.colorBigRoad.x = 0;
-        this.colorBigRoad.y = 1 + 3 * 52;
+        this.colorBigRoad.y = 157;
         this.colorBigRoad.initRoadData();
         this.roadsContainer.addChild(this.colorBigRoad);
 
-        this.oddBigRoad = new ROOddBigRoad(13, 20, 1, false);
+        this.oddBigRoad = new ROOddBigRoad(13, 23, 1, false);
         this.oddBigRoad.x = 0;
-        this.oddBigRoad.y = 3 * 52 + 20 * 6;
+        this.oddBigRoad.y = 157 + 23 * 6;
         this.oddBigRoad.initRoadData();
         this.roadsContainer.addChild(this.oddBigRoad);
 
-        this.sizeBigRoad = new ROSizeBigRoad(13, 20, 1, false);
-        this.sizeBigRoad.x = 13 * 20;
-        this.sizeBigRoad.y = 3 * 52 + 20 * 6;
+        this.sizeBigRoad = new ROSizeBigRoad(12, 23, 1, false);
+        this.sizeBigRoad.x = 13 * 23;
+        this.sizeBigRoad.y = 157 + 23 * 6;
+        this.sizeBigRoad.setGridCorners({ tl: 0, tr: 0, br: 10, bl: 0 });
         this.sizeBigRoad.initRoadData();
         this.roadsContainer.addChild(this.sizeBigRoad);
 

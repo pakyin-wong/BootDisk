@@ -4,6 +4,10 @@ namespace we {
       private _icon: eui.Image;
       private _iconFrame: eui.Image;
 
+      protected addedToStage() {}
+
+      protected removedFromStage() {}
+
       protected dataChanged() {
         // this._key = this.data.key;
         // this._icon.source = this.data.url;

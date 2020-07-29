@@ -162,9 +162,9 @@ namespace we {
         );
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+      // }
 
       protected initChildren() {
         super.initChildren();
@@ -316,7 +316,7 @@ namespace we {
         this._betAreaLock = true;
         this._bottomGamePanel.manualClose();
         this._bottomGamePanel.touchEnabled = this._bottomGamePanel.touchChildren = false;
-        this.diState = 'small';        
+        this.diState = 'small';
       }
       protected setStateDeal(isInit: boolean = false) {
         super.setStateDeal(isInit);

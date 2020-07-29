@@ -27,14 +27,17 @@ namespace we {
 
       public onEnter() {
         super.onEnter();
+        env.currentPage = 'live';
         // After pressing the Filter
         // dir.socket.getTableList();
         // // dir.socket.getTableList(enums.TableFilter.BACCARAT);
         // dir.socket.getTableHistory();
 
         if (this._data && this._data.tab) {
+          env.currentTab = this._data.tab;
           this._gameTableList.selectGameType(this._data.tab);
         } else {
+          env.currentTab = 'all';
           this._gameTableList.selectGameType();
         }
       }

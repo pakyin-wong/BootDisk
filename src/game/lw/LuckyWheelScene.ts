@@ -26,9 +26,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('LuckyWheelScene');
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'lw' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'lw' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;
@@ -44,6 +44,11 @@ namespace we {
         }
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.count));
         logger.l(utils.LogTarget.DEBUG, JSON.stringify(evt.data.amount));
+
+        const betInfo = <data.GameTableBetInfo> evt.data;
+        if (betInfo.tableid === this._tableId) {
+          this._leftGamePanel.totalBet = evt.data.total;
+        }
       }
 
       protected initChildren() {

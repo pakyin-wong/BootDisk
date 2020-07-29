@@ -33,7 +33,8 @@ namespace we {
 
         protected dataChanged(): void {
           this._txt_record_id.text = this.data.betid;
-          this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
+          // this._txt_record_date.text = utils.formatTime((this.data.datetime / Math.pow(10, 9)).toFixed(0));
+          this._txt_record_date.text = utils.formatTime(this.data.datetime.toFixed(0));
           this._txt_record_game.text = `${i18n.t('gametype_' + we.core.GameType[this.data.gametype])} ${this.data.tablename}`;
           if (env.isMobile) {
             this._txt_hover_color.visible = false;
@@ -80,7 +81,10 @@ namespace we {
         }
 
         protected onClickReplay(e: egret.Event) {
-          window.open('https://www.facebook.com/', '_blank');
+          if (this.data && this.data.replayurl) {
+            window.open(this.data.replayurl, '_blank');
+          }
+          // window.open('https://www.facebook.com/', '_blank');
         }
 
         private formatRemark(remark) {
@@ -130,6 +134,7 @@ namespace we {
             case we.core.GameType.RO:
               p = new RoResultItem(gameResult);
               break;
+            case we.core.GameType.DIL:
             case we.core.GameType.DI:
               p = new DiResultItem(gameResult);
               break;

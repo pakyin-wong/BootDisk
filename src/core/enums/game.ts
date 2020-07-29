@@ -42,12 +42,13 @@ namespace we {
       live = 'live',
     }
     export enum LiveGameTab {
+      all = 'allGame',
       ba = 'bacarrat',
       dt = 'dragontiger',
       ro = 'roulette',
       di = 'dice',
       lw = 'luckywheel',
-      other = 'other',
+      // other = 'other',
       // goodroad = 'goodroad',
     }
 

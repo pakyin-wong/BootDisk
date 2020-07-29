@@ -62,6 +62,14 @@ namespace we {
       class: string;
       replace?: boolean;
       args?: any[];
+      dismissOnClickOutside?: boolean;
+      noDimmer?: boolean;
+      showOptions?: {
+        originW: number;
+        originH: number;
+        originX: number;
+        originY: number;
+      };
     }
 
     export interface IMessageDialogOpt {

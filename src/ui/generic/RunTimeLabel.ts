@@ -1,10 +1,11 @@
 namespace we {
   export namespace ui {
-    export class RunTimeLabel extends eui.Label implements ui.IRunTimeComponent {
+    export class RunTimeLabel extends ClampWidthLabel implements ui.IRunTimeComponent {
       private _renderer: () => string;
       private _isReg: boolean = false;
 
       public _textKey: string = '';
+      protected _targetWidth: number = -1;
 
       constructor() {
         super();
@@ -17,6 +18,14 @@ namespace we {
 
       set textKey(value: string) {
         this._textKey = value;
+      }
+
+      public set targetWidth(val: number) {
+        this.$setTargetWidth(val);
+      }
+
+      public get targetWidth(): number {
+        return this.$getTargetWidth();
       }
 
       protected initRenderText() {

@@ -85,6 +85,8 @@ namespace we {
 
         const scrollV = this.scroller.viewport.scrollV;
 
+        env.currentTab = Object.keys(core.LiveGameTab)[this.tabs.selectedIndex];
+
         this.roomList.setGameFiltersByTabIndex(this.tabs.selectedIndex);
         this.roomList.setTableList(this.roomIds, true);
         this.roomList.invalidateDisplayList();
@@ -94,7 +96,7 @@ namespace we {
       }
 
       public selectGameType(game: string = null) {
-        let item = 'bacarrat';
+        let item = 'allGame';
         if (game && core.LiveGameTab[game]) {
           item = core.LiveGameTab[game];
         }

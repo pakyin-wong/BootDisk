@@ -3,5 +3,4 @@
 	<e:Image id="_bg" height="15" left="0" right="0" verticalCenter="0" source="m_common_slide_bar_base_png" scale9Grid="7,7,2,1"/>
 	<e:Image id="_bar" height="15" verticalCenter="0" horizontalCenter="0" source="m_common_slide_bar_active_png"/>
 	<e:Image id="_toggle" width="70" height="70" source="m_common_slide_bar_btn_png" left="0" top="0"/>
-
 </e:Skin>

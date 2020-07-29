@@ -27,18 +27,20 @@ namespace we {
       protected roadStack: eui.ViewStack;
 
       // new for di
-      protected topBar: eui.Rect;
       protected beadRadioBtn1: eui.RadioButton;
       protected beadRadioBtn2: eui.RadioButton;
       protected isExpanded: boolean;
       protected toggleUpDownButton: eui.ToggleSwitch;
+
+      protected bg: ui.RoundRectShape;
+      protected border: ui.RoundRectShape;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'DiLeftPanel');
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
 
         this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.history');
         this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadmap');
@@ -140,6 +142,7 @@ namespace we {
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -160,13 +163,13 @@ namespace we {
 
       public expandPanel(expand: boolean) {
         if (!this.isExpanded && expand) {
-          this.mask.height += 202;
-          this.mask.y -= 202;
+          this.bg.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
+          this.bg.y -= 202;
+          this.border.setRoundRectStyle(580, 340 + 202, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y -= 202;
 
           (this.pageStack.getChildAt(0) as eui.Group).height += 202;
           (this.pageStack.getChildAt(0) as eui.Group).y -= 202;
-
-          this.topBar.y -= 202;
 
           this.gameIdLabel.y -= 202;
           this.totalBetLabel.y -= 202;
@@ -178,13 +181,13 @@ namespace we {
           this.toggleUpDownButton.currentState = 'b_down';
           this.beadRoad.expandRoad(true);
         } else if (this.isExpanded && !expand) {
-          this.mask.height -= 202;
-          this.mask.y += 202;
+          this.bg.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', 1, 0);
+          this.bg.y += 202;
+          this.border.setRoundRectStyle(580, 340, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x1f242b', -1, 2, 0x3a3f48);
+          this.border.y += 202;
 
           (this.pageStack.getChildAt(0) as eui.Group).height -= 202;
           (this.pageStack.getChildAt(0) as eui.Group).y += 202;
-
-          this.topBar.y += 202;
 
           this.gameIdLabel.y += 202;
           this.totalBetLabel.y += 202;
@@ -258,6 +261,16 @@ namespace we {
         }
       }
 
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt.data) {
+          const betInfo = evt.data;
+          if (betInfo.tableid === this.tableInfo.tableid) {
+            this.totalBet = evt.data.total;
+            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
+          }
+        }
+      }
+
       public destroy() {
         super.destroy();
 
@@ -270,6 +283,7 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
+        dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
       }
     }
   }

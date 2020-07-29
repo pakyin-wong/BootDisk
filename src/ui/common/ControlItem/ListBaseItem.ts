@@ -5,7 +5,7 @@ namespace we {
       protected _quickbetEnable: boolean = false;
       protected _quickBetGroup: eui.Group;
 
-      protected _tweenInterval1: number = 250;
+      protected _tweenInterval1: number = 300;
       protected _hoverScale: number = 1.1;
 
       // protected _originalyhover: number;
@@ -35,8 +35,8 @@ namespace we {
 
       protected initCustomPos() {
         this._targetQuickBetButtonY = 180;
-        this._originalQuickBetButtonY = 150;
-        this._targetQuickbetPanelY = 200;
+        this._originalQuickBetButtonY = 140;
+        this._targetQuickbetPanelY = 190;
         this._originalQuickBetPanelY = 0;
         this._offsetLimit = 1000;
         this._offsetMovement = 264;
@@ -118,11 +118,7 @@ namespace we {
             .to({ y: this._originaly - this._offsetY, scaleX: this._hoverScale, scaleY: this._hoverScale }, this._tweenInterval1)
             .call(resolve)
         );
-        const p2 = new Promise(resolve =>
-          egret.Tween.get(this._quickBetGroup)
-            .to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1)
-            .call(resolve)
-        );
+        const p2 = new Promise(resolve => egret.Tween.get(this._quickBetGroup).to({ y: this._targetQuickbetPanelY, alpha: 1 }, this._tweenInterval1).call(resolve));
       }
 
       protected hideQuickBetGroup() {
@@ -191,7 +187,7 @@ namespace we {
         if (this.list && !this.list.isLocked) {
           // this.setChildIndex(this._timer, 25000);
           egret.Tween.removeTweens(this);
-          egret.Tween.get(this).to({ scaleX: this._hoverScale, scaleY: this._hoverScale, y: this._originaly }, this._tweenInterval1);
+          egret.Tween.get(this).to({ scaleX: this._hoverScale, scaleY: this._hoverScale, y: this._originaly }, this._tweenInterval1, egret.Ease.cubicOut);
           if (this._quickbetEnable) {
             this.showQuickBetButton(true);
           }
@@ -204,7 +200,7 @@ namespace we {
           // this.setChildIndex(this._timer, 2500);
 
           egret.Tween.removeTweens(this);
-          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, 250);
+          const tw1 = egret.Tween.get(this).to({ scaleX: 1, scaleY: 1, y: this._originaly }, this._tweenInterval1, egret.Ease.cubicIn);
           this.showQuickBetButton(false);
         }
       }

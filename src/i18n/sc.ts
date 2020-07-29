@@ -165,6 +165,13 @@ namespace we {
           confirm: '确定',
           cancel: '取消',
           gameSet: '游戏设定',
+          soundSet: '声音设定',
+          videoSet: '视频设定',
+        },
+        video: {
+          toggle: '视频开关',
+          quality: '画質',
+          camera: '鏡头',
         },
         system: {
           title: '系统设定',
@@ -243,7 +250,7 @@ namespace we {
       },
       dice: {
         big: '大',
-        small: '细',
+        small: '小',
         even: '双',
         odd: '单',
         bigFull: '大',
@@ -267,6 +274,7 @@ namespace we {
         tripleShort: '围',
         history: '历史记录',
         roadmap: '路纸',
+        luckyNumber: '幸运数字',
         total: '和值',
         gameStats: '结果统计',
         livePool: '即时彩池',
@@ -384,7 +392,7 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
-        betted: '已下注',
+        betted: '已下注项目',
         goodroad: '好路',
         allgames: '全部游戏',
       },

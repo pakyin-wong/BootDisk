@@ -46,9 +46,23 @@ namespace we {
         logger.l(utils.LogTarget.STAGING, 'MQTTSocketComm is created', this.client);
       }
 
+      // public updateMaxWinAmountAndCount(){
+      //   this.getPlayerProfileSummary(this._getPlayerProfileSummaryCallback);
+      // }
+
       public getPlayerProfileSummary(callback: (data: any) => void) {
-        this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+        this.client.getPlayerProfileSummary(callback);
       }
+
+      // private _getPlayerProfileSummaryCallback(data: any){
+      //   if (data.error){
+      //     return;
+      //   }
+      //   let { maxwin , winningstreak } = data;
+      //   console.log('maxwin , winningstreak',[maxwin,winningstreak])
+      //   env.maxWinCount = winningstreak;
+      //   env.maxWinAmount = maxwin;
+      // }
 
       public getPlayerStatistic(filter: any, callback: (data: any) => void) {
         this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));
@@ -695,13 +709,7 @@ namespace we {
       public checkResultNotificationReady(tableInfo: data.TableInfo) {
         if (tableInfo.data) {
           if (this.hasBet(tableInfo)) {
-            if (
-              tableInfo.data &&
-              tableInfo.data.previousstate !== core.GameState.FINISH &&
-              tableInfo.data.state === core.GameState.FINISH &&
-              tableInfo.data.wintype !== 0 &&
-              !isNaN(tableInfo.totalWin)
-            ) {
+            if (tableInfo.data && tableInfo.data.state === core.GameState.FINISH && !isNaN(tableInfo.totalWin)) {
               const data = {
                 tableid: tableInfo.tableid,
               };

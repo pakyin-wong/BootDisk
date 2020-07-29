@@ -1,6 +1,6 @@
 namespace we {
   export namespace core {
-    export class MockProcessDiceWealth extends MockProcess {
+    export class MockProcessDiceWealth extends MockProcessDice {
       constructor(socket: SocketMock, gameType = core.GameType.DIL) {
         super(socket, gameType);
       }
@@ -12,11 +12,7 @@ namespace we {
         gameData.dice2 = points[1];
         gameData.dice3 = points[2];
         gameData.total = points[0] + points[1] + points[2];
-        gameData.luckynumber = {
-          0: 100,
-          2: 100,
-          11: 30,
-        };
+
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
 
@@ -33,9 +29,14 @@ namespace we {
       }
 
       public async game(data: data.TableInfo) {
-        const gameData = new di.GameData();
+        const gameData = new dil.GameData();
         // set to bet state and wait
         await this.initGameData(data, gameData);
+        gameData.luckynumber = {
+          4: 100,
+          5: 100,
+          11: 30,
+        };
         this.dispatchEvent(data);
         await this.sleep(gameData.countdown * 1000);
 
@@ -43,7 +44,8 @@ namespace we {
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
         this.dispatchEvent(data);
-        await this.sleep(this.startCardInterval);
+        await this.sleep(300000);
+
         const gameResult1 = Math.floor(Math.random() * 6) + 1;
         const gameResult2 = Math.floor(Math.random() * 6) + 1;
         const gameResult3 = Math.floor(Math.random() * 6) + 1;
