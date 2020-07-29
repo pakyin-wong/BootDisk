@@ -17,9 +17,9 @@ namespace we {
         this._leftGamePanel.chipLayer = this._chipLayer;
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+      // }
 
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);

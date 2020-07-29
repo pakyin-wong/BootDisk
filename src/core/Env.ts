@@ -110,6 +110,9 @@ namespace we {
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
 
+      public currentPage: string = 'lobby';
+      public currentTab: string = 'all';
+
       // Check if playing bam first time
       public isFirstTimeBam = false;
 

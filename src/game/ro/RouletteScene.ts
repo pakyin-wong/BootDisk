@@ -31,9 +31,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('RouletteScene');
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;
