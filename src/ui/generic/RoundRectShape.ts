@@ -103,13 +103,22 @@ namespace we {
         }
       }
 
-      public refresh() {
+      public async refresh() {
         if (this.cornerTL_TR_BL_BR !== '') {
           const corners = this.cornerTL_TR_BL_BR.split(' ').join('').split(',');
           this.cornerTL = parseInt(corners[0], 10);
           this.cornerTR = parseInt(corners[1], 10);
           this.cornerBL = parseInt(corners[2], 10);
           this.cornerBR = parseInt(corners[3], 10);
+        }
+
+        // support percentage width / height
+        if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
+          await new Promise(resolve => window.requestAnimationFrame(resolve));
+          // wait width / height calculated
+          this.width = (this as any).layoutBoundsWidth;
+          this.height = (this as any).layoutBoundsHeight;
+          this.percentWidth = this.percentHeight = NaN;
         }
 
         this.setRoundRectStyle(

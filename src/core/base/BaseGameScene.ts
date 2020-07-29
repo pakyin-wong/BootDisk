@@ -267,7 +267,8 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+        // dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+        dir.sceneCtr.goto('lobby', { page: env.currentPage, tab: env.currentTab });
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {

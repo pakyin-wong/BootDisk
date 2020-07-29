@@ -39,7 +39,7 @@ namespace we {
 
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
 
         this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.luckyNumber');
         this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.history');
