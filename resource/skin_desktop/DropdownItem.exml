@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.DropdownItem" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" height="40" states="normal,hover,selected,selected-hover" >
-	<e:Image width="29" height="28" x="27" verticalCenter="0" includeIn="selected,selected-hover" source="d_common_panel_systemsetting_pressed_select_png"/>
+	<e:Image id="_imgCheck" width="29" height="28" verticalCenter="0" includeIn="selected,selected-hover" source="d_common_panel_systemsetting_pressed_select_png" left="10"/>
 
-	<ui:RunTimeLabel id="review" text="Label" minWidth="" alpha.normal="0.7" verticalAlign="middle" size="24" textAlign="left" top="0" bottom="0" x="65"/>
+	<ui:RunTimeLabel id="review" text="Label" minWidth="" alpha.normal="0.7" verticalAlign="middle" size="24" textAlign="left" top="5" bottom="5" left="50" right="10" multiline="false" height="30"/>
 
 </e:Skin>

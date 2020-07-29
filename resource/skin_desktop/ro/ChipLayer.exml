@@ -270,7 +270,7 @@
 		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_separate_0_3_group" width="40" height="35" x="83" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<ro:BetChipStack id="_separate_0_1_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30"
+		<ro:BetChipStack id="_separate_0_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30"
 		                 chipHeight="30" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes=""
 		                 chipType="2" />
 	</e:Group>
@@ -280,7 +280,7 @@
 		                 chipType="2" />
 	</e:Group>
 	<e:Group id="_separate_0_1_group" width="40" height="35" x="83" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<ro:BetChipStack id="_separate_0_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30"
+		<ro:BetChipStack id="_separate_0_1_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30"
 		                 chipHeight="30" chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes=""
 		                 chipType="2" />
 	</e:Group>
@@ -678,16 +678,16 @@
 		<ro:BetChipStack id="_line_31_36_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30" chipHeight="30"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes="" chipType="2" />
 	</e:Group>
-	<e:Group id="_row_3_group" width="108" height="70" x="1098" y="143" anchorOffsetX="0" anchorOffsetY="0">
-		<ro:BetChipStack id="_row_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30" chipHeight="30"
+	<e:Group id="_row_1_group" width="108" height="70" x="1098" y="143" anchorOffsetX="0" anchorOffsetY="0">
+		<ro:BetChipStack id="_row_1_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30" chipHeight="30"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes="" chipType="2" />
 	</e:Group>
 	<e:Group id="_row_2_group" width="108" height="70" x="1098" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<ro:BetChipStack id="_row_2_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30" chipHeight="30"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes="" chipType="2" />
 	</e:Group>
-	<e:Group id="_row_1_group" width="108" height="70" x="1098" y="1" anchorOffsetX="0" anchorOffsetY="0">
-		<ro:BetChipStack id="_row_1_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30" chipHeight="30"
+	<e:Group id="_row_3_group" width="108" height="70" x="1098" y="1" anchorOffsetX="0" anchorOffsetY="0">
+		<ro:BetChipStack id="_row_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="30" chipHeight="30"
 		                 chipInterval="3" totalCfmOffset="20" totalUncfmOffset="0" betSumBackgroundRes="" chipType="2" />
 	</e:Group>
 	<e:Group id="_dozen_1_12_group" width="330" height="59" x="102" y="215" anchorOffsetX="0" anchorOffsetY="0">

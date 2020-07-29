@@ -31,9 +31,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('RouletteScene');
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;
@@ -73,6 +73,16 @@ namespace we {
       protected onRoadDataUpdate(evt: egret.Event) {
         this._roadmapControl.updateRoadData();
       }
+
+      // protected onTableBetInfoUpdate(evt: egret.Event) {
+      //   super.onTableBetInfoUpdate(evt);
+      //   if (evt && evt.data) {
+      //     const betInfo = <data.GameTableBetInfo>evt.data;
+      //     if (betInfo.tableid === this._tableId) {
+      //       this._leftGamePanel._totalBet = evt.data.total;
+      //     }
+      //   }
+      // }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);

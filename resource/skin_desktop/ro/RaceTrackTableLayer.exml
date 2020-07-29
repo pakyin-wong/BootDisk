@@ -100,7 +100,7 @@
 	</e:Group>
 	<e:Group id="_group_16" width="31" height="46" x="97.5" y="1.5">
 		<e:Image id="_section_16" source="d_ro_racetrack_red_hover_png" width="31" height="46" visible="false" />
-		<e:Label id="_label_16" text="35" size="20" verticalCenter="0" horizontalCenter="0" />
+		<e:Label id="_label_16" text="16" size="20" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_group_33" width="34" height="46" x="129" y="0.5">
 		<e:Image id="_section_33" source="d_ro_racetrack_black_hover_png" width="34" height="46" visible="false" />

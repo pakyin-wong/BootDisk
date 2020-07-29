@@ -28,9 +28,9 @@ namespace we {
 
       protected init_menu() {
         this._txt_title.renderText = () => `${i18n.t('nav.menu.soundSet')}`;
-        this._txt_liveRecord.renderText = () => `${i18n.t('nav.audio.liveRecord')}`;
-        this._txt_soundfx.renderText = () => `${i18n.t('nav.audio.soundFx')}`;
-        this._txt_bgm.renderText = () => `${i18n.t('nav.audio.bgm')}`;
+        this._txt_liveRecord.renderText = () => `${i18n.t('nav.system.liveRecord')}`;
+        this._txt_soundfx.renderText = () => `${i18n.t('nav.system.soundfx')}`;
+        this._txt_bgm.renderText = () => `${i18n.t('nav.system.bgm')}`;
 
         const _arrCol_currLang = new eui.ArrayCollection([ui.NewDropdownItem('sc', () => `简体中文`), ui.NewDropdownItem('tc', () => `繁體中文`), ui.NewDropdownItem('en', () => `English`)]);
         const _arrCol_presetBgm = new eui.ArrayCollection([ui.NewDropdownItem('01', () => `${i18n.t('nav.audio.bgm')} 01`)]);

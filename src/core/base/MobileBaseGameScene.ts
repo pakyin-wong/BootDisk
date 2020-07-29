@@ -60,8 +60,8 @@ namespace we {
           this.changeLang();
         }
 
-        this.setPlayFunc(this.playVideo(this));
-        this.setStopFunc(this.stopVideo(this));
+        this.setPlayFunc(this.playVideoFunc(this));
+        this.setStopFunc(this.stopVideoFunc(this));
 
         this.played = true;
       }

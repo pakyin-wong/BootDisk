@@ -181,8 +181,8 @@ namespace we {
       [ro.BetField.LINE_25_30]: [ro.BetField.DIRECT_25, ro.BetField.DIRECT_26, ro.BetField.DIRECT_27, ro.BetField.DIRECT_28, ro.BetField.DIRECT_29, ro.BetField.DIRECT_30],
       [ro.BetField.LINE_28_33]: [ro.BetField.DIRECT_28, ro.BetField.DIRECT_29, ro.BetField.DIRECT_30, ro.BetField.DIRECT_31, ro.BetField.DIRECT_32, ro.BetField.DIRECT_33],
       [ro.BetField.LINE_31_36]: [ro.BetField.DIRECT_31, ro.BetField.DIRECT_32, ro.BetField.DIRECT_33, ro.BetField.DIRECT_34, ro.BetField.DIRECT_35, ro.BetField.DIRECT_36],
-      [ro.BetField.ROW_1]: [
-        ro.BetField.ROW_1,
+      [ro.BetField.ROW_3]: [
+        ro.BetField.ROW_3,
         ro.BetField.DIRECT_3,
         ro.BetField.DIRECT_6,
         ro.BetField.DIRECT_9,
@@ -211,8 +211,8 @@ namespace we {
         ro.BetField.DIRECT_32,
         ro.BetField.DIRECT_35,
       ],
-      [ro.BetField.ROW_3]: [
-        ro.BetField.ROW_3,
+      [ro.BetField.ROW_1]: [
+        ro.BetField.ROW_1,
         ro.BetField.DIRECT_1,
         ro.BetField.DIRECT_4,
         ro.BetField.DIRECT_7,

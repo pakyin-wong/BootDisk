@@ -16,6 +16,10 @@ namespace we {
       value = Math.floor(value / 100);
       if (!value) {
         return '0';
+      } else if (value >= 1000000000) {
+        return value / 1000000000 + 'B';
+      } else if (value >= 1000000) {
+        return value / 1000000 + 'M';
       } else if (value >= 1000) {
         return value / 1000 + 'k';
       } else {
@@ -40,7 +44,10 @@ namespace we {
     }
 
     export function formatTime(timestamp) {
-      return moment.unix(timestamp).utcOffset(8).format('YYYY/MM/DD HH:mm:ss');
+      return moment
+        .unix(timestamp)
+        .utcOffset(8)
+        .format('YYYY/MM/DD HH:mm:ss');
     }
 
     export function formatCard(source) {

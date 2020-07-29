@@ -106,9 +106,11 @@ namespace we {
           rect.percentHeight = 100;
           group.addChildAt(rect, 1);
           const promise = new Promise(resolve => {
+          if (rect && rect.parent) {
             egret.Tween.get(rect)
               .to({ alpha: isWin ? 0 : 0.25 }, 125)
               .call(resolve);
+          }
           });
           initRectPromises.push(promise);
         }
@@ -124,14 +126,18 @@ namespace we {
               const group = self._imageMapping[field].parent;
               const rect = group.getChildByName('dim');
               const promise = new Promise(resolve => {
+                if (!rect || !rect.parent) {
+                  return;
+                }
                 egret.Tween.get(rect)
                   .to({ alpha: 0 }, 125)
                   .call(() => {
-                    if (rect.parent) {
+                    if (rect && rect.parent) {
                       rect.parent.removeChild(rect);
                     }
                     resolve();
                   });
+
               });
               fadeOutPromises.push(promise);
             }
@@ -144,9 +150,11 @@ namespace we {
             const rect = group.getChildByName('dim');
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
+              if (rect && rect.parent) {
               egret.Tween.get(rect)
                 .to({ alpha }, 125)
                 .call(resolve);
+                        }
             });
             tickFlashPromises.push(prom);
           }

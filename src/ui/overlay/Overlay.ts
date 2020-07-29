@@ -87,6 +87,10 @@ namespace we {
         this.addItem(item, opt);
       }
 
+      public get onShowItemString() {
+        return this._onShowItemClass;
+      }
+
       public hide() {
         this.removeItem();
         this.fadeout();

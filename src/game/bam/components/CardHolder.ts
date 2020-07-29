@@ -41,8 +41,8 @@ namespace we {
         this.skinName = utils.getSkinByClassname('bam.CardHolderSkin');
       }
 
-      protected childrenCreated() {
-        super.childrenCreated();
+      protected mount() {
+        super.mount();
         this._playerCard1.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
         this._playerCard2.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
         this._playerCard3.addEventListener(we.core.Event.CARD_FLIPPED, this.calculatePoint, this);
@@ -198,19 +198,8 @@ namespace we {
         }
       }
 
-      protected setFinishState() {
-        this._disabledPlayerRect.visible = false;
-        this._disabledBankerRect.visible = false;
-
-        if (this._timer) {
-          this._timer.visible = false;
-        }
-        if (!this._prevState) {
-          this.setNormalCards();
-          this.setCardImage(2);
-          this.setCardImage(5);
-        }
-        if (this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === we.ba.WinType.TIE) {
+      protected showWinningField() {
+if (this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === we.ba.WinType.TIE) {
           this._bankerWinningField.visible = true;
           egret.Tween.get(this._bankerWinningField)
             .to({ alpha: 1 }, 200)
@@ -226,7 +215,7 @@ namespace we {
             .to({ alpha: 1 }, 200)
             .to({ alpha: 0.3 }, 200);
         }
-        if (this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === we.ba.WinType.TIE) {
+if (this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === we.ba.WinType.TIE) {
           this._playerWinningField.visible = true;
           egret.Tween.get(this._playerWinningField)
             .to({ alpha: 1 }, 200)
@@ -242,6 +231,22 @@ namespace we {
             .to({ alpha: 1 }, 200)
             .to({ alpha: 0.3 }, 200);
         }
+      }
+
+      protected setFinishState() {
+        this._disabledPlayerRect.visible = false;
+        this._disabledBankerRect.visible = false;
+
+        if (this._timer) {
+          this._timer.visible = false;
+        }
+        if (!this._prevState) {
+          this.setNormalCards();
+          this.setCardImage(2);
+          this.setCardImage(5);
+        }
+
+        this.showWinningField();
 
         this._cardHolderArr[0].showFinal();
         this._cardHolderArr[1].showFinal();

@@ -49,6 +49,10 @@ namespace we {
       public nicknameKey: string;
       public profileimage: string;
 
+      // playersummary
+      public maxWinAmount: number = 0;
+      public maxWinCount: number = 0;
+
       public frameRate: number = 30;
 
       public _nicknames: { [langcode: string]: any } = {};
@@ -119,6 +123,9 @@ namespace we {
       private _livepageLocked: any = false;
       public sidePanelExpanded: boolean = false;
       public lobbyGridType: number = 1;
+
+      public currentPage: string = 'lobby';
+      public currentTab: string = 'all';
 
       // Check if playing bam first time
       public isFirstTimeBam = false;

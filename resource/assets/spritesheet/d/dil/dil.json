@@ -1,0 +1,865 @@
+{
+  "file": "dil.png",
+  "frames": {
+    "d_gfsb_panel_betarea_blue_hover_png": {
+      "x": 2,
+      "y": 2,
+      "w": 170,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 170,
+      "sourceH": 170
+    },
+    "d_gfsb_panel_betarea_green_hover_png": {
+      "x": 176,
+      "y": 2,
+      "w": 170,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 170,
+      "sourceH": 170
+    },
+    "d_gfsb_panel_betarea_green_pink_hover_png": {
+      "x": 2,
+      "y": 176,
+      "w": 170,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 170,
+      "sourceH": 170
+    },
+    "d_gfsb_panel_betarea_green_yellow_hover_png": {
+      "x": 176,
+      "y": 176,
+      "w": 170,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 170,
+      "sourceH": 170
+    },
+    "d_gfsb_panel_betarea_indigo_hover_png": {
+      "x": 350,
+      "y": 2,
+      "w": 170,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 170,
+      "sourceH": 170
+    },
+    "d_gfsb_panel_betarea_orange_hover_png": {
+      "x": 350,
+      "y": 176,
+      "w": 170,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 170,
+      "sourceH": 170
+    },
+    "d_gfsb_panel_betarea_purple_hover_png": {
+      "x": 2,
+      "y": 350,
+      "w": 170,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 170,
+      "sourceH": 170
+    },
+    "d_gfsb_panel_betarea_red_hover_png": {
+      "x": 176,
+      "y": 350,
+      "w": 170,
+      "h": 170,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 170,
+      "sourceH": 170
+    },
+    "d_gfsb_panel_betarea_blue_png": {
+      "x": 350,
+      "y": 350,
+      "w": 146,
+      "h": 146,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 146,
+      "sourceH": 146
+    },
+    "d_gfsb_panel_betarea_green_pink_png": {
+      "x": 524,
+      "y": 2,
+      "w": 146,
+      "h": 146,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 146,
+      "sourceH": 146
+    },
+    "d_gfsb_panel_betarea_green_png": {
+      "x": 524,
+      "y": 152,
+      "w": 146,
+      "h": 146,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 146,
+      "sourceH": 146
+    },
+    "d_gfsb_panel_betarea_green_yellow_png": {
+      "x": 524,
+      "y": 302,
+      "w": 146,
+      "h": 146,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 146,
+      "sourceH": 146
+    },
+    "d_gfsb_panel_betarea_indigo_png": {
+      "x": 2,
+      "y": 524,
+      "w": 146,
+      "h": 146,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 146,
+      "sourceH": 146
+    },
+    "d_gfsb_panel_betarea_orange_png": {
+      "x": 152,
+      "y": 524,
+      "w": 146,
+      "h": 146,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 146,
+      "sourceH": 146
+    },
+    "d_gfsb_panel_betarea_purple_png": {
+      "x": 302,
+      "y": 524,
+      "w": 146,
+      "h": 146,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 146,
+      "sourceH": 146
+    },
+    "d_gfsb_panel_betarea_red_png": {
+      "x": 500,
+      "y": 452,
+      "w": 146,
+      "h": 146,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 146,
+      "sourceH": 146
+    },
+    "Base_Dice_1_png": {
+      "x": 674,
+      "y": 2,
+      "w": 113,
+      "h": 113,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 113,
+      "sourceH": 113
+    },
+    "Base_Dice_3_png": {
+      "x": 674,
+      "y": 119,
+      "w": 113,
+      "h": 113,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 113,
+      "sourceH": 113
+    },
+    "Base_Dice_6_png": {
+      "x": 674,
+      "y": 236,
+      "w": 113,
+      "h": 113,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 113,
+      "sourceH": 113
+    },
+    "Base_Dice_2_png": {
+      "x": 674,
+      "y": 353,
+      "w": 112,
+      "h": 112,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 112,
+      "sourceH": 112
+    },
+    "Base_Dice_4_png": {
+      "x": 650,
+      "y": 469,
+      "w": 112,
+      "h": 112,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 112,
+      "sourceH": 112
+    },
+    "Base_Dice_5_png": {
+      "x": 2,
+      "y": 674,
+      "w": 112,
+      "h": 112,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 112,
+      "sourceH": 112
+    },
+    "d_gfsb_panel_roadmap_record_multiple_blue_png": {
+      "x": 118,
+      "y": 674,
+      "w": 68,
+      "h": 74,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 74
+    },
+    "d_gfsb_panel_roadmap_record_multiple_green_png": {
+      "x": 190,
+      "y": 674,
+      "w": 68,
+      "h": 74,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 74
+    },
+    "d_gfsb_panel_roadmap_record_multiple_indigo_png": {
+      "x": 262,
+      "y": 674,
+      "w": 68,
+      "h": 74,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 74
+    },
+    "d_gfsb_panel_roadmap_record_multiple_orange_png": {
+      "x": 334,
+      "y": 674,
+      "w": 68,
+      "h": 74,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 74
+    },
+    "d_gfsb_panel_roadmap_record_multiple_pink_png": {
+      "x": 406,
+      "y": 674,
+      "w": 68,
+      "h": 74,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 74
+    },
+    "d_gfsb_panel_roadmap_record_multiple_purple_png": {
+      "x": 650,
+      "y": 585,
+      "w": 68,
+      "h": 74,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 74
+    },
+    "d_gfsb_panel_roadmap_record_multiple_red_png": {
+      "x": 478,
+      "y": 663,
+      "w": 68,
+      "h": 74,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 74
+    },
+    "d_gfsb_panel_roadmap_record_multiple_yellow_png": {
+      "x": 550,
+      "y": 602,
+      "w": 68,
+      "h": 74,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 68,
+      "sourceH": 74
+    },
+    "d_gfsb_panel_roadmap_record_new_bg_png": {
+      "x": 722,
+      "y": 585,
+      "w": 58,
+      "h": 58,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58,
+      "sourceH": 58
+    },
+    "d_gfsb_panel_roadmap_record_old_bg_png": {
+      "x": 722,
+      "y": 647,
+      "w": 58,
+      "h": 58,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 58,
+      "sourceH": 58
+    },
+    "d_gfsb_panel_gamelist_betarea_blue_hover_png": {
+      "x": 452,
+      "y": 602,
+      "w": 46,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 50
+    },
+    "d_gfsb_panel_gamelist_betarea_green_hover_png": {
+      "x": 550,
+      "y": 709,
+      "w": 46,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 50
+    },
+    "d_gfsb_panel_gamelist_betarea_indigo_hover_png": {
+      "x": 600,
+      "y": 709,
+      "w": 46,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 50
+    },
+    "d_gfsb_panel_gamelist_betarea_orange_hover_png": {
+      "x": 650,
+      "y": 663,
+      "w": 46,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 50
+    },
+    "d_gfsb_panel_gamelist_betarea_pink_hover_png": {
+      "x": 650,
+      "y": 717,
+      "w": 46,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 50
+    },
+    "d_gfsb_panel_gamelist_betarea_purple_hover_png": {
+      "x": 700,
+      "y": 709,
+      "w": 46,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 50
+    },
+    "d_gfsb_panel_gamelist_betarea_red_hover_png": {
+      "x": 2,
+      "y": 790,
+      "w": 46,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 50
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_hover_png": {
+      "x": 52,
+      "y": 790,
+      "w": 46,
+      "h": 50,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 46,
+      "sourceH": 50
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_multiple_blue_png": {
+      "x": 452,
+      "y": 500,
+      "w": 44,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 44,
+      "sourceH": 49
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_multiple_green_png": {
+      "x": 502,
+      "y": 602,
+      "w": 44,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 44,
+      "sourceH": 49
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_multiple_indigo_png": {
+      "x": 102,
+      "y": 790,
+      "w": 44,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 44,
+      "sourceH": 49
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_multiple_orange_png": {
+      "x": 150,
+      "y": 771,
+      "w": 44,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 44,
+      "sourceH": 49
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_multiple_pink_png": {
+      "x": 198,
+      "y": 771,
+      "w": 44,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 44,
+      "sourceH": 49
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_multiple_purple_png": {
+      "x": 246,
+      "y": 771,
+      "w": 44,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 44,
+      "sourceH": 49
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_multiple_red_png": {
+      "x": 294,
+      "y": 771,
+      "w": 44,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 44,
+      "sourceH": 49
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_multiple_yellow_png": {
+      "x": 342,
+      "y": 771,
+      "w": 44,
+      "h": 49,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 44,
+      "sourceH": 49
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_blue_png": {
+      "x": 452,
+      "y": 553,
+      "w": 40,
+      "h": 44,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 44
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_green_png": {
+      "x": 390,
+      "y": 771,
+      "w": 40,
+      "h": 44,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 44
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_indigo_png": {
+      "x": 434,
+      "y": 771,
+      "w": 40,
+      "h": 44,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 44
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_orange_png": {
+      "x": 478,
+      "y": 771,
+      "w": 40,
+      "h": 44,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 44
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_pink_png": {
+      "x": 522,
+      "y": 771,
+      "w": 40,
+      "h": 44,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 44
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_purple_png": {
+      "x": 566,
+      "y": 771,
+      "w": 40,
+      "h": 44,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 44
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_red_png": {
+      "x": 610,
+      "y": 771,
+      "w": 40,
+      "h": 44,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 44
+    },
+    "d_gfsb_panel_gamelist_betarea_yellow_yellow_png": {
+      "x": 654,
+      "y": 771,
+      "w": 40,
+      "h": 44,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 40,
+      "sourceH": 44
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_new_bg_png": {
+      "x": 698,
+      "y": 771,
+      "w": 38,
+      "h": 38,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 38,
+      "sourceH": 38
+    },
+    "d_gfsb_panel_gamelist_roadmap_record_old_bg_png": {
+      "x": 740,
+      "y": 763,
+      "w": 38,
+      "h": 38,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 38,
+      "sourceH": 38
+    },
+    "d_common_panel_info_btn_left_active_png": {
+      "x": 740,
+      "y": 805,
+      "w": 35,
+      "h": 35,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 35,
+      "sourceH": 35
+    },
+    "d_common_panel_info_btn_left_png": {
+      "x": 750,
+      "y": 709,
+      "w": 35,
+      "h": 35,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 35,
+      "sourceH": 35
+    },
+    "d_common_panel_info_btn_right_active_png": {
+      "x": 779,
+      "y": 805,
+      "w": 35,
+      "h": 35,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 35,
+      "sourceH": 35
+    },
+    "d_common_panel_info_btn_right_png": {
+      "x": 791,
+      "y": 2,
+      "w": 35,
+      "h": 35,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 35,
+      "sourceH": 35
+    },
+    "d_gfsb_panel_info_bg_png": {
+      "x": 150,
+      "y": 824,
+      "w": 31,
+      "h": 16,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 31,
+      "sourceH": 16
+    },
+    "d_gfsb_panel_info_bg_stroke_png": {
+      "x": 791,
+      "y": 41,
+      "w": 31,
+      "h": 31,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 31,
+      "sourceH": 31
+    },
+    "d_gfsb_panel_info_gfsb_bg_botbar_png": {
+      "x": 185,
+      "y": 824,
+      "w": 31,
+      "h": 16,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 31,
+      "sourceH": 16
+    },
+    "d_common_panel_chart_bg_png": {
+      "x": 500,
+      "y": 350,
+      "w": 19,
+      "h": 19,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 19,
+      "sourceH": 19
+    },
+    "d_gfsb_panel_info_bar_bg_png": {
+      "x": 452,
+      "y": 656,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_info_bar_blue_png": {
+      "x": 118,
+      "y": 752,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_info_bar_green_png": {
+      "x": 137,
+      "y": 752,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_info_bar_indigo_png": {
+      "x": 156,
+      "y": 752,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_info_bar_orange_png": {
+      "x": 175,
+      "y": 752,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_info_bar_pink_png": {
+      "x": 194,
+      "y": 752,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_info_bar_purple_png": {
+      "x": 213,
+      "y": 752,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_info_bar_red_png": {
+      "x": 232,
+      "y": 752,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_info_bar_yeloow_png": {
+      "x": 251,
+      "y": 752,
+      "w": 15,
+      "h": 14,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 15,
+      "sourceH": 14
+    },
+    "d_gfsb_panel_chart_bar_bg_png": {
+      "x": 750,
+      "y": 748,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_panel_chart_bar_blue_png": {
+      "x": 765,
+      "y": 748,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_panel_chart_bar_green_png": {
+      "x": 780,
+      "y": 748,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_panel_chart_bar_indigo_png": {
+      "x": 650,
+      "y": 452,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_panel_chart_bar_orange_png": {
+      "x": 270,
+      "y": 752,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_panel_chart_bar_pink_png": {
+      "x": 285,
+      "y": 752,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_panel_chart_bar_purple_png": {
+      "x": 300,
+      "y": 752,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_panel_chart_bar_red_png": {
+      "x": 315,
+      "y": 752,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_panel_chart_bar_yeloow_png": {
+      "x": 330,
+      "y": 752,
+      "w": 11,
+      "h": 11,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 11,
+      "sourceH": 11
+    },
+    "d_gfsb_chart_slide_disabled_png": {
+      "x": 345,
+      "y": 752,
+      "w": 10,
+      "h": 10,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 10,
+      "sourceH": 10
+    },
+    "d_gfsb_chart_slide_png": {
+      "x": 359,
+      "y": 752,
+      "w": 10,
+      "h": 10,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 10,
+      "sourceH": 10
+    }
+  }
+}

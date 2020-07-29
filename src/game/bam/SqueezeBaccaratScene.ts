@@ -26,7 +26,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('SqueezeBaccaratScene');
       }
 
-      protected setStateDeal(isInit: boolean = false) {}
+      protected setStateDeal(isInit: boolean = false) {
+        this.checkRoundCountWithoutBet();
+      }
 
       protected setStatePeek(isInit: boolean = false) {
         // console.log('PEEK ' + new Date(Date.now()).toString());

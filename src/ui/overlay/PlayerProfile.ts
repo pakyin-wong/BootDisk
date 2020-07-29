@@ -6,13 +6,13 @@ namespace we {
 
       private _playerIcon: eui.Image;
       private _changeIcon: eui.Component;
-      private _balance: eui.Label;
       private _maxWinAmount: eui.Label;
       private _maxWinCount: eui.Label;
       private _follower: eui.Label;
       private _following: eui.Label;
       private _favouriteDealer: eui.Label;
 
+      private _balance: ui.RunTimeLabel;
       private _username: ui.RunTimeLabel;
       private _txt_maxWinAmount: ui.RunTimeLabel;
       private _txt_maxWinCount: ui.RunTimeLabel;
@@ -40,10 +40,34 @@ namespace we {
       protected _group_ddm: eui.Group;
       protected _ddm_nickname: ui.Panel;
 
+      // protected _Nav: ui.Nav;
+      protected _winAmount: number;
+      protected _winStreak: number;
+
       public constructor(skin = null) {
         super('PlayerProfile');
         // super(skin);
         this.createIconList();
+      }
+
+      // public set Nav(value: ui.Nav) {
+      //   this._Nav = value;
+      // }
+
+      public get winAmount() {
+        return this._winAmount;
+      }
+
+      public set winAmount(val: any) {
+        this._winAmount = val;
+      }
+
+      public get winStreak() {
+        return this._winStreak;
+      }
+
+      public set winStreak(val: any) {
+        this._winStreak = val;
       }
 
       protected mount() {
@@ -154,7 +178,22 @@ namespace we {
         }
       }
 
+      public updateProfileText() {
+        this._maxWinAmount.text = this.winAmount;
+        this._maxWinCount.text = this.winStreak;
+      }
+
       protected initPlayerProfile() {
+        this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
+        dir.meterCtr.register('balance', this._balance);
+        if (!isNaN(env.balance)) {
+          dir.meterCtr.rackTo('balance', env.balance, 0);
+        }
+        if (env.isMobile) {
+          this.MobileGetPlayerProfileSummary();
+          this.updateProfileText();
+        }
+
         this._txt_maxWinAmount.renderText = () => `${i18n.t('playerprofile_maxWinAmount')}`;
         this._txt_maxWinCount.renderText = () => `${i18n.t('playerprofile_maxWinCount')}`;
         this._txt_follower.renderText = () => `${i18n.t('playerprofile_follower')}`;
@@ -166,6 +205,8 @@ namespace we {
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
         }
 
+        this._maxWinCount.text = env.maxWinCount.toString();
+        this._maxWinAmount.text = env.maxWinAmount.toString();
         // create mask
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
@@ -181,8 +222,23 @@ namespace we {
         this.addListeners();
       }
 
+      private MobileGetPlayerProfileSummary() {
+        dir.socket.getPlayerProfileSummary(this.MobileUpdateMaxWinAmountAndCount);
+      }
+
+      protected MobileUpdateMaxWinAmountAndCount(data) {
+        if (data.error) {
+          return;
+        }
+        const { maxwin , winningstreak } = data;
+        env.maxWinCount = winningstreak;
+        env.maxWinAmount = maxwin;
+      }
+
       protected destroy() {
         super.destroy();
+        // this._Nav = null;
+        dir.meterCtr.drop('balance', this._balance);
         this.removeListeners();
       }
 
