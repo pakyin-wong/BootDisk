@@ -17,6 +17,7 @@ namespace we {
       protected mount() {
         this._addButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.add, this);
         this._lessButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.minus, this);
+        this.draw();
       }
 
       protected add() {

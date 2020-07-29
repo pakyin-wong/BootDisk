@@ -89,7 +89,7 @@ namespace we {
           // this._lantern.alignToLeft();
         }
         if ( !env.isMobile ) {
-          this._profile_toggle.addEventListener(egret.TouchEvent.TOUCH_TAP,this.updatePlayerProfileSummary,this);
+          this._profile_toggle.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
         }
         dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
@@ -101,7 +101,7 @@ namespace we {
 
       private removeListeners() {
         if (!env.isMobile) {
-          this._profile_toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary,this);
+          this._profile_toggle.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
         }
         dir.evtHandler.removeEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
         dir.evtHandler.addEventListener(core.Event.NICKNAME_UPDATE, this.updateNickname, this);
@@ -115,19 +115,19 @@ namespace we {
         dir.socket.getBalance();
       }
 
-      private updatePlayerProfileSummary(){
+      private updatePlayerProfileSummary() {
         this.getPlayerProfileSummary();
         this._profile.winAmount = env.maxWinAmount;
         this._profile.winStreak = env.maxWinCount;
         this._profile.updateProfileText();
       }
 
-      private getPlayerProfileSummary(){
+      private getPlayerProfileSummary() {
         dir.socket.getPlayerProfileSummary(this.updateMaxWinAmountAndCount);
       }
 
-      private updateMaxWinAmountAndCount(data){
-        if (data.error){
+      private updateMaxWinAmountAndCount(data) {
+        if (data.error) {
           return;
         }
         const { maxwin , winningstreak } = data;

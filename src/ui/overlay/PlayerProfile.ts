@@ -58,7 +58,7 @@ namespace we {
         return this._winAmount;
       }
 
-      public set winAmount(val: any){
+      public set winAmount(val: any) {
         this._winAmount = val;
       }
 
@@ -66,8 +66,8 @@ namespace we {
         return this._winStreak;
       }
 
-      public set winStreak(val: any){
-        this._winStreak= val;
+      public set winStreak(val: any) {
+        this._winStreak = val;
       }
 
       protected mount() {
@@ -189,7 +189,7 @@ namespace we {
         if (!isNaN(env.balance)) {
           dir.meterCtr.rackTo('balance', env.balance, 0);
         }
-        if (env.isMobile){
+        if (env.isMobile) {
           this.MobileGetPlayerProfileSummary();
           this.updateProfileText();
         }
@@ -222,12 +222,12 @@ namespace we {
         this.addListeners();
       }
 
-      private MobileGetPlayerProfileSummary(){
+      private MobileGetPlayerProfileSummary() {
         dir.socket.getPlayerProfileSummary(this.MobileUpdateMaxWinAmountAndCount);
       }
 
-      protected MobileUpdateMaxWinAmountAndCount(data){
-        if (data.error){
+      protected MobileUpdateMaxWinAmountAndCount(data) {
+        if (data.error) {
           return;
         }
         const { maxwin , winningstreak } = data;
