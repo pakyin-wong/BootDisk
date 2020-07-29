@@ -3,30 +3,25 @@ namespace we {
     export class BARoadmapLeftPanel extends core.BaseGamePanel {
       public beadRoad: BABeadRoad;
       protected gameIdLabel: ui.RunTimeLabel;
-      protected gameIdText: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
-      protected totalBetText: ui.RunTimeLabel;
       protected gameId: string;
-      protected totalBet: number;
+      protected _totalBet: number;
       protected switchModeButton: eui.Component;
 
       public constructor(skin?: string) {
         super(skin ? skin : env.isMobile ? '' : 'BARoadmapLeftPanel');
       }
       public changeLang() {
-        // this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        // this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
-        this.gameIdText.text = i18n.t('baccarat.gameroundid') + ' ';
-        this.gameIdLabel.text = this.gameId;
-        this.totalBetText.text = i18n.t('baccarat.totalbet') + ' ';
-        this.totalBetLabel.text = this.totalBet.toString(10);
+        // this.gameIdText.text = i18n.t('baccarat.gameroundid') + ' ';
+        this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
       }
 
       protected init() {
         this.gameId = '';
-        this.totalBet = 0;
-        this.totalBetText.alpha = 0.7;
-        this.gameIdText.alpha = 0.7;
+        this._totalBet = 0;
+        // this.gameIdText.alpha = 0.7;
+        // this.gameIdLabel.alpha = 0.7;
 
         const gridSize = 43;
         const numColumn = 16;
@@ -54,10 +49,15 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.betInfo) {
             this.gameId = this.tableInfo.betInfo.gameroundid;
-            this.totalBet = this.tableInfo.betInfo.total;
+            this._totalBet = this.tableInfo.betInfo.total;
             this.changeLang();
           }
         }
+      }
+
+      set totalBet(total: number) {
+        this._totalBet = total;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
       }
 
       public destroy() {

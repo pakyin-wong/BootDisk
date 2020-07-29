@@ -3,7 +3,7 @@ namespace we {
     export class LwLeftPanel extends core.BaseGamePanel {
       public beadRoad: LwBeadRoad;
       protected gameId: string;
-      protected totalBet: number;
+      protected _totalBet: number;
 
       protected gameIdLabel: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
@@ -13,12 +13,12 @@ namespace we {
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text =  i18n.t('baccarat.totalbet') + ' '  + utils.numberToFaceValue(this._totalBet);
       }
 
       protected init() {
         this.gameId = '';
-        this.totalBet = 0;
+        this._totalBet = 0;
 
         this.beadRoad = new LwBeadRoad(4, 11, 65, 65, 44, 44, 1, 0x000000, 0.85, 0x3a3f48, true); // in game
         this.beadRoad.x = 1;
@@ -35,11 +35,16 @@ namespace we {
         this.changeLang();
       }
 
+      set totalBet(total: number) {
+        this._totalBet = total;
+        this.totalBetLabel.text =  i18n.t('baccarat.totalbet') + ' '  + utils.numberToFaceValue(this._totalBet);
+      }
+
       public update() {
         if (this.tableInfo) {
           if (this.tableInfo.betInfo) {
             this.gameId = this.tableInfo.betInfo.gameroundid;
-            this.totalBet = this.tableInfo.betInfo.total;
+            this._totalBet = this.tableInfo.betInfo.total;
             this.changeLang();
           }
         }
