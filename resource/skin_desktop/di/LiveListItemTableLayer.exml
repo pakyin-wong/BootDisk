@@ -2,23 +2,21 @@
 <e:Skin class="skin_desktop.di.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
 	<e:Group id="_small_group" x="0" y="0" width="289" height="88">
-		<e:Image id="_small_image" width="289" height="88"
-		         name="d_sic_lobby_betarea_02_hover_png" fillMode="scale" source="d_sic_lobby_betarea_02_normal_png"/>
+		<ui:BettingGrid id="_small_image" width="289" height="88" 
+		                gradientColors="[0x2e95ff, 0x305acc]" gradientType="RADIAL" gradientPosition="topRight" />
 		<ui:RunTimeLabel id="_small_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_big_group" x="289" y="0" width="288" height="88">
-		<e:Image id="_big_image"
-		         name="d_sic_lobby_betarea_01_hover_png" width="288" height="88" fillMode="scale" source="d_sic_lobby_betarea_01_normal_png"/>
+		<ui:BettingGrid id="_big_image" width="288" height="88" gradientColors="[0xff5b67, 0xad3737]"
+		                gradientType="RADIAL" gradientPosition="topLeft" />
 		<ui:RunTimeLabel id="_big_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_odd_group" x="0" y="88" width="289" height="88">
-		<e:Image id="_odd_image"
-		         name="d_sic_lobby_betarea_03_hover_png" width="289" height="88" fillMode="scale" source="d_sic_lobby_betarea_03_normal_png"/>
+		<ui:BettingGrid id="_odd_image" width="289" height="88" roundCorner="[0,0,0,6]" color="0x163757" />
 		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_even_group" x="289" y="88" width="288" height="88">
-		<e:Image id="_even_image"
-		         name="d_sic_lobby_betarea_04_hover_png" width="288" height="88" fillMode="scale" source="d_sic_lobby_betarea_04_normal_png"/>
+		<ui:BettingGrid id="_even_image" width="288" height="88" color="0x5a2322" roundCorner="[0,0,6,0]"/>
 		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 </e:Skin>
