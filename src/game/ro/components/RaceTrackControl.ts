@@ -42,12 +42,6 @@ namespace we {
       get value() {
         return this._value;
       }
-      // no need
-      public destroy() {
-        super.destroy();
-        this._addButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.add, this);
-        this._lessButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.minus, this);
-      }
     }
   }
 }
