@@ -5,7 +5,7 @@ namespace we {
       protected gameIdLabel: ui.RunTimeLabel;
       protected totalBetLabel: ui.RunTimeLabel;
       protected gameId: string;
-      protected totalBet: number;
+      protected _totalBet: number;
       protected switchModeButton: eui.Component;
 
       public constructor(skin?: string) {
@@ -14,12 +14,12 @@ namespace we {
       public changeLang() {
         // this.gameIdText.text = i18n.t('baccarat.gameroundid') + ' ';
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
       }
 
       protected init() {
         this.gameId = '';
-        this.totalBet = 0;
+        this._totalBet = 0;
         // this.gameIdText.alpha = 0.7;
         // this.gameIdLabel.alpha = 0.7;
 
@@ -49,15 +49,15 @@ namespace we {
         if (this.tableInfo) {
           if (this.tableInfo.betInfo) {
             this.gameId = this.tableInfo.betInfo.gameroundid;
-            this.totalBet = this.tableInfo.betInfo.total;
+            this._totalBet = this.tableInfo.betInfo.total;
             this.changeLang();
           }
         }
       }
 
-      set _totalBet(total: number) {
-        this.totalBet = total;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
+      set totalBet(total: number) {
+        this._totalBet = total;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
       }
 
       public destroy() {
