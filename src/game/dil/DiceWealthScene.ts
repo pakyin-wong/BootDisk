@@ -18,7 +18,7 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'dil' });
+        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
       }
 
       protected setStateIdle(isInit: boolean = false) {
@@ -52,18 +52,14 @@ namespace we {
       }
 
       protected setStateUnknown(isInit: boolean = false) {
-        console.log('DiceWealth Unknown');
         super.setStateUnknown(isInit);
         (<we.dil.ChipLayer> this._chipLayer).clearLuckyNumber();
         (<we.dil.LeftPanel> this._leftGamePanel).clearLuckyNumbers();
       }
 
       protected setStateDeal(isInit: boolean = false) {
-        console.log('DiceWealth Deal');
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-          console.log('DiceWealth Deal');
-
           (<we.dil.ChipLayer> this._chipLayer).showLuckyNumber();
           (<we.dil.LeftPanel> this._leftGamePanel).updateLuckyNumbers();
         }

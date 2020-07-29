@@ -126,7 +126,7 @@ namespace we {
       }
 
       protected oldBetCombination(betCombination: we.data.BetCombination) {
-        const bg = this.activeBg();
+        const bg = this.inactiveBg();
 
         const textField = new eui.Label();
         textField.height = this._bgheight;
@@ -138,7 +138,7 @@ namespace we {
         const star = new eui.Image();
         star.source = 'd_ro_savelayout_star_icon_png';
         star.verticalCenter = 0;
-        star.left = 30;
+        star.left = 10;
 
         const front = new eui.Component();
         front.addChild(star);
@@ -191,7 +191,7 @@ namespace we {
       }
 
       protected newBetCombination() {
-        const bg = this.inactiveBg();
+        const bg = this.activeBg();
 
         this._newBetCombinationTextField = new eui.EditableText();
 
@@ -204,11 +204,11 @@ namespace we {
         this._newBetCombinationTextField.addEventListener(egret.Event.FOCUS_IN, this.newBetCombinationTextFieldFocus, this);
 
         const add = new eui.Image();
-        add.source = 'd_ro_rm_add_btn_normal_png';
+        add.source = 'd_ro_savelayout_add_icon_png';
         add.height = 23;
         add.width = 23;
         add.verticalCenter = 0;
-        add.left = 30;
+        add.left = 10;
 
         const front = new eui.Component();
         front.addChild(add);
@@ -255,31 +255,58 @@ namespace we {
       }
 
       protected activeBg() {
-        const bg = new eui.Image();
-        bg.source = 'd_ro_savelayout_active_bg_png';
-        bg.height = this._bgheight;
-        bg.width = this._bgwidth;
+        const bg = new ui.RoundRectShape();
+        this.activeBgProp(bg);
         return bg;
+      }
+
+      protected activeBgProp(bg: ui.RoundRectShape) {
+        bg.width = this._bgwidth;
+        bg.height = this._bgheight;
+        bg.cornerTL_TR_BL_BR = '18,18,18,18';
+        bg.fillAlpha = 1;
+        bg.fillColor = '0x031122';
+        bg.stroke = 1;
+        bg.strokeColor = 0x2da1fe;
+        bg.refresh();
       }
 
       protected inactiveBg() {
-        const bg = new eui.Image();
-        bg.source = 'd_ro_savelayout_inactive_bg_png';
-        bg.height = this._bgheight;
-        bg.width = this._bgwidth;
+        const bg = new ui.RoundRectShape();
+        this.inactiveBgProp(bg);
         return bg;
       }
 
-      protected renameBg() {
-        const bg = new eui.Image();
-        bg.height = this._bgheight;
+      protected inactiveBgProp(bg: ui.RoundRectShape) {
         bg.width = this._bgwidth;
+        bg.height = this._bgheight;
+        bg.cornerTL_TR_BL_BR = '18,18,18,18';
+        bg.fillAlpha = 0.1;
+        bg.fillColor = '0x000000';
+        bg.stroke = 0;
+        bg.refresh();
+      }
+
+      protected renameBg() {
+        const bg = new ui.RoundRectShape();
+        this.renameBgProp(bg);
         return bg;
+      }
+
+      protected renameBgProp(bg: ui.RoundRectShape) {
+        bg.width = this._bgwidth;
+        bg.height = this._bgheight;
+        bg.cornerTL_TR_BL_BR = '18,18,18,18';
+        bg.fillAlpha = 1;
+        bg.fillColor = '0x122a4c';
+        bg.stroke = 2;
+        bg.strokeColor = 0x2da1fe;
+        bg.refresh();
       }
 
       protected oldBetCombinationRollOver(bg, star: eui.Image, id) {
         return () => {
-          bg.source = 'd_ro_savelayout_rename_mode_bg_png';
+          this.activeBgProp(bg);
           star.source = 'd_ro_savelayout_cancel_icon_png';
           star.addEventListener(egret.TouchEvent.TOUCH_TAP, this.deleteBetCombination(id), this);
         };
@@ -287,7 +314,7 @@ namespace we {
 
       protected oldBetCombinationRollOut(bg, star: eui.Image, id) {
         return () => {
-          bg.source = 'd_ro_savelayout_active_bg_png';
+          this.inactiveBgProp(bg);
           star.source = 'd_ro_savelayout_star_icon_png';
           star.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.deleteBetCombination(id), this);
         };
@@ -295,7 +322,7 @@ namespace we {
 
       protected newBetCombinationRollOver(bg, tick) {
         return () => {
-          bg.source = 'd_ro_savelayout_rename_mode_bg_png';
+          this.renameBgProp(bg);
           if (this._chipLayer.getTotalCfmBetAmount() + this._chipLayer.getTotalUncfmBetAmount() !== 0) {
             tick.visible = true;
           }
@@ -304,7 +331,7 @@ namespace we {
 
       protected newBetCombinationRollOut(bg, tick) {
         return () => {
-          bg.source = 'd_ro_savelayout_inactive_bg_png';
+          this.activeBgProp(bg);
           tick.visible = false;
         };
       }

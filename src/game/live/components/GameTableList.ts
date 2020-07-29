@@ -94,7 +94,7 @@ namespace we {
       }
 
       public selectGameType(game: string = null) {
-        let item = 'bacarrat';
+        let item = 'allGame';
         if (game && core.LiveGameTab[game]) {
           item = core.LiveGameTab[game];
         }

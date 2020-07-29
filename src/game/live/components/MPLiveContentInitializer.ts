@@ -41,7 +41,7 @@ namespace we {
         this.setDisplayMode(env.lobbyGridType);
         root.roomList.layout = this.roomLayout;
         root.roomList.itemRenderer = MobileLiveListHolder;
-        root.roomList.setGameFilters(core.LiveGameTab.ba);
+        root.roomList.setGameFilters(core.LiveGameTab.all);
         root.roomList.setTableList(root.roomIds);
 
         root.tabItems = utils.EnumHelpers.values(core.LiveGameTab);
