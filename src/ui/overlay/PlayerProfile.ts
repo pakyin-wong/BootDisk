@@ -40,10 +40,34 @@ namespace we {
       protected _group_ddm: eui.Group;
       protected _ddm_nickname: ui.Panel;
 
+      // protected _Nav: ui.Nav;
+      protected _winAmount: number;
+      protected _winStreak: number;
+
       public constructor(skin = null) {
         super('PlayerProfile');
         // super(skin);
         this.createIconList();
+      }
+
+      // public set Nav(value: ui.Nav) {
+      //   this._Nav = value;
+      // }
+
+      public get winAmount() {
+        return this._winAmount;
+      }
+
+      public set winAmount(val: any){
+        this._winAmount = val;
+      }
+
+      public get winStreak() {
+        return this._winStreak;
+      }
+
+      public set winStreak(val: any){
+        this._winStreak= val;
       }
 
       protected mount() {
@@ -154,6 +178,10 @@ namespace we {
         }
       }
 
+      public updateProfileText() {
+        this._maxWinAmount.text = this.winAmount;
+        this._maxWinCount.text = this.winStreak;
+      }
       protected initPlayerProfile() {
         this._balance.renderText = () => `${dir.meterCtr.getLocal('balance')}`;
         dir.meterCtr.register('balance', this._balance);
@@ -171,6 +199,8 @@ namespace we {
           this._txt_title.renderText = () => `${i18n.t('playerprofile_title')}`;
         }
 
+        this._maxWinCount.text = env.maxWinCount.toString();
+        this._maxWinAmount.text = env.maxWinAmount.toString();
         // create mask
         const shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff, 1);
@@ -188,6 +218,7 @@ namespace we {
 
       protected destroy() {
         super.destroy();
+        // this._Nav = null;
         dir.meterCtr.drop('balance', this._balance);
         this.removeListeners();
       }

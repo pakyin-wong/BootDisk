@@ -39,6 +39,10 @@ namespace we {
       public nicknameKey: string;
       public profileimage: string;
 
+      // playersummary
+      public maxWinAmount: number = 0;
+      public maxWinCount: number = 0;
+
       public frameRate: number = 30;
 
       public _nicknames: { [langcode: string]: any } = {};
