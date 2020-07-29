@@ -194,9 +194,7 @@
 		<e:Group id="_even_group" width="153" height="100%" x="1081">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Group>
-					<e:Label fontFamily="Barlow" text="4-10" size="15" />
-					<e:Rect width="2" height="19" fillColor="0x257dbb" />
-					<e:Label fontFamily="Barlow" text="41%" size="15" />
+					<e:Label fontFamily="Barlow" text="46%" size="15" />
 					<e:layout>
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
@@ -211,9 +209,9 @@
 		<e:Group id="_big_group" width="151" height="100%" x="1233">
 			<e:Group horizontalCenter="0" verticalCenter="0">
 				<e:Group>
-					<e:Label fontFamily="Barlow" text="4-10" size="15" />
+					<e:Label fontFamily="Barlow" text="11-17" size="15" />
 					<e:Rect width="2" height="19" fillColor="0x257dbb" />
-					<e:Label fontFamily="Barlow" text="41%" size="15" />
+					<e:Label fontFamily="Barlow" text="59%" size="15" />
 					<e:layout>
 						<e:HorizontalLayout gap="6" horizontalAlign="center" />
 					</e:layout>
