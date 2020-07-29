@@ -8,9 +8,9 @@
         <e:Rect id="bottomBar" width="668" height="50" x="0" y="290" fillColor="0x1F242B" strokeWeight="0"
                 ellipseHeight="0" ellipseWidth="0" />
         <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" y="10" textAlign="left" anchorOffsetX="0"
-                         width="500" size="24"  left="17" targetWidth="500"/>
-        <ui:RunTimeLabel id="totalBetLabel" text="0" y="10" textAlign="right" anchorOffsetX="0" width="130"
-                         size="25"  right="17" targetWidth="130"/>
+                         width="410" size="24"  left="17" targetWidth="410"/>
+        <ui:RunTimeLabel id="totalBetLabel" text="0" y="10" textAlign="right" anchorOffsetX="0" width="220"
+                         size="25"  right="17" targetWidth="220"/>
         <e:RadioButton id="pageRadioBtn1" x="0" y="290" height="50" value="0" selected="true"
                        groupName="pageRadioBtnGroup" width="165">
                 <e:skinName>

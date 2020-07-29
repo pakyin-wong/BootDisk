@@ -4,9 +4,9 @@
         <ui:RoundRectShape id="bg" cornerTL_TR_BL_BR="14,14,14,14" width="580" height="340" x="0" y="0" stroke="0"
                            fillColor="0x1f242b" />
         <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" y="10" textAlign="left" anchorOffsetX="0"
-                         width="440" size="22"  targetWidth="440" left="10"/>
-        <ui:RunTimeLabel id="totalBetLabel" text="0" y="10" textAlign="right" anchorOffsetX="0" width="120"
-                         size="22"  targetWidth="120" right="10"/>
+                         width="400" size="22"  targetWidth="400" left="10"/>
+        <ui:RunTimeLabel id="totalBetLabel" text="0" y="10" textAlign="right" anchorOffsetX="0" width="160"
+                         size="22"  targetWidth="160" right="10"/>
         <e:RadioButton id="pageRadioBtn1" y="290" height="50" value="0" selected="true" groupName="pageRadioBtnGroup"
                        width="188" x="100">
                 <e:skinName>
