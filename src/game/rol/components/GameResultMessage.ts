@@ -2,27 +2,27 @@ namespace we {
   export namespace rol {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
       protected _dbClass = 'roulette_w';
-      protected _armatureName = 'Result';
+      protected _armatureName = 'result';
 
       public constructor() {
         super();
       }
 
       protected fillSlotWinAmount(winAmount: number, hasBet) {
-        let winStatus = 'No_Bet';
+        let winStatus = 'no_bet';
         if (winAmount === 0 && !hasBet) {
           return winStatus;
         }
 
-        const winAmountSlot = this._display.armature.getSlot('800');
+        const winAmountSlot = this._display.armature.getSlot('credit');
         const winAmountLabel = new eui.Label();
         winAmountLabel.fontFamily = 'Barlow';
         winAmountLabel.size = 55;
         if (winAmount < 0) {
-          winStatus = 'Loss';
+          winStatus = 'loss';
           winAmountLabel.text = utils.formatNumber(winAmount, false);
         } else if (winAmount >= 0) {
-          winStatus = 'Win';
+          winStatus = 'win';
           winAmountLabel.text = '+' + utils.formatNumber(winAmount, false);
         }
 
@@ -53,7 +53,7 @@ namespace we {
         if (luckyNumber[resultNo] === undefined) {
           return luckyStatus;
         }
-        const oddSlot = this._display.armature.getSlot('Base_Odd');
+        const oddSlot = this._display.armature.getSlot('odds');
 
         const oddLabel = new eui.Label();
         oddLabel.fontFamily = 'NeonOne';
@@ -81,12 +81,12 @@ namespace we {
         layer.anchorOffsetY = oddLabel.height * 0.5;
         oddSlot.display = layer;
 
-        luckyStatus = '_LuckyNo';
+        luckyStatus = '_odds';
         return luckyStatus;
       }
 
       protected fillSlotResultNo(resultNo: number) {
-        const resultSlot = this._display.armature.getSlot('Base_Number');
+        const resultSlot = this._display.armature.getSlot('result');
 
         const resultLabel = new eui.Label();
         resultLabel.fontFamily = 'NeonOne';
@@ -118,16 +118,16 @@ namespace we {
         const winStatus = this.fillSlotWinAmount(winAmount, hasBet);
 
         const colorMap = {
-          [we.ro.Color.BLACK]: '_Black',
-          [we.ro.Color.GREEN]: '_Green',
-          [we.ro.Color.RED]: '_Red',
+          [we.ro.Color.BLACK]: '_black',
+          [we.ro.Color.GREEN]: '_green',
+          [we.ro.Color.RED]: '_red',
         };
 
         const colorStatus = colorMap[we.ro.RACETRACK_COLOR[resultNo]];
 
         this.visible = true;
 
-        const anim = `${winStatus}${luckyStatus}${colorStatus}`;
+        const anim = `${winStatus}${colorStatus}${luckyStatus}`;
         console.log('rol result Anim', anim);
         this._display.animation.play(anim, 1);
       }

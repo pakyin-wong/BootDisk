@@ -25,7 +25,7 @@
 			"name": "scene_dragontiger"
 		},
 		{
-			"keys": "d_ro_betboard_hover_png,d_ro_betboard_inactive_png,d_ro_betborad_outline_png,d_ro_betboard_disable_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_square_png,d_ro_betboard_hover_black_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_even_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_small_png,d_ro_racetrack_inactive_png,d_ro_racetrack_normal_png,d_ro_racetrack_outline_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_32_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_red_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_chips_small_not_confirm_png,d_ro_chips_small_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_gow_rou_betborad_hl_big_png,d_gow_rou_betborad_hl_png,d_gow_rou_lucky_number_bk_png,d_gow_rou_lucky_number_gn_png,d_gow_rou_lucky_number_red_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_add_btn_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_disabled_png,d_ro_rm_less_btn_hover_png,d_ro_rm_less_btn_normal_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_add_icon_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_confrim_bg_png,d_ro_savelayout_star_icon_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,roulette_w_game_result_tex_png,roulette_w_game_result_tex_json,roulette_w_game_result_ske_json,roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,roulette_ui_tex_png,roulette_ui_tex_json,roulette_ui_ske_json,Disc_Red_84x72_png,Disc_Black_84x72_png,Disc_Green_103x214_png",
+			"keys": "d_ro_betboard_hover_png,d_ro_betboard_inactive_png,d_ro_betborad_outline_png,d_ro_betboard_disable_png,d_ro_betboard_hover_0_png,d_ro_betboard_hover_big_png,d_ro_betboard_hover_black_square_png,d_ro_betboard_hover_black_png,d_ro_betboard_hover_dozen_png,d_ro_betboard_hover_even_png,d_ro_betboard_hover_odd_png,d_ro_betboard_hover_red_square_png,d_ro_betboard_hover_red_png,d_ro_betboard_hover_row_1_png,d_ro_betboard_hover_row_2_png,d_ro_betboard_hover_row_3_png,d_ro_betboard_hover_small_png,d_ro_racetrack_inactive_png,d_ro_racetrack_normal_png,d_ro_racetrack_outline_png,d_ro_racetrack_0_hover_png,d_ro_racetrack_10_hover_png,d_ro_racetrack_23_hover_png,d_ro_racetrack_24_hover_png,d_ro_racetrack_26_hover_png,d_ro_racetrack_3_hover_png,d_ro_racetrack_30_hover_png,d_ro_racetrack_32_hover_png,d_ro_racetrack_35_hover_png,d_ro_racetrack_5_hover_png,d_ro_racetrack_8_hover_png,d_ro_racetrack_black_hover_png,d_ro_racetrack_orphelins_hover_png,d_ro_racetrack_red_hover_png,d_ro_racetrack_tiers_hover_png,d_ro_racetrack_voisins_hover_png,d_ro_racetrack_zero_hover_png,d_ro_chips_small_not_confirm_png,d_ro_chips_small_png,d_ro_history_cold_bg_png,d_ro_history_cold_icon_png,d_ro_history_hot_bg_png,d_ro_history_hot_icon_png,d_ro_history_hotclod_balck_ball_medium_png,d_ro_history_hotclod_bg_png,d_ro_history_hotclod_black_ball_extra_large_png,d_ro_history_hotclod_green_ball_extra_large_png,d_ro_history_hotclod_green_ball_medium_png,d_ro_history_hotclod_red_ball_extra_large_png,d_ro_history_hotclod_red_ball_medium_png,d_ro_game_record_black_ball_large_png,d_ro_game_record_green_ball_large_png,d_ro_game_record_red_ball_large_png,d_ro_history_result_ball_hl_png,d_ro_history_result_black_ball_samll_png,d_ro_history_result_green_ball_samll_png,d_ro_history_result_red_ball_samll_png,d_gow_rou_betborad_hl_big_png,d_gow_rou_betborad_hl_png,d_gow_rou_lucky_number_bk_png,d_gow_rou_lucky_number_gn_png,d_gow_rou_lucky_number_red_png,d_ro_rm_add_btn_disabled_png,d_ro_rm_add_btn_hover_png,d_ro_rm_add_btn_normal_png,d_ro_rm_less_btn_disabled_png,d_ro_rm_less_btn_hover_png,d_ro_rm_less_btn_normal_png,d_ro_savelayout_active_bg_png,d_ro_savelayout_add_icon_png,d_ro_savelayout_cancel_icon_png,d_ro_savelayout_confirm_icon_png,d_ro_savelayout_confrim_bg_png,d_ro_savelayout_star_icon_png,d_ro_rm_switch_tag_btn_active_png,d_ro_rm_switch_tag_btn_hover_png,d_ro_rm_switch_tag_btn_inactive_png,d_ro_savelayout_inactive_bg_png,d_ro_savelayout_rename_mode_bg_png,roulette_game_result_tex_png,roulette_game_result_tex_json,roulette_game_result_ske_json,roulette_ui_tex_png,roulette_ui_tex_json,roulette_ui_ske_json,Disc_Red_84x72_png,Disc_Black_84x72_png,Disc_Green_103x214_png,roulette_w_game_result_tex_png,roulette_w_game_result_tex_json,roulette_w_game_result_ske_json",
 			"name": "scene_roulette"
 		},
 		{
@@ -45,8 +45,8 @@
 			"name": "scene_lottery"
 		},
 		{
-			"name": "preload",
-			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png"
+			"keys": "d_lobby_panel_betcontrol_btn_confirm_bg_png,d_lobby_panel_betcontrol_btn_confirm_icon_png,d_lobby_button_down_normal2_png",
+			"name": "preload"
 		}
 	],
 	"resources": [
@@ -4234,21 +4234,6 @@
 			"name": "NeonOne_otf"
 		},
 		{
-			"url": "assets/dragonbones/d/rol/roulette_w_game_result_tex.png",
-			"type": "image",
-			"name": "roulette_w_game_result_tex_png"
-		},
-		{
-			"url": "assets/dragonbones/d/rol/roulette_w_game_result_tex.json",
-			"type": "json",
-			"name": "roulette_w_game_result_tex_json"
-		},
-		{
-			"url": "assets/dragonbones/d/rol/roulette_w_game_result_ske.json",
-			"type": "json",
-			"name": "roulette_w_game_result_ske_json"
-		},
-		{
 			"url": "assets/dragonbones/common/common_ui/common_ui_tex.png",
 			"type": "image",
 			"name": "common_ui_tex_png"
@@ -5704,14 +5689,14 @@
 			"name": "d_gfsb_panel_gamelist_roadmap_record_multiple_orange_png"
 		},
 		{
-			"name": "d_lobby_panel_betcontrol_btn_confirm_bg_png",
+			"url": "assets/images/d/lobby/quickbet/common/d_lobby_panel_betcontrol_btn_confirm_bg.png",
 			"type": "image",
-			"url": "assets/images/d/lobby/quickbet/common/d_lobby_panel_betcontrol_btn_confirm_bg.png"
+			"name": "d_lobby_panel_betcontrol_btn_confirm_bg_png"
 		},
 		{
-			"name": "d_lobby_panel_betcontrol_btn_confirm_icon_png",
+			"url": "assets/images/d/lobby/quickbet/common/d_lobby_panel_betcontrol_btn_confirm_icon.png",
 			"type": "image",
-			"url": "assets/images/d/lobby/quickbet/common/d_lobby_panel_betcontrol_btn_confirm_icon.png"
+			"name": "d_lobby_panel_betcontrol_btn_confirm_icon_png"
 		},
 		{
 			"url": "assets/dragonbones/d/dil/dice_w_game_result_tex.png",
@@ -5759,9 +5744,9 @@
 			"name": "Base_Dice_5_png"
 		},
 		{
-			"name": "d_lobby_button_down_normal2_png",
+			"url": "assets/images/d/lobby/quickbet/common/d_lobby_button_down_normal.png",
 			"type": "image",
-			"url": "assets/images/d/lobby/quickbet/common/d_lobby_button_down_normal.png"
+			"name": "d_lobby_button_down_normal2_png"
 		},
 		{
 			"url": "assets/images/d/common/game_panel/ro/resultmessage/game_list_betarea_result_black.png",
@@ -5787,8 +5772,21 @@
 			"url": "assets/images/d/common/game_panel/ro/resultmessage/game_list_betarea_result_red_2.png",
 			"type": "image",
 			"name": "game_list_betarea_result_red_2_png"
+		},
+		{
+			"url": "assets/dragonbones/d/rol/roulette_w_game_result_tex.png",
+			"type": "image",
+			"name": "roulette_w_game_result_tex_png"
+		},
+		{
+			"url": "assets/dragonbones/d/rol/roulette_w_game_result_tex.json",
+			"type": "json",
+			"name": "roulette_w_game_result_tex_json"
+		},
+		{
+			"url": "assets/dragonbones/d/rol/roulette_w_game_result_ske.json",
+			"type": "json",
+			"name": "roulette_w_game_result_ske_json"
 		}
 	]
-}		
-
-		
+}

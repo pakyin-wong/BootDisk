@@ -19,9 +19,9 @@ namespace we {
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
         if (env.orientation === 'portrait') {
-          return factory.buildArmatureDisplay('Bet_Effect_Vertical');
+          return factory.buildArmatureDisplay('bet_effect_vertical');
         } else {
-          return factory.buildArmatureDisplay('Bet_Effect_Horizontal');
+          return factory.buildArmatureDisplay('bet_effect_horizontal');
         }
       }
 
@@ -42,13 +42,17 @@ namespace we {
 
         grid.removeChildren();
         grid.addChild(coinAnim);
-        coinAnim.anchorOffsetX = 3;
-        coinAnim.anchorOffsetY = 2;
+        // coinAnim.anchorOffsetX = 3;
+        // coinAnim.anchorOffsetY = 2;
+        if(env.orientation === 'landscape'){
+            coinAnim.scaleX = 1.4;
+            coinAnim.scaleY = 1.4;
+        }
 
         let color: string;
         switch (we.ro.RACETRACK_COLOR[+key]) {
           case we.ro.Color.GREEN:
-            color = '_Green';
+            color = '_green';
             break;
           case we.ro.Color.RED:
           case we.ro.Color.BLACK:
@@ -119,24 +123,29 @@ namespace we {
           grid.removeChildren();
 
           const coinAnim = this.createLuckyCoinAnim();
+          if(env.orientation === 'landscape'){
+            coinAnim.scaleX = 1.4;
+            coinAnim.scaleY = 1.4;
+          }
           let color: string;
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
-              color = '_Green';
+              color = '_green';
+              coinAnim.scaleY = 1.5;
               break;
             case we.ro.Color.RED:
-              color = '_Red';
+              color = '_red';
               break;
             case we.ro.Color.BLACK:
             default:
-              color = '_Black';
+              color = '_black';
           }
 
           coinAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), coinAnim);
 
           grid.addChild(coinAnim);
-          coinAnim.anchorOffsetX = 3;
-          coinAnim.anchorOffsetY = 2;
+          // coinAnim.anchorOffsetX = 3;
+          // coinAnim.anchorOffsetY = 2;
 
           const label = new eui.Label();
           label.verticalCenter = 0;
@@ -156,15 +165,15 @@ namespace we {
 
           (async () => {
             let p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Bet${color}_in`, 1);
+            coinAnim.animation.play(`bet${color}_in`, 1);
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Bet${color}_loop`, 3);
+            coinAnim.animation.play(`bet${color}_loop`, 3);
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Bet${color}_loop`, 3);
+            coinAnim.animation.play(`bet${color}_loop`, 3);
             await p;
 
             coinAnim.animation.stop();

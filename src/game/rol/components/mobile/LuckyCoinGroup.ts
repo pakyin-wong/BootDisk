@@ -73,9 +73,9 @@ namespace we {
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
         if (env.orientation === 'portrait') {
-          return factory.buildArmatureDisplay('Draw_Number_Effect_Vertical');
+          return factory.buildArmatureDisplay('draw_number_effect_vertical');
         } else {
-          return factory.buildArmatureDisplay('Draw_Number_Effect_Horizontal');
+          return factory.buildArmatureDisplay('draw_number_effect_horizontal');
         }
       }
 
@@ -87,9 +87,9 @@ namespace we {
         label.textColor = 0x80fbfd;
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
-        // label.width = 112;
-        // label.anchorOffsetX = 56;
-        // label.anchorOffsetY = 15;
+        label.width = 112;
+        label.anchorOffsetX = 56;
+        label.anchorOffsetY = 15;
 
         const group = new eui.Group();
         group.addChild(label);
@@ -105,9 +105,9 @@ namespace we {
         label.textColor = 0x80fbfd;
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalAlign = egret.VerticalAlign.MIDDLE;
-        // label.width = 300;
-        // label.anchorOffsetX = 150;
-        // label.anchorOffsetY = 40;
+        label.width = 300;
+        label.anchorOffsetX = 150;
+        label.anchorOffsetY = 40;
         label.bold = true;
         const color: number = 0x33ccff;
         const alpha: number = 0.8;
@@ -163,10 +163,10 @@ namespace we {
           coinAnim.scaleY = 0.8;
           no += 1;
 
-          const oddSlot = coinAnim.armature.getSlot('Odd');
+          const oddSlot = coinAnim.armature.getSlot('odds');
           oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
 
-          const numberSlot = coinAnim.armature.getSlot('Number');
+          const numberSlot = coinAnim.armature.getSlot('number');
           numberSlot.display = this.getNumberSlotGroup(+key);
 
           let noBet = '_nobet';
@@ -191,14 +191,14 @@ namespace we {
 
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
-              color = 'Green';
+              color = 'green';
               break;
             case we.ro.Color.RED:
-              color = 'Red';
+              color = 'red';
               break;
             case we.ro.Color.BLACK:
             default:
-              color = 'Black';
+              color = 'black';
           }
 
           coinAnim.visible = false;
@@ -208,16 +208,16 @@ namespace we {
             await we.utils.sleep(1000);
 
             let p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Draw_Number_${color}${noBet}_in`, 1);
+            coinAnim.animation.play(`draw_number_${color}${noBet}_in`, 1);
             coinAnim.visible = true;
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Draw_Number_${color}${noBet}_loop`, 4);
+            coinAnim.animation.play(`draw_number_${color}${noBet}_loop`, 4);
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
-            coinAnim.animation.play(`Draw_Number_${color}${noBet}_out`, 1);
+            coinAnim.animation.play(`draw_number_${color}${noBet}_out`, 1);
             await p;
 
             coinAnim.animation.stop();
