@@ -34,7 +34,7 @@
 			<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="639" y="50"
 			                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
 			<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="70" x="928" touchEnabled="false" />
-			<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="60,60,60,60" width="200" height="120" x="1347" y="50"
+			<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="60,60,60,60" width="200" height="120" x="1394" y="50"
 			                    stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" />
 			<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="1130" y="50"
 			                    stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" />			    

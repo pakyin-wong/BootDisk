@@ -21,23 +21,21 @@
 			                 scaleX="1" scaleY="1" textAlign="right" right="47" x="920.0000000000001" />
 			<ui:BaseImageButton id="_btn_search" width="63" height="63" x="1101" y="345" currentState="search_icon"
 			                    skinName="skin_mobile_portrait.ImageButtonSkinNav" scaleX="1" scaleY="1" />
-
 			<!--<ui:BaseButton id="_btn_searchType" width="400" height="120" x="48" y="318"
-			               skinName="skin_mobile_portrait.OverlayPanelButton" active="true" scaleX="1" scaleY="1" />
+			                   skinName="skin_mobile_portrait.OverlayPanelButton" active="true" scaleX="1" scaleY="1" />
 			<ui:BaseButton id="_btn_custom" width="252" height="120" x="727" y="318"
 			               skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1" />
 			<ui:BaseButton id="_btn_date" width="252" height="120" y="318" active="true" x="510"
-			               skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1" />-->
-
+			               skinName="skin_mobile_portrait.OverlayPanelSwitch" scaleX="1" scaleY="1" />
+			-->
 			<ui:RoundRectButton id="_btn_searchType" cornerTL_TR_BL_BR="60,60,60,60" width="400" height="120" x="48" y="318"
 			                    stroke="0" strokeIn="0" fillAlpha="1" fillColor="0x1b416e" />
 			<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="340" x="345" touchEnabled="false" />
-			<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="60,60,60,60" width="200" height="120" x="727" y="318"
-			                    stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" />
 			<ui:RoundRectButton id="_btn_date" cornerTL_TR_BL_BR="60,60,60,60" width="250" height="120" x="510" y="318"
-			                    stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" />			    
+			                    stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" />
 			<e:Image source="d_lobby_button_down_normal_png" width="80" height="80" y="340" x="671" touchEnabled="false" />
-
+			<ui:RoundRectButton id="_btn_custom" cornerTL_TR_BL_BR="60,60,60,60" width="200" height="120" x="785" y="318"
+			                    stroke="0" strokeIn="0" fillAlpha="0" fillAlpha_active="1" fillColor="0x1b416e" />
 			<e:Scroller id="_scroller" height="1573" y="582" anchorOffsetY="0" left="0" right="0" x="0" scaleX="1" scaleY="1">
 				<e:List id="_datagroup" />
 			</e:Scroller>
@@ -46,11 +44,11 @@
 		</e:Group>
 		<bh:BetHistoryDetail skinName="skin_mobile_portrait.BetHistoryDetail" id="_detail" left="0" right="0" top="0"
 		                     bottom="0" />
-		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png"/>
+		<e:Image id="close" width="96" height="96" right="26" top="68" source="d-lobby-button-close-none_png" />
 		<bh:BetHistorySearch skinName="skin_mobile_portrait.BetHistorySearch" id="_search" left="0" right="0" top="0"
-		                     bottom="0"  touchEnabled="true"/>
-		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" size="24"
-		                 alpha="0.7" verticalAlign="middle" visible="false" />
+		                     bottom="0" touchEnabled="true" />
+		<ui:RunTimeLabel id="_txt_date" text="d" x="1428" y="58" width="48" height="36" size="24" alpha="0.7"
+		                 verticalAlign="middle" visible="false" />
 		<ui:BaseButton id="_btn_today" width="137" height="60" x="1512" y="47"
 		               skinName="skin_mobile_portrait.OverlayPanelButton" visible="false" />
 		<ui:BaseButton id="_btn_week" width="137" height="60" x="1669" y="47"
@@ -70,14 +68,13 @@
 		<ui:RunTimeLabel id="_txt_record_orgbalance" text="Label" x="1386" y="168" width="176" height="29" size="20"
 		                 verticalAlign="middle" scaleX="1" scaleY="1" visible="false" />
 		<ui:RunTimeLabel id="_txt_record_finbalance" text="Label" x="1562" y="168" width="88" size="20" verticalAlign="middle"
-		                 height="29" scaleX="1" scaleY="1"  visible="false"/>
+		                 height="29" scaleX="1" scaleY="1" visible="false" />
 		<ui:RunTimeLabel id="_txt_record_result" text="Label" x="1650" y="168" width="490" height="29" size="20"
-		                 verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center"
-		                 visible="false" />
-		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle"
-		                 size="24" width="96" alpha="0.7"  visible="false"/>
-		<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle"
-		                size="24"  visible="false"/>
+		                 verticalAlign="middle" scaleX="1" scaleY="1" textAlign="center" visible="false" />
+		<ui:RunTimeLabel id="_txt_search" text="Label" x="653" y="58" height="36" verticalAlign="middle" size="24" width="96"
+		                 alpha="0.7" visible="false" />
+		<e:EditableText id="_tf_search" width="200" height="36" text="" x="653" y="58" verticalAlign="middle" size="24"
+		                visible="false" />
 		<ui:BaseImageButton id="_btn_prev" width="46" height="46" x="963" y="1077"
 		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" visible="false" />
 		<ui:BaseImageButton id="_btn_next" width="46" height="46" x="1132" y="1077"
