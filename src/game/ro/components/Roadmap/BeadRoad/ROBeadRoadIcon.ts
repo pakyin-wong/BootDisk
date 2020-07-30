@@ -156,7 +156,14 @@ namespace we {
         const value = this.value;
 
         const colors = [0xee2e2e, 0x333333, 0x00ff00, 0x990909, 0x000000, 0x00dd00];
-        const gradientColors = [[0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b], [0xb82828, 0x781919], [0x2b2b2b, 0x000000], [0x249336, 0x10662b]];
+        const gradientColors = [
+          [0xb82828, 0x781919],
+          [0x2b2b2b, 0x000000],
+          [0x249336, 0x10662b],
+          [0xb82828, 0x781919],
+          [0x2b2b2b, 0x000000],
+          [0x249336, 0x10662b],
+        ];
         const iconSize = this.size;
         const circleRadius = this.size / 2;
         const lineWidth = 1;
@@ -265,16 +272,16 @@ namespace we {
             this._topTextLayer.addChild(this._iconTopText);
           }
         } else {
-          if (this._shapeLayer) {
+          if (this._shapeLayer && this.iconHightLight.parent === this._shapeLayer) {
             this._shapeLayer.removeChild(this.iconHightLight);
           }
-          if (this._shapeLayer) {
+          if (this._shapeLayer && this._iconShape.parent === this._shapeLayer) {
             this._shapeLayer.removeChild(this._iconShape);
           }
-          if (this._textLayer) {
+          if (this._textLayer && this._iconText.parent === this._textLayer) {
             this._textLayer.removeChild(this._iconText);
           }
-          if (this._topTextLayer) {
+          if (this._topTextLayer && this._iconTopText.parent === this._topTextLayer) {
             this._topTextLayer.removeChild(this._iconTopText);
           }
         }

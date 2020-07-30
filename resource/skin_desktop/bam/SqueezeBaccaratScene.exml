@@ -67,6 +67,6 @@
 	</ui:Group>
 	<ba:BaBeadRoadResultPanel id="_beadRoadResultPanel" width="368" height="241.6" x="18.49" y="644" anchorOffsetX="0"
 	                          anchorOffsetY="0" visible="false" />
-	<bam:CardHolder id="_resultDisplay" width="1606" height="500" x="497" y="820" anchorOffsetX="0" anchorOffsetY="0"
+	<bam:SceneCardHolder id="_resultDisplay" width="1606" height="500" x="497" y="820" anchorOffsetX="0" anchorOffsetY="0"
 	                isEdgeDismissable="true" />
 </e:Skin>

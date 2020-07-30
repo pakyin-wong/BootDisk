@@ -15,10 +15,14 @@ namespace we {
         if (resName) {
           const card: egret.Bitmap = new egret.Bitmap();
           if (!env.isMobile) {
-            this.texName = `d_common_poker_vertical_${resName}_png`;
+            if (resName === 'back') {
+              this.texName = 'd_sq_ba_card_back_png';
+            } else {
+              this.texName = `d_common_poker_vertical_${resName}_png`;
+            }
           } else {
             if (resName === 'back') {
-              this.texName = 'm_sq_bac_small_poker_backside_png';
+              this.texName = 'd_sq_ba_card_back_png';
               this.isOpen = false;
             } else {
               this.texName = `m_sq_bac_small_poker_${resName}_vertical_png`;

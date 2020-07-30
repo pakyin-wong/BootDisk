@@ -39,7 +39,7 @@ namespace we {
 
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
 
         this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.luckyNumber');
         this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.history');
@@ -180,13 +180,12 @@ namespace we {
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('Draw_Number_Effect_Destop');
+        return factory.buildArmatureDisplay('draw_number');
       }
 
       public updateLuckyNumbers() {
         this._coinGroup.removeChildren();
 
-        console.log(this.tableInfo.data);
         if (!(this.tableInfo && this.tableInfo.data && this.tableInfo.data.luckynumber)) {
           return;
         }
@@ -196,8 +195,11 @@ namespace we {
 
         // 18 = 668 - 5 * 112
         let x = (580 - (noOfLuckNum - 1) * 13 - noOfLuckNum * 175) / 2;
+        let firstCoin = true;
 
         for (const key of Object.keys(luckyNumbers)) {
+          const animName = this.getAnimName(+key);
+
           const coinGroup = new eui.Group();
           coinGroup.x = x;
           coinGroup.y = 10;
@@ -209,43 +211,18 @@ namespace we {
           coinAnim.height = 213;
           // 112 + 18
 
-          const oddLabel = new eui.Label();
-          oddLabel.text = luckyNumbers[key];
-          oddLabel.verticalCenter = 55;
-          oddLabel.horizontalCenter = 0;
-          oddLabel.fontFamily = 'Barlow';
-          oddLabel.textAlign = egret.HorizontalAlign.CENTER;
-          oddLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
-          oddLabel.size = 15;
-          // oddLabel.anchorOffsetX = oddLabel.width / 2;
-          oddLabel.textColor = 0x2ab9c6;
+          const oddSlot = coinAnim.armature.getSlot(`${animName}_odds`);
+          oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
 
-          const numberLabel = new eui.Label();
-          numberLabel.text = key.toString();
-          numberLabel.horizontalCenter = 0;
-          numberLabel.verticalCenter = 15;
-          numberLabel.fontFamily = 'Barlow';
-          numberLabel.textAlign = egret.HorizontalAlign.CENTER;
-          numberLabel.verticalAlign = egret.VerticalAlign.MIDDLE;
-          // numberLabel.anchorOffsetX = numberLabel.width / 2;
-          numberLabel.size = 50;
-
-          numberLabel.textColor = 0x2ab9c6;
+          const numberSlot = coinAnim.armature.getSlot(`${animName}_number`);
+          numberSlot.display = this.getNumberSlotGroup(+key);
 
           x += 188;
 
           coinGroup.addChild(coinAnim);
-          coinGroup.addChild(oddLabel);
-          coinGroup.addChild(numberLabel);
+          coinGroup.visible = false;
+
           this._coinGroup.addChild(coinGroup);
-
-          // const oddSlot = coinAnim.armature.getSlot('Odd');
-          // oddSlot.display = this.getOddSlotGroup(luckyNumbers[key]);
-
-          // const numberSlot = coinAnim.armature.getSlot('Number');
-          // numberSlot.display = this.getNumberSlotGroup(+key);
-
-          // let noBet = '_nobet';
 
           if (!this._chipLayer) {
             return;
@@ -253,11 +230,6 @@ namespace we {
 
           const betDetails = this._chipLayer.getConfirmedBetDetails();
 
-          /*
-          if (!betDetails) {
-            return;
-          }
-          */
           if (betDetails) {
             betDetails.map((detail, index) => {
               if (!detail || !detail.field || !detail.amount) {
@@ -273,11 +245,15 @@ namespace we {
               }
             });
           }
-          const animName = this.getAnimName(+key);
 
           (async () => {
+            if (!firstCoin) {
+              await we.utils.sleep(400);
+            }
+
             let p = we.utils.waitDragonBone(coinAnim);
             coinAnim.animation.play(`${animName}_in`, 1);
+            coinGroup.visible = true;
             await p;
 
             p = we.utils.waitDragonBone(coinAnim);
@@ -288,11 +264,74 @@ namespace we {
             coinAnim.animation.play(`${animName}_out`, 1);
             await p;
 
+            coinAnim.animation.stop();
+
             this._coinGroup.removeChildren();
           })();
-
-          we.utils.sleep(250);
+          firstCoin = false;
         }
+      }
+
+      protected getOddSlotGroup(odd: number) {
+        const label = new eui.Label();
+        label.fontFamily = 'Barlow';
+        label.text = odd.toString() + 'x';
+        label.size = 50;
+        label.textColor = 0x2ab9c6;
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        label.width = 112;
+        label.anchorOffsetX = 56;
+        label.anchorOffsetY = 15;
+
+        const group = new eui.Group();
+        group.addChild(label);
+
+        return group;
+      }
+
+      protected getNumberSlotGroup(num: number) {
+        const label = new eui.Label();
+        label.fontFamily = 'Barlow';
+        label.text = num.toString();
+        label.size = 120;
+        label.textColor = 0x2ab9c6;
+        label.textAlign = egret.HorizontalAlign.CENTER;
+        label.verticalAlign = egret.VerticalAlign.MIDDLE;
+        label.width = 300;
+        label.anchorOffsetX = 150;
+        label.anchorOffsetY = 40;
+        label.bold = true;
+        const color: number = 0x33ccff;
+        const alpha: number = 0.8;
+        const blurX: number = 35;
+        const blurY: number = 35;
+        const strength: number = 2;
+        const quality: number = egret.BitmapFilterQuality.HIGH;
+        const inner: boolean = false;
+        const knockout: boolean = false;
+        const glowFilter: egret.GlowFilter = new egret.GlowFilter(color, alpha, blurX, blurY, strength, quality, inner, knockout);
+        label.filters = [glowFilter];
+
+        const group = new eui.Group();
+        group.addChild(label);
+
+        return group;
+      }
+
+      protected getChipSlotGroup(amount) {
+        const coin = new LuckyCoin();
+
+        coin.anchorOffsetX = 90;
+        coin.anchorOffsetY = 90;
+        coin.amount = amount;
+        coin.height = 180;
+        coin.width = 180;
+
+        const group = new eui.Group();
+        group.addChild(coin);
+
+        return group;
       }
 
       public clearLuckyNumbers() {
@@ -326,6 +365,7 @@ namespace we {
         }
         return animName;
       }
+
     }
   }
 }

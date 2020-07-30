@@ -46,9 +46,23 @@ namespace we {
         logger.l(utils.LogTarget.STAGING, 'MQTTSocketComm is created', this.client);
       }
 
+      // public updateMaxWinAmountAndCount(){
+      //   this.getPlayerProfileSummary(this._getPlayerProfileSummaryCallback);
+      // }
+
       public getPlayerProfileSummary(callback: (data: any) => void) {
-        this.client.getPlayerProfileSummary(this.warpServerCallback(callback));
+        this.client.getPlayerProfileSummary(callback);
       }
+
+      // private _getPlayerProfileSummaryCallback(data: any){
+      //   if (data.error){
+      //     return;
+      //   }
+      //   let { maxwin , winningstreak } = data;
+      //   console.log('maxwin , winningstreak',[maxwin,winningstreak])
+      //   env.maxWinCount = winningstreak;
+      //   env.maxWinAmount = maxwin;
+      // }
 
       public getPlayerStatistic(filter: any, callback: (data: any) => void) {
         this.client.getPlayerStatistic(filter, this.warpServerCallback(callback));

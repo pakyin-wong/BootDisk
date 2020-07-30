@@ -44,6 +44,7 @@ namespace we {
           class: 'PlayerProfile',
           args: ['PlayerProfile'],
         });
+
         logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickInfo`);
       }
 

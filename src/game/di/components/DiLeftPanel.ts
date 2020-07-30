@@ -40,7 +40,7 @@ namespace we {
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
 
         this.pageRadioBtn1['labelDisplayDown']['text'] = this.pageRadioBtn1['labelDisplayUp']['text'] = i18n.t('dice.history');
         this.pageRadioBtn2['labelDisplayDown']['text'] = this.pageRadioBtn2['labelDisplayUp']['text'] = i18n.t('dice.roadmap');
@@ -101,7 +101,12 @@ namespace we {
         this.sizeBigRoad = new DiSizeBigRoad(17, 34, 1, true);
         this.sizeBigRoad.scaleX = 580 / 578;
 
-        const data2 = [{ v: 0, gameRoundID: 'cde345' }, { v: 1, gameRoundID: 'cde345' }, { v: 2, gameRoundID: 'cde345' }, { v: 12, gameRoundID: 'cde345' }];
+        const data2 = [
+          { v: 0, gameRoundID: 'cde345' },
+          { v: 1, gameRoundID: 'cde345' },
+          { v: 2, gameRoundID: 'cde345' },
+          { v: 12, gameRoundID: 'cde345' },
+        ];
         this.sizeBigRoad.parseRoadData(data2);
 
         // add road to road stack 1
@@ -137,6 +142,7 @@ namespace we {
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -255,6 +261,16 @@ namespace we {
         }
       }
 
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt.data) {
+          const betInfo = evt.data;
+          if (betInfo.tableid === this.tableInfo.tableid) {
+            this.totalBet = evt.data.total;
+            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
+          }
+        }
+      }
+
       public destroy() {
         super.destroy();
 
@@ -267,6 +283,7 @@ namespace we {
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
+        dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
       }
     }
   }

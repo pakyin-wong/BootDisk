@@ -56,7 +56,7 @@ namespace we {
 
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + this.totalBet;
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
 
         this.labelHot.text = i18n.t('roulette.hot');
         this.labelCold.text = i18n.t('roulette.cold');
@@ -194,6 +194,7 @@ namespace we {
         page1Group.addChild(this.coldIcon4);
         page1Group.addChild(this.coldIcon5);
 
+        dir.evtHandler.addEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
         this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -203,7 +204,9 @@ namespace we {
         this.roadRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
         this.roadRadioBtn3.addEventListener(eui.UIEvent.CHANGE, this.onRoadChange, this);
 
-        this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
+        if (this.toggleUpDownButton) {
+          this.toggleUpDownButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
+        }
         // (this.radioBtn1 as any).buttonImage.width = (this.radioBtn1 as any).labelDisplay.textWidth + 10;
         this.changeLang();
       }
@@ -217,10 +220,10 @@ namespace we {
         const radio: eui.RadioButton = e.target;
         this.pageStack.selectedIndex = radio.value;
         if (radio.value === '1') {
-          this.toggleUpDownButton.visible = true;
+          this.toggleUpDownButton && (this.toggleUpDownButton.visible = true);
         } else {
           this.expandPanel(false);
-          this.toggleUpDownButton.visible = false;
+          this.toggleUpDownButton && (this.toggleUpDownButton.visible = false);
         }
         this.updateActiveLine(true);
       }
@@ -257,6 +260,17 @@ namespace we {
           }
         }
       }
+
+      protected onTableBetInfoUpdate(evt: egret.Event) {
+        if (evt.data) {
+          const betInfo = evt.data;
+          if (betInfo.tableid === this.tableInfo.tableid) {
+            this.totalBet = evt.data.total;
+            this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this.totalBet);
+          }
+        }
+      }
+
       public setHotCold(hotNumbers: number[], coldNumbers: number[]) {
         const hots = [this.hotIcon1, this.hotIcon2, this.hotIcon3, this.hotIcon4, this.hotIcon5];
         const colds = [this.coldIcon1, this.coldIcon2, this.coldIcon3, this.coldIcon4, this.coldIcon5];
@@ -288,7 +302,7 @@ namespace we {
 
           this.isExpanded = true;
 
-          this.toggleUpDownButton.currentState = 'b_down';
+          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_down');
           this.beadRoad.expandRoad(true);
         } else if (this.isExpanded && !expand) {
           this.bg.setRoundRectStyle(666, 338, { tl: 14, tr: 14, br: 14, bl: 14 }, '0x061323', 0.88, 0);
@@ -305,7 +319,7 @@ namespace we {
 
           this.isExpanded = false;
 
-          this.toggleUpDownButton.currentState = 'b_up';
+          this.toggleUpDownButton && (this.toggleUpDownButton.currentState = 'b_up');
           this.beadRoad.expandRoad(false);
         }
       }
@@ -351,11 +365,13 @@ namespace we {
         this.sizeBigRoad.dispose();
         this.oddBigRoad.dispose();
         egret.Tween.removeTweens(this.activeLine);
+        if (dir.evtHandler.hasEventListener(core.Event.TABLE_BET_INFO_UPDATE)) {
+          dir.evtHandler.removeEventListener(core.Event.TABLE_BET_INFO_UPDATE, this.onTableBetInfoUpdate, this);
+        }
         if (dir.evtHandler.hasEventListener(core.Event.SWITCH_LANGUAGE)) {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
-
-        if (this.toggleUpDownButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
+        if (this.toggleUpDownButton && this.toggleUpDownButton.hasEventListener(egret.TouchEvent.TOUCH_TAP)) {
           this.toggleUpDownButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onToggleUpDown, this, true);
         }
       }

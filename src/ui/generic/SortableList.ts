@@ -61,26 +61,26 @@ namespace we {
         return diff;
       }
 
-      protected onRendererTouchBegin(event: egret.TouchEvent) {
-        super.onRendererTouchBegin(event);
-        if (!this.$stage) {
-          return;
-        }
-        this.startPos = this.getTouchPos(event);
-        const [touchedChild] = this.$children.filter((tab: egret.DisplayObject) => {
-          if (tab.$hitTest(event.stageX, event.stageY)) {
-            this.destinationPosition = new egret.Point(tab.x, tab.y);
-            return true;
-          }
-        });
-        if (!touchedChild) {
-          return;
-        }
-        this.targetChildren = <SortableItemRenderer> touchedChild;
-        this.$stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        this.$stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchCancel, this);
-        this.$stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-      }
+      // protected onRendererTouchBegin(event: egret.TouchEvent) {
+      //   super.onRendererTouchBegin(event);
+      //   if (!this.$stage) {
+      //     return;
+      //   }
+      //   this.startPos = this.getTouchPos(event);
+      //   const [touchedChild] = this.$children.filter((tab: egret.DisplayObject) => {
+      //     if (tab.$hitTest(event.stageX, event.stageY)) {
+      //       this.destinationPosition = new egret.Point(tab.x, tab.y);
+      //       return true;
+      //     }
+      //   });
+      //   if (!touchedChild) {
+      //     return;
+      //   }
+      //   this.targetChildren = <SortableItemRenderer> touchedChild;
+      //   this.$stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+      //   this.$stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTouchCancel, this);
+      //   this.$stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+      // }
       protected onRendererTouchCancle(event: egret.TouchEvent) {
         super.onRendererTouchCancle(event);
       }

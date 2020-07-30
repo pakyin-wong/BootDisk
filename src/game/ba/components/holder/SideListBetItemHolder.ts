@@ -12,11 +12,14 @@ namespace we {
         if (!this.tableInfo || this._displayItem) {
           return;
         }
+        const BAgametype = this.tableInfo.gametype;
         const listItem = new we.ui.SideListBetItem('SideListBetItemSkin');
-        listItem.itemInitHelper = new we.ba.SideListItemInitHelper();
-
+        if (BAgametype === 18) {
+          listItem.itemInitHelper = new we.bam.SideListItemInitHelper();
+        } else {
+          listItem.itemInitHelper = new we.ba.SideListItemInitHelper();
+        }
         this._displayItem = listItem;
-
         this.setDisplayItem(this._displayItem);
       }
     }

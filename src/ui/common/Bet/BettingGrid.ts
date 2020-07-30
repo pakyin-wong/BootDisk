@@ -58,12 +58,26 @@ namespace we {
             this._matrix.createGradientBox(this.width, this.width, 0, -this.width / 2, -this.width / 2);
             this._gradientRatio = [0, 200];
             break;
+          case 'topToBottom':
+            this._matrix = new egret.Matrix();
+            this._matrix.createGradientBox(this.width, this.height, 90, 0, 0);
+            this._gradientRatio = [0, 255];
+            break;
         }
       }
 
-      protected draw() {
+      protected async draw() {
         if (!this._shape) {
           return;
+        }
+
+        // support percentage width / height
+        if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
+          await new Promise(resolve => window.requestAnimationFrame(resolve));
+          // wait width / height calculated
+          this.width = (this as any).layoutBoundsWidth;
+          this.height = (this as any).layoutBoundsHeight;
+          this.percentWidth = this.percentHeight = NaN;
         }
 
         this._shape.graphics.clear();

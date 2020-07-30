@@ -113,7 +113,7 @@ namespace we {
         label.textAlign = egret.HorizontalAlign.CENTER;
         label.verticalCenter = 0;
         label.horizontalCenter = 0;
-        label.text = '© 2020 World Entainment 保留一切權利。';
+        label.text = '© 2020 World Entertainment 保留一切權利。';
         footer.addChild(label);
         group.addChild(footer);
 

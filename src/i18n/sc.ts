@@ -250,7 +250,7 @@ namespace we {
       },
       dice: {
         big: '大',
-        small: '细',
+        small: '小',
         even: '双',
         odd: '单',
         bigFull: '大',
@@ -392,7 +392,7 @@ namespace we {
         stopBet: '停止下注',
       },
       sidePanel: {
-        betted: '已下注',
+        betted: '已下注项目',
         goodroad: '好路',
         allgames: '全部游戏',
       },

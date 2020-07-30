@@ -17,6 +17,8 @@ namespace we {
       protected _dismissOnClickOutside: boolean = false;
       protected _hideOnStart: boolean = true;
 
+      protected _isDropdownFullWidth: boolean = false;
+
       protected dropdownAddon: DropdownAddon;
       protected draggableAddon: DraggableAddon;
       // protected edgeDismissableAddon: EdgeDismissableAddon;
@@ -51,6 +53,7 @@ namespace we {
       // public get isEdgeDismissable(): boolean {
       //   return this._isEdgeDismissable;
       // }
+
       public set isDropdown(v: boolean) {
         this._isDropdown = v;
         this.dropdownAddon.active = v;
@@ -58,6 +61,15 @@ namespace we {
       public get isDropdown(): boolean {
         return this._isDropdown;
       }
+      public set isDropdownFullWidth(val: boolean) {
+        this._isDropdownFullWidth = val;
+        this.dropdownAddon.isFullWidth = val;
+      }
+
+      public get isDropdownFullWidth(): boolean {
+        return this._isDropdownFullWidth;
+      }
+
       public set dismissOnClickOutside(value: boolean) {
         this._dismissOnClickOutside = value;
         this.poppableAddon.dismissOnClickOutside = value;
