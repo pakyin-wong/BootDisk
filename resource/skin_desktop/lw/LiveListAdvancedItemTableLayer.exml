@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lw.LiveListAdvancedItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
-        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal"  width="350">
+<e:Skin class="skin_desktop.lw.LiveListAdvancedItemTableLayerSkin" currentState="Normal"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal"
+        width="350">
+	<e:Rect fillColor="0x000000" width="350" height="110" />
 	<e:Group id="_oneCircleGroup" x="7" y="10" width="42" height="70">
 		<e:Image id="_oneCircleImage" width="42" height="70" name="d_sic_lobby_betarea_02_hover_png" fillMode="scale"
 		         source="d_lw_listpenal_betarea_bet_east_png" />

@@ -62,8 +62,10 @@ namespace we {
             case we.core.GameType.ROL:
               return ro.SideListBetItemHolder;
             case we.core.GameType.DI:
+                          return di.SideListBetItemHolder;
+
             case we.core.GameType.DIL:
-              return di.SideListBetItemHolder;
+              return dil.SideListBetItemHolder;
             case we.core.GameType.LW:
               return lw.SideListBetItemHolder;
             case we.core.GameType.DT:
@@ -105,8 +107,10 @@ namespace we {
             case we.core.GameType.ROL:
               return ro.SideListItemHolder;
             case we.core.GameType.DI:
+                          return di.SideListItemHolder;
+
             case we.core.GameType.DIL:
-              return di.SideListItemHolder;
+              return dil.SideListItemHolder;
             case we.core.GameType.LW:
               return lw.SideListItemHolder;
             case we.core.GameType.DT:

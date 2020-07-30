@@ -50,6 +50,7 @@ namespace we {
             generalGameType = 'dt';
             break;
           case we.core.GameType.RO:
+          case we.core.GameType.ROL:
             generalGameType = 'ro';
             break;
           case we.core.GameType.DI:
