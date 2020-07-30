@@ -105,7 +105,10 @@ namespace we {
       //   }
 
       protected startAnim(gameType: core.GameType, resultData: any) {
-        const { winAmount, gameData } = resultData;
+        console.log('resultData', resultData);
+        // const { , gameData } = resultData;
+        const { winAmount , gameData } = resultData;
+        const  value  = parseInt(gameData.value, 10) - 1;
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
@@ -116,7 +119,7 @@ namespace we {
         );
 
         let anim = 'ani_result_';
-        switch (gameData.value) {
+        switch (value) {
           case 0:
             anim += 'East';
             break;
