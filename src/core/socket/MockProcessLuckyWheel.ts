@@ -8,7 +8,7 @@ namespace we {
       protected async setResults(data: data.TableInfo, results: string[], points: number[]) {
         const idx = 0;
         const gameData = data.data;
-        gameData.value = points[0];
+        gameData.value = results[0];
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.DEAL;
 
@@ -40,7 +40,7 @@ namespace we {
         logger.l(utils.LogTarget.DEBUG, 'GameResult: ', gameResult);
         logger.l(utils.LogTarget.DEBUG, 'GameResult.toString(): ', gameResult.toString());
 
-        await this.setResults(data, [gameResult.toString()], [gameResult]);
+        await this.setResults(data, [`0${gameResult.toString()}`], [gameResult]);
 
         // set to finish state and calculate the bet result
         gameData.previousstate = gameData.state;
