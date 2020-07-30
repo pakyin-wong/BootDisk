@@ -19,10 +19,6 @@ namespace we {
         dir.sceneCtr.goto('lobby', { page: 'live', tab: 'rol' });
       }
 
-      protected onOrientationChange() {
-        super.onOrientationChange();
-      }
-
       protected setStateIdle(isInit: boolean = false) {
         super.setStateIdle(isInit);
         (<we.rol.MobileChipLayer>this._chipLayer).clearLuckyNumber();
