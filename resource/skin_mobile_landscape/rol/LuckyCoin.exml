@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_mobile_portrait.LuckyCoin" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+
+        <e:Group horizontalCenter="0" bottom="0" width="100%" height="100%">
+                <e:Image id="_bigCoinImage" width="100%" height="100%"/>
+                <e:Label id="_amountLabel" horizontalCenter="0" verticalCenter="0" size="30"/>
+        </e:Group>
+
+</e:Skin>

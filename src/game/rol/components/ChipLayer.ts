@@ -23,7 +23,7 @@ namespace we {
         const factory = new dragonBones.EgretFactory();
         factory.parseDragonBonesData(skeletonData);
         factory.parseTextureAtlasData(textureData, texture);
-        return factory.buildArmatureDisplay('Bet_Effect_Destop');
+        return factory.buildArmatureDisplay('bet_effect');
       }
 
       public showWinningNumber() {
@@ -57,7 +57,7 @@ namespace we {
         let color: string;
         switch (we.ro.RACETRACK_COLOR[+key]) {
           case we.ro.Color.GREEN:
-            color = '_Green';
+            color = '_green';
             break;
           case we.ro.Color.RED:
           case we.ro.Color.BLACK:
@@ -130,14 +130,14 @@ namespace we {
           let color: string;
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
-              color = '_Green';
+              color = '_green';
               break;
             case we.ro.Color.RED:
-              color = '_Red';
+              color = '_red';
               break;
             case we.ro.Color.BLACK:
             default:
-              color = '_Black';
+              color = '_black';
           }
 
           luckyAnim.addDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
@@ -161,13 +161,13 @@ namespace we {
 
           (async () => {
             let p = we.utils.waitDragonBone(luckyAnim);
-            luckyAnim.animation.play(`Bet${color}_in`, 1);
+            luckyAnim.animation.play(`bet${color}_in`, 1);
             await p;
 
             luckyAnim.removeDBEventListener(dragonBones.EventObject.FRAME_EVENT, this.addGridBg(grid, +key), luckyAnim);
 
             p = we.utils.waitDragonBone(luckyAnim);
-            luckyAnim.animation.play(`Bet${color}_loop`, 0);
+            luckyAnim.animation.play(`bet${color}_loop`, 0);
             await p;
 
             /*
