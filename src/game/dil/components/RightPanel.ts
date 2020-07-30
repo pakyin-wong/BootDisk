@@ -38,6 +38,89 @@ namespace we {
         this.updateStat();
 
         this.changeLang();
+
+        const maskedHorizontalBarChart = new we.di.MaskedHorizontalBarChart();
+        maskedHorizontalBarChart.x = 20;
+        maskedHorizontalBarChart.y = 10;
+        maskedHorizontalBarChart.setChartStyles(
+          [
+            [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0],
+            [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0],
+            [[0xd94341, 0xd94341], [1, 1], [0, 255], 0],
+            [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0],
+            [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0],
+            [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0],
+            [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0],
+            [[0x36d943, 0x36d943], [1, 1], [0, 255], 0],
+          ],
+          118,
+          12,
+          20,
+          6,
+          0x313538,
+          0x1b1f22
+        );
+        maskedHorizontalBarChart.setRanksAndAnimate([0.1, 0.2, 0.4, 0.8, 0.8, 0.4, 0.2, 0.1]);
+        this.addChild(maskedHorizontalBarChart);
+
+        const maskedHorizontalBarChart2 = new we.di.MaskedHorizontalBarChart();
+        maskedHorizontalBarChart2.x = 150;
+        maskedHorizontalBarChart2.y = 10;
+        maskedHorizontalBarChart2.setChartStyles(
+          [
+            [[0x36d943, 0x36d943], [1, 1], [0, 255], 0],
+            [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0],
+            [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0],
+            [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0],
+            [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0],
+            [[0xd94341, 0xd94341], [1, 1], [0, 255], 0],
+            [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0],
+            [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0],
+          ],
+          118,
+          12,
+          20,
+          6,
+          0x313538,
+          0x1b1f22
+        );
+        maskedHorizontalBarChart2.setRanksAndAnimate([0.1, 0.2, 0.4, 0.8, 0.8, 0.4, 0.2, 0.1]);
+        this.addChild(maskedHorizontalBarChart2);
+
+        const barLength = 131;
+        const maskedVecticalBarChart = new we.di.MaskedHorizontalBarChart();
+        maskedVecticalBarChart.rotation = -90; // the chart is horizontal, make it vertical
+        maskedVecticalBarChart.x = 20;
+        maskedVecticalBarChart.y = 150 + barLength; // offset the y by its length after rotation
+        maskedVecticalBarChart.setChartStyles(
+          [
+            [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0],
+            [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0],
+            [[0xd94341, 0xd94341], [1, 1], [0, 255], 0],
+            [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0],
+            [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0],
+            [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0],
+            [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0],
+            [[0x36d943, 0x36d943], [1, 1], [0, 255], 0],
+            [[0x36d943, 0x36d943], [1, 1], [0, 255], 0],
+            [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0],
+            [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0],
+            [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0],
+            [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0],
+            [[0xd94341, 0xd94341], [1, 1], [0, 255], 0],
+            [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0],
+            [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0],
+          ],
+          barLength,
+          28,
+          9,
+          4,
+          0x313538,
+          0x1b1f22
+        );
+        maskedVecticalBarChart.setRanksAndAnimate([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]);
+        this.addChild(maskedVecticalBarChart);
+
       }
 
       public updateStat() {
