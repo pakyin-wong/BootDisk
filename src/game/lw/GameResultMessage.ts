@@ -105,10 +105,10 @@ namespace we {
       //   }
 
       protected startAnim(gameType: core.GameType, resultData: any) {
-        console.log('resultData',resultData);
+        console.log('resultData', resultData);
         // const { , gameData } = resultData;
         const { winAmount , gameData } = resultData;
-        const  value  = parseInt(gameData.value,10);
+        const  value  = parseInt(gameData.value, 10) - 1;
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
