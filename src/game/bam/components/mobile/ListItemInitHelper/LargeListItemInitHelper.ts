@@ -1,5 +1,5 @@
 namespace we {
-  export namespace ba {
+  export namespace bam {
     export class LargeListItemInitHelper implements ui.IListItemHelper {
       public generateTableLayer(node: eui.Component) {
         const tableLayer = new ba.TableLayer();
@@ -33,7 +33,7 @@ namespace we {
       }
 
       public generateResultDisplay(node: eui.Component) {
-        const cardHolder = new ba.SideListBetItemCardHolder('ba');
+        const cardHolder = new ba.SideListBetItemCardHolder();
         cardHolder.skinName = `skin_mobile_portrait.ba.BetItemCardHolderSkin`;
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(cardHolder, idx);
