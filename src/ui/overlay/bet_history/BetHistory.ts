@@ -7,7 +7,7 @@ namespace we {
 
       protected _btn_today: ui.BaseButton;
       protected _btn_week: ui.BaseButton;
-      protected _btn_custom: ui.BaseButton;
+      protected _btn_custom: ui.RoundRectButton;
 
       protected _txt_record_id: ui.RunTimeLabel;
       protected _txt_record_date: ui.RunTimeLabel;
@@ -25,7 +25,7 @@ namespace we {
       protected _tf_search: eui.EditableText;
       protected _btn_search: ui.BaseImageButton;
 
-      protected _btn_searchType: ui.BaseButton;
+      protected _btn_searchType: ui.RoundRectButton;
       protected _ddm_searchType: ui.Panel;
 
       protected _btn_page: egret.DisplayObject;
