@@ -82,20 +82,12 @@ namespace we {
 
         this._shape.graphics.clear();
 
-        const points = [
-          new egret.Point(0, 0),
-          new egret.Point(this._roundCorner[0], 0),
-          new egret.Point(this.width - this._roundCorner[1], 0),
-          new egret.Point(this.width, 0),
-          new egret.Point(this.width, this._roundCorner[1]),
-          new egret.Point(this.width, this.height - this._roundCorner[2]),
-          new egret.Point(this.width, this.height),
-          new egret.Point(this.width - this._roundCorner[2], this.height),
-          new egret.Point(this._roundCorner[3], this.height),
-          new egret.Point(0, this.height),
-          new egret.Point(0, this.height - this._roundCorner[3]),
-          new egret.Point(0, this._roundCorner[0]),
-        ];
+        const corners = [ this._roundCorner[0],
+        this._roundCorner[1], this._roundCorner[1],
+        this._roundCorner[2], this._roundCorner[2],
+        this._roundCorner[3], this._roundCorner[3], this._roundCorner[0]];
+
+        const points = we.utils.roundRectPoints(this.width, this.height, corners);
 
         if (this._color) {
           this._shape.graphics.beginFill(this._color);
@@ -104,13 +96,7 @@ namespace we {
           this._shape.graphics.beginGradientFill(egret.GradientType[this._gradientType], this._gradientColors, this._gradientAlphas, this._gradientRatio, this._matrix);
         }
 
-        this._shape.graphics.moveTo(points[points.length - 1].x, points[points.length - 1].y);
-        for (let i = 0, j = 0; i < 12; i += 3, j++) {
-          if (this._roundCorner[j]) {
-            this._shape.graphics.curveTo(points[i].x, points[i].y, points[i + 1].x, points[i + 1].y);
-          }
-          this._shape.graphics.lineTo(points[i + 2].x, points[i + 2].y);
-        }
+        utils.drawRoundRect(this._shape.graphics, points);
         this._shape.graphics.endFill();
       }
     }

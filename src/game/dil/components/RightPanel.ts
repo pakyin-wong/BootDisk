@@ -1,8 +1,13 @@
 namespace we {
   export namespace dil {
     export class RightPanel extends core.BaseGamePanel {
+      public pool: Pool;
+      public history: History;
+
       protected pageRadioBtn1: eui.RadioButton;
       protected pageRadioBtn2: eui.RadioButton;
+      protected _page1: eui.Group;
+      protected _page2: eui.Group;
 
       protected activeLine: egret.Shape;
 
@@ -19,27 +24,13 @@ namespace we {
         this.updateActiveLine(false);
       }
 
-      protected init() {
-        this.activeLine = new egret.Shape();
-        const gr = this.activeLine.graphics;
-        const matrix = new egret.Matrix();
-        matrix.createGradientBox(100, 3);
-
-        gr.beginGradientFill(egret.GradientType.LINEAR, [0x52d7ff, 0x5273ef], [1, 1], [0, 255], matrix);
-        gr.drawRect(0, 0, 100, 3);
-        gr.endFill();
-        this.addChild(this.activeLine);
-        this.activeLine.y = 331;
-
-        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
-        this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-        this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
-
-        this.updateStat();
-
-        this.changeLang();
-
+      protected initPage1() {
+        const pool = new Pool('dil.PoolSkin');
+        pool.verticalCenter = 0;
+        pool.horizontalCenter = 0;
+        /*
         const maskedHorizontalBarChart = new we.di.MaskedHorizontalBarChart();
+
         maskedHorizontalBarChart.x = 20;
         maskedHorizontalBarChart.y = 10;
         maskedHorizontalBarChart.setChartStyles(
@@ -61,7 +52,7 @@ namespace we {
           0x1b1f22
         );
         maskedHorizontalBarChart.setRanksAndAnimate([0.1, 0.2, 0.4, 0.8, 0.8, 0.4, 0.2, 0.1]);
-        this.addChild(maskedHorizontalBarChart);
+        this._page1.addChild(maskedHorizontalBarChart);
 
         const maskedHorizontalBarChart2 = new we.di.MaskedHorizontalBarChart();
         maskedHorizontalBarChart2.x = 150;
@@ -85,41 +76,39 @@ namespace we {
           0x1b1f22
         );
         maskedHorizontalBarChart2.setRanksAndAnimate([0.1, 0.2, 0.4, 0.8, 0.8, 0.4, 0.2, 0.1]);
-        this.addChild(maskedHorizontalBarChart2);
+        */
+        this._page1.addChild(pool);
+      }
 
-        const barLength = 131;
-        const maskedVecticalBarChart = new we.di.MaskedHorizontalBarChart();
-        maskedVecticalBarChart.rotation = -90; // the chart is horizontal, make it vertical
-        maskedVecticalBarChart.x = 20;
-        maskedVecticalBarChart.y = 150 + barLength; // offset the y by its length after rotation
-        maskedVecticalBarChart.setChartStyles(
-          [
-            [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0],
-            [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0],
-            [[0xd94341, 0xd94341], [1, 1], [0, 255], 0],
-            [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0],
-            [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0],
-            [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0],
-            [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0],
-            [[0x36d943, 0x36d943], [1, 1], [0, 255], 0],
-            [[0x36d943, 0x36d943], [1, 1], [0, 255], 0],
-            [[0x3cd9cd, 0x3cd9cd], [1, 1], [0, 255], 0],
-            [[0x1c75d9, 0x1c75d9], [1, 1], [0, 255], 0],
-            [[0xa73ad9, 0xa73ad9], [1, 1], [0, 255], 0],
-            [[0xd93b96, 0xd93b96], [1, 1], [0, 255], 0],
-            [[0xd94341, 0xd94341], [1, 1], [0, 255], 0],
-            [[0xd98c20, 0xd98c20], [1, 1], [0, 255], 0],
-            [[0xd7d93b, 0xd7d93b], [1, 1], [0, 255], 0],
-          ],
-          barLength,
-          28,
-          9,
-          4,
-          0x313538,
-          0x1b1f22
-        );
-        maskedVecticalBarChart.setRanksAndAnimate([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]);
-        this.addChild(maskedVecticalBarChart);
+      protected initPage2() {
+        const history = new History('dil.HistorySkin');
+        history.verticalCenter = 0;
+        history.horizontalCenter = 0;
+        this._page2.addChild(history);
+      }
+
+      protected init() {
+        this.activeLine = new egret.Shape();
+        const gr = this.activeLine.graphics;
+        const matrix = new egret.Matrix();
+        matrix.createGradientBox(100, 3);
+
+        gr.beginGradientFill(egret.GradientType.LINEAR, [0x52d7ff, 0x5273ef], [1, 1], [0, 255], matrix);
+        gr.drawRect(0, 0, 100, 3);
+        gr.endFill();
+        this.addChild(this.activeLine);
+        this.activeLine.y = 331;
+
+        dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
+        this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+        this.pageRadioBtn2.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
+
+        this.updateStat();
+
+        this.changeLang();
+
+        this.initPage1();
+        this.initPage2();
 
       }
 

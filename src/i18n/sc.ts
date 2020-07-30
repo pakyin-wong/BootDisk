@@ -249,6 +249,7 @@ namespace we {
         rounds: '局',
       },
       dice: {
+        recent10round: '最近10局结果',
         big: '大',
         small: '小',
         even: '双',
