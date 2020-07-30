@@ -16,9 +16,9 @@ namespace we {
       public generateChipLayer(node: eui.Component) {
         const chipLayer = new dil.ChipLayer();
         if (node.name === 'AdvancedChipLayerNode') {
-          chipLayer.skinName = `skin_desktop.di.LiveListAdvancedItemChipLayerSkin`;
+          chipLayer.skinName = `skin_desktop.dil.LiveListAdvancedItemChipLayerSkin`;
         } else {
-          chipLayer.skinName = `skin_desktop.di.LiveListItemChipLayerSkin`;
+          chipLayer.skinName = `skin_desktop.dil.LiveListItemChipLayerSkin`;
         }
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(chipLayer, idx);
