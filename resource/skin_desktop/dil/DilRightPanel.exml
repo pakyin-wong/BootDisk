@@ -5,7 +5,7 @@
 	        fillColor="0x7c7c7c" />
 	<e:Rect id="bottomBar" width="100%" height="48" x="0" fillColor="0x1F242B" strokeWeight="0" ellipseHeight="0"
 	        ellipseWidth="0" bottom="0" />
-	<e:Rect width="100%" height="293" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x061323" fillAlpha="0.8" />
+	<e:Rect width="100%" height="293" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x1b1f22" />
 	<e:RadioButton id="pageRadioBtn1" x="50" width="240" height="48" value="0" selected="true"
 	               groupName="pageRadioBtnGroup" label="abc" y="293">
 		<e:skinName>
@@ -29,11 +29,7 @@
 		</e:skinName>
 	</e:RadioButton>
 	<e:ViewStack id="pageStack" width="100%" height="293" x="0" y="0" anchorOffsetX="0" selectedIndex="0" anchorOffsetY="0">
-		<e:Group width="100%" height="100%" name="Group">
-
-		</e:Group>
-		<e:Group width="100%" height="100%" name="View">
-
-		</e:Group>
+		<e:Group width="100%" height="100%" name="Group"></e:Group>
+		<e:Group width="100%" height="100%" name="View"></e:Group>
 	</e:ViewStack>
 </e:Skin>
