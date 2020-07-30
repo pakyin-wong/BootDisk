@@ -470,7 +470,7 @@ namespace we {
             break;
         }
 
-        if (this.hasBet()) {
+        if (this._tableInfo.totalBet > 0) { // this.hasBet()) {
           if (pass1) {
             this._resultMessage.showResult(this._tableInfo.gametype, {
               winType: this._gameData.wintype,

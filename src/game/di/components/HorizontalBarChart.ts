@@ -64,10 +64,10 @@ namespace we {
           for (let i = 0; i < this.targetRanks.length; i++) {
             tempRanks[i] = (this.targetRanks[i] * (this.percentTransit / 100) + this.previousTargetRanks[i] * ((100 - this.percentTransit) / 100)) * (this.percentStart / 100);
           }
-          this.renderRanks(tempRanks, this.colorSettings, this.emptyRadius);
+          this.renderRanks(tempRanks, this.colorSettings);
         };
         const funcCompleted = function (): void {
-          this.renderRanks(ranks, this.colorSettings, this.emptyRadius);
+          this.renderRanks(ranks, this.colorSettings);
         };
         egret.Tween.removeTweens(this);
         egret.Tween.get(this, { onChange: funcChange, onChangeObj: this }).to({ percentStart: 100, percentTransit: 100 }, duration, egret.Ease.quintIn).call(funcCompleted, this);
@@ -79,7 +79,7 @@ namespace we {
 
       // total ranks should be <100, ordered from top 0 degree clockwisely
       // settings should be arrays of [colors[], alphas[], ratios[], angle] and will apply to each of the according rank
-      protected renderRanks(ranks: number[], rankSettings: any, emptyRadius: number = 20) {
+      protected renderRanks(ranks: number[], rankSettings: any) {
         this.graphic.clear();
         const ranksCopy = ranks.slice();
         const ranksSort = ranksCopy.slice().sort((n1, n2) => n2 - n1);
