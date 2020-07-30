@@ -66,9 +66,18 @@ namespace we {
         }
       }
 
-      protected draw() {
+      protected async draw() {
         if (!this._shape) {
           return;
+        }
+
+        // support percentage width / height
+        if (!isNaN(this.percentWidth) || !isNaN(this.percentHeight)) {
+          await new Promise(resolve => window.requestAnimationFrame(resolve));
+          // wait width / height calculated
+          this.width = (this as any).layoutBoundsWidth;
+          this.height = (this as any).layoutBoundsHeight;
+          this.percentWidth = this.percentHeight = NaN;
         }
 
         this._shape.graphics.clear();

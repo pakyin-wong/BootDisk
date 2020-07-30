@@ -1167,6 +1167,7 @@ namespace we {
         this.tables[parseInt(tableID, 10) - 1].data.currTime = Date.now();
         for (const betDetail of betDetails) {
           let isMatch = false;
+          data.totalBet += betDetail.amount;
           for (const cfmBetDetail of data.bets) {
             if (betDetail.field === cfmBetDetail.field) {
               logger.l(utils.LogTarget.DEBUG, 'SocketMock::bet() matched');

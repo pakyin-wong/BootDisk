@@ -2,7 +2,7 @@
 <e:Skin class="skin_desktop.NavDropdown" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
 	<e:Group id="content" left="0" right="0" top="0" bottom="0">
 		<e:Image left="0" right="0" top="0" bottom="0" source="d_common_panel_systemsetting_pressedbg_png" scale9Grid="13,13,1,1"/>
-		<ui:Scroller id="dropdownScroller" scaleX="1" scaleY="1" left="20" top="20" right="20" bottom="20">
+		<ui:Scroller id="dropdownScroller" scaleX="1" scaleY="1" top="20" bottom="20" horizontalCenter="0">
 		</ui:Scroller>
 	</e:Group>
 </e:Skin>

@@ -272,16 +272,16 @@ namespace we {
             this._topTextLayer.addChild(this._iconTopText);
           }
         } else {
-          if (this._shapeLayer) {
+          if (this._shapeLayer && this.iconHightLight.parent === this._shapeLayer) {
             this._shapeLayer.removeChild(this.iconHightLight);
           }
-          if (this._shapeLayer) {
+          if (this._shapeLayer && this._iconShape.parent === this._shapeLayer) {
             this._shapeLayer.removeChild(this._iconShape);
           }
-          if (this._textLayer) {
+          if (this._textLayer && this._iconText.parent === this._textLayer) {
             this._textLayer.removeChild(this._iconText);
           }
-          if (this._topTextLayer) {
+          if (this._topTextLayer && this._iconTopText.parent === this._topTextLayer) {
             this._topTextLayer.removeChild(this._iconTopText);
           }
         }

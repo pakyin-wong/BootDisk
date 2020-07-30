@@ -162,9 +162,9 @@ namespace we {
         );
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'di' });
+      // }
 
       protected initChildren() {
         super.initChildren();

@@ -141,9 +141,9 @@ namespace we {
         this._skinKey = 'RouletteScene';
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;

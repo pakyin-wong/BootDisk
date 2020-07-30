@@ -6,10 +6,10 @@ namespace we {
       protected _odd_group: eui.Group;
       protected _even_group: eui.Group;
 
-      protected _small_image: eui.Image;
-      protected _big_image: eui.Image;
-      protected _odd_image: eui.Image;
-      protected _even_image: eui.Image;
+      protected _small_image: ui.BettingGrid;
+      protected _big_image: ui.BettingGrid;
+      protected _odd_image: ui.BettingGrid;
+      protected _even_image: ui.BettingGrid;
 
       protected _small_label: ui.RunTimeLabel;
       protected _big_label: ui.RunTimeLabel;
