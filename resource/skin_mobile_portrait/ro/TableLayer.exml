@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*">
 	<e:Image
 	         fillMode="scale"  source="m_ro_v_betborad_inactive_png" width="879" height="1769" locked="true"/>
-	<e:Group id="_direct_0_group" width="434" height="122" x="229">
+	<e:Group id="_direct_0_group" width="650" height="122" x="229">
 		<e:Label id="_direct_0_label" text="0" verticalCenter="0" horizontalCenter="0"  size="69" fontFamily="Barlow"/>
 	</e:Group>
 	<e:Group id="_direct_1_group" width="217" height="128" x="229" y="122">
