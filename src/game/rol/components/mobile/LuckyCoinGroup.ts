@@ -1,7 +1,7 @@
 namespace we {
   export namespace rol {
     export class LuckyCoinGroup extends core.BaseGamePanel {
-      protected _chipLayer: we.rol.MobileChipLayer;
+      // protected _chipLayer: ui.ChipLayer;
       protected gameData: we.rol.GameData;
 
       public isLuckyNo: boolean = false;
@@ -143,7 +143,7 @@ namespace we {
         return group;
       }
 
-      public updateLuckyNumbers(gameData: data.GameData) {
+      public updateLuckyNumbers(gameData: data.GameData, chipLayer: ui.ChipLayer) {
         this.gameData = <rol.GameData>gameData;
         this.removeChildren();
 
@@ -175,8 +175,9 @@ namespace we {
 
           let noBet = '_nobet';
 
-          if (this._chipLayer) {
-            const betDetails = this._chipLayer.getConfirmedBetDetails();
+          if (chipLayer) {
+            const betDetails = chipLayer.getConfirmedBetDetails();
+            console.log('betdsaiodjosi = ' + betDetails);
             if (betDetails) {
               betDetails.map((detail, index) => {
                 if (detail && detail.field && detail.amount) {

@@ -11,6 +11,10 @@ namespace we {
       public set amount(value: number) {
         if (this._amountLabel) {
           this._amountLabel.text = value.toString();
+          this._amountLabel.textColor = 0x000000;
+          this._amountLabel.bold = true;
+          this._amountLabel.size = 60;
+          this._amountLabel.verticalCenter = -20;
         }
         if (this._bigCoinImage) {
           this._bigCoinImage.source = this.getNumberSource(value);
