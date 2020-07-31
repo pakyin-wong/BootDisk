@@ -16,7 +16,7 @@ namespace we {
       protected initOrientationDependentComponent() {
         super.initOrientationDependentComponent();
         const buttonNames = Object.keys(this._buttonProps);
-        // this.currentState = buttonNames.length === 2 ? 'two' : 'one';
+        this.currentState = buttonNames.length === 2 ? 'two' : 'one';
         for (const btn of buttonNames) {
           (<ui.RoundRectButton>this[`_btn_${btn}`]).label.text = this._buttonProps[btn].text;
           (<ui.RoundRectButton>this[`_btn_${btn}`]).label.size = env.isMobile ? 60 : 24;

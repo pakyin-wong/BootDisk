@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.MessageDialog" minWidth="640" currentState="one" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_desktop.MessageDialog" minWidth="640" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="one,two">
     <e:Group id="content" left="0" right="0" top="0" bottom="0" width="686" height="315">
         <ui:RoundRectShape name="popover_bg" cornerTL_TR_BL_BR="24,24,24,24" width="100%" height="100%"
@@ -13,8 +13,9 @@
         -->
         <ui:RoundRectButton id="_btn_dismiss" cornerTL_TR_BL_BR="35,35,35,35" width="224" height="68" y="183"
                             stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_hover="1"
-                            strokeAlpha_hover="0" fillColor="0x1b416e"  left="103"/>
+                            strokeAlpha_hover="0" fillColor="0x1b416e"  left="103" visible.two="true"
+                                    visible.one="true" horizontalCenter.one="0"/>
         <ui:RoundRectButton id="_btn_action" cornerTL_TR_BL_BR="35,35,35,35" width="224" height="68" y="183" stroke="0"
-                            strokeIn="0" fillAlpha="1" fillColor="0xcd3c3c"  right="103"/>
+                            strokeIn="0" fillAlpha="1" fillColor="0xcd3c3c"  right="103" visible.two="true " visible.one="false" />
     </e:Group>
 </e:Skin>
