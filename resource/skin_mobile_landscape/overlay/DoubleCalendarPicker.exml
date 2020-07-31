@@ -6,10 +6,18 @@
 		        top="0" bottom="0" right="0" />
 		<overlay:DatepickerCalendar id="_calender_prev" width="490" height="490" x="39" y="262" visible="false" />
 		<overlay:DatepickerCalendar id="_calender_next" width="1006" height="831" y="113" x="228" />
-		<ui:BaseImageButton id="_btn_prev" width="70" height="70" x="96" y="156"
-		                    skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" />
+		<!--<ui:BaseImageButton id="_btn_prev" width="70" height="70" x="96" y="156"
+		                        skinName="skin_mobile_portrait.ImageButtonSkinNav" currentState="page_prev_icon" />
 		<ui:BaseImageButton id="_btn_next" width="70" height="70" y="156" skinName="skin_mobile_portrait.ImageButtonSkinNav"
 		                    currentState="page_next_icon" x="1288" />
+		-->
+		<ui:RoundRectButton id="_btn_prev" cornerTL_TR_BL_BR="35,35,35,35" width="70" height="70" x="96" y="156" stroke="3"
+		                    strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" />
+		<e:Image x="165" y="155" source="d_lobby_button_down_normal_png" width="70" height="70" rotation="90" touchEnabled="false"/>
+		<ui:RoundRectButton id="_btn_next" cornerTL_TR_BL_BR="35,35,35,35" width="70" height="70" x="1288" y="156" stroke="3"
+		                    strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" />
+		<e:Image x="1290" y="227" source="d_lobby_button_down_normal_png" width="70" height="70" rotation="270" touchEnabled="false"/>
+
 		<e:Label id="_txt_prev" text="Label" x="132" y="202" height="45" textAlign="left" verticalAlign="middle" width="200"
 		         visible="false" />
 		<e:Label id="_txt_next" text="Label" y="19" height="96" textAlign="center" verticalAlign="middle" width="700"
