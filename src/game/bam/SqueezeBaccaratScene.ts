@@ -16,6 +16,7 @@ namespace we {
           tutorial.x = 106;
           tutorial.y = 171;
           tutorial.isDraggable = true;
+          tutorial.isEdgeDismissable = true;
           this.addChild(tutorial);
           env.isFirstTimeBam = true;
         }
@@ -25,7 +26,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('SqueezeBaccaratScene');
       }
 
-      protected setStateDeal(isInit: boolean = false) {}
+      protected setStateDeal(isInit: boolean = false) {
+        this.checkRoundCountWithoutBet();
+      }
 
       protected setStatePeek(isInit: boolean = false) {
         // console.log('PEEK ' + new Date(Date.now()).toString());

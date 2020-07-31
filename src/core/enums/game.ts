@@ -21,6 +21,7 @@ namespace we {
       RO = 14, // Roulette
       ROL = 17, // Roulette (God of Wealth) // L stands for luck
       DI = 12, // Dice
+      DIL = 19, // Dice (God of Wealth)
       LW = 16, // Lucky Wheel
       // MJ = 13, // MaJong
       LO = 15,
@@ -41,12 +42,13 @@ namespace we {
       live = 'live',
     }
     export enum LiveGameTab {
+      all = 'allGame',
       ba = 'bacarrat',
       dt = 'dragontiger',
       ro = 'roulette',
       di = 'dice',
       lw = 'luckywheel',
-      other = 'other',
+      // other = 'other',
       // goodroad = 'goodroad',
     }
 

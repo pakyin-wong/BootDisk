@@ -152,6 +152,10 @@ declare module skin_desktop.bam{
 	class CardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_desktop.bam{
+	class BetItemCardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_desktop{
 	class SqueezeBaccaratScene extends eui.Skin{
 	}
@@ -190,6 +194,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class SideListItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class CountdownTextSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -289,6 +297,58 @@ declare module skin_desktop.di{
 	}
 }
 declare module skin_desktop.di{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class ChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DiceWealthScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilLeftPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class DilRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class HistorySkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListAdvancedItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListAdvancedItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class PoolSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class SideListTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
@@ -433,6 +493,74 @@ declare class SidePanelSkin extends eui.Skin{
 declare class TabItemWithBadgeSkin extends eui.Skin{
 }
 declare class TestItemSkin extends eui.Skin{
+}
+declare module skin_desktop.lo{
+	class FunBetGroup5 extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupDT extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupN extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupN3 extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupNum extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetGroupTotal extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItem5 extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItemDT extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItemN extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItemNum extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetItemTotal extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetLayer extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetOverlay extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetOverlayIR extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetRoundInfo extends eui.Skin{
+	}
+}
+declare module skin_desktop.lo{
+	class FunBetTabItemRenderer extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class LoLeftPanel extends eui.Skin{
+	}
 }
 declare module skin_desktop{
 	class LotteryScene extends eui.Skin{
@@ -726,10 +854,6 @@ declare module skin_desktop{
 	class RouletteScene extends eui.Skin{
 	}
 }
-declare module skin_desktop{
-	class RouletteWealthScene extends eui.Skin{
-	}
-}
 declare module skin_desktop.ro{
 	class SideListChipLayerSkin extends eui.Skin{
 	}
@@ -755,6 +879,10 @@ declare module skin_desktop{
 	}
 }
 declare module skin_desktop{
+	class RouletteWealthScene extends eui.Skin{
+	}
+}
+declare module skin_desktop{
 	class ScrollBarVertical extends eui.Skin{
 	}
 }
@@ -764,6 +892,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class Slider extends eui.Skin{
+	}
+}
+declare module skin_desktop{
+	class SwitchBtn extends eui.Skin{
 	}
 }
 declare module skin_desktop{
@@ -1170,6 +1302,22 @@ declare module skin_mobile_landscape.ro{
 	class TableLayerSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_landscape.rol{
+	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class LuckyCoin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class RouletteWealthScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape.rol{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_landscape{
 	class GamePanelSkinBak extends eui.Skin{
 	}
@@ -1272,6 +1420,10 @@ declare module skin_mobile_portrait.bam{
 	class MobileCardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.bam{
+	class BetItemCardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class SqueezeBaccaratScene extends eui.Skin{
 	}
@@ -1294,6 +1446,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LiveOverlayItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class CountdownTextSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{
@@ -1681,6 +1837,10 @@ declare module skin_mobile_portrait{
 	}
 }
 declare module skin_mobile_portrait{
+	class RolResultItem extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
 	class RoResultItem extends eui.Skin{
 	}
 }
@@ -1805,6 +1965,22 @@ declare module skin_mobile_portrait.ro{
 	}
 }
 declare module skin_mobile_portrait.ro{
+	class TableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.rol{
+	class ChipLayerRaceSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_landscape{
+	class LuckyCoin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class RouletteWealthScene extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait.rol{
 	class TableLayerSkin extends eui.Skin{
 	}
 }

@@ -44,6 +44,7 @@ namespace we {
           class: 'PlayerProfile',
           args: ['PlayerProfile'],
         });
+
         logger.l(utils.LogTarget.DEBUG, `NavSideMenu::onClickInfo`);
       }
 
@@ -70,6 +71,12 @@ namespace we {
         super.initOrientationDependentComponent();
         this.initTxt();
         this.addListeners();
+      }
+
+      protected onOrientationChange() {
+        super.onOrientationChange();
+        this.switch_leftHandMode.active = env.leftHandMode;
+        this.invalidateState();
       }
     }
   }

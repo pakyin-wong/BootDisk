@@ -62,6 +62,14 @@ namespace we {
       class: string;
       replace?: boolean;
       args?: any[];
+      dismissOnClickOutside?: boolean;
+      noDimmer?: boolean;
+      showOptions?: {
+        originW: number;
+        originH: number;
+        originX: number;
+        originY: number;
+      };
     }
 
     export interface IMessageDialogOpt {
@@ -97,6 +105,13 @@ namespace we {
     export interface IDraggable {
       moveArea: egret.DisplayObject;
       panelName: string;
+    }
+
+    export interface IDismissable {
+      dismissPosX: number;
+      dismissPosY: number;
+      dismissVisible: boolean;
+      dismissAlpha: number;
     }
 
     export interface IAutoRemove {

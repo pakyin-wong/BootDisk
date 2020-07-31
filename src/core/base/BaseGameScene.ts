@@ -22,9 +22,6 @@ namespace we {
       protected _doubleButton: ui.BaseImageButton;
       protected _undoButton: ui.BaseImageButton;
 
-      // table name label
-      // protected _label: ui.RunTimeLabel;
-
       protected _tableId: string;
       protected _tableInfo: data.TableInfo;
       protected _betDetails: data.BetDetail[];
@@ -33,7 +30,6 @@ namespace we {
       protected _timer: ui.CountdownTimer;
 
       protected _btnBack: egret.DisplayObject;
-      // protected _btnBack: eui.Image;
       protected _lblRoomInfo: eui.Label;
       protected _lblRoomNo: ui.RunTimeLabel;
 
@@ -41,11 +37,17 @@ namespace we {
       protected _bgImg: eui.Image;
       protected _video: egret.FlvVideo;
 
+      protected _gameRoundCountWithoutBet: number = 0;
+
       // this for desktop
       // protected _tableInfoWindow: ui.TableInfoPanel;
 
       // protected _leftGamePanel: BaseGamePanel;
       // protected _rightGamePanel: BaseGamePanel;
+
+      public get tableInfo() {
+        return this._tableInfo;
+      }
 
       constructor(data: any) {
         super(data);
@@ -86,6 +88,7 @@ namespace we {
 
       public onExit() {
         super.onExit();
+        this.stage.frameRate = env.frameRate;
         dir.audioCtr.video = null;
         this._video.stop();
         dir.videoPool.release(this._video);
@@ -114,10 +117,10 @@ namespace we {
         this._video.$anchorOffsetX = this._video.width * 0.5;
         this._video.$anchorOffsetY = this._video.height * 0.5;
         this._video.play();
+        this.stage.frameRate = 60;
         this._bgImg.visible = false;
 
-        this._gameBar.setPlayFunc(this.playVideo(this));
-        this._gameBar.setStopFunc(this.stopVideo(this));
+        this._gameBar.targetScene = this;
 
         if (env.betLimits) {
           this.initDenom();
@@ -137,6 +140,7 @@ namespace we {
 
       protected initDenom() {
         const denominationList = env.betLimits[this.getSelectedBetLimitIndex()].chips;
+
         if (this._betChipSet) {
           this._betChipSet.init(5, denominationList);
         }
@@ -192,6 +196,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.addEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+          this._chipLayer.addEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
         if (this._confirmButton) {
           this._confirmButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -215,7 +220,17 @@ namespace we {
 
       public insufficientBalance() {
         if (this._message) {
-          this._message.showMessage(ui.InGameMessage.ERROR, 'Insufficient Balance');
+          this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.insufficientBalance'));
+        }
+      }
+
+      public exceedBetLimit(evt: egret.Event) {
+        if (this._message) {
+          if (evt && evt.data && evt.data.exceedLower) {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetLowerLimit'));
+          } else {
+            this._message.showMessage(ui.InGameMessage.ERROR, i18n.t('game.exceedBetUpperLimit'));
+          }
         }
       }
 
@@ -232,6 +247,7 @@ namespace we {
 
         if (this._chipLayer) {
           this._chipLayer.removeEventListener(core.Event.INSUFFICIENT_BALANCE, this.insufficientBalance, this);
+          this._chipLayer.removeEventListener(core.Event.EXCEED_BET_LIMIT, this.exceedBetLimit, this);
         }
         if (this._confirmButton) {
           this._confirmButton.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onConfirmPressed, this, true);
@@ -253,7 +269,8 @@ namespace we {
       }
 
       public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+        // dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ba' });
+        dir.sceneCtr.goto('lobby', { page: env.currentPage, tab: env.currentTab });
       }
 
       protected onBetLimitUpdate(evt: egret.Event) {
@@ -267,7 +284,7 @@ namespace we {
       }
 
       protected onBetDetailUpdate(evt: egret.Event) {
-        const tableInfo = <data.TableInfo> evt.data;
+        const tableInfo = <data.TableInfo>evt.data;
         logger.l(utils.LogTarget.DEBUG, we.utils.getClass(this).toString(), '::onBetDetailUpdate', tableInfo);
         if (tableInfo.tableid === this._tableId) {
           this._betDetails = tableInfo.bets;
@@ -307,13 +324,13 @@ namespace we {
 
       protected onTableInfoUpdate(evt: egret.Event) {
         if (evt && evt.data) {
-          const tableInfo = <data.TableInfo> evt.data;
+          const tableInfo = <data.TableInfo>evt.data;
           if (tableInfo.tableid === this._tableId) {
             // update the scene
             this._tableInfo = tableInfo;
             this._betDetails = tableInfo.bets;
-            this._previousState = this._gameData ? this._gameData.previousstate : null;
             this._gameData = this._tableInfo.data;
+            this._previousState = this._gameData ? this._gameData.previousstate : null;
             this.updateTableInfoRelatedComponents();
 
             this.updateGame();
@@ -434,17 +451,17 @@ namespace we {
           this._undoStack.clearStack();
           this._resultMessage.clearMessage();
 
+          if (this._chipLayer) {
+            this._chipLayer.resetUnconfirmedBet();
+            this._chipLayer.resetConfirmedBet();
+          }
+
           if (this._betDetails && this._chipLayer) {
             this._chipLayer.updateBetFields(this._betDetails);
           }
         }
 
         if (this._previousState !== we.core.GameState.BET) {
-          if (this._chipLayer) {
-            this._chipLayer.resetUnconfirmedBet();
-            this._chipLayer.resetConfirmedBet();
-          }
-
           if (this._resultMessage) {
             this._resultMessage.clearMessage();
           }
@@ -452,11 +469,36 @@ namespace we {
           if (this._message && !isInit) {
             this._message.showMessage(ui.InGameMessage.INFO, i18n.t('game.startBet'));
           }
-
           this._undoStack.clearStack();
         }
         // update the countdownTimer
         this.updateCountdownTimer();
+      }
+
+      protected checkRoundCountWithoutBet() {
+        if (this.tableInfo.totalBet > 0) {
+          this._gameRoundCountWithoutBet = 0;
+        } else {
+          this._gameRoundCountWithoutBet += 1;
+        }
+
+        if (this._gameRoundCountWithoutBet === 3) {
+          dir.evtHandler.showMessage({
+            class: 'MessageDialog',
+            args: [
+              // i18n.t(''),
+              '您已3局未下注，2局后踢出',
+              {
+                // dismiss: { text: i18n.t('') },
+                dismiss: { text: 'cancelBet' },
+              },
+            ],
+          });
+        }
+
+        if (this._gameRoundCountWithoutBet >= 5) {
+          this.backToLobby();
+        }
       }
 
       protected setStateDeal(isInit: boolean = false) {
@@ -472,6 +514,8 @@ namespace we {
         }
 
         if (this._previousState !== we.core.GameState.DEAL) {
+          this.checkRoundCountWithoutBet();
+
           if (this._resultDisplay) {
             this._resultDisplay.reset();
           }
@@ -525,7 +569,7 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         if (this._timer) {
-          this._timer.visible = enable;
+          this._timer.visible = true;
         }
 
         if (this._chipLayer) {
@@ -543,7 +587,6 @@ namespace we {
         if (this._cancelButton) {
           this._cancelButton.touchEnabled = enable;
         }
-        this._betRelatedGroup.visible = enable;
       }
 
       protected setResultRelatedComponentsEnabled(enable: boolean) {
@@ -626,26 +669,36 @@ namespace we {
         }
       }
 
-      public playVideo(scene: any) {
-        return () => {
-          try {
-            scene._video.play();
-          } catch (e) {
-            console.log('Video play Error');
-          }
-          scene._bgImg.visible = false;
-        };
+      public get isVideoStopped() {
+        return this._video.paused;
       }
 
-      public stopVideo(scene: any) {
-        return () => {
-          try {
-            scene._video.stop();
-          } catch (e) {
-            console.log('Video play Error');
-          }
-          scene._bgImg.visible = true;
-        };
+      public playVideoFunc(scene: any) {
+        return () => scene.playVideo();
+      }
+
+      public playVideo() {
+        try {
+          this._video.play();
+          this.stage.frameRate = 60;
+        } catch (e) {
+          console.log('Video play Error');
+        }
+        this._bgImg.visible = false;
+      }
+
+      public stopVideoFunc(scene: any) {
+        return () => scene.stopVideo;
+      }
+
+      public stopVideo() {
+        try {
+          this._video.stop();
+          this.stage.frameRate = env.frameRate;
+        } catch (e) {
+          console.log('Video play Error');
+        }
+        this._bgImg.visible = true;
       }
     }
   }

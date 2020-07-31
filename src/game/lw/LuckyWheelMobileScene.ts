@@ -41,6 +41,14 @@ namespace we {
         this._bottomGamePanel._arrowUp.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.checkBetChipPanel, this);
       }
 
+      protected setStateIdle(isInit: boolean) {
+        super.setStateIdle(isInit);
+        if (env.orientation === 'landscape') {
+          egret.Tween.get(this._tableLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
+          egret.Tween.get(this._chipLayer).to({ scaleX: 0.8, scaleY: 0.8 }, 250);
+        }
+      }
+
       protected setStateBet(isInit: boolean) {
         super.setStateBet(isInit);
         if (env.orientation === 'landscape') {
@@ -134,6 +142,7 @@ namespace we {
         } else {
           this.currentState = 'right_hand_mode';
         }
+        this.invalidateState();
       }
 
       protected createVerticalLayout() {
@@ -194,7 +203,7 @@ namespace we {
 
         console.log('checkResultMessage', this._gameData);
 
-        const resultNo = (<lw.GameData> this._gameData).value; // a string type
+        const resultNo = (<lw.GameData>this._gameData).value; // a string type
         (this._tableLayer as lw.TableLayer).flashFields(`LW_${parseInt(resultNo, 10) - 1}`);
         // const lwGameResultMessage = new lw.GameResultMessage();
         // lwGameResultMessage.type = null;

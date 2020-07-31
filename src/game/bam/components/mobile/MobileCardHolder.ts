@@ -408,7 +408,9 @@ namespace we {
       }
 
       protected init(data) {
-        if (!data) return;
+        if (!data) {
+          return;
+        }
 
         this.gameData = data.gameData;
 

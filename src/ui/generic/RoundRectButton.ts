@@ -21,6 +21,9 @@ namespace we {
       public strokeColor: number = 0x00ff00;
       public strokeAlpha: number = 1;
       public labelColor: number = 0xffffff;
+      public strokeIn: number = 0;
+      public strokeInColor: number = 0x0000ff;
+      public strokeInAlpha: number = 1;
 
       // state - idle (all values = -2 will refer to the values in state - default)
       public fillColor_idle: string = '-2';
@@ -29,6 +32,9 @@ namespace we {
       public strokeColor_idle: number = -2;
       public strokeAlpha_idle: number = -2;
       public labelColor_idle: number = -2;
+      public strokeIn_idle: number = -2;
+      public strokeInColor_idle: number = -2;
+      public strokeInAlpha_idle: number = -2;
 
       // state - active (all values = -2 will refer to the values in state - default)
       public fillColor_active: string = '-2';
@@ -37,6 +43,9 @@ namespace we {
       public strokeColor_active: number = -2;
       public strokeAlpha_active: number = -2;
       public labelColor_active: number = -2;
+      public strokeIn_active: number = -2;
+      public strokeInColor_active: number = -2;
+      public strokeInAlpha_active: number = -2;
 
       // state - disabled (all values = -2 will refer to the values in state - default)
       public fillColor_disabled: string = '-2';
@@ -45,6 +54,9 @@ namespace we {
       public strokeColor_disabled: number = -2;
       public strokeAlpha_disabled: number = -2;
       public labelColor_disabled: number = -2;
+      public strokeIn_disabled: number = -2;
+      public strokeInColor_disabled: number = -2;
+      public strokeInAlpha_disabled: number = -2;
 
       // state - click (all values = -2 will refer to the values in state - default)
       public fillColor_click: string = '-2';
@@ -53,6 +65,9 @@ namespace we {
       public strokeColor_click: number = -2;
       public strokeAlpha_click: number = -2;
       public labelColor_click: number = -2;
+      public strokeIn_click: number = -2;
+      public strokeInColor_click: number = -2;
+      public strokeInAlpha_click: number = -2;
 
       // state - hover (all values = -2 will refer to the values in state - default)
       public fillColor_hover: string = '-2';
@@ -61,6 +76,9 @@ namespace we {
       public strokeColor_hover: number = -2;
       public strokeAlpha_hover: number = -2;
       public labelColor_hover: number = -2;
+      public strokeIn_hover: number = -2;
+      public strokeInColor_hover: number = -2;
+      public strokeInAlpha_hover: number = -2;
 
       protected mount() {
         this._roundRectShape = new RoundRectShape();
@@ -92,7 +110,9 @@ namespace we {
           this._label.top = 10;
           this._label.bottom = 10;
           this._label.left = 20;
-          this._label.right = 20;
+          // this._label.right = 20;
+          this._label.width = this.width - 40;
+          this._label.targetWidth = this.width - 40;
           this._label.verticalAlign = 'middle';
           this._label.textAlign = 'center';
           this._label.size = 24;
@@ -103,6 +123,14 @@ namespace we {
         this.touchChildren = false;
         this.buttonEnabled = true;
         mouse.setButtonMode(this, true);
+      }
+
+      public $setWidth(val: number) {
+        super.$setWidth(val);
+        if (this._label) {
+          this._label.width = this.width - 40;
+          this._label.targetWidth = this.width - 40;
+        }
       }
 
       public set buttonEnabled(b: boolean) {
@@ -190,6 +218,9 @@ namespace we {
         const strokeColor = this['strokeColor_' + this.currentState] === -2 ? this.strokeColor : this['strokeColor_' + this.currentState];
         const strokeAlpha = this['strokeAlpha_' + this.currentState] === -2 ? this.strokeAlpha : this['strokeAlpha_' + this.currentState];
         const labelColor = this['labelColor_' + this.currentState] === -2 ? this.labelColor : this['labelColor_' + this.currentState];
+        const strokeIn = this['strokeIn_' + this.currentState] === -2 ? this.strokeIn : this['strokeIn_' + this.currentState];
+        const strokeInColor = this['strokeInColor_' + this.currentState] === -2 ? this.strokeInColor : this['strokeInColor_' + this.currentState];
+        const strokeInAlpha = this['strokeInAlpha_' + this.currentState] === -2 ? this.strokeInAlpha : this['strokeInAlpha_' + this.currentState];
 
         this._roundRectShape.setRoundRectStyle(
           this.width,
@@ -199,7 +230,10 @@ namespace we {
           fillAlpha,
           stroke,
           strokeColor,
-          strokeAlpha
+          strokeAlpha,
+          strokeIn,
+          strokeInColor,
+          strokeInAlpha
         );
         this._label.textColor = labelColor;
       }

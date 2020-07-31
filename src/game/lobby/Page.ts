@@ -26,6 +26,8 @@ namespace we {
       protected childrenCreated(): void {
         super.childrenCreated();
 
+        env.currentPage = 'lobby';
+
         if (env.isMobile) {
           const contentInitializer = new MPageContentInitializer();
           contentInitializer.initContent(this);

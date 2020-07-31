@@ -56,6 +56,30 @@ namespace we {
         // step 3: connect socket
         // this.socketConnect();
         // dir.sceneCtr.goto('LobbyScene');
+
+        const label = new ui.ClampWidthLabel();
+        this.addChild(label);
+        label.y = 400;
+        label.width = 300;
+        label.targetWidth = 500;
+        label.scaleX = 2;
+        label.scaleY = 2;
+        label.textAlign = 'center';
+        label.text = 'hello world';
+
+        // const label2 = new ui.ClampWidthLabel();
+        // this.addChild(label2);
+        // label2.x = 400;
+        // label2.y = 600;
+        // label2.width = 200;
+        // label2.textAlign = 'center';
+        // label2.targetWidth = 200;
+        // label2.text = 'hello world';
+
+        setInterval(() => {
+          label.text += '.';
+          // label2.text += '.';
+        }, 500);
       }
 
       protected socketConnect() {

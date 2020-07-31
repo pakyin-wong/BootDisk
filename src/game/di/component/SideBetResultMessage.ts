@@ -44,7 +44,7 @@ namespace we {
       public showResult(gameType: core.GameType, resultData: any) {
         const { winAmount, gameData } = resultData;
 
-        const { dice1, dice2, dice3, size, odd, total } = <di.GameData> gameData;
+        const { dice1, dice2, dice3, size, odd, total } = <di.GameData>gameData;
 
         logger.l(utils.LogTarget.DEBUG, 'di.SideBetResultMessage::showResult().resultData ', resultData);
         this.visible = true;
@@ -81,6 +81,8 @@ namespace we {
       protected start(gameType: core.GameType, gameData: number, winAmount: number) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
+        this._diceGroup.visible = true;
+        this._winAmountGroup.visible = false;
         const tween = egret.Tween.get(this).wait(this.duration);
         if (!isNaN(winAmount)) {
           tween

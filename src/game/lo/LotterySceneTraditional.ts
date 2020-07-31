@@ -10,7 +10,7 @@ namespace we {
   export namespace lo {
     export class LotterySceneTraditional extends core.DesktopBaseGameScene {
       protected _roadmapControl: we.ro.RORoadmapControl;
-      protected _leftGamePanel: we.ro.RoLeftPanel;
+      protected _leftGamePanel: we.lo.LoLeftPanel;
       protected _rightGamePanel: we.ro.RoRightPanel;
       protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
 
@@ -48,7 +48,7 @@ namespace we {
         }
         if (this._leftGamePanel && this._rightGamePanel) {
           // for testing
-          this._roadmapControl.setTableInfo(this._tableInfo);
+          // this._roadmapControl.setTableInfo(this._tableInfo);
         } // for testing
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -56,7 +56,7 @@ namespace we {
       }
 
       protected initRoadMap() {
-        this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
+        /*this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
         // if (this._leftGamePanel) {// for testing
         this._roadmapControl.setRoads(
           this._leftGamePanel.beadRoad,
@@ -68,10 +68,11 @@ namespace we {
           this._bigRoadResultPanel
         );
         // }// for testing
+*/
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
+        // this._roadmapControl.updateRoadData();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
@@ -89,7 +90,7 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
         super.checkResultMessage(resultData);
       }

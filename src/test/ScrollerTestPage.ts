@@ -36,14 +36,11 @@ namespace we {
       }
 
       protected onScrollStart(e: egret.Event) {
-        console.log('before scroll', this.scroller.viewport.scrollV);
         this.previousScrollV = this.scroller.viewport.scrollV;
       }
       protected onScroll(e: egret.Event) {
-        console.log('Scrolled', this.scroller.viewport.scrollV);
         const previousScrollV = this.previousScrollV;
         const currentScrollV = this.scroller.viewport.scrollV;
-        console.log('offset', currentScrollV - previousScrollV);
 
         this.innerScroller.viewport.scrollV += currentScrollV - previousScrollV;
         this.scroller.viewport.scrollV = previousScrollV;

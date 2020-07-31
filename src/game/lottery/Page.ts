@@ -41,6 +41,8 @@ namespace we {
 
       public onEnter() {
         super.onEnter();
+        env.currentPage = 'lottery';
+        env.currentTab = 'all';
         dir.evtHandler.addEventListener(core.Event.TABLE_LIST_UPDATE, this.handleTableList, this);
       }
 

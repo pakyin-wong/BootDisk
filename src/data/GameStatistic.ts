@@ -17,6 +17,7 @@ namespace we {
       public shoeTotalCount: number; // Baccarat
       public hotNumbers: number[]; // Roulette / Dice
       public coldNumbers: number[]; // Roulette / Dice
+      // public history: // DIL
       public diOdd: {
         even: number;
         odd: number;
@@ -57,6 +58,10 @@ namespace we {
         big: number;
         small: number;
         zero: number;
+      };
+      public dilHistory: {
+        round_10: number[];
+        round_20: number[];
       };
     }
   }

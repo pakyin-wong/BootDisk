@@ -1,105 +1,89 @@
-/* tslint:disable triple-equals */
-/**
- * RouletteScene
- *
- * RouletteScene consist of serveral components: Betting table, Video, serveral roadmap, table list panel on right hand side, table info panel and some statistic graph
- * It also contains
- *
- */
 namespace we {
   export namespace lo {
-    export class LotterySceneFun extends core.DesktopBaseGameScene {
-      protected _roadmapControl: we.ro.RORoadmapControl;
-      protected _leftGamePanel: we.ro.RoLeftPanel;
-      protected _rightGamePanel: we.ro.RoRightPanel;
-      protected _bigRoadResultPanel: we.ro.ROBigRoadResultPanel;
+    export class LotterySceneFun extends LotterySceneFunBasic {
+      protected _denominationList = [500, 1000, 2000, 5000, 10000];
+      protected _betLayerTween: ui.TweenConfig;
+      protected _betLayer: FunBetLayer;
 
-      constructor(data: any) {
-        super(data);
-      }
+      protected _betChipSet: ui.BetChipSet;
+      protected _betRelatedGroup: egret.DisplayObject;
+      protected _confirmButton: eui.Button;
+      protected _cancelButton: ui.BaseImageButton;
 
       protected mount() {
         super.mount();
-        if (this._rightGamePanel) {
-          // for testing
-          this._rightGamePanel.initBetCombination(this._chipLayer);
-          this._rightGamePanel.initRaceTrack(this._chipLayer, this._tableLayer);
-        } // for testing
+        this.initDenom();
+        FunBet.reset();
       }
 
-      protected setSkinName() {
-        this.skinName = utils.getSkinByClassname('LotterySceneFun');
+      protected initDenom() {
+        this._betChipSet.init(5, this._denominationList);
+        this._betChipSet.selectedChipIndex = 0;
+        this.onBetChipChanged();
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'lottery', tab: 'all' });
+      protected addListeners() {
+        super.addListeners();
+        dir.evtHandler.addEventListener(core.Event.BET_DENOMINATION_CHANGE, this.onBetChipChanged, this);
+        utils.addButtonListener(this._confirmButton, this.onConfirmPressed, this);
+        utils.addButtonListener(this._cancelButton, this.onCancelPressed, this);
       }
 
-      public getTableLayer() {
-        return this._tableLayer;
+      protected removeListeners() {
+        super.removeListeners();
+        dir.evtHandler.removeEventListener(core.Event.BET_DENOMINATION_CHANGE, this.onBetChipChanged, this);
+        utils.removeButtonListener(this._confirmButton, this.onConfirmPressed, this);
+        utils.removeButtonListener(this._cancelButton, this.onCancelPressed, this);
       }
 
-      protected initChildren() {
-        super.initChildren();
-        this.initRoadMap();
-
-        if (this._leftGamePanel) {
-          this._leftGamePanel.setTableInfo(this._tableInfo);
-        }
-        if (this._leftGamePanel && this._rightGamePanel) {
-          // for testing
-          this._roadmapControl.setTableInfo(this._tableInfo);
-        } // for testing
-
-        this._chipLayer.type = we.core.BettingTableType.NORMAL;
-        this._tableLayer.type = we.core.BettingTableType.NORMAL;
+      protected onBetChipChanged() {
+        FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex] * 0.01;
+        // FunBet.bet = this._denominationList[this._betChipSet.selectedChipIndex];
       }
 
-      protected initRoadMap() {
-        this._roadmapControl = new we.ro.RORoadmapControl(this._tableId);
-        // if (this._leftGamePanel) {// for testing
-        this._roadmapControl.setRoads(
-          this._leftGamePanel.beadRoad,
-          this._leftGamePanel.colorBigRoad,
-          this._leftGamePanel.sizeBigRoad,
-          this._leftGamePanel.oddBigRoad,
-          this._leftGamePanel,
-          this._rightGamePanel,
-          this._bigRoadResultPanel
-        );
-        // }// for testing
+      protected onConfirmPressed() {
+        dir.evtHandler.createOverlay({
+          class: 'FunBetOverlay',
+          args: [this._tableInfo],
+        });
       }
 
-      protected onRoadDataUpdate(evt: egret.Event) {
-        this._roadmapControl.updateRoadData();
+      protected onCancelPressed() {
+        FunBet.reset();
+      }
+
+      protected onBetResultReceived(evt: egret.Event) {
+        super.onBetResultReceived(evt);
+        dir.evtHandler.dispatch('LOTTERY_FUNBET_CLEANSCREEN');
+      }
+
+      protected onBetConfirmed() {
+        super.onBetConfirmed();
+        FunBet.reset();
       }
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
-        super.setBetRelatedComponentsEnabled(enable);
-        // if (this._rightGamePanel) {// for testing
-        if (this._rightGamePanel.raceTrackChipLayer) {
-          this._rightGamePanel.raceTrackChipLayer.touchEnabled = enable;
-          this._rightGamePanel.raceTrackChipLayer.touchChildren = enable;
+        this.betClipEnabled = enable;
+        this.betLayerEnabled = enable;
+
+        if (!enable) {
+          dir.evtHandler.dispatch('LOTTERY_FUNBET_CLEANSCREEN');
+          FunBet.reset();
         }
-        if (this._rightGamePanel.betCombination) {
-          this._rightGamePanel.betCombination.touchEnabled = enable;
-          this._rightGamePanel.betCombination.touchChildren = enable;
-        }
-        // }// for testing
       }
 
-      public checkResultMessage(resultData = null) {
-        const resultNo = (<ro.GameData> this._gameData).value;
-        (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
-        super.checkResultMessage(resultData);
-      }
-
-      protected playResultSoundEffect(totalWin) {
-        if (this.hasBet() && !isNaN(totalWin)) {
-          dir.audioCtr.playSequence(['player', 'win']);
+      protected set betLayerEnabled(enabled: boolean) {
+        if (enabled) {
+          this._betLayerTween.currentState = 'open';
         } else {
-          dir.audioCtr.playSequence(['player', 'win']);
+          this._betLayerTween.currentState = 'close';
         }
+        egret.Tween.removeTweens(this._betLayer);
+        egret.Tween.get(this._betLayer).to(this._betLayerTween.getTweenPackage(), 250);
+      }
+
+      protected set betClipEnabled(enabled: boolean) {
+        this._betRelatedGroup.visible = enabled;
       }
     }
   }

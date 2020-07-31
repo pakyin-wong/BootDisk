@@ -60,8 +60,8 @@ namespace we {
           this.changeLang();
         }
 
-        this.setPlayFunc(this.playVideo(this));
-        this.setStopFunc(this.stopVideo(this));
+        this.setPlayFunc(this.playVideoFunc(this));
+        this.setStopFunc(this.stopVideoFunc(this));
 
         this.played = true;
       }
@@ -125,6 +125,7 @@ namespace we {
 
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
+        this._betRelatedGroup.visible = enable;
         this._betChipSetGridSelected.visible = enable;
 
         const isEnable = enable;

@@ -35,7 +35,7 @@ namespace we {
 
       private _hide() {
         // this.parent.dispatchEvent(new egret.Event('close'));
-        (this.parent as we.ui.Panel).hide();
+        (this.parent as we.ui.MsgOverlay).hide();
       }
 
       protected onOrientationChange() {

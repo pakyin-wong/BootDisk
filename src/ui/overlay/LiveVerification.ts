@@ -27,8 +27,7 @@ namespace we {
       protected e11: eui.Image;
       protected e12: eui.Image;
 
-      protected confirmLabel: ui.RunTimeLabel;
-      protected confirmBtn: eui.Component;
+      protected confirmBtn: ui.RoundRectButton;
 
       protected alert_group: eui.Group;
       protected success_text: ui.RunTimeLabel;
@@ -52,7 +51,7 @@ namespace we {
         this.liveVer_text.renderText = () => `${i18n.t('live_verification_text')}`;
 
         this.success_text.renderText = () => `${i18n.t('live_verification_success_text')}`;
-        this.confirmLabel.renderText = () => `${i18n.t('live_verification_send')}`;
+        this.confirmBtn.label.renderText = () => `${i18n.t('live_verification_send')}`;
 
         this.createArray();
         this.addListeners();
@@ -91,6 +90,24 @@ namespace we {
         this.imageArray = [this.e1, this.e2, this.e3, this.e4, this.e5, this.e6, this.e7, this.e8, this.e9, this.e10, this.e11, this.e12];
       }
 
+      protected onImageHover(e: eui.UIEvent) {
+        const obj = e.target as egret.DisplayObject;
+        const rect = new ui.RoundRectShape();
+        rect.width = rect.height = 80;
+        rect.fillColor = '0x164a7f';
+        rect.stroke = 0;
+        rect.cornerTL_TR_BL_BR = '40,40,40,40';
+        rect.name = 'hover';
+        rect.x = obj.x - (80 - obj.width) / 2;
+        rect.y = obj.y - (80 - obj.height) / 2;
+        obj.parent.addChildAt(rect, obj.parent.getChildIndex(obj));
+      }
+
+      protected onImageOut(e: eui.UIEvent) {
+        const obj = e.target as egret.DisplayObject;
+        obj.parent.removeChild(obj.parent.getChildByName('hover'));
+      }
+
       protected onImageClick(e: eui.UIEvent) {
         console.log('THE PATTERN = ' + this.pattern);
         if (this.inputIndex > 3) {
@@ -110,15 +127,36 @@ namespace we {
         if (this.inputIndex < 3) {
           return;
         }
-        this.alert_group.visible = true;
-        const id = new we.data.TableInfo();
-        dir.socket.sendVerifyInfo(id.tableid, this.pattern);
+        // TODO: use current tableinfo instead of new
+        const gameScene = dir.sceneCtr.currScene as core.BaseGameScene;
+        if (gameScene) {
+          const id = gameScene.tableInfo.tableid;
+          dir.socket.sendVerifyInfo(id, this.pattern, this.verificationCallback, this);
+        }
+      }
+
+      protected verificationCallback(data) {
+        if (data.error) {
+          // TODO:  handle error on cancel
+        } else {
+          this.alert_group.visible = true;
+          const parent = this.parent as we.ui.Overlay;
+
+          setTimeout(() => {
+            if (parent.onShowItemString === 'LiveVerification') {
+              // close self after 3s if visible overlay still this
+              parent.hide();
+            }
+          }, 3000);
+        }
       }
 
       protected addListeners() {
         this.confirmBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.sendVerification, this);
 
         for (let i: number = 0; i < this.imageArray.length; i++) {
+          this.imageArray[i].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onImageHover, this);
+          this.imageArray[i].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onImageOut, this);
           this.imageArray[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onImageClick, this);
         }
       }
@@ -127,6 +165,8 @@ namespace we {
         this.confirmBtn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.sendVerification, this);
 
         for (let i: number = 0; i < this.imageArray.length; i++) {
+          this.imageArray[i].removeEventListener(mouse.MouseEvent.ROLL_OVER, this.onImageHover, this);
+          this.imageArray[i].removeEventListener(mouse.MouseEvent.ROLL_OUT, this.onImageOut, this);
           this.imageArray[i].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onImageClick, this);
         }
       }

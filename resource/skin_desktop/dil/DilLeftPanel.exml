@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.DilLeftPanel" width="580" height="341" xmlns:e="http://ns.egret.com/eui" xmlns:ba="we.ba.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+        <ui:RoundRectShape id="bg" cornerTL_TR_BL_BR="14,14,14,14" width="580" height="340" x="0" y="0" stroke="0"
+                           fillColor="0x1f242b" />
+        <ui:RunTimeLabel id="gameIdLabel" text="ID00000000000000" y="10" textAlign="left" anchorOffsetX="0" width="400"
+                         size="24" left="10" targetWidth="400" />
+        <ui:RunTimeLabel id="totalBetLabel" text="0" y="10" textAlign="right" anchorOffsetX="0" width="160" size="25"
+                         right="10" targetWidth="160" />
+        <e:RadioButton id="pageRadioBtn1" y="290" height="50" value="0" selected="true" groupName="pageRadioBtnGroup"
+                       width="188" x="100">
+                <e:skinName>
+                        <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
+                                         horizontalCenter="0" alpha="0" />
+                                <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xcccccc" includeIn="up" size="25" />
+                                <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="25" />
+                        </e:Skin>
+                </e:skinName>
+        </e:RadioButton>
+        <e:RadioButton id="pageRadioBtn2" y="289" width="188" height="50" value="1" groupName="pageRadioBtnGroup"
+                       anchorOffsetX="0" x="292">
+                <e:skinName>
+                        <e:Skin states="up,down,upAndSelected,downAndSelected">
+                                <e:Image id="hitArea" width="100%" height="100%" source="button_up_png"
+                                         horizontalCenter="0" alpha="0" />
+                                <e:Label id="labelDisplayUp" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xcccccc" includeIn="up" size="25" />
+                                <e:Label id="labelDisplayDown" horizontalCenter="0" verticalCenter="0"
+                                         textColor="0xffffff" includeIn="down,upAndSelected,downAndSelected" size="25" />
+                        </e:Skin>
+                </e:skinName>
+        </e:RadioButton>
+        <e:ViewStack id="pageStack" width="100%" height="250" x="0" y="43" selectedIndex="0" anchorOffsetX="0"
+                     anchorOffsetY="0">
+                <e:Group id="page1" width="100%" height="250" name="View">
+                        <e:Rect width="100%" height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" />
+                        <e:Group id="_coinGroup" width="100%" height="100%"></e:Group>
+                </e:Group>
+                <e:Group id="page2" width="100%" height="100%" name="View">
+                        <e:Rect height="100%" x="0" y="0" fillColor="0x061323" fillAlpha="0.8" width="100%" />
+                </e:Group>
+        </e:ViewStack>
+        <ui:BaseImageButton id="toggleUpDownButton" x="535" y="314" skinName="skin_desktop.ImageButtonSkinGoodRoad"
+                            currentState="b_up" />
+        <ui:RoundRectShape id="border" cornerTL_TR_BL_BR="14,14,14,14" width="580" height="340" x="0" y="0" stroke="2"
+                           strokeColor="0x3a3f48" fillAlpha="-1" />
+</e:Skin>

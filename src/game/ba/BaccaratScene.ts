@@ -16,6 +16,8 @@ namespace we {
       protected _lblBaMode: ui.RunTimeLabel;
       protected _goodRoadLabel: ui.GoodRoadLabel;
 
+      protected _timer: any;
+
       constructor(data: any) {
         super(data);
         // this._leftGamePanel = this._roadmapLeftPanel;onTableInfoUpdate
@@ -31,8 +33,8 @@ namespace we {
 
         if (this._previousState !== we.core.GameState.BET) {
           if (this._tableLayer) {
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = { PLAYER: 0, BANKER: 0, SUPER_SIX_BANKER: 0 };
           }
         }
       }
@@ -42,6 +44,8 @@ namespace we {
       protected initChildren() {
         super.initChildren();
         this.initRoadMap();
+        const test = this._timer.countdownValue;
+        console.log('test  this._timer.countdownValue', this._timer.countdownValue);
         this._roadmapControl.setTableInfo(this._tableInfo);
 
         this._chipLayer.type = we.core.BettingTableType.NORMAL;
@@ -124,15 +128,18 @@ namespace we {
       }
 
       protected onTableBetInfoUpdate(evt: egret.Event) {
+        super.onTableBetInfoUpdate(evt);
         if (evt && evt.data) {
-          const betInfo = <data.GameTableBetInfo> evt.data;
+          const betInfo = <data.GameTableBetInfo>evt.data;
           if (betInfo.tableid === this._tableId) {
             // update the scene
-            (<we.ba.TableLayer> this._tableLayer).totalAmount = evt.data.amount;
-            (<we.ba.TableLayer> this._tableLayer).totalPerson = evt.data.count;
+            (<we.ba.TableLayer>this._tableLayer).totalAmount = evt.data.amount;
+            (<we.ba.TableLayer>this._tableLayer).totalPerson = evt.data.count;
+            this._leftGamePanel.totalBet = evt.data.total;
           }
         }
       }
+
       public checkResultMessage() {
         if (this._gameData.wintype == 0) {
           return;

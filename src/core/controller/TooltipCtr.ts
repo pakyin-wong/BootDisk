@@ -49,9 +49,9 @@ namespace we {
       }
 
       private onShowTooltip({ data: { displayObject, x, y } }) {
-        const coord = (<egret.DisplayObject> displayObject).localToGlobal(0, 0);
+        const coord = (<egret.DisplayObject>displayObject).localToGlobal(0, 0);
         // init first to get tooltip width
-        this.displayTooltip(0, 0, displayObject.tooltipText);
+        this.displayTooltip(0, 0, displayObject.tooltipText.replace(/'/g, ''));
         switch (displayObject.tooltipPosition) {
           case 'below': {
             this.activeTooltip.x = coord.x + displayObject.width / 2 - this.activeTooltip.width / 2;

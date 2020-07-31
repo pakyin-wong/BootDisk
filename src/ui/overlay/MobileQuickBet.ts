@@ -66,11 +66,13 @@ namespace we {
           //  switch (0) {
           case we.core.GameType.BAC:
           case we.core.GameType.BAI:
+          case we.core.GameType.BAM:
           case we.core.GameType.BAS:
             generalGameType = 'ba';
             break;
 
           case we.core.GameType.RO:
+          case we.core.GameType.ROL:
             generalGameType = 'ro';
             break;
 

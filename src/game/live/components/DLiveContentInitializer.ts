@@ -102,6 +102,8 @@ namespace we {
               return ro.LiveListHolder;
             case we.core.GameType.DI:
               return di.LiveListHolder;
+            case we.core.GameType.DIL:
+              return dil.LiveListHolder;
             case we.core.GameType.LW:
               return lw.LiveListHolder;
             case we.core.GameType.DT:
@@ -110,7 +112,7 @@ namespace we {
               throw new Error('Invalid Game Type');
           }
         };
-        root.roomList.setGameFilters(core.LiveGameTab.ba);
+        root.roomList.setGameFilters(core.LiveGameTab.all);
         root.roomList.setTableList(root.roomIds);
 
         root.slider = new we.ui.ImageSlider();

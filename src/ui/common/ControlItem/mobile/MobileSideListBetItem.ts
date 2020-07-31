@@ -26,7 +26,6 @@ namespace we {
         this.generateResultMessage();
         this.generateResultDisplay();
         super.initComponents();
-        console.log('MobileSideListBetItem ::', this._timer.parent);
       }
 
       protected destroy() {
@@ -115,6 +114,7 @@ namespace we {
             case we.core.GameType.BAC:
             case we.core.GameType.BAS:
             case we.core.GameType.BAI:
+            case we.core.GameType.BAM:
             case we.core.GameType.DT:
               this._tableLayer.visible = !enable;
               if (this._bettingGroup) {

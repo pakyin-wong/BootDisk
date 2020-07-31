@@ -67,6 +67,20 @@ namespace we {
 
       public setGameFilters(tab) {
         switch (tab) {
+          case core.LiveGameTab.all:
+            this.gameFilters = [
+              core.GameType.BAC,
+              core.GameType.BAI,
+              core.GameType.BAS,
+              core.GameType.BAM,
+              core.GameType.DT,
+              core.GameType.RO,
+              core.GameType.ROL,
+              core.GameType.DI,
+              core.GameType.DIL,
+              core.GameType.LW,
+            ];
+            break;
           case core.LiveGameTab.ba:
             this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM];
             break;
@@ -77,14 +91,14 @@ namespace we {
             this.gameFilters = [core.GameType.RO, core.GameType.ROL];
             break;
           case core.LiveGameTab.di:
-            this.gameFilters = [core.GameType.DI];
+            this.gameFilters = [core.GameType.DI, core.GameType.DIL];
             break;
           case core.LiveGameTab.lw:
             this.gameFilters = [core.GameType.LW];
             break;
-          case core.LiveGameTab.other:
-            this.gameFilters = [10000000];
-            break;
+          // case core.LiveGameTab.other:
+          //   this.gameFilters = [10000000];
+          //   break;
 
           case core.LotteryTab.all:
             this.gameFilters = [core.GameType.LO];
@@ -93,12 +107,13 @@ namespace we {
       }
 
       public setGameFiltersByTabIndex(idx: number) {
-        if (idx < 0) {
-          this.gameFilters = [];
-        }
+        // if (idx < 0) {
+        //   this.gameFilters = [];
+        // } else {
         const items = utils.EnumHelpers.values(core.LiveGameTab);
         const key = utils.EnumHelpers.getKeyByValue(core.LiveGameTab, items[idx]);
         this.setGameFilters(core.LiveGameTab[key]);
+        // }
       }
 
       protected invalidateTableList(tableList: string[]) {

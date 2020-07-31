@@ -3,7 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:bt="we.ui.bt.*">
 	<e:Image width="1208" height="340" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="d_ro_betboard_inactive_png"
 	         fillMode="scale" />
-	<e:Group id="_direct_0_group" width="101" height="212" x="1" y="1" anchorOffsetX="0" anchorOffsetY="0" locked="true">
+	<e:Group id="_direct_0_group" width="101" height="212" x="1" y="1" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_direct_0_label" text="0" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_direct_1_group" width="82" height="72" x="103" y="142" anchorOffsetX="0" anchorOffsetY="0">
@@ -186,14 +186,14 @@
 	<e:Group id="_separate_35_36_group" width="40" height="35" x="1037" y="53" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_separate_35_36_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_separate_0_1_group" width="40" height="35" x="83" y="17" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Label id="_separate_0_1_betChipStack" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_separate_0_3_group" width="40" height="35" x="83" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Label id="_separate_0_3_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_separate_0_2_group" width="40" height="35" x="83" y="89" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_separate_0_2_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_separate_0_3_group" width="40" height="35" x="83" y="161" anchorOffsetX="0" anchorOffsetY="0">
-		<e:Label id="_separate_0_3_betChipStack" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_separate_0_1_group" width="40" height="35" x="83" y="161" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Label id="_separate_0_1_betChipStack" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_separate_1_4_group" width="40" height="35" x="166" y="17" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_separate_1_4_betChipStack" verticalCenter="0" horizontalCenter="0" />
@@ -438,14 +438,14 @@
 	<e:Group id="_line_31_36_group" width="40" height="35" x="996" y="196" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Label id="_line_31_36_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_row_3_group" width="108" height="70" x="1098" y="143" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:RunTimeLabel id="_row_3_label" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_row_1_group" width="108" height="70" x="1098" y="143" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_row_1_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_row_2_group" width="108" height="70" x="1098" y="72" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_row_2_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
-	<e:Group id="_row_1_group" width="108" height="70" x="1098" y="1" anchorOffsetX="0" anchorOffsetY="0">
-		<ui:RunTimeLabel id="_row_1_label" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_row_3_group" width="108" height="70" x="1098" y="1" anchorOffsetX="0" anchorOffsetY="0">
+		<ui:RunTimeLabel id="_row_3_label" verticalCenter="0" horizontalCenter="0" />
 	</e:Group>
 	<e:Group id="_dozen_1_12_group" width="331" height="60" x="102" y="215" anchorOffsetX="0" anchorOffsetY="0">
 		<ui:RunTimeLabel id="_dozen_1_12_label" verticalCenter="0" horizontalCenter="0" />

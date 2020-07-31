@@ -1,9 +1,59 @@
 {
   "file": "common_game_panel.png",
   "frames": {
-    "d_lobby_panel_gamelist_gameresult_bankerloss_png": {
+    "game_list_betarea_result_black_2_png": {
       "x": 2,
       "y": 2,
+      "w": 738,
+      "h": 387,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 738,
+      "sourceH": 387
+    },
+    "game_list_betarea_result_black_png": {
+      "x": 2,
+      "y": 393,
+      "w": 738,
+      "h": 387,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 738,
+      "sourceH": 387
+    },
+    "game_list_betarea_result_green_png": {
+      "x": 744,
+      "y": 2,
+      "w": 738,
+      "h": 387,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 738,
+      "sourceH": 387
+    },
+    "game_list_betarea_result_red_2_png": {
+      "x": 744,
+      "y": 393,
+      "w": 738,
+      "h": 387,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 738,
+      "sourceH": 387
+    },
+    "game_list_betarea_result_red_png": {
+      "x": 2,
+      "y": 784,
+      "w": 738,
+      "h": 387,
+      "offX": 0,
+      "offY": 0,
+      "sourceW": 738,
+      "sourceH": 387
+    },
+    "d_lobby_panel_gamelist_gameresult_bankerloss_png": {
+      "x": 744,
+      "y": 784,
       "w": 319,
       "h": 58,
       "offX": 0,
@@ -12,8 +62,8 @@
       "sourceH": 58
     },
     "d_lobby_panel_gamelist_gameresult_playerloss_png": {
-      "x": 2,
-      "y": 64,
+      "x": 1067,
+      "y": 784,
       "w": 319,
       "h": 58,
       "offX": 0,
@@ -22,8 +72,8 @@
       "sourceH": 58
     },
     "d_lobby_panel_gamelist_gameresult_tieloss_png": {
-      "x": 2,
-      "y": 126,
+      "x": 744,
+      "y": 846,
       "w": 319,
       "h": 58,
       "offX": 0,
@@ -32,8 +82,8 @@
       "sourceH": 58
     },
     "d_lobby_panel_gamelist_gameresult_bankerwin_png": {
-      "x": 2,
-      "y": 188,
+      "x": 1067,
+      "y": 846,
       "w": 318,
       "h": 88,
       "offX": 0,
@@ -42,8 +92,8 @@
       "sourceH": 88
     },
     "d_lobby_panel_gamelist_gameresult_playerwin_png": {
-      "x": 2,
-      "y": 280,
+      "x": 744,
+      "y": 908,
       "w": 318,
       "h": 88,
       "offX": 0,
@@ -52,8 +102,8 @@
       "sourceH": 88
     },
     "d_lobby_panel_gamelist_gameresult_tiewin_png": {
-      "x": 325,
-      "y": 2,
+      "x": 744,
+      "y": 1000,
       "w": 318,
       "h": 88,
       "offX": 0,
@@ -62,8 +112,8 @@
       "sourceH": 88
     },
     "d_lw_listpenal_result_money_bg_east_png": {
-      "x": 325,
-      "y": 94,
+      "x": 744,
+      "y": 1092,
       "w": 247,
       "h": 44,
       "offX": 0,
@@ -72,8 +122,8 @@
       "sourceH": 44
     },
     "d_lw_listpenal_result_money_bg_gold_png": {
-      "x": 325,
-      "y": 142,
+      "x": 995,
+      "y": 1092,
       "w": 247,
       "h": 44,
       "offX": 0,
@@ -82,8 +132,8 @@
       "sourceH": 44
     },
     "d_lw_listpenal_result_money_bg_north_png": {
-      "x": 324,
-      "y": 190,
+      "x": 1066,
+      "y": 938,
       "w": 247,
       "h": 44,
       "offX": 0,
@@ -92,8 +142,8 @@
       "sourceH": 44
     },
     "d_lw_listpenal_result_money_bg_south_png": {
-      "x": 324,
-      "y": 238,
+      "x": 1066,
+      "y": 986,
       "w": 247,
       "h": 44,
       "offX": 0,
@@ -102,8 +152,8 @@
       "sourceH": 44
     },
     "d_lw_listpenal_result_money_bg_west_png": {
-      "x": 324,
-      "y": 286,
+      "x": 1066,
+      "y": 1034,
       "w": 247,
       "h": 44,
       "offX": 0,
@@ -113,7 +163,7 @@
     },
     "d_lw_listpenal_result_money_bg_white_png": {
       "x": 2,
-      "y": 372,
+      "y": 1175,
       "w": 247,
       "h": 44,
       "offX": 0,
@@ -122,8 +172,8 @@
       "sourceH": 44
     },
     "d_sic_game result_bg_01_png": {
-      "x": 2,
-      "y": 420,
+      "x": 1246,
+      "y": 1082,
       "w": 186,
       "h": 92,
       "offX": 0,
@@ -132,8 +182,8 @@
       "sourceH": 92
     },
     "d_sic_game result_bg_02_png": {
-      "x": 192,
-      "y": 420,
+      "x": 744,
+      "y": 1140,
       "w": 186,
       "h": 74,
       "offX": 0,
@@ -142,8 +192,8 @@
       "sourceH": 74
     },
     "d_sic_game result_bg_03_png": {
-      "x": 324,
-      "y": 334,
+      "x": 934,
+      "y": 1140,
       "w": 186,
       "h": 51,
       "offX": 0,
@@ -152,8 +202,8 @@
       "sourceH": 51
     },
     "d_sic_game result_bg_04_png": {
-      "x": 382,
-      "y": 389,
+      "x": 1124,
+      "y": 1178,
       "w": 186,
       "h": 33,
       "offX": 0,
@@ -163,7 +213,7 @@
     },
     "d_lobby_panel_gamelist_betresult_dim_png": {
       "x": 2,
-      "y": 516,
+      "y": 1223,
       "w": 167,
       "h": 110,
       "offX": 0,
@@ -173,7 +223,7 @@
     },
     "d_lobby_panel_gamelist_betresult_bankerbg_png": {
       "x": 173,
-      "y": 516,
+      "y": 1223,
       "w": 129,
       "h": 110,
       "offX": 0,
@@ -183,7 +233,7 @@
     },
     "d_lobby_panel_gamelist_betresult_bankwinbg_png": {
       "x": 306,
-      "y": 498,
+      "y": 1218,
       "w": 129,
       "h": 110,
       "offX": 0,
@@ -193,7 +243,7 @@
     },
     "d_lobby_panel_gamelist_betresult_playbg_png": {
       "x": 439,
-      "y": 426,
+      "y": 1218,
       "w": 129,
       "h": 110,
       "offX": 0,
@@ -202,8 +252,8 @@
       "sourceH": 110
     },
     "d_lobby_panel_gamelist_betresult_playwinbg_png": {
-      "x": 2,
-      "y": 630,
+      "x": 572,
+      "y": 1218,
       "w": 129,
       "h": 110,
       "offX": 0,
@@ -212,8 +262,8 @@
       "sourceH": 110
     },
     "d_common_quickbet_betarea_general_tiger_hover_png": {
-      "x": 135,
-      "y": 630,
+      "x": 705,
+      "y": 1218,
       "w": 123,
       "h": 82,
       "offX": 0,
@@ -222,8 +272,8 @@
       "sourceH": 82
     },
     "d_common_quickbet_betarea_general_tiger_png": {
-      "x": 262,
-      "y": 630,
+      "x": 832,
+      "y": 1218,
       "w": 123,
       "h": 82,
       "offX": 0,
@@ -232,8 +282,8 @@
       "sourceH": 82
     },
     "d_common_quickbet_betarea_general_dragon_hover_png": {
-      "x": 389,
-      "y": 612,
+      "x": 959,
+      "y": 1215,
       "w": 122,
       "h": 82,
       "offX": 0,
@@ -242,8 +292,8 @@
       "sourceH": 82
     },
     "d_common_quickbet_betarea_general_dragon_png": {
-      "x": 515,
-      "y": 540,
+      "x": 1085,
+      "y": 1215,
       "w": 122,
       "h": 82,
       "offX": 0,
@@ -252,8 +302,8 @@
       "sourceH": 82
     },
     "d_lw_listpenal_result_east_png": {
-      "x": 515,
-      "y": 626,
+      "x": 1211,
+      "y": 1215,
       "w": 116,
       "h": 89,
       "offX": 0,
@@ -262,8 +312,8 @@
       "sourceH": 89
     },
     "d_lw_listpenal_result_green_png": {
-      "x": 647,
-      "y": 2,
+      "x": 1331,
+      "y": 1178,
       "w": 116,
       "h": 89,
       "offX": 0,
@@ -272,8 +322,8 @@
       "sourceH": 89
     },
     "d_lw_listpenal_result_north_png": {
-      "x": 641,
-      "y": 95,
+      "x": 1317,
+      "y": 938,
       "w": 116,
       "h": 89,
       "offX": 0,
@@ -282,8 +332,8 @@
       "sourceH": 89
     },
     "d_lw_listpenal_result_red_png": {
-      "x": 641,
-      "y": 188,
+      "x": 2,
+      "y": 1337,
       "w": 116,
       "h": 89,
       "offX": 0,
@@ -292,8 +342,8 @@
       "sourceH": 89
     },
     "d_lw_listpenal_result_south_png": {
-      "x": 641,
-      "y": 281,
+      "x": 122,
+      "y": 1337,
       "w": 116,
       "h": 89,
       "offX": 0,
@@ -302,8 +352,8 @@
       "sourceH": 89
     },
     "d_lw_listpenal_result_west_png": {
-      "x": 641,
-      "y": 374,
+      "x": 242,
+      "y": 1337,
       "w": 116,
       "h": 89,
       "offX": 0,
@@ -312,8 +362,8 @@
       "sourceH": 89
     },
     "d_lw_listpenal_result_white_png": {
-      "x": 641,
-      "y": 467,
+      "x": 362,
+      "y": 1332,
       "w": 116,
       "h": 89,
       "offX": 0,
@@ -322,8 +372,8 @@
       "sourceH": 89
     },
     "d_lobby_panel_gamelist_betresult_banker_png": {
-      "x": 635,
-      "y": 626,
+      "x": 1437,
+      "y": 784,
       "w": 38,
       "h": 110,
       "offX": 0,
@@ -332,8 +382,8 @@
       "sourceH": 110
     },
     "d_lobby_panel_gamelist_betresult_player_png": {
-      "x": 576,
-      "y": 94,
+      "x": 1390,
+      "y": 784,
       "w": 38,
       "h": 110,
       "offX": 0,
@@ -342,8 +392,8 @@
       "sourceH": 110
     },
     "d_common_quickbet_betarea_general_tie_hover_png": {
-      "x": 2,
-      "y": 744,
+      "x": 482,
+      "y": 1332,
       "w": 106,
       "h": 82,
       "offX": 0,
@@ -352,8 +402,8 @@
       "sourceH": 82
     },
     "d_common_quickbet_betarea_general_tie_png": {
-      "x": 112,
-      "y": 744,
+      "x": 592,
+      "y": 1332,
       "w": 106,
       "h": 82,
       "offX": 0,
@@ -362,8 +412,8 @@
       "sourceH": 82
     },
     "d_lw_listpenal_betarea_bet_east_png": {
-      "x": 222,
-      "y": 740,
+      "x": 1437,
+      "y": 898,
       "w": 43,
       "h": 75,
       "offX": 0,
@@ -372,8 +422,8 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_green_png": {
-      "x": 269,
-      "y": 740,
+      "x": 1437,
+      "y": 977,
       "w": 43,
       "h": 75,
       "offX": 0,
@@ -382,8 +432,8 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_north_png": {
-      "x": 316,
-      "y": 740,
+      "x": 1436,
+      "y": 1056,
       "w": 43,
       "h": 75,
       "offX": 0,
@@ -392,8 +442,8 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_red_png": {
-      "x": 363,
-      "y": 740,
+      "x": 702,
+      "y": 1332,
       "w": 43,
       "h": 75,
       "offX": 0,
@@ -402,8 +452,8 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_south_png": {
-      "x": 410,
-      "y": 740,
+      "x": 749,
+      "y": 1308,
       "w": 43,
       "h": 75,
       "offX": 0,
@@ -412,8 +462,8 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_west_png": {
-      "x": 457,
-      "y": 698,
+      "x": 796,
+      "y": 1308,
       "w": 43,
       "h": 75,
       "offX": 0,
@@ -422,8 +472,8 @@
       "sourceH": 75
     },
     "d_lw_listpenal_betarea_bet_white_png": {
-      "x": 504,
-      "y": 740,
+      "x": 843,
+      "y": 1308,
       "w": 43,
       "h": 75,
       "offX": 0,
@@ -432,8 +482,8 @@
       "sourceH": 75
     },
     "d_sic_game result_blue_png": {
-      "x": 135,
-      "y": 716,
+      "x": 1436,
+      "y": 1135,
       "w": 46,
       "h": 18,
       "offX": 0,
@@ -442,8 +492,8 @@
       "sourceH": 18
     },
     "d_sic_game result_green_png": {
-      "x": 185,
-      "y": 716,
+      "x": 253,
+      "y": 1175,
       "w": 46,
       "h": 18,
       "offX": 0,
@@ -452,8 +502,8 @@
       "sourceH": 18
     },
     "d_sic_game result_red_png": {
-      "x": 235,
-      "y": 716,
+      "x": 1317,
+      "y": 1031,
       "w": 46,
       "h": 18,
       "offX": 0,
@@ -462,8 +512,8 @@
       "sourceH": 18
     },
     "d_common_panel_gamelist_notifydot_green_png": {
-      "x": 457,
-      "y": 777,
+      "x": 1389,
+      "y": 898,
       "w": 41,
       "h": 29,
       "offX": 0,
@@ -472,8 +522,8 @@
       "sourceH": 29
     },
     "d_common_panel_gamelist_notifydot_png": {
-      "x": 389,
-      "y": 698,
+      "x": 1124,
+      "y": 1140,
       "w": 41,
       "h": 29,
       "offX": 0,
@@ -482,8 +532,8 @@
       "sourceH": 29
     },
     "d_lw_listpenal_history_record_hl_png": {
-      "x": 253,
-      "y": 372,
+      "x": 749,
+      "y": 1387,
       "w": 37,
       "h": 37,
       "offX": 0,
@@ -492,8 +542,8 @@
       "sourceH": 37
     },
     "d_lobby_panel_gamelist_icon_allgame_active_png": {
-      "x": 514,
-      "y": 334,
+      "x": 1169,
+      "y": 1140,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -502,8 +552,8 @@
       "sourceH": 32
     },
     "d_lobby_panel_gamelist_icon_allgame_normal_png": {
-      "x": 550,
-      "y": 334,
+      "x": 1205,
+      "y": 1140,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -512,8 +562,8 @@
       "sourceH": 32
     },
     "d_lobby_panel_gamelist_icon_bet_active_png": {
-      "x": 586,
-      "y": 208,
+      "x": 303,
+      "y": 1175,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -522,8 +572,8 @@
       "sourceH": 32
     },
     "d_lobby_panel_gamelist_icon_bet_normal_png": {
-      "x": 586,
-      "y": 244,
+      "x": 790,
+      "y": 1387,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -532,8 +582,8 @@
       "sourceH": 32
     },
     "d_lobby_panel_gamelist_icon_goodroad_active_png": {
-      "x": 575,
-      "y": 280,
+      "x": 339,
+      "y": 1175,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -542,8 +592,8 @@
       "sourceH": 32
     },
     "d_lobby_panel_gamelist_icon_goodroad_normal_png": {
-      "x": 586,
-      "y": 316,
+      "x": 826,
+      "y": 1387,
       "w": 32,
       "h": 32,
       "offX": 0,
@@ -552,8 +602,8 @@
       "sourceH": 32
     },
     "d_lw_listpenal_history_record_east_png": {
-      "x": 294,
-      "y": 389,
+      "x": 1451,
+      "y": 1157,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -562,8 +612,8 @@
       "sourceH": 27
     },
     "d_lw_listpenal_history_record_green_png": {
-      "x": 325,
-      "y": 389,
+      "x": 1451,
+      "y": 1188,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -572,8 +622,8 @@
       "sourceH": 27
     },
     "d_lw_listpenal_history_record_north_png": {
-      "x": 586,
-      "y": 352,
+      "x": 1451,
+      "y": 1219,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -582,8 +632,8 @@
       "sourceH": 27
     },
     "d_lw_listpenal_history_record_red_png": {
-      "x": 382,
-      "y": 426,
+      "x": 1451,
+      "y": 1250,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -592,8 +642,8 @@
       "sourceH": 27
     },
     "d_lw_listpenal_history_record_south_png": {
-      "x": 382,
-      "y": 457,
+      "x": 375,
+      "y": 1175,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -602,8 +652,8 @@
       "sourceH": 27
     },
     "d_lw_listpenal_history_record_west_png": {
-      "x": 641,
-      "y": 560,
+      "x": 862,
+      "y": 1387,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -612,8 +662,8 @@
       "sourceH": 27
     },
     "d_lw_listpenal_history_record_white_png": {
-      "x": 641,
-      "y": 591,
+      "x": 406,
+      "y": 1175,
       "w": 27,
       "h": 27,
       "offX": 0,
@@ -622,8 +672,8 @@
       "sourceH": 27
     },
     "d_sic_history_lv1_dice-1_png": {
-      "x": 611,
-      "y": 280,
+      "x": 437,
+      "y": 1175,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -632,8 +682,8 @@
       "sourceH": 26
     },
     "d_sic_history_lv1_dice-2_png": {
-      "x": 672,
-      "y": 560,
+      "x": 467,
+      "y": 1175,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -642,8 +692,8 @@
       "sourceH": 26
     },
     "d_sic_history_lv1_dice-3_png": {
-      "x": 672,
-      "y": 590,
+      "x": 497,
+      "y": 1175,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -652,8 +702,8 @@
       "sourceH": 26
     },
     "d_sic_history_lv1_dice-4_png": {
-      "x": 702,
-      "y": 560,
+      "x": 527,
+      "y": 1175,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -662,8 +712,8 @@
       "sourceH": 26
     },
     "d_sic_history_lv1_dice-5_png": {
-      "x": 732,
-      "y": 560,
+      "x": 557,
+      "y": 1175,
       "w": 26,
       "h": 26,
       "offX": 0,
@@ -672,8 +722,8 @@
       "sourceH": 26
     },
     "d_sic_history_lv1_dice-6_png": {
-      "x": 702,
-      "y": 590,
+      "x": 587,
+      "y": 1175,
       "w": 26,
       "h": 26,
       "offX": 0,

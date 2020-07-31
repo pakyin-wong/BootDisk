@@ -31,9 +31,9 @@ namespace we {
         this.skinName = utils.getSkinByClassname('RouletteScene');
       }
 
-      public backToLobby() {
-        dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
-      }
+      // public backToLobby() {
+      //   dir.sceneCtr.goto('lobby', { page: 'live', tab: 'ro' });
+      // }
 
       public getTableLayer() {
         return this._tableLayer;
@@ -74,6 +74,16 @@ namespace we {
         this._roadmapControl.updateRoadData();
       }
 
+      // protected onTableBetInfoUpdate(evt: egret.Event) {
+      //   super.onTableBetInfoUpdate(evt);
+      //   if (evt && evt.data) {
+      //     const betInfo = <data.GameTableBetInfo>evt.data;
+      //     if (betInfo.tableid === this._tableId) {
+      //       this._leftGamePanel._totalBet = evt.data.total;
+      //     }
+      //   }
+      // }
+
       protected setBetRelatedComponentsEnabled(enable: boolean) {
         super.setBetRelatedComponentsEnabled(enable);
         // if (this._rightGamePanel) {// for testing
@@ -89,7 +99,7 @@ namespace we {
       }
 
       public checkResultMessage(resultData = null) {
-        const resultNo = (<ro.GameData> this._gameData).value;
+        const resultNo = (<ro.GameData>this._gameData).value;
         (this._tableLayer as ro.TableLayer).flashFields(`DIRECT_${resultNo}`);
         super.checkResultMessage(resultData);
       }

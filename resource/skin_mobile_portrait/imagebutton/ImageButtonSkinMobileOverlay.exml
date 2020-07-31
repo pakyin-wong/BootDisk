@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_mobile_portrait.ImageButtonSkinMobileOverlay" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
         xmlns:ui="we.ui.*" states="bet_overlay_close,bet_overlay_previous,bet_overlay_confirm">
-	<e:Image id="_background" left="0" right="0" top="0" bottom="0" source.bet_overlay_close="m_lobby_panel_betcontrol_btn_close_png" source.bet_overlay_previous="m_lobby_panel_betcontrol_btn_previous_png" source.bet_overlay_confirm="m_lobby_panel_betcontrol_btn_confirm_bg_png"  width.bet_overlay_confirm="360" scale9Grid.bet_overlay_confirm="75,75,0,0"/>
+	<e:Image id="_background" left="0" right="0" top="0" bottom="0" source.bet_overlay_close="m_lobby_panel_betcontrol_btn_close_png" source.bet_overlay_previous="m_lobby_panel_betcontrol_btn_previous_png" visible.bet_overlay_confirm="false"/>
+	<ui:RoundRectButton cornerTL_TR_BL_BR="75,75,75,75" width="360" height="150" stroke="0" fillAlpha="1"  fillColor="0x00c46d" visible.bet_overlay_previous="false" visible.bet_overlay_close="false"/>
 	<e:Group id="_group" left="0" right="0" top="0" bottom="0">
 		<e:Label id="_label" text="" textAlign="center" verticalAlign="justify" scaleX="1" scaleY="1" left="0" right="0"
 		         top="0" bottom="0" />

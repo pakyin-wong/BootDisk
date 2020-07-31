@@ -2,4 +2,4 @@
 <e:Skin class="skin_mobile_portrait.NavLeftHandModeBtn" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="active,idle"  width="153" height="93">
 	<e:Image source.active="m_common_panel_setting_btn_switch_active_png" source="m_common_panel_setting_btn_switch_disabled_png" width="153" height="93"/>
-        </e:Skin>
+</e:Skin>

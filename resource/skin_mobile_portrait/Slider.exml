@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile_portrait.Slider" minWidth="70" minHeight="70" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="skin_mobile_portrait.Slider" minWidth="70" minHeight="70" xmlns:ui="we.ui.*" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="_bg" height="15" left="0" right="0" verticalCenter="0" source="m_common_slide_bar_base_png" scale9Grid="7,7,2,1"/>
 	<e:Image id="_bar" height="15" verticalCenter="0" horizontalCenter="0" source="m_common_slide_bar_active_png"/>
-	<e:Image id="_toggle" width="70" height="70" source="m_common_slide_bar_btn_png" left="0" top="0"/>
-
+	<!--<e:Image id="_toggle" width="70" height="70" source="m_common_slide_bar_btn_png" left="0" top="0"/>-->
+	<ui:RoundRectShape id="_toggle" width="60" height="60" cornerTL_TR_BL_BR="30,30,30,30" fillColor="0x4874f7,0x00dbff,90" stroke="0" strokeIn="0"  />
 </e:Skin>

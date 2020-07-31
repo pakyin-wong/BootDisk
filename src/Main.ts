@@ -83,6 +83,7 @@ class Main extends eui.UILayer {
     dir.monitor = new we.core.Monitor();
     dir.videoPool = new we.utils.Pool(egret.FlvVideo);
     env.init();
+    env.frameRate = this.stage.frameRate;
 
     we.utils.updateEgretSys();
 
@@ -113,6 +114,7 @@ class Main extends eui.UILayer {
       dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
     }
 
+    this.showVersionNumber();
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
     // egret.sys.resizeContext
@@ -121,6 +123,17 @@ class Main extends eui.UILayer {
       this.updateAllScreens();
       logger.l(we.utils.LogTarget.DEBUG, '*******************************updateAllScreens***********************************');
     };
+  }
+
+  protected showVersionNumber() {
+    if (env.versionNotShownIn.indexOf(dir.config.target) > -1) {
+      return;
+    }
+    const version = new eui.Label();
+    version.text = `version: ${env.version}`;
+    version.textColor = 0xffffff;
+    version.bottom = 0;
+    dir.layerCtr.version.addChild(version);
   }
 
   private updateAllScreens() {
@@ -151,7 +164,11 @@ class Main extends eui.UILayer {
       await RES.loadConfig(`resource/${env.isMobile ? 'mobile' : 'desktop'}${prodStr}.res.json`, 'resource/');
       await this.loadTheme();
 
-      fontMgr.loadFonts([{ res: 'Barlow-Regular_otf', name: 'Barlow' }, { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' }, { res: 'NeonOne_otf', name: 'NeonOne' }]);
+      fontMgr.loadFonts([
+        { res: 'Barlow-Regular_otf', name: 'Barlow' },
+        { res: 'BarlowCondensed-SemiBold_otf', name: 'BarlowCondensed' },
+        { res: 'NeonOne_otf', name: 'NeonOne' },
+      ]);
 
       // await RES.loadGroup(we.core.res.EgretBasic);
     } catch (err) {

@@ -187,6 +187,11 @@ namespace we {
           .utcOffset(8)
           .endOf('week')
           .unix();
+        const today = moment()
+          .utcOffset(8)
+          .endOf('day')
+          .unix();
+        this._endtime = Math.min(this._endtime, today);
         this._btn_today.active = this._btn_week.active = this._btn_custom.active = false;
         this._btn_week.active = true;
         this.search();

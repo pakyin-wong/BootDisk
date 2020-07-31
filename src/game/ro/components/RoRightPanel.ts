@@ -39,13 +39,15 @@ namespace we {
 
         this._distributionLabel = new ui.RunTimeLabel();
         this._distributionLabel.renderText = () => i18n.t('roulette.distribution');
+        this._distributionLabel.textColor = 0x2da1fe;
         this._distributionLabel.size = 20;
         this._distributionLabel.y = 240;
-        this._distributionLabel.right = 400;
+        this._distributionLabel.right = 377;
 
         this._raceTrackControl = new RaceTrackControl();
-        this._raceTrackControl.horizontalCenter = 0;
+        this._raceTrackControl.right = 200;
         this._raceTrackControl.y = 220;
+        this._raceTrackControl.value = 0;
 
         this._raceTrackTableLayer = new RaceTrackTableLayer();
         this._raceTrackTableLayer.horizontalCenter = 0;
