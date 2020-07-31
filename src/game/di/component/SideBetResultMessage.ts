@@ -81,6 +81,8 @@ namespace we {
       protected start(gameType: core.GameType, gameData: number, winAmount: number) {
         egret.Tween.removeTweens(this);
         this._isAnimating = true;
+        this._diceGroup.visible = true;
+        this._winAmountGroup.visible = false;
         const tween = egret.Tween.get(this).wait(this.duration);
         if (!isNaN(winAmount)) {
           tween

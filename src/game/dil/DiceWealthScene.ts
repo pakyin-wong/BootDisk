@@ -15,6 +15,7 @@ namespace we {
       protected mount() {
         super.mount();
         this._leftGamePanel.chipLayer = this._chipLayer;
+        this._rightGamePanel.setTableInfo(this._tableInfo);
       }
 
       // public backToLobby() {
@@ -63,6 +64,10 @@ namespace we {
           (<we.dil.ChipLayer> this._chipLayer).showLuckyNumber();
           (<we.dil.LeftPanel> this._leftGamePanel).updateLuckyNumbers();
         }
+      }
+
+      protected onRoadDataUpdate(evt: egret.Event) {
+        this._rightGamePanel.updateStat();
       }
 
       protected setSkinName() {

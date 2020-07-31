@@ -13,7 +13,7 @@ namespace we {
           return;
         }
         const listItem = new we.ui.SideListBetItem('SideListBetItemSkin');
-        listItem.itemInitHelper = new we.di.SideListItemInitHelper();
+        listItem.itemInitHelper = new we.dil.SideListItemInitHelper();
 
         this._displayItem = listItem;
 

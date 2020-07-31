@@ -257,6 +257,7 @@ namespace we {
         bankerPair: '庄對',
       },
       dice: {
+        recent10round: '最近10局結果',
         big: '大',
         small: '小',
         even: '雙',

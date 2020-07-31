@@ -132,7 +132,7 @@ namespace we {
             case we.ro.Color.GREEN:
               color = '_green';
               if(env.orientation === 'landscape'){
-              coinAnim.scaleY = 1.5;
+              coinAnim.scaleY = 1.45;
               }
               break;
             case we.ro.Color.RED:

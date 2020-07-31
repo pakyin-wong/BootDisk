@@ -553,6 +553,21 @@ namespace we {
             tableInfo.gamestatistic = stats;
             break;
           }
+          case core.GameType.DIL: {
+            gameStatistic.tableID = tableid;
+            gameStatistic.shoeID = gameStatistic.shoeid;
+            tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
+
+            const stats = new we.data.GameStatistic();
+            stats.coldNumbers = getStatistic('cold');
+            stats.hotNumbers = getStatistic('hot');
+            stats.diOdd = getStatistic('odd');
+            stats.diSize = getStatistic('size');
+            stats.points = getStatistic('points');
+            stats.dilHistory = getStatistic('history');
+            tableInfo.gamestatistic = stats;
+            break;
+          }
           case core.GameType.LW:
           default: {
             gameStatistic.tableID = tableid;

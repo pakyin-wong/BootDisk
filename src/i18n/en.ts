@@ -257,6 +257,7 @@ namespace we {
         bankerPair: 'Banker Pair',
       },
       dice: {
+        recent10round: 'Recent 10 Round',
         big: 'B',
         small: 'S',
         even: 'E',

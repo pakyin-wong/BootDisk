@@ -35,7 +35,7 @@ namespace we {
       }
 
       public generateResultMessage(node: eui.Component) {
-        const gameResultMessage = new di.SideBetResultMessage();
+        const gameResultMessage = new dil.SideBetResultMessage();
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(gameResultMessage, idx);
         return gameResultMessage;
