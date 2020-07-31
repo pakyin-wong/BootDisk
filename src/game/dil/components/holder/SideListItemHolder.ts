@@ -14,7 +14,7 @@ namespace we {
         }
 
         const listItem = new we.ui.SideListItem('SideListItemSkin');
-        listItem.itemInitHelper = new we.di.SideListItemInitHelper();
+        listItem.itemInitHelper = new we.dil.SideListItemInitHelper();
 
         this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);

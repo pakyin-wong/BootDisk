@@ -820,6 +820,7 @@ namespace we {
 
         env.allTableList = list;
         this.filterAndDispatch(list, core.Event.TABLE_LIST_UPDATE);
+        this.filterAndDispatch(list, core.Event.BET_TABLE_LIST_UPDATE);
       }
 
       protected checkAndDispatch(tableid) {

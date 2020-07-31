@@ -32,7 +32,7 @@ namespace we {
         gameData.previousstate = gameData.state;
         gameData.state = core.GameState.FINISH;
         gameData.wintype = ba.WinType.TIE;
-        this.updateBetResult(data, [ba.BetField.TIE]);
+        this.updateBetResult(data, [ro.BetField.DIRECT_2]);
         this.dispatchEvent(data);
         await this.sleep(this.finishStateInterval);
 
@@ -60,7 +60,7 @@ namespace we {
             }
           }
         }
-        data.totalWin = -22200; // totalWin; // this.computeTotalWin(tableInfo.bets);
+        data.totalWin = 200; // totalWin; // this.computeTotalWin(tableInfo.bets);
         this.checkResultNotificationReady(data);
 
         this.socket.dispatchBetInfoUpdateEvent(data);

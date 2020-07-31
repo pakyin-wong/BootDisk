@@ -84,7 +84,7 @@ namespace we {
         }
 
         const listItem = new we.ui[itemName](`${itemName}Skin`);
-        listItem.itemInitHelper = new we.di.LiveListItemInitHelper();
+        listItem.itemInitHelper = new we.dil.LiveListItemInitHelper();
 
         this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);

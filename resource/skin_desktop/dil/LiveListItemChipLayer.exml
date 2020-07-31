@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.dil.LiveListItemChipLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*">
+	<e:Group id="_row1" x="35" y="20">
+		<e:Group id="_sum_3_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_3_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_4_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_4_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_5_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_5_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_6_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_6_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_7_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_7_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_8_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_8_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_9_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_9_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_10_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_10_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="4" horizontalAlign="center" />
+		</e:layout>
+	</e:Group>
+	<e:Group id="_row2" x="35" y="98" >
+		<e:Group id="_sum_11_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_11_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_12_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_12_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_13_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_13_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_14_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_14_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_15_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_15_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_16_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_16_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_17_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_17_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:Group id="_sum_18_group" width="60" height="68">
+			<ui:BetChipStack id="_sum_18_betChipStack" verticalCenter="0" horizontalCenter="0" chipWidth="45" chipHeight="45"
+			                 chipInterval="2" totalCfmOffset="20" totalUncfmOffset="0"
+			                 betSumBackgroundRes="d_ba_gamerecord_chipvalue_png" betSumBackgroundWidth="30"
+			                 betSumBackgroundHeight="20" chipLabelOffset="-6" chipLabelSize="20" chipType="2" betSumLabelFontSize="25" />
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="4" horizontalAlign="center" />
+		</e:layout>
+	</e:Group>
+</e:Skin>
