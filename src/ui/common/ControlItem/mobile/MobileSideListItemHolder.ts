@@ -23,6 +23,7 @@ namespace we {
             generalGameType = 'ba';
             break;
           case we.core.GameType.RO:
+          case we.core.GameType.ROL:
             generalGameType = 'ro';
             break;
           case we.core.GameType.DI:
