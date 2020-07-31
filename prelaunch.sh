@@ -31,7 +31,11 @@ if test $lastrun -gt 21600; then
     prettier --write $flist && tslint -c tslint.json --fix $flist && $bin $@
 else
     # $0[0]=space=unstaged, $0[1]=character=staged (git added)
-    flist="$(git status --porcelain | awk '{ if ( (substr($0,1,1) ~ /^[[:space:]]$/ || substr($0,1,1) !~ /^[[:space:]]$/) && $2 ~ /\.ts$/ && $2 !~ /\.d\.ts$/ ) print $2 }')"
+    # awk ifs:
+    # 1. substr($1,1,1) ~ /^M|\?$/  =  is modified or newly added files
+    # 2. $2 ~ /\.ts$/  =  is .ts files
+    # 3. $2 !~ /\.d\.ts$/  =  is not .d.ts files
+    flist="$(git status --porcelain | awk '{ if ( substr($1,1,1) ~ /^M|\?$/ && $2 ~ /\.ts$/ && $2 !~ /\.d\.ts$/ ) print $2 }')"
     flist="$(echo $flist | tr '\r\n' ' ' | awk '{$1=$1};1')"
 
     if [ ! "$flist" ]; then
