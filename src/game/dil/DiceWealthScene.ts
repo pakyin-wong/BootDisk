@@ -9,13 +9,21 @@
 namespace we {
   export namespace dil {
     export class Scene extends core.DesktopBaseGameScene {
+      protected _roadmapControl: we.dil.DilRoadmapControl;
       protected _leftGamePanel: we.dil.LeftPanel;
       protected _rightGamePanel: we.dil.RightPanel;
 
-      protected mount() {
-        super.mount();
+      protected initChildren() {
+        super.initChildren();
+        this.initRoadMap();
         this._leftGamePanel.chipLayer = this._chipLayer;
         this._rightGamePanel.setTableInfo(this._tableInfo);
+        this._roadmapControl.setTableInfo(this._tableInfo);
+      }
+
+      protected initRoadMap() {
+        this._roadmapControl = new we.dil.DilRoadmapControl(this._tableId);
+        this._roadmapControl.setRoads(this._leftGamePanel.beadRoad, this._leftGamePanel, this._rightGamePanel);
       }
 
       // public backToLobby() {
@@ -67,6 +75,7 @@ namespace we {
       }
 
       protected onRoadDataUpdate(evt: egret.Event) {
+        this._roadmapControl.updateRoadData();
         this._rightGamePanel.updateStat();
       }
 

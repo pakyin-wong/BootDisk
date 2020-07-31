@@ -225,7 +225,6 @@ namespace we {
             await p;
 
             coinAnim.animation.stop();
-
           })();
         }
       }

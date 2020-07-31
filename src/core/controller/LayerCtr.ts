@@ -69,7 +69,6 @@ namespace we {
         this.arrangeLayer(this.msg);
         this.arrangeLayer(this.version);
       }
-
     }
   }
 }

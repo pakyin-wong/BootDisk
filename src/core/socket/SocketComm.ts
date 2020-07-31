@@ -554,6 +554,18 @@ namespace we {
             break;
           }
           case core.GameType.DIL: {
+            gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
+              e1.v = e1.dice[0] + e1.dice[1] + e1.dice[2];
+
+              const gameRoundID1 = e1.gameRoundID;
+              const info = gameStatistic.roadmapdata.gameInfo[gameRoundID1];
+              if (info !== undefined) {
+                if (info.odds !== undefined) {
+                  e1.odds = info.odds;
+                }
+              }
+            });
+
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);

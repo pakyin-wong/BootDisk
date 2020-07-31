@@ -12,7 +12,7 @@ namespace we {
       EVEN: 'EVEN',
       BIG: 'BIG',
       SMALL: 'SMALL',
-      SUM_4:  'SUM_4',
+      SUM_4: 'SUM_4',
       SUM_5: 'SUM_5',
       SUM_6: 'SUM_6',
       SUM_7: 'SUM_7',

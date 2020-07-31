@@ -33,9 +33,9 @@ namespace we {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
           this.luckyCoinGroup.updateLuckyNumbers(this._gameData, this._chipLayer);
-          if(this.luckyCoinGroup.isLuckyNo){
+          if (this.luckyCoinGroup.isLuckyNo) {
             this.roState = 'result';
-          }else{
+          } else {
             this.roState = 'small';
           }
         }
@@ -65,14 +65,14 @@ namespace we {
         // this.resetToNormal();
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
-            (<we.rol.MobileChipLayer>this._chipLayer).showLuckyNumber();
-            this.luckyCoinGroup.updateLuckyNumbers(this._gameData, this._chipLayer);
-            if(this.luckyCoinGroup.isLuckyNo){
-              this.roState = 'result';
-            }else{
-              this.roState = 'small';
-            }
+          (<we.rol.MobileChipLayer>this._chipLayer).showLuckyNumber();
+          this.luckyCoinGroup.updateLuckyNumbers(this._gameData, this._chipLayer);
+          if (this.luckyCoinGroup.isLuckyNo) {
+            this.roState = 'result';
+          } else {
+            this.roState = 'small';
           }
+        }
       }
 
       protected setSkinName() {

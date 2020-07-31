@@ -678,13 +678,13 @@ namespace we {
       }
 
       public playVideo() {
-          try {
-            this._video.play();
-            this.stage.frameRate = 60;
-          } catch (e) {
-            console.log('Video play Error');
-          }
-          this._bgImg.visible = false;
+        try {
+          this._video.play();
+          this.stage.frameRate = 60;
+        } catch (e) {
+          console.log('Video play Error');
+        }
+        this._bgImg.visible = false;
       }
 
       public stopVideoFunc(scene: any) {

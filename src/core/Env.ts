@@ -16,7 +16,7 @@ namespace we {
       public UAInfo: any;
 
       /* Global Environment Variable */
-      public version: string = '0.7.3';
+      public version: string = '0.7.4';
       public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
@@ -110,31 +110,31 @@ namespace we {
       public isFirstTimeBam = false;
 
       public init() {
-       this.mobileValidGameType = [
-        core.GameType.BAC,
-        core.GameType.BAI,
-        core.GameType.BAS,
-        core.GameType.BAM,
-        core.GameType.DI,
-        core.GameType.DT,
-        core.GameType.LW,
-        core.GameType.RO,
-        core.GameType.ROL,
-      ];
+        this.mobileValidGameType = [
+          core.GameType.BAC,
+          core.GameType.BAI,
+          core.GameType.BAS,
+          core.GameType.BAM,
+          core.GameType.DI,
+          core.GameType.DT,
+          core.GameType.LW,
+          core.GameType.RO,
+          core.GameType.ROL,
+        ];
         this.desktopValidGameType = [
-        core.GameType.BAC,
-        core.GameType.BAI,
-        core.GameType.BAS,
-        core.GameType.BAM,
-        core.GameType.DI,
-        core.GameType.DIL,
-        core.GameType.DT,
-        core.GameType.LW,
-        core.GameType.RO,
-        core.GameType.ROL,
-        core.GameType.LO,
-      ];
-        
+          core.GameType.BAC,
+          core.GameType.BAI,
+          core.GameType.BAS,
+          core.GameType.BAM,
+          core.GameType.DI,
+          core.GameType.DIL,
+          core.GameType.DT,
+          core.GameType.LW,
+          core.GameType.RO,
+          core.GameType.ROL,
+          core.GameType.LO,
+        ];
+
         dir.evtHandler.addEventListener('LIVE_PAGE_LOCK', this.onLockChanged, this);
       }
       private onLockChanged(evt: egret.Event) {

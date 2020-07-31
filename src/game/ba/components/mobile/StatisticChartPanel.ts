@@ -96,7 +96,9 @@ namespace we {
       public setValue(tableInfo: data.TableInfo) {
         this.tableInfo = tableInfo;
 
-        if (!this.tableInfo.gamestatistic) { return; }
+        if (!this.tableInfo.gamestatistic) {
+          return;
+        }
 
         const bankerCount = this.tableInfo.gamestatistic.bankerCount;
         const playerCount = this.tableInfo.gamestatistic.playerCount;

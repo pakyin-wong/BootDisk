@@ -25,21 +25,21 @@ namespace we {
         if (value === 0 || value) {
           switch (ro.RACETRACK_COLOR[value]) {
             case ro.Color.GREEN:
-              if(!env.isMobile){
+              if (!env.isMobile) {
                 return 'd_gow_rou_lucky_number_gn_png';
-              }else{
+              } else {
                 return 'm_lobby_panel_betcontrol_chip11_png';
               }
             case ro.Color.RED:
-              if(!env.isMobile){
+              if (!env.isMobile) {
                 return 'd_gow_rou_lucky_number_red_png';
-              }else{
+              } else {
                 return 'm_lobby_panel_betcontrol_chip11_png';
               }
             case ro.Color.BLACK:
-              if(!env.isMobile){
+              if (!env.isMobile) {
                 return 'd_gow_rou_lucky_number_bk_png';
-              }else{
+              } else {
                 return 'm_lobby_panel_betcontrol_chip11_png';
               }
             default:

@@ -259,16 +259,14 @@ namespace we {
         (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
       }
 
-      protected resetToNormal(){
+      protected resetToNormal() {
         if (this._mode === 'normal') {
           return;
         }
 
         egret.Tween.removeTweens(this._bATransition);
 
-        this._bATransition.x = 0 - this._bANormal.x,
-        this._bATransition.y = 0 - this._bANormal.y,
-        this._chipLayer.$x = this._bANormal.x;
+        (this._bATransition.x = 0 - this._bANormal.x), (this._bATransition.y = 0 - this._bANormal.y), (this._chipLayer.$x = this._bANormal.x);
         this._chipLayer.$y = this._bANormal.y;
         this._raceTrackChipLayer.visible = false;
         this._mode = 'normal';
@@ -434,7 +432,7 @@ namespace we {
         if (this._betCombination.isActivated) {
           this.hideBetCombination();
         }
-        if(this.tableInfo.gametype == we.core.GameType.RO){
+        if (this.tableInfo.gametype == we.core.GameType.RO) {
           this.roState = 'small';
         }
       }
@@ -454,7 +452,7 @@ namespace we {
         if (this._betCombination.isActivated) {
           this.hideBetCombination();
         }
-        if(this.tableInfo.gametype == we.core.GameType.RO){
+        if (this.tableInfo.gametype == we.core.GameType.RO) {
           this.roState = 'small';
         }
       }
