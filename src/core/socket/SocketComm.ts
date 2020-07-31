@@ -564,6 +564,7 @@ namespace we {
             stats.diOdd = getStatistic('odd');
             stats.diSize = getStatistic('size');
             stats.points = getStatistic('points');
+            stats.dilHistory = getStatistic('history');
             tableInfo.gamestatistic = stats;
             break;
           }
