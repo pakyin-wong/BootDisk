@@ -273,6 +273,7 @@ namespace we {
         this._raceTrackChipLayer.visible = false;
         this._mode = 'normal';
 
+        this.roState = this._bottomGamePanel.isPanelOpen ? 'zip' : 'normal';
         this._settingPanel.currentState = this._mode;
         (this._chipLayer as MobileChipLayer).changeState(this._mode, this._betDetails);
       }
