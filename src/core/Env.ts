@@ -39,6 +39,7 @@ namespace we {
 
       /* Global Environment Variable */
       public version: string = '0.7.1';
+      public versionNotShownIn = ['uat', 'production'];
       public initialized: boolean = false;
       public balance: number = NaN;
       public balanceOnHold: number = 0;
