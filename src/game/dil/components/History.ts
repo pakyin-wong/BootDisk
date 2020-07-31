@@ -36,22 +36,21 @@ namespace we {
       protected _sum17: ui.ProgressBar;
       protected _sum18: ui.ProgressBar;
 
-        public constructor(skin: string = null) {
-            super(skin);
+      public constructor(skin: string = null) {
+        super(skin);
+      }
+      protected mount() {
+        super.mount();
+        this._round10Title.renderText = () => i18n.t('dice.recent10round');
+      }
+      public updateStat(data: we.data.GameStatistic) {
+        const percentages = we.utils.stat.toPercentages(data.dilHistory.round_10);
+        for (let i = 3; i < 19; i++) {
+          this[`_sum${i}Percent`].text = `${percentages[i - 3]}%`;
+          (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages[i - 3] / 100;
+          (<ui.ProgressBar>this[`_sum${i}`]).draw();
         }
-        protected mount() {
-          super.mount();
-          this._round10Title.renderText = () => i18n.t('dice.recent10round');
-
-        }
-        public updateStat(data: we.data.GameStatistic) {
-          const percentages = we.utils.stat.toPercentages(data.dilHistory.round_10);
-          for (let i = 3; i < 19; i++) {
-            this[`_sum${i}Percent`].text = `${percentages[i - 3]}%`;
-            (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages[i - 3] / 100;
-            (<ui.ProgressBar> this[`_sum${i}`]).draw();
-          }
-        }
+      }
     }
   }
 }

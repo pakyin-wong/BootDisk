@@ -125,16 +125,16 @@ class Main extends eui.UILayer {
     };
   }
 
-      protected showVersionNumber() {
-        if (env.versionNotShownIn.indexOf(dir.config.target) > -1) {
-          return;
-        }
-        const version = new eui.Label();
-        version.text = `version: ${env.version}`;
-        version.textColor = 0xFFFFFF;
-        version.bottom = 0;
-        dir.layerCtr.version.addChild(version);
-      }
+  protected showVersionNumber() {
+    if (env.versionNotShownIn.indexOf(dir.config.target) > -1) {
+      return;
+    }
+    const version = new eui.Label();
+    version.text = `version: ${env.version}`;
+    version.textColor = 0xffffff;
+    version.bottom = 0;
+    dir.layerCtr.version.addChild(version);
+  }
 
   private updateAllScreens() {
     const containerList = document.querySelectorAll('.egret-player');

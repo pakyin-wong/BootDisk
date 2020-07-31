@@ -60,7 +60,6 @@ namespace we {
         this.updateStat();
 
         this.changeLang();
-
       }
 
       public updateStat() {
@@ -120,7 +119,6 @@ namespace we {
           dir.evtHandler.removeEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         }
       }
-
     }
   }
 }

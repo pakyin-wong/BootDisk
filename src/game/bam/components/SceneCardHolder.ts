@@ -37,21 +37,20 @@ namespace we {
       }
 
       protected setBgVisible(player: boolean, banker: boolean) {
-        this._playerBg.visible = player ;
+        this._playerBg.visible = player;
         this._playerWin.visible = !player;
-        this._bankerBg.visible = banker ;
+        this._bankerBg.visible = banker;
         this._bankerWin.visible = !banker;
       }
 
       protected setPeekState() {
-          this.setBgVisible(true, true);
-          this._playerCard1Group.x = this._cardPositionPeekX[0];
-          this._playerCard2Group.x = this._cardPositionPeekX[1];
-          this._bankerCard1Group.x = this._cardPositionPeekX[2];
-          this._bankerCard2Group.x = this._cardPositionPeekX[3];
+        this.setBgVisible(true, true);
+        this._playerCard1Group.x = this._cardPositionPeekX[0];
+        this._playerCard2Group.x = this._cardPositionPeekX[1];
+        this._bankerCard1Group.x = this._cardPositionPeekX[2];
+        this._bankerCard2Group.x = this._cardPositionPeekX[3];
 
-          super.setPeekState();
-
+        super.setPeekState();
       }
 
       protected setPeekPlayerState() {
@@ -73,7 +72,7 @@ namespace we {
       protected showWinningField() {
         const showBanker = this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === we.ba.WinType.TIE;
         const showPlayer = this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === we.ba.WinType.TIE;
-        this.setBgVisible(!showPlayer, !showBanker );
+        this.setBgVisible(!showPlayer, !showBanker);
         if (showBanker) {
           egret.Tween.get(this._bankerWin)
             .to({ alpha: 1 }, 300)
@@ -81,7 +80,6 @@ namespace we {
             .to({ alpha: 1 }, 300)
             .to({ alpha: 0.3 }, 300)
             .to({ alpha: 1 }, 300);
-
         }
         if (showPlayer) {
           egret.Tween.get(this._playerWin)
@@ -92,7 +90,6 @@ namespace we {
             .to({ alpha: 1 }, 300);
         }
       }
-
     }
   }
 }

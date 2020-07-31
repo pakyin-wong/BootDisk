@@ -44,9 +44,9 @@ namespace we {
         grid.addChild(coinAnim);
         // coinAnim.anchorOffsetX = 3;
         // coinAnim.anchorOffsetY = 2;
-        if(env.orientation === 'landscape'){
-            coinAnim.scaleX = 1.4;
-            coinAnim.scaleY = 1.4;
+        if (env.orientation === 'landscape') {
+          coinAnim.scaleX = 1.4;
+          coinAnim.scaleY = 1.4;
         }
 
         let color: string;
@@ -123,7 +123,7 @@ namespace we {
           grid.removeChildren();
 
           const coinAnim = this.createLuckyCoinAnim();
-          if(env.orientation === 'landscape'){
+          if (env.orientation === 'landscape') {
             coinAnim.scaleX = 1.4;
             coinAnim.scaleY = 1.4;
           }
@@ -131,8 +131,8 @@ namespace we {
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
               color = '_green';
-              if(env.orientation === 'landscape'){
-              coinAnim.scaleY = 1.45;
+              if (env.orientation === 'landscape') {
+                coinAnim.scaleY = 1.45;
               }
               break;
             case we.ro.Color.RED:

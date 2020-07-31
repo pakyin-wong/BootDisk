@@ -365,7 +365,6 @@ namespace we {
         }
         return animName;
       }
-
     }
   }
 }

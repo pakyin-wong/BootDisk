@@ -199,7 +199,7 @@ namespace we {
       }
 
       protected showWinningField() {
-if (this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === we.ba.WinType.TIE) {
+        if (this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === we.ba.WinType.TIE) {
           this._bankerWinningField.visible = true;
           egret.Tween.get(this._bankerWinningField)
             .to({ alpha: 1 }, 200)
@@ -215,7 +215,7 @@ if (this.gameData.wintype === we.ba.WinType.BANKER || this.gameData.wintype === 
             .to({ alpha: 1 }, 200)
             .to({ alpha: 0.3 }, 200);
         }
-if (this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === we.ba.WinType.TIE) {
+        if (this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === we.ba.WinType.TIE) {
           this._playerWinningField.visible = true;
           egret.Tween.get(this._playerWinningField)
             .to({ alpha: 1 }, 200)
@@ -264,7 +264,7 @@ if (this.gameData.wintype === we.ba.WinType.PLAYER || this.gameData.wintype === 
       }
 
       public updateResult(gameData: data.GameData, chipLayer?: ui.ChipLayer) {
-        this.gameData = <bam.GameData> gameData;
+        this.gameData = <bam.GameData>gameData;
         this._chipLayer = chipLayer;
 
         this.updateCardArr();
