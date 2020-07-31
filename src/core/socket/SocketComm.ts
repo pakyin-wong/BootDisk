@@ -554,6 +554,10 @@ namespace we {
             break;
           }
           case core.GameType.DIL: {
+            gameStatistic.roadmapdata.inGame.bead.forEach(e1 => {
+              e1.v = e1.dice[0] + e1.dice[1] + e1.dice[2];
+            });
+
             gameStatistic.tableID = tableid;
             gameStatistic.shoeID = gameStatistic.shoeid;
             tableInfo.roadmap = we.ba.BARoadParser.CreateRoadmapDataFromObject(gameStatistic.roadmapdata);
