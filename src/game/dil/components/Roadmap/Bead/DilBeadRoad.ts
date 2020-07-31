@@ -36,7 +36,7 @@ namespace we {
       }
 
       // override for base class
-      protected renderGrid() { }
+      protected renderGrid() {}
 
       // override for base class
       public initRoadData() {

@@ -18,20 +18,10 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const bigRoad = new di.DiLobbyBeadRoad();
-        bigRoad.roadGridSize = 30;
-        bigRoad.roadCol = 8;
-        bigRoad.roadRow = 1;
-        bigRoad.roadIndentX = 6;
-        bigRoad.roadIndentY = 5;
-        bigRoad.roadOffsetX = 12;
-        bigRoad.roadOffsetY = 5;
-        bigRoad.roadIconItemYOffset = 4;
-        bigRoad.roadIconItemColors = [0xee2e2e, 0x6dd400, 0x3e60f8, 0xededed, 1]; // [r_color,g_color,b_color, hightlight_color, hightlight_alpha]
+        const beadRoad = new DilLobbyBeadRoad(36, 8, 2, 8, 15, 5, 15);
         const idx = node.parent.getChildIndex(node);
-        node.parent.addChildAt(bigRoad, idx);
-        bigRoad.drawGridBg(337, 127);
-        return bigRoad;
+        node.parent.addChildAt(beadRoad, idx);
+        return beadRoad;
       }
 
       public generateResultMessage(node: eui.Component) {

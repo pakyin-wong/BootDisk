@@ -33,9 +33,9 @@ namespace we {
         const lineWidth = 1;
         const circleRadius = this.size / 2 + 2;
         this.iconHightLight = new egret.Shape();
-        //this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
-        //this.iconHightLight.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
-        //this.iconHightLight.graphics.endFill();
+        // this.iconHightLight.graphics.lineStyle(2, 0x2da1fe, 1, true);
+        // this.iconHightLight.graphics.drawCircle(iconSize / 2, iconSize / 2, circleRadius - lineWidth);
+        // this.iconHightLight.graphics.endFill();
         this.iconHightLight.visible = false;
 
         //
@@ -66,7 +66,6 @@ namespace we {
         this._iconBtmText.anchorOffsetX = this._iconBtmText.width * 0.5;
         this._iconBtmText.anchorOffsetY = this._iconBtmText.height * 0.22;
         this._iconBtmText.visible = false;
-
 
         //
         this._iconNumText = new egret.TextField();
@@ -228,7 +227,6 @@ namespace we {
             RoundRect.drawRoundRect(this._iconShape.graphics, 0, 0, iconSize, iconSize, { tr: 14, tl: 14, br: 14, bl: 14 });
             this._iconShape.graphics.endFill();
           }
-
         } else {
           this._borderImage.visible = false;
           this._iconShape.graphics.beginFill(0x3a3f48);
@@ -269,8 +267,8 @@ namespace we {
           this._iconShape.y = this.y;
 
           shapeLayer.addChild(this._borderImage);
-          this._borderImage.x = this.x - (0.21 * this.size) * 0.5;
-          this._borderImage.y = this.y - (0.32 * this.size) * 0.5;
+          this._borderImage.x = this.x - 0.21 * this.size * 0.5;
+          this._borderImage.y = this.y - 0.32 * this.size * 0.5;
         }
         if (this._iconNumText) {
           textLayer.addChild(this._iconNumText);
@@ -298,7 +296,6 @@ namespace we {
           if (this._textLayer) {
             this._textLayer.addChild(this._iconText);
           }
-
         } else {
           if (this._shapeLayer) {
             if (this.iconHightLight.parent === this._shapeLayer) {
@@ -312,9 +309,7 @@ namespace we {
             }
           }
 
-
           if (this._textLayer) {
-
             if (this._iconNumText.parent === this._textLayer) {
               this._textLayer.removeChild(this._iconNumText);
             }
