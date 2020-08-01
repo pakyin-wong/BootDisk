@@ -2,9 +2,9 @@
 <e:Skin class="skin_desktop.dil.HistorySkin" width="610" height="270" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" currentState="Normal" xmlns:ui="we.ui.*" states="Normal">
         <e:Group horizontalCenter="0" y="18">
-                <ui:RunTimeLabel id="_recent" size="22" />
+                <ui:RunTimeLabel id="_recent" size="22" i18n="dice.recent"/>
                 <e:Label id="_roundNumber" size="22" />
-                <ui:RunTimeLabel id="_roundResult" size="22" />
+                <ui:RunTimeLabel id="_roundResult" size="22" i18n="dice.roundResult" />
                 <e:layout>
                         <e:HorizontalLayout gap="10" />
                 </e:layout>

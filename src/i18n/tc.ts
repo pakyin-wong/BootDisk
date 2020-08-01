@@ -258,8 +258,8 @@ namespace we {
       },
       dice: {
         recent: '最近',
-        roundResult: '局結果',
         recentStat: '最近結果統計',
+        roundResult: '局結果',
         round: '局',
         big: '大',
         small: '小',

@@ -14,8 +14,8 @@
 				<e:Label text="已下注" horizontalCenter="0" verticalCenter="0" size="18" />
 			</e:Group>
 			<live:BetLimitDropdown id="_dropdown" width="200" x="13" y="396" skinName="BetLimitDropdownSkin"  horizontalAlign="left"/>
-			<e:Component id="_advancedRoadNode" x="350" y="0" width="862" height="238" />
-			<e:Component id="_analysisNode" x="350" y="238" width="862" height="212" />
+			<e:Component id="_analysisNode" x="350" y="238" width="854" height="212" />
+			<e:Component id="_advancedRoadNode" x="350" y="0" width="854" height="248" />
 		</e:Group>
 		<e:Group id="_contentContainerDynamic" left="0" right="0" top="0" bottom="0" touchEnabled="false">
 			<ui:CountdownTimer id="_timer" width="80" height="80" x="15" y="15" skinName="skin_desktop.CountdownTimerRoundSkin" />

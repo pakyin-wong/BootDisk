@@ -1,10 +1,7 @@
 namespace we {
   export namespace dil {
     export class History extends core.BaseEUI {
-      protected _recent: ui.RunTimeLabel;
       protected _roundNumber: eui.Label;
-      protected _recentResult: ui.RunTimeLabel;
-      protected _round: ui.RunTimeLabel;
 
       protected _sum3Percent: ui.Label;
       protected _sum4Percent: ui.Label;
@@ -45,10 +42,8 @@ namespace we {
       }
       protected mount() {
         super.mount();
-        this._recent && (this._recent.renderText = () => i18n.t('dice.recent'));
         this._roundNumber.text = '10';
-        this._recentResult && (this._recentResult.renderText = () => i18n.t('dice.recentResult'));
-        this._round && (this._round.renderText = () => i18n.t('dice.round'));
+
       }
       public updateStat(data: we.data.GameStatistic) {
         if (!data || !data.dilHistory || !data.dilHistory.round_10) {

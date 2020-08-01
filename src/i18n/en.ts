@@ -258,8 +258,8 @@ namespace we {
       },
       dice: {
         recent: 'Recent',
-        roundResult: 'Round Result',
         recentStat: 'Recent Result',
+        roundResult: 'Round Result',
         round: 'Round',
         big: 'B',
         small: 'S',

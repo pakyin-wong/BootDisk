@@ -250,8 +250,8 @@ namespace we {
       },
       dice: {
         recent: '最近',
-        roundResult: '局结果',
         recentStat: '最近结果统计',
+        roundResult: '局结果',
         round: '局',
         big: '大',
         small: '小',
