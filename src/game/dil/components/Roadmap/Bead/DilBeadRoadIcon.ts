@@ -224,13 +224,13 @@ namespace we {
             this._iconBtmText.visible = false;
             this._borderImage.visible = false;
             this._iconShape.graphics.beginFill(0x3a3f48);
-            RoundRect.drawRoundRect(this._iconShape.graphics, 0, 0, iconSize, iconSize, { tr: 14, tl: 14, br: 14, bl: 14 });
+            RoundRect.drawRoundRect(this._iconShape.graphics, 0, 0, iconSize, iconSize, { tr: iconSize * 0.1, tl: iconSize * 0.1, br: iconSize * 0.1, bl: iconSize * 0.1 });
             this._iconShape.graphics.endFill();
           }
         } else {
           this._borderImage.visible = false;
           this._iconShape.graphics.beginFill(0x3a3f48);
-          RoundRect.drawRoundRect(this._iconShape.graphics, 0, 0, iconSize, iconSize, { tr: 14, tl: 14, br: 14, bl: 14 });
+          RoundRect.drawRoundRect(this._iconShape.graphics, 0, 0, iconSize, iconSize, { tr: iconSize * 0.1, tl: iconSize * 0.1, br: iconSize * 0.1, bl: iconSize * 0.1 });
           this._iconShape.graphics.endFill();
         }
       }

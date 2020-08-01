@@ -18,7 +18,7 @@ namespace we {
       }
 
       public generateRoadmap(node: eui.Component) {
-        const beadRoad = new DilLobbyBeadRoad(36, 8, 2, 8, 15, 5, 15);
+        const beadRoad = new DilLobbyBeadRoad(36, 8, 2, 3, 9, 6, 12);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(beadRoad, idx);
         return beadRoad;
