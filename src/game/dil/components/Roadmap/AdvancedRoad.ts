@@ -33,17 +33,17 @@ namespace we {
         roundRect.cornerTL_TR_BL_BR = '8,8,8,8';
         roundRect.fillColor = '0x1c1c1e';
         roundRect.strokeColor = 0x3a3f48;
-        roundRect.fillAlpha = 1
+        roundRect.fillAlpha = 1;
 
         roundRect.width = 854;
         roundRect.height = 246;
         this.addChild(roundRect);
 
-        this.beadRoad = new DilBeadRoad(3, 12, 54, 1, 12, 12, 0x262a2b, 1); // in game
-        this.beadRoad.x = 20;
-        this.beadRoad.y = 10;
+        this.beadRoad = new DilBeadRoad(3, 12, 56, 1, 12, 18, 0x262a2b, 1);
+        this.beadRoad.x = 16;
+        this.beadRoad.y = 16;
         // this.beadRoad.scaleX = 1;
-        this.beadRoad.expandRoad(false);
+        // this.beadRoad.expandRoad(false);
         this.beadRoad.initRoadData();
         this.addChild(this.beadRoad);
 

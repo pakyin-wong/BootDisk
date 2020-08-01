@@ -30,7 +30,7 @@ namespace we {
         const bigRoad = dir.lobbyRoadPool.get(core.GameType.DIL);
         const idx = node.parent.getChildIndex(node);
         node.parent.addChildAt(bigRoad, idx);
-        // bigRoad.drawGridBg(576, 139);
+        bigRoad.drawGridBg(576, 139);
         return bigRoad;
       }
 

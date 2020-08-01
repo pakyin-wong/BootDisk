@@ -20,10 +20,10 @@ namespace we {
         roadGridSize: number = 56,
         roadCol: number = 8,
         roadRow: number = 2,
-        roadIndentX: number = 8,
-        roadIndentY: number = 10,
-        roadOffsetX: number = 16,
-        roadOffsetY: number = 17,
+        roadIndentX: number = 17,
+        roadIndentY: number = 7,
+        roadOffsetX: number = 14,
+        roadOffsetY: number = 12,
         roadEmptyColor: number = 0x262a2b,
         roadEmptyAlpha: number = 1,
         roadScale: number = 1
@@ -52,9 +52,7 @@ namespace we {
         this.beadRoad = new DilBeadRoad(this.roadRow, this.roadCol, this.roadGridSize, this.roadScale, this.roadOffsetX, this.roadOffsetY, this.roadEmptyColor, this.roadEmptyAlpha); // in game
         this.beadRoad.x = this.roadIndentX;
         this.beadRoad.y = this.roadIndentY;
-        this.beadRoad.scaleX = 689 / 689;
-        this.beadRoad.scaleY = 689 / 689;
-        this.beadRoad.scaleX = this.beadRoad.scaleY = this.roadScale;
+
         // const rdata: any = [];
         // this.beadRoad.parseRoadData(rdata);
 
@@ -66,7 +64,7 @@ namespace we {
       }
 
       public drawGridBg(width: number, height: number) {
-        this.beadRoadGrid.graphics.beginFill(0xffffff, 1);
+        this.beadRoadGrid.graphics.beginFill(0x1c1c1e, 1);
         this.beadRoadGrid.graphics.lineStyle(1, 0xafafaf, 1, true);
         RoundRect.drawRoundRect(this.beadRoadGrid.graphics, 0, 0, width, height, { tl: 0, tr: 0, bl: 8, br: 8 });
         this.beadRoadGrid.graphics.endFill();
