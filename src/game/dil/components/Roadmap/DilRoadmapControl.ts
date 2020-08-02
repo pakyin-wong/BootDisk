@@ -2,7 +2,7 @@ namespace we {
   export namespace dil {
     export class DilRoadmapControl {
       protected tableInfo: data.TableInfo;
-      protected beadRoad: ro.ROBeadRoad;
+      protected beadRoad: dil.DilBeadRoad;
       protected leftPanel: LeftPanel;
       protected rightPanel: RightPanel;
       public tableid: string;
@@ -20,7 +20,6 @@ namespace we {
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;
       }
-
 
       protected doParserUpdate(state: number) {
         // stae 0 = update, 1 = predict, 2 = restore from predict
@@ -52,7 +51,6 @@ namespace we {
               if (this.tableInfo.gamestatistic) {
                 const stat = this.tableInfo.gamestatistic;
                 if (this.leftPanel) {
-
                 }
               }
             }
@@ -64,7 +62,6 @@ namespace we {
         if (this.parser.hasEventListener('onUpdate')) {
           this.parser.removeEventListener('onUpdate', this.onParserUpdate, this);
         }
-
       }
     }
   }

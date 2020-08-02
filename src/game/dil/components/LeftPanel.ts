@@ -20,7 +20,7 @@ namespace we {
       protected pageStack: eui.ViewStack;
       protected roadStack: eui.ViewStack;
 
-      public beadRoad: ro.ROBeadRoad;
+      public beadRoad: DilBeadRoad;
 
       // new for di
       protected beadRadioBtn1: eui.RadioButton;
@@ -66,7 +66,7 @@ namespace we {
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
 
-        this.beadRoad = new ro.ROBeadRoad(3, 8, 56, 1, 18, 18, 0x262a2b, 1); // in game
+        this.beadRoad = new DilBeadRoad(3, 8, 56, 1, 18, 18, 0x262a2b, 1); // in game
         this.beadRoad.x = 10;
         this.beadRoad.y = 20;
         this.beadRoad.scaleX = 689 / 689;

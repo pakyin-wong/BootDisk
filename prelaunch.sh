@@ -27,7 +27,7 @@ echo "[prelaunch] started linting (${lastrun}s)"
 if test $lastrun -gt 21600; then
     echo "[prelaunch] using case 1"
     # More than 6 hours not linted, force lint all files
-    flist="$(find src -name "*.ts")"
+    flist="$(/usr/bin/find src -name "*.ts")"
     flist="$(echo $flist | tr '\r\n' ' ' | awk '{$1=$1};1')"
     prettier --write $flist && tslint -c tslint.json --fix $flist && $bin $@
 else
@@ -49,7 +49,7 @@ else
         else
             # no unstaged files, lint all
             echo "[prelaunch] using case 3"
-            flist="$(find src -name "*.ts")"
+            flist="$(/usr/bin/find src -name "*.ts")"
             flist="$(echo $flist | tr '\r\n' ' ' | awk '{$1=$1};1')"
             prettier --write $flist && tslint -c tslint.json --fix $flist && $bin $@
         fi

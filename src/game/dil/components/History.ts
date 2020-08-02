@@ -1,7 +1,8 @@
 namespace we {
   export namespace dil {
     export class History extends core.BaseEUI {
-      protected _round10Title: ui.RunTimeLabel;
+      protected _roundNumber: eui.Label;
+
       protected _sum3Percent: ui.Label;
       protected _sum4Percent: ui.Label;
       protected _sum5Percent: ui.Label;
@@ -41,14 +42,18 @@ namespace we {
       }
       protected mount() {
         super.mount();
-        this._round10Title.renderText = () => i18n.t('dice.recent10round');
+        this._roundNumber.text = '10';
+
       }
       public updateStat(data: we.data.GameStatistic) {
+        if (!data || !data.dilHistory || !data.dilHistory.round_10) {
+          return;
+        }
         const percentages = we.utils.stat.toPercentages(data.dilHistory.round_10);
         for (let i = 3; i < 19; i++) {
           this[`_sum${i}Percent`].text = `${percentages[i - 3]}%`;
-          (<ui.ProgressBar>this[`_sum${i}`]).proportion = percentages[i - 3] / 100;
-          (<ui.ProgressBar>this[`_sum${i}`]).draw();
+          (<ui.ProgressBar> this[`_sum${i}`]).proportion = percentages[i - 3] / 100;
+          (<ui.ProgressBar> this[`_sum${i}`]).draw();
         }
       }
     }

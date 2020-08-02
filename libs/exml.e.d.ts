@@ -301,6 +301,14 @@ declare module skin_desktop.di{
 	}
 }
 declare module skin_desktop.dil{
+	class Analysis extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class AnalysisHistorySkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
@@ -318,6 +326,10 @@ declare module skin_desktop{
 }
 declare module skin_desktop.dil{
 	class HistorySkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListAdvancedItemSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.dil{
