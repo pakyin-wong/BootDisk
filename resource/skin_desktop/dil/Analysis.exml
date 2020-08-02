@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin_desktop.dil.Analysis" width="854" height="212" xmlns:e="http://ns.egret.com/eui" 
+        xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" xmlns:di="we.di.*" xmlns:dl="we.dil.*">
+    <e:Rect fillColor="0x23282f" width="854" height="100%" alpha="0.4" />
+    <dl:History id="_history" skinName="skin_desktop.dil.AnalysisHistorySkin" horizontalCenter="0" y="20" />
+</e:Skin>
