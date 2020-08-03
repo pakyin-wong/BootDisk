@@ -82,10 +82,16 @@ namespace we {
 
         this._shape.graphics.clear();
 
-        const corners = [ this._roundCorner[0],
-        this._roundCorner[1], this._roundCorner[1],
-        this._roundCorner[2], this._roundCorner[2],
-        this._roundCorner[3], this._roundCorner[3], this._roundCorner[0]];
+        const corners = [
+          this._roundCorner[0],
+          this._roundCorner[1],
+          this._roundCorner[1],
+          this._roundCorner[2],
+          this._roundCorner[2],
+          this._roundCorner[3],
+          this._roundCorner[3],
+          this._roundCorner[0],
+        ];
 
         const points = we.utils.roundRectPoints(this.width, this.height, corners);
 

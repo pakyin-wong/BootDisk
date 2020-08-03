@@ -98,8 +98,8 @@ namespace we {
         rect.stroke = 0;
         rect.cornerTL_TR_BL_BR = '40,40,40,40';
         rect.name = 'hover';
-        rect.x = obj.x - ((80 - obj.width) / 2);
-        rect.y = obj.y - ((80 - obj.height) / 2);
+        rect.x = obj.x - (80 - obj.width) / 2;
+        rect.y = obj.y - (80 - obj.height) / 2;
         obj.parent.addChildAt(rect, obj.parent.getChildIndex(obj));
       }
 
@@ -140,7 +140,7 @@ namespace we {
           // TODO:  handle error on cancel
         } else {
           this.alert_group.visible = true;
-          const parent = (this.parent as we.ui.Overlay);
+          const parent = this.parent as we.ui.Overlay;
 
           setTimeout(() => {
             if (parent.onShowItemString === 'LiveVerification') {

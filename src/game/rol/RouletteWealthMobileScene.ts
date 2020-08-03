@@ -33,9 +33,9 @@ namespace we {
         super.setStateFinish(isInit);
         if (isInit && this._previousState !== we.core.GameState.FINISH) {
           this.luckyCoinGroup.updateLuckyNumbers(this._gameData, this._chipLayer);
-          if(this.luckyCoinGroup.isLuckyNo){
+          if (this.luckyCoinGroup.isLuckyNo) {
             this.roState = 'result';
-          }else{
+          } else {
             this.roState = 'small';
           }
         }
@@ -62,13 +62,14 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
+        // this.resetToNormal();
         super.setStateDeal(isInit);
         if (this._previousState !== we.core.GameState.DEAL || isInit) {
           (<we.rol.MobileChipLayer>this._chipLayer).showLuckyNumber();
           this.luckyCoinGroup.updateLuckyNumbers(this._gameData, this._chipLayer);
-          if(this.luckyCoinGroup.isLuckyNo){
+          if (this.luckyCoinGroup.isLuckyNo) {
             this.roState = 'result';
-          }else{
+          } else {
             this.roState = 'small';
           }
         }
@@ -76,6 +77,7 @@ namespace we {
 
       protected setSkinName() {
         this.skinName = utils.getSkinByClassname('RouletteWealthScene');
+        this._skinKey = 'RouletteWealthScene';
       }
 
       public checkResultMessage(resultData = null) {

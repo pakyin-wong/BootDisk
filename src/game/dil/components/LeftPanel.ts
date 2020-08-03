@@ -20,6 +20,8 @@ namespace we {
       protected pageStack: eui.ViewStack;
       protected roadStack: eui.ViewStack;
 
+      public beadRoad: DilBeadRoad;
+
       // new for di
       protected beadRadioBtn1: eui.RadioButton;
       protected beadRadioBtn2: eui.RadioButton;
@@ -63,6 +65,16 @@ namespace we {
         this.activeLine.y = 332;
 
         const page1Group = this.pageStack.getChildAt(0) as eui.Group;
+
+        this.beadRoad = new DilBeadRoad(3, 8, 56, 1, 18, 18, 0x262a2b, 1); // in game
+        this.beadRoad.x = 10;
+        this.beadRoad.y = 20;
+        this.beadRoad.scaleX = 689 / 689;
+        this.beadRoad.scaleY = 689 / 689;
+
+        // add bead road to page stack 1
+        const page2Group = this.pageStack.getChildAt(1) as eui.Group;
+        page2Group.addChild(this.beadRoad);
 
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
         this.pageRadioBtn1.addEventListener(eui.UIEvent.CHANGE, this.onViewChange, this);
@@ -365,7 +377,6 @@ namespace we {
         }
         return animName;
       }
-
     }
   }
 }

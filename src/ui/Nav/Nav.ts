@@ -32,7 +32,7 @@ namespace we {
       private _background: eui.Rect;
 
       private _timeInterval: number;
-        ///////////////////////
+      ///////////////////////
       // public get playerProfile() {
       //   return this._playerProfile;
       // }
@@ -40,7 +40,7 @@ namespace we {
       // public set playerProfile(val: any){
       //   this._playerProfile = val;
       // }
-        ///////////////////////
+      ///////////////////////
       public constructor() {
         super('Nav');
       }
@@ -88,7 +88,7 @@ namespace we {
           // dir.evtHandler.addEventListener(core.Event.BA_POPDOWN, this.gameListPopDown, this);
           // this._lantern.alignToLeft();
         }
-        if ( !env.isMobile ) {
+        if (!env.isMobile) {
           this._profile_toggle.addEventListener(egret.TouchEvent.TOUCH_TAP, this.updatePlayerProfileSummary, this);
         }
         dir.evtHandler.addEventListener(core.Event.ICON_UPDATE, this.updateIconImage, this);
@@ -130,7 +130,7 @@ namespace we {
         if (data.error) {
           return;
         }
-        const { maxwin , winningstreak } = data;
+        const { maxwin, winningstreak } = data;
 
         env.maxWinCount = winningstreak;
         env.maxWinAmount = maxwin;

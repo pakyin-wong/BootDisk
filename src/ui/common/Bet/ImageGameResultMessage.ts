@@ -6,7 +6,7 @@ namespace we {
       protected _numlabel: eui.IDisplayText & egret.DisplayObject;
 
       protected _isAnimating: boolean;
-      protected _winType:any;
+      protected _winType: any;
 
       public duration: number = 1600;
 
@@ -17,7 +17,7 @@ namespace we {
       }
 
       public showResult(gameType: core.GameType, resultData: any) {
-        const { winType , winAmount, gameData } = resultData;
+        const { winType, winAmount, gameData } = resultData;
         // const winType = gameData.winType;
         this._winType = winType;
         const isWin = !isNaN(winAmount) && winAmount > 0;

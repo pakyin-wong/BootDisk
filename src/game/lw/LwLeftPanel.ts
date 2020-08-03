@@ -13,7 +13,7 @@ namespace we {
       }
       public changeLang() {
         this.gameIdLabel.text = i18n.t('baccarat.gameroundid') + ' ' + this.gameId;
-        this.totalBetLabel.text =  i18n.t('baccarat.totalbet') + ' '  + utils.numberToFaceValue(this._totalBet);
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
       }
 
       protected init() {
@@ -37,7 +37,7 @@ namespace we {
 
       set totalBet(total: number) {
         this._totalBet = total;
-        this.totalBetLabel.text =  i18n.t('baccarat.totalbet') + ' '  + utils.numberToFaceValue(this._totalBet);
+        this.totalBetLabel.text = i18n.t('baccarat.totalbet') + ' ' + utils.numberToFaceValue(this._totalBet);
       }
 
       public update() {

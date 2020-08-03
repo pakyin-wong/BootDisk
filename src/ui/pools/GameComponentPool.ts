@@ -5,7 +5,7 @@ namespace we {
 
       constructor(opt: any) {
         this._pools = {};
-        const gameTypes = ['ba', 'dt', 'ro', 'di', 'lw', 'lo'];
+        const gameTypes = ['ba', 'dt', 'ro', 'di', 'lw', 'lo', 'dil'];
         for (const gameType of gameTypes) {
           this._pools[gameType] = new utils.Pool(this.generateComponent(gameType));
         }
@@ -13,7 +13,7 @@ namespace we {
       }
 
       public async initPool(opt) {
-        const gameTypes = ['ba', 'dt', 'ro', 'di', 'lw', 'lo'];
+        const gameTypes = ['ba', 'dt', 'ro', 'di', 'lw', 'lo', 'dil'];
         for (const gameType of gameTypes) {
           if (opt[gameType]) {
             const count = opt[gameType];

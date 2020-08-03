@@ -68,8 +68,18 @@ namespace we {
       public setGameFilters(tab) {
         switch (tab) {
           case core.LiveGameTab.all:
-            this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM, core.GameType.DT,
-            core.GameType.RO, core.GameType.ROL, core.GameType.DI, core.GameType.DIL, core.GameType.LW];
+            this.gameFilters = [
+              core.GameType.BAC,
+              core.GameType.BAI,
+              core.GameType.BAS,
+              core.GameType.BAM,
+              core.GameType.DT,
+              core.GameType.RO,
+              core.GameType.ROL,
+              core.GameType.DI,
+              core.GameType.DIL,
+              core.GameType.LW,
+            ];
             break;
           case core.LiveGameTab.ba:
             this.gameFilters = [core.GameType.BAC, core.GameType.BAI, core.GameType.BAS, core.GameType.BAM];
@@ -100,9 +110,9 @@ namespace we {
         // if (idx < 0) {
         //   this.gameFilters = [];
         // } else {
-          const items = utils.EnumHelpers.values(core.LiveGameTab);
-          const key = utils.EnumHelpers.getKeyByValue(core.LiveGameTab, items[idx]);
-          this.setGameFilters(core.LiveGameTab[key]);
+        const items = utils.EnumHelpers.values(core.LiveGameTab);
+        const key = utils.EnumHelpers.getKeyByValue(core.LiveGameTab, items[idx]);
+        this.setGameFilters(core.LiveGameTab[key]);
         // }
       }
 

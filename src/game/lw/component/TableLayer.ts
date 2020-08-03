@@ -106,11 +106,11 @@ namespace we {
           rect.percentHeight = 100;
           group.addChildAt(rect, 1);
           const promise = new Promise(resolve => {
-          if (rect && rect.parent) {
-            egret.Tween.get(rect)
-              .to({ alpha: isWin ? 0 : 0.25 }, 125)
-              .call(resolve);
-          }
+            if (rect && rect.parent) {
+              egret.Tween.get(rect)
+                .to({ alpha: isWin ? 0 : 0.25 }, 125)
+                .call(resolve);
+            }
           });
           initRectPromises.push(promise);
         }
@@ -137,7 +137,6 @@ namespace we {
                     }
                     resolve();
                   });
-
               });
               fadeOutPromises.push(promise);
             }
@@ -151,10 +150,8 @@ namespace we {
             const prom = new Promise(resolve => {
               const alpha = run % 2 === 1 ? 0.25 : 0;
               if (rect && rect.parent) {
-              egret.Tween.get(rect)
-                .to({ alpha }, 125)
-                .call(resolve);
-                        }
+                egret.Tween.get(rect).to({ alpha }, 125).call(resolve);
+              }
             });
             tickFlashPromises.push(prom);
           }

@@ -40,7 +40,7 @@ namespace we {
         dir.evtHandler.addEventListener(core.Event.SWITCH_LANGUAGE, this.changeLang, this);
       }
 
-      private changeLang() { }
+      private changeLang() {}
 
       protected mount() {
         this.initMemberReport();

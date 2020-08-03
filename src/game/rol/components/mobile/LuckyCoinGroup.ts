@@ -177,7 +177,6 @@ namespace we {
 
           if (chipLayer) {
             const betDetails = chipLayer.getConfirmedBetDetails();
-            console.log('betdsaiodjosi = ' + betDetails);
             if (betDetails) {
               betDetails.map((detail, index) => {
                 if (detail && detail.field && detail.amount) {
@@ -226,7 +225,6 @@ namespace we {
             await p;
 
             coinAnim.animation.stop();
-
           })();
         }
       }
