@@ -22,13 +22,20 @@ namespace we {
 
       protected init() {
         const inputConfigs = this._config.input;
+        let isCheckBox = false;
         if (inputConfigs && inputConfigs.length > 0) {
           for (let i = 0; i < inputConfigs.length; i++) {
             const inputComponent = InputComponentFactory.generateInputComponent(i, inputConfigs[i]);
+            if (inputConfigs[i].type === InputComponentType.CHECKBOXES) {
+              isCheckBox = true;
+            }
             inputComponent.addEventListener(egret.Event.CHANGE, this.onInputChange, this);
             this._inputs.push(inputComponent);
             // init empty inputData
             this.inputData.push('');
+          }
+          if (isCheckBox) {
+            this.dispatchEvent(new egret.Event('INIT_CHECKBOXES'));
           }
         }
       }
@@ -40,6 +47,7 @@ namespace we {
 
         this.generateCombination();
         if (!this.validateInput()) {
+          this.onInputInvalidate();
           return;
         }
         this.dataMapping();
@@ -58,11 +66,22 @@ namespace we {
           }
         }
         if (this._config.validateData) {
-          if (!this._config.validateData(data)) {
+          if (!this._config.validateData(this.inputData)) {
             return false;
           }
         }
         return true;
+      }
+
+      protected onInputInvalidate() {
+        this.clearData();
+        if (this.bettingPanel) {
+          this.bettingPanel.clearNote();
+        }
+      }
+
+      public clearData() {
+        this.totalNoteCount = 0;
       }
 
       protected dataMapping() {
@@ -74,8 +93,7 @@ namespace we {
       protected generateBetFields() {}
 
       public computeNoteCount() {
-        // Input : BallsType & CheckBox + BallsType
-        this._config.noteCountFunc(this.inputData, this.combinations);
+        this.totalNoteCount = this._config.noteCountFunc(this.inputData, this.combinations);
         // this.totalNoteCount = this.betFields.length;
       }
 

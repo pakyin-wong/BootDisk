@@ -121,7 +121,16 @@ namespace we {
           case InputDataType.SEPARATOR:
             for (let i = 0; i < this._balls.length; i++) {
               if (this._balls[i].isActive) {
-                this._data += this._balls[i].betValue + '|';
+                if (this._data === '') {
+                  this._data += this._balls[i].betValue;
+                } else {
+                  this._data += '|' + this._balls[i].betValue;
+                }
+                // if (i === this._balls.length - 1) {
+                // this._data += this._balls[i].betValue;
+                // } else {
+                // this._data += this._balls[i].betValue + '|';
+                // }
               }
             }
             break;

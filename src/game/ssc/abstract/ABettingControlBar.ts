@@ -5,7 +5,7 @@ namespace we {
     export abstract class ABettingControlBar extends core.BaseEUI implements IBettingControl {
       protected _unitBet: number = 2; // bet ammount per note
       protected _multiplier: number = 1; // bet ammount per note
-      protected _noteCount: number = 1; // sum of all note.count
+      protected _noteCount: number = 0; // sum of all note.count
       protected _totalBetAmount: number;
 
       public bettingPanel: ABettingPanel;

@@ -5,8 +5,7 @@ namespace we {
       export function DirectionalSelection(data, combinations = null): number {
         let notes = 0;
 
-        if(combinations = null)
-        {
+        if (combinations.length === 0) {
           notes = 1;
           for (let i = 0; i < data.length; i++) {
             notes *= data[i].length;
@@ -15,11 +14,11 @@ namespace we {
           return notes;
         }
 
-        for(var i = 0;i<combinations.length;i++){
+        for (let i = 0; i < combinations.length; i++) {
           let currentNote = 1;
-          let combinationIds = combinations[i].split('_');
-          for(var k = 0;k<combinationIds.length;k++){
-            let index = parseInt(combinationIds[k],10);
+          const combinationIds = combinations[i].split('_');
+          for (let k = 0; k < combinationIds.length; k++) {
+            const index = parseInt(combinationIds[k], 10) - 1;
 
             currentNote *= data[index].length;
           }
@@ -32,7 +31,7 @@ namespace we {
       export function SeparatorNoteCount(data, combinations = null): number {
         let combinationsCount;
 
-        if (combinations === null) {
+        if (combinations.length === 0) {
           combinationsCount = 1;
         } else {
           combinationsCount = combinations.length;
@@ -44,7 +43,7 @@ namespace we {
       export function DirectionalCombination(data, combinations = null): number {
         let noteMultiplier;
 
-        if (combinations === null) {
+        if (combinations.length === 0) {
           noteMultiplier = 1;
         } else {
           noteMultiplier = combinations.length;
@@ -58,8 +57,8 @@ namespace we {
         return notes * noteMultiplier * data.length; // ??
       }
 
-      export function NormalCount(data, combination = null) : number{
-          return data[0].length;
+      export function NormalCount(data, combination = null): number {
+        return data[0].length;
       }
 
       export namespace FiveStar {
@@ -138,10 +137,11 @@ namespace we {
           // Y为选号数量:注数=Y(Y-1)(Y-2)(Y-3)/24=注数
 
           const y = data[0].length;
-          if(combinations != null)
-            return (y * (y - 1) * (y - 2) * (y - 3)) / 24 * combinations.length;
-          else
+          if (combinations.length > 0) {
+            return ((y * (y - 1) * (y - 2) * (y - 3)) / 24) * combinations.length;
+          } else {
             return (y * (y - 1) * (y - 2) * (y - 3)) / 24;
+          }
         }
 
         export function Group12(data, combinations = null): number {
@@ -153,10 +153,11 @@ namespace we {
 
           const repeatN = repeatCount(double, single);
 
-          if(combinations != null)
+          if (combinations.length > 0) {
             return sumUp(singleCount - 1) * (doubleCount - repeatN) + sumUp(singleCount - 2) * repeatN * combinations.length;
-          else
+          } else {
             return sumUp(singleCount - 1) * (doubleCount - repeatN) + sumUp(singleCount - 2) * repeatN;
+          }
         }
 
         export function Group6(data, combinations = null): number {
@@ -164,10 +165,11 @@ namespace we {
 
           const doubleCount = double.length;
 
-          if(combinations != null)
-            return (doubleCount * (doubleCount - 1)) / 2 * combinations.length;
-          else
+          if (combinations.length > 0) {
+            return ((doubleCount * (doubleCount - 1)) / 2) * combinations.length;
+          } else {
             return (doubleCount * (doubleCount - 1)) / 2;
+          }
         }
 
         export function Group4(data, combinations = null): number {
@@ -178,31 +180,35 @@ namespace we {
           const singleCount = single.length;
 
           const repeatN = repeatCount(triple, single);
-          if(combinations != null)
+          if (combinations.length > 0) {
             return tripleCount * singleCount - repeatN * combinations.length;
-          else
+          } else {
             return tripleCount * singleCount - repeatN;
+          }
         }
       }
 
-      export namespace ThreeStar{
+      export namespace ThreeStar {
         export function Group3(data, combinations = null): number {
           const datas = data[0].split('');
-          if(combinations != null)
+          if (combinations.length > 0) {
             return datas.length * (datas.length - 1) * combinations.length;
-          else
+          } else {
             return datas.length * (datas.length - 1);
+          }
         }
 
         export function Group6(data, combinations = null): number {
           const datas = data[0].split('');
-          if(combinations != null)
-            return datas.length * (datas.length - 1) * (datas.length - 2)/6 * combinations.length;
-          else
-            return datas.length * (datas.length - 1) * (datas.length - 2)/6;
-        }   
+          if (combinations.length > 0) {
+            return ((datas.length * (datas.length - 1) * (datas.length - 2)) / 6) * combinations.length;
+          } else {
+            return (datas.length * (datas.length - 1) * (datas.length - 2)) / 6;
+          }
+        }
 
-        export function Group3Tow(data, combinations = null): number {//check
+        export function Group3Tow(data, combinations = null): number {
+          // check
           const bravery = data[0].split();
           const tow = data[1].split();
 
@@ -214,7 +220,8 @@ namespace we {
           return braveryCount * towCount - repeatN;
         }
 
-        export function Group6Tow(data, combinations = null): number {//check
+        export function Group6Tow(data, combinations = null): number {
+          // check
 
           const bravery = data[0].split();
           const tow = data[1].split();
@@ -223,181 +230,357 @@ namespace we {
           const towCount = tow.length();
 
           const repeatN = repeatCount(braveryCount, towCount);
-          
-          return sumUp(towCount - 1) * (braveryCount - repeatN)+sumUp(towCount - 2)*repeatN;
+
+          return sumUp(towCount - 1) * (braveryCount - repeatN) + sumUp(towCount - 2) * repeatN;
         }
 
-        export function DirectionalSum(data, combinations = null): number{
+        export function DirectionalSum(data, combinations = null): number {
           const datas = data[0].split('|');
 
           let notes = 0;
-          for(let i = 0;i < datas.length;i++){
+          for (let i = 0; i < datas.length; i++) {
             let note = 0;
-            switch(datas[i]){
+            switch (datas[i]) {
               case '0':
               case '27':
-              note = 1;
-              break;
+                note = 1;
+                break;
               case '1':
               case '26':
-              note = 3;
-              break;
+                note = 3;
+                break;
               case '2':
               case '25':
-              note = 6;
-              break;
+                note = 6;
+                break;
               case '3':
               case '24':
-              note = 10;
-              break;
+                note = 10;
+                break;
               case '4':
               case '23':
-              note = 15;
-              break;
+                note = 15;
+                break;
               case '5':
               case '22':
-              note = 21;
-              break;
+                note = 21;
+                break;
               case '6':
               case '21':
-              note = 28;
-              break;
+                note = 28;
+                break;
               case '7':
               case '20':
-              note = 36;
-              break;
+                note = 36;
+                break;
               case '8':
               case '19':
-              note = 45;
-              break;
+                note = 45;
+                break;
               case '9':
               case '18':
-              note = 55;
-              break;
+                note = 55;
+                break;
               case '10':
               case '17':
-              note = 63;
-              break;
+                note = 63;
+                break;
               case '11':
               case '16':
-              note = 69;
-              break;
+                note = 69;
+                break;
               case '12':
               case '15':
-              note = 73;
-              break;
+                note = 73;
+                break;
               case '13':
               case '14':
-              note = 75;
-              break;
+                note = 75;
+                break;
             }
             notes += note;
           }
 
-          if(combinations != null)
+          if (combinations.length > 0) {
             return notes * combinations.length;
-          else
+          } else {
             return notes;
+          }
+        }
       }
-    }
-      export namespace TwoStar{
-        export function DirectionalSum(data ,combinations = null):number{
+      export namespace TwoStar {
+        export function DirectionalSum(data, combinations = null): number {
           const datas = data[0].split('|');
 
+          let combinationsCount;
           let notes = 0;
 
-          for(let i = 0;i < datas.length;i++){
+          if (combinations.length === 0) {
+            combinationsCount = 1;
+          } else {
+            combinationsCount = combinations.length;
+          }
+
+          for (let i = 0; i < datas.length; i++) {
             let note = 0;
-            switch(datas[i]){
+            switch (datas[i]) {
               case '0':
               case '18':
-              note = 1;
-              break;
+                note = 1;
+                break;
               case '1':
               case '17':
-              note = 2;
-              break;
+                note = 2;
+                break;
               case '2':
               case '16':
-              note = 3;
-              break;
+                note = 3;
+                break;
               case '3':
               case '15':
-              note = 4;
-              break;
+                note = 4;
+                break;
               case '4':
               case '14':
-              note = 5;
-              break;
+                note = 5;
+                break;
               case '5':
               case '13':
-              note = 6;
-              break;
+                note = 6;
+                break;
               case '6':
               case '12':
-              note = 7;
-              break;
+                note = 7;
+                break;
               case '7':
               case '11':
-              note = 8;
-              break;
+                note = 8;
+                break;
               case '8':
               case '10':
-              note = 9;
-              break;
+                note = 9;
+                break;
               case '9':
-              note = 10;
-              break;
+                note = 10;
+                break;
             }
             notes += note;
           }
 
-          if(combinations != null)
+          if (combinations.length > 0) {
             return notes * combinations.length;
-          else
+          } else {
             return notes;
           }
+        }
 
-        export function GroupDirectionalSelection(data, combinations = null) : number {
+        export function GroupDirectionalSelection(data, combinations = null): number {
           const dataCount = data[0].length;
-          if(combinations != null)
-            return dataCount * (dataCount - 1)/2 * combinations.length;
-          else
-            return dataCount * (dataCount - 1)/2;
+          if (combinations.length > 0) {
+            return ((dataCount * (dataCount - 1)) / 2) * combinations.length;
+          } else {
+            return (dataCount * (dataCount - 1)) / 2;
+          }
         }
       }
 
-        export namespace Any{
-          export function TwoPos(data, combinations = null) : number{
-            const dataCount = data[0].length;
+      export namespace Any {
+        export function TwoPos(data, combinations = null): number {
+          const dataCount = data[0].length;
 
-            return dataCount * (dataCount - 1)/2;
-          }
+          return (dataCount * (dataCount - 1)) / 2;
+        }
 
-          export function ThreePos(data, combinations = null) : number{
-            const dataCount = data[0].length;
+        export function ThreePos(data, combinations = null): number {
+          const dataCount = data[0].length;
 
-            return dataCount * (dataCount - 1) * (dataCount - 2)/2;
+          return (dataCount * (dataCount - 1) * (dataCount - 2)) / 2;
+        }
+
+        export function AnyThreeGroup3(data, combinations = null): number {
+          const datas = data[1].split('');
+          if (combinations.length > 0) {
+            return datas.length * (datas.length - 1) * combinations.length;
+          } else {
+            return datas.length * (datas.length - 1);
           }
         }
 
-        function repeatCount(array1, array2): number {
-          let count = 0;
-          for (let i = 0; i < array1.length; i++) {
-            for (let k = 0; k < array2.length; k++) {
-              if (array1[i] === array2[k]) {
-                count++;
-              }
+        export function AnyThreeGroup6(data, combinations = null): number {
+          const datas = data[1].split('');
+          if (combinations.length > 0) {
+            return ((datas.length * (datas.length - 1) * (datas.length - 2)) / 6) * combinations.length;
+          } else {
+            return (datas.length * (datas.length - 1) * (datas.length - 2)) / 6;
+          }
+        }
+
+        export function AnyTwoSum(data, combinations = null): number {
+          const datas = data[1].split('|');
+
+          let combinationsCount;
+          let notes = 0;
+
+          if (combinations.length === 0) {
+            combinationsCount = 1;
+          } else {
+            combinationsCount = combinations.length;
+          }
+
+          for (let i = 0; i < datas.length; i++) {
+            let note = 0;
+            switch (datas[i]) {
+              case '0':
+              case '18':
+                note = 1;
+                break;
+              case '1':
+              case '17':
+                note = 2;
+                break;
+              case '2':
+              case '16':
+                note = 3;
+                break;
+              case '3':
+              case '15':
+                note = 4;
+                break;
+              case '4':
+              case '14':
+                note = 5;
+                break;
+              case '5':
+              case '13':
+                note = 6;
+                break;
+              case '6':
+              case '12':
+                note = 7;
+                break;
+              case '7':
+              case '11':
+                note = 8;
+                break;
+              case '8':
+              case '10':
+                note = 9;
+                break;
+              case '9':
+                note = 10;
+                break;
+            }
+            notes += note;
+          }
+
+          if (combinations.length > 0) {
+            return notes * combinations.length;
+          } else {
+            return notes;
+          }
+        }
+
+        export function AnyThreeSum(data, combinations = null): number {
+          const datas = data[1].split('|');
+
+          let notes = 0;
+          for (let i = 0; i < datas.length; i++) {
+            let note = 0;
+            switch (datas[i]) {
+              case '0':
+              case '27':
+                note = 1;
+                break;
+              case '1':
+              case '26':
+                note = 3;
+                break;
+              case '2':
+              case '25':
+                note = 6;
+                break;
+              case '3':
+              case '24':
+                note = 10;
+                break;
+              case '4':
+              case '23':
+                note = 15;
+                break;
+              case '5':
+              case '22':
+                note = 21;
+                break;
+              case '6':
+              case '21':
+                note = 28;
+                break;
+              case '7':
+              case '20':
+                note = 36;
+                break;
+              case '8':
+              case '19':
+                note = 45;
+                break;
+              case '9':
+              case '18':
+                note = 55;
+                break;
+              case '10':
+              case '17':
+                note = 63;
+                break;
+              case '11':
+              case '16':
+                note = 69;
+                break;
+              case '12':
+              case '15':
+                note = 73;
+                break;
+              case '13':
+              case '14':
+                note = 75;
+                break;
+            }
+            notes += note;
+          }
+
+          if (combinations.length > 0) {
+            return notes * combinations.length;
+          } else {
+            return notes;
+          }
+        }
+        export function SeparatorNoteCount(data, combinations = null): number {
+          let combinationsCount;
+
+          if (combinations.length === 0) {
+            combinationsCount = 1;
+          } else {
+            combinationsCount = combinations.length;
+          }
+          const datas = data[1].split('|');
+          return datas.length * combinationsCount; // ?
+        }
+      }
+
+      function repeatCount(array1, array2): number {
+        let count = 0;
+        for (let i = 0; i < array1.length; i++) {
+          for (let k = 0; k < array2.length; k++) {
+            if (array1[i] === array2[k]) {
+              count++;
             }
           }
-          return count;
         }
+        return count;
+      }
 
-        function sumUp(n: number): number {
-          return (n * n + n) / 2;
-        }      
+      function sumUp(n: number): number {
+        return (n * n + n) / 2;
       }
     }
   }
-
-
+}

@@ -72,7 +72,7 @@ namespace we {
       }
 
       protected addBetfield() {
-        this.bettingPanel._noteControl.addTempNotes();
+        this.bettingPanel._noteControl.addTempNotes(this.bettingPanel._currentBettingTable.betFields);
       }
 
       protected initNoteDropDown() {

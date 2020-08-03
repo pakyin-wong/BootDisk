@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_desktop.lo.SSCTraditionalBettingPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:ui="we.ui.*" width="1508" height="823">
-    <ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" x="0" y="0" width="1508" height="823" stroke="0" fillColor="0x112c4c" strokeColor="0x214a72"/>
-    <e:Group id="_content" width="1508" height="823">
+<e:Skin class="skin_desktop.lo.SSCTraditionalBettingPanel" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:lo="we.lo.*" xmlns:ui="we.ui.*" width="1508" height="1213">
+    <e:Rect x="0" y="0" width="1508" height="1213" fillColor="0x10151b"/>
+    <ui:RoundRectShape cornerTL_TR_BL_BR="10,10,10,10" x="0" y="0" width="1508" height="825" stroke="1" fillColor="0x112c4c" strokeColor="0x214a72"/>
+    <e:Group bottom="12" width="1508" height="337">
+		<lo:SSCNoteControlPanel id="_noteControl"/>
+    </e:Group>
+    <e:Group id="_content" width="1508" height="849">
         <e:Group id="_topGroup" width="1508" height="127">
             <e:Image x="10" y="20" width="87" height="86"/>
             <ui:RunTimeLabel id="_lblbettingDeadLine" text="本期投注" y="20" textAlign="left" x="121" width="200" height="36" size="24" verticalAlign="middle" alpha=".7"/>
@@ -124,10 +128,9 @@
         <e:Group id="_buttonGroup" width="1508" height="478" touchEnabled="true" touchChildren="true">
             <e:Rect fillColor="0x151c26" width="1508" height="478"/>
         </e:Group>
-			<e:Group id="_bottomGroup" width="1509" height="127">
-				<lo:SSCBettingControlBar id="_bettingControl"/>
-			</e:Group>
-			<lo:SSCNoteControlPanel id="_noteControl"/>
+        <e:Group id="_bottomGroup" width="1508" height="127">
+            <lo:SSCBettingControlBar id="_bettingControl"/>
+        </e:Group>
         <e:layout>
             <e:VerticalLayout gap="0"/>
         </e:layout>

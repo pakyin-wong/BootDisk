@@ -34,8 +34,16 @@ namespace we {
 
       protected clearCurrentBettingTable() {
         if (this._currentBettingTable) {
+          this.clearNote();
           this._currentBettingTable.bettingPanel = null;
           this._currentBettingTable.dispose();
+        }
+      }
+
+      public clearNote() {
+        this._currentBettingTable.clearData();
+        if (this._bettingControl) {
+          this._bettingControl.noteCount = this._currentBettingTable.totalNoteCount;
         }
       }
 

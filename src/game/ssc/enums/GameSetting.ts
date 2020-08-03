@@ -38,7 +38,17 @@ namespace we {
           title,
           data: Array.apply(null, { length: end - start + 1 }).map((data, idx) => start + idx),
           dataType,
-          validate: (data: string | any[]) => data.length >= minSelect && data.length <= maxSelect, // use to validate the output data of this component
+          validate: (data: string | any[]) => {
+            if (dataType === InputDataType.STRING) {
+              return data.length >= minSelect && data.length <= maxSelect;
+            }
+
+            if (dataType === InputDataType.SEPARATOR) {
+              const datas = (data as string).split('|');
+
+              return datas.length >= minSelect && datas.length <= maxSelect;
+            }
+          }, // use to validate the output data of this component
         };
       }
 
@@ -59,6 +69,8 @@ namespace we {
           numberPerGroup,
           title,
           isDuplicate, // to check if single data allow duplicated number
+          validate: (data: string | any[]) => true,
+
           // data example (numberPerGroup=5): 12345|12346|14573|17764|09663|...
           // data example (numberPerGroup=2): 12|23|49|64|85|26|...
         };
@@ -70,7 +82,18 @@ namespace we {
           type: InputComponentType.CHECKBOXES,
           title,
           minSelect,
-          validate: (data: string | any[]) => data.length >= minSelect,
+          validate: (data: string | any[]) => {
+            if (data.length > 0) {
+              for (let i = 0; i < data.length; i++) {
+                const strArray = data[i].split('_');
+                if (strArray.length < minSelect) {
+                  return false;
+                }
+              }
+              return true;
+            }
+            return false;
+          },
           // data example: ['1_2', '2_3', '1_3']
           // this data may use directly as the combination array
         };
@@ -344,7 +367,7 @@ namespace we {
           },
           DirectionSum: {
             name: 'DirectionSum',
-            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '123SUMOPTIONAL_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
@@ -379,6 +402,7 @@ namespace we {
             noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
           },
           GroupCombine: {
+            name: 'GroupCombine',
             input: [
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
             ],
@@ -387,7 +411,7 @@ namespace we {
           },
           SumGroup: {
             name: 'SumGroup',
-            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '123SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
           },
@@ -416,7 +440,7 @@ namespace we {
           },
           DirectionSum: {
             name: 'DirectionSum',
-            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '234SUMOPTIONAL_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
@@ -451,6 +475,7 @@ namespace we {
             noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
           },
           GroupCombine: {
+            name: 'GroupCombine',
             input: [
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
             ],
@@ -459,7 +484,7 @@ namespace we {
           },
           SumGroup: {
             name: 'SumGroup',
-            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '234SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
           },
@@ -488,7 +513,7 @@ namespace we {
           },
           DirectionSum: {
             name: 'DirectionSum',
-            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR)],
             pattern: '345SUMOPTIONAL_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
@@ -523,6 +548,7 @@ namespace we {
             noteCountFunc: NoteCountFunc.ThreeStar.Group6Tow,
           },
           GroupCombine: {
+            name: 'GroupCombine',
             input: [
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
             ],
@@ -531,7 +557,7 @@ namespace we {
           },
           SumGroup: {
             name: 'SumGroup',
-            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballRange('DirectionSum', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR)],
             pattern: '345SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
           },
@@ -547,6 +573,7 @@ namespace we {
             noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           DirectMenuLastTwo: {
+            name: 'DirectMenuLastTwo',
             input: [
               InputComponentDefinition.textArea('', 2), // 12|23|54|67|...
             ],
@@ -554,7 +581,8 @@ namespace we {
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           DirectionalSumLastTwo: {
-            input: [InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROWS, 0, 18, 1, InputDataType.SEPARATOR)],
+            name: 'DirectionalSumLastTwo',
+            input: [InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROWS, 0, 18, 1, 19, InputDataType.SEPARATOR)],
             pattern: '45OPTIONALSUM_$1',
             noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
           },
@@ -577,13 +605,13 @@ namespace we {
           },
           DirectionalSumFirstTwo: {
             name: 'DirectionalSumFirstTwo',
-            input: [InputComponentDefinition.ballRange('Sum', InputComponentTheme.ROWS, 0, 18, 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballRange('Sum', InputComponentTheme.ROWS, 0, 18, 1, 19, InputDataType.SEPARATOR)],
             pattern: '12OPTIONALSUM_$1',
             noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
           },
           GroupDirectionalSelectionLastTwo: {
             name: 'GroupDirectionalSelectionLastTwo',
-            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 0, 9, 2, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 0, 9, 2)],
             pattern: '45TWOINPUT_$1',
             noteCountFunc: NoteCountFunc.TwoStar.GroupDirectionalSelection,
           },
@@ -597,13 +625,13 @@ namespace we {
           },
           GroupSumLastTwo: {
             name: 'GroupSumLastTwo',
-            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, 17, InputDataType.SEPARATOR)],
             pattern: '45SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
           },
           GroupDirectionalSelectionFirstTwo: {
             name: 'GroupDirectionalSelectionFirstTwo',
-            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 0, 9, 2, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 0, 9, 2)],
             pattern: '12TWOINPUT_$1',
             noteCountFunc: NoteCountFunc.TwoStar.GroupDirectionalSelection,
           },
@@ -617,7 +645,7 @@ namespace we {
           },
           GroupSumFirstTwo: {
             name: 'GroupSumFirstTwo',
-            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Group', InputComponentTheme.ROWS, 1, 17, 1, 17, InputDataType.SEPARATOR)],
             pattern: '12SUMGROUP_$1',
             noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
           },
@@ -626,17 +654,19 @@ namespace we {
       StaticTow: {
         name: 'StaticTow',
         type: {
-          name: 'StaticTow',
-          input: [
-            InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-            InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-            InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-            InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-            InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
-          ],
-          dataSelect: 1,
-          pattern: '^1POSITION_%1',
-          noteCountFunc: NoteCountFunc.DirectionalSelection,
+          StaticTow: {
+            name: 'StaticTow',
+            input: [
+              InputComponentDefinition.ballRange('TenThousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Thousand', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Hundred', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Ten', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+              InputComponentDefinition.ballRange('Unit', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 0),
+            ],
+            dataSelect: 1,
+            pattern: '^1POSITION_%1',
+            noteCountFunc: NoteCountFunc.DirectionalSelection,
+          },
         },
       }, // ??????
       Any: {
@@ -644,43 +674,43 @@ namespace we {
         type: {
           AnyLastThreeOne: {
             name: 'AnyLastThreeOne',
-            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1)],
             pattern: '345NOTPOS1_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           AnyLastThreeTwo: {
             name: 'AnyLastThreeTwo',
-            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '345NOTPOS2_$1',
             noteCountFunc: NoteCountFunc.Any.TwoPos,
           },
           AnyFirstThreeOne: {
             name: 'AnyFirstThreeOne',
-            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1)],
             pattern: '123NOTPOS1_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           AnyFirstThreeTwo: {
             name: 'AnyFirstThreeTwo',
-            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '123NOTPOS2_$1',
             noteCountFunc: NoteCountFunc.Any.TwoPos,
           },
           AnyFiveOne: {
             name: 'AnyFiveOne',
-            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1)],
             pattern: '12345NOTPOS1_$1',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           AnyFiveTwo: {
             name: 'AnyFiveTwo',
-            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2)],
             pattern: '12345NOTPOS2_$1',
             noteCountFunc: NoteCountFunc.Any.TwoPos,
           },
           AnyFiveThree: {
             name: 'AnyFiveThree',
-            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('Any', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 3)],
             pattern: '12345NOTPOS2_$1',
             noteCountFunc: NoteCountFunc.Any.ThreePos,
           },
@@ -692,8 +722,8 @@ namespace we {
           LastSizeParity: {
             name: 'LastSizeParity',
             input: [
-              InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
-              InputComponentDefinition.ballData('Unit', ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR),
+              InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
+              InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR),
             ],
             pattern: 'LAST2SIZEPARITY_$1_$2',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
@@ -701,39 +731,39 @@ namespace we {
           FrontSizeParity: {
             name: 'LastSizeParity',
             input: [
-              InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
-              InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR),
+              InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR), // BIG|SMALL|EVEN|ODD
+              InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR),
             ],
             pattern: 'FRONT2SIZEPARITY_$1_$2',
             noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           TenThousandSizeParity: {
             name: 'TenThousandSizeParity',
-            input: [InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('TenThousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
             pattern: 'MILSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
           ThousandSizeParity: {
             name: 'ThousandSizeParity',
-            input: [InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('Thousand', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
             pattern: 'THOUSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
           HundredSizeParity: {
             name: 'HundredSizeParity',
-            input: [InputComponentDefinition.ballData('Hundred', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('Hundred', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
             pattern: 'HUNSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
           TenSizeParity: {
             name: 'TenSizeParity',
-            input: [InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('Ten', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
             pattern: 'TENSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
           SingleSizeParity: {
             name: 'SingleSizeParity',
-            input: [InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, InputDataType.SEPARATOR)],
+            input: [InputComponentDefinition.ballData('Unit', InputComponentTheme.ROW, ['BIG', 'SMALL', 'EVEN', 'ODD'], 1, 4, InputDataType.SEPARATOR)],
             pattern: 'SINSIZEPARITY_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
@@ -744,25 +774,25 @@ namespace we {
         type: {
           Interest1: {
             name: 'Interest1',
-            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST1_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
           Interest2: {
             name: 'Interest2',
-            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST2_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
           Interest3: {
             name: 'Interest3',
-            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST3_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
           Interest4: {
             name: 'Interest4',
-            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, 10, InputDataType.STRING)],
             pattern: 'INTEREST4_$1',
             noteCountFunc: NoteCountFunc.NormalCount,
           },
@@ -773,7 +803,7 @@ namespace we {
         type: {
           TenThosandThosand: {
             name: 'TenThousandThousand',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
             dataSelect: '1',
             mapping: (data, combinationData) => {},
             pattern: '12DT_$1',
@@ -781,7 +811,7 @@ namespace we {
           },
           TenThousandHundred: {
             name: 'TenThousandHundred',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
             dataSelect: '1',
             mapping: (data, combinationData) => {},
             pattern: '13DT_$1',
@@ -789,7 +819,7 @@ namespace we {
           },
           TenThousandTen: {
             name: 'TenThousandTen',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
             dataSelect: '1',
             mapping: (data, combinationData) => {},
             pattern: '14DT_$1',
@@ -797,7 +827,7 @@ namespace we {
           },
           TenThousandUnit: {
             name: 'TenThousandUnit',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
             dataSelect: '1',
             mapping: (data, combinationData) => {},
             pattern: '15DT_$1',
@@ -805,7 +835,7 @@ namespace we {
           },
           ThousandHundred: {
             name: 'ThousandHundred',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
             dataSelect: '1',
             mapping: (data, combinationData) => {},
             pattern: '23DT_$1',
@@ -813,7 +843,7 @@ namespace we {
           },
           ThousandTen: {
             name: 'ThousandTen',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
             dataSelect: '1',
             mapping: (data, combinationData) => {},
             pattern: '24DT_$1',
@@ -821,7 +851,7 @@ namespace we {
           },
           ThousandUnit: {
             name: 'ThousandUnit',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
             dataSelect: '1',
             mapping: (data, combinationData) => {},
             pattern: '25DT_$1',
@@ -829,7 +859,7 @@ namespace we {
           },
           HundredTen: {
             name: 'HundredTen',
-            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, InputDataType.STRING)],
+            input: [InputComponentDefinition.ballData('', InputComponentTheme.ROW, ['DRAGON', 'TIGER', 'TIE'], 1, 3, InputDataType.STRING)],
             dataSelect: '1',
             mapping: (data, combinationData) => {},
             pattern: '34DT_$1',
@@ -883,11 +913,11 @@ namespace we {
             name: 'DirectionalSum',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
-              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 18, 1, InputDataType.SEPARATOR),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 18, 1, 19, InputDataType.SEPARATOR),
             ],
             combinationDataId: 1,
             pattern: '^1^2OPTIONALINPUTFREE_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.Any.AnyTwoSum,
           },
           GroupSelection: {
             name: 'GroupSelection',
@@ -913,11 +943,11 @@ namespace we {
             name: 'GroupSum',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 2),
-              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 1, 17, 1, InputDataType.SEPARATOR),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 1, 17, 1, 17, InputDataType.SEPARATOR),
             ],
             combinationDataId: 1,
             pattern: '^1^2SUMGROUPFREE_$1',
-            noteCountFunc: NoteCountFunc.TwoStar.DirectionalSum,
+            noteCountFunc: NoteCountFunc.Any.SeparatorNoteCount,
           },
         },
       },
@@ -951,11 +981,11 @@ namespace we {
             name: 'DirectionalSum',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
-              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 27, 1, InputDataType.SEPARATOR),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 0, 27, 1, 28, InputDataType.SEPARATOR),
             ],
             combinationDataId: 1,
             pattern: '^1^2^3OPTIONALINPUTFREE_$1',
-            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
+            noteCountFunc: NoteCountFunc.Any.AnyThreeSum,
           },
           GroupThree: {
             name: 'GroupThree',
@@ -965,7 +995,7 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3THREE3FREE_$1',
-            noteCountFunc: NoteCountFunc.ThreeStar.Group3,
+            noteCountFunc: NoteCountFunc.Any.AnyThreeGroup3,
           },
           GroupSix: {
             name: 'GroupSix',
@@ -975,14 +1005,11 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3THREE6FREE_$1',
-            noteCountFunc: NoteCountFunc.ThreeStar.Group6,
+            noteCountFunc: NoteCountFunc.Any.AnyThreeGroup6,
           },
           MixGroup: {
             name: 'MixGroup',
-            input: [
-              InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
-              InputComponentDefinition.textArea('', 3)
-             ],
+            input: [InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3), InputComponentDefinition.textArea('', 3)],
             combinationDataId: 1,
             pattern: '^1^2^3THREECOMBINEFREE_$1',
             noteCountFunc: NoteCountFunc.SeparatorNoteCount,
@@ -991,11 +1018,11 @@ namespace we {
             name: 'GroupSum',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 3),
-              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 1, 26, 1, InputDataType.SEPARATOR),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROWS, 1, 26, 1, 26, InputDataType.SEPARATOR),
             ],
             combinationDataId: 1,
             pattern: '^1^2^3SUMGROUPFREE_$1',
-            noteCountFunc: NoteCountFunc.ThreeStar.DirectionalSum,
+            noteCountFunc: NoteCountFunc.Any.AnyThreeSum,
           },
         },
       },
@@ -1013,7 +1040,7 @@ namespace we {
             ],
             dataSelect: 4,
             pattern: '^1^2^3^4OPTIONALFREE_%1_%2_%3_%4',
-            noteCountFunc:NoteCountFunc.DirectionalSelection
+            noteCountFunc: NoteCountFunc.DirectionalSelection,
           },
           DirectionalMenu: {
             name: 'DirectionalMenu',
@@ -1023,49 +1050,49 @@ namespace we {
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4OPTIONALFREEINPUT_$1',
-            noteCountFunc:NoteCountFunc.SeparatorNoteCount
+            noteCountFunc: NoteCountFunc.SeparatorNoteCount,
           },
           Group24: {
             name: 'Group24',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-              InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 4, InputDataType.STRING),
+              InputComponentDefinition.ballRange('', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 4),
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR24FREE_$1',
-            noteCountFunc:NoteCountFunc.FourStar.Group24
+            noteCountFunc: NoteCountFunc.FourStar.Group24,
           },
           Group12: {
             name: 'Group12',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-              InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
-              InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING),
+              InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR12FREE_$1_$2',
-            noteCountFunc:NoteCountFunc.FourStar.Group12
+            noteCountFunc: NoteCountFunc.FourStar.Group12,
           },
           Group6: {
             name: 'Group6',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-              InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2, InputDataType.STRING),
+              InputComponentDefinition.ballRange('Double', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 2),
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR6FREE_$1',
-            noteCountFunc:NoteCountFunc.FourStar.Group6
+            noteCountFunc: NoteCountFunc.FourStar.Group6,
           },
           Group4: {
             name: 'Group4',
             input: [
               InputComponentDefinition.checkboxes(['TenThousand', 'Thousand', 'Hundred', 'Ten', 'Unit'], 4),
-              InputComponentDefinition.ballRange('Triple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
-              InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1, InputDataType.STRING),
+              InputComponentDefinition.ballRange('Triple', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
+              InputComponentDefinition.ballRange('Single', InputComponentTheme.ROW_WITH_OPTION, 0, 9, 1),
             ],
             combinationDataId: 1,
             pattern: '^1^2^3^4FOUR6FREE_$1_$2',
-            noteCountFunc:NoteCountFunc.FourStar.Group4
+            noteCountFunc: NoteCountFunc.FourStar.Group4,
           },
         },
       },

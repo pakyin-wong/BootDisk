@@ -177,9 +177,9 @@ namespace we {
         }
 
         const output = [];
-
+        const checkPattern = true;
         for (let i = 0; i < patterns.length; i++) {
-          if (patterns[i].search(/\$\%\^\&\b(\w*undefined\w*)\b/gi) === -1) {
+          if (patterns[i].search(/[\$\%\^\&]|\b(\w*undefined\w*)\b/gi) === -1) {
             this.betFields.push(patterns[i]);
           }
         }
@@ -187,8 +187,6 @@ namespace we {
         for (let i = 0; i < this.betFields.length; i++) {
           console.log('pattern :' + this.betFields[i]);
         }
-
-        this.dispatchEventWith('LOBETFIELDUPDATE', false, { data: this.betFields });
       }
     }
   }

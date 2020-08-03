@@ -22,7 +22,11 @@ namespace we {
       static findNextCombination(inputData: string[], combinations: string[], sample: number, i: number, depth: number, itemString: string) {
         if (depth === sample) {
           if (InputComponentFactory.validateCombination(itemString, sample)) {
-            combinations.push(itemString);
+            const stringCheck = itemString.split('_');
+            if (stringCheck.length !== sample) {
+            } else {
+              combinations.push(itemString);
+            }
           }
         }
 
