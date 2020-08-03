@@ -39,7 +39,11 @@ namespace we {
         this._resultDisplay.importData(this._cardHolderData);
       }
 
-      protected setStateDeal(isInit: boolean = false) {}
+      protected setStateDeal(isInit: boolean = false) {
+        if (this._previousState === we.core.GameState.BET) {
+          this.checkRoundCountWithoutBet();
+        }
+      }
 
       protected setStatePeek(isInit: boolean = false) {
         // console.log('PEEK ' + new Date(Date.now()).toString());
