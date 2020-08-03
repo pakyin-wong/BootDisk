@@ -29,8 +29,8 @@
 		               skinName="skin_mobile_portrait.OverlayPanelButton" />
 		-->
 
-		<ui:RoundRectButton id="_btn_confirm" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="547" y="1172" stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_hover="1" strokeAlpha_hover="0" fillColor="0x1b416e"/>
-		<ui:RoundRectButton id="_btn_clean" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="70" y="1172" stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_hover="1" strokeAlpha_hover="0" fillColor="0x1b416e"/>
+		<ui:RoundRectButton id="_btn_confirm" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="547" y="1172" stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_click="1" strokeAlpha_click="0" fillColor="0x1b416e"/>
+		<ui:RoundRectButton id="_btn_clean" cornerTL_TR_BL_BR="65,65,65,65" width="433" height="130" x="70" y="1172" stroke="2" strokeIn="0" strokeColor="0x5f6973" fillAlpha="0" fillAlpha_click="1" strokeAlpha_click="0" fillColor="0x1b416e"/>
 		<e:Label id="_txt_current" text="" x="64" y="67" width="418" height="60" textAlign="center" verticalAlign="middle"
 		         fontFamily="Barlow" size="28" visible="false" />
 	</e:Group>
