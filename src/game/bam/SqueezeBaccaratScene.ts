@@ -27,7 +27,9 @@ namespace we {
       }
 
       protected setStateDeal(isInit: boolean = false) {
-        this.checkRoundCountWithoutBet();
+        if (this._previousState === we.core.GameState.BET) {
+          this.checkRoundCountWithoutBet();
+        }
       }
 
       protected setStatePeek(isInit: boolean = false) {
