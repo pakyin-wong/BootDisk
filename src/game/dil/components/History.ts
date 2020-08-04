@@ -43,7 +43,6 @@ namespace we {
       protected mount() {
         super.mount();
         this._roundNumber.text = '10';
-
       }
       public updateStat(data: we.data.GameStatistic) {
         if (!data || !data.dilHistory || !data.dilHistory.round_10) {
