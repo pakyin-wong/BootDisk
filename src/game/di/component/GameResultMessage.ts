@@ -43,10 +43,10 @@ namespace we {
           anim += 'no_bets';
         } else if (winAmount <= 0) {
           anim += 'loss';
-          txtSlot = 'Total_Number_Loss';
+          txtSlot = 'Credit_Loss';
         } else {
           anim += 'win';
-          txtSlot = 'Total_Number_Win';
+          txtSlot = 'Credit_Win';
           isWin = true;
         }
 
@@ -96,6 +96,7 @@ namespace we {
 
         if (txtSlot) {
           const slot = this._display.armature.getSlot(txtSlot);
+          console.log('slot', slot);
           const r = new eui.Label();
           r.fontFamily = 'Barlow';
           r.size = 60;
@@ -103,9 +104,11 @@ namespace we {
           const shadowFilter: egret.DropShadowFilter = new egret.DropShadowFilter(3, 45, 0x111111, 0.1, 10, 10, 20, egret.BitmapFilterQuality.LOW);
           r.filters = [shadowFilter];
           r.bold = true;
+          console.log('r.text', r.text);
           r.textColor = 0xffffff;
           r.anchorOffsetX = r.width / 2;
           r.anchorOffsetY = r.height / 2;
+          r.visible = true;
           slot.display = r;
         }
 
