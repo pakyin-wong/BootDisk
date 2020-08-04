@@ -5,7 +5,7 @@
             <e:Group id="_content" width="1900" height="1051" horizontalCenter="0" verticalCenter="0">
 	            <!--<e:Rect id="_bg" fillColor="0x14181e" width="1900" height="1051" alpha="1"/>-->
                 <e:Image source="d_sq_ba_instruction_bg_png" width="1900" height="1051">
-                    <e:scale9Grid> <e:Rectangle x="10" y="10" width="45" height="35"/> </e:scale9Grid> 
+                    <e:scale9Grid> <e:Rect x="10" y="10" width="45" height="35"/> </e:scale9Grid> 
                 </e:Image>
                 <e:Group id="_top" width="1900" height="169">
                     <ui:RunTimeLabel id="_title" bold="true" text="咪牌教學" x="49" y="55" size="80" textColor="0xc59466" fontFamily="Microsoft JhengHei"/>
@@ -44,7 +44,7 @@
                     <ui:RunTimeLabel id="_buttonText" text="下一頁" horizontalCenter="0" bottom="392" width="448" height="136" size="48" alpha="0.7" fontFamily="Microsoft JhengHei" verticalAlign="middle" textAlign="center" touchEnabled="true"/>
                     <e:Image id="_nextButton" source="m_sq_ba_panel_btn_bg_Inactive_png" horizontalCenter="0" bottom="392" width="448">
                         <e:scale9Grid> 
-                            <e:Rectangle x="62" y="136" width="0" height="0"/> 
+                            <e:Rect x="62" y="136" width="0" height="0"/> 
                         </e:scale9Grid> 
                     </e:Image>
                 </e:Group>
