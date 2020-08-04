@@ -361,6 +361,10 @@ declare module skin_desktop.dil{
 	}
 }
 declare module skin_desktop.dil{
+	class TableInfoPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
 	class TableLayerSkin extends eui.Skin{
 	}
 }

@@ -62,6 +62,7 @@ namespace we {
       protected pSpecificTripleMax: eui.Label;
       protected pSpecificTripleOdd: eui.Label;
 
+      protected _scrollArea: eui.Scroller;
       protected _mask: egret.Shape;
 
       protected childrenCreated(): void {
@@ -70,6 +71,10 @@ namespace we {
         if (env.isMobile && env.orientation === 'landscape') {
           this.addGradentMask();
         }
+
+        this._scrollArea.scrollPolicyV = eui.ScrollPolicy.ON;
+        this._scrollArea.verticalScrollBar.visible = false;
+        this._scrollArea.bounces = true;
       }
 
       private addGradentMask() {
