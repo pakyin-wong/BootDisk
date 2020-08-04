@@ -17,7 +17,7 @@ const packer = new MaxRectsPacker(10000, 10000, spreadPixel * 2, {
 void async function() {
   const baseDir = '../resource_separate/assets'
 
-  let entries = await glob([`${baseDir}/[d|m]/**/*.png`])
+  let entries = await glob([`${baseDir}/[d|m]/**/*.png`,`${baseDir}/[d|m]/**/**/*.png`])
 
   entries = await Promise.all(
     entries.map(async entry => {

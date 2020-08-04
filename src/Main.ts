@@ -57,7 +57,7 @@ class Main extends eui.UILayer {
 
     const { type } = env.UAInfo.device;
 
-    if (type === 'mobile') {
+    if (true || type === 'mobile') {
       // if (true) {
       env.isMobile = true;
       this.updateMobileHitTest();
@@ -114,6 +114,7 @@ class Main extends eui.UILayer {
       dir.lobbyRoadPool = new we.ui.LobbyRoadPool(opt2);
     }
 
+    this.showVersionNumber();
     // step 3: create loading scene
     dir.sceneCtr.goto('loading');
     // egret.sys.resizeContext
@@ -122,6 +123,17 @@ class Main extends eui.UILayer {
       this.updateAllScreens();
       logger.l(we.utils.LogTarget.DEBUG, '*******************************updateAllScreens***********************************');
     };
+  }
+
+  protected showVersionNumber() {
+    if (env.versionNotShownIn.indexOf(dir.config.target) > -1) {
+      return;
+    }
+    const version = new eui.Label();
+    version.text = `version: ${env.version}`;
+    version.textColor = 0xffffff;
+    version.bottom = 0;
+    dir.layerCtr.version.addChild(version);
   }
 
   private updateAllScreens() {

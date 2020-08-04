@@ -15,6 +15,8 @@ namespace we {
             return ro.ROLobbyBeadRoad;
           case 'di':
             return di.DiLobbyBeadRoad;
+          case 'dil':
+            return dil.DilLobbyBeadRoad;
           case 'lw':
             return lw.LwLobbyBeadRoad;
           case 'lo':

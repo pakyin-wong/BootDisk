@@ -481,7 +481,7 @@
       "sourceW": 44,
       "sourceH": 49
     },
-    "d_gfsb_panel_gamelist_betarea_yellow_blue_png": {
+    "d_gfsb_panel_gamelist_betarea_blue_png": {
       "x": 452,
       "y": 553,
       "w": 40,
@@ -491,7 +491,7 @@
       "sourceW": 40,
       "sourceH": 44
     },
-    "d_gfsb_panel_gamelist_betarea_yellow_green_png": {
+    "d_gfsb_panel_gamelist_betarea_green_png": {
       "x": 390,
       "y": 771,
       "w": 40,
@@ -501,7 +501,7 @@
       "sourceW": 40,
       "sourceH": 44
     },
-    "d_gfsb_panel_gamelist_betarea_yellow_indigo_png": {
+    "d_gfsb_panel_gamelist_betarea_indigo_png": {
       "x": 434,
       "y": 771,
       "w": 40,
@@ -511,7 +511,7 @@
       "sourceW": 40,
       "sourceH": 44
     },
-    "d_gfsb_panel_gamelist_betarea_yellow_orange_png": {
+    "d_gfsb_panel_gamelist_betarea_orange_png": {
       "x": 478,
       "y": 771,
       "w": 40,
@@ -521,7 +521,7 @@
       "sourceW": 40,
       "sourceH": 44
     },
-    "d_gfsb_panel_gamelist_betarea_yellow_pink_png": {
+    "d_gfsb_panel_gamelist_betarea_pink_png": {
       "x": 522,
       "y": 771,
       "w": 40,
@@ -531,7 +531,7 @@
       "sourceW": 40,
       "sourceH": 44
     },
-    "d_gfsb_panel_gamelist_betarea_yellow_purple_png": {
+    "d_gfsb_panel_gamelist_betarea_purple_png": {
       "x": 566,
       "y": 771,
       "w": 40,
@@ -541,7 +541,7 @@
       "sourceW": 40,
       "sourceH": 44
     },
-    "d_gfsb_panel_gamelist_betarea_yellow_red_png": {
+    "d_gfsb_panel_gamelist_betarea_red_png": {
       "x": 610,
       "y": 771,
       "w": 40,
@@ -551,7 +551,7 @@
       "sourceW": 40,
       "sourceH": 44
     },
-    "d_gfsb_panel_gamelist_betarea_yellow_yellow_png": {
+    "d_gfsb_panel_gamelist_betarea_yellow_png": {
       "x": 654,
       "y": 771,
       "w": 40,

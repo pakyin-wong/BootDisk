@@ -301,6 +301,14 @@ declare module skin_desktop.di{
 	}
 }
 declare module skin_desktop.dil{
+	class Analysis extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class AnalysisHistorySkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
 	class ChipLayerSkin extends eui.Skin{
 	}
 }
@@ -314,6 +322,42 @@ declare module skin_desktop{
 }
 declare module skin_desktop{
 	class DilRightPanel extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class HistorySkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListAdvancedItemSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListAdvancedItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListAdvancedItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListItemChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class LiveListItemTableLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class PoolSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class SideListChipLayerSkin extends eui.Skin{
+	}
+}
+declare module skin_desktop.dil{
+	class SideListTableLayerSkin extends eui.Skin{
 	}
 }
 declare module skin_desktop.dil{
@@ -1388,6 +1432,10 @@ declare module skin_mobile_portrait.bam{
 	class MobileCardHolderSkin extends eui.Skin{
 	}
 }
+declare module skin_mobile_portrait.bam{
+	class BetItemCardHolderSkin extends eui.Skin{
+	}
+}
 declare module skin_mobile_portrait{
 	class SqueezeBaccaratScene extends eui.Skin{
 	}
@@ -1410,6 +1458,10 @@ declare module skin_mobile_portrait{
 }
 declare module skin_mobile_portrait{
 	class LiveOverlayItemSkin extends eui.Skin{
+	}
+}
+declare module skin_mobile_portrait{
+	class CountdownTextSkin extends eui.Skin{
 	}
 }
 declare module skin_mobile_portrait{

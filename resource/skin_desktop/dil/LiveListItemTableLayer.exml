@@ -1,22 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin_desktop.dil.LiveListItemTableLayerSkin" currentState="Normal" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:ui="we.ui.*" states="Normal">
-	<e:Group id="_small_group" x="0" y="0" width="289" height="88">
-		<ui:BettingGrid id="_small_image" width="289" height="88" 
-		                gradientColors="[0x2e95ff, 0x305acc]" gradientType="RADIAL" gradientPosition="topRight" />
-		<ui:RunTimeLabel id="_small_label" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_row1" x="35" y="20">
+		<e:Group id="_sum_3_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_yellow_png" horizontalCenter="0"
+			         verticalCenter="0" width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="3" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_4_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_orange_png" horizontalCenter="0"
+			         verticalCenter="0" width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="4" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_5_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_red_png" horizontalCenter="0" verticalCenter="0"
+			         width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="5" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_6_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_pink_png" horizontalCenter="0" verticalCenter="0"
+			         width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="6" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_7_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_purple_png" horizontalCenter="0"
+			         verticalCenter="0" width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="7" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_8_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_blue_png" horizontalCenter="0" verticalCenter="0"
+			         width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="8" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_9_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_indigo_png" horizontalCenter="0"
+			         verticalCenter="0" width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="9" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_10_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_green_png" horizontalCenter="0" verticalCenter="0"
+			         width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="10" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="4" horizontalAlign="center" />
+		</e:layout>
 	</e:Group>
-	<e:Group id="_big_group" x="289" y="0" width="288" height="88">
-		<ui:BettingGrid id="_big_image" width="288" height="88" gradientColors="[0xff5b67, 0xad3737]"
-		                gradientType="RADIAL" gradientPosition="topLeft" />
-		<ui:RunTimeLabel id="_big_label" verticalCenter="0" horizontalCenter="0" />
-	</e:Group>
-	<e:Group id="_odd_group" x="0" y="88" width="289" height="88">
-		<ui:BettingGrid id="_odd_image" width="289" height="88" roundCorner="[0,0,0,6]" color="0x163757" />
-		<ui:RunTimeLabel id="_odd_label" verticalCenter="0" horizontalCenter="0" />
-	</e:Group>
-	<e:Group id="_even_group" x="289" y="88" width="288" height="88">
-		<ui:BettingGrid id="_even_image" width="288" height="88" color="0x5a2322" roundCorner="[0,0,6,0]"/>
-		<ui:RunTimeLabel id="_even_label" verticalCenter="0" horizontalCenter="0" />
+	<e:Group id="_row2" x="35" y="98" >
+		<e:Group id="_sum_11_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_green_png" horizontalCenter="0" verticalCenter="0"
+			         width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="11" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_12_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_indigo_png" horizontalCenter="0"
+			         verticalCenter="0" width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="12" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_13_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_blue_png" horizontalCenter="0" verticalCenter="0"
+			         width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="13" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_14_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_purple_png" horizontalCenter="0"
+			         verticalCenter="0" width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="14" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_15_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_pink_png" horizontalCenter="0" verticalCenter="0"
+			         width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="15" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_16_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_red_png" horizontalCenter="0" verticalCenter="0"
+			         width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="16" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_17_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_orange_png" horizontalCenter="0"
+			         verticalCenter="0" width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="17" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="_sum_18_group" width="60" height="68">
+			<e:Image name='image' source="d_gfsb_panel_gamelist_betarea_yellow_png" horizontalCenter="0"
+			         verticalCenter="0" width="60" height="68" fillMode="scale" />
+			<e:Label fontFamily="Barlow" text="18" size="45" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="4" horizontalAlign="center" />
+		</e:layout>
 	</e:Group>
 </e:Skin>

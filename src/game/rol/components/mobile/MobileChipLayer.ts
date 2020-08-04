@@ -44,9 +44,9 @@ namespace we {
         grid.addChild(coinAnim);
         // coinAnim.anchorOffsetX = 3;
         // coinAnim.anchorOffsetY = 2;
-        if(env.orientation === 'landscape'){
-            coinAnim.scaleX = 1.4;
-            coinAnim.scaleY = 1.4;
+        if (env.orientation === 'landscape') {
+          coinAnim.scaleX = 1.4;
+          coinAnim.scaleY = 1.4;
         }
 
         let color: string;
@@ -85,16 +85,25 @@ namespace we {
           let source = '';
           switch (we.ro.RACETRACK_COLOR[num]) {
             case we.ro.Color.GREEN:
-              if (env.orientation === 'portrait') source = 'Disc_Green_650x123_png';
-              else source = 'Disc_Green_140x444_png';
+              if (env.orientation === 'portrait') {
+                source = 'Disc_Green_650x123_png';
+              } else {
+                source = 'Disc_Green_140x444_png';
+              }
               break;
             case we.ro.Color.RED:
-              if (env.orientation === 'portrait') source = 'Disc_Red_218x128_png';
-              else source = 'Disc_Red_148x148_png';
+              if (env.orientation === 'portrait') {
+                source = 'Disc_Red_218x128_png';
+              } else {
+                source = 'Disc_Red_148x148_png';
+              }
             case we.ro.Color.BLACK:
             default:
-              if (env.orientation === 'portrait') source = 'Disc_Black_218x128_png';
-              else source = 'Disc_Black_148x148_png';
+              if (env.orientation === 'portrait') {
+                source = 'Disc_Black_218x128_png';
+              } else {
+                source = 'Disc_Black_148x148_png';
+              }
           }
           const img = new eui.Image();
           img.source = source;
@@ -123,7 +132,7 @@ namespace we {
           grid.removeChildren();
 
           const coinAnim = this.createLuckyCoinAnim();
-          if(env.orientation === 'landscape'){
+          if (env.orientation === 'landscape') {
             coinAnim.scaleX = 1.4;
             coinAnim.scaleY = 1.4;
           }
@@ -131,8 +140,8 @@ namespace we {
           switch (we.ro.RACETRACK_COLOR[+key]) {
             case we.ro.Color.GREEN:
               color = '_green';
-              if(env.orientation === 'landscape'){
-              coinAnim.scaleY = 1.5;
+              if (env.orientation === 'landscape') {
+                coinAnim.scaleY = 1.45;
               }
               break;
             case we.ro.Color.RED:
@@ -158,12 +167,7 @@ namespace we {
           label.text = luckyNumbers[key] + 'x';
 
           grid.addChild(label);
-          egret.Tween.get(label)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000)
-            .to({ alpha: 1 }, 1000)
-            .to({ alpha: 0 }, 1000);
+          egret.Tween.get(label).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000).to({ alpha: 1 }, 1000).to({ alpha: 0 }, 1000);
 
           (async () => {
             let p = we.utils.waitDragonBone(coinAnim);

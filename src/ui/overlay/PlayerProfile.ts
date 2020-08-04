@@ -230,7 +230,7 @@ namespace we {
         if (data.error) {
           return;
         }
-        const { maxwin , winningstreak } = data;
+        const { maxwin, winningstreak } = data;
         env.maxWinCount = winningstreak;
         env.maxWinAmount = maxwin;
       }

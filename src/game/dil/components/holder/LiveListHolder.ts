@@ -62,6 +62,7 @@ namespace we {
 
       protected updateDisplayItemMode() {
         let itemName;
+        let skinPrefix = '';
 
         switch (this._mode) {
           case we.lobby.mode.NORMAL:
@@ -73,6 +74,7 @@ namespace we {
             this.width = 1204;
             this.height = 450;
             itemName = 'LiveListAdvancedItem';
+            skinPrefix = 'dil.';
             break;
           case we.lobby.mode.SIMPLE:
             this.width = 578;
@@ -83,8 +85,8 @@ namespace we {
             logger.e(utils.LogTarget.DEBUG, 'LiveListHolder::initDisplayItem() - no "mode" can be read');
         }
 
-        const listItem = new we.ui[itemName](`${itemName}Skin`);
-        listItem.itemInitHelper = new we.di.LiveListItemInitHelper();
+        const listItem = new we.ui[itemName](`${skinPrefix}${itemName}Skin`);
+        listItem.itemInitHelper = new we.dil.LiveListItemInitHelper();
 
         this._displayItem = listItem;
         this.setDisplayItem(this._displayItem);
