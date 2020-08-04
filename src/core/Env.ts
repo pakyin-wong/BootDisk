@@ -108,6 +108,8 @@ namespace we {
 
       // Check if playing bam first time
       public isFirstTimeBam = false;
+      // check if first time open desktop infoPanel
+      public isFirstTimeInfoPanel = false;
 
       public init() {
         this.mobileValidGameType = [
