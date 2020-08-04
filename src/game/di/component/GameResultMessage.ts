@@ -29,20 +29,31 @@ namespace we {
         let anim = 'ani_result_';
         let txtSlot = null;
         let isWin = false;
+        // if (isNaN(winAmount)) {
+        //   anim += 'no_bets';
+        // } else if (winAmount <= 0) {
+        //   anim += 'loss';
+        //   txtSlot = 'loss_txt';
+        // } else {
+        //   anim += 'win';
+        //   txtSlot = 'L1_txt';
+        //   isWin = true;
+        // }
         if (isNaN(winAmount)) {
           anim += 'no_bets';
         } else if (winAmount <= 0) {
           anim += 'loss';
-          txtSlot = 'loss_txt';
+          txtSlot = 'Total_Number_Loss';
         } else {
           anim += 'win';
-          txtSlot = 'L1_txt';
+          txtSlot = 'Total_Number_Win';
           isWin = true;
         }
 
         const diceResults = [dice1, dice1, dice2, dice3];
         for (let i = 1; i <= 3; i += 1) {
-          const slot = this._display.armature.getSlot(`dice_${i + (isWin ? 6 : 9)}`);
+          // const slot = this._display.armature.getSlot(`dice_${i + (isWin ? 6 : 9)}`);
+          const slot = this._display.armature.getSlot(`Dice0${i}${isWin ? '_Win' : '_Loss'}`);
           const img = new eui.Image();
           // img.source = `d_sic_history_lv3_dice-${diceResults[i]}_png`; // RES.getRes(`d_sic_history_lv3_dice-${diceResults[i]}_png`);
           img.source = `Dice${diceResults[i]}_png`; // RES.getRes(`d_sic_history_lv3_dice-${diceResults[i]}_png`);
@@ -55,10 +66,15 @@ namespace we {
           slot.display = img;
         }
 
+        // const array = [
+        //   [isWin ? '15' : '16', 60, total.toString()],
+        //   [isWin ? 'red_txt2' : 'red_txt3', 40, size === 1 ? '小' : '大'],
+        //   [isWin ? 'blue_txt2' : 'blue_txt3', 40, odd === 1 ? '單' : '雙'],
+        // ];
         const array = [
-          [isWin ? '15' : '16', 60, total.toString()],
-          [isWin ? 'red_txt2' : 'red_txt3', 40, size === 1 ? '小' : '大'],
-          [isWin ? 'blue_txt2' : 'blue_txt3', 40, odd === 1 ? '單' : '雙'],
+          [isWin ? 'Total_Number_Win' : 'Total_Number_Loss', 60, total.toString()],
+          [isWin ? 'RedBtn_Txt_Win' : 'RedBtn_Txt_Loss', 40, size === 1 ? '小' : '大'],
+          [isWin ? 'BlueBtn_Txt_Win' : 'BlueBtn_Txt_Loss', 40, odd === 1 ? '單' : '雙'],
         ];
 
         for (const [slotName, fontSize, text] of array) {

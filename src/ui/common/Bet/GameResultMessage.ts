@@ -8,7 +8,10 @@ namespace we {
     export class GameResultMessage extends core.BaseEUI implements IGameResultMessage {
       protected _display: dragonBones.EgretArmatureDisplay = null;
       protected _dbClass;
-      protected _armatureName = 'armatureName';
+
+      // protected _armatureName = 'armatureName';
+      //////////////////////////////
+      protected _armatureName = 'result';
 
       public constructor() {
         super();
