@@ -12,7 +12,7 @@
                     <e:Image source="d_sq_ba_card_back_png" width="223" height="341" x="410" y="46" />
                     <e:Image width="223" height="57" x="290" y="442" source="m_v_sp_ba_instruction_reveal_all_btn_png">
                         <e:scale9Grid>
-                            <e:Rectangle x="5" y="5" width="223" height="35" />
+                            <e:Rect x="5" y="5" width="223" height="35" />
                         </e:scale9Grid>
                     </e:Image>
                     <ui:RunTimeLabel id="_allOpenOne" width="223" height="57" x="290" y="442" textAlign="center"
@@ -24,7 +24,7 @@
                     <e:Image source="d_sq_ba_card_back_png" width="223" height="341" x="410" y="46" />
                     <e:Image width="223" height="57" x="290" y="442" source="m_v_sp_ba_instruction_reveal_all_btn_png">
                         <e:scale9Grid>
-                            <e:Rectangle x="5" y="5" width="223" height="35" />
+                            <e:Rect x="5" y="5" width="223" height="35" />
                         </e:scale9Grid>
                     </e:Image>
                     <ui:RunTimeLabel id="_allOpenTwo" width="223" height="57" x="290" y="442" textAlign="center"
