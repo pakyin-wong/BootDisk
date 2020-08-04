@@ -5847,6 +5847,36 @@
 			"url": "assets/images/d/common/general/common/d_common_liveverification_emoji_icon12.png",
 			"type": "image",
 			"name": "d_common_liveverification_emoji_icon12_png"
+		},
+		{
+			"url": "assets/images/d/di/gameresult/Dice1.png",
+			"type": "image",
+			"name": "Dice1_png"
+		},
+		{
+			"url": "assets/images/d/di/gameresult/Dice2.png",
+			"type": "image",
+			"name": "Dice2_png"
+		},
+		{
+			"url": "assets/images/d/di/gameresult/Dice3.png",
+			"type": "image",
+			"name": "Dice3_png"
+		},
+		{
+			"url": "assets/images/d/di/gameresult/Dice4.png",
+			"type": "image",
+			"name": "Dice4_png"
+		},
+		{
+			"url": "assets/images/d/di/gameresult/Dice5.png",
+			"type": "image",
+			"name": "Dice5_png"
+		},
+		{
+			"url": "assets/images/d/di/gameresult/Dice6.png",
+			"type": "image",
+			"name": "Dice6_png"
 		}
 	]
 }

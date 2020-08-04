@@ -4,7 +4,6 @@ namespace we {
       public constructor() {
         super();
       }
-      //////////////// still using this?????????????
       public showResult(gameType: core.GameType, resultData: any) {
         this._dbClass = 'sicbo';
         super.showResult(gameType, resultData);
@@ -12,6 +11,7 @@ namespace we {
 
       protected startAnim(gameType: core.GameType, resultData: any) {
         const { gameData, winAmount } = resultData;
+        console.log('this._display.armature', this._display.armature);
 
         this._display.armature.eventDispatcher.addDBEventListener(
           dragonBones.EventObject.COMPLETE,
@@ -44,7 +44,9 @@ namespace we {
         for (let i = 1; i <= 3; i += 1) {
           const slot = this._display.armature.getSlot(`dice_${i + (isWin ? 6 : 9)}`);
           const img = new eui.Image();
-          img.source = `d_sic_history_lv3_dice-${diceResults[i]}_png`; // RES.getRes(`d_sic_history_lv3_dice-${diceResults[i]}_png`);
+          // img.source = `d_sic_history_lv3_dice-${diceResults[i]}_png`; // RES.getRes(`d_sic_history_lv3_dice-${diceResults[i]}_png`);
+          img.source = `Dice${diceResults[i]}_png`; // RES.getRes(`d_sic_history_lv3_dice-${diceResults[i]}_png`);
+
           // cannot use image.width
           img.anchorOffsetX = 27;
           img.anchorOffsetY = 27;
