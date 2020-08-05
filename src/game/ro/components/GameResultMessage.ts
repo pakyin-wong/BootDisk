@@ -35,10 +35,15 @@ namespace we {
         anim += `${colorMap[we.ro.RACETRACK_COLOR[numLeft]]}${colorMap[we.ro.RACETRACK_COLOR[numCenter]]}${colorMap[we.ro.RACETRACK_COLOR[numRight]]}`;
         logger.l(utils.LogTarget.DEBUG, anim, numLeft, numCenter, numRight);
 
+        // const array = [
+        //   ['L_txt', 60, numLeft, 90],
+        //   ['middle_txt', 90, numCenter, 90],
+        //   ['L_txt3', 60, numRight, 90],
+        // ];
         const array = [
-          ['L_txt', 60, numLeft, 90],
-          ['middle_txt', 90, numCenter, 90],
-          ['L_txt3', 60, numRight, 90],
+          ['L_Number', 60, numLeft, 0],
+          ['Middle_Number', 90, numCenter, 0],
+          ['R_Number', 60, numRight, 0],
         ];
 
         for (const [slotName, fontSize, text, rotate] of array) {
@@ -55,7 +60,8 @@ namespace we {
           slot.display = layer;
         }
 
-        const slot = this._display.armature.getSlot('-800');
+        // const slot = this._display.armature.getSlot('-800');
+        const slot = this._display.armature.getSlot('Credit');
         const r = new eui.Label();
         r.fontFamily = 'Barlow';
         r.size = 60;
