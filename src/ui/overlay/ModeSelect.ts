@@ -42,9 +42,9 @@ namespace we {
         this.txt_selectMode.renderText = () => `${i18n.t('nav.menu.selectMode')}`;
         this.txt_lightMode.renderText = () => `${i18n.t('nav.menu.whiteMode')}`;
         this.txt_darkMode.renderText = () => `${i18n.t('nav.menu.darkMode')}`;
-        (<ui.BaseImageButton>this.close).label.renderText = () => `${i18n.t('nav.menu.confirm')}`;
-        (<ui.BaseImageButton>this.close).label.size = env.isMobile ? 60 : 24;
-        (<ui.BaseImageButton>this.close).label.fontFamily = 'Arial';
+        (<ui.BaseImageButton> this.close).label.renderText = () => `${i18n.t('nav.menu.confirm')}`;
+        (<ui.BaseImageButton> this.close).label.size = env.isMobile ? 60 : 24;
+        (<ui.BaseImageButton> this.close).label.fontFamily = 'Arial';
       }
 
       private addListeners() {
