@@ -93,25 +93,25 @@
 				<e:Label id="pEightThirdteenOdd" text="-" y="330" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
 				         size="20" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" right="30" />
 				<e:Label id="pNineTenElevenTwelveMax" text="-" y="364" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pNineTenElevenTwelveOdd" text="-" y="364" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" x="364" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pCombineMax" text="-" y="398" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pCombineOdd" text="-" y="398" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1" size="20"
-				         x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         x="364" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pSpecificSingleMax" text="-" y="432" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pSpecificSingleOdd" text="-" y="432" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" x="364" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pSpecificDoubleMax" text="-" y="466" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pSpecificDoubleOdd" text="-" y="466" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" x="364" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pSpecificTripleMax" text="-" y="498" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="180" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" x="280" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Label id="pSpecificTripleOdd" text="-" y="498" textAlign="right" textColor="0xa8a8a8" scaleX="1" scaleY="1"
-				         size="20" x="250" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
+				         size="20" x="364" width="40" height="20" anchorOffsetX="0" anchorOffsetY="0" />
 				<e:Rect width="100%" height="20" fillAlpha="0"  y="524"/>
 			</e:Group>
 		</e:Scroller>
