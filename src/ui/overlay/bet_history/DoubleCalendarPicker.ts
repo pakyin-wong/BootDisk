@@ -9,8 +9,8 @@ namespace we {
       private _btn_next: ui.BaseAnimationButton;
       private _txt_next: eui.Label;
 
-      private _btn_confirm: ui.BaseButton;
-      private _btn_clean: ui.IButton;
+      private _btn_confirm: ui.RoundRectButton;
+      private _btn_clean: ui.IButton | ui.RoundRectButton;
 
       private _txt_current: eui.Label;
 
@@ -36,6 +36,8 @@ namespace we {
 
         this._btn_confirm.label.text = `${i18n.t('datePicker_confirm')}`;
         this._btn_clean.label.text = `${i18n.t('datePicker_clean')}`;
+        this._btn_confirm.label.size = env.isMobile ? 60 : 24;
+        this._btn_clean.label.size = env.isMobile ? 60 : 24;
 
         this.update();
         this.addListeners();

@@ -66,7 +66,9 @@ namespace we {
         };
         const width = utils.measureTextWidth(this.review.text, vals, this.review.style);
         this.review.width = width + 20;
-        this._imgCheck.visible = false;
+        if (this._imgCheck) {
+          this._imgCheck.visible = false;
+        }
 
         this.update();
       }
@@ -89,12 +91,16 @@ namespace we {
       protected getCurrentState(): string {
         let state;
         if (this.selected && this._isHover) {
-          this._imgCheck.visible = true;
+          if (this._imgCheck) {
+            this._imgCheck.visible = true;
+          }
           state = DropdownItemRendererState.SELECTED_HOVER;
         } else if (this._isHover) {
           state = DropdownItemRendererState.HOVER;
         } else if (this.selected) {
-          this._imgCheck.visible = true;
+          if (this._imgCheck) {
+            this._imgCheck.visible = true;
+          }
           state = DropdownItemRendererState.SELECTED;
         } else {
           state = DropdownItemRendererState.NORMAL;

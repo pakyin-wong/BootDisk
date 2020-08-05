@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="skin_mobile.GamePanelSkin" width="1242" height="2001" currentState="portrait" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="skin_mobile.GamePanelSkin" width="1242" height="2155" currentState="portrait" xmlns:e="http://ns.egret.com/eui"
         xmlns:ui="we.ui.*" xmlns:w="http://ns.egret.com/wing" states="portrait,landscape"  width.landscape="2424" height.landscape="992">
-    <e:Group id="content" left="0" right="0" top="0" bottom="0" touchChildren="true" touchEnabled="false">
+    <e:Group id="content" left="0" right="0" touchChildren="true" touchEnabled="false" height="2001" y="154">
+			<e:Rect height="170" x="0" y="-157" width="100%" fillAlpha="0.4"/>
         <e:Rect left="0" right="0" top="0" bottom="0" ellipseHeight="80" ellipseWidth="80" strokeWeight="3"
                 strokeColor="0x282828"  fillColor="0x14181e"/>
 		<e:Group id="_tabButtonGroup" height="100" x="60" y="60" anchorOffsetX="0" anchorOffsetY="0">
