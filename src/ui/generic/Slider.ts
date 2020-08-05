@@ -19,7 +19,7 @@ namespace we {
       protected mount() {
         this._mask = new egret.Shape();
         this._mask.graphics.beginFill(0x000000, 1);
-        this._mask.graphics.drawRect(0, 0, this._bar.width, this._bar.height);
+        this._mask.graphics.drawRect(0, 0, this.width, this.height);
         this._mask.graphics.endFill();
         this.addChild(this._mask);
         this._mask.$x = this._bar.$x;
