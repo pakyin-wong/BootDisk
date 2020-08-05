@@ -2,7 +2,7 @@ namespace we {
   export namespace lw {
     export class GameResultMessage extends ui.GameResultMessage implements ui.IGameResultMessage {
       protected _dbClass = 'lucky_wheel';
-      protected _armatureName = 'Luckywheel_Game_Result';
+      // protected _armatureName = 'Luckywheel_Game_Result';
 
       //   private eastSource: string;
       //   private southSource: string;
@@ -148,7 +148,8 @@ namespace we {
           anim += '_NoBet';
         }
 
-        const slot = this._display.armature.getSlot('800_Number');
+        // const slot = this._display.armature.getSlot('800_Number');
+        const slot = this._display.armature.getSlot('Credit');
         const r = new eui.Label();
         r.fontFamily = 'Barlow';
         r.size = 60;
