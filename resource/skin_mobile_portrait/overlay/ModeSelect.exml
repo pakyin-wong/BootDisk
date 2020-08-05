@@ -34,7 +34,7 @@
 		<!--<ui:BaseImageButton id="close" y="694" skinName="ImageButtonSkinDialog" horizontalCenter="0" width="764"
 		                        height="130" />
 		-->
-		<ui:RoundRectButton id="close" cornerTL_TR_BL_BR="50,50,50,50" width="764" height="130" y="694" stroke="2"
+		<ui:RoundRectButton id="close" cornerTL_TR_BL_BR="65,65,65,65" width="764" height="130" y="694" stroke="2"
 		                    strokeIn="0" strokeColor="0x5f6973" horizontalCenter="0" fillAlpha="0" fillAlpha_hover="1" strokeAlpha_hover="0"
 		                    fillColor="0x1b416e" />
 	</e:Group>
