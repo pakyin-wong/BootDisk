@@ -57,7 +57,6 @@ namespace we {
         const winType = resultData.gameData.wintype;
         const winAmount = resultData.winAmount;
         const background = this.getBackground(gameType, winType);
-        console.log(' this._display.armature', this._display.armature);
 
         logger.l(we.utils.LogTarget.DEBUG, background, gameType, winType, winAmount);
 
